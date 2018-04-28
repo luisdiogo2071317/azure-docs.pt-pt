@@ -1,29 +1,29 @@
 ---
-title: "Técnica de aplicações SaaS do Azure Marketplace publicação guia"
-description: "Guia passo a passo e listas de verificação de publicação para a publicação de aplicações de SaaS no Azure Marketplace"
+title: Técnica de aplicações SaaS do Azure Marketplace publicação guia
+description: Guia passo a passo e listas de verificação de publicação para a publicação de aplicações de SaaS no Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: 
+documentationcenter: ''
 author: BrentL-Collabera
-manager: 
+manager: ''
 editor: BrentL-Collabera
-ms.assetid: 
+ms.assetid: ''
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guia publicação technical aplicações SaaS
 
 Bem-vindo ao técnica de aplicações de SaaS do Azure Marketplace publicação guia. Este guia foi concebido para ajudar candidato e publicadores existentes para listar as respetivas aplicações e serviços no Azure Marketplace utilizando as aplicações de SaaS oferta.  
-Pretende utilizar aplicações SaaS oferta quando a sua solução será implementada na sua própria subscrição do Azure e os clientes irão iniciar sessão através de uma interface que conceber e gerir para testar a aplicação. Fazê-lo utilizando [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) tirar partido do seu ambiente de avaliação. Por outras palavras, é uma versão de avaliação gratuita guiado de cliente, é alojado de parceiro. É fundamental para expor a sua solução de forma a que dá a oportunidade de experimentar a sua solução de forma independente para uma taxa ou não encargos-buyers de nuvem e para que este tipo de oferta fornece uma experiência de avaliação gratuita que corresponde à forma como os clientes procurar soluções de nuvem.  
+Pretende utilizar aplicações SaaS oferta quando a sua solução será implementada na sua própria subscrição do Azure e os clientes irão iniciar sessão através de uma interface que conceber e gerir para testar a aplicação. Fazê-lo utilizando [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) tirar partido do seu ambiente de avaliação. Por outras palavras, é uma versão de avaliação gratuita guiado de cliente, é alojado de parceiro. É fundamental para expor a sua solução de forma a que dá a oportunidade de experimentar a sua solução de forma independente para uma taxa ou não encargos-buyers de nuvem e para que este tipo de oferta fornece uma experiência de avaliação gratuita que corresponde à forma como os clientes procurar soluções de nuvem.  
 
 Para obter uma descrição geral de todas as outras ofertas de Marketplace, consulte o [Marketplace publicador guia](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ Para obter uma descrição geral de todas as outras ofertas de Marketplace, cons
 Os requisitos técnicos para aplicações SaaS são simples. Os publicadores só são necessárias para ser integrado com o Azure AD a ser publicado.  A integração do Azure AD com aplicações está bem documento e a Microsoft fornece várias SDKs e recursos para realizar esta tarefa.  
 
 Para começar, é recomendável que tiver uma subscrição dedicada para a publicação do Azure Marketplace, permitindo-lhe isolar o trabalho de outros iniciativas. Além disso, se não estiver já instalado, recomendamos que tem as ferramentas seguintes como parte do seu ambiente de desenvolvimento: 
-- [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [O Azure powerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [O Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Ferramentas de programador do Azure (rever o que está disponível)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ As listas seguintes fornecem ligações para os recursos do Azure AD melhor para
 
 **Documentação**
 
-- [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Integração com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Integração com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Plano do Azure - segurança e identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
 

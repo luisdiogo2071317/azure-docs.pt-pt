@@ -1,8 +1,8 @@
 ---
-title: "Toolkit do Azure para o IntelliJ: depurar aplicações remotamente no HDInsight Spark | Microsoft Docs"
-description: "Saiba como utilizar as ferramentas do HDInsight na Azure Toolkit para o IntelliJ remotamente depurar aplicações do Spark que são executadas em clusters do HDInsight através de VPN."
+title: 'Toolkit do Azure para o IntelliJ: depurar aplicações remotamente no HDInsight Spark | Microsoft Docs'
+description: Saiba como utilizar as ferramentas do HDInsight na Azure Toolkit para o IntelliJ remotamente depurar aplicações do Spark que são executadas em clusters do HDInsight através de VPN.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 315a879368e522cc17eeff7be766f0c8a38d470b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6ca69ccab6c9b526c86f6f7a8998089e52c6c939
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilize o Toolkit do Azure para o IntelliJ para depurar aplicações do Spark remotamente no HDInsight através de VPN
 
@@ -38,7 +36,7 @@ Este artigo fornece orientações passo a passo sobre como utilizar as ferrament
 * **Uma subscrição do Azure**. Para obter mais informações, consulte [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um cluster do Apache Spark no HDInsight**. Para obter instruções, consulte [clusters do Apache Spark criar no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Kit de desenvolvimento Java Oracle**. Pode instalá-lo do [site Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* **IntelliJ IDEA**. Este artigo utiliza a versão 2017.1. Pode instalá-lo do [JetBrains site](https://www.jetbrains.com/idea/download/).
+* **O IntelliJ IDEA**. Este artigo utiliza a versão 2017.1. Pode instalá-lo do [JetBrains site](https://www.jetbrains.com/idea/download/).
 * **As ferramentas do HDInsight no Toolkit do Azure para o IntelliJ**. As ferramentas do HDInsight para o IntelliJ estão disponíveis como parte do Toolkit do Azure para o IntelliJ. Para obter instruções sobre como instalar o Toolkit do Azure, consulte [instalar o Toolkit do Azure para o IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Iniciar sessão na sua subscrição do Azure de IntelliJ IDEA**. Siga as instruções em [Toolkit do Azure de utilização para o IntelliJ criar Spark aplicações para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md).
 * **Solução de exceção**. Ao executar a aplicação do Spark Scala para depuração remota num computador Windows, poderá obter uma exceção. Esta exceção é explicada no [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um ficheiro WinUtils.exe em falta no Windows. Para contornar este erro, terá [transferir o ficheiro executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) numa localização como **C:\WinUtils\bin**. Adicionar um **HADOOP_HOME** variável de ambiente e, em seguida, defina o valor da variável para **C\WinUtils**.

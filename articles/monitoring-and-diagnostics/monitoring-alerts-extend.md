@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Expandir alertas (cópia) a partir do portal do OMS no Azure
 O portal do Operations Management Suite (OMS) mostra apenas os alertas de análise de registos.  A nova experiência de alertas tem agora a alerta experiência integrada em vários serviços e partes no Microsoft Azure. A nova experiência disponível como **alertas** no Monitor do Azure do Azure portal contém alertas de registo de atividade, métricas alertas e alertas de registo para análise de registos e o Application Insights. 
@@ -43,7 +43,7 @@ Quando alertas na área de trabalho do Log Analytics obterem agendadas para alar
  ![Durante o período agendado, a ação do utilizador em alertas redirecionado para o Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Não é cobrada a expandir alertas a partir do portal do OMS no Azure e utilização do Azure alerta para consulta com base em alertas de análise de registos serão não cobradas, quando utilizada dentro de limites e condições indicadas na [Monitor Azure preços da política](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Não é cobrada a expandir alertas a partir do portal do OMS no Azure e utilização do Azure alerta para consulta com base em alertas de análise de registos serão não cobradas, quando utilizada dentro de limites e condições indicadas na [Monitor Azure preços da política](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Os utilizadores possam desfrutar as vantagens de expandir alertas antes desta data; ao aceitar voluntariamente para tornar os alertas geríveis no Azure.
 

@@ -8,7 +8,7 @@ Os passos seguintes mostram como configurar a autenticação de palavra-passe pa
 1. Inicie sessão sua subscrição do Azure utilizando o seguinte comando:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Se tiver várias subscrições do Azure, o início de sessão Azure concede acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis para que possa utilizar:
@@ -17,7 +17,7 @@ Os passos seguintes mostram como configurar a autenticação de palavra-passe pa
     Get-AzureRMSubscription
     ```
 
-    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu IoT hub. Pode utilizar o nome da subscrição ou o ID da saída do comando anterior:
+    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu IoT hub. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
 
     ```powershell
     Select-AzureRMSubscription `

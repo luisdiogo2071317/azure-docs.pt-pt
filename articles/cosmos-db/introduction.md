@@ -2,9 +2,8 @@
 title: Introdução ao Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribuição global com vários modelos foi concebida para baixa latência, escalabilidade elástica e elevada disponibilidade.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 04/08/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -36,7 +35,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
 * **Distribuição global chave na mão**
     * Pode [distribuir os seus dados](distribute-data-globally.md) para qualquer número de [regiões do Azure](https://azure.microsoft.com/regions/) com um mero [clique num botão](tutorial-global-distribution-sql-api.md). Desta forma, pode colocar os dados onde os seus utilizadores estão, garantindo a menor latência possível aos seus clientes. 
     * Com as APIs multi-homing do Azure Cosmos DB, a aplicação sabe sempre qual é a região mais próxima e envia pedidos para o datacenter mais perto. Tudo isto pode ser feito sem alterações de configuração. Defina a sua região de escrita e tantas regiões de leitura quantas pretender e o resto é feito automaticamente.
-    * À medida que adiciona e remove regiões na base de dados do Cosmos DB, a aplicação não precisa de ser novamente implementada e continua a ter elevada disponibilidade graças à capacidade de API multi homing.
+    * À medida que adiciona e remove regiões na base de dados do Azure Cosmos DB, a aplicação não precisa de ser novamente implementada e continua a ter elevada disponibilidade graças à capacidade de API multi homing.
 
 * **Vários modelos de dados e APIs populares para aceder e consultar os dados**
     * O modelo de dados baseado em sequência de registo atom (ARS) com base no qual o Azure Cosmos DB é criado suporta nativamente vários modelos de dados, incluindo, entre outros, modelos de documentos, gráficos, chaves-valores, tabela e dados de família de colunas.
@@ -44,9 +43,9 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
         * [API SQL](sql-api-introduction.md): um motor de base de dados JSON sem esquemas com capacidades de consultas SQL avançadas.
         * [API MongoDB](mongodb-introduction.md): um *MongoDB como um Serviço* desenvolvido com base na plataforma do Azure Cosmos DB. É compatível com bibliotecas, controladores, ferramentas e aplicações existentes do MongoDB.
         * [API Cassandra](cassandra-introduction.md): um Cassandra como um Serviço de distribuição global desenvolvido com base na plataforma do Azure Cosmos DB. É compatível com as bibliotecas, controladores, ferramentas e aplicações existentes do [Apache Cassandra](https://cassandra.apache.org/).
-        * [Graph API (Gremlin)](graph-introduction.md): um serviço de base de dados de gráficos horizontalmente dimensionável e totalmente gerido, que facilita a compilação e execução de aplicações que funcionam com conjuntos de dados altamente ligados que suportam Graph APIs Abertas (com base na [especificação do Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [ (Graph) API](graph-introduction.md): um serviço de base de dados de gráficos horizontalmente dimensionável e totalmente gerido, que facilita a compilação e execução de aplicações que funcionam com conjuntos de dados altamente ligados que suportam Graph APIs Abertas (com base na [especificação do Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
         * [API de Tabela](table-introduction.md): um serviço de base de dados de chave/valor criado para oferecer capacidades premium (por exemplo, indexação automática, baixa latência garantida, distribuição global) para aplicações de armazenamento de Tabelas do Azure existentes, sem fazer quaisquer alterações à aplicação.
-        * Modelos de dados adicionais disponíveis em breve!
+        * Modelos de dados adicionais e APIs disponíveis em breve!
 
 * **Dimensionar de forma elástica e independente o débito e o armazenamento a pedido e em todo o mundo**
     * Dimensione facilmente o débito das bases de dados a uma granularidade de [por segundo](request-units.md) e altere-o sempre que quiser. 
@@ -65,7 +64,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
     * Cinco [modelos de consistência](consistency-levels.md) bem definidos, práticos e intuitivos oferecem um espetro que vai desde consistência forte semelhante ao SQL até consistência descontraída eventual semelhante ao NoSQL e todas as outras consistências entre estas duas. 
   
 * **Garantia de devolução do dinheiro**
-    * [Contratos de nível de serviço](https://aka.ms/acdbsla) líderes na indústria, abrangentes e com suporte financeiro para disponibilidade, latência, débito e consistência dos seus dados críticos. 
+    * [Contratos de nível de serviço](https://aka.ms/acdbsla) (SLAs) líderes na indústria, abrangentes e com suporte financeiro para disponibilidade, latência, débito e consistência dos seus dados críticos. 
 
 * **Sem gestão de esquema/índices de bases de dados**
     * Itere rapidamente o esquema da sua aplicação sem ter de se preocupar com o gestão do índice e/ou do esquema da base de dados.
@@ -77,7 +76,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
 
 ## <a name="capability-comparison"></a>Comparação das capacidades
 
-O Azure Cosmos DB fornece as melhores capacidades das bases de dados relacionais e não relacionais.
+O Azure Cosmos DB fornece as melhores capacidades das bases de dados relacionais e não relacionais tradicionais.
 
 | Capacidades | Bases de dados relacionais   | Bases de dados não relacionais (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |

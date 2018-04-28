@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicação com redirecionamento interno - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação que redireciona o tráfego web interno para o conjunto de back-end adequada dos servidores com o Azure Powershell."
+title: Criar um gateway de aplicação com redirecionamento interno - Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicação que redireciona o tráfego web interno para o conjunto de back-end adequada dos servidores com o Azure Powershell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: davidmu
-ms.openlocfilehash: c319d4f9aa3f607bccdc7237ce1f678b338180d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c0da7920692673ce414d76932fe23280d3b217dd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicação com redirecionamento interno com o Azure PowerShell
 
 Pode utilizar o Azure Powershell para configurar [redirecionamento de tráfego da web](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, é possível definir um conjunto de back-end com um conjunto de dimensionamento de máquinas virtuais. Em seguida, configure os serviços de escuta e as regras com base em domínios que possui para se certificar de que o tráfego web chega o conjunto adequado. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos *www.contoso.com* e *www.contoso.org*.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure a rede
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -295,11 +295,11 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Introduza o nome de domínio na barra de endereço do seu browser. Por exemplo, http://www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Tal como http://www.contoso.com.
 
 ![Testar o site da contoso no gateway de aplicação](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-Altere o endereço para o outro domínio, por exemplo http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www.contoso.com.
+Altere o endereço para o domínio, por exemplo http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www.contoso.com.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

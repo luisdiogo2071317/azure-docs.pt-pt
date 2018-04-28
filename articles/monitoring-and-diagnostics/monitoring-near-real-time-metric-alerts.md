@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6d440a49cb30210d3c0eed7d24e4811cc56925b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Alertas de métricas mais recentes para serviços do Azure no portal do Azure
 Monitor do Azure suporta agora um novo tipo de alerta métrico. Os alertas mais recentes é diferente do [clássicas alertas métricas](insights-alerts-portal.md) de algumas formas:
@@ -35,7 +35,7 @@ Para saber como criar um alerta de métrico mais recente no portal do Azure, con
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST suporte
-Atualmente, pode criar alertas métricas mais recentes apenas no portal do Azure ou REST API. Suporte para configurar alertas mais recentes com o PowerShell e a interface de linha de comandos do Azure (Azure CLI 2.0) está disponível em breve.
+Atualmente, pode criar alertas métricas mais recentes apenas no portal do Azure, [REST API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template) ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes com o PowerShell e a interface de linha de comandos do Azure (Azure CLI 2.0) está disponível em breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e dimensões suportadas
 Alertas de métricas mais recentes suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Podem ser explorou e visualizadas a partir de todas as métricas suportadas juntamente com dimensões aplicáveis [Azure Monitor - Explorador de métricas (pré-visualização)](monitoring-metric-charts.md).
@@ -50,13 +50,19 @@ Eis a lista completa das origens de métrica de monitor do Azure suportada pelos
 |Microsoft.Cache/Redis     |    N/A     |[Cache de Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Máquinas Virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Conjuntos de dimensionamento de máquina virtual](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.ContainerInstance/containerGroups | Sim| [Grupos de contentor](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.DataFactory/datafactories| Sim| [V1 de fábricas de dados](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   Sim     |[V2 de fábricas de dados](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[Base de dados MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [Base de dados PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Sim      |[Hubs de Eventos](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.KeyVault/vaults| Não | [cofres](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Aplicações Lógicas](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Gateways de aplicação](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/dnsZones | N/A| [Zonas DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
+|Microsoft.Network/loadBalancers (apenas para SKUs padrão)| Sim| [Balanceadores de carga](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Endereços de IP público](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [Capacidades](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[Serviços de pesquisa](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Sim       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Sim     | [Contas de armazenamento](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
@@ -112,7 +118,7 @@ Nome da métricos/detalhes  |Dimensões suportadas  | Tipo de registo  |
 |    MBytes de comutação Average_Available  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
 |    Average_Page leituras/seg |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
 |    Average_Page escritas/seg    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
-|    Average_Pages/sec  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
+|    Average_Pages/seg  |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
 |    Espaço de comutação em MBytes Average_Used |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
 |    MBytes de memória Average_Used |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |
 |    Bytes de Average_Total transmitidos    |     Sim - computador, ObjectName, InstanceName, CounterPath & SourceSystem    |   Contador de desempenho do Linux      |

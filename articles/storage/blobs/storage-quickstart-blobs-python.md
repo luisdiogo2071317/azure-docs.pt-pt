@@ -1,19 +1,19 @@
 ---
-title: Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através de Python | Microsoft Docs
-description: Neste início rápido, crie uma conta de armazenamento e um contentor. Em seguida, utilize a biblioteca de clientes de armazenamento para Python, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
+title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com Python | Microsoft Docs
+description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para Python, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: a3b081e34886d4075ae3c88e412d732578d1ce26
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88f148e7ea175e928ee9f35b8728994a738e10da
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Início Rápido: carregar, transferir e listar blobs através de Python
 

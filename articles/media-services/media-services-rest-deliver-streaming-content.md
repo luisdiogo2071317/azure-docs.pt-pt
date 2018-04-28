@@ -1,11 +1,11 @@
 ---
-title: "Publicar conteúdo de Media Services do Azure através de REST"
-description: "Saiba como criar um localizador que é utilizado para compilar um URL de transmissão em fluxo. O código utiliza a REST API."
+title: Publicar conteúdo de Media Services do Azure através de REST
+description: Saiba como criar um localizador que é utilizado para compilar um URL de transmissão em fluxo. O código utiliza a REST API.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: ff332c30-30c6-4ed1-99d0-5fffd25d4f23
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8937be0e3f18d58d4cdd909de0ca2c455cc46c1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo de Media Services do Azure através de REST
 > [!div class="op_single_selector"]
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-## <a name="overview"></a>Descrição geral
 Pode transmitir uma velocidade de transmissão adaptável definido MP4 criando um localizador de transmissão em fluxo OnDemand e criação de um URL de transmissão em fluxo. O [um elemento de codificação](media-services-rest-encode-asset.md) artigo mostra como codificar para uma conjunto de MP4 de velocidade de transmissão adaptável. Se o conteúdo é encriptado, configure a política de entrega de elementos (conforme descrito em [isto](media-services-rest-configure-asset-delivery-policy.md) artigo) antes de criar um localizador. 
 
 Também pode utilizar um OnDemand localizador de transmissão em fluxo para criar URLs que apontem para ficheiros MP4 que transferir progressivamente.  
@@ -72,7 +71,7 @@ Pedido:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
@@ -110,7 +109,7 @@ Pedido:
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
@@ -193,7 +192,7 @@ exemplo:
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Descrição geral da REST API de operações de Media Services](media-services-rest-how-to-use.md)
 
 [Configurar a política de entrega de elemento](media-services-rest-configure-asset-delivery-policy.md)

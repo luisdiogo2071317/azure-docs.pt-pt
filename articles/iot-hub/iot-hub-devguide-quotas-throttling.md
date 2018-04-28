@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - quotas do IoT Hub e a limitação
 
@@ -44,9 +44,9 @@ A tabela seguinte mostra as limitações impostas. Consulte os valores para um h
 | Nuvem para o dispositivo envia<sup>1</sup> | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
 | Nuvem para o dispositivo recebe<sup>1</sup> <br/> (apenas ao dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/mínimo/unidade) | 16.67/SEC/Unit (1000/mínimo/unidade) | 833.33/SEC/Unit (50000/mínimo/unidade) |
 | Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (min/100/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (min/100/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/mínimo/unidade) |
-| Direcionar métodos<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| Dispositivo duplo lê<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
-| Atualizações ao dispositivo duplo<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
+| Direcionar métodos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/seg/unidade<sup>2</sup> | 
+| Duplo (dispositivo e módulo) leituras<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
+| Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
 | As tarefas operações<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
 | Débito de operação de por dispositivo tarefas<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
 
@@ -70,7 +70,7 @@ IoT Hub impõe outros limites operacionais:
 | Operação | Limite |
 | --------- | ----- |
 | Os URIs de carregamento de ficheiros | 10000 SAS URIs podem ser enviados para uma conta do storage em simultâneo. <br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
-| Jobs<sup>1</sup> | Histórico da tarefa é retido cópias de segurança para 30 dias <br/> Tarefas simultâneas máximas é 1 (para gratuito) e S1, 5 (para S2), 10 (para S3). |
+| As tarefas<sup>1</sup> | Histórico da tarefa é retido cópias de segurança para 30 dias <br/> Tarefas simultâneas máximas é 1 (para gratuito) e S1, 5 (para S2), 10 (para S3). |
 | Pontos finais adicionais | Paga SKU hubs podem ter pontos finais adicionais 10. Hubs SKU livres podem ter um ponto final adicional. |
 | As regras de encaminhamento de mensagens | Paga SKU hubs podem ter 100 regras de encaminhamento. Hubs SKU livres podem ter regras de encaminhamento cinco. |
 | Mensagens do dispositivo-nuvem | 256 KB de tamanho da mensagem máxima |

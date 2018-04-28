@@ -1,25 +1,19 @@
 ---
 title: Como modelo tipos de dados complexas na Azure Search | Microsoft Docs
-description: "Aninhada ou podem ser modeladas estruturas de dados hierárquica num índice da Azure Search utilizando o conjunto de linhas simplificado e tipo de dados de coleções."
-services: search
-documentationcenter: 
-author: LiamCa
-manager: pablocas
-editor: 
+description: Aninhada ou podem ser modeladas estruturas de dados hierárquica num índice da Azure Search utilizando o conjunto de linhas simplificado e tipo de dados de coleções.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: liamca
-ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Como modelo tipos de dados complexas na Azure Search
 Conjuntos de dados externos utilizados para preencher um índice da Azure Search, por vezes, incluem substructures hierárquicas ou aninhadas que não quebrar neatly um conjunto de linhas de tabela. Exemplos de tais estruturas podem incluir várias localizações e números de telefone para um único cliente, vários cores e tamanhos de um SKU único, vários autores de um livro único e assim sucessivamente. Em termos de modelação, poderá ver estas estruturas que referida como *tipos de dados complexos*, *composta tipos de dados*, *tipos de dados composto*, ou *agregar os tipos de dados*, algumas o nome.

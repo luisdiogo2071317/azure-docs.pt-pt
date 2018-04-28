@@ -1,9 +1,9 @@
 ---
-title: 'O Azure AD Connect: Totalmente integrada Single Sign-On - conformidade GDPR | Microsoft Docs'
+title: Privacidade do utilizador e o Azure AD totalmente integrado de sessão único-| Microsoft Docs
 description: Este artigo lida com SSO totalmente integrada do Azure Active Directory (Azure AD) e GDPR compatibilidade.
 services: active-directory
-keywords: "o que é o Azure AD Connect, GDPR, os componentes necessários para o Azure AD, SSO, o início de sessão único"
-documentationcenter: 
+keywords: o que é o Azure AD Connect, GDPR, os componentes necessários para o Azure AD, SSO, o início de sessão único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,27 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Compatibilidade de GDPR do Azure AD totalmente integrada-início de sessão único:
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do utilizador e do Azure AD totalmente integrada Single Sign-On
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Descrição geral
 
-Na Maio de 2018, leis de privacidade Europa, o [regulamento gerais de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), deve entrem em vigor. O GDPR impõe novas regras em empresas, agências governamentais, não lucros e outras organizações que oferta bens serviços e para as pessoas da União Europeia (EU) ou que recolher e analisam dados associados ao residentes de EU. O GDPR aplica-se, independentemente de onde estão localizadas. 
-
-Produtos e serviços Microsoft, estão disponíveis atualmente para o ajudar a satisfazer os requisitos de GDPR. Saiba mais sobre a política de Microsoft Privacy [Centro de confiança](https://www.microsoft.com/trustcenter).
 
 SSO totalmente integrada de AD do Azure cria o tipo de registo seguinte, o que pode conter EUII:
 
 - Ficheiros de registo de rastreio do Azure AD Connect.
 
-Pode ser contactada conformidade GDPR para SSO totalmente integrada de duas formas:
+Compatibilidade de privacidade do utilizador para SSO totalmente integrada pode ser acedida de duas formas:
 
 1.  Mediante pedido, extrair dados para uma pessoa e remover dados dessa pessoa das instalações.
 2.  Certifique-se de que não existem dados são mantidos para além de 48 horas.
@@ -64,7 +63,7 @@ Para saber mais sobre relacionados com os requisitos do Azure AD Connect GDPR, c
 
 Se um registo de auditoria estiver ativado, este produto poderá gerar registos de segurança para os controladores de domínio. Para obter mais informações sobre como configurar políticas de auditoria, leia este [artigo](https://technet.microsoft.com/library/dd277403.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
-
+## <a name="next-steps"></a>Passos Seguintes
+* [Rever a política de Microsoft Privacy no Centro de confiança](https://www.microsoft.com/trustcenter)
 - [**Resolver problemas** ](active-directory-aadconnect-troubleshoot-sso.md) -Saiba como resolver problemas comuns com a funcionalidade.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - para apresentação de pedidos de funcionalidades de novo.

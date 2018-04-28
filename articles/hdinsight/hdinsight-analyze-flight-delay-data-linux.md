@@ -11,14 +11,14 @@ ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd0daae8289839b64e7b54d97c78719587c18e7d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analisar dados de atraso do voo utilizando o Hive no HDInsight baseado em Linux
 
@@ -34,6 +34,8 @@ Saiba como analisar dados de atraso do voo utilizando o Hive no HDInsight basead
 * **Base de Dados SQL do Azure**. Utilize uma base de dados SQL do Azure como um arquivo de dados de destino. Se não tiver uma base de dados do SQL Server, consulte [criar uma base de dados SQL do Azure no portal do Azure](../sql-database/sql-database-get-started.md).
 
 * **CLI do Azure**. Se ainda não instalou a CLI do Azure, consulte [instalar a CLI do Azure 1.0](../cli-install-nodejs.md) para mais passos.
+
+* **Um cliente SSH**. Para obter mais informações, veja [Ligar ao HDInsight (Hadoop) através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Transferir os dados de eventos
 
@@ -54,24 +56,21 @@ Saiba como analisar dados de atraso do voo utilizando o Hive no HDInsight basead
 
 1. Utilize o seguinte comando para carregar o ficheiro. zip ao nó principal do cluster do HDInsight:
 
-    ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```bash
+    scp FILENAME.zip sshuser@clustername-ssh.azurehdinsight.net:
     ```
 
-    Substitua *FILENAME* com o nome do ficheiro. zip. Substitua *USERNAME* com o início de sessão SSH para o cluster do HDInsight. Substitua *CLUSTERNAME* com o nome do cluster do HDInsight.
-
-   > [!NOTE]
-   > Se utilizar uma palavra-passe para autenticar o início de sessão SSH, lhe for pedida a palavra-passe. Se utilizar uma chave pública, poderá ter de utilizar o `-i` parâmetro e especifique o caminho para a chave privada correspondente. Por exemplo, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+    Substitua `FILENAME` com o nome do ficheiro. zip. Substitua `sshuser` com o início de sessão SSH para o cluster do HDInsight. Substitua `clustername` com o nome do cluster do HDInsight.
 
 2. Após concluir o carregamento, ligar ao cluster através de SSH:
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-
-    Para obter mais informações, veja [Ligar ao HDInsight (Hadoop) através de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
 3. Utilize o seguinte comando para descomprimir o ficheiro. zip:
 
-    ```
+    ```bash
     unzip FILENAME.zip
     ```
 
@@ -79,7 +78,7 @@ Saiba como analisar dados de atraso do voo utilizando o Hive no HDInsight basead
 
 4. Utilize o seguinte comando para criar um diretório no armazenamento do HDInsight e, em seguida, copie o ficheiro para o diretório:
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
@@ -90,7 +89,7 @@ Utilize os seguintes passos para importar dados a partir do ficheiro. csv para u
 
 1. Utilize o seguinte comando para criar e editar um novo ficheiro designado **flightdelays.hql**:
 
-    ```
+    ```bash
     nano flightdelays.hql
     ```
 
@@ -160,13 +159,13 @@ Utilize os seguintes passos para importar dados a partir do ficheiro. csv para u
 
 3. Para iniciar o ramo de registo e executar o **flightdelays.hql** ficheiro, utilize o seguinte comando:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. Depois do __flightdelays.hql__ depois de concluída a executar o script, utilize o seguinte comando para abrir uma sessão interativa de Beeline:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -200,13 +199,13 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
 1. Para instalar o FreeTDS, utilize o comando seguinte a partir de uma ligação SSH para o cluster:
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. Após a conclusão da instalação, utilize o seguinte comando para ligar ao servidor de base de dados SQL. Substitua **serverName** com o nome do servidor de base de dados SQL. Substitua **adminLogin** e **adminPassword** com o início de sessão da base de dados do SQL Server. Substitua **databaseName** com o nome de base de dados.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -224,7 +223,7 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
 4. Na `1>` solicitar, introduza as seguintes linhas:
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -237,7 +236,7 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
     Utilize a seguinte consulta para verificar se a tabela foi criada:
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -255,7 +254,7 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
 1. Utilize o seguinte comando para verificar se Sqoop pode ver a sua base de dados do SQL Server:
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -263,7 +262,7 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
 2. Utilize o seguinte comando para exportar dados do hivesampletable para a tabela de atrasos:
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -271,13 +270,13 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
 3. Depois de concluir o comando sqoop, utilize o utilitário de tsql para ligar à base de dados:
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Utilize as instruções seguintes para verificar que os dados foram exportados para a tabela de atrasos:
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```

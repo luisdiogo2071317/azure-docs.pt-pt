@@ -8,11 +8,11 @@ ms.author: gwallace
 manager: carmonm
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b2d7614cf2e857253e0fb230cb514523476def49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado pretendido e gerir que se desviam
 
@@ -38,10 +38,10 @@ Para concluir este tutorial, terá de:
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Criar e carregar uma configuração para a automatização do Azure

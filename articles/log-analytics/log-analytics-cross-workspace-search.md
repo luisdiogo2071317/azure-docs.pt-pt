@@ -1,24 +1,24 @@
 ---
 title: Pesquisa em recursos com o Log Analytics do Azure | Microsoft Docs
-description: "Este artigo descreve como pode consultar relativamente aos recursos a partir de várias áreas de trabalho e aplicações do App Insights na sua subscrição."
+description: Este artigo descreve como pode consultar relativamente aos recursos a partir de várias áreas de trabalho e aplicações do App Insights na sua subscrição.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 5485b1634013c73b58932aafa6e17d636558715d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Efetuar pesquisas de registo de recursos na análise de registos  
 
@@ -30,7 +30,7 @@ Agora, pode consultar não só em várias áreas de trabalho de análise de regi
 Para fazer referência a outra área de trabalho na sua consulta, utilize o [ *área de trabalho* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) identificador e para uma aplicação do Application Insights, utilize o [ *aplicação* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())identificador.  
 
 ### <a name="identifying-workspace-resources"></a>Identificar recursos da área de trabalho
-Os exemplos seguintes demonstram as consultas em áreas de trabalho de análise de registos para devolver resumidas contagens de atualizações necessárias pela respetiva classificação da tabela de atualização do espaço de trabalho atual e outra área de trabalho com o nome  *contosoretail-it*. 
+Os exemplos seguintes demonstram as consultas em áreas de trabalho de análise de registos para devolvem resumidas contagens de atualizações da tabela da atualização na área de trabalho com o nome *contosoretail-it*. 
 
 Identificar uma área de trabalho pode ser conseguido de várias formas:
 

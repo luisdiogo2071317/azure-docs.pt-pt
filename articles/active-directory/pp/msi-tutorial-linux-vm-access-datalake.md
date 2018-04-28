@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store"
-description: "Um tutorial mostra-lhe como utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store."
+title: Como utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store
+description: Um tutorial mostra-lhe como utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Utilize um Linux VM geridos serviço de identidade (MSI) para aceder ao Azure Data Lake Store
 
@@ -39,7 +39,7 @@ Este tutorial mostra como utilizar uma identidade de serviço geridas (MSI) para
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual Linux num novo grupo de recursos
 
@@ -187,7 +187,7 @@ Parabéns!  Tiver de autenticar para o sistema de ficheiros do Data Lake Store u
 ## <a name="related-content"></a>Conteúdo relacionado
 
 - Para obter uma descrição geral do MSI, consulte [descrição geral de identidade de serviço geridas](msi-overview.md).
-- Para a gestão de operações Data Lake Store utiliza o Azure Resource Manager.  Para obter mais informações sobre como utilizar um MSI da VM para autenticar para o Gestor de recursos, leia o artigo [utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos](msi-tutorial-linux-vm-access-arm.md).
+- Para a gestão de operações Data Lake Store utiliza o Azure Resource Manager.  Para obter mais informações sobre como utilizar um MSI da VM para autenticar para o Gestor de recursos, leia o artigo [utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Saiba mais sobre [autenticação com o Data Lake Store utilizando o Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Saiba mais sobre [operações de sistema de ficheiros no Azure Data Lake Store utilizando a REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) ou [APIs do sistema de ficheiros de WebHDFS](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
 - Saiba mais sobre [controlo de acesso no Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

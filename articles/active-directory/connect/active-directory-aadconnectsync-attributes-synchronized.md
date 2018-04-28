@@ -1,11 +1,11 @@
 ---
 title: Atributos sincronizados pelo Azure AD Connect | Microsoft Docs
-description: "Lista os atributos que são sincronizados com o Azure Active Directory."
+description: Lista os atributos que são sincronizados com o Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 506206d3e0a28f2ffc0e9e029ec27546bc332754
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -42,7 +42,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | CN |X | |
 | displayName |X | |
 | Sidobjeto |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
-| pwdLastSet |X |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
+| pwdLastSet |X |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | sourceAnchor |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | usageLocation |X |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
 | userPrincipalName |X |UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
@@ -158,7 +158,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
@@ -225,7 +225,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
 | otherIpPhone |X |X | | |
-| otherMobile |X |X | | |
+| OtherMobile |X |X | | |
 | otherPager |X |X | | |
 | otherTelephone |X |X | | |
 | Pager |X |X | | |
@@ -234,14 +234,14 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | postOfficeBox |X |X | |Este atributo é atualmente não é consumido pelo SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
+| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |Derivado groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
@@ -289,12 +289,12 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
+| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | securityEnabled | | |X |Derivado groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
@@ -331,7 +331,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | Membro | | |X | |
 | Sidobjeto |X | |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
+| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | securityEnabled | | |X |Derivado groupType |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
@@ -359,12 +359,12 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
+| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | securityEnabled | | |X |Derivado groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| streetAddress |X |X | | |
+| StreetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | título |X |X | | |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
@@ -390,7 +390,7 @@ Este grupo é um conjunto de atributos que pode ser utilizado se o diretório do
 | Membro | | |X | |
 | Sidobjeto |X | | |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X | |
-| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
+| pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |

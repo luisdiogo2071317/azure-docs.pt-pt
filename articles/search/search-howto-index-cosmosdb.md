@@ -1,25 +1,20 @@
 ---
 title: A indexação de uma origem de dados de base de dados do Azure Cosmos para a Azure Search | Microsoft Docs
 description: Este artigo mostra como criar um indexador de Azure Search com uma origem de dados de base de dados do Azure Cosmos.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: ''
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: search
-ms.date: 03/23/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 165402f5147224cd355f0ae14642069a3de58f19
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar a BD do Cosmos Azure Search utilizando indexadores
 
@@ -78,7 +73,7 @@ Este artigo mostra como utilizar a API REST. Se optar por para o portal, o [Assi
 ## <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
 Para criar uma origem de dados, efetue um pedido POST:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -99,14 +94,14 @@ O corpo do pedido contém a definição de origem de dados, o que deve incluir o
 
 * **nome**: Escolha um nome para representar a sua base de dados.
 * **tipo**: tem de ser `documentdb`.
-* **credentials**:
+* **credenciais**:
   
   * **connectionString**: necessário. Especifique as informações de ligação à base de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` MongoDB para coleções, adicionar **ApiKind = MongoDB** à cadeia de ligação: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
-* **container**:
+* **contentor**:
   
   * **nome**: necessário. Especifique o id da coleção da base de dados ser indexados.
   * **consulta**: opcional. Pode especificar uma consulta para aplanar um documento JSON arbitrário para um esquema simples que pode índice da Azure Search. Para MongoDB coleções, consultas não são suportadas. 
-* **dataChangeDetectionPolicy**: Recommended. Consulte [indexar documentos alterado](#DataChangeDetectionPolicy) secção.
+* **dataChangeDetectionPolicy**: recomendado. Consulte [indexar documentos alterado](#DataChangeDetectionPolicy) secção.
 * **dataDeletionDetectionPolicy**: Optional. Consulte [indexar documentos eliminado](#DataDeletionDetectionPolicy) secção.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Através de consultas a forma indexada dados
@@ -151,7 +146,7 @@ Se ainda não tiver uma, crie um índice de pesquisa do Azure de destino. Pode c
 
 O exemplo seguinte cria um índice com um campo de id e a descrição:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -182,9 +177,9 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados de pesquisa do Azure
 | Tipo de dados JSON | Tipos de campo de índice de destino compatível |
 | --- | --- |
-| Booleano |Edm.Boolean, Edm.String |
+| Booleano |Boolean, EDM |
 | Números de aspeto de números inteiros |Edm.Int32, Edm.Int64, Edm.String |
-| Números esse aspeto pontos de vírgula flutuante |Edm.Double, Edm.String |
+| Números esse aspeto pontos de vírgula flutuante |Edm.Double, EDM |
 | Cadeia |Edm.String |
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
 | Cadeias de aspeto de datas |Edm.DateTimeOffset, Edm.String |
@@ -197,7 +192,7 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 
 Depois de criar a origem de dados e índice, está pronto para criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -216,7 +211,7 @@ Para obter mais detalhes sobre a API de indexador criar, veja [criar indexador](
 ### <a name="running-indexer-on-demand"></a>Executar o indexador a pedido
 Além de executar periodicamente com base numa agenda, um indexador também pode ser invocado a pedido:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -228,7 +223,7 @@ Pode monitorizar o estado de indexador no portal do ou utilizando a obter indexa
 ### <a name="getting-indexer-status"></a>Ao obter o estado do indexador
 Pode obter o histórico de estado e a execução de um indexador:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 A resposta contém o estado geral de indexador, a invocação de indexador último (ou em curso) e o histórico de invocações de indexador recentes.
@@ -302,7 +297,7 @@ Se estiver a utilizar uma consulta personalizada, certifique-se de que a proprie
 
 O exemplo seguinte cria uma origem de dados com uma política de eliminação de forma recuperável:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

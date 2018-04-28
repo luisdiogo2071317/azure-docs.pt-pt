@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Perfil live aplicações web do Azure com o Application Insights
 
@@ -63,7 +63,7 @@ Para informações, consulte o [versão de pré-visualização do gerador de per
 
 ## <a name="view-profiler-data"></a>Ver dados do gerador de perfis
 
-Certifique-se a que sua aplicação estiver a receber tráfego. Se estão a fazer uma experimentação, pode gerar pedidos para a sua aplicação web ao utilizar [teste de desempenho do Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se tiver ativado recentemente o gerador de perfis, pode executar um teste de carga curto para cerca de 15 minutos, que deve gerar rastreios de gerador de perfis. Se tenha sido ativada para tempo já o gerador de perfis, tenha em atenção que o gerador de perfis aleatoriamente executa duas vezes a cada hora e durante um período de dois minutos cada vez que é executado. Recomendamos que primeiro a execução do teste de carga para uma hora para se certificar de que a obter rastreios de gerador de perfis de exemplo.
+Certifique-se a que sua aplicação estiver a receber tráfego. Se estão a fazer uma experimentação, pode gerar pedidos para a sua aplicação web ao utilizar [teste de desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se tiver ativado recentemente o gerador de perfis, pode executar um teste de carga curto para cerca de 15 minutos, que deve gerar rastreios de gerador de perfis. Se tenha sido ativada para tempo já o gerador de perfis, tenha em atenção que o gerador de perfis aleatoriamente executa duas vezes a cada hora e durante um período de dois minutos cada vez que é executado. Recomendamos que primeiro a execução do teste de carga para uma hora para se certificar de que a obter rastreios de gerador de perfis de exemplo.
 
 Depois da aplicação recebe algum tráfego, avance para o **desempenho** painel, selecione **tomar ações** para ver os rastreios de gerador de perfis e, em seguida, selecione o **rastreios de gerador de perfis** botão.
 
@@ -311,7 +311,7 @@ Embora este método é relativamente simples, considere o seguinte:
 
 * A funcionalidade de tarefas de Web de aplicações Web é exclusiva. Quando é executada a tarefa web, assegura que o processo tem o mesmo variáveis de ambiente e as definições de aplicação com o Web site. Isto significa que não tem de passar a chave de instrumentação através da linha de comandos para o gerador de perfis. O gerador de perfis deve processará a chave de instrumentação do ambiente. No entanto, se pretender executar o gerador de perfis na sua caixa de desenvolvimento ou num computador fora de aplicações Web, terá de fornecer uma chave de instrumentação. Pode fazê-lo através da transmissão de um argumento, `--ikey <instrumentation-key>`. Este valor tem de corresponder a chave de instrumentação que está a utilizar a sua aplicação. A saída de registo do gerador de perfis indica que ikey gerador de perfis começar a utilizar e se foi detetada atividade a partir dessa chave de instrumentação enquanto que foram criação de perfis.
 
-* Podem ser acionadas manualmente accionadas web tarefas via Web Hook. Pode obter este URL, clicar o trabalho web no dashboard e visualize as propriedades. Ou, na barra de ferramentas, pode selecionar **propriedades** depois de selecionar o trabalho web na tabela. Esta abordagem abre-se as possibilidades endless, tais como a acionar o gerador de perfis a partir do pipeline de CI/CD (como VSTS) ou algo semelhante Microsoft Flow (https://flow.microsoft.com/en-us/). À sua escolha depende basicamente complexos como pretende que o *run.cmd* ficheiros (que também pode ser um *run.ps1* ficheiro), mas existe a flexibilidade.
+* Podem ser acionadas manualmente accionadas web tarefas via Web Hook. Pode obter este URL, clicar o trabalho web no dashboard e visualize as propriedades. Ou, na barra de ferramentas, pode selecionar **propriedades** depois de selecionar o trabalho web na tabela. Esta abordagem abre-se as possibilidades endless, tais como a acionar o gerador de perfis a partir do pipeline de CI/CD (como VSTS) ou algo semelhante Flow Microsoft (https://flow.microsoft.com/en-us/). À sua escolha depende basicamente complexos como pretende que o *run.cmd* ficheiros (que também pode ser um *run.ps1* ficheiro), mas existe a flexibilidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,10 +1,10 @@
 ---
-title: "Criar um gateway de aplicação - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação com o Azure PowerShell."
+title: Criar um gateway de aplicação - Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicação com o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurepowershell
@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 7f78e54b16da024c233a7943e82fd50f41c5503a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d0956a4e7e6f9cd6a1b075efc2b87c27d3660233
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>Criar um gateway de aplicação com o Azure PowerShell
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -192,7 +192,7 @@ New-AzureRmApplicationGateway `
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Utilize [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+Utilize [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -210,5 +210,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de introdução, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, esses recursos que utilizou para criar um gateway de aplicação. Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Neste início rápido, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, esses recursos que utilizou para criar um gateway de aplicação. Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
 

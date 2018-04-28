@@ -1,25 +1,18 @@
 ---
 title: Planeamento da capacidade para a Azure Search | Microsoft Docs
-description: "Ajuste a partição e réplica recursos de computador na Azure Search, onde cada recurso tem um preço em unidades de pesquisa sujeito a faturação."
-services: search
-documentationcenter: 
+description: Ajuste a partição e réplica recursos de computador na Azure Search, onde cada recurso tem um preço em unidades de pesquisa sujeito a faturação.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 1dc16afe-56f9-439d-8874-1733ae1a2b74
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Níveis de recursos de escala de consulta e indexação cargas de trabalho na Azure Search
 Depois de [escolha um escalão de preço](search-sku-tier.md) e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), o passo seguinte consiste em opcionalmente aumentar o número de réplicas ou partições utilizadas pelo seu serviço. Cada camada oferece um número fixo de unidades de faturação. Este artigo explica como atribuir as unidades para alcançar uma configuração ideal equilibrar os requisitos para a execução da consulta, indexação e armazenamento.
@@ -111,10 +104,10 @@ Esta tabela mostra os SUs necessários para suportar combinações de réplicas 
 | **1 réplica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 réplicas** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 réplicas** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 réplicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/D |
-| **5 réplicas** |5 SU |10 SU |15 DE SU |20 SU |30 SU |N/D |
-| **6 réplicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/D |
-| **12 réplicas** |12 SU |24 SU |36 SU |N/D |N/D |N/D |
+| **4 réplicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **5 réplicas** |5 SU |10 SU |15 DE SU |20 SU |30 SU |N/A |
+| **6 réplicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
+| **12 réplicas** |12 SU |24 SU |36 SU |N/A |N/D |N/A |
 
 SUs, o preço e a capacidade são explicados em detalhe no site do Azure. Para obter mais informações, consulte [detalhes dos preços](https://azure.microsoft.com/pricing/details/search/).
 

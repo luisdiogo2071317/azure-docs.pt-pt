@@ -3,7 +3,7 @@ title: Enlaces de armazenamento de filas do Azure para as funções do Azure
 description: Compreenda como utilizar o acionador de armazenamento de filas do Azure e de saída do enlace das funções do Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: bdbbb80ff1b367a0da37094e787d03d23a7d4d59
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d140822b47325e8749d3b2788b47cf820f720a39
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -220,11 +220,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d| tem de ser definido como `queueTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direction**| n/d | No *function.json* apenas de ficheiros. tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** | n/d| tem de ser definido como `queueTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direção**| n/d | No *function.json* apenas de ficheiros. tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
 |**name** | n/d |O nome da variável que representa a fila no código da função.  | 
 |**queueName** | **QueueName**| O nome da fila para consultar. | 
-|**connection** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
+|**Ligação** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -454,11 +454,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | tem de ser definido como `queue`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direction** | n/d | tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** | n/d | tem de ser definido como `queue`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direção** | n/d | tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa a fila no código da função. Definido como `$return` para referenciar o valor de retorno da função.| 
 |**queueName** |**QueueName** | O nome da fila. | 
-|**connection** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
+|**Ligação** | **Ligação** |O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o resto do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o tempo de execução de funções utiliza a cadeia de ligação de armazenamento predefinida na definição de aplicação com o nome `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -483,7 +483,7 @@ Funções de JavaScript, utilizar `context.bindings.<name>` para aceder a mensag
 
 | Vínculo |  Referência |
 |---|---|
-| Filas | [Códigos de erro da fila](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
+| Filas | [Códigos de erro da fila](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | BLOB, tabela, fila | [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

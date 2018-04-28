@@ -1,19 +1,19 @@
 ---
-title: "Versão canary com Vamp no cluster do Azure DC/OS"
-description: "Como utilizar Vamp versão canary serviços e aplicar tráfego inteligente filtragem num cluster do serviço de contentor do Azure DC/OS"
+title: Versão canary com Vamp no cluster do Azure DC/OS
+description: Como utilizar Vamp versão canary serviços e aplicar tráfego inteligente filtragem num cluster do serviço de contentor do Azure DC/OS
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Versão canary micro-serviços com Vamp num cluster do serviço de contentor do Azure DC/OS
 
@@ -286,7 +286,7 @@ Este artigo foi uma introdução rápida aos Vamp num cluster DC/OS. Por starter
 Podemos também touched algumas funcionalidades poderosas de Vamp: intercalação de uma nova variante de serviço para a implementação em execução e introdução de forma incremental, em seguida, filtragem de tráfego para resolver uma incompatibilidade conhecida.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre a gestão de ações de Vamp através de [Vamp API de REST](http://vamp.io/documentation/api/api-reference/).
 

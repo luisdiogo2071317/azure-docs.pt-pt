@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para Núcleo do ASP.NET
 
@@ -85,7 +85,7 @@ Selecione **vista** > **equipa Explorer** (Ctrl +\, Ctrl + M) > **projeto** > **
 
    ![Captura de ecrã dos ficheiros alterada ao adicionar o Application Insights](./media/app-insights-asp-net-core/0010-contoso-netcore-csproj.png)
 
-   **Program.cs**
+   **Program. CS**
 
    ![Captura de ecrã dos ficheiros alterada ao adicionar o Application Insights](./media/app-insights-asp-net-core/0011-program-cs.png)
 
@@ -187,13 +187,13 @@ Agora que concluiu os passos anteriores pode testar e confirmar que tudo está a
 
    ![Captura de ecrã da transmissão de métricas em direto](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (Se o script do PowerShell é parou de executar ainda, deverá ver métricas em direto, se executar o script novamente com o fluxo em direto abrir.)
+   (Se o PowerShell script ainda está em execução, deverá ver métricas em direto, se este tiver parado a executar o script de novamente em fluxo em direto de código aberto.)
 
 ## <a name="app-insights-sdk-comparison"></a>Comparação do App Insights SDK
 
 O grupo de produtos do Application Insights tem trabalho rígido para alcançar tão próximos paridade de funcionalidades quanto possível entre o [completa do .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) e o .net Core SDK. O 2.2.0 o lançamento do [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) para o Application Insights amplamente fechou o intervalo de funcionalidade.
 
-Para saber mais sobre as diferenças e as responsabilidades entre [.NET e .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Para saber mais sobre as diferenças e as responsabilidades entre [.NET e .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | Comparação SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +203,7 @@ Para saber mais sobre as diferenças e as responsabilidades entre [.NET e .NET C
    | **Chamadas de dependência SQL**     | **+** |**-** | **+**|
    | **Contadores de desempenho*** | **+** | **-**| **-**|
 
-_Contadores de desempenho_ neste contexto refere-se ao [contadores de desempenho do lado do servidor](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) como processadores, memória e utilização do disco.
+_Contadores de desempenho_ neste contexto refere-se ao [contadores de desempenho do lado do servidor](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) como processadores, memória e utilização do disco.
 
 ## <a name="open-source-sdk"></a>SDK de open source
 [Ler e contribuir para o código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

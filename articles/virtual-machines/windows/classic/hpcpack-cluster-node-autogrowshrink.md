@@ -1,10 +1,10 @@
 ---
-title: "Nós de cluster de dimensionamento automático HPC Pack | Microsoft Docs"
-description: "Automaticamente aumentar e diminuir o número de nós de computação de cluster HPC Pack no Azure"
+title: Nós de cluster de dimensionamento automático HPC Pack | Microsoft Docs
+description: Automaticamente aumentar e diminuir o número de nós de computação de cluster HPC Pack no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: 
+manager: ''
 editor: tysonn
 ms.assetid: 38762cd1-f917-464c-ae5d-b02b1eb21e3f
 ms.service: virtual-machines-windows
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 4a2350183bc0cb9360e9315cd8a351be20b66584
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Automaticamente aumentar e diminuir os recursos de cluster HPC Pack no Azure, de acordo com a carga de trabalho de cluster
 Se implementar nós do Azure "rajada" no seu cluster HPC Pack ou criar um cluster HPC Pack em VMs do Azure, poderá pretender uma forma de automaticamente aumentar ou diminuir os recursos de cluster como nós ou núcleos, de acordo com a carga de trabalho no cluster. Dimensionar os recursos de cluster desta forma permite-lhe utilizar os recursos do Azure de forma mais eficiente e controlar os custos.
@@ -50,13 +50,13 @@ Atualmente só automaticamente pode aumentar e diminuir a nós de computação d
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     ```
         
     Se a sua conta está em mais do que um inquilino do Azure Active Directory ou a subscrição do Azure, pode executar o seguinte comando para selecionar o inquilino correto e subscrição:
   
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
        
     Execute o seguinte comando para ver o inquilino atualmente selecionado e de subscrição:
@@ -186,19 +186,19 @@ Por predefinição, **SoaJobGrowThreshold** está definido como 50000 e **SoaReq
 * **HPC Pack 2012 R2 Update 1 ou posterior cluster** - **AzureAutoGrowShrink.ps1** script está instalado na pasta de reciclagem a % CCP_HOME %. Nó principal do cluster pode ser implementado no local ou numa VM do Azure. Consulte [configurar um cluster de híbrido com o HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) para começar com um nó principal no local e nós do Azure "rajada". Consulte o [script de implementação de HPC Pack IaaS](hpcpack-cluster-powershell-script.md) rapidamente implementar um cluster HPC Pack em VMs do Azure ou utilizar um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **O Azure PowerShell 1.4.0** -o script depende atualmente esta versão específica do Azure PowerShell.
 * **Para um cluster com o Azure burst nós** -execute o script num computador cliente onde o HPC Pack está instalado, ou no nó principal. Se em execução num computador cliente, certifique-se de que definiu a variável $env: CCP_SCHEDULER para apontar para o nó principal. Os nós do Azure "rajada" tem de ser adicionados ao cluster, mas poderão estar num Estado implementado em não.
-* **Para um cluster implementado em VMs do Azure (modelo de implementação do Resource Manager)** -num cluster de VMs do Azure implementadas no modelo de implementação Resource Manager, o script suporta dois métodos de autenticação do Azure: iniciar sessão na sua conta do Azure para executar o Sempre que o script (executando `Login-AzureRmAccount`, ou configurar um principal de serviço para autenticar com um certificado. Pacote HPC fornece o script **ConfigARMAutoGrowShrinkCert.ps** para criar um principal de serviço com o certificado. O script cria uma aplicação do Azure Active Directory (Azure AD) e um principal de serviço e atribui a função de contribuinte ao principal de serviço. Para executar o script, inicie o Azure PowerShell como administrador e execute os seguintes comandos:
+* **Para um cluster implementado em VMs do Azure (modelo de implementação do Resource Manager)** -num cluster de VMs do Azure implementadas no modelo de implementação Resource Manager, o script suporta dois métodos de autenticação do Azure: iniciar sessão na sua conta do Azure para executar o Sempre que o script (executando `Connect-AzureRmAccount`, ou configurar um principal de serviço para autenticar com um certificado. Pacote HPC fornece o script **ConfigARMAutoGrowShrinkCert.ps** para criar um principal de serviço com o certificado. O script cria uma aplicação do Azure Active Directory (Azure AD) e um principal de serviço e atribui a função de contribuinte ao principal de serviço. Para executar o script, inicie o Azure PowerShell como administrador e execute os seguintes comandos:
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
 
     Para obter mais detalhes sobre **ConfigARMAutoGrowShrinkCert.ps1**, execute `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`,
 
-* **Para um cluster implementado em VMs do Azure (modelo de implementação clássica)** -execute o script no nó principal do VM, porque depende de **HpcIaaSNode.ps1 início** e **Stop-HpcIaaSNode.ps1** scripts que são instalados não existe. Esses scripts adicionalmente requerem um certificado de gestão do Azure ou publicar o ficheiro de definições (consulte [cluster de nós de computação de gerir num pacote HPC no Azure](hpcpack-cluster-node-manage.md)). Certifique-se de que todas as VMs que precisa de nó de computação já são adicionados ao cluster. Estes podem estar no estado parado.
+* **Para um cluster implementado em VMs do Azure (modelo de implementação clássica)** -execute o script no nó principal do VM, porque depende de **HpcIaaSNode.ps1 início** e **Stop-HpcIaaSNode.ps1** scripts que são instaladas não existe. Esses scripts adicionalmente requerem um certificado de gestão do Azure ou publicar o ficheiro de definições (consulte [cluster de nós de computação de gerir num pacote HPC no Azure](hpcpack-cluster-node-manage.md)). Certifique-se de que todas as VMs que precisa de nó de computação já são adicionados ao cluster. Estes podem estar no estado parado.
 
 
 

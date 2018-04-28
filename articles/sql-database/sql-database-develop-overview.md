@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-database-application-development-overview"></a>Descrição geral de desenvolvimento de aplicações de base de dados SQL
 Este artigo explica as considerações básicas que um programador deve conhecer ao escrever códigos para ligar à base de dados SQL do Azure.
@@ -29,12 +29,12 @@ Estão disponíveis exemplos de código para várias linguagens de programação
 * Obter mais informações: [bibliotecas de ligação para base de dados SQL e SQL Server](sql-database-libraries.md).
 
 ## <a name="tools"></a>Ferramentas 
-Pode tirar partido de ferramentas de código aberto, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) ou [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Também pode utilizar o Portal de Gestão do Azure, o PowerShell e as API REST que o ajudam a obter produtividade adicional.
+Pode tirar partido das ferramentas open source como [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Também pode utilizar o Portal de Gestão do Azure, o PowerShell e as API REST que o ajudam a obter produtividade adicional.
 
 ## <a name="resource-limitations"></a>Limitações de recursos
 A Base de Dados SQL do Azure gere os recursos disponíveis para uma base de dados através de dois mecanismos diferentes: Governação de Recursos e Imposição de Limites.
 
-* Obter mais informações: [dos limites de recursos de base de dados do Azure SQL](sql-database-service-tiers.md).
+* Obter mais informações: [limites de modelo de recursos baseados no Azure SQL da base de dados DTU](sql-database-dtu-resource-limits.md) e [limites de modelo de recursos baseados em vCore SQL Database do Azure (pré-visualização)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Segurança
 A Base de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os dados e monitorizar as atividades numa Base de Dados SQL.

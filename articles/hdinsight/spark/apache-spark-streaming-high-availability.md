@@ -1,26 +1,24 @@
 ---
-title: "Criar tarefas de transmissão em fluxo do Spark altamente disponíveis no YARN - Azure HDInsight | Microsoft Docs"
-description: "Como configurar a transmissão em fluxo do Spark para um cenário de elevada disponibilidade."
+title: Criar tarefas de transmissão em fluxo do Spark altamente disponíveis no YARN - Azure HDInsight | Microsoft Docs
+description: Como configurar a transmissão em fluxo do Spark para um cenário de elevada disponibilidade.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ramoha
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: ramoha
-ms.openlocfilehash: f916f9939ac9683a2ee162ba4d2105f66187b111
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0a738d7e26384523e9da9c8c79e12729330fe6f7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Criar tarefas de transmissão em fluxo do Spark de elevada disponibilidade com YARN
 
@@ -117,7 +115,7 @@ Para resumir, utilizando o ponto de verificação + Quisição + recetores fiáv
 
 * Deve segmentar as tarefas de longa execução.  Quando uma aplicação de transmissão em fluxo do Spark for submetida para o cluster, tem de ser definida a fila YARN onde a tarefa é executada. Pode utilizar um [YARN capacidade programador](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) para submeter tarefas de longa execução ao separar as filas.
 
-* Encerre corretamente a aplicação de transmissão em fluxo. Se os desvios são conhecidos e todos os Estado da aplicação é armazenado externamente, pode parar programaticamente a aplicação de transmissão em fluxo em lugar adequado. Uma técnica consiste em utilizar "thread hooks" no Spark, verificando para um sinalizador externo cada  *n*  segundos. Também pode utilizar um *ficheiro marcador* que é criada no HDFS ao iniciar a aplicação, em seguida, remover quando que pretende parar. Uma abordagem de ficheiro de marcador, utilize um thread separado na sua aplicação de Spark que chama o código semelhante a isto:
+* Encerre corretamente a aplicação de transmissão em fluxo. Se os desvios são conhecidos e todos os Estado da aplicação é armazenado externamente, pode parar programaticamente a aplicação de transmissão em fluxo em lugar adequado. Uma técnica consiste em utilizar "thread hooks" no Spark, verificando para um sinalizador externo cada *n* segundos. Também pode utilizar um *ficheiro marcador* que é criada no HDFS ao iniciar a aplicação, em seguida, remover quando que pretende parar. Uma abordagem de ficheiro de marcador, utilize um thread separado na sua aplicação de Spark que chama o código semelhante a isto:
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

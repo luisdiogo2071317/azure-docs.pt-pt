@@ -3,7 +3,7 @@ title: Desempenho de recursos de infraestrutura de serviço do Azure monitoriza�
 description: Saiba mais sobre os contadores de desempenho de monitorização e diagnóstico de clusters de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 3784cb6f713c5ce476ab980122ee6ec9fa3ebc59
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 54837b2a43f93f43d089a2fdf35d8b74ecacfc3e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -75,7 +75,7 @@ Service Fabric gera uma quantidade substancial de contadores de desempenho perso
 
 As aplicações está a implementar para o cluster, se estiver a utilizar Reliable Actors, adicione countes de `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [serviço recursos de infraestrutura Reliable Actors diagnóstico](service-fabric-reliable-actors-diagnostics.md)).
 
-Se utilizar a comunicação remota do serviço, temos de forma semelhante `Service Fabric Service` e `Service Fabric Service Method` categorias de contador deve recolher contadores do. 
+Se utilizar Reliable Services, temos de forma semelhante `Service Fabric Service` e `Service Fabric Service Method` categorias de contador deve recolher contadores do. 
 
 Se utilizar coleções fiável, recomendamos adicionar o `Avg. Transaction ms/Commit` do `Service Fabric Transactional Replicator` para recolher a latência média de consolidação por métrica de transação.
 
@@ -83,4 +83,4 @@ Se utilizar coleções fiável, recomendamos adicionar o `Avg. Transaction ms/Co
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [geração de eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
-* Recolher a métrica do desempenho através de [diagnósticos do Azure](service-fabric-diagnostics-event-aggregation-wad.md)
+* Recolher a métrica do desempenho através de [agente do OMS](service-fabric-diagnostics-oms-agent.md)

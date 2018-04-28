@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b304a198ce1791a14094eea4cad3b6de870c80ce
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: df0b578448e1f943d45233f7d36ebf4b9cb09fad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Tutorial: Integração do Azure Active Directory com SafetyNet
 
@@ -117,33 +117,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.predictivesolutions.com`
      
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente SafetyNet](mailto:dev@predictivesolutions.com) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente SafetyNet](mailto:dev@predictivesolutions.com) para obter estes valores.
 
-5. Clique em **guardar** botão.
+5. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_certificate.png)
+
+6. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-safetynet-tutorial/tutorial_general_400.png)
 
-6. Para gerar o **URL de metadados**, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpoint.png)
-     
-    d. Agora, a página de propriedades do **SafetyNet** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-    
-7. Para configurar o início de sessão único em **SafetyNet** lado, terá de enviar o gerado **URL de metadados** para [equipa de suporte de SafetyNet](mailto:dev@predictivesolutions.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Para configurar o início de sessão único em **SafetyNet** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de SafetyNet](mailto:dev@predictivesolutions.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

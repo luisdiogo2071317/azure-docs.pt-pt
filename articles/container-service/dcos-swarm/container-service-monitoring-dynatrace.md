@@ -1,19 +1,19 @@
 ---
 title: Monitorizar o cluster do Azure DC/SO - Dynatrace
-description: "Monitorize um cluster do serviço de contentor do Azure DC/SO com Dynatrace. Implemente o Dynatrace OneAgent através do dashboard de DC/OS."
+description: Monitorize um cluster do serviço de contentor do Azure DC/SO com Dynatrace. Implemente o Dynatrace OneAgent através do dashboard de DC/OS.
 services: container-service
 author: MartinGoodwell
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 52a8a05f050017f5062ff986bad7ec2e6a650aa5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Monitor de um cluster do serviço de contentor do Azure DC/SO com Dynatrace SaaS/gerido
 
@@ -27,12 +27,12 @@ A figura seguinte mostra a IU de Dynatrace:
 ![IU Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-[Implementar](container-service-deployment.md) e [ligar](./../container-service-connect.md) para um cluster configurado pelo serviço de contentor do Azure. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) para configurar uma conta de Dynatrace SaaS.  
+[Implementar](container-service-deployment.md) e [ligar](./../container-service-connect.md) para um cluster configurado pelo serviço de contentor do Azure. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ https://www.dynatrace.com/trial/ ](https://www.dynatrace.com/trial/) para configurar uma conta de Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurar uma implementação de Dynatrace com Marathon
 Estes passos mostram como configurar e implementar aplicações de Dynatrace para o cluster com o Marathon.
 
-1. Aceder à IU do DC/OS, através de [http://localhost:80 /](http://localhost:80/). Uma vez na IU do DC/OS, navegue para o **universo** separador e, em seguida, procure **Dynatrace**.
+1. Aceder à IU do DC/OS, através de [ http://localhost:80/ ](http://localhost:80/). Uma vez na IU do DC/OS, navegue para o **universo** separador e, em seguida, procure **Dynatrace**.
 
     ![Dynatrace no universo de DC/SO](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 
@@ -52,6 +52,6 @@ Estes passos mostram como configurar e implementar aplicações de Dynatrace par
 
     ![Configuração de Dynatrace no DC/SO universo-instâncias](./media/container-service-monitoring-dynatrace/dynatrace-config2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Uma vez que tem instalado o pacote, navegue de volta para o dashboard Dynatrace. Pode explorar as métricas de utilização diferentes para os contentores no seu cluster. 

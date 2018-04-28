@@ -1,25 +1,20 @@
 ---
-title: "Saiba mais sobre operações do Azure SQL Data Warehouse | Microsoft Docs"
-description: "A elasticidade do SQL Data Warehouse permite aumentar, reduzir ou colocar em pausa a capacidade de computação, utilizando uma escala móvel de unidades do Data Warehouse (DWUs). Este artigo explica as métricas do armazém de dados e como se relacionam com as DWUs. "
+title: Saiba mais sobre operações do Azure SQL Data Warehouse | Microsoft Docs
+description: 'A elasticidade do SQL Data Warehouse permite aumentar, reduzir ou colocar em pausa a capacidade de computação, utilizando uma escala móvel de unidades do Data Warehouse (DWUs). Este artigo explica as métricas do armazém de dados e como se relacionam com as DWUs. '
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 21e1f687e152cf91bd32389e0d5aa0dabd463b2f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-warehouse-workload"></a>Carga de trabalho do armazém de dados
 Uma carga de trabalho de armazém de dados refere-se a todas as operações que ocorrem num armazém de dados. A carga de trabalho do armazém de dados abrange todo o processo de carregamento de dados para o armazém, execução de análises e relatórios no armazém de dados, gestão de dados no armazém de dados e exportação de dados do armazém de dados. A profundidade e a amplitude destes componentes são, muitas vezes, proporcionais ao nível de maturidade do armazém de dados.
@@ -65,7 +60,7 @@ Uma forma de disponibilizar dados para relatórios e análise consiste em enviar
 * Para gerar relatórios, todas as noites pode preencher servidores de relatórios só de leitura com um instantâneo dos dados diários. Isto proporciona maior largura de banda para os clientes, ao mesmo tempo que reduz as necessidades de recursos de computação no armazém de dados. Numa perspetiva de segurança, os data marts permitem reduzir o número de utilizadores que têm acesso ao armazém de dados.
 * Para análise, pode criar um cubo de análise no armazém de dados e executar análises no armazém de dados ou pré-processar os dados e exportá-los para o servidor de análise para análise adicional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que já sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][create a SQL Data Warehouse] e [carregar dados de exemplo][load sample data] rapidamente.
 
 <!--Image references-->

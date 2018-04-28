@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: As políticas personalizadas
 
@@ -64,7 +64,7 @@ O Azure AD B2C interage com fornecedores de identidade, os utilizadores, outros 
 
 ### <a name="identity-experience-framework"></a>Estrutura de Experiência de Identidade
 
-Formatos de uma plataforma do Azure totalmente configurável, orientadas por políticas e baseado na nuvem que orquestra confiança entre entidades (amplamente fornecedores de afirmações) no protocolo padrão, tais como OpenIDConnect, OAuth, SAML, WSFed e alguns dos não padrão (por exemplo REST API-based sistema para sistema afirmações trocas). O I2E cria amigável de utilizador, whitelabelled experiências que suportam HTML, CSS e javascript.  Atualmente, a arquitetura de experiência de identidade está disponível apenas no contexto do serviço do Azure AD B2C e prioritários para as tarefas relacionadas com CIAM.
+Formatos de uma plataforma do Azure totalmente configurável, orientadas por políticas e baseado na nuvem que orquestra confiança entre entidades (amplamente fornecedores de afirmações) no protocolo padrão, tais como OpenIDConnect, OAuth, SAML, WSFed e alguns dos não padrão (por exemplo REST API-based sistema para sistema afirmações trocas). O I2E cria experiências amigável de utilizador, com a etiqueta de em branco que suportam HTML, CSS e javascript.  Atualmente, a arquitetura de experiência de identidade está disponível apenas no contexto do serviço do Azure AD B2C e prioritários para as tarefas relacionadas com CIAM.
 
 ### <a name="built-in-policies"></a>Políticas incorporadas
 
@@ -89,7 +89,7 @@ Uma política personalizada é representada como um ou vários ficheiros de form
 
 | Tipo de ficheiro de política | Nome de ficheiro de exemplos | Utilização recomendada | Herda a partir do |
 |---------------------|--------------------|-----------------|---------------|
-| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Inclui o esquema de afirmações de núcleos, transformações de afirmações, fornecedores de afirmações e percursos de utilizador configurados pela Microsoft<br><br>Efetuar alterações mínimas este ficheiro | Nenhum |
+| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Inclui o esquema de afirmações de núcleos, transformações de afirmações, fornecedores de afirmações e percursos de utilizador configurados pela Microsoft<br><br>Efetuar alterações mínimas este ficheiro | Nenhuma |
 | Extensão (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidar as alterações para o ficheiro de BASE aqui<br><br>Fornecedores de afirmações modificado<br><br>Percursos de utilizadores modificados<br><br>As suas próprias definições de esquema personalizadas | Ficheiro de BASE |
 | Entidade Confiadora (RP) | B2C_1A_sign_up_sign_in.xml| Alterar token forma e sessão definições aqui| Ficheiro Extensions(Ext) |
 

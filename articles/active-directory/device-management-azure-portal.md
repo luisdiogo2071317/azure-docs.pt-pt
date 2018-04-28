@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a4bdea4844c4aaa9990d619d59326a83cf0aef6c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestão de dispositivos no portal do Azure
 
@@ -74,7 +74,7 @@ A página de definições do dispositivo permite-lhe configurar:
 
 - **Os utilizadores podem registar os seus dispositivos com o Azure AD** -terá de configurar esta definição para permitir que os dispositivos sejam [registado](device-management-introduction.md#azure-ad-registered-devices) com o Azure AD. Se selecionar **nenhum**, dispositivos não são permitidos para registar quando não estão do Azure AD associado ou híbrida do Azure AD associado. Inscrição com o Microsoft Intune ou a gestão de dispositivos móveis (MDM) para o Office 365 requer o registo. Se tiver configurado qualquer um destes serviços, **todos os** está selecionado e **NONE** não está disponível...
 
-- **Requer multi-Factor Auth associar dispositivos** -pode escolher se os utilizadores são obrigados a fornecer um segundo fator de autenticação para [associação](device-management-introduction.md#azure-ad-joined-devices) os respetivos dispositivos para o Azure AD. A predefinição é **não**. Recomendamos que requerem autenticação multifator ao registar um dispositivo. Antes de ativar a multi-factor authentication para este serviço, certifique-se de que a autenticação multifator está configurada para os utilizadores que registar os respetivos dispositivos. Para obter mais informações sobre os serviços de autenticação multifator Azure diferentes, consulte [introdução à Azure multi-factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Requer multi-Factor Auth associar dispositivos** -pode escolher se os utilizadores são obrigados a fornecer um segundo fator de autenticação para [associação](device-management-introduction.md#azure-ad-joined-devices) os respetivos dispositivos para o Azure AD. A predefinição é **não**. Recomendamos que requerem autenticação multifator ao registar um dispositivo. Antes de ativar a multi-factor authentication para este serviço, certifique-se de que a autenticação multifator está configurada para os utilizadores que registar os respetivos dispositivos. Para obter mais informações sobre os serviços de autenticação multifator Azure diferentes, consulte [introdução à Azure multi-factor authentication](authentication/concept-mfa-whichversion.md). 
 
 - **Número máximo de dispositivos** -esta definição permite-lhe selecionar o número máximo de dispositivos que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, estes não são poderá adicionar dispositivos até um ou mais dos dispositivos existentes são removidas. As aspas de dispositivo são contabilizadas para todos os dispositivos do Azure AD associada ao ou do Azure AD atualmente registado. O valor predefinido é **20**.
 

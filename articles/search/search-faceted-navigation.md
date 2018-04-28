@@ -1,24 +1,18 @@
 ---
-title: "Como implementar navegação por facetas na Azure Search | Microsoft Docs"
-description: "Adicione navegação por facetas para aplicações que se integram com o Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure."
-services: search
-documentationcenter: 
+title: Como implementar navegação por facetas na Azure Search | Microsoft Docs
+description: Adicione navegação por facetas para aplicações que se integram com o Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
 author: HeidiSteen
-manager: mblythe
-editor: 
-ms.assetid: cdf98fd4-63fd-4b50-b0b0-835cb08ad4d3
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece pesquisa auto-direcionada navegação nas aplicações de pesquisa. O termo 'navegação por facetas' poderá estar familiarizado, mas provavelmente, utilizou-lo antes de. Tal como o exemplo seguinte mostra, navegação por facetas é nothing mais do que as categorias utilizadas para filtrar os resultados.
@@ -54,7 +48,7 @@ O ponto de partida é uma página de aplicação que fornece navegação por fac
 1. Uma consulta enviada para a Azure Search Especifica a estrutura de navegação por facetas através de um ou mais parâmetros de consulta de aspeto de restrições. Por exemplo, a consulta poderá incluir `facet=Rating`, talvez com um `:values` ou `:sort` opção para aperfeiçoar ainda mais a apresentação.
 2. A camada de apresentação compõe uma página de pesquisa que fornece navegação por facetas, utilizando as facetas especificadas no pedido.
 3. Tendo em conta uma estrutura de navegação por facetas que inclui a classificação, clicar em "4" para indicar que devem ser apresentados apenas os produtos com uma classificação de 4 ou superior. 
-4. Em resposta, a aplicação envia uma consulta que inclua`$filter=Rating ge 4` 
+4. Em resposta, a aplicação envia uma consulta que inclua `$filter=Rating ge 4` 
 5. A camada de apresentação atualiza a página, que mostra um conjunto de resultados reduzida, que contêm apenas esses itens que satisfaçam os critérios novo (neste caso, os produtos classificados 4 e até).
 
 Um aspeto é um parâmetro de consulta, mas não a confunda com entrada de consulta. Nunca é utilizada como critério de seleção de uma consulta. Em vez disso, considere os parâmetros de consulta de faceta como entradas para a estrutura de navegação volta na resposta. Para cada parâmetro de consulta do aspeto que fornece, da Azure Search avalia documentos quantos são nos resultados da parciais para cada valor de aspeto de restrições.
@@ -67,7 +61,7 @@ No código da aplicação, o padrão é utilizar os parâmetros de consulta de f
 
 ### <a name="query-basics"></a>Noções básicas de consulta
 
-Na Azure Search, um pedido é especificado através de um ou mais parâmetros de consulta (consulte [documentos sobre pesquisa](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter uma descrição de cada um deles). Nenhum dos parâmetros de consulta são necessárias, mas tem de ter, pelo menos, um para que uma consulta ser válida.
+Na Azure Search, um pedido é especificado através de um ou mais parâmetros de consulta (consulte [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter uma descrição de cada um deles). Nenhum dos parâmetros de consulta são necessárias, mas tem de ter, pelo menos, um para que uma consulta ser válida.
 
 Entendida precisão, como a capacidade de filtrar pedidos irrelevantes, é conseguido através de uma ou ambas estas expressões:
 
@@ -234,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Um parâmetro de consulta de aspeto de restrições está definido como um campo e consoante o tipo de dados, pode ser mais parametrizada por lista delimitada por vírgulas que inclui `count:<integer>`, `sort:<>`, `interval:<integer>`, e `values:<list>`. Uma lista de valores é suportada para dados numéricos quando configurar intervalos. Consulte [documentos sobre pesquisa (API da Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para detalhes de utilização.
+Um parâmetro de consulta de aspeto de restrições está definido como um campo e consoante o tipo de dados, pode ser mais parametrizada por lista delimitada por vírgulas que inclui `count:<integer>`, `sort:<>`, `interval:<integer>`, e `values:<list>`. Uma lista de valores é suportada para dados numéricos quando configurar intervalos. Consulte [documentos sobre pesquisa (API da Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para detalhes de utilização.
 
 Juntamente com as facetas, o pedido formulated pela sua aplicação, deve também criar filtros para restringir o conjunto de documentos de candidatos com base numa seleção de valor de aspeto de restrições. Para um arquivo de bicicleta navegação por facetas fornece processáveis a perguntas como *que cores, os fabricantes e tipos de bikes estão disponíveis?*. Filtragem de respostas a perguntas como *que bikes exatos são vermelhos, bikes das regiões montanhosas, deste estime preços intervalo?*. Quando clicar em "Red" para indicar que devem ser apresentados apenas os produtos vermelhos, a consulta seguinte, a aplicação envia inclui `$filter=Color eq ‘Red’`.
 
@@ -301,7 +295,7 @@ Em geral, se achar que os resultados de faceta consistentemente são demasiado g
 
 Para cada campo por facetas na árvore de navegação, há um limite predefinido de 10 valores. Esta predefinição faz sentido para estruturas de navegação porque mantém a lista de valores para um tamanho de fácil gestão. Pode substituir a predefinição atribuindo um valor de contagem.
 
-* `&facet=city,count:5`Especifica que apenas as primeiro cinco cidades encontradas na parte superior classificada os resultados são devolvidas como um resultado de aspeto de restrições. Considere uma consulta de exemplo com um termo de pesquisa de "airport" e 32 correspondências. Se a consulta especifica `&facet=city,count:5`, apenas as primeiro cinco cidades exclusivas com mais documentos nos resultados da pesquisa são incluídas nos resultados de aspeto de restrições.
+* `&facet=city,count:5` Especifica que apenas as primeiro cinco cidades encontradas na parte superior classificada os resultados são devolvidas como um resultado de aspeto de restrições. Considere uma consulta de exemplo com um termo de pesquisa de "airport" e 32 correspondências. Se a consulta especifica `&facet=city,count:5`, apenas as primeiro cinco cidades exclusivas com mais documentos nos resultados da pesquisa são incluídas nos resultados de aspeto de restrições.
 
 Tenha em atenção a distinção entre os resultados de aspeto de restrições e os resultados da pesquisa. Os resultados da pesquisa são todos os documentos que correspondam a consulta. Resultados de aspeto de restrições são correspondências para cada valor de aspeto de restrições. No exemplo, os resultados da pesquisa incluírem nomes cidade que não estão na lista de classificação de faceta (5 no nosso exemplo). Os resultados que são filtrados através de navegação por facetas ficam visíveis quando limpar facetas ou escolha outras facetas além da cidade. 
 
@@ -335,12 +329,12 @@ As etiquetas são definidas habitualmente no HTML ou no formato (`index.cshtml` 
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtro com base num intervalo
-Facetamento através de intervalos de valores é um requisito de aplicação de pesquisa comuns. São suportados intervalos de dados numéricos e os valores DateTime. Pode ler mais sobre cada abordagem no [documentos sobre pesquisa (API da Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Facetamento através de intervalos de valores é um requisito de aplicação de pesquisa comuns. São suportados intervalos de dados numéricos e os valores DateTime. Pode ler mais sobre cada abordagem no [documentos sobre pesquisa (API da Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 A pesquisa do Azure simplifica a construção de intervalo ao fornecer duas abordagens para um intervalo de computação. Para ambas as abordagens, pesquisa do Azure cria os intervalos adequados indicados as entradas que forneceu. Por exemplo, se especificar valores de intervalo de 10 | 20 | 30, este cria automaticamente os intervalos de 0 a 10, 10 20, 20 a 30. A aplicação, opcionalmente, pode remover quaisquer intervalos que estão vazios. 
 
 **Abordagem 1: Utilizar o parâmetro de intervalo**  
-Para definir as facetas de preços em incrementos de $10, tem de especificar:`&facet=price,interval:10`
+Para definir as facetas de preços em incrementos de $10, tem de especificar: `&facet=price,interval:10`
 
 **Abordagem 2: Utilizar uma lista de valores**  
 Para dados numéricos, pode utilizar uma lista de valores.  Considere o período de aspeto de um `listPrice` campo, composto da seguinte forma:
@@ -368,7 +362,7 @@ Existem duas funções Geoespacial na Azure Search, **geo.distance** e **geo.int
 * O **geo.distance** função devolve a distância, em quilómetros, entre dois pontos. Um ponto é um campo e o outro é uma constante transmitida como parte do filtro. 
 * O **geo.intersects** função devolve true se um determinado ponto estiver dentro de um polígono especificado. O ponto é um campo e o polígono está especificado como uma lista de constante de coordenadas transmitido como parte do filtro.
 
-Pode encontrar exemplos de filtro [sintaxe de expressão de OData (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Pode encontrar exemplos de filtro [sintaxe de expressão de OData (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -437,9 +431,9 @@ Para mais informações sobre os princípios de design para navegação por face
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

@@ -12,11 +12,11 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -37,7 +37,7 @@ A tabela seguinte compara as ERT e o RPO para cada camada de serviço para os tr
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utilizar o restauro de ponto no tempo para recuperar uma base de dados
 
-Base de dados do SQL Server efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanal, numa base horária cópias de segurança de base de dados diferencial e transações no registo de cópias de segurança de todos os cinco - dez minutos para proteger a sua empresa contra perda de dados. Estas cópias de segurança são armazenadas no armazenamento RA-GRS para 35 dias para bases de dados nos escalões de serviço Standard e Premium e para as bases de dados na camada de serviço básico de 7 dias. O objetivo geral e camadas de serviços críticos de negócio (pré-visualização), a retenção de cópias de segurança é configurável cópias de segurança para 35 dias. Para obter mais informações, consulte [escalões de serviço](sql-database-service-tiers.md). Se o período de retenção da camada de serviços não for de encontro aos seus requisitos empresariais, pode aumentar o período de retenção ao [alterar a camada de serviços](sql-database-service-tiers.md). As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md).
+Base de dados do SQL Server efetua automaticamente uma combinação de cópias de segurança da base de dados completa semanal, numa base horária cópias de segurança de base de dados diferencial e transações no registo de cópias de segurança de todos os cinco - dez minutos para proteger a sua empresa contra perda de dados. Se estiver a utilizar o [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md), em seguida, estas cópias de segurança são armazenadas no armazenamento RA-GRS para 35 dias para bases de dados nos escalões de serviço Standard e Premium e para as bases de dados na camada de serviço básico de 7 dias. Se o período de retenção da camada de serviços não for de encontro aos seus requisitos empresariais, pode aumentar o período de retenção ao [alterar a camada de serviços](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Se estiver a utilizar o [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md), a retenção de cópias de segurança é configurável cópias de segurança para 35 dias nos escalões de crítico de negócio e fins gerais. As cópias de segurança completas e diferenciais da base de dados também são replicadas para um [centro de dados emparelhado](../best-practices-availability-paired-regions.md), para proteção contra indisponibilidade do centro de dados. Para obter mais informações, consulte [cópias de segurança da base de dados automática](sql-database-automated-backups.md).
 
 Se o período de retenção PITR suportado máximo não é suficiente para a sua aplicação, pode expandi-lo ao configurar uma política de retenção (imediatamente disponíveis) longo prazo para as bases de dados. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
@@ -97,8 +97,7 @@ Para obter mais informações e passos detalhados para restaurar uma base de dad
 
 > [!IMPORTANT]
 > Se o servidor lógico tiver sido eliminado, não é possível recuperar uma base de dados eliminada.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restaurar cópias de segurança de retenção de longo prazo
 

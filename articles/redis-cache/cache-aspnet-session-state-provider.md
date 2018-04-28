@@ -1,6 +1,6 @@
 ---
-title: "Fornecedor de estado da sessão ASP.NET cache | Microsoft Docs"
-description: "Saiba como armazenar o estado de sessão do ASP.NET com a Cache de Redis do Azure"
+title: Fornecedor de estado da sessão ASP.NET cache | Microsoft Docs
+description: Saiba como armazenar o estado de sessão do ASP.NET com a Cache de Redis do Azure
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 485375f2f2ffb83b7d0fdeef8daab5880a8bbc27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: bb0c53433af8a679811f00bfff2efee94d211a24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache de Redis do Azure
-Cache de Redis do Azure fornece um fornecedor de estado de sessão que pode utilizar para armazenar o estado da sessão cache em vez de na memória ou numa base de dados do SQL Server. Para utilizar o colocação em cache no fornecedor de estado de sessão, primeiro de configurar a cache e, em seguida, configure a sua aplicação ASP.NET para cache com o pacote NuGet de estado de sessão Cache de Redis.
+Cache de Redis do Azure fornece um fornecedor de estado de sessão que pode utilizar para armazenar a sua sessão estado dentro da memória cache de Redis em vez de uma base de dados do SQL Server. Para utilizar o colocação em cache no fornecedor de estado de sessão, primeiro de configurar a cache e, em seguida, configure a sua aplicação ASP.NET para cache com o pacote NuGet de estado de sessão Cache de Redis.
 
 Muitas vezes, não é prático numa aplicação de nuvem do mundo real, para evitar a armazenar alguma forma de estado para uma sessão de utilizador, mas alguns abordagens impacto no desempenho e escalabilidade mais do que outras pessoas. Se tiver de armazenar o estado, é a melhor solução manter a quantidade de estado pequeno e armazená-las em cookies. Se que não é exequível, é a melhor solução seguinte utilizar o estado da sessão ASP.NET com um fornecedor de cache distribuída, dentro da memória. A solução pior de um desempenho e o ponto de vista da escalabilidade está a utilizar uma base de dados de fornecedor de estado de sessão de segurança. Este tópico fornece orientações sobre como utilizar o fornecedor de estado de sessão do ASP.NET para a Cache de Redis do Azure. Para obter informações sobre outras opções de estado de sessão, consulte [opções de estado da sessão ASP.NET](#aspnet-session-state-options).
 
@@ -112,7 +112,7 @@ Assim que estes passos são efetuados, a aplicação está configurada para util
 
 ## <a name="aspnet-session-state-options"></a>Opções de estado de sessão do ASP.NET
 * No fornecedor de estado da sessão de memória - este fornecedor armazena o estado da sessão na memória. A vantagem de utilizar este fornecedor é é simples e rápida. No entanto não pode dimensionar as suas aplicações Web se estiver a utilizar no fornecedor de memória, uma vez que não é distribuída.
-* Fornecedor de estado da sessão do SQL Server - este fornecedor armazena o estado da sessão no Sql Server. Utilize este fornecedor, se pretender armazenar o estado da sessão no armazenamento persistente. Pode dimensionar a sua aplicação Web, mas utilizar o Sql Server para a sessão tem um impacto no desempenho na sua aplicação Web.
+* Fornecedor de estado da sessão do SQL Server - este fornecedor armazena o estado da sessão no Sql Server. Utilize este fornecedor, se pretender armazenar o estado da sessão no armazenamento persistente. Pode dimensionar a sua aplicação Web, mas utilizar o Sql Server para a sessão tem um impacto no desempenho na sua aplicação Web. Também pode utilizar este fornecedor com um [configuração OLTP na memória](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) para ajudar a melhorar o desempenho.
 * Distribuída na memória sessão fornecedor de estado como Redis Cache sessão fornecedor de estado - este fornecedor dá-lhe o melhor de dois mundos. A aplicação Web pode ter um fornecedor de estado de sessão simples, rápidas e dimensionáveis. Porque este fornecedor armazena o estado da sessão, cache, a aplicação tem de ter em consideração todas as características associadas quando se fala para uma Cache distribuída na memória, tais como falhas de rede transitórios. Para melhores práticas em Cache a utilizar, consulte [orientações sobre a colocação em cache](../best-practices-caching.md) da Microsoft Patterns & práticas [Design da aplicação em nuvem do Azure e as diretrizes de implementação](https://github.com/mspnp/azure-guidance).
 
 Para obter mais informações sobre o estado da sessão e outras melhores práticas, consulte [Web desenvolvimento melhores práticas (compilar aplicações de nuvem de mundo Real com o Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).

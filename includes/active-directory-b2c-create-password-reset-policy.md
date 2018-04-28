@@ -1,4 +1,4 @@
-Para ativar a reposição de palavras-passe detalhada na sua aplicação, terá de criar uma política de reposição de palavras-passe. Tenha em atenção que a opção de reposição de palavras-passe no âmbito do inquilino está especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Esta política descreve as experiências que os consumidores terão durante a reposição de palavras-passe e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
+Para ativar a palavra-passe detalhada repor na sua aplicação, pode utilizar um **reposição de palavra-passe** política. Tenha em atenção que a opção de reposição de palavras-passe no âmbito do inquilino está especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Esta política descreve as experiências de que os clientes passarão durante a reposição de palavra-passe e o conteúdo dos tokens que a aplicação receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

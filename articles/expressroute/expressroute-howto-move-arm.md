@@ -1,11 +1,11 @@
 ---
-title: "Mover circuitos ExpressRoute do clássico para o Gestor de recursos: PowerShell: Azure | Microsoft Docs"
-description: "Esta página descreve como mover um circuito clássico para o modelo de implementação do Resource Manager com o PowerShell."
+title: 'Mover circuitos ExpressRoute do clássico para o Gestor de recursos: PowerShell: Azure | Microsoft Docs'
+description: Esta página descreve como mover um circuito clássico para o modelo de implementação do Resource Manager com o PowerShell.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: c407e01e6d881cb8adcfe55faa246468669be883
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37db218010288912bf75d00fd5868aab171aef71
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Mover circuitos ExpressRoute do clássico para o modelo de implementação do Resource Manager com o PowerShell
 
@@ -71,7 +71,7 @@ Inicie sessão no ambiente do Gestor de recursos e criar um novo grupo de recurs
 1. Inicie sessão no seu ambiente do Azure Resource Manager.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Selecione a subscrição do Azure adequada.
@@ -157,7 +157,7 @@ Execute os seguintes cmdlets para desativar o acesso ao modelo de implementaçã
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar e modificar o encaminhamento para o seu circuito do ExpressRoute](expressroute-howto-routing-arm.md)
 * [Ligar a rede virtual para o circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)

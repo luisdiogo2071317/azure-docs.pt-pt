@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de utilizador predefinidas no Azure Active Directory
 
-No Azure Active Directory (Azure AD), todos os utilizadores recebem um conjunto de permissões predefinidas. Acesso de um utilizador é composta pelo tipo de utilizador, os respetivos [associações de função](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal)e a respetiva propriedade dos objetos individuais. Este artigo descreve as permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e de convidado.
+No Azure Active Directory (Azure AD), todos os utilizadores recebem um conjunto de permissões predefinidas. Acesso de um utilizador é composta pelo tipo de utilizador, os respetivos [associações de função](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal)e a respetiva propriedade dos objetos individuais. Este artigo descreve as permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e de convidado.
 
 ## <a name="member-and-guest-users"></a>Utilizadores de membro e o convidado
 O conjunto de permissões predefinidas recebido depende se o utilizador for um membro nativo do inquilino (utilizador membro) ou se o utilizador for um convidado de colaboração B2B (utilizador convidado). Para obter mais informações sobre a colaboração B2B, consulte [o que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md) para obter mais informações sobre os utilizadores convidados). 
@@ -38,11 +38,11 @@ As permissões predefinidas para os convidados são restritivas por predefiniç�
 Utilizadores e contactos | Ler todas as propriedades públicas de utilizadores e contactos<br>Convidar convidados<br>Alterar a própria palavra-passe<br>Gerir o número de telemóvel próprio<br>Gerir fotografia própria<br>Invalidar própria atualização de tokens | Ler as suas próprias propriedades<br>Ler o nome a apresentar, e-mail, nome de início de sessão, fotografias, nome principal de utilizador e propriedades de tipo de utilizador de outros utilizadores e contactos<br>Alterar a própria palavra-passe
 Grupos   | Criar grupos de segurança<br>Criar grupos do Office 365<br>Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Leitura oculto associações a grupos do Office 365 para associados a um grupo<br>Gerir propriedades, a propriedade e a associação dos grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa<br>Gerir definições de associação dinâmica<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365 | Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Ler ocultas associações a grupos do Office 365 para grupos associados<br>Gerir grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa (se for permitida)<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365           
 Aplicações | Registar (criar) nova aplicação<br>Leitura de propriedades de registado e aplicações empresariais<br>Gerir propriedades da aplicação, atribuições e as credenciais para aplicações pertencentes à empresa<br>Criar ou eliminar aplicação palavra-passe do utilizador<br>Eliminar aplicações pertencentes à empresa<br>Restore aplicações pertencentes à empresa | Leitura de propriedades de registado e aplicações empresariais<br>Gerir propriedades da aplicação, atribuições e as credenciais para aplicações pertencentes à empresa<br>Eliminar aplicações pertencentes à empresa<br>Restore aplicações pertencentes à empresa
-Dispositivos | Ler todas as propriedades dos dispositivos<br>Gerir todas as propriedades dos dispositivos pertencentes à empresa<br> | Não existem permissões<br>Eliminar dispositivos pertencentes à empresa<br>
+Dispositivos | Ler todas as propriedades dos dispositivos<br>Gerir todas as propriedades dos dispositivos pertencentes à empresa<br> | Sem permissões<br>Eliminar dispositivos pertencentes à empresa<br>
 Diretório | Ler todas as informações da empresa<br>Ler todos os domínios<br>Ler todos os contratos de parceiros | Nome a apresentar de leitura e a verificar a domínios
-Funções e âmbitos | Ler todas as associações e funções administrativas<br>Ler todas as propriedades e associação a unidades administrativas | Não existem permissões              
-Subscrições | Ler todas as subscrições<br>Ativar membro do plano de serviço | Não existem permissões
-Políticas | Ler todas as propriedades de políticas<br>Gerir todas as propriedades da política de propriedade | Não existem permissões
+Funções e âmbitos | Ler todas as associações e funções administrativas<br>Ler todas as propriedades e associação a unidades administrativas | Sem permissões              
+Subscrições | Ler todas as subscrições<br>Ativar membro do plano de serviço | Sem permissões
+Políticas | Ler todas as propriedades de políticas<br>Gerir todas as propriedades da política de propriedade | Sem permissões
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Para restringir as permissões predefinidas para os utilizadores de membro
 

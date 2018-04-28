@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -514,11 +514,11 @@ Depois de ter criado a sua oferta e SKU, deverá introduzir os detalhes da image
 
 |Problema|Mensagem de falha|Corrigir|Ligação de documentação|
 |---|---|---|---|
-|Falha ao copiar imagens - "?" não foi encontrado no SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o SAS Url utilizando recomendado ferramentas|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - "st" e "zar" parâmetros não SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS com datas de início e fim no mesmo|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - "SP2 = rl" não está num SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS|Atualizar o Url de SAS com definido como "Leitura" & "lista de permissões|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - SAS url tem espaços em branco no nome do vhd|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS, sem espaços em branco|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – erro de autorização de Url SAS|Falha: Copiar as imagens. Não é possível transferir BLOBs devido a erro de autorização|Voltar a gerar o Url SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - "?" não foi encontrado no SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o SAS Url utilizando recomendado ferramentas|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - "st" e "zar" parâmetros não SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS com datas de início e fim no mesmo|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - "SP2 = rl" não está num SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS|Atualizar o Url de SAS com definido como "Leitura" & "lista de permissões|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - SAS url tem espaços em branco no nome do vhd|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS, sem espaços em branco|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – erro de autorização de Url SAS|Falha: Copiar as imagens. Não é possível transferir BLOBs devido a erro de autorização|Voltar a gerar o Url SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Falha ao copiar imagens – o Url de SAS "st" e "zar" parâmetros não dispõe de especificação de data / hora completa|Falha: Copiar as imagens. Não é possível transferir BLOBs devido ao Url de SAS incorreto |Parâmetros de início do Url de SAS e a data de fim ("st", "zar") são necessários para ter a especificação de completa de data / hora, tal como 11-02-2017T00:00:00Z e não apenas a data ou versões reduzidas durante o período de tempo. É possível encontrar este cenário através do Azure CLI 2.0 (az command). Lembre-se de que fornecem a especificação de data / hora completa e voltar a gerar o Url de SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Passo seguinte

@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 726b062aecc11db738926586cdede045eae3a61e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit do Azure para o IntelliJ para criar Spark aplicações para um cluster do HDInsight
 
@@ -73,7 +71,7 @@ O utilizador pode optar por [iniciar sessão na subscrição do Azure](#sign-in-
    
     ![Um nó expandido do nome do cluster](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Ligar um cluster
+<h2 id="linkcluster">Ligar um cluster</h2>
 Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com). 
 1. Clique em **ligar um cluster** de **Explorador do Azure**.
 
@@ -113,7 +111,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, t
 
 3. O Assistente de criação do projeto de Scala Deteta automaticamente se instalou o Scala Plug-in. Selecione **instalar**.
 
-   ![Scala Plugin Check](./media/apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
+   ![Verificação de plug-in scala](./media/apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 
 4. Para transferir o Scala Plug-in, selecione **OK**. Siga as instruções para reiniciar o IntelliJ. 
 
@@ -287,7 +285,7 @@ Estes erros acontecer porque o tamanho da área dinâmica para dados não é suf
 ## <a name="faq"></a>FAQ
 Para submeter uma aplicação no Azure Data Lake Store, escolha **interativo** modo durante o processo de início de sessão do Azure. Se selecionar **automatizada** modo, pode obter um erro.
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![interative de início de sessão](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
 
 Agora, iremos resolve. Pode escolher um Cluster do Azure Data Lake ao submeter a sua aplicação com qualquer método de início de sessão.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux na análise de registos 
 Este artigo fornece detalhes para configurar o [agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho para aplicações específicas.  As aplicações incluídas neste artigo são:  
@@ -50,7 +50,7 @@ As entradas no ficheiro de autenticação são descritas na seguinte tabela.
 | Propriedade | Descrição |
 |:--|:--|
 | Porta | Representa a porta atual, que a instância de MySQL está a escutar. A porta 0 Especifica que as propriedades seguintes são utilizadas para a instância predefinida. |
-| Bind-Address| Endereço-atual MySQL enlace. |
+| Endereço de enlace| Endereço-atual MySQL enlace. |
 | o nome de utilizador| Utilizador MySQL utilizado para utilizar para monitorizar a instância de servidor MySQL. |
 | Palavra-passe de codificados Base64| Palavra-passe do utilizador de monitorização MySQL codificado em Base64. |
 | AutoUpdate| Especifica se pretende voltar a analisar as alterações no ficheiro my.cnf e substituir o ficheiro de MySQL OMI autenticação quando o fornecedor de OMI MySQL é atualizado. |
@@ -78,9 +78,9 @@ A tabela seguinte fornece detalhes sobre a sintaxe para utilizar mycimprovauth.
 
 | Operação | Exemplo | Descrição
 |:--|:--|:--|
-| AutoUpdate *falso\|verdadeiro* | mycimprovauth autoupdate false | Define o ficheiro de autenticação ou não será atualizado automaticamente no reiniciar ou atualizar. |
+| AutoUpdate *true ou false* | mycimprovauth autoupdate false | Define o ficheiro de autenticação ou não será atualizado automaticamente no reiniciar ou atualizar. |
 | predefinição *palavra-passe de nome de utilizador de enlace de endereço* | mycimprovauth predefinido 127.0.0.1 raiz pwd | Define a instância predefinida o OMI MySQL ficheiro authentication.<br>Deve ser introduzido o campo de palavra-passe em texto simples – a palavra-passe no ficheiro de autenticação de MySQL OMI será Base 64 codificado. |
-| eliminar *predefinido\|port_num* | mycimprovauth 3308 | Elimina a instância especificada por uma predefinição ou por número de porta. |
+| eliminar *predefinido ou port_num* | mycimprovauth 3308 | Elimina a instância especificada por uma predefinição ou por número de porta. |
 | ajuda | mycimprov ajuda | Impressões fora de uma lista de comandos a utilizar. |
 | Imprimir | mycimprov impressão | Impressões terminar uma fácil de ler MySQL OMI o ficheiro de autenticação. |
 | Atualizar port_num *palavra-passe de nome de utilizador de enlace de endereço* | mycimprov atualização 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância se não existir. |
@@ -99,8 +99,8 @@ O utilizador MySQL necessita de acesso para as seguintes consultas para recolher
 
 O utilizador MySQL também requer acesso SELECIONE as seguintes tabelas de predefinição.
 
-- information_schema
-- mysql. 
+- INFORMATION_SCHEMA
+- MySQL. 
 
 Podem ser concedidos esses privilégios executando os seguintes comandos de concessão.
 

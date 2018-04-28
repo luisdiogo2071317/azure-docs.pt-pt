@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -393,7 +393,7 @@ As seguintes variáveis, funções e vistas devolvem resultados diferentes:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Que excede o espaço de armazenamento com ficheiros de base de dados pequena
 
-Cada instância geridos tem cópias de segurança para armazenamento de 35 TB reservado para o espaço em disco do Azure Premium, e cada ficheiro de base de dados está colocado num disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode exceder 35 TB. Em alguns casos, um Instnace geridos que não precisa de 8 TB no total pode exceder o limite de TB Azure do tamanho de armazenamento, devido à fragmentação interno de 35. 
+Cada instância geridos tem cópias de segurança para armazenamento de 35 TB reservado para o espaço em disco do Azure Premium, e cada ficheiro de base de dados está colocado num disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode exceder 35 TB. Em alguns casos, uma instância geridos que não precisa de 8 TB no total pode exceder o limite de TB Azure do tamanho de armazenamento, devido à fragmentação interno de 35. 
 
 Por exemplo, uma instância geridos ter um ficheiro com tamanho 1.2 TB que utiliza um disco de 4 TB e 248 ficheiros com 1 GB cada que são colocados em 248 discos com o tamanho de 128 GB. Neste exemplo, o tamanho de armazenamento total do disco é 1 x 4 TB + GB de 248 x 128 = 35 TB. No entanto, o tamanho total de instância reservado para bases de dados é 1 x 1.2 TB + GB de 248 1 = 1,4 TB. Isto ilustra que em determinados circunstância, devido a uma distribuição muito específica dos ficheiros, uma instância geridos poderá atingir o limite de armazenamento do disco Premium do Azure onde poderá não esperada. 
 

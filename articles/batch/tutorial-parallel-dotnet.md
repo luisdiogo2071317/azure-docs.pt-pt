@@ -1,21 +1,21 @@
 ---
-title: "Executar uma carga de trabalho paralela – Azure Batch .NET"
-description: "Tutorial – Transcodificar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente .NET para o Batch"
+title: Executar uma carga de trabalho paralela – Azure Batch .NET
+description: Tutorial – Transcodificar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente .NET para o Batch
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API .NET
 
@@ -38,13 +38,13 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 ou uma versão mais recente). 
 
-* Uma conta do Batch e uma conta de armazenamento para fins gerais associada. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md).
+* Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md).
 
 * [Windows versão de 64 bits do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial apenas precisa do ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente. 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="add-an-application-package"></a>Adicionar um pacote de aplicação
@@ -63,7 +63,7 @@ Utilize o portal do Azure para adicionar o ffmpeg à sua conta do Batch como um 
 
 ### <a name="download-the-sample"></a>Transferir o exemplo
 
-[Transfira ou clonar a aplicação de exemplo](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
+[Transfira ou clone a aplicação de exemplo](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) a partir do GitHub. Para clonar o repositório de aplicações de exemplo com um cliente Git, utilize o seguinte comando:
 
 ```
 git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git

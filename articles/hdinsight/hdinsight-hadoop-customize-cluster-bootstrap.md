@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 3991a291de04b8bd9696b456fc11c24a9ddfe1d9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1a832bfdf09fbaa5c0e083b1263393285492795c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight utilizando o arranque de configuração
 
@@ -131,7 +131,7 @@ Pode utilizar o arranque no modelo do Resource Manager:
 
 ![HDInsight Hadoop customizes modelo Azure Resource Manager arranque de configuração do cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Criar clusters do Hadoop no HDInsight] [ hdinsight-provision-cluster] fornece instruções sobre como criar um cluster do HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de Script para o HDInsight][hdinsight-write-script]
 * [Instalar e utilizar o Spark nos clusters do HDInsight][hdinsight-install-spark]
@@ -190,7 +190,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create an HDInsight cluster

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -136,7 +136,7 @@ Seguem-se os valores esperados:
 | --- | --- |
 | {signature} |Uma cadeia de assinatura de HMAC SHA256 com o formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave de descodificar a partir de base64 e utilizada como chave para realizar a computação HMAC SHA256. |
 | {resourceURI} |Prefixos de URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando com o nome de anfitrião do hub IoT (nenhum protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
-| {expiry} |UTF8 cadeias para o número de segundos desde a UTC de 00:00:00 época no 1 de Janeiro de 1970. |
+| {expiração} |UTF8 cadeias para o número de segundos desde a UTC de 00:00:00 época no 1 de Janeiro de 1970. |
 | {URL-encoded-resourceURI} |Caso inferiores a codificação URL do recurso minúsculas URI |
 | {policyName} |O nome da política de acesso partilhado ao qual este token refere-se. Ausência de se o token refere-se às credenciais de registo do dispositivo. |
 
@@ -358,7 +358,7 @@ O [SDK do serviço do Azure IoT para c#] [ lnk-service-sdk] (versão 1.0.8+) sup
 
 ### <a name="c-support"></a>C\# suporte
 
-O **RegistryManager** classe fornece uma forma programática para registar um dispositivo. Em particular, a **AddDeviceAsync** e **UpdateDeviceAsync** métodos permitem-lhe registar e atualização de um dispositivo no registo de identidade do IoT Hub. Estes dois métodos recolhem uma **dispositivo** instância como entrada. O **dispositivo** classe inclui um **autenticação** propriedade permite-lhe especificar thumbprints de certificado x. 509 primários e secundários. O thumbprint representa um hash SHA-1 do certificado x. 509 (armazenado utilizando binário de codificação DER). Tem a opção de especificar um thumbprint primário ou um thumbprint secundário ou ambos. Thumbprints primários e secundários são suportados para processar cenários de rollover de certificado.
+O **RegistryManager** classe fornece uma forma programática para registar um dispositivo. Em particular, a **AddDeviceAsync** e **UpdateDeviceAsync** métodos permitem-lhe registar e atualização de um dispositivo no registo de identidade do IoT Hub. Estes dois métodos recolhem uma **dispositivo** instância como entrada. O **dispositivo** classe inclui um **autenticação** propriedade permite-lhe especificar thumbprints de certificado x. 509 primários e secundários. O thumbprint representa um hash SHA256 do certificado x. 509 (armazenado utilizando binário de codificação DER). Tem a opção de especificar um thumbprint primário ou um thumbprint secundário ou ambos. Thumbprints primários e secundários são suportados para processar cenários de rollover de certificado.
 
 Eis um exemplo C\# fragmento de código para registar um dispositivo com um thumbprint de certificado x. 509:
 
@@ -444,7 +444,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [A linguagem de consulta do IoT Hub] [ lnk-query] descreve o idioma de consulta pode utilizar para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como controlar o acesso do IoT Hub, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 

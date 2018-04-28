@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planear o ambiente de informações de séries de tempo do Azure
 
@@ -87,14 +87,14 @@ Não pode saber antecipadamente quantidade de dados pretende push. Neste caso, p
 Para obter informações sobre como evitar limitação e latência, consulte [mitigar latência e limitação](time-series-insights-environment-mitigate-latency.md). 
 
 ## <a name="shaping-your-events"></a>Formação os eventos
-É importante certificar-se de que forma pode enviar eventos para TSI suporta o tamanho do ambiente estiver a aprovisionar (por outro lado, pode mapear o tamanho do ambiente eventos quantos TSI lê e o tamanho de cada evento).  Da mesma forma, é importante considerar sobre os atributos que poderá querer segmentação e filtrar por ao consultar os dados.  Com isto em mente, sugerimos rever o JSON formação secção do nosso *enviar eventos* documentação [documentação] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Trata-se para a parte inferior da página.  
+É importante certificar-se de que forma pode enviar eventos para TSI suporta o tamanho do ambiente estiver a aprovisionar (por outro lado, pode mapear o tamanho do ambiente eventos quantos TSI lê e o tamanho de cada evento).  Da mesma forma, é importante considerar sobre os atributos que poderá querer segmentação e filtrar por ao consultar os dados.  Com isto em mente, sugerimos rever o JSON formação secção do nosso *enviar eventos* documentação [documentação] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Trata-se para a parte inferior da página.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Garantir que tem os dados de referência
 Um conjunto de dados de referência é uma coleção de itens que aumentar os eventos a partir da sua origem de evento. Motor de entrada de informações de séries de tempo associa cada evento da sua origem de evento com a linha de dados correspondente no seu conjunto de dados de referência. Esse evento aumentado fica então disponível para consulta. Esta associação é baseada em colunas de chave primária definidas no seu conjunto de dados de referência.
 
 Tenha em atenção de que os dados de referência não estiver associados retroactively. Isto significa que apenas os dados de entrada atuais e futuras são correspondidos e associados ao conjunto de datas de referência, uma vez que foi configurado e carregado.  Se pretender enviar muitos dados históricos para TSI não carregar ou criar dados de referência na TSI em primeiro lugar, em seguida, poderá ter de fazê-lo novamente o seu trabalho (sugestão, não fun).  
 
-Para obter mais informações sobre como criar, carregar e gerir os seus dados de referência na TSI, aceda ao nosso *referência a dados* documentação [documentação] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Para obter mais informações sobre como criar, carregar e gerir os seus dados de referência na TSI, aceda ao nosso *referência a dados* documentação [documentação] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

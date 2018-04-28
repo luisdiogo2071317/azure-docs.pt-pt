@@ -1,11 +1,11 @@
 ---
-title: "Registar inquilinos para utilização de controlo na pilha do Azure | Microsoft Docs"
-description: "Detalhes sobre operações utilizados para gerir registos de inquilino e como a utilização de inquilino está registada na pilha do Azure."
+title: Registar inquilinos para utilização de controlo na pilha do Azure | Microsoft Docs
+description: Detalhes sobre operações utilizados para gerir registos de inquilino e como a utilização de inquilino está registada na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerir o registo de inquilino na pilha do Azure
 
@@ -47,7 +47,7 @@ Tenha em atenção que apenas uma subscrição do Azure pode ser associada um in
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o cmdlet New-AzureRmResource para atualizar o recurso de registo. Inicie sessão no Azure (`Login-AzureRMAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
+Utilize o cmdlet New-AzureRmResource para atualizar o recurso de registo. Inicie sessão no Azure (`Connect-AzureRmAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Obter uma lista de todos os inquilinos que foram adicionados a um registo.
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o cmdlet Get-AzureRmResovurce para listar todas as registado inquilinos. Inicie sessão no Azure (`Login-AzureRMAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
+Utilize o cmdlet Get-AzureRmResovurce para listar todas as registado inquilinos. Inicie sessão no Azure (`Connect-AzureRmAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

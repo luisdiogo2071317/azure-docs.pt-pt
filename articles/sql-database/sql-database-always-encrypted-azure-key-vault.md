@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: ee03ae8edf4402e64f6b671a478a357369e8780a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bc91d8f954c0b41c5a6139de71071edaeac8d485
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Sempre encriptado: Proteger dados sensíveis na base de dados SQL e armazenar as chaves de encriptação no Cofre de chaves do Azure
 
@@ -59,7 +59,7 @@ Pode criar rapidamente um cofre de chaves executando o seguinte script. Para obt
     $vaultName = 'AeKeyVault'
 
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 

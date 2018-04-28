@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
 Este artigo fornece desempenho e sugestões de recursos para ajudar a planear a infraestrutura de cópia de segurança de VM. Também define aspetos fundamentais do serviço de cópia de segurança; Estes aspetos podem ser fundamental para determinar a arquitetura, planeamento de capacidade e agendamento. Se já [preparar o ambiente](backup-azure-arm-vms-prepare.md), planeamento é o passo seguinte antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte o [documentação de Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,7 +99,8 @@ Enquanto a maioria das cópias de segurança é despendido a ler e a cópia dos 
 
 * Tempo necessário para [instale ou Atualize a extensão de cópia de segurança](backup-azure-arm-vms.md).
 * Tempo de instantâneo, é o tempo decorrido para acionar um instantâneo. Instantâneos são acionados próximo da hora de cópia de segurança agendada.
-* Tempo de espera na fila. Uma vez que o serviço de cópia de segurança está a processar cópias de segurança de vários clientes, ao copiar dados de cópia de segurança do instantâneo para a cópia de segurança ou um cofre dos serviços de recuperação poderá não iniciar imediatamente. Em tempos de pico de carga, a espera pode stretch devido ao número de cópias de segurança que está a ser processados até oito horas. No entanto, o tempo de cópia de segurança de VM total é inferior a 24 horas para políticas de cópia de segurança diárias.
+* Tempo de espera na fila. Uma vez que o serviço de cópia de segurança está a processar cópias de segurança de vários clientes, ao copiar dados de cópia de segurança do instantâneo para a cópia de segurança ou um cofre dos serviços de recuperação poderá não iniciar imediatamente. Em tempos de pico de carga, a espera pode stretch devido ao número de cópias de segurança que está a ser processados até oito horas. No entanto, o tempo de cópia de segurança de VM total é inferior a 24 horas para políticas de cópia de segurança diárias. <br>
+**Isto mantém válido apenas para cópias de segurança incrementais e não para a primeira cópia de segurança. Primeira cópia de segurança é proporcional e pode ser superior a 24 horas, consoante o tamanho dos dados e a cópia de segurança de tempo é executada.**
 * Tempo de transferência de dados, o tempo necessário para o serviço de cópia de segurança para as alterações incrementais de cópia de segurança anterior de computação e transferir essas alterações para o Cofre de armazenamento.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Por que razão estou posso observar longer(>12 hours) tempo de cópia de segurança?

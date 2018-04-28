@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de grelha de eventos do Azure
 
 Este artigo descreve as propriedades e o esquema que estão presentes todos os eventos. Eventos são compostos por um conjunto de propriedades de cadeia necessário cinco e um objeto de dados necessário. As propriedades são comuns a todos os eventos a partir de qualquer fabricante. O objeto de dados contém as propriedades que são específicas para cada publicador. Tópicos de sistema, estas propriedades são específicas ao fornecedor de recursos, tais como o Storage do Azure ou Event Hubs do Azure.
 
-Eventos são enviados à grelha de eventos do Azure numa matriz, que pode conter muitos objetos de eventos. Se houver apenas um único evento, a matriz tem um comprimento de 1. A matriz pode ter um tamanho total de 1 MB. Cada evento na matriz está limitado a 64 KB.
+Origens de eventos enviam eventos à grelha de eventos do Azure numa matriz, que pode conter muitos objetos de eventos. Quando publicar eventos para um tópico da grelha de eventos, a matriz pode ter um tamanho total de 1 MB. Cada evento na matriz está limitado a 64 KB. Se um evento ou a matriz excede os limites de tamanho, receber a resposta **413 Payload demasiado grande**.
+
+Grelha de eventos envia os eventos para os subscritores numa matriz que contenha um único evento. Este comportamento podem ser alterados no futuro.
 
 Pode encontrar o esquema JSON para o evento de grelha de evento e o payload de dados de cada fabricante do Azure no [arquivo de esquema de eventos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 

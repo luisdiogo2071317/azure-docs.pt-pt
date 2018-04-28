@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 4f21e457b266fdd0106992dad29578eef6e89144
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 442ff942150af8a8dec89164fbc017a9e6f360e8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Como encriptar discos virtuais numa VM do Windows
 Para segurança avançada máquina virtual (VM) e conformidade, discos virtuais no Azure podem ser encriptados. Discos estão encriptados com as chaves criptográficas que são protegidas um cofre de chaves do Azure. Pode controla estas chaves criptográficas e pode auditar a sua utilização. Este artigo fornece detalhes sobre como encriptar discos virtuais numa VM do Windows com o Azure PowerShell. Também pode [encriptar uma VM com Linux utilizando o 2.0 CLI do Azure](../linux/encrypt-disks.md).
@@ -102,7 +102,7 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ## <a name="create-the-azure-active-directory-service-principal"></a>Criar o Azure Active Directory principal de serviço
 Quando os discos virtuais são encriptados ou desencriptados, especifique uma conta para processar a autenticação e a troca de chaves criptográficas do Cofre de chaves. Esta conta, um principal de serviço do Azure Active Directory, permite que a plataforma do Azure pedir as chaves criptográficas adequadas em nome da VM. Uma instância do Azure Active Directory predefinida está disponível na sua subscrição, apesar de muitas organizações têm dedicado diretórios do Azure Active Directory.
 
-Criar um principal de serviço no Azure Active Directory com [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Para especificar uma palavra-passe segura, siga o [políticas de palavra-passe e restrições no Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
+Criar um principal de serviço no Azure Active Directory com [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Para especificar uma palavra-passe segura, siga o [políticas de palavra-passe e restrições no Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
 
 ```powershell
 $appName = "My App"

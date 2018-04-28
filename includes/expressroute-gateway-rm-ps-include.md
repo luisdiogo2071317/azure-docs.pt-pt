@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9eaab359d76afce61cfcc72e3fa125b08856e32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 Os passos para esta tarefa utilizam uma VNet com base nos valores de lista de referências de configuração seguintes. Nomes e outras definições também são descritos nesta lista. Iremos não utilize esta lista diretamente em nenhum dos passos, embora adicionamos variáveis com base nos valores nesta lista. Pode copiar a lista para utilizar como uma referência, substituindo os valores pelos seus.
 
 **Lista de referência de configuração**
 
-* Virtual Network Name = "TestVNet"
+* Nome da rede virtual = "TestVNet"
 * Espaço de endereços de rede virtuais = 192.168.0.0/16
 * Resource Group = "TestRG"
 * Subnet1 Name = "FrontEnd" 
@@ -36,7 +36,7 @@ Os passos para esta tarefa utilizam uma VNet com base nos valores de lista de re
 1. Ligar à sua subscrição do Azure.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```

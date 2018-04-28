@@ -1,9 +1,9 @@
 ---
-title: "Resolver problemas de verificação em dois passos | Microsoft Docs"
-description: "Este documento irá fornecer as aos utilizadores informações sobre o que fazer se executam para um problema com o Azure multi-factor Authentication."
+title: Resolver problemas de verificação em dois passos | Microsoft Docs
+description: Este documento irá fornecer as aos utilizadores informações sobre o que fazer se executam para um problema com o Azure multi-factor Authentication.
 services: multi-factor-authentication
-keywords: "cliente de autenticação multifator, problema de autenticação, ID de correlação"
-documentationcenter: 
+keywords: cliente de autenticação multifator, problema de autenticação, ID de correlação
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,13 +16,13 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="get-help-with-two-step-verification"></a>Obter ajuda com verificação de dois passos
+# <a name="get-help-with-two-step-verification"></a>Obter ajuda para a verificação de dois passos
 Este artigo responde as perguntas mais comuns que pessoas colocar sobre verificação de dois passos. 
 
 ## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>Por que motivo é necessário efetuar verificação de dois passos? Pode posso desativá-la?
@@ -86,7 +86,7 @@ Se não tiver outro método configurado, contacte o suporte da empresa e peça-l
 Se tiver, muitas vezes, os atrasos devido a sinal de célula incorreto, recomendamos que utilize o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) no smartphone. A aplicação pode gerar códigos de segurança aleatório que utiliza para iniciar sessão e estes códigos não requerem qualquer ligação de sinal ou de internet de célula.
 
 ## <a name="app-passwords-are-not-working"></a>As palavras-passe de aplicação não estão a funcionar
-Em primeiro lugar, certifique-se de que introduziu a palavra-passe de aplicação corretamente. A palavra-passe de aplicação gerados substitui o normal palavra-passe, mas apenas aplicações de ambiente de trabalho mais antigas que não suportam a verificação em dois passos. Se esta ainda não está a funcionar, experimente iniciar sessão e [criar uma nova palavra-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md).  Se ainda não funciona, contacte o suporte da empresa e os [eliminar as palavras-passe de aplicação existentes](../multi-factor-authentication-manage-users-and-devices.md) e, em seguida, pode criar um novo.
+Em primeiro lugar, certifique-se de que introduziu a palavra-passe de aplicação corretamente. A palavra-passe de aplicação gerados substitui o normal palavra-passe, mas apenas aplicações de ambiente de trabalho mais antigas que não suportam a verificação em dois passos. Se esta ainda não está a funcionar, experimente iniciar sessão e [criar uma nova palavra-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md).  Se ainda não funciona, contacte o suporte da empresa e os [eliminar as palavras-passe de aplicação existentes](../../active-directory/authentication/howto-mfa-userdevicesettings.md) e, em seguida, pode criar um novo.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrar o meu problema uma resposta.
 Se tiver já tentou estes passos de resolução de problemas, mas é continuam a executar para problemas, contacte o suporte da empresa. Poderão ajudá-lo.

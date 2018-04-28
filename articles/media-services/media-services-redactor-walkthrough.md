@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d287206d30c05289679c83636ba5f968a5fcbcbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redact faces com instruções de análise de multimédia do Azure
 
@@ -30,7 +30,7 @@ Para obter detalhes sobre **Redactor de suporte de dados do Azure**, consulte o 
 
 Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho completo redaction utilizando o Explorador de serviços de suporte de dados do Azure (AMSE) e o Visualizador de Redactor de suporte de dados do Azure (ferramenta de código aberto).
 
-Para obter mais informações, consulte [isto](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blogue.
+Para obter mais informações, consulte [isto](https://azure.microsoft.com/blog/redaction-preview-available-globally) blogue.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Fluxo de trabalho de Explorador de serviços de suporte de dados do Azure
 

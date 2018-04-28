@@ -1,24 +1,18 @@
 ---
 title: Filtros na Azure Search | Microsoft Docs
-description: "Filtrar por identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure."
-services: search
-documentationcenter: 
+description: Filtrar por identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="filters-in-azure-search"></a>Filtros no Azure Search 
 
@@ -52,9 +46,9 @@ Cenários de exemplo incluem o seguinte:
 
 Se pretender um efeito para diminuir nos resultados da pesquisa, filtros não são à sua escolha apenas. Estas alternativas pode ser uma opção melhor, consoante o objetivo:
 
- + `searchFields`o parâmetro de consulta pegs pesquisa a campos específicos. Por exemplo, se o seu índice fornece os campos separados para obter descrições em inglês e espanhol, pode utilizar searchFields para os campos a utilizar para pesquisa em texto completo de destino. 
+ + `searchFields` o parâmetro de consulta pegs pesquisa a campos específicos. Por exemplo, se o seu índice fornece os campos separados para obter descrições em inglês e espanhol, pode utilizar searchFields para os campos a utilizar para pesquisa em texto completo de destino. 
 
-+ `$select`parâmetro é utilizado para especificar os campos para incluir num resultado de definir, trimming efetivamente a resposta antes de a enviar para a aplicação de chamada. Este parâmetro não refine a consulta ou reduza a coleção de documentos, mas se uma resposta granular sobre o seu objetivo, este parâmetro é uma opção a ter em consideração. 
++ `$select` parâmetro é utilizado para especificar os campos para incluir num resultado de definir, trimming efetivamente a resposta antes de a enviar para a aplicação de chamada. Este parâmetro não refine a consulta ou reduza a coleção de documentos, mas se uma resposta granular sobre o seu objetivo, este parâmetro é uma opção a ter em consideração. 
 
 Para obter mais informações sobre o parâmetro, consulte [documentos sobre pesquisa > pedido > parâmetros de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
@@ -77,10 +71,10 @@ Os exemplos seguintes representam as definições de filtro prototypical em vár
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -161,7 +155,7 @@ Cadeias de texto são maiúsculas e minúsculas. Não há nenhum inferior-tem ma
 
 | Abordagem | Descrição | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função de fornecer lista delimitada por vírgulas de cadeias para um determinado campo. As cadeias compõem os critérios de filtro, o que são aplicados a todos os campos no âmbito de consulta. <br/><br/>`search.in(f, ‘a, b, c’)`ponto de vista semântico equivalente ao `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que executa muito mais rapidamente quando a lista de valores é grande.<br/><br/>Recomendamos o **search.in** funcionar para [filtros de segurança](search-security-trimming-for-azure-search.md) e para quaisquer filtros é composto por texto não processado a correspondência nos valores num campo especificado. Esta abordagem foi concebida para velocidade. Pode contar com tempo de resposta subsecond centenas e os milhares de valores. Enquanto não existe nenhum limite explícito no número de itens que pode passar para a função, os aumentos de latência in proportion to o número de cadeias que fornecer. | 
+| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função de fornecer lista delimitada por vírgulas de cadeias para um determinado campo. As cadeias compõem os critérios de filtro, o que são aplicados a todos os campos no âmbito de consulta. <br/><br/>`search.in(f, ‘a, b, c’)` ponto de vista semântico equivalente ao `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que executa muito mais rapidamente quando a lista de valores é grande.<br/><br/>Recomendamos o **search.in** funcionar para [filtros de segurança](search-security-trimming-for-azure-search.md) e para quaisquer filtros é composto por texto não processado a correspondência nos valores num campo especificado. Esta abordagem foi concebida para velocidade. Pode contar com tempo de resposta subsecond centenas e os milhares de valores. Enquanto não existe nenhum limite explícito no número de itens que pode passar para a função, os aumentos de latência in proportion to o número de cadeias que fornecer. | 
 | [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que permite-lhe misturar operações de pesquisa em texto completo com operações de filtro estritamente booleano na mesma expressão de filtro. Permite que várias combinações de filtro de consulta num pedido. Também pode utilizá-la para um *contém* filtro para filtrar numa cadeia parcial dentro de uma cadeia de maior. |  
 | [$filter = cadeia de operador do campo](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma expressão definido pelo utilizador é composto por campos, operadores e valores. | 
 
@@ -171,7 +165,7 @@ Os campos numéricos não são `searchable` no contexto de pesquisa em texto com
 
 Documentos que contenham os campos numéricos (preço, tamanho, SKU, ID) fornecem esses valores nos resultados da pesquisa, se o campo está marcado como `retrievable`. O ponto de aqui é que a pesquisa em texto completo em si não é aplicável a tipos de campo numérico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Em primeiro lugar, tente **Explorador de pesquisa** no portal para submeter consultas com **$filter** parâmetros. O [real-propriedade-sample índice](search-get-started-portal.md) fornece resultados interessantes para o seguinte filtrado consultas quando cole-os para a barra de pesquisa:
 
@@ -198,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabalhar com mais exemplos, consulte [sintaxe de expressão de filtro de OData > exemplos](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Como completa a pesquisa em texto funciona na Azure Search](search-lucene-query-architecture.md)
 + [API de REST de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents)

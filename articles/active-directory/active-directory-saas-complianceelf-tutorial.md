@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ELF compatibilidade | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ELF de conformidade."
+title: 'Tutorial: Integração do Azure Active Directory com ELF compatibilidade | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ELF de conformidade.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 32cb676393558079baad9bb0fc26d2c4daaa3519
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutorial: Integração do Azure Active Directory com ELF de conformidade
 
@@ -101,52 +101,33 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
 3. No **URLs e conformidade ELF domínio** secção, execute os seguintes passos, se pretender configurar a aplicação no **IDP** iniciada modo:
 
     ![Conformidade ELF domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_url.png)
 
-    No **identificador** caixa de texto, escreva um URL como:`https://sso.cordium.com`
+    No **identificador** caixa de texto, escreva um URL como: `https://sso.cordium.com`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Conformidade ELF domínio e os URLs-início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.complianceelf.com`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Este valor não é real. Atualize esta valores com o URL de início de sessão real. Contacte [equipa de suporte de compatibilidade ELF](mailto:support@complianceelf.com) para obter este valor.
 
-5. Clique em **guardar** botão.
+5. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+    
+    ![Configurar o início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_metadataurl.png)
+     
+6. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-complianceelf-tutorial/tutorial_general_400.png)
 
-6. Para gerar o **metadados** url, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
-     
-    d. Agora aceda à página de propriedades do **conformidade ELF** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Para configurar o início de sessão único em **conformidade ELF** lado, terá de enviar o **URL de metadados** para [equipa de suporte de compatibilidade ELF](mailto:support@complianceelf.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Para configurar o início de sessão único em **conformidade ELF** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de compatibilidade ELF](mailto:support@complianceelf.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

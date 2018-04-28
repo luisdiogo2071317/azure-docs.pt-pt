@@ -1,8 +1,8 @@
 ---
 title: Proteger o acesso privilegiado no Azure AD | Microsoft Docs
-description: "Um tópico que explica as abordagens para proteger o acesso privilegiado através do Azure, o Azure Active Directory e o Microsoft Online Services."
+description: Um tópico que explica as abordagens para proteger o acesso privilegiado através do Azure, o Azure Active Directory e o Microsoft Online Services.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f49d5a629b9643df81253c57ee8e3458b43b0c59
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Proteger o acesso privilegiado no Azure AD
 Proteger o acesso privilegiado é o primeiro passo crítico para ajudar a proteger os ativos de negócio numa organização moderna. Contas com privilégios são contas que administre e gira os sistemas de TI. Os atacantes de informático estas contas para obter acesso aos dados de uma organização e sistemas de destino. Para proteger o acesso privilegiado, deve isolar as contas e os sistemas do risco de que está a ser expostos a um utilizador mal intencionado.
@@ -63,7 +63,7 @@ Para reduzir o tempo de exposição de privilégios e aumentar a visibilidade pa
 Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha quando autenticar um utilizador, antes de permitir o acesso a uma aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação.
 
 ## <a name="related-articles"></a>Artigos relacionados
-* Ativar [multi-factor Authentication do Azure](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
+* Ativar [multi-factor Authentication do Azure](../authentication/howto-mfa-getstarted.md)
 * Ativar [do Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Ativar [do Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Ativar [controlos de acesso condicional](../active-directory-conditional-access-azure-portal.md)

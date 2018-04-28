@@ -8,18 +8,21 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: f20ad163cc3ca1e0cc852177f5a58c0096578361
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
-ms.translationtype: HT
+ms.openlocfilehash: 727b82692400da166d892f2385e01b0ec19863e2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 Crie uma [aplicação Web](../articles/app-service/containers/app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan`. 
 
 Na Cloud Shell, pode utilizar o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No exemplo a seguir, substitua `<app_name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). O runtime está definido como `dotnetcore|1.1`. Para ver todos os runtimes suportados, execute [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
+# Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
+# Powershell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
 ```
 
 Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo:

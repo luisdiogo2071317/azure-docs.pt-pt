@@ -1,19 +1,19 @@
 ---
-title: "Implementar um cluster de contentor Docker – Azure CLI"
-description: "Implementar uma solução Kubernetes, DC/OS ou Docker Swarm no Azure Container Service através da CLI 2.0 do Azure"
+title: Implementar um cluster de contentor Docker – Azure CLI
+description: Implementar uma solução Kubernetes, DC/OS ou Docker Swarm no Azure Container Service através da CLI 2.0 do Azure
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 40d5ea0e7abce165659219db8842ab64ac75fda7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 037834fa94a4ef6ecf6ab87055ed1369a3c8f1fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Implementar uma solução de alojamento de contentor Docker com a CLI 2.0 do Azure
 
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Recomendamos que crie um grupo de recursos para cada cluster. Especifique uma região do Azure em que o Azure Container Service esteja [disponível](https://azure.microsoft.com/en-us/regions/services/). Por exemplo:
+Recomendamos que crie um grupo de recursos para cada cluster. Especifique uma região do Azure em que o Azure Container Service esteja [disponível](https://azure.microsoft.com/regions/services/). Por exemplo:
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

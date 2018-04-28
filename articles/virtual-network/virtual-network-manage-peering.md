@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 55de110c61b2b7603c2f01483e28d12032b732c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -31,7 +31,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com peerings.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.5.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente do PowerShell, também terá de executar `Login-AzureRmAccount` com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com o peering, para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.5.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente do PowerShell, também terá de executar `Connect-AzureRmAccount` com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com o peering, para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com o peering, para criar uma ligação com o Azure.
 
 ## <a name="create-a-peering"></a>Criar um peering
@@ -42,7 +42,7 @@ Antes de criar um peering, familiarize-se com o [requisitos e restrições](#req
 2. Selecione a rede virtual na lista que pretende criar um peering para.
 3. Na lista de redes virtuais, selecione a rede virtual que pretende criar um peering para.
 4. Em **definições**, selecione **Peerings**.
-5. Selecione **+ adicionar**. 
+5. Selecione **+ Adicionar**. 
 6. <a name="add-peering"></a>Introduza ou selecione os valores para as seguintes definições:
     - **Nome:** o nome para o peering tem de ser exclusivo dentro da rede virtual.
     - **Modelo de implementação de rede virtual:** selecione a rede virtual que pretende peering com de modelo de implementação de que foi implementada através de.
@@ -129,8 +129,8 @@ Se pretender que as redes virtuais para comunicar por vezes, mas nem sempre, em 
 - As subscrições que ambas as redes virtuais que pretende elemento são pol, tem de estar associado ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições associadas aos inquilinos diferentes do Active Directory.
 - Uma rede virtual pode estar em modo de peering para outra rede virtual e também de estar ligada a outra rede virtual com um gateway de rede virtual do Azure. Quando estão ligados a redes virtuais através de peering e um gateway, o tráfego entre as redes virtuais flui através da configuração do peering, em vez do gateway.
 - Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize um peering de rede virtual. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
-* <a name="cross-region"></a>Pode elemento redes virtuais nas regiões idêntica ou diferentes. As seguintes restrições não se aplicam quando ambas as redes virtuais estiverem a ser o *mesmo* região, mas aplicam-se quando as redes virtuais se encontram em *diferentes* regiões: 
-    - As redes virtuais só podem existir nas seguintes regiões: Sul Coreia, sul do RU, RU oeste, Canadá leste, Sul da Índia, Índia Central, Índia Ocidental, EUA oeste Central, Canadá Central e dos EUA oeste 2.
+* <a name="cross-region"></a>Pode elemento redes virtuais na mesma região ou regiões diferentes. As seguintes restrições não se aplicam quando ambas as redes virtuais estiverem a ser o *mesmo* região, mas aplicam quando as redes virtuais global em modo de peering: 
+    - As redes virtuais só podem existir nas seguintes regiões: Central EUA oeste (Wyoming), EUA oeste 2 (Washington), EUA Central (Iowa), EUA Leste 2 (Virginia), Canadá Central (Toronto), Canadá Leste (Quebeque), Sudeste Asiático (Singapura) Coreia Sul (Buscan), South Índia (Chennai), Índia Central (Pune), oeste da Índia (Mumbai), RU South (Londres), oeste RU (Cardiff), Europa Ocidental (Países Baixos)
     - Recursos numa rede virtual não é possível comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual em modo de peering. O Balanceador de carga e os recursos que comunicam com a mesma tem de ser na mesma rede virtual.
     - Não é possível utilizar gateways remotos ou permitir que o trânsito do gateway. Para utilizar gateways remotos ou permitir que o trânsito do gateway, ambas as redes virtuais no peering de tem de existir na mesma região. 
 

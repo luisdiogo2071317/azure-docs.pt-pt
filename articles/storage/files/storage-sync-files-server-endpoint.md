@@ -1,8 +1,8 @@
 ---
-title: "Adicionar/remover um ponto final de servidor de sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs"
-description: "Saiba o que deve considerar quando planear uma implementação de ficheiros do Azure."
+title: Adicionar/remover um ponto final de servidor de sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs
+description: Saiba o que deve considerar quando planear uma implementação de ficheiros do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adicionar/remover um ponto final de servidor de sincronização de ficheiros do Azure (pré-visualização)
 O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -49,7 +49,7 @@ As seguintes informações são necessárias em **adicionar ponto final do servi
 Selecione **criar** para adicionar o ponto final do servidor. Os ficheiros dentro de um espaço de nomes de um grupo de sincronização irão agora ser mantidos sincronizados. 
 
 ## <a name="remove-a-server-endpoint"></a>Remover um ponto final do servidor
-Quando ativada para um ponto final do servidor, na nuvem será camada *camada* ficheiros para as partilhas de ficheiros do Azure. Isto permite que as partilhas de ficheiros no local agir como uma cache, em vez de uma cópia completa de conjunto de dados, para utilizar de forma eficaz de espaço no servidor de ficheiros. No entanto, se um ponto final do servidor é removido com ficheiros em camadas ainda localmente no servidor, ficará unaccessible esses ficheiros. Por conseguinte, se continuaram acesso ao ficheiro for pretendido, tem de recuperar todos os ficheiros em camadas de ficheiros do Azure antes de continuar com deregistration. 
+Quando ativada para um ponto final do servidor, na nuvem será camada *camada* ficheiros para as partilhas de ficheiros do Azure. Isto permite que as partilhas de ficheiros no local agir como uma cache, em vez de uma cópia completa de conjunto de dados, para utilizar de forma eficaz de espaço no servidor de ficheiros. No entanto, **se um ponto final do servidor é removido com ficheiros em camadas ainda localmente no servidor, esses ficheiros irão tornar-se inacessível**. Por conseguinte, se continuaram a pretender a acesso a ficheiros em partilhas de ficheiros no local, tem de recuperar todos os ficheiros em camadas de ficheiros do Azure antes de continuar com a eliminar o ponto final do servidor. 
 
 Isto pode ser feito com o cmdlet do PowerShell conforme mostrado abaixo:
 

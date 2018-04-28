@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db38678a05afbc764dec20f2a475e00856a1aeee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e o desempenho (pré-visualização)
 
 ![Símbolo de capacidade e o desempenho](./media/log-analytics-capacity/capacity-solution.png)
+
+> [!NOTE]
+> A solução de capacidade e o desempenho foi preterida.  Os clientes que já instalou a solução podem continuar a utilizá-la, mas a capacidade e o desempenho não podem ser adicionada a qualquer áreas de trabalho de novo.
 
 Pode utilizar a solução de capacidade e o desempenho na análise de registos para ajudar a compreender a capacidade dos seus servidores de Hyper-V. A solução fornece informações para o seu ambiente de Hyper-V para mostrar a utilização geral (CPU, memória e o disco) de anfitriões e as VMs em execução nesses anfitriões Hyper-V. As métricas são recolhidas para a CPU, memória e discos em todos os seus anfitriões e as VMs em execução nos mesmos.
 
@@ -89,7 +92,7 @@ Quando adiciona a solução de capacidade e desempenho para a sua área de traba
 
 Clique no mosaico para abrir o dashboard de desempenho e capacidade de capacidade e o desempenho. O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta uma lista de até dez itens que correspondem aos critérios dessa coluna para o âmbito e o intervalo de tempo especificados. Pode executar uma pesquisa de registos que devolve todos os registos ao clicar em **Ver tudo**, na parte inferior da coluna, ou ao clicar no cabeçalho da coluna.
 
-- **Hosts**
+- **anfitriões**
     - **Utilização da CPU do anfitrião** mostra uma tendência gráfica de utilização da CPU de computadores de anfitrião e uma lista de anfitriões, com base no período de tempo selecionado. Coloque o cursor sobre o gráfico de linhas para ver os detalhes para um ponto específico no tempo. Clique em gráfico para ver mais detalhes na pesquisa de registo. Clique em qualquer nome de anfitrião para abrir a pesquisa de registo e ver os detalhes do contador de CPU para as VMs alojadas.
     - **Utilização da memória de anfitrião** mostra uma tendência gráfica da utilização de memória de computadores de anfitrião e uma lista de anfitriões, com base no período de tempo selecionado. Coloque o cursor sobre o gráfico de linhas para ver os detalhes para um ponto específico no tempo. Clique em gráfico para ver mais detalhes na pesquisa de registo. Clique em qualquer nome de anfitrião para abrir a pesquisa de registo e ver os detalhes do contador de memória para VMs alojadas.
 - **Máquinas Virtuais**

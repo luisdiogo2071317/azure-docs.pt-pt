@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 01de1020cd485b3cf91e5d5bc2e175df2bcad111
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados para ou da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 
@@ -87,7 +87,7 @@ Para copiar dados de/para a base de dados do Azure Cosmos, defina a propriedade 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **DocumentDbCollection** |Sim |
-| collectionName |Nome da coleção de documentos de BD do Cosmos. |Sim |
+| CollectionName |Nome da coleção de documentos de BD do Cosmos. |Sim |
 
 **Exemplo:**
 
@@ -168,7 +168,6 @@ Para copiar dados para a base de dados do Azure Cosmos, defina o tipo de sink na
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **DocumentDbCollectionSink** |Sim |
 | nestingSeparator |É necessário um caráter especial no nome de coluna de origem para indicar que documentos aninhados. <br/><br/>Por exemplo, `Name.First` no conjunto de dados de saída estrutura gera a seguinte estrutura JSON no documento de BD do Cosmos:`"Name": {"First": "[value maps to this column from source]"}` quando o nestedSeparator é ponto. |Não (predefinição é dot `.`) |
-| writeBatchTimeout |De tempo de espera para a operação seja concluída antes de atingir o tempo limite.<br/><br/>Valores permitidos são: timespan. Exemplo: "00: 30:00" (30 minutos). |Não |
 
 **Exemplo:**
 

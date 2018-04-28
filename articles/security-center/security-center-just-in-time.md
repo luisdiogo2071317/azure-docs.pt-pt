@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 04/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c2a7e723d21f79f21e92da31fbc4fd49d64fd37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo
 
@@ -119,6 +119,16 @@ Para pedir acesso a uma VM:
 
 4. Em **pedir acesso**, configurar para cada VM as portas para abrir juntamente com o IP de origem que a porta está aberta e a janela de tempo para que a porta está aberta. Pode pedir acesso apenas para as portas que são configuradas no apenas na política de tempo. Cada porta tem um máximo de tempo que deriva de apenas permitido na política de tempo.
 5. Selecione **abrir portas**.
+
+> [!NOTE]
+> Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se tiver permissões de escrita, o pedido é aprovado.
+>
+>
+
+> [!NOTE]
+> Se um utilizador que está a pedir acesso estiver atrás de um proxy, a opção "Os meus IP" pode não funcionar. Poderá ser necessário definir o intervalo completo da organização.
+>
+>
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Editar uma política de acesso de tempo
 

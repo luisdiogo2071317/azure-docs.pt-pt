@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de padrões de utilização comuns do Stream Analytics de consulta
+
 ## <a name="introduction"></a>Introdução
-As consultas no Azure Stream Analytics são expressas num idioma de consulta como o SQL Server. Estas consultas estão documentadas no [referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) guia. Este artigo descreve soluções para vários padrões de consulta comuns, com base nos cenários no mundo real. Este é um trabalho em curso e continua a ser atualizada com novos padrões numa base contínua.
+As consultas no Azure Stream Analytics são expressas num idioma de consulta como o SQL Server. As construções de idioma estão documentadas no [referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) guia. 
+
+A estrutura de consulta pode express lógica pass-through simples para mover dados de eventos a partir de um fluxo de entrada para outro arquivo de dados de saída. Ou pode fazer a análise correspondente e temporal padrão avançado para calcular os agregados ao longo de vários intervalos de tempo, tal como no exemplo a TollApp. Pode associar dados a partir de várias entradas combinar a transmissão em fluxo de eventos e efetuar pesquisas em relação a dados de referência estáticos enriquecer os valores de eventos. Também pode escrever dados várias saídas.
+
+Este artigo descreve soluções para vários padrões de consulta comuns, com base nos cenários no mundo real. Este é um trabalho em curso e continua a ser atualizada com novos padrões numa base contínua.
 
 ## <a name="query-example-convert-data-types"></a>Exemplo de consulta: converter os tipos de dados
 **Descrição**: definir os tipos de propriedades no fluxo de entrada.
@@ -359,7 +364,7 @@ Por exemplo, 2 carros consecutivos de disponibilizar a mesma introduzido viagem 
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
 | Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Saída**:
@@ -463,7 +468,7 @@ Por exemplo, gere um evento a cada cinco segundos que o ponto de dados mais rece
 
 **Entrada**:
 
-| t | valor |
+| T | valor |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**EXPLICAÇÃO**: A primeira consulta `max_power_during_last_3_mins`, utiliza o [deslizantes janela](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para determinar o valor máximo do sensor de energia para cada dispositivo, durante os últimos 3 minutos. A consulta segundo é associada à primeira consulta para encontrar o valor de energia na janela da mais recente relevantes para o evento atual. E, em seguida, desde que as condições são cumpridas, é gerado um alerta para o dispositivo.
+**EXPLICAÇÃO**: A primeira consulta `max_power_during_last_3_mins`, utiliza o [deslizantes janela](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para determinar o valor máximo do sensor de energia para cada dispositivo, durante os últimos 3 minutos. A consulta segundo é associada à primeira consulta para encontrar o valor de energia na janela da mais recente relevantes para o evento atual. E, em seguida, desde que as condições são cumpridas, é gerado um alerta para o dispositivo.
 
 
 ## <a name="get-help"></a>Obter ajuda

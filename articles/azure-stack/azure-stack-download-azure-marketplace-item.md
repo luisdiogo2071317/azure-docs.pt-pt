@@ -1,12 +1,12 @@
 ---
 title: Transferir itens do marketplace a partir do Azure | Microsoft Docs
-description: "Posso pode transferir itens do marketplace a partir do Azure para a minha implementação da pilha do Azure."
+description: Posso pode transferir itens do marketplace a partir do Azure para a minha implementação da pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir os itens do marketplace a partir do Azure com a pilha do Azure
 
@@ -31,7 +31,7 @@ Como decidir o conteúdo que pretende incluir na sua marketplace de pilha do Azu
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Transferir itens do marketplace num cenário ligado (com acesso à internet)
 
 1. Para transferir os itens do marketplace, deve primeiro [registar pilha do Azure com o Azure](azure-stack-register.md).
-2. Inicie sessão no portal de administrador do Azure pilha (https://portal.local.azurestack.external).
+2. Inicie sessão no portal de administrador a pilha do Azure (https://portal.local.azurestack.external).
 3. Alguns itens do marketplace podem ser elevados. Certifique-se de que tem espaço suficiente no seu sistema clicando **fornecedores de recursos** > **armazenamento**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -62,7 +62,7 @@ Partir do computador que tenha acesso à internet, utilize os seguintes passos p
 
 1. Abra uma consola do PowerShell como administrador e [instalar os módulos do PowerShell específicos do Azure pilha](azure-stack-powershell-install.md). Certifique-se de que instala **PowerShell versão 1.2.11 ou superior**.  
 
-2. Adicione a conta do Azure que utilizou para registar a pilha do Azure. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet sem quaisquer parâmetros. É-lhe pedido que introduza as credenciais da conta do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.  
+2. Adicione a conta do Azure que utilizou para registar a pilha do Azure. Para adicionar a conta, execute o **Connect-AzureRmAccount** cmdlet sem quaisquer parâmetros. É-lhe pedido que introduza as credenciais da conta do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.  
 
 3. Se tiver várias subscrições, execute o seguinte comando para selecionar aquela que utilizou para o registo:  
 

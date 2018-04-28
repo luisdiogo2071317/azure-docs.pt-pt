@@ -1,26 +1,26 @@
 ---
-title: "Condições de acesso condicional do Azure Active Directory | Microsoft Docs"
-description: "Saiba como atribuições são utilizadas no acesso condicional do Azure Active Directory para acionar uma política."
+title: Condições de acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como atribuições são utilizadas no acesso condicional do Azure Active Directory para acionar uma política.
 services: active-directory
-keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
 
@@ -71,7 +71,7 @@ A condição de aplicações em nuvem é obrigatória numa política de acesso c
 
 Pode selecionar:
 
-- **Todas as aplicações em nuvem** políticas de linha de base para ser aplicado a toda a organização. Um caso de utilização comum para esta seleção é uma política que requer autenticação multifator quando for detetado o risco de início de sessão para qualquer aplicação na nuvem.
+- **Todas as aplicações em nuvem** políticas de linha de base para ser aplicado a toda a organização. Um caso de utilização comum para esta seleção é uma política que requer autenticação multifator quando for detetado o risco de início de sessão para qualquer aplicação na nuvem. Uma política aplicada ao **todas as aplicações em nuvem** aplica-se para o acesso a todos os web sites e serviços. Esta definição não está limitada às aplicações em nuvem que aparecem no **aplicações em nuvem selecione** lista.
 
 - Aplicações de cloud individuais para serviços específicos do destino pela política. Por exemplo, pode exigir que os utilizadores tenham uma [dispositivo compatível com](active-directory-conditional-access-policy-connected-applications.md) para aceder ao SharePoint Online. Também a política é aplicada a outros serviços quando acedem a conteúdo do SharePoint, por exemplo, Teams da Microsoft. 
 

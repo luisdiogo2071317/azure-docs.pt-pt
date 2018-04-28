@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerir as aplicações para vários ambientes
 
@@ -48,8 +48,8 @@ A configuração que fornecer pode ser dividida em duas categorias:
 
 Quando criar um instâncias com nome de aplicação no Service Fabric, terá a opção para passar os parâmetros. Da mesma forma, depende de como criar a instância da aplicação.
 
-  - No PowerShell, o [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet aceita os parâmetros da aplicação como uma tabela hash.
-  - Utilizar sfctl, o [ `sfctl application create` ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) comando aceita parâmetros como uma cadeia JSON. O script de install.sh utiliza sfctl.
+  - No PowerShell, o [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet aceita os parâmetros da aplicação como uma tabela hash.
+  - Utilizar sfctl, o [ `sfctl application create` ](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) comando aceita parâmetros como uma cadeia JSON. O script de install.sh utiliza sfctl.
   - Visual Studio fornece um conjunto de ficheiros de parâmetro na pasta de parâmetros no projeto de aplicação. Estes ficheiros de parâmetro são utilizados durante a publicação do Visual Studio, utilizando o serviço de equipa do Visual Studio Team Foundation Server. No Visual Studio, os ficheiros de parâmetro são que está a ser transmitidos para o script de FabricApplication.ps1 implementar.
 
 ## <a name="next-steps"></a>Passos Seguintes

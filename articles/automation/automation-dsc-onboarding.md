@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração de gestão do Automation DSC do Azure
 
@@ -53,7 +53,7 @@ Para localizar o URL de registo e da chave da conta de automatização para carr
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Para carregar genericamente qualquer computador no DSC da automatização do Azu
 Se as predefinições do Gestor de configuração Local do PowerShell DSC corresponder ao seu caso de utilização e que pretende carregar máquinas para que possam tanto solicitar a partir e reportam a Automation DSC do Azure, os cmdlets de automatização do Azure fornecem um método simplificado para gerar o metaconfigurations DSC necessário:
 
 1. Abra a consola do PowerShell ou o ISE do PowerShell como administrador num computador do ambiente local.
-2. Ligar ao utilizar o Azure Resource Manager **Add-AzureRmAccount**
+2. Ligar ao utilizar o Azure Resource Manager **Connect-AzureRmAccount**
 3. Transfira o metaconfigurations DSC do PowerShell para as máquinas que pretende para carregar da conta de automatização à qual pretende integrar nós:
 
     ```powershell

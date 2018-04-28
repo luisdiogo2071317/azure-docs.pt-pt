@@ -3,7 +3,7 @@ title: Serviços de segurança do Azure e as tecnologias | Microsoft Docs
 description: O artigo fornece uma lista organizada de tecnologias e serviços de segurança do Azure.
 services: security
 documentationcenter: na
-author: TomShinder
+author: barclayn
 manager: MBaldwin
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 838987e7fa5e638a980c592f5cdf775d3110fab0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: eedfca2506f9e34b8e5039b0f101b1d4e68ef5a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Serviços de segurança do Azure e tecnologias
+
 No nosso discussões com clientes do Azure atuais e futuros, iremos estiver a muitas vezes, mais frequentes "tem uma lista de todos os segurança relacionados com serviços e as tecnologias que o Azure tem para oferecer?"
 
 Quando avaliar as opções do fornecedor de serviço em nuvem, é útil ter estas informações.
@@ -28,6 +29,7 @@ Quando avaliar as opções do fornecedor de serviço em nuvem, é útil ter esta
 Segue-se nosso esforço inicial a proporcionar uma lista. Ao longo do tempo, esta lista irá alterar e aumentar, tal como sucede do Azure. A lista está categorizada e a lista de categorias também irá aumentar ao longo do tempo. Certifique-se verificar esta página regularmente para se manter atualizado no nosso tecnologias e serviços relacionados com segurança.
 
 ## <a name="azure-security---general"></a>Segurança do Azure – geral
+
 * [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/)
 * [Cofre de Chaves do Azure](https://azure.microsoft.com/documentation/services/key-vault/)
 * [Encriptação de disco do Azure](azure-security-disk-encryption.md)
@@ -35,6 +37,7 @@ Segue-se nosso esforço inicial a proporcionar uma lista. Ao longo do tempo, est
 * [Laboratórios de desenvolvimento/teste do Azure](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Segurança de armazenamento do Azure
+
 * [Encriptação do serviço de armazenamento do Azure](../storage/common/storage-service-encryption.md)
 * [StorSimple encriptados armazenamento híbrida](https://azure.microsoft.com/documentation/services/storsimple/)
 * [Encriptação do lado do cliente do Azure](../storage/common/storage-client-side-encryption.md)
@@ -44,6 +47,7 @@ Segue-se nosso esforço inicial a proporcionar uma lista. Ao longo do tempo, est
 * [Análise de armazenamento do Azure](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Segurança da base de dados do Azure
+
 * [Firewall do SQL do Azure](../sql-database/sql-database-firewall-configure.md)
 * [Encriptação de nível de célula SQL do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
 * [Encriptação da ligação de SQL do Azure](../sql-database/sql-database-control-access.md)
@@ -54,17 +58,20 @@ Segue-se nosso esforço inicial a proporcionar uma lista. Ao longo do tempo, est
 * [Base de dados SQL do Azure de auditoria](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Identidade do Azure e gestão de acesso
+
 * [Controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Serviços de domínio do Active Directory do Azure](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Multi-factor Authentication do Azure](../multi-factor-authentication/multi-factor-authentication.md)
+* [Multi-factor Authentication do Azure](../active-directory/authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Cópia de segurança e recuperação após desastre
+
 * [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
 * [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
 ## <a name="azure-networking"></a>Redes do Azure
+
 * [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
 * [Gateway VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Gateway de aplicação do Azure](../application-gateway/application-gateway-introduction.md)

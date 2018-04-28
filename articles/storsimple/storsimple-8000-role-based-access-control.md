@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 5d68df424fbedbb9f0d17b87ceb243b079b3da14
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 412098ad6b8a6620b165b6cecaa0d0b3ee05f63e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple
 
@@ -45,7 +45,7 @@ No exemplo seguinte, podemos começar a utilizar a função incorporada **leitor
 
 2. Iniciar sessão no Azure.
 
-    `Login-AzureRMAccount`
+    `Connect-AzureRmAccount`
 
 3. Exporte a função de leitor como um modelo JSON no seu computador.
 
@@ -113,7 +113,7 @@ Para obter mais informações, aceda a [criar uma função RBAC personalizada co
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Saída de exemplo para a criação de função personalizada através do PowerShell
 
 ```
-PS C:\WINDOWS\system32> Login-AzureRMAccount
+PS C:\WINDOWS\system32> Connect-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : john.doe@contoso.com

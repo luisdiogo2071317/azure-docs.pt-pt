@@ -2,24 +2,19 @@
 title: Cmdlets do PowerShell para o Azure SQL Data Warehouse
 description: Localize os principais cmdlets do PowerShell para o Azure SQL Data Warehouse, incluindo como colocar em pausa e retomar uma base de dados.
 services: sql-data-warehouse
-documentationcenter: NA
 author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: ce3e11587c2e0cb92923868a4f26d7f59c7ef4ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 43bf1bcb1ccbb82fc15cddde85e06cac0abfd9c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets do PowerShell e APIs REST para o SQL Data Warehouse
 Muitas tarefas de administração do armazém de dados do SQL Server podem ser geridas através de cmdlets do Azure PowerShell ou REST APIs.  Seguem-se alguns exemplos de como utilizar comandos do PowerShell para automatizar tarefas comuns no SQL Data Warehouse.  Para alguns bons exemplos REST, consulte o artigo [gerir escalabilidade REST][Manage scalability with REST].
@@ -34,7 +29,7 @@ Muitas tarefas de administração do armazém de dados do SQL Server podem ser g
 2. Na linha de comandos do PowerShell, execute estes comandos para iniciar o Gestor de recursos do Azure e selecionar a sua subscrição.
    
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     Get-AzureRmSubscription
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
@@ -86,7 +81,7 @@ Estes cmdlets do PowerShell são suportados com o Azure SQL Data Warehouse.
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
 * [Suspender-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais exemplos do PowerShell, consulte:
 
 * [Criar um SQL Data Warehouse com o PowerShell][Create a SQL Data Warehouse using PowerShell]
@@ -98,7 +93,7 @@ Para outras tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdl
 
 <!--Article references-->
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Create a SQL Data Warehouse using PowerShell]: ./create-data-warehouse-powershell.md
 [Database restore]: ./sql-data-warehouse-restore-database-powershell.md
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 

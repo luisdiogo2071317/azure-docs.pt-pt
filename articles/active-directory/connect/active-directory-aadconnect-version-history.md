@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
 
+
 Este artigo foi concebido para ajudar a manter um registo das versões que tenham sido publicadas e para compreender se tem de atualizar para a versão mais recente ou não.
 
 Esta é uma lista de tópicos relacionados:
-
-
 
 Tópico |  Detalhes
 --------- | --------- |
@@ -35,6 +34,21 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+Estado 4/12/2018: disponibilizadas para transferência apenas
+
+>[!NOTE]
+>Esta é uma correção para o Azure AD Connect
+
+### <a name="azure-ad-connect-sync"></a>Sincronização do Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas fixos
+Corrigido um problema em que a deteção automática de instância do Azure para os inquilinos China ocasionalmente foi falhar.  
+
+### <a name="ad-fs-management"></a>Gestão do AD FS
+#### <a name="fixed-issues"></a>Problemas fixos
+
+Ocorreu um problema na lógica de repetição de configuração que resultaria num ArgumentException indicar "já foi adicionado um item com a mesma chave."  Isto fará com que todas as operações de repetição falhar.
 
 ## <a name="117500"></a>1.1.750.0
 Estado 3/22/2018: lançado para atualização automática e a transferência.
@@ -99,8 +113,7 @@ Estado: Lançado para selecionar os clientes
 As alterações tratará do seguinte:
 1. Express instalações
 2. Instalações personalizadas com Auto-criar conta
-
-* Alterar o instalador, pelo que não requer privilégios de SA na instalação de raiz do Azure AD Connect
+3. Alterar o instalador, pelo que não requer privilégios de SA na instalação de raiz do Azure AD Connect
 
 * Adicionar um novo utilitário para resolver problemas de sincronização para um objeto específico. Está disponível a opção 'Resolver problemas de sincronização de objetos' do Azure AD Connect assistente resolver problemas de tarefa adicional. Atualmente, o utilitário verifica o seguinte:
 
@@ -141,7 +154,7 @@ Bloqueio para baixo de acesso à conta do AD DS através da implementação as s
 
 Tipo     | Nome                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SYSTEM                        | Controlo Total         | Este objeto  |
+Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Admins de empresa             | Controlo Total         | Este objeto  |
 Permitir    | Admins do domínio                 | Controlo Total         | Este objeto  |
 Permitir    | Administradores                | Controlo Total         | Este objeto  |
@@ -489,9 +502,9 @@ CBool(
 * Foram introduzidas seguintes alterações de esquema para permitir que os clientes podem criar regras de sincronização personalizados para o fluxo sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como distinguishedName para objetos de utilizador:
 
   * Foram adicionados ao esquema de MV seguintes atributos:
-    * Group: AccountName
+    * Grupo: AccountName
     * Group: domainNetBios
-    * Group: domainFQDN
+    * Grupo: domainFQDN
     * Pessoa: distinguishedName
 
   * Foram adicionados os seguintes atributos ao esquema do conector do Azure AD:

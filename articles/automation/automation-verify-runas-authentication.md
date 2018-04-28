@@ -1,6 +1,6 @@
 ---
-title: "Validar a configuração de conta de automatização do Azure"
-description: "Este artigo descreve como confirmar que a configuração da sua conta de automatização está corretamente configurada."
+title: Validar a configuração de conta de automatização do Azure
+description: Este artigo descreve como confirmar que a configuração da sua conta de automatização está corretamente configurada.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b8e1f2923657965f4bab89e7a0f5f08faa1d27e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testar a autenticação da conta Run As de Automatização do Azure
 Depois de criar uma conta de Automatização com êxito, pode executar um teste simples para confirmar que consegue autenticar com êxito no Azure Resource Manager ou na implementação clássica do Azure com a sua conta Run As de Automatização recentemente criada ou atualizada.    
@@ -27,7 +27,7 @@ Utilize o código de exemplo abaixo para [criar um runbook do PowerShell](automa
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
            -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -58,7 +58,7 @@ Utilize o código de exemplo abaixo para [criar um runbook do PowerShell](automa
        Write-Output ("")
     } 
 
-Repare que o cmdlet utilizado para autenticar no runbook - **Add-AzureRmAccount**, utiliza o conjunto de parâmetros *ServicePrincipalCertificate*.  Autentica utilizando o certificado de serviço principal, não as credenciais.  
+Repare que o cmdlet utilizado para autenticar no runbook - **Connect-AzureRmAccount**, utiliza o *ServicePrincipalCertificate* conjunto de parâmetros.  Autentica utilizando o certificado de serviço principal, não as credenciais.  
 
 Quando a [executar o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar a sua conta Run As, um [tarefa de runbook](automation-runbook-execution.md) é criado, a tarefa é apresentada a página e o estado da tarefa apresentados no **resumo da tarefa** mosaico. O estado da tarefa começará como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na nuvem fique disponível. Em seguida, irá mudar para *A iniciar* quando uma função de trabalho reivindicar a tarefa e, em seguida, *A executar* quando o runbook começar a ser executado.  Quando tiver concluído a tarefa de runbook, vemos um estado de **Concluído**.
 

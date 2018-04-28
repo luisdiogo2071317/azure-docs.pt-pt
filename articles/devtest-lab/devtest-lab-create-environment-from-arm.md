@@ -1,12 +1,12 @@
 ---
-title: "Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resource Manager | Microsoft Docs"
-description: "Saiba como criar ambientes de várias VMS e PaaS recursos no Azure DevTest Labs a partir de um modelo Azure Resource Manager"
+title: Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resource Manager | Microsoft Docs
+description: Saiba como criar ambientes de várias VMS e PaaS recursos no Azure DevTest Labs a partir de um modelo Azure Resource Manager
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resource Manager
 
@@ -102,17 +102,17 @@ Assim que tiver sido configurado um repositório de modelo Azure Resource Manage
 
     ![Escolher uma base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. No **adicionar** painel, introduza o **o nome do ambiente** valor. O nome do ambiente é o que é apresentado aos utilizadores no laboratório. Os campos de entrada restantes são definidos no modelo Azure Resource Manager. Se os valores predefinidos são definidos no modelo ou o `azuredeploy.parameter.json` ficheiro está presente, os valores predefinidos são apresentados nesses campos de entrada. Para os parâmetros do tipo *secure cadeia*, pode utilizar os segredos armazenados no laboratório de [arquivo pessoal do segredo](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
+1. No **adicionar** painel, introduza o **o nome do ambiente** valor. O nome do ambiente é o que é apresentado aos utilizadores no laboratório. Os campos de entrada restantes são definidos no modelo Azure Resource Manager. Se os valores predefinidos são definidos no modelo ou o `azuredeploy.parameter.json` ficheiro está presente, os valores predefinidos são apresentados nesses campos de entrada. Para os parâmetros do tipo *secure cadeia*, pode utilizar os segredos armazenados no laboratório de [arquivo pessoal do segredo](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
 
     ![Adicionar o painel](./media/devtest-lab-create-environment-from-arm/add.png)
 
     > [!NOTE]
     > Existem vários valores de parâmetros que - mesmo especificado - são apresentados como valores vazios. Por conseguinte, se os utilizadores atribuir esses valores para parâmetros de um modelo Azure Resource Manager, DevTest Labs não apresentar os valores. Em vez disso, os campos de entrada em branco são apresentados em que os utilizadores de laboratório tem de introduzir um valor ao criar o ambiente.
     > 
-    > - GEN-UNIQUE
-    > - GEN-UNIQUE-[N]
-    > - GEN-SSH-PUB-KEY
-    > - GEN-PASSWORD 
+    > - GEN EXCLUSIVO
+    > - GEN - EXCLUSIVO-[N]
+    > - GEN--PUB-CHAVE SSH
+    > - GEN-PALAVRA-PASSE 
  
 1. Selecione **adicionar** para criar o ambiente. O ambiente inicia imediatamente de aprovisionamento com a apresentação de estado no **meu máquinas de virtuais** lista. Um novo grupo de recursos é criado automaticamente pelo laboratório para aprovisionar todos os recursos definidos no modelo Azure Resource Manager.
 1. Assim que for criado o ambiente, selecione o ambiente no **meu máquinas de virtuais** lista para abrir o painel do grupo de recursos e procurar todos os recursos aprovisionados no ambiente.

@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implementar um módulo de Python IoT limite para o seu dispositivo simulado – pré-visualização
 
@@ -29,7 +29,7 @@ Pode utilizar módulos de limite de IoT para implementar o código que implement
 O módulo de limite de IoT que criou neste tutorial filtra os dados de temperatura gerados pelo seu dispositivo. Só envia mensagens upstream se a temperatura for superior um limiar especificado. Este tipo de análise no limite é útil para reduzir a quantidade de dados comunicados para e armazenados na nuvem. 
 
 > [!IMPORTANT]
-> Atualmente o módulo de Python pode apenas ser em execução nos contentores de Linux amd64. Não é possível funcionar em contentores de Windows ou contentores de baseadas em ARM. 
+> Atualmente só pode ser executado o módulo de Python nos contentores do Linux amd64; Não é possível executar a contentores do Windows ou contentores baseadas em ARM. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ O módulo de limite de IoT que criou neste tutorial filtra os dados de temperatu
 * [Extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) no mesmo computador que tenha o Visual Studio Code. A edição de Comunidade (CE) é suficiente para este tutorial. 
 * [Python](https://www.python.org/downloads/).
-* [PIP](https://pip.pypa.io/en/stable/installing/#installation) para instalar pacotes de Python.
+* [PIP](https://pip.pypa.io/en/stable/installing/#installation) para instalar pacotes de Python (normalmente, incluídos com a instalação de Python).
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 Neste tutorial, vai utilizar a extensão Azure IoT Edge para VS Code para criar um módulo e criar uma **imagem de contentor** a partir dos ficheiros. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
@@ -57,10 +57,10 @@ Pode utilizar qualquer registo compatível com o Docker neste tutorial. O [Azure
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto do módulo de limite de IoT
 Os passos seguintes mostram como criar um módulo de IoT Edge Python com Visual Studio Code e a extensão de limite de IoT do Azure.
 1. No Visual Studio Code, selecione **vista** > **integrada Terminal** para abrir o terminal integrado VS Code.
-2. No terminal integrado, introduza o seguinte comando para instalar (ou atualizar) as **cookiecutter**:
+2. No terminal integrado, introduza o seguinte comando para instalar (ou Atualize) **cookiecutter** (sugerimos fazê-lo num ambiente virtual ou como uma instalação de utilizador conforme mostrado abaixo):
 
     ```cmd/sh
-    pip install -U cookiecutter
+    pip install --upgrade --user cookiecutter
     ```
 
 3. Crie um projeto para o módulo novo. O comando seguinte cria a pasta do projeto, **FilterModule**, com o seu repositório de contentor. O parâmetro de `image_repository` deve estar no formato `<your container registry name>.azurecr.io/filtermodule` se estiver a utilizar o registo de contentor do Azure. Introduza o seguinte comando na pasta de trabalho atual:
@@ -78,11 +78,11 @@ Os passos seguintes mostram como criar um módulo de IoT Edge Python com Visual 
     import json
     ```
 
-8. Adicionar o `TEMPERATURE_THRESHOLD` e `TWIN_CALLBACKS` nos contadores global. O limiar de temperatura define o valor pode exceder a temperatura medida para que os dados a ser enviadas ao IoT Hub.
+8. Adicionar o `TEMPERATURE_THRESHOLD`, `RECEIVE_CALLBACKS`, e `TWIN_CALLBACKS` nos contadores global. O limiar de temperatura define o valor pode exceder a temperatura medida para que os dados a ser enviadas ao IoT Hub.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = 0
+    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
     ```
 
 9. Atualizar a função `receive_message_callback` com abaixo conteúdo.
@@ -97,16 +97,16 @@ Os passos seguintes mostram como criar um módulo de IoT Edge Python com Visual 
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
+        print("    Properties: {}".format(key_value_pair))
         RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
@@ -118,14 +118,14 @@ Os passos seguintes mostram como criar um módulo de IoT Edge Python com Visual 
     def device_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
     ```
 
 11. Na classe `HubManager`, adicione uma nova linha para o `__init__` método ao inicializar o `device_twin_callback` acabou de adicionar a função.

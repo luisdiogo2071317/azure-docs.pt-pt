@@ -1,25 +1,20 @@
 ---
-title: "Criar um índice (portal - pesquisa do Azure) | Microsoft Docs"
-description: "Crie um índice utilizando o Portal do Azure."
-services: search
-manager: jhubbard
+title: Criar um índice (portal - Azure Search) | Microsoft Docs
+description: Criar um índice através do Portal do Azure.
+manager: cgronlun
 author: heidisteen
-documentationcenter: 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: ab0352b8c830e875afc9b1d1b006ba4d2a512d7a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Criar um índice da Azure Search utilizando o Portal do Azure
+# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Criar um índice do Azure Search através do Portal do Azure
 > [!div class="op_single_selector"]
 > * [Descrição geral](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -28,86 +23,86 @@ ms.lasthandoff: 12/21/2017
 > 
 > 
 
-Utilizar o estruturador de índice incorporada no portal do Azure para criar protótipos ou crie um [índice de pesquisa](search-what-is-an-index.md) para ser executada no serviço da Azure Search. 
+Utilize o estruturador de índices incorporado no portal do Azure para criar um protótipo ou criar um [índice de pesquisa](search-what-is-an-index.md) a executar no serviço Azure Search. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe um [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e [serviço da Azure Search](search-create-service-portal.md).  
+Este artigo parte do princípio de que existe uma [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e o [serviço Azure Search](search-create-service-portal.md).  
 
 ## <a name="find-your-search-service"></a>Localizar o serviço de pesquisa
-1. Inicie sessão para a página de portal do Azure e rever o [procurar serviços para a sua subscrição](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+1. Inicie sessão na página do portal do Azure e reveja os [serviços de pesquisa para a sua subscrição](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 2. Selecione o seu serviço do Azure Search.
 
-## <a name="name-the-index"></a>Nome do índice
+## <a name="name-the-index"></a>Atribuir um nome ao índice
 
-1. Clique em de **Adicionar índice** botão na barra de comando na parte superior da página.
-2. Nome do seu índice da Azure Search. 
-   * Começar com uma letra.
-   * Utilize apenas letras minúsculas, dígitos ou traços ("-").
+1. Clique no botão **Adicionar índice** na barra de comando na parte superior da página.
+2. Atribua um nome ao índice do Azure Search. 
+   * Comece com uma letra.
+   * Utilize apenas letras minúsculas, números ou hífenes ("-").
    * Limite o nome a 60 carateres.
 
-  O nome do índice passa a fazer parte do URL do ponto final utilizado em ligações para o índice e para enviar pedidos HTTP na API de REST da Azure Search.
+  O nome do índice passa a fazer parte do URL do ponto final utilizado nas ligações ao índice e para enviar pedidos HTTP na API REST do Azure Search.
 
-## <a name="define-the-fields-of-your-index"></a>Definir os campos do seu índice
+## <a name="define-the-fields-of-your-index"></a>Definir os campos do índice
 
-Composição de índice inclui um *campos de coleção* que define os dados pesquisáveis no seu índice. Mais especificamente, especifica a estrutura de documentos que carregar separadamente. A coleção de campos inclui campos obrigatórios e opcionais, com o nome e escritas com atributos de índice para determinar a forma como o campo pode ser utilizado.
+A composição do índice inclui uma *coleção de Campos* que define os dados pesquisáveis no índice. Mais especificamente, especifica a estrutura de documentos que carrega separadamente. A coleção de Campos inclui campos obrigatórios e opcionais, com nome e escritos, com atributos de índice para determinar a forma como o campo pode ser utilizado.
 
-1. No **Adicionar índice** painel, clique em **campos >** para abrir gradualmente o painel de definição de campo. 
+1. No painel **Adicionar Índice**, clique em **Campos >** para abrir gradualmente o painel de definição de campos. 
 
-2. Aceite o gerado *chave* campo do tipo EDM. Por predefinição, o campo é denominado *id* , mas pode alterá-lo, desde que a cadeia satisfaça [regras de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Um campo de chave é obrigatório para todos os índices de pesquisa do Azure e tem de ser uma cadeia.
+2. Aceite o campo de *chave* gerado do tipo Edm.String. Por predefinição, o campo tem o nome *id*, mas pode alterá-lo, desde que a cadeia satisfaça as [regras de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Um campo de chave é obrigatório para todos os índices do Azure Search e tem de ser uma cadeia.
 
-3. Adicione campos para especificar completamente os documentos que irá carregar. Se consistem em documentos um *id*, *nome átrios*, *endereço*, *Cidade*, e *região*, criar um campo correspondente para cada um no índice. Reveja o [conceber de orientações na secção abaixo](#design) para ajudar a definir os atributos.
+3. Adicione campos para especificar completamente os documentos que irá carregar. Se os documentos forem compostos por um *id*, *nome de hotel*, *endereço*, *cidade* e *região*, crie um campo correspondente para cada um no índice. Reveja a [documentação de orientação na secção abaixo](#design) para obter ajuda na definição dos atributos.
 
-4. Opcionalmente, adicione internamente quaisquer campos que são utilizados em expressões de filtro. Atributos em campo podem ser definidos para excluir os campos de operações de pesquisa.
+4. Opcionalmente, adicione quaisquer campos utilizados internamente em expressões de filtro. Os atributos no campo podem ser definidos para excluir campos das operações de pesquisa.
 
 5. Quando terminar, clique em **OK** para guardar e criar o índice.
 
 ## <a name="tips-for-adding-fields"></a>Sugestões para adicionar campos
 
-Criar um índice no portal é exigente em termos de teclado. Minimiza passos seguindo este fluxo de trabalho:
+Criar um índice no portal é exigente em termos de teclado. Minimize os passos ao seguir este fluxo de trabalho:
 
-1. Em primeiro lugar, crie a lista de campos ao introduzir os nomes e definir os tipos de dados.
+1. Primeiro, crie a lista de campos ao introduzir os nomes e ao definir os tipos de dados.
 
-2. Em seguida, utilize as caixas de verificação na parte superior de cada atributo para em massa ativar a definição para todos os campos e, em seguida, desmarque seletivamente caixas para o insuficiente de campos que não o requerem. Por exemplo, os campos de cadeia são pesquisáveis normalmente. Como tal, pode clicar em **recuperável** e **pesquisável** ao devolver os valores do campo nos resultados da pesquisa, bem como permitir a pesquisa em texto completo em campo. 
+2. Em seguida, utilize as caixas de verificação na parte superior de cada atributo para permitir a definição em massa para todos os campos e desmarque seletivamente as caixas para os poucos campos que não o requerem. Por exemplo, os campos de cadeia são normalmente pesquisáveis. Como tal, pode clicar em **Recuperável** e **Pesquisável** para devolver os valores do campo nos resultados da pesquisa, bem como permitir a pesquisa em texto completo no campo. 
 
 <a name="design"></a>
-## <a name="design-guidance-for-setting-attributes"></a>Orientações de conceção para a definição de atributos
+## <a name="design-guidance-for-setting-attributes"></a>Documentação de orientação para definição de atributos
 
-Embora possa adicionar novos campos em qualquer altura, definições de campo existente estão bloqueadas para a duração do índice. Por este motivo, os programadores normalmente utilizam o portal para criação de índices simples, testes ideias ou utilizando as páginas do portais para procurar uma definição. Iteração frequente através de um design do índice é mais eficiente se siga uma abordagem baseada no código de modo a que pode reconstrua o índice facilmente.
+Embora possa adicionar novos campos em qualquer altura, as definições de campos existentes estão bloqueadas durante o ciclo de vida do índice. Por este motivo, os programadores utilizam normalmente o portal para criar índices simples, testar ideias ou utilizar as páginas do portal para procurar uma definição. A iteração frequente através de uma estrutura de índice é mais eficiente se seguir uma abordagem baseada em código de modo a poder reconstruir o índice facilmente.
 
-Analisadores e dos sugestores estão associados com campos antes do índice é guardado. Lembre-se de que clicar em cada página separadores para adicionar analisadores de idioma ou dos sugestores à sua definição de índice.
+O analisadores e os sugestores estão associados a campos antes de o índice ser guardado. Certifique-se de que clica em cada página com separadores para adicionar sugestores ou analisadores de idioma à definição do índice.
 
-Campos de cadeia são frequentemente marcados como **pesquisável** e **recuperável**.
+Os campos de cadeia são frequentemente marcados como **Pesquisáveis** e **Recuperáveis**.
 
-Os campos utilizados para restringir os resultados da pesquisa incluem **ordenável**, **Filterable**, e **Facetável**.
+Os campos utilizados para restringir os resultados da pesquisa incluem as definições **Ordenável**, **Filtrável** e **Facetável**.
 
-Atributos de campo determinam como um campo é utilizado, por exemplo, se é utilizada na pesquisa de texto completo, navegação por facetas, operações de ordenação e assim sucessivamente. A tabela seguinte descreve cada atributo.
+Os atributos de campo determinam como um campo é utilizado, por exemplo, se é utilizado na pesquisa em texto completo, navegação por facetas, operações de ordenação e assim sucessivamente. A tabela seguinte descreve cada atributo.
 
 |Atributo|Descrição|  
 |---------------|-----------------|  
-|**pesquisável**|Texto completo pesquisável, sujeita a análise lexical como quebra de palavra durante a indexação. Se definir um campo pesquisável para um valor como "sunny dia", internamente, será dividido em tokens individuais "sunny" e "dia". Para obter mais informações, consulte [funciona de pesquisa de texto completo como](search-lucene-query-architecture.md).|  
-|**filtrável**|Referenciada na **$filter** consultas. Filtráveis campos do tipo `Edm.String` ou `Collection(Edm.String)` não são submetidos a quebra de palavra, pelo que é comparações para apenas corresponde exato. Por exemplo, se definir esse um campo f "sunny dia", `$filter=f eq 'sunny'` encontrará não corresponde, mas `$filter=f eq 'sunny day'` será. |  
-|**ordenável**|Por predefinição o sistema ordena os resultados por pontuação, mas pode configurar a ordenação com base nos campos de documentos. Os campos do tipo `Collection(Edm.String)` não pode ser **ordenável**. |  
-|**facetável**|Normalmente utilizado numa apresentação de resultados de pesquisa que inclui uma contagem de acessos por categoria (por exemplo, hotéis numa cidade específica). Esta opção não pode ser utilizada com campos do tipo `Edm.GeographyPoint`. Os campos do tipo `Edm.String` que são **filtrável**, **ordenável**, ou **facetável** pode ter um máximo de 32 kilobytes de comprimento. Para obter mais informações, consulte [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|**pesquisável**|Texto completo pesquisável, sujeito a análise lexical, como separação de palavras durante a indexação. Se definir um campo pesquisável para um valor como "sunny day", será dividido internamente nos tokens individuais "sunny" e "day". Para obter detalhes, veja [Como funciona a pesquisa em texto completo](search-lucene-query-architecture.md).|  
+|**filtrável**|Referenciado na consulta **$filter**. Os campos filtráveis do tipo `Edm.String` ou `Collection(Edm.String)` não são submetidos a separação de palavras, pelo que as comparações destinam-se apenas a correspondências exatas. Por exemplo, se definir um campo f para "sunny day", `$filter=f eq 'sunny'` não encontrará correspondências, mas `$filter=f eq 'sunny day'` sim. |  
+|**ordenável**|Por predefinição, o sistema ordena os resultados por classificação, mas pode configurar a ordenação com base nos campos nos documentos. Os campos do tipo `Collection(Edm.String)` não podem ser **ordenáveis**. |  
+|**facetável**|Normalmente, é utilizado numa apresentação de resultados de pesquisa que inclui uma contagem de resultados por categoria (por exemplo, hotéis numa cidade específica). Esta opção não pode ser utilizada com campos do tipo `Edm.GeographyPoint`. Os campos do tipo `Edm.String` que sejam **filtráveis**, **ordenáveis** ou **facetáveis** podem ter um máximo de 32 kilobytes. Para mais detalhes, veja [Criar um Índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
 |**chave**|Identificador exclusivo de documentos no índice. Deve ser selecionado exatamente um campo como o campo de chave e tem de ser do tipo `Edm.String`.|  
-|**recuperável**|Determina se o campo pode ser devolvido num resultado da pesquisa. Isto é útil quando pretender utilizar um campo (tais como *margem de lucros*) como um filtro, ordenação ou a classificação de mecanismo, mas não pretende que o campo seja visível para o utilizador final. Este atributo tem de ser `true` para `key` campos.|  
+|**recuperável**|Determina se o campo pode ser devolvido num resultado da pesquisa. Isto é útil quando quiser utilizar um campo (como *margem de lucro*) como mecanismo de filtro, ordenação ou classificação, mas não quer que o campo esteja visível para o utilizador final. Este atributo tem de ser `true` para campos `key`.|  
 
-## <a name="create-the-hotels-index-used-in-example-api-sections"></a>Crie o índice de hotéis utilizado nas secções de API de exemplo
+## <a name="create-the-hotels-index-used-in-example-api-sections"></a>Criar o índice de hotéis utilizado nas secções de API de exemplo
 
-Documentação da API de pesquisa do Azure inclui exemplos de código com um simples *hotéis* índice. As capturas de ecrã abaixo, pode ver a definição do índice, incluindo o analisador de idioma francês especificado durante a definição do índice, que pode recriá-lo como um exercício prática no portal.
+A documentação da API do Azure Search inclui exemplos de código com um índice de *hotéis* simples. Nas capturas de ecrã abaixo, pode ver a definição do índice, incluindo o analisador de idioma francês especificado durante a definição do índice, que pode recriar como um exercício prático no portal.
 
 ![](./media/search-create-index-portal/field-definitions.png)
 
 ![](./media/search-create-index-portal/set-analyzer.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar um índice da Azure Search, pode mover para o próximo passo: [carregar dados pesquisáveis para o índice](search-what-is-data-import.md).
+Depois de criar um índice do Azure Search, pode avançar para o próximo passo: [carregar dados pesquisáveis para o índice](search-what-is-data-import.md).
 
-Em alternativa, também pode demorar mais profunda veja os índices. Para além da coleção de campos, um índice também especifica analisadores, dos sugestores, perfis de classificação e as definições CORS. O portal fornece páginas de separadores para definir os elementos mais comuns: campos, analisadores e dos sugestores. Para criar ou modificar a outros elementos, pode utilizar a REST API ou o .NET SDK.
+Em alternativa, também pode analisar os índices mais detalhadamente. Além da coleção de Campos, um índice também especifica analisadores, sugestores, perfis de classificação e definições CORS. O portal fornece páginas com separadores para definir os elementos mais comuns: campos, analisadores e sugestores. Para criar ou modificar outros elementos, pode utilizar a API REST ou o SDK .NET.
 
 ## <a name="see-also"></a>Consulte também
 
  [Como funciona a pesquisa em texto completo](search-lucene-query-architecture.md)  
- [REST API do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
+ [API REST do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/) [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
 

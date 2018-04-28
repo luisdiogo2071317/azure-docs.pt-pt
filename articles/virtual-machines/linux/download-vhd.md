@@ -3,7 +3,7 @@ title: Transferir um VHD de Linux a partir do Azure | Microsoft Docs
 description: Transferir um VHD de Linux utilizando a CLI do Azure e o portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: davidmu
-ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Transferir um VHD de Linux a partir do Azure
 
@@ -35,7 +35,7 @@ Não é possível transferir um VHD a partir do Azure se está ligado a uma VM e
 
 Para utilizar o VHD como uma imagem para criar outras VMs, conclua estes passos:
 
-1. Utilize o SSH, o nome da conta e o endereço IP público da VM para ligar à mesma e desaprovisioná-lo. Pode encontrar o endereço IP público com [mostrar de ip público de rede az](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). O + parâmetro user também remove a última conta de utilizador aprovisionado. Se estiver baking credenciais de conta para a VM, deixe terminar este + parâmetro de utilizador. O exemplo a seguir remove a última conta de utilizador aprovisionado:
+1. Utilize o SSH, o nome da conta e o endereço IP público da VM para ligar à mesma e desaprovisioná-lo. Pode encontrar o endereço IP público com [mostrar de ip público de rede az](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). O + parâmetro user também remove a última conta de utilizador aprovisionado. Se estiver baking credenciais de conta para a VM, deixe terminar este + parâmetro de utilizador. O exemplo a seguir remove a última conta de utilizador aprovisionado:
 
     ```bash
     ssh azureuser@<publicIpAddress>

@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management para recursos do Azure - configurar definições de função | Microsoft Docs
+title: Configurar definições de função através de recursos do Azure utilizando o Privileged Identity Management | Microsoft Docs
 description: Descreve como configurar as definições de função PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 0fe986d8cdace301fde4045b16d299ba8395457d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---configure"></a>Configurar a gestão de identidades privilegiadas - funções dos recursos-
+# <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Configurar definições de função através de recursos do Azure utilizando o Privileged Identity Management 
 
-Configurar definições de função define as predefinições aplicadas a atribuições no ambiente do PIM. Para definir estas para o seu recurso, selecione o separador de definições da função a partir do painel de navegação esquerdo ou no botão de definições de função na barra de ação em qualquer função para ver as opções atuais.
+Quando configurar as definições de função, definir as definições predefinidas que são aplicadas às atribuições no ambiente de Privileged Identity Management (PIM). Para definir estas definições para o seu recurso, selecione o **definições da função** separador no painel esquerdo. Também pode selecionar o botão de definições de função na barra de ação (em qualquer função) para ver as opções atuais.
 
 
 ## <a name="select-a-role"></a>Selecionar uma função
-Selecione uma função que pretende efetuar uma alteração. Em seguida, selecione Editar para efetuar alterações a definições existentes.
+Selecione uma função para os quais pretende efetuar uma alteração. Em seguida, para efetuar alterações a definições existentes, selecione **editar**.

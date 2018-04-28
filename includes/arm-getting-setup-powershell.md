@@ -26,7 +26,7 @@ Se ainda não tiver uma subscrição do Azure, pode ativar o [benefícios de sub
 
 Abra uma linha de comandos do Azure PowerShell e inicie sessão no Azure com este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Se tiver várias subscrições do Azure, pode listar as subscrições do Azure com este comando.
 

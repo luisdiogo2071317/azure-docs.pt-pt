@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Monitorizar ligações de rede com o observador de rede do Azure no portal do Azure
 
@@ -42,7 +42,7 @@ Os passos seguintes permitem a monitorização de ligação para uma VM de desti
 1. No lado esquerdo do portal, selecione **todos os serviços**.
 2. Comece a escrever *observador de rede* no **filtro** caixa. Quando **observador de rede** aparece nos resultados da pesquisa, selecionados-lo.
 3. Em **monitorização**, selecione **monitor ligação**.
-4. Selecione **+ adicionar**.
+4. Selecione **+ Adicionar**.
 5. Introduza ou selecione as informações da ligação que pretende monitorizar e, em seguida, selecione **adicionar**. No exemplo mostrado na imagem seguinte, a ligação monitorizada é do *MultiTierApp0* VM para o *Database0* VM através da porta 80:
 
     ![Adicionar ligação Monitor](./media/connection-monitor/add-connection-monitor.png)
@@ -69,4 +69,4 @@ Os passos seguintes permitem a monitorização de ligação para uma VM de desti
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como automatizar capturas de pacotes com alertas VM por [criar uma captura de pacotes de alerta acionado](network-watcher-alert-triggered-packet-capture.md).
-- Determinar se determinados o tráfego é permitido dentro ou fora da VM utilizando [Certifique-se de fluxo IP](network-watcher-check-ip-flow-verify-portal.md).
+- Determinar se determinados o tráfego é permitido dentro ou fora da VM utilizando [Certifique-se de fluxo IP](diagnose-vm-network-traffic-filtering-problem.md).

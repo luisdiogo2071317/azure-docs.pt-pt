@@ -1,8 +1,8 @@
 ---
-title: "Carregar grandes quantidades de dados no Data Lake Store utilizando métodos offline | Microsoft Docs"
+title: Carregar grandes quantidades de dados no Data Lake Store utilizando métodos offline | Microsoft Docs
 description: Utilize a ferramenta de AdlCopy para copiar dados de blobs de armazenamento do Azure para o Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8dd20d0cf7f202b5d5fdeffb5848235e73eb9349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee6f4ab1ac5892536d7f419c198158dc34d6f49e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Utilizar o serviço de importação/exportação do Azure para cópia offline dos dados ao Data Lake Store
 Neste artigo, irá aprender como copiar conjuntos enormes de dados (> 200 GB) para um Azure Data Lake Store utilizando métodos de cópia offline, como o [serviço importar/exportar do Azure](../storage/common/storage-import-export-service.md). Especificamente, o ficheiro utilizado como um exemplo neste artigo é 339,420,860,416 bytes ou cerca de 319 GB no disco. Vamos chamar 319GB.tsv este ficheiro.
@@ -195,7 +195,7 @@ Vamos começar a utilizar um ficheiro que foi 319 GB e quebrou-lo para baixo par
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

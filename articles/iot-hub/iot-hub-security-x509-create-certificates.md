@@ -1,11 +1,11 @@
 ---
 title: Como utilizar o PowerShell para criar certificados x. 509 | Microsoft Docs
-description: "Como utilizar o PowerShell para criar certificados x. 509 localmente e ativar o x. 509 com a base de segurança do seu hub IoT do Azure num ambiente simulado."
+description: Como utilizar o PowerShell para criar certificados x. 509 localmente e ativar o x. 509 com a base de segurança do seu hub IoT do Azure num ambiente simulado.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e58096d4bde9c947f199b4696c0b5c28291956d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts do PowerShell para gerir os certificados x. 509 assinado para AC
 
@@ -33,7 +33,9 @@ Este tutorial parte do princípio de que os binários de OpenSSL tiver adquirido
 ## <a name="create-x509-certificates"></a>Criar certificados x. 509
 Os passos seguintes mostram um exemplo de como criar os certificados de raiz de x. 509 localmente. 
 
-1. Abra uma janela do PowerShell como um *administrador*. 
+1. Abra uma janela do PowerShell como um *administrador*.  
+   **Nota:** tem de abrir este no PowerShell próprio, não ISE do PowerShell, Visual Studio Code ou outras ferramentas que moldam a consola do PowerShell subjacente.  Utilização de uma consola não baseada em PowerShell irá resultar no `openssl` comandos abaixo pendente.
+
 2. Navegue para o diretório de trabalho. Execute o script seguinte para definir as variáveis globais. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"

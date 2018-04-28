@@ -1,12 +1,12 @@
 ---
-title: "Configurar a conta para transmissão em fluxo offline de conteúdo de Widevine protegido - Azure"
-description: "Este tópico mostra como configurar a sua conta de Media Services do Azure para a transmissão em fluxo offline de Widevine protegida conteúdo."
+title: Configurar a conta para transmissão em fluxo offline de conteúdo de Widevine protegido - Azure
+description: Este tópico mostra como configurar a sua conta de Media Services do Azure para a transmissão em fluxo offline de Widevine protegida conteúdo.
 services: media-services
-keywords: "TRAÇO, DRM, Widevine modo Offline, ExoPlayer, Android"
-documentationcenter: 
+keywords: TRAÇO, DRM, Widevine modo Offline, ExoPlayer, Android
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine offline de transmissão em fluxo para Android
 
@@ -111,9 +111,9 @@ A lista seguinte de classes facilitar o modo offline no SDK ExoPlayer para Andro
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
-- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
+- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/SegmentDownloader.Java
+- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/DownloaderConstructorHelper.Java 
+- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/Downloader.Java
 - Library/dash/src/Main/Java/com/Google/Android/exoplayer2/Source/dash/offline/DashDownloader.Java 
 
 Os programadores deverá referenciar o [guia para programadores de ExoPlayer](https://google.github.io/ExoPlayer/guide.html) e correspondente [blogue para programadores](https://medium.com/google-exoplayer) durante o desenvolvimento de uma aplicação. Google não lançou um código de implementação nem de exemplo de referência totalmente documentado para a aplicação de ExoPlayer suporte Widevine offline neste momento, pelo que as informações são limitadas para a guia para programadores e o blogue. 
@@ -148,7 +148,7 @@ Se atualizar o browser Chrome móvel para v62 (ou superior) um telemóvel Androi
 
 A aplicação de PWA open source acima foi criada no Node.js. Se pretender alojar a sua própria versão num servidor Ubuntu, tenha em consideração os seguintes problemas de encontrou comuns que possam impedir a reprodução:
 
-1. Problema CORS: O vídeo na aplicação de exemplo de exemplo está alojado no https://storage.googleapis.com/biograf-video-files/videos/. Google tenha configurado a CORS para todos os exemplos de teste alojados no registo de armazenamento do Google na nuvem. Estes são servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: https://biograf-155113.appspot.com (o domínio no qual google aloja os seus exemplo) a impedir o acesso por quaisquer outros sites. Se tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: não existe um cabeçalho de 'Acesso controlo-permitir-origem' está presente no recurso pedido. A origem 'https://13.85.80.81:8080' não é, por conseguinte, a permissão para aceder. Se uma resposta opaco serve às suas necessidades, defina o modo do pedido para 'não-cors' para obter o recurso com a CORS desativada.
+1. Problema CORS: O vídeo na aplicação de exemplo de exemplo está alojado no https://storage.googleapis.com/biograf-video-files/videos/. Google tenha configurado a CORS para todos os exemplos de teste alojados no registo de armazenamento do Google na nuvem. Estes são servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: https://biograf-155113.appspot.com (o domínio no qual google aloja os seus exemplo) a impedir o acesso por quaisquer outros sites. Se tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: não existe um cabeçalho de 'Acesso controlo-permitir-origem' está presente no recurso pedido. Origem 'https://13.85.80.81:8080' não, por conseguinte, é permitido o acesso. Se uma resposta opaco serve às suas necessidades, defina o modo do pedido para 'não-cors' para obter o recurso com a CORS desativada.
 2. Problema de certificado: a partir do Chrome v 58, EME para Widevine necessita de HTTPS. Por conseguinte, necessário alojar a aplicação de exemplo através de HTTPS com um X509 certificado. Um certificado de teste habitual não funciona porque os seguintes requisitos: É necessário obter um certificado que cumprem os requisitos mínimos seguintes:
     - Chrome e Firefox requerem a definição do nome alternativo do requerente de SAN existir no certificado
     - O certificado tem de ter fidedigno AC e um certificado autoassinado desenvolvimento não funciona
@@ -172,7 +172,7 @@ Isto significa que a proteger o Token serviço (STS) tem de ter as informações
 
 ### <a name="question"></a>Pergunta
 
-Para os níveis de segurança de Widevine, da Google [documento de descrição geral de arquitetura do Widevine DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentação, define três níveis de segurança diferentes. No entanto, no [documentação de Media Services do Azure no modelo de licença Widevine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), descritos cinco níveis de segurança diferentes. O que é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
+Para os níveis de segurança de Widevine, da Google [documento de descrição geral de arquitetura do Widevine DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentação, define três níveis de segurança diferentes. No entanto, no [documentação de Media Services do Azure no modelo de licença Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), descritos cinco níveis de segurança diferentes. O que é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
 
 ### <a name="answer"></a>Resposta
 
@@ -182,7 +182,7 @@ Da Google [descrição geral de arquitetura do Widevine DRM](https://storage.goo
 2.  Nível de segurança 2: Efetua cryptography (mas não vídeo processamento) dentro de TEE: memórias intermédias desencriptadas são devolvidas para o domínio de aplicação e processadas através de software ou hardware de vídeo em separado. Nível 2, no entanto, criptográfica informação é ainda processada apenas dentro do TEE.
 3.  Nível de segurança 3 não tem um TEE no dispositivo. As medidas adequadas podem ser direcionadas para proteger as informações de criptografia e conteúdo desencriptado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um motor de criptografia de hardware, mas que só melhora o desempenho, de segurança não.
 
-AT o mesmo tempo, em [documentação de Media Services do Azure no modelo de licença Widevine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), a propriedade security_level content_key_specs pode ter os seguintes cinco valores diferentes (cliente robustez os requisitos para reprodução):
+AT o mesmo tempo, em [documentação de Media Services do Azure no modelo de licença Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), a propriedade security_level content_key_specs pode ter os seguintes cinco valores diferentes (cliente robustez os requisitos para reprodução):
 
 1.  É necessária a criptografia baseada em software whitebox.
 2.  Criptografia de software e um descodificador oculto é necessário.

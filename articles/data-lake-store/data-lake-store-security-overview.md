@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Azure Data Lake Store
 Muitas empresas são tirar partido da análise de macrodados informações empresariais ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos utilizadores. É vital para uma empresa para se certificar de que os dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. O Azure Data Lake Store foi concebido para ajudar que cumpram estes requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança do Data Lake Store, incluindo:
@@ -35,7 +35,7 @@ A autenticação é o processo pelo qual um utilizador é confirmar a identidade
 Cada subscrição do Azure pode ser associada uma instância do Azure Active Directory. Apenas os utilizadores e identidades de serviço que estão definidas no seu serviço do Azure Active Directory podem aceder à sua conta do Data Lake Store, utilizando o portal do Azure, as ferramentas de linha de comandos, ou através de aplicações de cliente organização baseia-se utilizando o SDK do Azure Data Lake Store. Principais vantagens de utilizar o Azure Active Directory como um mecanismo de controlo de acesso centralizado são:
 
 * Gestão de ciclo de vida de identidade simplificada. A identidade de um utilizador ou um serviço (uma identidade principal do serviço) pode ser criada rapidamente e rapidamente revogada pela simplesmente eliminar ou desativar a conta no diretório.
-* Autenticação multifator. [Autenticação multifator](../multi-factor-authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para inícios de sessão de utilizador e de transações.
+* Autenticação multifator. [Autenticação multifator](../active-directory/authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para inícios de sessão de utilizador e de transações.
 * Autenticação a partir de qualquer cliente através de um protocolo de abrir padrão, tais como OAuth ou OpenID.
 * Federação com os serviços de diretório de enterprise e fornecedores de identidade de nuvem.
 
@@ -54,11 +54,11 @@ Tenha em atenção que, apesar das funções são atribuídas para gestão de co
 
 | Funções | Direitos de gestão | Direitos de acesso de dados | Explicação |
 | --- | --- | --- | --- |
-| Nenhuma função atribuída |Nenhum |Regida pelo ACL |O utilizador não é possível utilizar o portal do Azure ou os cmdlets do Azure PowerShell para procurar o Data Lake Store. O utilizador pode utilizar apenas as ferramentas da linha de comandos. |
-| Proprietário |Tudo |Tudo |A função de proprietário é um Superutilizador. Esta função pode gerir tudo e tem acesso total aos dados. |
+| Nenhuma função atribuída |Nenhuma |Regida pelo ACL |O utilizador não é possível utilizar o portal do Azure ou os cmdlets do Azure PowerShell para procurar o Data Lake Store. O utilizador pode utilizar apenas as ferramentas da linha de comandos. |
+| Proprietário |Todos |Todos |A função de proprietário é um Superutilizador. Esta função pode gerir tudo e tem acesso total aos dados. |
 | Leitor |Só de Leitura |Regida pelo ACL |A função de leitor pode ver tudo sobre gestão de contas, por exemplo, o que o utilizador está atribuído ao qual a função. A função de leitor não é possível efetuar quaisquer alterações. |
 | Contribuinte |Todos os exceto adicionar e remover funções |Regida pelo ACL |A função de contribuinte pode gerir alguns aspetos de uma conta, tais como implementações e criar e gerir alertas. A função de contribuinte não é possível adicionar ou remover funções. |
-| Administrador de Acesso dos Utilizadores |Adicionar e remover funções |Regida pelo ACL |A função de administrador de acesso de utilizador pode gerir o acesso às contas de utilizador. |
+| Administrador de Acesso de Utilizador |Adicionar e remover funções |Regida pelo ACL |A função de administrador de acesso de utilizador pode gerir o acesso às contas de utilizador. |
 
 Para obter instruções, consulte [atribuir utilizadores ou grupos de segurança para contas de Data Lake Store](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
@@ -110,7 +110,7 @@ Os clientes empresariais exigem uma plataforma de nuvem de análise de dados que
 
 Se pretender ver as novas funcionalidades no Data Lake Store, envie-nos seus comentários [fórum do Data Lake Store UserVoice](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Introdução ao Data Lake Store](data-lake-store-get-started-portal.md)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)

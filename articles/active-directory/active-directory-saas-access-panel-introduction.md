@@ -1,8 +1,8 @@
 ---
-title: "O que é o painel de acesso no Azure Active Directory? | Microsoft Docs"
-description: "Saiba como utilizar variações do painel de acesso (web browser, aplicação Android, aplicação iPhone e iPad) para aceder a aplicações SaaS."
+title: O que é o painel de acesso no Azure Active Directory? | Microsoft Docs
+description: Saiba como utilizar variações do painel de acesso (web browser, aplicação Android, aplicação iPhone e iPad) para aceder a aplicações SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3c8ea85a0906071d6b30f176de7509e5f346b513
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -50,9 +50,7 @@ Pode aceder ao painel de acesso, acedendo a `http://myapps.microsoft.com`.
 
 Se tiver personalizado uma imagem corporativa configurado para a sua página de início de sessão, pode carregar a imagem corporativa, acrescentando o domínio da sua organização para o URL (por exemplo, `http://myapps.microsoft.com/<your domain>.com`).
 
-Pode utilizar qualquer nome de domínio do Active Directory ou verificado que tenha sido configurado no portal do Azure, conforme mostrado aqui:
-
-![Nome de domínio do Wingtip Toys][2]  
+Pode utilizar qualquer nome de domínio do Active Directory ou verificado que tenha sido configurado no portal do Azure, conforme mostrado aqui: ![nome de domínio no diretório Wingtip Toys][2]  
 
 Distribua o URL para todos os utilizadores que iniciam sessão aplicações que estão integradas com o Azure AD.
 
@@ -75,7 +73,7 @@ A extensão do painel de acesso está atualmente disponível para:
 - **Limite**: aniversário da edição do Windows 10 ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
-- **Internet Explorer 8, 9, 10, 11**: no Windows 7 ou posterior (suporte limitado).
+- **O Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Extensão de Início de Sessão Seguro das Minhas Aplicações
 Para iniciar sessão baseada em palavra-passe de início de sessão, tem de utilizar a extensão. Depois da extensão é instalada, pode iniciar sessão-la para ativar funcionalidades adicionais ao selecionar **iniciar sessão começar a utilizar**. 

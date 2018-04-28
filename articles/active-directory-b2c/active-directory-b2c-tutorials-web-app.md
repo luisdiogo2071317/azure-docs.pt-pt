@@ -1,5 +1,5 @@
 ---
-title: Tutorial Utilizar o Azure Active Directory B2C para Autenticação de Utilizadores numa Aplicação Web ASP.NET
+title: Tutorial - Ativar uma aplicação Web para autenticar com as contas utilizando o Azure Active Directory B2C | Microsoft Docs
 description: Tutorial sobre como utilizar o Azure Active Directory B2C para fornecer início de sessão do utilizador para uma aplicação Web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticar utilizadores com o Azure Active Directory B2C numa aplicação Web ASP.NET
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar uma aplicação Web para autenticar com as contas utilizando o Azure Active Directory B2C
 
 Este tutorial mostra como utilizar o Azure Active Directory (Azure AD) B2C para início de sessão e inscrição de utilizadores numa aplicação Web ASP.NET. O Azure AD B2C permite às aplicações efetuar a autenticação em contas de redes sociais, contas empresariais e contas do Azure Active Directory através de protocolos padrão abertos.
 
@@ -40,22 +40,22 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selecione **Azure AD B2C** na lista de serviços no portal do Azure.
+1. Selecione **Azure AD B2C** na lista de serviços no portal do Azure. 
 
-2. Nas definições do B2C, clique em **Aplicações** e, em seguida, clique em **Adicionar**.
+2. Nas definições do B2C, clique em **Aplicações** e, em seguida, clique em **Adicionar**. 
 
     Para registar a aplicação Web de exemplo no inquilino, utilize as seguintes definições:
 
     ![Adicionar uma nova aplicação](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Nome** | A Minha Aplicação Web de Exemplo | Introduza um **Nome** que descreva a aplicação aos consumidores. | 
     | **Incluir aplicação/API Web** | Sim | Selecione **Sim** para uma aplicação Web. |
     | **Permitir fluxo implícito** | Sim | Selecione **Sim** se a aplicação utilizar o [Início de sessão OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de resposta** | `https://localhost:44316` | Os URLs de resposta são pontos finais para onde o Azure AD B2C devolve quaisquer tokens que a aplicação solicite. Neste tutorial, o exemplo é executado localmente (localhost) e escuta na porta 44316. |
-    | **Cliente nativo** | Não | Uma vez que se trata de uma aplicação Web e não um cliente nativo, selecione Não. |
-
+    | **Incluir cliente nativo** | Não | Uma vez que se trata de uma aplicação Web e não um cliente nativo, selecione Não. |
+    
 3. Clique em **Criar** para registar a aplicação.
 
 As aplicações registadas são apresentadas na lista de aplicações para o inquilino do Azure AD B2C. Selecione a aplicação Web na lista. É apresentado o painel de propriedades da aplicação Web.
@@ -70,7 +70,7 @@ O Azure AD B2C utiliza a autorização de OAuth2 para [aplicações cliente](../
 
 1. Selecione a página Chaves para a aplicação Web registada e clique em **Gerar chave**.
 
-2. Clique em **Guardar** para apresentar a chave.
+2. Clique em **Guardar** para apresentar a chave da aplicação.
 
     ![página de chaves geral da aplicação](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -112,7 +112,7 @@ Para permitir aos utilizadores repor as respetivas informações de perfil por s
     | **Nome** | SiPe | Introduza um **Nome** para a política. O nome da política tem o prefixo **b2c_1_**. Utilize o nome completo da política **b2c_1_SiPe** no código de exemplo. | 
     | **Fornecedor de identidade** | Inscrição da conta local | O fornecedor de identidade utilizado para identificar exclusivamente o utilizador. |
     | **Atributos do perfil** | Nome a Apresentar e Código Postal | Selecione os atributos que os utilizadores podem modificar durante a edição de perfil. |
-    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, O utilizador é novo, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil com êxito. |
+    | **Afirmações da aplicação** | Nome a Apresentar, Código Postal, ID de Objeto do Utilizador | Selecione as [afirmações](../active-directory/develop/active-directory-dev-glossary.md#claim) que quer incluir no [token de acesso](../active-directory/develop/active-directory-dev-glossary.md#access-token) após uma edição de perfil com êxito. |
 
 2. Clique em **Criar** para criar a política. 
 
@@ -134,7 +134,7 @@ Para ativar a reposição de palavras-passe na aplicação, tem de criar uma **p
 
 ## <a name="update-web-app-code"></a>Atualizar o código da aplicação Web
 
-Agora que tem uma aplicação Web registada e as políticas criadas, tem de configurar a aplicação para utilizar o inquilino do Azure AD B2C. Neste tutorial, irá configurar uma aplicação Web de exemplo. 
+Agora que tem uma aplicação Web registada e as políticas criadas, tem de configurar a aplicação para utilizar o inquilino do Azure AD B2C. Neste tutorial, irá configurar uma aplicação Web de exemplo que pode transferir a parir do GitHub. 
 
 [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
@@ -154,7 +154,7 @@ Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 
-2. No projeto da aplicação Web **TaskWebApp**, abra o ficheiro **Web.config** e efetue as seguintes atualizações:
+2. No projeto da aplicação Web **TaskWebApp**, abra o ficheiro **Web.config** e efetue as seguintes atualizações para as chaves existentes:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ Tem de alterar a aplicação de modo a utilizar o registo de aplicações no seu
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. Atualize as definições de política com o nome gerado quando criou as políticas.
+3. Atualize as chaves existentes com os valores dos nomes de política que criou no passo anterior. Não se esqueça de incluir o prefixo *b2c_1_*.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

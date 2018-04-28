@@ -1,6 +1,6 @@
 ---
-title: "Planeador de implementações do Azure Site Recovery de Hyper-V para o Azure | Microsoft Docs"
-description: "Este é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para o cenário de Hyper-V para o Azure."
+title: Planeador de implementações do Azure Site Recovery de Hyper-V para o Azure | Microsoft Docs
+description: Este é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para o cenário de Hyper-V para o Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -9,11 +9,11 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planeador de implementação de recuperação de site para o Hyper-V para o Azure
 
@@ -116,9 +116,9 @@ A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, HDD de 300 GB.
 3.  Extraia a pasta .zip.
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
-Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.1.zip
+Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Planner_v2.2.zip de implementação
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR implementação Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 Se tiver uma versão anterior do Planeador de Implementações, execute um dos seguintes procedimentos:
@@ -133,7 +133,7 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
   >Cada Deployment Planner novo é uma atualização acumulativa do ficheiro .zip. Não tem de copiar os ficheiros mais recentes para a pasta anterior. Pode criar e utilizar uma pasta nova.
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta Planeador de Implementações do ASR é 2.1.
+A versão mais recente de ferramenta Planeador de implementação de ASR é 2.2.
 Consulte a página [Histórico de Versões do Planeador de Implementações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
 
 

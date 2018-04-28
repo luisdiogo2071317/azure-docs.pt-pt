@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 2ea8c3119366d86c3aabf1faa0d71f1ba3610f41
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação universal com a base de dados SQL e SQL Data Warehouse (SSMS suporte para a MFA)
 SQL Database do Azure e o Azure SQL Data Warehouse suportam ligações da utilização do SQL Server Management Studio (SSMS) *autenticação de Universal do Active Directory*. 
@@ -25,7 +25,7 @@ SQL Database do Azure e o Azure SQL Data Warehouse suportam ligações da utiliz
 
 - `Active Directory - Universal with MFA` a autenticação é um método interativo que também suporta *Azure multi-factor Authentication* (MFA). A Azure MFA ajuda a salvaguardar o acesso a dados e a aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Fornece autenticação forte com uma gama de opções de verificação fácil (chamada telefónica, mensagem de texto, os smart cards com pin ou a notificação da aplicação móvel), permitindo aos utilizadores escolher o métodos preferem. Interativo MFA com o Azure AD pode resultar numa caixa de diálogo de pop-up para validação.
 
-Para obter uma descrição do multi-factor Authentication, consulte [multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+Para obter uma descrição do multi-factor Authentication, consulte [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
 Para obter passos de configuração, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD domínio nome ou o inquilino parâmetro ID   

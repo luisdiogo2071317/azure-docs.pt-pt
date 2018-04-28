@@ -1,6 +1,6 @@
 ---
-title: "Configurar a autenticação do Azure Active Directory - SQL | Microsoft Docs"
-description: "Saiba como ligar à base de dados SQL, geridos instância e do armazém de dados do SQL Server utilizando a autenticação do Active Directory do Azure - depois de configurar o Azure AD."
+title: Configurar a autenticação do Azure Active Directory - SQL | Microsoft Docs
+description: Saiba como ligar à base de dados SQL, geridos instância e do armazém de dados do SQL Server utilizando a autenticação do Active Directory do Azure - depois de configurar o Azure AD.
 services: sql-database
 author: GithubMirek
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurar e gerir a autenticação do Azure Active Directory com base de dados do SQL Server, instância geridos ou SQL Data Warehouse
 
@@ -100,7 +100,7 @@ A instância gerido necessita de permissões para ler o Azure AD com êxito a re
 Os dois procedimentos seguintes mostram-lhe como aprovisionar um administrador do Azure Active Directory para o servidor de SQL do Azure no portal do Azure e utilizando o PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
-1. No [portal do Azure](https://portal.azure.com/), no canto superior direito, clique na ligação para uma lista de diretórios de Active Directory possíveis pendente. Escolha o correto do Active Directory como a predefinição do Azure AD. Este passo liga a associação de subscrição com o Active Directory com o servidor SQL do Azure, certificando-se de que a mesma subscrição é utilizada para o Azure AD e o SQL Server. (O servidor de SQL do Azure pode alojar a base de dados SQL do Azure ou do Azure SQL Data Warehouse.)   
+1. No [portal do Azure](https://portal.azure.com/), no canto superior direito, clique na ligação para uma lista de diretórios de Active Directory possíveis pendente. Escolha o correto do Active Directory como a predefinição do Azure AD. Este passo liga o Active Directory associado à subscrição com o servidor de SQL do Azure, certificando-se de que a mesma subscrição é utilizada para do Azure AD e o SQL Server. (O servidor de SQL do Azure pode alojar a base de dados SQL do Azure ou do Azure SQL Data Warehouse.)   
     ![choose-ad][8]   
     
 2. Na faixa da esquerda, selecione **servidores SQL**, selecione o **do SQL Server**e, em seguida, no **do SQL Server** página, clique em **administrador do Active Directory**.   
@@ -127,7 +127,7 @@ Para executar os cmdlets do PowerShell, tem de ter o Azure PowerShell instalado 
 
 Para aprovisionar um administrador do Azure AD, execute os seguintes comandos do Azure PowerShell:
 
-* Add-AzureRmAccount
+* Ligar-AzureRmAccount
 * Select-AzureRmSubscription
 
 Os cmdlets utilizados para aprovisionar e gerir o administrador do Azure AD:
@@ -185,7 +185,7 @@ Também pode aprovisionar um administrador do Azure AD ao chamar os seguintes co
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Aprovisiona um administrador do Azure Active Directory para o servidor SQL do Azure ou do Azure SQL Data Warehouse. (Tem de ser da subscrição atual.) |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Remove o administrador do Azure Active Directory para o servidor SQL do Azure ou do Azure SQL Data Warehouse. |
 |[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Devolve informações sobre um administrador do Azure Active Directory atualmente configurada para o servidor SQL do Azure ou o Azure SQL Data Warehouse. |
-|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Atualiza o administrador do Active Directory para um servidor SQL do Azure ou o Azure SQL Data Warehouse. |
+|[atualização de administração do ad do AZ SQL Server](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Atualiza o administrador do Active Directory para um servidor SQL do Azure ou o Azure SQL Data Warehouse. |
 
 Para mais informações sobre comandos da CLI, consulte [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
@@ -208,7 +208,7 @@ Pode satisfazer estes requisitos por:
 Autenticação do Azure Active Directory exige que os utilizadores da base de dados ser criado como utilizadores de base de dados contida. Um utilizador de base de dados contida, com base na identidade do Azure AD, é um utilizador de base de dados que não tem um início de sessão na base de dados mestra, e que mapeia para uma identidade no diretório do Azure AD que estão associado com a base de dados. A identidade do Azure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de base de dados contida, consulte [efetuar contidos utilizadores de base de dados da base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Não não possível criar utilizadores de base de dados (com exceção dos administradores) através do portal. Não são propagadas para funções do RBAC para o SQL Server, base de dados SQL ou SQL Data Warehouse. Funções do RBAC do Azure são utilizadas para gerir recursos do Azure e não se aplicam às permissões de base de dados. Por exemplo, o **contribuinte de servidor de SQL** função não concede acesso ao ligar à base de dados SQL ou SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente na base de dados através de instruções Transact-SQL.
+> Os utilizadores de base de dados (com exceção dos administradores) não não possível criar no portal do Azure. Não são propagadas para funções do RBAC para o SQL Server, base de dados SQL ou SQL Data Warehouse. Funções do RBAC do Azure são utilizadas para gerir recursos do Azure e não se aplicam às permissões de base de dados. Por exemplo, o **contribuinte de servidor de SQL** função não concede acesso ao ligar à base de dados SQL ou SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente na base de dados através de instruções Transact-SQL.
 >
 
 Para criar um Azure AD-utilizador com base no contidos da base de dados (que não seja o administrador do servidor que é proprietário da base de dados), estabeleça ligação à base de dados com uma identidade do Azure AD, como um utilizador com, pelo menos, o **ALTER qualquer utilizador** permissão. Em seguida, utilize a seguinte sintaxe de Transact-SQL:
@@ -279,12 +279,13 @@ Utilize este método se tiver sessão iniciada Windows utilizando as credenciais
 
 ## <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
 
-Utilize este método quando a ligação com um nome do principal do Azure AD utilizando o Azure AD gerido domínio. Também pode utilizá-lo para uma conta federada sem acesso ao domínio, por exemplo, quando trabalhar remotamente.
+Utilize este método quando a ligação com um nome do principal do Azure AD utilizando o Azure AD gerido domínio. Também pode utilizá-la para federado contas sem acesso ao domínio, por exemplo, quando trabalhar remotamente.
 
-Utilize este método se tiver sessão iniciada Windows utilizando credenciais de um domínio que não está Federado com o Azure, ou quando utilizar a autenticação do Azure AD com o Azure AD com base no inicial ou o domínio de cliente.
+Utilize este método para autenticar para SQL DB/armazém de dados com o Azure AD para nativo do federado utilizadores do Azure AD.
+Um utilizador nativo está explicitamente criado no Azure AD e a ser autenticado utilizando o nome de utilizador e palavra-passe, enquanto que um utilizador federado é um utilizador do Windows cujo domínio está Federado com o Azure AD. O método última (utilizando o utilizador e palavra-passe) pode ser utilizado quando um utilizador que pretende utilizar a credencial do windows, mas o computador local não está associada com o domínio (ou seja, utilizando um acesso remoto). Neste caso, um utilizador do Windows pode indicar a conta de domínio e palavra-passe e pode autenticar para SQL DB/armazém de dados utilizando as credenciais federadas.
 
 1. Iniciar Management Studio ou as ferramentas do Data e a **ligar ao servidor** (ou **ligar ao motor de base de dados**) caixa de diálogo a **autenticação** caixa, selecione  **Active Directory – palavra-passe**.
-2. No **nome de utilizador** caixa, escreva o nome de utilizador do Azure Active Directory no formato  **username@domain.com** . Tem de ser uma conta do Azure Active Directory ou uma conta de domínio federar com o Azure Active Directory.
+2. No **nome de utilizador** caixa, escreva o nome de utilizador do Azure Active Directory no formato **username@domain.com**. Tem de ser uma conta do Azure Active Directory ou uma conta de domínio federar com o Azure Active Directory.
 3. No **palavra-passe** caixa, escreva a palavra-passe de utilizador para a conta do Azure Active Directory ou federadas conta de domínio.
 
     ![Selecionar a autenticação de palavra-passe do AD][12]

@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 731ff24fe9cc1b5dbf0c597139a96ae80b863cc2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 
@@ -29,16 +29,16 @@ Para inquilinos do B2C, existem dois modos principais de comunicar com a Graph A
 * Para tarefas interativas e execute-uma vez, deve agir como uma conta de administrador no inquilino do B2C quando efetuar as tarefas. Este modo requer um administrador para iniciar sessão com credenciais para que o administrador possa efetuar quaisquer chamadas para a Graph API.
 * Para tarefas automatizadas, contínuas, deve utilizar algum tipo de conta de serviço que fornece com os privilégios necessários para efetuar tarefas de gestão. No Azure AD, pode fazer isto ao registar uma aplicação e autenticar para o Azure AD. Isto é feito utilizando um **ID da aplicação** que utiliza o [conceder credenciais de cliente OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Neste caso, a aplicação funciona como o próprio, não como um utilizador, para chamar a API de gráfico.
 
-Neste artigo, iremos falar sobre como efetuar o caso de utilização automatizada. Para demonstrar, iremos irá criar um .NET 4.5 `B2CGraphClient` que efetua o utilizador criar, ler, atualizar e eliminar as operações (CRUD). O cliente terá uma interface de linha de comandos do Windows (CLI) que permite invocar vários métodos. No entanto, o código é escrito comportar-se de forma noninteractive, automatizada.
+Neste artigo, irá aprender a realizar o caso de utilização automatizada. Irá criar um .NET 4.5 `B2CGraphClient` que efetua o utilizador criar, ler, atualizar e eliminar as operações (CRUD). O cliente terá uma interface de linha de comandos do Windows (CLI) que permite invocar vários métodos. No entanto, o código é escrito comportar-se de forma noninteractive, automatizada.
 
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Obter um inquilino do Azure AD B2C
-Antes de poder criar aplicações ou utilizadores ou interagir com o Azure AD de todo, precisa de um inquilino do Azure AD B2C e uma conta de administrador global no inquilino. Se ainda não tiver um inquilino, [introdução ao Azure AD B2C](active-directory-b2c-get-started.md).
+Antes de poder criar aplicações ou utilizadores, precisa de um inquilino do Azure AD B2C. Se ainda não tiver um inquilino, [introdução ao Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## <a name="register-your-application-in-your-tenant"></a>Registar a sua aplicação no seu inquilino
-Depois de ter um inquilino do B2C, tem de registar a sua aplicação através do [Portal do Azure](https://portal.azure.com).
+Depois de ter um inquilino do B2C, tem de registar a sua aplicação utilizando o [portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Para utilizar a Graph API com o seu inquilino do B2C, terá de registar uma aplicação dedicada utilizando genérica *registos de aplicação* menu no Portal do Azure, **não** do Azure AD B2C  *Aplicações* menu. Não é possível reutilizar as aplicações de B2C já existentes que registou no Azure AD B2C *aplicações* menu.
+> Para utilizar a Graph API com o seu inquilino do B2C, tem de registar uma aplicação utilizando o *registos de aplicação* serviço no portal do Azure, **não** do Azure AD B2C *aplicações*menu. As seguintes instruções origem o menu de adequadas. Não é possível reutilizar aplicações existentes do B2C que registou no Azure AD B2C *aplicações* menu.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha o seu inquilino do Azure AD B2C ao selecionar a sua conta no canto superior direito da página.
@@ -47,7 +47,8 @@ Depois de ter um inquilino do B2C, tem de registar a sua aplicação através do
     1. Selecione **aplicação Web / API** como o tipo de aplicação.    
     2. Fornecer **qualquer URL de início de sessão** (por exemplo, https://B2CGraphAPI) dado que não é relevante para este exemplo.  
 5. A aplicação irá agora aparecem na lista de aplicações, clique nele para obter o **ID da aplicação** (também conhecido como ID de cliente). Copie-o como irá precisar das mesmas numa secção posterior.
-6. No menu de definições, clique em **chaves** e adicione uma nova chave (também conhecida como segredo do cliente). Também copiá-lo para utilização numa secção posterior.
+6. No menu de definições, clique em **chaves**.
+7. No **palavras-passe** secção, introduza a chave descrição e selecione uma duração e, em seguida, clique em **guardar**. Copie o valor da chave (também conhecida como segredo do cliente) para utilização numa secção posterior.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurar a criar, ler e atualizar as permissões para a sua aplicação
 Agora tem de configurar a sua aplicação para obter as permissões necessárias para criar, ler, atualizar e eliminar utilizadores.

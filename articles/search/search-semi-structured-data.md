@@ -1,58 +1,57 @@
 ---
-title: Procurar dados semiestruturados no armazenamento na nuvem do Azure
-description: "A procurar dados de BLOBs semiestruturados utilização da Azure Search."
+title: Pesquisar dados semiestruturados no armazenamento na cloud do Azure
+description: Pesquise dados de blobs semiestruturados com o Azure Search.
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Dados semiestruturados de pesquisa no armazenamento na nuvem
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Pesquisar dados semiestruturados no armazenamento na cloud
 
-Uma série de duas partes tutorial, irá aprender a procurar dados não estruturados e semiestruturados, utilizando a pesquisa do Azure. [Parte 1](../storage/blobs/storage-unstructured-search.md) walked, através da pesquisa através de dados não estruturados, mas também incluídos importantes pré-requisitos para este tutorial, como criar a conta de armazenamento. 
+Numa série de tutoriais de duas partes, vai aprender a pesquisar dados semiestruturados e não estruturados com o Azure Search. A [Parte 1](../storage/blobs/storage-unstructured-search.md) explicou a pesquisa de dados não estruturados, mas também incluiu pré-requisitos importantes para este tutorial, como criar a conta de armazenamento. 
 
-Na parte 2, concentre-se de que altera para dados semiestruturados, tais como JSON, armazenado em blobs do Azure. Dados semiestruturados contém etiquetas ou visuais que separam conteúdo dentro os dados. Divide-a diferença entre dados não estruturados, que tem de ser indexados wholistically e dados estruturados formally que respeite a um modelo de dados, tais como um esquema de base de dados relacional, que pode ser pesquisado numa base por campo.
+Na Parte 2, o foco muda para os dados semiestruturados, tais como JSON, armazenados nos blobs do Azure. Os dados semiestruturados contêm etiquetas ou marcações que separam o conteúdo dentro dos dados. São o meio-termo entre os dados não estruturados, que têm de ser indexados holisticamente, e os dados estruturados formalmente, que seguem um modelo de dados, como um esquema de base de dados relacional, que pode ser pesquisado por campo.
 
-Parte 2, saiba como:
+Na Parte 2, saiba como:
 
 > [!div class="checklist"]
-> * Configurar uma origem de dados de pesquisa do Azure para um contentor de Blobs do Azure
-> * Criar e preencher um índice da Azure Search e o indexador para pesquisar o contentor e extrair conteúdo pesquisável
-> * O que acabou de criar o índice de pesquisa
+> * Configurar uma origem de dados do Azure Search para um contentor de blobs do Azure
+> * Criar e preencher um índice do Azure Search e o indexador para pesquisar o contentor e extrair conteúdo pesquisável
+> * Pesquisar o índice que acabou de criar
 
 > [!NOTE]
-> Este tutorial baseia-se no suporte de matriz JSON, que atualmente tem uma funcionalidade de pré-visualização na Azure Search. Não está disponível no portal. Por este motivo, estamos a utilizar a API REST, que fornece esta funcionalidade e a ferramenta de cliente para chamar a API REST de pré-visualização.
+> Este tutorial baseia-se no suporte de matriz JSON, que é atualmente uma funcionalidade de pré-visualização no Azure Search. Não está disponível no portal. Por este motivo, estamos a utilizar a API REST de pré-visualização, que fornece esta funcionalidade, e uma ferramenta de cliente REST para chamar a API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Concluir o [tutorial anterior](../storage/blobs/storage-unstructured-search.md) fornecer o serviço de pesquisa e conta de armazenamento criada no tutorial anterior.
+* Conclusão do [tutorial anterior](../storage/blobs/storage-unstructured-search.md) que fornece a conta de armazenamento e o serviço de pesquisa criado no tutorial anterior.
 
-* Instalação de um cliente REST e a compreensão de como construir um pedido de HTTP. Para efeitos deste tutorial, estamos a utilizar [Postman](https://www.getpostman.com/). Pode utilizar um cliente REST diferente se já estiver familiarizado com um tipo específico.
+* Instalação de um cliente REST e compreender como se constrói um pedido de HTTP. Para este tutorial, utilizamos o [Postman](https://www.getpostman.com/). Pode utilizar outro cliente REST se já estiver familiarizado com um cliente específico.
 
 ## <a name="set-up-postman"></a>Configurar o Postman
 
-Inicie o Postman e configurar um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, consulte [explorar Azure Search APIs REST utilizando o Fiddler ou Postman](search-fiddler.md) para obter mais informações.
+Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, veja [Explorar as APIs REST do Azure Search com o Fiddler ou o Postman](search-fiddler.md) para obter mais informações.
 
-O método de pedido para cada chamada neste tutorial é "POST". As chaves de cabeçalho estão "Content-type" e "chave de api." Os valores das chaves de cabeçalho são "application/json" e a chave"admin" (a chave de administrador é um marcador de posição para a sua chave primária de pesquisa), respetivamente. O corpo é onde colocar o conteúdo da chamada real. Consoante o cliente que estiver a utilizar, poderão existir algumas variações no como pode construir a consulta, mas os são as noções básicas.
+O método de pedido para todas as chamadas neste tutorial é "POST". As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e a sua "admin key" (a chave de administração é um marcador de posição para a sua chave primária de pesquisa), respetivamente. O corpo é onde vai colocar o conteúdo efetivo da chamada. Consoante o cliente que estiver a utilizar, poderão existir algumas variações em relação à forma como constrói a sua consulta, mas estas são as essenciais.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/postmanoverview.png)
 
-Para as chamadas REST abrangidas neste tutorial, é necessária a chave de api de pesquisa. Pode encontrar a chave de api em **chaves** no interior do seu serviço de pesquisa. Esta chave de api tem de ser no cabeçalho de cada chamada de API (substitua "chave de administrador" na captura de ecrã anterior com a mesma) neste tutorial direciona fazer. Manter a chave, uma vez que precisa para cada chamada.
+Para as chamadas REST abrangidas neste tutorial, é precisa a sua api-key de pesquisa. Pode encontrar a sua api-key em **Chaves** dentro do serviço de pesquisa. Esta api-key tem de estar no cabeçalho de todas as chamadas à API (substitua "admin key" na captura de ecrã anterior pela mesma) que este tutorial lhe dá instruções para fazer. Mantenha a chave, uma vez que vai precisar dela para cada chamada.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/keys.png)
 
 ## <a name="download-the-sample-data"></a>Transferir os dados de exemplo
 
-Um conjunto de dados de exemplo foi preparado para si. **Transferir [json.zip clinical avaliações](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)**  e deszipe-lo para a sua própria pasta.
+Um conjunto de dados de exemplo foi preparado para si. **Transfira [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** e deszipe-o para a própria pasta.
 
-Contidos no exemplo é ficheiros JSON, o que faziam originalmente texto exemplo ficheiros obtida [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Iremos convertido-los para JSON para sua comodidade.
+A amostra contém ficheiros JSON de exemplo, que eram originalmente ficheiros de texto obtidos a partir de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Convertemo-los para JSON para sua comodidade.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -60,33 +59,33 @@ Inicie sessão no [Portal do Azure](http://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Carregar os dados de exemplo
 
-No portal do Azure, navegue de volta para a conta de armazenamento criada no [tutorial anterior](../storage/blobs/storage-unstructured-search.md). Em seguida, abra o **dados** contentor e clique em **carregar**.
+No portal do Azure, navegue de volta para a conta de armazenamento criada no [tutorial anterior](../storage/blobs/storage-unstructured-search.md). Em seguida, abra o contentor de **dados** e clique em **Carregar**.
 
-Clique em **avançadas**, introduza "clinical-avaliações-json" e, em seguida, carregue todos os ficheiros JSON que transferiu.
+Clique em **Avançadas**, introduza "clinical-trials-json" e, em seguida, carregue todos os ficheiros JSON que transferiu.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/clinicalupload.png)
 
-Após a conclusão do carregamento, os ficheiros devem ser apresentadas na sua própria subpasta no interior do contentor de dados.
+Quando o carregamento estiver concluído, os ficheiros devem aparecer na sua própria subpasta dentro do contentor de dados.
 
-## <a name="connect-your-search-service-to-your-container"></a>Ligar o serviço de pesquisa para o contentor
+## <a name="connect-your-search-service-to-your-container"></a>Ligar o serviço de pesquisa ao contentor
 
-Estamos a utilizar Postman para três chamadas de API para o serviço de pesquisa para criar uma origem de dados, um índice e um indexador. A origem de dados inclui um ponteiro para a sua conta de armazenamento e os dados JSON. O serviço de pesquisa faz a ligação ao carregar os dados.
+Estamos a utilizar o Postman para fazer três chamadas à API para o serviço de pesquisa para criar uma origem de dados, um índice e um indexador. A origem de dados inclui um ponteiro para a sua conta de armazenamento e os dados JSON. O serviço de pesquisa faz a ligação ao carregar os dados.
 
-A cadeia de consulta tem de conter **api-version = 2016-09-01-Preview** e cada chamada deve devolver um **criado 201**. A api-version geralmente disponível ainda não tem a capacidade de processar json como um jsonArray, atualmente que só a pré-visualização api-versão.
+A cadeia de consulta tem de conter **api-version=2016-09-01-Preview** e cada chamada deve devolver um **201 Criado**. A versão da API disponível globalmente ainda não tem a capacidade de processar json como jsonArray. Atualmente, apenas a versão da API de pré-visualização tem.
 
-Execute as seguintes três chamadas de API a partir do seu cliente REST.
+Execute as três chamadas à API seguintes a partir do seu cliente REST.
 
 ### <a name="create-a-datasource"></a>Criar uma origem de dados
 
-Uma origem de dados especifica quais os dados para o índice.
+Uma origem de dados especifica quais os dados a indexar.
 
-O ponto final desta chamada é `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Substitua `[service name]` com o nome do seu serviço de pesquisa.
+O ponto final desta chamada é `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
-Para esta chamada, terá do nome da sua conta de armazenamento e a chave de conta de armazenamento. A chave de conta de armazenamento pode ser encontrada no portal do Azure dentro da sua conta de armazenamento **chaves de acesso**. A localização é mostrada na imagem seguinte:
+Para esta chamada, precisa do nome da sua conta de armazenamento e da chave da sua conta de armazenamento. Pode encontrar a chave da conta de armazenamento no portal do Azure, dentro das **Chaves de Acesso** da sua conta de armazenamento. A localização é apresentada na imagem seguinte:
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/storagekeys.png)
 
-Certifique-se de que substitui o `[storage account name]` e `[storage account key]` no corpo do seu chamada antes de executar a chamada.
+Certifique-se de que substitui `[storage account name]` e `[storage account key]` no corpo da sua chamada antes de executar a chamada.
 
 ```json
 {
@@ -97,7 +96,7 @@ Certifique-se de que substitui o `[storage account name]` e `[storage account ke
 }
 ```
 
-A resposta deve ter o seguinte aspeto:
+A resposta deve ser semelhante a:
 
 ```json
 {
@@ -121,11 +120,11 @@ A resposta deve ter o seguinte aspeto:
 
 ### <a name="create-an-index"></a>Criar um índice
     
-A segunda chamada de API cria um índice. Especifica um índice de todos os parâmetros e respetivos atributos.
+A segunda chamada à API cria um índice. Um índice especifica todos os parâmetros e os respetivos atributos.
 
-O URL para esta chamada é `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Substitua `[service name]` com o nome do seu serviço de pesquisa.
+O URL para esta chamada é `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
-Primeiro, substitua o URL. Em seguida, copie e cole o seguinte código no seu corpo e execute a consulta.
+Primeiro, substitua o URL. Em seguida, copie e cole o seguinte código para o corpo e execute a consulta.
 
 ```json
 {
@@ -161,7 +160,7 @@ Primeiro, substitua o URL. Em seguida, copie e cole o seguinte código no seu co
 }
 ```
 
-A resposta deve ter o seguinte aspeto:
+A resposta deve ser semelhante a:
 
 ```json
 {
@@ -211,11 +210,11 @@ A resposta deve ter o seguinte aspeto:
 
 ### <a name="create-an-indexer"></a>Criar um indexador
 
-Um indexador liga-se a origem de dados para o índice de pesquisa de destino e, opcionalmente, fornece uma agenda para automatizar a atualização de dados.
+Um indexador liga a origem de dados ao índice de pesquisa de destino e, opcionalmente, fornece uma agenda para automatizar a atualização de dados.
 
-O URL para esta chamada é `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Substitua `[service name]` com o nome do seu serviço de pesquisa.
+O URL para esta chamada é `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 
-Primeiro, substitua o URL. Em seguida, copie e cole o seguinte código no seu corpo e execute a consulta.
+Primeiro, substitua o URL. Em seguida, copie e cole o seguinte código para o corpo e execute a consulta.
 
 ```json
 {
@@ -226,7 +225,7 @@ Primeiro, substitua o URL. Em seguida, copie e cole o seguinte código no seu co
 }
 ```
 
-A resposta deve ter o seguinte aspeto:
+A resposta deve ser semelhante a:
 
 ```json
 {
@@ -252,39 +251,39 @@ A resposta deve ter o seguinte aspeto:
 }
 ```
 
-## <a name="search-your-json-files"></a>Procure os ficheiros JSON
+## <a name="search-your-json-files"></a>Pesquisar os ficheiros JSON
 
-Agora que o serviço de pesquisa foi ligado ao seu contentor de dados, pode começar a procurar os ficheiros.
+Agora que o serviço de pesquisa foi ligado ao contentor de dados, pode começar a pesquisar os seus ficheiros.
 
-Abra o portal do Azure e navegue de volta para o serviço de pesquisa. Tal como fez no tutorial anterior.
+Abra o portal do Azure e navegue de volta para o serviço de pesquisa, tal como fez no tutorial anterior.
 
   ![Pesquisa não estruturada](media/search-semi-structured-data/indexespane.png)
 
 ### <a name="user-defined-metadata-search"></a>Pesquisa de metadados definidos pelo utilizador
 
-Como anteriormente, os dados podem ser consultados numa de várias formas: a pesquisa em texto completo, as propriedades do sistema ou os metadados definidos pelo utilizador. Propriedades do sistema e os metadados definidos pelo utilizador só podem ser procurados com o `$select` parâmetro se foram marcados como **recuperável** durante a criação do índice de destino. Os parâmetros no índice não poderão ser alterados assim que forem criadas. No entanto, podem ser adicionados parâmetros adicionais.
+Tal como antes, os dados podem ser consultados de várias formas: pesquisa em texto completo, propriedades do sistema ou metadados definidos pelo utilizador. Tanto as propriedades do sistema como os metadados definidos pelo utilizador só podem ser pesquisados com o parâmetro `$select` se tiverem sido marcados como **recuperável** durante a criação do índice de destino. Os parâmetros no índice não podem ser alterados depois de serem criados. No entanto, podem ser adicionados mais parâmetros.
 
-Um exemplo de uma consulta básico é `$select=Gender,metadata_storage_size`, que limita o retorno para os dois parâmetros.
+Um exemplo de uma consulta básica é `$select=Gender,metadata_storage_size`, que limita os resultados devolvidos a esses dois parâmetros.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/lastquery.png)
 
-Um exemplo de consulta mais complexa seria `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que devolve resultados apenas em que os parâmetros MinimumAge é maior que ou igual a 30 e MaximumAge é menos de 75.
+Um exemplo de uma consulta mais complexa seria `$filter=MinimumAge ge 30 and MaximumAge lt 75`, que devolve apenas resultados quando o parâmetro MinimumAge é maior ou igual a 30 e o parâmetro MaximumAge é menor que 75.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/metadatashort.png)
 
-Se gostaria de experimentação e tente algumas consultas mais por si, pode fazê-lo. Sabe que pode utilizar operadores lógicos (e, em alternativa, não) e operadores de comparação (eq, ne, gt, lt, ge, le). Comparações de cadeias diferenciam maiúsculas de minúsculas.
+Se quiser experimentar e tentar fazer sozinho mais algumas consultas, pode fazê-lo. Sabe que pode utilizar os operadores lógicos (and, or, not) e os operadores de comparação (eq, ne, gt, lt, ge, le). As comparações de cadeias são sensíveis às maiúsculas e minúsculas.
 
-O `$filter` parâmetro só funciona com os metadados que foram marcadas como filtrável na criação do seu índice.
+O parâmetro `$filter` só funciona com os metadados que foram marcados como «filtrável» na criação do seu índice.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu sobre pesquisa semiestruturados dados utilizando a pesquisa do Azure, tais como:
+Neste tutorial, aprendeu a pesquisar dados semiestruturados com o Azure Search, como por exemplo, a:
 
 > [!div class="checklist"]
-> * Criar um serviço de pesquisa do Azure utilizando a API REST
-> * Utilizar o serviço de pesquisa do Azure para procurar o contentor
+> * Criar um Azure Search Service com a API REST
+> * Utilizar o Azure Search Service para pesquisar o seu contentor
 
-Siga esta ligação para obter mais informações sobre a pesquisa.
+Siga esta hiperligação para saber mais sobre a pesquisa.
 
 > [!div class="nextstepaction"]
-> [Indexar documentos no armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+> [Indexar Documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)

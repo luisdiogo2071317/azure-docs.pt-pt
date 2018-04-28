@@ -1,11 +1,11 @@
 ---
 title: "Resolução de problemas: O item de 'Do Active Directory' está em falta ou não está disponível | Microsoft Docs"
-description: "O que fazer quando o item de menu do Active Directory não aparece no Portal de gestão do Azure."
+description: O que fazer quando o item de menu do Active Directory não aparece no Portal de gestão do Azure.
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Resolução de problemas: O item de 'Do Active Directory' está em falta ou não está disponível
 Muitas das instruções para utilizar os serviços e funcionalidades do Azure Active Directory começam por "Ir para o Portal de gestão do Azure e clique em **do Active Directory**." Mas o que pode fazer se o item de menu ou a extensão do Active Directory não aparecer, ou se estiver marcado **não está disponível**? Este tópico foi concebido para ajudar. Descreve as condições sob as quais **do Active Directory** não aparecer ou não está disponível e explica como proceder.
@@ -39,7 +39,7 @@ O item do Active Directory é apresentada no menu de navegação esquerdo quando
 * O inquilino do Azure tem, pelo menos, um espaço de nomes do controlo de acesso do Azure AD (ACS). Para obter mais informações, consulte [espaço de nomes de controlo de acesso](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
     OU
-* O inquilino do Azure tem pelo menos um fornecedor de multi-factor Authentication do Azure. Para obter mais informações, consulte [administrar o Azure multi-factor Authentication fornecedores](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* O inquilino do Azure tem pelo menos um fornecedor de multi-factor Authentication do Azure. Para obter mais informações, consulte [administrar o Azure multi-factor Authentication fornecedores](authentication/howto-mfa-getstarted.md).
 
 Para criar um espaço de nomes do controlo de acesso ou um fornecedor de multi-factor Authentication, clique em **+ novo** > **serviços aplicacionais** > **do Active Directory**.
 

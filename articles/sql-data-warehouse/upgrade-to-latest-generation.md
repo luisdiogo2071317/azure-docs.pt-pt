@@ -1,24 +1,26 @@
 ---
 title: Atualizar para a geração de mais recente do Azure SQL Data Warehouse | Microsoft Docs
-description: Passos para atualizar o armazém de dados SQL do Azure para a geração mais recente da arquitetura de hardware e de armazenamento do Azure.
+description: Atualize o Azure SQL Data Warehouse para geração mais recente da arquitetura de hardware e de armazenamento do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 724f027f3f43cd0ad846210b511c8fc1af27153f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
+Atualize o Azure SQL Data Warehouse para geração mais recente da arquitetura de hardware e de armazenamento do Azure.
 
-Pode agora totalmente atualizar para o Optimized para a camada de desempenho de computação no portal do Azure. Se tiver um Optimized elasticidade do armazém de dados, recomenda-se a atualização para a geração de mais recente de hardware do Azure e uma arquitetura de armazenamento avançado. Poderá tirar partido de um desempenho mais rápido, escalabilidade e armazenamento columnar ilimitado. 
+## <a name="why-upgrade"></a>Por que motivo atualizar?
+Pode agora totalmente atualizar para o Optimized para a camada de desempenho de computação no portal do Azure. Se tiver um Optimized elasticidade do armazém de dados, a atualização é recomendada. Ao atualizar, pode utilizar a geração de mais recente de hardware do Azure e arquitetura de armazenamento melhorada. Pode tirar partido de um desempenho mais rápido, escalabilidade e armazenamento columnar ilimitado. 
 
 ## <a name="applies-to"></a>Aplica-se a
 Esta atualização aplica-se para armazéns de dados no Optimized para a camada de desempenho de elasticidade.
@@ -28,12 +30,6 @@ Esta atualização aplica-se para armazéns de dados no Optimized para a camada 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
-
-> [!NOTE]
-> A partir de 3/30, tem de ter [auditoria ao nível do servidor](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) desativada antes de iniciar a atualização.
-> 
->
-
 > [!NOTE]
 > Se existentes otimizado para elasticidade do armazém de dados não está numa região onde otimizado para computação está disponível, pode [georrestauro para Optimized da computação](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
 > 

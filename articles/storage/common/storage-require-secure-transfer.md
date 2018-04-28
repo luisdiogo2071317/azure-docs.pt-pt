@@ -1,12 +1,12 @@
 ---
-title: "Exigir a transferência segura no armazenamento do Azure | Microsoft Docs"
-description: "Saiba mais sobre a funcionalidade \"Seguro transferência necessária\" para o Storage do Azure e como ativá-la."
+title: Exigir a transferência segura no armazenamento do Azure | Microsoft Docs
+description: Saiba mais sobre a funcionalidade "Seguro transferência necessária" para o Storage do Azure e como ativá-la.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: Jason.Hogg
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Exigir a transferência segura no armazenamento do Azure
 
@@ -66,7 +66,7 @@ Para exigir a transferência segura através de programação, use a definição
 
 Este exemplo requer o Azure PowerShell versão do módulo 4.1 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
 
-Executar `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Execute `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
  Utilize a seguinte linha de comandos para verificar a definição:
 
@@ -122,5 +122,5 @@ Utilize a seguinte linha de comando para ativar a definição:
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Storage do Azure fornece um conjunto completo de capacidades de segurança, que em conjunto permitem aos programadores criarem aplicações seguras. Para obter mais detalhes, visite o [manual de segurança de armazenamento](storage-security-guide.md).

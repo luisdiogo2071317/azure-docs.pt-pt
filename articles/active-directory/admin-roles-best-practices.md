@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e em nuvem no Azure AD
 
@@ -118,7 +118,7 @@ Avalie as contas que são atribuídas ou elegíveis para a função de administr
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar a autenticação multifator e registar todas as outras contas altamente privilegiados utilizador único não federada admin 
 
-Precisa, Azure multi-factor Authentication (MFA) no início de sessão para todos os utilizadores individuais que são permanentemente atribuídos a uma ou mais funções de administrador do Azure AD: Administrador Global, o administrador com função privilegiada, o administrador do Exchange Online e o SharePoint Administrador online. Utilize o guia para ativar [multi-factor Authentication (MFA) para as contas de administrador](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) e certifique-se de que todos os esses utilizadores se registou no [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Podem encontrar mais informações em passo 2 e o passo 3 do guia [proteger o acesso a dados e serviços do Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Precisa, Azure multi-factor Authentication (MFA) no início de sessão para todos os utilizadores individuais que são permanentemente atribuídos a uma ou mais funções de administrador do Azure AD: Administrador Global, o administrador com função privilegiada, o administrador do Exchange Online e o SharePoint Administrador online. Utilize o guia para ativar [multi-factor Authentication (MFA) para as contas de administrador](authentication/howto-mfa-userstates.md) e certifique-se de que todos os esses utilizadores se registou no [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Podem encontrar mais informações em passo 2 e o passo 3 do guia [proteger o acesso a dados e serviços do Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Mitigar as técnicas de ataque mais frequentemente utilizadas
 
@@ -164,8 +164,8 @@ Azure AD recomenda que necessitam de autenticação multifator (MFA) para todos 
 
 Ative:
 
-* [MFA para contas de exposição de alta](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) tais como contas para executivo officers numa organização 
-* [MFA para cada conta de administrador associada um utilizador individual](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) para outro ligado aplicações SaaS 
+* [MFA para contas de exposição de alta](authentication/multi-factor-authentication-security-best-practices.md) tais como contas para executivo officers numa organização 
+* [MFA para cada conta de administrador associada um utilizador individual](authentication/howto-mfa-userstates.md) para outro ligado aplicações SaaS 
 * MFA para todos os administradores para aplicações SaaS da Microsoft, incluindo administradores em funções geridos no Exchange Online e ao portal do Office
 
 Se utilizar o Windows Hello para empresas, o requisito MFA pode ser satisfeito utilizando o Windows Hello início de sessão na experiência. Para obter mais informações, consulte [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
@@ -240,7 +240,7 @@ Exigir executivos C-suite, gestores de alto nível crítico IT e técnicos de se
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Utilizar estações de trabalho dedicadas para a administração do Azure AD
 
-Os atacantes podem tentar contas com privilégios para obter acesso aos dados de uma organização e sistemas, de modo que poderá interromper a integridade e a autenticidade de dados, através de código malicioso que altera a lógica de programa ou snoops admin introduzir uma credencial de destino. Estações de trabalho acesso privilegiado (PAWs) fornecem um sistema operativo dedicado para tarefas confidenciais que se encontra protegido contra ataques de Internet e vetores de ameaças. Separar estas tarefas confidenciais e contas do diariamente utilizar estações de trabalho e dispositivos fornece muito forte proteção contra ataques de phishing e e das aplicações SO vulnerabilidades, vários ataques de representação, ataques de roubo de credenciais, tais como a tecla registo de segurança, passagem do Hash e passagem da permissão de segurança. Ao implementar estações de trabalho de acesso privilegiado, pode reduzir o risco que administradores introduzir credenciais de administrador, exceto no ambiente de trabalho que tenha sido protegido. Para obter mais informações, consulte [estações de trabalho de acesso privilegiado](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Os atacantes podem tentar contas com privilégios para obter acesso aos dados de uma organização e sistemas, de modo que poderá interromper a integridade e a autenticidade de dados, através de código malicioso que altera a lógica de programa ou snoops admin introduzir uma credencial de destino. Estações de trabalho acesso privilegiado (PAWs) fornecem um sistema operativo dedicado para tarefas confidenciais que se encontra protegido contra ataques de Internet e vetores de ameaças. Separar estas tarefas confidenciais e contas do diariamente utilizar estações de trabalho e dispositivos fornece muito forte proteção contra ataques de phishing e e das aplicações SO vulnerabilidades, vários ataques de representação, ataques de roubo de credenciais, tais como a tecla registo de segurança, passagem do Hash e passagem da permissão de segurança. Ao implementar estações de trabalho de acesso privilegiado, pode reduzir o risco que administradores introduzir credenciais de administrador, exceto no ambiente de trabalho que tenha sido protegido. Para obter mais informações, consulte [estações de trabalho de acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Rever as recomendações do National Institute of Standards e tecnologia de processamento de incidentes 
 

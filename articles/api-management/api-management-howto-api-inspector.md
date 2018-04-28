@@ -1,11 +1,11 @@
 ---
-title: Depurar as suas APIs utilizando o rastreio de pedidos na API Management do Azure | Microsoft Docs
-description: Siga os passos deste tutorial para saber como inspecionar os passos na API Management do Azure de processamento de pedidos.
+title: Depurar as APIs utilizando o rastreio de pedidos na Gestão de API do Azure | Microsoft Docs
+description: Siga os passos deste tutorial para aprender a inspecionar os passos de processamento de pedidos na Gestão de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,58 +14,56 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7b9bec7927169b9d820c095a7d11705264e7dcfe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 4db89b52a3fa9585572322d546d87513da41c3f0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs utilizando o rastreio de pedidos
+# <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs com o rastreio de pedidos
 
-Este tutorial descreve como inspecionar o processamento de pedidos para ajudá-lo com a API de resolução de problemas e depuração. 
+Este tutorial descreve como inspecionar o processamento de pedidos para ajudá-lo com a depuração e resolução de problemas da API. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Uma chamada de rastreio
+> * Rastrear uma chamada
 
-![Inspector de API](media/api-management-howto-api-inspector/api-inspector001.PNG)
+![Inspetor de API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Concluir o guia de introdução seguinte: [criar uma instância de API Management do Azure](get-started-create-service-instance.md).
-+ Além disso, concluir o tutorial seguinte: [importação e publicar a sua primeira API](import-and-publish.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="trace-a-call"></a>Uma chamada de rastreio
+## <a name="trace-a-call"></a>Rastrear uma chamada
 
 1. Selecione **APIs**.
-2. Clique em **demonstração conferência API** na sua lista de API.
-3. Selecione **GetSpeakers** operação.
-4. Mudar para o **teste** separador.
-5. Certifique-se de que inclui um cabeçalho de HTTP chamado **Ocp-Apim-rastreio** com o valor definido para **verdadeiro**.
-6. Clique em **"Enviar"** para efetuar uma chamada de API. 
-7. Aguarde a chamada concluir. 
-8. Vá para o **rastreio** separador o **consola API**. Pode clicar em qualquer uma das ligações seguintes para ir para as informações de rastreio de detalhado: **entrada**, **back-end**, **saída**.
+2. Clique em **API da Conferência de Demonstração** na lista de API.
+3. Selecione a operação **GetSpeakers**.
+4. Mude para o separador **Teste**.
+5. Certifique-se de que inclui um cabeçalho de HTTP chamado **Ocp-Apim-Trace** com o valor definido para **verdadeiro**.
+6. Clique em **"Enviar"** para efetuar uma chamada à API. 
+7. Aguarde pela conclusão da chamada. 
+8. Vá para o separador **Rastreio** na **consola API**. Pode clicar em qualquer uma das ligações seguintes para ir para as informações de rastreio de detalhado: **entrada**, **back-end**, **saída**.
 
-    No **entrada** secção, pode ver o pedido original API Management recebeu o autor da chamada e todas as políticas aplicadas ao pedido, incluindo as políticas de cabeçalho de conjunto de limite de taxa e foi adicionado no passo 2.
+    Na secção **Entrada**, pode ver o pedido original de Gestão de API recebido pelo autor da chamada e todas as políticas aplicadas ao pedido, incluindo as políticas de definição de cabeçalho e de limitação de taxas adicionadas no passo 2.
 
-    No **back-end** secção, pode ver os pedidos de API Management enviado para o back-end de API e a resposta que recebeu.
+    Na secção **back-end**, pode ver os pedidos de Gestão de API enviados para o back-end de API e a resposta que recebeu.
     
-    No **saída** secção, pode ver todas as políticas aplicadas à resposta antes de enviar novamente para o autor da chamada.
+    Na secção **saída**, pode ver todas as políticas aplicadas à resposta antes de devolver ao autor da chamada.
  
     > [!TIP]
-    > Cada passo também mostra o tempo decorrido desde que o pedido é recebido através da API Management.
+    > Cada passo mostra também o tempo decorrido desde que o pedido é recebido através da Gestão de API.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Uma chamada de rastreio
+> * Rastrear uma chamada
 
-Avançar para o próximo tutorial:
+Avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
-> [Utilize as revisões](api-management-get-started-revise-api.md)
+> [Usar revisões](api-management-get-started-revise-api.md)

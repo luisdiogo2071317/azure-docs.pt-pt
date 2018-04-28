@@ -1,25 +1,20 @@
 ---
 title: Criar, gerir e proteger chaves de api admin e a consulta para o Azure Search | Microsoft Docs
 description: chaves de API controlam o acesso ao ponto final do serviço. Chaves de administração de conceder acesso de escrita. Chaves de consulta podem ser criadas para acesso só de leitura.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 tags: azure-portal
-ms.assetid: ''
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2718a0b2e97c5af8ee25a96100c3d8cb0dbfe9fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir chaves de api para um serviço da Azure Search
 
@@ -32,7 +27,7 @@ Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa: ad
 |Chave|Descrição|Limites|  
 |---------|-----------------|------------|  
 |Administração|Atribui direitos totais para todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar índices, indexadores e origens de dados.<br /><br /> Duas chaves de administração, referida como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido. Ter duas chaves permite-lhe implementar através de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Apenas são especificadas chaves de administração nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave de api de administração num URL.|Máximo de 2 por serviço|  
-|Consulta|Concede acesso só de leitura aos índices e documentos e, normalmente, são distribuídas por aplicações cliente que emitem pedidos de pesquisa.<br /><br /> Chaves de consulta são criadas a pedido. Pode criá-los manualmente no portal ou de forma programática através de [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Chaves de consulta podem ser especificadas no cabeçalho de pedido HTTP para pesquisa, sugestão ou operação de pesquisa. Em alternativa, pode transmitir uma chave de consulta como um parâmetro num URL. Dependendo da forma como a aplicação cliente formulates o pedido, poderá ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 por serviço|  
+|Consulta|Concede acesso só de leitura aos índices e documentos e, normalmente, são distribuídas por aplicações cliente que emitem pedidos de pesquisa.<br /><br /> Chaves de consulta são criadas a pedido. Pode criá-los manualmente no portal ou de forma programática através de [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Chaves de consulta podem ser especificadas no cabeçalho de pedido HTTP para pesquisa, sugestão ou operação de pesquisa. Em alternativa, pode transmitir uma chave de consulta como um parâmetro num URL. Dependendo da forma como a aplicação cliente formulates o pedido, poderá ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 por serviço|  
 
  Não há visualmente, sem distinção entre uma chave de administrador ou a chave de consulta. Ambas as chaves são cadeias compostas 32 aleatoriamente gerado carateres alfanuméricos. Se perder a controlar de que tipo de chave for especificado na sua aplicação, pode [Verifique os valores de chave no portal do](https://portal.azure.com) ou utilize o [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver o valor e o tipo de chave.  
 
@@ -70,7 +65,7 @@ Os membros das seguintes funções podem ver e voltar a gerar chaves: proprietá
 > [!Note]
 > Para acesso com base em identidades através de resultados da pesquisa, pode criar filtros de segurança para limitar os resultados pela identidade, remover documentos para o qual o requerente não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [seguro com o Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Controlo de acesso baseado em funções na Azure Search](search-security-rbac.md)
 + [Gerir com o PowerShell](search-manage-powershell.md) 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 9f5a8be8a50a8e8168736899b6dba3c143f56219
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d7315d3fb7fc156beb85271d0e5aa19ec6baa7a9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -40,7 +40,7 @@ Tire um instantâneo de um disco de SO ou dados problemas de VHD para cópia de 
 
 Os passos seguintes mostram como obter o disco VHD para ser copiado, criar as configurações de instantâneo e tirar um instantâneo do disco utilizando o [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet. 
 
-Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Este artigo requer a versão do módulo 5.7.0 de AzureRM ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Este artigo requer a versão do módulo 5.7.0 de AzureRM ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 Defina alguns parâmetros. 
 

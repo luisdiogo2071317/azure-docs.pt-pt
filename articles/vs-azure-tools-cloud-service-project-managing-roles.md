@@ -2,23 +2,20 @@
 title: Gestão de funções nos serviços em nuvem do Azure com o Visual Studio | Microsoft Docs
 description: Saiba como adicionar e remover funções no cloud services do Azure com o Visual Studio.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 5ec9ae2e-8579-4e5d-999e-8ae05b629bd1
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 5ec9ae2e-8579-4e5d-999e-8ae05b629bd1
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: fb49eaa69f2265f6b312ecbdab1435e7c50236b8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d0a2148274cd41654eb789772b3ea46bc4ed01aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Gestão de funções nos serviços em nuvem do Azure com o Visual Studio
 Depois de ter criado o seu serviço de nuvem do Azure, pode adicionar novas funções ao mesmo ou remova funções existentes a partir do mesmo. Também pode importar um projeto existente e convertê-la a uma função. Por exemplo, pode importar uma aplicação web ASP.NET e designá-la como uma função da web.

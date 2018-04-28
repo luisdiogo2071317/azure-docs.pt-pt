@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a340cb3d73e0aaa86a5b7beb555133daed39d8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalável do Azure Analysis Services
 
@@ -22,7 +22,7 @@ Com Escalamento horizontal, consultas de cliente podem ser distribuídas entre v
 
 Numa implementação típica do servidor, um servidor funciona como o servidor de processamento e o servidor de consulta. Se o número de consultas de cliente em relação a modelos no seu servidor excede a consulta de processamento unidades (QPU) para o plano do seu servidor, ou se ocorrer o processamento do modelo ao mesmo tempo que cargas de trabalho de consulta elevado, pode diminuir o desempenho. 
 
-Com o Escalamento horizontal, pode criar um conjunto de consulta com réplicas de consulta adicionais até sete (total de oito, incluindo o seu servidor). Pode aumentar o número de réplicas de consulta para satisfazer os pedidos QPU em alturas críticos e pode separar um servidor de processamento do conjunto de consulta em qualquer altura. 
+Com o Escalamento horizontal, pode criar um conjunto de consulta com réplicas de consulta adicionais até sete (total de oito, incluindo o seu servidor). Pode aumentar o número de réplicas de consulta para satisfazer os pedidos QPU em alturas críticos e pode separar um servidor de processamento do conjunto de consulta em qualquer altura. Todas as réplicas de consulta são criadas na mesma região que o servidor.
 
 Independentemente do número de réplicas de consulta que tiver de um conjunto de consulta, processamento de cargas de trabalho não são distribuídas em réplicas de consulta. Um único servidor funciona como o servidor de processamento. Réplicas de consulta servem apenas consultas nos modelos sincronizados entre cada réplica no agrupamento de consulta. 
 
@@ -73,11 +73,17 @@ Utilize o **sincronização** operação.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Para executar a sincronização a partir do PowerShell, [atualizar para a versão mais recente](https://github.com/Azure/azure-powershell/releases) módulo de AzureRM 5.01 ou superior. Utilize [sincronização AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Antes de utilizar o PowerShell, [instale ou Atualize o módulo de AzureRM mais recente](https://github.com/Azure/azure-powershell/releases). 
+
+Para definir o número de réplicas de consulta, utilize [conjunto AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Especifique o opcional `-ReadonlyReplicaCount` parâmetro.
+
+Para executar a sincronização, utilize [sincronização AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+
+
 
 ## <a name="connections"></a>Ligações
 
-Na página de descrição geral do servidor, existem dois nomes de servidor. Se ainda não configurou ainda escalável para um servidor, ambos os nomes de servidor funcionam da mesma. Assim que configurar Escalamento horizontal para um servidor, terá de especificar o nome de servidor adequado dependendo do tipo de ligação. 
+Na página de descrição geral do servidor, existem dois nomes de servidor. Se ainda não configurou ainda escalável para um servidor, ambos os nomes de servidor funcionam da mesma. Assim que configurar Escalamento horizontal para um servidor, tem de especificar o nome de servidor adequado dependendo do tipo de ligação. 
 
 Utilizador final para ligações de cliente, como o Power BI Desktop, Excel e aplicações personalizadas, utilização **nome do servidor**. 
 

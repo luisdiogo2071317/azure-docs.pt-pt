@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerir servidores SQL Database do Azure e as bases de dados
 
 Base de dados do SQL Server oferece três tipos de bases de dados:
 
-- Uma base de dados criada dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md). Uma base de dados SQL do Azure está associado um servidor lógico da SQL Database do Azure, que é criado numa região do Azure específica.
-- Uma base de dados criada como parte de um [conjunto de bases de dados](sql-database-elastic-pool.md) dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de [recursos de computação e armazenamento para cargas de trabalho diferentes](sql-database-service-tiers.md) que são partilhado entre todas as bases de dados no conjunto. Uma base de dados SQL do Azure está associado um servidor lógico da SQL Database do Azure, que é criado numa região do Azure específica.
+- Uma base de dados criada dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um [combinado de conjunto de recursos de computação e armazenamento](sql-database-service-tiers-dtu.md) ou um [dimensionamento independente dos recursos de computação e armazenamento](sql-database-service-tiers-vcore.md). Uma base de dados SQL do Azure está associado um servidor lógico da SQL Database do Azure, que é criado numa região do Azure específica.
+- Uma base de dados criada como parte de um [conjunto de bases de dados](sql-database-elastic-pool.md) dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um [combinado de conjunto de recursos de computação e armazenamento (baseados em DTU)](sql-database-service-tiers-dtu.md) ou um [dimensionamento independente dos recursos de computação e armazenamento (baseados em vCore)](sql-database-service-tiers-vcore.md) que são partilhados entre todas as bases de dados no conjunto. Uma base de dados SQL do Azure está associado um servidor lógico da SQL Database do Azure, que é criado numa região do Azure específica.
 - Um [instância do SQL server](sql-database-managed-instance.md) (uma instância geridos) criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com um conjunto definido de recursos de armazenamento e computação para todas as bases de dados nessa instância de servidor. Uma instância gerida contém bases de dados de sistema e o utilizador. Instância gerida foi concebida para ativar a base de dados comparação de precisão-e-shift para uma PaaS completamente gerido, ao reestruturar a aplicação. Instância gerida fornece elevada compatibilidade com o modelo de programação do SQL Server no local e suporta a grande maioria das funcionalidades do SQL Server e associada ferramentas e serviços.  
 
 Base de dados do Microsoft Azure SQL Server suporta a versão de cliente de protocolo do tabular data stream (recebido) 7.3 ou posterior e permite que apenas as ligações de TCP/IP encriptadas.
@@ -78,7 +78,7 @@ Para criar uma base de dados SQL do Azure utilizando o [portal do Azure](https:/
   ![criar base de dados-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Para informações sobre o escalão de preço da base de dados, consulte [escalões de serviço](sql-database-service-tiers.md).
+> Para informações sobre o escalão de preço da base de dados, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md).
 
 Para criar uma instância geridos, consulte [criar uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -91,11 +91,11 @@ Para gerir uma base de dados existente, navegue para o **bases de dados SQL** p�
    ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Para configurar propriedades de desempenho para uma base de dados, consulte [escalões de serviço](sql-database-service-tiers.md).
+> Para configurar propriedades de desempenho para uma base de dados, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]
-> Para um tutorial de início rápido de portal do Azure, consulte [criar uma base de dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md).
+> Para um guia de introdução portal do Azure, consulte [criar uma base de dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gerir servidores SQL do Azure, as bases de dados e firewalls com o PowerShell
@@ -120,7 +120,7 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e firewalls com o 
 | New-AzureRmSqlServerVirtualNetworkRule | Cria um [ *regra de rede virtual*](sql-database-vnet-service-endpoint-rule-overview.md), com base numa sub-rede que é um ponto final de serviço de rede Virtual. |
 
 > [!TIP]
-> Para um tutorial de início rápido do PowerShell, consulte [criar uma base de dados SQL do Azure único através do PowerShell](sql-database-get-started-portal.md). Para scripts de exemplo do PowerShell, consulte [utilize o PowerShell para criar uma base de dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [monitorizar e dimensionar um único SQL da base de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Para um guia de introdução do PowerShell, consulte [criar uma base de dados SQL do Azure único através do PowerShell](sql-database-get-started-portal.md). Para scripts de exemplo do PowerShell, consulte [utilize o PowerShell para criar uma base de dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [monitorizar e dimensionar um único SQL da base de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gerir servidores SQL do Azure, as bases de dados e firewalls com a CLI do Azure
@@ -150,7 +150,7 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e firewalls com a 
 |[Eliminar regra de firewall do AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
 
 > [!TIP]
-> Para um tutorial de início rápido da CLI do Azure, consulte [criar uma base de dados SQL do Azure único utilizando a CLI do Azure](sql-database-get-started-cli.md). Para scripts de exemplo da CLI do Azure, consulte [CLI de utilização para criar uma base de dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-cli.md) e [CLI de utilização para monitorizar e dimensionar uma base de dados do SQL Server único](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Para um guia de introdução do CLI do Azure, consulte [criar uma base de dados SQL do Azure único utilizando a CLI do Azure](sql-database-get-started-cli.md). Para scripts de exemplo da CLI do Azure, consulte [CLI de utilização para criar uma base de dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-cli.md) e [CLI de utilização para monitorizar e dimensionar uma base de dados do SQL Server único](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Gerir servidores SQL do Azure, as bases de dados e firewalls com Transact-SQL
@@ -181,7 +181,7 @@ Para criar e gerir o servidor SQL do Azure, as bases de dados e firewalls com Tr
 
 
 > [!TIP]
-> Tutorial de início rápido, utilizando o SQL Server Management Studio no Microsoft Windows, consulte [SQL Database do Azure: Utilize o SQL Server Management Studio para ligar e consultar dados](sql-database-connect-query-ssms.md). Para um tutorial de início rápido, utilizando o Visual Studio Code no macOS, Linux ou Windows, consulte [SQL Database do Azure: utilize Visual Studio Code para ligar e consultar dados](sql-database-connect-query-vscode.md).
+> Para um início rápido utilizando o SQL Server Management Studio no Microsoft Windows, consulte [SQL Database do Azure: Utilize o SQL Server Management Studio para ligar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido utilizando o Visual Studio Code no macOS, Linux ou Windows, consulte [SQL Database do Azure: utilize Visual Studio Code para ligar e consultar dados](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gerir servidores SQL do Azure, bases de dados e as firewalls utilizando a API REST
 

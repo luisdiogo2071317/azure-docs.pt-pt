@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c54670b11c0a2a3c5379abe4a43431445daa1a5a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c06289625ab18dad134c235fc28fd5c775955eb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Utilizar o Azure PowerShell para executar tarefas do Pig com o HDInsight
 
@@ -44,7 +44,7 @@ O Azure PowerShell fornece *cmdlets* que permitem-lhe executar remotamente as ta
 
 Os cmdlets seguintes são utilizados durante a execução de tarefas do Pig num cluster do HDInsight remoto:
 
-* **Login-AzureRmAccount**: autentica o Azure PowerShell para a sua subscrição do Azure.
+* **Ligar-AzureRmAccount**: autentica o Azure PowerShell para a sua subscrição do Azure.
 * **Novo AzureRmHDInsightPigJobDefinition**: cria um *definição de tarefa* utilizando as instruções de Pig Latin especificadas.
 * **Início AzureRmHDInsightJob**: envia a definição de tarefa no HDInsight e inicia a tarefa. A *tarefa* objeto é devolvido.
 * **Espera-AzureRmHDInsightJob**: utiliza o objeto de trabalho para verificar o estado da tarefa. Deve aguardar até que a tarefa foi concluída ou o tempo de espera foi excedido.

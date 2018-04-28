@@ -12,26 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 440f7eba99e5fa02a597ae62d5d14329f5e50af7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f982e859892965379b7ffb08e15dd1cf51b9801f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós com pacotes de aplicações de Batch de computação
 
 A funcionalidade de pacotes de aplicações do Azure Batch fornece o facilitar a gestão de aplicações de tarefas e a respetiva implementação em nós de computação do conjunto. Com os pacotes de aplicação, pode carregar e gerir várias versões das aplicações que executam as suas tarefas, incluindo os respetivos ficheiros de suporte. Pode, em seguida, implementar automaticamente uma ou mais destas aplicações em nós de computação do conjunto.
 
-Neste artigo, irá aprender a carregar e gerir pacotes de aplicação no portal do Azure. Em seguida, irá aprender como instalá-las em nós de computação de um conjunto com o [.NET do Batch] [ api_net] biblioteca.
+Neste artigo, irá aprender a carregar e gerir pacotes de aplicação no portal do Azure. Em seguida, aprenderá a instalá-las em nós de computação de um conjunto com o [.NET do Batch] [ api_net] biblioteca.
 
 > [!NOTE]
 > 
 > Os pacotes de aplicações são suportados em todos os conjuntos do Batch criados após 5 de Julho de 2017. Só são suportados em conjuntos do Batch criados entre 10 de Março de 2016 e 5 de Julho de 2017 se o conjunto tiver sido criado com uma configuração de Serviço Cloud. Os conjuntos do Batch criados antes de 10 de Março de 2016 não suportam pacotes de aplicações.
 >
-> As APIs para criar e gerir pacotes de aplicações façam parte do [gestão de lotes .NET] [[api_net_mgmt]] biblioteca. As APIs para instalar pacotes de aplicações num nó de computação são parte a [.NET do Batch] [ api_net] biblioteca.  
+> As APIs para criar e gerir pacotes de aplicações são parte a [gestão de lotes .NET] [ api_net_mgmt] biblioteca. As APIs para instalar pacotes de aplicações num nó de computação são parte a [.NET do Batch] [ api_net] biblioteca. Comparáveis funcionalidades estão a ser as APIs do Batch disponíveis para outros idiomas. 
 >
 > A funcionalidade de pacotes de aplicação descrita aqui substitui a funcionalidade de aplicações de Batch disponível em versões anteriores do serviço.
 > 
@@ -39,13 +39,6 @@ Neste artigo, irá aprender a carregar e gerir pacotes de aplicação no portal 
 
 ## <a name="application-package-requirements"></a>Requisitos do pacote de aplicação
 Para utilizar pacotes de aplicações, terá de [associar uma conta de armazenamento do Azure](#link-a-storage-account) à sua conta do Batch.
-
-Esta funcionalidade foi introduzida no [API REST do Batch] [ api_rest] versão 2015-12-01.2.2 e correspondente [.NET do Batch] [ api_net] versão da biblioteca 3.1.0. Recomendamos que utilize sempre a versão mais recente da API ao trabalhar com o Batch.
-
-> [!NOTE]
-> Os pacotes de aplicações são suportados em todos os conjuntos do Batch criados após 5 de Julho de 2017. Só são suportados em conjuntos do Batch criados entre 10 de Março de 2016 e 5 de Julho de 2017 se o conjunto tiver sido criado com uma configuração de Serviço Cloud. Os conjuntos do Batch criados antes de 10 de Março de 2016 não suportam pacotes de aplicações.
->
->
 
 ## <a name="about-applications-and-application-packages"></a>Sobre as aplicações e pacotes de aplicações
 Dentro do Azure Batch, um *aplicação* refere-se a um conjunto com a versão dos binários do que pode ser transferido automaticamente em nós de computação do conjunto. Um *pacote de aplicação* refere-se a um *conjunto específico* desses binários e representa uma determinada *versão* da aplicação.
@@ -85,50 +78,50 @@ Com os pacotes de aplicação, tarefa de início do conjunto não tem de especif
 >
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerir aplicações
-Pode utilizar o [portal do Azure] [ portal] ou [gestão de lotes .NET](batch-management-dotnet.md) biblioteca para gerir os pacotes de aplicações na sua conta do Batch. Nas secções seguintes alguns, vamos primeiro mostram como ligar uma conta de armazenamento, em seguida, abordar adicionar aplicações e pacotes e gerir com o portal.
+Pode utilizar o [portal do Azure] [ portal] ou as APIs de gestão do Batch para gerir os pacotes de aplicações na sua conta do Batch. Nas secções seguintes alguns, vamos primeiro mostram como ligar uma conta de armazenamento, em seguida, abordar adicionar aplicações e pacotes e gerir com o portal.
 
 ### <a name="link-a-storage-account"></a>Ligar uma conta de armazenamento
-Para utilizar pacotes de aplicações, primeiro tem de associar uma conta de armazenamento do Azure à sua conta do Batch. Se ainda não tiver configurado uma conta de armazenamento, o portal do Azure apresenta um aviso a primeira vez que clicar no **aplicações** na peça de mosaico do **conta do Batch** painel.
+Para utilizar pacotes de aplicações, deve ligar um [conta de armazenamento do Azure](batch-api-basics.md#azure-storage-account) à sua conta do Batch. Se ainda não tiver configurado uma conta de armazenamento, o portal do Azure apresenta um aviso a primeira vez que clicar em **aplicações** na sua conta do Batch.
 
-> [!IMPORTANT]
-> Atualmente, o batch suporta *apenas* o **para fins gerais** tipo de conta de armazenamento, conforme descrito no passo 5, [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account), na [sobre o Azure as contas do Storage](../storage/common/storage-create-storage-account.md). Quando liga uma conta de armazenamento do Azure para a sua conta do Batch, ligue *apenas* um **para fins gerais** conta de armazenamento.
-> 
-> 
+
 
 ![Aviso de 'Não existe nenhuma conta de armazenamento configurada' no portal do Azure][9]
 
-O serviço Batch utiliza a conta de armazenamento associada para armazenar os pacotes de aplicações. Depois de tiver ligado as duas contas, o Batch pode implementar automaticamente os pacotes armazenados na conta de armazenamento ligada para os nós de computação. Para associar uma conta de armazenamento à sua conta do Batch, clique em **as definições de conta de armazenamento** no **aviso** painel e, em seguida, clique em **conta de armazenamento** no  **Conta de armazenamento** painel.
+O serviço Batch utiliza a conta de armazenamento associada para armazenar os pacotes de aplicações. Depois de tiver ligado as duas contas, o Batch pode implementar automaticamente os pacotes armazenados na conta de armazenamento ligada para os nós de computação. Para associar uma conta de armazenamento à sua conta do Batch, clique em **conta de armazenamento** no **aviso** janela e, em seguida, clique em **conta de armazenamento** novamente.
 
 ![Escolha o painel de conta de armazenamento no portal do Azure][10]
 
-Recomendamos que crie uma conta de armazenamento *especificamente* para utilização com a sua conta do Batch e selecione-a aqui. Para obter mais informações sobre como criar uma conta de armazenamento, consulte "Criar uma conta de armazenamento" [contas do Storage do Azure sobre](../storage/common/storage-create-storage-account.md). Depois de criar uma conta de armazenamento, pode, em seguida, ligue-o a sua conta do Batch, utilizando o **conta de armazenamento** painel.
+Recomendamos que crie uma conta de armazenamento *especificamente* para utilização com a sua conta do Batch e selecione-a aqui. Depois de criar uma conta de armazenamento, pode, em seguida, ligue-o a sua conta do Batch, utilizando o **conta de armazenamento** janela.
 
-> [!WARNING]
-> O serviço Batch utiliza o armazenamento do Azure para armazenar os pacotes de aplicações como blobs de blocos. É [cobrado como normal] [ storage_pricing] para os dados de BLOBs de blocos. Lembre-se de que considere o tamanho e número de pacotes de aplicações e, periodicamente remover pacotes preteridos para minimizar os custos.
+> [!NOTE] 
+> Atualmente não é possível utilizar pacotes de aplicações com uma conta de armazenamento do Azure que está configurada com [regras de firewall](../storage/common/storage-network-security.md).
+> 
+
+O serviço Batch utiliza o armazenamento do Azure para armazenar os pacotes de aplicações como blobs de blocos. É [cobrado como normal] [ storage_pricing] para os dados de BLOBs de blocos. Lembre-se de que considere o tamanho e número de pacotes de aplicações e, periodicamente remover pacotes preteridos para minimizar os custos.
 > 
 > 
 
 ### <a name="view-current-applications"></a>Aplicações atuais de vista
-Para ver as aplicações na sua conta do Batch, clique o **aplicações** item de menu no menu à esquerda, ao visualizar o **conta do Batch** painel.
+Para ver as aplicações na sua conta do Batch, clique o **aplicações** item de menu no menu à esquerda, ao visualizar o **conta do Batch**.
 
 ![Mosaico de aplicações][2]
 
-A seleção desta opção de menu é aberto o **aplicações** painel:
+A seleção desta opção de menu é aberto o **aplicações** janela:
 
 ![Lista de aplicações][3]
 
-O **aplicações** painel apresenta o ID de cada aplicação na sua conta e as seguintes propriedades:
+Esta janela apresenta o ID de cada aplicação na sua conta e as seguintes propriedades:
 
 * **Pacotes**: O número de versões associadas esta aplicação.
 * **Versão predefinida**: A versão da aplicação instalada se não indicam uma versão quando especificar a aplicação para um conjunto. Esta definição é opcional.
 * **Permitir atualizações**: O valor que especifica se o pacote de atualizações, eliminações e adições são permitidos. Se isto estiver definido como **não**, pacote de atualizações e eliminações estão desativadas para a aplicação. Podem ser adicionadas apenas versões de pacote de aplicação nova. A predefinição é **Sim**.
 
 ### <a name="view-application-details"></a>Ver detalhes da aplicação
-Para abrir o painel que inclui os motivos para uma aplicação, selecione a aplicação no **aplicações** painel.
+Para ver os detalhes de uma aplicação, selecione a aplicação no **aplicações** janela.
 
 ![Detalhes da aplicação][4]
 
-No painel de detalhes da aplicação, pode configurar as seguintes definições para a sua aplicação.
+Nos detalhes da aplicação, pode configurar as seguintes definições para a sua aplicação.
 
 * **Permitir atualizações**: Especifique se os respetivos pacotes de aplicações podem ser atualizados ou eliminados. Consulte "Atualizar ou eliminar um pacote de aplicações" mais à frente neste artigo.
 * **Versão predefinida**: Especifique um pacote de aplicações predefinido a implementar em nós de computação.
@@ -137,11 +130,11 @@ No painel de detalhes da aplicação, pode configurar as seguintes definições 
 ### <a name="add-a-new-application"></a>Adicionar uma nova aplicação
 Para criar uma nova aplicação, adicione um pacote de aplicação e especifique um ID exclusivo, novas aplicações. O primeiro pacote de aplicações que adicionar com o novo ID de aplicação também cria a nova aplicação.
 
-Clique em **adicionar** no **aplicações** painel para abrir o **nova aplicação** painel.
+Clique em **Aplicações** > **Adicionar**.
 
 ![Nova aplicação painel no portal do Azure][5]
 
-O **nova aplicação** painel fornece os campos seguintes para especificar as definições da sua nova aplicação e o pacote de aplicação.
+O **nova aplicação** janela fornece os campos seguintes para especificar as definições da sua nova aplicação e o pacote de aplicação.
 
 **Id da aplicação**
 
@@ -165,28 +158,28 @@ Este campo especifica a versão do pacote de aplicação que estiver a carregar.
 
 Este campo especifica o ficheiro. zip que contém os binários da aplicação e os ficheiros de suporte que são necessárias para executar a aplicação. Clique em de **selecione um ficheiro** caixa ou no ícone de pasta para procurar e selecione um ficheiro. zip que contém os ficheiros da aplicação.
 
-Depois de selecionar um ficheiro, clique em **OK** para iniciar o carregamento para o armazenamento do Azure. Quando a operação de carregamento estiver concluída, o portal apresenta uma notificação e fecha o painel. Consoante o tamanho do ficheiro que estiver a carregar e a velocidade da sua ligação de rede, esta operação pode demorar algum tempo.
+Depois de selecionar um ficheiro, clique em **OK** para iniciar o carregamento para o armazenamento do Azure. Quando a operação de carregamento estiver concluída, o portal apresenta uma notificação. Consoante o tamanho do ficheiro que estiver a carregar e a velocidade da sua ligação de rede, esta operação pode demorar algum tempo.
 
 > [!WARNING]
-> Não feche o **nova aplicação** painel antes da operação de carregamento está concluída. Se o fizer, irá parar o processo de carregamento.
+> Não feche o **nova aplicação** janela antes da operação de carregamento está concluída. Se o fizer, interrompe o processo de carregamento.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicionar um novo pacote de aplicação
-Para adicionar uma nova versão do pacote de aplicação de uma aplicação existente, selecione uma aplicação no **aplicações** painel, clique em **pacotes**, em seguida, clique em **adicionar** para abrir o **Adicionar pacote** painel.
+Para adicionar uma versão de pacote de aplicação de uma aplicação existente, selecione uma aplicação no **aplicações** windows e clique em **pacotes** > **adicionar**.
 
 ![Adicionar o painel do pacote de aplicação no portal do Azure][8]
 
-Como pode ver, os campos corresponderem do **nova aplicação** painel, mas o **id da aplicação** caixa está desativada. Como fez para a nova aplicação, especifique o **versão** para o novo pacote, navegue até à sua **pacote de aplicação** . zip do ficheiro, em seguida, clique em **OK** para carregar o pacote.
+Como pode ver, os campos corresponderem do **nova aplicação** janela, mas o **id da aplicação** caixa está desativada. Como fez para a nova aplicação, especifique o **versão** para o novo pacote, navegue até à sua **pacote de aplicação** . zip do ficheiro, em seguida, clique em **OK** para carregar o pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou eliminar um pacote de aplicação
-Para atualizar ou eliminar um pacote de aplicação existente, abra o painel de detalhes para a aplicação, clique em **pacotes** para abrir o **pacotes** painel, clique em de **reticências** no a linha do pacote de aplicação que pretende modificar e selecione a ação que pretende efetuar.
+Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes para a aplicação, clique em **pacotes**, clique em de **reticências** na linha do pacote de aplicação que pretende modificar e, selecione a ação que pretende efetuar.
 
 ![Atualizar ou eliminar o pacote no portal do Azure][7]
 
 **Atualização**
 
-Ao clicar em **atualização**, a *pacote de atualização* é apresentado o painel. Este painel é semelhante para o *novo pacote de aplicações* painel, no entanto, apenas o campo de seleção do pacote estiver ativado, permitindo-lhe especificar um novo ficheiro ZIP para carregar.
+Ao clicar em **atualização**, a **pacote de atualização** windows é apresentada. Esta janela é semelhante para o **novo pacote de aplicações** janela, no entanto, apenas o campo de seleção do pacote estiver ativado, permitindo-lhe especificar um novo ficheiro ZIP para carregar.
 
 ![Painel de pacote de atualização no portal do Azure][11]
 
@@ -262,7 +255,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hífenes (-) e inicia número (#) é simplificado para a variável de ambiente de carateres de sublinhado. Além disso, tenha em atenção que as maiúsculas e minúsculas do ID de aplicação é preservada. Por exemplo:
+Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hífenes (-) e inicia número (#) é simplificada para a variável de ambiente de carateres de sublinhado. Além disso, tenha em atenção que as maiúsculas e minúsculas do ID de aplicação é preservada. Por exemplo:
 
 ```
 Linux:
@@ -283,7 +276,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
-Ao carregar um pacote de aplicação, pode especificar uma versão predefinida para implementar os nós de computação. Se especificar uma versão predefinida para uma aplicação, pode omitir o sufixo de versão quando referir a aplicação. Pode especificar a versão de aplicação predefinida no portal do Azure, no painel de aplicações, conforme mostrado no [carregar e gerir aplicações](#upload-and-manage-applications).
+Ao carregar um pacote de aplicação, pode especificar uma versão predefinida para implementar os nós de computação. Se especificar uma versão predefinida para uma aplicação, pode omitir o sufixo de versão quando referir a aplicação. Pode especificar a versão de aplicação predefinida no portal do Azure, o **aplicações** janela, conforme mostrado no [carregar e gerir aplicações](#upload-and-manage-applications).
 
 Por exemplo, se definir "2.7" como a versão predefinida para a aplicação *blender*e as suas tarefas referenciam a variável de ambiente seguintes, em seguida, os nós do Windows irão executar a versão 2.7:
 
@@ -348,7 +341,7 @@ Com os pacotes de aplicação, pode ajudar os seus clientes, selecione as aplica
 
 ## <a name="next-steps"></a>Passos Seguintes
 * O [API REST do Batch] [ api_rest] também fornece suporte para trabalhar com pacotes de aplicações. Por exemplo, consulte o [applicationPackageReferences] [ rest_add_pool_with_packages] elemento [adicionar um conjunto para uma conta] [ rest_add_pool] para obter informações sobre como especificar pacotes para instalar utilizando a API REST. Consulte [aplicações] [ rest_applications] para obter detalhes sobre como obter informações sobre a aplicação utilizando a API de REST do Batch.
-* Saiba como programaticamente [gerir contas do Azure Batch e quotas com gestão de lotes .NET](batch-management-dotnet.md). O [gestão de lotes .NET][api_net_mgmt] biblioteca, pode ativar funcionalidades de criação e eliminação de conta para a aplicação do Batch ou serviço.
+* Saiba como programaticamente [gerir contas do Azure Batch e quotas com gestão de lotes .NET](batch-management-dotnet.md). O [gestão de lotes .NET] [ api_net_mgmt] biblioteca, pode ativar funcionalidades de criação e eliminação de conta para a aplicação do Batch ou serviço.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet

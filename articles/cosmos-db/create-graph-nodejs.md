@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: ed8b76655ff0fc1a0604e59c704646aac95bd744
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 66b12b25787fc029b1f20b78cac578b7cc18c9b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Criar uma aplicação Node.js com o Graph API
 
@@ -46,9 +46,19 @@ Antes de poder executar este exemplo, tem de ter os pré-requisitos seguintes:
 
 Vamos agora clonar uma aplicação do Graph API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
 
-1. Abra uma janela de terminal do Git, tal como Git Bash, e mude (com o comando `cd`) para um diretório de trabalho.
+1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
-2. Execute o seguinte comando para clonar o repositório de exemplo: 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma nova pasta e instalar a aplicação de exemplo.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Execute o seguinte comando para clonar o repositório de exemplo. Este comando cria uma cópia da aplicação de exemplo no seu computador.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
@@ -58,7 +68,9 @@ Vamos agora clonar uma aplicação do Graph API a partir do GitHub, definir a ca
 
 ## <a name="review-the-code"></a>Rever o código
 
-Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o ficheiro `app.js` e verá as seguintes linhas de código. 
+Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
+
+Os seguintes fragmentos são retirados do ficheiro app.js.
 
 * O cliente Gremlin é criado.
 
@@ -178,11 +190,7 @@ Experimente concluir `g.V()` com `.has('firstName', 'Thomas')`, para testar o fi
 
 ## <a name="clean-up-your-resources"></a>Apague os seus recursos
 
-Se não planeia continuar a utilizar esta aplicação, elimine todos os recursos que criou neste artigo, fazendo o seguinte: 
-
-1. No portal do Azure, no menu de navegação esquerdo, selecione **Grupos de recursos**. Em seguida, selecione o nome do recurso que criou. 
-
-2. Na página do grupo de recursos, selecione **Eliminar**. Escreva o nome do recurso que pretende eliminar e, em seguida, selecione **Eliminar**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

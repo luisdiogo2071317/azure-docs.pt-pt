@@ -2,24 +2,19 @@
 title: Ligar ao Azure SQL Data Warehouse - SSMS | Microsoft Docs
 description: Utilize o SQL Server Management Studio (SSMS) para ligar e consultar o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: f4b960115da3d30d355768498ae95270acaef49b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Ligar ao SQL Data Warehouse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,7 +36,7 @@ Para utilizar este tutorial, precisa do seguinte:
 * O nome de servidor SQL completamente qualificado. Para o descobrir, veja [Ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Ligar ao seu SQL Data Warehouse
-1. Abra o SSMS.
+1. Abra o SQL Server Management Studio.
 2. Abra o Explorador de objeto. Para tal, selecione **ficheiro** > **ligar Object Explorer**.
    
     ![SQL Server Object Explorer][1]
@@ -89,7 +84,7 @@ Para configurar o seu ambiente para a autenticação do Azure Active Directory, 
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com
-[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Install SSMS]: https://msdn.microsoft.com/library/hh213248.aspx
 
 
 <!--Image references-->

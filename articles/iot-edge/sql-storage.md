@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d464bbfb9f38b184e47911a7224be8ec8679f0be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Armazenar dados no limite com bases de dados do SQL Server
 
@@ -95,7 +95,7 @@ No passo 3, adicione a criar as opções para o contentor do SQL Server, que sã
         }
    ```
 
-3. Substitua o `<docker registry address>` com o endereço preenchido o tutorial concluída [pré-visualizar a implementar a função do Azure como um módulo de limite de IoT -](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+3. Substitua o `<docker registry address>` com o endereço preenchido o tutorial concluída [pré-visualizar a implementar a função do Azure como um módulo de limite de IoT -](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
 
    >[!NOTE]
    >O endereço do registo de contentores é o mesmo do servidor de início de sessão que copiou a partir do seu registo. Deverá estar no formato `<your container registry name>.azurecr.io`

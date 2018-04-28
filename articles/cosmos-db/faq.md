@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -114,7 +114,7 @@ O valor de PreferredLocations pode ser definido como qualquer uma das regiões d
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Existe nada que posso deve ter conhecimento ao distribuir dados por todo o mundo através de centros de dados do Azure? 
 BD do Azure do Cosmos está presente em todas as regiões do Azure, conforme especificado no [regiões do Azure](https://azure.microsoft.com/regions/) página. Porque é o serviço de núcleo, cada novo Centro de dados tem uma presença de BD do Cosmos do Azure. 
 
-Quando definir uma região, lembre-se de que o Azure Cosmos DB respeita nuvens sovereign e government. Ou seja, se criar uma conta numa região sovereign, não é possível replicar fora nessa região sovereign. Da mesma forma, não é possível ativar a replicação para outras localizações sovereign de uma conta externa. 
+Quando definir uma região, lembre-se de que o Azure Cosmos DB respeita nuvens sovereign e government. Ou seja, se criar uma conta num [região sovereign](https://azure.microsoft.com/global-infrastructure/), não é possível replicar fora que [região sovereign](https://azure.microsoft.com/global-infrastructure/). Da mesma forma, não é possível ativar a replicação para outras localizações sovereign de uma conta externa. 
 
 ## <a name="develop-against-the-sql-api"></a>Desenvolver contra a API do SQL Server
 
@@ -170,6 +170,9 @@ Sim, porque a BD do Cosmos do Azure é um serviço RESTful, ligações de recurs
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Uma instância local da API do SQL Server está disponível?
 Sim. O [emulador de BD do Azure Cosmos](local-emulator.md) fornece uma emulação de alta-fidelidade do serviço base de dados do Cosmos. Suporta a funcionalidade que é idêntica ao Cosmos BD do Azure, incluindo suporte para criar e consultar documentos JSON, aprovisionamento e dimensionamento coleções e a execução de acionadores e procedimentos armazenados. Pode desenvolver e testar aplicações utilizando o emulador de BD do Cosmos do Azure e implementá-las para o Azure uma escala global, fazendo uma configuração única alterar para o ponto final de ligação de base de dados do Azure Cosmos.
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Por que razão são valores longa vírgula flutuante num documento arredondado quando são visualizados a partir do Explorador de dados no portal. 
+Esta é a limitação do JavaScript. JavaScript utiliza números de formato de vírgula flutuante de dupla precisão conforme especificado no IEEE 754 e em segurança pode representar números entre-(253 - 1) e 253 – 1 (ou seja, 9007199254740991) apenas.
+
 ## <a name="develop-against-the-api-for-mongodb"></a>Desenvolver com a API para MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>O que é a API de BD do Cosmos do Azure para o MongoDB?
 A API de BD do Cosmos do Azure para o MongoDB é uma camada de compatibilidade, que permite que aplicações facilmente e transparente comunicar com o motor de base de dados do Azure Cosmos DB nativo, utilizando existente, suportada de Comunidade Apache MongoDB APIs e os controladores. Os programadores podem agora utilizar cadeias de ferramenta MongoDB existentes e competências para criar aplicações que tirar partido da BD do Cosmos do Azure. Os programadores beneficiam as capacidades exclusivas de BD do Cosmos do Azure, que incluem a indexação automática, cópia de segurança de manutenção, contratos de nível de serviço de cópia de financially (SLAs) e assim sucessivamente.
@@ -188,7 +191,7 @@ Para além de códigos de erro comuns do MongoDB, a API do MongoDB tem os seus p
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de pedido consumido excedeu a taxa de aprovisionamento de unidade de pedido para a coleção e foi limitado. | Considere aumentar o débito da coleção do portal do Azure ou tentar novamente. |
-| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {nome: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {idade: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Desenvolver com a tabela de API
 
@@ -213,11 +216,11 @@ Existem algumas diferenças de comportamento utilizadores provenientes da Table 
 * Nome de propriedade de entidade "Id" atualmente não suportado
 
 Em termos da API REST, existem várias opções de pontos finais/consulta que não são suportadas pelo Azure Cosmos DB tabela API de:
-| Método de REST | Opção de consulta/ponto final de REST | Doc URLs | Explicação |
+| Método de REST | Opção de consulta/ponto final de REST | URLs do documento | Explicação |
 | ------------| ------------- | ---------- | ----------- |
 | OBTER, COLOCAR | /?restype=service@comp=properties| [Definir as propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter propriedades de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este ponto final é utilizado para definir as regras CORS, configuração de armazenamento da análise e as definições de registo. CORS não é atualmente suportada e registo e análise são processadas forma diferente na base de dados do Azure Cosmos que tabelas de armazenamento do Azure |
-| OPÇÕES | /<table-resource-name> | [Pré-voo CORS tabela pedido](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isto faz parte de CORS que BD do Cosmos Azure não suporta atualmente. |
-| INTRODUÇÃO | /?restype=service@comp=stats | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
+| OPÇÕES | / < nome de recurso de tabela > | [Pré-voo CORS tabela pedido](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isto faz parte de CORS que BD do Cosmos Azure não suporta atualmente. |
+| GET | /?restype=service@comp=stats | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
 | OBTER, COLOCAR | /MyTable? concluída = acl | [Obter tabela ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir tabela ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Este obtém e define as políticas de acesso armazenada utilizadas para gerir assinaturas de acesso partilhado (SAS). Embora seja suportado SAS, estão definidas e geridos de forma diferente. |
 
 Além disso API de tabela de base de dados do Azure Cosmos só suporta o formato JSON, não ATOM.
@@ -229,9 +232,9 @@ Para o SDK .NET em particular, existem algumas classes e métodos que BD do Cosm
 | Classe | Método não suportado |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats* |
-| CloudTable | SetPermissions* |
-|            | GetPermissions* |
+|                  | \*ServiceStats * |
+| CloudTable | SetPermissions * |
+|            | GetPermissions * |
 | TableServiceContext | * (esta classe é realmente preterida) |
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |

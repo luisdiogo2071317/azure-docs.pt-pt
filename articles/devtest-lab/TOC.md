@@ -86,5 +86,5 @@
 
 
 # Recursos
-## [Mapa do Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Mapa do Azure](https://azure.microsoft.com/roadmap/?category=developer-tools)
 ## [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)

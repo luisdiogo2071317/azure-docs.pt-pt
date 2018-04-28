@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5d08c752af23845a31428b16ee3de594044b4129
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 171265d996c9fe4eb10ac354347f5725dadd0203
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para Distribuições Não Apoiadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -44,7 +44,7 @@ O resto deste artigo foca-se no orientações gerais para executar a distribuiç
 
 ## <a name="general-linux-installation-notes"></a>Notas de instalação do Linux geral
 * O formato VHDX não é suportado no Azure, apenas **fixo VHD**.  Pode converter o disco para o formato VHD utilizando o Gestor de Hyper-V ou o cmdlet convert-vhd. Se estiver a utilizar VirtualBox significa que a seleção **um tamanho fixo** , por oposição a predefinição dinamicamente atribuída ao criar o disco.
-* Azure suporta apenas máquinas virtuais de geração 1. Pode converter uma máquina virtual de geração 1 VHDX para o formato de ficheiro VHD e de expansão dinâmica um disco de tamanho fixo. Mas não é possível alterar a geração de uma máquina virtual. Para obter mais informações, consulte [deve criar máquinas virtuais de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure suporta apenas máquinas virtuais de geração 1. Pode converter uma máquina virtual de geração 1 VHDX para o formato de ficheiro VHD e de expansão dinâmica um disco de tamanho fixo. Mas não é possível alterar a geração de uma máquina virtual. Para obter mais informações, consulte [deve criar máquinas virtuais de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * O tamanho máximo permitido para o VHD é 1,023 GB.
 * Ao instalar o sistema Linux é *recomendado* que utilize partições padrão em vez de LVM (muitas vezes, a predefinição para instalações muitos). Evitará LVM nome entra em conflito com VMs Clonadas, particularmente se um disco de SO alguma vez precisar de ser ligado a outra VM idêntico para resolução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pode ser utilizado em discos de dados.
 * É necessário suporte de kernel para montar a sistemas de ficheiros UDF. No primeiro arranque no Azure a configuração de aprovisionamento é transmitida para a VM com Linux através de multimédia formatado UDF ligada para o convidado. O agente Linux do Azure tem de ser capaz de montar o sistema de ficheiros UDF ler a configuração e aprovisionar a VM.

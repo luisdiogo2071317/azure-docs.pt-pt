@@ -1,11 +1,11 @@
 ---
-title: "Cópia de segurança automatizada para máquinas de virtuais do SQL Server (clássica) | Microsoft Docs"
-description: "Explica a funcionalidade de cópia de segurança automatizada do SQL Server em execução em máquinas virtuais do Azure com o Resource Manager. "
+title: Cópia de segurança automatizada para máquinas de virtuais do SQL Server (clássica) | Microsoft Docs
+description: 'Explica a funcionalidade de cópia de segurança automatizada do SQL Server em execução em máquinas virtuais do Azure com o Resource Manager. '
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bca1c6c357527a32de499ac9207b1bb734dad7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Cópia de segurança automatizada do SQL Server em máquinas virtuais do Azure (clássica)
 > [!div class="op_single_selector"]
@@ -48,13 +48,13 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> Cópia de segurança automatizada do SQL Server 2016 é suportada com as máquinas virtuais do Gestor de recursos. Para obter mais informações, consulte [v2 de cópia de segurança automatizada para o SQL Server 2016 máquinas virtuais do Azure (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
+> Cópia de segurança automatizada do SQL Server 2016 é suportada com as máquinas virtuais do Gestor de recursos. Para obter mais informações, consulte [v2 de cópia de segurança automatizada para o SQL Server 2016 máquinas virtuais do Azure (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Configuração de base de dados**:
 
 * Bases de dados de destino tem de utilizar o modelo de recuperação completo.
 
-**Azure PowerShell**:
+**O Azure PowerShell**:
 
 * [Instalar os comandos do Azure PowerShell mais recentes](/powershell/azure/overview).
 

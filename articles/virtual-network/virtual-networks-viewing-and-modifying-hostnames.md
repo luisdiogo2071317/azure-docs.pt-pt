@@ -3,7 +3,7 @@ title: Ver e modificar os nomes de anfitrião | Microsoft Docs
 description: Como ver e alterar os nomes de anfitrião para máquinas virtuais do Azure, web e funções de trabalho para resolução de nomes
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: genli
-ms.openlocfilehash: 6fe3522c1b3e2f5a07de3d12875ae47a830873d3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver e modificar os nomes de anfitrião
 Para permitir que as instâncias da função ser referenciado por nome de anfitrião, tem de definir o valor para o nome de anfitrião no ficheiro de configuração do serviço para cada função. Fazê-lo ao adicionar o nome de anfitrião pretendido para o **vmName** atributo o **função** elemento. O valor da **vmName** atributo é utilizado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **vmName** é *webrole* e existem três instâncias de função, os nomes de anfitrião das instâncias será *webrole0*, *webrole1*, e *webrole2*. Não tem de especificar um nome de anfitrião para máquinas virtuais no ficheiro de configuração, porque o nome de anfitrião para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [esquema de configuração de serviço do Azure (. cscfg ficheiro)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

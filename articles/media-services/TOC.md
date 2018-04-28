@@ -229,7 +229,7 @@
 ### [Repetir a lógica](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referência
-## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
+## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Gestão de Serviço)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)

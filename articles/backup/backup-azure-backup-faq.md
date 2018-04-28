@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 9226bef986a0fd2b6e8454cbd78b659feda401b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a questões recorrentes sobre os componentes do Backup do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -27,13 +27,13 @@ Este artigo responde a questões recorrentes sobre os componentes do Backup do A
 Para analisar rapidamente as secções neste artigo, utilize as ligações à direita, em **Neste artigo**.
 
 
-## <a name="recovery-services-vault"></a>Cofre de serviços de recuperação
+## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure? <br/>
-Sim. A partir de Janeiro de 2018, pode criar até 25 cofres dos serviços de recuperação, por região suportada de cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Sim. Pode criar até 500 cofres de serviços de recuperação, por região suportada de cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre? <br/>
-Pode registar até 200 Azure máquinas por cofre. Se estiver a utilizar o agente de MAB, pode registar até 50 agentes MAB por cofre. E pode registar os 50 servidores de servidores/DPM MAB para um cofre.
+Pode registar até 1000 Azure máquinas por cofre. Se estiver a utilizar o agente de MAB, pode registar até 50 agentes MAB por cofre. E pode registar os 50 servidores de servidores/DPM MAB para um cofre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar os dados de um servidor de outro servidor quando restaurar os dados?<br/>
 Todos os servidores registados no mesmo cofre podem recuperar os dados de cópias de segurança de outros servidores *que utilizam a mesma frase de acesso*. Se tiver servidores cujos dados de cópia de segurança pretende isolar de outros servidores na sua organização, utilize uma frase de acesso designada para esses servidores. Por exemplo, os servidores de recursos humanos podem utilizar uma frase de acesso de encriptação, os servidores de gestão de contas outra e os servidores de armazenamento uma terceira.

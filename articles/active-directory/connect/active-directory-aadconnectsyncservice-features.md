@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
@@ -56,7 +56,7 @@ As seguintes definições são configuradas pelo Azure AD Connect e não pode se
 | DeviceWriteback |[O Azure AD Connect: Ativar a repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Sincronização do Azure AD Connect: extensões de diretórios](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo a ser colocados em quarentena quando é um duplicado de outro objeto em vez de todo o objeto a falhar durante a exportação. |
-| PasswordSync |[Implementar a sincronização de palavras-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Pré-visualização: Repetição de escrita de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Não é atualmente suportado. |
 
@@ -88,7 +88,7 @@ Historicamente, as atualizações para o atributo UserPrincipalName utilizando o
 
 Para obter mais detalhes, consulte [nomes de utilizador no Office 365, Azure ou Intune não corresponde ao ID de início de sessão alternativo de UPN no local ou](https://support.microsoft.com/kb/2523192).
 
-Ativar esta funcionalidade permite que o motor de sincronização atualizar o userPrincipalName quando é alterado no local e utilizar a sincronização de palavra-passe. Se utilizar a Federação, esta funcionalidade não é suportada.
+Ativar esta funcionalidade permite que o motor de sincronização atualizar o userPrincipalName quando é alterado no local e utilizar a sincronização de hash de palavra-passe. Se utilizar a Federação, esta funcionalidade não é suportada.
 
 Esta funcionalidade está em por predefinição para recentemente criada diretórios do Azure AD. Pode ver se esta funcionalidade está ativada para si, executando a aplicação:  
 

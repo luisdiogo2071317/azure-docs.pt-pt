@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
 Base de dados do Azure para PostgreSQL prefers ligar as aplicações de cliente para o serviço de PostgreSQL utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -98,7 +98,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Para Windows
 Instalar OpenSSL num Windows PC pode ser feito das seguintes formas:
-1. **(Recomendado)**  Utilizando a funcionalidade de Bash para Windows incorporada no Windows 10 e superior, OpenSSL é instalado por predefinição. Pode encontrar instruções sobre como ativar a funcionalidade de Bash para Windows no Windows 10 [aqui](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Recomendado)**  Utilizando a funcionalidade de Bash para Windows incorporada no Windows 10 e superior, OpenSSL é instalado por predefinição. Pode encontrar instruções sobre como ativar a funcionalidade de Bash para Windows no Windows 10 [aqui](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Através de transferir uma aplicação Win32/64 fornecida pela Comunidade. Enquanto a base de Software de OpenSSL não fornece nem apoia quaisquer programas de instalação do Windows específicos, fornecem uma lista de programas de instalação disponíveis [aqui](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Descodificar o ficheiro de certificado

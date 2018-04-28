@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 121bd8a21e74a836fcca74af97fc20cae297d9a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 13b1c5b9ae05a6c2d11420812efc1af17912aa28
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
@@ -46,26 +46,19 @@ Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-h
 2. Inicie o VS Code.
 
 3. Ligar o DevKit para o seu computador.
-    O VS Code automaticamente Deteta o DevKit e abre-se as seguintes páginas:
-    * A página de introdução DevKit.
-    * Exemplos Arduino: Prática amostras para ajudá-lo a começar a utilizar o DevKit.
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## <a name="open-the-mqttclient-sample"></a>Abra o exemplo de MQTTClient
 
 Expanda o lado esquerdo **ARDUINO exemplos** secção, navegue para **exemplos de MXCHIP AZ3166 > MQTT**e selecione **MQTTClient**. Abre uma nova janela do código de VS com uma pasta do projeto no mesmo.
 
-![pasta de exemplos](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/examples.png)
-
 > [!NOTE]
-> Se ocorrer fechar o painel, pode abri-lo novamente. Utilize `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
+> Pode também abrir o exemplo de paleta de comando. Utilize `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Criar e carregar o sketch Arduino para o DevKit
 
 Tipo `Ctrl+P` (macOS: `Cmd+P`) para executar `task device-upload`. Depois do carregamento estiver concluído, DevKit reiniciado e executa o sketch.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![carregamento de dispositivo](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > Poderá receber um "erro: AZ3166: pacote desconhecido" mensagem de erro. Este erro ocorre quando o índice de pacote de placa não está atualizado corretamente. Para resolver este erro, consulte este [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -82,7 +75,7 @@ No VS Code, siga este procedimento para abrir e configurar o Monitor de série:
 
 O Monitor de série apresenta todas as mensagens enviadas pelo sketch de exemplo. O sketch liga o DevKit ao Wi-Fi. Depois da ligação Wi-Fi for bem sucedida, o sketch envia uma mensagem para o mediador MQTT. Depois disso, o exemplo envia repetidamente duas mensagens de "iot.eclipse.org" utilizando o QoS 0 e 1 de QoS, respetivamente.
 
-![serial-output](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![saída de série](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problemas e comentários
 
@@ -101,4 +94,4 @@ Se tiver problemas, consulte [perguntas mais frequentes](https://microsoft.githu
 Agora que aprendeu como configurar o seu DevKit de Iot MXChip como um cliente MQTT e utilizar a biblioteca de clientes de MQTT para enviar mensagens para um mediador MQTT, Eis os passos sugeridos:
 
 * [Descrição geral do Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

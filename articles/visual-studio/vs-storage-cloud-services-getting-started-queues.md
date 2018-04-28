@@ -2,23 +2,20 @@
 title: Introdução ao armazenamento de filas e o Visual Studio ligado services (Serviços de cloud) | Microsoft Docs
 description: Como começar a utilizar o armazenamento de filas do Azure num projeto de serviço em nuvem no Visual Studio depois de ligar a uma conta de armazenamento com o Visual Studio ligada a serviços
 services: storage
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: ee4228db093b840940152fcad6dfba793dbc4772
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c856bfb691c8d1b43822718bbfb86ff2122f4988
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

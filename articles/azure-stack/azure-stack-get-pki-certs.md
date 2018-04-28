@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 349661352d17b015d4c605b39f1e42aa482949ac
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificados de pilha do Azure, a geração de pedido de assinatura
 
@@ -112,4 +112,6 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 8.  Submeter o **. REQ** ficheiro gerado a sua AC (interno ou público).  O diretório de saída do **início AzsReadinessChecker** contém CSR(s) necessários para submeter a uma autoridade de certificação.  Também contém um diretório de subordinados que contém os ficheiros INF utilizados durante a geração de pedido de certificado, como uma referência. Certifique-se de que a sua AC gera certificados utilizando o seu pedido gerado que cumprem os [requisitos do Azure pilha PKI](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 [Preparar os certificados PKI de pilha do Azure](azure-stack-prepare-pki-certs.md)
+

@@ -1,11 +1,11 @@
 ---
-title: "Bibliotecas de autenticação de v 2.0 do Azure Active Directory | Microsoft Docs"
-description: "Bibliotecas de cliente compatível e bibliotecas de middleware de servidor e biblioteca relacionada, origem e ligações de exemplos, para o ponto de final de v 2.0 do Azure Active Directory."
+title: Bibliotecas de autenticação de v 2.0 do Azure Active Directory | Microsoft Docs
+description: Bibliotecas de cliente compatível e bibliotecas de middleware de servidor e biblioteca relacionada, origem e ligações de exemplos, para o ponto de final de v 2.0 do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0d9e2831f9d8676eb3e7fac91c58f3977f2e0f32
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação de v 2.0 do Azure Active Directory
 O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) suporta os protocolos de OAuth 2.0 e o OpenID Connect 1.0 de norma da indústria. Pode utilizar bibliotecas vários da Microsoft e de outras organizações com o ponto final v 2.0.
@@ -42,7 +42,7 @@ Uma vez que pode escolher qualquer biblioteca compatível com normas quando util
 
 Bibliotecas são fornecidos em duas categorias de suporte:
 
-* **Microsoft-supported**. Microsoft disponibiliza correções para estas bibliotecas e tem feito SDL diligence devida nestas bibliotecas.
+* **Microsoft-suportado**. Microsoft disponibiliza correções para estas bibliotecas e tem feito SDL diligence devida nestas bibliotecas.
 * **Compatível**. Microsoft foi testado estas bibliotecas em cenários básicos e ter confirmado que funcionam com o ponto final v 2.0. A Microsoft não cede corrige para estas bibliotecas e não tiver efetuado uma revisão destas bibliotecas. Problemas e pedidos de funcionalidades devem ser direcionados para o projeto de fonte aberta da biblioteca.
 
 Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consulte as secções seguintes neste artigo.
@@ -111,7 +111,7 @@ Para mais informações sobre o ponto final v 2.0 do Azure AD, consulte o [descr
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]:/
@@ -123,4 +123,4 @@ Para mais informações sobre o ponto final v 2.0 do Azure AD, consulte o [descr
 [ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/

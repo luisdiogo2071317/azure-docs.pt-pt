@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ba51c2f8eb8db1f74c4501b045234c222b00da5c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão 
 Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte o artigo [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
 
-A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os grupos de gestão.
+A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os grupos de gestão.
 
 Para efetuar alterações a um grupo de gestão, tem de ter uma função de proprietário ou contribuinte no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md).
 
@@ -231,4 +231,4 @@ Para obter mais informações sobre grupos de gestão, consulte:
 - [Criar grupos de gestão para organizar os recursos do Azure](management-groups-create.md)
 - [Instalar o módulo Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Reveja a especificação de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Instale a extensão da CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Instale a extensão da CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

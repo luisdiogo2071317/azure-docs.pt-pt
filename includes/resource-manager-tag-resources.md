@@ -22,3 +22,10 @@
 7. Pode selecionar a etiqueta afixada do dashboard para ver os recursos com a mesma.
 
      ![Afixar etiquetas ao dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Em massa atribuir etiquetas a vários recursos:
+1. Qualquer lista de recursos (por exemplo, todos os recursos, grupo de recursos oveview);
+2. Selecione a caixa de verificação para os recursos que pretende atribuir a tag;
+3. Opção de etiquetas de atribuir selecione;
+4. Adicionar nomes e valores e selecione atribuição.

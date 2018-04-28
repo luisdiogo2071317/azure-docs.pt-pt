@@ -2,23 +2,19 @@
 title: Melhorar o desempenho do índice columnstore - Azure SQL Data Warehouse | Microsoft Docs
 description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que comprime um índice columnstore em cada rowgroup.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizar a forma de qualidade de rowgroup para columnstore
 
@@ -153,11 +149,3 @@ Suponha que determine que tem de 700 MB de memória para obter os tamanhos de ro
 
 Para ver mais formas de melhorar o desempenho do armazém de dados do SQL Server, consulte o [descrição geral do desempenho](sql-data-warehouse-overview-manage-user-queries.md).
 
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->

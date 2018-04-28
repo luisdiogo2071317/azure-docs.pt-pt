@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o emulador de BD do Cosmos do Azure para desenvolvimento local e o teste
 
@@ -478,6 +478,10 @@ Para recolher rastreios de depuração, execute os seguintes comandos a partir d
 ## <a name="change-list"></a>Lista de alteração
 
 Pode verificar o número de versão com o botão direito clicando no ícone do emulador local na barra de tarefas e clicar no sobre item de menu.
+
+### <a name="1220-released-on-april-20-2018"></a>1.22.0. Lançadas a 20 de Abril de 2018
+
+Para além de atualizar os serviços de emulador de paridade com serviços em nuvem de base de dados do Cosmos, iremos tiver incluídas algumas diversas correções de erros e a documentação de PowerShell melhorada.
 
 ### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 lançadas 27 de Março de 2018
 

@@ -1,11 +1,11 @@
 ---
 title: Compreender as mensagens do dispositivo para a nuvem do IoT Hub do Azure | Microsoft Docs
-description: "Guia para programadores - como utilizar mensagens dispositivo-nuvem com o IoT Hub. Inclui informações sobre o envio de dados de telemetria e não telemtry e utilizar o encaminhamento para entregar mensagens."
+description: Guia para programadores - como utilizar mensagens dispositivo-nuvem com o IoT Hub. Inclui informações sobre o envio de dados de telemetria e não telemtry e utilizar o encaminhamento para entregar mensagens.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Enviar mensagens do dispositivo para nuvem ao IoT Hub
 
@@ -32,7 +32,7 @@ Mensagens com o IoT Hub dispositivo-nuvem tem as seguintes características:
 * Mensagens do dispositivo para nuvem são retidos na predefinido de um hub IoT e durável **mensagens/eventos** ponto final para sete dias.
 * Mensagens do dispositivo para nuvem podem ter um máximo de 256 KB e podem ser agrupadas em lotes para otimizar envia. Lotes podem ter, no máximo, 256 KB.
 * Conforme explicado no [controlar o acesso ao IoT Hub] [ lnk-devguide-security] secção, o IoT Hub permite o controlo de acesso e autenticação por dispositivo.
-* IoT Hub permite-lhe criar até 10 pontos finais de personalizado. São entregues as mensagens para os pontos finais com base nas rotas configuradas no seu IoT hub. Para obter mais informações, consulte [regras de encaminhamento](#routing-rules).
+* IoT Hub permite-lhe criar até 10 pontos finais de personalizado. São entregues as mensagens para os pontos finais com base nas rotas configuradas no seu IoT hub. Para obter mais informações, consulte [regras de encaminhamento](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IoT Hub permite milhões de dispositivos ligados em simultâneo (consulte [Quotas e limitação][lnk-quotas]).
 * IoT Hub não permite a criação de partições arbitrários. Mensagens do dispositivo para nuvem-se partições com base no respetivo origem **deviceId**.
 

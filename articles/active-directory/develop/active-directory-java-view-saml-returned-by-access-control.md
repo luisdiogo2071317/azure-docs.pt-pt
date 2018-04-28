@@ -1,25 +1,24 @@
 ---
-title: "Vista de SAML devolvido pelo serviço de controlo de acesso (Java)"
-description: "Saiba como ver SAML devolvido pelo serviço de controlo de acesso em aplicações de Java alojadas no Azure."
+title: Vista de SAML devolvido pelo serviço de controlo de acesso (Java)
+description: Saiba como ver SAML devolvido pelo serviço de controlo de acesso em aplicações de Java alojadas no Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: 
+manager: mbaldwin
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c43b27d58d78036dd832fb4f95f2bc9958441c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Como ver SAML devolvido pelo serviço de controlo de acesso do Azure
 Este guia irá mostrar como visualizar o subjacente Security Assertion Markup Language (SAML) devolvida para a aplicação por acesso Control Service (ACS) do Azure. O guia baseia-se a [como autenticar utilizadores Web com o Eclipse de através de serviço de controlo de acesso do Azure](active-directory-java-authenticate-users-access-control-eclipse.md) tópico, fornecendo o código que apresenta as informações de SAML. A aplicação concluída terá um aspeto semelhante ao seguinte.
@@ -184,7 +183,7 @@ Modificar **index.jsp** para utilizar o seguinte código.
 1. Execute a sua aplicação no emulador do computador ou implementar no Azure, utilizando os passos documentados no [como autenticar utilizadores Web com o Eclipse de através de serviço de controlo de acesso do Azure](active-directory-java-authenticate-users-access-control-eclipse.md).
 2. Iniciar um browser e abra a aplicação web. Depois de iniciar sessão sua aplicação, irá ver informações de SAML, incluindo a asserção de segurança fornecida pelo fornecedor de identidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais explorar a funcionalidade do ACS e para testar cenários mais sofisticados, consulte [2.0 de serviço de controlo de acesso][Access Control Service 2.0].
 
 [Prerequisites]: #pre

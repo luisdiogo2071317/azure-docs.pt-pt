@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: c4c85395856756e8ec6a788aa958b479a297892d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Limites de modelo de recursos com base em DTU de base de dados SQL do Azure
 
@@ -32,31 +32,28 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 | Opções de armazenamento máximo (GB) | 2 |
 | Armazenamento em OLTP na memória máx. (GB) |N/A |
 | Funcionários em simultâneo de máx. (pedidos) | 30 |
-| Inícios de sessão simultâneos máx. | 30 |
 | Sessões simultâneas máx. | 300 |
 |||
 
 ### <a name="standard-service-tier"></a>Camada de serviços padrão
 | **Nível de desempenho** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Máx. DTUs * * | 10 | 20 | 50 | 100 |
+| Máximo de DTUs | 10 | 20 | 50 | 100 |
 | Incluído armazenamento (GB) | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Armazenamento em OLTP na memória máx. (GB) | N/A | N/D | N/D | N/A |
 | Funcionários em simultâneo de máx. (pedidos)| 60 | 90 | 120 | 200 |
-| Inícios de sessão simultâneos máx. | 60 | 90 | 120 | 200 |
 | Sessões simultâneas máx. |600 | 900 | 1200 | 2400 |
 ||||||
 
 ### <a name="standard-service-tier-continued"></a>Camada de serviço Standard (continuação)
 | **Nível de desempenho** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Máx. DTUs * * | 200 | 400 | 800 | 1600 | 3000 |
+| Máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Incluído armazenamento (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de armazenamento máximo (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Armazenamento em OLTP na memória máx. (GB) | N/A | N/D | N/D | N/D |N/A |
 | Funcionários em simultâneo de máx. (pedidos)| 400 | 800 | 1600 | 3200 |6000 |
-| Inícios de sessão simultâneos máx. | 400 | 800 | 1600 | 3200 |6000 |
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -68,18 +65,15 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 | Opções de armazenamento máximo (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Armazenamento em OLTP na memória máx. (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Funcionários em simultâneo de máx. (pedidos)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Inícios de sessão simultâneos máx. | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Sessões simultâneas máx. | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 
 > [!IMPORTANT]
-> \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+> - Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> - No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Datacenters Central, leste do Japão, oeste do Japão, Coreia Central, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Número máximo de DTUs por base de dados a partir de 200 DTUs e superior padrão estão na pré-visualização.
->
 
 
 ## <a name="single-database-change-storage-size"></a>Base de dados individual: Altere o tamanho de armazenamento
@@ -97,7 +91,7 @@ O vídeo seguinte mostra dinamicamente a alteração da camada de desempenho par
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-Alterar o escalão de serviço e/ou nível de desempenho de uma base de dados cria uma réplica da base de dados original ao nível do novo desempenho e, em seguida, troca ligações para a réplica. Não são perdidos dados durante este processo mas durante o breve momento em que trocamos para a réplica, as ligações à base de dados são desativadas, pelo que algumas transações em voo poderão ser revertidas. O período de tempo para o comutador a ativação pós-falha varia, mas é, geralmente, é de 4 segundos menos de 30 segundos 99% das vezes. Se existirem grande número de transações em trânsito, as ligações do momento em que está desativado, o período de tempo para o comutador a ativação pós-falha pode ser maior. 
+Alterar o escalão de serviço e/ou nível de desempenho de uma base de dados cria uma réplica da base de dados original ao nível do novo desempenho e, em seguida, troca ligações para a réplica. Não são perdidos dados durante este processo mas durante o breve momento em que trocamos para a réplica, as ligações à base de dados são desativadas, pelo que algumas transações em voo poderão ser revertidas. O período de tempo para o comutador a ativação pós-falha varia, mas é menos de 30 segundos 99% das vezes. Se existirem grande número de transações em trânsito, as ligações do momento em que está desativado, o período de tempo para o comutador a ativação pós-falha pode ser maior. 
 
 A duração de todo o processo de aumento vertical depende do tamanho e do escalão de serviço da base de dados antes e após a alteração. Por exemplo, uma base de dados de 250 GB que está a mudar para ou dentro de uma camada de serviço Standard, deve ser concluído dentro de seis horas. Para uma base de dados do mesmo tamanho que está a alterar os níveis de desempenho na camada de serviço Premium, a escala cópia de segurança deve ser concluído dentro de três horas.
 
@@ -142,7 +136,6 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 | Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/D | N/D | N/D | N/D | N/D | N/D | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| Máximo de inícios de sessão simultâneos por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Opções de eDTUs Mín por base de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | Opções de eDTUs máx. por base de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
@@ -158,7 +151,6 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 | Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/D | N/D | N/D | N/D | N/A | 
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
-| Máximo de inícios de sessão simultâneos por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Opções de eDTUs Mín por base de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Opções de eDTUs máx. por base de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
@@ -174,7 +166,6 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 | Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/D | N/D | N/D | N/A | 
 | Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
-| Máximo de inícios de sessão simultâneos por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Opções de eDTUs Mín por base de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Opções de eDTUs máx. por base de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
@@ -190,7 +181,6 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 | Armazenamento máximo de memória OLTP por conjunto (GB) | 1 | 2 | 4 | 10 | 12 | 
 | Número de DBs máximo por conjunto | 50 | 100 | 100 | 100 | 100 | 
 | Máximo de trabalhadores simultâneos por conjunto (pedidos) | 200 | 400 | 800 | 1600 | 2400 | 
-| Máximo de inícios de sessão simultâneos por conjunto | 200 | 400 | 800 | 1600 | 2400 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Mínimo de eDTUs por base de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | Máximo de eDTUs por base de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
@@ -206,7 +196,6 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 | Armazenamento máximo de memória OLTP por conjunto (GB) | 16 | 20 | 24 | 28 | 32 |
 | Número de DBs máximo por conjunto | 100 | 100 | 100 | 100 | 100 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 3200 | 4000 | 4800 | 5600 | 6400 |
-| Máximo de inícios de sessão simultâneos por conjunto | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Máximo de sessões simultâneas por conjunto | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Opções de eDTUs Mín por base de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | Opções de eDTUs máx. por base de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
@@ -214,9 +203,9 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 ||||||||
 
 > [!IMPORTANT]
-> \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
+> -  Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> -  No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, EUA Central, França Central, Datacenters Central, leste do Japão, oeste do Japão, Coreia Central, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do RU, RU oeste, E.U.A. East2, EUA oeste, E.U.A. us Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 >
 
 Se todas as DTUs de um conjunto elástico forem utilizadas, cada base de dados no conjunto recebe uma quantidade igual de recursos para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. A equidade de partilha de recursos de um conjunto elástico é adicional a qualquer quantidade de recursos garantido de outro modo a cada base de dados quando o mínimo de DTUs por base de dados está definido como um valor diferente de zero.
@@ -229,7 +218,7 @@ A tabela seguinte descreve as propriedades para bases de dados agrupados.
 |:--- |:--- |
 | Máximo de eDTUs por base de dados |O número máximo de eDTUs que qualquer base de dados no conjunto pode utilizar, caso estejam disponíveis com base na utilização por outras bases de dados no conjunto. O número máximo de eDTUs por base de dados não é uma garantia de recurso para uma base de dados. Esta definição é uma definição global que se aplica a todas as bases de dados no conjunto. Defina um número máximo de eDTUs suficientemente elevado para processar picos na utilização de base de dados. É esperado algum grau de consolidação excessiva, uma vez que, geralmente, o conjunto assume padrões de utilização a frio e a quente para bases de dados em que todas as bases de dados não atingem o pico em simultâneo. Por exemplo, suponha que o pico de utilização por base de dados é 20 eDTUs e apenas 20% das 100 bases de dados no conjunto atingem o pico ao mesmo tempo. Se o número máximo de eDTUs por base de dados estiver definido como 20 eDTUs, é razoável sobreconsolidar o conjunto em 5 vezes e definir o número de eDTUs por conjunto como 400. |
 | Mínimo de eDTUs por base de dados |O número mínimo de eDTUs que é garantido a qualquer base de dados no conjunto. Esta definição é uma definição global que se aplica a todas as bases de dados no conjunto. O mínimo de eDTUs por base de dados pode ser definido como 0, que é também o valor predefinido. Esta propriedade é definida como qualquer valor entre 0 e a utilização média de eDTUs por base de dados. O produto do número de bases de dados no conjunto e o número mínimo de eDTUs por base de dados não pode exceder as eDTUs por conjunto. Por exemplo, se um conjunto tiver 20 bases de dados e o número mínimo de eDTUs por base de dados definido como 10 eDTUs, as eDTUs por conjunto têm de ser, pelo menos, 200 eDTUs. |
-| Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados num agrupamento. Bases de dados agrupados partilham do armazenamento de agrupamento alocados, pelo que o tamanho pode aceder uma base de dados é limitado a base de dados de tamanho e agrupamento de armazenamento o menor dos restantes. Tamanho máximo de base de dados refere-se ao tamanho máximo dos ficheiros de dados e não incluem o espaço utilizado por ficheiros de registo. |
+| Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados num agrupamento. No entanto, as bases de dados agrupados partilham do armazenamento de agrupamento alocado. Mesmo que o armazenamento total máximo **por base de dados* está configurado para ser maior que o armazenamento disponível total **espaço do agrupamento de*, total de espaço, na verdade, utilizada por todas as bases de dados não poderá exceder a limite de agrupamento disponível. Tamanho máximo de base de dados refere-se ao tamanho máximo dos ficheiros de dados e não incluem o espaço utilizado por ficheiros de registo. |
 |||
  
 ## <a name="elastic-pool-change-storage-size"></a>Agrupamento elástico: Altere o tamanho de armazenamento

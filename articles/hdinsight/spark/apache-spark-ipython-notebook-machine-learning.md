@@ -1,8 +1,8 @@
 ---
-title: "Criar aplicações de aprendizagem máquina Apache Spark no Azure HDInsight | Microsoft Docs"
-description: "Instruções passo a passo sobre como criar aplicações de aprendizagem do Apache Spark no HDInsight Spark clusters utilizando o bloco de notas do Jupyter"
+title: Criar aplicações de aprendizagem máquina Apache Spark no Azure HDInsight | Microsoft Docs
+description: Instruções passo a passo sobre como criar aplicações de aprendizagem do Apache Spark no HDInsight Spark clusters utilizando o bloco de notas do Jupyter
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 95daab2bd7bc57d01bc9e3c05404958edd71eecc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Criar aplicações de aprendizagem máquina Apache Spark no Azure HDInsight
 
@@ -185,7 +183,7 @@ Nesta aplicação, utiliza um Spark [pipeline de ML](https://spark.apache.org/do
 10. Encerre o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Este procedimento irá encerrar e fechar o bloco de notas.
 
 ## <a name="anaconda"></a>Utilizar Anaconda scikit-saiba biblioteca para o machine learning do Spark
-Clusters do Apache Spark no HDInsight incluem bibliotecas Anaconda. Isto também inclui o **scikit-Saiba** biblioteca para o machine learning. A biblioteca também inclui vários conjuntos de dados que pode utilizar para criar aplicações de exemplo diretamente a partir de um bloco de notas do Jupyter. Para obter exemplos sobre como utilizar o scikit-saber biblioteca, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Clusters do Apache Spark no HDInsight incluem bibliotecas Anaconda. Isto também inclui o **scikit-Saiba** biblioteca para o machine learning. A biblioteca também inclui vários conjuntos de dados que pode utilizar para criar aplicações de exemplo diretamente a partir de um bloco de notas do Jupyter. Para obter exemplos sobre como utilizar o scikit-saber biblioteca, consulte [ http://scikit-learn.org/stable/auto_examples/index.html ](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="seealso"></a>Ver também
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)

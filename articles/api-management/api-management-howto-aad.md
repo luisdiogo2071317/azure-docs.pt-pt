@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar a contas de programador na API Management do Azure utilizando o Azure Active Directory
 
@@ -34,7 +34,7 @@ Este artigo mostra como ativar o acesso ao portal do programador para os utiliza
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar a contas de programador por utilizar o Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Seleccionar ![seta](./media/api-management-howto-aad/arrow.png).
+2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
 3. Tipo **api** na caixa de pesquisa.
 4. Selecione **dos serviços de gestão de API**.
 5. Selecione a instância de serviço de API Management.
@@ -51,7 +51,7 @@ Este artigo mostra como ativar o acesso ao portal do programador para os utiliza
    ![Passos para adicionar um fornecedor de identidade no portal do Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. No seu browser, abra um separador de diferentes. 
 11. Aceda ao [Portal do Azure](https://portal.azure.com).
-12. Seleccionar ![seta](./media/api-management-howto-aad/arrow.png).
+12. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
 13. Tipo **Active Directory**. O **do Azure Active Directory** painel aparece.
 14. Selecione **Azure Active Directory**.
 15. Em **GERIR**, selecione **registos de aplicação**.
@@ -100,6 +100,11 @@ Este artigo mostra como ativar o acesso ao portal do programador para os utiliza
 31. Mudar para a sua aplicação de API Management. 
 
     No **Adicionar fornecedor de identidade** janela, cole a chave no **segredo do cliente** caixa de texto.
+
+    > [!IMPORTANT]
+    > Certifique-se de que atualiza o **segredo do cliente** antes da chave de expira. 
+    >  
+    >
 32. O **Adicionar fornecedor de identidade** janela também contém a **permitido inquilinos** caixa de texto. Não existe, especifique os domínios das instâncias do Azure AD para o qual pretende conceder acesso a APIs da instância do serviço de API Management. Pode separar vários domínios com newlines, espaços ou vírgulas.
 
     Pode especificar vários domínios no **permitido inquilinos** secção. Antes de qualquer utilizador pode iniciar sessão a partir de um domínio diferente do domínio original em que a aplicação foi registada, um administrador global do outro domínio tem de conceder permissão para a aplicação para aceder a dados de diretório. Para conceder permissão, o administrador global deve:

@@ -1,9 +1,9 @@
 ---
-title: "Proteção de identidade do Azure Active Directory | Microsoft Docs"
+title: Proteção de identidade do Azure Active Directory | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection lhe permite limitar a capacidade de um atacante para explora um dispositivo ou identidade comprometida e para proteger uma identidade ou um dispositivo que anteriormente era suspeito ou conhecido for comprometida.
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -249,7 +249,7 @@ Durante a investigação, pode optar por colocar qualquer uma destas ações par
 * **Resolver** - se depois de investigar um evento de risco, demorou uma ação de remediação adequado fora Identity Protection e considerar de que o evento de risco deve ser considerado fechado, marcar o evento como resolvido. Resolvido eventos irão definir o estado do evento de risco para fechado e o evento de risco já não irá contribuir para o risco de utilizador.
 * **Marcar como falso-positivos** -em alguns casos, pode investigar um evento de risco e detetar que incorretamente foi sinalizado como um risco. Pode ajudar a reduzir o número de tais ocorrências assinalando o evento de risco como falso-positivos. Isto irá ajudar os algoritmos do machine learning para melhorar a classificação de eventos semelhantes no futuro. O estado de eventos de Falso-positivos é **fechado** e já não irão contribuir para risco de utilizador.
 * **Ignorar** - se de que não tenha sido qualquer ação de remediação, mas pretende que o evento de risco a serem removidos da lista de Active Directory, pode marcá-um evento de risco ignorar e o estado do evento será fechado. Eventos ignorados não contribuir para o risco de utilizador. Esta opção só deve ser utilizada em circunstâncias invulgares.
-* **Reativar** -o risco de eventos que foram fechados manualmente (escolhendo **resolver**, **falsos positivos**, ou **ignorar**) pode ser reativado, definir o estado do evento para **Active Directory**. Eventos de risco reativado contribuem para o cálculo de nível de risco de utilizador. Eventos de risco fechados através de remediação (tal como repor uma palavra-passe segura) não podem ser reativados.
+* **Reativar** -o risco de eventos que foram fechados manualmente (escolhendo **resolver**, **falsos positivos**, ou **ignorar**) pode ser reativado, definir o evento Estado de volta para **Active Directory**. Eventos de risco reativado contribuem para o cálculo de nível de risco de utilizador. Eventos de risco fechados através de remediação (tal como repor uma palavra-passe segura) não podem ser reativados.
 
 **Para abrir a caixa de diálogo de configuração relacionados**:
 
@@ -368,7 +368,7 @@ Recomendamos que necessitam do Azure multi-factor authentication para inícios d
 
 ![Política do utilizador ridk](./media/active-directory-identityprotection/1019.png "ridk de política de utilizador")
 
-Para obter mais detalhes, consulte [que é o Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Para obter mais detalhes, consulte [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 
 Azure AD Identity Protection ajuda a gerir o fora de agregação de registo de autenticação multifator ao configurar uma política que permite-lhe:
 

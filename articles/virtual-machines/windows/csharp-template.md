@@ -3,7 +3,7 @@ title: Implementar uma VM com c# e um modelo do Resource Manager | Microsoft Doc
 description: Saiba como como utilizar c# e um modelo do Resource Manager para implementar uma VM do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: davidmu
-ms.openlocfilehash: f2c488a891d1037535f1782da54544ac6af9dd41
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina de Virtual do Azure com c# e um modelo do Resource Manager
 Este artigo mostra como implementar um modelo de Gestor de recursos do Azure com c#. O modelo que criou implementa uma única máquina virtual com o Windows Server numa rede virtual novo com uma única sub-rede.

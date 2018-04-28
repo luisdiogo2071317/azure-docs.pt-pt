@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 26acb70ac5ac017fc8162e8abeec48b8b9ecfa7f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Resolver problemas de ligações com o observador de rede do Azure utilizando a API de REST do Azure
 
@@ -468,7 +468,7 @@ O exemplo seguinte é a resposta ao executar a chamada de API anterior. Como a v
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md).
 
-Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de IP verifique](network-watcher-check-ip-flow-verify-portal.md).
+Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de IP verifique](diagnose-vm-network-traffic-filtering-problem.md).
 
 
 

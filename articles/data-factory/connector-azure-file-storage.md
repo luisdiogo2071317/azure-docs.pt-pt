@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e317294c673f9c22c4fa219d4db98248e9aa270e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d16ca88d844607721f4172352149596764b08248
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar os dados de ou para o File Storage do Azure utilizando o Azure Data Factory
 
@@ -87,10 +87,15 @@ Para copiar dados de/para o File Storage do Azure, defina a propriedade de tipo 
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **partilha de ficheiros** |Sim |
 | folderPath | Caminho para a pasta. |Sim |
-| fileName | Especifique o nome do ficheiro no **folderPath** se pretende copiar para/de um ficheiro específico. Se não for especificado qualquer valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta como origem e gera automaticamente o nome de ficheiro.<br/><br/>**geração de automática de nome de ficheiro para sink:** quando o nome de ficheiro não está especificado para um conjunto de dados de saída e **preserveHierarchy** não foram especificadas no receptor de atividade, atividade de cópia gera o nome de ficheiro com o padrão do seguinte: <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. Por exemplo: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- ou `[Table name].[format].[compression if configured]` para origem relacional quando consulta não está especificada. Por exemplo: MySourceTable.orc. |Não |
-| fileFilter | Especifique um filtro para ser utilizado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros. Aplica-se apenas ao nome de ficheiro não está especificado. <br/><br/>Permitidos carateres universais são: `*` (vários carateres) e `?` (único caráter).<br/>-Exemplo 1: `"fileFilter": "*.log"`<br/>-Exemplo 2: `"fileFilter": 2017-09-??.txt"` |Não |
+| fileName | **Filtro de nome ou o caráter universal** para os ficheiros em especificado "folderPath". Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos são de carateres universais: `*` (vários carateres) e `?` (único caráter).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída e **preserveHierarchy** não esteja especificado o sink de atividade, a atividade de cópia gera automaticamente o nome de ficheiro com o seguinte formato: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não |
 | formato | Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
+
+>[!TIP]
+>Para copiar todos os ficheiros numa pasta, especifique **folderPath** apenas.<br>Para copiar um único ficheiro com um nome específico, especifique **folderPath** com parte de pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de ficheiros de uma pasta, especifique **folderPath** com parte de pasta e **fileName** com filtro de caráter universal.
+
+>[!NOTE]
+>Se estava a utilizar a propriedade de "fileFilter" para o filtro de ficheiro, ainda é suportado como-é, enquanto são sugeridos para utilizar a nova capacidade de filtro adicionada ao "fileName" passa.
 
 **Exemplo:**
 

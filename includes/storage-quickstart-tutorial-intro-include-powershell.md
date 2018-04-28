@@ -1,9 +1,9 @@
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Este exemplo utiliza **eastus**. Armazene-a numa variável e utilize-a de forma a poder alterá-la num único local.
@@ -22,9 +22,9 @@ $resourceGroup = "myResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
-Criar uma conta de armazenamento para fins gerais standard com através de replicação do LRS [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), em seguida, obter o contexto da conta de armazenamento que define a conta de armazenamento a ser utilizado. Quando a atuar numa conta de armazenamento, referenciar o contexto em vez de repetidamente fornecer as credenciais. Este exemplo cria uma conta de armazenamento denominada *mystorageaccount* com encriptação storage(LRS) e BLOBs localmente redundante (ativada por predefinição).
+Crie uma conta de armazenamento standard para fins gerais com a replicação LRS, utilizando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), e obtenha o contexto de conta de armazenamento que define a conta de armazenamento a utilizar. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento denominada *mystorageaccount* com armazenamento localmente redundante (LRS) e encriptação de blobs (ativada por predefinição).
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `

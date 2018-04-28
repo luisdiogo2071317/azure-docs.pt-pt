@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 7a775b6d23c144c81650bb3608ee6a117475a9ba
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1de7e58eecc80e306920ab17884290dfddf8efa8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Monitor de contentores com a análise de registos
  
-Este artigo aborda os passos necessários para configurar a monitorização do contentor para o cluster. Para obter mais informações sobre isto, consulte [monitorização contentores no Service Fabric](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers). Para ver um tutorial passo a passo sobre isto, também pode seguir [contentores de Windows de Monitor no Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+Este artigo aborda os passos necessários para configurar o contentor de análise de registos do OMS solução de monitorização para ver eventos de contentor. Para configurar o cluster para recolher eventos de contentor, consulte este [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md).
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Configurar o solução de monitorização do contentor
 
@@ -35,9 +35,22 @@ Este artigo aborda os passos necessários para configurar a monitorização do c
 
     ![Adicionar a solução de Contentores](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Crie a solução no interior da área de trabalho mesma que já tiver sido criada para o cluster. Esta alteração aciona automaticamente o agente para iniciar a recolha de dados de docker nos contentores. Em cerca de 15 minutos ou por isso, deverá ver a solução leve cópias de segurança com registos de entrada e de estatísticas.
+3. Crie a solução no interior da área de trabalho mesma que já tiver sido criada para o cluster. Esta alteração aciona automaticamente o agente para iniciar a recolha de dados de docker nos contentores. Em cerca de 15 minutos ou por isso, deverá ver a solução leve cópias de segurança com registos de entrada e de estatísticas. conforme mostrado na imagem abaixo.
+
+    ![Dashboard do OMS básico](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+
+O agente permite a recolha de vários registos de contentor específico que pode ser consultada na OMS, ou utilizados para indicadores de desempenho visualizadas. Os tipos de registo que são recolhidos são:
+
+* ContainerInventory: mostra informações sobre imagens, o nome e localização do contentor
+* ContainerImageInventory: informações sobre imagens de implementada, incluindo os IDs ou tamanhos
+* ContainerLog: registos de erro específico, registos de docker (stdout, etc.) e outras entradas
+* ContainerServiceLog: comandos de daemon de docker que foram executados
+* Desempenho: os contadores de desempenho incluindo contentor cpu, memória, o tráfego de rede do disco e/s e métricas personalizadas as máquinas de anfitrião
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
+* Saiba mais sobre [solução de contentores do OMS](../log-analytics/log-analytics-containers.md).
 * Saiba mais sobre a orquestração do contentor no Service Fabric - [Service Fabric e os contentores](service-fabric-containers-overview.md)
 * Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
 * Configurar a análise de registos para configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) regras para ajudar a detetar e diagnóstico

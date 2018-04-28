@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Chamar o Microsoft Graph API a partir de uma aplicação Android
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Início de sessão de utilizadores e todos os o Microsoft Graph API a partir de uma aplicação Android
 
 Este guia demonstra como uma aplicação Android nativa pode obter um token de acesso e chamar outras APIs que necessitam de tokens de acesso do ponto final v2 do Azure Active Directory ou o Microsoft Graph API.
 
 Quando concluiu o guia, a aplicação será capaz de aceitar inícios de sessão de contas pessoais (incluindo outlook.com, live.com e outros) e contas profissional e escolar de qualquer da empresa ou organização que utiliza o Azure Active Directory. A aplicação, em seguida, irá chamar uma API que está protegida pelo ponto final do Azure Active Directory v2.  
 
-## <a name="how-this-sample-works"></a>Como funciona este exemplo
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de exemplo gerada por este guia
 ![Como funciona este exemplo](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 A aplicação de exemplo que criar com este guia baseia-se um cenário onde uma aplicação Android é utilizada para consultar uma API Web que aceita tokens de ponto final v2 do Azure Active Directory (Microsoft Graph API, neste caso). Para este cenário, a aplicação adiciona o token adquirido a pedidos de HTTP através do cabeçalho de autorização. A biblioteca de autenticação da Microsoft (MSAL) processa a aquisição do token e a renovação por si.

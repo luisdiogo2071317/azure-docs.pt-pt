@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual
-Para executar as aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, terá primeiro de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta formas para criar uma imagem VM personalizada para instâncias na escala definido ou executam automaticamente os scripts de instalação em instâncias de VM existentes. Também irá aprender a gerir aplicações ou atualizações do SO através de um conjunto de dimensionamento.
+Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta formas para criar uma imagem VM personalizada para instâncias na escala definido ou executam automaticamente os scripts de instalação em instâncias de VM existentes. Também irá aprender a gerir aplicações ou atualizações do SO através de um conjunto de dimensionamento.
 
 
 ## <a name="build-a-custom-vm-image"></a>Criar uma imagem VM personalizada
@@ -42,7 +42,7 @@ A Extensão de Script Personalizado transfere e executa scripts em VMs do Azure.
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalar uma aplicação para uma VM com o PowerShell DSC do Windows
-[Configuração de estado pretendido ' (DSC) da PowerShell](https://msdn.microsoft.com/en-us/powershell/dsc/overview) é uma plataforma de gestão para definir a configuração das máquinas de destino. Configurações de DSC definem o que instalar num computador e como configurar o anfitrião. Um motor de Gestor de configuração Local (MMC) é executado em cada nó de destino que processa o pedido ações com base nas configurações premidas.
+[Configuração de estado pretendido ' (DSC) da PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) é uma plataforma de gestão para definir a configuração das máquinas de destino. Configurações de DSC definem o que instalar num computador e como configurar o anfitrião. Um motor de Gestor de configuração Local (MMC) é executado em cada nó de destino que processa o pedido ações com base nas configurações premidas.
 
 A extensão de DSC do PowerShell permite-lhe personalizar a instâncias de VM um conjunto com o PowerShell de dimensionamento. O exemplo seguinte:
 

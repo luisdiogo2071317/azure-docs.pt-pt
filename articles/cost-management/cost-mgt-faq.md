@@ -1,20 +1,20 @@
 ---
-title: "Perguntas mais frequentes sobre gestão de custo do Azure | Microsoft Docs"
-description: "Fornece respostas a algumas das perguntas comuns sobre a gestão de custo do Azure."
+title: Perguntas mais frequentes sobre gestão de custo do Azure | Microsoft Docs
+description: Fornece respostas a algumas das perguntas comuns sobre a gestão de custo do Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas mais frequentes sobre gestão de custo do Azure
 
@@ -89,9 +89,9 @@ Se alterar o seu endereço de correio electrónico no Cloudyn do endereço prede
 
 Recomendamos que crie, pelo menos, duas contas de administrador de Cloudyn no caso de uma das contas obtém bloqueada.
 
-Se não é possível iniciar sessão no portal de Cloudyn, certifique-se de que está a utilizar o URL de gestão de custo correto do Azure para iniciar sessão no Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Se não é possível iniciar sessão no portal de Cloudyn, certifique-se de que está a utilizar o URL de gestão de custo correto do Azure para iniciar sessão no Cloudyn. Utilize [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Evite utilizar o https://app.cloudyn.com URL direta Cloudyn.
+Evite utilizar o URL de direto Cloudyn https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Como ativar o não ativados tentarem contas com credenciais do Azure?
 
@@ -116,9 +116,9 @@ Para adicionar contas CSP adicionais para uma entidade, selecione **\\<ServerNam
 
 Pode ter várias contas do Azure utilizando moedas diferentes. No entanto, os relatórios de custo em Cloudyn não mostram mais do que um tipo de moeda por cada relatório.
 
-Se tiver várias subscrições utilizando moedas diferentes, uma entidade principal e o respetivas moedas de entidade subordinados são apresentadas no EUR  **$** . A nossa sugerida melhor prática é evitar a utilização de moedas diferentes na mesma hierarquia de entidades. Por outras palavras, todas as subscrições organizadas de uma estrutura de entidade devem utilizar a mesma moeda.
+Se tiver várias subscrições utilizando moedas diferentes, uma entidade principal e o respetivas moedas de entidade subordinados são apresentadas no EUR **$**. A nossa sugerida melhor prática é evitar a utilização de moedas diferentes na mesma hierarquia de entidades. Por outras palavras, todas as subscrições organizadas de uma estrutura de entidade devem utilizar a mesma moeda.
 
-Cloudyn automaticamente Deteta moeda de subscrição do Enterprise Agreement e apresenta-la corretamente nos relatórios.  No entanto, o Cloudyn apresenta apenas EUR  **$**  para contas do Azure web direta e CSP.
+Cloudyn automaticamente Deteta moeda de subscrição do Enterprise Agreement e apresenta-la corretamente nos relatórios.  No entanto, o Cloudyn apresenta apenas EUR **$** para contas do Azure web direta e CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Quais são os dados de Cloudyn atualizar linhas cronológicas?
 

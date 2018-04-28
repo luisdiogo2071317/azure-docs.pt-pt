@@ -1,8 +1,8 @@
 ---
-title: "Diretrizes de otimização do desempenho de Azure Data Lake Store | Microsoft Docs"
-description: "Diretrizes de otimização do desempenho de Azure Data Lake Store"
+title: Diretrizes de otimização do desempenho de Azure Data Lake Store | Microsoft Docs
+description: Diretrizes de otimização do desempenho de Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Otimização do Azure Data Lake Store para desempenho
 
@@ -42,7 +42,7 @@ Se estiver a utilizar máquinas no local ou VMs no Azure, deve selecionar cuidad
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Conectividade de rede para o Azure Data Lake Store
 
-A conectividade de rede entre a origem de dados e o Azure Data Lake store, por vezes, pode ser o congestionamento. Quando os dados de origem no local, considere utilizar uma ligação dedicada com [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . Se os dados de origem no Azure, será melhor o desempenho quando os dados estão na mesma região do Azure Data Lake Store.
+A conectividade de rede entre a origem de dados e o Azure Data Lake store, por vezes, pode ser o congestionamento. Quando os dados de origem no local, considere utilizar uma ligação dedicada com [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Se os dados de origem no Azure, será melhor o desempenho quando os dados estão na mesma região do Azure Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar as ferramentas de ingestão de dados para parallelization máximo
 
@@ -50,11 +50,11 @@ Após ter resolvido o hardware de origem e de rede congestionamentos de conetivi
 
 | Ferramenta               | Definições     | Obter mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Ligação](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
-| AdlCopy    | Unidades de análise do Azure Data Lake  |   [Ligação](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapeador)   | [Ligação](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Ligação](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS.Azure.Block.size, -m (mapeador)    |   [Ligação](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| AdlCopy    | Unidades de análise do Azure Data Lake  |   [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapeador)   | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Link](../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS.Azure.Block.size, -m (mapeador)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Estrutura do conjunto de dados
 
@@ -142,6 +142,6 @@ Para além das Diretrizes gerais acima, cada aplicação dispõe de diferentes p
 | [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>mapreduce.Map.Memory</li><li>Mapreduce.job.Maps</li><li>mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de executor de spout</li><li>Número de instâncias de executor bolt </li><li>Número de tarefas de spout</li><li>Número de tarefas bolt</li></ul>|
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

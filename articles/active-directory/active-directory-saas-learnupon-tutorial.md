@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com LearnUpon | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e LearnUpon."
+title: 'Tutorial: Integração do Azure Active Directory com LearnUpon | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e LearnUpon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 40e6df0db7651488642e774512f55fbd6805809a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2796f280b2f95504be5f9691098bff07fdd93393
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Azure Active Directory com LearnUpon
 
@@ -110,14 +110,14 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_url.png)
 
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.learnupon.com/saml/consumer`
+    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE] 
     > Tenha em atenção que isto não é o valor real. tem de atualizar este valor com o URL de resposta real. Para obter este valor contacte [equipa de suporte de LearnUpon](https://www.learnupon.com/features/support/).
 
 
 
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (bruto)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. No **certificado de assinatura de SAML** secção, localize o **Thumbprint** -este será adicionado às definições de SAML LearnUpon.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
@@ -165,7 +165,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
  
     a. No **formato do nome próprio identificador** caixa de texto, tipo de valor que indica-nos onde no seu firstname a utilizadores de asserção SAML reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
-    b. No **último formato de nome de identificador** caixa de texto, tipo de valor que indica-nos onde no seu lastname a utilizadores de asserção SAML reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
+    b. No **último formato de nome de identificador** caixa de texto, tipo de valor que indica-nos onde no seu lastname a utilizadores de asserção SAML reside - por exemplo: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

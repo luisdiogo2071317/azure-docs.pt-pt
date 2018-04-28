@@ -1,21 +1,18 @@
 ---
-title: "Filtros de segurança para os resultados de corte na Azure Search | Microsoft Docs"
-description: "Controlo de acesso no conteúdo de Azure Search utilizando filtros de segurança e de identidades de utilizador."
-ms.custom: 
-ms.date: 08/07/2017
+title: Filtros de segurança para os resultados de corte na Azure Search | Microsoft Docs
+description: Controlo de acesso no conteúdo de Azure Search utilizando filtros de segurança e de identidades de utilizador.
 ms.service: search
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+ms.topic: conceptual
+services: search
+ms.date: 08/07/2017
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de segurança para os resultados de corte na Azure Search
 
@@ -29,7 +26,7 @@ Este artigo mostra como realizar a filtragem de segurança utilizando os seguint
 > [!div class="checklist"]
 > * Criar um campo que contém os identificadores principais 
 > * Push ou atualizar documentos existentes com os identificadores de principais relevantes
-> * Emitir um pedido de pesquisa com `search.in``filter`
+> * Emitir um pedido de pesquisa com `search.in` `filter`
 
 >[!NOTE]
 > O processo de obtenção os identificadores de principais não é abordado neste documento. Pode ser obtido a partir do seu fornecedor de serviços de identidade.
@@ -155,7 +152,7 @@ Deve obter documentos novamente onde `group_ids` contém "group_id1" ou "group_i
 
 Esta é a forma como pode filtrar os resultados com base na identidade de utilizador e da Azure Search `search.in()` função. Pode utilizar esta função para passar identificadores principais para o utilizador que pede para correspondência identificadores principais associados a cada documento de destino. Quando um pedido de pesquisa é processado, o `search.in` função filtra os resultados da pesquisa para que nenhuma das principais do utilizador tem acesso de leitura. Os identificadores principais podem representar coisas como grupos de segurança, funções ou mesmo a identidade do utilizador.
  
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Controlo de acesso baseado na identidade diretório ativo utilizando filtros de pesquisa do Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros na pesquisa do Azure](search-filters.md)

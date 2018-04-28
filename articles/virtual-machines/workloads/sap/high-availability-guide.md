@@ -1,13 +1,13 @@
 ---
-title: "Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver | Microsoft Docs"
+title: Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver | Microsoft Docs
 description: Guia de elevada disponibilidade para SAP NetWeaver em Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2216a2d5c30e95fcd02b4df56305153335511e0
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+ms.openlocfilehash: da1289b7b86f6f8016920c28890189db8ccb2511
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure
 
@@ -366,7 +366,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam (Matriz de disponibilidade de produto do SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -420,7 +420,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -700,7 +700,7 @@ _**Figura 11:** definir os parâmetros do SAP elevada disponibilidade do Azure R
     * DBMS cluster: <*SAPSystemSID*> - db - <*número*>
 
   * **Rede de cartões de todas as máquinas virtuais, com os endereços IP associados**:
-    * <*SAPSystemSID*>-nic-di-<*Number*>
+    * <*SAPSystemSID*> - nic - di - <*número*>
     * <*SAPSystemSID*> - nic - ascs - <*número*>
     * <*SAPSystemSID*>-nic-db-<*Number*>
 
@@ -926,7 +926,7 @@ No nosso exemplo, temos destas máquinas virtuais e endereços IP estáticos:
 | Função de máquina virtual | Nome de anfitrião de máquina virtual | Nome da placa de rede | Endereço IP estático |
 | --- | --- | --- | --- |
 | Primeira instância de servidor de aplicações SAP |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| Segunda instância de servidor de aplicações SAP |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| Segunda instância de servidor de aplicações SAP |PR1-di-1 |pr1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
 | Última instância do servidor de aplicações SAP |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
 | Primeiro nó de cluster para a instância ASCS/SCS |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
@@ -958,7 +958,7 @@ No nosso exemplo, temos de dois balanceadores de carga internos do Azure que ten
 
 | Função do Balanceador de carga interno do Azure | Nome do Balanceador de carga interno do Azure | Endereço IP estático |
 | --- | --- | --- |
-| Balanceador de carga interno de instância do SAP ASCS/SCS |pr1-lb-ascs |10.0.0.43 |
+| Balanceador de carga interno de instância do SAP ASCS/SCS |PR1-lb-ascs |10.0.0.43 |
 | Balanceador de carga interno SAP DBMS |pr1-lb-dbms |10.0.0.33 |
 
 
@@ -979,7 +979,7 @@ Para criar pontos finais de balanceamento de carga interna necessária, primeiro
 | Servidor de colocar em fila / *lbrule3200* |32 <*InstanceNumber*> |3200 |
 | Servidor de mensagens ABAP / *lbrule3600* |36 <*InstanceNumber*> |3600 |
 | Mensagem ABAP interna / *lbrule3900* |39 <*InstanceNumber*> |3900 |
-| Mensagens HTTP do servidor / *Lbrule8100* |81<*InstanceNumber*> |8100 |
+| Mensagens HTTP do servidor / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | SAP iniciar serviço ASCS HTTP / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
 | SAP iniciar serviço ASCS HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
 | Replicação de colocar em fila / *Lbrule50016* |5 <*InstanceNumber*> 16 |50016 |
@@ -995,9 +995,9 @@ Em seguida, crie estes pontos finais para as portas do SAP NetWeaver Java SCS de
 | Nome de regra de balanceamento de carga do serviço | Números de porta predefinidos | Portas concretas para (instância SCS com o número de instância 01) (ERS com 11) |
 | --- | --- | --- |
 | Servidor de colocar em fila / *lbrule3201* |32 <*InstanceNumber*> |3201 |
-| Servidor de gateway / *lbrule3301* |33<*InstanceNumber*> |3301 |
+| Servidor de gateway / *lbrule3301* |33 <*InstanceNumber*> |3301 |
 | Servidor de mensagens de Java / *lbrule3900* |39 <*InstanceNumber*> |3901 |
-| Mensagens HTTP do servidor / *Lbrule8101* |81<*InstanceNumber*> |8101 |
+| Mensagens HTTP do servidor / *Lbrule8101* |81 <*InstanceNumber*> |8101 |
 | SAP iniciar serviço SCS HTTP / *Lbrule50113* |5 <*InstanceNumber*> 13 |50113 |
 | SAP iniciar serviço SCS HTTPS / *Lbrule50114* |5 <*InstanceNumber*> 14 |50114 |
 | Replicação de colocar em fila / *Lbrule50116* |5 <*InstanceNumber*> 16 |50116 |
@@ -1233,7 +1233,7 @@ Configurar um testemunho de partilha de ficheiros do cluster envolve estas taref
 
   _**Figura 38:** confirmação que tiver reconfigurado o cluster_
 
-Depois de instalar o Cluster de ativação pós-falha do Windows com êxito, as alterações precisam de ser efetuadas para algumas limiares para se adaptar a deteção de ativação pós-falha para condições no Azure. Os parâmetros para serem alterados estão documentados neste blogue: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/. Partindo do princípio de que as duas VMs, criar a configuração de Cluster do Windows para ASCS/SCS estão na mesma sub-rede, tem de ser alterada para estes valores os seguintes parâmetros:
+Depois de instalar o Cluster de ativação pós-falha do Windows com êxito, as alterações precisam de ser efetuadas para algumas limiares para se adaptar a deteção de ativação pós-falha para condições no Azure. Os parâmetros para serem alterados estão documentados neste blogue: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Partindo do princípio de que as duas VMs, criar a configuração de Cluster do Windows para ASCS/SCS estão na mesma sub-rede, tem de ser alterada para estes valores os seguintes parâmetros:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 

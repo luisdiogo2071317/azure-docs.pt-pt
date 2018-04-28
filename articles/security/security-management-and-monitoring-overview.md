@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 99e7a7746ae3f229614c8ac3d059b422a4ee6f74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 66a3a31574778bb1238498b523d51dc0d32ac22f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Descrição geral de monitorização e gestão de segurança do Azure
 O Azure oferece mecanismos de segurança para ajudar a gestão e monitorização de máquinas virtuais e serviços em nuvem do Azure. Este artigo fornece uma descrição geral destas funcionalidades de segurança de núcleo e serviços. São fornecidas hiperligações para artigos que fornecer detalhes de cada, pelo que pode saber mais.
@@ -75,8 +75,8 @@ Azure multi-factor authentication (MFA) é um método de autenticação que requ
 Saiba mais:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é o Multi-Factor Authentication do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Como funciona o Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [O que é o Multi-Factor Authentication do Azure?](../active-directory/authentication/multi-factor-authentication.md)
+* [Como funciona o Azure multi-factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a nuvem da Microsoft através de uma ligação privada dedicada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços em nuvem da Microsoft, tais como o Microsoft Azure, Office 365 e o CRM Online. A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Tal permite que as ligações do ExpressRoute ofereçam mais fiabilidade, velocidades superiores, latências inferiores e uma maior segurança do que as ligações típicas através da Internet.

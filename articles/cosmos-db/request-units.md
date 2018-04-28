@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rimman
-ms.openlocfilehash: 182f9fcfd03d736f66dd8ca11720c88c9f5b36fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 
@@ -209,38 +209,6 @@ Por exemplo:
 5. O pedido unidade encargos de quaisquer scripts personalizados (procedimentos armazenados, acionadores, funções definidas pelo utilizador) utilizado pela aplicação de registo
 6. Calcule as unidades de pedido necessários indicadas o número estimado de operações que antecipa para ser executada a cada segundo.
 
-## <a id="GetLastRequestStatistics"></a>Utilize o comando de GetLastRequestStatistics de API do MongoDB
-A API do MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para obter os encargos de pedido para uma operação indicada.
-
-Por exemplo, na Shell do Mongo, execute a operação que pretende verificar a taxa de pedidos.
-```
-> db.sample.find()
-```
-
-Em seguida, execute o comando *getLastRequestStatistics*.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-Com isto em mente, um método para estimar a quantidade de débito reservado exigido pela sua aplicação consiste em registar os encargos de unidade de pedido associados a execução de operações típicas num item representativo utilizado pela sua aplicação e, em seguida, estimar o número de operações que antecipa para efetuar a cada segundo.
-
-> [!NOTE]
-> Se tiver de tipos de itens que variam significativamente em termos de tamanho e o número de propriedades indexadas, em seguida, registe a taxa de unidade de pedido de operação aplicável associada a cada *tipo* do item típica.
-> 
-> 
-
-## <a name="use-mongodb-api-portal-metrics"></a>Utilizar métricas de portais de API do MongoDB
-A forma mais simples para obter uma boa estimativa do pedido de encargos de unidade para a base de dados de MongoDB API consiste em utilizar o [portal do Azure](https://portal.azure.com) métricas. Com o *número de pedidos* e *pedido encargos* gráficos, pode obter uma estimativa do número de unidades de pedido cada operação está a consumir e unidades de pedido quantos consumirem relativo ao outro.
-
-![Métricas de portais de API do MongoDB][6]
-
 ## <a name="a-request-unit-estimate-example"></a>Um exemplo de estimativa de unidade de pedido
 Considere o seguinte documento de ~ 1 KB:
 
@@ -344,9 +312,6 @@ Se estiver a utilizar os SDK de cliente .NET e LINQ consultas, em seguida, na ma
 
 Se tiver mais do que um cliente cumulativamente e a funcionar acima a taxa de pedidos, o comportamento de repetição predefinido não poderá suffice e o cliente irá gerar um `DocumentClientException` com o estado de código 429 à aplicação. Em casos como esta, poderá considerar a processar o comportamento de repetição e a lógica na rotinas de processamento de erros da aplicação ou aumentar o débito aprovisionado para o contentor.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na MongoDB API
-As aplicações que excedem o débito aprovisionado para um contentor será limitado taxa até que a taxa de consumo descerem abaixo a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end preventivamente vai terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB tenta automaticamente Repetir até 10 vezes antes de o devolver um `Too Many Requests` código de erro. Se está a receber muitas `Too Many Requests` códigos de erro, poderá considerar a adição de uma lógica de repetição no rotinas de processamento de erros da aplicação ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
-
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre débito reservado com bases de dados do Azure Cosmos DB, explore estes recursos:
 
@@ -361,4 +326,3 @@ Para começar com dimensionamento e desempenho de teste com base de dados do Azu
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png

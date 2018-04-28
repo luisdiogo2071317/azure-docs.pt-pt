@@ -1,25 +1,18 @@
 ---
-title: "Vídeos, amostras e tutoriais na Azure Search | Microsoft Docs"
-description: "Central lista de todos os vídeos, amostras, demonstrações e tutoriais criados para a Azure Search, um serviço de nuvem alojada no MIcrosoft Azure."
-services: search
-documentationcenter: 
+title: Vídeos, amostras e tutoriais na Azure Search | Microsoft Docs
+description: Central lista de todos os vídeos, amostras, demonstrações e tutoriais criados para a Azure Search, um serviço de nuvem alojada no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>A pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
 Familiarize-se mais rapidamente com os vídeos seguintes, demonstrações, tutoriais e exemplos de aplicações.
@@ -28,10 +21,10 @@ Familiarize-se mais rapidamente com os vídeos seguintes, demonstrações, tutor
 
 Comece por aqui se estiver familiarizado com o Azure Search. Pode rever todos estes recursos em cerca de uma hora.
 
-| Título | Descrição | Data |
+| Cargo | Descrição | Data |
 |-------|-------------|------|
 | [Veja este vídeo de introdução](https://channel9.msdn.com/Events/Connect/2016/138) | introdução 9m38s para funcionalidades, a criação de serviço e consultas. | Novembro de 2016 |
-| [Criar um serviço](search-get-started-portal.md) | Passos para configurar a Azure Search no portal. | Fevereiro de 2017 |
+| [ Criar um serviço](search-get-started-portal.md) | Passos para configurar a Azure Search no portal. | Fevereiro de 2017 |
 | [Consultar um índice](search-get-started-portal.md) | Criar e consultar um índice utilizando dados de exemplo incorporada. Ferramentas no portal são uma forma rápida de saber mais sobre os tipos de consulta e parâmetros de pesquisa. | Fevereiro de 2017 |
 | [Passo seguinte:<br/> código no .NET](search-howto-dotnet-sdk.md) | C# instruções mostram como ligar, índice e consultar com a biblioteca .NET de pesquisa do Azure. | Novembro de 2016 |
 | [Passo seguinte:<br/> código no REST](search-create-index-rest-api.md) | Reveja as chamadas REST e payloads JSON para criar um índice da Azure Search em qualquer plataforma e linguagem de programação. | Dezembro de 2016 |

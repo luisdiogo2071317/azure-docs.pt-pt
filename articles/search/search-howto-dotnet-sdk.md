@@ -1,51 +1,54 @@
 ---
-title: "Como utilizar o Azure Search a partir de uma aplicação .NET | Microsoft Docs"
-description: "Como utilizar o Azure Search a partir de uma aplicação .NET"
-services: search
-documentationcenter: 
+title: Como utilizar o Azure Search a partir de uma aplicação .NET | Microsoft Docs
+description: Como utilizar o Azure Search a partir de uma aplicação .NET
 author: brjohnstmsft
 manager: jlembicz
-editor: 
-ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 05/22/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e8a492a0786281bdc1d7c2123a7188c32a124e13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como utilizar o Azure Search a partir de uma aplicação .NET
 Este artigo é uma explicação passo a passo para ajudá-lo em execução com a [SDK .NET da Azure Search](https://aka.ms/search-sdk). Pode utilizar o SDK .NET para implementar uma experiência de pesquisa avançada na sua aplicação utilizando a pesquisa do Azure.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Novidades no Azure SDK de pesquisa
-O SDK é composto por uma biblioteca de cliente, `Microsoft.Azure.Search`. Permite-lhe gerir os seus índices, origens de dados e indexadores, bem como carregar e gerir documentos e executar consultas, sem ter de lidar com os detalhes de HTTP e JSON.
+O SDK é composto por alguns bibliotecas de cliente que permitem-lhe gerir os índices, origens de dados, indexadores e sinónimo mapeia, bem como carregar e gerir documentos e executar consultas, sem ter de lidar com os detalhes de HTTP e JSON. Estas bibliotecas de cliente são distribuídas como pacotes NuGet.
 
-A biblioteca de clientes define classes como `Index`, `Field`, e `Document`, bem como operações como `Indexes.Create` e `Documents.Search` no `SearchServiceClient` e `SearchIndexClient` classes. Estas classes são organizadas nas seguintes espaços de nomes:
+O pacote NuGet principal é `Microsoft.Azure.Search`, que é um pacote de metadados que inclui todos os outros pacotes como dependências. Utilize este pacote se de que está a começar ou se sabe que a sua aplicação necessitará todas as funcionalidades de pesquisa do Azure.
+
+Se os outros pacotes de NuGet no SDK:
+ 
+  - `Microsoft.Azure.Search.Data`: Utilize este pacote, se estiver a desenvolver uma aplicação .NET através da Azure Search e só precisa de consulta ou documentos na sua índices de atualização. Se também precisa de criar ou atualizar índices, sinónimo maps, ou outros recursos de nível de serviço, utilizam o `Microsoft.Azure.Search` em vez disso, o pacote.
+  - `Microsoft.Azure.Search.Service`: Utilize este pacote, se estiver a desenvolver automatização no .NET para gerir os índices de pesquisa do Azure, sinónimo maps, indexadores, origens de dados ou outros recursos de nível de serviço. Se só precisa de consulta ou atualização documentos no seu índices, utilize o `Microsoft.Azure.Search.Data` em vez disso, o pacote. Se precisar de todas as funcionalidades de pesquisa do Azure, utilize o `Microsoft.Azure.Search` em vez disso, o pacote.
+  - `Microsoft.Azure.Search.Common`: Tipos comuns necessários para as bibliotecas de .NET de pesquisa do Azure. Não deverá necessitar de utilizar este pacote diretamente na sua aplicação; Destina-se apenas a ser utilizado como uma dependência.
+
+As bibliotecas de cliente várias definem classes como `Index`, `Field`, e `Document`, bem como operações como `Indexes.Create` e `Documents.Search` no `SearchServiceClient` e `SearchIndexClient` classes. Estas classes são organizadas nas seguintes espaços de nomes:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 A versão atual do SDK .NET da Azure Search está agora disponível normalmente. Se quiser fornecer comentários para-nos incorporar na próxima versão, volte visite a nossa [página comentários](https://feedback.azure.com/forums/263029-azure-search/).
 
-O SDK .NET suporta a versão `2016-09-01` do [API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui agora suporte para analisadores personalizados e suporte de indexador de Azure Table e Blob do Azure. As funcionalidades de pré-visualização *não* parte desta versão, como o suporte para indexação ficheiros JSON e CSV, estão em [pré-visualização](search-api-2016-09-01-preview.md) e disponível através de [versão 4.0.1-preview do .NET SDK](https://aka.ms/search-sdk-preview).
+O SDK .NET suporta a versão `2017-11-11` do [API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui agora suporte de sinónimos, bem como melhoramentos incrementais de indexadores. As funcionalidades de pré-visualização *não* parte desta versão, como o suporte para indexação de matrizes JSON e ficheiros CSV, estão em [pré-visualização](search-api-2016-09-01-preview.md) e disponível através de [versão de pré-visualização 4.0 do .NET SDK](https://aka.ms/search-sdk-preview).
 
 Este SDK não suporta [operações de gestão](https://docs.microsoft.com/rest/api/searchmanagement/) , tais como criar e dimensionar os serviços de pesquisa e gerir chaves de API. Se precisar de gerir os recursos de pesquisa a partir de uma aplicação .NET, pode utilizar o [SDK de gestão de .NET de pesquisa do Azure](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Atualizar para a versão mais recente do SDK
-Se já estiver a utilizar uma versão antiga do SDK .NET da Azure Search e gostaria de atualizar para a nova versão geralmente disponível, [neste artigo](search-dotnet-sdk-migration.md) explica como.
+Se já estiver a utilizar uma versão antiga do SDK .NET da Azure Search e gostaria de atualizar para a nova versão geralmente disponível, [neste artigo](search-dotnet-sdk-migration-version-5.md) explica como.
 
 ## <a name="requirements-for-the-sdk"></a>Requisitos para o SDK
-1. Visual Studio 2017.
+1. O Visual Studio 2017.
 2. O seus próprios serviço da Azure Search. Para utilizar o SDK, é necessário o nome do seu serviço e uma ou mais chaves de API. [Criar um serviço no portal do](search-create-service-portal.md) irão ajudá-lo seguir esses passos.
-3. Transferir o SDK .NET da Azure Search [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) utilizando "Gerir pacotes NuGet" no Visual Studio. Procurar apenas o nome do pacote `Microsoft.Azure.Search` no NuGet.org.
+3. Transferir o SDK .NET da Azure Search [pacote NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) utilizando "Gerir pacotes NuGet" no Visual Studio. Procurar apenas o nome do pacote `Microsoft.Azure.Search` NuGet.org (ou uma das outras pacote nomes acima se só precisa de um subconjunto da funcionalidade).
 
-O SDK .NET da Azure Search suporta aplicações direcionada para o .NET Framework 4.6 e .NET Core.
+O SDK .NET da Azure Search suporta aplicações direcionada para o .NET Framework 4.5.2 e posteriores, bem como .NET Core.
 
 ## <a name="core-scenarios"></a>Cenários principais
 Existem vários aspetos, que terá de fazer na sua aplicação de pesquisa. Neste tutorial, iremos abranger estes cenários principais:
@@ -582,7 +585,7 @@ E Eis os resultados, que incluem todos os campos, uma vez que vamos não especif
 
 Este passo conclui o tutorial, mas não a interromperá aqui. **Próximos passos** fornece recursos adicionais para obter mais informações sobre a Azure Search.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Procure as referências para o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e a [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 * Deepen o conhecimento do utilizador através de [vídeos e outros exemplos e tutoriais](search-video-demo-tutorial-list.md).
 * Reveja [convenções de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para obter as regras para atribuição de nomes de vários objetos.

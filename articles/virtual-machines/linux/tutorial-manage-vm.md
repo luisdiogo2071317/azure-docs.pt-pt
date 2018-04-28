@@ -6,7 +6,7 @@ documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f0166f44661483c1c8118ddf85263166a248118
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -54,10 +54,15 @@ O grupo de recursos é especificado ao criar ou modificar uma VM, o que pode ser
 
 Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
-Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. 
+Quando cria uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. O exemplo seguinte cria uma VM chamada *myVM* que executa o Ubuntu Server. Uma conta de utilizador chamada *azureuser* é criada na VM, as chaves SSH são geradas caso não existam na localização predefinida da chave (*~/.ssh*):
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Tome nota do `publicIpAddress`, este endereço pode ser utilizado para aceder à máquina virtual... 

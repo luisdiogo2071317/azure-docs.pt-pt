@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: e94b2ee3a14e9046703b66c00e3ba1a305dd3a7d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9520f76ed2ed1d9953f887bc27003e3e640341ba
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Abrir portas e os pontos finais para uma VM com Linux no Azure utilizando a CLI do Azure 1.0
 Abrir uma porta ou criar um ponto final, para uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou interface de rede VM. Colocar estes filtros que controlam o tráfego de entrada e saído, num grupo de segurança de rede ligado para o recurso que recebe o tráfego. Vamos utilizar um exemplo comum de tráfego da web na porta 80. Este artigo mostra-lhe como abrir uma porta para uma VM com a CLI do Azure 1.0.
@@ -83,7 +83,7 @@ azure network vnet subnet set \
 ## <a name="more-information-on-network-security-groups"></a>Obter mais informações sobre grupos de segurança de rede
 Os comandos rápidos aqui permitem-lhe começar a trabalhar com tráfego que flui para a VM. Grupos de segurança de rede fornecem várias funcionalidades excelentes e granularidade para controlar o acesso aos seus recursos. Pode ler mais sobre [criar um grupo de segurança de rede e a ACL regras aqui](../../virtual-network/tutorial-filter-network-traffic-cli.md).
 
-Pode definir grupos de segurança de rede e as regras de ACL como parte dos modelos Azure Resource Manager. Leia mais sobre [criar grupos de segurança de rede com modelos](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Pode definir grupos de segurança de rede e as regras de ACL como parte dos modelos Azure Resource Manager. Leia mais sobre [criar grupos de segurança de rede com modelos](../../virtual-network/template-samples.md).
 
 Se precisar de utilizar o reencaminhamento de porta para mapear uma porta externa exclusiva para uma porta interna na sua VM, utilize um balanceador de carga e regras de tradução de endereços de rede (NAT). Por exemplo, poderá expor TCP porta 8080 externamente e tiver tráfego direcionado para a porta TCP 80 numa VM. Pode saber mais sobre [criação de um balanceador de carga para a Internet](../../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 

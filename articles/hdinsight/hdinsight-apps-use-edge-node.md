@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utilizar nós edge vazio nos clusters do Hadoop no HDInsight
 
@@ -69,6 +69,9 @@ Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade uti
 >
 > Se estiver a utilizar uma tecnologia do Apache, poderá encontrar assistência através do Apache sites projeto [ http://apache.org ](http://apache.org), tais como o [Hadoop](http://hadoop.apache.org/) site.
 
+> [!NOTE]
+> Mesmo que os clusters, nós de limite também são gerido de patch.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de extremidade para um cluster existente
 Nesta secção, utilize um modelo do Resource Manager para adicionar um nó de extremidade para um cluster do HDInsight existente.  O modelo do Resource Manager pode ser encontrado na [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script, localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não realizar qualquer ação.  É para demonstrar a ação de script chamada a partir de um modelo do Resource Manager.
 
@@ -115,6 +118,10 @@ Nesta secção, utilize um modelo do Resource Manager para criar o cluster do HD
      
      Foram codificado no modelo de algumas propriedades: tipo de Cluster, o número de nós de trabalho de Cluster, tamanho de nó de limite e o nome de nó de extremidade.
 4. Verifique **concordo com os termos e condições indicadas acima**e, em seguida, clique em **Compra** para criar o cluster com o nó de extremidade.
+
+## <a name="add-multiple-edge-nodes"></a>Adicionar vários nós de limite
+
+Pode adicionar múltiplos nós de limite para um cluster do HDInsight.  A configuração com vários nós limite só pode ser efetuada utilizando os modelos Azure Resource Manager.  Consulte o exemplo de modelo no início deste artigo.  Tem de atualizar o **targetInstanceCount** para refletir o número de nós de limite que pretende criar.
 
 ## <a name="access-an-edge-node"></a>Aceder a um nó de extremidade
 O nó de extremidade ssh ponto final está &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Por exemplo, novas-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

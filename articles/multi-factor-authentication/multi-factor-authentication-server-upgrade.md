@@ -1,8 +1,8 @@
 ---
-title: "Atualização do servidor MFA do Azure | Microsoft Docs"
-description: "Passos e as orientações para atualizar o servidor do Azure multi-factor Authentication para uma versão mais recente."
+title: Atualização do servidor MFA do Azure | Microsoft Docs
+description: Passos e as orientações para atualizar o servidor do Azure multi-factor Authentication para uma versão mais recente.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 456f2c64c91249f3ec2de4f2d79a2f77cc7598da
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o servidor de autenticação de multi-factor do Azure mais recente
 
@@ -106,7 +106,7 @@ Estas instruções aplicam-se apenas se executar o servidor multi-factor Authent
 9. Repita o passo 2 para atualizar os servidores de removidos agora o farm do AD FS e reinicie o serviço do AD FS nesses servidores.
 10. Adicione os servidores no farm do AD FS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Obter exemplos de [avançadas cenários com multi-factor Authentication do Azure e VPNs de terceiros](multi-factor-authentication-advanced-vpn-configurations.md)
 

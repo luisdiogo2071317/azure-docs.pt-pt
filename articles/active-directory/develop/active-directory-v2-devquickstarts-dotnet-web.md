@@ -1,11 +1,11 @@
 ---
-title: "Aplicação de início de sessão de introdução de web do Azure AD v 2.0 .NET | Microsoft Docs"
-description: "Como criar uma aplicação Web MVC do .NET que assina os utilizadores com ambos os Account pessoal do Microsoft e contas profissionais ou escolares."
+title: Aplicação de início de sessão de introdução de web do Azure AD v 2.0 .NET | Microsoft Docs
+description: Como criar uma aplicação Web MVC do .NET que assina os utilizadores com ambos os Account pessoal do Microsoft e contas profissionais ou escolares.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Adicionar início de sessão a uma aplicação de web de MVC do .NET
 Com o ponto final v 2.0, pode adicionar rapidamente a autenticação para as suas aplicações web com suporte para ambas as contas pessoais da Microsoft e contas profissionais ou escolares.  Nas web apps do ASP.NET, isto é possível utilizar o middleware OWIN da Microsoft incluído no .NET Framework 4.5.
@@ -213,7 +213,7 @@ Agora pode mover para tópicos mais avançados.  Poderá querer experimentar:
 Para obter recursos adicionais, consulte:
 
 * [O guia para programadores de v 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Etiqueta de StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança dos nossos produtos
 Aconselhamo-lo a obter notificações de quando os incidentes de segurança ocorrem, visitando [esta página](https://technet.microsoft.com/security/dd252948) e subscrevendo os alertas de aviso de segurança.

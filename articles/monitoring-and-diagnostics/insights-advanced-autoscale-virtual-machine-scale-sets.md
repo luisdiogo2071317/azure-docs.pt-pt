@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
-ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1ac5c4c44386fc05e3ee87ccdbbc4f652a94a1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração de dimensionamento automático avançadas utilizando modelos do Resource Manager para conjuntos de dimensionamento de VM
 Pode no dimensionamento horizontal e em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métrica de desempenho, por numa agenda periódica, ou por uma data específica. Também pode configurar as notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração os objetos com um modelo do Resource Manager no conjunto de dimensionamento da VM.
@@ -35,7 +35,7 @@ Esta explicação passo a passo, utilizamos [Explorador de recursos do Azure](ht
 1. Implemente um novo conjunto com uma definição de dimensionamento automático básico de dimensionamento. Este artigo utilizará a partir da Galeria de início rápido do Azure, que tem um Windows do conjunto de dimensionamento com um modelo de dimensionamento automático básico. Conjuntos de dimensionamento de Linux funcionam da mesma forma.
 2. Depois de criar o conjunto de dimensionamento, navegue para o recurso de conjunto de dimensionamento do Explorador de recursos do Azure. Consulte o seguinte no nó de insights.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Explorador do Azure](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
     A execução do modelo foi criado uma definição de dimensionamento automático predefinida com o nome **'autoscalewad'**. No lado direito, pode ver a definição completa desta definição de dimensionamento automático. Neste caso, a definição de dimensionamento automático predefinida é fornecido com uma regra % baseado em CPU escalável e escala.  
 
@@ -200,7 +200,7 @@ Esta explicação passo a passo, utilizamos [Explorador de recursos do Azure](ht
             }
           }
     ```
-    Para e os respetivos valores de campos suportados, consulte [documentação da API de REST de dimensionamento automático](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Agora, a definição de dimensionamento automático contém três perfis explicados anteriormente.
+    Para e os respetivos valores de campos suportados, consulte [documentação da API de REST de dimensionamento automático](https://msdn.microsoft.com/library/azure/dn931928.aspx). Agora, a definição de dimensionamento automático contém três perfis explicados anteriormente.
 
 7. Por fim, observe o dimensionamento automático **notificação** secção. Notificações de dimensionamento automático permitem-lhe efetuar três ações quando Escalamento horizontal ou na ação é acionado com êxito.
    - Notificar o administrador e coadministradores da sua subscrição

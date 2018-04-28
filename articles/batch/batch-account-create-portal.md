@@ -2,10 +2,10 @@
 title: Criar uma conta do Batch no portal do Azure | Microsoft Docs
 description: Saiba como criar uma conta do Azure Batch no portal do Azure a executar cargas de trabalho paralelas em grande escala na nuvem
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -58,7 +58,7 @@ Para informações sobre contas do Batch e cenários, consulte a [descrição ge
 
     d. **Localização**: a região do Azure na qual se cria a conta do Batch. Apenas as regiões suportadas pela sua subscrição e grupo de recursos são apresentadas como opções.
 
-    e. **Conta de armazenamento** (opcional): uma conta de Armazenamento do Azure para fins gerais que associa à conta do Batch. Esta opção é recomendada para a maioria das contas do Batch. Veja [Conta do Armazenamento do Azure Ligada](#linked-azure-storage-account) mais tarde neste artigo para obter mais informações.
+    e. **Conta de armazenamento** (opcional): uma conta de Armazenamento do Azure que associa à conta do Batch. Esta opção é recomendada para a maioria das contas do Batch. Veja [Conta do Armazenamento do Azure Ligada](#linked-azure-storage-account) mais tarde neste artigo para obter mais informações.
 
 4. Clique em **Criar** para criar a conta.
 
@@ -85,11 +85,11 @@ Depois de a conta ter sido criada, clique na mesma para aceder às respetivas de
 
 ## <a name="linked-azure-storage-account"></a>Conta do Armazenamento do Azure Ligada
 
-Pode ligar uma conta de Armazenamento do Azure para fins gerais à conta do Batch, o que é útil para inúmeros cenários. A funcionalidade de [pacotes de aplicações](batch-application-packages.md) do Batch utiliza o armazenamento de Blobs, tal como o faz a biblioteca [.NET de Convenções de Ficheiros do Batch](batch-task-output.md). Estas funcionalidades opcionais ajudam-no a implementar as aplicações nas quais as tarefas do Batch são executadas e a manter os dados que aquelas produzem.
+Pode ligar uma conta de Armazenamento do Azure à conta do Batch, o que é útil para inúmeros cenários. A funcionalidade de [pacotes de aplicações](batch-application-packages.md) do Batch utiliza o armazenamento de Blobs, tal como o faz a biblioteca [.NET de Convenções de Ficheiros do Batch](batch-task-output.md). Estas funcionalidades opcionais ajudam-no a implementar as aplicações nas quais as tarefas do Batch são executadas e a manter os dados que aquelas produzem.
 
-Recomendamos que crie uma nova conta de Armazenamento para utilização exclusiva por parte da sua conta do Batch. O Azure Batch, atualmente, suporta apenas o tipo de conta de Armazenamento para fins gerais. Este tipo de conta está descrito no passo 5, [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Acerca das contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+Para obter opções de armazenamento no Batch, consulte a [descrição geral da funcionalidade do Batch](batch-api-basics.md#azure-storage-account).
 
-![Criar uma conta de armazenamento para fins gerais][storage_account]
+![Criar uma conta de armazenamento][storage_account]
 
 > [!NOTE]
 > Tenha cuidado ao regenerar as chaves de acesso das contas de Armazenamento ligadas. Regenere apenas uma chave de conta de Armazenamento e clique em **Sincronizar Chaves**, na página Conta de Armazenamento ligada. Aguarde cinco minutos para que as chaves se propaguem pelos nós de computação dos seus conjuntos e, depois, regenere e sincronize a outra chave, se necessário. Se regenerar ambas as chaves ao mesmo tempo, os nós de computação não conseguirão sincronizar nenhuma das chaves, que perdem o acesso à conta de Armazenamento.

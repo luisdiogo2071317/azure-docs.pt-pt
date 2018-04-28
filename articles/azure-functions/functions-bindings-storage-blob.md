@@ -3,7 +3,7 @@ title: Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 description: Compreenda como utilizar o Blob do Azure armazenamento acionadores e enlaces das funções do Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: glenga
-ms.openlocfilehash: eccaf205ae4705848b591442ca0fdb2aab44b9c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: tdykstra
+ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -40,7 +40,7 @@ Os enlaces de armazenamento de BLOBs são fornecidos no [Microsoft.Azure.WebJobs
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="trigger"></a>Acionar
+## <a name="trigger"></a>Acionador
 
 Utilize um acionador de armazenamento de BLOBs para iniciar uma função quando é detetado um blob novo ou atualizado. Os conteúdos do blob são fornecidos como entrada para a função.
 
@@ -350,7 +350,7 @@ Funções JavaScript carregar o blob completo para a memória e c# funções faz
 
 Se o contentor de blob a ser monitorizado contém mais de 10 000 blobs, análises de tempo de execução funções ficheiros de registo da observar blobs novos ou alterados. Este processo pode resultar em atrasos. Uma função pode não obter uma acionada até vários minutos ou já depois de criado o blob. Além disso, [os registos de armazenamento são criados em "melhor esforço"](/rest/api/storageservices/About-Storage-Analytics-Logging) base. Não há nenhuma garantia de que todos os eventos são capturados. Em algumas condições, os registos podem ser omitidos. Se necessitar de processamento mais rápido ou mais fiável do blob, considere criar um [mensagem da fila](../storage/queues/storage-dotnet-how-to-use-queues.md) ao criar o blob. Em seguida, utilize um [acionador de fila](functions-bindings-storage-queue.md) em vez de um acionador de BLOBs para processar o blob. Outra opção consiste em utilizar a grelha de eventos; consulte o tutorial [Automate redimensionamento carregado imagens com eventos grelha](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="input"></a>Introdução
+## <a name="input"></a>Input
 
 Utilize um enlace de entrada de armazenamento de BLOBs para de leitura de blobs.
 
@@ -765,7 +765,7 @@ Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name from fu
 
 | Vínculo |  Referência |
 |---|---|
-| Blob | [Códigos de erro de blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blobs | [Códigos de erro de blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | BLOB, tabela, fila |  [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

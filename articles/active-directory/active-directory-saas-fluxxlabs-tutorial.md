@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 5288ae3deaf82e76accb9c9584c250c7dbe2c9ca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0bba820c14c5eddc6db99923e3fb1de58c110f4c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Azure Active Directory com Fluxx laboratórios
 
@@ -114,16 +114,14 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     |-------------|------------|
     | Produção | `https://<subdomain>.fluxx.io` |
     | Pré-produção | `https://<subdomain>.preprod.fluxxlabs.com`|
-    | Testes    | `https://<subdomain>.stage.fluxxlabs.com`|
-    
+        
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
 
     | Ambiente | Padrão de URL|
     |-------------|------------|
     | Produção | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Pré-produção | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-    | Testes    | `https://<subdomain>.stage.fluxxlabs.com/auth/saml/callback`|
-    
+        
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [Fluxx laboratórios suporta equipa](mailto:travis@fluxxlabs.com) para obter estes valores.
 
@@ -141,11 +139,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 7. Numa janela do browser web diferente, inicie sessão site da sua empresa Fluxx laboratórios como administrador.
 
-8. No canto superior direito da página, clique em **ícone definições** e, em seguida, **Admin**.
+8. Selecione **Admin** abaixo o **definições** secção.
 
     ![Configuração de laboratórios Fluxx](./media/active-directory-saas-fluxxlabs-tutorial/config1.png)
 
-9. No painel administração, selecione **Plug-ins** > **integrações** e, em seguida, selecione **SAML SSO-(Enabled)**
+9. No painel administração, selecione **Plug-ins** > **integrações** e, em seguida, selecione **SAML SSO-(Disabled)**
 
     ![Configuração de laboratórios Fluxx](./media/active-directory-saas-fluxxlabs-tutorial/config2.png)
     
@@ -159,13 +157,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **caminho de chamada de retorno** caixa de texto, tipo **/auth/saml/callback**.
 
-    d. No **asserção Url do serviço de consumidor** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
+    d. No **asserção consumidor serviço Url(Single Sign-On URL)** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
 
-    e. No **emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
+    e. No **público-alvo (ID de entidade SP)** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    f. Abra o certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **IDP Cert** caixa de texto.
+    f. Abra o certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade** caixa de texto.
 
-    g.  No **identificador de nome de formato** caixa de texto, introduza o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. No **identificador de nome de formato** caixa de texto, introduza o valor `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
     h. Clique em **Guardar**.
 
@@ -212,23 +210,21 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos laboratórios 
 
 1. Inicie sessão no site da sua empresa Fluxx laboratórios como administrador.
 
-2. No dashboard, clique em de abaixo o ícone apresentado para abrir o **nova pessoa** cartão.
+2. Clique em de apresentada abaixo **ícone**.
+
+    ![Configuração de laboratórios Fluxx](./media/active-directory-saas-fluxxlabs-tutorial/config6.png)
+
+3. No dashboard, clique em de abaixo o ícone apresentado para abrir o **pessoas novo** cartão.
 
     ![Configuração de laboratórios Fluxx](./media/active-directory-saas-fluxxlabs-tutorial/config4.png)
 
-3. No **nova pessoa** secção, execute os seguintes passos:
+4. No **pessoas novo** secção, execute os seguintes passos:
     
     ![Configuração de laboratórios Fluxx](./media/active-directory-saas-fluxxlabs-tutorial/config5.png)
 
-    a. No **início de sessão** caixa de texto, introduza o e-mail do utilizador como Azure_Admin.
+    a. Laboratórios Fluxx utilizar e-mail como o identificador exclusivo para inícios de sessão do SSO. Preencher o **SSO UID** campo com o endereço de e-mail do utilizador, que corresponde ao endereço de e-mail, que estão a utilizar como início de sessão com o SSO.
 
-    b. No **palavra-passe** caixa de texto, escreva a palavra-passe da conta Azure_Admin.
-
-    c. No **Confirmar palavra-passe** caixa de texto, reintroduza a palavra-passe da conta Azure_Admin.
-
-    d. Laboratórios Fluxx utilizar e-mail como o identificador exclusivo para inícios de sessão do SSO. Preencher o **SSO UID** campo com o endereço de e-mail do utilizador, que corresponde ao endereço de e-mail, que estão a utilizar como início de sessão com o SSO.
-
-    e. Clique em **criar pessoa**.
+    b. Clique em **Guardar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -285,4 +281,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-fluxxlabs-tutorial/tutorial_general_203.png
-

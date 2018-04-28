@@ -1,11 +1,11 @@
 ---
 title: Utilizar o Azure PowerShell para configurar o carregamento de ficheiros | Microsoft Docs
-description: "Como utilizar os cmdlets do PowerShell do Azure para configurar o seu IoT hub para ativar o ficheiro de carregamentos de dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino."
+description: Como utilizar os cmdlets do PowerShell do Azure para configurar o seu IoT hub para ativar o ficheiro de carregamentos de dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22d331342504aa7cc3d4fe86777ef9c2595a27ac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar o IoT Hub carregamentos de ficheiros com o PowerShell
 
@@ -35,12 +35,12 @@ Para concluir este tutorial, precisa do seguinte:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>A iniciar sessão e definir a sua conta do Azure
 
-Inicie sessão na sua conta do Azure e selecionar a sua subscrição.
+Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
-1. Na linha de comandos do PowerShell, execute o **Login-AzureRmAccount** cmdlet:
+1. Na linha de comandos do PowerShell, execute o **Connect-AzureRmAccount** cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Se tiver várias subscrições do Azure, o início de sessão Azure concede acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis para que possa utilizar:
@@ -49,7 +49,7 @@ Inicie sessão na sua conta do Azure e selecionar a sua subscrição.
     Get-AzureRMSubscription
     ```
 
-    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu IoT hub. Pode utilizar o nome da subscrição ou o ID da saída do comando anterior:
+    Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu IoT hub. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -123,7 +123,7 @@ Set-AzureRmIotHub `
     -FileUploadNotificationMaxDeliveryCount 10
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre as capacidades de carregamento do ficheiro do IoT Hub, consulte [carregar ficheiros a partir de um dispositivo][lnk-upload].
 
@@ -136,7 +136,7 @@ Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 * [Proteger a sua solução de IoT a partir do zero cópias de segurança][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md

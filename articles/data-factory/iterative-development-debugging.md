@@ -4,7 +4,7 @@ description: Saiba como desenvolver e depurar pipelines de fábrica de dados ite
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
 
@@ -45,9 +45,17 @@ Quando testa é executado, não tem de publicar as alterações à fábrica de d
 
 ## <a name="setting-breakpoints-for-debugging"></a>A definição de pontos de interrupção para depuração
 
-Fábrica de dados também lhe permite até chegar uma atividade específica no seu tela do pipeline de depuração. Apenas colocar um ponto de interrupção na atividade até que pretende testar e selecione **depurar**. Fábrica de dados garante que o teste é executado apenas até que a atividade de ponto de interrupção na tela do pipeline. Isto *depurar até* funcionalidade é útil quando não pretende testar o pipeline de todo, mas apenas um subconjunto das atividades dentro do pipeline.
+Fábrica de dados também lhe permite até chegar uma atividade específica da tela do pipeline de depuração. Apenas colocar um ponto de interrupção na atividade até que pretende testar e selecione **depurar**. Fábrica de dados garante que o teste é executado apenas até que a atividade de ponto de interrupção na tela do pipeline. Isto *depurar até* funcionalidade é útil quando não pretende testar o pipeline de todo, mas apenas um subconjunto das atividades dentro do pipeline.
 
 ![Pontos de interrupção na tela pipeline](media/iterative-development-debugging/iterative-development-image4.png)
+
+Para definir um ponto de interrupção, selecione um elemento na tela do pipeline. A *depurar até* opção seja apresentada como um círculo vazio vermelho no canto superior direito do elemento.
+
+![Antes de definir um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image5.png)
+
+Depois de selecionar o *depurar até* opção, que muda para um círculo vermelho manchas para indicar o o ponto de interrupção está ativado.
+
+![Depois de definir um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Integração contínua e a implementação no Azure Data Factory](continuous-integration-deployment.md)

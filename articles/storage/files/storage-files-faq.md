@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas mais frequentes sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -27,7 +27,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 1. A secção de comentários deste artigo.
 2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
+4. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
 
 ## <a name="general"></a>Geral
 * <a id="why-files-useful"></a>
@@ -103,7 +103,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="afs-conflict-resolution"></a>**Se o mesmo ficheiro é alterado em dois servidores aproximadamente à mesma hora, o que acontece?**  
     Sincronização de ficheiros do Azure utiliza uma estratégia de resolução de conflitos simples: vamos manter ambas as alterações a ficheiros que são alterados em dois servidores ao mesmo tempo. A alteração mais recentemente gravada mantém o nome de ficheiro original. O ficheiro mais antigo tem a máquina "origem" e o número de conflito acrescentado ao nome. Segue-se esta taxonomia: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< Ext\>  
 
     Por exemplo, o conflito de CompanyReport.docx primeiro iria tornar-se CompanyReport CentralServer.docx se CentralServer onde ocorreu a operação de escrita mais antiga. O segundo conflito seria ter um nome CompanyReport-CentralServer-1.docx.
 
@@ -127,7 +127,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
         | A | Arquivo | Indica que o ficheiro deve ser feito pelo software de cópia de segurança. Este atributo é sempre definido, independentemente se o ficheiro está em camadas ou totalmente armazenado no disco. |
         | P | Ficheiro disperso | Indica que o ficheiro é um ficheiro disperso. Um ficheiro disperso é um tipo especializado de ficheiros NTFS oferece para uma utilização eficiente quando o ficheiro no fluxo de disco principalmente está vazio. Sincronização de ficheiros do Azure utiliza ficheiros dispersos porque um ficheiro é totalmente camado ou parcialmente resgatar os. Num ficheiro totalmente em camadas, a sequência de ficheiros é armazenada na nuvem. Um ficheiro parcialmente recalled, que parte dos ficheiros já se encontra no disco. Se um ficheiro é totalmente resgatar os para o disco, sincronização de ficheiros do Azure converte-o partir de um ficheiro disperso para um ficheiro regular. |
         | L | Ponto de reanálise | Indica que o ficheiro tem um ponto de reanálise. Um ponto de reanálise é um ponteiro especial para utilização por um filtro de sistema de ficheiros. Sincronização de ficheiros do Azure utiliza pontos de reanálise, para definir o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) a localização de nuvem onde está armazenado o ficheiro. Isto suporta o acesso totalmente integrado. Os utilizadores não precisam de saber que a sincronização de ficheiros do Azure está a ser utilizada ou como obter acesso ao ficheiro na partilha de ficheiros do Azure. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove o ponto de reanálise do ficheiro. |
-        | O | Offline | Indica que alguns ou todos os conteúdos do ficheiro não estão armazenados num disco. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove este atributo. |
+        | NÃ | Offline | Indica que alguns ou todos os conteúdos do ficheiro não estão armazenados num disco. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove este atributo. |
 
         ![A caixa de diálogo de propriedades para um ficheiro, o separador de detalhes, selecionado](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
@@ -173,7 +173,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
     Por predefinição, a sincronização de ficheiros do Azure exclui os seguintes ficheiros:
     * desktop.ini
     * thumbs.db
-    * ehthumbs.db
+    * ehthumbs.dB
     * ~$\*.\*
     * \*.laccdb
     * \*.tmp
@@ -182,7 +182,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
     As seguintes pastas também são excluídas por predefinição:
 
     * Informações de volume \System
-    * \$RECYCLE.BIN
+    * \$RECICLAGEM. RECICLAGEM
     * \SyncShareState
 
 * <a id="afs-os-support"></a>
@@ -257,7 +257,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
     Sim. Ficheiros do Azure podem manter um máximo de instantâneos de partilha de 200. Instantâneos de partilha não é considerado a quota de partilha, pelo que não existe nenhum limite por partilha no total de espaço que é utilizado por todos os instantâneos de partilha. Limites de conta de armazenamento ainda são aplicáveis. Depois de instantâneos de partilha de 200, tem de eliminar instantâneos anteriores para criar a partilha dos novos instantâneos.
 * <a id="snapshot-cost"></a>
 **Quantidade partilha o custo de instantâneo?**  
-    Transação padrão e o custo de armazenamento standard serão aplicada a instantâneo. Os instantâneos são incrementais natureza. O instantâneo de base é a partilha de si próprio. Todos os instantâneos subsequentes são incrementais e apenas armazenará diff do instantâneo anterior. Isto significa que as alterações de delta que irão ser vistas na factura será mínimas se o volume de alterações de carga de trabalho é mínimo. Consulte [página de preços](https://azure.microsoft.com/en-us/pricing/details/storage/files/) para ficheiros de Azure padrão obter informações sobre preços. Hoje, a forma de ver tamanho consumido na partilha de instantâneo é comparando a capacidade billed com utilizado capacidade. Estamos a trabalhar ferramentas para melhorar o Reporting Services.
+    Transação padrão e o custo de armazenamento standard serão aplicada a instantâneo. Os instantâneos são incrementais natureza. O instantâneo de base é a partilha de si próprio. Todos os instantâneos subsequentes são incrementais e apenas armazenará diff do instantâneo anterior. Isto significa que as alterações de delta que irão ser vistas na factura será mínimas se o volume de alterações de carga de trabalho é mínimo. Consulte [página de preços](https://azure.microsoft.com/pricing/details/storage/files/) para ficheiros de Azure padrão obter informações sobre preços. Hoje, a forma de ver tamanho consumido na partilha de instantâneo é comparando a capacidade billed com utilizado capacidade. Estamos a trabalhar ferramentas para melhorar o Reporting Services.
 
 
 ### <a name="create-share-snapshots"></a>Criar partilha de instantâneos

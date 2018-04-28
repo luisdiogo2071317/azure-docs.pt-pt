@@ -1,33 +1,29 @@
 ---
-title: "Resolução de problemas do armazém de dados SQL do Azure | Microsoft Docs"
-description: "Resolução de problemas do armazém de dados SQL do Azure."
+title: Resolução de problemas do armazém de dados SQL do Azure | Microsoft Docs
+description: Resolução de problemas do armazém de dados SQL do Azure.
 services: sql-data-warehouse
-documentationcenter: NA
 author: kevinvngo
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: kevin;barbkess
-ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 27445eb754a5e985485db101c9d0fe1ba8aa2451
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas do armazém de dados SQL do Azure
-Este tópico apresenta alguns das perguntas de resolução de problemas mais comuns que recebemos dos nossos clientes.
+Este tópico lista pergunta de resolução de problemas comuns.
 
 ## <a name="connecting"></a>A ligar
 | Problema | Resolução |
 |:--- |:--- |
-| Falha ao iniciar sessão para o utilizador 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, Error: 18456) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema, ou especifique o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
-| O servidor principal "MyUserName" não é capaz de aceder a base de dados "master" no contexto de segurança atual. Não é possível abrir a base de dados do utilizador predefinida. O início de sessão falhou. Falha ao iniciar sessão para o utilizador 'MyUserName'. (Microsoft SQL Server, Error: 916) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema, ou especifique o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
+| Falha ao iniciar sessão para o utilizador 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, erro: 18456) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema, ou especifique o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
+| O servidor principal "MyUserName" não é capaz de aceder a base de dados "master" no contexto de segurança atual. Não é possível abrir a base de dados do utilizador predefinida. O início de sessão falhou. Falha ao iniciar sessão para o utilizador 'MyUserName'. (Microsoft SQL Server, erro: 916) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema, ou especifique o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
 | Erro CTAIP |Este erro pode ocorrer quando tiver sido criado um início de sessão no SQL server base de dados mestra, mas não se encontra na base de dados do armazém de dados do SQL Server.  Se ocorrer este erro, observe o [descrição geral de segurança] [ Security overview] artigo.  Este artigo explica como criar um início de sessão e o utilizador no mestre e, em seguida, como criar um utilizador na base de dados do armazém de dados do SQL Server. |
 | Bloqueado pela Firewall |Bases de dados SQL do Azure estão protegidos por firewalls nível servidor e base de dados para garantir conhecido apenas endereços IP têm acesso a uma base de dados. As firewalls são seguras por predefinição, o que significa que, tem de ativar explicitamente e endereço IP ou intervalo de endereços antes de poder ligar.  Para configurar a firewall para acesso, siga os passos no [configurar o acesso ao servidor de firewall para o IP de cliente] [ Configure server firewall access for your client IP] no [aprovisionamento instruções] [Provisioning instructions]. |
 | Não é possível estabelecer ligação com a ferramenta ou controladores |O SQL Data Warehouse recomenda a utilização [SSMS][SSMS], [SSDT para Visual Studio][SSDT for Visual Studio], ou [sqlcmd] [ sqlcmd] para consultar os dados. Para obter mais detalhes sobre controladores e a ligação ao SQL Data Warehouse, consulte [controladores para o Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] e [ligar ao Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artigos. |
@@ -87,44 +83,44 @@ Para obter mais ajuda no encontrar soluções para o seu problema, aqui estão a
 <!--Image references-->
 
 <!--Article references-->
-[Security overview]: ./sql-data-warehouse-overview-manage-security.md
-[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
-[Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
-[Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Criar pedido de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
-[Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
-[Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./resource-classes-for-workload-management.md
-[Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
-[UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
-[Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
+[Security overview]: sql-data-warehouse-overview-manage-security.md
+[SSMS]: /sql/ssms/download-sql-server-management-studio-ssms
+[SSDT for Visual Studio]: sql-data-warehouse-install-visual-studio.md
+[Drivers for Azure SQL Data Warehouse]: sql-data-warehouse-connection-strings.md
+[Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Criar pedido de suporte]: sql-data-warehouse-get-started-create-support-ticket.md
+[Scaling your SQL Data Warehouse]: sql-data-warehouse-manage-compute-overview.md
+[DWU]: sql-data-warehouse-overview-what-is.md
+[request a quota increase]: sql-data-warehouse-get-started-create-support-ticket.md
+[Learning how to monitor your queries]: sql-data-warehouse-manage-monitor.md
+[Provisioning instructions]: sql-data-warehouse-get-started-provision.md
+[Configure server firewall access for your client IP]: sql-data-warehouse-get-started-provision.md
+[SQL Data Warehouse best practices]: sql-data-warehouse-best-practices.md
+[Table sizes]: sql-data-warehouse-tables-overview.md#table-size-queries
+[Unsupported table features]: sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[Overview]: sql-data-warehouse-tables-overview.md
+[Data types]: sql-data-warehouse-tables-data-types.md
+[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Index]: sql-data-warehouse-tables-index.md
+[Partition]: sql-data-warehouse-tables-partition.md
+[Statistics]: sql-data-warehouse-tables-statistics.md
+[Temporary]: sql-data-warehouse-tables-temporary.md
+[Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Workload management]: resource-classes-for-workload-management.md
+[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[UPDATE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[Stored procedure limitations]: sql-data-warehouse-develop-stored-procedures.md#limitations
+[Authentication to Azure SQL Data Warehouse]: sql-data-warehouse-authentication.md
+
 
 <!--MSDN references-->
-[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
-[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sys.database_principals]: /sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql
+[CREATE FUNCTION]: /sql/t-sql/statements/create-function-sql-data-warehouse
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Blogues]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

@@ -1,4 +1,4 @@
-Para ativar a edição de perfis na sua aplicação, terá de criar uma política de edição de perfis. Esta política descreve as experiências que os consumidores terão durante a edição de perfis e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
+Se desejar activar a edição do perfil na sua aplicação, utilize um **Editar perfil** política. Esta política descreve as experiências de que os clientes passarão durante a edição de perfil e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

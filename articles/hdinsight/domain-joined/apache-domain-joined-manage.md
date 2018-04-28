@@ -1,29 +1,91 @@
 ---
-title: Gerir clusters do HDInsight associados a um domínio - Azure | Microsoft Docs
+title: Gerir clusters do HDInsight associados a um domínio - Azure
 description: Saiba como gerir clusters do HDInsight associados a um domínio
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/11/2018
-ms.author: bhanupr
-ms.openlocfilehash: 44202541557a7513e0068f52289a637f6e48f43f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gerir clusters do HDInsight associados a um domínio
 Saiba mais utilizadores e funções no HDInsight associados a um domínio e como gerir clusters do HDInsight associados a um domínio.
+
+## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Utilizar o VSCode para ligar a um cluster associado a um domínio
+
+Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com).
+1. Abra a paleta de comando selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um cluster**.
+
+   ![comando de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-command.png)
+
+2. Introduza HDInsight URL de cluster-entrada de nome de utilizador -> > palavra-passe de entrada -> selecione o tipo de cluster ->-mostra informações de êxito se passado a verificação.
+   
+   ![caixa de diálogo de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   > [!NOTE]
+   > O nome de utilizador ligado e a palavra-passe são utilizados se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster. 
+   
+3. Pode ver um cluster de ligado utilizando o comando **cluster lista**. Agora pode submeter um script para este cluster ligado.
+
+   ![cluster ligado](./media/apache-domain-joined-manage/linked-cluster.png)
+
+4. Pode também pode desassociar um cluster por inputting **HDInsight: desassociar um cluster** de paleta de comando.
+
+## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Utilizar o IntelliJ para ligar a um cluster associado a um domínio
+
+Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com). 
+1. Clique em **ligar um cluster** de **Explorador do Azure**.
+
+   ![menu de contexto do cluster de ligação](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Introduza **nome do Cluster**, **nome de utilizador** e **palavra-passe**. Tem de verificar o nome de utilizador e palavra-passe se foi a falha de autenticação. Opcionalmente, adicione a conta do Storage, chave de armazenamento, em seguida, selecione um contentor do contentor de armazenamento. Informações de armazenamento estão no Explorador de armazenamento na árvore da esquerda do
+   
+   ![caixa de diálogo de cluster de ligação](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Utilizamos a chave de armazenamento ligado, o nome de utilizador e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster.
+   > ![Explorador de armazenamento no IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+
+   
+3. Pode ver um cluster de ligado no **HDInsight** nós se as informações de entrada estão corretas. Agora pode submeter uma aplicação para este cluster ligado.
+
+   ![cluster ligado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. Também pode desassociar um cluster de **Explorador do Azure**.
+   
+   ![Desassociar de cluster](./media/apache-domain-joined-manage/unlink.png)
+
+## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Utilizar o Eclipse para ligar a um cluster associado a um domínio
+
+Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com).
+1. Clique em **ligar um cluster** de **Explorador do Azure**.
+
+   ![menu de contexto do cluster de ligação](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Introduza **nome do Cluster**, **nome de utilizador** e **palavra-passe**, em seguida, clique no botão OK para ligar o cluster. Opcionalmente, introduza a conta do Storage, chave de armazenamento e, em seguida, selecione o contentor de armazenamento para o Explorador de armazenamento a trabalhar na vista de árvore à esquerda
+   
+   ![caixa de diálogo de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Utilizamos a chave de armazenamento ligado, o nome de utilizador e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster.
+   > ![Explorador de armazenamento no Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+
+3. Pode ver um cluster de ligado no **HDInsight** nó depois de clicar no botão OK, se as informações de entrada estão corretas. Agora pode submeter uma aplicação para este cluster ligado.
+
+   ![cluster ligado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. Também pode desassociar um cluster de **Explorador do Azure**.
+   
+   ![Desassociar de cluster](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Aceder os clusters com o pacote de segurança da empresa.
 

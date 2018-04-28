@@ -1,26 +1,23 @@
 ---
-title: "Configurar o serviço de Cloud App Discovery no Azure Active Directory | Microsoft Docs"
-description: "Localizar e gerir aplicações com o Cloud App Discovery para fornecer informações acionáveis na utilização de nuvem e de sombra IT."
+title: Configurar o serviço de Cloud App Discovery no Azure Active Directory | Microsoft Docs
+description: Localizar e gerir aplicações com o Cloud App Discovery para fornecer informações acionáveis na utilização de nuvem e de sombra IT.
 services: active-directory
-keywords: "o cloud app discovery, gestão de aplicações"
-documentationcenter: 
+keywords: o cloud app discovery, gestão de aplicações
+documentationcenter: ''
 author: curtand
 manager: mtillman
 tags: ignite
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 04/25/2018
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e46098d93360c809ba0aef46ed8244acf5af7196
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurar a Cloud App Discovery no Azure AD
 
@@ -86,6 +83,7 @@ Para gerar com êxito um relatório de Cloud App Discovery, os registos de tráf
 * Cisco Meraki – registo de URLs
 * Clavister NGFW (Syslog)
 * Dell Sonicwall
+* FILTRO de digital Arts i
 * Fortigate da Fortinet
 * SRX da Juniper
 * Juniper SSG
@@ -123,7 +121,7 @@ Se o início de sessão não é suportado, selecione **outros** como o **origem 
 | Juniper SSG                             | Não             | **Sim**       | Não       | **Sim**   | **Sim**       | **Sim**        |
 | McAfee SWG                              | **Sim**        | Não            | Não       | **Sim**   | **Sim**       | **Sim**        |
 | MS TMG                                  | **Sim**        | Não            | **Sim**  | **Sim**   | **Sim**       | **Sim**        |
-| Palo Alto Networks                      | **Sim**        | **Sim**       | **Sim**  | **Sim**   | **Sim**       | **Sim**        |
+| Palo Alto Networks                      | Não             | **Sim**       | **Sim**  | **Sim**   | **Sim**       | **Sim**        |
 | Sophos                                  | **Sim**        | **Sim**       | **Sim**  | **Sim**   | **Sim**       | Não             |
 | SQUID (comum)                          | **Sim**        | Não            | **Sim**  | **Sim**   | Não            | **Sim**        |
 | SQUID (nativo)                          | **Sim**        | Não            | **Sim**  | **Sim**   | Não            | **Sim**        |
@@ -132,7 +130,7 @@ Se o início de sessão não é suportado, selecione **outros** como o **origem 
 | Zscaler                                 | **Sim**        | **Sim**       | **Sim**  | **Sim**   | **Sim**       | **Sim**        |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilize as hiperligações seguintes para continuar a configurar a Cloud App Discovery no Azure AD.
 
 * [Criar relatórios de instantâneos](cloudappdiscovery-set-up-snapshots.md)

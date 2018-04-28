@@ -1,25 +1,20 @@
 ---
-title: "Migrar o seu código SQL ao SQL Data Warehouse | Microsoft Docs"
-description: "Sugestões para migrar o código do SQL Server para o Azure SQL Data Warehouse para desenvolver soluções."
+title: Migrar o seu código SQL ao SQL Data Warehouse | Microsoft Docs
+description: Sugestões para migrar o código do SQL Server para o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/23/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrar o seu código SQL ao SQL Data Warehouse
 Este artigo explica as alterações de código, provavelmente terá de tomar quando migrar o seu código de outra base de dados ao SQL Data Warehouse. Algumas funcionalidades do SQL Data Warehouse podem significativamente melhorar o desempenho, que foram concebidos para trabalhar de forma distribuída. No entanto, para manter o desempenho e dimensionamento, algumas funcionalidades também não estão disponíveis.
@@ -31,7 +26,7 @@ A lista seguinte resume as funcionalidades mais comuns que não suporta o SQL Da
 * [Associações de ANSI em eliminações][ANSI joins on deletes]
 * [instrução Merge][merge statement]
 * associações entre bases de dados
-* [cursores][cursors]
+* [Cursores][cursors]
 * [INSERT... EXEC][INSERT..EXEC]
 * cláusula output
 * funções inline de definidas pelo utilizador
@@ -114,7 +109,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista completa de todas as declarações de T-SQL suportadas, consulte [tópicos de Transact-SQL][Transact-SQL topics].
 
 <!--Image references-->

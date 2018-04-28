@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>As aplicações em nuvem restrições de inquilino de utilização para gerir o acesso ao SaaS
 
@@ -28,7 +28,7 @@ Solução do Azure do Active Directory para este desafio é uma funcionalidade d
 
 Restrições de inquilino permite às organizações para especificar a lista de inquilinos que os utilizadores têm permissão de acesso. Em seguida, do Azure AD apenas concede acesso a estes permitido inquilinos.
 
-Este artigo incida no inquilino restrições para o Office 365, mas a funcionalidade deverá trabalhar com qualquer aplicação de cloud de SaaS que utiliza protocolos de autenticação moderna com o Azure AD para o início de sessão único. Se utilizar aplicações com um diferente do Azure AD de inquilino do inquilino utilizado pelo Office 365 de SaaS, certifique-se de que todas as necessárias inquilinos são permitidos. Para obter mais informações sobre as aplicações de cloud de SaaS, consulte o [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+Este artigo incida no inquilino restrições para o Office 365, mas a funcionalidade deverá trabalhar com qualquer aplicação de cloud de SaaS que utiliza protocolos de autenticação moderna com o Azure AD para o início de sessão único. Se utilizar aplicações com um diferente do Azure AD de inquilino do inquilino utilizado pelo Office 365 de SaaS, certifique-se de que todas as necessárias inquilinos são permitidos. Para obter mais informações sobre as aplicações de cloud de SaaS, consulte o [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Como funciona
 

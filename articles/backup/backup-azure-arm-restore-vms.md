@@ -1,12 +1,12 @@
 ---
-title: "Cópia de segurança do Azure: Restaurar máquinas virtuais utilizando o portal do Azure | Microsoft Docs"
-description: "Restaurar uma máquina virtual do Azure a partir de um ponto de recuperação utilizando o portal do Azure"
+title: 'Cópia de segurança do Azure: Restaurar máquinas virtuais utilizando o portal do Azure | Microsoft Docs'
+description: Restaurar uma máquina virtual do Azure a partir de um ponto de recuperação utilizando o portal do Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "restaurar a cópia de segurança; como restaurar; ponto de recuperação;"
+editor: ''
+keywords: restaurar a cópia de segurança; como restaurar; ponto de recuperação;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para monitorizar máquinas virtuais
 Proteger os seus dados, efetuando os instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e que está a ser armazenadas numa cofres dos serviços de recuperação. Se for necessário reparar ou reconstrua uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:
@@ -109,7 +109,7 @@ O portal fornece um **criação rápida** opção para uma VM restaurada. Para p
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Criar uma nova VM a partir de um ponto de restauro
 1. Se não estiver já existe, [selecionar um ponto de restauro](#restore-a vm-with-special-network-configurations) antes de começar a criar uma nova VM a partir de um ponto de restauro. Depois de selecionar um ponto de restauro no **restauro configuração** painel, introduza ou selecione os valores para cada um dos seguintes campos:
 
-    a. **Restaurar tipo**. Crie uma máquina virtual.
+    a. **Restaurar tipo**. Cria uma máquina virtual.
 
     b. **Nome da máquina virtual**. Forneça um nome para a VM. O nome tem de ser exclusivo para o grupo de recursos (para uma VM implementadas no Azure Resource Manager) ou o serviço em nuvem (para uma VM clássico). Não é possível substituir a VM se já existe na subscrição.
 
@@ -211,7 +211,7 @@ Cópia de segurança do Azure permite restaurar VMs de cópia de segurança para
 ## <a name="restore-domain-controller-vms"></a>Restaurar VMs do controlador de domínio
 Cópia de segurança do controlador de domínio (DC) de VMs é um cenário suportado com cópia de segurança. No entanto, tem de ser cuidado durante o processo de restauro. O processo de restauro correto depende a estrutura do domínio. O cenário mais simples, é necessário um único controlador de domínio num único domínio. Mais frequentemente para cargas de produção, tem um único domínio com vários controladores de domínio, talvez com alguns DCs no local. Por fim, pode ter uma floresta com vários domínios. 
 
-Uma perspetiva de Active Directory, a VM do Azure é como qualquer outra VM num hipervisor suportado Moderno. A principal diferença com hipervisores no local é o que não há nenhuma consola da VM no Azure. Uma consola é necessária para certos cenários, como recuperar utilizando uma recuperação bare-metal (BMR)-cópia de segurança de tipo. No entanto, o restauro de VM do cofre da cópia de segurança é uma substituição completa para a BMR. Modo de restauro dos serviços de diretório (DSRM), também está disponível, pelo que todos os cenários de recuperação do Active Directory são viável. Para obter mais informações, consulte [considerações sobre a cópia de segurança e restauro de controladores de domínio virtualizados](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) e [planear a recuperação de floresta do Active Directory](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+Uma perspetiva de Active Directory, a VM do Azure é como qualquer outra VM num hipervisor suportado Moderno. A principal diferença com hipervisores no local é o que não há nenhuma consola da VM no Azure. Uma consola é necessária para certos cenários, como recuperar utilizando uma recuperação bare-metal (BMR)-cópia de segurança de tipo. No entanto, o restauro de VM do cofre da cópia de segurança é uma substituição completa para a BMR. Modo de restauro dos serviços de diretório (DSRM), também está disponível, pelo que todos os cenários de recuperação do Active Directory são viável. Para obter mais informações, consulte [considerações sobre a cópia de segurança e restauro de controladores de domínio virtualizados](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) e [planear a recuperação de floresta do Active Directory](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
 ### <a name="single-dc-in-a-single-domain"></a>Único DC num domínio único
 A VM pode ser restaurada (como outra VM) do portal do Azure ou através do PowerShell.
@@ -242,7 +242,7 @@ Totalmente voltar a criar as VMs após o restauro para o disco, siga estes passo
 
    a. Criar uma VM no serviço de nuvem com um [Balanceador de carga interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Criar uma VM para ligar a um [Balanceador de carga para a internet](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Criar uma VM para ligar a um [Balanceador de carga para a internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Criar uma VM com [vários NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 

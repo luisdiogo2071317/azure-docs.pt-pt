@@ -1,11 +1,11 @@
 ---
 title: Abrir portas para uma VM com o Azure PowerShell | Microsoft Docs
-description: "Saiba como abrir uma porta / criar um ponto final à sua VM do Windows com o modo de implementação do Azure resource manager e o Azure PowerShell"
+description: Saiba como abrir uma porta / criar um ponto final à sua VM do Windows com o modo de implementação do Azure resource manager e o Azure PowerShell
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d9918992ef1ac46b3b000480b6be7e984f0858e1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b8eb36e4abad12cb46493846a024da00f9146d40
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e os pontos finais para uma VM no Azure utilizando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -29,7 +29,7 @@ Para criar um grupo de segurança de rede e a ACL de regras tem [a versão mais 
 Inicie sessão sua conta do Azure:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Nos exemplos a seguir, substitua os nomes de parâmetros com os seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *myNetworkSecurityGroup*, e *myVnet*.
@@ -92,7 +92,7 @@ Os comandos rápidos aqui permitem-lhe começar a trabalhar com tráfego que flu
 
 Para aplicações web de elevada disponibilidade, deve colocar as VMs por trás de um balanceador de carga do Azure. O Balanceador de carga distribui o tráfego para VMs, com um grupo de segurança de rede que fornece a filtragem de tráfego. Para obter mais informações, consulte [como carregar equilibrar os computadores virtuais Linux no Azure para criar uma aplicação altamente disponível](tutorial-load-balancer.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste exemplo, criou uma regra para permitir tráfego HTTP simples. Pode encontrar informações sobre como criar ambientes mais detalhadas nos seguintes artigos:
 
 * [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)

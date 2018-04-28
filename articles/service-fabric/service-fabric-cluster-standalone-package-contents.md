@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik;aljo
-ms.openlocfilehash: 37425f8a076be2579726e5a83bec3da8c6eb5fff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 948b1bb2ce5a19007906262a4efb0ecca8e40482
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote de serviço Fabric autónoma para o Windows Server
 No [transferido](http://go.microsoft.com/fwlink/?LinkId=730690) pacote autónoma de recursos de infraestrutura de serviço, irá encontrar os seguintes ficheiros:
@@ -47,7 +47,7 @@ No [transferido](http://go.microsoft.com/fwlink/?LinkId=730690) pacote autónoma
 | ClusterConfig.Windows.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para um cluster de máquina multi (ou máquina virtual) segura, utilizar a segurança do Windows, incluindo as informações para cada máquina no cluster seguro. O cluster está protegido pela utilização [identidades Windows](https://msdn.microsoft.com/library/ff649396.aspx). |
 | ClusterConfig.x509.DevCluster.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para um seguro e três nós, máquina único (ou máquina virtual) cluster de desenvolvimento, incluindo as informações para cada nó no cluster. O cluster está protegido com x509 certificados. |
 | ClusterConfig.x509.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para o cluster segura, multi máquina (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster está protegido com x509 certificados. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para o cluster segura, multi máquina (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster está protegido por [contas de serviço geridas de grupo](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Um ficheiro de exemplo de configuração do cluster contém todas as definições para o cluster segura, multi máquina (ou máquina virtual), incluindo as informações para cada nó no cluster seguro. O cluster está protegido por [contas de serviço geridas de grupo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Exemplos de configuração de cluster
 Versões mais recentes dos modelos de configuração do cluster podem ser encontradas na página do GitHub: [exemplos de configuração de Cluster autónomo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

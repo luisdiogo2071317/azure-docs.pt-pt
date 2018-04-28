@@ -1,34 +1,32 @@
 ---
 title: Executar consultas interativas num cluster do Azure HDInsight Spark | Microsoft Docs
-description: "Início rápido do HDInsight Spark sobre como criar um cluster do Apache Spark no HDInsight."
+description: Início rápido do HDInsight Spark sobre como criar um cluster do Apache Spark no HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Executar consultas interativas nos clusters do Spark no HDInsight
 
 Saiba como utilizar o bloco de notas do Jupyter para executar consultas de Spark SQL interativas contra um cluster do Spark. 
 
-[Bloco de notas do Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) é uma aplicação baseada no browser que expande a experiência interativa consola baseada na Web. O Spark no HDInsight também inclui [bloco de notas do Zeppelin](apache-spark-zeppelin-notebook.md). Bloco de notas do Jupyter é utilizado neste tutorial.
+[Bloco de notas do Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) é uma aplicação baseada no browser que expande a experiência interativa consola baseada na Web. O Spark no HDInsight também inclui [bloco de notas do Zeppelin](apache-spark-zeppelin-notebook.md). Neste tutorial, é utilizado o bloco de notas do Jupyter.
 
-Blocos de notas do Jupyter nos clusters do HDInsight suportam três kernels - **PySpark**, **PySpark3**, e **Spark**. O **PySpark** kernel é utilizado neste tutorial. Para obter mais informações sobre os kernels e as vantagens de utilizar **PySpark**, consulte [clusters kernels de bloco de notas do Jupyter de utilização com o Apache Spark no HDInsight](apache-spark-jupyter-notebook-kernels.md). Para utilizar o bloco de notas do Zeppelin, consulte [cluster notas do Zeppelin utilizar o Apache spark no Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+Os blocos de notas do Jupyter nos clusters do HDInsight suportam três kernels – **PySpark**, **PySpark3** e **Spark**. Neste tutorial, utiliza-se o kernel **PySpark**. Para obter mais informações sobre os kernels e sobre os beneficios de utilizar o **PySpark**, veja [Utilizar kernels de blocos de notas do Jupyter com clusters do Apache Spark no HDInsight](apache-spark-jupyter-notebook-kernels.md). Para utilizar o bloco de notas do Zeppelin, consulte [cluster notas do Zeppelin utilizar o Apache spark no Azure HDInsight](./apache-spark-zeppelin-notebook.md).
 
 Neste tutorial, consulta os dados num ficheiro csv. Primeiro tem carregar dados para o Spark como um dataframe. Em seguida, pode executar consultas no dataframe utilizando o bloco de notas do Jupyter. 
 

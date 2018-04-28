@@ -1,6 +1,6 @@
 ---
-title: "Introdução à segurança do Microsoft Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral das funcionalidades de segurança do Microsoft Azure e as considerações gerais para as organizações que estiver a migrar os seus recursos para um fornecedor de nuvem."
+title: Introdução à segurança do Microsoft Azure | Microsoft Docs
+description: Este artigo fornece uma descrição geral das funcionalidades de segurança do Microsoft Azure e as considerações gerais para as organizações que estiver a migrar os seus recursos para um fornecedor de nuvem.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 7d3fab20ec238bff0664fc98c2067c919e97a7c2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introdução à segurança do Microsoft Azure
 Quando criar ou migrar os recursos de IT para um fornecedor de nuvem, são depender capacidades da organização para proteger as suas aplicações e dados com os serviços e os controlos fornecem para gerir a segurança dos seus recursos baseados na nuvem.
@@ -45,7 +45,7 @@ Outras funcionalidades para a gestão de identidades e acessos incluem:
 * O Azure AD permite [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) para aplicações SaaS, independentemente de onde estão alojadas. Algumas aplicações estão federadas com o Azure AD e outras utilizam SSO com palavra-passe. As aplicações federadas também podem suportar o aprovisionamento do utilizador e cofres de palavras-passe.
 * O acesso aos dados do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado através da autenticação. Cada conta de armazenamento tem uma chave primária ([chave da conta de armazenamento](https://msdn.microsoft.com/library/azure/ee460785.aspx), ou SAK) e uma chave secreta secundária (a assinatura de acesso partilhado ou SAS).
 * O Azure AD fornece identidade como um serviço através de Federação utilizando [serviços de Federação do Active Directory](../active-directory/fundamentals-identity.md), sincronização e a replicação de diretórios no local.
-* [Multi-factor Authentication do Azure](../multi-factor-authentication/multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os utilizadores verificar os inícios de sessão utilizando uma aplicação móvel, chamada telefónica ou mensagem de texto. Pode ser utilizado com o Azure AD para o ajudar a proteger recursos no local com o servidor multi-factor Authentication do Azure bem como com aplicações personalizadas e diretórios utilizando o SDK.
+* [Multi-factor Authentication do Azure](../active-directory/authentication/multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os utilizadores verificar os inícios de sessão utilizando uma aplicação móvel, chamada telefónica ou mensagem de texto. Pode ser utilizado com o Azure AD para o ajudar a proteger recursos no local com o servidor multi-factor Authentication do Azure bem como com aplicações personalizadas e diretórios utilizando o SDK.
 * [Serviços de domínio do Azure AD](https://azure.microsoft.com/services/active-directory-ds/) permite-lhe associar máquinas virtuais do Azure a um domínio sem implementar a política de controladores de domínio. Pode iniciar sessão para estas máquinas virtuais com as suas credenciais do Active Directory empresarias e administrar máquinas de virtuais associados a um domínio utilizando a política de grupo para impor as linhas de base de segurança em todas as suas máquinas virtuais do Azure.
 * [O Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) fornece um serviço de gestão de identidade global altamente disponíveis para aplicações direcionadas para o consumidor preparada para centenas de milhões de identidades. Pode ser integrado entre plataformas móveis e Web. Os consumidores podem iniciar sessão todas as suas aplicações através de experiências personalizáveis através das respetivas contas de redes sociais existentes ou criação de novas credenciais.
 
@@ -186,7 +186,7 @@ O Azure tem controlos de segurança no local para implementar mitigação de ame
 * A abordagem da Microsoft para o teste de penetração inclui "[Red de agrupamento](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)," que envolve a profissionais de segurança do Microsoft atacar sistemas de produção em direto (não-cliente) no Azure para testar defesas contra mundo real, avançada, ameaças persistentes.
 * Sistemas de implementação integrada gerem a distribuição e instalação de patches de segurança nas plataformas do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Centro de Fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/)
 
 [Blogue da Equipa de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/)

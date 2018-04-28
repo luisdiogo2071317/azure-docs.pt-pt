@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -468,7 +468,7 @@ Se o seu inquilino do Azure Active Directory estiver localizado dos centros de d
 
 **Agente de resolução de problemas**
 
-O [registo de eventos do Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) no Windows Server que aloja o agente contém eventos para todas as operações executadas pelo agente. Para ver estes eventos:
+O [registo de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) no Windows Server que aloja o agente contém eventos para todas as operações executadas pelo agente. Para ver estes eventos:
     
 1. Abra **Eventvwr.msc**.
 2. Selecione **registos do Windows > aplicação**.
@@ -491,7 +491,7 @@ Depois de partes de 1 a 3 foram concluídas, pode iniciar o serviço de aprovisi
 
 4. Em qualquer altura, verifique o **registos de auditoria** separador no portal do Azure para ver que ações que efetuou o serviço de aprovisionamento. Os registos de auditoria apresenta uma lista de todos os eventos de sincronização individuais efetuados pelo serviço de aprovisionamento, por exemplo, o que os utilizadores estão a ser de leitura fora do Workday e, em seguida, subsequentemente, adicionados ou atualizados ao Active Directory. **[Consulte o guia de relatórios de aprovisionamento para obter instruções detalhadas sobre como ler os registos de auditoria](active-directory-saas-provisioning-reporting.md)**
 
-5.  Verifique o [registo de eventos do Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) num computador Windows Server que aloja o agente para novos erros ou avisos. Estes eventos são visíveis, iniciando **Eventvwr.msc** no servidor e selecionando **registos do Windows > aplicação**. Todas as mensagens relacionadas com o aprovisionamento são registadas na origem **AADSyncAgent**. 
+5.  Verifique o [registo de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) num computador Windows Server que aloja o agente para novos erros ou avisos. Estes eventos são visíveis, iniciando **Eventvwr.msc** no servidor e selecionando **registos do Windows > aplicação**. Todas as mensagens relacionadas com o aprovisionamento são registadas na origem **AADSyncAgent**. 
     
 
 6. Uma conclusão, irá escrever um relatório de resumo de auditoria **aprovisionamento** separador, conforme mostrado abaixo.
@@ -819,7 +819,7 @@ Existem duas formas das manter GDPR em conformidade:
 1. Mediante pedido, extrair dados para uma pessoa e remover dados dessa pessoa dos registos de eventos do Windows. 
 2. Manter a retenção de registos de eventos do Windows tenham origem a partir do processo de AADSyncAgent em 48 horas
 
-Para obter informações sobre como configurar a retenção de dados para os registos de eventos do Windows, consulte o [as definições de registos de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obter informações gerais sobre o registo de eventos do Windows, consulte [neste artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Para obter informações sobre como configurar a retenção de dados para os registos de eventos do Windows, consulte o [as definições de registos de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obter informações gerais sobre o registo de eventos do Windows, consulte [neste artigo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

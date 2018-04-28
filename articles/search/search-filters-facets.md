@@ -1,24 +1,18 @@
 ---
-title: "Filtros de aspeto de restrições na Azure Search | Microsoft Docs"
-description: "Filtre critérios pela identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure."
-services: search
-documentationcenter: 
+title: Filtros de aspeto de restrições na Azure Search | Microsoft Docs
+description: Filtre critérios pela identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de aspeto de restrições na Azure Search 
 
@@ -113,7 +107,7 @@ O seguinte fragmento de código adiciona categoria para o filtro se um utilizado
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-Utilizando a API REST, o pedido seria articulated como `$filter=category eq 'c1'`. Para tornar um campo de valor múltiplo de categoria, utilize a seguinte sintaxe:`$filter=category/any(c: c eq 'c1')`
+Utilizando a API REST, o pedido seria articulated como `$filter=category eq 'c1'`. Para tornar um campo de valor múltiplo de categoria, utilize a seguinte sintaxe: `$filter=category/any(c: c eq 'c1')`
 
 ## <a name="tips-and-workarounds"></a>Soluções e sugestões
 

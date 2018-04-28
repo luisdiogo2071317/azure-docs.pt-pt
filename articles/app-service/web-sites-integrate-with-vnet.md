@@ -1,8 +1,8 @@
 ---
-title: "Integrar uma aplicação com uma Azure Virtual Network"
-description: "Mostra como ligar uma aplicação no App Service do Azure a uma rede de virtual do Azure nova ou existente"
+title: Integrar uma aplicação com uma Azure Virtual Network
+description: Mostra como ligar uma aplicação no App Service do Azure a uma rede de virtual do Azure nova ou existente
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma Azure Virtual Network
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com aplicações [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se estiver familiarizado com o Azure redes virtuais (VNets), esta é uma funcionalidade que permite-lhe colocar muitos dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando uma variedade de tecnologias VPN. Para saber mais sobre redes virtuais do Azure, comece com as informações aqui: [descrição geral de rede Virtual do Azure][VNETOverview]. 
@@ -57,7 +57,8 @@ Eis algumas coisas a lembrar antes de ligar a sua aplicação web a uma rede vir
 
 * Integração de VNet só funciona com aplicações num **padrão**, **Premium**, ou **Isolated** plano de preços. Se ativar a funcionalidade e, em seguida, dimensionar o seu plano do App Service para um plano de preços não suportado das suas aplicações perdem as suas ligações para as VNets que estão a utilizar. 
 * Se a rede virtual de destino já existir, tem de ter VPN ponto a site ativada com um gateway de encaminhamento dinâmico antes de pode ser ligado a uma aplicação. Se o gateway está configurado com o encaminhamento estático, não é possível ativar o ponto a site rede privada Virtual (VPN).
-* A VNet tem de ser na mesma subscrição do seu Plan(ASP) do serviço de aplicações. 
+* A VNet tem de ser na mesma subscrição do seu Plan(ASP) do serviço de aplicações.
+* Se o gateway já existe com ponto a site ativado e não se encontra no SKU básico, IKEV2 tem de ser desativada na configuração ponto a site.
 * As aplicações que se integram com uma utilização de VNet DNS especificado para essa VNet.
 * Por predefinição é as suas aplicações integrating apenas encaminhar o tráfego para a VNet com base nas rotas que estão definidas na sua VNet. 
 
@@ -102,7 +103,7 @@ Para criar uma VNet do Resource Manager através da IU de integração da VNet, 
 
 * Nome da rede virtual
 * Bloco de Endereços de Rede Virtual
-* Nome da Sub-rede
+* Nome da sub-rede
 * Bloco de Endereços de Sub-rede
 * Bloco de endereços de gateway
 * Bloco de Endereços Ponto a Site

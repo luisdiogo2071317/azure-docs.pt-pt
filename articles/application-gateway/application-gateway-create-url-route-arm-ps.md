@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar URL caminho com base em regras de encaminhamento para uma aplicação gateway e máquina virtual de conjunto de dimensionamento com o Azure PowerShell."
+title: Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento - Azure PowerShell | Microsoft Docs
+description: Saiba como criar URL caminho com base em regras de encaminhamento para uma aplicação gateway e máquina virtual de conjunto de dimensionamento com o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e4e681c9a45e31b13165a2e2e8491fef9bf2fc8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento com o Azure PowerShell
 
 Pode utilizar o Azure PowerShell para configurar [regras de encaminhamento com base no caminho de URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end utilizando um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, crie as regras de encaminhamento que certifique-se de que o tráfego web chega os servidores adequados nos agrupamentos de.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure a rede
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -344,7 +344,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Tal como *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, ou *http://52.168.55.24:8080/video/test.htm*.
+Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser. Tal como *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, ou *http://52.168.55.24:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

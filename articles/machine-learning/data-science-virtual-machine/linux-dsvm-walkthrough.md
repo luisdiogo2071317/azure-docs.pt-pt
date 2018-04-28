@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com um dados ciência de Máquina Virtual com Linux no Azure
 Estas instruções mostram como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que seja pré-instaladas com uma coleção de ferramentas normalmente utilizado para análise de dados e de aprendizagem. Os componentes de chaves de software estão descritos a [aprovisionar a Máquina Virtual de ciência de dados de Linux](linux-dsvm-intro.md) tópico. A imagem VM torna mais fácil começar a utilizar ao executar a ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se for necessário e pare-quando não está em utilização. Por isso este recurso é elástico e económico.
@@ -264,7 +264,7 @@ XGBoost também podem chamar do python ou uma linha de comandos.
 Para o desenvolvimento com o Python, foram instaladas as distribuições de Anaconda Python 2.7 e 3.5 o DSVM.
 
 > [!NOTE]
-> A distribuição de Anaconda inclui [Condas](http://conda.pydata.org/docs/index.html), que pode ser utilizado para criar ambientes personalizados para o Python que têm versões diferentes e/ou pacotes instalados nos mesmos.
+> A distribuição de Anaconda inclui [Conda](http://conda.pydata.org/docs/index.html), que pode ser utilizado para criar ambientes personalizados para o Python que têm versões diferentes e/ou pacotes instalados nos mesmos.
 >
 >
 
@@ -316,6 +316,24 @@ Para publicar o modelo para AzureML:
 
 ## <a name="jupyterhub"></a>Jupyterhub
 A distribuição de Anaconda no DSVM inclui um bloco de notas do Jupyter, num ambiente de várias plataformas para partilhar código Python, R ou Leonor e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Iniciar sessão utilizando o seu nome de utilizador de Linux local e a palavra-passe no ***https://\<nome DNS de VM ou o endereço IP\>: 8000 /***. Todos os ficheiros de configuração para JupyterHub encontram-se no diretório **etc/jupyterhub**.
+
+> [!NOTE]
+> Para utilizar o Gestor de pacotes do Python (através de `pip` comando) de um bloco de notas do Jupyter do kernel atual, o seguinte comando pode ser utilizado numa célula do código, por exemplo:
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> Para utilizar o instalador Conda (através de `conda` comando) de um bloco de notas do Jupyter do kernel atual, o seguinte comando pode ser utilizado numa célula do código, por exemplo:
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 Vários blocos de notas do exemplo já se encontram instalados na VM:
 

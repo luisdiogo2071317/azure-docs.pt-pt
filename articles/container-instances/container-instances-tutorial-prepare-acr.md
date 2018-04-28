@@ -3,19 +3,19 @@ title: Tutorial do Azure Container Instances – Preparar o Azure Container Regi
 description: Tutorial do Azure Container Instances, parte 2 de 3 – Preparar o Azure Container Registry
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6e5a6a64e6d7c53bb4ea84de646812c962469d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a23e6af506b503a666837f01665e2cad9d1ec5b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial :implementar e utilizar o Azure Container Registry
+# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementar e utilizar o Azure Container Registry
 
 Esta é a parte dois de um tutorial de três partes. Na [Parte um](container-instances-tutorial-prepare-app.md) do tutorial criou uma imagem de contentor Docker para uma aplicação Web Node.js. Neste tutorial, vai enviar a imagem para o Azure Container Registry. Se ainda não tiver criado a imagem de contentor, regresse ao [Tutorial 1 – Criar imagem de contentor](container-instances-tutorial-prepare-app.md).
 

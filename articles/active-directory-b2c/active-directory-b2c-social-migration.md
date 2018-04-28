@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: 80889ac29b6d92f17fb9c9c693fa733085ce7f1c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a150d8255171c83334ac4c1f81cbcee39c1df70a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>O Azure Active Directory B2C: Migrar os utilizadores com redes sociais identidades
 Quando planeia migrar o seu fornecedor de identidade para o Azure AD B2C, também poderá ter de migrar os utilizadores com redes sociais identidades. Este artigo explica como migrar as contas de identidades de redes sociais existentes, tais como: contas do Facebook, LinkedIn, Microsoft e Google ao Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, estes migrações são menos comuns.
@@ -46,7 +46,7 @@ Este artigo é uma continuação do artigo de migração de utilizador e centra-
 * Consoante o fornecedor de identidade, o **ID de utilizador de redes sociais** é um valor exclusivo para um determinado utilizador por conta de desenvolvimento ou de aplicação. Configure a política do Azure AD B2C com o mesmo ID de aplicação, que anteriormente era atribuído pelo fornecedor de redes social. Outra aplicação ou dentro da mesma conta de desenvolvimento.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Utilize a Graph API para migrar os utilizadores
-Criar a conta de utilizador através do Azure AD B2C [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para comunicar com a Graph API, primeiro tem de ter uma conta de serviço com privilégios administrativos. No Azure AD, registar uma aplicação e a autenticação para o Azure AD. As credenciais de aplicação são o ID de aplicação e o segredo de aplicação. A aplicação funciona como o próprio, não como um utilizador, para chamar a API de gráfico. Siga as instruções no passo 1 [migração de utilizador](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artigo.
+Criar a conta de utilizador através do Azure AD B2C [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para comunicar com a Graph API, primeiro tem de ter uma conta de serviço com privilégios administrativos. No Azure AD, registar uma aplicação e a autenticação para o Azure AD. As credenciais de aplicação são o ID de aplicação e o segredo de aplicação. A aplicação funciona como o próprio, não como um utilizador, para chamar a API de gráfico. Siga as instruções no passo 1 [migração de utilizador](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) artigo.
 
 ## <a name="required-properties"></a>Propriedades necessárias
 A lista seguinte mostra as propriedades que são necessárias quando criar um utilizador.

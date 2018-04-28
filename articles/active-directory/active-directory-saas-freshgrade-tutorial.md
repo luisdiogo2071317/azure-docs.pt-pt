@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com FreshGrade | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e FreshGrade."
+title: 'Tutorial: Integração do Azure Active Directory com FreshGrade | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e FreshGrade.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f9cdf73643a8aa18506e59eff513b98282f60832
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4062f7c7a0f789cef6d0c415d73127d13e646f7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Azure Active Directory com FreshGrade
 
@@ -103,66 +103,41 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_samlbase.png)
 
 3. No **FreshGrade domínio e os URLs** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL utilizando os seguintes padrões: 
+    a. No **URL de início de sessão** caixa de texto, escreva um URL utilizando os seguintes padrões:
       | |
       |--|
-      | `https://<subdomain>.freshgrade.com/login` |    
+      | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
-    b. No **identificador** caixa de texto, escreva um URL utilizando os seguintes padrões: 
+    b. No **identificador** caixa de texto, escreva um URL utilizando os seguintes padrões:
       | |
       |--|
-      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |      
+      | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
       | `https://login.freshgrade.com:443/saml/metadata/alias/<instancename>` |
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente FreshGrade](mailTo:support@freshgrade.com) para obter estes valores. 
- 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente FreshGrade](mailTo:support@freshgrade.com) para obter estes valores.
 
-
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
-
-    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_certificate.png) 
-
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+    
+    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_metadataurl.png)
+     
 5. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_general_400.png)
 
 6. No **FreshGrade configuração** secção, clique em **configurar FreshGrade** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png)
 
-7. Para gerar o **metadados** url, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpoint.png)
-     
-    d. Agora, a página de propriedades do **FreshGrade** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-8. Para configurar o início de sessão único em **FreshGrade** lado, terá de enviar o **URL de metadados** e **único início de sessão no URL do serviço SAML** para [equipa de suporte de FreshGrade](mailTo:support@freshgrade.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Para configurar o início de sessão único em **FreshGrade** lado, terá de enviar o **Url de metadados de Federação de aplicação** e **único início de sessão no URL do serviço SAML** para [ A equipa de suporte FreshGrade](mailTo:support@freshgrade.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.

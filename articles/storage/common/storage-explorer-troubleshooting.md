@@ -1,12 +1,12 @@
 ---
-title: "Guia de resolução de problemas de Explorador de armazenamento do Azure | Microsoft Docs"
-description: "Descrição geral dos dois depuração funcionalidade do Azure"
+title: Guia de resolução de problemas de Explorador de armazenamento do Azure | Microsoft Docs
+description: Descrição geral dos dois depuração funcionalidade do Azure
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,141 +14,107 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
-Explorador de armazenamento do Microsoft Azure (pré-visualização) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux. A aplicação pode ligar a contas de armazenamento alojadas no Azure, nuvens nacionais e pilha do Azure.
+Explorador de armazenamento do Microsoft Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux. A aplicação pode ligar a contas de armazenamento alojadas no Azure, nuvens nacionais e pilha do Azure.
 
 Este guia resume soluções para problemas comuns vistos no Explorador de armazenamento.
 
-## <a name="sign-in-issues"></a>Inicie sessão no problemas
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: O certificado Autoassinado na cadeia de certificados (e erros semelhantes)
 
-São suportadas apenas contas do Azure Active Directory (AAD). Se utilizar uma conta do AD FS, é esperado que o início de sessão Explorador de armazenamento não funciona. Antes de continuar, tente reiniciar a aplicação e se os problemas podem ser corrigido.
-
-### <a name="error-self-signed-certificate-in-certificate-chain"></a>Erro: O certificado Autoassinado na cadeia de certificados
-
-Existem vários motivos por que razão poderá encontrar este erro, e as razões mais comuns de dois são os seguintes:
+Erros de certificado são causados por uma das duas seguintes situações:
 
 1. A aplicação está ligada através de "proxy transparente", que significa um servidor (por exemplo, o servidor da empresa) é a intercetar tráfego HTTPS, desencriptação-lo e, em seguida, encriptá-la através de um certificado autoassinado.
+2. Está a executar uma aplicação que é inserirem-se um certificado SSL autoassinado para as mensagens HTTPS recebidos. Exemplos de aplicações que injetar certificados inclui o software de inspeção de tráfego de rede e de antivírus.
 
-2. Está a executar uma aplicação, tal como software antivírus, o que é inserirem-se um certificado SSL autoassinado para as mensagens HTTPS recebidos.
+Quando o Explorador de armazenamento vê um self assinado ou o certificado não fidedigno, pode já não sabe se a mensagem recebida do HTTPS foi alterada. Se tiver uma cópia do certificado autoassinado, pode instruir o Explorador de armazenamento confiar nele efetuando os seguintes passos:
 
-Quando o Explorador de armazenamento encontra um dos problemas, pode já não sabe se a mensagem recebida do HTTPS é adulterada. Se tiver uma cópia do certificado autoassinado, pode deixar o Explorador de armazenamento confiar nele. Se não souber de que é inserirem-se o certificado, siga estes passos para encontrá-lo:
+1. Obter uma Base-64 codificado x. 509 (. cer) de cópia do certificado
+2. Clique em **editar** > **certificados SSL** > **importar certificados**e, em seguida, utilize o Seletor de ficheiros para localizar, selecione e abra o ficheiro. cer
 
-1. Instalar SSL aberta
+Este problema também pode ser resultado de vários certificados (de raiz e intermédio). Ambos os certificados têm de ser adicionados a ultrapassar o erro.
 
-    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves deve ser suficiente)
+Se não souber de onde vem o certificado de, pode tentar estes passos para encontrá-lo:
 
-    - Mac e Linux: devem ser incluídos com o sistema operativo
+1. Instalar o Open SSL
 
-2. Executar SSL aberta
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves deve ser suficiente)
+    * Mac e Linux: devem ser incluídos com o sistema operativo
+2. Executar o Open SSL
 
-    - Windows: Abra o diretório de instalação, clique em **/bin/**e, em seguida, faça duplo clique **openssl.exe**.
-    - Mac e Linux: executar **openssl** de um terminal.
-
-3. Executar s_client - showcerts-ligar microsoft.com:443
-
-4. Procure certificados autoassinados. Se não souber qual são autoassinados, procure em qualquer lugar do assunto ("s:") e o emissor ("i:") são os mesmos.
-
+    * Windows: Abra o diretório de instalação, clique em **/bin/** e, em seguida, faça duplo clique **openssl.exe**.
+    * Mac e Linux: executar **openssl** de um terminal.
+3. Execute `s_client -showcerts -connect microsoft.com:443`
+4. Procure certificados autoassinados. Se não souber qual são autoassinados, procure em qualquer lugar assunto `("s:")` e o emissor `("i:")` são os mesmos.
 5. Quando encontrar quaisquer certificados autoassinados, para cada um, copie e cole tudo a partir e incluindo **---BEGIN CERTIFICATE---** para **---fim certificado---** para um novo ficheiro. cer.
-
 6. Abra o Explorador de armazenamento, clique em **editar** > **certificados SSL** > **importar certificados**e, em seguida, utilize o Seletor de ficheiros para localizar, selecione e abra os ficheiros. cer que criou.
 
-Se não encontrar quaisquer certificados autoassinados através dos passos anteriores, contacte-nos através da ferramenta de comentários para obter mais ajuda.
+Se não encontrar quaisquer certificados autoassinados através dos passos anteriores, contacte-nos através da ferramenta de comentários para obter mais ajuda. Em alternativa, pode escolher iniciar o Explorador de armazenamento na linha de comandos com o `--ignore-certificate-errors` sinalizador. Quando é iniciada com este sinalizador, Explorador de armazenamento irão ignorar erros de certificado.
 
-### <a name="unable-to-retrieve-subscriptions"></a>Não é possível obter subscrições
+## <a name="sign-in-issues"></a>Problemas de início de sessão
 
-Se não for possível obter as suas subscrições, depois de se inscrever com êxito, siga estes passos para resolver este problema:
+Se não for possível iniciar sessão, tente os seguintes métodos de resolução de problemas:
 
-- Certifique-se de que a conta tem acesso às subscrições inscrevendo-os no portal do Azure.
+* Reinicie o Explorador de armazenamento
+* Se a janela de autenticação está em branco, aguarde, pelo menos, um minuto antes de fechar a caixa de diálogo de autenticação.
+* Certifique-se de que as definições estão configuradas corretamente para o seu computador e o Explorador de armazenamento de certificados de proxy e
+* Se estiver no Windows e ter acesso ao Visual Studio 2017 na mesma máquina e início de sessão, experimente iniciar sessão no Visual Studio 2017
 
-- Certifique-se de que se inscreveu no utilizando o ambiente correto (do Azure, Azure China, Datacenters do Azure, Azure US Government ou pilha de ambiente/Azure personalizado).
+Se nenhum dos seguintes métodos de trabalho [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-- Se estiver atrás de um proxy, certifique-se de que configurou o proxy do Explorador de armazenamento corretamente.
+## <a name="unable-to-retrieve-subscriptions"></a>Não é possível obter subscrições
 
-- Tente remover e readding a conta.
+Se não for possível obter as suas subscrições após a sessão com êxito, tente os seguintes métodos de resolução de problemas:
 
-- Tente eliminar os seguintes ficheiros do diretório de raiz (ou seja, C:\Users\ContosoUser) e, em seguida, readding a conta:
+* Certifique-se de que a conta tem acesso às subscrições que esperava. Pode verificar se tem acesso ao iniciar sessão portal para o ambiente do Azure que está a tentar utilizar.
+* Certifique-se de que tiver iniciado sessão com o Azure correto ambiente (do Azure, Azure China, Datacenters do Azure, Azure US Government ou ambiente de personalizado).
+* Se estiver atrás de um proxy, certifique-se de que configurou o proxy do Explorador de armazenamento corretamente.
+* Tente remover e readding a conta.
+* Veja a consola de ferramentas de programador (ajudar > Ferramentas de Programador de alternar) enquanto o Explorador de armazenamento está a carregar as subscrições. Procure mensagens de erro (texto vermelho) ou qualquer mensagem que contém o texto "não foi possível carregar as subscrições do inquilino." Se vir quaisquer mensagens de concerning [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-    - .adalcache
+## <a name="cannot-remove-attached-account-or-storage-resource"></a>Não é possível remover o recurso de conta ou o armazenamento ligado
 
-    - .devaccounts
+Se não for possível remover uma conta de ligado ou recursos de armazenamento através da IU, pode eliminar manualmente todos os recursos ligados ao eliminar as seguintes pastas:
 
-    - .extaccounts
-
-- Veja as ferramentas de programador da consola (por prima F12) quando iniciar sessão para as mensagens de erro:
-
-![ferramentas de programação](./media/storage-explorer-troubleshooting/4022501_en_2.png)
-
-### <a name="unable-to-see-the-authentication-page"></a>Não é possível ver a página de autenticação
-
-Se não for possível ver a página de autenticação, siga estes passos para resolver este problema:
-
-- Consoante a velocidade da sua ligação, este poderá demorar algum tempo para a página de início de sessão carregar, aguarde, pelo menos, um minuto antes de fechar a caixa de diálogo de autenticação.
-
-- Se estiver atrás de um proxy, certifique-se de que configurou o proxy do Explorador de armazenamento corretamente.
-
-- Ver a consola de programador, premindo a tecla F12. Veja as respostas a partir da consola do programador e veja se pode encontrar qualquer clue porquê autenticação não está a funcionar.
-
-### <a name="cannot-remove-account"></a>Não é possível remover a conta
-
-Se não for possível remover uma conta, ou se a ligação reautenticação fazer nada, siga estes passos para resolver este problema:
-
-- Tente eliminar os seguintes ficheiros do diretório de raiz e, em seguida, readding a conta:
-
-    - .adalcache
-
-    - .devaccounts
-
-    - .extaccounts
-
-- Se pretender remover SAS ligado recursos de armazenamento, elimine os seguintes ficheiros:
-
-    - Pasta de %AppData%/StorageExplorer para Windows
-
-    - /Users/ < your_name >/biblioteca/Applicaiton suporte/StorageExplorer para Mac
-
-    - ~/.config/StorageExplorer para Linux
+* Windows: `%AppData%/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
->  Depois de eliminar os ficheiros acima referidos, terá de voltar a iniciar sessão às suas contas.
+>  Feche o Explorador de armazenamento antes de eliminar as pastas acima.
+
+> [!NOTE]
+>  Se alguma vez tenha importado de todos os certificados SSL, o conteúdo de cópia de segurança a `certs` diretório. Mais tarde, pode utilizar a cópia de segurança para importe novamente os certificados SSL.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
 Em primeiro lugar, certifique-se de que as seguintes informações que introduziu estão corretos:
 
-- O URL de proxy e o número de porta
-
-- Nome de utilizador e palavra-passe se for necessário pelo proxy
+* O URL de proxy e o número de porta * nome de utilizador e palavra-passe se for necessário pelo proxy
 
 ### <a name="common-solutions"></a>Soluções comuns
 
-Se ainda ocorrerem problemas, siga estes passos para resolvê-los:
+Se ainda ocorrerem problemas, tente os seguintes métodos de resolução de problemas:
 
-- Se pode ligar à Internet sem utilizar o proxy, certifique-se de que o Explorador de armazenamento funciona sem as definições de proxy ativadas. Se for este o caso, poderá existir um problema com as definições de proxy. Trabalhar com o seu administrador de proxy para identificar os problemas.
-
-- Certifique-se de que as outras aplicações utilizando o servidor proxy funcionam conforme esperado.
-
-- Certifique-se de que pode ligar ao portal do Microsoft Azure com o seu browser
-
-- Certifique-se de que pode receber respostas do seu pontos finais de serviço. Introduza um URL de ponto final no seu browser. Se pode ligar, deverá receber um InvalidQueryParameterValue ou semelhante resposta XML.
-
-- Se também que mais alguém está a utilizar o Explorador de armazenamento com o seu servidor proxy, certifique-se de que possam estabelecer a ligação. Se pode ligar-se, poderá ter de contactar o administrador do servidor proxy.
+* Se pode ligar à Internet sem utilizar o proxy, certifique-se de que o Explorador de armazenamento funciona sem as definições de proxy ativadas. Se for este o caso, poderá existir um problema com as definições de proxy. Trabalhar com o seu administrador de proxy para identificar os problemas.
+* Certifique-se de que as outras aplicações utilizando o servidor proxy funcionam conforme esperado.
+* Verifique se pode ligar para o portal para o ambiente do Azure que está a tentar utilizar
+* Certifique-se de que pode receber respostas do seu pontos finais de serviço. Introduza um URL de ponto final no seu browser. Se pode ligar, deverá receber um InvalidQueryParameterValue ou semelhante resposta XML.
+* Se também que mais alguém está a utilizar o Explorador de armazenamento com o seu servidor proxy, certifique-se de que possam estabelecer a ligação. Se pode ligar-se, poderá ter de contactar o administrador do servidor proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Ferramentas para diagnosticar problemas
 
 Se tiver de ferramentas de rede, como o Fiddler para Windows, poderá diagnosticar problemas da seguinte forma:
 
-- Se tiver de funcionar através do proxy, poderá ter de configurar a ferramenta de rede para ligar através do proxy.
-
-- Verifique o número da porta utilizado pela ferramenta de sua rede.
-
-- Introduza o URL de anfitrião local e o número de porta a ferramenta de rede, como definições de proxy no Explorador de armazenamento. Se isto é feito corretamente, a ferramenta de rede inicia o registo de pedidos de rede efetuados pelo Explorador de armazenamento, gestão e pontos finais de serviço. Por exemplo, introduza https://cawablobgrs.blob.core.windows.net/ para o ponto final do blob num browser, e irá receber uma resposta é semelhante ao seguinte, o que sugere o recurso existe, apesar de não é possível aceder-lhe.
+* Se tiver de funcionar através do proxy, poderá ter de configurar a ferramenta de rede para ligar através do proxy.
+* Verifique o número da porta utilizado pela ferramenta de sua rede.
+* Introduza o URL de anfitrião local e o número de porta a ferramenta de rede, como definições de proxy no Explorador de armazenamento. Quando efetuadas corretamente, a ferramenta de rede inicia o registo de pedidos de rede efetuados pelo Explorador de armazenamento, gestão e pontos finais de serviço. Por exemplo, introduza https://cawablobgrs.blob.core.windows.net/ para o ponto final do blob no browser e, irá receber uma resposta é semelhante ao seguinte, o que sugere o recurso existe, apesar de não é possível aceder-lhe.
 
 ![exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -156,9 +122,8 @@ Se tiver de ferramentas de rede, como o Fiddler para Windows, poderá diagnostic
 
 Se as definições de proxy estão corretas, poderá ter de contactar o seu administrador de servidor proxy, e
 
-- Certifique-se de que o proxy não bloqueia o tráfego para pontos finais do Azure de gestão ou recurso.
-
-- Certifique-se o protocolo de autenticação utilizado pelo seu servidor proxy. Explorador de armazenamento não suporta atualmente os proxies NTLM.
+* Certifique-se de que o proxy não bloqueia o tráfego para pontos finais do Azure de gestão ou recurso.
+* Certifique-se o protocolo de autenticação utilizado pelo seu servidor proxy. Explorador de armazenamento não suporta atualmente os proxies NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Não é possível obter subordinados"
 
@@ -167,13 +132,11 @@ Se estiver ligado ao Azure através de um proxy, certifique-se de que as defini�
 ### <a name="issues-with-sas-url"></a>Problemas com o SAS URL
 Se estiver a ligar a um serviço utilizando um URL SAS e estão a ocorrer este erro:
 
-- Certifique-se de que o URL fornece as permissões necessárias para ler ou lista de recursos.
+* Certifique-se de que o URL fornece as permissões necessárias para ler ou lista de recursos.
+* Certifique-se de que o URL não expirou.
+* Se o URL de SAS baseiam-se uma política de acesso, certifique-se de que a política de acesso não foi revogada.
 
-- Certifique-se de que o URL não expirou.
-
-- Se o URL de SAS baseiam-se uma política de acesso, certifique-se de que a política de acesso não foi revogada.
-
-Se acidentalmente anexados utilizando um URL SAS inválido e não é possível desanexar, siga estes passos:
+Se acidentalmente anexados utilizando um URL SAS inválido e não é possível anular a exposição, siga estes passos:
 1.  Ao executar o Explorador de armazenamento, premir a tecla F12 para abrir a janela de ferramentas de programador.
 2.  Clique no separador de aplicação, em seguida, clique em armazenamento Local > file:// na árvore à esquerda.
 3.  Localize a chave associada com o tipo de serviço do URI de SAS problemáticas. Por exemplo, se o incorretos URI de SAS para um contentor de blob, procure a chave com o nome `StorageExplorer_AddStorageServiceSAS_v1_blob`.
@@ -183,16 +146,15 @@ Se acidentalmente anexados utilizando um URL SAS inválido e não é possível d
 ## <a name="linux-dependencies"></a>Dependências do Linux
 
 Para Linux distros diferente Ubuntu 16.04, poderá ter de instalar manualmente algumas dependências. Em geral, os pacotes seguintes são necessários:
-* libgconf-2-4
-* libsecret
+* [.NET core 2. x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libsecret`
+* `libgconf-2-4`
 * GCC atualizado
 
 Dependendo do seu distro, poderão existir outros pacotes que tem de instalar. O Explorador de armazenamento [notas de versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contém passos específicos para algumas distros.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se nenhuma das soluções de resolver o problema, submeter o seu problema através da ferramenta de comentários com o seu e-mail e tantos detalhes sobre o problema incluídas como podem, para que podemos contactá-lo para corrigir o problema.
+Se nenhuma das soluções de funcionar, em seguida, [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Pode também rapidamente depara-se ao GitHub utilizando o botão de "Problema de relatório para GitHub" no canto inferior esquerdo.
 
-Para tal, clique em **ajudar** e, em seguida, clique em **enviar comentários**.
-
-![Comentários](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+![Comentários](./media/storage-explorer-troubleshooting/feedback-button.PNG)

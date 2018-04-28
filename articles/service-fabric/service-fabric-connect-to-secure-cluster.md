@@ -1,11 +1,11 @@
 ---
 title: Ligar de forma segura a um cluster de Service Fabric do Azure | Microsoft Docs
-description: "Descreve como autenticar o acesso de cliente para um cluster do Service Fabric e como proteger a comunicação entre clientes e um cluster."
+description: Descreve como autenticar o acesso de cliente para um cluster do Service Fabric e como proteger a comunicação entre clientes e um cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0ce01b62fde690934d97fdefb7720e1be5512f4a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 
@@ -89,25 +89,32 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ligar a um cluster seguro utilizando um certificado de cliente
-Execute o seguinte comando do PowerShell para ligar a um cluster seguro que utiliza certificados de cliente para autorizar o acesso de administrador. Forneça o thumbprint do certificado de cluster e o thumbprint do certificado de cliente que foram concedido permissões para gestão de clusters. Os detalhes do certificado devem coincidir com um certificado em nós de cluster.
+Execute o seguinte comando do PowerShell para ligar a um cluster seguro que utiliza certificados de cliente para autorizar o acesso de administrador. 
+
+#### <a name="connect-using-certificate-common-name"></a>Ligar utilizando o nome comum do certificado
+Forneça o nome comum do certificado de cluster e o nome comum do certificado de cliente que foram concedido permissões para gestão de clusters. Os detalhes do certificado devem coincidir com um certificado em nós de cluster.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
-
-*ServerCertThumbprint* é o thumbprint do certificado de servidor instalado em nós de cluster. *FindValue* é o thumbprint do certificado de cliente de admin.
-Quando os parâmetros são preenchidos, o comando procura semelhante ao seguinte exemplo: 
-
+*ServerCommonName* é o nome comum do certificado de servidor instalado em nós de cluster. *FindValue* é o nome comum do certificado de cliente de admin. Quando os parâmetros são preenchidos, o comando procura semelhante ao seguinte exemplo:
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Ligar a um cluster seguro, através do Active Directory do Windows

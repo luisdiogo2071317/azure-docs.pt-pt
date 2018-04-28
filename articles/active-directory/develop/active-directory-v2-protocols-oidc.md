@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory v 2.0 e o protocolo OpenID Connect | Microsoft Docs
-description: "Crie aplicações web, utilizando a implementação de v 2.0 do Azure AD do protocolo de autenticação OpenID Connect."
+description: Crie aplicações web, utilizando a implementação de v 2.0 do Azure AD do protocolo de autenticação OpenID Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v 2.0 e o protocolo OpenID Connect
 OpenID Connect é um protocolo de autenticação incorporado no OAuth 2.0, que pode utilizar a sessão em segurança um utilizador a uma aplicação web. Quando utilizar a implementação do ponto final v 2.0 do OpenID Connect, pode adicionar início de sessão e acesso à API às suas aplicações baseadas na web. Neste artigo, vamos mostrar-lhe como efetuar esta independente de idioma. Iremos descrevem como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de open source de Microsoft.
@@ -29,7 +29,7 @@ OpenID Connect é um protocolo de autenticação incorporado no OAuth 2.0, que p
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo a utilizar como um *autenticação* protocolo, para que possam executar único início de sessão OAuth a utilizar. OpenID Connect apresenta o conceito de uma *ID token*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador. O token de ID também obtém informações de perfil básicas sobre o utilizador. Porque o OpenID Connect expande o OAuth 2.0, aplicações em segurança podem adquirir *tokens de acesso*, que podem ser utilizadas para aceder a recursos que estão protegidos por um [servidor autorização](active-directory-v2-protocols.md#the-basics). Recomendamos que utilize OpenID Connect, se está a criar um [aplicação web](active-directory-v2-flows.md#web-apps) que está alojada num servidor e acessível através de um browser.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo a utilizar como um *autenticação* protocolo, para que possam executar único início de sessão OAuth a utilizar. OpenID Connect apresenta o conceito de uma *ID token*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador. O token de ID também obtém informações de perfil básicas sobre o utilizador. Porque o OpenID Connect expande o OAuth 2.0, aplicações em segurança podem adquirir *tokens de acesso*, que podem ser utilizadas para aceder a recursos que estão protegidos por um [servidor autorização](active-directory-v2-protocols.md#the-basics). O ponto final v 2.0 também permite que aplicações de terceiros que são registadas com o Azure AD para emitir tokens de acesso para recursos protegidos, como APIs da Web. Para obter mais informações sobre como configurar uma aplicação para emitir tokens de acesso, consulte [como registar uma aplicação com o ponto final v 2.0](active-directory-v2-app-registration.md). Recomendamos que utilize OpenID Connect, se está a criar um [aplicação web](active-directory-v2-flows.md#web-apps) que está alojada num servidor e acessível através de um browser.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: início de sessão
 O fluxo de início de sessão mais básico tem passos apresentados no diagrama seguinte. Iremos descrevem cada passo em pormenor neste artigo.
@@ -95,17 +95,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Clique na hiperligação seguinte para executar este pedido. Depois de iniciar sessão, o seu browser será redirecionado para https://localhost/myapp/, com um token de ID na barra de endereço. Tenha em atenção que este pedido utiliza `response_mode=query` (para fins de demonstração apenas). Recomendamos que utilize `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |Pode utilizar o `{tenant}` valor no caminho do pedido para controlar quem pode iniciar sessão para a aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores. Para obter mais informações, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| inquilino |Necessário |Pode utilizar o `{tenant}` valor no caminho do pedido para controlar quem pode iniciar sessão para a aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores. Para obter mais informações, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | client_id |Necessário |ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída à aplicação. |
 | response_type |Necessário |Tem de incluir `id_token` para OpenID Connect início de sessão. Também pode incluir outros `response_types` valores, tais como `code`. |
 | redirect_uri |Recomendado |O URI de redirecionamento da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. Este deve corresponder exatamente um do redirecionamento de URIs registados no portal, exceto que tem de ser codificado de URL. |
-| Âmbito |Necessário |Uma lista separada por espaço de âmbitos. Para OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento IU. Também pode incluir outros âmbitos neste pedido para pedir consentimento. |
+| scope |Necessário |Uma lista separada por espaço de âmbitos. Para OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento IU. Também pode incluir outros âmbitos neste pedido para pedir consentimento. |
 | nonce |Necessário |Um valor incluído no pedido de gerado pela aplicação, que será incluída no valor de id_token resultante como uma afirmação. A aplicação pode verificar este valor para mitigar ataques de repetição de token. O valor é normalmente uma cadeia de aleatório, exclusiva que pode ser utilizada para identificar a origem do pedido. |
 | response_mode |Recomendado |Especifica o método que deve ser utilizado para enviar o código de autorização resultante para a sua aplicação. Pode ser um dos `query`, `form_post`, ou `fragment`. Para aplicações web, recomendamos que utilize `response_mode=form_post`, para garantir que a transferência mais segura de tokens para a aplicação. |
 | state |Recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token. Pode ser uma cadeia de qualquer conteúdo que pretende. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista que do utilizador estava no. |
@@ -156,7 +156,7 @@ A tabela seguinte descreve os códigos de erro que podem ser devolvidos no `erro
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um em falta, necessário parâmetro. |Corrija e submeta novamente o pedido. Este é um erro de programação que normalmente é detetado durante o teste inicial. |
 | unauthorized_client |A aplicação de cliente não é possível pedir um código de autorização. |Normalmente, isto ocorre quando a aplicação de cliente não está registada no Azure AD ou não é adicionada ao inquilino do Azure AD do utilizador. A aplicação pode pedir ao utilizador com as instruções para instalar a aplicação e adicione-o para o Azure AD. |
-| ACCESS_DENIED |O proprietário do recurso negado consentimento. |A aplicação cliente pode notificar o utilizador que não é possível continuar a menos que o utilizador permitir. |
+| access_denied |O proprietário do recurso negado consentimento. |A aplicação cliente pode notificar o utilizador que não é possível continuar a menos que o utilizador permitir. |
 | unsupported_response_type |O servidor de autorização não suporta o tipo de resposta no pedido. |Corrija e submeta novamente o pedido. Este é um erro de programação que normalmente é detetado durante o teste inicial. |
 | server_error |O servidor encontrou um erro inesperado. |Repita o pedido. Estes erros poderá resultar de condições temporárias. A aplicação cliente pode explicar ao utilizador que a respetiva resposta está atrasada devido a um erro temporário. |
 | temporarily_unavailable |O servidor estiver temporariamente demasiado ocupado para processar o pedido. |Repita o pedido. A aplicação cliente pode explicar ao utilizador que a respetiva resposta está atrasada devido a uma condição temporária. |
@@ -222,7 +222,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 
 > [!TIP]
 > Clique na hiperligação seguinte para executar este pedido. Depois de iniciar sessão, o browser é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereço. Tenha em atenção que este pedido utiliza `response_mode=query` (para fins de demonstração apenas). Recomendamos que utilize `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

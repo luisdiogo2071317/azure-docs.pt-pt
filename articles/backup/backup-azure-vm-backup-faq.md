@@ -1,12 +1,12 @@
 ---
 title: FAQ sobre o Azure VM Backup | Microsoft Docs
-description: "Respostas a perguntas comuns sobre como funcionam as cópias de segurança de VMs do Azure, as limitações e o que ocorre quando há alterações a políticas"
+description: Respostas a perguntas comuns sobre como funcionam as cópias de segurança de VMs do Azure, as limitações e o que ocorre quando há alterações a políticas
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "cópia de segurança de vm do azure, restauro de vm do azure, política de cópias de segurança"
+editor: ''
+keywords: cópia de segurança de vm do azure, restauro de vm do azure, política de cópias de segurança
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço Azure VM Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure VM Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,7 +33,7 @@ Avance [sistemas operativos suportados](backup-azure-arm-vms-prepare.md#supporte
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Por que motivo não vejo a minha VM no assistente de configuração de cópias de segurança?
 No Assistente de cópia de segurança de configurar, cópia de segurança do Azure só apresenta as VMs que são:
-  * Ainda não estiver protegida pode verificar o estado da cópia de segurança de uma VM ao aceder ao painel VM e a verificar o estado de cópia de segurança a partir do Menu de definições. Saiba mais sobre como [Verificar o estado da cópia de segurança de uma VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  * Ainda não estiver protegida pode verificar o estado da cópia de segurança de uma VM ao aceder ao painel VM e a verificar o estado de cópia de segurança a partir do Menu de definições. Saiba mais sobre como [Verificar o estado da cópia de segurança de uma VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Pertençam à mesma região que a VM
 
 ## <a name="backup"></a>Cópia de segurança
@@ -78,7 +78,7 @@ Cmdlets do Powershell, consulte [aqui](backup-azure-vms-automation.md#restore-an
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>O que acontece quando altero uma política de cópias de segurança numa ou em várias VMs?
-Quando uma nova política é aplicada no VM, agenda e a retenção da nova política é seguido. Se a retenção é expandida, pontos de recuperação existentes são marcados para mantê-las de acordo com a nova política. Se a retenção é reduzida, estão marcados para eliminação na próxima tarefa de limpeza e são eliminados subsequentemente. 
+Quando uma nova política é aplicada no VM, agenda e a retenção da nova política é seguido. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova. Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados. 
 
 ### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Como mover que uma VM inscrito na cópia de segurança do Azure entre os grupos de recursos?
 Siga os passos abaixo para mover com êxito a cópia de segurança VM para o grupo de recursos de destino 

@@ -13,22 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: b9ead9643cc7926be3bd69e947977fa40d45a722
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a18193ee0d216416cda3145c85c8357813f794d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites aos utilizadores B2B de organizações específicas
 
 Pode utilizar uma lista de permissões ou uma lista de negações para ou de bloqueios convites aos utilizadores B2B de organizações específicas. Por exemplo, se pretender bloquear domínios de endereço de e-mail pessoal, pode configurar uma lista de negações contém domínios como Gmail.com e Outlook.com. Ou, se a sua empresa tem uma parceria com outras empresas como Contoso.com, Fabrikam.com e Litware.com e quiser restringir convites para apenas destas organizações, pode adicionar Contoso.com, Fabrikam.com e Litware.com à sua lista de permissões.
   
-> [!NOTE]
-> Atualmente, só pode utilizar listas de negação. A capacidade de utilizar permitir listas é muito brevemente.
-
 ## <a name="important-considerations"></a>Considerações importantes sobre o
 
 - Pode criar uma lista de permissões ou uma lista de negações. Não é possível configurar ambos os tipos de listas. Por predefinição, qualquer domínios não estão na lista de permissões estão na lista de negações e vice-versa. 
@@ -50,22 +47,34 @@ Para adicionar uma lista de negações:
 2. Selecione **do Azure Active Directory** > **utilizadores** > **as definições de utilizador**.
 3. Em **utilizadores externos**, selecione **gerir definições de colaboração externa**.
 4. Em **restrições de colaboração**, selecione **negar convites para os domínios especificados**.
-5. Em **domínios de destino**, introduza o nome de um dos domínios que pretende bloquear. Para vários domínios, introduza cada domínio de uma linha nova.
+5. Em **domínios de destino**, introduza o nome de um dos domínios que pretende bloquear. Para vários domínios, introduza cada domínio de uma linha nova. Por exemplo:
 
    ![Mostra a opção de negar com domínios adicionados](./media/active-directory-b2b-allow-deny-list/DenyListSettings.png)
  
 6. Quando tiver terminado, clique em **guardar**.
 
-Depois de definir a política, se tentar convidar um utilizador de domínio bloqueado, receberá uma mensagem a indicar que o utilizador está atualmente bloqueado pela política convite.
+Depois de definir a política, se tentar convidar um utilizador de domínio bloqueado, receberá uma mensagem a indicar que o domínio do utilizador está atualmente bloqueado pela política convite.
  
 ### <a name="add-an-allow-list"></a>Adicionar uma lista de permissões
 
-> [!NOTE]
-> Atualmente, o **permitir convites para apenas para os domínios especificados (mais restritivas)** definição não está disponível. A capacidade de utilizar permitir listas é muito brevemente.
-
 Esta é uma configuração mais restritiva, onde pode definir domínios específicos na lista de permissões e restringir convites para quaisquer outras organizações ou em domínios que não são mencionados. 
 
-Se pretender utilizar uma lista de permissões, certifique-se de que demora tempo totalmente avaliar o que as necessidades da empresa. Se fizer esta política demasiado restritivo, os utilizadores podem optar por enviar documentos através de e-mail ou encontrar outras formas de aprovadas não-IT de colaborar.
+Se pretender utilizar uma lista de permissões, certifique-se de que demora tempo totalmente avaliar o que as necessidades da empresa são. Se fizer esta política demasiado restritivo, os utilizadores podem optar por enviar documentos através de e-mail ou encontrar outras formas de aprovadas não-IT de colaborar.
+
+
+Para adicionar uma lista de permissões:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **do Azure Active Directory** > **utilizadores** > **as definições de utilizador**.
+3. Em **utilizadores externos**, selecione **gerir definições de colaboração externa**.
+4. Em **restrições de colaboração**, selecione **permitir convites para apenas para os domínios especificados (mais restritivas)**.
+5. Em **domínios de destino**, introduza o nome de um dos domínios que pretende permitir. Para vários domínios, introduza cada domínio de uma linha nova. Por exemplo:
+
+   ![Mostra a opção de permitir com domínios adicionados](./media/active-directory-b2b-allow-deny-list/AllowListSettings.png)
+ 
+6. Quando tiver terminado, clique em **guardar**.
+
+Depois de definir a política, se tentar convidar um utilizador de domínio que não está na lista de permissões, receberá uma mensagem a indicar que o domínio do utilizador está atualmente bloqueado pela política convite.
 
 ### <a name="switch-from-allow-to-deny-list-and-vice-versa"></a>Comutador de permitir para negar lista e vice-versa se 
 
@@ -116,9 +125,6 @@ Se o módulo não está instalado ou não tem uma versão necessária, efetue um
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Utilizar os cmdlets de AzureADPolicy para configurar a política
 
-> [!NOTE]
-> Atualmente, apenas pode configurar listas de negação. A capacidade de utilizar permitir listas é muito brevemente.
-
 Para criar um permitir ou negar lista, utilize o [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet. O exemplo seguinte mostra como definir uma lista de negações que bloqueia o domínio de "live.com".
 
 ````powershell 
@@ -139,7 +145,7 @@ Para definir o permitir ou negar a política de lista, utilize o [conjunto Azure
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-Para obter a política, utilize o [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Por exemplo:
+Para obter a política, utilize o [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. Por exemplo:
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

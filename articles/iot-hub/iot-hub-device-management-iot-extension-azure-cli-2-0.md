@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Utilizar a extensão de IoT para Azure CLI 2.0 para gestão de dispositivos do IoT Hub do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[A extensão de IoT para Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma origem de abrir nova extensão de IoT que adiciona às capacidades do [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 inclui comandos para interagir com pontos finais de gestão e o Gestor de recursos do Azure. Por exemplo, pode utilizar o Azure CLI 2.0 para criar uma VM do Azure ou um IoT hub. Uma extensão CLI permite que um serviço do Azure aumentar a CLI do Azure dá ao que aceder às funcionalidades adicionais do específicos do serviço. A extensão de IoT dá-os programadores do IoT acesso de linha de comandos para capacidades de todos os IoT Hub, o limite de IoT e serviço de aprovisionamento de dispositivos IoT Hub.
+[A extensão de IoT para Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma origem de abrir nova extensão de IoT que adiciona às capacidades do [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 inclui comandos para interagir com pontos finais de gestão e o Gestor de recursos do Azure. Por exemplo, pode utilizar o Azure CLI 2.0 para criar uma VM do Azure ou um IoT hub. Uma extensão CLI permite que um serviço do Azure aumentar a CLI do Azure dá ao que aceder às funcionalidades adicionais do específicos do serviço. A extensão de IoT dá-os programadores do IoT acesso de linha de comandos para capacidades de todos os IoT Hub, o limite de IoT e serviço de aprovisionamento de dispositivos IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -62,7 +62,7 @@ Executar o Azure CLI 2.0 e a extensão de IoT para Azure CLI 2.0 com várias op�
 
 - [Python 2.7x ou Python 3.x](https://www.python.org/downloads/)
 
-- Instale a CLI do Azure 2.0. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows). Também pode seguir as instruções de instalação no [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) ao configurar o Azure CLI 2.0 no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –version` para validar. 
+- Instale a CLI do Azure 2.0. Uma forma simples de instalar no Windows é transferir e instalar o [MSI](https://aka.ms/InstallAzureCliWindows). Também pode seguir as instruções de instalação no [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ao configurar o Azure CLI 2.0 no seu ambiente. A versão mínima da CLI 2.0 do Azure tem de ser 2.0.24 ou superior. Utilize `az –version` para validar. 
 
 - Instale a extensão de IoT. A forma mais simples consiste em executar `az extension add --name azure-cli-iot-ext`. [O ficheiro Leia-me da extensão de IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) descreve várias formas de instalar a extensão.
 
@@ -129,7 +129,7 @@ Consultar todos os dispositivos, exceto aqueles com uma etiqueta de função = '
 az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu como monitorizar as mensagens do dispositivo para nuvem e enviar mensagens da nuvem para o dispositivo entre os dispositivos de IoT e o IoT Hub do Azure.
 

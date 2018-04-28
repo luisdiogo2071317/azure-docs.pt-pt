@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 128f3d366dc7de0870bc6f52ae6d0bbaf3a0fcb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f184c30f1f39563d6e029d506237e6b0e23ec482
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
@@ -28,14 +28,14 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > [!div class="checklist"]
 > * Utilizar o dimensionamento automático com um conjunto de dimensionamento
 > * Criar e utilizar regras de dimensionamento automático
-> * Teste de esforço de instâncias de VM e acionar regras de dimensionamento automático
+> * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.6.0 ou posterior do módulo do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.6.0 ou posterior do módulo do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
@@ -54,7 +54,7 @@ Defina um nome de utilizador e uma palavra-passe para as instâncias de VM com [
 $cred = Get-Credential
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir tráfego na porta TCP 80, bem como permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como para permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
@@ -82,13 +82,13 @@ Os parâmetros seguintes são utilizados para esta regra:
 | *-MetricName*           | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
 | *-TimeGrain*            | Frequência com que as métricas são recolhidas para análise.                                                                   | 1 minuto       |
 | *-MetricStatistic*      | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
-| *-TimeWindow*           | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados.                                   | 5 minutos      |
+| *-TimeWindow*           | A quantidade de tempo monitorizado antes de os valores de métrica e limiar serem comparados.                                   | 5 minutos      |
 | *-Operator*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior Que   |
 | *-Threshold*            | O valor que faz com que a regra de dimensionamento automático acione uma ação.                                                      | 70%            |
 | *-ScaleActionDirection* | Define se o conjunto de dimensionamento deve aumentar ou reduzir verticalmente quando a regra se aplicar.                                             | Aumentar       |
 | *–ScaleActionScaleType* | Indica que o número de instâncias de VM deve ser alterado por um valor específico.                                    | Contagem de Alterações   |
 | *-ScaleActionValue*     | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                            | 3              |
-| *-ScaleActionCooldown*  | A quantidade de tempo de espera antes da regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
+| *-ScaleActionCooldown*  | A quantidade de tempo de espera antes de a regra ser aplicada novamente, para que as ações de dimensionamento automático tenham tempo de entrar em vigor. | 5 minutos      |
 
 O exemplo seguinte cria um objeto com o nome *myRuleScaleOut* que contém esta regra para aumentar verticalmente. *- MetricResourceId* utiliza as variáveis definidas anteriormente para o ID de subscrição, o nome do grupo de recursos e o nome do conjunto de dimensionamento:
 
@@ -242,7 +242,7 @@ MYRESOURCEGROUP   myScaleSet_5   eastus Standard_DS2                   5        
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Creating
 ```
 
-Na sessão de ligação ao ambiente de trabalho remoto de cada uma das instâncias de VM, feche a ferramenta **CPU Stress**. A carga de CPU média no conjunto de dimensionamento volta ao normal. Após mais 5 minutos, as regras de dimensionamento automático reduzem horizontalmente o número de instâncias de VM. As ações para reduzir horizontalmente removem primeiro as instâncias de VM com os IDs mais elevados. O resultado de exemplo seguinte mostra uma instância de VM eliminada à medida que o conjunto de dimensionamento reduz horizontalmente de forma automática:
+Na sessão de ligação ao ambiente de trabalho remoto de cada uma das instâncias de VM, feche a ferramenta **CPU Stress**. A carga de CPU média no conjunto de dimensionamento volta ao normal. Após mais 5 minutos, as regras de dimensionamento automático reduzem horizontalmente o número de instâncias de VM. As ações para reduzir horizontalmente removem primeiro as instâncias de VM com os IDs mais elevados. Quando um conjunto de dimensionamento utiliza Conjuntos de Disponibilidade ou Zonas de Disponibilidade, as ações de redução horizontal são distribuídas uniformemente nessas instâncias de VMs. O resultado de exemplo seguinte mostra uma instância de VM eliminada à medida que o conjunto de dimensionamento reduz horizontalmente de forma automática:
 
 ```powershell
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Deleting
@@ -265,7 +265,7 @@ Neste tutorial, aprendeu a aumentar e reduzir automaticamente um conjunto de dim
 > [!div class="checklist"]
 > * Utilizar o dimensionamento automático com um conjunto de dimensionamento
 > * Criar e utilizar regras de dimensionamento automático
-> * Teste de esforço de instâncias de VM e acionar regras de dimensionamento automático
+> * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
 Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, veja os seguintes scripts de exemplo do Azure PowerShell:

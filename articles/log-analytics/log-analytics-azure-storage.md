@@ -1,11 +1,11 @@
 ---
-title: "Recolher registos do serviço do Azure e as métricas de análise de registos | Microsoft Docs"
-description: "Configure o diagnóstico nos recursos do Azure para escrever os registos e as métricas de análise de registos."
+title: Recolher registos do serviço do Azure e as métricas de análise de registos | Microsoft Docs
+description: Configure o diagnóstico nos recursos do Azure para escrever os registos e as métricas de análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher métricas para utilização na análise de registos e registos do serviço do Azure
 
@@ -33,18 +33,18 @@ Existem quatro formas diferentes de recolha de registos e as métricas para os s
 
 | Serviço                 | Tipo de Recurso                           | Registos        | Métricas     | Solução |
 | --- | --- | --- | --- | --- |
-| Gateways de aplicação    | Network/applicationgateways   | Diagnóstico | Diagnóstico | [Análise de Gateway de aplicação do Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Informações de aplicação    |                                         | conector   | conector   | [Conector do Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (pré-visualização) |
+| Gateways de aplicação    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Análise de Gateway de aplicação do Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Application Insights    |                                         | Conector   | Conector   | [Conector do Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (pré-visualização) |
 | Contas de Automatização     | Microsoft.Automation/AutomationAccounts | Diagnóstico |             | [Obter mais informações](../automation/automation-manage-send-joblogs-log-analytics.md)|
-| Contas do batch          | Microsoft.Batch/batchAccounts           | Diagnóstico | Diagnóstico | |
+| Contas de Batch          | Microsoft.Batch/batchAccounts           | Diagnóstico | Diagnóstico | |
 | Serviços cloud clássico  |                                         | Armazenamento     |             | [Obter mais informações](log-analytics-azure-storage-iis-table.md) |
 | Serviços cognitivos      | Microsoft.CognitiveServices/accounts    |             | Diagnóstico | |
 | Análise do Data Lake     | Microsoft.DataLakeAnalytics/accounts    | Diagnóstico |             | |
 | Arquivo data Lake         | Microsoft.DataLakeStore/accounts        | Diagnóstico |             | |
-| Espaço de nomes de Hub de eventos     | Microsoft.EventHub/namespaces           | Diagnóstico | Diagnóstico | |
+| Espaço de nomes do Hub de Eventos     | Microsoft.EventHub/namespaces           | Diagnóstico | Diagnóstico | |
 | Hubs IoT                | Microsoft.Devices/IotHubs               |             | Diagnóstico | |
 | Cofre de Chaves               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [Análise de KeyVault](log-analytics-azure-key-vault.md) |
-| Balanceadores de carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
+| Balanceadores de Carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
 | Aplicações Lógicas              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnóstico | Diagnóstico | |
 | Grupos de Segurança de Rede | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Análise de grupo de segurança de rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [O Azure Recovery Services análise (pré-visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
@@ -68,6 +68,13 @@ Existem quatro formas diferentes de recolha de registos e as métricas para os s
 Muitos recursos do Azure são capazes de escrever os registos de diagnóstico e métricas diretamente ao Log Analytics e isto é a forma preferencial de recolha de dados para análise. Ao utilizar o diagnóstico do Azure, dados são escritos imediatamente a análise de registos e não é necessário escrever primeiro os dados para o armazenamento.
 
 Recursos do Azure que suportem [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) pode enviar os registos e as métricas diretamente ao Log Analytics.
+
+> [!NOTE]
+> Atualmente, o envio de métricas multidimensionais para análise de registos através de definições de diagnóstico não é suportada. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
+>
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, quando exportou através de definições de diagnóstico que a métrica é representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+>
+>
 
 * Para obter os detalhes sobre as métricas disponíveis, consulte [suportado métricas com a monitorização do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Para obter os detalhes dos registos disponíveis, consulte [suportado serviços e o esquema para os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,9 +152,9 @@ Saiba mais sobre o [conector do Application Insights](https://blogs.technet.micr
 
 Para os serviços do Azure que não fornecem uma forma direta para enviar os registos e as métricas para análise de registos pode utilizar um script de automatização do Azure para recolher os registos e as métricas. O script, em seguida, pode enviar os dados para análise de registos utilizando o [API de recoletores de dados](log-analytics-data-collector-api.md)
 
-Tem de galeria do modelo do Azure [exemplos de utilização da automatização do Azure](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) para recolher dados de serviços e enviar para análise de registos.
+Tem de galeria do modelo do Azure [exemplos de utilização da automatização do Azure](https://azure.microsoft.com/resources/templates/?term=OMS) para recolher dados de serviços e enviar para análise de registos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o blob storage para o IIS e a tabela de armazenamento para eventos](log-analytics-azure-storage-iis-table.md) ler os registos para esse diagnóstico de escrita nos registos IIS escritos para armazenamento de BLOBs ou armazenamento de tabelas de serviços do Azure.
 * [Permitir soluções](log-analytics-add-solutions.md) para obter informações sobre os dados.

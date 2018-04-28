@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver dados analíticos métricas em todos os recursos de aplicação Web do Azure
 
 ![Símbolo de aplicações Web](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> A solução de análise de aplicações Web do Azure foi preterida.  Os clientes que já instalou a solução podem continuar a utilizá-la, mas não pode ser adicionada a análise de aplicações Web do Azure a qualquer áreas de trabalho de novo.
+
 A solução de análise de aplicações Web do Azure (pré-visualização) fornece informações sobre a sua [Web Apps do Azure](../app-service/app-service-web-overview.md) recolhendo métricas diferentes em todos os recursos de aplicação Web do Azure. Com a solução, pode analisar e procurar dados métricos do recurso de aplicação web.
 
 Utilizar a solução, pode ver o:

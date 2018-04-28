@@ -1,8 +1,8 @@
 ---
-title: "O Azure Active Directory B2C: Adicionar um fornecedor do Azure AD através da utilização de políticas personalizadas | Microsoft Docs"
-description: "Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C"
+title: 'O Azure Active Directory B2C: Adicionar um fornecedor do Azure AD através da utilização de políticas personalizadas | Microsoft Docs'
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>O Azure Active Directory B2C: Início de sessão através da utilização de contas do Azure AD
 
@@ -45,13 +45,13 @@ Para ativar o início de sessão para utilizadores específicos de um organizaç
 >[!NOTE]
 > Utilizamos "contoso.com" para o organizacional inquilino do Azure AD e "fabrikamb2c.onmicrosoft.com" do inquilino do Azure AD B2C nas instruções seguintes.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione a sua conta. Do **diretório** lista, escolha o organizacional inquilino do Azure AD, onde é necessário registar a sua aplicação (contoso.com).
-1. Selecione **mais serviços** no painel esquerdo e procure "Registos de aplicação".
-1. Selecione **novo registo de aplicação**.
-1. Introduza um nome para a sua aplicação (por exemplo, `Azure AD B2C App`).
-1. Selecione **aplicação Web / API** para o tipo de aplicação.
-1. Para **URL de início de sessão**, introduza o seguinte URL onde `yourtenant` é substituído pelo nome do seu inquilino do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Na barra superior, selecione a sua conta. Do **diretório** lista, escolha o organizacional inquilino do Azure AD, onde é necessário registar a sua aplicação (contoso.com).
+3. Selecione **mais serviços** no painel esquerdo e procure "Registos de aplicação".
+4. Selecione **Novo registo de aplicação**.
+5. Introduza um nome para a sua aplicação (por exemplo, `Azure AD B2C App`).
+6. Selecione **Aplicação/API Web** para o tipo de aplicação.
+7. Para **URL de início de sessão**, introduza o seguinte URL onde `yourtenant` é substituído pelo nome do seu inquilino do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >O valor para "yourtenant" deve ser todo em minúsculas no **URL de início de sessão**.
@@ -60,10 +60,10 @@ Para ativar o início de sessão para utilizadores específicos de um organizaç
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Guardar o ID da aplicação.
-1. Selecione a aplicação criada recentemente.
-1. Sob o **definições** painel, selecione **chaves**.
-1. Criar uma nova chave e guarde-o. Irá utilizá-lo nos passos na secção seguinte.
+8. Guardar o ID da aplicação.
+9. Selecione a aplicação criada recentemente.
+10. Sob o **definições** painel, selecione **chaves**.
+11. Introduza a descrição da chave, selecione uma duração e, em seguida, clique em **guardar**. O valor da chave é apresentado. Copie-a porque irá utilizá-lo nos passos na secção seguinte.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Adicionar a chave do Azure AD para o Azure AD B2C
 
@@ -219,6 +219,6 @@ Agora tem de atualizar o ficheiro de terceiros (RP) entidade confiadora que inic
 
 Testar a política personalizada que acabou de carregar ao abrir o painel e clicar em **executar agora**. Para diagnosticar problemas, leia sobre [resolução de problemas](active-directory-b2c-troubleshoot-custom.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Fornecer comentários para [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com).

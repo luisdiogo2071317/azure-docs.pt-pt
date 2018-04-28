@@ -6,22 +6,18 @@ author: ronortloff
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 04/11/2018
+ms.component: implement
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 271b832f329e33b68f60fbc62005c6ee36bafe69
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Conceber de orientações para a utilização de tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para estruturar tabelas replicadas no seu esquema de armazém de dados do SQL Server. Utilize estas recomendações para melhorar o desempenho de consulta ao reduzir a complexidade de movimento e a consulta de dados.
-
-> [!NOTE]
-> A funcionalidade de tabela não replicada está atualmente em pré-visualização pública. Alguns comportamentos estão sujeitos a alterações.
-> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que está familiarizado com a distribuição de dados e conceitos de movimento de dados no armazém de dados do SQL Server.  Para obter mais informações, consulte o [arquitetura](massively-parallel-processing-mpp-architecture.md) artigo. 
@@ -44,20 +40,13 @@ Replicadas trabalho tabelas bem para tabelas de pequena dimensão de um esquema 
 Considere a utilização de um replicadas tabela quando:
 
 - O tamanho de tabela no disco é inferior a 2 GB, independentemente do número de linhas. Para localizar o tamanho de uma tabela, pode utilizar o [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) comando: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- A tabela for utilizada nas associações que necessitem, caso contrário, movimento de dados. Por exemplo, uma associação em tabelas hash distribuída necessita de movimento de dados quando as colunas joining não estão a mesma coluna de distribuição. Se uma das tabelas hash distribuída for pequena, considere uma tabela não replicada. Uma associação numa tabela round robin requer o movimento de dados. Recomendamos que utilize tabelas replicadas em vez de tabelas de round robin na maioria dos casos. 
-
-
-Considere converter existente distribuídas tabela um replicadas em tabela quando:
-
-- Operações de movimento de dados de utilização que os dados para todos os nós de computação de difusão de planos de consulta. O BroadcastMoveOperation é dispendioso e abrandar o desempenho das consultas. Para ver as operações de movimento de dados nos planos de consulta, utilize [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- A tabela for utilizada nas associações que necessitem, caso contrário, movimento de dados. Ao associar as tabelas que não forem distribuídas na mesma coluna, tais como uma tabela hash distribuída a uma tabela de round robin, movimento de dados é necessário para concluir a consulta.  Se uma das tabelas for pequena, considere uma tabela não replicada. Recomendamos que utilize tabelas replicadas em vez de tabelas de round robin na maioria dos casos. Para ver as operações de movimento de dados nos planos de consulta, utilize [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  O BroadcastMoveOperation é a operação de movimento de dados típicas que pode ser eliminada utilizando uma tabela não replicada.  
  
 As tabelas replicadas não poderão produzir o melhor desempenho de consulta quando:
 
 - A tabela tem frequente inserir, atualizar e eliminar operações. Estas operações de idioma (DML) de manipulação de dados exigem uma reconstrução da tabela replicada. A reconstrução com frequência pode causar um desempenho mais lento.
 - O armazém de dados é dimensionado com frequência. Dimensionamento de um armazém de dados é alterado o número de nós de computação, o que implica uma reconstrução.
-- A tabela tem um grande número de colunas, mas as operações de dados aceder, normalmente, apenas um pequeno número de colunas. Neste cenário, em vez de replicar a tabela inteira, poderá ser mais eficaz para hash distribuir a tabela e, em seguida, criar um índice de colunas acedidas com frequência. Quando uma consulta requer o movimento de dados, o SQL Data Warehouse apenas os dados nas colunas pedidas. 
-
-
+- A tabela tem um grande número de colunas, mas as operações de dados aceder, normalmente, apenas um pequeno número de colunas. Neste cenário, em vez de replicar a tabela inteira, poderá ser mais eficiente para distribuir a tabela e, em seguida, criar um índice de colunas acedidas com frequência. Quando uma consulta requer o movimento de dados, o SQL Data Warehouse apenas os dados para as colunas pedidas. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utilizar tabelas replicadas com predicados de consulta simples
 Antes de optar por distribuir ou replicar uma tabela, pensa sobre os tipos de consultas que pretende executar na tabela. Sempre que possível,
@@ -67,7 +56,7 @@ Antes de optar por distribuir ou replicar uma tabela, pensa sobre os tipos de co
 
 Consultas de intensivas em CPU melhor efetuar quando o trabalho é distribuído por todos os nós de computação. Por exemplo, as consultas que executam cálculos em cada linha de uma tabela efetuar melhor em tabelas distribuídas que tabelas replicadas. Uma vez que uma tabela não replicada é armazenada no completo em cada nó de computação, uma consulta de CPU intensivas em relação a uma tabela não replicada é executada relativamente a toda a tabela em cada nó de computação. A computação adicional pode abrandar o desempenho das consultas.
 
-Por exemplo, esta consulta tem um predicado complexo.  É executada mais rapidamente quando o fornecedor é uma tabela distribuída em vez de uma tabela não replicada. Neste exemplo, fornecedor pode ser distribuído de hash ou distribuídas round robin.
+Por exemplo, esta consulta tem um predicado complexo.  É executada mais rapidamente quando o fornecedor é uma tabela distribuída em vez de uma tabela não replicada. Neste exemplo, o fornecedor pode ser distribuído round robin.
 
 ```sql
 
@@ -132,7 +121,7 @@ Criámos novamente `DimDate` e `DimSalesTerritory` como tabelas replicadas e foi
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerações de desempenho para modificar as tabelas replicadas
-O SQL Data Warehouse implementa uma tabela não replicada, mantendo uma versão principal da tabela. Copia a versão principal para uma base de dados de distribuição em cada nó de computação. Quando existe uma alteração, o SQL Data Warehouse atualiza primeiro a tabela principal. Em seguida, requer uma reconstrução das tabelas em cada nó de computação. Inclui uma reconstrução de uma tabela replicada copiar a tabela para cada nó de computação e, em seguida, reconstruir os índices.
+O SQL Data Warehouse implementa uma tabela não replicada, mantendo uma versão principal da tabela. Copia a versão principal para uma base de dados de distribuição em cada nó de computação. Quando existe uma alteração, o SQL Data Warehouse atualiza primeiro a tabela principal. Em seguida, ela recria as tabelas em cada nó de computação. Inclui uma reconstrução de uma tabela replicada copiar a tabela para cada nó de computação e, em seguida, criar os índices.  Por exemplo, uma tabela não replicada num DW400 tem 5 cópias dos dados.  Uma cópia principal e uma cópia completa em cada nó de computação.  Todos os dados são armazenados nas bases de dados de distribuição. SQL Data Warehouse utiliza este modelo para suportar as operações de dimensionamento flexíveis e instruções de modificação de dados mais rápidas. 
 
 Recria é necessário após:
 - Os dados são carregados ou modificados
@@ -143,7 +132,7 @@ Recria não é necessário após:
 - Operação de colocação em pausa
 - A operação de retoma
 
-A reconstrução não ocorrer imediatamente depois dos dados são modificados. Em vez disso, a reconstrução é acionada pela primeira vez, que seleciona uma consulta da tabela.  A instrução select inicial da tabela são necessários passos para reconstruir a tabela não replicada.  Porque a reconstrução é efetuada na consulta, o impacto para a instrução select inicial pode ser significativo, consoante o tamanho da tabela.  Se várias tabelas replicadas envolvidas que necessitam de uma reconstrução, cada cópia for reconstruída serialmente como passos numa instrução.  Para manter os dados consistência durante a reconstrução da tabela replicada um bloqueio exclusivo é colocada na tabela.  O bloqueio impede que todos os acessos à tabela durante a reconstrução. 
+A reconstrução não ocorrer imediatamente depois dos dados são modificados. Em vez disso, a reconstrução é acionada pela primeira vez, que seleciona uma consulta da tabela.  A consulta que acionou a reconstrução lê imediatamente da versão principal da tabela, enquanto os dados de forma assíncrona são copiados para cada nó de computação. Até que a cópia de dados estiver concluída, consultas subsequentes vão continuar a utilizar a versão principal da tabela.  Se qualquer atividade acontecer na tabela replicada que força a reconstrução outra, a cópia de dados é invalidada e a seguinte instrução select é acionado dados a ser copiado novamente. 
 
 ### <a name="use-indexes-conservatively"></a>Utilizar moderadamente índices
 Práticas de indexação padrão se aplica a tabelas replicadas. O SQL Data Warehouse Reconstrói cada índice de tabela não replicada como parte da reconstrução. Utilize apenas índices quando os ganhos de desempenho prevalece sobre o custo de reconstruir os índices.  
@@ -172,7 +161,7 @@ Por exemplo, neste padrão de carga carrega dados a partir de origens de quatro,
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Reconstruir uma tabela replicada após uma carga de batch
-Para garantir que os tempos de execução de consulta consistente, recomendamos que forçar uma atualização das tabelas replicadas após uma carga de batch. Caso contrário, a primeira consulta tem de aguardar as tabelas atualizar, que inclui a reconstruir os índices. Dependendo do tamanho e número de tabelas replicadas afetados, o impacto de desempenho pode ser significativo.  
+Para garantir que os tempos de execução de consulta consistente, considere forçar a compilação das tabelas replicadas após uma carga de batch. Caso contrário, a primeira consulta irá continuar a utilizar o movimento de dados para concluir a consulta. 
 
 Esta consulta utiliza a [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV para listar as tabelas replicadas que modificada, mas não reconstruídas.
 
@@ -187,7 +176,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-Para forçar uma reconstrução, execute a seguinte instrução em cada tabela na saída anterior. 
+Para acionar uma reconstrução, execute a seguinte instrução em cada tabela na saída anterior. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidos ou uma cópia de segurança no Windows 10. 
@@ -27,7 +27,7 @@ Segue-se uma lista completa de todas as definições que serão movidos ou uma c
 ## <a name="devices-and-endpoints"></a>Dispositivos e os pontos finais
 Consulte a tabela seguinte para obter um resumo dos dispositivos e tipos de conta que são suportados por uma cópia de segurança, a sincronização e restaurar framework no Windows 10.
 
-| Tipo de conta e a operação | Ambiente de Trabalho | Telemóvel |
+| Tipo de conta e a operação | Ambiente de trabalho | Telemóvel |
 | --- | --- | --- |
 | Azure Active Directory: sincronização |Sim |Não |
 | Azure Active Directory: cópia de segurança/restauro |Não |Não |
@@ -47,11 +47,15 @@ Os seguintes grupos de definições estão disponíveis para os utilizadores fin
 * Facilidade de acesso: Narrador, o teclado no ecrã, Lupa 
 * Outras definições do Windows: consulte os detalhes de definições do Windows
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Sincronização de grupo (Favoritos, lista de leitura) do contorno browser definição pode ser ativado ou desativado pelos utilizadores finais através do browser Microsoft Edge opção do menu de definições.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Para Windows 10 versão 1803 ou posterior, Internet Explorer grupo de definições (Favoritos, escreveu URLs) a sincronização pode ser ativada ou desativada pelos utilizadores finais através da opção de menu de definições do Internet Explorer. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Detalhes de definições do Windows
 A tabela seguinte, outras entradas na coluna grupo de definições de refere-se às definições que podem ser desativadas acedendo às definições > contas > sincronize as suas definições > definições de outras janelas. 
@@ -59,7 +63,7 @@ A tabela seguinte, outras entradas na coluna grupo de definições de refere-se 
 Internas entradas na coluna grupo de definições de fazer referência a definições e aplicações que só podem ser desativadas da aplicação em si ou através da desativação de sincronização para o dispositivo completo utilizando a gestão de dispositivos móveis (MDM) ou definições de política de grupo.
 As definições que não sejam acedidas remotamente ou sincronização não irão pertencer a um grupo.
 
-| Definições | Ambiente de Trabalho | Telemóvel | Grupo |
+| Definições | Ambiente de trabalho | Telemóvel | Grupo |
 | --- | --- | --- | --- |
 | **Contas**: imagem de conta |Sincronização |X |Tema |
 | **Contas**: outras definições de conta |X |X | |

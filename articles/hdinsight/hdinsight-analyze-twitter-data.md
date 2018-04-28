@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d3f00658c836eaba41b7ab3d1c065991a2c12a6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter utilizando o Hive no HDInsight
 Web sites sociais são um da força despertar principais para a adoção de macrodados. APIs públicas fornecidas por sites como Twitter são uma origem de dados para analisar e compreender as tendências populares útil.
@@ -36,7 +36,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     Antes de executar scripts do Windows PowerShell, certifique-se de que está ligado à sua subscrição do Azure utilizando o cmdlet seguinte:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Se tiver várias subscrições do Azure, utilize o cmdlet seguinte para configurar a subscrição atual:
@@ -120,7 +120,7 @@ Neste tutorial, utilizar o Windows PowerShell para efetuar o chamada do serviço
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -394,7 +394,7 @@ O script de HiveQL executará o seguinte:
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID

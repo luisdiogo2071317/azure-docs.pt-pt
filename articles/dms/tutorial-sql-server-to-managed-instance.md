@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/10/2018
-ms.openlocfilehash: f78a68704f1670b4670384931a07d9651cd646e3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6628ea218c4c7a9aacc0c2899c1ea4e5b6169b51
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrar do SQL Server para o Azure SQL da base de dados geridos instância utilizando DMS
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância do SQL Server no local para um [da base de dados geridas por instância de SQL do Azure](../sql-database/sql-database-managed-instance.md) quase sem período de indisponibilidade. Para métodos adicionais que requerem algum período de indisponibilidade, consulte [migração de instância do SQL Server para instância geridos base de dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
@@ -43,7 +43,7 @@ Para concluir este tutorial, precisa de:
 - Crie uma partilha de rede que pode utilizar o serviço de migração de base de dados do Azure para criar cópias de segurança da base de dados de origem.
 - Certifique-se de que a conta de serviço que executa a instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou.
 - Tome nota de um utilizador do Windows (e a palavra-passe) que tem o privilégio de controlo total na partilha de rede que criou acima. O serviço de migração de base de dados do Azure representa tem as credenciais de utilizador para carregar os ficheiros de cópia de segurança no contentor de armazenamento do Azure para a operação de restauro.
-- Criar um contentor de blob e obter o seu respetivo URI de SAS, utilizando os passos no artigo [recursos de gerir o armazenamento de Blobs do Azure com o Explorador de armazenamento (pré-visualização)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), certifique-se de selecionar todas as permissões (leitura, escrita, eliminar, lista) na janela de política ao criar o URI de SAS. Isto fornece o serviço de migração de base de dados do Azure com acesso ao contentor de conta de armazenamento para carregar os ficheiros de cópia de segurança utilizados para migrar bases de dados da base de dados geridos instância do SQL do Azure
+- Criar um contentor de blob e obter o seu respetivo URI de SAS, utilizando os passos no artigo [recursos de gerir o armazenamento de Blobs do Azure com o Explorador de armazenamento](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), certifique-se de selecionar todas as permissões (leitura, escrita, eliminar, lista) na janela de política ao criar o URI de SAS. Isto fornece o serviço de migração de base de dados do Azure com acesso ao contentor de conta de armazenamento para carregar os ficheiros de cópia de segurança utilizados para migrar bases de dados da base de dados geridos instância do SQL do Azure
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 

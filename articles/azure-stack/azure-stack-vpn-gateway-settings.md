@@ -1,11 +1,11 @@
 ---
-title: "As definições do gateway de VPN para a pilha do Azure | Microsoft Docs"
-description: "Saiba mais sobre as definições para gateways de VPN que utilizar com a pilha do Azure."
+title: As definições do gateway de VPN para a pilha do Azure | Microsoft Docs
+description: Saiba mais sobre as definições para gateways de VPN que utilizar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN do Azure pilha
 
@@ -160,7 +160,7 @@ Ao contrário do Azure, o que suporta vários ofertas como um iniciador e um dis
 |Versão do IKE |IKEv2 |
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|
 |Encriptação e hash algoritmos (autenticação) | GCMAES256|
-|Duração de SA (Tempo)  | segundos 14,400 |
+|Duração de SA (Tempo)  | segundos 27,700 |
 |Duração de SA (Bytes) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Deteção de Elemento Inutilizado | Suportadas|  

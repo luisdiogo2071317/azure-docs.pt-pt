@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 8d984c17ab373428b13ed59a598ca8ae4e88136a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/16/2018
+ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Transmitir saídas de análise: opções de armazenamento e análise
 Durante a criação de uma tarefa de Stream Analytics, considere como os dados resultantes são consumidos. Como pode ver os resultados da tarefa de Stream Analytics e onde pode armazená-lo?
@@ -290,6 +290,8 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato |Só é aplicável para o tipo JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. |
 
+O número de partições é [com base no SKU de barramento de serviço e tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.
+
 ## <a name="service-bus-topics"></a>Tópicos de Service Bus
 Enquanto as filas do Service Bus fornece um método de comunicação de um para um do remetente para recetor, [tópicos de Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
 
@@ -305,6 +307,8 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Formato de serialização de eventos |Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
  | Encoding |Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento |
 | Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
+
+O número de partições é [com base no SKU de barramento de serviço e tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [BD do Azure do Cosmos](https://azure.microsoft.com/services/documentdb/) é uma base de dados globalmente distribuído, com vários modelo de serviço que oferece ilimitada horizontal elástico relativamente a globo, consulta avançada e indexação automática através de modelos de dados de esquema desconhecidas, garantidos baixa latência e líder da indústria SLAs abrangentes. Para saber mais sobre as opções de recolha do Cosmos DB de Stream Analytics, consulte o [Stream Analytics com base de dados do Cosmos como saída](stream-analytics-documentdb-output.md) artigo.
@@ -326,7 +330,7 @@ A tabela seguinte descreve as propriedades para criar uma saída de BD do Cosmos
 | Chave de partição | Opcional. Isto só é necessário se estiver a utilizar um token {partition} no seu padrão de nome de coleção.<br/> A chave de partição é o nome do campo em eventos de saída utilizado para especificar a chave de partições da saída nas coleções.<br/> Para o resultado única coleção, nenhuma coluna de saída arbitrários pode ser utilizada por exemplo, PartitionId. |
 | ID do documento |Opcional. O nome do campo em eventos de saída utilizado para especificar a chave primária na qual insert ou update baseiam-se operações.  
 
-## <a name="azure-functions-in-preview"></a>Funções do Azure (na pré-visualização)
+## <a name="azure-functions"></a>Funções do Azure
 As Funções do Azure são um serviço de computação sem servidor lhe que permite executar código a pedido sem ter de aprovisionar ou gerir explicitamente uma infraestrutura. Permite-lhe implementar o código que é acionado pelos eventos que ocorrem no Azure ou serviços de terceiros.  Esta capacidade das funções do Azure para responder a acionadores torna uma saída natural de um Azure Stream Analytics. Este adaptador de saída permite aos utilizadores ligar o Stream Analytics para as funções do Azure e executar um script ou um fragmento de código de resposta a uma variedade de eventos.
 
 O Azure Stream Analytics invoca as funções do Azure através de acionadores HTTP. O novo adaptador de saída de função do Azure está disponível com as seguintes propriedades configuráveis:
@@ -342,6 +346,23 @@ O Azure Stream Analytics invoca as funções do Azure através de acionadores HT
 Tenha em atenção que quando o Azure Stream Analytics recebe 413 exceção de (http pedido entidade demasiado grande) da função do Azure, reduz o tamanho de lotes envia para as funções do Azure. No código da função do Azure, utilize esta exceção para se certificar de que o Azure Stream Analytics não enviar os lotes de grande dimensão. Além disso, certifique-se de que os valores de contagem e tamanho de lote máximo utilizados na função são consistentes com os valores que introduziu no portal do Stream Analytics. 
 
 Além disso, numa situação em que nenhum evento de destino numa janela de tempo, nenhuma saída é gerada. Como resultado, a função computeResult não for chamada. Este comportamento é consistente com as funções de agregação em janela incorporadas.
+
+## <a name="partitioning"></a>Criação de partições
+
+A tabela seguinte resume o suporte de partição e o número de escritores de saída para cada tipo de saída:
+
+| Tipo de saída | Suporte de criação de partições | Chave de partição  | Número de escritores de saída | 
+| --- | --- | --- | --- |
+| Azure Data Lake Store | Sim | Utilize {date} e {time} tokens. o padrão de prefixo do caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Mesmo como entrada. | 
+| Base de Dados SQL do Azure | Não | Nenhuma | Não aplicável. | 
+| Armazenamento de Blobs do Azure | Sim | Utilize {date} e {time} tokens. o padrão de caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Mesmo como entrada. | 
+| Hub de eventos do Azure | Sim | Sim | Mesmo que as partições do Hub de eventos de saída. |
+| Power BI | Não | Nenhuma | Não aplicável. | 
+| Armazenamento de Tabelas do Azure | Sim | Nenhuma coluna de saída.  | Igual ao passo de entrada ou anterior. | 
+| Tópico de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual a saída.  |
+| Fila de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual a saída. |
+| Azure Cosmos DB | Sim | Utilize o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se a cláusula PARTITION BY na consulta. | Mesmo como entrada. |
+| Funções do Azure | Não | Nenhuma | Não aplicável. | 
 
 
 ## <a name="get-help"></a>Obter ajuda

@@ -1,32 +1,27 @@
 ---
-title: "Sincronização do Azure Active Directory Connect: configurar a localização de dados preferencial para Georreplicação várias capacidades no Office 365 | Microsoft Docs"
-description: "Descreve como colocar os recursos de utilizador do Office 365 próximo do utilizador com a sincronização do Azure Active Directory Connect."
+title: 'Sincronização do Azure Active Directory Connect: configurar a localização de dados preferencial para Georreplicação várias capacidades no Office 365 | Microsoft Docs'
+description: Descreve como colocar os recursos de utilizador do Office 365 próximo do utilizador com a sincronização do Azure Active Directory Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar a localização de dados preferencial para os recursos do Office 365
 É o objetivo deste tópico explica como configurar o atributo de localização de dados preferencial na sincronização Connect do Azure Active Directory (Azure AD). Quando alguém utiliza Georreplicação várias capacidades no Office 365, pode utilizar este atributo para designar a geolocalização os dados do utilizador do Office 365. (Os termos de licenciamento *região* e *georreplicação* -no alternadamente.)
-
-> [!IMPORTANT]
-> Várias Georreplicação está atualmente em pré-visualização. Se pretende aderir ao programa de pré-visualização, contacte o seu representante da Microsoft.
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Ativar a sincronização de localização de dados preferencial
 Por predefinição, os recursos do Office 365 para os seus utilizadores estão localizados na mesma geografia como inquilino do Azure AD. Por exemplo, se o seu inquilino está localizado na América do Norte, em seguida, caixas de correio dos utilizadores Exchange estão também localizadas na América do Norte. Para uma organização multinational, isto poderá não ser o ideal.
@@ -34,7 +29,7 @@ Por predefinição, os recursos do Office 365 para os seus utilizadores estão l
 Ao definir o atributo **preferredDataLocation**, pode definir georreplicação de um utilizador. Pode ter do Office 365 recursos o utilizador, tais como a caixa de correio e o OneDrive, na mesma geografia que o utilizador e continuará a ter um inquilino para toda a organização.
 
 > [!IMPORTANT]
-> Para ser elegível para várias Georreplicação, tem de ter, pelo menos, 5 000 utilizadores individuais na sua subscrição do Office 365.
+> Várias Georreplicação está atualmente disponível para clientes com um mínimo de 5000 subscrições de serviços do Office 365. Fale com para o seu representante da Microsoft para obter mais detalhes.
 >
 >
 
@@ -46,16 +41,16 @@ Geos no Office 365 disponíveis para várias Georreplicação são:
 | --- | --- |
 | Ásia-Pacífico | APC |
 | Austrália | AUS |
-| Canadá | CAN |
+| Canadá | PODE |
 | União Europeia | EUR |
 | Índia | IND |
 | Japão | JPN |
-| Coreia do Sul | KOR |
+| Coreia | KOR |
 | Reino Unido | GBR |
-| Estados Unidos | NAM |
+| Estados Unidos | NOM |
 
 * Se um georreplicação não está listada nesta tabela (por exemplo, América do Sul), em seguida,-não pode ser utilizado para várias Georreplicação.
-* Índia e Sul Coreia geos só estão disponíveis para os clientes com endereços de faturação e de licenças adquiridas nesses geos.
+* A georreplicação Índia só está disponível para clientes com o endereço de faturação e de licenças adquiridas neste georreplicação.
 * Nem todas as cargas de trabalho do Office 365 suportam a utilização de definição georreplicação de um utilizador.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Suporte do Azure AD Connect para sincronização
@@ -131,7 +126,7 @@ A regra de sincronização de entrada permite que o valor do atributo a fluir do
     | Descrição | *Forneça uma descrição personalizada* |  |
     | Sistema ligado | *Escolha o conector do Active Directory no local* |  |
     | Tipo de objeto de sistema ligado | **utilizador** |  |
-    | Tipo de objeto de Metaverso | **Person** |  |
+    | Tipo de objeto de Metaverso | **Pessoa** |  |
     | Tipo de ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
@@ -160,7 +155,7 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
     | Descrição | *Forneça uma descrição* ||
     | Sistema ligado | *Selecione o conector Azure AD* ||
     | Tipo de objeto de sistema ligado | **utilizador** ||
-    | Tipo de objeto de Metaverso | **Person** ||
+    | Tipo de objeto de Metaverso | **Pessoa** ||
     | Tipo de ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
@@ -168,7 +163,7 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | Utilizador |
+    | sourceObjectType | IGUAL A | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
     Filtro de âmbito determina qual é aplicada esta regra de sincronização de saída para os objetos do Azure AD. Neste exemplo, utilizamos o mesmo filtro de âmbito de "Out AD – a identidade do utilizador" regra de sincronização de OOB (out-of-box). Impede que a regra de sincronização ser aplicada a **utilizador** objetos que não estão sincronizados do Active Directory no local. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.

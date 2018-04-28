@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como utilizar a identidade de serviço geridas (pré-visualização pública) do Azure no serviço de aplicações e funções do Azure
 
@@ -159,7 +159,7 @@ O **MSI_ENDPOINT** é um URL local a partir da qual a aplicação pode pedir tok
 > |-----|-----|-----|
 > |Recurso|Consulta|O URI do recurso de recurso do AAD para que um token deve ser obtido.|
 > |versão de API|Consulta|A versão da API token a ser utilizado. "2017-09-01" está atualmente a única versão suportada.|
-> |secreta|Cabeçalho|O valor da variável de ambiente de MSI_SECRET.|
+> |segredo|Cabeçalho|O valor da variável de ambiente de MSI_SECRET.|
 
 
 Uma resposta com êxito de OK 200 inclui um corpo JSON com as seguintes propriedades:
@@ -234,5 +234,9 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
+## <a name="next-steps"></a>Passos Seguintes
+
+> [!div class="nextstepaction"]
+> [Identidade do serviço gerido de base de dados do SQL de acesso através de forma segura](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication referência]: https://go.microsoft.com/fwlink/p/?linkid=862452

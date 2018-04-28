@@ -1,11 +1,11 @@
 ---
 title: Resolver problemas de um dispositivo StorSimple implementado | Microsoft Docs
-description: "Descreve como diagnosticar e corrigir os erros que ocorrem num dispositivo StorSimple que está atualmente implementado e operacional."
+description: Descreve como diagnosticar e corrigir os erros que ocorrem num dispositivo StorSimple que está atualmente implementado e operacional.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
 ms.service: storsimple
 ms.devlang: NA
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cf037f7f1c1384b654a7144485d38f569eb7c167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Resolver problemas de um dispositivo StorSimple operacional
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os gestores de dispositivo do StorSimple será automaticamente mudada para o novo portal do Azure de acordo com a agenda de preterição. Irá receber uma mensagem de e-mail e uma notificação de movimentação do portal. Este documento também será descontinuado em breve. Para quaisquer perguntas sobre a mudança, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Relativamente a perguntas sobre a migração, veja [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (FAQ: migrar para o portal do Azure).
 
 ## <a name="overview"></a>Descrição geral
 Este artigo fornece orientação de resolução de problemas úteis para resolver problemas de configuração que podem ocorrer depois do dispositivo StorSimple é implementado e operacional. Descreve problemas comuns, as causas possíveis e passos recomendados para ajudar a resolver problemas que podem ocorrer ao executar o Microsoft Azure StorSimple. Estas informações aplicam-se ao dispositivo físico StorSimple no local e o dispositivo virtual StorSimple.
@@ -62,8 +62,8 @@ Erros são apresentados por ordem numérica.
 | 390061 |O sistema está ocupado ou não está disponível. |Aguarde alguns minutos e, em seguida, tente novamente. Se o erro persistir, volte a contactar o suporte da Microsoft para os passos seguintes. |
 | 390143 |Ocorreu um erro com o código de erro 390143. (Erro desconhecido.) |Se o erro persistir, contacte a Microsoft Support para passos seguintes. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se não for possível resolver o problema, [contacte a Microsoft Support](storsimple-contact-microsoft-support.md) para obter assistência. 
 
-[1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/%5Clibrary/Dn715782(v=WPS.630).aspx

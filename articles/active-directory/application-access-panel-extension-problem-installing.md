@@ -1,11 +1,11 @@
 ---
-title: "Instale a extensão de browser de painel de acesso de aplicação - Azure | Microsoft Docs"
-description: "Corrija os erros comuns encontrados quando instalar a extensão de browser do painel de acesso."
+title: Instale a extensão de browser de painel de acesso de aplicação - Azure | Microsoft Docs
+description: Corrija os erros comuns encontrados quando instalar a extensão de browser do painel de acesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instale a extensão de browser do painel de acesso
 
@@ -37,7 +37,6 @@ Para SSO baseada em palavra-passe, pode utilizar qualquer um dos browsers seguin
 - **Limite**: aniversário da edição do Windows 10 ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
-- **Internet Explorer 8, 9, 10, 11**: no Windows 7 ou posterior (suporte limitado).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Instale a extensão de browser do painel de acesso
 

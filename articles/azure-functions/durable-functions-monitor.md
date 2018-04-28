@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor nas funções durável - exemplo de observador de Meteorologia
 
@@ -38,7 +38,7 @@ Este exemplo monitoriza condições de Meteorologia atual de uma localização e
 * Monitores podem terminar quando alguma condição é cumprida ou terminada por outro processo.
 * Monitores podem demorar parâmetros. O exemplo mostra como o mesmo processo de monitorização de Meteorologia pode ser aplicado a qualquer pedida de localização e o número de telefone.
 * Monitores que são dimensionáveis. Uma vez cada monitor é uma instância de orquestração, vários monitores podem ser criados sem ter de criar novas funções ou definir mais de código.
-* Monitores facilmente integram fluxos de trabalho maior. Um monitor pode ser uma secção de uma função de orquestração mais complexa, ou um [orchestration secundárias](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Monitores facilmente integram fluxos de trabalho maior. Um monitor pode ser uma secção de uma função de orquestração mais complexa, ou um [orchestration secundárias](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## <a name="configuring-twilio-integration"></a>Configurar a integração do Twilio
 

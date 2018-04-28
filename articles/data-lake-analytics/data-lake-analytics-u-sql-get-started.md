@@ -1,8 +1,8 @@
 ---
-title: "Introdução à linguagem U-SQL | Microsoft Docs"
-description: "Aprender as noções básicas de linguagem U-SQL."
+title: Introdução à linguagem U-SQL | Microsoft Docs
+description: Aprender as noções básicas de linguagem U-SQL.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>Introdução ao U-SQL
 U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para informá-processar os dados em qualquer escala. Através da capacidade de dimensionável, consulta distribuído de U-SQL, pode de analisar eficazmente os dados em arquivos relacionais, tais como SQL Database do Azure. Com o U-SQL, pode processar dados não estruturados ao aplicar o esquema na leitura e a inserção lógica personalizada e UDFs. Além disso, o U-SQL inclui extensibilidade dá-lhe controlo detalhado sobre como executar à escala. 
@@ -60,8 +60,8 @@ Tenha em atenção o ponto de interrogação junto os dados escreva a `Duration`
 
 ### <a name="key-concepts"></a>Conceitos-chave
 * **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. U-SQL segue o padrão de nomenclatura de variável T-SQL (`@searchlog`, por exemplo) no script.
-* O **EXTRAIR** palavra-chave lê dados a partir de um ficheiro e define o esquema na leitura. `Extractors.Tsv`é um incorporada extrator de U-SQL para os ficheiros de separador separados-valor. Pode desenvolver extractors personalizados.
-* O **saída** escreve dados de um conjunto de linhas num ficheiro. `Outputters.Csv()`é um outputter incorporada do U-SQL para criar um ficheiro de valores separados por vírgulas. Pode desenvolver outputters personalizados.
+* O **EXTRAIR** palavra-chave lê dados a partir de um ficheiro e define o esquema na leitura. `Extractors.Tsv` é um incorporada extrator de U-SQL para os ficheiros de separador separados-valor. Pode desenvolver extractors personalizados.
+* O **saída** escreve dados de um conjunto de linhas num ficheiro. `Outputters.Csv()` é um outputter incorporada do U-SQL para criar um ficheiro de valores separados por vírgulas. Pode desenvolver outputters personalizados.
 
 ### <a name="file-paths"></a>Caminhos de ficheiro
 
@@ -226,8 +226,8 @@ A cláusula U-SQL que pode ser utilizada para restringir a saída para os grupos
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Para cenários avançados de agregação, consulte a documentação de referência o U-SQL para [agregar, análise e as funções de referência](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+Para cenários avançados de agregação, consulte a documentação de referência o U-SQL para [agregar, análise e as funções de referência](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

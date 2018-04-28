@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: ae1c6628492de208f7c11e0b4e9d3133774ae184
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Storage do Azure
 
@@ -28,7 +28,7 @@ Este artigo procedimentos abrange operações comuns utilizando os cmdlets de pl
 > [!div class="checklist"]
 > * Contas de armazenamento de lista
 > * Obter uma referência a uma conta de armazenamento existente
-> * Criar uma conta do Storage 
+> * Create a storage account 
 > * Definir as propriedades da conta de armazenamento
 > * Obter e voltar a gerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento 
@@ -46,10 +46,10 @@ Para obter mais informações sobre as contas de armazenamento, consulte [introd
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Lista as contas de armazenamento na subscrição
@@ -78,7 +78,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 Tem agora $storageAccount, que aponta para uma conta de armazenamento existente.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage 
+### <a name="create-a-storage-account"></a>Create a storage account 
 
 O script seguinte mostra como criar uma conta do storage para fins gerais utilizando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Depois de criar a conta, obter o contexto, que pode ser utilizado nos comandos subsequentes em vez de especificar a autenticação com cada chamada.
 
@@ -245,7 +245,7 @@ Este artigo procedimentos abrange operações comuns utilizando os cmdlets de pl
 > [!div class="checklist"]
 > * Contas de armazenamento de lista
 > * Obter uma referência a uma conta de armazenamento existente
-> * Criar uma conta do Storage 
+> * Create a storage account 
 > * Definir as propriedades da conta de armazenamento
 > * Obter e voltar a gerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento 

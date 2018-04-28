@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Experiência de novos alertas no Monitor do Azure
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 Alertas tem nova experiência. Os alertas mais antigos experiência está agora no separador alertas (clássica). A nova experiência de alertas tem as seguintes vantagens a experiência de alertas (clássica):
 
--   **Melhor sistema notificação**: utilizam todos os alertas mais recentes [grupos ação]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), que são denominados grupos de ações que podem ser reutilizadas em vários alertas e notificações.  Alertas de métricas clássicas e alertas de análise de registos mais antigas não utilizam grupos de ação. 
+-   **Melhor sistema notificação**: utilizam todos os alertas mais recentes [grupos ação]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), que são denominados grupos de ações que podem ser reutilizadas em vários alertas e notificações.  Alertas de métricas clássicas e alertas de análise de registos mais antigas não utilizam grupos de ação. 
 - **A experiência de criação de unified** - todos os alertas de criação com base nas métricas, os registos e a atividade de registo através de Monitor do Azure, análise de registos, e o Application Insights está num único local. 
 - **Desencadeado de vista de alertas de análise de registos no portal do Azure** -pode agora também Consulte desencadeado alertas de análise de registos na sua subscrição. Anteriormente estes foram num portal separado. 
 - **Separação de Fired alertas e regras de alerta** - regras de alerta (a definição da condição que aciona um alerta) e que são diferenciadas desencadeado alertas (uma instância de acionadas a regra de alerta), pelo que as vistas operacionais e de configuração são separadas.
@@ -77,7 +77,7 @@ O objetivo da experiência de alertas está a ser o único local para ver e geri
 > [!NOTE]
 > É desencadeadas alertas apresentadas alertas estão limitadas a métrica suportada e alertas de registo de atividade; Descrição geral do Azure do Monitor mostra a contagem de alertas é desencadeadas, incluindo as existentes na alertas mais antigos do Azure
 
- ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
+ ![Descrição geral dos alertas](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### <a name="alert-rules-management"></a>Gestão de regras de alertas
 **Monitor - alertas > regras** é uma única página para gerir todas as regras de alerta nas suas subscrições do Azure. Lista todas as regras de alertas (ativado ou desativado) e podem ser ordenados com base nos recursos de destino, os grupos de recursos, o nome da regra ou estado. Regras de alertas também podem ser ativado/desativado ou editá-lo a partir desta página.  
@@ -104,7 +104,7 @@ Alertas estão disponíveis no Azure vários serviços de monitorização. Para 
 | **Tipo de sinal** | **Monitor de origem** | **Descrição** | 
 |-------------|----------------|-------------|
 | Métrica | Monitor do Azure | Também denominado [quase em tempo real de alertas métricas](monitoring-near-real-time-metric-alerts.md), suportam a avaliar condições métricas com uma frequência de 1 minuto e permitir regras de métricas de múltiplos métricos e multidimensionais. Uma lista de tipos de recurso suportados está disponível [aqui](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Métrica | Monitor do Azure | [Alertas mais antigas de métricas clássicas](monitoring-overview-alerts.md) não são suportados na nova experiência de alertas. Pode encontrá-los em alertas (clássica) no portal do Azure. Os alertas clássicos suportam alguns tipos de métricas que ainda não terem sido movidos para os alertas mais recentes. Para obter uma lista completa, consulte [suportado métricas](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| Métrica | Monitor do Azure | [Alertas mais antigas de métricas clássicas](monitoring-overview-alerts.md) não são suportados na nova experiência de alertas. Pode encontrá-los em alertas (clássica) no portal do Azure. Os alertas clássicos suportam alguns tipos de métricas que ainda não terem sido movidos para os alertas mais recentes. Para obter uma lista completa, consulte [suportado métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
 | Registos  | Log Analytics | Receber notificações ou executar ações automatizadas quando uma consulta de pesquisa de registo através de dados de métrica de e/ou eventos cumpra determinados critérios. Alertas de análise de registos mais antigas ainda estão disponíveis, mas são [que está a ser copiados para a nova experiência](monitoring-alerts-extend.md). Além disso, um [de pré-visualização de *registos de análise de registos como métricas* ](monitoring-alerts-extend-tool.md) está disponível. A pré-visualização permite-lhe tirar alguns tipos de registos e convertê-los à métrica, onde, em seguida, podem alertá nos mesmos utilizando a nova experiência de alerta. A pré-visualização é útil se tiver registos não do Azure que pretende obter juntamente com nativas métricas de Monitor do Azure. |
 | Registo de Atividades | Registos de atividade (geral) | Contém os registos de todas as ações de criação, atualização e eliminação efetuadas através de destino selecionada (grupo de recursos/recursos/subscrição). |
 | Registo de Atividades  | Service Health | Não é suportado na nova experiência de alertas. Consulte [criam alertas de registo de atividade em notificações de serviço](monitoring-activity-log-alerts-on-service-notifications.md).  |
@@ -115,7 +115,7 @@ Alertas estão disponíveis no Azure vários serviços de monitorização. Para 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Saiba como utilizar a nova experiência de alertas para criar, ver e gerir alertas](monitor-alerts-unified-usage.md)
 - [Saiba mais sobre alertas de registo na experiência de alertas](monitor-alerts-unified-log.md)
 - [Saiba mais sobre alertas de métricas de experiência de alertas](monitoring-near-real-time-metric-alerts.md)

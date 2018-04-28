@@ -2,7 +2,7 @@
 title: Resolver problemas com o cluster do Apache Spark no Azure HDInsight | Microsoft Docs
 description: Saiba mais sobre problemas relacionados com clusters do Apache Spark no Azure HDInsight e como resolver os.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster do Apache Spark no HDInsight
 
 Este documento mantém um registo dos problemas conhecidos para a pré-visualização pública do HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>O Livy fugas de sessão interativa
-Quando o Livy é reiniciado (do Ambari ou devido a reinício da máquina virtual de headnode 0), com uma sessão interativa ainda alive, é podem fugir uma sessão interativa de tarefa. Por este motivo, as novas tarefas podem estar bloqueadas no Estado aceites e não podem ser iniciadas.
+Quando o Livy reiniciado (do Ambari ou devido a reinício da máquina virtual de headnode 0) com uma sessão interativa ainda alive, é podem fugir uma sessão interativa de tarefa. Como resultado, as novas tarefas podem estar bloqueadas no Estado aceites.
 
 **Atenuação:**
 
@@ -54,7 +52,12 @@ Servidor do histórico de Spark não está iniciado automaticamente depois de um
 Inicie manualmente o servidor de histórico do Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problema de permissão no diretório de registo do Spark
-Quando hdiuser submete uma tarefa com spark-submit, há um java.io.FileNotFoundException de erro: não é escrito /var/log/spark/sparkdriver_hdiuser.log (permissão negada) e o registo de controlador. 
+hdiuser obtém o seguinte erro ao submeter a tarefa a utilizar o spark-submeter:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+E nenhum controlador de registo é escrito. 
 
 **Atenuação:**
 
@@ -65,7 +68,7 @@ Quando hdiuser submete uma tarefa com spark-submit, há um java.io.FileNotFoundE
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>O Spark Phoenix conector não é suportado
 
-Atualmente, o conector do Spark Phoenix não é suportado com um cluster do HDInsight Spark.
+Clusters do HDInsight Spark não suportam o conector do Spark Phoenix.
 
 **Atenuação:**
 
@@ -75,10 +78,10 @@ Em vez disso, tem de utilizar o conector do HBase do Spark. Para instruções, c
 Seguem-se alguns problemas conhecidos relacionados com blocos de notas do Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Blocos de notas com carateres não ASCII em nomes de ficheiros
-Blocos de notas Jupyter que podem ser utilizados em clusters do Spark HDInsight não devem ter carateres não ASCII em nomes de ficheiros. Se tentar carregar um ficheiro através da IU do Jupyter, que tem um nome de ficheiro não ASCII, falhar de forma silenciosa (ou seja, Jupyter não permitem-lhe carregar o ficheiro, mas não inicia um erro de visível ou). 
+Não utilize carateres não ASCII em nomes de bloco de notas do Jupyter ficheiros. Se tentar carregar um ficheiro através da IU do Jupyter, que tem um nome de ficheiro não ASCII, falha sem qualquer mensagem de erro. Jupyter não permitem-lhe carregar o ficheiro, mas não inicia um erro de visível se.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erro ao carregar os blocos de notas de tamanhos superiores
-Poderá ver um erro  **`Error loading notebook`**  quando carrega blocos de notas que são maiores de tamanho.  
+Poderá ver um erro **`Error loading notebook`** quando carrega blocos de notas que são maiores de tamanho.  
 
 **Atenuação:**
 
@@ -99,7 +102,7 @@ Primeira instrução de código no bloco de notas do Jupyter utilizando a magia 
 Isto acontece porque quando a primeira célula do código é executada. Em segundo plano este inicia a configuração de sessão e Spark, SQL e contextos de ramo de registo estão definidos. Depois destas contextos estão definidos, a primeira instrução é executada e Isto permite que a impressão que a instrução demorava muito tempo a concluir.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Tempo limite de bloco de notas do Jupyter criar a sessão
-Quando o cluster do Spark tem recursos insuficientes, os Spark e PySpark kernels no bloco de notas do Jupyter serão tempo limite excedido ao criar a sessão. 
+Quando o cluster do Spark tem recursos insuficientes, os Spark e PySpark kernels no bloco de notas do Jupyter irão tentar criar a sessão do tempo limite. 
 
 **Mitigações:** 
 

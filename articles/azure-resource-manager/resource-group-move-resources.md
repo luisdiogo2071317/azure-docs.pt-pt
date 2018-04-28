@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -111,7 +111,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Gestão de API
 * Aplicações de serviço de aplicações (aplicações web) - consulte [limitações do serviço de aplicações](#app-service-limitations)
 * Certificados de Serviço de Aplicações
-* Estatísticas das Aplicações
+* Application Insights
 * Automatização
 * Azure Cosmos DB
 * Batch
@@ -121,14 +121,13 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Serviços Cognitivos
 * Content Moderator
 * Catálogo de Dados
-* Gestor de Dados
 * Data Lake Analytics
-* Arquivo do Data Lake
+* Data Lake Store
 * DNS
-* Hubs de Eventos
+* Event Hubs
 * Clusters do HDInsight - consulte [limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
-* Key Vault
+* Cofre de Chaves
 * Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de Machine Learning podem ser movidos entre subscrições.
@@ -162,12 +161,15 @@ Os serviços que atualmente não permitem mover um recurso são:
 
 * Serviços de domínio do AD
 * Serviço de estado de funcionamento de AD híbrido
-* Gateway da Aplicação
+* Gateway de Aplicação
+* Base de Dados do Azure para MySQL
 * Serviços BizTalk
+* Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
 * Serviço de Contentor
-* Express Route
+* Data Factory
 * DevTest Labs - vá para o novo grupo de recursos na mesma subscrição está ativada, mas mover subscrição cruzada não está ativada.
 * Dynamics LCS
+* ExpressRoute
 * Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Geridas
 * Discos geridos - Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
@@ -181,7 +183,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 
 Discos geridos não suportam a movimentação. Esta restrição significa que vários recursos relacionados não podem ser movidos demasiado. Não é possível mover:
 
-* Managed Disks
+* Managed disks
 * Máquinas virtuais com os discos geridos
 * Imagens de criada a partir de discos geridos
 * Instantâneos criados a partir de discos geridos
@@ -223,7 +225,7 @@ Quando move uma aplicação Web _entre subscrições_, aplicam as seguintes limi
     - Aplicações Web
     - Planos do Serviço de Aplicações
     - Certificados SSL carregados ou importados
-    - Ambientes de Serviço de Aplicações
+    - Ambientes do App Service
 - Todos os recursos do serviço de aplicações no grupo de recursos têm de ser movidos em conjunto.
 - Recursos do serviço de aplicações só podem ser afastados do grupo de recursos no qual foram originalmente criados. Se um recurso de serviço de aplicações já não consta no respetivo grupo de recursos original, têm de ser movido volta a esse grupo de recursos original pela primeira vez e, em seguida, pode ser movida entre subscrições. 
 
@@ -388,7 +390,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 Para mover para uma nova subscrição, forneça o `--destination-subscription-id` parâmetro.
 
-## <a name="use-rest-api"></a>Utilizar API REST
+## <a name="use-rest-api"></a>Utilizar a API REST
 
 Para mover recursos existentes para outro grupo de recursos ou subscrição, execute:
 

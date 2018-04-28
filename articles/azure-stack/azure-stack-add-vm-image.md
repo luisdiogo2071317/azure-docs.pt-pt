@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 88254966c8aa16bf9fa182702c9c742d908851e1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
 
@@ -81,7 +81,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua os seguintes 
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Login-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -109,7 +109,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua os seguintes 
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Login-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```
@@ -157,13 +157,13 @@ Remove-AzsVMImage `
 | **publisher** |O segmento de nome do publicador da imagem VM que os utilizadores utilizam quando implementam a imagem. Um exemplo é **Microsoft**. Não inclua um espaço ou outros carateres especiais neste campo. |
 | **offer** |O segmento de nome de oferta da imagem VM que os utilizadores utilizam quando implementam a imagem VM. Um exemplo é **WindowsServer**. Não inclua um espaço ou outros carateres especiais neste campo. |
 | **sku** |O segmento de nome SKU da imagem de VM que os utilizadores utilizam quando implementam a imagem VM. Um exemplo é **Datacenter2016**. Não inclua um espaço ou outros carateres especiais neste campo. |
-| **version** |A versão da imagem de VM que os utilizadores utilizam quando implementam a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros carateres especiais neste campo. |
+| **Versão** |A versão da imagem de VM que os utilizadores utilizam quando implementam a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros carateres especiais neste campo. |
 | **osType** |O osType da imagem tem de ser um **Windows** ou **Linux**. |
 | **osDiskLocalPath** |O caminho local para o disco de SO VHD que estiver a carregar como uma imagem VM para a pilha do Azure. |
 | **dataDiskLocalPaths** |Uma matriz opcional local caminhos para discos de dados que podem ser também carregados como parte da imagem de VM. |
 | **CreateGalleryItem** |Sinalizador booleano que determina se deve criar um item no Marketplace. Por predefinição, está definido como **verdadeiro**. |
 | **title** |O nome a apresentar do item do Marketplace. Por predefinição, está definido para o `Publisher-Offer-Sku` valor da imagem de VM. |
-| **description** |A descrição do item do Marketplace. |
+| **Descrição** |A descrição do item do Marketplace. |
 | **localização** |A localização onde a imagem VM deve ser publicada. Por predefinição, este valor é definido como **local**.|
 | **osDiskBlobURI** |(Opcional) Este script também aceita um URI de armazenamento de BLOBs para `osDisk`. |
 | **dataDiskBlobURIs** |(Opcional) Este script também aceita uma matriz de armazenamento de BLOBs URIs para adição de discos de dados para a imagem. |

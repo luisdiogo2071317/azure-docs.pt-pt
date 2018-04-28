@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: dd82f1757d9c5a5fc8fb110cc36ec9f4bbd73e8a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4a1a2d0c40012649f6cd89193fd3f704f325e38a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Utilize um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux para aceder ao armazenamento do Azure
 
@@ -43,7 +43,7 @@ Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 - Utilize [Shell de nuvem do Azure](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão "Tente-", localizada no canto superior direito de cada bloco de código.
 - [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir utilizar uma consola local do CLI.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -96,13 +96,13 @@ Primeiro de criar uma nova VM do Linux. Também pode ativar MSI numa VM existent
 
 Ao contrário de um MSI atribuído do sistema, um MSI atribuída de utilizador pode ser utilizado por clientes em vários recursos do Azure. Para este tutorial, atribua-a uma única VM. Também pode atribuir a mais do que uma VM.
 
-Atribuir o MSI utilizador atribuído à VM com Linux utilizando [az vm atribuir-identity](/cli/azure/vm#az_vm_assign_identity). Não se esqueça de substituir o `<RESOURCE GROUP>` e `<VM NAME>` valores de parâmetros com os seus próprios valores. Utilize o `id` propriedade devolvida no passo anterior para o `--identities` valor do parâmetro:
+Atribuir o MSI utilizador atribuído à VM com Linux utilizando [az vm atribuir-identity](/cli/azure/vm#az-vm-identity-assign). Não se esqueça de substituir o `<RESOURCE GROUP>` e `<VM NAME>` valores de parâmetros com os seus próprios valores. Utilize o `id` propriedade devolvida no passo anterior para o `--identities` valor do parâmetro:
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
+## <a name="create-a-storage-account"></a>Create a storage account 
 
 Se ainda não tiver um, agora crie uma conta de armazenamento. Também pode ignorar este passo e utilizar uma conta de armazenamento existente, se preferir. 
 

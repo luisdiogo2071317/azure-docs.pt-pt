@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 2a0f183770a07cd05963e88c672452cfeb80e567
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicar e efetuar a ativação pós-falha de VMs de VMware para o Azure com o PowerShell
 
@@ -42,10 +42,10 @@ Antes de começar:
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Inicie sessão na sua subscrição do Microsoft Azure
 
-Inicie sessão na sua subscrição do Azure utilizando o cmdlet Login-AzureRmAccount
+Inicie sessão na sua subscrição do Azure utilizando o cmdlet do Connect-AzureRmAccount
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Selecione a subscrição do Azure que pretende replicar as máquinas virtuais VMware. Utilize o cmdlet Get-AzureRmSubscription para obter a lista de subscrições do Azure que tem acesso a. Selecione a subscrição do Azure para trabalhar com utilizando o cmdlet Select-AzureRmSubscription.
 
@@ -347,9 +347,9 @@ Agora replicar as seguintes máquinas virtuais utilizando as definições especi
 
 |Máquina virtual  |Servidor de processos        |Conta de Armazenamento              |Conta de armazenamento de registo  |Política           |Conta de instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |
+|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |   
 
  
 ```azurepowershell

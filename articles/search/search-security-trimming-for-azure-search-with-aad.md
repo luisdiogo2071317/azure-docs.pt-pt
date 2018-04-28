@@ -1,18 +1,18 @@
 ---
-title: "Filtros de segurança para corte utilizar identidades do Active Directory de resultados de pesquisa do Azure | Microsoft Docs"
-description: "Controlo de acesso no conteúdo de Azure Search utilizando filtros de segurança e de identidades do Active Directory."
-services: search
+title: Filtros de segurança para corte utilizar identidades do Active Directory de resultados de pesquisa do Azure | Microsoft Docs
+description: Controlo de acesso no conteúdo de Azure Search utilizando filtros de segurança e de identidades do Active Directory.
 author: revitalbarletz
 manager: jlembicz
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para corte resultados de pesquisa do Azure com identidades do Active Directory
 
@@ -97,7 +97,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Passo 4: Colocar em Cache os identificadores de grupos
-Opcionalmente, para reduzir a latência de rede, pode colocar em cache as associações de grupo de utilizadores para que quando um pedido de pesquisa é emitido, grupos são devolvidos da cache, guardar uma ida e volta para o AAD. Pode utilizar (AAD API do Batch) [https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar um pedido de Http único com vários utilizadores e criar a cache.
+Opcionalmente, para reduzir a latência de rede, pode colocar em cache as associações de grupo de utilizadores para que quando um pedido de pesquisa é emitido, grupos são devolvidos da cache, guardar uma ida e volta para o AAD. Pode utilizar (API do Batch AAD) [https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar um pedido de Http único com vários utilizadores e criar a cache.
 
 Microsoft Graph foi concebido para processar um grande volume de pedidos. Se ocorrer um número muito confuso de pedidos, o Microsoft Graph falhar o pedido com o código de estado HTTP 429. Para obter mais informações, consulte [Microsoft Graph limitação](https://developer.microsoft.com/graph/docs/concepts/throttling).
 
@@ -185,7 +185,7 @@ A resposta inclui uma lista de documentos, constituída por aqueles que o utiliz
 
 Nestas instruções, aprendeu técnicas para filtrar documentos nos resultados de pesquisa do Azure, utilizando o AAD inícios de sessão trimming os resultados de documentos que não correspondem do filtro fornecido no pedido.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Controlo de acesso baseado na identidade utilizando filtros de pesquisa do Azure](search-security-trimming-for-azure-search.md)
 + [Filtros na pesquisa do Azure](search-filters.md)

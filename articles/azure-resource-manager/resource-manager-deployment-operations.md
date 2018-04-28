@@ -1,32 +1,31 @@
 ---
-title: "Operações de implementação com o Azure Resource Manager | Microsoft Docs"
-description: "Descreve como ver as operações de implementação Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a REST API."
+title: Operações de implementação com o Azure Resource Manager | Microsoft Docs
+description: Descreve como ver as operações de implementação Azure Resource Manager com o portal, o PowerShell, a CLI do Azure e a REST API.
 services: azure-resource-manager,virtual-machines
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
+ms.date: 04/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26c2c333a97abff75f6b4caefb1e351dea826081
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Operações de implementação de vista com o Azure Resource Manager
 
-
 Pode ver as operações de uma implementação através do portal do Azure. Pode ser mais interessado em visualizar as operações quando tiver recebido um erro durante a implementação para que este artigo foca-se sobre a visualização de operações que falharam. O portal fornece uma interface que permite-lhe facilmente encontrar os erros e determinar o potenciais de correções.
 
-Pode resolver problemas com a implementação observando os registos de auditoria ou as operações de implementação. Este tópico mostra ambos os métodos. Para obter ajuda com resolver erros de implementação específicos, consulte [resolver erros comuns ao implementar recursos para o Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Pode resolver problemas com a implementação observando os registos de auditoria ou as operações de implementação. Este artigo mostra ambos os métodos. Para obter ajuda com resolver erros de implementação específicos, consulte [resolver erros comuns ao implementar recursos para o Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Para ver as operações de implementação, utilize os seguintes passos:
@@ -136,21 +135,19 @@ Para ver as operações de implementação, utilize os seguintes passos:
 1. Obter o estado geral de uma implementação com o **mostrar de implementação de grupo do azure** comando.
 
   ```azurecli
-  azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-  Um dos valores devolvidos é o **correlationId**. Este valor é utilizado para controlar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico a resolver problemas de uma implementação.
+1. Um dos valores devolvidos é o **correlationId**. Este valor é utilizado para controlar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico a resolver problemas de uma implementação.
 
   ```azurecli
-  "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-2. Para ver as operações de uma implementação, utilize:
+1. Para ver as operações de uma implementação, utilize:
 
   ```azurecli
-  azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment operation list -g ExampleGroup -n ExampleDeployment
   ```
 
 ## <a name="rest"></a>REST

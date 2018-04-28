@@ -1,8 +1,8 @@
 ---
-title: "Depurador de instantâneos de Azure Application Insights para aplicações de .NET | Microsoft Docs"
-description: "Depurar instantâneos são recolhidos automaticamente quando as exceções forem emitidas nas aplicações de .NET de produção"
+title: Depurador de instantâneos de Azure Application Insights para aplicações de .NET | Microsoft Docs
+description: Depurar instantâneos são recolhidos automaticamente quando as exceções forem emitidas nas aplicações de .NET de produção
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: pharring
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -42,7 +42,7 @@ São suportados os seguintes ambientes:
 
 1. [Ativar o Application Insights na aplicação web](app-insights-asp-net.md), se ainda não o fez, ainda.
 
-2. Incluir o [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação. 
+2. Incluir o [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
 
 3. Reveja as opções predefinidas que o pacote adicionado ao [Applicationinsights](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -92,10 +92,18 @@ São suportados os seguintes ambientes:
 
 3. Modificar a sua aplicação `Startup` classe para adicionar e configurar o processador de telemetria do Recoletor de instantâneo.
 
+    Adicione o seguinte através de instruções para `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Adicione o seguinte `SnapshotCollectorTelemetryProcessorFactory` de classe para `Startup` classe.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ São suportados os seguintes ambientes:
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Adicionar o `SnapshotCollectorConfiguration` e `SnapshotCollectorTelemetryProcessorFactory` serviços para o pipeline de arranque:
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ São suportados os seguintes ambientes:
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>Conceder permissões
 
 Os proprietários da subscrição do Azure podem inspecionar instantâneos. Outros utilizadores devem ser concedidos permissão por um proprietário.
@@ -208,7 +216,7 @@ Na vista de instantâneo de depuração, verá uma pilha de chamadas e um painel
 Instantâneos poderão conter informações confidenciais e, por predefinição não estão visíveis. Para ver os instantâneos, tem de ter o `Application Insights Snapshot Debugger` função atribuída.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Depurar instantâneos com o Visual Studio Enterprise de 2017
-1. Clique em de **transferir instantâneo** botão para transferir um `.diagsession` ficheiro, que pode ser aberto por Visual Studio Enterprise de 2017. 
+1. Clique em de **transferir instantâneo** botão para transferir um `.diagsession` ficheiro, que pode ser aberto por Visual Studio Enterprise de 2017.
 
 2. Para abrir o `.diagsession` ficheiro, deve primeiro [transferir e instalar a extensão de depurador de instantâneo para o Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -312,7 +320,7 @@ Deve permitir para, pelo menos, dois instantâneos em simultâneo.
 Por exemplo, se a sua aplicação utilizar 1 GB do conjunto de trabalho total, deve certificar-se de que há, pelo menos, 2 GB de espaço em disco para armazenar os instantâneos.
 Siga estes passos para configurar a sua função de serviço em nuvem com um recurso local dedicado para instantâneos.
 
-1. Adicione um novo recurso local ao seu serviço de nuvem editando o ficheiro de definição (.csdf) do serviço em nuvem. O exemplo seguinte define um recurso chamado `SnapshotStore` com um tamanho de 5 GB.
+1. Adicione um novo recurso local ao seu serviço de nuvem editando o ficheiro de definição (. csdef) do serviço em nuvem. O exemplo seguinte define um recurso chamado `SnapshotStore` com um tamanho de 5 GB.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ Se ainda não vir uma exceção com esse ID de instantâneo, não foi reportada 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Definir snappoints no seu código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) obter instantâneos sem aguardar por uma exceção.
-* [Diagnosticar exceções nas suas aplicações web](app-insights-asp-net-exceptions.md) explica como tornar mais exceções visíveis para o Application Insights. 
+* [Diagnosticar exceções nas suas aplicações web](app-insights-asp-net-exceptions.md) explica como tornar mais exceções visíveis para o Application Insights.
 * [Deteção de smart](app-insights-proactive-diagnostics.md) Deteta automaticamente anomalias de desempenho.

@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: 6a66c9fe3716935a717dca984d1995ca371d9499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea76bc4cc182902fb5618d23358579ec229a5ef4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-your-sql-database"></a>Proteger a sua Base de Dados SQL
 
@@ -28,7 +28,7 @@ Para obter uma descrição geral completa das funcionalidades de segurança disp
 Base de dados SQL protege os seus dados ao fornecer a encriptação dos dados em movimento com [Transport Layer Security](https://support.microsoft.com/kb/3135244), para dados Inativos com [encriptação transparente de dados](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)e para os dados em utilização com [ Sempre encriptado](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Todas as ligações à Base de Dados SQL do Azure precisam de encriptação (SSL/TLS) em todos os momentos enquanto os dados se encontram "em trânsito" para e a partir da base de dados. Na cadeia de ligação da sua aplicação, tem de especificar parâmetros para encriptar a ligação e *não* para de confiar no certificado de servidor (isto é feito automaticamente se copiar a cadeia de ligação fora do portal do Azure), caso contrário, o ligação não verificar a identidade do servidor e é suscetível a ataques "man-in-the-middle". Para o controlador ADO.NET, por exemplo, estes parâmetros da cadeia de ligação são **Encrypt=True** e **TrustServerCertificate=False**. 
+>Todas as ligações à Base de Dados SQL do Azure precisam de encriptação (SSL/TLS) em todos os momentos enquanto os dados se encontram "em trânsito" para e a partir da base de dados. Na cadeia de ligação da sua aplicação, tem de especificar parâmetros para encriptar a ligação e *não* para de confiar no certificado de servidor (isto é feito automaticamente se copiar a cadeia de ligação fora do portal do Azure), caso contrário, o ligação não verificar a identidade do servidor e é suscetível a ataques "man-in-the-middle". Para o controlador ADO.NET, por exemplo, estes parâmetros da cadeia de ligação são **Encrypt=True** e **TrustServerCertificate=False**. Para obter informações sobre o TLS e a conectividade, consulte [considerações TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 Para outras formas de encriptar os seus dados, considere:
 
@@ -39,7 +39,7 @@ Para outras formas de encriptar os seus dados, considere:
 Deteção de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas de incorporado no SQL Database do Azure para detetar, classificar, Etiquetar e proteger os dados confidenciais nas suas bases de dados. Detetar e classificar os dados confidenciais utmost (negócio financeiros, healthcare, PII, etc.) pode desempenham um papel no seu stature de proteção de informações organizacional. Que possa servir como a infraestrutura para:
 
 - Vários cenários de segurança, tais como (auditoria) de monitorização e alertas anómalos acesso a dados confidenciais.
-- Controlar o acesso ao e proteger a segurança das bases de dados que contém dados altamente confidenciais.
+- Controlar o acesso ao e proteger a segurança, as bases de dados que contêm dados de altamente confidenciais.
 - Ajudar a cumprir os requisitos de conformidade de regulamentação e normas de privacidade de dados.
 
 Para obter mais informações, consulte [começar com deteção de dados do SQL DB & classificação](sql-database-data-discovery-and-classification.md). 
@@ -66,7 +66,7 @@ A autorização diz respeito ao que um utilizador pode fazer dentro de uma Base 
 A Segurança ao Nível da Linha permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, associação a um grupo ou contexto de execução). Para obter mais informações, veja [Segurança ao Nível da Linha](https://msdn.microsoft.com/library/dn765131).
 
 ### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 
-Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados confidenciais através da máscara-lo para utilizadores não privilegiados. Automaticamente a máscara de dados dinâmica Deteta dados potencialmente sensíveis na SQL Database do Azure e fornece recomendações acionáveis para mascarar estes campos, com um impacto mínimo na camada da aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [começar com a máscara de dados dinâmicos da base de dados SQL](sql-database-dynamic-data-masking-get-started.md) pode ser utilizado para limitar a exposição de dados confidenciais.
+Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados confidenciais através da máscara-lo para utilizadores não privilegiados. Automaticamente a máscara de dados dinâmica Deteta dados potencialmente sensíveis na SQL Database do Azure e fornece recomendações acionáveis para mascarar estes campos, com um impacto mínimo na camada da aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [começar com a máscara de dados dinâmicos da base de dados SQL](sql-database-dynamic-data-masking-get-started.md).
 
 ## <a name="proactive-monitoring"></a>Monitorização proativa
 A Base de Dados SQL protege os seus dados, fornecendo capacidades de auditoria e deteção de ameaças. 

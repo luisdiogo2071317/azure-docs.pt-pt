@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4d33fc513b3a2aaa70a3402a42b31efe63c62dd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0047ff742b4a2fd46739c40d08e7c07b69896fae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos BD do Azure para a API do SQL Server: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -52,6 +52,12 @@ ms.lasthandoff: 04/16/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
+
+* Foram adicionadas ConsistencyLevel propriedade FeedOptions.
+* Foram adicionadas JsonSerializerSettings RequestOptions e FeedOptions.
+* Foram adicionada EnableReadRequestsFallback para ConnectionPolicy.
+
 ### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
 
 * KeyNotFoundException fixo para cruzada ordem da partição por consultas nos casos extremos.
@@ -293,6 +299,7 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.22.0](#1.22.0) |19 de Abril de 2018 |--- |
 | [1.21.1](#1.20.1) |09 de Março de 2018 |--- |
 | [1.20.2](#1.20.1) |21 de fevereiro de 2018 |--- |
 | [1.20.1](#1.20.1) |05 de Fevereiro de 2018 |--- |
@@ -343,6 +350,6 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

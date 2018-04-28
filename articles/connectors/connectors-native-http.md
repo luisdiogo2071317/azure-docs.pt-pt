@@ -1,11 +1,11 @@
 ---
-title: "Comunicar com qualquer ponto final através de HTTP - Azure Logic Apps | Microsoft Docs"
-description: "Criar as logic apps que podem comunicar com qualquer ponto final através de HTTP"
+title: Comunicar com qualquer ponto final através de HTTP - Azure Logic Apps | Microsoft Docs
+description: Criar as logic apps que podem comunicar com qualquer ponto final através de HTTP
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Começar com a ação de HTTP
 
@@ -114,7 +114,7 @@ A * significa que é um campo obrigatório.
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Método * |método |O verbo HTTP a utilizar |
-| URI* |uri |O URI do pedido de HTTP |
+| URI * |uri |O URI do pedido de HTTP |
 | Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir |
 | Corpo |corpo |O corpo do pedido HTTP |
 | Autenticação |autenticação |Os detalhes no [autenticação](#authentication) secção |
@@ -128,10 +128,10 @@ Seguem-se detalhes de saída para a resposta HTTP.
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
-| Código de Estado |Int |Código de estado HTTP |
+| Código de Estado |Int |Código de estado de HTTP |
 
 ## <a name="authentication"></a>Autenticação
-A funcionalidade de Logic Apps permite-lhe utilizar diferentes tipos de autenticação nos pontos finais HTTP. Pode utilizar esta autenticação com o **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, e  **[HTTP Webhook](connectors-native-webhook.md)**  conectores. Os seguintes tipos de autenticação são configuráveis:
+A funcionalidade de Logic Apps permite-lhe utilizar diferentes tipos de autenticação nos pontos finais HTTP. Pode utilizar esta autenticação com o **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, e **[HTTP Webhook](connectors-native-webhook.md)** conectores. Os seguintes tipos de autenticação são configuráveis:
 
 * [Autenticação básica](#basic-authentication)
 * [Autenticação de certificado de cliente](#client-certificate-authentication)
@@ -150,7 +150,7 @@ A * significa que é um campo obrigatório.
 
 > [!TIP]
 > Se pretender utilizar uma palavra-passe não pode ser obtida a partir da definição, utilize um `securestring` parâmetro e o `@parameters()`  
->  [função da definição de fluxo de trabalho](http://aka.ms/logicappdocs).
+>  [função da definição de fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Por exemplo:
 
@@ -169,12 +169,12 @@ Por exemplo:
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Tipo * |tipo |O tipo de autenticação (tem de ser `ClientCertificate` para certificados de cliente SSL) |
-| PFX* |pfx |O conteúdo com codificação Base64 do ficheiro Personal Information (Exchange PFX) |
+| PFX* |PFX |O conteúdo com codificação Base64 do ficheiro Personal Information (Exchange PFX) |
 | Palavra-passe * |palavra-passe |A palavra-passe para aceder ao ficheiro PFX |
 
 > [!TIP]
 > Para utilizar um parâmetro que não seja legível na definição do depois de guardar a aplicação lógica, pode utilizar um `securestring` parâmetro e o `@parameters()`  
->  [função da definição de fluxo de trabalho](http://aka.ms/logicappdocs).
+>  [função da definição de fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
 
 Por exemplo:
 
@@ -198,7 +198,7 @@ Por exemplo:
 | Segredo * |segredo |O segredo do cliente que está a solicitar o token |
 
 > [!TIP]
-> Pode utilizar um `securestring` parâmetro e o `@parameters()` [função da definição de fluxo de trabalho](http://aka.ms/logicappdocs) para utilizar um parâmetro que não seja legível na definição do depois de guardar.
+> Pode utilizar um `securestring` parâmetro e o `@parameters()` [função da definição de fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) para utilizar um parâmetro que não seja legível na definição do depois de guardar.
 > 
 > 
 

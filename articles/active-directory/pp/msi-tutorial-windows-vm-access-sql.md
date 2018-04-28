@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 682998bb979c9b155b7b1389d8f605018ae135b6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure
 
@@ -39,7 +39,7 @@ Este tutorial mostra como utilizar uma identidade de serviço geridas (MSI) para
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
@@ -101,7 +101,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Em seguida, adicione o MSI da VM para o grupo.  É necessário o MSI **ObjectId**, que pode obter com o Azure PowerShell.  Em primeiro lugar, transferir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Em seguida, inicie sessão com `Login-AzureRmAccount`, e execute os seguintes comandos para:
+Em seguida, adicione o MSI da VM para o grupo.  É necessário o MSI **ObjectId**, que pode obter com o Azure PowerShell.  Em primeiro lugar, transferir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Em seguida, inicie sessão com `Connect-AzureRmAccount`, e execute os seguintes comandos para:
 - Certifique-se do que contexto da sessão está definido para a subscrição do Azure pretendida, se tiver vários.
 - Listar os recursos disponíveis na sua subscrição do Azure, verifique na corretos grupo de recursos e nomes VM.
 - Obter propriedades da VM MSI, utilizando os valores adequados para `<RESOURCE-GROUP>` e `<VM-NAME>`.

@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -42,8 +42,6 @@ Destaques de tabela seguintes diferenças da chave e envisioned cenários de uti
 |Base de dados SQL do Azure (único ou agrupamento) |**Conjuntos elásticos**: para os clientes desenvolver novas aplicações da multi-inquilinos de SaaS ou intencionalmente transformar existente no local aplicações numa aplicação SaaS multi-inquilino, propor conjuntos elásticos. Benefícios deste modelo são: <br><ul><li>Conversão do modelo de negócio de vender licenças para vender serviço subscrições (ISVs)</li></ul><ul><li>Isolamento de inquilinos fácil e marca-prova</li></ul><ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul><ul><li>O potencial de ampliar sem atingir um limite rígido</li></ul>**Único bases de dados**: para os clientes a desenvolver novas aplicações que não sejam SaaS multi-inquilino, cuja carga de trabalho é estáveis e previsíveis, propor a bases de dados individuais. Benefícios deste modelo são:<ul><li>Um modelo de programação de base de dados centrada simplificado</li></ul>  <ul><li>Desempenho previsível para cada base de dados</li></ul>|
 |Máquina virtual IaaS do SQL Server|Para os clientes que necessitam personalizar o sistema operativo ou o servidor de base de dados, bem como os clientes ter requisitos específicos em termos de aplicações em execução por terceiros pelo lado com o SQL Server (na mesma VM), propor VMs de SQL / IaaS como a solução ideal|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Como identificar através de programação de uma instância geridos
 
@@ -224,5 +222,5 @@ Gerido instância ativar administrador de sistema focar-se naquilo que realmente
 
 - Para funcionalidades e a lista de comparação, consulte [funcionalidades comuns do SQL Server](sql-database-features.md).
 - Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
-- Para um tutorial que cria uma instância geridos e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância geridos](sql-database-managed-instance-tutorial-portal.md).
+- Para um tutorial que cria uma instância geridos e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância geridos](sql-database-managed-instance-create-tutorial-portal.md).
 - Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).

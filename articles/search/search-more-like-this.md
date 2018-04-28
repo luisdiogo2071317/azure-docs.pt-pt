@@ -1,27 +1,23 @@
 ---
-title: "moreLikeThis na pesquisa do Azure (pré-visualização) | Microsoft Docs"
-description: "Preliminar documentação para a funcionalidade de moreLikeThis (pré-visualização), exposta na API de REST da Azure Search."
-services: search
-documentationCenter: na
+title: moreLikeThis na pesquisa do Azure (pré-visualização) | Microsoft Docs
+description: Preliminar documentação para a funcionalidade de moreLikeThis (pré-visualização), exposta na API de REST da Azure Search.
 authors: mhko
 manager: jlembicz
-editor: na
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: nateko
-ms.openlocfilehash: 20f6a1166d47799f15275cb5b6a9ea4934ae57e2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 29d9a478ca2e91e658d7d0f52e7a193ba694bc16
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis na pesquisa do Azure (pré-visualização)
 
-`moreLikeThis=[key]`é um parâmetro de consulta no [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Ao especificar o `moreLikeThis` parâmetro numa consulta de pesquisa, pode encontrar documentos que são semelhantes ao documento especificado pela chave do documento. Quando é efetuado um pedido de pesquisa com `moreLikeThis`, é gerada uma consulta com os termos da procura extraídos do documento fornecido que descrevem melhor esse documento. A consulta gerada, em seguida, é utilizada para efetuar o pedido de pesquisa. Por predefinição, o conteúdo de todos os `searchable` campos são considerados a menos que o `searchFields` parâmetro é utilizado para restringir os campos. O `moreLikeThis` parâmetro não pode ser utilizado com o parâmetro de pesquisa, `search=[string]`.
+`moreLikeThis=[key]` é um parâmetro de consulta no [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Ao especificar o `moreLikeThis` parâmetro numa consulta de pesquisa, pode encontrar documentos que são semelhantes ao documento especificado pela chave do documento. Quando é efetuado um pedido de pesquisa com `moreLikeThis`, é gerada uma consulta com os termos da procura extraídos do documento fornecido que descrevem melhor esse documento. A consulta gerada, em seguida, é utilizada para efetuar o pedido de pesquisa. Por predefinição, o conteúdo de todos os `searchable` campos são considerados a menos que o `searchFields` parâmetro é utilizado para restringir os campos. O `moreLikeThis` parâmetro não pode ser utilizado com o parâmetro de pesquisa, `search=[string]`.
 
 ## <a name="examples"></a>Exemplos 
 

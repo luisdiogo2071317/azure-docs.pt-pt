@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas comuns
 
-Este artigo apresenta uma lista de consultas que poderá ter relacionadas com a Microsoft Genomics parte superior. Para obter mais informações sobre o serviço Microsoft Genomics, consulte [Novidades Microsoft Genomics?](overview-what-is-genomics.md) 
+Este artigo apresenta uma lista de consultas superiores, poderá ter relacionados com o Microsoft Genomics. Para obter mais informações sobre o serviço Microsoft Genomics, consulte [Novidades Microsoft Genomics?](overview-what-is-genomics.md). Para obter mais informações sobre resolução de problemas, consulte a nossa [guia de resolução de problemas](troubleshooting-guide-genomics.md). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>O que é o SLA para a Microsoft Genomics?
@@ -57,7 +57,7 @@ A chave de conta de armazenamento é utilizada para criar tokens de acesso de cu
 ## <a name="what-genome-references-can-i-use"></a>Referencia que genome pode utilizar?
 
 Estas referências são suportadas:
- |Referência              | Valor de`-pa/--process-args` |
+ |Referência              | Valor de `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -74,13 +74,13 @@ Espaço em branco é ignorado.
 
  |Argumento da linha de comandos            | Linha do ficheiro de configuração |
  |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://URL*    |
+ |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:key*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Utilize os seguintes recursos para começar a utilizar o Microsoft Genomics:
-- Introdução ao executar o fluxo de trabalho primeiro através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Introdução ao executar o fluxo de trabalho primeiro através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
 - Submeter os seus próprios dados para processamento pelo serviço Microsoft Genomics: [emparelhado FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [FASTQ vários ou BAM](quickstart-input-multiple.md) 
 

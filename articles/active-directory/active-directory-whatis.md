@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 003ce2edda3e2069eb7e05f58ecc2e208c818946
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Azure Active Directory?
 Azure Active Directory (Azure AD) é o diretório de multi-inquilino, baseado na nuvem da Microsoft e serviço de gestão de identidade que combina serviços de diretório de principais, gestão de acesso de aplicações e proteção de identidade numa solução única. Do Azure AD também oferece uma plataforma avançada, baseada em normas que permite aos programadores fornecer controlo de acesso para as respetivas aplicações, com base na política centralizada e regras.
@@ -55,7 +55,7 @@ Para melhorar o Azure Active Directory, pode adicionar capacidades pagas utiliza
 > Um número de capacidades do Azure Active Directory está disponível nas várias edições de "pay as you go":
 >
 > * Active Directory B2C é a solução de gestão de identidades e acessos para as suas aplicações direcionadas para o consumidor. Para obter mais informações, consulte [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
-> * Multi-factor Authentication do Azure pode ser utilizada através por utilizador ou por fornecedores de autenticação. Para obter mais informações, consulte [que é o Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+> * Multi-factor Authentication do Azure pode ser utilizada através por utilizador ou por fornecedores de autenticação. Para obter mais informações, consulte [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 >
 
 ## <a name="how-can-i-get-started"></a>Como pode começar a utilizar?

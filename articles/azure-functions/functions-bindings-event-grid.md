@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador de grelha de eventos para as funções do Azure
 
@@ -213,8 +213,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON |Descrição|
 |---------|---------|----------------------|
-| **type** | Necessário - tem de ser definido como `eventGridTrigger`. |
-| **direction** | Necessário - tem de ser definido como `in`. |
+| **tipo** | Necessário - tem de ser definido como `eventGridTrigger`. |
+| **direção** | Necessário - tem de ser definido como `in`. |
 | **name** | Necessário - o nome da variável utilizado no código de função para o parâmetro que recebe os dados do evento. |
 
 ## <a name="usage"></a>Utilização
@@ -337,6 +337,9 @@ Em alternativa, pode enviar um HTTP PUT para especificar o valor da chave por si
 
 ## <a name="local-testing-with-requestbin"></a>Testar com RequestBin local
 
+> [!NOTE]
+> O site RequestBin não está atualmente disponível, mas pode utilizar esta abordagem com https://hookbin.com em vez disso. Se esse site estiver desativado, pode utilizar [ngrok](#local-testing-with-ngrok).
+
 Para testar um acionador de grelha de evento localmente, terá de obter os pedidos de HTTP da grelha de evento entregues da respetiva origem na nuvem no seu computador local. Uma forma de fazê-lo é ao capturar pedidos online e manualmente reenviá-los no seu computador local:
 
 2. [Criar um ponto final RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Quando tiver terminado de teste, pode utilizar a mesma subscrição para produç
 
 ### <a name="create-a-requestbin-endpoint"></a>Criar um ponto final RequestBin
 
-RequestBin é uma ferramenta open-source que aceita os pedidos HTTP e mostra-lhe o corpo do pedido. O http://requestb.in URL obtém um tratamento especial através da grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos para o URL de RequestBin sem necessidade de uma resposta a pedidos de validação de subscrição correta. Duas outras ferramentas de testes recebem o tratamento mesmo: http://webhookinbox.com e http://hookbin.com.
+RequestBin é uma ferramenta open-source que aceita os pedidos HTTP e mostra-lhe o corpo do pedido. O http://requestb.in URL obtém um tratamento especial através da grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos para o URL de RequestBin sem necessidade de uma resposta a pedidos de validação de subscrição correta. Uma ferramenta de teste é dado o mesmo tratamento: http://hookbin.com.
 
 RequestBin não se destina a utilização de débito elevado. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
 

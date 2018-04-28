@@ -3,8 +3,8 @@ title: Como delegar a subscrição de produto e registo de utilizador
 description: Saiba como delegar a subscrição de produto e registo de utilizador a terceiros na API Management do Azure.
 services: api-management
 documentationcenter: ''
-author: antonba
-manager: erikre
+author: vladvino
+manager: cfowler
 editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 8c19111ed966ff89a2934dd5232625aab1f8b28b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 9e5a6aab48a722f6d000dce37f510c09f5acdd7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar a subscrição de produto e registo de utilizador
 Delegação permite-lhe utilizar o seu Web site existente para processar programador sessão-na/sessão-up e subscrição produtos, por oposição a utilizar a funcionalidade incorporada no portal do programador. Isto permite que o seu Web site para proprietários de dados de utilizador e efetuar a validação destes passos de uma forma personalizada.
@@ -58,7 +58,7 @@ Agora tem de criar o **ponto final de delegação**. Tem de efetuar várias aç�
    
    * Um hash HMAC SHA512 de uma cadeia com base de computação a **returnUrl** e **salt** parâmetros de consulta ([código de exemplo fornecido abaixo]):
      
-     > HMAC(**salt** + '\n' + **returnUrl**)
+     > HMAC (**salt** + '\n' + **returnUrl**)
      > 
      > 
    * Comparar o acima-hash calculado para o valor da **sig** parâmetro de consulta. Se os dois hashes coincidirem, avançar para o passo seguinte, caso contrário negar o pedido.
@@ -119,7 +119,7 @@ Certifique-se que o ponto final de delegação efetua as seguintes ações:
    
    * Computação um SHA512 HMAC de uma cadeia com base no **productId**, * * userId, e **salt** parâmetros de consulta:
      
-     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+     > HMAC (**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Comparar o acima-hash calculado para o valor da **sig** parâmetro de consulta. Se os dois hashes coincidirem, avançar para o passo seguinte, caso contrário negar o pedido.

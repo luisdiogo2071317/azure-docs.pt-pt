@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilize perfis de versão de API com aceda na pilha do Azure
 
@@ -82,7 +80,7 @@ Para executar um exemplo de código aceda na pilha do Azure:
   ```
 
   3. Se não estiver disponível, crie uma subscrição e guarde o ID de subscrição a utilizar mais tarde. Para obter informações sobre como criar uma subscrição, consulte [criar subscrições de ofertas na pilha de Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Criar um principal de serviço com o âmbito de "Subscrição" e **proprietário** função. Guarde o ID de principal de serviço e o segredo. Para obter informações sobre como criar um principal de serviço para a pilha do Azure, consulte [criar serviço principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). O ambiente de pilha do Azure está definido.
+  4. Criar um principal de serviço com o âmbito de "Subscrição" e **proprietário** função. Guarde os principais de serviço ID e o segredo. Para obter informações sobre como criar um principal de serviço para a pilha do Azure, consulte [criar serviço principal](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). O ambiente de pilha do Azure está definido.
   5. Importe um módulo do serviço de perfil aceda SDK no seu código. A versão atual do perfil de pilha do Azure é **2017-03-09**. Por exemplo, para importar o módulo de rede de **2017-03-09** tipo de perfil: 
 
   ````go
@@ -129,7 +127,7 @@ O Authorizer tem de ser definido como authorizer para o cliente do recurso. Exis
 
 Esta secção apresenta uma forma comum para obter os tokens de authorizer na pilha do Azure, utilizando as credenciais do cliente:
 
-  1. Se estiver disponível um principal de serviço com a função de proprietário da subscrição, ignore este passo. Caso contrário, crie um principal de serviço [instruções]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) e atribua-lhe uma função de "proprietário" confinada à sua subscrição [instruções]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Guarde o ID de aplicação principal de serviço e o segredo. 
+  1. Se estiver disponível um principal de serviço com a função de proprietário da subscrição, ignore este passo. Caso contrário, crie um principal de serviço [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) e atribua-lhe uma função de "proprietário" confinada à sua subscrição [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Guarde o ID de aplicação principal de serviço e o segredo. 
 
   2. Importar **adal** pacote a partir da aceda AutoRest no seu código. 
   

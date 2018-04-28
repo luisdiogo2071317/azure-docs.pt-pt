@@ -1,11 +1,11 @@
 ---
-title: "Glossário do programador do Azure Active Directory | Microsoft Docs"
+title: Glossário do programador do Azure Active Directory | Microsoft Docs
 description: Uma lista dos termos de licenciamento para frequentemente utilizadas conceitos do programador do Azure Active Directory e funcionalidades.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,16 +15,16 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 Este artigo contém definições para alguns dos principais do Azure Active Directory (AD) para programadores conceitos, que são úteis para saber mais sobre o desenvolvimento de aplicações do Azure AD.
 
-## <a name="access-token"></a>Token de acesso
+## <a name="access-token"></a>token de acesso
 Um tipo de [token de segurança](#security-token) emitido por uma [servidor autorização](#authorization-server)e utilizado por um [aplicação cliente](#client-application) para poder aceder a um [recursos servidor protegido](#resource-server). Normalmente, sob a forma de um [JSON Web tokens (JWT)][JWT], o token embodies a autorização concedida para o cliente pelo [proprietário do recurso](#resource-owner), para um nível de acesso. O token contém todos os aplicável [afirmações](#claim) sobre o assunto, ativar a aplicação de cliente para utilizá-lo como um formulário de credenciais quando aceder a um recurso especificado. Isto também elimina a necessidade do proprietário do recurso para expor as credenciais para o cliente.
 
 Os tokens de acesso, por vezes, são referidos como "Utilizador + aplicação" ou "Aplicação só", consoante as credenciais que está a ser representadas. Por exemplo, quando uma aplicação de cliente utiliza a:
@@ -79,7 +79,7 @@ Conforme definido pelo [Framework de autorização de OAuth2][OAuth2-Role-Def], 
 
 No caso de integração de aplicações do Azure AD, do Azure AD implementa a função de servidor de autorização para aplicações do Azure AD e Microsoft APIs do serviço, por exemplo [Microsoft Graph APIs][Microsoft-Graph].
 
-## <a name="claim"></a>Afirmação
+## <a name="claim"></a>afirmação
 A [token de segurança](#security-token) contém afirmações, que fornecem asserções sobre uma entidade (tal como um [aplicação cliente](#client-application) ou [proprietário do recurso](#resource-owner)) para outra entidade (tais como o [servidor recursos](#resource-server)). As afirmações são pares nome/valor que factos sobre o assunto de token de reencaminhamento (por exemplo, o principal de segurança que foi autenticado pelo [servidor autorização](#authorization-server)). As afirmações presentes num token fornecido dependem de várias variáveis, incluindo o tipo de token, o tipo de credencial utilizado para autenticar o assunto, a configuração da aplicação, etc.
 
 Consulte [referência de token do Azure AD] [ AAD-Tokens-Claims] para obter mais detalhes.
@@ -105,7 +105,7 @@ Consulte [como iniciar sessão em qualquer utilizador do Azure AD através do pa
 ## <a name="native-client"></a>o Native client
 Um tipo de [aplicação cliente](#client-application) que está instalado nativamente num dispositivo. Uma vez que todo o código é executado num dispositivo, considera-se um cliente "público" devido a sua incapacidade de armazenar credenciais em privado/confidentially. Consulte [de perfis e tipos de cliente de OAuth2] [ OAuth2-Client-Types] para obter mais detalhes.
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions"></a>permissões
 A [aplicação cliente](#client-application) obtiver acesso a um [servidor recursos](#resource-server) por declarar pedidos de permissão. Estão disponíveis dois tipos:
 
 * "Delegado" as permissões que especificar [baseado no âmbito](#scopes) aceder ao utilizar o delegado de autorização da sessão iniciada [proprietário do recurso](#resource-owner), são apresentados para o recurso durante a execução como ["scp" afirmações](#claim) no cliente do [token de acesso](#access-token).
@@ -152,10 +152,10 @@ O processo de um [aplicação cliente](#client-application) iniciar autenticaç�
 
 A função de início de sessão de uma aplicação é normalmente utilizada para implementar o single-sign-on (SSO). -Pode também ser precedido por uma função de "inscrição", como o ponto de entrada para um utilizador final obter acesso a uma aplicação (após a primeira início de sessão). A função de inscrição é utilizada para recolher e manter o estado adicionais específico para o utilizador e pode necessitar de [consentimento do utilizador](#consent).
 
-## <a name="sign-out"></a>fim de sessão
+## <a name="sign-out"></a>de fim de sessão
 O processo de autenticação não associados a um utilizador final, desanexar o estado do utilizador com o [aplicação cliente](#client-application) sessão durante [início de sessão](#sign-in)
 
-## <a name="tenant"></a>Inquilino
+## <a name="tenant"></a>inquilino
 Uma instância de um diretório do Azure AD é referida como um inquilino do Azure AD. Fornece várias funcionalidades, incluindo:
 
 * um serviço de registo para aplicações integradas
@@ -176,7 +176,7 @@ A objeto principal do serviço é utilizado para representar uma instância de a
 ## <a name="web-client"></a>cliente Web
 Um tipo de [aplicação cliente](#client-application) que executa a todo o código num servidor web e capacidade para funcionar como um cliente "Confidencial" por armazenar as respetivas credenciais de forma segura no servidor. Consulte [de perfis e tipos de cliente de OAuth2] [ OAuth2-Client-Types] para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os desenvolvimento do Azure AD relacionadas com tópicos, incluindo uma descrição geral do [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas do [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios].  Também pode encontrar exemplos de código & tutoriais sobre como obter rapidamente e em execução no [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo, incluindo pedidos de existência de novas definições ou a atualização já existentes, utilize a seguinte secção de comentários!
@@ -203,7 +203,7 @@ Para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo, incl
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

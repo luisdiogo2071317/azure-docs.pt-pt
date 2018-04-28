@@ -1,8 +1,8 @@
 ---
 title: Registo do Cofre de Chaves do Azure | Microsoft Docs
-description: "Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves do Azure."
+description: Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves do Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Cofre de Chaves do Azure
 O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -52,7 +52,7 @@ Para concluir este tutorial, deve ter o seguinte:
 ## <a id="connect"></a>Ligar às suas subscrições
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. O Azure PowerShell irá obter todas as subscrições associadas a esta conta e, por defeito, irá utilizar a primeira.
 
@@ -133,7 +133,7 @@ Para listar todos os blobs neste contentor, escreva:
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 O resultado será algo parecido com isto:
 
-**Uri do contentor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI do Contentor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Nome**
 

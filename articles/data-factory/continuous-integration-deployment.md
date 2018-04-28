@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f44d8cc48d6bfee909c04b20136cd2be6f828a0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e a implementação no Azure Data Factory
 
@@ -92,7 +92,7 @@ Eis os passos para configurar uma versão de VSTS, de modo pode automatizar a im
 
     a.  Adicione os segredos ao ficheiro de parâmetros:
 
-        -   Criar uma cópia do ficheiro de parâmetros que é carregado para o ramo publicar e definir os valores dos parâmetros que pretende obter a partir do Cofre de chaves com o seguinte formato:
+       -   Criar uma cópia do ficheiro de parâmetros que é carregado para o ramo publicar e definir os valores dos parâmetros que pretende obter a partir do Cofre de chaves com o seguinte formato:
 
         ```json
         {
@@ -102,24 +102,24 @@ Eis os passos para configurar uma versão de VSTS, de modo pode automatizar a im
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Quando utiliza este método, o segredo é retirado do Cofre de chaves automaticamente.
+       -   Quando utiliza este método, o segredo é retirado do Cofre de chaves automaticamente.
 
-        -   O ficheiro de parâmetros tem de estar no ramo publicar.
+       -   O ficheiro de parâmetros tem de estar no ramo publicar.
 
     b.  Adicionar um [tarefas do Cofre de chaves do Azure](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Selecione o **tarefas** separador, crie uma nova tarefa, procure **Cofre de chaves do Azure** e adicioná-la.
+       -   Selecione o **tarefas** separador, crie uma nova tarefa, procure **Cofre de chaves do Azure** e adicioná-la.
 
-        -   A tarefa do Cofre de chaves, selecione a subscrição na qual criou o Cofre de chaves, forneça as credenciais se necessário e, em seguida, selecione o Cofre de chaves.
+       -   A tarefa do Cofre de chaves, selecione a subscrição na qual criou o Cofre de chaves, forneça as credenciais se necessário e, em seguida, selecione o Cofre de chaves.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Adicione uma tarefa de implementação do Gestor de recursos do Azure:
 

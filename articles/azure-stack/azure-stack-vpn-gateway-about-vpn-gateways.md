@@ -2,10 +2,10 @@
 title: Acerca do VPN gateway para a pilha do Azure | Microsoft Docs
 description: Saiba mais sobre e configure os gateways de VPN que utilizar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca do VPN gateway para a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -87,13 +87,14 @@ Quando selecionar um SKU, considere o seguinte:
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Débito agregado estimado por SKU
 A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo SKU do gateway.
 
-|   | Débito do VPN Gateway *(1)* |Gateway de VPN máximo de túneis IPsec |
+|   | Débito do VPN Gateway *(1)* | Gateway de VPN máximo de túneis IPsec *(2)* |
 |-------|-------|-------|
-|**SKU básico** ***(2)***    | 100 Mbps  | 10    |
+|**SKU básico** ***(3)***    | 100 Mbps  | 10    |
 |**Standard SKU**       | 100 Mbps  | 10    |
-|**SKU de elevado desempenho** | 200 Mbps    | 30    |
+|**SKU de elevado desempenho** | 200 Mbps    | 5 |
 ***(1)***  Débito do VPN não é um débito garantido para ligações em vários locais através da Internet. É a medida de débito mais alta possível.  
-***(2)***  BGP não é suportado para o SKU básico.
+***(2)***  Número de túneis máx. é o total por implementação de pilha do Azure para todas as subscrições.
+***(3)***  BGP não é suportado para o SKU básico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [definições para gateways de VPN](azure-stack-vpn-gateway-settings.md) para pilha do Azure.

@@ -1,6 +1,6 @@
 ---
-title: Atualizar para a pilha de cópia de segurança de VM do Azure V2 | Microsoft Docs
-description: Atualizar o processo e perguntas mais frequentes para a pilha de cópia de segurança de VM V2
+title: Atualizar para o modelo de implementação Azure Resource Manager para a pilha de cópia de segurança de VM do Azure | Microsoft Docs
+description: Atualizar o processo e perguntas mais frequentes para a pilha de cópia de segurança de VM, modelo de implementação do Resource Manager
 services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhk
@@ -13,84 +13,84 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 4bdbf48030dda18e6698a7731989ec2de2319b35
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 224cd365e6b3ca4fd963b530dbaa289b763d53ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="upgrade-to-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança de VM V2
-A atualização de cópia de segurança pilha V2 de máquina virtual (VM) fornece as seguintes melhorias de funcionalidade:
-* Capacidade para ver o instantâneo tirado como parte da tarefa de cópia de segurança para estar disponível para recuperação sem aguardar a transferência de dados concluir.
-Reduzirá a espera instantâneo para ser copiado para o Cofre antes de acionar o restauro. Além disso, este irá eliminar os requisitos de armazenamento adicional para a cópia de segurança de VMs do premium, exceto a primeira cópia de segurança.  
+# <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Atualizar para o modelo de implementação Azure Resource Manager para a pilha de cópia de segurança de VM do Azure
+O modelo de implementação Resource Manager para a atualização para a pilha de cópia de segurança de máquina virtual (VM) fornece as seguintes melhorias de funcionalidade:
+* Capacidade de ver instantâneos tirados como parte de uma tarefa de cópia de segurança que está disponível para recuperação sem aguardar a transferência de dados para concluir. Reduz o tempo de espera de instantâneos copiar para o Cofre antes de acionar o restauro. Além disso, esta capacidade elimina o requisito de armazenamento adicional para cópia de segurança de VMs do premium, exceto a primeira cópia de segurança.  
 
-* Redução no tempo de cópia de segurança e restauro mantendo instantâneos localmente durante 7 dias. 
+* Redução no tempo de cópia de segurança e restauro mantendo instantâneos localmente durante sete dias.
 
-* Suporte para o disco tamanhos até 4 TB.  
+* Suporte para o disco tamanhos até 4 TB.
 
-* Capacidade de utilizar as contas do storage original (mesmo quando a VM tem discos que estão distribuídos contas de armazenamento) quando efetuar um restauro de uma VM não gerido. Isto tornará restauros mais rápida para uma grande variedade de configurações de VM. 
+* Capacidade para utilizar as contas do storage originais da VM não geridas ao restaurar. Esta capacidade existe mesmo quando a VM possui discos que estão distribuídos contas de armazenamento. Faz restauros mais rápida para uma grande variedade de configurações de VM.
     > [!NOTE] 
-    > Não é igual ao substituir a VM original. 
-    > 
+    > Esta capacidade não é igual a substituição da VM original. 
     >
 
-## <a name="what-is-changing-in-the-new-stack"></a>O que está a alterar na pilha de novo?
+## <a name="whats-changing-in-the-new-stack"></a>O que está a alterar na pilha de novo?
 Atualmente, a tarefa de cópia de segurança consiste em duas fases:
-1.  Criar o instantâneo VM. 
-2.  Transferência de instantâneos VM para o Cofre de cópia de segurança do Azure. 
+1.  A criar um instantâneo VM. 
+2.  Transferência de um instantâneo VM para o Cofre de cópia de segurança do Azure. 
 
-Um ponto de recuperação é considerado criados apenas depois de terminado fases 1 e 2. Como parte da pilha de novo, é criado um ponto de recuperação, assim que o instantâneo é concluído. Também pode restaurar a partir deste ponto de recuperação utilizando o mesmo fluxo de restauro. Pode identificar este ponto de recuperação no portal do Azure utilizando "instantâneo" como tipo de ponto de recuperação. Após o instantâneo é transferido para o cofre, tipo de ponto de recuperação é alterado para "Instantâneo e cofre". 
+Um ponto de recuperação é considerado criados apenas depois de terminado fases 1 e 2. Como parte da pilha de novo, é criado um ponto de recuperação, assim que o instantâneo estiver concluído. Também pode restaurar a partir deste ponto de recuperação utilizando o mesmo fluxo de restauro. Pode identificar este ponto de recuperação no portal do Azure através da utilização de "instantâneo" como o tipo de ponto de recuperação. Depois do instantâneo é transferido para o cofre, o tipo de ponto de recuperação é alterado para "instantâneo e cofre." 
 
-![Tarefa de cópia de segurança na pilha de cópia de segurança de VM V2](./media/backup-azure-vms/instant-rp-flow.jpg) 
+![Tarefa de cópia de segurança no VM cópia de segurança de pilha do Resource Manager modelo de implementação – cofre e de armazenamento](./media/backup-azure-vms/instant-rp-flow.jpg) 
 
-Por predefinição, instantâneos serão mantidos durante sete dias. Isto permite que o restauro para ser efetuada mais rapidamente nestes instantâneos, ao reduzir o tempo necessário para copiar dados novamente a partir do cofre para a conta de armazenamento do cliente. 
+Por predefinição, os instantâneos são mantidos durante sete dias. Esta funcionalidade permite o restauro concluir mais rápida destes instantâneos. Reduz o tempo necessária para copiar dados novamente a partir do cofre para a conta de armazenamento do cliente. 
 
 ## <a name="considerations-before-upgrade"></a>Considerações sobre antes da atualização
-* Esta é uma atualização unidirecional da pilha de cópia de segurança de VM. Por isso, todas as cópias de segurança futuras entra neste fluxo. Uma vez que **estiver ativada a um nível de subscrição, todas as VMs que serão enviadas para este fluxo**. Todas as novas adições de funcionalidade serão com base na pilha mesma. Capacidade para controlar que este nível de política futuras nas futuras versões. 
-* Para VMs com discos premium, durante a primeira cópia de segurança, certifique-se de que o espaço de armazenamento equivalente ao tamanho da VM está disponível na conta de armazenamento até concluir a primeira cópia de segurança. 
-* Uma vez que os instantâneos são armazenados localmente para melhorar a criação do ponto de recuperação e também para acelerar o restauro, verá os custos de armazenamento correspondente a instantâneos durante o período de sete dias.
-* Instantâneos incrementais são armazenados como blobs de páginas. Todos os clientes utilizando discos de não geridos serão cobrados os instantâneos de 7 dias armazenados na conta de armazenamento local do cliente. De acordo com o modelo de preços atual, há sem qualquer custo para clientes em discos geridos.
-* Se estão a fazer um restauro do ponto de recuperação de instantâneos para uma VM do Premium, verá uma localização de armazenamento temporário que está a ser utilizada enquanto a VM está a ser criada como parte do restauro. 
-* Em caso de contas de armazenamento premium, os instantâneos decorridos para a recuperação imediata vai ocupar o espaço de 10 TB atribuído na conta do premium storage.
+* A atualização da pilha de cópia de segurança de VM é um direcional. Por isso, todas cópias de segurança enviadas para este fluxo. Porque se encontra ativada ao nível da subscrição, todas as VMs entrar neste fluxo. Todas as novas adições funcionalidade baseiam-se a mesma pilha. Capacidade para controlar que este nível de política futuras nas futuras versões.
 
-## <a name="how-to-upgrade"></a>Como atualizar?
+* Para VMs com discos premium, durante e até que a primeira cópia de segurança é concluída, certifique-se de que existe suficiente espaço de armazenamento na conta de armazenamento. Deve ser igual ao tamanho da VM.
+
+* Instantâneos são armazenados localmente para melhorar a criação do ponto de recuperação e também para acelerar o restauro. Por conseguinte, pode ver os custos de armazenamento que correspondem aos instantâneos durante o período de sete dias.
+
+* Instantâneos incrementais são armazenados como blobs de páginas. Todos os clientes que utilizam discos não geridos são-lhe cobrados durante sete dias que os instantâneos são armazenados na conta de armazenamento local do cliente. De acordo com o modelo de preços atual, há sem qualquer custo para clientes em discos geridos.
+
+* Se efetuar um restauro a partir de um ponto de recuperação de instantâneos para uma VM do premium, verá uma localização de armazenamento temporário que é utilizada durante a VM é criada como parte do restauro.
+
+* Para contas de armazenamento premium, os instantâneos efetuadas para recuperação imediata ocupam 10 TB de espaço alocado.
+
+## <a name="upgrade"></a>Atualizar
 ### <a name="the-azure-portal"></a>O portal do Azure
-Se estiver a utilizar no portal do Azure, verá uma notificação no dashboard do cofre relacionados com o suporte de disco grande e cópia de segurança e restaurar os melhoramentos de velocidade.
+Se utilizar o portal do Azure, verá uma notificação no dashboard do cofre. Esta notificação se relaciona com suporte de disco grande e melhorias de velocidade de cópia de segurança e restauro.
 
-![Tarefa de cópia de segurança na pilha de cópia de segurança de VM V2](./media/backup-azure-vms/instant-rp-banner.png) 
+![Tarefa de cópia de segurança no modelo de implementação de Gestor de recursos de pilha de cópia de segurança de VM – notificação de suporte](./media/backup-azure-vms/instant-rp-banner.png) 
 
 Para abrir um ecrã para atualizar para a nova pilha, selecione de faixa. 
 
-![Tarefa de cópia de segurança na pilha de cópia de segurança de VM V2](./media/backup-azure-vms/instant-rp.png) 
+![Tarefa de cópia de segurança na pilha de cópia de segurança de VM modelo de implementação do Resource Manager – atualizar](./media/backup-azure-vms/instant-rp.png) 
 
 ### <a name="powershell"></a>PowerShell
 Execute os seguintes cmdlets a partir de um elevada do PowerShell terminal:
-1.  Inicie sessão sua conta do Azure. 
+1.  Inicie sessão sua conta do Azure: 
 
-```
-PS C:> Login-AzureRmAccount
-```
+    ```
+    PS C:> Connect-AzureRmAccount
+    ```
 
 2.  Selecione a subscrição que pretende registar para pré-visualização:
 
-```
-PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-```
+    ```
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
 
 3.  Registe esta subscrição para pré-visualização privada:
 
-```
-PS C:>  Register-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
-```
+    ```
+    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    ```
 
-## <a name="verify-whether-the-upgrade-is-complete"></a>Certifique-se a atualização é concluída
+## <a name="verify-that-the-upgrade-is-finished"></a>Certifique-se de que a atualização estiver concluída
 A partir de um terminal PowerShell elevada, execute o seguinte cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Se diz registada, a subscrição está atualizada à pilha de cópia de segurança de VM V2. 
-
-
-
+Se diz "Registada", a sua subscrição está atualizada ao modelo de implementação de Gestor de recursos de pilha de cópia de segurança de VM.

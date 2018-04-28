@@ -10,10 +10,10 @@ ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver um módulo de c# com o Azure IoT Edge
 Este artigo fornece instruções detalhadas para utilizar [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para desenvolver e implementar os módulos do Azure IoT Edge. 
@@ -34,7 +34,7 @@ Eis uma lista de verificação que mostra os itens que deve ter depois de conclu
 - [.NET core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd) 
 - [Python 2.7](https://www.python.org/downloads/)
 - [Script de controlo contorno de IoT](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
-- AzureIoTEdgeModule template (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
+- Modelo de AzureIoTEdgeModule (`dotnet new -i Microsoft.Azure.IoT.Edge.Module`)
 - Um IoT hub Active Directory com, pelo menos, um dispositivo de limite de IoT
 
 Também é útil instalar [suporte de Docker para o VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) para melhor gerir imagens do módulo e contentores.
@@ -251,7 +251,7 @@ Os passos seguintes mostram como criar um módulo de limite de IoT com base no .
 
     ![Captura de ecrã do Explorador de código de VS](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
-### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Criar uma imagem de Docker e publicá-lo no seu registo
+### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Criar uma imagem do Docker e publicá-la no seu registo
 
 1. No Explorador de código de VS, expanda o **Docker** pasta. Em seguida, expanda a pasta da sua plataforma de contentores, **linux-x64** ou **windows-nano**.
 2. Clique com botão direito do **Dockerfile** do ficheiro e selecione **imagem de Docker do módulo de limite de IoT criar**. 

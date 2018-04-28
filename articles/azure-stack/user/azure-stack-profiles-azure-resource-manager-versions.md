@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 8cc5ce1ec113df7ce92c54022dbe1b6219c8c235
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: db01df21c95ee41197344cec719f1c2ab2dfc2ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões do fornecedor da API de recurso suportadas pelos perfis na pilha do Azure
 
@@ -55,14 +53,14 @@ Utilize o controlo de acesso baseado em funções para gerir as ações de utili
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-As APIs de computação do Azure dão-lhe acesso programático para máquinas virtuais e os respetivos recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/en-us/rest/api/compute/).
+As APIs de computação do Azure dão-lhe acesso programático para máquinas virtuais e os respetivos recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/rest/api/compute/).
 
 | Tipo de Recurso | Versão de API |
 |---------------------------------------------------------------|-------------|
 | Conjuntos de Disponibilidade | 2016-03-30 |
 | Localizações | 2016-03-30 |
-| Locations/operations | 2016-03-30 |
-| Locations/publishers | 2016-03-30 |
+| Localizações/operações | 2016-03-30 |
+| Localizações/editores | 2016-03-30 |
 | Localizações/utilizações | 2016-03-30 |
 | Localizações/vmSizes | 2016-03-30 |
 | Operações | 2016-03-30 |
@@ -129,7 +127,7 @@ Resultado da chamada de operações é uma representação de lista de operaçõ
 | Gateway de Rede Local | 2015-06-15 |
 | Localizações | 2016-04-01 |
 | Location/operationResults | 2016-04-01 |
-| Locations/operations | 2016-04-01 |
+| Localizações/operações | 2016-04-01 |
 | Localizações/utilizações | 2016-04-01 |
 | Interfaces de Rede | 2015-06-15 |
 | Grupos de Segurança de Rede | 2015-06-15 |
@@ -161,13 +159,13 @@ O Azure Resource Manager permite-lhe implementar e gerir a infraestrutura para a
 | Grupos de Recursos | 2015-012016-09-01 |
 | Recursos | 2015-012016-09-01 |
 | Subscrições | 2015-012016-09-01 |
-| Subscriptions/location | 2015-012016-09-01 |
+| Subscrições/localização | 2015-012016-09-01 |
 | Resultados de subscrições/operação | 2015-012016-09-01 |
-| Subscriptions/providers | 2015-012017-08-01 |
+| Subscrições/fornecedores | 2015-012017-08-01 |
 | Grupos de recursos/subscrições | 2015-012016-09-01 |
 | Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
 | Subscrições/recursos | 2015-012016-09-01 |
-| Subscriptions/tagNames | 2016-0609-01 |
+| Subscrições/tagNames | 2016-0609-01 |
 | Subscriptions/tagNames/tagValues | 2016-0609-01 |
 | Inquilinos | 2015-012017-08-01 |
 

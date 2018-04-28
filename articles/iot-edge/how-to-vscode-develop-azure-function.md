@@ -10,10 +10,10 @@ ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 47d420b4b283b390f67719233c4bea59495a589a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e implementar as funções do Azure para o limite de IoT do Azure
 
@@ -136,7 +136,7 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
 
 8. Guarde o ficheiro.
 
-### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Criar uma imagem de Docker e publicá-lo no seu registo
+### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Criar uma imagem do Docker e publicá-la no seu registo
 
 1. No explorador do VS Code, expanda a pasta **Docker**. Em seguida, expanda a pasta da sua plataforma de contentores, **linux-x64** ou **windows-nano**.
 2. Clique com botão direito do rato no ficheiro **Dockerfile** e clique em **Build IoT Edge module Docker image** (Criar imagem do Docker do módulo IoT Edge). 

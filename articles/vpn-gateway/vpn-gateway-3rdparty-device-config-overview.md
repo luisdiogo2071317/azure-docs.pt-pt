@@ -1,12 +1,12 @@
 ---
-title: "Configurações de dispositivo VPN para estabelecer a ligação para gateways de VPN do Azure de parceiros | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral das configurações de dispositivo VPN de parceiro para ligar a gateways de VPN do Azure."
+title: Configurações de dispositivo VPN para estabelecer a ligação para gateways de VPN do Azure de parceiros | Microsoft Docs
+description: Este artigo fornece uma descrição geral das configurações de dispositivo VPN de parceiro para ligar a gateways de VPN do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9ca3937d688170798c42fce45dbcd7711773d1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Descrição geral das configurações de dispositivo VPN de parceiro
 Este artigo fornece uma descrição geral da configuração de dispositivos VPN no local para estabelecer a ligação para gateways de VPN do Azure. A rede virtual do Azure de exemplo e configuração do gateway VPN é utilizada para lhe mostrar como ligar a configurações de dispositivos VPN de diferentes no local utilizando os mesmos parâmetros.
@@ -48,7 +48,7 @@ Esta secção lista os parâmetros para os exemplos que são descritos nas secç
 | * No local ASN de BGP         | 65050                        |
 | * IP do elemento BGP no local     | 10.52.255.254                |
 
-\*Parâmetro opcional para BGP apenas.
+\* Parâmetro opcional para BGP apenas.
 
 ### <a name="sample-powershell-script"></a>Exemplo de script do PowerShell
 Esta secção fornece um script de exemplo para ajudar a começar. Para obter instruções detalhadas, consulte [criar uma ligação S2S VPN utilizando o PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
@@ -84,7 +84,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
@@ -153,6 +153,6 @@ Ao criar a ligação S2S VPN, opcionalmente, pode utilizar [BGP para o gateway V
     New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter instruções passo a passo configurar os gateways de VPN de ativo-ativo, consulte [configurar gateways de VPN de ativo-ativo em vários locais e ligações VNet a VNet](vpn-gateway-activeactive-rm-powershell.md).
 

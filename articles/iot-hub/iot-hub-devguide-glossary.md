@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Hub Glossário de termos | Microsoft Docs"
-description: "Guia para programadores - obter um glossário dos termos comuns relacionadas com o IoT Hub do Azure."
+title: Azure IoT Hub Glossário de termos | Microsoft Docs
+description: Guia para programadores - obter um glossário dos termos comuns relacionadas com o IoT Hub do Azure.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos de IoT Hub
 Este artigo apresenta uma lista alguns dos termos comuns utilizados nos artigos IoT Hub.
@@ -110,6 +110,9 @@ O [API de REST de identidades de dispositivo](https://docs.microsoft.com/rest/ap
 ## <a name="device-identity"></a>Identidade do dispositivo
 A identidade de dispositivo é o identificador exclusivo atribuído a cada dispositivo registado no [registo de identidade](#identity-registry).
 
+## <a name="module-identity"></a>Identidade do módulo
+A identidade do módulo é o identificador exclusivo atribuído a cada módulo que pertençam a um dispositivo. Identidade do módulo também é registada no [registo de identidade](#identity-registry).
+
 ## <a name="device-management"></a>Gestão de dispositivos
 Gestão de dispositivos abrange o ciclo de vida completo associado à gestão de dispositivos na sua solução de IoT, incluindo o planeamento, aprovisionamento, configurar, monitorizar e extinção.
 
@@ -125,14 +128,17 @@ Aprovisionamento de dispositivos é o processo de adicionar iniciais [dados de d
 ## <a name="device-twin"></a>Dispositivo duplo
 A [dispositivo duplo](iot-hub-devguide-device-twins.md) é o documento JSON que armazena informações de estado do dispositivo como metadados, configurações e condições. [IoT Hub](#iot-hub) persistir um dispositivo duplo para cada dispositivo que for aprovisionado no seu IoT hub. Dispositivos duplos permitem-lhe sincronizar [condições de dispositivo](#device-condition) e configurações entre o dispositivo e a solução de back-end. Pode consultar dispositivos duplos localizar dispositivos específicos e consultar o estado das operações de execução longa.
 
-## <a name="device-twin-queries"></a>Consultas do dispositivo duplo
-[As consultas do dispositivo duplo](iot-hub-devguide-query-language.md) utilizar o idioma de consulta do SQL Server como o IoT Hub para obter informações do seu dispositivos duplos. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [tarefas](#job) em execução no seu IoT hub.
+## <a name="module-twin"></a>Duplo de módulo
+Semelhante ao dispositivo duplo, um duplo do módulo é documento JSON que armazena informações de estado do módulo como metadados, configurações e condições. IoT Hub mantém um duplo de módulo para cada identidade de módulo que for aprovisionado com uma identidade de dispositivo no seu IoT hub. Duplos módulo permitem-lhe sincronizar as condições do módulo e configurações entre o módulo e o solução de back-end. Pode consultar duplos do módulo para localizar módulos específicos e consultar o estado das operações de execução longa.
+
+## <a name="twin-queries"></a>Consultas de duplo
+[As consultas de dispositivo e o módulo da duplo](iot-hub-devguide-query-language.md) utilizar o idioma de consulta do SQL Server como o IoT Hub para obter informações do seu dispositivos duplos ou duplos do módulo. Pode utilizar a mesma linguagem de consulta do IoT Hub para obter informações sobre [tarefas](#job) em execução no seu IoT hub.
 
 ## <a name="device-twin-rest-api"></a>API de REST do dispositivo duplo
 Pode utilizar o [API de REST do dispositivo duplo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) da solução de back-end para gerir os dispositivos duplos. A API permite-lhe obter e atualizar [dispositivo duplo](#device-twin) propriedades e invocar [direcionar métodos](#direct-method). Normalmente, deve utilizar um do nível mais elevado [service SDKs](#azure-iot-service-sdks) conforme mostrado nos tutoriais do IoT Hub.
 
-## <a name="device-twin-synchronization"></a>Sincronização do dispositivo duplo
-Sincronização do dispositivo duplo utiliza o [pretendido propriedades](#desired-properties) nos seus dispositivos duplos para configurar os seus dispositivos e obter [comunicadas propriedades](#reported-properties) dos seus dispositivos para armazenar no dispositivo duplo.
+## <a name="twin-synchronization"></a>Sincronização de duplo
+Duplo sincronização utiliza o [pretendido propriedades](#desired-properties) no seu dispositivos duplos ou duplos do módulo para configurar os dispositivos ou os módulos e obter [comunicadas propriedades](#reported-properties) dos mesmos para armazenar no duplo.
 
 ## <a name="direct-method"></a>Método direto
 A [método direto](iot-hub-devguide-direct-methods.md) é uma forma para que possa acionar um método a executar num dispositivo invocando uma API no seu IoT hub.

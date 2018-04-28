@@ -1,26 +1,26 @@
 ---
-title: "Operações de SAP HANA no Azure | Microsoft Docs"
-description: "Manual de operações para sistemas de SAP HANA que são implementados em máquinas virtuais do Azure."
+title: Operações de SAP HANA no Azure | Microsoft Docs
+description: Manual de operações para sistemas de SAP HANA que são implementados em máquinas virtuais do Azure.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: juergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA no guia de operações do Azure
 Este documento fornece orientações para o funcionamento sistemas de SAP HANA que são implementados em máquinas de virtuais (VMs) nativas do Azure. Este documento destina-se não substitui a documentação do SAP padrão, que inclui o seguinte conteúdo:
@@ -177,7 +177,7 @@ Existem limites de VHDs de armazenamento do Azure Premium por VM que pode ser su
 - 16 VHDs para um M128xx VM
 - 8 VHDs para um M64xx VM
 
-Pode encontrar instruções mais detalhadas sobre como ativar o Azure escrever acelerador no artigo [Azure escrever acelerador para implementações de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+Pode encontrar instruções mais detalhadas sobre como ativar o Azure escrever acelerador no artigo [escrever acelerador](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 Os detalhes e restrições para o Azure escrever acelerador podem ser encontradas na documentação do mesma.
 

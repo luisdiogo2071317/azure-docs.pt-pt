@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b288595ca06c3a3cccb72082658f1927f2ae558a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Ligar MXChip IoT DevKit para o Azure IoT Suite para monitorização remota
 
@@ -35,7 +35,7 @@ Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-h
 
 Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um destes dois métodos:
 
-* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/en-us/free/)
+* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/free/)
 * Afirmação sua [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se forem subscritor MSDN ou o Visual Studio
 
 ## <a name="create-an-azure-iot-suite"></a>Criar um Azure IoT Suite
@@ -124,4 +124,4 @@ Se tiver problemas, consulte [perguntas mais frequentes](https://microsoft.githu
 Agora que aprendeu como ligar um dispositivo DevKit para o Azure IoT Suite e visualizar os dados de sensor, Eis os passos sugeridos:
 
 * [Descrição geral do Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

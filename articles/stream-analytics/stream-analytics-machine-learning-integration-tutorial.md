@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Efetuar análise de dados de sentimento utilizando o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente a uma tarefa de Stream Analytics do Azure simples que integra o Azure Machine Learning. Utilizar um modelo de análise de dados de sentimento do Machine Learning a partir da galeria da Cortana Intelligence para analisar dados de texto de transmissão em fluxo e determinar a classificação de dados de sentimento em tempo real. Utilizar o Cortana Intelligence Suite permite-lhe realizar esta tarefa sem se preocupar intricacies da criação de um modelo de análise de dados de sentimento.
@@ -25,7 +25,7 @@ Pode aplicar o que aprender do artigo, para estes cenários:
 * Comentários nos fóruns, blogues e vídeos de avaliação. 
 * Muitos outros em tempo real, preditivos classificação cenários.
 
-Um cenário do mundo real, teria de obter os dados diretamente a partir de um fluxo de dados do Twitter. Para simplificar o tutorial, iremos escritos-la para que a tarefa de análise de transmissão em fluxo obtém tweets de um ficheiro CSV no Blob storage do Azure. Pode criar o seu próprio ficheiro CSV, ou pode utilizar um ficheiro CSV de exemplo, conforme mostrado na imagem seguinte:
+Um cenário do mundo real, teria de obter os dados diretamente a partir de um fluxo de dados do Twitter. Para simplificar o tutorial, é escrito para que a tarefa de análise de transmissão em fluxo obtém tweets de um ficheiro CSV no Blob storage do Azure. Pode criar o seu próprio ficheiro CSV, ou pode utilizar um ficheiro CSV de exemplo, conforme mostrado na imagem seguinte:
 
 ![exemplo de tweets num ficheiro CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -39,7 +39,7 @@ A figura seguinte demonstra esta configuração. Conforme indicado, num cenário
 Antes de começar, certifique-se de que tem o seguinte:
 
 * Uma subscrição ativa do Azure.
-* Um ficheiro CSV com alguns dados na mesma. Pode transferir o ficheiro apresentado anteriormente da [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), ou pode criar os seus próprios ficheiros. Para este artigo, partimos do pressuposto que está a utilizar o ficheiro a partir do GitHub.
+* Um ficheiro CSV com alguns dados na mesma. Pode transferir o ficheiro apresentado anteriormente da [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), ou pode criar os seus próprios ficheiros. Para este artigo pressupõe que está a utilizar o ficheiro a partir do GitHub.
 
 Um nível elevado, para concluir as tarefas demonstradas neste artigo, efetue o seguinte:
 
@@ -157,7 +157,7 @@ A tarefa envia resultados para o mesmo armazenamento de BLOBs onde obtém entrad
 
    |Campo  |Valor  |
    |---------|---------|
-   |**Alias de saída** | Utilize o nome `datainput` e selecione **selecione do blob storage a partir da sua subscrição**       |
+   |**Alias de saída** | Utilize o nome `datamloutput` e selecione **selecione do blob storage a partir da sua subscrição**       |
    |**Conta de armazenamento**  |  Selecione a conta de armazenamento que criou anteriormente.  |
    |**contentor**  | Selecione o contentor que criou anteriormente (`azuresamldemoblob`)        |
    |**Formato de serialização de eventos**  |  Selecione **CSV**       |
@@ -168,7 +168,7 @@ A tarefa envia resultados para o mesmo armazenamento de BLOBs onde obtém entrad
 
 
 ### <a name="add-the-machine-learning-function"></a>Adicione a função de Machine Learning 
-Anteriormente publicado um modelo de Machine Learning para um serviço web. No nosso cenário, quando é executada a tarefa de análise de fluxo, envia cada tweet de exemplo de entrada para o serviço web para análise de dados de sentimento. O serviço web do Machine Learning devolve um sentimento (`positive`, `neutral`, ou `negative`) e uma probabilidade de tweet a ser positivo. 
+Anteriormente publicado um modelo de Machine Learning para um serviço web. Neste cenário, quando é executada a tarefa de análise de fluxo, envia cada tweet de exemplo de entrada para o serviço web para análise de dados de sentimento. O serviço web do Machine Learning devolve um sentimento (`positive`, `neutral`, ou `negative`) e uma probabilidade de tweet a ser positivo. 
 
 Nesta secção do tutorial, é possível definir uma função na tarefa de análise de fluxo. A função pode ser invocada para enviar um tweet para o serviço web e voltar a resposta. 
 
@@ -200,12 +200,13 @@ Do Stream Analytics utiliza uma consulta declarativa, baseado em SQL para examin
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     A consulta invoca a função que criou anteriormente (`sentiment`) para executar uma análise de dados de sentimento em cada tweet na entrada. 
@@ -213,7 +214,7 @@ Do Stream Analytics utiliza uma consulta declarativa, baseado em SQL para examin
 4. Clique em **guardar** para guardar a consulta.
 
 
-## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar a tarefa de Stream Analytics e a saída de verificação
+## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
 É agora possível iniciar a tarefa de Stream Analytics.
 

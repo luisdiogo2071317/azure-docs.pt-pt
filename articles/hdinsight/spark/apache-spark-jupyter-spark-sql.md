@@ -1,9 +1,9 @@
 ---
 title: Criar um cluster do Apache Spark no Azure HDInsight | Microsoft Docs
-description: "Início rápido do HDInsight Spark sobre como criar um cluster do Apache Spark no HDInsight."
+description: Início rápido do HDInsight Spark sobre como criar um cluster do Apache Spark no HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: HT
+ms.openlocfilehash: 1fdae7d6e47ff70e83e8153cdc22c0b2881d2743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Criar um cluster do Apache Spark no Azure HDInsight
 
@@ -134,7 +132,7 @@ Para obter um exemplo de dados de leitura de um ficheiro csv em vez de uma tabel
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 
 Neste artigo, aprendeu a criar um cluster do HDInsight Spark e a executar uma consulta do Spark SQL básica. Avance para o artigo seguinte para saber como utilizar um cluster do HDInsight Spark para executar consultas interativas nos dados de exemplo.
 

@@ -1,25 +1,20 @@
 ---
-title: "Parceiros do armazém de dados de SQL Server Business Intelligence | Microsoft Docs"
-description: "Apresenta uma lista de parceiros de intelligence de negócios de terceiros com soluções que suportam o SQL Data Warehouse."
+title: Parceiros do armazém de dados de SQL Server Business Intelligence | Microsoft Docs
+description: Apresenta uma lista de parceiros de intelligence de negócios de terceiros com soluções que suportam o SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 1d9cdbd0-76c0-4b87-8a80-e792b73ffe10
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 22f05607d85a1425c54b890e233b161e72c10848
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros do armazém de dados do SQL Server business intelligence
 Para criar a sua solução de armazém de dados ponto-a-ponto, escolha a partir de uma ampla variedade de ferramentas de líder da indústria.  Este artigo realça empresas da Microsoft com soluções do business intelligence (BI) que suportam o Azure SQL Data Warehouse.
@@ -42,7 +37,7 @@ Para criar a sua solução de armazém de dados ponto-a-ponto, escolha a partir 
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter mais informações sobre algumas das nossos outros parceiros, consulte [parceiros de integração de dados] [ di_partners] e [parceiros de gestão de dados][dm_partners].
 
 <!--Image references-->

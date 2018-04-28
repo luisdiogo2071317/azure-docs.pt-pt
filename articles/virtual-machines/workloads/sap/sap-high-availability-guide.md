@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e65f38b6fb4f5434c840af1866ccf09671111f3e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver
 
@@ -419,7 +419,7 @@ _**Figura 11:** definir os parâmetros do SAP elevada disponibilidade do Azure R
     * DBMS cluster: <*SAPSystemSID*> - db - <*número*>
 
   * **Rede de cartões de todas as máquinas virtuais, com os endereços IP associados**:
-    * <*SAPSystemSID*>-nic-di-<*Number*>
+    * <*SAPSystemSID*> - nic - di - <*número*>
     * <*SAPSystemSID*> - nic - ascs - <*número*>
     * <*SAPSystemSID*>-nic-db-<*Number*>
 
@@ -647,7 +647,7 @@ No nosso exemplo, temos destas máquinas virtuais e endereços IP estáticos:
 | Função de máquina virtual | Nome de anfitrião de máquina virtual | Nome da placa de rede | Endereço IP estático |
 | --- | --- | --- | --- |
 | Primeira instância de servidor de aplicações SAP |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| Segunda instância de servidor de aplicações SAP |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| Segunda instância de servidor de aplicações SAP |PR1-di-1 |pr1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
 | Última instância do servidor de aplicações SAP |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
 | Primeiro nó de cluster para a instância ASCS/SCS |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
@@ -679,7 +679,7 @@ No nosso exemplo, temos de dois balanceadores de carga internos do Azure que ten
 
 | Função do Balanceador de carga interno do Azure | Nome do Balanceador de carga interno do Azure | Endereço IP estático |
 | --- | --- | --- |
-| Balanceador de carga interno de instância do SAP ASCS/SCS |pr1-lb-ascs |10.0.0.43 |
+| Balanceador de carga interno de instância do SAP ASCS/SCS |PR1-lb-ascs |10.0.0.43 |
 | Balanceador de carga interno SAP DBMS |pr1-lb-dbms |10.0.0.33 |
 
 
@@ -700,7 +700,7 @@ Para criar pontos finais de balanceamento de carga interna necessária, primeiro
 | Servidor de colocar em fila / *lbrule3200* |32 <*InstanceNumber*> |3200 |
 | Servidor de mensagens ABAP / *lbrule3600* |36 <*InstanceNumber*> |3600 |
 | Mensagem ABAP interna / *lbrule3900* |39 <*InstanceNumber*> |3900 |
-| Mensagens HTTP do servidor / *Lbrule8100* |81<*InstanceNumber*> |8100 |
+| Mensagens HTTP do servidor / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | SAP iniciar serviço ASCS HTTP / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
 | SAP iniciar serviço ASCS HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
 | Replicação de colocar em fila / *Lbrule50016* |5 <*InstanceNumber*> 16 |50016 |
@@ -716,9 +716,9 @@ Em seguida, crie estes pontos finais para as portas do SAP NetWeaver Java SCS de
 | Nome de regra de balanceamento de carga do serviço | Números de porta predefinidos | Portas concretas para (instância SCS com o número de instância 01) (ERS com 11) |
 | --- | --- | --- |
 | Servidor de colocar em fila / *lbrule3201* |32 <*InstanceNumber*> |3201 |
-| Servidor de gateway / *lbrule3301* |33<*InstanceNumber*> |3301 |
+| Servidor de gateway / *lbrule3301* |33 <*InstanceNumber*> |3301 |
 | Servidor de mensagens de Java / *lbrule3900* |39 <*InstanceNumber*> |3901 |
-| Mensagens HTTP do servidor / *Lbrule8101* |81<*InstanceNumber*> |8101 |
+| Mensagens HTTP do servidor / *Lbrule8101* |81 <*InstanceNumber*> |8101 |
 | SAP iniciar serviço SCS HTTP / *Lbrule50113* |5 <*InstanceNumber*> 13 |50113 |
 | SAP iniciar serviço SCS HTTPS / *Lbrule50114* |5 <*InstanceNumber*> 14 |50114 |
 | Replicação de colocar em fila / *Lbrule50116* |5 <*InstanceNumber*> 16 |50116 |
@@ -773,7 +773,7 @@ Para adicionar entradas de registo em ambos os nós de cluster da instância do 
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Ligar a documentação |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Ligar a documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabela 3:** alterar o primeiro parâmetro de TCP/IP_
 
@@ -784,7 +784,7 @@ Em seguida, adicione este entradas de registo do Windows em ambos os nós de clu
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
 | Valor |120000 |
-| Ligar a documentação |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Ligar a documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabela 4:** alterar o segundo parâmetro de TCP/IP_
 

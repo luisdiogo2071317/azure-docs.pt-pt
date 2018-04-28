@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: 8995689be7467553069e056347f6dec7378fd186
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e0217080963502094800a8b62de9c781817aec61
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de execução de integração do Azure-SSIS no Azure Data Factory
 Este artigo fornece os passos para o aprovisionamento de um tempo de execução de integração do Azure-SSIS no Azure Data Factory. Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou o SQL Server Management Studio (SSMS) para implementar pacotes de SQL Server Integration Services (SSIS) neste runtime no Azure.
@@ -39,7 +39,7 @@ Este artigo mostra formas diferentes de aprovisionamento de uma resposta a incid
 
 Quando cria uma resposta a incidentes SSIS do Azure, o Data Factory estabelece ligação à SQL Database do Azure para preparar a base de dados do catálogo de SSIS (SSISDB). O script também configura permissões e definições para a sua VNet, caso sejam especificadas, e associa a nova instância do integration runtime do Azure-SSIS à VNet.
 
-Quando aprovisionar uma instância do IR do Azure-SSIS, o Pacote de Funcionalidades do Azure para SSIS e o Acesso Redistribuível também são instalados. Estes componentes fornecem conectividade aos ficheiros do Excel e acesso e a várias origens de dados do Azure, para além das origens de dados suportadas pelos componentes incorporados. Também pode instalar componentes adicionais. Para obter mais informações, consulte [configuração personalizada para o tempo de execução de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+Quando aprovisionar uma instância do IR do Azure-SSIS, o Pacote de Funcionalidades do Azure para SSIS e o Acesso Redistribuível também são instalados. Estes componentes fornecem conectividade aos ficheiros do Excel e acesso e a várias origens de dados do Azure, para além das origens de dados suportadas pelos componentes incorporados. Também pode instalar componentes adicionais. Para mais informações, veja [Configuração personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,7 @@ Quando aprovisionar uma instância do IR do Azure-SSIS, o Pacote de Funcionalida
 
 > [!NOTE]
 > - Pode criar uma fábrica de dados da versão 2 nas seguintes regiões: E.U.A. Leste, E.U.A. Leste 2, Sudeste Asiático e Europa Ocidental. 
-> - Pode criar uma resposta a incidentes Azure SSIS nas seguintes regiões: EUA leste, EUA Leste 2, EUA Central, EUA oeste, 2, Europa do Norte, Europa Ocidental, sul do RU e leste da Austrália.
+> - Pode criar um IR do Azure-SSIS nas seguintes regiões: E.U.A. Leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. Oeste 2, Europa do Norte, Europa Ocidental, Sul do Reino Unido e Leste da Austrália.
 
 ## <a name="azure-portal"></a>Portal do Azure
 Nesta secção, utilize o portal do Azure, especificamente, a IU de fábrica de dados, para criar um IR. SSIS do Azure 
@@ -205,7 +205,7 @@ $SubnetName = "[your subnet name or leave it empty]"
 Adicione o seguinte código o script para iniciar sessão e selecione a sua subscrição do Azure: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
@@ -388,7 +388,7 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `

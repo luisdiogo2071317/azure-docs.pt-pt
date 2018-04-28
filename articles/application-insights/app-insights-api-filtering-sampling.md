@@ -1,9 +1,9 @@
 ---
-title: "Filtragem e pré-processamentos no Application Insights SDK do Azure | Microsoft Docs"
+title: Filtragem e pré-processamentos no Application Insights SDK do Azure | Microsoft Docs
 description: Escreva processadores de telemetria e inicializadores de telemetria para o SDK para filtrar ou adicionar propriedades para os dados antes do envio de telemetria ao portal do Application Insights.
 services: application-insights
-documentationcenter: 
-author: beckylino
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
-ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin; borooji
+ms.openlocfilehash: 06f116fc5096fe4bda9c8433c3a33726acb67eea
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtragem e pré-processamentos telemetria no Application Insights SDK
 
@@ -218,7 +218,7 @@ Inicializadores de telemetria de utilização para definir propriedades globais 
 
 Por exemplo, o Application Insights para o pacote do Web recolhe telemetria sobre pedidos de HTTP. Por predefinição, sinalizadores como falhada qualquer pedido com um código de resposta > = 400. Mas se pretender processar 400 como concluído com êxito, pode fornecer um inicializador de telemetria que define a propriedade de êxito.
 
-Se fornecer um inicializador de telemetria, é chamado sempre que qualquer um dos métodos Track*() é chamado. Isto inclui métodos chamados por módulos de telemetria padrão. Por convenção, estes módulos não defina qualquer propriedade que já foi definida por um inicializador de elementos.
+Se fornecer um inicializador de telemetria, é chamado sempre que qualquer um dos métodos Track*() são denominados. Isto inclui métodos chamados por módulos de telemetria padrão. Por convenção, estes módulos não defina qualquer propriedade que já foi definida por um inicializador de elementos.
 
 **Definir o inicializador**
 

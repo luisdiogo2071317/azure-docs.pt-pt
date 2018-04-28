@@ -3,7 +3,7 @@ title: Proteger VMs implementadas na pilha do Azure | Microsoft Docs
 description: Orientações sobre como proteger máquinas virtuais implementadas na pilha do Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -11,20 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b49a8650611472b5e35c4bdf8373a1d7e3a45589
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implementadas na pilha do Azure
-
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
-
 Este artigo abrange orientações sobre como proteger VMs do utilizador implementadas na pilha do Azure.
 
 Para proteger contra a perda de dados e o período de indisponibilidade não planeado, terá de implementar um plano de recuperação de cópia de segurança ou recuperação de desastres para as suas aplicações de utilizador e dados. Este plano é exclusivo para cada aplicação mas segue uma estrutura estabelecida pelo continuidade do negócio abrangente da sua organização e a estratégia de recuperação (BC/DR) de desastre. Para gerais padrões e práticas para a aplicação a disponibilidade e resiliência, consulte [conceber aplicações resilientes para o Azure](https://docs.microsoft.com/azure/architecture/resiliency) no Centro de arquitetura do Azure.
@@ -60,11 +57,11 @@ O RPO é a duração máxima de perda de dados que é aceitável durante um desa
  
 O RTO e RPO são requisitos comerciais. Realize uma avaliação de risco definir RTO e RPO da aplicação. Outra métrica comum é **média de tempo para recuperar** (MTTR), que é o tempo médio necessário para restaurar a aplicação após uma falha. O MTTR é um facto empírico sobre um sistema. Se o MTTR exceder o RTO, então uma falha no sistema irá causar uma interrupção inaceitável do negócio, porque não será possível restaurar o sistema no RTO definido.
 
-### <a name="backup-restore"></a>Backup-restore
+### <a name="backup-restore"></a>Restauro da cópia de segurança
 
 O esquema de proteção mais comuns para aplicações baseadas na VM consiste em utilizar o software de cópia de segurança. Fazer uma cópia de segurança de uma VM normalmente inclui o sistema operativo, configuração do sistema operativo, os binários da aplicação e dados da aplicação. As cópias de segurança são criadas por um instantâneo de volumes, discos ou toda a VM. Com a pilha do Azure, tem a flexibilidade de cópia de segurança de dentro do contexto do SO convidado ou do armazenamento do Azure pilha e APIs de computação. Pilha do Azure não suporta a criar cópias de segurança ao nível do hipervisor. 
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Cópia de segurança restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
  
 Recuperar a aplicação requer o restauro de uma ou mais VMs na mesma nuvem ou para uma nuvem de novo. Pode visar uma nuvem no seu centro de dados ou na nuvem pública. Qual a nuvem de destino completamente dentro do seu controlo e baseia-se nos seus requisitos de privacidade e soberania dos dados. 
  
@@ -127,7 +124,7 @@ Tenha em atenção que cada nuvem de pilha do Azure está independente entre si,
 
 Algumas aplicações no seu ambiente podem não necessitar de proteção contra períodos de indisponibilidade não planeado ou perda de dados. Por exemplo, VMs utilizado para desenvolvimento e teste, normalmente, não precisa de ser recuperados. É a decisão de fazer sem proteção de uma aplicação ou uma VM específica. Pilha do Azure oferece cópia de segurança ou a replicação de VMs de infraestrutura subjacente. Semelhante para o Azure, terá de optar ativamente por participar proteção para cada VM em cada uma das suas subscrições.  
  
- - RTO: Unrecoverable 
+ - RTO: irrecuperável 
  - RPO: Perda de dados completa
  
 ## <a name="recommended-topologies"></a>Topologias recomendadas 
@@ -147,7 +144,8 @@ Considerações importantes sobre a implementação de pilha do Azure:
 ## <a name="next-steps"></a>Passos Seguintes 
 
 Neste artigo, vamos abrangidos as diretrizes sobre como proteger VMs do utilizador implementadas na pilha do Azure. Para obter mais informações sobre como proteger as suas VMs utilizando os serviços do Azure, consulte:
- - [Suporte de servidor do Backup do Azure para a pilha do Azure](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Suporte do Azure Site Recovery para a pilha do Azure](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Utilizar o Backup do Azure para cópia de segurança de ficheiros e aplicações na pilha do Azure](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Suporte de servidor do Backup do Azure para a pilha do Azure](https://docs.microsoft.com/azure/backup/ ) 
+ - [Suporte do Azure Site Recovery para a pilha do Azure](https://docs.microsoft.com/azure/site-recovery/)  
  
 Para saber mais sobre os produtos de parceiro que oferecem proteção de VM na pilha do Azure, consulte "[proteger aplicações e os dados na pilha do Azure](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."

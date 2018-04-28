@@ -1,6 +1,6 @@
 ---
-title: "Galleries módulos e Runbooks de automatização do Azure"
-description: "Os Runbooks e módulos da Microsoft e a Comunidade estão disponíveis para instalar e utilizar no seu ambiente de automatização do Azure.  Este artigo descreve como pode aceder a estes recursos e para contribuir com os runbooks para a galeria."
+title: Galleries módulos e Runbooks de automatização do Azure
+description: Os Runbooks e módulos da Microsoft e a Comunidade estão disponíveis para instalar e utilizar no seu ambiente de automatização do Azure.  Este artigo descreve como pode aceder a estes recursos e para contribuir com os runbooks para a galeria.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6a9298c0b7331bfa8af76eb904d256f6302816bf
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fe0e38e384f9f3d40bc6f7556cdb5e6dee9b4395
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galleries módulos e Runbooks de automatização do Azure
 Em vez de criar os seus próprios runbooks e módulos na automatização do Azure, pode aceder a uma variedade de cenários que já ter sido criadas pela Microsoft e a Comunidade.  Pode utilizar estes cenários sem modificações ou pode utilizá-los como um ponto de partida e editá-los para os seus requisitos específicos.
@@ -25,7 +25,7 @@ O [Galeria de Runbooks](http://gallery.technet.microsoft.com/scriptcenter/site/s
 Só é possível importar diretamente a partir da Galeria de Runbooks no portal do Azure. Não é possível executar esta função com o Windows PowerShell.
 
 > [!NOTE]
-> Deve validar os conteúdos de todos os runbooks que aproveitar na Galeria de Runbooks e tenha muito cuidado na instalação e executá-los num ambiente de produção. |
+> Deve validar os conteúdos de todos os runbooks que aproveitar na Galeria de Runbooks e tenha muito cuidado na instalação e executá-los num ambiente de produção.
 > 
 > 
 

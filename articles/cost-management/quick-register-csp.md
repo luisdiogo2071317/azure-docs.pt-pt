@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registar-se com o programa de Parceiro CSP e ver dados de custos
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte [Ligar à API do Centro de Parceiros](ht
 
 - Inicie sessão no portal do Azure em http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Criar um registo de avaliação
+## <a name="register-with-azure-cost-management"></a>Registar com o Azure Cost Management
 
 1. No portal do Azure, clique em **Cost Management + Faturação** na lista de serviços.
 2. Em **Descrição geral**, clique em **Cost Management**  

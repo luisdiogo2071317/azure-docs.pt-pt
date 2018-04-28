@@ -2,23 +2,20 @@
 title: Com o Visual Studio publicar Assistente da aplicação do Azure | Microsoft Docs
 description: Saiba como configurar várias definições no Visual Studio publicar Assistente da aplicação Azure
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: 980809bc62f7766971ea4753e1cfb165aa1cffc2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 02d38f49a1bfe490acbcfee95a8a703cf0d7594f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Com o Visual Studio publicar Assistente da aplicação do Azure
 
@@ -57,7 +54,7 @@ Pode aceder ao Assistente de publicar aplicação Azure de duas formas dependend
 
 ![Definições Comuns](./media/vs-azure-tools-publish-azure-application-wizard/settings-common-settings.png)
 
-**O serviço em nuvem** -através da lista pendente, selecione uma nuvem existente, serviço ou selecione  **&lt;criar novo >**e criar um serviço em nuvem. O Centro de dados apresenta parênteses para cada serviço em nuvem. Recomenda-se que o Centro de dados localização para o serviço em nuvem sejam os mesmos que a localização do Centro de dados para a conta de armazenamento (definições avançadas).
+**O serviço em nuvem** -através da lista pendente, selecione uma nuvem existente, serviço ou selecione  **&lt;criar novo >** e criar um serviço em nuvem. O Centro de dados apresenta parênteses para cada serviço em nuvem. Recomenda-se que o Centro de dados localização para o serviço em nuvem sejam os mesmos que a localização do Centro de dados para a conta de armazenamento (definições avançadas).
 
 **Ambiente** -selecione **produção** ou **transição**. Escolha o ambiente de teste se pretender implementar a aplicação num ambiente de teste. 
 

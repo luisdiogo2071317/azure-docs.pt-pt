@@ -1,12 +1,12 @@
 ---
-title: "Recolher a métrica de recursos do Azure PaaS com Log Analytics | Microsoft Docs"
-description: "Saiba como ativar a recolha de métricas de recurso de PaaS do Azure através do PowerShell para retenção e a análise na análise de registos."
+title: Recolher a métrica de recursos do Azure PaaS com Log Analytics | Microsoft Docs
+description: Saiba como ativar a recolha de métricas de recurso de PaaS do Azure através do PowerShell para retenção e a análise na análise de registos.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurar a recolha de métricas de recurso do Azure PaaS com a análise de registos
 
@@ -57,7 +57,7 @@ Execute os seguintes passos para transferir e executar o script.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Executar `Login-AzureRmAccount` para criar uma ligação com o Azure.   
+3. Execute `Connect-AzureRmAccount` para criar uma ligação com o Azure.   
 4. Execute o seguinte script `.\Enable-AzureRmDiagnostics.ps1` sem quaisquer parâmetros para ativar a recolha de dados de um recurso específico na sua subscrição ou com o parâmetro `-ResourceGroup <myResourceGroup>` para especificar um recurso num grupo de recursos específico.   
 5. Selecione a subscrição adequada na lista se tiver mais do que uma, introduzindo o valor correto.<br><br> ![Selecione a subscrição devolvida pelo script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Caso contrário, seleciona automaticamente a subscrição único disponível.
 6. Em seguida, o script devolve uma lista de áreas de trabalho de análise de registos registado na subscrição.  Selecione a adequado na lista.<br><br> ![Selecione a área de trabalho devolvida pelo script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 

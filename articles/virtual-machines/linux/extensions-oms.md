@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: danis
-ms.openlocfilehash: 2927e2e64c78ac01a5ed9aa49a88e599ea36deb2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f04a9b812a86f999d5c0ec52be85f77158094c27
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual OMS para Linux
 
@@ -98,7 +98,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão 
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| Fabricante | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
@@ -207,4 +207,4 @@ Informações adicionais de resolução de problemas podem ser encontradas no [g
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda, a qualquer altura neste artigo, pode contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/en-us/support/faq/).
+Se precisar de mais ajuda, a qualquer altura neste artigo, pode contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

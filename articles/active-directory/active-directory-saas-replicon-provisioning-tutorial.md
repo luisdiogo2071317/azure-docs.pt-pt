@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configurar Replicon para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configurar Replicon para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para aprovisionar e anular o aprovisionamento contas de utilizador para Replicon automaticamente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7ec58b0da3a918729733809d326e6f2e5916c9d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Tutorial: Configurar Replicon para aprovisionamento de utilizadores automática
 
@@ -109,13 +109,13 @@ Esta secção descreve os passos para configurar o Azure AD aprovisionamento do 
 
     *   No **palavra-passe de administrador** campo, preencher a palavra-passe correspondente ao nome de utilizador administrador.
 
-    *   No **CompanyId** campo, preencher CompanyId do seu inquilino Replicon. Exemplo: O CompanyID com base no abaixo início de sessão, é Contoso.
+    *   No **CompanyId** campo, preencher CompanyId do seu inquilino Replicon. Exemplo: CompanyID com base na entrada de registo abaixo é Contoso.
 
     ![Replicon início de sessão](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
     *   No **domínio** campo, preencher o domínio, tal como descrito no passo 6.
     
-6. Obter **serviceEndpointRootURL** para sua Replicon inquilino conta com base nos passos mencionados no, [Replicon serviço ajudar](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Após obter o URL, a **domínio** seria o subdomínio **serviceEndpointRootURL** como realçado. 
+6. Obter **serviceEndpointRootURL** para sua Replicon inquilino conta com base nos passos mencionados [Replicon serviço ajudar](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Após obter o URL, a **domínio** seria o subdomínio **serviceEndpointRootURL** como realçado. 
 
     ![Aprovisionamento de replicon](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 

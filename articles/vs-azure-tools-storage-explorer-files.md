@@ -1,12 +1,12 @@
 ---
-title: "Utilizar o Explorador de Armazenamento (Pré-visualização) com o Armazenamento de ficheiros do Azure | Microsoft Docs"
-description: "Saiba como utilizar o Explorador de Armazenamento (Pré-visualização) para trabalhar com ficheiros e partilhas de ficheiros."
+title: Utilizar o Explorador de Armazenamento com o Armazenamento de ficheiros do Azure | Microsoft Docs
+description: Saiba como utilizar o Explorador de Armazenamento para trabalhar com ficheiros e partilhas de ficheiros.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento (Pré-visualização) com o Armazenamento de ficheiros do Azure
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
 
-O Armazenamento de ficheiros do Azure é um serviço que oferece partilhas de ficheiros na cloud com o Protocolo SMB (Server Message Block) padrão. O SMB 2.1 e o SMB 3.0 são suportados. Com o Armazenamento de ficheiros do Azure, pode migrar aplicações antigas que se baseiam em partilhas de ficheiros para o Azure rapidamente e sem reescritas dispendiosas. Pode utilizar o Armazenamento de ficheiros para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado. Neste artigo, vai aprender a utilizar o Explorador de Armazenamento (Pré-visualização) para trabalhar com ficheiros e partilhas de ficheiros.
+O Armazenamento de ficheiros do Azure é um serviço que oferece partilhas de ficheiros na cloud com o Protocolo SMB (Server Message Block) padrão. O SMB 2.1 e o SMB 3.0 são suportados. Com o Armazenamento de ficheiros do Azure, pode migrar aplicações antigas que se baseiam em partilhas de ficheiros para o Azure rapidamente e sem reescritas dispendiosas. Pode utilizar o Armazenamento de ficheiros para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado. Neste artigo, vai aprender a utilizar o Explorador de Armazenamento para trabalhar com ficheiros e partilhas de ficheiros.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar os passos descritos neste artigo, é necessário o seguinte:
 
-- [Transfira e instale o Explorador de Armazenamento (pré-visualização)](http://www.storageexplorer.com/)
+- [Transferir e instalar o Explorador de Armazenamento](http://www.storageexplorer.com/)
 
 - [Ligar a um serviço ou a uma conta de armazenamento do Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Para executar os passos descritos neste artigo, é necessário o seguinte:
 
 Todos os ficheiros têm de residir numa partilha de ficheiros, que é simplesmente um agrupamento lógico de ficheiros. Uma conta pode conter um número ilimitado de partilhas de ficheiros e cada partilha pode armazenar um número ilimitado de ficheiros.
 
-Os passos seguintes mostram como criar uma partilha de ficheiros no Explorador de Armazenamento (Pré-visualização).
+Os passos seguintes mostram como criar uma partilha de ficheiros no Explorador de Armazenamento.
 
-1. Abrir o Explorador de Armazenamento (Pré-visualização).
+1. Abra o Explorador de Armazenamento.
 
 2. No painel da esquerda, expanda a conta de armazenamento na qual pretende criar a Partilha de Ficheiros.
 
@@ -58,9 +58,9 @@ Os passos seguintes mostram como criar uma partilha de ficheiros no Explorador d
 
 As partilhas de ficheiros contêm ficheiros e pastas (que também podem conter ficheiros).
 
-Os passos seguintes mostram como ver os conteúdos de uma partilha de ficheiros no Explorador de Armazenamento (Pré-visualização):
+Os passos seguintes mostram como ver os conteúdos de uma partilha de ficheiros no Explorador de Armazenamento:+
 
-1. Abrir o Explorador de Armazenamento (Pré-visualização).
+1. Abra o Explorador de Armazenamento.
 
 2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer ver.
 
@@ -78,9 +78,9 @@ Os passos seguintes mostram como ver os conteúdos de uma partilha de ficheiros 
 
 É fácil criar e eliminar partilhas de ficheiros, conforme necessário. (Para saber como eliminar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
-Os passos seguintes mostram como eliminar uma partilha de ficheiros no Explorador de Armazenamento (Pré-visualização):
+Os passos seguintes mostram como eliminar uma partilha de ficheiros no Explorador de Armazenamento:
 
-1. Abrir o Explorador de Armazenamento (Pré-visualização).
+1. Abra o Explorador de Armazenamento.
 
 2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer ver.
 
@@ -96,11 +96,11 @@ Os passos seguintes mostram como eliminar uma partilha de ficheiros no Explorado
 
 ## <a name="copy-a-file-share"></a>Copiar partilhas de ficheiros
 
-O Storage Explorer (Preview) permite-lhe copiar partilhas de ficheiros para a área de transferências e, em seguida, copiá-las para outra conta de armazenamento. (Para saber como copiar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+O Explorador de Armazenamento permite-lhe copiar partilhas de ficheiros para a área de transferências e, em seguida, copiá-las para outra conta de armazenamento. (Para saber como copiar ficheiros individuais, veja a secção [Gerir ficheiros numa partilha de ficheiros](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
 
 Os passos seguintes mostram como copiar uma partilha de ficheiros de uma conta de armazenamento para outra.
 
-1. Abrir o Explorador de Armazenamento (Pré-visualização).
+1. Abra o Explorador de Armazenamento.
 
 2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer copiar.
 
@@ -120,7 +120,7 @@ As [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com//azure/st
 
 Os passos seguintes mostram como criar uma SAS para uma partilha de ficheiros:
 
-1. Abrir o Explorador de Armazenamento (Pré-visualização).
+1. Abra o Explorador de Armazenamento.
 
 2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros para a qual quer obter uma SAS
 
@@ -146,7 +146,7 @@ Os passos seguintes mostram como criar uma SAS para uma partilha de ficheiros:
 
 Os passos seguintes mostram como gerir (adicionar e remover) políticas de acesso de uma partilha de ficheiros: As Políticas de Acesso são utilizadas para criar URLs de SAS que as pessoas podem utilizar para aceder ao recurso do Armazenamento de ficheiros durante um período de tempo definido.
 
-1. Abrir o Explorador de Armazenamento (Pré-visualização).
+1. Abra o Explorador de Armazenamento.
 
 2. No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros cujas políticas de acesso quer gerir.
 
@@ -180,7 +180,7 @@ Depois de criar uma partilha de ficheiros, pode carregar um ficheiro para a mesm
 
 Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de ficheiros.
 
-1.  Abrir o Explorador de Armazenamento (Pré-visualização).
+1.  Abra o Explorador de Armazenamento.
 
 2.  No painel da esquerda, expanda a conta de armazenamento que contém a partilha de ficheiros que quer gerir.
 
@@ -258,6 +258,6 @@ Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de fic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Vejas os [mais recentes vídeos e notas de versão do Storage Explorer (Preview)](http://www.storageexplorer.com/).
+- Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](http://www.storageexplorer.com/).
 
 - Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).

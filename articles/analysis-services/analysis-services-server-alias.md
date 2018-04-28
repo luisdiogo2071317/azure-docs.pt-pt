@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: edd13e9372643769060f43e952737154d812292d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e55438c629b861e8dc095892c6c519855cd5e632
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="alias-server-names"></a>Nomes de alias de servidor
 
@@ -25,7 +25,7 @@ Nomes de alias de servidor são ideais para:
 - Utilizadores diretos em servidores diferentes em alturas diferentes do dia. 
 - Utilizadores diretos em regiões diferentes para as instâncias que sejam geograficamente próximo, como quando utilizar o Gestor de tráfego do Azure. 
 
-Qualquer ponto final de HTTP que devolve um nome de servidor válido do Azure Analysis Services pode servir como um alias.
+Qualquer ponto final de HTTPS que devolve um nome de servidor válido do Azure Analysis Services pode servir como um alias. O ponto final tem de suportar HTTPS através da porta 443 e a porta não pode ser especificada no URI.
 
 ![Alias utilizando o formato de ligação](media/analysis-services-alias/aas-alias-browser.png)
 
@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Ligar a partir do ambiente de trabalho do Power BI](analysis-services-connect-pbi.md)

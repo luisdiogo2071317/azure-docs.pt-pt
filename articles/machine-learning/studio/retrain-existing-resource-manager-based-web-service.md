@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reparametrização de um serviço web preditiva existente
 Este documento descreve o processo reparametrização para o seguinte cenário:
@@ -26,8 +26,8 @@ Este documento descreve o processo reparametrização para o seguinte cenário:
 * Tem uma experimentação de preparação e de uma experimentação preditiva que implementou como um serviço operacionalizado web.
 * Tiver novos dados que pretende que o seu serviço web preditiva a utilizar para efetuar a respetiva classificação.
 
-> [!NOTE] 
-> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição aos quais pode implementar o serviço web. Para obter mais informações, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição aos quais pode implementar o serviço web. Para obter mais informações, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md).
 
 A partir do seu serviço web existente e experimentações, terá de seguir estes passos:
 
@@ -54,7 +54,7 @@ Para atualizar a sua experimentação de preparação:
 
 Execute a experimentação.
 
-Em seguida, tem de implementar a experimentação de preparação como um serviço web que produz um modelo preparado e resultados de avaliação do modelo.  
+Em seguida, tem de implementar a experimentação de preparação como um serviço web que produz um modelo preparado e resultados de avaliação do modelo.
 
 Na parte inferior da tela de experimentação, clique em **segurança serviço Web**e, em seguida, selecione **implementar o serviço Web do [New]**. O portal de serviços Web do Azure Machine Learning é aberto o **implementar serviço Web** página. Escreva um nome para o seu serviço web, escolha um plano de pagamento e, em seguida, clique em **implementar**. Só pode utilizar o método de execução de lote para a criação de modelos de formação.
 
@@ -84,7 +84,7 @@ Localize o **apikey** declaração:
 No **informações de consumo básico** secção o **Consume** página, localize a chave primária e copie-o para o **apikey** declaração.
 
 ### <a name="update-the-azure-storage-information"></a>Atualizar as informações de armazenamento do Azure
-O código de exemplo BES carrega um ficheiro a partir de uma unidade local (por exemplo, "C:\temp\CensusIpnput.csv") ao Storage do Azure, os processos que e escreve os resultados de volta ao Storage do Azure.  
+O código de exemplo BES carrega um ficheiro a partir de uma unidade local (por exemplo, "C:\temp\CensusIpnput.csv") ao Storage do Azure, os processos que e escreve os resultados de volta ao Storage do Azure.
 
 Depois de executar a experimentação, o fluxo de trabalho resultante deve ser semelhante ao seguinte:
 
@@ -126,7 +126,7 @@ Segue-se um exemplo de saída reparametrização:
 ## <a name="evaluate-the-retraining-results"></a>Avaliar os resultados reparametrização
 Quando executar a aplicação, o resultado inclui o URL e o token de assinaturas de acesso partilhado são necessários para os resultados da avaliação de acesso.
 
-Pode ver os resultados de desempenho do modelo de retrained ao combinar o *BaseLocation*, *RelativeLocation*, e *SasBlobToken* dos resultados de saída para *output2* (conforme mostrado na imagem de saída reparametrização anterior) e colar o URL completo para a barra de endereço do browser.  
+Pode ver os resultados de desempenho do modelo de retrained ao combinar o *BaseLocation*, *RelativeLocation*, e *SasBlobToken* dos resultados de saída para *output2* (conforme mostrado na imagem de saída reparametrização anterior) e colar o URL completo para a barra de endereço do browser.
 
 Examine os resultados para determinar se o modelo treinado recentemente efetua bem suficiente para substituir a existente.
 
@@ -136,7 +136,7 @@ Copiar o *BaseLocation*, *RelativeLocation*, e *SasBlobToken* dos resultados de 
 Quando a reparametrização de um novo serviço web, atualize a definição de serviço web preditiva para referenciar o novo modelo treinado. A definição de serviço web é uma representação interna do modelo treinado do serviço web e não é modificável diretamente. Certifique-se de que estão a obter a definição de serviço web para a sua experimentação preditiva e não a experimentação de preparação.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>A iniciar sessão para o Azure Resource Manager
-Tem primeiro de iniciar sessão sua conta do Azure do ambiente de PowerShell utilizando o [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+Tem primeiro de iniciar sessão sua conta do Azure do ambiente de PowerShell utilizando o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição do serviço Web
 Em seguida, obter o objeto de definição do serviço Web ao chamar o [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.

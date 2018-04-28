@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de versão do Azure SDK para .NET 2.9
 
@@ -41,7 +41,7 @@ Não existem alterações para o Azure SDK 2.9 foram introduzidas nesta versão.
  
 ### <a name="windows-server-2016-virtual-machines"></a>Máquinas virtuais do Windows Server 2016
 
-- Visual Studio suporta agora a implementação de serviços em nuvem para máquinas virtuais de família de SO 5 (Windows Server 2016). Para serviços em nuvem existente, pode alterar as definições para a nova família de SO de destino. Ao criar novos serviços em nuvem, se optar por criar o serviço através do .net 4.6 ou superior, será predefinido o serviço para utilizar 5 da família de SO.  Para obter mais informações, pode rever o [família de SO convidado suporta tabela](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio suporta agora a implementação de serviços em nuvem para máquinas virtuais de família de SO 5 (Windows Server 2016). Para serviços em nuvem existente, pode alterar as definições para a nova família de SO de destino. Ao criar novos serviços em nuvem, se optar por criar o serviço através do .net 4.6 ou superior, será predefinido o serviço para utilizar 5 da família de SO.  Para obter mais informações, pode rever o [família de SO convidado suporta tabela](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### <a name="known-issues"></a>Problemas conhecidos
 
@@ -50,7 +50,7 @@ Não existem alterações para o Azure SDK 2.9 foram introduzidas nesta versão.
  
 ### <a name="azure-in-role-cache"></a>Cache de função do Azure 
 
-- Suporte para a Cache de função do Azure extremidades em 30 de Novembro de 2016. Para obter mais detalhes, clique em [aqui](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- Suporte para a Cache de função do Azure extremidades em 30 de Novembro de 2016. Para obter mais detalhes, clique em [aqui](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>A pilha de modelos Azure Resource Manager para o Azure
 

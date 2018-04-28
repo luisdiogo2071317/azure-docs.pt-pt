@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos na grelha de eventos do Azure
 
@@ -20,7 +20,7 @@ Os principais conceitos na grelha de eventos do Azure são:
 
 ## <a name="events"></a>Eventos
 
-Um evento é a mais pequena quantidade de informações que descreve algo de completamente ocorrida no sistema.  Cada evento tem informações comuns, como: origem de evento, o tempo que demorou o evento local e o identificador exclusivo.  Cada evento também contém informações específicas que só são relevantes para o tipo específico do evento. Por exemplo, um evento sobre um novo ficheiro a ser criado no armazenamento do Azure contém detalhes sobre o ficheiro, tal como o `lastTimeModified` valor. Em alternativa, um evento sobre reiniciar uma máquina virtual contém o nome da máquina virtual e o motivo para reiniciar o computador. Cada evento está limitado a 64 KB de dados.
+Um evento é a mais pequena quantidade de informações que descreve algo de completamente ocorrida no sistema. Cada evento tem informações comuns, como: origem de evento, o tempo que demorou o evento local e o identificador exclusivo. Cada evento também contém informações específicas que só são relevantes para o tipo específico do evento. Por exemplo, um evento sobre um novo ficheiro a ser criado no armazenamento do Azure contém detalhes sobre o ficheiro, tal como o `lastTimeModified` valor. Em alternativa, um evento sobre reiniciar uma máquina virtual contém o nome da máquina virtual e o motivo para reiniciar o computador. Cada evento está limitado a 64 KB de dados.
 
 ## <a name="event-sourcespublishers"></a>Origens/publicadores de eventos
 
@@ -32,7 +32,7 @@ Os publicadores categorizam eventos em tópicos. O tópico inclui um ponto final
 
 Tópicos de sistema são tópicos incorporados fornecidos pelos serviços do Azure. Tópicos de personalizados são tópicos de terceiros e aplicações.
 
-Ao conceber a sua aplicação, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envia eventos relacionados com a modificar contas de utilizador e as ordens de processamento. É pouco provável de qualquer processador de eventos pretender que ambas as categorias de eventos. Criar dois tópicos personalizados e permita que os processadores de eventos subscrever que lhe interessa-los. Quando subscrever o tópico personalizado, o processador de eventos pode filtrar por tipo de evento.
+Ao conceber a sua aplicação, tem flexibilidade quando decidir quantos tópicos para o criar. Soluções de grandes dimensões, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envia eventos relacionados com a modificar contas de utilizador e as ordens de processamento. É pouco provável de qualquer processador de eventos pretender que ambas as categorias de eventos. Criar dois tópicos personalizados e permita que os processadores de eventos subscrever que lhe interessa-los. Soluções de pequenas, poderá preferir enviar todos os eventos para um tópico único. Podem filtrar os subscritores de eventos para os tipos de eventos que pretende.
 
 ## <a name="event-subscriptions"></a>Subscrições de eventos
 
@@ -40,7 +40,7 @@ Uma subscrição instrui a grelha de evento que eventos de um tópico está inte
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
-A partir de uma perspetiva de grelha de evento, um processador de eventos é o local onde o evento é enviado. O processador demora algumas medidas adicionais para processar o evento.  Grelha de evento suporta vários tipos de subscritor. Dependendo do tipo de subscritor, o evento grelha segue diferentes mecanismos para garantir a entrega do evento.  Para processadores de eventos de webhook HTTP, o evento é repetido até que o processador devolve um código de estado de `200 – OK`. Para a fila de armazenamento do Azure, os eventos são repetidos até que o serviço de fila é capaz de processar com êxito o push de mensagens na fila.
+A partir de uma perspetiva de grelha de evento, um processador de eventos é o local onde o evento é enviado. O processador demora algumas medidas adicionais para processar o evento. Grelha de evento suporta vários tipos de subscritor. Dependendo do tipo de subscritor, o evento grelha segue diferentes mecanismos para garantir a entrega do evento. Para processadores de eventos de webhook HTTP, o evento é repetido até que o processador devolve um código de estado de `200 – OK`. Para a fila de armazenamento do Azure, os eventos são repetidos até que o serviço de fila é capaz de processar com êxito o push de mensagens na fila.
 
 ## <a name="filters"></a>Filtros
 

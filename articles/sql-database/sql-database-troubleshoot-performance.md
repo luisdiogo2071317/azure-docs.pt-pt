@@ -11,11 +11,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitorização e a otimização de desempenho
 
@@ -49,8 +49,8 @@ Pode também permitem SQL database do Azure para [automaticamente otimizar o des
 
 ## <a name="improving-database-performance-with-more-resources"></a>Melhorar o desempenho da base de dados com mais recursos
 
-Por fim, se existem quaisquer itens passíveis de ação que podem melhorar o desempenho da base de dados, pode alterar a quantidade de recursos disponíveis no SQL Database do Azure. Pode atribuir mais recursos alterando o [camada de serviço](sql-database-service-tiers.md) de uma base de dados autónoma ou aumentar as eDTUs de um conjunto elástico em qualquer altura.
-1. Para bases de dados autónomo, pode [alterar camadas de serviço](sql-database-service-tiers.md) a pedido para melhorar o desempenho de base de dados.
+Por fim, se existem quaisquer itens passíveis de ação que podem melhorar o desempenho da base de dados, pode alterar a quantidade de recursos disponíveis no SQL Database do Azure. Pode atribuir mais recursos alterando o [camada de serviços DTU](sql-database-service-tiers-dtu.md) de uma base de dados autónoma ou aumentar as eDTUs de um conjunto elástico em qualquer altura. Em alternativa, se estiver a utilizar o [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md), pode alterar o escalão de serviço ou aumentar os recursos atribuídos a sua base de dados. 
+1. Para bases de dados autónomo, pode [alterar camadas de serviço](sql-database-service-tiers-dtu.md) ou [recursos de computação](sql-database-service-tiers-vcore.md)a pedido para melhorar o desempenho de base de dados.
 2. Para várias bases de dados, considere a utilização [conjuntos elásticos](sql-database-elastic-pool-guidance.md) Dimensionar automaticamente recursos.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Otimizar e aplicação refactorize ou um código de base de dados

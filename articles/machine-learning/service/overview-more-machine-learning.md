@@ -11,11 +11,11 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 189f19a3a3f588df8844a552abda73827eb45191
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbb8deeab8368d9c0e6d29c8d7e1e2e0a8805d60
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Outros produtos do machine learning e serviços da Microsoft
 
@@ -39,7 +39,7 @@ O [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-an
 
 - Análises de elevado desempenho
 - Análises estatísticas
-- Machine learning
+- Aprendizagem automática
 - Conjuntos de dados extremamente grandes
 
 Funcionalidades adicionais são fornecidas através de pacotes proprietárias que instalar com o servidor. Para desenvolvimento, pode utilizar IDEs como o [R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/) e o [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python/).
@@ -77,7 +77,7 @@ O [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolki
 Utilize o Cognitive Toolkit quando quiser utilizar a aprendizagem profunda para criar um modelo.  O Cognitive Toolkit pode ser utilizado em qualquer um dos serviços anteriores.
 
 ## <a name="azure-cognitive-services"></a>Serviços cognitivos do Azure
-[Serviços cognitivos Azure](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) é um conjunto de cerca de 30 APIs que permitem-lhe criar aplicações que utilizam métodos naturais de comunicação. Estas APIs permitem que as aplicações ver, ouvir, enunciar, compreender e interpretar as necessidades de utilizadores com apenas alguns linhas de código. Adicione facilmente funcionalidades inteligentes às suas aplicações, tais como: 
+[Serviços cognitivos Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) é um conjunto de cerca de 30 APIs que permitem-lhe criar aplicações que utilizam métodos naturais de comunicação. Estas APIs permitem que as aplicações ver, ouvir, enunciar, compreender e interpretar as necessidades de utilizadores com apenas alguns linhas de código. Adicione facilmente funcionalidades inteligentes às suas aplicações, tais como: 
 
 - Deteção de emoções e sentimentos
 - Reconhecimento de voz e visão

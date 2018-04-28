@@ -1,24 +1,19 @@
 ---
-title: "A indexação de blobs JSON com o indexador de blob do Azure Search"
-description: "A indexação de blobs JSON com o indexador de blob do Azure Search"
-services: search
-documentationcenter: 
+title: A indexação de blobs JSON com o indexador de blob do Azure Search
+description: A indexação de blobs JSON com o indexador de blob do Azure Search
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 57e32e51-9286-46da-9d59-31884650ba99
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2dac2c5980970946a6b9c26ee6ee8ac0f0344144
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: MT
+ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>A indexação de blobs JSON com o indexador de blob do Azure Search
 Este artigo mostra como configurar um indexador de blob do Azure Search para extrair conteúdo estruturado de blobs JSON do Blob storage do Azure.
@@ -216,9 +211,9 @@ O exemplo seguinte é um payload de indexador totalmente especificado, incluindo
 ## <a name="help-us-make-azure-search-better"></a>Ajude-na tornar o melhor da Azure Search
 Se tiver de pedidos de funcionalidades ou ideias para melhoramentos, entrar-no nosso [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Indexadores na pesquisa do Azure](search-indexer-overview.md)
 + [Indexar o Blob Storage do Azure com a pesquisa do Azure](search-howto-index-json-blobs.md)
 + [A indexação de blobs CSV com o indexador de blob do Azure Search](search-howto-index-csv-blobs.md)
-+ [Tutorial: Pesquisar semiestruturados dados a partir do Blob storage do Azure](search-semi-structured-data.md)
++ [Tutorial: Pesquisar semiestruturados dados a partir do Blob storage do Azure ](search-semi-structured-data.md)

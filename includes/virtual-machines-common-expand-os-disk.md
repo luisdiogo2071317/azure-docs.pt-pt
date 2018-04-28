@@ -22,7 +22,7 @@ Abra o ISE do Powershell ou a janela do Powershell no modo administrativo e siga
 1. Inicie de sessão na sua conta do Microsoft Azure no modo de gestão de recursos e selecione a sua subscrição da seguinte forma:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Defina o nome do grupo de recursos e o nome VM da seguinte forma:
@@ -65,7 +65,7 @@ Abra o ISE do Powershell ou a janela do Powershell no modo administrativo e siga
 1. Inicie de sessão na sua conta do Microsoft Azure no modo de gestão de recursos e selecione a sua subscrição da seguinte forma:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Defina o nome do grupo de recursos e o nome VM da seguinte forma:
@@ -109,7 +109,7 @@ Neste artigo, utilizámos os módulos do Azure Resource Manager do Powershell pa
 Discos de Unamanged:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Managed Disks:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

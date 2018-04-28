@@ -1,8 +1,8 @@
 ---
-title: "Cenários de dados que envolvem Data Lake Store | Microsoft Docs"
-description: "Compreender os diferentes cenários e ferramentas com que dados podem ingeridos, processados, transferidas e serão visualizados num Data Lake Store"
+title: Cenários de dados que envolvem Data Lake Store | Microsoft Docs
+description: Compreender os diferentes cenários e ferramentas com que dados podem ingeridos, processados, transferidas e serão visualizados num Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8cd666af9e05b543b6794612ec5acf6f8a27756
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Utilizar o Azure Data Lake Store para requisitos de macrodados
 Existem quatro fases principais grande de processamento de dados:
@@ -55,7 +55,7 @@ Seguem-se as ferramentas que pode utilizar:
 ### <a name="relational-data"></a>Dados relacionais
 Também pode originar dados a partir de bases de dados relacionais. Durante um período de tempo, bases de dados relacionais recolhem quantidades enormes de dados que podem fornecer informações de chaves se processados através de um pipeline de macrodados. Pode utilizar as ferramentas seguintes para mover esses dados para o Data Lake Store.
 
-* [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+* [O Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Dados de registo do servidor Web (carregamento utilizando aplicações personalizadas)
@@ -72,7 +72,7 @@ Para carregar dados de registo do servidor web e também para carregar outros ti
 A maioria dos tipos de cluster de HDInsight (Hadoop, HBase, Storm) suportam Data Lake Store, como um repositório de armazenamento de dados. Clusters do HDInsight aceder aos dados de Blobs de armazenamento do Azure (WASB). Para um melhor desempenho, pode copiar os dados de WASB para uma conta do Data Lake Store associada com o cluster. Pode utilizar as ferramentas seguintes para copiar os dados.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
-* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
+* [Serviço de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Os dados armazenados no local ou IaaS Hadoop clusters
@@ -115,7 +115,7 @@ Pode também querer transferir ou mover dados do Azure Data Lake Store para cen�
 
 Nestes casos, pode utilizar qualquer uma das seguintes opções:
 
-* [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+* [O Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
@@ -131,4 +131,4 @@ Pode utilizar uma combinação de serviços para criar representações visuais 
 ![Visualizar dados no Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize os dados no Data Lake Store")
 
 * Pode iniciar utilizando [Azure Data Factory para mover dados do Data Lake Store para o Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Depois disso, pode [integrar o Power BI com o Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para criar uma representação visual de dados.
+* Depois disso, pode [integrar o Power BI com o Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) para criar uma representação visual de dados.

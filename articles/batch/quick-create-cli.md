@@ -1,5 +1,5 @@
 ---
-title: "Início Rápido do Azure - Executar Tarefa do Batch - CLI"
+title: Início Rápido do Azure - Executar Tarefa do Batch - CLI
 description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure.
 services: batch
 author: dlepow
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 
@@ -38,9 +38,9 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
-Pode associar uma conta de armazenamento para fins gerais do Azure à sua conta do Batch. Apesar de não ser obrigatório para este início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de armazenamento no seu grupo de recursos.
+Pode associar uma conta de Armazenamento do Microsoft Azure à sua conta do Batch. Apesar de não ser obrigatório neste início rápido, a conta de armazenamento é útil para implementar aplicações e armazenar dados de entrada e saída para a maioria das cargas de trabalho do mundo real. Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de armazenamento no seu grupo de recursos.
 
 ```azurecli-interactive
 az storage account create \

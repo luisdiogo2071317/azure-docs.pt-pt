@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 2490b96716519ef749dd1e3a1fbe6846c6b5d999
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3b4a67a06d628040d155a0fe2d78beb2eee25090
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Ligar redes virtuais com o peering de rede virtual com o PowerShell
 
-Pode ligar redes virtuais entre si ao peering de rede virtual. Depois de redes virtuais em modo de peering, recursos em ambas as redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos foram na mesma rede virtual. Neste artigo, saiba como:
+Pode ligar redes virtuais entre si com o peering de rede virtual. Depois de as redes virtuais estarem em modo de peering, os recursos nas duas redes virtuais conseguem comunicar entre si, com a mesma latência e largura de banda, como se os recursos estivessem na mesma rede virtual. Neste artigo, vai aprender a:
 
 * Criar duas redes virtuais
 * Ligar duas redes virtuais com um peering de rede virtual
@@ -36,11 +36,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o Azure PowerShell versão do módulo 5.4.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure. 
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o Azure PowerShell versão do módulo 5.4.1 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure. 
 
 ## <a name="create-virtual-networks"></a>Criar redes virtuais
 
-Antes de criar uma rede virtual, tem de criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Criar um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Antes de criar uma rede virtual, tem de criar um grupo de recursos para a rede virtual e todos os outros recursos criados neste artigo. Crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -56,7 +56,7 @@ $virtualNetwork1 = New-AzureRmVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Criar uma configuração de sub-rede com [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). O exemplo seguinte cria uma configuração de sub-rede com um prefixo de endereço 10.0.0.0/24:
+Crie uma configuração de sub-rede com [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). O exemplo seguinte cria uma configuração de sub-rede com um prefixo de endereço 10.0.0.0/24:
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -91,7 +91,7 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork2 | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="peer-virtual-networks"></a>Redes virtuais do elemento de rede
+## <a name="peer-virtual-networks"></a>Colocar redes virtuais em modo de peering
 
 Criar um peering com [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering). Os elementos de rede de exemplo seguintes *myVirtualNetwork1* para *myVirtualNetwork2*.
 
@@ -124,11 +124,11 @@ Recursos de uma rede virtual não é possível comunicar com os recursos na outr
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Crie uma VM em cada rede virtual para que possa comunicar entre eles num passo posterior.
+Crie uma VM em cada rede virtual, para que possa comunicar entre as mesmas num passo posterior.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Criar uma VM com [novo-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM chamada *myVm1* no *myVirtualNetwork1* rede virtual. O `-AsJob` opção cria a VM em segundo plano, para poder continuar para o passo seguinte. Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que pretende iniciar sessão na VM com o.
+Crie uma VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM chamada *myVm1* no *myVirtualNetwork1* rede virtual. O `-AsJob` opção cria a VM em segundo plano, para poder continuar para o passo seguinte. Quando lhe for pedido, introduza o nome de utilizador e palavra-passe que pretende iniciar sessão na VM com o.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -141,7 +141,7 @@ New-AzureRmVm `
   -AsJob
 ```
 
-### <a name="create-the-second-vm"></a>Criar a VM segundo
+### <a name="create-the-second-vm"></a>Criar a segunda VM
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -153,11 +153,11 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-A VM demora alguns minutos a criar. Não continue passos posteriores até que o Azure cria a VM e devolve um resultado para o PowerShell.
+A criação da VM demora alguns minutos. Não continue passos posteriores até que o Azure cria a VM e devolve um resultado para o PowerShell.
 
 ## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
-Pode ligar ao endereço IP público de uma VM a partir da internet. Utilize [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para devolver o endereço IP público de uma VM. O exemplo seguinte devolve o endereço IP público do *myVm1* VM:
+Pode ligar ao endereço IP público de uma VM a partir da internet. Utilize [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para que o endereço IP público de uma VM seja devolvido. O exemplo seguinte devolve o endereço IP público da VM *myVm1*:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -165,7 +165,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remota com o *myVm1* VM a partir do seu computador local. Substitua `<publicIpAddress>` com o endereço IP devolvido do comando anterior.
+Utilize o seguinte comando para criar uma sessão de ambiente de trabalho remota com o *myVm1* VM a partir do seu computador local. Substitua `<publicIpAddress>` pelo endereço IP devolvido no comando anterior.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -181,7 +181,7 @@ New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 
 Apesar de ping é utilizado para comunicar entre VMs neste artigo, permitir ICMP através da Firewall do Windows para implementações de produção não é recomendada.
 
-Para estabelecer ligação com o *myVm2* VM, introduza o seguinte comando numa linha de comandos *myVm1* VM:
+Para ligar à VM *myVm2*, introduza o seguinte comando numa linha de comandos da VM *myVm1*:
 
 ```
 mstsc /v:10.1.0.4
@@ -193,7 +193,7 @@ Uma vez que ativou o ping no *myVm1*, pode agora executar um ping-lo por endere�
 ping 10.0.0.4
 ```
 
-Receber quatro respostas. Desligar as sessões RDP para ambos *myVm1* e *myVm2*.
+Receber quatro respostas. Desligue as sessões RDP das *myVm1* e *myVm2*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -205,6 +205,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu a ligar duas redes na mesma região do Azure, com o peering de rede virtual. Também pode elemento redes virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region) e na [diferentes subscrições do Azure](create-peering-different-subscriptions.md#powershell), bem como criar [hub- and -spoke designs de rede](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering. Para obter mais informações sobre peering de rede virtual, consulte o artigo [descrição geral de peering da rede Virtual](virtual-network-peering-overview.md) e [gerir peerings de rede virtual](virtual-network-manage-peering.md).
+Neste artigo, aprendeu a ligar duas redes na mesma região do Azure, com o peering de rede virtual. Também pode ligar em modo de peering máquinas virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region) e em [diferentes subscrições do Azure](create-peering-different-subscriptions.md#powershell), bem como criar [designs de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com peering. Para obter mais informações sobre o peering de rede virtual, veja [Descrição geral do peering de rede virtual](virtual-network-peering-overview.md) e [Gerir peerings de rede virtual](virtual-network-manage-peering.md).
 
 Pode [ligar o seu próprio computador a uma rede virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) através de uma VPN e interaja com os recursos numa rede virtual, ou em redes virtuais em modo de peering. Para obter scripts reutilizáveis concluir a muitas das tarefas abrangidas os artigos de rede virtual, consulte [script amostras](powershell-samples.md).

@@ -3,7 +3,7 @@ title: Repor a palavra-passe ou a configuração do ambiente de trabalho remoto 
 description: Saiba como repor uma palavra-passe de conta ou serviços de ambiente de trabalho remoto numa VM do Windows utilizando o portal do Azure ou o Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
-ms.author: danis
-ms.openlocfilehash: 038fc81fd46f81a454ec908e2156579ff8d41ee6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 26a213d490ee3f661735ff5b893b0a5f5f9906da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Como repor o serviço de ambiente de trabalho remoto ou a palavra-passe de início de sessão numa VM do Windows
 Se não é possível ligar a uma máquina virtual (VM) do Windows, pode repor a palavra-passe de administrador local ou reponha a configuração do serviço de ambiente de trabalho remoto (não suportada em controladores de domínio do Windows). Pode utilizar o portal do Azure ou a extensão de acesso de VM no Azure PowerShell para repor a palavra-passe. Depois de ter a sessão iniciada para a VM, deve repor a palavra-passe para esse utilizador.  
@@ -54,24 +54,24 @@ Selecione **apenas a configuração de reposição** no menu pendente, em seguid
 
 
 ## <a name="vmaccess-extension-and-powershell"></a>Extensão VMAccess e PowerShell
-Certifique-se de que tem o [módulo do PowerShell mais recente instalado e configurado](/powershell/azure/overview) e a sessão iniciada na sua subscrição do Azure com o `Login-AzureRmAccount` cmdlet.
+Certifique-se de que tem o [módulo do PowerShell mais recente instalado e configurado](/powershell/azure/overview) e a sessão iniciada na sua subscrição do Azure com o `Connect-AzureRmAccount` cmdlet.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Repor a palavra-passe da conta de administrador local**
-Repor o nome de utilizador ou palavra-passe de administrador com a [conjunto AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) cmdlet do PowerShell. Crie as credenciais da conta da seguinte forma:
+Repor o nome de utilizador ou palavra-passe de administrador com a [conjunto AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) cmdlet do PowerShell. 
 
 ```powershell
-$cred=Get-Credential
+$SubID = "<SUBSCRIPTION ID>" 
+$RgName = "<RESOURCE GROUP NAME>" 
+$VmName = "<VM NAME>" 
+$Location = "<LOCATION>" 
+ 
+Connect-AzureRmAccount 
+Select-AzureRMSubscription -SubscriptionId $SubID 
+Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
 ```
 
 > [!NOTE] 
 > Se escrever um nome diferente a atual conta de administrador local no VM, a extensão VMAccess irá adicionar uma conta de administrador local com esse nome e atribuir a palavra-passe especificada para essa conta. Se a conta de administrador local no VM, irá repor a palavra-passe e se a conta está desativada, a extensão VMAccess ativa-o.
-
-
-O exemplo seguinte atualiza a VM com o nome `myVM` no grupo de recursos denominado `myResourceGroup` para as credenciais especificadas.
-
-```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().UserName -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
-```
 
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Repor a configuração do serviço de ambiente de trabalho remoto**
 Reponha o acesso remoto à VM com o [conjunto AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) cmdlet do PowerShell. O exemplo seguinte repõe a extensão de acesso com o nome `myVMAccess` na VM com o nome `myVM` no `myResourceGroup` grupo de recursos:

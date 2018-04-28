@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 919b1bef1f1337ad188e26476da8c5a5ef029224
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 133c09ad1f81a122d089485f8793d7dddbd1488a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e utilizá-la para criar novas VMs no Azure
 
@@ -47,7 +47,7 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 
 1. Iniciar sessão para a máquina virtual do Windows.
 2. Abra a janela de linha de comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
-3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)**e certifique-se de que o **Generalize** caixa de verificação está selecionada.
+3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está selecionada.
 4. No **as opções de encerramento**, selecione **encerramento**.
 5. Clique em **OK**.
    
@@ -107,7 +107,7 @@ Também pode carregar um VHD para a conta de armazenamento com um dos seguintes:
     Importar/exportar podem ser utilizado para copiar para uma conta de armazenamento standard. Terá de copiar a partir de armazenamento standard para a conta do premium storage utilizando uma ferramenta como o AzCopy.
 
 > [!IMPORTANT]
-> Se estiver a utilizar o AzCopy carregar o VHD para o Azure, certifique-se de que definiu [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) antes de executar carregar o script. Se o destino for um blob e esta opção não for especificada, por predefinição, o AzCopy cria um blob de blocos.
+> Se estiver a utilizar o AzCopy carregar o VHD para o Azure, certifique-se de que definiu [/BlobType:page](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) antes de executar carregar o script. Se o destino for um blob e esta opção não for especificada, por predefinição, o AzCopy cria um blob de blocos.
 > 
 > 
 

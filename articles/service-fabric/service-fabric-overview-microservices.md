@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao micro-serviços no Azure | Microsoft Docs"
-description: "Uma descrição geral do motivo pelo qual a criação de aplicações em nuvem com uma abordagem de micro-serviços é importante para o desenvolvimento de aplicações modernas e como o Service Fabric do Azure fornece uma plataforma para conseguir isto."
+title: Introdução ao micro-serviços no Azure | Microsoft Docs
+description: Uma descrição geral do motivo pelo qual a criação de aplicações em nuvem com uma abordagem de micro-serviços é importante para o desenvolvimento de aplicações modernas e como o Service Fabric do Azure fornece uma plataforma para conseguir isto.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que motivo um micro-serviços abordagem de criação de aplicações?
 Como os programadores de software, não há nada de novo na forma como acreditamos sobre factoring uma aplicação em partes de componente. É o paradigma central de orientação de objeto, abstrações de software e componentization. Hoje em dia, este factorization tende a ter a forma de classes e interfaces entre camadas de tecnologia e bibliotecas partilhadas. Normalmente, é necessária uma abordagem em camadas com um arquivo de back-end, lógica de negócio de camada média e uma interface de front-end de utilizador (IU). O que *tem* alterados ao longo dos últimos anos alguns é que podemos, como os programadores, está a criar aplicações que são para a nuvem distribuídas e condicionadas pela empresa.
@@ -179,9 +179,9 @@ O objetivo do Service Fabric consiste em reduzir as complexidades de criação d
  
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral de terminologia do Service Fabric](service-fabric-technical-overview.md)
-* [Micro-serviços: Uma aplicação rotações utiliza a tecnologia de nuvem](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Micro-serviços: Uma aplicação rotações utiliza a tecnologia de nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

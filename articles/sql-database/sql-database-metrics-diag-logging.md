@@ -10,18 +10,18 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
 * **Armazenamento do Azure**: utilizado para arquivar grandes quantidades de telemetria para um preço pequeno.
 * **Os Hubs de eventos do Azure**: utilizado para integrar telemetria de base de dados SQL com a sua solução de monitorização personalizada ou pipelines frequente.
-* **Análise de registos do Azure**: utilizado para uma solução de monitorização de out of box com relatórios, alertas e mitigar capacidades.
+* **Análise de registos do Azure**: utilizado para uma solução de monitorização de out of box com relatórios, alertas e mitigar capacidades. Esta é uma funcionalidade do [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 

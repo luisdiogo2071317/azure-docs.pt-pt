@@ -1,8 +1,8 @@
 ---
-title: "Guia de programação para U-SQL do Azure Data Lake | Microsoft Docs"
-description: "Saiba mais sobre o conjunto de serviços no Azure Data Lake que permitem-lhe criar uma plataforma de macrodados baseado na nuvem."
+title: Guia de programação para U-SQL do Azure Data Lake | Microsoft Docs
+description: Saiba mais sobre o conjunto de serviços no Azure Data Lake que permitem-lhe criar uma plataforma de macrodados baseado na nuvem.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: a241199ff8441d76d48d297b69af05a604d2a423
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação para U-SQL
 
@@ -37,7 +37,7 @@ Observe o seguinte script U-SQL:
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
-    ) AS D( customer, amount );
+    ) AS D( customer, amount, date );
 
 @results =
   SELECT
@@ -88,7 +88,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Utilizar expressões de c# para a data de hoje
 
-Para solicitar a data de hoje, podemos utilizar a seguinte expressão c#:`DateTime.Now.ToString("M/d/yyyy")`
+Para solicitar a data de hoje, podemos utilizar a seguinte expressão c#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Eis um exemplo de como utilizar esta expressão num script:
 
@@ -536,9 +536,9 @@ O `IFormatter` interface serializa e anular serializa um gráfico de objeto com 
 
 * **Serializar**: Serializa um objeto ou o gráfico de objetos, com a raiz fornecido no fluxo fornecido.
 
-`MyType`instância: instância do tipo.  
-`IColumnWriter`escritor / `IColumnReader` leitor: O fluxo subjacente da coluna.  
-`ISerializationContext`contexto: enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
+`MyType` instância: instância do tipo.  
+`IColumnWriter` escritor / `IColumnReader` leitor: O fluxo subjacente da coluna.  
+`ISerializationContext` contexto: enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou de destino para o fluxo durante a serialização.
 
 * **Intermédio**: Especifica que o contexto de origem ou de destino não é um arquivo persistente.
 
@@ -1058,7 +1058,7 @@ Segue-se uma lista de UDO em U-SQL:
 
 UDO é normalmente designado explicitamente no script U-SQL como parte das seguintes declarações de U-SQL:
 
-* EXTRACT
+* EXTRAIR
 * SAÍDA
 * PROCESSO
 * COMBINAR
@@ -1270,9 +1270,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`é chamado para cada linha de entrada. Devolve o `IUnstructuredWriter output` conjunto de linhas.
+* `Output` é chamado para cada linha de entrada. Devolve o `IUnstructuredWriter output` conjunto de linhas.
 * A classe de construtor é utilizada para passar os parâmetros para outputter definido pelo utilizador.
-* `Close`é utilizada para substituir, opcionalmente, a versão Estado dispendiosas ou a determinar quando a última linha foi escrita.
+* `Close` é utilizada para substituir, opcionalmente, a versão Estado dispendiosas ou a determinar quando a última linha foi escrita.
 
 **SqlUserDefinedOutputter** atributo indica que o tipo deve ser registado como um outputter definido pelo utilizador. Esta classe não pode ser herdada.
 
@@ -1854,7 +1854,7 @@ O **SqlUserDefinedCombiner** atributo indica que o tipo deve ser registado como 
 
 **SqlUserDefinedCombiner** é utilizado para definir a propriedade de modo de combinação. É um atributo opcional para uma definição de combinação definido pelo utilizador.
 
-CombinerMode     Mode
+Modo de CombinerMode
 
 Enumeração de CombinerMode pode efetuar os seguintes valores:
 

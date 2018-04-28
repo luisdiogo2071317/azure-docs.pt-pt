@@ -1,13 +1,13 @@
 ---
 title: 'Configurar filtros de rota para peering de ExpressRoute ao Microsoft Azure: PowerShell | Microsoft Docs'
-description: "Este artigo descreve como configurar filtros de rota para Peering da Microsoft através do PowerShell"
+description: Este artigo descreve como configurar filtros de rota para Peering da Microsoft através do PowerShell
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 6e767166ecf248aa0e7fc16dc21361394e03107d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar filtros de rota para peering da Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -84,14 +84,14 @@ Antes de iniciar a configuração, certifique-se de que satisfazem os seguintes 
 
  - Tem de ter um peering da Microsoft Active Directory. Siga as instruções apresentadas em [criar e modificar a configuração do peering](expressroute-circuit-peerings.md)
 
-### <a name="log-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
+### <a name="log-in-to-your-azure-account"></a>Iniciar sessão na sua conta do Azure
 
 Antes de iniciar esta configuração, deve iniciar sessão na conta do Azure. O cmdlet pede-lhe as credenciais de início de sessão da conta Azure. Após iniciar sessão, são transferidas as definições da conta para que fiquem disponíveis para o Azure PowerShell.
 
 Abra a consola do PowerShell com privilégios elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Se tiver múltiplas subscrições do Azure, verifique as subscrições da conta.

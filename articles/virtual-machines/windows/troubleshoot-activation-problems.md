@@ -1,11 +1,11 @@
 ---
-title: "Resolução de problemas de ativação do Windows máquina virtual no Azure | Microsoft Docs"
-description: "Fornece os passos de resolução de problemas para corrigir problemas de ativação de máquina virtual do Windows no Azure"
+title: Resolução de problemas de ativação do Windows máquina virtual no Azure | Microsoft Docs
+description: Fornece os passos de resolução de problemas para corrigir problemas de ativação de máquina virtual do Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Azure Windows
 
@@ -78,7 +78,7 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Utiliza a func
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Passo 2-verificar a conectividade entre o serviço de VM e do Azure KMS
 
-1. Transferir e extrair o [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) ferramenta para uma pasta local na VM que não a ativar. 
+1. Transferir e extrair o [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) ferramenta para uma pasta local na VM que não a ativar. 
 
 2. Aceda ao início, uma procura do Windows PowerShell, clique com o botão direito do Windows PowerShell e, em seguida, selecionar executar como administrador.
 
@@ -126,7 +126,7 @@ Sim.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>O que acontece se expirar o período de ativação do Windows? 
  
-Quando o período de tolerância expirou e o Windows ainda não se encontra ativado, o Windows Server 2008 R2 e versões posteriores do Windows irão mostrar notificações adicionais sobre a ativação. A imagem de fundo de ambiente de trabalho permanece preta e Windows Update irá instalar a segurança e apenas as atualizações críticas, mas não opcionais atualizações. Consulte a secção de notificações na parte inferior do [condições de licenciamento](http://technet.microsoft.com/en-us/library/ff793403.aspx) página.   
+Quando o período de tolerância expirou e o Windows ainda não se encontra ativado, o Windows Server 2008 R2 e versões posteriores do Windows irão mostrar notificações adicionais sobre a ativação. A imagem de fundo de ambiente de trabalho permanece preta e Windows Update irá instalar a segurança e apenas as atualizações críticas, mas não opcionais atualizações. Consulte a secção de notificações na parte inferior do [condições de licenciamento](http://technet.microsoft.com/library/ff793403.aspx) página.   
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

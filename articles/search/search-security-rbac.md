@@ -1,25 +1,18 @@
 ---
 title: Definir funções do RBAC para acesso administrativo da Azure Search no portal | Microsoft Docs
 description: Função de controlo administrativo baseado no portal do Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-tags: azure-portal
-ms.assetid: ''
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: d14bf9b154c450d863d4d365c215e9712694a767
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Definir funções do RBAC para acesso administrativo
 
@@ -41,7 +34,7 @@ Para a Azure Search, as funções associadas com níveis de permissão que supor
 
 Funções não conceda direitos de acesso ao ponto final do serviço. Pesquisa operações de serviço, tal como gestão de índice, população do índice e consultas em dados de pesquisa, são controladas através de chaves de api, funções não. Para obter mais informações, consulte [gerir chaves de api](search-security-api-keys.md).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Gerir com o PowerShell](search-manage-powershell.md) 
 + [Desempenho e a Otimização da Azure Search](search-performance-optimization.md)

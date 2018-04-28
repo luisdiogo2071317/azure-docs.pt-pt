@@ -1,25 +1,20 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Preliminar documentação para a funcionalidade de sinónimos (pré-visualização), exposta na API de REST da Azure Search."
-services: search
-documentationCenter: 
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Utilize os sinónimos para expandir o âmbito de uma consulta de pesquisa
 authors: mhko
-manager: pablocas
-editor: 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/07/2016
+ms.topic: conceptual
+ms.date: 04/20/2018
+manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Sinónimos na pesquisa do Azure (pré-visualização)
+# <a name="synonyms-in-azure-search"></a>Sinónimos na pesquisa do Azure
 
 Sinónimos no motores de busca associar termos equivalentes que implicitamente expande o âmbito de uma consulta, sem o utilizador ter de fornecer, na verdade, o termo. Por exemplo, tendo em conta os termo "preguiçoso" e o sinónimo associações "canine" e "puppy", os documentos que contenham "preguiçoso", "canine" ou "puppy" será se encontra no âmbito da consulta.
 
@@ -27,7 +22,7 @@ Na Azure Search, expansão de sinónimo é feito no momento da consulta. Pode ad
 
 ## <a name="feature-availability"></a>Disponibilidade de funcionalidades
 
-A funcionalidade de sinónimos está atualmente em pré-visualização e só é suportada na api-version de pré-visualização mais recente (api-version = 2016-09-01-pré-visualização). Não existe suporte do portal do Azure neste momento. Porque a versão da API é especificada no pedido, é possível combinar geralmente disponível (GA) e APIs de pré-visualização na mesma aplicação. No entanto, as APIs não estão sob o SLA e funcionalidades de pré-visualização pode alterar, pelo que recomendamos que não utilizá-los em aplicações de produção.
+A funcionalidade de sinónimos é suportada na api-version mais recente (api-version = 2017-11-11). Não existe suporte do portal do Azure neste momento.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Como utilizar sinónimos na pesquisa do Azure
 
@@ -47,11 +42,11 @@ Incorporando sinónimos na sua aplicação de pesquisa é um processo de dois pa
 
 Mapas de sinónimo são carregados para o serviço através de POST ou PUT. Cada regra tem de ser delimitada pelo caráter linha nova ('\n'). Pode definir até 5 000 regras por sinónimo mapa num serviço livre e 10 000 regras em todos os outros SKUs. Cada regra pode ter até 20 expansions.
 
-Nesta pré-visualização, sinónimo maps tem de estar no formato Apache Solr que é explicado abaixo. Se tiver um dicionário sinónimo existente num formato diferente e pretender utilizá-lo diretamente, indique no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Mapas de sinónimo tem de estar no formato Apache Solr que é explicado abaixo. Se tiver um dicionário sinónimo existente num formato diferente e pretender utilizá-lo diretamente, indique no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Pode criar um mapa de sinónimo novo utilizando o HTTP POST, como no exemplo seguinte:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -64,7 +59,7 @@ Pode criar um mapa de sinónimo novo utilizando o HTTP POST, como no exemplo seg
 
 Em alternativa, pode utilizar PUT e especifique o nome de mapa de sinónimo no URI. Se o mapa de sinónimo não existir, será criado.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -90,24 +85,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Mapeia o sinónimo de lista no seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obter um mapa de sinónimo no seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Elimine um mapa de sinónimos no seu serviço.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configure um campo pesquisável a utilizar o mapa de sinónimo na definição do índice.
 
 Uma nova propriedade de campo **synonymMaps** pode ser utilizado para especificar um mapa de sinónimo a utilizar para um campo pesquisável. Mapas de sinónimo recursos de nível de serviço e podem ser referenciados por qualquer campo de um índice no serviço.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -142,7 +137,7 @@ Uma nova propriedade de campo **synonymMaps** pode ser utilizado para especifica
 **synonymMaps** podem ser especificados para os campos pesquisáveis do tipo 'EDM' ou 'Collection(Edm.String)'.
 
 > [!NOTE]
-> Nesta pré-visualização só pode ter um sinónimo mapear por campo. Se pretender utilizar vários sinónimo maps, indique no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Só pode ter um sinónimo mapear por campo. Se pretender utilizar vários sinónimo maps, indique no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Impacto da sinónimos em outras funcionalidades de pesquisa
 
@@ -160,7 +155,7 @@ Expansions sinónimo não se aplicam a termos de pesquisa de caráter universal;
 
 - Pode criar várias sinónimo maps para a sua aplicação de pesquisa (por exemplo, por idioma se a aplicação suportar uma base de clientes com várias lingual). Atualmente, um campo só pode utilizar um deles. Pode atualizar synonymMaps propriedade um campo em qualquer altura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se tiver um índice existente num ambiente de desenvolvimento (não a produção), experimente um dicionário pequeno para ver como a adição de sinónimos altera a experiência de pesquisa, incluindo o impacto nos perfis de classificação, detetor de ocorrências e sugestões.
 

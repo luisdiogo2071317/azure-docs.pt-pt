@@ -6,19 +6,21 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens de grelha de eventos e tente novamente 
 
 Este artigo descreve a forma como a grelha de eventos do Azure processa eventos quando entrega não está a ser confirmada.
 
-Grelha de evento fornece entrega durável. Fornece cada mensagem, pelo menos, uma vez para cada subscrição. Os eventos são enviados para o webhook registado de cada subscrição imediatamente. Se um webhook não reconhecer a receção de um evento dentro de 60 segundos, da primeira tentativa de entrega, eventos grelha tentativas de entrega do evento.
+Grelha de evento fornece entrega durável. Fornece cada mensagem, pelo menos, uma vez para cada subscrição. Os eventos são enviados para o webhook registado de cada subscrição imediatamente. Se um webhook não reconhecer a receção de um evento dentro de 60 segundos, da primeira tentativa de entrega, eventos grelha tentativas de entrega do evento. 
+
+Atualmente, a grelha de eventos envia individualmente cada evento para os subscritores. O subscritor recebe uma matriz com um único evento.
 
 ## <a name="message-delivery-status"></a>Estado de entrega de mensagens
 
@@ -40,9 +42,9 @@ Os códigos de resposta HTTP seguintes indicam que falhou uma tentativa de entre
 - 404 Não Encontrado
 - Tempo limite do pedido 408
 - 414 URI demasiado longo
-- Erro interno do servidor 500
-- Serviço 503 não está disponível
-- Tempo limite do 504 gateway
+- 500 Erro de Servidor Interno
+- 503 Serviço Indisponível
+- 504 Tempo Limite do Gateway
 
 Qualquer código de resposta ou falta de uma resposta indica uma falha. Grelha de evento repete as tentativas de entrega. 
 
@@ -52,7 +54,7 @@ Grelha de evento utiliza uma política de repetição de término exponencial pa
 
 1. 10 segundos
 2. 30 segundos
-3. um minuto
+3. 1 minuto
 4. 5 minutos
 5. 10 minutos
 6. 30 minutos

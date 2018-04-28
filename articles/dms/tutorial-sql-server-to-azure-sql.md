@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/29/2018
-ms.openlocfilehash: b16c3666b932beb771c51bb8dec3ebd5fa36e8a0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 48f1b3715f300fea7bfc0590e6d2e6c6622e83aa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrar o servidor SQL para a base de dados SQL do Azure
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados de uma instância do SQL Server no local para a SQL Database do Azure. Neste tutorial, migra a **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2016 (ou superior) para uma base de dados do SQL do Azure utilizando o serviço de migração de base de dados do Azure.
@@ -37,12 +37,12 @@ Para concluir este tutorial, precisa de:
 - Criar uma instância de instância de SQL Database do Azure, o que fazer, seguindo o detalhe no artigo [criar uma base de dados SQL do Azure no portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - Transfira e instale o [Assistente de migração de dados](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 ou posterior.
 - Criar uma VNET para o serviço de migração de base de dados do Azure utilizando o modelo de implementação Azure Resource Manager, que fornece a conectividade de site a site para os seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Certifique-se de que a sua escolha de regras do Azure (VNET) rede segurança grupo de rede Virtual bloquear a comunicação seguinte portas 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego do Azure VNET NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Certifique-se de que a sua escolha de regras do Azure (VNET) rede segurança grupo de rede Virtual bloquear a comunicação seguinte portas 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego do Azure VNET NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar o seu [Firewall do Windows para acesso ao motor de base de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra a firewall do Windows para permitir que o serviço de migração de base de dados do Azure para aceder à origem de SQL Server, que, por predefinição, é a porta TCP 1433.
 - Se estiver a executar várias instâncias do SQL Server com nome utilizando as portas dinâmicas, poderá pretender ativar o serviço de Browser do SQL Server e permitir o acesso à porta UDP 1434 através das firewalls para que o serviço de migração de base de dados do Azure podem ligar a uma instância nomeada na sua origem servidor.
 - Quando utilizar uma aplicação de firewall à frente da sua bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o serviço de migração de base de dados do Azure para aceder a bases de dados de origem para migração.
-- Criar um nível de servidor [regra de firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) para o servidor da SQL Database do Azure permitir o acesso de serviço de migração de base de dados do Azure para as bases de dados de destino. Forneça o intervalo de sub-rede da VNET utilizado para o serviço de migração de base de dados do Azure.
+- Criar um nível de servidor [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para o servidor da SQL Database do Azure permitir o acesso de serviço de migração de base de dados do Azure para as bases de dados de destino. Forneça o intervalo de sub-rede da VNET utilizado para o serviço de migração de base de dados do Azure.
 - Certifique-se de que as credenciais utilizadas para ligar à instância do SQL Server de origem têm [controlo servidor](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissões.
 - Certifique-se de que as credenciais utilizadas para ligar à instância de SQL Database do Azure de destino tem a permissão controlar base de dados nas bases de dados de SQL do Azure de destino.
 
@@ -194,7 +194,7 @@ Depois de criar o serviço, localizá-la no portal do Azure e, em seguida, criar
 
     Neste ecrã, também pode expandir o **escolher a opção de validação** ecrã, que pode utilizar para especificar a validar a base de dados migrado para:
     - Esquema
-    - Consistência dos dados
+    - Consistência dos Dados
     - Correção de consulta e de desempenho
 
     ![Escolha a opção de validação](media\tutorial-sql-server-to-azure-sql\dms-configuration.png)

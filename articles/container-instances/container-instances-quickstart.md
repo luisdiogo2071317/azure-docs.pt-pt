@@ -3,19 +3,19 @@ title: Início Rápido – Criar o seu primeiro contentor do Azure Container Ins
 description: Neste manual de início rápido, vai utilizar o Azure CLI para implementar um contentor no Azure Container Instances
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b85c38bb561e4f1dc9a0545595590719ce1883e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 57961cf1cb64f90cec7d2be90f3fbfe33344467d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início rápido: crie o seu primeiro contentor no Azure Container Instances
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: crie o seu primeiro contentor no Azure Container Instances
 
 O Azure Container Instances facilita a criação e a gestão de contentores do Docker no Azure, sem ter de aprovisionar as máquinas virtuais ou adotar um serviço de nível mais elevado. Neste início rápido, vai criar um contentor no Azure e expõe-lo na Internet com nome de domínio completamente qualificado (FQDN). Esta operação é concluída com um único comando. Dentro de alguns segundos, verá isto no seu browser:
 

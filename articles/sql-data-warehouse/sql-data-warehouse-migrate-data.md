@@ -2,24 +2,19 @@
 title: Migrar os dados ao SQL Data Warehouse | Microsoft Docs
 description: Sugestões para migrar os dados para o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: ''
-ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/29/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 4fbab223963989eab16cecea2facd9c15ba646d4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-data"></a>Migrar os dados
 Podem ser mover os dados de diferentes origens para o SQL Data Warehouse com ferramentas de várias.  ADF cópia, SSIS e bcp podem todos ser utilizadas para atingir este objetivo. No entanto, como a quantidade de dados aumenta necessário pensar sobre interrompendo para baixo o processo de migração de dados para os passos. Isto affords a oportunidade para otimizar a cada passo para o desempenho e resiliência garantir uma migração de dados uniforme.
@@ -193,7 +188,7 @@ Para mais sugestões de desenvolvimento, consulte [descrição geral do desenvol
 [migrar o esquema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use bcp to load data into SQL Data Warehouse]: /sql/tools/bcp-utility
 [Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 

@@ -1,25 +1,19 @@
 ---
 title: Serviço limites na Azure Search | Microsoft Docs
 description: Limites de serviço utilizados para o planeamento de capacidade e os limites máximos nos pedidos e respostas de pesquisa do Azure.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: 77ea75bf66f4b6ae6ec7d6ede4364db6b7fa82a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço da Azure Search
 Máximo limita-se no armazenamento, as cargas de trabalho e quantidades de índices, documentos, e outros objetos dependem se [aprovisionar da Azure Search](search-create-service-portal.md) em **livres**, **básico**, ou **Padrão** escalões de preço.
@@ -95,7 +89,7 @@ Para manter o tamanho do documento para baixo, lembre-se excluir os dados não c
 
 Um limite de aumento de 15 índices, indexadores e origens de dados, os serviços básicos criados após o enlace tardio 2017 ter.
 
-| Recurso | Livre&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
+| Recurso | Livre&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |

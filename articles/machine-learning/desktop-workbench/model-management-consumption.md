@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 0976e2dca909781ade76c742cc99746e1123307d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 93df053bf62b5a69f74d816fc05520d040d73bd7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="consuming-web-services"></a>Consumir os serviços web
 Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou várias linha para obter um ou mais predições cada vez.

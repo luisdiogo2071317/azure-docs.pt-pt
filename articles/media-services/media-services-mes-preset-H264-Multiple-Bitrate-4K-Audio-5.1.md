@@ -1,11 +1,11 @@
 ---
-title: "264 múltiplos de 4K de velocidade de transmissão áudio 5.1 | Microsoft Docs"
-description: "O tópico fornece uma descrição geral do * * 264 múltipla 4K áudio 5.1* * de predefinição tarefas."
+title: 264 múltiplos de 4K de velocidade de transmissão áudio 5.1 | Microsoft Docs
+description: O tópico fornece uma descrição geral do **264 múltipla 4K áudio 5.1** tarefas da configuração predefinida.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c8e0bd6a-86ef-481f-83fa-453bdb042df8
 ms.service: media-services
 ms.workload: media
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 10e5c41be42b73e3e1458adac9642547c182530b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fafaa24bece577952ec6c70c3f6bbd4d8ee5d7dd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Vários velocidade de transmissão 4K áudio 5.1
-`Media Encoder Standard`Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard` Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
   
  Este tópico mostra o `H264 Multiple Bitrate 4K Audio 5.1` no formato XML e o JSON da configuração predefinida.  
   
  Esta predefinição produz um conjunto de 12 ficheiros MP4 alinhada GOP, vão de 20000 kbps a 1000 kbps e AAC 5.1 áudio. Para obter informações detalhadas sobre o perfil, velocidade de transmissão, fazendo a amostragem taxa, etc. Isto da configuração predefinida, examine o XML ou JSON definido abaixo. Para explicações de significa que cada elemento e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Pode ser obtido a unidade reservada Premium codifica o tipo de 4K. Para obter mais informações, consulte [como codificação de escala](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+>  Pode ser obtido a unidade reservada Premium codifica o tipo de 4K. Para obter mais informações, consulte [como codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
 >  Quando modificar o `Width` e `Height` valores em camadas, certifique-se de que a proporção permanecem consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não deve utilizar uma combinação de proporções, tais como: 1280 x 720, 720 x 480, 640 x 360.  

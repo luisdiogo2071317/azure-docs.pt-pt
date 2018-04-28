@@ -1,6 +1,6 @@
 ---
-title: "Como gerir o seu ambiente de informações de séries de tempo do Azure utilizando modelos Azure Resource Manager | Microsoft Docs"
-description: "Este artigo descreve como gerir o ambiente de informações de séries de tempo do Azure através de programação com o Azure Resource Manager."
+title: Como gerir o seu ambiente de informações de séries de tempo do Azure utilizando modelos Azure Resource Manager | Microsoft Docs
+description: Este artigo descreve como gerir o ambiente de informações de séries de tempo do Azure através de programação com o Azure Resource Manager.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos de informações de séries de tempo utilizando os modelos Azure Resource Manager
 
@@ -28,7 +28,7 @@ Informações de séries de tempo suporta os seguintes recursos:
    | Ambiente | Num ambiente de informações de séries de tempo é um agrupamento lógico de eventos que são ler a partir de mediadores de evento, armazenados e disponibilizados para consulta. Para obter mais informações consulte [planear o ambiente de informações de séries de tempo do Azure](time-series-insights-environment-planning.md) |
    | Origem de evento | Uma origem de evento é uma ligação a um mediador de eventos a partir da qual Insights de séries de tempo lê e ingere eventos para o ambiente. Origens de eventos atualmente suportados são IoT Hub e o Hub de eventos. |
    | Conjunto de dados de referência | Conjuntos de dados de referência fornecem metadados sobre os eventos no ambiente. Metadados de conjuntos de dados de referência serão associado de eventos de entrada. Conjuntos de dados de referência são definidos como recursos pelas respetivas propriedades chave do evento. Os metadados real que constitui o conjunto de dados de referência é carregado ou modificado através de dados plane APIs. |
-   | Política de acesso | Políticas de acesso de conceder permissões para emitir consultas de dados, manipular dados de referência no ambiente e partilhar consultas guardadas e perspetivas associadas ao ambiente. Para obter mais informações consulte [conceder acesso a dados para um ambiente de informações de séries de tempo utilizando o portal do Azure](time-series-insights-data-access.md) |
+   | Política de Acesso | Políticas de acesso de conceder permissões para emitir consultas de dados, manipular dados de referência no ambiente e partilhar consultas guardadas e perspetivas associadas ao ambiente. Para obter mais informações consulte [conceder acesso a dados para um ambiente de informações de séries de tempo utilizando o portal do Azure](time-series-insights-data-access.md) |
 
 Um modelo de Gestor de recursos é um ficheiro JSON que define a infraestrutura e a configuração de recursos num grupo de recursos. Para obter mais informações, consulte os seguintes documentos:
 
@@ -153,7 +153,7 @@ Para obter mais informações, consulte o [parâmetros](../azure-resource-manage
 A partir da linha de comandos do PowerShell, execute o seguinte comando:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Lhe for pedido que inicie sessão na sua conta do Azure. Depois de iniciar sessão, execute o seguinte comando para ver as subscrições disponíveis:
@@ -266,9 +266,10 @@ Outputs                 :
 
 Home page do modelo de início rápido no GitHub também inclui um **implementar no Azure** botão. Clicar nela abre uma página de implementação personalizada no portal do Azure. Nesta página, pode introduzir ou selecionar valores para cada um dos parâmetros do [necessários parâmetros](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) ou [parâmetros opcionais](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabelas. Depois de preencher as definições, clicar no **Compra** botão vai iniciar a implementação do modelo.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre programaticamente gerir recursos de informações de séries de tempo utilizando REST APIs, consulte [gestão de informações de séries de tempo](https://docs.microsoft.com/rest/api/time-series-insights-management/).

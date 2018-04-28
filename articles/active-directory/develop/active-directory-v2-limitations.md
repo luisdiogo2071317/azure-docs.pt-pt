@@ -1,11 +1,11 @@
 ---
-title: "Restrições e limitações de ponto final de v 2.0 do Azure Active Directory | Microsoft Docs"
-description: "Uma lista de limitações e restrições para o ponto de final de v 2.0 do Azure AD."
+title: Restrições e limitações de ponto final de v 2.0 do Azure Active Directory | Microsoft Docs
+description: Uma lista de limitações e restrições para o ponto de final de v 2.0 do Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v 2.0?
 Quando criar aplicações que se integram com o Azure Active Directory, terá de decidir se os protocolos de autenticação e de ponto final v 2.0 as suas necessidades. Ponto final do Azure do Active Directory original é ainda totalmente suportado e, em alguns aspetos, é mais avançada funcionalidade de v 2.0. No entanto, o ponto final v 2.0 [apresenta as vantagens significativas](active-directory-v2-compare.md) para programadores.
@@ -84,15 +84,6 @@ Pode adicionar as duas última porque são subdomínios do redirecionamento prim
 Tenha também em atenção, pode ter apenas 20 URLs de resposta para uma aplicação específica.
 
 Para saber como registar uma aplicação no Portal de registo de aplicação, consulte [como registar uma aplicação com o ponto final v 2.0](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Restrições sobre serviços e APIs
-Atualmente, o ponto final v 2.0 suporta início de sessão para qualquer aplicação que está registado no Portal de registo de aplicação e que está na lista de [suportada autenticação fluxos](active-directory-v2-flows.md). No entanto, estas aplicações podem obter tokens de acesso de OAuth 2.0 para um conjunto muito limitado de recursos. Os problemas de ponto final v 2.0 aceder tokens apenas para:
-
-* A aplicação que pediu o token. Uma aplicação pode adquirir um token de acesso para si, se a aplicação lógica é composta por vários componentes diferentes ou camadas. Para ver este cenário na ação, consulte a nossa [introdução](active-directory-appmodel-v2-overview.md#getting-started) tutoriais.
-* A capacidade de correio do Outlook, calendário e contactos APIs REST, todos os que estão localizados em https://outlook.office.com. Para saber mais sobre como escrever uma aplicação que acede a estas APIs, consulte o [Office introdução](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) tutoriais.
-* APIs de Microsoft Graph. Pode saber mais sobre [Microsoft Graph](https://graph.microsoft.io) e os dados que estão disponíveis para si.
-
-Outros serviços não são suportados neste momento. Mais Microsoft Online Services será adicionado no futuro, além de suporte para as suas próprias APIs da Web e serviços personalizada.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrições na SDKs e de bibliotecas
 Atualmente, o suporte de biblioteca para o ponto final v 2.0 é limitado. Se pretender utilizar o ponto final v 2.0 numa aplicação de produção, tem estas opções:

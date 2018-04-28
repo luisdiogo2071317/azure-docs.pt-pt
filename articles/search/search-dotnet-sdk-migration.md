@@ -1,23 +1,19 @@
 ---
-title: "Atualizar para o SDK de .NET de pesquisa do Azure versão 3 | Microsoft Docs"
-description: "Atualizar para o SDK de .NET de pesquisa do Azure versão 3"
-services: search
-documentationcenter: 
+title: Atualizar para o SDK de .NET de pesquisa do Azure versão 3 | Microsoft Docs
+description: Atualizar para o SDK de .NET de pesquisa do Azure versão 3
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 161d22e0ff4ec4ab28107919a80ecc48cd027967
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Atualizar para o SDK de .NET de pesquisa do Azure versão 3
 Se estiver a utilizar a versão pré-visualização do 2.0 ou mais antiga do [SDK .NET da Azure Search](https://aka.ms/search-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.
@@ -56,7 +52,7 @@ Se a compilação falhar, deverá ver um erro de compilação como o seguinte:
 
 O passo seguinte é para corrigir este erro de compilação. Consulte [interrompendo as alterações na versão 3](#ListOfChanges) para obter detalhes sobre o que faz com que o erro e como o corrigir.
 
-Poderá ver avisos de compilação adicionais relacionados com métodos obsoletos ou propriedades. Os avisos inclui instruções que utilizar em vez da funcionalidade despromovida. Por exemplo, se a sua aplicação utiliza o `IndexingParameters.Base64EncodeKeys` propriedade, deve obter um aviso que indica que`"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
+Poderá ver avisos de compilação adicionais relacionados com métodos obsoletos ou propriedades. Os avisos inclui instruções que utilizar em vez da funcionalidade despromovida. Por exemplo, se a sua aplicação utiliza o `IndexingParameters.Base64EncodeKeys` propriedade, deve obter um aviso que indica que `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
 
 Depois de ter corrigido os erros de compilação, pode efetuar alterações à sua aplicação para tirar partido das novas funcionalidades, se desejar. Novas funcionalidades no SDK passo são detalhadas no [são as novidades na versão 3](#WhatsNew).
 
@@ -125,7 +121,7 @@ index.Analyzers = new Analyzer[]
 
 Poderá ver erros de compilação relacionados com propriedades que foram identificadas como obsoletos na versão 2.0 preview e posteriormente removidas versão 3 ou métodos. Se encontrar esses erros, eis como resolvê-los:
 
-- Se estava a utilizar este construtor: `ScoringParameter(string name, string value)`, em alternativa, utilize este:`ScoringParameter(string name, IEnumerable<string> values)`
+- Se estava a utilizar este construtor: `ScoringParameter(string name, string value)`, em alternativa, utilize este: `ScoringParameter(string name, IEnumerable<string> values)`
 - Se estava a utilizar o `ScoringParameter.Value` propriedade, utilize o `ScoringParameter.Values` propriedade ou o `ToString` método em vez disso.
 - Se estava a utilizar o `SearchRequestOptions.RequestId` propriedade, utilize o `ClientRequestId` propriedade em vez disso.
 

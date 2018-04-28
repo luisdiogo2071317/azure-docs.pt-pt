@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -42,7 +42,7 @@ Redes virtuais do Azure, tiver registos de fluxo NSG, que lhe fornecem informaç
 - **Registos de fluxo de grupo (NSG) de segurança de rede**: permitem-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Os registos de fluxo do NSG são escritos no formato json e mostram a saída e entrados fluxos numa base por regra, o NIC o fluxo se aplica, informações de 5 cadeias de identificação sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo), e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo NSG, consulte [registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md).
 - **Análise de registo**: serviço de Azure um que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos através da API do Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Monitorização de aplicações, tais como a análise de tráfego e da monitorização do desempenho de rede é criadas através da análise do registo de base. Para obter mais informações, consulte [Iniciar análise](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Área de trabalho de análise de registo**: uma instância de análise de registos, onde os dados relativos a uma conta do Azure, são armazenados. Para obter mais informações sobre áreas de trabalho de análise de registo, consulte [criar uma área de trabalho de análise de registos](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Observador de rede**: um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário de rede no Azure. Pode ativar o fluxo registos de NSG e desativar com observador de rede. Para obter mais informações, consulte [observador de rede](network-watcher-monitoring-overview.md#network-watcher).
+- **Observador de rede**: um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário de rede no Azure. Pode ativar o fluxo registos de NSG e desativar com observador de rede. Para obter mais informações, consulte [observador de rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a análise de tráfego 
 

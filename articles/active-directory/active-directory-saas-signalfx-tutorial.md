@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com SignalFx | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SignalFx."
+title: 'Tutorial: Integração do Azure Active Directory com SignalFx | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e SignalFx.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory com SignalFx
 
@@ -121,10 +121,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
-    | User.FirstName          | user.givenname |
-    | User.email          | user.mail |
+    | User.FirstName          | User.givenName |
+    | User.email          | User.Mail |
     | PersonImmutableID       | user.userprincipalname    |
-    | User.LastName       | user.surname    |
+    | User.LastName       | User.Surname    |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -140,49 +140,33 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     e. Clique em **OK**.
  
-6. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+6. No **certificado de assinatura de SAML** secção, execute os seguintes passos: 
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+
+    b. Clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
 7. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Para gerar o **url de metadados**, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Agora, a página de propriedades do **SignalFx** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. No **SignalFx configuração** secção, clique em **configurar SignalFx** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML** do **secção de referência rápida.**
+8. No **SignalFx configuração** secção, clique em **configurar SignalFx** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML** do **secção de referência rápida.**
 
     ![Configuração de SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Início de sessão no site da sua empresa SignalFx como administrador.
+9. Início de sessão no site da sua empresa SignalFx como administrador.
 
-11. No SignalFx, no superior, clique em **integrações** para abrir a página de integrações.
+10. No SignalFx, no superior, clique em **integrações** para abrir a página de integrações.
 
     ![Integração de SignalFx](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Clique em **do Azure Active Directory** mosaico em **serviços de início de sessão** secção.
+11. Clique em **do Azure Active Directory** mosaico em **serviços de início de sessão** secção.
  
     ![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Clique em **integração novo** e, no **instalar** separador execute os seguintes passos:
+12. Clique em **integração novo** e, no **instalar** separador execute os seguintes passos:
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. No **URL do emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    e. No **URL de metadados** caixa de texto, cole o **url de metadados** padrão que tiver gerado a partir do portal do Azure.
+    e. No **URL de metadados** caixa de texto, cole o **Url de metadados de Federação de aplicação** que copiou do portal do Azure.
 
     f. Clique em **Guardar**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

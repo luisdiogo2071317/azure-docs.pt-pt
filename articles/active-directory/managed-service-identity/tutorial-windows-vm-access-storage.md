@@ -1,8 +1,8 @@
 ---
 title: Utilize um MSI de VM do Windows para aceder ao armazenamento do Azure
-description: "Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao armazenamento do Azure."
+description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao armazenamento do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 2e78fb3344d77f33907c97e66ce262f79d13f778
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 848033f79674e6ad1457d885c75215fc5c434d93
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Utilizar uma identidade de serviço geridas do Windows VM para aceder ao armazenamento do Azure através de chave de acesso
 
@@ -39,7 +39,7 @@ Este tutorial mostra como ativar a identidade de serviço geridas (MSI) para uma
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
@@ -56,7 +56,7 @@ Para este tutorial, iremos criar uma nova VM do Windows. Também pode ativar MSI
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM
 
-Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Nos bastidores, permitir MSI duas coisas: instala a extensão da VM do MSI da VM e permite MSI para a Máquina Virtual.  
+Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Nos bastidores, permitir MSI duas coisas: regista a VM com o Azure Active Directory para criar a respetiva identidade gerida e configura a identidade da VM.
 
 1. Navegue para o grupo de recursos da nova máquina virtual e selecione a máquina virtual que criou no passo anterior.
 2. Na VM "Definições" no lado esquerdo, clique em **configuração**.
@@ -65,11 +65,7 @@ Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem
 
     ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Se pretender verificar quais as extensões na VM, clique em **extensões**. Se o MSI estiver ativado, o **ManagedIdentityExtensionforWindows** aparece na lista.
-
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
-
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage 
+## <a name="create-a-storage-account"></a>Create a storage account 
 
 Se ainda não tiver um, agora, irá criar uma conta de armazenamento. Também pode ignorar este passo e conceder o acesso do MSI da VM para as chaves de uma conta de armazenamento existente. 
 
@@ -119,7 +115,7 @@ Terá de utilizar os cmdlets do PowerShell do Azure Resource Manager nesta parte
 4. Através Invoke-WebRequest do Powershell, efetue um pedido para o ponto final local de MSI para obter acesso token para o Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

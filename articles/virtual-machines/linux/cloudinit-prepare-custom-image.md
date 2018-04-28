@@ -1,11 +1,11 @@
 ---
-title: "Preparar a imagem de VM do Azure para utilização com a nuvem init | Microsoft Docs"
-description: "Como preparar uma imagem de VM do Azure pré-existente para implementação com init de nuvem"
+title: Preparar a imagem de VM do Azure para utilização com a nuvem init | Microsoft Docs
+description: Como preparar uma imagem de VM do Azure pré-existente para implementação com init de nuvem
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2eb7510d4e76e4996e83f351a62c0b025b487df2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparar uma imagem de VM do Linux do Azure existente para utilização com init de nuvem
 Este artigo mostra como colocar uma máquina virtual do Azure existente e prepará-la reimplementado e pronto a utilizar a cloud init. A imagem resultante pode ser utilizada para implementar uma nova máquina virtual ou conjuntos de dimensionamento de máquina virtual - o de que foi, em seguida, ser personalizado por nuvem init no momento da implementação.  Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure. Para obter mais informações sobre como nuvem init nativamente funciona no Azure e os distros suportados do Linux, consulte [nuvem init descrição-geral](using-cloud-init.md)
@@ -43,22 +43,20 @@ Atualização do `cloud_init_modules` secção `/etc/cloud/cloud.cfg` para inclu
 
 Eis um exemplo do que um para fins gerais `cloud_init_modules` secção aspeto.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 Precisa de um número de tarefas relacionadas com o aprovisionamento e processamento discos efémeras seja actualizado no `/etc/waagent.conf`. Execute os seguintes comandos para atualizar as definições apropriadas. 
 ```bash
@@ -72,6 +70,28 @@ Permitir apenas Azure como uma origem de dados para o agente Linux do Azure atra
 ```bash
 # This configuration file is provided by the WALinuxAgent package.
 datasource_list: [ Azure ]
+```
+
+Adicione uma configuração para resolver erros de registo um nome de anfitrião pendentes.
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
 ```
 
 Se a imagem do Azure existente tem um ficheiro de comutação configurado e que pretende alterar a configuração do ficheiro de comutação para novas imagens utilizando init de nuvem, terá de remover o ficheiro de troca existente.
@@ -126,7 +146,7 @@ az vm generalize --resource-group myResourceGroup --name sourceVmName
 az image create --resource-group myResourceGroup --name myCloudInitImage --source sourceVmName
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter exemplos adicionais nuvem-init das alterações de configuração, consulte o seguinte:
  
 - [Adicionar um utilizador de Linux adicional para uma VM](cloudinit-add-user.md)

@@ -1,13 +1,13 @@
 ---
-title: "Validar o débito da VPN a uma rede Virtual do Microsoft Azure | Microsoft Docs"
-description: "O objetivo deste documento é ajudar a um utilizador validar o débito de rede a partir dos respetivos recursos no local para uma máquina virtual do Azure."
+title: Validar o débito da VPN a uma rede Virtual do Microsoft Azure | Microsoft Docs
+description: O objetivo deste documento é ajudar a um utilizador validar o débito de rede a partir dos respetivos recursos no local para uma máquina virtual do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar o débito da VPN a uma rede virtual
 
@@ -121,7 +121,7 @@ Transferir [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). P
 ## <a name="address-slow-file-copy-issues"></a>Resolver problemas de cópia de ficheiros lenta
 Pode deparar-se ficheiro lento coping quando utilizar o Explorador do Windows ou a arrastar e largar através de uma sessão do RDP. Este problema é normalmente devido a um ou ambos os seguintes fatores:
 
-- Aplicações de cópia de ficheiros, como o Explorador do Windows e RDP, não utilizam vários threads ao copiar ficheiros. Para um melhor desempenho, utilize uma aplicação de cópia de ficheiros com vários threads, como [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) para copiar ficheiros através da utilização de 32 ou 16 threads. Para alterar o número de threads para cópia de ficheiros no Richcopy, clique em **ação** > **copiar opções** > **cópia do ficheiro**.<br><br>
+- Aplicações de cópia de ficheiros, como o Explorador do Windows e RDP, não utilizam vários threads ao copiar ficheiros. Para um melhor desempenho, utilize uma aplicação de cópia de ficheiros com vários threads, como [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) para copiar ficheiros através da utilização de 32 ou 16 threads. Para alterar o número de threads para cópia de ficheiros no Richcopy, clique em **ação** > **copiar opções** > **cópia do ficheiro**.<br><br>
 ![Problemas de cópia de ficheiros lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Velocidade de leitura/escrita do disco VM insuficiente. Para obter mais informações, consulte [resolução de problemas de armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md).
 
@@ -134,7 +134,7 @@ Utilize tracert para rastreio para o dispositivo de limite do Microsoft Azure pa
 A partir da rede no local, execute *tracert* para o VIP do Gateway do Azure ou da VM. Assim que só vê * devolvido, sabe que atingiu o limite do Azure. Quando vir nomes DNS que incluem "MSN" devolvido, sabe que atingiu a estrutura principal Microsoft.<br><br>
 ![A verificação de latência](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações ou ajuda, consulte as ligações seguintes:
 
 - [Otimizar o débito de rede para máquinas virtuais do Azure](../virtual-network/virtual-network-optimize-network-bandwidth.md)

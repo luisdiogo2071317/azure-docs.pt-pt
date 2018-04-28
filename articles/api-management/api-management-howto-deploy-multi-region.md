@@ -1,11 +1,11 @@
 ---
-title: "Implementar serviços da API Management do Azure em várias regiões do Azure | Microsoft Docs"
-description: "Saiba como implementar uma instância de serviço de API Management do Azure em várias regiões do Azure."
+title: Implementar serviços da API Management do Azure em várias regiões do Azure | Microsoft Docs
+description: Saiba como implementar uma instância de serviço de API Management do Azure em várias regiões do Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 6f84c1b2092f71eaeba0005a36018390242869ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço de API Management do Azure em várias regiões do Azure
 Gestão de API suporta a implementação de multirregião que permite que os publicadores de API distribuir um único serviço de gestão de API em qualquer número de regiões do Azure pretendidos. Isto ajuda a reduzir o pedido de latência interpretada pela distribuída geograficamente os consumidores de API e melhora também a disponibilidade do serviço se uma região ficar offline. 
@@ -25,11 +25,11 @@ Gestão de API suporta a implementação de multirregião que permite que os pub
 Quando um serviço de API Management é criado inicialmente, contém apenas um [unidade] [ unit] e reside numa única região do Azure, que é designada como a região primária. Regiões adicionais podem ser facilmente adicionadas através do Portal do Azure. É implementado um servidor de gateway de gestão de API para cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região ficar offline, o tráfego é automaticamente novamente direcionado para o gateway mais próximo seguinte. 
 
 > [!IMPORTANT]
-> Implementação de multirregião só está disponível no  **[Premium] [ Premium]**  camada.
+> Implementação de multirregião só está disponível no **[Premium] [ Premium]** camada.
 > 
 > 
 
-## <a name="add-region"></a>Implementar uma instância de serviço de API Management para uma região de novo
+## <a name="add-region"> </a>Implementar uma instância de serviço de API Management para uma região de novo
 > [!NOTE]
 > Se ainda não criou uma instância de serviço de API Management, consulte [criar uma instância de serviço de API Management][Create an API Management service instance].
 > 
@@ -51,7 +51,7 @@ Clique em **adicionar** colocar a sua seleção na tabela de localizações.
 
 Repita este processo até ter todas as localizações configuradas e clique em **guardar** da barra de ferramentas para iniciar o processo de implementação.
 
-## <a name="remove-region"></a>Eliminar uma instância de serviço de API Management a partir de uma localização
+## <a name="remove-region"> </a>Eliminar uma instância de serviço de API Management a partir de uma localização
 
 No Portal do Azure, navegue para o **escala e preços** página para a instância de serviço de API Management. 
 

@@ -1,8 +1,8 @@
 ---
 title: Utilize um MSI de VM Linux para aceder ao Cofre de chaves do Azure
-description: "Um tutorial que explica o processo de utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos do Azure."
+description: Um tutorial que explica o processo de utilizar um Linux VM geridos serviço de identidade (MSI) para aceder ao Gestor de recursos do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 8d962475fc2b40f042e1e746d892442b0275643b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fe38a423ffc40da21299b727c37532b9f0001d59
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Utilize um Linux VM geridos serviço de identidade (MSI) para aceder ao Cofre de chaves do Azure 
 
@@ -39,7 +39,7 @@ Saiba como:
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual Linux num novo grupo de recursos
 
@@ -57,7 +57,7 @@ Para este tutorial, iremos criar uma nova VM do Linux. Também pode ativar MSI n
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM
 
-Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Nos bastidores, permitir MSI duas coisas: instala a extensão da VM do MSI da VM e permite MSI da VM.  
+Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Ativar a identidade de serviço gerida numa VM, duas coisas: regista a VM com o Azure Active Directory para criar a respetiva identidade gerida e configura a identidade da VM.
 
 1. Selecione o **Máquina Virtual** que pretende ativar o MSI em.
 2. Na barra de navegação esquerdo em **configuração**.
@@ -65,11 +65,6 @@ Um MSI de Máquina Virtual permite-lhe obter os tokens de acesso do Azure AD sem
 4. Certifique-se de que clica **guardar** para guardar a configuração.
 
     ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Se pretender verificar quais as extensões são neste **VM com Linux**, clique em **extensões**. Se o MSI estiver ativado, o **ManagedIdentityExtensionforLinux** aparece na lista.
-
-    ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
-
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso VM a um segredo armazenado no Cofre de chaves  
 
@@ -108,7 +103,7 @@ Para concluir estes passos, precisa de um cliente SSH.  Se estiver a utilizar o 
     O pedido CURL para o token de acesso é abaixo.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
     ```
     A resposta inclui o token de acesso que precisa de aceder ao Gestor de recursos. 
     

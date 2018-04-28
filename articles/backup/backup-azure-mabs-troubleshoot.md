@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas do servidor de cópia de segurança do Azure | Microsoft Docs"
-description: "Resolver problemas de instalação, o registo do servidor de cópia de segurança do Azure e a cópia de segurança e restauro das cargas de trabalho da aplicação."
+title: Resolver problemas do servidor de cópia de segurança do Azure | Microsoft Docs
+description: Resolver problemas de instalação, o registo do servidor de cópia de segurança do Azure e a cópia de segurança e restauro das cargas de trabalho da aplicação.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
-ms.openlocfilehash: e9517672138a4ea7577af1295dea13771733983e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: db0d3d9ff2b27ac0be86b73926563d226d0e5d59
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -88,4 +88,4 @@ Para resolver este problema, siga [estes passos de resolução de problemas](htt
 ## <a name="configure-email-notifications"></a>Configurar notificações por e-mail
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Configurar notificações por correio eletrónico através de uma conta do Office 365 |ID do erro: 2013| **Causa:**<br> A tentar utilizar a conta do Office 365 <br>**Ação recomendada:**<ol><li> A primeira coisa para garantir que é "Permitir anónimo reencaminhamento em a receber o conector" para o servidor do DPM está configurado no Exchange. Para obter mais informações sobre como configurar esta opção, consulte [permitir reencaminhamento anónimo em conector de receção](http://technet.microsoft.com/en-us/library/bb232021.aspx) no TechNet.</li> <li> Se não é possível utilizar um reencaminhamento de SMTP interno e tem de configurar utilizando o servidor do Office 365, pode configurar o IIS para ser um reencaminhamento. Configurar o servidor do DPM para [o SMTP para o Office 365, utilizando o IIS de reencaminhamento](https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx).<br><br> **Importante:** não se esqueça de utilizar o user@domain.com formato e *não* domínio \ utilizador.<br><br><li>Utilize o nome do servidor local como servidor de SMTP, o DPM ponto porta 587. Em seguida, aponte para o e-mail do utilizador que deverá ser proveniente de mensagens de correio eletrónico.<li> O nome de utilizador e palavra-passe na página de configuração do DPM SMTP devem ser para uma conta de domínio no domínio que o DPM está ativada. </li><br> **Tenha em atenção**: quando está a alterar o endereço do servidor SMTP, efetuar a alteração para as novas definições, feche a caixa de definições e, em seguida, volte a abri-lo para Certifique-se de que reflete o novo valor.  Basta alterar e testar poderão não sempre fazer com que as novas definições produzam efeito, pelo que testá-lo desta forma é uma melhor prática.<br><br>Em qualquer altura durante este processo, pode limpar estas definições ao fechar a consola do DPM e editar as seguintes chaves do registo: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword eliminar e Chaves de SMTPUserName**. Pode adicioná-los para a IU quando iniciar novamente.
+| Configurar notificações por correio eletrónico através de uma conta do Office 365 |ID do erro: 2013| **Causa:**<br> A tentar utilizar a conta do Office 365 <br>**Ação recomendada:**<ol><li> A primeira coisa para garantir que é "Permitir anónimo reencaminhamento em a receber o conector" para o servidor do DPM está configurado no Exchange. Para obter mais informações sobre como configurar esta opção, consulte [permitir reencaminhamento anónimo em conector de receção](http://technet.microsoft.com/library/bb232021.aspx) no TechNet.</li> <li> Se não é possível utilizar um reencaminhamento de SMTP interno e tem de configurar utilizando o servidor do Office 365, pode configurar o IIS para ser um reencaminhamento. Configurar o servidor do DPM para [o SMTP para o Office 365, utilizando o IIS de reencaminhamento](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **Importante:** não se esqueça de utilizar o user@domain.com formato e *não* domínio \ utilizador.<br><br><li>Utilize o nome do servidor local como servidor de SMTP, o DPM ponto porta 587. Em seguida, aponte para o e-mail do utilizador que deverá ser proveniente de mensagens de correio eletrónico.<li> O nome de utilizador e palavra-passe na página de configuração do DPM SMTP devem ser para uma conta de domínio no domínio que o DPM está ativada. </li><br> **Tenha em atenção**: quando está a alterar o endereço do servidor SMTP, efetuar a alteração para as novas definições, feche a caixa de definições e, em seguida, volte a abri-lo para Certifique-se de que reflete o novo valor.  Basta alterar e testar poderão não sempre fazer com que as novas definições produzam efeito, pelo que testá-lo desta forma é uma melhor prática.<br><br>Em qualquer altura durante este processo, pode limpar estas definições ao fechar a consola do DPM e editar as seguintes chaves do registo: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword eliminar e Chaves de SMTPUserName**. Pode adicioná-los para a IU quando iniciar novamente.

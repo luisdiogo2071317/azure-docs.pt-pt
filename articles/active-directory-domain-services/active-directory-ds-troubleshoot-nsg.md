@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: ca3292f1b89fc461950a47116126b6f5338fb381
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ce03ee0e0936cea4b96e48fbc949f40ee0fe83a0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de rede inválida para o seu domínio gerido
 Este artigo ajuda-o a resolver erros de configuração relacionadas com a rede que resultam a seguinte mensagem de alerta:
@@ -61,7 +61,7 @@ Utilize os seguintes passos para criar um novo NSG através do PowerShell.
 
   ```PowerShell
   # Log in to your Azure subscription.
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 2. Crie um NSG com três regras. O script seguinte define três regras para o NSG que permite o acesso para as portas necessárias para executar os serviços de domínio do Azure AD. Em seguida, o script cria um novo NSG contém essas regras. Utilize o mesmo formato para adicionar regras adicionais que permitem que o restante tráfego de entrada, se necessário por cargas de trabalho implementadas na rede virtual.
@@ -123,7 +123,7 @@ $VnetName = "exampleVnet"
 $SubnetName = "exampleSubnet"
 
 # Log in to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Allow inbound HTTPS traffic to enable synchronization to your managed domain.
 $SyncRule = New-AzureRmNetworkSecurityRuleConfig -Name AllowSyncWithAzureAD -Description "Allow synchronization with Azure AD" `

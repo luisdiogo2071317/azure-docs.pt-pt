@@ -1,12 +1,12 @@
 ---
-title: "Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)"
-description: "Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)"
+title: Notas de versão do Explorador de armazenamento do Microsoft Azure
+description: Notas de versão do Explorador de armazenamento do Microsoft Azure
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
 Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.6 (pré-visualização), bem como as notas de versão para versões anteriores.
 
-[Explorador de armazenamento do Microsoft Azure (pré-visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
+[Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
 ## <a name="version-096"></a>Versão 0.9.6
 02/28/2018
@@ -146,7 +146,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
     ```
 
 ## <a name="version-094-and-093"></a>Versão 0.9.4 e 0.9.3
-01/21/2018
+21/01/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização)
 * [Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
@@ -198,7 +198,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 ## <a name="version-092"></a>Versão 0.9.2
 11/01/2017
 
-### <a name="hotfixes"></a>Hotfixes
+### <a name="hotfixes"></a>Correções
 * Alterações de dados inesperado foram possíveis ao editar Edm.DateTime valores para as entidades da tabela, consoante o fuso horário local. O editor de utiliza uma caixa de texto simples, dar controlo preciso, consistente Edm.DateTime valores.
 * Um grupo de blobs quando anexada com o nome e a chave de carregamento/transferência não arrancam. Esta correção.
 * Anteriormente, Explorador de armazenamento só iria solicitar-lhe para voltar uma conta obsoleta se um ou mais subscrições da conta foi selecionado. Agora Explorador de armazenamento pedirá, mesmo se a conta é totalmente filtrada.
@@ -227,7 +227,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Se tentou abrir ou transferir um blob com um nome de ficheiro inválido do Windows, a operação falhará. Explorador de armazenamento será detetar se um nome de blob é inválido e peça se gostaria de codificá-lo ou ignorar o blob. Explorador de armazenamento também Deteta se um nome de ficheiro parece ser codificados e pedir-lhe se pretende descodificá-lo antes de carregar.
 * Durante o carregamento de blob, o editor do contentor do blob de destino seria, por vezes, não corretamente atualizar. Esta correção.
 * O suporte de várias formas de cadeias de ligação e SAS URIs regressed. Podemos ter resolvidos todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
-* A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
@@ -281,7 +281,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Se tentou abrir ou transferir um blob com um nome de ficheiro inválido do Windows, a operação falhará. Explorador de armazenamento será detetar se um nome de blob é inválido e peça se gostaria de codificá-lo ou ignorar o blob. Explorador de armazenamento também Deteta se um nome de ficheiro parece ser codificados e pedir-lhe se pretende descodificá-lo antes de carregar.
 * Durante o carregamento de blob, o editor do contentor do blob de destino seria, por vezes, não corretamente atualizar. Esta correção.
 * O suporte de várias formas de cadeias de ligação e SAS URIs regressed. Podemos ter resolvidos todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
-* A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/)
+* A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.

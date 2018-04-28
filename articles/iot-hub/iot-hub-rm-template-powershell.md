@@ -1,11 +1,11 @@
 ---
-title: "Criar um IoT Hub do Azure através de um modelo (PowerShell) | Microsoft Docs"
+title: Criar um IoT Hub do Azure através de um modelo (PowerShell) | Microsoft Docs
 description: Como utilizar um modelo Azure Resource Manager para criar um IoT Hub com o PowerShell.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Criar um hub IoT utilizando o modelo Azure Resource Manager (PowerShell)
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, precisa do seguinte:
 Numa linha de comandos do PowerShell, introduza o seguinte comando para iniciar sessão na sua subscrição do Azure:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Se tiver várias subscrições do Azure, o início de sessão Azure concede acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis para que possa utilizar:
@@ -51,7 +51,7 @@ Se tiver várias subscrições do Azure, o início de sessão Azure concede aces
 Get-AzureRMSubscription
 ```
 
-Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para criar o seu IoT hub. Pode utilizar o nome da subscrição ou o ID da saída do comando anterior:
+Utilize o comando seguinte para selecionar a subscrição que pretende utilizar para executar os comandos para criar o seu hub IoT. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
 
 ```powershell
 Select-AzureRMSubscription `
@@ -143,7 +143,7 @@ Utilize um modelo JSON para criar um hub IoT no seu grupo de recursos. Também p
 > [!NOTE]
 > Esta aplicação de exemplo adiciona uma S1 Standard IoT Hub para o qual é-lhe faturado. Pode eliminar o hub IoT através de [portal do Azure] [ lnk-azure-portal] ou utilizando o **remover AzureRmResource** cmdlet do PowerShell quando tiver terminado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que implementou um IoT hub utilizando um modelo Azure Resource Manager com o PowerShell, pode querer explorar ainda mais:
 
@@ -157,7 +157,7 @@ Para obter mais informações sobre como desenvolver para o IoT Hub, consulte os
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

@@ -1,9 +1,9 @@
 ---
 title: Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection | Microsoft Docs
-description: "Descrição geral de vulnerabilidades detetadas pelo Azure Active Directory Identity Protection."
+description: Descrição geral de vulnerabilidades detetadas pelo Azure Active Directory Identity Protection.
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection
 Vulnerabilidades são fragilidades no seu ambiente que podem ser forem exploradas por um atacante. Recomendamos que resolver estas vulnerabilidades para melhorar a postura de segurança da sua organização e impedir que os atacantes a explorá-los.
@@ -38,7 +38,7 @@ Azure multi-factor authentication fornece uma segunda camada de segurança para 
 
 Recomendamos que necessitam de Azure multi-factor Authentication para inícios de sessão do utilizador. Autenticação multifator desempenha uma função de chave nas políticas de acesso condicional baseado em risco disponíveis através da proteção de identidade.
 
-Para obter mais detalhes, consulte [que é o Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Para obter mais detalhes, consulte [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Aplicações cloud não geridas
 Este vulnerabilidade ajuda-o a identificar aplicações na nuvem não geridos na sua organização.

@@ -1,24 +1,21 @@
 ---
-title: Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços em nuvem do Azure | Microsoft Docs
+title: Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços em nuvem do Azure
 description: Como configurar a aplicação do serviço em nuvem do Azure para permitir ligações de ambiente de trabalho remotas
 services: cloud-services
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.topic: conceptual
+ms.workload: azure
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: ebe536cc5838e3e6f0a2c15950ec766c1fd44bfe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fe8b2b59616246743b38aa3b7a7972c092529b5d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços de nuvem do Azure com o Visual Studio
 

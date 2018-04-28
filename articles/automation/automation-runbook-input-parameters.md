@@ -1,6 +1,6 @@
 ---
-title: "Parâmetros de entrada do runbook"
-description: "Os parâmetros de entrada do Runbook aumentam a flexibilidade de runbooks, permitindo-lhe transmitir dados para um runbook quando é iniciada. Este artigo descreve os diferentes cenários onde os parâmetros de entrada são utilizados em runbooks."
+title: Parâmetros de entrada do runbook
+description: Os parâmetros de entrada do Runbook aumentam a flexibilidade de runbooks, permitindo-lhe transmitir dados para um runbook quando é iniciada. Este artigo descreve os diferentes cenários onde os parâmetros de entrada são utilizados em runbooks.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2ce87c300d3e9092794e6e437dc9919c7eb0f3c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
 
@@ -37,16 +37,16 @@ O Windows PowerShell suporta mais atributos de parâmetros de entrada do que aqu
 
 Uma definição de parâmetro nos runbooks do fluxo de trabalho do PowerShell tem o seguinte formato geral, onde os vários parâmetros são separados por vírgulas.
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > Quando estiver a definir parâmetros, se não especificar o **obrigatório** atributo, em seguida, por predefinição, o parâmetro é considerado opcional. Além disso, se definir um valor predefinido para um parâmetro nos runbooks do fluxo de trabalho do PowerShell, esta é tratada pelo PowerShell como um parâmetro opcional, independentemente do **obrigatório** valor de atributo.
@@ -61,13 +61,16 @@ Nesta definição do parâmetro, os parâmetros **$VMName** e **$resourceGroupNa
 
 Se o runbook tiver um parâmetro de entrada de tipo de objeto, em seguida, utilizar uma tabela hash de PowerShell com (nome, valor) pares passem um valor. Por exemplo, se tiver o seguinte parâmetro num runbook:
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 Em seguida, pode passar o seguinte valor para o parâmetro:
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurar parâmetros de entrada em runbooks gráficos
 
@@ -146,7 +149,7 @@ Na etiqueta sob a caixa de entrada, pode ver os atributos que definiu para o par
   
   **Exemplo:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
@@ -155,7 +158,7 @@ Na etiqueta sob a caixa de entrada, pode ver os atributos que definiu para o par
   
   **Exemplo:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
   
   Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
@@ -170,7 +173,7 @@ Na etiqueta sob a caixa de entrada, pode ver os atributos que definiu para o par
 
 * **Método do Gestor de recursos do Azure:** pode iniciar um runbook através do SDK de um idioma de programação. Segue-se um fragmento de código c# para iniciar um runbook na sua conta de automatização. Pode ver todos os o código no nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -189,7 +192,7 @@ Na etiqueta sob a caixa de entrada, pode ver os atributos que definiu para o par
   ```
 * **Método de modelo de implementação clássico do Azure:** pode iniciar um runbook através do SDK de um idioma de programação. Segue-se um fragmento de código c# para iniciar um runbook na sua conta de automatização. Pode ver todos os o código no nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -209,7 +212,7 @@ Na etiqueta sob a caixa de entrada, pode ver os atributos que definiu para o par
   
   Para iniciar este método, crie um dicionário para armazenar os parâmetros do runbook, **VMName** e **resourceGroupName**e os respetivos valores. Em seguida, inicie o runbook. Segue-se o fragmento de código c# para chamar o método que é definido acima.
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -239,7 +242,7 @@ Para poder passar os parâmetros para a tarefa de runbook, utilize o corpo do pe
 
 Se pretender iniciar o **Get-AzureVMTextual** runbook que foi criado anteriormente com **VMName** e **resourceGroupName** como parâmetros, utilize o seguinte formato JSON para o corpo do pedido.
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{
@@ -268,7 +271,7 @@ Pode criar um [webhook](automation-webhooks.md) para o runbook e configurar os p
 
 ![Criar o webhook e atribuir parâmetros](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Quando executar um runbook através da utilização de um webhook, o parâmetro de entrada predefinido  **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**  é enviada, juntamente com os parâmetros de entrada que definiu. Pode clicar para expandir o **WebhookData** parâmetro para obter mais detalhes.
+Quando executar um runbook através da utilização de um webhook, o parâmetro de entrada predefinido **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** é enviada, juntamente com os parâmetros de entrada que definiu. Pode clicar para expandir o **WebhookData** parâmetro para obter mais detalhes.
 
 ![Parâmetro WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

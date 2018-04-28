@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 12f745958130e931bc3c8e81a0a61f3c3f4c4e3c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 396ee2fc132abb5fbfd29bf5fffe9b1388b9a964
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Registo de diagnóstico de configuração
 
@@ -203,7 +203,7 @@ Para concluir este tutorial, tem de ter os seguintes recursos:
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. O Azure PowerShell obtém todas as subscrições associadas a esta conta e, por defeito, utiliza a primeira.
@@ -245,7 +245,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Ativar o registo
+### <a name="enable-logging"></a>Ativar registo
 
 Para ativar o registo, utilize o cmdlet Set-AzureRmDiagnosticSetting, juntamente com as variáveis para a nova conta de armazenamento, a conta de servidor e a categoria. Execute o seguinte comando, a definição de **-ativado** sinalizador para **$true**:
 

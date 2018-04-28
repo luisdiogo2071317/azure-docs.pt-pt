@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com início de sessão do Adobe | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Adobe início de sessão."
+title: 'Tutorial: Integração do Azure Active Directory com início de sessão do Adobe | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Adobe início de sessão.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory com início de sessão do Adobe
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.echosign.com/`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.echosign.com/`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.echosign.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) para obter estes valores. 
@@ -129,40 +129,31 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Adobe sessão como administrador.
 
-8. No menu na parte superior, clique em **conta**e, em seguida, no painel de navegação no lado esquerdo, clique em **SAML definições** em **as definições da conta**.
+8. No menu de SAML, clique em **as definições da conta**e, em seguida, clique em **SAML definições**.
    
-   ![Conta](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "conta")
+    ![Conta](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "conta")
 
-9. Na secção de definições de SAML, execute os seguintes passos:
+9. No **SAML definições** secção, execute os seguintes passos:
+  
+    ![Definições de SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML definições")
    
-   ![Definições de SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML definições")
+    a. Como **SAML modo**, selecione **SAML obrigatório**.
    
-   a. Como **SAML modo**, selecione **SAML obrigatório**.
+    b. Selecione **Adobe Permitir início de sessão administradores de conta inicie sessão com as respetivas credenciais de início de sessão do Adobe**.
    
-   b. Selecione **permitir EchoSign conta aos administradores inicie sessão com as respetivas credenciais de EchoSign**.
-   
-   c. Como **criação de utilizador**, selecione **adicionar automaticamente utilizadores autenticados através de SAML**.
+    c. Como **criação de utilizador**, selecione **adicionar automaticamente utilizadores autenticados através de SAML**.
 
-10. Passar, efetuando os seguintes passos:
-
-       ![Definições de SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML definições")
-
-    a. Colar **ID de entidade de SAML**, que copiou do portal do Azure para o **ID da entidade IdP** caixa de texto.
+    d. Colar **ID de entidade de SAML**, que copiou do portal do Azure para o **entidade ID/emissor URL** caixa de texto.
     
-    b. Colar **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure para o **URL de início de sessão do IdP** caixa de texto.
+    e. Colar **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure para o **ponto final do URL/SSO de início de sessão** caixa de texto.
    
-    c. Colar **Sign-Out URL**, que copiou do portal do Azure para o **URL de fim de sessão do IdP** caixa de texto.
+    f. Colar **Sign-Out URL**, que copiou do portal do Azure para o **ponto final do URL/SLO de fim de sessão** caixa de texto.
 
-    d. Abra o transferido **Certificate(Base64)** ficheiro no bloco de notas, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **IdP certificado** caixa de texto
+    g. Abra o transferido **Certificate(Base64)** ficheiro no bloco de notas, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **IdP certificado** caixa de texto
 
-    e. Clique em **guardar alterações**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    h. Clique em **guardar alterações**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -208,15 +199,15 @@ Para permitir que os utilizadores do Azure AD iniciem sessão Adobe início de s
 
 2. No menu na parte superior, clique em **conta**e, em seguida, no painel de navegação no lado esquerdo, clique em **utilizadores e grupos**e, em seguida, clique em **criar um novo utilizador**.
    
-   ![Conta](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "conta")
+    ![Conta](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "conta")
    
 3. No **criar novo utilizador** secção, execute os seguintes passos:
    
-   ![Criar utilizador](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "criar utilizador")
+    ![Criar utilizador](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "criar utilizador")
    
-   a. Tipo de **endereço de correio eletrónico**, **nome próprio**, e **Apelido** de uma conta válida do AAD, pretende aprovisionar para caixas de texto relacionadas.
+    a. Tipo de **endereço de correio eletrónico**, **nome próprio**, e **Apelido** de uma conta válida do AAD, pretende aprovisionar para caixas de texto relacionadas.
    
-   b. Clique em **criar utilizador**.
+    b. Clique em **criar utilizador**.
 
 >[!NOTE]
 >O marcador de posição de conta do Azure Active Directory recebe uma mensagem de e-mail que inclui uma ligação para confirmar a conta para ficar ativa. 

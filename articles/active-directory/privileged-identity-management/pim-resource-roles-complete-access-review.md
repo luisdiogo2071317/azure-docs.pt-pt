@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management para recursos do Azure - revisão do acesso completo para recursos do Azure | Microsoft Docs
-description: Descreve como realizar uma revisão do acesso para recursos do Azure.
+title: Conclua uma revisão do acesso para recursos do Azure utilizando o Privileged Identity Management | Microsoft Docs
+description: Descreve como concluir uma revisão do acesso para recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,45 +13,50 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 5ce02c2d27ec3de87fe44e9c904f19409600e5c5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-role---finish-access-review"></a>Revisão do acesso do Privileged Identity Management - função de recursos - concluir
-Os administradores de com função privilegiada podem rever uma vez acesso privilegiado um [revisão de segurança tiver sido iniciado](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para os recursos do Azure irá enviar automaticamente um e-mail a pedir aos utilizadores para rever o respetivo acesso. Se um utilizador não foi possível obter um e-mail, pode enviar-lhes as instruções [como executar uma revisão de segurança](pim-resource-roles-perform-access-review.md).
+# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Conclua uma revisão do acesso para recursos do Azure utilizando o Privileged Identity Management
+Os administradores de com função privilegiada podem rever o acesso privilegiado após um [revisão de segurança tiver sido iniciado](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos do Azure envia uma mensagem de e-mail que solicita aos utilizadores para rever o respetivo acesso automaticamente. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como executar uma revisão de segurança](pim-resource-roles-perform-access-review.md).
 
-Após o período de revisão de segurança, ou todos os utilizadores tem concluído os respetivos rever automática, siga os passos neste artigo para gerir a rever e ver os resultados.
+Após o período de revisão de segurança ou depois de todos os utilizadores tem concluído os respetivos rever automática, siga os passos neste artigo para gerir a rever e ver os resultados.
 
 ## <a name="manage-security-reviews"></a>Gerir revisões de segurança
-1. Vá para o [portal do Azure](https://portal.azure.com/) e selecione o **recursos do Azure** aplicação no seu dashboard.
+1. Aceda ao [Portal do Azure](https://portal.azure.com/). Em seguida, no dashboard, selecione o **recursos do Azure** aplicação.
+
 2. Selecione o tipo de recurso.
+
 3. Selecione o **aceder revisões** secção do dashboard.
-![](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Revisões de acesso](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+
 4. Selecione a revisão do acesso que pretende gerir.
 
-No painel de detalhes da revisão do acesso, existem várias opções para gerir essa revisão.
-![](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
+No painel de detalhes de revisão do acesso, existem várias opções para gerir essa revisão. As opções são os seguintes:
+
+![Opções para gerir uma revisão](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Parar
-Uma data de fim de ter todas as revisões de acesso, mas pode utilizar o **parar** botão para terminar numa fase inicial. Se os utilizadores ainda não foram revistos neste momento, não seria capazes de depois de interromper a revisão. Não é possível reiniciar uma revisão depois-é foi parado.
+Uma data de fim de ter todas as revisões de acesso, mas pode utilizar o **parar** botão para terminar numa fase inicial. Todos os utilizadores que ainda não concluiu a respetiva revisão até essa altura não será possível terminar depois de interromper a revisão. Não é possível reiniciar uma revisão depois-é foi parado.
 
 ### <a name="reset"></a>Repor
-Só pode repor uma revisão do acesso para remover todas as decisões que efetuou no mesmo. Depois de repor a revisão do acesso, todos os utilizadores estão marcados como unreviewed novamente. 
+Só pode repor uma revisão do acesso para remover todas as decisões que são efetuadas no mesmo. Depois de repor a revisão do acesso, todos os utilizadores estão marcados como unreviewed novamente. 
 
 ### <a name="apply"></a>Aplicar
-Uma revisão do acesso esteja concluída, ou porque foi atingido a data de fim ou parado-lo manualmente, o **aplicar** botão implementa o resultado a revisão. Se acesso um utilizador foi negado de revisão, este é o passo que irá remover a atribuição de função.  
+Depois de concluída a revisão do acesso, utilize o **aplicar** botão para implementar o resultado a revisão. Se acesso um utilizador foi negado de revisão, este passo remove a atribuição de função.  
 
 ### <a name="delete"></a>Eliminar
-Se não estiver interessado em mais de revisão, elimine-o. O **eliminar** botão remove a revisão da aplicação do PIM.
+Se não estão interessadas na revisão mais, elimine-o. O **eliminar** botão remove a revisão da aplicação do PIM.
 
 ## <a name="results"></a>Resultados
-Ver e transferir uma lista dos resultados da sua revisão no separador de resultados. ![](media/azure-pim-resource-rbac/rbac-access-review-results.png)
+No **resultados** separador, ver e transferir uma lista dos resultados da sua revisão. 
+![Separador de resultados](media/azure-pim-resource-rbac/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Revisores
 Ver e adicionar revisores a revisão do acesso existentes. Notificar os revisores para concluir as revisões.
-![](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
+![Adicionar revisores](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
 
 

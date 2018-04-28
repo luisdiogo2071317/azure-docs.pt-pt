@@ -1,24 +1,19 @@
 ---
-title: Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services - Azure | Microsoft Docs
+title: Configurar clusters do HDInsight associados a um domínio com o AAD DS
 description: Saiba como configurar e clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bhanupr
-ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 060ca8040f514ec1df48c2ca4568cbbb2a529267
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 
@@ -36,7 +31,10 @@ Terá de criar um Azure do AD DS antes de poder criar um cluster do HDInsight. P
 > [!NOTE]
 > Apenas os administradores do inquilino tem os privilégios para criar serviços de domínio. Se utilizar o Azure Data Lake armazenamento (ADLS) como armazenamento de predefinido para o HDInsight, em seguida, certifique-se o inquilino do Azure AD predefinido para ADLS mesmo que o domínio para o cluster do HDInsight. Para tal configurado para funcionar com o Azure Data Lake Store, autenticação multifator tiver de ser desativada para os utilizadores que terão acesso ao cluster.
 
-Depois do serviço de domínio tiver sido aprovisionado, terá de criar uma conta de serviço no **os administradores de DC do Azure AD** grupo para criar o cluster do HDInsight. A conta de serviço tem de ser um administrador global sobre o Azure AD.
+Depois do serviço de domínio do AAD tiver sido aprovisionado, é necessário criar uma conta de serviço no AAD (que será sincronizado com o AAD DS) com as permissões adequadas para criar o cluster do HDInsight. Se já existir uma conta de serviço, terá de reposição da palavra-passe e aguarde até que sincroniza-se ao AAD DS (esta reposição resultará na criação do hash de palavra-passe do kerberos e pode demorar até 30 minutos). Esta conta de serviço deve ter o privillages seguintes:
+
+- Associar computadores ao domínio e coloque principais máquina na UO que especificar durante a criação do cluster.
+- Crie principais de serviço na UO que especificar durante a criação do cluster.
 
 Tem de ativar o LDAP seguro para o domínio de gerido dos serviços de domínio do Azure AD. Para ativar o LDAP seguro, consulte [configurar segura LDAP (LDAPS) para um serviços de domínio do Azure AD geridos domínio](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -49,7 +47,7 @@ O passo seguinte consiste em Criar cluster do HDInsight com o AAD DS e a conta d
 Quando cria um cluster do HDInsight associados a um domínio, tem de fornecer os parâmetros seguintes:
 
 - **Nome de domínio**: O nome de domínio que estão associado com o Azure AD DS. Por exemplo, contoso.onmicrosoft.com
-- **Nome de utilizador de domínio**: A conta de serviço no grupo de administradores de DC do Azure AD que é criado na secção anterior. Por exemplo, hdiadmin@contoso.onmicrosoft.com. Este utilizador de domínio é o administrador deste cluster do HDInsight associados a um domínio.
+- **Nome de utilizador de domínio**: A conta de serviço no Azure AD DC que é criado na secção anterior. Por exemplo, hdiadmin@contoso.onmicrosoft.com. Este utilizador de domínio será o administrador deste cluster do HDInsight associados a um domínio.
 - **Palavra-passe do domínio**: A palavra-passe da conta de serviço.
 - **Unidade organizacional**: O nome distinto da UO que pretende utilizar com o cluster do HDInsight. Por exemplo: UO = HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Se essa UO não existir, o cluster do HDInsight tenta criar essa UO. 
 - **URL de LDAPS**: por exemplo, ldaps://contoso.onmicrosoft.com:636

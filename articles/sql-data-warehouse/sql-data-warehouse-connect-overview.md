@@ -2,19 +2,19 @@
 title: Ligar ao Azure SQL Data Warehouse | Microsoft Docs
 description: Obter ligado ao Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-ms.date: 04/12/2018
-ms.author: rortloff
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: a575bc4f57c3b1dbcf3846b1246b338621e4d720
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Ligar ao Azure SQL Data Warehouse
 Obter ligado ao Azure SQL Data Warehouse.
@@ -62,8 +62,8 @@ O SQL Data Warehouse uniformiza algumas definições durante a ligação e a cri
 
 | Definição de base de dados | Valor |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |LIGADO |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |LIGADO |
+| [ANSI_NULLS][ANSI_NULLS] |ON |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 

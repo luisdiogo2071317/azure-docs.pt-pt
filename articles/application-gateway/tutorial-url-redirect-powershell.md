@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicação com o redirecionamento de URL com base no caminho - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação com o URL com base no caminho redirecionado tráfego com o Azure PowerShell."
+title: Criar um gateway de aplicação com o redirecionamento de URL com base no caminho - Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicação com o URL com base no caminho redirecionado tráfego com o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: davidmu
-ms.openlocfilehash: 64b077a387bce0dd5c1f34aaca4dfcdda5b65824
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 85a684d4d988bdc01acdb3af3ddce028270cf105
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicação com o redirecionamento com base no caminho de URL com o Azure PowerShell
 
 Pode utilizar o Azure PowerShell para configurar [regras de encaminhamento com base no URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end utilizando [conjuntos de dimensionamento de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, crie as regras de encaminhamento de URL que certifique-se de que o tráfego web é redirecionado para o conjunto de back-end adequado.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure a rede
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Para localizar a versão, execute ` Get-Module -ListAvailable AzureRM` . Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -112,7 +112,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Criar o serviço de escuta de predefinição e a regra
 
-Um serviço de escuta é obrigatório para ativar o gateway de aplicação encaminhar o tráfego adequadamente a um conjunto de back-end. Neste tutorial, vai criar vários serviços de escuta. O serviço de escuta básico primeiro espera o tráfego do URL de raiz. Outros serviços de escuta esperam tráfego em URLs específicos, tais como *http://52.168.55.24:8080/imagens/* ou *http://52.168.55.24:8081/vídeo/*.
+Um serviço de escuta é obrigatório para ativar o gateway de aplicação encaminhar o tráfego adequadamente a um conjunto de back-end. Neste tutorial, vai criar vários serviços de escuta. O serviço de escuta básico primeiro espera o tráfego do URL de raiz. Outros serviços de escuta esperam tráfego em URLs específicos, tais como *http://52.168.55.24:8080/images/* ou *http://52.168.55.24:8081/video/*.
 
 Criar um serviço de escuta com o nome *defaultListener* utilizando [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) com a configuração de front-end e porta de front-end que criou anteriormente. Uma regra é necessária para o serviço de escuta saber que conjunto de back-end a utilizar para tráfego de entrada. Criar uma regra básica com o nome *rule1* utilizando [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
@@ -424,7 +424,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Tal como *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm*, ou *http:// 52.168.55.24:8081/Images/Test.htm*.
+Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser. Tal como *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm*, ou *http://52.168.55.24:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

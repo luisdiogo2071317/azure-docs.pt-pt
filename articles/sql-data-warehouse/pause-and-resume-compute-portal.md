@@ -1,27 +1,23 @@
 ---
-title: "Início rápido: Colocar em pausa e retomar de computação no armazém de dados de SQL do Azure - portal do Azure | Microsoft Docs"
-description: "Tarefas de portais do Azure que colocar em pausa para um Azure SQL Data Warehouse reduzir os custos de computação. Retomar a computação quando estiver pronto para utilizar o armazém de dados."
+title: 'Início rápido: Colocar em pausa e retomar de computação no armazém de dados de SQL do Azure - portal do Azure | Microsoft Docs'
+description: Utilize o portal do Azure para colocar em pausa computação no armazém de dados SQL do Azure para reduzir os custos. Retomar a computação quando estiver pronto para utilizar o armazém de dados.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/23/2018
-ms.author: barbkess
-ms.openlocfilehash: 30dede32b35f995f89e2946af34da10353f55212
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 162bc44bccc04d97ea4d631d0e95defa342e6616
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Colocar em pausa e retomar a computação para um Azure SQL Data Warehouse no portal do Azure
-Computação pausa de um Azure SQL Data Warehouse reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
+Utilize o portal do Azure para colocar em pausa computação no armazém de dados SQL do Azure para reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -38,8 +34,8 @@ Para reduzir os custos, pode colocar em pausa e retomar a computação recursos 
 
 Siga estes passos para colocar em pausa um SQL data warehouse.
 
-1. Clique em **bases de dados SQL** na página da esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** do **bases de dados SQL** página. Esta ação abre o armazém de dados. 
+1. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
+2. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. Esta ação abre o armazém de dados. 
 3. No **mySampleDataWarehouse** página, repare **estado** é **Online**.
 
     ![Online de computação](media/pause-and-resume-compute-portal/compute-online.png)
@@ -59,8 +55,8 @@ Siga estes passos para colocar em pausa um SQL data warehouse.
 ## <a name="resume-compute"></a>Retomar de computação
 Siga estes passos para retomar um SQL data warehouse.
 
-1. Clique em **bases de dados SQL** na página da esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** do **bases de dados SQL** página. Esta ação abre o armazém de dados. 
+1. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
+2. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. Esta ação abre o armazém de dados. 
 3. No **mySampleDataWarehouse** página, repare **estado** é **em pausa**.
 
     ![Offline de computação](media/pause-and-resume-compute-portal/compute-offline.png)

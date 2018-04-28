@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e1dfd7ec4a2475142423f00a457a909989a36bea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be7db6f8a69731dec83ba94aecc272bc1df17892
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um peering de rede virtual - diferentes modelos de implementação, a mesma subscrição 
 
@@ -161,7 +161,7 @@ Pode utilizar o [portal do Azure](#portal), o Azure [interface de linha de coman
 
     > [!WARNING]
     > Importar um ficheiro de configuração foi alterada de rede pode fazer com que as alterações às redes virtuais existentes (clássica) na sua subscrição. Certifique-se apenas a adicionar a rede virtual anterior e que não alterar ou remover quaisquer redes virtuais existentes da sua subscrição. 
-5. Inicie sessão no Azure para criar a rede virtual (Resource Manager), introduzindo o `login-azurermaccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#requirements-and-constraints).
+5. Inicie sessão no Azure para criar a rede virtual (Resource Manager), introduzindo o `Connect-AzureRmAccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 6. Crie um grupo de recursos e uma rede virtual (Resource Manager). Copie o script, cole-a PowerShell e, em seguida, prima `Enter`.
 
     ```powershell
@@ -253,7 +253,7 @@ Quando tiver terminado neste tutorial, pode querer eliminar os recursos que crio
     > [!WARNING]
     > Importar um ficheiro de configuração foi alterada de rede pode fazer com que as alterações às redes virtuais existentes (clássica) na sua subscrição. Certifique-se apenas a remover a rede virtual anterior e que não alterar ou remover quaisquer outras redes virtuais existentes da sua subscrição. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Exaustivamente familiarizar-se com importante [restrições de peering de rede virtual e comportamentos](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual para a produção de peering utilize.
 - Saiba mais sobre todos os [definições de rede virtual peering](virtual-network-manage-peering.md#create-a-peering).

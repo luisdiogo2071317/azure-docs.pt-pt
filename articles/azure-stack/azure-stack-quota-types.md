@@ -1,25 +1,25 @@
 ---
 title: Tipos de quota na pilha do Azure | Microsoft Docs
-description: "Reveja os tipos diferentes de quota disponíveis para serviços e recursos na pilha do Azure."
+description: Reveja os tipos diferentes de quota disponíveis para serviços e recursos na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de quota na pilha do Azure
 
@@ -35,16 +35,18 @@ ms.lasthandoff: 02/21/2018
 | Define o número máx. de disponibilidade | 10 | O número máximo de conjuntos de disponibilidade que podem ser criados nesta localização. |
 | Define o número máx. de dimensionamento da máquina virtual | 20 | O número máximo de conjuntos de dimensionamento de máquina virtual que podem ser criados nesta localização. |
 
-> [!NOTE]
-> Quotas não são impostas nesta pré-visualização técnica de computação.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Tipos de quota de armazenamento
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
 | Capacidade máxima (GB) |500 |Capacidade de armazenamento total que pode ser utilizada por uma subscrição nesta localização. |
 | Número total de contas de armazenamento |20 |O número máximo de contas do storage que pode criar uma subscrição nesta localização. |
+
+> [!NOTE]  
+> Pode demorar até duas horas antes de é aplicada uma quota de armazenamento nova. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |

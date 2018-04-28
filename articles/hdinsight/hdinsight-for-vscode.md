@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 0074486d3d7fb58bc6e3adcbe4245ec53e7e4cde
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar as ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -29,7 +29,7 @@ Saiba como utilizar as ferramentas do Azure HDInsight para Visual Studio Code (V
 
 Os itens seguintes são necessários para concluir os passos neste artigo:
 
-- Um cluster do HDInsight.  Para criar um cluster, consulte [introdução ao HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Um cluster do HDInsight. Para criar um cluster, consulte [introdução ao HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono só é necessário para Linux e macOS.
 
@@ -100,7 +100,7 @@ Para poder submeter scripts para clusters do HDInsight a partir do código de VS
     - Submeter PySpark scripts de batch
     - Configurações de conjunto
 
-**Para ligar um cluster**
+<a id="linkcluster"></a>**Para ligar um cluster**
 
 Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com).
 1. Abra a paleta de comando selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um cluster**.
@@ -112,7 +112,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, t
    ![caixa de diálogo de cluster de ligação](./media/hdinsight-for-vscode/link-cluster-process.png)
 
    > [!NOTE]
-   > Utilizamos o nome de utilizador ligado e a palavra-passe se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster. 
+   > O nome de utilizador ligado e a palavra-passe são utilizados se o cluster tem sessão iniciada na subscrição do Azure tanto ligado um cluster. 
    
 3. Pode ver um cluster de ligado utilizando o comando **cluster lista**. Agora pode submeter um script para este cluster ligado.
 
@@ -275,8 +275,50 @@ Ferramentas do HDInsight para o VS Code também permite-lhe submeter consultas i
 
 Depois de submeter uma tarefa de Python, registos de submissão apresentado o **saída** janela no VS Code. O **Spark IU URL** e **URL de IU do Yarn** são também apresentados. Pode abrir o URL num browser para controlar o estado da tarefa.
 
-
+>[!NOTE]
+>PySpark3 já não é suportado no Livy 0.4 (que é um cluster do spark 2.2 HDI). Apenas "PySpark" é suportado para o python. É conhecido problema submeter spark 2.2 falhar com python3.
    
+## <a name="livy-configuration"></a>Configuração de Livy
+O Livy configuração é suportada, foi possível definir as definições de projeto na pasta de espaço de trabalho. Obter mais detalhes, consulte [Leia-me do Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ As definições do projeto:
+
+    ![Configuração de Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ As configurações de Livy suportadas:   
+
+    **POST /batches**   
+    Corpo do Pedido
+
+    | nome | descrição | tipo | 
+    | :- | :- | :- | 
+    | ficheiro | Ficheiro que contém a aplicação em execução | caminho (obrigatório) | 
+    | proxyUser | Utilizador para representar quando executar a tarefa | string | 
+    | className | Classe de principal de Java/Spark de aplicação | string |
+    | args | Argumentos de linha de comandos para a aplicação | lista de cadeias de | 
+    | v7 | jars a ser utilizado nesta sessão | Lista de cadeias | 
+    | pyFiles | Ficheiros do Python para ser utilizado nesta sessão | Lista de cadeias |
+    | ficheiros | ficheiros a ser utilizado nesta sessão | Lista de cadeias |
+    | driverMemory | Quantidade de memória a utilizar para o processo de controlador | string |
+    | driverCores | Número de núcleos a utilizar para o processo de controlador | Int |
+    | executorMemory | Quantidade de memória a utilizar por processo de executor | string |
+    | executorCores | Número de núcleos a utilizar para cada executor | Int |
+    | numExecutors | Número de executor para iniciar o para esta sessão | Int |
+    | arquivos | Arquivos a ser utilizado nesta sessão | Lista de cadeias |
+    | fila | O nome da fila de YARN para o qual foi submetido | string |
+    | nome | O nome desta sessão | string |
+    | Conf | Propriedades de configuração do Spark | Mapa de chave = valor |
+
+    Corpo da resposta   
+    O objeto de Batch de criar.
+
+    | nome | descrição | tipo | 
+    | :- | :- | :- | 
+    | ID | O id de sessão | Int | 
+    | AppId | O id desta sessão |  Cadeia |
+    | appInfo | As informações detalhadas da aplicação | Mapa de chave = valor |
+    | Registo | As linhas de registo | lista de cadeias de |
+    | state |   O estado do batch | string |
 
 
 ## <a name="additional-features"></a>Funcionalidades adicionais

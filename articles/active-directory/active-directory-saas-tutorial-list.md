@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2018
+ms.date: 04/27/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 4066e10512695e02f6b4b495803171e69b3897ae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 139ee04d0a77dde826eed74f11b5338ea2870429
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integração de aplicações de SaaS no Azure Active Directory
 
@@ -58,6 +58,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-alcumus-info-tutorial.png)| [Informações de Alcumus Exchange](active-directory-saas-alcumus-info-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-allocadia-tutorial.png)| [Allocadia](active-directory-saas-allocadia-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-aws-multi-accounts-tutorial.png)| [Amazon Web Services (AWS) para ligar a várias contas](active-directory-saas-aws-multi-accounts-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](active-directory-saas-amplitude-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-anaplan-tutorial.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-andromedascm-tutorial.png)| [Andromeda](active-directory-saas-andromedascm-tutorial.md)|
@@ -77,6 +78,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-atomiclearning-tutorial.png)| [Learning atómico](active-directory-saas-atomiclearning-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-attendancemanagementservices-tutorial.png)| [Serviços de gestão de assistência](active-directory-saas-attendancemanagementservices-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Área de trabalho Autotask](active-directory-saas-autotaskworkplace-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-awardspring-tutorial.png)| [AwardSpring](active-directory-saas-awardspring-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bamboo-hr-tutorial.png)| [BambooHR](active-directory-saas-bamboo-hr-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bambubysproutsocial-tutorial.png)| [Bambu por Sprout Social](active-directory-saas-bambubysproutsocial-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-bcinthecloud-tutorial.png)| [BC na nuvem](active-directory-saas-bcinthecloud-tutorial.md)|
@@ -133,7 +135,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-confluencemicrosoft-tutorial.png)| [Confluence SAML SSO pela Microsoft](active-directory-saas-confluencemicrosoft-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-contractworks-tutorial.png)| [ContractWorks](active-directory-saas-contractworks-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-convercent-tutorial.png)| [Convercent](active-directory-saas-convercent-tutorial.md)|
-| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cornerstone-ondemand-tutorial.png)| [Pilares OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|[Pilares OnDemand - aprovisionamento de utilizadores](active-directory-saas-successcenter-provisioning-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cornerstone-ondemand-tutorial.png)| [Pilares OnDemand](active-directory-saas-cornerstone-ondemand-tutorial.md)|[Pilares OnDemand - aprovisionamento de utilizadores](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-coupa-tutorial.png)| [Coupa](active-directory-saas-coupa-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cs-stars-tutorial.png)| [CS estrelas](active-directory-saas-cs-stars-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-cylanceprotect-tutorial.png)| [CylancePROTECT](active-directory-saas-cylanceprotect-tutorial.md)|
@@ -175,6 +177,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-filecloud-tutorial.png)| [FileCloud](active-directory-saas-filecloud-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-filesanywhere-tutorial.png)| [FilesAnywhere](active-directory-saas-filesanywhere-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-firmplay-tutorial.png)| [FirmPlay - empregado Advocacy para Recruiting](active-directory-saas-firmplay-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-fiscalnote-tutorial.png)| [FiscalNote](active-directory-saas-fiscalnote-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-five9-tutorial.png)| [Five9 Plus adaptador (CTI, agentes contacte Center)](active-directory-saas-five9-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-flatter-files-tutorial.png)| [Ficheiros flatter](active-directory-saas-flatter-files-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-floqast-tutorial.png)| [FloQast](active-directory-saas-floqast-tutorial.md)|
@@ -218,6 +221,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-imagerelay-tutorial.png)| [Reencaminhamento de imagem](active-directory-saas-imagerelay-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-imageworks-tutorial.png)| [FUNCIONA DA IMAGEM](active-directory-saas-imageworks-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [Gestor de risco IMPAC](active-directory-saas-impacriskmanager-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-infogix-tutorial.png)| [Infogix Data3Sixty governar](active-directory-saas-infogix-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Revenda de infor â informações de gestão](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-inkling-tutorial.png)| [Inkling](active-directory-saas-inkling-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](active-directory-saas-innotas-tutorial.md)|
@@ -390,6 +394,7 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sciquest-spend-director-tutorial.png)| [SciQuest gastam Director](active-directory-saas-sciquest-spend-director-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-screensteps-tutorial.png)| [ScreenSteps](active-directory-saas-screensteps-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sd-elements-tutorial.png)| [Elementos de SD](active-directory-saas-sd-elements-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-secretserver-on-premises-tutorial.png)| [Servidor secreta (no local)](active-directory-saas-secretserver-on-premises-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-securedeliver-tutorial.png)| [ENTREGAR SEGURA](active-directory-saas-securedeliver-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sedgwickcms-tutorial.png)| [Sedgwick CMS](active-directory-saas-sedgwickcms-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-sensoscientific-tutorial.png)| [Sistema de monitorização de temperatura de sem fios de SensoScientific](active-directory-saas-sensoscientific-tutorial.md)|
@@ -479,12 +484,13 @@ Para obter a lista completa de aplicações SaaS que tenham sido previamente int
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](active-directory-saas-workstars-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](active-directory-saas-xaitporter-tutorial.md)|
-| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|[xMatters OnDemand - aprovisionamento de utilizadores](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yardielearning-tutorial.png)| [Yardi eLearning](active-directory-saas-yardielearning-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne](active-directory-saas-yardione-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](active-directory-saas-yodeck-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Guias de interativa Yonyx](active-directory-saas-yonyx-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
-| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|
+| ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|[Zendesk - aprovisionamento de utilizadores](active-directory-saas-zendesk-provisioning-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-ziflow-tutorial.png)| [Ziflow](active-directory-saas-ziflow-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zivver-tutorial.png)| [ZIVVER](active-directory-saas-zivver-tutorial.md)|
 | ![logótipo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho](active-directory-saas-zoho-mail-tutorial.md)|

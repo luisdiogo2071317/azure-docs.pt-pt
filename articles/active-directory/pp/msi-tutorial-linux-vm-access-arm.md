@@ -1,8 +1,8 @@
 ---
-title: "Utilizar MSI de utilizador atribuída uma VM com Linux para aceder ao Gestor de recursos do Azure"
-description: "Um tutorial que explica o processo de utilizar um User-Assigned geridos serviço de identidade (MSI) numa VM com Linux, para aceder ao Gestor de recursos do Azure."
+title: Utilizar MSI de utilizador atribuída uma VM com Linux para aceder ao Gestor de recursos do Azure
+description: Um tutorial que explica o processo de utilizar um User-Assigned geridos serviço de identidade (MSI) numa VM com Linux, para aceder ao Gestor de recursos do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -15,10 +15,10 @@ ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: c2b6d70e441dc3d300f49adff1c02d7cc65788d2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Utilize um utilizador atribuído geridos serviço de identidade (MSI) numa VM com Linux, para aceder ao Gestor de recursos do Azure
 
@@ -49,7 +49,7 @@ Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [ https://portal.azure.com ](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual Linux num novo grupo de recursos
 

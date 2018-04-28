@@ -1,11 +1,11 @@
 ---
-title: "Azure de faturação Enterprise APIs | Microsoft Docs"
-description: "Saiba mais sobre as APIs do Reporting Services que permitem que os clientes empresariais Azure solicitar dados de consumo através de programação."
-services: 
-documentationcenter: 
+title: Azure de faturação Enterprise APIs | Microsoft Docs
+description: Saiba mais sobre as APIs do Reporting Services que permitem que os clientes empresariais Azure solicitar dados de consumo através de programação.
+services: ''
+documentationcenter: ''
 author: anandedwin
 manager: aedwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ae04c7c1fdddecf40583d14f7b08dcf41941c6f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs do Reporting Services permitem que os clientes empresariais Azure programaticamente extraia consumo e dados de faturação para ferramentas de análise de dados preferencial. 
 
 ## <a name="enabling-data-access-to-the-api"></a>Ativar o acesso de dados para a API
-* **Gerar ou obter a chave de API** - início de sessão para o portal da empresa e siga o tutorial em Ajuda - relatório de APIs. A primeira secção sob este artigo de ajuda explica como gerar ou obter a chave de API para a inscrição especificada.
+* **Gerar ou obter a chave de API** -inicie sessão no portal da empresa e navegue até aos relatórios > Transferir utilização > chave de acesso da API para gerar ou obter a chave de API.
 * **Transmissão de chaves na API** -chave de API a deve ser transmitido para cada chamada para autenticação e autorização. A seguinte propriedade tem de ser para os cabeçalhos HTTP
 
 |Chave do cabeçalho de pedido | Valor|

@@ -1,13 +1,13 @@
 ---
-title: "Encriptação de disco de conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs"
-description: "Saiba como utilizar o Azure PowerShell para encriptar as instâncias VM e os discos ligados em conjuntos de dimensionamento de máquina virtual"
+title: Encriptação de disco de conjuntos de dimensionamento de máquina virtual do Azure | Microsoft Docs
+description: Saiba como utilizar o Azure PowerShell para encriptar as instâncias VM e os discos ligados em conjuntos de dimensionamento de máquina virtual
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento de máquina virtual
 Para proteger e proteger dados em descanso ao utilizar tecnologias de encriptação padrão da indústria, os conjuntos de dimensionamento de máquina virtual suportam encriptação de disco do Azure (ADE). Encriptação pode ser ativada para a máquina virtual Windows e Linux conjuntos de dimensionamento. Para obter mais informações, consulte [encriptação de disco do Azure para Windows e Linux](../security/azure-security-disk-encryption.md).
@@ -41,7 +41,7 @@ Este artigo requer o Azure PowerShell versão do módulo 5.3.0 ou posterior. Exe
 Define o subsription do Azure para a pré-visualização da encriptação de disco para o dimensionamento de máquina virtual com o registo [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
@@ -80,13 +80,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
-Definir em primeiro lugar, um administrador, nome de utilizador e palavra-passe para as instâncias de VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Primeiro, defina um nome de utilizador e uma palavra-passe para as instâncias da VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego para as instâncias de VM individuais, também é criado um balanceador de carga. O Balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como permitir tráfego de ambiente de trabalho remoto na porta TCP 3389 e comunicação remota do PowerShell TCP na porta 5985:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Para distribuir o tráfego para instâncias de VM individuais, é também criado um balanceador de carga. O balanceador de carga inclui regras para distribuir o tráfego na porta TCP 80, bem como para permitir o tráfego de ambiente de trabalho remoto na porta TCP 3389 e a comunicação remota do PowerShell na porta TCP 5985:
 
 ```powershell
 $vmssName="myScaleSet"
@@ -104,7 +104,7 @@ New-AzureRmVmss `
 ```
 
 
-## <a name="enable-encryption"></a>Ativar a encriptação
+## <a name="enable-encryption"></a>Ativar encriptação
 Para encriptar as instâncias de VM num conjunto de dimensionamento, obtenha primeiro algumas informações sobre o ID de recurso e o URI do Cofre de chave com [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault). Estas variáveis são utilizadas para, em seguida, iniciar o processo de encriptação com [conjunto AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension):
 
 ```powershell
@@ -154,5 +154,5 @@ Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vm
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, utilizado o Azure PowerShell para encriptar um conjunto de dimensionamento de máquina virtual. Também pode utilizar o [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) ou modelos para [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).

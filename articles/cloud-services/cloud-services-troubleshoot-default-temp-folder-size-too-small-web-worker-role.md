@@ -1,11 +1,11 @@
 ---
-title: "Tamanho da pasta predefinida TEMP é demasiado pequeno para uma função | Microsoft Docs"
-description: "Uma função de serviço de nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar em execução sem espaço."
+title: Tamanho da pasta predefinida TEMP é demasiado pequeno para uma função | Microsoft Docs
+description: Uma função de serviço de nuvem tem uma quantidade limitada de espaço para a pasta TEMP. Este artigo fornece algumas sugestões sobre como evitar em execução sem espaço.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ab0a7c43393aab10abbce095f801afc4ebaf6b87
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 177438c4d6b416584f1797ec1ce744fc484ef688
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Tamanho da pasta predefinida TEMP é demasiado pequeno numa função de web/trabalho do serviço de nuvem
 O diretório temporário predefinido de uma função de trabalho ou da web de serviço do cloud tem um tamanho máximo de 100 MB, que podem tornar-se completa, a determinada altura. Este artigo descreve como evitar a ficar sem espaço para o diretório temporário.
@@ -69,9 +69,9 @@ namespace WorkerRole1
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Ler um blogue que descreve [como aumentar o tamanho do Azure Web função ASP.NET pasta temporária](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Ver mais [artigos de resolução de problemas](/?tag=top-support-issue&product=cloud-services) para serviços em nuvem.
+Ver mais [artigos de resolução de problemas](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) para serviços em nuvem.
 
 Para saber como resolver problemas de função de serviço de nuvem, utilizando os dados de diagnóstico do Azure PaaS computador, ver [série de blogues de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

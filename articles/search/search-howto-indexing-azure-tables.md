@@ -1,24 +1,19 @@
 ---
 title: Indexar o Table storage do Azure com a Azure Search | Microsoft Docs
 description: Saiba como indexar os dados armazenados no armazenamento de tabelas do Azure com a pesquisa do Azure
-services: search
-documentationcenter: 
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Índice Table storage do Azure com a pesquisa do Azure
 Este artigo mostra como utilizar a pesquisa do Azure para dados do índice armazenados no Table storage do Azure.
@@ -52,7 +47,7 @@ Para indexação de tabela, a origem de dados tem de ter as seguintes propriedad
 
 Para criar uma origem de dados:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -70,7 +65,7 @@ Para obter mais informações sobre a API para criar origem de dados, consulte [
 
 Pode fornecer as credenciais para a tabela de uma das seguintes formas: 
 
-- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` pode obter a cadeia de ligação a partir do portal do Azure acedendo ao **painel de conta de armazenamento** > **definições** > **chaves** (para contas de armazenamento clássico) ou **definições** > **chaves de acesso** (para contas de armazenamento do Azure Resource Manager).
+- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` pode obter a cadeia de ligação a partir do portal do Azure acedendo ao **painel de conta de armazenamento** > **definições**  >  **Chaves** (para contas de armazenamento clássico) ou **definições** > **chaves de acesso** (para armazenamento do Azure Resource Manager contas).
 - **Conta de armazenamento partilhado a cadeia de ligação de assinatura de acesso**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso partilhado deve ter a lista e permissões de leitura no contentores (tabelas neste caso) e objetos (linhas da tabela).
 -  **Assinatura de acesso partilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso partilhado deve ter permissões de consulta (leitura) na tabela.
 
@@ -84,7 +79,7 @@ O índice Especifica os campos de um documento, os atributos e outras construç�
 
 Para criar um índice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -103,7 +98,7 @@ Um indexador liga uma origem de dados com um índice de pesquisa de destino e fo
 
 Depois do índice e a origem de dados são criados, está pronto para criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -136,7 +131,7 @@ Quando configurar um indexador de tabela para executar com base numa agenda,-rei
 
 Para indicar que certos documentos tem de ser removidos do índice, pode utilizar uma estratégia de eliminação de forma recuperável. Em vez de eliminar uma linha, adicione uma propriedade para indicar que tem eliminado e configurar uma política de deteção de eliminação de forma recuperável na datasource. Por exemplo, a seguinte política considera que uma linha é eliminada se a linha tem uma propriedade `IsDeleted` com o valor `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

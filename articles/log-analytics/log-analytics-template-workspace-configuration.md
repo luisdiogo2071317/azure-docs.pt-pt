@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: e51dab1543c9c5c1c762134b3e73d608bcd523ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir a análise de registo com modelos Azure Resource Manager
 Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho de análise de registos. Exemplos de tarefas que pode efetuar com modelos incluem:
@@ -124,7 +124,7 @@ Os seguintes parâmetros de definir um valor predefinido:
 
 A implementação pode demorar alguns minutos a concluir. Quando terminar, verá uma mensagem semelhante ao seguinte que inclui o resultado:<br><br> ![Depois de concluída a implementação de resultados de exemplo](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar uma área de trabalho de análise de registos
+## <a name="configure-a-log-analytics-workspace"></a>Configurar uma área de trabalho de análise de registos
 O exemplo de modelo seguinte ilustra como:
 
 1. Adicionar soluções para a área de trabalho
@@ -230,7 +230,7 @@ O exemplo de modelo seguinte ilustra como:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ Galeria de modelo de início rápido do Azure inclui vários modelos para análi
 * [Implementar uma máquina virtual com Linux com a extensão de VM de análise do registo](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitorizar o Azure Site Recovery com uma área de trabalho de análise de registos existente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitorizar com uma área de trabalho de análise de registos existente de Web Apps do Azure](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Monitorizar com uma área de trabalho de análise de registos existente do SQL Azure](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Implementar um cluster do Service Fabric e monitorizá-lo com uma área de trabalho de análise de registos existente](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Implementar um cluster do Service Fabric e crie uma área de trabalho de análise de registos para o monitorizar](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Adicionar uma conta de armazenamento existente ao OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Implementar agentes em VMs do Azure através de modelos do Resource Manager](log-analytics-azure-vm-extension.md)
+* [Implementar o agente do Windows para as VMs do Azure utilizando o modelo do Resource Manager](../virtual-machines/windows/extensions-oms.md).
+* [Implementar o agente Linux em VMs do Azure utilizando o modelo do Resource Manager](../virtual-machines/linux/extensions-oms.md).
 

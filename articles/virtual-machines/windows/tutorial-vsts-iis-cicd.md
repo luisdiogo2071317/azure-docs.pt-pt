@@ -1,6 +1,6 @@
 ---
-title: Criar um pipeline de CI/CD no Azure com o Team Services | Microsoft Docs
-description: Saiba como criar um pipeline do Visual Studio Team Services para a integração contínua e entrega que implementa uma aplicação web IIS numa VM do Windows
+title: Tutorial - criar um pipeline de CI/CD no Azure com o Team Services | Microsoft Docs
+description: Neste tutorial, irá aprender a criar um pipeline do Visual Studio Team Services para a integração contínua e entrega que implementa uma aplicação web IIS numa VM do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Criar um pipeline de integração contínua com o Visual Studio Team Services e o IIS
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Tutorial: Criar um pipeline de integração contínua com o Visual Studio Team Services e o IIS
 Para automatizar a criação, teste e fases de implementação de desenvolvimento de aplicações, pode utilizar uma integração contínua e o pipeline de implementação (CI/CD). Neste tutorial, vai criar um pipeline de CI/CD com o Visual Studio Team Services e uma máquina virtual (VM) do Windows no Azure que executa o IIS. Saiba como:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Para automatizar a criação, teste e fases de implementação de desenvolviment
 > * Criar uma versão definição para publicar o novo web implementar pacotes em IIS
 > * Testar o pipeline de CI/CD
 
-Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Este tutorial requer o Azure PowerShell versão do módulo 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Criar projeto na equipa de serviços
@@ -94,29 +94,30 @@ Veja como a compilação está agendada num agente alojado, em seguida, começa 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 Para fornecer uma plataforma para executar a aplicação web do ASP.NET, precisa de uma máquina virtual do Windows que executa o IIS. Serviços da equipa utiliza um agente para interagir com a instância do IIS como consolidar o código e compilações são acionadas.
 
-Criar uma VM do Windows Server 2016 utilizando [este script de exemplo](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). Demora alguns minutos para que o script executar e criar a VM. Quando tiver sido criada a VM, abra a porta 80 para o tráfego web com [adicionar AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) da seguinte forma:
+Criar uma VM do Windows Server 2016 com [novo-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM chamada *myVM* no *EUA Leste* localização. O grupo de recursos *myResourceGroupVSTS* e suporte recursos de rede também são criados. Para permitir o tráfego web, a porta TCP *80* é aberto para a VM. Quando solicitado, forneça um nome de utilizador e palavra-passe para ser utilizado como as credenciais de início de sessão para a VM:
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 Para ligar à VM, obter o endereço IP público com [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) da seguinte forma:
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Crie uma sessão de ambiente de trabalho remoto para a VM:
@@ -233,4 +234,4 @@ Neste tutorial, criou uma aplicação web ASP.NET no Team Services e configurado
 Avançadas para o próximo tutorial para saber como instalar o SQL&#92;IIS&#92;pilha de .NET num par de VMs do Windows.
 
 > [!div class="nextstepaction"]
-> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)
+> [SQL Server&#92;IIS&#92;pilha de .NET](tutorial-iis-sql.md)

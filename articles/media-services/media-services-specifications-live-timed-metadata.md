@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9c8472e74cab779e417e68316a6125d40410ef1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Sinalização excedeu o tempo limite metadados na transmissão em fluxo em direto
 
@@ -46,7 +46,7 @@ As palavras de chave "tem de", "Não tem", "REQUIRED", "SHALL", "Deverá NOT", "
 | HLS               | Protocolo Apple HTTP em direto de transmissão em fluxo                                                                                                                                                                                               |
 | TRAÇO              | Dynamic adaptável de transmissão em fluxo através de HTTP                                                                                                                                                                                             |
 | Uniforme            | Protocolo de transmissão em fluxo uniforme                                                                                                                                                                                                        |
-| MPEG2-TS          | Fluxos de 2 de transporte MPEG                                                                                                                                                                                                         |
+| MPEG2 TS          | Fluxos de 2 de transporte MPEG                                                                                                                                                                                                         |
 | RTMP              | Protocolo de suporte em tempo real                                                                                                                                                                                                    |
 | uimsbf            | Número inteiro não assinado, mais significativas bit primeiro.                                                                                                                                                                                    |
 
@@ -70,7 +70,7 @@ Para o modo simple de RTMP, os Media Services suportam uma única mensagem rect�
 | rectângulos        | Cadeia     | Necessário | A mensagem de evento.  Deverá ser "SpliceOut" para designar um modo simple splice.                                              |
 | ID         | Cadeia     | Necessário | Um identificador exclusivo que descreva o splice ou segmento. Identifica esta instância da mensagem                            |
 | Duração   | Número     | Necessário | A duração do splice. As unidades são fracional segundos.                                                                |
-| decorrido    | Número     | Opcional | Quando o sinal está a ser repetido para suportar otimizar, este campo deverá ser a quantidade de tempo de apresentação que tem decorridos desde a splice começou. As unidades são fracional segundos. Quando utilizar o modo simple, este valor não deve exceder original durante o splice.                                                  |
+| elapsed    | Número     | Opcional | Quando o sinal está a ser repetido para suportar otimizar, este campo deverá ser a quantidade de tempo de apresentação que tem decorridos desde a splice começou. As unidades são fracional segundos. Quando utilizar o modo simple, este valor não deve exceder original durante o splice.                                                  |
 | hora       | Número     | Necessário | Deverá ser o tempo de splice, hora de apresentação. As unidades são fracional segundos.                                     |
 
 ---------------------------
@@ -83,7 +83,7 @@ Para o modo simple de RTMP, os Media Services suportam uma única mensagem rect�
 | tipo       | Cadeia     | Necessário | Um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0".  Mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
 | ID         | Cadeia     | Necessário | Um identificador exclusivo que descreva o splice ou segmento. Identifica esta instância da mensagem.  As mensagens com semântica equivalente deverá ter o mesmo valor.|
 | Duração   | Número     | Necessário | A duração do evento ou ad splice-segmento, se conhecida. Se desconhecido, o valor deve ser 0.                                                                 |
-| decorrido    | Número     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para otimizar o, este campo deverá ser a quantidade de tempo de apresentação que tem decorridos desde a splice começou. As unidades são fracional segundos. No modo de [SCTE-35], este valor pode exceder a duração especificada original do splice ou segmento.                                                  |
+| elapsed    | Número     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para otimizar o, este campo deverá ser a quantidade de tempo de apresentação que tem decorridos desde a splice começou. As unidades são fracional segundos. No modo de [SCTE-35], este valor pode exceder a duração especificada original do splice ou segmento.                                                  |
 | hora       | Número     | Necessário | O tempo de apresentação do evento ou ad splice.  A hora de apresentação e a duração devem alinhar com pontos de acesso de fluxo (SAP) do tipo 1 ou 2, tal como definido em [ISO-14496-12] Annex I. Saída HLS, a hora e a duração devem alinhar com os limites de segmento. A hora de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não sobrepor. As unidades são fracional segundos.
 
 ---------------------------
@@ -105,7 +105,7 @@ A controlar dispersa tem de ser declarado na caixa de manifesto do servidor em d
 | manifestOutput     | Booleano        | Necessário      | TEM de ser "verdadeiro", para indicar que a controlar dispersa será incorporado no manifesto de cliente uniforme.                                                                                                                                                               |
 | Subtipo            | Cadeia         | Necessário      | TEM de ser o caráter quatro o código de "Dados".                                                                                                                                                                                                                         |
 | Esquema             | Cadeia         | Necessário      | TEM de ser um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". Mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
-| trackName          | Cadeia         | Necessário      | TEM de ser o nome de controlar o disperso. O trackName pode ser utilizada para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo têm de ter um nome exclusivo de controlar.                                                                           |
+| TrackName          | Cadeia         | Necessário      | TEM de ser o nome de controlar o disperso. O trackName pode ser utilizada para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo têm de ter um nome exclusivo de controlar.                                                                           |
 | escala temporal          | Número         | Opcional      | TEM de ser a escala temporal de controlar o principal.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -407,7 +407,7 @@ Ingestão da transmissão em fluxo uniforme requer que a caixa de dados do supor
 
 **[AMF0]**  ["AMF0 de formato de mensagem de ação"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[FMP4 EM DIRETO]**  [Especificação de inserção de Media Services do azure Live MP4 fragmentados](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
+**[FMP4 EM DIRETO]**  [Especificação de inserção de Media Services do azure Live MP4 fragmentados](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]**  ISO/IEC 14496-12: formato, quarta 2012 edição-07-15 de ficheiros de suporte de dados base parte 12 ISO.
 

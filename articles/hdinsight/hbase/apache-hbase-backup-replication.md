@@ -1,26 +1,24 @@
 ---
-title: "Configurar a cópia de segurança de HBase e Phoenix e replicação - Azure HDInsight | Microsoft Docs"
-description: "Configure a cópia de segurança e de replicação de HBase e Phoenix."
+title: Configurar a cópia de segurança de HBase e Phoenix e replicação - Azure HDInsight | Microsoft Docs
+description: Configure a cópia de segurança e de replicação de HBase e Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 0385e85f7924da73132ae82fa776be274928e535
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 575a6db9fd9e5ae2d1fab98192143174df3578a0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>Configurar a cópia de segurança e de replicação de HBase e Phoenix no HDInsight
 
@@ -107,11 +105,11 @@ O endereço de destino é constituído pelas três partes seguintes:
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>`é uma lista separada por vírgulas de nós de ZooKeeper, por exemplo:
+* `<ZooKeeperQuorum>` é uma lista separada por vírgulas de nós de ZooKeeper, por exemplo:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
-* `<Port>`nas predefinições do HDInsight para 2181, e `<ZnodeParent>` é `/hbase-unsecure`, por isso, todo `<destinationAddress>` seria:
+* `<Port>` nas predefinições do HDInsight para 2181, e `<ZnodeParent>` é `/hbase-unsecure`, por isso, todo `<destinationAddress>` seria:
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 

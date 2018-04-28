@@ -2,18 +2,19 @@
 title: Analisar a carga de trabalho - Azure SQL Data Warehouse | Microsoft Docs
 description: Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: sqlmojo
+author: kevinvngo
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/11/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 609a0d72aa646054273e1a8ea8e02e3c3ae95dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analisar a carga de trabalho no Azure SQL Data Warehouse
 Técnicas para analisar a atribuição de prioridades de consulta para a carga de trabalho no Azure SQL Data Warehouse.
@@ -229,16 +230,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como maiores classes de recurso podem melhorar a qualidade de índice columnstore em cluster, consulte [reconstruir índices para melhorar a qualidade de segmento].
+Para obter mais informações sobre a gestão de utilizadores de base de dados e segurança, consulte [proteger uma base de dados no SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como maiores classes de recurso podem melhorar a qualidade de índice columnstore em cluster, consulte [reconstruir índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
-<!--Image references-->
 
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[reconstruir índices para melhorar a qualidade de segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
-
-<!--Other Web references-->

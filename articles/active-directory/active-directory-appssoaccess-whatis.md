@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7c36d2ead9ca9e1ebd08d3d5a9c4901e46d42c00
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão no Azure Active Directory?
 O início de sessão único significa que está a ser capazes de aceder a todas as aplicações e recursos que precisa para fins comerciais, ao iniciar sessão apenas depois de utilizar uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todas as aplicações que precisar, sem ser necessário para autenticação (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -75,7 +75,7 @@ Em ambos os casos, as credenciais são armazenadas num estado encriptado no dire
 SSO baseada em palavra-passe baseia-se numa extensão de browser para obter as aplicações e informações específicas de utilizador do Azure AD e aplicá-la para o serviço em segurança. Esta funcionalidade suporta a maioria das aplicações de SaaS de terceiros que são suportadas pelo Azure AD.
 
 Para SSO baseada em palavra-passe, os browsers do utilizador final podem ser:
-* Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
+* Internet Explorer 11 - no Windows 7 ou posterior
 * Limite de aniversário da edição do Windows 10 ou posterior 
 * Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 * Firefox 26.0 ou posterior – no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior

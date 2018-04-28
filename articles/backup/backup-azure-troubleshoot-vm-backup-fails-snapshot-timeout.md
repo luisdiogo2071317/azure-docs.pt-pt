@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -63,7 +63,8 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Cópia de segurança falha porque o agente VM está a responder
 
-Mensagem de erro: "Não é possível efetuar a operação dado que o agente da VM não está a responder"
+Mensagem de erro: "Não é possível efetuar a operação dado que o agente da VM não está a responder" <br>
+Código de erro: "GuestAgentSnapshotTaskStatusError"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:  
 **Causa 1: [o agente está instalado na VM, mas do responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -72,7 +73,8 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 
 ## <a name="backup-fails-with-an-internal-error"></a>Falha de cópia de segurança, com um erro interno
 
-Mensagem de erro: "cópia de segurança falhou com um erro interno -. Repita a operação dentro de alguns minutos"
+Mensagem de erro: "cópia de segurança falhou com um erro interno -. Repita a operação dentro de alguns minutos" <br>
+Código de erro: "BackUpOperationFailed" / "BackUpOperationFailedV2"
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo a ser acionado. Se o instantâneo não é acionado, poderão ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas, pela ordem listada a e, em seguida, repita a operação:  
 **Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
@@ -97,6 +99,8 @@ Para resolver o problema, experimente um dos seguintes métodos:
 Pode utilizar [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para permitir ligações ao armazenamento da região específica. Certifique-se de que a regra que permite o acesso à conta de armazenamento tem prioridade mais alta do que a regra que bloqueia o acesso à internet. 
 
 ![Grupo de segurança de rede com etiquetas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Para compreender o procedimento passo a passo para configurar as etiquetas de serviço, veja [este vídeo](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > As etiquetas de serviço de armazenamento estão na pré-visualização. Estão disponíveis apenas em regiões específicas. Para obter uma lista de regiões, consulte [etiquetas para armazenamento de serviço](../virtual-network/security-overview.md#service-tags).

@@ -1,8 +1,8 @@
 ---
 title: Copiar ou mover dados para o Storage do Azure com o AzCopy no Linux | Microsoft Docs
-description: "Utilize o AzCopy no utilitário do Linux para mover ou copiar dados de ou para conteúdo de blob e o ficheiro. Copiar dados para o armazenamento do Azure de ficheiros locais ou copie os dados dentro ou entre contas de armazenamento. Migre facilmente os dados para armazenamento do Azure."
+description: Utilize o AzCopy no utilitário do Linux para mover ou copiar dados de ou para conteúdo de blob e o ficheiro. Copiar dados para o armazenamento do Azure de ficheiros locais ou copie os dados dentro ou entre contas de armazenamento. Migre facilmente os dados para armazenamento do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -12,48 +12,79 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferência de dados com o AzCopy no Linux
 
-O AzCopy é um utilitário da linha de comandos concebido para copiar dados do armazenamento de Blobs do Microsoft Azure, ficheiros e tabela, utilizando os comandos simples concebidos para um desempenho ideal. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento, ou entre contas de armazenamento.  
+O AzCopy é um utilitário da linha de comandos concebido para copiar dados do armazenamento de Blobs do Microsoft Azure e o ficheiro, utilizando os comandos simples concebidos para um desempenho ideal. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento ou entre contas de armazenamento.  
 
-Existem duas versões do AzCopy que pode transferir. AzCopy no Linux é criado com o .NET Core Framework, que está direcionada para plataformas Linux oferta estilo POSIX opções da linha de comandos. [AzCopy no Windows](../storage-use-azcopy.md) baseia-se com o .NET Framework e oferece opções de linha de comandos de estilo do Windows. Este artigo abrange AzCopy no Linux.
+Existem duas versões do AzCopy que pode transferir. AzCopy no Linux destina-se plataformas Linux oferta estilo POSIX opções da linha de comandos. [AzCopy no Windows](../storage-use-azcopy.md) oferece opções de linha de comandos de estilo do Windows. Este artigo abrange AzCopy no Linux. 
+
+> [!NOTE]  
+> A partir de versão do AzCopy 7.2, são reunidas as dependências do .NET Core com o pacote do AzCopy. Se utilizar a versão 7,2 ou posterior, deixar de precisar instalar o .NET Core como um pré-requisito.
 
 ## <a name="download-and-install-azcopy"></a>Transfira e instale o AzCopy
+
 ### <a name="installation-on-linux"></a>Instalação no Linux
 
-O artigo inclui comandos para várias versões do Ubuntu.  Utilize o `lsb_release -a` comando para confirmar a sua versão de distribuição e o nome. 
+> [!NOTE]
+> Poderá ter de instalar dependências do .NET Core 2.1 realçadas deste [artigo de pré-requisitos do .NET Core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) consoante a distribuição. Para as distribuições de base como Ubuntu 16.04 e RHEL 7 Isto normalmente não é necessária.
 
-AzCopy no Linux requer o .NET Core (versão framework 2.0) na plataforma. Consulte as instruções de instalação no [.NET Core](https://www.microsoft.com/net/download/linux) página.
+Instalar o AzCopy no Linux (v7.2 ou posterior) é tão fácil como extrair um pacote de tar e executar o script de instalação. 
 
-Por exemplo, vamos a instalar o .NET Core no Ubuntu 16.04. Para o guia de instalação mais recente, visite [.NET Core no Linux](https://www.microsoft.com/net/download/linux) página de instalação.
-
-
+**Distribuições de baseado em RHEL 6**: [transferir ligação](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-Depois de ter instalado o .NET Core, transfira e instale o AzCopy.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Pode remover os ficheiros extraídos assim que estiver instalado AzCopy no Linux. Em alternativa se não tiver privilégios de Superutilizador, também pode executar AzCopy utilizando o script de shell 'azcopy' na pasta extraída. 
+**Todas as distribuições de Linux**: [transferir ligação](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
 
+Pode remover os ficheiros extraídos assim que estiver instalado AzCopy no Linux. Em alternativa, se não tiver privilégios de Superutilizador também pode executar `azcopy` utilizando o azcopy de script de shell na pasta extraída.
+
+### <a name="alternative-installation-on-ubuntu"></a>Instalação alternativa no Ubuntu
+
+**Ubuntu 14.04**
+
+Adicione apt origem para o repositório de produto do Microsoft Linux e instale o AzCopy:
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+Adicione apt origem para o repositório de produto do Microsoft Linux e instale o AzCopy:
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## <a name="writing-your-first-azcopy-command"></a>Escrever o seu primeiro comando do AzCopy
 A sintaxe básica para comandos do AzCopy é:
@@ -193,7 +224,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Se o contentor de destino especificado não existir, o AzCopy criá-lo e carrega o ficheiro para a mesma.
+Se o contentor de destino especificado não existir, o AzCopy cria-o e carrega o ficheiro para o mesmo.
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Carregar ficheiros única para o diretório virtual
 
@@ -205,6 +236,14 @@ azcopy \
 ```
 
 Se o diretório virtual especificado não existir, o AzCopy carrega o ficheiro para incluir o diretório virtual no nome do blob (*por exemplo,*, `vd/abc.txt` no exemplo acima).
+
+### <a name="redirect-from-stdin"></a>Redirecionamento de stdin
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/mydir/myarchive.tar.gz \
+    --dest-key <key>
+```
 
 ### <a name="upload-all-files"></a>Carregar todos os ficheiros
 
@@ -379,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy`pode gerar o custo de saída adicionais em comparação comparado a cópia assíncrona. A abordagem recomendada é utilizar esta opção na VM do Azure, que se encontra na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
+`--sync-copy` pode gerar o custo de saída adicionais em comparação comparado a cópia assíncrona. A abordagem recomendada é utilizar esta opção na VM do Azure, que se encontra na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
 
 ## <a name="file-download"></a>Ficheiro: Transferir
 ### <a name="download-single-file"></a>Transferência de ficheiro único
@@ -601,10 +640,31 @@ Opção `--parallel-level` Especifica o número de operações de cópia em simu
 >[!TIP]
 >Para ver a lista completa dos parâmetros do AzCopy, consulte 'azcopy – Ajuda' menu.
 
-## <a name="known-issues-and-best-practices"></a>Problemas conhecidos e melhores práticas
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Erro: O .NET SDK 2.0 não se encontra no sistema.
-AzCopy depende o SDK .NET 2.0 a partir da versão 7.0 do AzCopy. Antes desta versão AzCopy utilizado .NET Core 1.1. Se ocorrer um erro a indicar que o .NET Core 2.0 não está instalado no sistema, poderá ter de instalar ou atualizar a utilizar o [instruções de instalação do .NET Core](https://www.microsoft.com/net/learn/get-started/linuxredhat).
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Passos de instalação para o AzCopy 7.1 e versões anteriores
 
+AzCopy no Linux (v7.1 e anteriormente apenas) exige o framework .NET Core. As instruções de instalação estão disponíveis no [instalação .NET Core](https://www.microsoft.com/net/core#linuxubuntu) página.
+
+Por exemplo, comece por instalar o .NET Core no Ubuntu 16.10. Para o guia de instalação mais recente, visite [.NET Core no Linux](https://www.microsoft.com/net/core#linuxubuntu) página de instalação.
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+Depois de ter instalado o .NET Core, transfira e instale o AzCopy.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+Pode remover os ficheiros extraídos assim que estiver instalado AzCopy no Linux. Em alternativa se não tiver privilégios de Superutilizador, também pode executar `azcopy` utilizando o azcopy de script de shell na pasta extraída.
+
+## <a name="known-issues-and-best-practices"></a>Problemas conhecidos e melhores práticas
 ### <a name="error-installing-azcopy"></a>Erro ao instalar o AzCopy
 Se ocorrerem problemas com a instalação do AzCopy, pode tentar executar o AzCopy utilizando o script de bash no extraídos `azcopy` pasta.
 
@@ -618,16 +678,34 @@ Quando copia blobs ou ficheiros com o AzCopy, tenha em atenção que outra aplic
 
 Se não podem impedir outras aplicações de escrever para blobs ou ficheiros enquanto estão a ser copiados, em seguida, tenha em atenção que o tempo de que conclusão da tarefa, os recursos copiados podem já não ter paridade completa com os recursos de origem.
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>Execute uma instância do AzCopy num computador.
-AzCopy foi concebido para maximizar a utilização do seu recurso de máquina para acelerar a transferência de dados, recomendamos que execute apenas uma instância do AzCopy num computador e especifique a opção `--parallel-level` se precisar de mais simultâneas operações. Para obter mais detalhes, escreva `AzCopy --help parallel-level` na linha de comandos.
+### <a name="running-multiple-azcopy-processes"></a>Vários AzCopy processos em execução
+Pode executar vários processos de AzCopy num único cliente, fornecendo a utilização de pastas de diário de alterações diferentes. Não é suportada a utilizar uma pasta de diário único para vários processos do AzCopy.
+
+processo de 1ª:
+```azcopy
+azcopy \
+    --source /mnt/myfiles1 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles1 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal1"
+```
+
+processo de 2nd:
+```azcopy
+azcopy \
+    --source /mnt/myfiles2 \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/myfiles2 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal2"
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre o Storage do Azure e AzCopy, consulte os seguintes recursos:
+Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, veja os seguintes recursos:
 
 ### <a name="azure-storage-documentation"></a>Documentação do Storage do Azure:
-* [Introdução ao Storage do Azure](../storage-introduction.md)
+* [Introdução ao Armazenamento do Azure](../storage-introduction.md)
 * [Criar uma conta de armazenamento](../storage-create-storage-account.md)
-* [Gerir a blobs com o Explorador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [Gerir blobs com o Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Utilizar a CLI do Azure 2.0 com o Storage do Azure](../storage-azure-cli.md)
 * [Como utilizar o Blob storage do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como utilizar o Armazenamento de blobs do Java](../blobs/storage-java-how-to-use-blob-storage.md)

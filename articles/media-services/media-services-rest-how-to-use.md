@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral da REST API de operações de Media Services | Microsoft Docs"
-description: "Descrição geral da API de REST de serviços de suporte de dados"
+title: Descrição geral da REST API de operações de Media Services | Microsoft Docs
+description: Descrição geral da API de REST de serviços de suporte de dados
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Descrição geral da REST API de operações de Media Services
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ Aplicam as seguintes considerações ao utilizar REST.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {
@@ -76,7 +76,7 @@ Segue-se um conjunto de cabeçalhos opcionais:
 | Idioma aceitar |"pt", "es" e assim sucessivamente. |Especifica a linguagem preferencial a resposta. |
 | Conjunto de carateres aceitar |Tipo de conjunto de carateres como "UTF-8" |Predefinição é UTF-8. |
 | X-HTTP-Method |Método de HTTP |Permite que os clientes ou firewalls que não suporta métodos HTTP PUT ou eliminação para utilizar estes métodos, em túnel através de uma chamada GET. |
-| Content-Type |Tipo de conteúdo |Pedidos de tipo de conteúdo do corpo do pedido PUT ou POST. |
+| Tipo de conteúdo |Tipo de conteúdo |Pedidos de tipo de conteúdo do corpo do pedido PUT ou POST. |
 | id do pedido do cliente |Cadeia |Um valor definido pelo autor da chamada que identifica o pedido especificado. Se for especificado, este valor será incluído na mensagem de resposta como uma forma para mapear o pedido. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos Media Services
@@ -87,7 +87,7 @@ Segue-se um conjunto de cabeçalhos que podem ser devolvidos para si, consoante 
 | id do pedido |Cadeia |Um identificador exclusivo para a operação atual, o serviço gerado. |
 | id do pedido do cliente |Cadeia |Um identificador especificado pelo chamador no pedido original, se estiver presente. |
 | Data |RFC 1123 data |A data/hora que o pedido foi processado. |
-| Content-Type |varia |O tipo de conteúdo do corpo da resposta. |
+| Tipo de conteúdo |varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |varia |Gzip ou deflate, conforme adequado. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos HTTP padrão suportados pelos Media Services
@@ -95,7 +95,7 @@ Segue-se uma lista completa dos verbos HTTP que podem ser utilizados quando efet
 
 | Verbo | Descrição |
 | --- | --- |
-| INTRODUÇÃO |Devolve o valor atual de um objeto. |
+| GET |Devolve o valor atual de um objeto. |
 | POST |Cria um objeto com base nos dados fornecidos ou submete um comando. |
 | COLOCAR |Substitui um objeto ou cria um objeto com o nome (quando aplicável). |
 | ELIMINAR |Elimina um objeto. |
@@ -116,7 +116,7 @@ Para obter mais informações sobre como obter os detalhes de autenticação nec
 
 Para obter detalhes sobre como escrever código que liga à API REST através da autenticação do Azure AD, consulte o artigo [autenticação de utilização do Azure AD para aceder à API de serviços de suporte de dados do Azure com o resto](media-services-rest-connect-with-aad.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber como utilizar a autenticação do Azure AD com a API de REST dos serviços de suporte de dados, consulte [autenticação de utilização do Azure AD para aceder à API de serviços de suporte de dados do Azure com o resto](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

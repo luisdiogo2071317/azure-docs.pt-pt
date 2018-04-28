@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-networking"></a>Redes do Azure
 
@@ -37,7 +37,7 @@ O Azure oferece uma variedade de capacidades de rede que podem ser utilizadas em
 
 Recursos do Azure como máquinas virtuais, Cloud Services, conjuntos de dimensionamento de máquinas virtuais e ambientes do App Service do Azure podem comunicar em privado entre si através de uma rede Virtual do Azure (VNet). Uma VNet é um isolamento lógico da nuvem do Azure dedicado à sua [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). Pode implementar várias VNets dentro de cada subscrição do Azure e Azure [região](https://azure.microsoft.com/regions). Cada VNet está isolado de outras VNets. Para cada VNet pode:
 
-- Especifique um espaço de endereços IP privado personalizado utilizando endereços (RFC 1918) públicos e privados. Recursos do Azure atribui ligado para a VNet um endereço IP privado o espaço de endereços que atribuir.
+- Especificar um espaço de endereços IP privado personalizado, utilizando endereços públicos e privados (RFC 1918). Recursos do Azure atribui ligado para a VNet um endereço IP privado o espaço de endereços que atribuir.
 - Segmentar a VNet numa ou mais sub-redes e atribuir uma parte do espaço de endereços VNet para cada sub-rede.
 - Utilize a resolução de nome fornecidos pelo Azure ou especificar o próprio servidor DNS para utilização por recursos ligados a uma VNet.
 
@@ -64,7 +64,7 @@ A imagem seguinte mostra ponto separado para ligações de site entre vários co
 
 ![Ponto a site](./media/networking-overview/point-to-site.png)
 
-Esta ligação é estabelecida entre um computador único e uma VNet. Este tipo de ligação é excelente se de que está a começar com o Azure ou para os programadores, porque necessita de pouca ou nenhuma alterações à sua rede existente. Também é conveniente quando estiverem a ligar a partir de uma localização remota, como numa conferência ou doméstica. As ligações ponto a site são, muitas vezes, conjugadas com uma ligação site a site através do mesmo gateway de rede virtual. A ligação utiliza o protocolo SSTP para fornecer comunicações encriptadas através da Internet entre o computador e a VNet. A latência de uma VPN ponto a site é imprevisível, uma vez que o tráfego atravessar da Internet.
+Esta ligação é estabelecida entre um computador único e uma VNet. Este tipo de ligação é excelente se estiver a começar a utilizar o Azure ou para os programadores, uma vez que necessita de pouca ou nenhumas alterações à sua rede existente. Também é conveniente quando estiverem a ligar a partir de uma localização remota, como numa conferência ou doméstica. As ligações ponto a site são, muitas vezes, conjugadas com uma ligação site a site através do mesmo gateway de rede virtual. A ligação utiliza o protocolo SSTP para fornecer comunicações encriptadas através da Internet entre o computador e a VNet. A latência de uma VPN ponto a site é imprevisível, uma vez que o tráfego atravessar da Internet.
 
 **Site a site (túnel VPN IPsec/IKE)**
 
@@ -155,7 +155,7 @@ Pode implementar e configurar recursos de rede do Azure com qualquer uma das seg
 
 ## <a name="pricing"></a>Preços
 
-Alguns dos serviços de rede do Azure tenham um custo, enquanto outras são gratuitas. Ver o [rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network), [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [Gateway de aplicação](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [Balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer), [doobservadorderede](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) e [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) preços páginas para obter mais informações.
+Alguns dos serviços de rede do Azure tenham um custo, enquanto outras são gratuitas. Ver o [rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network), [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway), [Gateway de aplicação](https://azure.microsoft.com/pricing/details/application-gateway/), [Balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer), [doobservadorderede](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) e [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) preços páginas para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

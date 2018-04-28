@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 69264ac7ffe8124b964a10c11aacaca5c712fd63
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
-O peering de rede virtual permite ao utilizador ligar duas [redes virtuais](virtual-networks-overview.md) do Azure de forma totalmente integrada. Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais em modo de peering será encaminhado através da infraestrutura principal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual através apenas de endereços IP *privados*. 
+O peering de rede virtual permite ao utilizador ligar duas [redes virtuais](virtual-networks-overview.md) do Azure de forma totalmente integrada. Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais em modo de peering será encaminhado através da infraestrutura principal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual através apenas de endereços IP *privados*. O Azure suporta:
+* VNet Peering - Ligar VNets na mesma região do Azure
+* Global VNET Peering - Ligar VNets entre regiões do Azure
 
-As vantagens da utilização do peering de redes virtuais incluem:
+As vantagens da utilização do peering de redes virtuais, sejam locais ou globais, incluem:
 
 * O tráfego de rede entre redes virtuais em modo de peering é privado. O tráfego entre as redes virtuais é mantido na rede principal da Microsoft. Não é necessária Internet pública, gateways ou encriptação na comunicação entre as redes virtuais.
 * Uma ligação de baixa latência e largura de banda alta entre os recursos em redes virtuais diferentes.

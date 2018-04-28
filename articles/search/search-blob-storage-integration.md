@@ -1,19 +1,18 @@
 ---
-title: "A adição de pesquisa do Azure para o Blob Storage | Microsoft Docs"
-description: "Crie um índice no código utilizando a API REST de HTTP da Azure Search."
+title: A adição de pesquisa do Azure para o Blob Storage | Microsoft Docs
+description: Crie um índice no código utilizando a API REST de HTTP da Azure Search.
 services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: ashmaka
-ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
+ms.openlocfilehash: 71e43920f0e6a64beb7cdb28d0707dd30502bf05
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Pesquisar o armazenamento de Blobs com o Azure Search
 
@@ -51,5 +50,5 @@ A pesquisa do Azure pode ser adicionada para blobs diretamente a partir da pági
 
 Clique em **adicionar Azure Search** para iniciar um fluxo de onde pode selecionar um serviço de pesquisa do Azure existente ou criar um novo serviço. Se criar um novo serviço, são navegar fora de experiência do portal da sua conta de armazenamento. Pode navegue de volta para a página de portal de armazenamento e selecione novamente a **adicionar Azure Search** opção, onde pode selecionar o serviço existente.
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Próximos Passos
 Saiba mais sobre o indexador de Blob de pesquisa do Azure no completo [documentação](https://aka.ms/azsblobindexer).

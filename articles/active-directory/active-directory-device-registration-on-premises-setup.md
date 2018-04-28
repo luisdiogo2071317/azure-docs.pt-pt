@@ -1,11 +1,11 @@
 ---
 title: Configurar o acesso condicional no local no Azure Active Directory | Microsoft Docs
-description: "Um guia passo a passo para ativar o acesso condicional para aplicações no local através da utilização de serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2."
+description: Um guia passo a passo para ativar o acesso condicional para aplicações no local através da utilização de serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local utilizando o registo de dispositivos do Azure Active Directory
 Quando necessitar que os utilizadores a associação à área de trabalho os seus dispositivos pessoais para o serviço de registo de dispositivos do Azure Active Directory (Azure AD), os respetivos dispositivos podem ser marcados como conhecida para a sua organização. Segue-se um guia passo a passo para ativar o acesso condicional para aplicações no local através da utilização de serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.
@@ -89,7 +89,7 @@ Siga os passos da lista de verificação para ativar e configurar o serviço de 
 | Concluir dois parte "Ativar dispositivos repetição de escrita no Azure AD Connect." Depois de terminar, regresse a este guia. |[Ativar a repetição de escrita do dispositivo no Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: Ativar multi-factor Authentication
-Recomendamos vivamente que configure uma das várias opções para o multi-factor Authentication. Se pretende exigir a autenticação Multifator, consulte o artigo [escolher a solução de segurança da multi-factor Authentication para](../multi-factor-authentication/multi-factor-authentication-get-started.md). Inclui uma descrição de cada solução e ligações para o ajudar a configurar a solução à sua escolha.
+Recomendamos vivamente que configure uma das várias opções para o multi-factor Authentication. Se pretende exigir a autenticação Multifator, consulte o artigo [escolher a solução de segurança da multi-factor Authentication para](authentication/concept-mfa-whichversion.md). Inclui uma descrição de cada solução e ligações para o ajudar a configurar a solução à sua escolha.
 
 ## <a name="part-5-verification"></a>Parte 5: verificação
 A implementação está agora concluída e, pode experimentar o alguns cenários. Utilize as seguintes ligações para experimentar o serviço e se familiarize com as respetivas funcionalidades.
@@ -156,7 +156,7 @@ Existem muitas formas diferentes de comunicar este URL aos seus utilizadores. Po
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Associar um dispositivo Windows 8.1 com o registo de dispositivos do Azure Active Directory
 1. No seu dispositivo Windows 8.1, selecione **definições do PC** > **rede** > **à área de trabalho**.
-2. Introduza o nome de utilizador no formato UPN; Por exemplo,  **dan@contoso.com** .
+2. Introduza o nome de utilizador no formato UPN; Por exemplo, **dan@contoso.com**.
 3. Selecione **associar**.
 4. Quando lhe for solicitado, inicie sessão com as suas credenciais. O dispositivo está agora associado.
 
@@ -186,7 +186,7 @@ Os passos seguintes mostram como implementar este cenário.
 1. Abra a ferramenta de MMC do AD FS e, em seguida, selecione **do AD FS** > **relações de confiança** > **confianças da entidade Confiadora**.
 2. Localize a aplicação aos quais se aplica esta regra de acesso de novo. A aplicação com o botão direito e, em seguida, selecione **editar regras de afirmação**.
 3. Selecione o **regras de autorização de emissão** separador e, em seguida, selecione **Adicionar regra**.
-4. Do **regra de afirmação** modelo na lista pendente, selecione **permitir ou negar utilizadores com base numa afirmação de entrada**. Em seguida, selecione **seguinte**.
+4. Do **regra de afirmação** modelo na lista pendente, selecione **permitir ou negar utilizadores com base numa afirmação de entrada**. Em seguida, selecione **Seguinte**.
 5. No **nome da regra de afirmação** , digite **permitir o acesso a partir de dispositivos registados**.
 6. Do **tipo de afirmação de entrada** na lista pendente, selecione **é utilizador registado**.
 7. No **valor de afirmação de entrada** , digite **verdadeiro**.

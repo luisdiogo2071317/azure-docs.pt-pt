@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 044c901799ff7acae1e27602b84802f6b5f70f05
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 20ae2c93a231051d3802e8b2329d218d207204e3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Executar consultas do Hive com o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -45,7 +45,7 @@ O Azure PowerShell fornece *cmdlets* que permitem-lhe executar remotamente as co
 
 Os cmdlets seguintes são utilizados quando executar consultas do Hive num cluster de HDInsight remoto:
 
-* `Add-AzureRmAccount`: Autentica o Azure PowerShell para a sua subscrição do Azure.
+* `Connect-AzureRmAccount`: Autentica o Azure PowerShell para a sua subscrição do Azure.
 * `New-AzureRmHDInsightHiveJobDefinition`: Cria um *definição de tarefa* utilizando as declarações HiveQL especificadas.
 * `Start-AzureRmHDInsightJob`: A definição de tarefa envia para o HDInsight e inicia a tarefa. A *tarefa* objeto é devolvido.
 * `Wait-AzureRmHDInsightJob`: Utiliza o objeto de trabalho para verificar o estado da tarefa. Deve aguardar até que a tarefa é concluída ou excedido o tempo de espera.

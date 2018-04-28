@@ -1,11 +1,11 @@
 ---
-title: "Durações de token configuráveis no Azure Active Directory | Microsoft Docs"
-description: "Saiba como definir durações para tokens emitidos pelo Azure AD."
+title: Durações de token configuráveis no Azure Active Directory | Microsoft Docs
+description: Saiba como definir durações para tokens emitidos pelo Azure AD.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: billmath
+ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização pública)
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir token durações para todas as aplicações na sua organização, para uma aplicação de (multi organização) de multi-inquilino ou para um principal de serviço específicos na sua organização.
 
-> [!NOTE]
-> Esta capacidade está atualmente em pré-visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. A funcionalidade está disponível em qualquer subscrição do Azure Active Directory durante a pré-visualização pública. No entanto, quando a funcionalidade torna-se geralmente disponível, alguns aspetos da funcionalidade exijam uma [Azure Active Directory Premium](active-directory-get-started-premium.md) subscrição.
+> [!IMPORTANT]
+> Este método de token durações de controlo vai ser preterido.  Enquanto permanecerá disponível até está pronta, a funcionalidade de substituição assim que as políticas de duração do token preterido criadas com este método deixarão de funcionar. 
 >
 >
 
@@ -45,19 +45,19 @@ Pode designar uma política como a política predefinida para a sua organizaçã
 Pode definir políticas de duração do token de atualização de tokens, tokens de acesso, os tokens de sessão e tokens de identidade.
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Os clientes utilizam tokens de acesso para aceder a um recurso protegido. Um token de acesso pode ser utilizado apenas para uma combinação específica do utilizador, o cliente e o recurso. Os tokens de acesso não não possível revogar e são válidos até que a respetiva expiração. Um ator malicioso que tem de obter um token de acesso pode utilizá-lo para a extensão da respetiva duração. Ajuste a duração de um token de acesso é um compromisso entre melhorar o desempenho do sistema e aumentar a quantidade de tempo que o cliente mantém acesso depois da conta de utilizador é desativada. Desempenho do sistema melhorada é conseguido ao reduzir o número de vezes que um cliente precisar de adquirir um token de acesso de raiz.
+Os clientes utilizam tokens de acesso para aceder a um recurso protegido. Um token de acesso pode ser utilizado apenas para uma combinação específica do utilizador, o cliente e o recurso. Os tokens de acesso não não possível revogar e são válidos até que a respetiva expiração. Um ator malicioso que tem de obter um token de acesso pode utilizá-lo para a extensão da respetiva duração. Ajuste a duração de um token de acesso é um compromisso entre melhorar o desempenho do sistema e aumentar a quantidade de tempo que o cliente mantém acesso depois da conta de utilizador é desativada. Desempenho do sistema melhorada é conseguido ao reduzir o número de vezes que um cliente precisar de adquirir um token de acesso de raiz.  A predefinição é 1 hora - depois de 1 hora, o cliente tem de utilizar o token de atualização (normalmente silenciosamente) adquirir um novo token de atualização e token de acesso. 
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
-Quando um cliente adquire um token de acesso para aceder a recursos protegidos, o cliente recebe um token de atualização e um token de acesso. O token de atualização é utilizado para obter acesso/atualização novo token pares quando expira o token de acesso atual. Um token de atualização está vinculado a uma combinação de utilizador e de cliente. Um token de atualização pode ser revogado e validade do token é verificada sempre que o token é utilizado.
+Quando um cliente adquire um token de acesso para aceder a recursos protegidos, o cliente também recebe um token de atualização. O token de atualização é utilizado para obter acesso/atualização novo token pares quando expira o token de acesso atual. Um token de atualização está vinculado a uma combinação de utilizador e de cliente. Um token de atualização pode ser [revogado em qualquer altura](develop/active-directory-token-and-claims.md#token-revocation), e a validade do token é verificada sempre que o token é utilizado.  
 
-É importante fazer uma distinção entre os clientes confidenciais e público. Para obter mais informações sobre os diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
+É importante fazer uma distinção entre os clientes confidenciais e pública, como este problema afeta quanto a atualização de tokens pode ser utilizada. Para obter mais informações sobre os diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Durações de token com tokens de atualização de cliente confidencial
-Clientes confidenciais são as aplicações que podem armazenar com segurança uma palavra-passe do cliente (segredo). Pode provam que pedidos provenientes da aplicação cliente e não a partir de um ator malicioso. Por exemplo, uma aplicação web é um cliente confidencial porque esta pode armazenar um segredo do cliente no servidor web. Não é exposto. Uma vez que estes fluxos são mais seguros, as durações predefinido da atualização de tokens emitidas para estes fluxos é `until-revoked`, não pode ser alterado utilizando a política e não irá ser revogado em reposições de palavra-passe voluntária.
+Clientes confidenciais são as aplicações que podem armazenar com segurança uma palavra-passe do cliente (segredo). Pode provam que pedidos provenientes da aplicação cliente protegido e não a partir de um ator malicioso. Por exemplo, uma aplicação web é um cliente confidencial porque esta pode armazenar um segredo do cliente no servidor web. Não é exposto. Uma vez que estes fluxos são mais seguros, as durações predefinido da atualização de tokens emitidas para estes fluxos é `until-revoked`, não pode ser alterado utilizando a política e não irá ser revogado em reposições de palavra-passe voluntária.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durações de token com tokens de atualização de cliente público
 
-Clientes públicos segura não é possível armazenar uma palavra-passe do cliente (segredo). Por exemplo, uma aplicação iOS/Android não é possível obfuscate um segredo do proprietário do recurso, pelo que é considerado um cliente público. Pode definir políticas de recursos para impedir a obter um novo par de token de acesso/atualização tokens de atualização de clientes públicos com mais de um período de tempo especificado. (Para tal, utilize a propriedade de atualizar Token tempo máx. Inativos). Também pode utilizar políticas para definir um período para além dos quais os tokens de atualização já não são aceites. (Para tal, utilize a propriedade de atualizar a Token idade máxima). Pode ajustar a duração de um token de atualização para controlar quando e com que frequência o utilizador é necessário reintroduzir as credenciais, em vez de ser reautenticar silenciosamente, quando utilizar uma aplicação cliente público.
+Clientes públicos segura não é possível armazenar uma palavra-passe do cliente (segredo). Por exemplo, uma aplicação iOS/Android não é possível obfuscate um segredo do proprietário do recurso, pelo que é considerado um cliente público. Pode definir políticas de recursos para impedir a obter um novo par de token de acesso/atualização tokens de atualização de clientes públicos com mais de um período de tempo especificado. (Para tal, utilize a propriedade atualizar Token máximo tempo inativo (`MaxInactiveTime`).) Também pode utilizar políticas para definir um período para além dos quais os tokens de atualização já não são aceites. (Para tal, utilize a propriedade de atualizar a Token idade máxima). Pode ajustar a duração de um token de atualização para controlar quando e com que frequência o utilizador é necessário reintroduzir as credenciais, em vez de ser reautenticar silenciosamente, quando utilizar uma aplicação cliente público.
 
 ### <a name="id-tokens"></a>Tokens de ID
 Tokens de ID são transferidos para sites e clientes nativos. Tokens de ID contêm informações de perfil sobre um utilizador. Um token de ID está vinculado a uma combinação específica do utilizador e de cliente. Tokens de ID são considerados válidos até que a respetiva expiração. Normalmente, uma aplicação web corresponde a um utilizador da duração de sessão na aplicação para a duração do ID token emitido para o utilizador. Pode ajustar a duração de um token de ID para controlar a frequência a aplicação web expira a sessão de aplicação e frequência com exige que o utilizador a possível reautenticar com o Azure AD (silenciosamente ou interativamente).
@@ -79,10 +79,10 @@ Uma política de duração do token é um tipo de objeto de política que conté
 | --- | --- | --- | --- | --- | --- |
 | Duração do Token de acesso |AccessTokenLifetime |Os tokens de acesso, os tokens de ID, SAML2 tokens |1 hora |10 minutos |1 dia |
 | Atualize o tempo inativo do Token máx. |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
-| Idade máxima Token do fator único atualização |MaxAgeSingleFactor |Atualizar tokens (para todos os utilizadores) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
-| Idade máxima Token do multi-factor atualização |MaxAgeMultiFactor |Atualizar tokens (para todos os utilizadores) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
-| Idade máxima Token do fator único sessão |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sessão (persistentes e nonpersistent) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
-| Idade máxima Token do multi-factor sessão |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e nonpersistent) |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do fator único atualização |MaxAgeSingleFactor |Atualizar tokens (para todos os utilizadores) |Até revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do multi-factor atualização |MaxAgeMultiFactor |Atualizar tokens (para todos os utilizadores) |Até revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do fator único sessão |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sessão (persistentes e nonpersistent) |Até revogado |10 minutos |Until-revoked<sup>1</sup> |
+| Idade máxima Token do multi-factor sessão |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e nonpersistent) |Até revogado |10 minutos |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para estes atributos.
 * <sup>2</sup>se **MaxAgeSessionSingleFactor** não está definido, este valor demora a **MaxAgeSingleFactor** valor. Se for definido nenhum dos parâmetros, a propriedade tem o valor predefinido (até-revogados).
@@ -93,7 +93,7 @@ Uma política de duração do token é um tipo de objeto de política que conté
 | --- | --- | --- |
 | Atualizar o Token idade máxima (emitidos para utilizadores federados que tenham informações de revogação insuficientes<sup>1</sup>) |Tokens de atualização (emitidos para utilizadores federados que tenham informações de revogação insuficientes<sup>1</sup>) |12 horas |
 | Atualize o tempo inativo de máx. Token (emitidos para clientes confidenciais) |Atualizar tokens (emitidos para clientes confidenciais) |90 dias |
-| Atualizar o Token idade máxima (emitidos para clientes confidenciais) |Atualizar tokens (emitidos para clientes confidenciais) |Until-revoked |
+| Atualizar o Token idade máxima (emitidos para clientes confidenciais) |Atualizar tokens (emitidos para clientes confidenciais) |Até revogado |
 
 * <sup>1</sup>Federated utilizadores com informações de revogação insuficientes incluem os utilizadores que não tem o atributo "LastPasswordChangeTimestamp" sincronizado com êxito. Estes utilizadores recebem este idade máxima curto porque não é possível verificar a revogar tokens que estão associados a uma credencial antiga (por exemplo, uma palavra-passe que foi alterada) e tem de verificar novamente no mais frequentemente para se certificar de que o utilizador e tokens associados ainda são AAD na boa  colocado. Para melhorar a esta experiência, administradores de inquilinos tem de garantir que estes estão a sincronizar o atributo "LastPasswordChangeTimestamp" (Isto pode ser definido no objeto de utilizador com o Powershell ou através de AADSync).
 
@@ -150,7 +150,7 @@ Esta política força os utilizadores que não estão ativos no respetivo client
 A propriedade atualizar Token tempo máx. inativa tem de ser definida para um valor inferior a idade máxima Token fator único e as propriedades de multi-factor atualizar Token idade máxima.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Idade máxima Token do fator único atualização
-**String:** MaxAgeSingleFactor
+**Cadeia:** MaxAgeSingleFactor
 
 **Afeta:** tokens de atualização
 
@@ -159,7 +159,7 @@ A propriedade atualizar Token tempo máx. inativa tem de ser definida para um va
 Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais frequência. Porque a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que defina esta propriedade para um valor que seja igual ou menor que a propriedade de multi-factor atualizar Token idade máxima.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Idade máxima Token do multi-factor atualização
-**String:** MaxAgeMultiFactor
+**Cadeia:** MaxAgeMultiFactor
 
 **Afeta:** tokens de atualização
 
@@ -168,7 +168,7 @@ Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais fr
 Reduzir a duração máxima obriga a que os utilizadores autentiquem com mais frequência. Porque a autenticação de fator único é considerada menos segura do que a autenticação multifator, recomendamos que defina esta propriedade para um valor que seja igual ou maior do que a propriedade de único fatores atualizar Token idade máxima.
 
 ### <a name="single-factor-session-token-max-age"></a>Idade máxima Token do fator único sessão
-**String:** MaxAgeSessionSingleFactor
+**Cadeia:** MaxAgeSessionSingleFactor
 
 **Afeta:** tokens de sessão (persistentes e nonpersistent)
 

@@ -1,11 +1,11 @@
 ---
-title: "Segurança de palavra-passe de camadas do Azure AD | Microsoft Docs"
-description: "Explica a forma como os do Azure AD impõe palavras-passe seguras e protege as palavras-passe de utilizadores de criminals informático,"
+title: Segurança de palavra-passe de camadas do Azure AD | Microsoft Docs
+description: Explica a forma como os do Azure AD impõe palavras-passe seguras e protege as palavras-passe de utilizadores de criminals informático,
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas de segurança de palavra-passe do Azure AD
 
@@ -84,4 +84,4 @@ Para obter informações sobre a reposição no Azure Active Directory palavra-p
 
 * [Como atualizar a sua própria palavra-passe](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md) (As noções básicas da gestão de identidades do Azure)
-* [Atividade de reposição de relatório na palavra-passe](active-directory-passwords-reporting.md)
+* [Atividade de reposição de relatório na palavra-passe](authentication/howto-sspr-reporting.md)

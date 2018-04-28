@@ -12,16 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 717adf1b19b9de8542ec507df3a01b187d0df8a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Adicione ações para regras de alertas na análise de registos
+
+> [!NOTE]
+> Os alertas na análise de registos são [que está a ser expandido para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Alertas de utilização do Azure [ação grupos](../monitoring-and-diagnostics/monitoring-action-groups.md) para definir as respetivas ações em vez das informações neste artigo.
+
+
 Quando um [alerta é criado na análise de registos](log-analytics-alerts.md), tem a opção de [configurar a regra de alerta](log-analytics-alerts.md) para efetuar uma ou mais ações.  Este artigo descreve as diferentes ações que estão disponíveis e os detalhes sobre como configurar cada tipo.
 
 | Ação | Descrição |
@@ -32,7 +37,7 @@ Quando um [alerta é criado na análise de registos](log-analytics-alerts.md), t
 
 
 ## <a name="email-actions"></a>Ações de e-mail
-Ações de e-mail enviam um e-mail com os detalhes do alerta para um ou mais destinatários.  Pode especificar o assunto do correio, mas o respetivo conteúdo é um formato de padrão construído através da análise de registos.  Inclui as informações de resumo, como o nome do alerta além dos detalhes de até dez registos devolvidos pela pesquisa de registo.  Também inclui uma ligação para uma pesquisa de registo na análise de registos que irá devolver o conjunto completo de registos por essa consulta.   O remetente de correio é *equipa do Microsoft Operations Management Suite &lt; noreply@oms.microsoft.com &gt;* . 
+Ações de e-mail enviam um e-mail com os detalhes do alerta para um ou mais destinatários.  Pode especificar o assunto do correio, mas o respetivo conteúdo é um formato standard criado pelo Log Analytics.  Inclui as informações de resumo, como o nome do alerta além dos detalhes de até dez registos devolvidos pela pesquisa de registo.  Também inclui uma ligação para uma pesquisa de registo na análise de registos que devolve o conjunto completo de registos de que consulta.   O remetente de correio é *equipa do Microsoft Operations Management Suite &lt; noreply@oms.microsoft.com &gt;* . 
 
 Ações de correio eletrónico requerem as propriedades na tabela seguinte.
 
@@ -44,7 +49,7 @@ Ações de correio eletrónico requerem as propriedades na tabela seguinte.
 
 ## <a name="webhook-actions"></a>Ações de Webhook
 
-As ações de Webhook permitem-lhe invocar um processo externo através de um pedido de HTTP POST único.  O serviço que está a ser chamado deve suportar webhooks e determinar como irá utilizar qualquer payload recebe.  Também pode chamar uma API de REST que não suporta especificamente webhooks, desde que o pedido está num formato que compreende a API.  Exemplos de como utilizar um webhook em resposta a um alerta estão a enviar uma mensagem [Slack](http://slack.com) ou criar um incidente no [PagerDuty](http://pagerduty.com/).  Instruções completas de criação de uma regra de alerta com um webhook para chamar Slack estão disponível em [Webhooks nos alertas do Log Analytics](log-analytics-alerts-webhooks.md).
+As ações de Webhook permitem-lhe invocar um processo externo através de um pedido de HTTP POST único.  O serviço que está a ser chamado deve suportar webhooks e determinar a forma como utiliza qualquer payload recebe.  Também pode chamar uma API de REST que não suporta especificamente webhooks, desde que o pedido está num formato que compreende a API.  Exemplos de como utilizar um webhook em resposta a um alerta estão a enviar uma mensagem [Slack](http://slack.com) ou criar um incidente no [PagerDuty](http://pagerduty.com/).  Instruções completas de criação de uma regra de alerta com um webhook para chamar Slack estão disponível em [Webhooks nos alertas do Log Analytics](log-analytics-alerts-webhooks.md).
 
 As ações de Webhook requerem as propriedades na tabela seguinte.
 
@@ -54,10 +59,8 @@ As ações de Webhook requerem as propriedades na tabela seguinte.
 | Payload JSON personalizado |Payload personalizado para enviar com o webhook.  Consulte abaixo para obter mais detalhes. |
 
 
-Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados para o serviço externo.  Por predefinição, o payload incluirá os valores na tabela seguinte.  Pode optar por substituir este payload por um personalizado da sua própria.  Nesse caso pode utilizar as variáveis na tabela para cada um dos parâmetros para incluir o respetivo valor no payload personalizado.
+Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados para o serviço externo.  Por predefinição, o payload inclui os valores na tabela seguinte.  Pode optar por substituir este payload por um personalizado da sua própria.  Nesse caso pode utilizar as variáveis na tabela para cada um dos parâmetros para incluir o respetivo valor no payload personalizado.
 
->[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então o payload do webook foi alterado.  Os detalhes do formato estão na [API REST do Log Analytics do Azure](https://aka.ms/loganalyticsapiresponse).  Pode ver um exemplo em [amostras](#sample-payload) abaixo.
 
 | Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
@@ -110,9 +113,9 @@ Ações de Runbook necessitam de propriedades na tabela seguinte.
 | Runbook | Runbook que pretende iniciar quando é criado um alerta. |
 | Executar em | Especifique **Azure** para executar o runbook na nuvem.  Especifique **worker híbrido** para executar o runbook num agente com [Runbook Worker híbrido](../automation/automation-hybrid-runbook-worker.md ) instalado.  |
 
-Ações de Runbook iniciar o runbook com um [webhook](../automation/automation-webhooks.md).  Ao criar a regra de alerta, criará automaticamente um novo webhook para o runbook com o nome **remediação de alerta do OMS** seguido de um GUID.  
+Ações de Runbook iniciar o runbook com um [webhook](../automation/automation-webhooks.md).  Quando criar a regra de alerta, este cria automaticamente um novo webhook para o runbook com o nome **remediação de alerta do OMS** seguido de um GUID.  
 
-Diretamente não é possível povoar quaisquer parâmetros do runbook, mas o [$WebhookData parâmetro](../automation/automation-webhooks.md) incluirá os detalhes do alerta, incluindo os resultados da pesquisa de registo que o criou.  O runbook tem de definir **$WebhookData** como um parâmetro para o mesmo aceder às propriedades do alerta.  Os dados de alertas estão disponíveis no formato json numa única propriedade chamada **SearchResult** (para obter ações de runbook e ações de webhook no standard payload) ou **SearchResults** (as ações de webhook com personalizada Payload incluindo **IncludeSearchResults ": true**) no **RequestBody** propriedade **$WebhookData**.  Isto irá ter com as propriedades na tabela seguinte.
+Diretamente não é possível povoar quaisquer parâmetros do runbook, mas o [$WebhookData parâmetro](../automation/automation-webhooks.md) inclui os detalhes do alerta, incluindo os resultados da pesquisa de registo que o criou.  O runbook tem de definir **$WebhookData** como um parâmetro para o mesmo aceder às propriedades do alerta.  Os dados de alertas estão disponíveis no formato json numa única propriedade chamada **SearchResult** (para obter ações de runbook e ações de webhook no standard payload) ou **SearchResults** (as ações de webhook com personalizada Payload incluindo **IncludeSearchResults ": true**) no **RequestBody** propriedade **$WebhookData**.  Isto tem com as propriedades na tabela seguinte.
 
 >[!NOTE]
 > Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, o payload de runbook foi alterada.  Os detalhes do formato estão na [API REST do Log Analytics do Azure](https://aka.ms/loganalyticsapiresponse).  Pode ver um exemplo em [amostras](#sample-payload) abaixo.  
@@ -121,43 +124,12 @@ Diretamente não é possível povoar quaisquer parâmetros do runbook, mas o [$W
 |:--- |:--- |
 | ID |Caminho e o GUID da pesquisa. |
 | METADATA |Informações sobre o alerta, incluindo o número de registos e o estado dos resultados da pesquisa. |
-| valor |Entrada separada para cada registo nos resultados da pesquisa.  Os detalhes da entrada de irão estabeler correspondência de propriedades e valores do registo. |
+| valor |Entrada separada para cada registo nos resultados da pesquisa.  Os detalhes da entrada de correspondem as propriedades e valores do registo. |
 
 Por exemplo, os seguintes runbooks seria extrair os registos devolvidos pela pesquisa de registo e atribuir propriedades diferentes com base no tipo de cada registo.  Tenha em atenção que o runbook é iniciado, convertendo **RequestBody** JSON, para que as TI podem ser trabalhou com como um objeto no PowerShell.
 
 >[!NOTE]
-> Ambos estes runbooks utilizam **SearchResult** que é a propriedade que contém os resultados para obter ações de runbook e ações de webhook no payload padrão.  Se o runbook foi chamado a partir de uma resposta de webhook utilizando um payload personalizado, terá de alterar esta propriedade para **SearchResults**.
-
-O runbook seguinte irá funcionar com o payload de um [área de trabalho de análise de registos legada](log-analytics-log-search-upgrade.md).
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-O runbook seguinte irá funcionar com o payload de um [atualizado a área de trabalho de análise de registos](log-analytics-log-search-upgrade.md).
+> Este runbook utiliza **SearchResult** que é a propriedade que contém os resultados para obter ações de runbook e ações de webhook no payload padrão.  Se o runbook foi chamado a partir de uma resposta de webhook utilizando um payload personalizado, terá de alterar esta propriedade para **SearchResults**.
 
     param ( 
         [object]$WebhookData
@@ -208,88 +180,12 @@ O runbook seguinte irá funcionar com o payload de um [atualizado a área de tra
 
 
 ## <a name="sample-payload"></a>Payload de exemplo
-Esta secção mostra o payload de exemplo para ações de webhook e runbook em ambos os um legado e um [atualizado a área de trabalho de análise de registos](log-analytics-log-search-upgrade.md).
+Esta secção mostra o payload de exemplo para ações de webhook e o runbook.
 
 ### <a name="webhook-actions"></a>Ações de Webhook
-Utilizam ambos estes exemplos **SearchResult** que é a propriedade que contém os resultados para as ações de webhook com payload padrão.  Se o webhook utilizado um payload personalizado que inclua os resultados da pesquisa, esta propriedade seria **SearchResults**.
+Este exemplo utiliza **SearchResult** que é a propriedade que contém os resultados para as ações de webhook com payload padrão.  Se o webhook utilizado um payload personalizado que inclua os resultados da pesquisa, esta propriedade seria **SearchResults**.
 
-#### <a name="legacy-workspace"></a>Área de trabalho de legado.
-Segue-se um payload de exemplo para uma ação de webhook numa área de trabalho legada.
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### <a name="upgraded-workspace"></a>Área de trabalho atualizada.
-Segue-se um payload de exemplo para uma ação de webhook numa área de trabalho atualizada.
+Segue-se um payload de exemplo para uma ação do webhook.
 
     {
     "WorkspaceId": "workspaceID",
@@ -427,64 +323,7 @@ Segue-se um payload de exemplo para uma ação de webhook numa área de trabalho
 
 ### <a name="runbooks"></a>Runbooks
 
-#### <a name="legacy-workspace"></a>Área de trabalho legada
-Segue-se um payload de exemplo para uma ação de runbook na área de trabalho legada.
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### <a name="upgraded-workspace"></a>Área de trabalho atualizada
-Segue-se um payload de exemplo para uma ação de runbook numa área de trabalho atualizada.
+Segue-se um payload de exemplo para uma ação de runbook.
 
     {
     "WorkspaceId": "workspaceID",

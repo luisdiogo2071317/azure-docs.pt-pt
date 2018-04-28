@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: stgriffi
-ms.openlocfilehash: 701edc784dcde067e8ec585a3b31d6075207fbbf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com auditoria e rotação de ponto a ponto
 ## <a name="introduction"></a>Introdução
@@ -38,7 +38,7 @@ Este artigo explica-se um exemplo de como utilizar o Cofre de chaves do Azure pa
 Para ativar uma aplicação obter um segredo do Cofre de chaves, tem primeiro de criar o segredo e carregá-la para o cofre. Isto pode ser feito ao iniciar uma sessão do PowerShell do Azure e o início de sessão na sua conta do Azure com o seguinte comando:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. PowerShell irá obter todas as subscrições que estão associadas esta conta. PowerShell utilizará a primeira por predefinição.
@@ -201,7 +201,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

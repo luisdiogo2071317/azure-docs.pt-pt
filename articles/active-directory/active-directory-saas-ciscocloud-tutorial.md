@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f41d8f508bb6ee5b50b7f304c703c4d9bed75d8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f3d97e26b71c2e17753943f7004d7eb7ee19e44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem Cisco
 
@@ -117,33 +117,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     No **URL de início de sessão** caixa de texto, escreva um URL: `https://<subdomain>.cloudapps.cisco.com`
      
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador real, URL de resposta e URL de início de sessão. Contacte [equipa de suporte de cliente de Cloud Cisco](mailto:cpr-ops@cisco.com) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o identificador real, URL de resposta e URL de início de sessão. Contacte [equipa de suporte de cliente de Cloud Cisco](mailto:cpr-ops@cisco.com) para obter estes valores.
 
-5. Clique em **guardar** botão.
+5. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. Para gerar o **URL de metadados**, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. Agora, a página de propriedades do **Cisco nuvem** e copie o **ID da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Para configurar o início de sessão único em **Cisco nuvem** lado, terá de enviar o transferido **URL de metadados** para [equipa de suporte de nuvem Cisco](mailto:cpr-ops@cisco.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Para configurar o início de sessão único em **Cisco nuvem** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de nuvem Cisco](mailto:cpr-ops@cisco.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

@@ -1,11 +1,11 @@
 ---
-title: "Como configurar a palavra-passe-início de sessão único para um applicationn não Galeria | Microsoft Docs"
-description: "Como configurar uma aplicação não Galeria personalizada para segura baseada em palavra-passe de início de sessão quando não estiver listado na Galeria de aplicações do Azure AD"
+title: Como configurar a palavra-passe-início de sessão único para um applicationn não Galeria | Microsoft Docs
+description: Como configurar uma aplicação não Galeria personalizada para segura baseada em palavra-passe de início de sessão quando não estiver listado na Galeria de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe-início de sessão único para uma aplicação não Galeria
 
@@ -112,6 +112,8 @@ Para configurar o início de sessão para uma aplicação, siga estes passos:
 10. Atribua utilizadores para a aplicação.
 
 11. Além disso, também pode fornecer as credenciais em nome do utilizador ao selecionar as linhas dos utilizadores e clicar no **credenciais de atualização** e introduzindo o nome de utilizador e palavra-passe em nome de utilizadores. Caso contrário, os utilizadores ser pedido que introduza as credenciais próprios após iniciar.
+
+12. **Opcional:** para determinadas aplicações de redes sociais como o Twitter e Facebook, há também a opção para permitir o rollover automático da palavra-passe para a aplicação com uma frequência selecionada. Para ativar este selecione **pretendo que o Azure AD para gerir automaticamente este utilizador ou palavra-passe do grupo** ao introduzir as credenciais em nome de um utilizador ou grupo. Em seguida, selecione o **frequência de Rollover (em semanas)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Atribuir diretamente um utilizador a uma aplicação
 

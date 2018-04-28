@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 09a1bfc47cd048e371575f80933f5bfd0116bf8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 131f147e2c445e8cfef12288d4d0d29f6fd7fe01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-beta"></a>Copiar dados de Xero utilizando o Azure Data Factory (Beta)
 
@@ -55,7 +55,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Xero:
 | tipo | A propriedade de tipo tem de ser definida: **Xero** | Sim |
 | anfitrião | O ponto final do servidor Xero (`api.xero.com`).  | Sim |
 | consumerKey | A chave de consumidor associada à aplicação Xero. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| privateKey | A chave privada a partir do ficheiro. pem que foi gerado para a sua aplicação privada Xero, consulte [criar um par de chaves públicas/privadas](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Inclui todo o texto do ficheiro. pem incluindo endings(\n) de linha Unix, consulte o exemplo abaixo.<br/>Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| privateKey | A chave privada a partir do ficheiro. pem que foi gerado para a sua aplicação privada Xero, consulte [criar um par de chaves públicas/privadas](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Tenha em atenção a **gerar privatekey.pem com numbits de 512** utilizando `openssl genrsa -out privatekey.pem 512`; 1024 não é suportada. Inclui todo o texto do ficheiro. pem incluindo endings(\n) de linha Unix, consulte o exemplo abaixo.<br/><br/>Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome do anfitrião do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |

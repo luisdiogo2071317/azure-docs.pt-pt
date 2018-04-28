@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -41,7 +41,7 @@ A utilização e os custos são revistos no portal da Cloudyn. Abra o portal da 
 
 ## <a name="track-usage-and-cost-trends"></a>Ver as tendências de utilização e de custos
 
-O dinheiro efetivamente gasto para utilização e custos é controlado com os relatórios Ao Longo do Tempo, de modo a identificar tendências. Para começar a procurar tendências, utilize o relatório Custo Efetivo ao Longo do Tempo. No menu de relatórios na parte superior do portal, clique em **Custos** > **Análise de Custos** > **Custo Efetivo ao Longo do Tempo**. Da primeira vez que abrir o relatório, não estão aplicados grupos ou filtros ao mesmo.
+O dinheiro efetivamente gasto para utilização e custos é controlado com os relatórios Ao Longo do Tempo, de modo a identificar tendências. Para começar a procurar tendências, utilize o relatório Custo Efetivo ao Longo do Tempo. No menu na parte superior do portal, clique em **Custos** > **Análise de Custos** > **Custo Efetivo ao Longo do Tempo**. Da primeira vez que abrir o relatório, não estão aplicados grupos ou filtros ao mesmo.
 
 Segue-se um exemplo de relatório:
 
@@ -69,7 +69,7 @@ O problema é que as respetivas infraestruturas já estavam pagas. Os utilizador
 
 O relatório Recomendações de Dimensionamento Económico identifica potenciais poupanças anuais, ao comparar a capacidade do tipo de instância de VM com os dados históricos de utilização de CPU e memória.  
 
-No menu de relatórios na parte superior do portal, clique em **Otimizador** > **Otimização de Preços** > **Recomendações de Dimensionamento Económico**. Filtre o fornecedor para o Azure para ver apenas as VMs do Azure. Segue-se uma imagem de exemplo.
+No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Económico**. Filtre o fornecedor para o Azure para ver apenas as VMs do Azure. Segue-se uma imagem de exemplo.
 
 ![VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização
 
 Pode alertar os outros intervenientes automaticamente sobre despesas anómalas e riscos de incorrer em gastos excessivos. Pode criar rápida e facilmente os alertas através de relatórios que os suportem com base em limiares de orçamentos e de custos.
 
-Pode utilizar qualquer relatório Custos para criar um alerta para qualquer despesa. Neste exemplo, utilize o relatório Custo Efetivo ao Longo do Tempo para ser notificado quando os gastos com VMs do Azure estiverem prestes a atingir o seu orçamento total. No menu de relatórios na parte superior do portal, clique em **Custos** > **Análise de Custos** > **Custo Efetivo ao Longo do Tempo**. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**. No canto superior direito do relatório, clique em **Ações** e selecione **Agendar relatório**.
+Pode utilizar qualquer relatório Custos para criar um alerta para qualquer despesa. Neste exemplo, utilize o relatório Custo Efetivo ao Longo do Tempo para ser notificado quando os gastos com VMs do Azure estiverem prestes a atingir o seu orçamento total. Todos os passos seguintes são necessários para criar o alerta. No menu na parte superior do portal, clique em **Custos** > **Análise de Custos** > **Custo Efetivo ao Longo do Tempo**. Defina **Grupos** como **Serviços** e defina **Filtrar por serviço** como **Azure/VM**. No canto superior direito do relatório, clique em **Ações** e selecione **Agendar relatório**.
 
-Utilize o separador **Agendamento** para enviar um e-mail para si próprio com o relatório de acordo com a frequência que pretenda. Todos os grupos, etiquetas e filtragem que utilizou são incluídos no e-mail com o relatório. Clique no separador **Limiar** e selecione **Custo Efetivo vs. Limiar**. Se tiver um orçamento total de 500 000 $ e quiser ser notificado quando os custos estiverem quase a atingir metade do orçamento, pode criar um **Alerta vermelho** nos 250 000 $ e um **Alerta amarelo** nos 240 000 $. Depois, escolha o número de alertas consecutivos. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais. Guarde o relatório agendado.
+Utilize o separador **Agendamento** para enviar um e-mail para si próprio com o relatório de acordo com a frequência que pretenda. Lembre-se de selecionar **Enviar por e-mail**. Todos os grupos, etiquetas e filtragem que utilizou são incluídos no e-mail com o relatório. Clique no separador **Limiar** e selecione **Custo Efetivo vs. Limiar**. Se tiver um orçamento total de 500 000 $ e quiser ser notificado quando os custos estiverem quase a atingir metade do orçamento, pode criar um **Alerta vermelho** nos 250 000 $ e um **Alerta amarelo** nos 240 000 $. Não inclua vírgulas nos valores introduzidos. Depois, escolha o número de alertas consecutivos. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais. Guarde o relatório agendado.
 
 ![relatório de exemplo](./media/tutorial-review-usage/schedule-alert01.png)
 

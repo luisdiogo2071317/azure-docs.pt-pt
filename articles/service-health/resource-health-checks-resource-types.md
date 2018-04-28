@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas através do Estado de funcionamento de recursos por tipos de recursos.
@@ -64,7 +64,7 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 |---|
 |<ul><li>Os utilizadores carregar dados ao Data Lake Store na região</li><li>Os utilizadores transferem dados do Data Lake Store na região</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
 
 |Verificações executadas|
 |---|
@@ -113,7 +113,7 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Verificações executadas|
 |---|
-|<ul><li>O servidor de anfitrião se encontra em execução?</li><li>Serviços de informação Internet está em execução?</li><li>O Balanceador de carga está em execução?</li><li>O plano de serviço Web acessível no Centro de dados?</li><li>A conta de armazenamento aloja o conteúdo de sites para serverFarm disponível??</li></ul>|
+|<ul><li>O servidor de anfitrião se encontra em execução?</li><li>Serviços de informação Internet está em execução?</li><li>O Balanceador de carga está em execução?</li><li>O plano do App Service acessível no Centro de dados?</li><li>A conta de armazenamento aloja o conteúdo de sites para serverFarm disponível??</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Verificações executadas|

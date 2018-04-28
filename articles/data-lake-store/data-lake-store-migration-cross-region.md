@@ -1,8 +1,8 @@
 ---
-title: "Migração de por várias regiões do Azure Data Lake Store | Microsoft Docs"
-description: "Saiba mais sobre a migração por várias regiões do Azure Data Lake Store."
+title: Migração de por várias regiões do Azure Data Lake Store | Microsoft Docs
+description: Saiba mais sobre a migração por várias regiões do Azure Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: swums
 manager: amitkul
 editor: swums
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Migrar o Data Lake Store em regiões
 
@@ -28,7 +28,7 @@ Como o Azure Data Lake Store e fica disponível regiões novo, pode optar por ef
 
 * **Uma subscrição do Azure**. Para obter mais informações, consulte [hoje a criar a conta do Azure gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de Data Lake Store em duas regiões diferentes**. Para obter mais informações, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
-* **Fábrica de dados do Azure**. Para obter mais informações, consulte [introdução ao Azure Data Factory](../data-factory/introduction.md).
+* **Fábrica de dados do Azure**. Para obter mais informações, veja [Introdução ao Azure Data Factory](../data-factory/introduction.md).
 
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
@@ -45,11 +45,11 @@ Outros detalhes importantes a considerar quando planear a migração são:
 
 * **Ferramentas**. Recomendamos que utilize o [atividade de cópia do Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) copiar os ficheiros do Data Lake Store. Fábrica de dados suporta o movimento de dados com elevado desempenho e fiabilidade. Tenha em atenção que o Data Factory copia apenas a hierarquia de pastas e o conteúdo dos ficheiros. Tem de aplicar manualmente quaisquer listas de controlo de acesso (ACLs) que utilizar a conta antiga para a nova conta. Para obter mais informações, incluindo metas de desempenho para cenários mais favorável, consulte o [guia Otimização e de desempenho de atividade de cópia](../data-factory/copy-activity-performance.md). Se pretender que os dados copiados mais rapidamente, poderá ter de utilizar unidades de movimento de dados de nuvem adicionais. Algumas outras ferramentas, como AdlCopy, não suportam a cópia de dados entre regiões.  
 
-* **Custos de largura de banda**. [Custos de largura de banda](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) aplicar porque os dados são transferidos para fora de uma região do Azure.
+* **Custos de largura de banda**. [Custos de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) aplicar porque os dados são transferidos para fora de uma região do Azure.
 
 * **As ACLs nos seus dados**. Proteja os seus dados na região novo aplicando ACLs de ficheiros e pastas. Para obter mais informações, consulte [proteger os dados armazenados no Azure Data Lake Store](data-lake-store-secure-data.md). Recomendamos que utilize a migração para atualizar e ajustar as ACLs. Pode querer utilizar definições semelhantes às suas definições atuais. Pode ver as ACLs que são aplicadas a qualquer ficheiro com o portal do Azure, [cmdlets do PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), ou SDKs.  
 
 * **Localização de serviços de análise**. Para melhor desempenho, os serviços de análise, como o Azure Data Lake Analytics ou o Azure HDInsight, devem estar na mesma região que os dados.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)

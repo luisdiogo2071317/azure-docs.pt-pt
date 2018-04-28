@@ -3,7 +3,7 @@ title: Funcionalidades do motor de regras do Azure CDN | Microsoft Docs
 description: Funcionalidades do motor de regras de documentação de referência para a CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: rli
-ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: v-deasim
+ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
 
-O terceiro parte de uma regra é a funcionalidade. Uma funcionalidade define o tipo de ação que é aplicada para o tipo de pedido identificado por um conjunto de condições de correspondência.
+O terceiro parte de uma regra é a funcionalidade. Uma funcionalidade define o tipo de ação que é aplicada ao tipo de pedido que é identificado por um conjunto de condições de correspondência.
 
 ## <a name="access-features"></a>Funcionalidades de acesso
 
 Estas funcionalidades são concebidas para controlar o acesso ao conteúdo.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Negar o acesso (403)](#deny-access-403) | Determina se a todos os pedidos são rejeitados com resposta 403 Proibido.
 [Autenticação de token](#token-auth) | Determina se a autenticação baseada em tokens é aplicada a um pedido.
@@ -42,7 +42,7 @@ Nome | Finalidade
 
 Estas funcionalidades são concebidas para personalizar quando e como conteúdo é colocado em cache.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Parâmetros de largura de banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) são Active Directory.
 [Limitação de largura de banda](#bandwidth-throttling) | Acelera a largura de banda para a resposta fornecida pela ponto de presença (POP).
@@ -72,7 +72,7 @@ Nome | Finalidade
 
 Esta funcionalidade foi concebida para fornecer informações adicionais dentro de uma regra.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Comentário](#comment) | Permite que uma nota a adicionar dentro de uma regra.
  
@@ -80,7 +80,7 @@ Nome | Finalidade
 
 Estas funcionalidades são concebidas para adicionar, modificar ou eliminar os cabeçalhos do pedido ou resposta.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Cabeçalho de resposta de antiguidade](#age-response-header) | Determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 [Cabeçalhos de resposta de Cache de depuração](#debug-cache-response-headers) | Determina se uma resposta pode incluir o cabeçalho de resposta EC-X-Debug, que fornece informações sobre a política de cache para o recurso pedido.
@@ -93,7 +93,7 @@ Nome | Finalidade
 
 Estas funcionalidades são concebidas para personalizar os dados armazenados nos ficheiros de registo não processados.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Campo de registo personalizado 1](#custom-log-field-1) | Determina o formato e o conteúdo que é atribuído para o campo de registo personalizado num ficheiro de registo não processados.
 [Cadeia de consulta de registo](#log-query-string) | Determina se uma cadeia de consulta é armazenada, juntamente com o URL nos registos de acesso.
@@ -147,7 +147,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Estas funcionalidades são concebidas para controlar a forma como o CDN comunica com um servidor de origem.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Máximo de pedidos de ligação Keep-Alive](#maximum-keep-alive-requests) | Define o número máximo de pedidos para uma ligação Keep-Alive antes de que está fechado.
 [Cabeçalhos especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicas que são reencaminhados a partir de um POP para um servidor de origem.
@@ -157,7 +157,7 @@ Nome | Finalidade
 
 Estas funcionalidades fornecem a funcionalidade avançada para utilizadores avançados.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Métodos de HTTP colocáveis](#cacheable-http-methods) | Determina o conjunto de métodos HTTP adicionais que podem ser colocadas em cache na rede.
 [Tamanho do corpo do pedido colocáveis](#cacheable-request-body-size) | Define o limiar para determinar se uma resposta POST pode ser colocadas em cache.
@@ -168,7 +168,7 @@ Nome | Finalidade
 
 Estas funcionalidades permitem um pedido para ser redirecionado ou rescrita para um URL diferente.
 
-Nome | Finalidade
+Nome | Objetivo
 -----|--------
 [Seguir redirecionamentos](#follow-redirects) | Determina se os pedidos podem ser redirecionados para o nome de anfitrião definida no cabeçalho de localização devolvido por um servidor de origem do cliente.
 [URL de redirecionamento](#url-redirect) | Redireciona pedidos através do cabeçalho de localização.
@@ -183,8 +183,8 @@ Nome | Finalidade
 **Objetivo**: determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 Valor|Resultado
 --|--
-Activado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
-Desactivado | O cabeçalho de resposta de idade foi excluído da resposta enviada para o autor do pedido.
+Ativado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
+Desativado | O cabeçalho de resposta de idade foi excluído da resposta enviada para o autor do pedido.
 
 **Comportamento de predefinido**: desativado.
 
@@ -200,8 +200,8 @@ Parâmetros de limitação de largura de banda determinam se a velocidade de tra
 
 Valor|Resultado
 --|--
-Activado|Permite que os POPs que respeite pedidos de limitação de largura de banda.
-Desactivado|Faz com que os POPs ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
+Ativado|Permite que os POPs que respeite pedidos de limitação de largura de banda.
+Desativado|Faz com que os POPs ignorar os parâmetros de limitação de largura de banda. O conteúdo pedido é servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento predefinido:** ativada.
  
@@ -232,8 +232,8 @@ Segundos de Prebuf|Defina esta opção para o número de segundos para os POPs a
 
 Valor|Resultado
 --|--
-Activado|Faz com que todos os pedidos para passar para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
-Desactivado|Faz com que POPs aos recursos da cache, de acordo com a política de cache definido no respetivos cabeçalhos de resposta.
+Ativado|Faz com que todos os pedidos para passar para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
+Desativado|Faz com que POPs aos recursos da cache, de acordo com a política de cache definido no respetivos cabeçalhos de resposta.
 
 **Comportamento predefinido:**
 
@@ -430,8 +430,8 @@ Manter a configuração predefinida para a plataforma de HTTP grande, porque est
 
 Valor|Resultado
 --|--
-Activado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o POP para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local o POP.
-Desactivado|Impede que um POP efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um POP para solicitá-la a partir do servidor de origem do cliente.
+Ativado|Restaura o comportamento predefinido. É o comportamento predefinido para forçar o POP para iniciar a obtenção um fundo do elemento do servidor de origem. Após o qual, o elemento estarão disponíveis na cache local o POP.
+Desativado|Impede que um POP efetuar uma obtenção de fundo para o elemento. O resultado é que o pedido seguinte para esse recurso a que região faz com que um POP para solicitá-la a partir do servidor de origem do cliente.
 
 **Comportamento predefinido:** ativada.
 
@@ -515,16 +515,16 @@ Informações da chave:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Cabeçalhos de resposta de Cache de depuração
-**Objetivo:** determina se uma resposta pode incluir o cabeçalho de resposta EC-X-Debug, que fornece informações sobre a política de cache para o recurso pedido.
+**Objetivo:** determina se uma resposta pode incluir [cabeçalhos de resposta de EC-X-Debug](cdn-http-debug-headers.md), que fornece informações sobre a política de cache para o recurso pedido.
 
 Depurar a resposta de cache cabeçalhos serão incluídos na resposta quando ambos os procedimentos seguintes se verificarem:
 
-- Foi ativada a funcionalidade cabeçalhos da resposta de Cache de depuração no pedido pretendido.
-- O pedido acima define o conjunto de cabeçalhos de resposta de cache de depuração que será incluído na resposta.
+- Foi ativada a funcionalidade de cabeçalhos de resposta de Cache de depuração no pedido especificado.
+- O pedido especificado define o conjunto de cabeçalhos de resposta de cache de depuração que será incluído na resposta.
 
-Depurar cabeçalhos podem ser solicitados, incluindo o seguinte cabeçalho e as diretivas pretendidas no pedido de resposta de cache:
+Depurar cabeçalhos podem ser solicitados, incluindo o seguinte cabeçalho e as diretivas especificadas no pedido de resposta de cache:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Exemplo:**
 
@@ -532,8 +532,8 @@ EC-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Valor|Resultado
 -|-
-Activado|Pedidos de cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
-Desactivado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
+Ativado|Pedidos de cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
+Desativado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
 
 **Comportamento predefinido:** desativado.
 
@@ -589,8 +589,8 @@ Devido da forma na cache de que as definições são registadas, esta funcionali
 
 Valor | Resultado
 ------|-------
-Activado| Faz com que todos os pedidos que satisfaçam os critérios de correspondência para ser rejeitada com resposta 403 Proibido.
-Desactivado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que o servidor de origem para determinar o tipo de resposta que vai ser devolvido.
+Ativado| Faz com que todos os pedidos que satisfaçam os critérios de correspondência para ser rejeitada com resposta 403 Proibido.
+Desativado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que o servidor de origem para determinar o tipo de resposta que vai ser devolvido.
 
 **Comportamento de predefinido**: desativado
 
@@ -624,7 +624,7 @@ Remover| Garante que uma `Expires` cabeçalho não está incluído com a respost
 ### <a name="external-max-age"></a>Externa de atribuição de idade máxima
 **Objetivo:** determina o intervalo de idade máxima de browser de modo a revalidação de cache POP. Por outras palavras, pode verificar a quantidade de tempo que irá passar antes de um browser para uma nova versão de um ativo de um POP.
 
-A ativação desta funcionalidade irá gerar `Cache-Control: max-age` e `Expires` cabeçalhos a partir dos POPs e enviá-los para o cliente HTTP. Por predefinição, estes cabeçalhos substituirá as criadas pelo servidor de origem. No entanto, o tratamento de cabeçalho de Cache-Control e as funcionalidades de tratamento de cabeçalho expira podem ser utilizadas para alterar este comportamento.
+A ativação desta funcionalidade irá gerar `Cache-Control: max-age` e `Expires` cabeçalhos a partir dos POPs e enviá-los para o cliente HTTP. Por predefinição, estes cabeçalhos irão substituir esses cabeçalhos criados pelo servidor de origem. No entanto, o tratamento de cabeçalho de Cache-Control e as funcionalidades de tratamento de cabeçalho expira podem ser utilizadas para alterar este comportamento.
 
 Informações da chave:
 
@@ -649,8 +649,8 @@ Informações da chave:
 
 Valor|Resultado
 -|-
-Activado|Os pedidos podem ser redirecionados.
-Desactivado|Pedidos não serão redirecionados.
+Ativado|Os pedidos podem ser redirecionados.
+Desativado|Pedidos não serão redirecionados.
 
 **Comportamento predefinido:** desativado.
 
@@ -706,7 +706,7 @@ Devido da forma na cache de que as definições são registadas, esta funcionali
 Informações da chave:
 
 - Defina um conjunto delimitada por espaços de extensões de nome de ficheiro permitidas 264 na opção de extensões de ficheiro. A opção de extensões de ficheiro irá substituir o comportamento predefinido. Manter MP4 e F4V suporte, incluindo as extensões de nome de ficheiro quando definir esta opção. 
-- Não se esqueça de incluir um período ao especificar cada extensão de nome de ficheiro (por exemplo, mp4 .f4v).
+- Incluir um período quando especificar cada extensão de nome de ficheiro (por exemplo, _mp4_, _.f4v_).
 
 **Comportamento predefinido:** HTTP transferência progressiva transferir suporta MP4 e F4V suporte de dados por predefinição.
 
@@ -722,12 +722,12 @@ Um pedido de cache não ocorre quando o cliente HTTP envia um `Cache-Control: no
 
 Valor|Resultado
 --|--
-Activado|Permite que os pedidos de cache não de um cliente HTTP para ser reencaminhado para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo através o POP de volta para o cliente HTTP.
-Desactivado|Restaura o comportamento predefinido. O comportamento predefinido é para impedir que pedidos na cache não reencaminhados para o servidor de origem.
+Ativado|Permite que os pedidos de cache não de um cliente HTTP para ser reencaminhado para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo através o POP de volta para o cliente HTTP.
+Desativado|Restaura o comportamento predefinido. O comportamento predefinido é para impedir que pedidos na cache não reencaminhados para o servidor de origem.
 
 Para todo o tráfego de produção, recomenda vivamente para deixar esta funcionalidade no respectivo estado predefinido desativado. Caso contrário, não serão possível proteger os servidores de origem aos utilizadores finais que inadvertidamente poderão acionar muitos pedidos não-cache ao atualizar as páginas web ou a partir de muitos jogadores popular do suporte de dados que são codificados para enviar um cabeçalho de cache não com cada pedido de vídeo. Contudo, esta funcionalidade pode ser útil para aplicar a determinados não a produção de teste ou testes diretórios, para permitir que o novo conteúdo ser solicitados a pedido do servidor de origem.
 
-O estado da cache que será reportado para um pedido que tem permissão para ser reencaminhados para um servidor de origem devido a esta funcionalidade é TCP_Client_Refresh_Miss. O relatório de Estados de Cache, o que está disponível do núcleo do módulo de relatórios, fornece informações estatísticas por Estado da cache. Isto permite-lhe controlar o número e a percentagem de pedidos que são reencaminhados para um servidor de origem devido a esta funcionalidade.
+O estado de cache que é comunicado para um pedido que possam ser reencaminhado para um servidor de origem devido a esta funcionalidade é `TCP_Client_Refresh_Miss`. O relatório de Estados de Cache, o que está disponível do núcleo do módulo de relatórios, fornece informações estatísticas por Estado da cache. Este relatório permite-lhe controlar o número e a percentagem de pedidos que são reencaminhados para um servidor de origem devido a esta funcionalidade.
 
 **Comportamento predefinido:** desativado.
 
@@ -784,8 +784,8 @@ Por predefinição, este código de estado é devolvido quando não é possível
 
 Valor|Resultado
 -|-
-Activado|Impede que os POPs responder a um pedido de intervalo de byte inválido com um código de estado 416 pedido intervalo não satisfatório. Em vez disso, os servidores irão fornecer o recurso pedido e devolver um 200 OK para o cliente.
-Desactivado|Restaura o comportamento predefinido. O comportamento predefinido é que respeite o código de estado 416 pedido intervalo não satisfatório.
+Ativado|Impede que os POPs responder a um pedido de intervalo de byte inválido com um código de estado 416 pedido intervalo não satisfatório. Em vez disso, os servidores irão fornecer o recurso pedido e devolver um 200 OK para o cliente.
+Desativado|Restaura o comportamento predefinido. O comportamento predefinido é que respeite o código de estado 416 pedido intervalo não satisfatório.
 
 **Comportamento predefinido:** desativado.
 
@@ -845,8 +845,8 @@ Devido da forma na cache de que as definições são registadas, esta funcionali
 
 Valor|Resultado
 -|-
-Activado|Permite que o armazenamento de cadeias de consulta ao gravar os URLs no registo de acesso. Se um URL contém uma cadeia de consulta, em seguida, esta opção só terá um efeito.
-Desactivado|Restaura o comportamento predefinido. É o comportamento predefinido para ignorar as cadeias de consulta aquando a gravar URLs no registo de acesso.
+Ativado|Permite que o armazenamento de cadeias de consulta ao gravar os URLs no registo de acesso. Se um URL contém uma cadeia de consulta, em seguida, esta opção só terá um efeito.
+Desativado|Restaura o comportamento predefinido. É o comportamento predefinido para ignorar as cadeias de consulta aquando a gravar URLs no registo de acesso.
 
 **Comportamento predefinido:** desativado.
 
@@ -858,7 +858,7 @@ Desactivado|Restaura o comportamento predefinido. É o comportamento predefinido
 ### <a name="maximum-keep-alive-requests"></a>Máximo de pedidos de ligação Keep-Alive
 **Objetivo:** define o número máximo de pedidos para uma ligação Keep-Alive antes de que está fechado.
 
-Definir o número máximo de pedidos para um valor baixo é vivamente desaconselhável e pode resultar numa degradação do desempenho.
+Definir o número máximo de pedidos para um valor baixo é desencorajada e pode resultar numa degradação do desempenho.
 
 Informações da chave:
 
@@ -884,9 +884,9 @@ Uma das seguintes ações pode ser efetuada num cabeçalho de pedido:
 
 Opção|Descrição|Exemplo
 -|-|-
-Anexar|O valor especificado será adicionado ao fim do valor de cabeçalho de pedido existente.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/> **O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value1Value2
-Substituir|O valor do cabeçalho de pedido será definido para o valor especificado.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/>**O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value2 <br/>
-Eliminar|Elimina o cabeçalho de pedido especificado.|**O valor do cabeçalho (cliente) do pedido:**Value1 <br/> **Modificar configuração de cabeçalho de pedido de cliente:** eliminar o cabeçalho do pedido em questão. <br/>**Resultado:** o cabeçalho de pedido especificado não será reencaminhado para o servidor de origem.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de pedido existente.|**O valor do cabeçalho (cliente) do pedido:** Value1 <br/> **O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value1Value2
+Substituir|O valor do cabeçalho de pedido será definido para o valor especificado.|**O valor do cabeçalho (cliente) do pedido:** Value1 <br/>**O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value2 <br/>
+Eliminar|Elimina o cabeçalho de pedido especificado.|**O valor do cabeçalho (cliente) do pedido:** Value1 <br/> **Modificar configuração de cabeçalho de pedido de cliente:** eliminar o cabeçalho do pedido em questão. <br/>**Resultado:** o cabeçalho de pedido especificado não será reencaminhado para o servidor de origem.
 
 Informações da chave:
 
@@ -922,8 +922,8 @@ Uma das seguintes ações pode ser efetuada num cabeçalho de resposta:
 
 Opção|Descrição|Exemplo
 -|-|-
-Anexar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**O valor de cabeçalho de resposta (cliente):**Value1 <br/> **O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
-Substituir|O valor do cabeçalho de resposta será definido para o valor especificado.|**O valor de cabeçalho de resposta (cliente):**Value1 <br/>**O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/> **O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
+Substituir|O valor do cabeçalho de resposta será definido para o valor especificado.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/>**O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
 Eliminar|Elimina o cabeçalho de resposta especificado.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/> **Modificar configuração de cabeçalho de resposta do cliente:** eliminar o cabeçalho de resposta em questão. <br/>**Resultado:** o cabeçalho de resposta especificado não será reencaminhado para o autor do pedido.
 
 Informações da chave:
@@ -963,8 +963,8 @@ Esta cache parcial, em seguida, pode ser utilizado para satisfazer os pedidos de
 
 Valor|Resultado
 -|-
-Activado|Pedidos podem gerar o conteúdo parcialmente em cache.
-Desactivado|Pedidos só é possível gerar uma versão totalmente em cache do conteúdo pedido.
+Ativado|Pedidos podem gerar o conteúdo parcialmente em cache.
+Desativado|Pedidos só é possível gerar uma versão totalmente em cache do conteúdo pedido.
 
 **Comportamento predefinido:** desativado.
 
@@ -990,12 +990,22 @@ Informações da chave:
 
 ---
 ### <a name="proxy-special-headers"></a>Cabeçalhos especiais de proxy
-**Objetivo:** define o conjunto de cabeçalhos de pedido de CDN específicos que serão reencaminhados de uma POP para um servidor de origem.
+**Objetivo:** define o conjunto de [cabeçalhos de pedido HTTP específico da Verizon](cdn-verizon-http-headers.md) que serão reencaminhados de uma POP para um servidor de origem.
 
 Informações da chave:
 
-- Cada cabeçalho de pedido de CDN específica definido nesta funcionalidade será reencaminhado para um servidor de origem.
-- Impedi que um cabeçalho de pedido de CDN específico que está a ser reencaminhados para um servidor de origem, removendo-os desta lista.
+- Cada cabeçalho de pedido de CDN específica definido nesta funcionalidade é reencaminhado para um servidor de origem. Não são reencaminhados cabeçalhos excluídos.
+- Para impedir que um cabeçalho de pedido específicos CDN reencaminhados, remova-o na lista de valores separados por espaço no campo de lista de cabeçalho.
+
+Os seguintes cabeçalhos HTTP estão incluídos na lista de predefinidos:
+- através do
+- X-reencaminhados-para
+- Proto X reencaminhados
+- X-anfitrião
+- X Midgress
+- X-Gateway-lista
+- X-EC-Name
+- Anfitrião
 
 **Comportamento predefinido:** todos os cabeçalhos de pedido específicos da CDN serão reencaminhados para o servidor de origem.
 
@@ -1011,8 +1021,8 @@ Os valores válidos são:
 
 Valor|Resultado
 --|--
-Activado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
-Desactivado|Restaura o comportamento predefinido. É o comportamento predefinido para servir a recursos de cache válido após pedido.
+Ativado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
+Desativado|Restaura o comportamento predefinido. É o comportamento predefinido para servir a recursos de cache válido após pedido.
 Esta funcionalidade não é necessária para a colocação em cache correto e de entrega de conteúdos, mas poderá ser útil como uma solução. Por exemplo, generators conteúdos dinâmicos nos servidores de origem inadvertidamente podem resultar em respostas 0 bytes enviadas para os POPs. Estes tipos de respostas são normalmente colocadas em cache pelos POPs. Se souber que uma resposta de 0 bytes nunca é uma resposta válida 
 
 para esse conteúdo, em seguida, esta funcionalidade pode impedir que estes tipos de recursos de ser servido aos seus clientes.
@@ -1073,8 +1083,8 @@ Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum
 
 Valor|Resultado
 -|-
-Activado|Conteúdo obsoleto é fornecido para o autor do pedido quando ocorre um erro durante uma ligação a um servidor de origem.
-Desactivado|Erro do servidor de origem seja reencaminhado para o autor do pedido.
+Ativado|Conteúdo obsoleto é fornecido para o autor do pedido quando ocorre um erro durante uma ligação a um servidor de origem.
+Desativado|Erro do servidor de origem seja reencaminhado para o autor do pedido.
 
 **Comportamento predefinido:** desativado
 
@@ -1113,8 +1123,8 @@ Esta funcionalidade tem precedência sobre a maioria das funcionalidades com a e
 
 Valor | Resultado
 ------|---------
-Activado | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas os pedidos de clientes que fornecem um token válido e cumpram os requisitos serão cumpridos. Transações de FTP são excluídas da autenticação baseada em tokens.
-Desactivado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que a configuração da autenticação baseada em tokens para determinar se um pedido esteja protegido.
+Ativado | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas os pedidos de clientes que fornecem um token válido e cumpram os requisitos serão cumpridos. Transações de FTP são excluídas da autenticação baseada em tokens.
+Desativado| Restaura o comportamento predefinido. O comportamento predefinido é permitir que a configuração da autenticação baseada em tokens para determinar se um pedido esteja protegido.
 
 #### <a name="compatibility"></a>Compatibilidade
 Não utilize a autenticação de Token com uma condição de correspondência de sempre. 
@@ -1185,8 +1195,8 @@ Os valores válidos são:
 
 Valor|Resultado
 ---|----
-Activado|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
-Desactivado|Restaura o comportamento predefinido. O comportamento predefinido é de comparações de URL para a autenticação de Token estar maiúsculas e minúsculas.
+Ativado|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
+Desativado|Restaura o comportamento predefinido. O comportamento predefinido é de comparações de URL para a autenticação de Token estar maiúsculas e minúsculas.
 
 **Comportamento predefinido:** desativado.
 
@@ -1206,8 +1216,8 @@ Informações da chave:
 
 Valor|Resultado
 ----|----
-Activado|A opção de valor define o nome de parâmetro de cadeia de consulta através do qual os tokens devem ser definidos.
-Desactivado|Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
+Ativado|A opção de valor define o nome de parâmetro de cadeia de consulta através do qual os tokens devem ser definidos.
+Desativado|Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
 
 **Comportamento predefinido:** desativado. Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
 

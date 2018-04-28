@@ -1,11 +1,11 @@
 ---
-title: "Converter aplicações Cloud Services do Azure micro-serviços | Microsoft Docs"
-description: "Este guia compara sem monitorização de estado dos serviços Web de serviços de nuvem e as funções de trabalho e recursos de infraestrutura de serviço para o ajudar a migrar de serviços em nuvem para o Service Fabric."
+title: Converter aplicações Cloud Services do Azure micro-serviços | Microsoft Docs
+description: Este guia compara sem monitorização de estado dos serviços Web de serviços de nuvem e as funções de trabalho e recursos de infraestrutura de serviço para o ajudar a migrar de serviços em nuvem para o Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter Web e funções de trabalho para serviços sem monitorização de estado do Service Fabric
 Este artigo descreve como migrar a sua nuvem serviços Web e funções de trabalho para serviços sem monitorização de estado do Service Fabric. Este é o mais simples caminho de migração de serviços em nuvem para o Service Fabric para as aplicações cuja arquitetura geral vai aproximadamente permaneça igual.
@@ -53,7 +53,7 @@ Pontos de entrada de semelhantes de oferta APIs do serviço de função de traba
 | A processar |`Run()` |`RunAsync()` |
 | Iniciar VM |`OnStart()` |N/A |
 | Pare a VM |`OnStop()` |N/A |
-| Serviço de escuta aberto para pedidos de cliente |N/A |<ul><li> `CreateServiceInstanceListener()`para sem monitorização de estado</li><li>`CreateServiceReplicaListener()`para monitorização de estado</li></ul> |
+| Serviço de escuta aberto para pedidos de cliente |N/A |<ul><li> `CreateServiceInstanceListener()` para sem monitorização de estado</li><li>`CreateServiceReplicaListener()` para monitorização de estado</li></ul> |
 
 ### <a name="worker-role"></a>Função de trabalho
 ```csharp
@@ -121,7 +121,7 @@ O ambiente de serviços em nuvem API fornece informações e a funcionalidade pa
 | --- | --- | --- |
 | Definições de configuração e a notificação de alteração |`RoleEnvironment` |`CodePackageActivationContext` |
 | Armazenamento Local |`RoleEnvironment` |`CodePackageActivationContext` |
-| Informações de ponto final |`RoleInstance` <ul><li>Instância atual:`RoleEnvironment.CurrentRoleInstance`</li><li>Outras funções e instância:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`para o endereço do nó atual</li><li>`FabricClient`e `ServicePartitionResolver` para a deteção de ponto final de serviço</li> |
+| Informações de ponto final |`RoleInstance` <ul><li>Instância atual: `RoleEnvironment.CurrentRoleInstance`</li><li>Outras funções e instância: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` para o endereço do nó atual</li><li>`FabricClient` e `ServicePartitionResolver` para a deteção de ponto final de serviço</li> |
 | Ambiente emulação |`RoleEnvironment.IsEmulated` |N/A |
 | Evento de alteração em simultâneo |`RoleEnvironment` |N/A |
 
@@ -207,9 +207,9 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Tarefas de arranque
 Tarefas de arranque são ações efetuadas antes de iniciar uma aplicação. Uma tarefa de arranque é normalmente utilizada para executar scripts de configuração com privilégios elevados. Serviços em nuvem e de Service Fabric suportam tarefas de arranque. A principal diferença é que nos serviços em nuvem, uma tarefa de arranque está associada a uma VM porque faz parte de uma instância de função, enquanto no Service Fabric uma tarefa de arranque está associada a um serviço, que não está associado a qualquer VM específica.
 
-| Serviços Cloud | Service Fabric |
+| Service Fabric | Serviços Cloud |
 | --- | --- | --- |
-| Localização de configuração |ServiceDefinition.csdef |
+| Localização de configuração |Servicedefinition. Csdef |
 | Privilégios |"limitado" ou "elevados" |
 | Sequenciação |"simples", "em segundo plano", "em primeiro plano" |
 

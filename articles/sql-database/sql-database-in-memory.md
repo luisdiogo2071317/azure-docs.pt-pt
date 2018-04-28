@@ -9,11 +9,11 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias de dentro da memória na base de dados do SQL Server
 
@@ -22,7 +22,7 @@ Ao utilizar tecnologias de memória da SQL Database do Azure, pode conseguir mel
 Seguem-se dois exemplos de como ajudou a OLTP na memória para melhorar significativamente o desempenho:
 
 - Ao utilizar OLTP na memória, [soluções de negócio de quórum foi capaz de duplicar as carga de trabalho ao melhorar DTUs 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU significa *unidade de transação de base de dados*, e inclui uma mesurement de consumo de recursos.
+    - DTU significa *unidade de transação de base de dados*, e inclui uma medida de consumo de recursos.
 - O vídeo seguinte demonstra uma melhoria significativa no consumo de recursos com uma carga de trabalho de exemplo: [OLTP dentro da memória na base de dados SQL do Azure vídeo](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Para obter mais informações, consulte a mensagem de blogue: [OLTP dentro da memória na mensagem do blogue do Azure SQL da base de dados](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -43,7 +43,7 @@ Base de dados SQL do Azure tem as seguintes tecnologias de dentro da memória:
 
 Os índices columnstore e OLTP na memória tem sido parte de produto do SQL Server desde 2012 e 2014, respetivamente. Base de dados SQL do Azure e o SQL Server partilham a mesma implementação de tecnologias de memória. Doravante, as novas capacidades para estas tecnologias são lançadas na SQL Database do Azure em primeiro lugar, antes de medida que são lançadas no SQL Server.
 
-Este tópico descreve os aspetos do OLTP dentro da memória e columnstore índices que são específicos para a SQL Database do Azure e também inclui exemplos:
+Este artigo descreve os aspetos do OLTP dentro da memória e columnstore índices que são específicos para a SQL Database do Azure e também inclui exemplos:
 - Verá o impacto destas tecnologias nos limites de tamanho de dados e armazenamento.
 - Verá como gerir o movimento de bases de dados que utilizam estas tecnologias entre os escalões de preços diferentes.
 - Verá dois exemplos que ilustram a utilização do OLTP dentro da memória, bem como os índices columnstore na SQL Database do Azure.
@@ -92,7 +92,7 @@ Com conjuntos elásticos, o armazenamento de OLTP na memória é partilhado entr
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho dos dados e armazenamento para índices columnstore
 
-Os índices Columnstore não são necessários para caber na memória. Por conseguinte, a extremidade apenas no tamanho de índices é o geral da base de dados tamanho máximo, que é descrita do [escalões de serviço de base de dados SQL](sql-database-service-tiers.md) artigo.
+Os índices Columnstore não são necessários para caber na memória. Por conseguinte, a extremidade apenas no tamanho de índices é o geral da base de dados tamanho máximo, que é descrita do [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md) artigos.
 
 Quando utiliza índices columnstore em cluster, compressão columnar é utilizado para o armazenamento de tabela base. Esta compressão pode reduzir significativamente os requisitos de espaço de armazenamento dos seus dados de utilizador, o que significa que podem ajustar mais dados na base de dados. E a compressão pode ser aumentada mais com [columnar compressão arquivo](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). A quantidade de compressão que pode alcançar depende da natureza dos dados, mas não é invulgar 10 vezes a compressão.
 
@@ -147,7 +147,7 @@ Pode criar a base de dados de amostra AdventureWorksLT com apenas alguns cliques
 
 Para obter uma mais simplistic, mas visualmente mais apelativos para resolver desempenho demonstração para OLTP na memória, consulte:
 
-- Release: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
+- Versão: [no-memória-oltp-demonstração-v 1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - Código de origem: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
 
 #### <a name="installation-steps"></a>Passos de instalação
@@ -223,8 +223,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 A única diferença entre os dois seguintes *procedimentos armazenados* é que o primeiro procedimento utiliza a otimização de memória versões das tabelas, durante o segundo procedimento utiliza as tabelas no disco regulares:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 Nesta secção, verá como utilizar o útil **ostress.exe** utilitário para executar os procedimentos armazenados dois níveis stressful. Pode comparar o tempo que demora para as execuções de dois esforço concluir.

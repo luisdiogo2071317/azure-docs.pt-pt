@@ -1,11 +1,11 @@
 ---
-title: "Permitir que as aplicações obter segredos do Cofre de chaves de pilha do Azure | Microsoft Docs"
-description: "Utilizar uma aplicação de exemplo para trabalhar com o Cofre de chaves de pilha do Azure"
+title: Permitir que as aplicações obter segredos do Cofre de chaves de pilha do Azure | Microsoft Docs
+description: Utilizar uma aplicação de exemplo para trabalhar com o Cofre de chaves de pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: mabrigg
-ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: c32667f240c9e825a82b1e9623c672b00ac999ed
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Exemplo de aplicação que utiliza as chaves e segredos armazenados no Cofre de chaves
 
@@ -72,7 +72,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Login-AzureRmAccount `
+Connect-AzureRmAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
   
@@ -141,7 +141,7 @@ Abra o ficheiro HelloKeyVault\App.config e substitua os valores do <appSettings>
 A aplicação inicia sessão com o Azure AD e, em seguida, utiliza esse token para autenticar para o Cofre de chaves na pilha do Azure. A aplicação executa operações como criar, encriptar, moldar e eliminar nas chaves e segredos do Cofre de chaves. Pode também passar parâmetros específicos, tais como *encriptar* e *desencriptar* à aplicação, que certifica-se de que a aplicação executa apenas essas operações contra o cofre. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Implementar uma VM com uma palavra-passe do Cofre de Chaves](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Implementar uma VM com um certificado do Cofre de chaves](azure-stack-kv-push-secret-into-vm.md)

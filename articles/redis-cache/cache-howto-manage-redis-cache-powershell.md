@@ -2,10 +2,10 @@
 title: Gerir a Cache de Redis do Azure com o Azure PowerShell | Microsoft Docs
 description: Saiba como efetuar tarefas administrativas para a Cache de Redis do Azure com o Azure PowerShell.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gerir a Cache de Redis do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Se já tiver instalado o Azure PowerShell, tem de ter o Azure PowerShell versão
 
 Em primeiro lugar, tem de iniciar sessão no Azure com este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Especifique o endereço de e-mail da sua conta do Azure e a palavra-passe no diálogo de início de sessão do Microsoft Azure.
 
@@ -66,18 +66,18 @@ Por exemplo, para obter ajuda para o `New-AzureRmRedisCache` cmdlet, tipo:
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Como ligar a outras nuvens
-Por predefinição do Azure é ambiente `AzureCloud`, que representa a instância global de nuvem do Azure. Para ligar a uma instância diferente, utilize o `Add-AzureRmAccount` comando com o `-Environment` ou -`EnvironmentName` comutador de linha de comandos com o ambiente pretendido ou o nome do ambiente.
+Por predefinição do Azure é ambiente `AzureCloud`, que representa a instância global de nuvem do Azure. Para ligar a uma instância diferente, utilize o `Connect-AzureRmAccount` comando com o `-Environment` ou -`EnvironmentName` comutador de linha de comandos com o ambiente pretendido ou o nome do ambiente.
 
 Para obter uma lista dos ambientes disponíveis, execute o `Get-AzureRmEnvironment` cmdlet.
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Para estabelecer a ligação para a nuvem do Azure Government
 Para ligar para a nuvem do Azure Government, utilize um dos seguintes comandos.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 ou
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Para criar uma cache na nuvem do Azure Government, utilize uma das seguintes localizações.
 
@@ -89,11 +89,11 @@ Para obter mais informações sobre a nuvem do Azure Government, consulte [Micro
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Para estabelecer a ligação para a nuvem do Azure China
 Para ligar para a nuvem do Azure China, utilize um dos seguintes comandos.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 ou
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Para criar uma cache na nuvem do Azure China, utilize uma das seguintes localizações.
 
@@ -105,12 +105,12 @@ Para obter mais informações sobre a nuvem do Azure China, consulte [AzureChina
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Para ligar ao Microsoft Azure Alemanha
 Para ligar ao Microsoft Azure Datacenters, utilize um dos seguintes comandos.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 ou
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Para criar uma cache na Alemanha do Microsoft Azure, utilize uma das seguintes localizações.
 
@@ -143,10 +143,10 @@ A tabela seguinte contém as propriedades e descrições de parâmetros frequent
 | --- | --- | --- |
 | capacidade de cópia de segurança de RDB |Se [persistência de dados de Redis](cache-how-to-premium-persistence.md) está ativado |Apenas Premium |
 | rdb-storage-connection-string |A cadeia de ligação para a conta de armazenamento para [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
-| rdb-backup-frequency |A frequência de cópia de segurança para [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
-| maxmemory-reserved |Configura o [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos de cache não |Standard e Premium |
-| maxmemory-policy |Configura o [política de expulsão](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para a cache |Todos os escalões de preços |
-| notify-keyspace-events |Configura [notificações keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
+| frequência de cópia de segurança RDB |A frequência de cópia de segurança para [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
+| maxmemory-reservados |Configura o [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos de cache não |Standard e Premium |
+| política de maxmemory |Configura o [política de expulsão](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para a cache |Todos os escalões de preços |
+| notificar-keyspace-eventos |Configura [notificações keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
 | hash-max-ziplist-entries |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
 | hash-max-ziplist-value |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
 | set-max-intset-entries |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
@@ -327,7 +327,7 @@ O seguinte comando atualiza a política de maxmemory para a Cache de Redis com o
 <a name="scale"></a>
 
 ## <a name="to-scale-a-redis-cache"></a>Dimensionar uma cache de Redis
-`Set-AzureRmRedisCache`pode ser utilizada para dimensionar uma cache de Redis do Azure instância quando o `Size`, `Sku`, ou `ShardCount` propriedades são modificadas. 
+`Set-AzureRmRedisCache` pode ser utilizada para dimensionar uma cache de Redis do Azure instância quando o `Size`, `Sku`, ou `ShardCount` propriedades são modificadas. 
 
 > [!NOTE]
 > Dimensionamento uma cache com o PowerShell está sujeita a mesma limites e diretrizes como dimensionar uma cache do portal do Azure. Pode dimensionar para um escalão de preço diferente com as seguintes restrições.

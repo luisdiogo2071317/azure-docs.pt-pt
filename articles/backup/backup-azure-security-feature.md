@@ -1,11 +1,11 @@
 ---
-title: "Funcionalidades de segurança para ajudar a proteger as cópias de segurança de híbridas que utilizam a cópia de segurança do Azure | Microsoft Docs"
-description: "Saiba como utilizar funcionalidades de segurança na cópia de segurança do Azure para efetuar cópias de segurança mais seguro"
+title: Funcionalidades de segurança para ajudar a proteger as cópias de segurança de híbridas que utilizam a cópia de segurança do Azure | Microsoft Docs
+description: Saiba como utilizar funcionalidades de segurança na cópia de segurança do Azure para efetuar cópias de segurança mais seguro
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funcionalidades de segurança para ajudar a proteger as cópias de segurança de híbridas que utilizam a cópia de segurança do Azure
 Questões sobre problemas de segurança, como software maligno, ransomware e intrusões, estão aumentar. Estes problemas de segurança podem ser dispendiosos, em termos de dados e dinheiro. Para proteger contra estes ataques, a cópia de segurança do Azure agora fornece funcionalidades de segurança para ajudar a proteger as cópias de segurança híbrida. Este artigo abrange como ativar e utilizar estas funcionalidades, utilizando um agente de serviços de recuperação do Azure e o servidor de cópia de segurança do Azure. Estas funcionalidades incluem:
@@ -55,7 +55,7 @@ Se estiver a criar um cofre dos serviços de recuperação, pode utilizar todas 
     ![Propriedades do Cofre de serviços de captura de ecrã de recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     A hiperligação de atualização abre o **definições de segurança** painel, que fornece um resumo das funcionalidades e permite-lhe ativá-los.
-5. Na lista pendente **configurou Azure multi-factor Authentication?**, selecione um valor para confirmar se tiver ativado o [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Se estiver ativada, é-lhe pedido para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) ao iniciar sessão no portal do Azure.
+5. Na lista pendente **configurou Azure multi-factor Authentication?**, selecione um valor para confirmar se tiver ativado o [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Se estiver ativada, é-lhe pedido para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) ao iniciar sessão no portal do Azure.
 
    Quando efetua operações críticas na cópia de segurança, terá de introduzir um PIN, disponível no portal do Azure de segurança. Ativar o Azure multi-factor Authentication adiciona uma camada de segurança. Apenas que os utilizadores com credenciais do Azure válidos autorizados e autenticados a partir de um segundo dispositivo, pode aceder ao portal do Azure.
 6. Para guardar as definições de segurança, selecione **ativar** e clique em **guardar**. Pode selecionar **ativar** apenas depois de selecionar um valor entre o **configurou Azure multi-factor Authentication?** lista no passo anterior.
@@ -106,7 +106,7 @@ Normalmente, quando é efetuada uma operação crítico, o administrador da subs
 
 As funcionalidades de segurança mencionadas neste artigo fornecem mecanismos de defesa contra ataques direcionados. Mais importante ainda, se um ataque acontecer, estas funcionalidades dão-lhe a capacidade de recuperar os seus dados.
 
-## <a name="troubleshooting-errors"></a>Resolução de problemas de erros
+## <a name="troubleshooting-errors"></a>Resolução de erros
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
 | Alterações na política |Não foi possível modificar a política de cópia de segurança. Erro: A operação atual falhou devido a um erro interno do serviço [0x29834]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft. |**Causa:**<br/>Este erro é fornecido quando as definições de segurança estão ativadas, tente reduzir o período de retenção abaixo os valores mínimos especificados acima e estiver numa versão não suportada (as versões suportadas são especificadas na primeira nota deste artigo). <br/>**Ação recomendada:**<br/> Neste caso, deve definir o período de retenção acima a retenção mínimo período especificado (sete dias para diariamente, quatro semanas para semanal, três semanas para mensal ou um ano para anual) continuar com a política relacionadas com atualizações. Opcionalmente, a abordagem preferida seria possível atualizar o agente de cópia de segurança, servidor de cópia de segurança do Azure e/ou DPM UR para tirar partido de todas as atualizações de segurança. |

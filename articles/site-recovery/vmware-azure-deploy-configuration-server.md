@@ -1,6 +1,6 @@
 ---
-title: "Implementar o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery"
+title: Implementar o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 99b368ca364bd7c5bebfc00c2df0f04333293388
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -108,6 +108,11 @@ Se pretender adicionar uma NIC adicional para o servidor de configuração, adic
 8. No **configurar as credenciais de máquina virtual**, introduza o nome de utilizador e palavra-passe para ser utilizado para instalar automaticamente o serviço de mobilidade do Azure Site Recovery nas máquinas, quando a replicação está ativada. Para computadores Windows, a conta precisa de privilégios de administrador local nos computadores que pretende replicar. Para o Linux, forneça detalhes para a conta raiz.
 9. Selecione **Finalize configuração** para concluir o registo. 
 10. Após a conclusão do registo, no portal do Azure, certifique-se de que o servidor de configuração e o servidor VMware estão listados na página **Origem** do cofre. Em seguida, selecione **OK** para configurar as definições de destino.
+
+
+## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
+
+Para atualizar o servidor de configuração para a versão mais recente, leia os passos fornecidos [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
 
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação

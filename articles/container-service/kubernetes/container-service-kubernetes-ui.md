@@ -1,19 +1,19 @@
 ---
 title: Gerir o cluster Azure Kubernetes com IU da web
-description: "Utilizando a IU da web de Kubernetes no serviço de contentor do Azure"
+description: Utilizando a IU da web de Kubernetes no serviço de contentor do Azure
 services: container-service
 author: bburns
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: d5a3906e5e26c9ed0a6cf356000c3d81f00de72c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilizando a IU da web de Kubernetes com o serviço de contentor do Azure
 
@@ -45,7 +45,7 @@ Se não tiver `kubectl` instalado, pode executar:
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 ### <a name="connect-to-the-web-ui"></a>Estabelecer ligação com a IU da web
 Pode iniciar a IU da web de Kubernetes executando:

@@ -1,29 +1,28 @@
 ---
-title: "Saiba mais sobre os protocolos de autorização suportados pelo Azure AD v 2.0 | Microsoft Docs"
+title: Saiba mais sobre os protocolos de autorização suportados pelo Azure AD v 2.0 | Microsoft Docs
 description: Um guia para protocolos suportados pelo ponto final v 2.0 do Azure AD.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+ms.date: 04/22/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29d9e2d9ee05b755ef40179e0e75fb0c8a6b010b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v 2.0 protocolos - OAuth 2.0 & OpenID Connect
-O ponto final v 2.0 pode utilizar o Azure AD para identidade-como-um-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0.  Enquanto o serviço está em conformidade com as normas, pode ser ligeiras diferenças entre as duas implementações destes protocolos.  As informações aqui será útil se optar por escrever código enviando diretamente & processar pedidos de HTTP ou utilize um 3rd terceiros abrir biblioteca de origem, em vez de utilizar uma das nossas bibliotecas de open source para.
-<!-- TODO: Need link to libraries above -->
+O ponto final v 2.0 pode utilizar o Azure AD para identidade-como-um-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0.  Enquanto o serviço está em conformidade com as normas, pode ser ligeiras diferenças entre as duas implementações destes protocolos.  As informações aqui será útil se pretender escrever o seu código enviando diretamente & HTTP a processar pedidos ou utilizar uma biblioteca de open source para terceiros 3rd, em vez de utilizar um dos nossos [abrir bibliotecas de origem](active-directory-v2-libraries.md).
 
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades são suportadas pelo ponto final v 2.0.  Para determinar se deve utilizar o ponto final v 2.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).

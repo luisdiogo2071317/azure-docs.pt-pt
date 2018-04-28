@@ -1,25 +1,25 @@
 ---
-title: "Referência de tokens do Azure Active Directory v 2.0 | Microsoft Docs"
-description: "Os tipos de tokens e afirmações emitidas pelo ponto final v 2.0 do Azure AD"
+title: Referência de tokens do Azure Active Directory v 2.0 | Microsoft Docs
+description: Os tipos de tokens e afirmações emitidas pelo ponto final v 2.0 do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, características de segurança e conteúdo de cada tipo de token.
@@ -49,7 +49,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> Para prática, para inspecionar as afirmações no token de ID de exemplo, cole o token de ID de exemplo para [calebb.net](http://calebb.net/).
+> Para prática, para inspecionar as afirmações no token de ID de exemplo, cole o token de ID de exemplo para [jwt.ms](http://jwt.ms/).
 >
 >
 
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | ID de objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável para um objeto de sistema de identidade Microsoft, neste caso, uma conta de utilizador.  Também pode ser utilizado para efetuar verificações de autorização segura e como uma chave nas tabelas de base de dados. Este ID identifica exclusivamente o utilizador em todas as aplicações - duas aplicações diferentes assinatura no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação.  Isto significa que pode ser utilizado quando efetuar consultas para o Microsoft online services, como o Microsoft Graph.  O Microsoft Graph devolverá este ID de como o `id` propriedade para uma determinada conta de utilizador.  Porque o `oid` permite que várias aplicações correlacionar os utilizadores, a `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador na vários inquilinos, o utilizador irá conter um ID de objeto diferentes cada inquilino - que são consideradas diferentes contas, apesar do utilizador iniciar sessão cada conta com as mesmas credenciais. |
 
 ### <a name="access-tokens"></a>Tokens de acesso
-Atualmente, os tokens de acesso emitidos pelo ponto final v 2.0 podem ser utilizados apenas por Microsoft Services. As suas aplicações não devem necessitar de efetuar qualquer validação ou inspeção de tokens de acesso para qualquer um dos cenários atualmente suportados. Pode processar os tokens de acesso como completamente opaco. São apenas cadeias que a aplicação pode passar para a Microsoft em pedidos de HTTP.
 
-Num futuro próximo, o ponto final v 2.0 está a introduzir a capacidade para a sua aplicação receber tokens de acesso a partir de outros clientes. Nessa altura, serão possível atualizar as informações deste tópico de referência com as informações necessárias para a sua aplicação efetuar a validação de token de acesso e outras tarefas semelhantes.
+O ponto final v 2.0 permite que aplicações de terceiros que são registadas com o Azure AD para emitir tokens de acesso para recursos protegidos, como APIs da Web. Para obter mais informações sobre como configurar uma aplicação para emitir tokens de acesso, consulte [como registar uma aplicação com o ponto final v 2.0](active-directory-v2-app-registration.md). Depois de registar a aplicação com o ponto final v 2.0, o programador pode especificar os níveis de acesso, denominado **âmbitos**, para que o acesso podem ser emitidos tokens. Por exemplo, o **calendars.read** âmbito definido para a Microsoft Graph API concede permissão para ler o calendário do utilizador. Quando a aplicação recebe um token de acesso do ponto final v 2.0, é necessário validar a assinatura do token, emissor, público-alvo, hora de expiração e quaisquer outras afirmações dependendo do seu cenário. 
 
 Quando solicita um token de acesso do ponto final v 2.0, o ponto final v 2.0 também devolve os metadados sobre o token de acesso para a sua aplicação utilizar. Estas informações incluem a hora de expiração do token de acesso e âmbitos para a qual é válido. A aplicação utiliza estes metadados para efectuar inteligente colocação em cache de tokens de acesso sem ter de analisar a abrir o token de acesso si próprio.
 

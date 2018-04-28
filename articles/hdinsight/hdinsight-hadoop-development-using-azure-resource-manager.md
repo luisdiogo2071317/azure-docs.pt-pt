@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: a18d045815a65953aafd690674fb9b5ce129c825
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d0182afbd1a6beaabadf68f08905316be4ba034f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager para clusters do HDInsight
 
@@ -93,7 +93,7 @@ Os cmdlets do PowerShell do Azure Resource Manager pode ser instalados side by s
 
 Antes de poder utilizar os cmdlets do HDInsight, tem de ligar à sua conta do Azure e criar um novo grupo de recursos:
 
-* Login-AzureRmAccount ou [selecione AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Consulte [autenticar um principal de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Ligar-AzureRmAccount ou [selecione AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Consulte [autenticar um principal de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Cmdlets cujo nome foi alterados

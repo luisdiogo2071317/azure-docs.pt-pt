@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Netsuite | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Netsuite."
+title: 'Tutorial: Integração do Azure Active Directory com Netsuite | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Netsuite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integração do Azure Active Directory com Netsuite
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão seguinte: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:   `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
     > Estes não são valores reais. Atualize estes valores com o URL de resposta real. Contacte [equipa de suporte de Netsuite](http://www.netsuite.com/portal/services/support.shtml) para obter estes valores.
@@ -183,7 +183,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. Clique em **nova função**.
 
-    d. Escreva um **nome** para a sua nova função de segurança e selecione o **único início de sessão só** caixa de verificação.
+    d. Escreva um **nome** para a nova função.
       
       ![Configurar o início de sessão único](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -193,11 +193,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
       
        ![Configurar o início de sessão único](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Selecione **definir segurança SAM Single Sign-on**e, em seguida, clique em **adicionar**.
+    g. Selecione **definir segurança SAML Single Sign-on**e, em seguida, clique em **adicionar**.
 
     h. Clique em **Guardar**.
 
-    posso. No menu de navegação superior, clique em **configuração**, em seguida, clique em **Gestor de configuração**.
+    i. No menu de navegação superior, clique em **configuração**, em seguida, clique em **Gestor de configuração**.
       
        ![Configurar o início de sessão único](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
@@ -215,10 +215,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     m. Clique em **Guardar**.
     
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
@@ -290,7 +286,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
-Para testar as definições de início de sessão único, abra o painel de acesso em [https://myapps.microsoft.com](https://myapps.microsoft.com/), iniciar sessão na conta de teste e, em **Netsuite**.
+Para testar as definições de início de sessão único, abra o painel de acesso em [ https://myapps.microsoft.com ](https://myapps.microsoft.com/), iniciar sessão na conta de teste e, em **Netsuite**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

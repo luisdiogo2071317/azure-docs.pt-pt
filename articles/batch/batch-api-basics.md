@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -79,10 +79,15 @@ Pode executar várias cargas de trabalho do Batch numa única conta do Batch ou 
 
 ## <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 
-A maioria das soluções do Batch utilizam o Armazenamento do Azure para armazenar ficheiros de recursos e ficheiros de saída.  
+A maioria das soluções do Batch utilizam o Armazenamento do Azure para armazenar ficheiros de recursos e ficheiros de saída. Por exemplo, as suas tarefas do Batch (incluindo tarefas standard, tarefas de início, tarefas de preparação de trabalhos e tarefas de lançamento de trabalhos), normalmente, especificam os ficheiros de recursos que residem numa contas de armazenamento.
 
-Atualmente, o Batch só suporta o tipo de conta de armazenamento para fins gerais, conforme descrito no passo 5 de [Criar uma conta de Armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account), em [Acerca das contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). As suas tarefas do Batch (incluindo tarefas standard, tarefas de início, tarefas de preparação de trabalhos e tarefas de lançamento de trabalhos) têm de especificar os ficheiros de recursos que residem apenas nas contas de armazenamento para fins gerais.
+O Batch suporta o Armazenamento do Azure seguinte [Opções de Conta](../storage/common/storage-account-options.md):
 
+* Contas para Fins gerais v2 (GPv2) 
+* Contas para Fins gerais v1 (GPv1)
+* Contas do Blob Storage
+
+Pode associar uma conta de armazenamento à sua conta do Batch ao criar a conta do Batch, ou posteriormente. Considere os requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento GPv2 e BLOBs suportam [limites de escalabilidade e capacidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) mais elevados em comparação com a GPv1. (Contacte o Suporte do Azure para pedir um aumento de um limite de armazenamento.) Estas opções de conta podem melhorar o desempenho das soluções do Batch que contêm um grande número de tarefas paralelas que leem ou escrevem para a conta de armazenamento.
 
 ## <a name="compute-node"></a>Nó de computação
 Um nó de computação é uma máquina virtual (VM) ou uma VM de um serviço cloud do Azure dedicada ao processamento de uma parte da carga de trabalho da sua aplicação. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de ficheiros local que está alocado ao nó. Pode criar conjuntos de nós do Windows ou Linux com imagens dos Serviços Cloud do Azure, imagens do [Marketplace das Máquinas Virtuais do Azure][vm_marketplace] ou imagens personalizadas preparadas por si. Veja a secção [Conjunto](#pool), abaixo, para obter mais informações sobre estas opções.
@@ -252,7 +257,7 @@ Quando cria uma tarefa, pode especificar:
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     Se as suas tarefas tiverem de executar uma aplicação ou script que não esteja no `PATH` ou de referenciar variáveis de ambiente, invoque a shell explicitamente na linha de comandos das tarefas.
-* Os **ficheiros de recursos** que contêm os dados a serem processados. Estes ficheiros são copiados automaticamente para o nó a partir do Armazenamento de blobs numa conta de Armazenamento do Azure para fins gerais antes de a linha de comando da tarefa ser executada. Para obter mais informações, veja as secções [Tarefa de início](#start-task) e [Ficheiros e diretórios](#files-and-directories).
+* Os **ficheiros de recursos** que contêm os dados a serem processados. Estes ficheiros são copiados automaticamente para o nó a partir do Armazenamento de blobs numa conta de Armazenamento do Azure antes de a linha de comando da tarefa ser executada. Para obter mais informações, veja as secções [Tarefa de início](#start-task) e [Ficheiros e diretórios](#files-and-directories).
 * As **variáveis de ambiente** de que a aplicação precisa. Para obter mais informações, veja a secção [Definições de ambiente das tarefas](#environment-settings-for-tasks).
 * As **restrições** sob as quais a computação deve ocorrer. Por exemplo, as restrições incluem o tempo máximo dentro do qual a tarefa pode ser executada, o número máximo de vezes que uma tarefa falhada deve ser repetida e o tempo máximo durante o qual os ficheiros no diretório de trabalho da tarefa são retidos.
 * **Pacotes de aplicações** para implementar o nó de computação no qual a tarefa está agendada para ser executada. Os [pacotes de aplicações](#application-packages) fornecem uma implementação simplificada e o controlo de versões das aplicações que as suas tarefas executam. Os pacotes de aplicações ao nível das tarefas são particularmente úteis em ambientes de conjunto partilhado, em que as diferentes tarefas são executadas num conjunto, e o conjunto não é eliminado quando um trabalho estiver concluído. Se o trabalho tiver menos tarefas do que nós no conjunto, os pacotes de aplicações de tarefas podem minimizar a transferência de dados, uma vez que a aplicação é implementada apenas nos nós que executam tarefas.

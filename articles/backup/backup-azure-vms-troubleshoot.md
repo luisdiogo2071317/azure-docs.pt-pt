@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 93eb9a65e9d5733963f7d6269a06d5f3cde5e256
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizar o Backup do Azure com as informações apresentadas na tabela abaixo.
@@ -36,7 +36,7 @@ Pode resolver erros encontrados ao utilizar o Backup do Azure com as informaçõ
 | Máquina virtual não existe. -Certifique-se de que a máquina virtual existe ou selecione outra máquina virtual. |Isto acontece quando a VM principal é eliminada, mas continua a política de cópia de segurança procurar uma VM efetuar a cópia de segurança. Para corrigir este erro: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço de nuvem]<br>(OU)<br></li><li>Pare a proteção da máquina virtual sem eliminar os dados de cópia de segurança. [obter mais detalhes](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Falha na execução de comando. -Outra operação está atualmente em curso neste item. Aguarde até que a anterior operação esteja concluída e tente novamente |Uma cópia de segurança existente na VM está em execução e não é possível iniciar uma nova tarefa enquanto a tarefa existente está em execução. |
 | Copiar VHDs a partir do Cofre de cópia de segurança excedeu o tempo-. Repita a operação dentro de alguns minutos. Se o problema persistir, contacte o Suporte da Microsoft. | Isto acontece se existir um erro transitório no lado de armazenamento ou se o serviço de cópia de segurança não está a obter o IOPS suficiente da conta de armazenamento que aloja a VM para a transferência de dados dentro do período de tempo limite para o cofre. Certifique-se de que seguiu [melhores práticas](backup-azure-vms-introduction.md#best-practices) ao configurar a cópia de segurança. Tente mover VM para um armazenamento diferente da conta que não está carregada e repita cópia de segurança.|
-| Falha de cópia de segurança com um erro interno -. Repita a operação dentro de alguns minutos. Se o problema persistir, contacte Support da Microsoft |Pode obter este erro por motivos de 2: <ol><li> Não há um problema transitório ao aceder ao armazenamento VM. Verifique [Azure estado](https://azure.microsoft.com/en-us/status/) para ver se existe qualquer problema relacionado com a computação em curso, de armazenamento ou redes na região. Em seguida, repita a tarefa de cópia de segurança depois do problema está resolvido. <li>Foi eliminada da VM original e, por conseguinte, não é possível efetuar o ponto de recuperação. Para manter os dados de cópia de segurança para uma VM eliminada, mas remova os erros de cópia de segurança: desproteger a VM e escolha a opção para manter os dados. Esta ação para a tarefa de cópia de segurança agendada e as mensagens de erro periódica. |
+| Falha de cópia de segurança com um erro interno -. Repita a operação dentro de alguns minutos. Se o problema persistir, contacte Support da Microsoft |Pode obter este erro por motivos de 2: <ol><li> Não há um problema transitório ao aceder ao armazenamento VM. Verifique [Azure estado](https://azure.microsoft.com/status/) para ver se existe qualquer problema relacionado com a computação em curso, de armazenamento ou redes na região. Em seguida, repita a tarefa de cópia de segurança depois do problema está resolvido. <li>Foi eliminada da VM original e, por conseguinte, não é possível efetuar o ponto de recuperação. Para manter os dados de cópia de segurança para uma VM eliminada, mas remova os erros de cópia de segurança: desproteger a VM e escolha a opção para manter os dados. Esta ação para a tarefa de cópia de segurança agendada e as mensagens de erro periódica. |
 | Falha ao instalar a extensão do Azure Recovery Services do item selecionado - o agente VM a é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente da VM do Azure e reinicie a operação de registo |<ol> <li>Verificar se o agente da VM foi instalado corretamente. <li>Certifique-se de que o sinalizador da configuração VM está definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre como instalar o agente da VM e, como validar a instalação do agente VM. |
 | Instalação da extensão falhou com o erro "COM+ não conseguiu comunicar com o coordenador de transações Microsoft Distributed |Normalmente, isto significa que o serviço COM+ não está em execução. Contacte o suporte da Microsoft para obter ajuda na corrigir este problema. |
 | A operação de instantâneos falhou com o erro de operação do VSS "Esta unidade está bloqueada pela encriptação de unidade BitLocker. Tem de desbloquear esta unidade no painel de controlo. |Desativar o BitLocker para todas as unidades na VM e verifique se o problema VSS for resolvido |
@@ -56,24 +56,24 @@ Pode resolver erros encontrados ao utilizar o Backup do Azure com as informaçõ
 ## <a name="jobs"></a>Tarefas
 | Detalhes do erro | Solução |
 | --- | --- |
-| Cancelamento não é suportado para este tipo de tarefa - por favor, aguardar até que a tarefa é concluída. |Nenhum |
+| Cancelamento não é suportado para este tipo de tarefa - por favor, aguardar até que a tarefa é concluída. |Nenhuma |
 | A tarefa não está num Estado cancelable - por favor, aguardar até que a tarefa é concluída. <br>OU<br> A tarefa selecionada não está num Estado cancelable -. Aguarde a conclusão da tarefa. |Em todos os probabilidade, a tarefa quase estiver concluída. Aguarde até que a tarefa esteja concluída.|
 | Não é possível cancelar a tarefa porque não está em curso - cancelamento só é suportado para tarefas que se encontrem em curso. . A tentativa de cancelar num em curso tarefa. |Isto acontece devido a um Estado temporárias. Aguarde um minuto e repita a operação de cancelamento. |
-| Falha ao cancelar a tarefa -. Aguarde pela conclusão da tarefa. |Nenhum |
+| Falha ao cancelar a tarefa -. Aguarde pela conclusão da tarefa. |Nenhuma |
 
 ## <a name="restore"></a>Restauro
 | Detalhes do erro | Solução |
 | --- | --- |
 | Falha no restauro com um erro interno de nuvem |<ol><li>O serviço em nuvem para o qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, isto significa que as definições de DNS estão configuradas.<br> <li>O serviço em nuvem para a qual está a tentar restaurar está configurado com ReservedIP e VMs existentes num serviço em nuvem estão no estado de paragem.<br>Pode verificar o que IP reservado tem um serviço em nuvem, utilizando os seguintes cmdlets do powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações de rede especial no mesmo serviço em nuvem. <br>-As máquinas virtuais em configuração de Balanceador de carga (externas e internas)<br>-As máquinas virtuais com vários IPs reservados<br>-As máquinas virtuais com vários NICs<br>Selecione um novo serviço em nuvem na IU ou consulte [restaurar considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já foi atribuído - Especifique um nome DNS diferente e tente novamente. |O nome DNS aqui refere-se ao nome do serviço em nuvem (normalmente, terminando. cloudapp.net). Isto deve ser exclusivo. Se ocorrer este erro, terá de escolher um nome VM diferente durante o restauro. <br><br> Este erro é apresentado apenas a utilizadores do portal do Azure. A operação de restauro através do PowerShell será bem sucedida porque apenas restaura os discos e não criar a VM. O erro irá ser deparam quando a VM é explicitamente criada por si após a operação de restauro de disco. |
-| A configuração de rede virtual especificado não está correta –. Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
-| O serviço de nuvem especificada está a utilizar um IP reservado, que não coincide com a configuração da máquina virtual a ser restaurada - Especifique um serviço de nuvem diferente, que não está a utilizar o IP reservado, ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhum |
-| Serviço em nuvem atingiu o limite do número de pontos finais de entrada - repetir a operação especificando um serviço em nuvem diferente ou através da utilização de um ponto final existente. |Nenhum |
-| Conta de armazenamento do cofre e o destino da cópia de segurança em duas regiões diferentes - Certifique-se de que a conta de armazenamento especificada na operação de restauro na mesma região que o Cofre de cópia de segurança do Azure. |Nenhum |
-| Conta de armazenamento especificada para a operação de restauro não é suportada - contas do storage apenas Basic/Standard com localmente redundante ou definições de replicação redundante georreplicação são suportadas. Selecione uma conta de armazenamento suportadas |Nenhum |
+| A configuração de rede virtual especificado não está correta –. Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
+| O serviço de nuvem especificada está a utilizar um IP reservado, que não coincide com a configuração da máquina virtual a ser restaurada - Especifique um serviço de nuvem diferente, que não está a utilizar o IP reservado, ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhuma |
+| Serviço em nuvem atingiu o limite do número de pontos finais de entrada - repetir a operação especificando um serviço em nuvem diferente ou através da utilização de um ponto final existente. |Nenhuma |
+| Conta de armazenamento do cofre e o destino da cópia de segurança em duas regiões diferentes - Certifique-se de que a conta de armazenamento especificada na operação de restauro na mesma região que o Cofre de cópia de segurança do Azure. |Nenhuma |
+| Conta de armazenamento especificada para a operação de restauro não é suportada - contas do storage apenas Basic/Standard com localmente redundante ou definições de replicação redundante georreplicação são suportadas. Selecione uma conta de armazenamento suportadas |Nenhuma |
 | Tipo de conta de armazenamento especificado para a operação de restauro não está online - Certifique-se de que a conta de armazenamento especificada na operação de restauro online |Isto pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma falha. Escolha outra conta de armazenamento. |
-| Foi atingida a Quota do grupo de recursos - elimine alguns grupos de recursos a partir do portal do Azure ou contacte o suporte do Azure para aumentar os limites. |Nenhum |
-| Sub-rede selecionada não existe - Selecione uma sub-rede de que existe |Nenhum |
+| Foi atingida a Quota do grupo de recursos - elimine alguns grupos de recursos a partir do portal do Azure ou contacte o suporte do Azure para aumentar os limites. |Nenhuma |
+| Sub-rede selecionada não existe - Selecione uma sub-rede de que existe |Nenhuma |
 | O Serviço de Cópia de Segurança não tem autorização para aceder a recursos na sua subscrição. |Para resolver isto, primeiro discos restauro utilizando os passos mencionados na secção **restaurar uma cópia de segurança discos** no [configuração de restauro de VM escolher](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, utilize os passos de PowerShell mencionados [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar a VM completo de discos restaurados. |
 
 ## <a name="backup-or-restore-taking-time"></a>Cópia de segurança ou restauro demorar tempo
@@ -131,7 +131,7 @@ Cópia de segurança VM depende emitir comandos de instantâneo para o armazenam
 
 <br>
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 Como todas as extensões, extensão de cópia de segurança necessita de acesso à internet pública funcione. Não ter acesso à internet pública pode manifesto próprio de várias formas:
 
 * A instalação da extensão pode falhar

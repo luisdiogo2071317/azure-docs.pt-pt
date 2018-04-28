@@ -1,26 +1,24 @@
 ---
-title: "Introdução ao exemplo HBase no HDInsight - Azure | Microsoft Docs"
-description: "Siga este exemplo de Apache HBase para começar a utilizar o Hadoop no HDInsight. Criar tabelas a partir da shell de HBase e fazer consultas utilizando o Hive."
+title: Introdução ao exemplo HBase no HDInsight - Azure | Microsoft Docs
+description: Siga este exemplo de Apache HBase para começar a utilizar o Hadoop no HDInsight. Criar tabelas a partir da shell de HBase e fazer consultas utilizando o Hive.
 keywords: hbasecommand, exemplo hbase
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 04c1f924e033fb690ebc086c7ea37156d0a8bbba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Introdução com um exemplo do Apache HBase no HDInsight
 
@@ -272,7 +270,7 @@ Para evitar inconsistências, recomendamos que desative as tabelas do HBase ante
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](../hdinsight-administer-use-portal-linux.md#create-clusters).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a criar um cluster do HBase e a criar tabelas e ver os dados dessas tabelas a partir da shell do HBase. Também aprendeu como utilizar uma consulta Hive nos dados de tabelas de HBase e como utilizar as APIs REST C# para criar uma tabela de HBase e recuperar os dados da tabela.
 
 Para saber mais, consulte:

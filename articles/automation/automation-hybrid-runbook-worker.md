@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 8f212797decdd967154584927984bc0a4e58f4ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7065ec97e1e02dfb4ee873993caac584f6a63ba6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizar recursos no seu centro de dados ou a nuvem com o Runbook Worker híbrido
 
@@ -148,6 +148,12 @@ Pode remover uma ou mais os Runbook Workers híbridos de um grupo ou pode remove
 1. No portal do Azure, navegue até à sua conta de automatização.
 2. Do **definições** painel, selecione **chaves** e anote os valores de campo **URL** e **chave de acesso primária**. Estas informações são necessárias para o passo seguinte.
 3. Abra uma sessão do PowerShell no modo de administrador e execute o seguinte comando - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Utilize o **-Verbose** mudar para um registo detalhado do processo de remoção.
+
+Para remover obsoletas máquinas do seu grupo de trabalho híbrida, utilize a opção `machineName` parâmetro.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
 
 > [!NOTE]
 > Isto não remove o Microsoft Monitoring Agent no computador, apenas a funcionalidade e a configuração da função de trabalho de Runbook híbrida.

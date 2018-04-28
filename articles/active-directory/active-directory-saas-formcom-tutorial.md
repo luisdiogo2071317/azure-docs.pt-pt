@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Form.com | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Form.com."
+title: 'Tutorial: Integração do Azure Active Directory com Form.com | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Form.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e4de55d99fce1cb1feff18a784eb029d3cb6a404
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b1d990337c7c5caaee79bc8e3280c2690fc47b0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory com Form.com
 
@@ -101,16 +101,16 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_samlbase.png)
 
 3. No **Form.com domínio e os URLs** secção, execute os seguintes passos:
 
     ![Domínio Form.com e os URLs únicos de informações de início de sessão](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.wa-form.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.wa-form.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.form.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.form.com`
 
     c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
     | |
@@ -118,46 +118,26 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
     | `https://<subdomain>.form.com/Member/UserAccount/SAML2.action` |
     
-    > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, o URL de resposta e identificador real. Contacte [equipa de suporte de cliente Form.com](https://form.com/about/company/contact-us/) para obter estes valores. 
- 
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    > [!NOTE]
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, o URL de resposta e identificador real. Contacte [equipa de suporte de cliente Form.com](https://form.com/about/company/contact-us/) para obter estes valores.
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_certificate.png) 
-
-5. Para gerar o **URL de metadados**, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
+4. No **certificado de assinatura de SAML** secção, execute os seguintes passos:
     
-    ![Configurar appreg](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar Endpointcon](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpointicon.png)
+    ![Configurar o início de sessão único](./media/active-directory-saas-formcom-tutorial/tutorial_metadataurl.png)
 
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o ponto final](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_endpoint.png)
+    a. Clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+
+    b. Clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
      
-    d. Agora, a página de propriedades do **Form.com** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o appid](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Clique em **guardar** botão.
+5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-formcom-tutorial/tutorial_general_400.png)
 
-7. No **Form.com configuração** secção, clique em **configurar Form.com** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. No **Form.com configuração** secção, clique em **configurar Form.com** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
     ![Configuração de Form.com](./media/active-directory-saas-formcom-tutorial/tutorial_form.com_configure.png) 
 
-8. Para configurar o início de sessão único em **Form.com** lado, terá de enviar o transferido **certificado (Base64)**, **URL de metadados**, e **SAML Single Sign-On URL do serviço** para [equipa de suporte de Form.com](https://form.com/about/company/contact-us/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+7. Para configurar o início de sessão único em **Form.com** lado, terá de enviar o transferido **certificado (Base64)**, **Url de metadados de Federação de aplicação**, e **SAML Single Sign-On URL do serviço** para [equipa de suporte de Form.com](https://form.com/about/company/contact-us/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

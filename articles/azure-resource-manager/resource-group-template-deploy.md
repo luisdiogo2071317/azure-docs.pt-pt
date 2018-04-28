@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
@@ -26,7 +26,7 @@ Este artigo explica como utilizar o Azure PowerShell com modelos do Resource Man
 
 O modelo do Resource Manager que implementar possível ser um ficheiro local no seu computador, ou um ficheiro externo que está localizado num repositório como GitHub. O modelo que implementa neste artigo está disponível no [modelo de exemplo](#sample-template) secção, ou como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Se necessário, instale o módulo Azure PowerShell, utilizando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview)e, em seguida, execute `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Caso seja necessário, instale o módulo Azure PowerShell com as instruções no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma ligação ao Azure.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ Um modelo pode incluir parâmetros que permitem-lhe personalizar a implementaç�
 O exemplo seguinte cria um grupo de recursos e implementa um modelo a partir do seu computador local:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

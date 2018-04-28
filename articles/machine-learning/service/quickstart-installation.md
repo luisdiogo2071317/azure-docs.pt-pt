@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 0a24adb94930024f6eaaa5ac270ae7fc35520132
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Início rápido: Instalar e começar a utilizar os serviços do Azure Machine Learning
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e de ciência de dados integrada e completa. Ajudam os cientistas de dados profissionais a preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
@@ -64,7 +64,7 @@ Utilize o portal do Azure para aprovisionar as contas do Azure Machine Learning:
    Grupo de recursos | _O seu grupo de recursos_ | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo para esta conta de experimentação. 
    Localização | _A região mais próxima dos seus utilizadores_ | Escolha a localização que esteja mais próxima dos seus utilizadores e dos recursos de dados.
    Número de utilizadores | 2 | Introduza o número de utilizadores. Saiba como [o número de utilizadores influencia os preços](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Neste início rápido, só precisa de dois utilizadores. É possível adicionar ou remover utilizadores no portal do Azure, conforme necessário.
-   Conta de armazenamento | _Nome exclusivo_ | Selecione **Criar nova** e indique um nome para criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). O nome deve incluir 3 a 24 carateres alfanuméricos. Em alternativa, selecione **Utilizar existente** e selecione a conta de armazenamento existente na lista pendente. A conta de armazenamento é necessária e é utilizada para armazenar artefactos de projetos e dados do histórico de execuções. 
+   Conta de armazenamento | _Nome exclusivo_ | Selecione **Criar nova** e indique um nome para criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal). O nome deve incluir 3 a 24 carateres alfanuméricos. Em alternativa, selecione **Utilizar existente** e selecione a conta de armazenamento existente na lista pendente. A conta de armazenamento é necessária e é utilizada para armazenar artefactos de projetos e dados do histórico de execuções. 
    Área de Trabalho para a conta de Experimentação | IrisGarden<br/>(nome utilizado nos tutoriais) | Indique um nome para uma área de trabalho nesta conta. O nome deve ter entre 2 e 32 carateres. Deve incluir apenas carateres alfanuméricos e o caráter de travessão (–). Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
    Atribuir proprietário à área de trabalho | _A sua conta_ | Selecione a sua própria conta como o proprietário da área de trabalho.
    Criar conta de Gestão de Modelos | **selecionar** |Crie uma conta de Gestão de Modelos agora, para que este recurso esteja disponível quando quiser implementar e gerir os seus modelos como serviços Web em tempo real. <br/><br/>Embora seja opcional, recomendamos que crie a conta de Gestão de Modelos ao mesmo tempo que a conta de Experimentação.

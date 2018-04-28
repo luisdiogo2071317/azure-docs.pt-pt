@@ -1,18 +1,18 @@
 ---
 title: Execute Ansible com Bash na Shell de nuvem do Azure
-description: "Saiba como efetuar várias tarefas de Ansible com Bash na Shell de nuvem do Azure"
+description: Saiba como efetuar várias tarefas de Ansible com Bash na Shell de nuvem do Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+keywords: ansible, azure, devops, bash, cloudshell, manual de comunicação social, bash
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Execute Ansible com Bash na Shell de nuvem do Azure
 
@@ -24,7 +24,7 @@ Neste tutorial, irá aprender a efetuar várias tarefas de Ansible de Bash na Sh
 
 - **Credenciais do Azure** - [Azure criar credenciais e configurar Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configurar a Shell de nuvem do Azure** - se estiver familiarizado com a Shell de nuvem do Azure, o artigo [início rápido para Bash na Shell de nuvem do Azure](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ilustra como iniciar e configurar a Shell de nuvem. Inicie o Web site dedicado de nuvem Shell aqui:
+- **Configurar a Shell de nuvem do Azure** - se estiver familiarizado com a Shell de nuvem do Azure, o artigo [início rápido para Bash na Shell de nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/quickstart) ilustra como iniciar e configurar a Shell de nuvem. Inicie o Web site dedicado de nuvem Shell aqui:
 
 [![Inicie o Shell de nuvem](https://shell.azure.com/images/launchcloudshell.png "inicie o Shell de nuvem")](https://shell.azure.com)
 

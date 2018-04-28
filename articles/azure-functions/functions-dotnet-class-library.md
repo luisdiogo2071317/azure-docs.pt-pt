@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -44,7 +44,7 @@ No Visual Studio, o **das funções do Azure** modelo de projeto cria um classe 
 > [!IMPORTANT]
 > O processo de compilação cria um *function.json* ficheiro para cada função. Isto *function.json* ficheiros não se destinar a ser editado diretamente. Não é possível alterar a configuração do enlace ou desativar a função ao editar este ficheiro. Para desativar uma função, utilize o [desativar](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) atributo. Por exemplo, adicionar uma aplicação booleana definição MY_TIMER_DISABLED e aplicar `[Disable("MY_TIMER_DISABLED")]` a sua função. Em seguida, pode ativar e desativá-lo alterando a definição de aplicação.
 
-### <a name="functionname-and-trigger-attributes"></a>Atributos FunctionName e acionador
+## <a name="methods-recognized-as-functions"></a>Métodos reconhecidos como funções
 
 Na biblioteca de classes, uma função é um método estático com um `FunctionName` e um atributo de Acionador, conforme mostrado no exemplo seguinte:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-O `FunctionName` atributo marca o método como um ponto de entrada da função. O nome tem de ser exclusivo dentro de um projeto.
+O `FunctionName` atributo marca o método como um ponto de entrada da função. O nome tem de ser exclusivo dentro de um projeto. Modelos de projeto, muitas vezes, criam um método denominado `Run`, mas o nome do método pode ser qualquer nome de método do c# válido.
 
 O atributo de Acionador Especifica o tipo de Acionador e está vinculado a dados de entrada para um parâmetro de método. A função de exemplo é acionada por uma mensagem de fila, e a mensagem da fila é transferida para o método de `myQueueItem` parâmetro.
 
-### <a name="additional-binding-attributes"></a>Atributos de enlace adicionais
+## <a name="method-signature-parameters"></a>Parâmetros de assinatura de método
 
-Entrada adicional e enlace atributos de saída podem ser utilizados. O exemplo seguinte modifica um anterior ao adicionar um enlace de fila de saída. A função escreve a mensagem de fila de entrada para uma nova mensagem da fila numa fila diferente.
+A assinatura de método pode conter parâmetros diferente do utilizado com o atributo de Acionador. Seguem-se alguns dos parâmetros adicionais que pode incluir:
+
+* [Entrada e saída enlaces](functions-triggers-bindings.md) marcados como tal, decorating-los com os atributos.  
+* Um `ILogger` ou `TraceWriter` parâmetro [registo](#logging).
+* A `CancellationToken` parâmetro [encerramento correto](#cancellation-tokens).
+* [Expressões de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) parâmetros para acionam metadados.
+
+Não importa a ordem dos parâmetros de assinatura da função. Por exemplo, pode colocar os parâmetros de Acionador antes ou depois noutros enlaces e pode colocar o parâmetro de registo antes ou depois de parâmetros de enlace ou acionador.
+
+### <a name="output-binding-example"></a>Exemplo de saída de enlace
+
+O exemplo seguinte modifica um anterior ao adicionar um enlace de fila de saída. A função escreve a mensagem da fila que aciona a função para uma nova mensagem da fila numa fila diferente.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Ordem dos parâmetros
+Os artigos de referência de enlace ([as filas de armazenamento](functions-bindings-storage-queue.md), por exemplo) explicam os tipos de parâmetros que pode utilizar com o acionador, entrada ou saída vínculo de atributos.
 
-Não importa a ordem dos parâmetros de assinatura da função. Por exemplo, pode colocar os parâmetros de Acionador antes ou depois noutros enlaces e pode colocar o parâmetro de registo antes ou depois de parâmetros de enlace ou acionador.
+### <a name="binding-expressions-example"></a>Exemplo de expressões de enlace
 
-### <a name="binding-expressions"></a>Expressões de enlace
-
-Pode utilizar expressões de enlace nos parâmetros do construtor de atributo e nos parâmetros de função. Por exemplo, o código seguinte obtém o nome da fila de monitorização a partir de uma definição de aplicação e obtém o tempo de criação de mensagem da fila `insertionTime` parâmetro.
+O código seguinte obtém o nome da fila de monitorização a partir de uma definição de aplicação e obtém o tempo de criação de mensagem da fila `insertionTime` parâmetro.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Para obter mais informações, consulte **expressões e padrões de enlace** no [Acionadores e enlaces](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Conversão para function.json
+## <a name="autogenerated-functionjson"></a>Function.json gerado automaticamente
 
 O processo de compilação cria um *function.json* ficheiros numa pasta função na pasta de compilação. Conforme indicado anteriormente, este ficheiro não se destinar a ser editado diretamente. Não é possível alterar a configuração do enlace ou desativar a função ao editar este ficheiro. 
 
@@ -134,7 +141,7 @@ Gerado *function.json* ficheiro inclui um `configurationSource` propriedade que 
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Pacote Microsoft.NET.Sdk.Functions NuGet
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 O *function.json* geração do ficheiro é realizada o pacote NuGet [Microsoft\.NET\.Sdk\.funções](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ O `Sdk` pacote também depende [newtonsoft](http://www.nuget.org/packages/Newton
 
 O código de origem para `Microsoft.NET.Sdk.Functions` está disponível no repositório GitHub [azure\-funções\-vs\-criar\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Versão de runtime
+## <a name="runtime-version"></a>Versão de runtime
 
 Visual Studio utiliza o [ferramentas de núcleos de funções do Azure](functions-run-local.md#install-the-azure-functions-core-tools) para executar os projetos de funções. As ferramentas de Core é uma interface de linha de comandos para o tempo de execução de funções.
 

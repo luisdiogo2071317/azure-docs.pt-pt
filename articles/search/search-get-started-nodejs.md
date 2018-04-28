@@ -1,24 +1,18 @@
 ---
-title: "Introdução à Azure Search no Node.js | Microsoft Docs"
-description: "Instruções sobre a compilação de uma aplicação de pesquisa num serviço de pesquisa na cloud alojado no Azure utilizando Node.js como linguagem de programação."
+title: Introdução à Azure Search no Node.js | Microsoft Docs
+description: Instruções sobre a compilação de uma aplicação de pesquisa num serviço de pesquisa na cloud alojado no Azure utilizando Node.js como linguagem de programação.
+author: jj09
+manager: jlembicz
 services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/26/2017
-ms.author: evboyle
-ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
-ms.translationtype: HT
+ms.author: jjed
+ms.openlocfilehash: 335781a8048e1497b74f0ecf9bef337c923d95b7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução à Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -101,7 +95,7 @@ Também pode tentar qualquer um destes termos:
 * Pembroke
 * ganso +cabo
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este é o primeiro tutorial da Azure Search com base em Node.js e o conjunto de dados USGS. Ao longo do tempo, iremos irá expandir este tutorial para demonstrar funcionalidades adicionais de pesquisa que pode querer utilizar nas suas soluções personalizadas.
 
 Se já tiver algum conhecimento sobre a Azure Search, pode utilizar este exemplo como ponto de partida para tentar sugestores (escrita antecipada ou consultas de conclusão automática), filtros e navegação por facetas. Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.

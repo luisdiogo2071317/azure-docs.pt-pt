@@ -1,24 +1,19 @@
 ---
 title: Ligar a base de dados SQL do Azure na Azure Search utilizando indexadores | Microsoft Docs
 description: Saiba como obter dados do SQL Database do Azure para um índice da Azure Search utilizando indexadores.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: eugenesh
-ms.openlocfilehash: a5198cc6e3b019fc6fd241f22c4da088f0839066
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligação SQL Database do Azure para a Azure Search utilizando indexadores
 
@@ -288,10 +283,10 @@ O **softDeleteMarkerValue** tem de ser uma cadeia – utilize a representação 
 ## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mapeamento entre os tipos de dados do SQL Server e da Azure Search
 | Tipo de dados do SQL Server | Permitido tipos de campo de índice de destino | Notas |
 | --- | --- | --- |
-| bits |Edm.Boolean, Edm.String | |
+| bits |Boolean, EDM | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
-| número de vírgula flutuante real, |Edm.Double, Edm.String | |
+| número de vírgula flutuante real, |Edm.Double, EDM | |
 | em smallmoney, numérica decimal dinheiro |Edm.String |A pesquisa do Azure não suporta a conversão de tipos decimais numa Edm.Double porque este perderia precisão |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Coleção (Edm.String) |Uma cadeia de SQL Server pode ser utilizada para preencher um campo Collection(Edm.String) se a cadeia representa uma matriz de cadeias de JSON: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |

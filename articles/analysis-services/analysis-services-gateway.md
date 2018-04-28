@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>A ligar a origens de dados no local com o Gateway de dados do Azure no local
 O gateway de dados no local atua como uma ponte, fornecer transferência de proteger os dados entre origens de dados no local e os servidores de serviços de análise do Azure na nuvem. Para além de trabalhar com múltiplos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway é também funciona com Azure Logic Apps, Power BI, aplicações de energia e Flow Microsoft. Pode associar vários serviços na mesma região com um único gateway. 
@@ -82,6 +82,11 @@ Pode forçar o gateway para comunicar com o Service Bus do Azure através de HTT
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>Administração de nível de inquilino 
+
+Atualmente, não há nenhum único local onde os administradores inquilinos podem gerir todos os gateways que outros utilizadores tem instalado e configurado.  Se a um administrador inquilino, recomenda-se que peça aos utilizadores na sua organização para adicioná-o como um administrador para cada gateway instalarem. Isto permite-lhe gerir todos os gateways na sua organização através da página de definições do Gateway ou através de [comandos do PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Perguntas mais frequentes
 

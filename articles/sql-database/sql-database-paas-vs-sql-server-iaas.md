@@ -10,23 +10,23 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: c42bdaf932c29d9e4505266099960dafb48be937
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
 O Azure tem duas opções para alojar cargas de trabalho do SQL Server no Microsoft Azure:
 
 * [Base de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/): uma base de dados SQL nativa na nuvem, também conhecida como base de dados PaaS (plataforma como um serviço) ou DBaaS (base de dados como serviço) que está otimizada para o desenvolvimento de aplicações SaaS (software como serviço). Oferece compatibilidade com a maior parte das funcionalidades do SQL Server. Para obter mais informações sobre o PaaS, consulte [O que é o PaaS](https://azure.microsoft.com/overview/what-is-paas/).
 * [SQL Server em Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado e alojado na nuvem em Máquinas Virtuais (VMs) do Windows Server em execução no Azure, também conhecido como uma infraestrutura como um serviço (IaaS).
-  O SQL Server nas máquinas virtuais do Azure está otimizado para migrar aplicações do SQL Server existentes. Todas as versões e edições do SQL Server estão disponíveis. Oferece 100% de compatibilidade com o SQL Server, permitindo-lhe alojar tantas bases de dados quanto necessário e executar transações entre bases de dados. Oferece controlo total no SQL Server e no Windows.
+  SQL Server em virtual machines do Azure é o mesmo software de SQL Server que instalou no seu servidor no local - a única diferença é que este servidor é agora uma VM alojada no Azure. SQL Server no Azure está otimizada para migrar aplicações existentes do SQL Server e todas as versões e edições do SQL Server estão disponíveis. Permite alojar como muitas bases de dados conforme necessário, suporta transações de base de dados entre em execução e oferece controlo total da sua instância do SQL Server e o sistema operativo Windows.
 
 Saiba como cada opção se ajusta à plataforma de dados da Microsoft e obtenha ajuda para encontrar a opção adequada aos seus requisitos comerciais. Quer dê prioridade à redução de custos ou a uma administração mínima acima de tudo o resto, este artigo pode ajudá-lo a decidir qual é a abordagem que melhor responde aos requisitos comerciais a que dá mais importância.
 
 ## <a name="microsofts-data-platform"></a>Plataforma de dados da Microsoft
-Um dos primeiros aspetos a compreender em qualquer debate do Azure versus bases de dados do SQL Server no local é que pode utilizar todas. A plataforma de dados da Microsoft tira partido da tecnologia do SQL Server e disponibiliza-a em máquinas físicas no local, ambientes de nuvem privada, ambientes de nuvem privada alojada de terceiros e nuvem pública. O SQL Server nas máquinas virtuais do Azure permite-lhe responder a necessidades comerciais únicas e diversas através de uma combinação de implementações alojadas na cloud e no local, utilizando o mesmo conjunto de produtos de servidor, ferramentas de desenvolvimento e conhecimentos em todos estes ambientes.
+Um dos primeiros aspetos a compreender em qualquer debate do Azure versus bases de dados do SQL Server no local é que pode utilizar todas. Plataforma de dados da Microsoft tira partido da tecnologia do SQL Server e disponibiliza-a em máquinas físicas no local, ambientes de nuvem privada, ambientes de nuvem privada alojada de terceiros e nuvem pública da Microsoft. O SQL Server nas máquinas virtuais do Azure permite-lhe responder a necessidades comerciais únicas e diversas através de uma combinação de implementações alojadas na cloud e no local, utilizando o mesmo conjunto de produtos de servidor, ferramentas de desenvolvimento e conhecimentos em todos estes ambientes.
 
    ![Opções do SQL Server na nuvem: SQL server em IaaS ou base de dados SQL SaaS na nuvem.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -56,7 +56,7 @@ A tabela seguinte resume as principais caraterísticas da Base de Dados SQL e do
 | **Melhor para:** | **Base de Dados SQL do Azure** | **SQL Server numa Máquina Virtual do Azure** |
 | --- | --- | --- |
 |  |Novas aplicações concebidas na nuvem que têm restrições de tempo em termos de desenvolvimento e marketing. |Aplicações existentes que necessitam de migração rápida para a nuvem com alterações mínimas. Cenários de desenvolvimento e teste rápidos quando não pretende comprar hardware de SQL Server de não produção no local. |
-|  | Equipas que necessitam de atualizações, recuperação após desastre e elevada disponibilidade para a base de dados. |Equipas que podem configurar e gerir a elevada disponibilidade, a recuperação após desastre e a aplicação de patches do SQL Server. Algumas das funcionalidades automatizadas fornecidas simplificam-no significativamente. | |
+|  | Equipas que pretendem Microsoft para gerir as atualizações da base de dados, elevada disponibilidade e recuperação após desastre. |Equipas que podem configurar e gerir a elevada disponibilidade, a recuperação após desastre e a aplicação de patches do SQL Server. Algumas das funcionalidades automatizadas fornecidas simplificam-no significativamente. | |
 |  | Equipas que não pretendem gerir o sistema operativo subjacente e definições de configuração. |Precisa de um ambiente personalizado com direitos administrativos completos. | |
 |  | Bases de dados de até 4 TB ou bases de dados maiores que podem ser [particionadas horizontal ou verticalmente](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) utilizando um padrão de escalamento horizontal. |Instâncias do SQL Server com até 64 TB de armazenamento. A instância pode suportar tantas bases de dados quanto necessário. | |
 |  | | |
@@ -81,7 +81,7 @@ Atualmente, a **Base de Dados SQL** está disponível em vários escalões de se
 
 Com a **Base de Dados SQL**, o software de base de dados é automaticamente configurado, corrigido e atualizado pela Microsoft, o que reduz os custos de administração. Além disso, as capacidades de [cópia de segurança incorporada](sql-database-automated-backups.md) permitem-lhe obter uma redução significativa de custos, sobretudo quando tem um número elevado de bases de dados.
 
-Com o **SQL Server em VMs do Azure**, pode utilizar qualquer uma das imagens do SQL Server fornecidas pela plataforma (que inclui uma licença) ou utilizar a sua licença do SQL Server. Todas as versões (2008R2, 2012, 2014, 2016) e edições (programador, rápida, Web, Standard, Enterprise) do SQL Server suportadas estão disponíveis. Além disso, as versões Traga a sua própria licença (BYOL) das imagens estão disponíveis. Quando utiliza as imagens fornecidas pelo Azure, o custo operacional depende do tamanho da VM e a edição do SQL Server que escolher. Independentemente do tamanho da VM ou da edição do SQL Server, paga um custo de licenciamento por minuto do SQL Server e do Windows Server, juntamente com o custo do Armazenamento do Azure para os discos da VM. A opção de faturação por minuto permite-lhe utilizar o SQL Server durante o tempo que precisar, sem comprar licenças adicionais do SQL Server. Se trouxer a sua licença do SQL Server para o Azure, são-lhe cobrados apenas os custos de armazenamento e do Windows Server. Para obter mais informações sobre o modelo «traga a sua própria licença», consulte o artigo [Mobilidade de Licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
+Com o **SQL Server em VMs do Azure**, pode utilizar qualquer uma das imagens do SQL Server fornecidas pela plataforma (que inclui uma licença) ou utilizar a sua licença do SQL Server. Todas as versões suportadas do SQL Server (2008 R2, 2012 2014, 2016, 2017) e edições (programador rápida, Web, Standard, Enterprise) estão disponíveis. Além disso, as versões Traga a sua própria licença (BYOL) das imagens estão disponíveis. Quando utiliza as imagens fornecidas pelo Azure, o custo operacional depende do tamanho da VM e a edição do SQL Server que escolher. Independentemente do tamanho da VM ou da edição do SQL Server, paga um custo de licenciamento por minuto do SQL Server e do Windows Server, juntamente com o custo do Armazenamento do Azure para os discos da VM. A opção de faturação por minuto permite-lhe utilizar o SQL Server durante o tempo que precisar, sem comprar licenças adicionais do SQL Server. Se trouxer a sua licença do SQL Server para o Azure, são-lhe cobrados apenas os custos de armazenamento e do Windows Server. Para obter mais informações sobre o modelo «traga a sua própria licença», consulte o artigo [Mobilidade de Licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 #### <a name="calculating-the-total-application-cost"></a>Calcular o custo total da aplicação
 Quando começar a utilizar uma plataforma em nuvem, o custo de execução da sua aplicação inclui os custos de desenvolvimento e de administração, mais os custos de serviço da plataforma em nuvem pública.

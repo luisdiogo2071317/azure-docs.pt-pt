@@ -1,8 +1,8 @@
 ---
-title: "Monitorizar aplicações de Docker no Azure Application Insights | Microsoft Docs"
-description: "Contadores de desempenho do docker, eventos e exceções podem ser apresentadas no Application Insights, juntamente com a telemetria das aplicações de."
+title: Monitorizar aplicações de Docker no Azure Application Insights | Microsoft Docs
+description: Contadores de desempenho do docker, eventos e exceções podem ser apresentadas no Application Insights, juntamente com a telemetria das aplicações de.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Monitorizar aplicações de Docker no Application Insights
-Contadores de desempenho e de eventos de ciclo de vida do [Docker](https://www.docker.com/) contentores podem ser charted no Application Insights. Instalar o [Application Insights](app-insights-overview.md) imagem num contentor no seu anfitrião e irá apresentar os contadores de desempenho para o anfitrião, bem como para as outras imagens.
+Contadores de desempenho e de eventos de ciclo de vida do [Docker](https://www.docker.com/) contentores podem ser charted no Application Insights. Instalar o [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) imagem num contentor no seu anfitrião e irá apresentar os contadores de desempenho para o anfitrião, bem como para as outras imagens.
 
 Com o Docker, distribuir as aplicações nos contentores simples, completas com todas as dependências. Que serão executados em qualquer máquina de anfitrião que executa um motor de Docker.
 
@@ -43,6 +43,10 @@ Quando executa o [imagem do Application Insights](https://hub.docker.com/r/micro
 2. Adicionar o mosaico de Docker: escolha **adicionar mosaico**, arraste o mosaico de Docker na galeria do e, em seguida, clique em **feito**. 
    
     ![Exemplo](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> O painel de descrição geral no Application Insights agora está bloqueado e não permite a adicionar peças de mosaicos a partir da galeria. Pode ainda adicionar o mosaico do Docker como descrito acima através da interface do Dashboard do Azure.
+
 3. Clique em de **Essentials** pendente e copie a chave de instrumentação. Utilize esta para indicar ao SDK para onde enviar a telemetria.
 
     ![Exemplo](./media/app-insights-docker/02-props.png)
@@ -124,7 +128,7 @@ Tempo do processador e contadores de desempenho de memória disponível, enrique
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Application Insights para Java](app-insights-java-get-started.md)
 * [Application Insights para Node.js](app-insights-nodejs.md)

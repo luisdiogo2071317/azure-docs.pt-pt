@@ -5,22 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: overview
 ms.service: cost-management
-manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 3e5caff5ff1af79154baddf39bf465ddea5aadae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 
 O Azure Cost Management licenciado pela Cloudyn, uma subsidiária da Microsoft, permite-lhe controlar a utilização da cloud e as despesas dos seus recursos do Azure e outros fornecedores de cloud, incluindo AWS e Google. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. O Cost Management ajuda a otimizar os gastos da cloud ao identificar recursos subutilizados que possa gerir e ajustar.
 
-Para ver um vídeo introdutório, veja [Introduction to Azure Cost Management (Introdução ao Azure Cost Management)](https://azure.microsoft.com/en-us/resources/videos/azure-cost-management-overview-and-demo).
+Para ver um vídeo introdutório, veja [Introduction to Azure Cost Management (Introdução ao Azure Cost Management)](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 ## <a name="monitor-usage-and-spending"></a>Monitorizar a utilização e os gastos
 

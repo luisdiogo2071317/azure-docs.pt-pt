@@ -1,9 +1,9 @@
 ---
-title: "BI Spark utilizando ferramentas de visualização de dados no Azure HDInsight | Microsoft Docs"
-description: "Utilizar ferramentas de visualização de dados para análise ao utilizar o Apache Spark BI nos clusters do HDInsight"
-keywords: "bi no spark de bi, o Apache spark, visualização de dados de spark, spark intelligence de negócio"
+title: BI Spark utilizando ferramentas de visualização de dados no Azure HDInsight | Microsoft Docs
+description: Utilizar ferramentas de visualização de dados para análise ao utilizar o Apache Spark BI nos clusters do HDInsight
+keywords: bi no spark de bi, o Apache spark, visualização de dados de spark, spark intelligence de negócio
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e728e17a64acd990b301bac8139c7bb395a3098
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI utilizando ferramentas de visualização de dados com o Azure HDInsight
 
@@ -44,7 +42,7 @@ O bloco de notas do Jupyter que criou no [tutorial anterior](apache-spark-load-d
     SHOW TABLES
     ```
 
-    O resultado é aspeto:
+    O resultado tem o seguinte aspeto:
 
     ![Mostrar a tabelas no Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
@@ -58,7 +56,7 @@ O bloco de notas do Jupyter que criou no [tutorial anterior](apache-spark-load-d
     SELECT * FROM hvac LIMIT 10
     ```
 
-    O resultado é aspeto:
+    O resultado tem o seguinte aspeto:
 
     ![Mostrar linhas da tabela de AVAC no Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
@@ -94,7 +92,7 @@ Os passos primeiro trabalhar com o Spark estão a ligar ao cluster no Power BI D
     ![Carregar dados para o Power BI Desktop do Apache Spark do HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "obter dados para o Power BI a partir do Apache Spark BI")
 
 
-2. Introduza `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark (Beta)**e, em seguida, clique em **Connect**.
+2. Introduza `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark (Beta)** e, em seguida, clique em **Connect**.
 
     ![Obter dados para o Power BI a partir do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "obter dados para o Power BI a partir do Apache Spark BI")
 

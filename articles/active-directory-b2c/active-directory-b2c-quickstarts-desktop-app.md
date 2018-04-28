@@ -1,6 +1,6 @@
 ---
-title: Testar uma aplicação de ambiente de trabalho ativada pelo Azure AD B2C
-description: Utilize o Início Rápido para experimentar uma aplicação de ambiente de trabalho ASP.NET de exemplo que utiliza o Azure Active Directory B2C para fornecer início de sessão do utilizador.
+title: Início Rápido - Configurar o início de sessão para uma aplicação de ambiente de trabalho através do Azure Active Directory B2C | Microsoft Docs
+description: Execute um exemplo de aplicação de ambiente de trabalho ASP.NET que utiliza o Azure Active Directory B2C para fornecer início de sessão na conta.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a312169217ac5476a503d5ad5a9126674f999eac
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Início Rápido: testar uma aplicação de ambiente de trabalho ativada pelo Azure AD B2C
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar o início de sessão para uma aplicação de ambiente de trabalho através do Azure Active Directory B2C 
 
 O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud para manter as aplicações, as empresas e os clientes protegidos. O Azure AD B2C permite às aplicações efetuar a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos.
 

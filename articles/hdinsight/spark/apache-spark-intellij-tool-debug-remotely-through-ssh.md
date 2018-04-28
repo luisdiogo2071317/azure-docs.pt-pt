@@ -1,27 +1,25 @@
 ---
-title: "Toolkit do Azure para o IntelliJ: aplicações de depuração Spark remotamente através do SSH | Microsoft Docs"
-description: "Clusters orientações passo a passo sobre como utilizar as ferramentas do HDInsight na Azure Toolkit para o IntelliJ para depurar aplicações remotamente no HDInsight através de SSH"
-keywords: "depurar remotamente intellij, de depuração remota intellij, ssh, intellij, hdinsight, depurar intellij, depuração"
+title: 'Toolkit do Azure para o IntelliJ: aplicações de depuração Spark remotamente através do SSH | Microsoft Docs'
+description: Clusters orientações passo a passo sobre como utilizar as ferramentas do HDInsight na Azure Toolkit para o IntelliJ para depurar aplicações remotamente no HDInsight através de SSH
+keywords: depurar remotamente intellij, de depuração remota intellij, ssh, intellij, hdinsight, depurar intellij, depuração
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 editor: Jenny Jiang
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: dfffe935cd7e896fb251a3ed40a5493fbf836a6c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ede6267d55808fef7ddb8f076bd9c4927ce2e924
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Toolkit do Azure para o IntelliJ através de SSH
 

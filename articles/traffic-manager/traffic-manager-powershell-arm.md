@@ -1,6 +1,6 @@
 ---
-title: "Utilizar o PowerShell para gerir o Gestor de tráfego no Azure | Microsoft Docs"
-description: "Com o PowerShell para o Gestor de tráfego com o Azure Resource Manager"
+title: Utilizar o PowerShell para gerir o Gestor de tráfego no Azure | Microsoft Docs
+description: Com o PowerShell para o Gestor de tráfego com o Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
 author: kumudd
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1cd7bd7e32c96398d72c7cd3b51e2b456d60f01d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 951e845e23a1ed0cbdc83fc24a97a545f00c52ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilizar o PowerShell para gerir o Gestor de tráfego
 
@@ -59,10 +59,10 @@ A tabela seguinte descreve os parâmetros:
 | Parâmetro | Descrição |
 | --- | --- |
 | Nome |O nome do recurso para o recurso de perfil do Traffic Manager. Perfis no mesmo grupo de recursos tem de ter nomes exclusivos. Este nome está separado do nome DNS utilizado para consultas DNS. |
-| resourceGroupName |O nome do grupo de recursos que contém o recurso de perfil. |
+| ResourceGroupName |O nome do grupo de recursos que contém o recurso de perfil. |
 | TrafficRoutingMethod |Especifica o método de encaminhamento do tráfego utilizado para determinar o ponto final é devolvido em resposta uma consulta DNS. Os valores possíveis são 'Desempenho', 'Weighted' ou 'Priority'. |
 | RelativeDnsName |Especifica a parte do nome de anfitrião de DNS fornecido por este perfil do Traffic Manager. Este valor é combinado com o nome de domínio DNS utilizado pelo Gestor de tráfego do Azure para formar o nome de domínio completamente qualificado (FQDN) do perfil. Por exemplo, definir o valor de "contoso" fica 'contoso.trafficmanager.net'. |
-| VALOR DE TTL |Especifica o DNS Time-to-Live (TTL), em segundos. Este valor de TTL informa os clientes DNS quanto tempo as respostas DNS de cache para este perfil do Gestor de tráfego e as resoluções Local DNS. |
+| TTL |Especifica o DNS Time-to-Live (TTL), em segundos. Este valor de TTL informa os clientes DNS quanto tempo as respostas DNS de cache para este perfil do Gestor de tráfego e as resoluções Local DNS. |
 | MonitorProtocol |Especifica o protocolo a utilizar para monitorizar o estado de funcionamento do ponto final. Os valores possíveis são 'HTTP' e 'HTTPS'. |
 | MonitorPort |Especifica a porta TCP utilizada para monitorizar o estado de funcionamento do ponto final. |
 | MonitorPath |Especifica o caminho relativo para o nome de domínio de ponto final utilizado para a sonda de estado de funcionamento do ponto final. |
@@ -122,7 +122,7 @@ Em cada caso:
 * Especificação de 'Peso' é opcional. Ponderações só são utilizadas se o perfil estiver configurado para utilizar o método de encaminhamento de tráfego de 'Weighted'. Caso contrário, são ignorados. Se for especificado, o valor tem de ser um número entre 1 e 1000. O valor predefinido é '1'.
 * Especificação de 'Priority' é opcional. Prioridades só são utilizadas se o perfil estiver configurado para utilizar o método de encaminhamento de tráfego de 'Priority'. Caso contrário, são ignorados. Os valores válidos são entre 1 a 1000 com valores mais baixos que indica uma prioridade mais alta. Se for especificado para um ponto final, tem de ser especificados para todos os pontos finais. Se for omitido, os valores predefinidos a partir de '1' são aplicados pela ordem que estão listados os pontos finais.
 
-### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exemplo 1: Adicionar pontos finais de aplicação Web utilizando`Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Exemplo 1: Adicionar pontos finais de aplicação Web utilizando `Add-AzureRmTrafficManagerEndpointConfig`
 
 Neste exemplo, vamos criar um perfil de Gestor de tráfego e adicionar dois pontos finais de aplicação Web utilizando o `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
 
@@ -134,7 +134,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar um publicIpAddress utilizando o ponto final`New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar um publicIpAddress utilizando o ponto final `New-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, um recurso de endereço IP público é adicionado ao perfil do Traffic Manager. O endereço IP público tem de ter um nome DNS configurado e pode ser vinculado a NIC de uma VM ou a um balanceador de carga.
 
@@ -153,7 +153,7 @@ Quando especificar pontos finais externos:
 * Se for utilizado o método de encaminhamento de tráfego de 'Desempenho', 'EndpointLocation' não é necessária. Caso contrário, é opcional. O valor tem de ser um [nome da região do Azure válido](https://azure.microsoft.com/regions/).
 * O 'Peso' e 'Priority' são opcionais.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Adicionar pontos finais externos utilizando `Add-AzureRmTrafficManagerEndpointConfig` e`Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Adicionar pontos finais externos utilizando `Add-AzureRmTrafficManagerEndpointConfig` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, vamos criar um perfil de Gestor de tráfego, adicionar dois pontos finais externos e confirmar as alterações.
 
@@ -164,7 +164,7 @@ Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManage
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar pontos finais externos utilizando`New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar pontos finais externos utilizando `New-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, vamos adicionar um ponto final externo a um perfil existente. O perfil é especificado, utilizando os nomes de grupo de recursos e perfil.
 
@@ -183,7 +183,7 @@ Pontos finais aninhados estão configurados no perfil de principal, com um tipo 
 * O 'Peso' e 'Priority' são opcionais, como pontos finais do Azure.
 * O parâmetro 'MinChildEndpoints' é opcional. O valor predefinido é '1'. Se o número de pontos finais disponíveis está abaixo deste limiar, o perfil de principal considera o perfil subordinado 'degradado' e diverts tráfego para os pontos finais no perfil do principal.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Adicionar pontos finais aninhados utilizando `Add-AzureRmTrafficManagerEndpointConfig` e`Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Adicionar pontos finais aninhados utilizando `Add-AzureRmTrafficManagerEndpointConfig` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, vamos criar novos principais e subordinados de Gestor de tráfego perfis, adicionar o subordinado como um ponto de final aninhado para o elemento principal e confirmar as alterações.
 
@@ -196,13 +196,25 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
 De uma forma abreviada neste exemplo, vamos adicione quaisquer pontos finais para os perfis subordinado ou principal.
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar pontos finais aninhados utilizando`New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Exemplo 2: Adicionar pontos finais aninhados utilizando `New-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, iremos adicionar um perfil subordinado existente como um ponto de final aninhado para um perfil de principal existente. O perfil é especificado, utilizando os nomes de grupo de recursos e perfil.
 
 ```powershell
 $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
 New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+```
+
+## <a name="adding-endpoints-from-another-subscription"></a>A adição de pontos finais de outra subscrição
+
+Gestor de tráfego pode trabalhar com pontos finais de subscrições diferentes. Terá de mudar para a subscrição com o ponto final que pretende adicionar ao obter a entrada necessária para o Gestor de tráfego. Em seguida, terá de mudar para as subscrições com o perfil do Gestor de tráfego e adicione o encpoint ao mesmo. O exemplo abaixo mostra como fazê-lo com um endereço IP público.
+
+```powershell
+Set-AzureRmContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+
+Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
+New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>Atualizar um ponto final do Gestor de tráfego
@@ -212,7 +224,7 @@ Existem duas formas de atualizar um ponto final do Traffic Manager existente:
 1. Obter o perfil do Gestor de tráfego utilizando `Get-AzureRmTrafficManagerProfile`, atualizar as propriedades do ponto final no perfil e confirmar as alterações utilizando `Set-AzureRmTrafficManagerProfile`. Este método tem a vantagem de conseguir atualizar mais do que um ponto final numa única operação.
 2. Obter o ponto final do Gestor de tráfego utilizando `Get-AzureRmTrafficManagerEndpoint`, atualizar as propriedades do ponto final e confirmar as alterações utilizando `Set-AzureRmTrafficManagerEndpoint`. Este método é mais simples, uma vez que não requer a indexação para a matriz de pontos finais no perfil.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Atualizar pontos finais utilizando `Get-AzureRmTrafficManagerProfile` e`Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Exemplo 1: Atualizar pontos finais utilizando `Get-AzureRmTrafficManagerProfile` e `Set-AzureRmTrafficManagerProfile`
 
 Neste exemplo, vamos modificar a prioridade em dois pontos finais dentro de um perfil existente.
 
@@ -223,7 +235,7 @@ $profile.Endpoints[1].Priority = 1
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Exemplo 2: Atualizar um ponto final utilizando `Get-AzureRmTrafficManagerEndpoint` e`Set-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Exemplo 2: Atualizar um ponto final utilizando `Get-AzureRmTrafficManagerEndpoint` e `Set-AzureRmTrafficManagerEndpoint`
 
 Neste exemplo, vamos modificar o peso de um único ponto final num perfil existente.
 
@@ -306,7 +318,7 @@ Também pode ser ligada esta sequência:
 Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Gestor de tráfego de monitorização](traffic-manager-monitoring.md)
 

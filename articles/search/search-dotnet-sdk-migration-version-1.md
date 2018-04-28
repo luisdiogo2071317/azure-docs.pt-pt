@@ -1,23 +1,19 @@
 ---
-title: "Atualizar para o SDK de .NET do Azure Search versão 1.1 | Microsoft Docs"
-description: "Atualizar para o SDK de .NET do Azure Search versão 1.1"
-services: search
-documentationcenter: 
+title: Atualizar para o SDK de .NET do Azure Search versão 1.1 | Microsoft Docs
+description: Atualizar para o SDK de .NET do Azure Search versão 1.1
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 387a052a116388cc9ad816ec8b339347d5c28322
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ccefd21e2aa89a2b46129956b3c4417d548cbf32
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Atualizar para o SDK de .NET do Azure Search versão 1.1
 
@@ -54,9 +50,9 @@ Por fim, depois de ter corrigido os erros de compilação, pode efetuar alteraç
 A lista seguinte está ordenada pela probabilidade de que a alteração afetará o código da aplicação.
 
 #### <a name="indexbatch-and-indexaction-changes"></a>Alterações IndexBatch e IndexAction
-`IndexBatch.Create`o nome foi mudado para `IndexBatch.New` e já não tem um `params` argumento. Pode utilizar `IndexBatch.New` para lotes misturar diferentes tipos de ações (intercala, eliminações, etc.). Além disso, existem novos métodos estáticos para a criação de lotes em que todas as ações são as mesmas: `Delete`, `Merge`, `MergeOrUpload`, e `Upload`.
+`IndexBatch.Create` o nome foi mudado para `IndexBatch.New` e já não tem um `params` argumento. Pode utilizar `IndexBatch.New` para lotes misturar diferentes tipos de ações (intercala, eliminações, etc.). Além disso, existem novos métodos estáticos para a criação de lotes em que todas as ações são as mesmas: `Delete`, `Merge`, `MergeOrUpload`, e `Upload`.
 
-`IndexAction`já não tem construtores públicos e as respetivas propriedades agora são imutáveis. Deve utilizar os novos métodos estáticos para a criação de ações para diferentes fins: `Delete`, `Merge`, `MergeOrUpload`, e `Upload`. `IndexAction.Create`foi removido. Se utilizou a sobrecarga que recebe apenas um documento, certifique-se de que utiliza `Upload` em vez disso.
+`IndexAction` já não tem construtores públicos e as respetivas propriedades agora são imutáveis. Deve utilizar os novos métodos estáticos para a criação de ações para diferentes fins: `Delete`, `Merge`, `MergeOrUpload`, e `Upload`. `IndexAction.Create` foi removido. Se utilizou a sobrecarga que recebe apenas um documento, certifique-se de que utiliza `Upload` em vez disso.
 
 ##### <a name="example"></a>Exemplo
 Se o seu código tem o seguinte aspeto:
@@ -152,7 +148,7 @@ A partir da versão 1.1, o SDK .NET da Azure Search organiza os métodos de oper
 
 * Parâmetros opcionais são agora modelados como predefinido parâmetros em vez que as sobrecargas do método adicional. Isto reduz o número das sobrecargas do método, por vezes significativamente.
 * Os métodos de extensão agora ocultar muitos dos detalhes supérfluas HTTP do chamador. Por exemplo, as versões anteriores do SDK devolveu um objecto de resposta com um código de estado HTTP, o que muitas vezes, não tem de verificar porque métodos operação throw `CloudException` para qualquer código de estado que indica um erro. Os novos métodos de extensão devolvem apenas os objetos de modelo, poupando o problemas de ter de abri-los no seu código.
-* Por outro lado, as principais das interfaces agora os métodos de expõe que dão-lhe mais controlo ao nível do HTTP se o ficheiro necessário. Agora pode passar nos cabeçalhos HTTP personalizados para ser incluída no pedidos e o novo `AzureOperationResponse<T>` tipo de retorno dá-lhe acesso direto para o `HttpRequestMessage` e `HttpResponseMessage` para a operação. `AzureOperationResponse`está definido no `Microsoft.Rest.Azure` espaço de nomes e substitui `Hyak.Common.OperationResponse`.
+* Por outro lado, as principais das interfaces agora os métodos de expõe que dão-lhe mais controlo ao nível do HTTP se o ficheiro necessário. Agora pode passar nos cabeçalhos HTTP personalizados para ser incluída no pedidos e o novo `AzureOperationResponse<T>` tipo de retorno dá-lhe acesso direto para o `HttpRequestMessage` e `HttpResponseMessage` para a operação. `AzureOperationResponse` está definido no `Microsoft.Rest.Azure` espaço de nomes e substitui `Hyak.Common.OperationResponse`.
 
 #### <a name="scoringparameters-changes"></a>Alterações de ScoringParameters
 Uma nova classe com o nome `ScoringParameter` foi adicionado no SDK mais recente para tornar mais fácil fornecer parâmetros para a classificação de perfis de uma consulta de pesquisa. Anteriormente a `ScoringProfiles` propriedade o `SearchParameters` classe foi escrita como `IList<string>`; Agora que é digitado como `IList<ScoringParameter>`.
@@ -178,10 +174,10 @@ Pode alterá-la para esta opção para corrigir os erros de compilação:
 #### <a name="model-class-changes"></a>Alterações de classe de modelo
 Devido a alterações a assinatura descritas [alterações de método de operação](#OperationMethodChanges), muitas classes no `Microsoft.Azure.Search.Models` espaço de nomes foram alterado ou removido. Por exemplo:
 
-* `IndexDefinitionResponse`foi substituído por`AzureOperationResponse<Index>`
+* `IndexDefinitionResponse` foi substituído por `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` mudou de nome para `DocumentSearchResult`
 * `IndexResult` mudou de nome para `IndexingResult`
-* `Documents.Count()`agora devolve um `long` com a contagem de documentos em vez de um`DocumentCountResponse`
+* `Documents.Count()` agora devolve um `long` com a contagem de documentos em vez de um `DocumentCountResponse`
 * `IndexGetStatisticsResponse` mudou de nome para `IndexGetStatisticsResult`
 * `IndexListResponse` mudou de nome para `IndexListResult`
 

@@ -1,11 +1,11 @@
 ---
-title: "Utilizar o módulo de política de pilha do Azure | Microsoft Docs"
-description: "Saiba como restringir uma subscrição do Azure se comporte como uma subscrição de pilha do Azure"
+title: Utilizar o módulo de política de pilha do Azure | Microsoft Docs
+description: Saiba como restringir uma subscrição do Azure se comporte como uma subscrição de pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 71f17a460f4a81a98e2cdef183acb29f721d584e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 7a909a36597d9ceb31b6dc9f142c4a9d9d37b464
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gestão da política do Azure utilizando o módulo de política de pilha do Azure
 
@@ -41,7 +41,7 @@ O módulo de política de pilha do Azure permite-lhe configurar uma subscrição
 O seguinte comando pode ser utilizado para aplicar uma política de Azure pilha predefinida contra a sua subscrição do Azure. Antes de executar, substitua *nome da subscrição do Azure* com a sua subscrição do Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -53,7 +53,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Poderá aplicar políticas de um método mais granular.  Por exemplo, poderá ter outros recursos em execução na mesma subscrição.  Pode definir o âmbito da aplicação de política para um grupo de recurso específico, o que lhe permite testar as suas aplicações para a pilha do Azure através de recursos do Azure. Antes de executar, substitua *nome da subscrição do Azure* com o nome da sua subscrição do Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
@@ -66,7 +66,7 @@ Depois de implementar a política do Azure, receber um erro ao tentar implementa
 
 ![Resultado da falha de implementação de recursos devido a restrição de política](./media/azure-stack-policy-module/image1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Implementar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
 
 [Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)

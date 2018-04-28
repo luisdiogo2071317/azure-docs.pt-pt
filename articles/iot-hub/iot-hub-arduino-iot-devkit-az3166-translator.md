@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: d17f117d71eb0616201df18aea6dc48749ae24a8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ac0b82c4683f5a1b09d7e6102a7b70361e1fbce2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Utilize o IoT DevKit AZ3166 com a função do Azure e serviços cognitivos para tornar um conversor de idioma
 
@@ -35,7 +35,7 @@ Concluir o [guia de introdução](https://docs.microsoft.com/azure/iot-hub/iot-h
 
 Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um destes dois métodos:
 
-* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/en-us/free/)
+* Ativar um [conta de Microsoft Azure avaliação de 30 dias gratuita](https://azure.microsoft.com/free/)
 * Afirmação sua [crédito do Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se forem subscritor MSDN ou o Visual Studio
 
 ## <a name="step-1-open-the-project-folder"></a>Passo 1. Abra a pasta do projeto
@@ -46,17 +46,14 @@ Uma subscrição ativa do Azure. Se não tiver uma, pode registar através de um
 - Iniciar o VS Code
 - Ligar o DevKit para o seu computador.
 
-O VS Code automaticamente localiza o DevKit e abre uma página de introdução:
-
-![Página de introdução](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_start.png)
-
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Abra a pasta de Arduino exemplos
 
 Expanda o lado esquerdo **ARDUINO exemplos > exemplos de MXCHIP AZ3166 > AzureIoT**e selecione **DevKitTranslator**. É aberta uma nova janela do código de VS com a pasta do projeto DEVKITTRANSLATOR no mesmo.
 
 ![Exemplos de IoT DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
-Se ocorrer fechar o painel, pode abri-lo novamente. Utilize `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
+> [!NOTE]
+> Pode também abrir o exemplo de paleta de comando. Utilize `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir a paleta de comandos, escreva **Arduino**e, em seguida, localize e selecione **Arduino: exemplos**.
 
 ## <a name="step-2-provision-azure-services"></a>Passo 2. Aprovisionar os serviços do Azure
 
@@ -115,7 +112,7 @@ No ecrã de resultado da conversão, pode:
 
 ## <a name="how-it-works"></a>Como funciona
 
-![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
+![mini-Solution-Voice-to-tweet-Diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 Os registos de sketch Arduino sua voz mensagens, em seguida, um pedido HTTP para o acionador das funções do Azure. As funções do Azure chama o conversor de reconhecimento de voz de serviço cognitivos API para efetuar a conversão. Depois das funções do Azure obtém o texto de tradução, envia uma mensagem de C2D para o dispositivo. Em seguida, a conversão é apresentada no ecrã.
 
@@ -143,4 +140,4 @@ Agora que efetuar o IoT DevKit como um conversor utilizando a função do Azure 
 Avançar para os outros tutoriais para saber mais:
 
 > [!div class="nextstepaction"]
-> [Ligar IoT DevKit AZ3166 para o Azure IoT Suite para monitorização remota](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Ligar IoT DevKit AZ3166 para o Azure IoT Suite para monitorização remota](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

@@ -1,19 +1,19 @@
 ---
-title: Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através do Azure PowerShell | Microsoft Docs
-description: Neste início rápido, utilize o Azure PowerShell para criar uma conta de armazenamento e um contentor. Em seguida, utilize o PowerShell para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
+title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com o Azure PowerShell | Microsoft Docs
+description: Neste início rápido, irá utilizar o Azure PowerShell no armazenamento de objetos (Blobs). Em seguida, utilize o PowerShell para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 29eb69f95680babfc1004d483a6a1c2bc44edda8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f028d37a98cecf14706773a2eb7cb601481435d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Início Rápido: carregar, transferir e listar blobs através do Azure PowerShell
 

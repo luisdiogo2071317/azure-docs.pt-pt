@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b80ad9837939af5406989d08e18f6f3d9fe3064f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async SDK Java para API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -55,6 +55,16 @@ O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do 
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Adicionado suporte de back-pressão na consulta.
+* Suporte adicionado para o id de intervalo de chaves de partição na consulta.
+* Correção para permitir que o token de continuação maior no cabeçalho de pedido (bugfix github #24).
+* dependência netty atualizada para 4.1.22.Final para garantir JVM encerrado após a conclusão da thread principal.
+* Corrigir evitar a transmitir o token da sessão quando ao ler os recursos principais.
+* Adicionar mais exemplos.
+* Adicionar mais benchmarking cenários.
+* Ficheiros de cabeçalho de Java fixos para a geração de javadoc adequado.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK GA com suporte de ponto a ponto para a utilização de e/s não bloquear o [biblioteca Netty](http://netty.io/) no modo de gateway. 
 
@@ -69,11 +79,12 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |20 de Abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
 

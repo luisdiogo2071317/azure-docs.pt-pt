@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para web apps no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -84,7 +84,7 @@ Enquanto todos os três localizações de armazenamento fornecem as mesmas infor
 > As informações armazenadas num **tabela armazenamento** ou **armazenamento de BLOBs** só pode ser acedido através de um cliente de armazenamento ou uma aplicação que pode trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Explorador de armazenamento que podem ser utilizadas para explorar a tabela ou o blob storage e HDInsight pode aceder a dados armazenados no blob storage. Também pode escrever uma aplicação que acede ao Storage do Azure, utilizando um do [Azure SDKs](/downloads/#).
 >
 > [!NOTE]
-> Diagnóstico também pode ser ativado a partir do PowerShell do Azure utilizando o **conjunto AzureWebsite** cmdlet. Se não tiver instalado o Azure PowerShell ou não tiver configurado para utilizar a sua subscrição do Azure, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Diagnóstico também pode ser ativado a partir do PowerShell do Azure utilizando o **conjunto AzureWebsite** cmdlet. Se não tiver instalado o Azure PowerShell ou não tiver configurado para utilizar a sua subscrição do Azure, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ Para transferir os ficheiros de registo, inicie uma nova instância do Azure Pow
 Este comando guarda os registos da aplicação web especificada pelo **-nome** parâmetro para um ficheiro denominado **logs.zip** no diretório atual.
 
 > [!NOTE]
-> Se não tiver instalado o Azure PowerShell ou não tiver configurado para utilizar a sua subscrição do Azure, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+> Se não tiver instalado o Azure PowerShell ou não tiver configurado para utilizar a sua subscrição do Azure, consulte [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ Para transferir os ficheiros de registo utilizando a Interface de linha de coman
 Este comando guarda os registos da aplicação web com o nome 'webappname' para um ficheiro denominado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
-> Se não tiver instalado a Interface de linha de comandos do Azure (CLI do Azure) ou não tiver configurado para utilizar a sua subscrição do Azure, consulte [como utilizar o Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Se não tiver instalado a Interface de linha de comandos do Azure (CLI do Azure) ou não tiver configurado para utilizar a sua subscrição do Azure, consulte [como utilizar o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 

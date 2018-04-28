@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f3c8853331121fc1e267f6c569279f7d8df907b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com acelerados da rede
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Máquinas virtuais têm de ser criadas com acelerados rede ativada. Esta funcionalidade não é possível ativar as máquinas virtuais existentes. Conclua os seguintes passos para ativar na melhoria de rede:
 >   1. Eliminar a máquina virtual
 >   2. Recriar a máquina virtual com o funcionamento em rede na melhoria ativado
@@ -52,7 +52,7 @@ O Centro de dados do Microsoft Windows Server 2012 R2 e o Windows Server 2016.
 Para obter mais informações sobre as instâncias VM, consulte [tamanhos de Windows VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>Regiões
-Disponível em todas as regiões do Azure públicas e na nuvem do Azure Government. 
+Disponível em todas as regiões do Azure públicas e na nuvem do Azure Government.
 
 ## <a name="limitations"></a>Limitações
 Existem as seguintes limitações ao utilizar esta capacidade:
@@ -65,11 +65,11 @@ Embora este artigo fornece os passos para criar uma máquina virtual com redes n
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instalar [Azure PowerShell](/powershell/azure/install-azurerm-ps) versão 5.1.1 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable AzureRM`. Se precisar de instalar ou atualizar, instale a versão mais recente do módulo de AzureRM o [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM). Numa sessão do PowerShell, iniciar sessão uma conta do Azure utilizando [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Instalar [Azure PowerShell](/powershell/azure/install-azurerm-ps) versão 5.1.1 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable AzureRM`. Se precisar de instalar ou atualizar, instale a versão mais recente do módulo de AzureRM o [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureRM). Numa sessão do PowerShell, iniciar sessão uma conta do Azure utilizando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *myNic*, e *myVM*.
 
-Criar um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *centralus* localização:
+Crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). O exemplo seguinte cria um grupo de recursos denominado *myResourceGroup* no *centralus* localização:
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "centralus"
@@ -200,13 +200,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Confirmar que o controlador está instalado no sistema operativo
 
-Depois de criar a VM no Azure, ligar à VM e confirme que o controlador está instalado no Windows. 
+Depois de criar a VM no Azure, ligar à VM e confirme que o controlador está instalado no Windows.
 
 1. A partir do browser da Internet, abra o Azure [portal](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 2. Na caixa que contém o texto *procurar recursos* na parte superior do portal do Azure, escreva *myVm*. Quando **myVm** é apresentado nos resultados da pesquisa, clique no mesmo. Se **criar** é visível no **Connect** botão, Azure não ainda acabou de criar a VM. Clique em **Connect** no canto superior esquerdo da descrição geral apenas depois de deixarem de ver **criar** sob o **Connect** botão.
 3. Introduza o nome de utilizador e palavra-passe que introduziu no [criar a máquina virtual](#create-the-virtual-machine). Se nunca tiver ligado a uma VM do Windows no Azure, consulte [ligar à máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Faça duplo clique no botão Iniciar do Windows e clique em **Gestor de dispositivos**. Expanda o **adaptadores de rede** nós. Confirme que o **adaptador de Ethernet de função Virtual Mellanox ConnectX 3** for apresentada, conforme mostrado na imagem seguinte:
-   
+
     ![Gestor de dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
 
 Na melhoria de redes está agora ativada para a VM.

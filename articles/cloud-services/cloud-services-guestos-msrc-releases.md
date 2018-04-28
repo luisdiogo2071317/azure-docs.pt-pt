@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas para o SO convidado do Azure. Procure este artigo para determinar se uma atualização específica aplica-se para o SO convidado está a utilizar. Atualizações sempre transportem para específico [família] [ family-explain] foram introduzidas no.
@@ -53,12 +53,12 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 ## <a name="january-guest-os"></a>SO de convidado de Janeiro
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 18-01 | [4056898], [4056897], [4056899] |Apenas a segurança do Windows |2.70, 3.57, 4.50 |3 de Janeiro de 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Apenas a segurança do Windows |2.70, 3.57, 4,50 |3 de Janeiro de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Apenas a segurança do Windows |5.15 |3 de Janeiro de 2018 |
 | N/A | [4054518] |Agregação de segurança não Dezembro |2.70 |12 de Dezembro de 2017 |
 | N/A | [4054520] |Agregação de segurança não Dezembro |3.57 |12 de Dezembro de 2017 |
 | N/A | [4054519] |Agregação de segurança não Dezembro |4.50 |12 de Dezembro de 2017 |
-| N/A | [4051956] |Atualização de fuso horário de Janeiro |2.70, 3.57, 4.50 |12 de Dezembro de 2017 |
+| N/A | [4051956] |Atualização de fuso horário de Janeiro |2.70, 3.57, 4,50 |12 de Dezembro de 2017 |
 
 
 
@@ -790,9 +790,9 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217

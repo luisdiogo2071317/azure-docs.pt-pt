@@ -1,11 +1,11 @@
 ---
-title: "Proteger aplicações de página única utilizando o fluxo implícito de v 2.0 do Azure AD | Microsoft Docs"
-description: "Criar aplicações web utilizando a implementação de v 2.0 do Azure AD do fluxo implícito para aplicações de página única."
+title: Proteger aplicações de página única utilizando o fluxo implícito de v 2.0 do Azure AD | Microsoft Docs
+description: Criar aplicações web utilizando a implementação de v 2.0 do Azure AD do fluxo implícito para aplicações de página única.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b855dcaae99e16aa21a0e19ad37d933cb18c678a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v 2.0 protocolos - SPAs utilizando o fluxo implícito
-Com o ponto final v 2.0, pode iniciar a sessão de utilizadores para as aplicações de página única com contas pessoais e trabalho/profissional da Microsoft.  Página única e outras aplicações de JavaScript que execute principalmente na enfrentam browser algumas interessantes desafia quando se trata de autenticação:
+Com o ponto final v 2.0, pode iniciar a sessão de utilizadores para as aplicações de página única com contas pessoais e trabalho/profissional da Microsoft. Página única e outras aplicações de JavaScript que execute principalmente na enfrentam browser algumas interessantes desafia quando se trata de autenticação:
 
-* As características de segurança destas aplicações forem significativamente diferentes de aplicações do servidor tradicional baseado em web.
+* As características de segurança destas aplicações forem significativamente diferentes da aplicações web tradicionais e baseadas no servidor.
 * Muitos servidores de autorização & fornecedores de identidade não suportam pedidos CORS.
 * Browser de página completa redireciona na direção oposta à aplicação ficar particularmente INVASIVO à experiência de utilizador.
 
@@ -40,7 +40,7 @@ No entanto, se preferir não utilizarem uma biblioteca na sua aplicação de pá
 > 
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
-Fluxo de início de sessão implícito todo aspeto semelhante ao seguinte isto - todos os passos descritos detalhadamente abaixo.
+O todo fluxo implícito de início de sessão aspeto semelhante ao seguinte isto - todos os passos descritos detalhadamente abaixo.
 
 ![OpenId Connect pistas de diagrama](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
@@ -62,23 +62,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Clique na hiperligação abaixo para executar este pedido! Depois de iniciarem sessão, o browser deve ser redirecionado para `https://localhost/myapp/` com um `id_token` na barra de endereço.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores.  Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| client_id |Necessário |O Id da aplicação que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuído a sua aplicação. |
-| response_type |Necessário |Tem de incluir `id_token` para OpenID Connect início de sessão.  Poderão incluir o response_type `token`. Utilizar `token` aqui irá permitir que a aplicação receba imediatamente um token de acesso do ponto final autorizar sem ter de efetuar um pedido de segundo para o ponto final de autorização.  Se utilizar o `token` response_type, o `scope` parâmetro tem de conter um âmbito que indica que o recurso a emitir o token para. |
-| redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação.  Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url. |
-| Âmbito |Necessário |Uma lista separada por espaço de âmbitos.  Para OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento IU.  Opcionalmente, também poderá incluir a `email` ou `profile` [âmbitos](active-directory-v2-scopes.md) para obter acesso a dados de utilizador adicionais.  Também pode incluir outros âmbitos neste pedido para pedir consentimento a vários recursos. |
-| response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Deve ser `fragment` para que o fluxo implícito. |
-| state |recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token.  Pode ser uma cadeia de todos os conteúdos que pretende.  Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
-| nonce |Necessário |Um valor incluído no pedido de gerado pela aplicação, que será incluída no id_token resultante como uma afirmação.  A aplicação, em seguida, pode verificar este valor para mitigar ataques de repetição de token.  O valor é, geralmente, uma cadeia exclusiva, aleatório que pode ser utilizada para identificar a origem do pedido. |
-| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.  Os únicos valores válidos neste momento, são 'início de sessão', 'none' e 'consentimento'.  `prompt=login`irá forçar o utilizador introduza as suas credenciais nesse pedido, a negação início de sessão único.  `prompt=none`é o oposto --irá garantir que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal.  Se o pedido não é possível concluir automaticamente através de início de sessão único, o ponto final v 2.0 devolverá um erro.  `prompt=consent`aciona a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão, solicitando ao utilizador para conceder permissões para a aplicação. |
-| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador de início de sessão na página para o utilizador, se souber o nome de utilizador antecedência.  Muitas vezes, as aplicações irão utilizar este parâmetro durante a reautenticação, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
-| domain_hint |opcional |Pode ser um dos `consumers` ou `organizations`.  Caso, irá ignorar o processo de deteção baseada em e-mail esse utilizador passa no sinal v 2.0 na página, originando uma experiência de utilizador ligeiramente mais simplificada.  Aplicações, muitas vezes, irão utilizar este parâmetro durante a reautenticação, extraindo o `tid` o id_token de afirmação.  Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad`, deve utilizar `domain_hint=consumers`.  Caso contrário, utilize `domain_hint=organizations`. |
+| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores.  Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| client_id |Necessário |ID de aplicação que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuído a sua aplicação. |
+| response_type |Necessário |Tem de incluir `id_token` para OpenID Connect início de sessão.  Poderão incluir o response_type `token`. Utilizar `token` aqui irá permitir que a aplicação receba imediatamente um token de acesso do ponto final autorizar sem ter de efetuar um pedido de segundo para o ponto final de autorização. Se utilizar o `token` response_type, o `scope` parâmetro tem de conter um âmbito que indica que o recurso a emitir o token para. |
+| redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url. |
+| scope |Necessário |Uma lista separada por espaço de âmbitos. Para OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento IU. Opcionalmente, também poderá incluir a `email` ou `profile` [âmbitos](active-directory-v2-scopes.md) para obter acesso a dados de utilizador adicionais. Também pode incluir outros âmbitos neste pedido para pedir consentimento a vários recursos. |
+| response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação. Deve ser `fragment` para que o fluxo implícito. |
+| state |recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token. Pode ser uma cadeia de todos os conteúdos que pretende.  Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
+| nonce |Necessário |Um valor incluído no pedido de gerado pela aplicação, que será incluída no id_token resultante como uma afirmação.  A aplicação, em seguida, pode verificar este valor para mitigar ataques de repetição de token. O valor é, geralmente, uma cadeia exclusiva, aleatório que pode ser utilizada para identificar a origem do pedido. |
+| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário. Os únicos valores válidos neste momento, são 'início de sessão', 'none' e 'consentimento'.  `prompt=login` irá forçar o utilizador introduza as suas credenciais nesse pedido, a negação início de sessão único.  `prompt=none` é o oposto --irá garantir que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal. Se o pedido não é possível concluir automaticamente através de início de sessão único, o ponto final v 2.0 devolverá um erro.  `prompt=consent` aciona a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão, solicitando ao utilizador para conceder permissões para a aplicação. |
+| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador de início de sessão na página para o utilizador, se souber o nome de utilizador antecedência. Muitas vezes, as aplicações irão utilizar este parâmetro durante a reautenticação, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
+| domain_hint |opcional |Pode ser um dos `consumers` ou `organizations`. Caso, irá ignorar o processo de deteção baseada em e-mail esse utilizador passa no sinal v 2.0 na página, originando uma experiência de utilizador ligeiramente mais simplificada.  Aplicações, muitas vezes, irão utilizar este parâmetro durante a reautenticação, extraindo o `tid` o id_token de afirmação.  Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad`, deve utilizar `domain_hint=consumers`.  Caso contrário, utilize `domain_hint=organizations`. |
 
 Neste momento, o utilizador será ser-lhe pedido para introduzir as suas credenciais e concluir a autenticação.  O ponto final v 2.0 também vai assegurar que o utilizador consentiu as permissões indicadas a `scope` parâmetro de consulta.  Se o utilizador não se consentiu para qualquer um dessas permissões, pedirá ao utilizador consentimento para as permissões necessárias.  Detalhes de [permissões, consentimento e aplicações de multi-inquilinos são fornecidas aqui](active-directory-v2-scopes.md).
 
@@ -99,10 +99,10 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parâmetro | Descrição |
 | --- | --- |
-| access_token |Se incluídos `response_type` inclui `token`. O token de acesso que a aplicação pedida, neste caso, para o Microsoft Graph.  O token de acesso não deve estar descodificar ou inspecionado caso contrário, pode ser tratado como uma cadeia opaco. |
-| token_type |Se incluídos `response_type` inclui `token`.  Será sempre `Bearer`. |
-| expires_in |Se incluídos `response_type` inclui `token`.  Indica o número de segundos que o token é válido, para efeitos de colocação em cache. |
-| Âmbito |Se incluídos `response_type` inclui `token`.  Indica os âmbitos que se para o qual o access_token será válido. |
+| access_token |Se incluídos `response_type` inclui `token`. O token de acesso que a aplicação pedida, neste caso, para o Microsoft Graph. O token de acesso não deve estar descodificar ou inspecionado caso contrário, pode ser tratado como uma cadeia opaco. |
+| token_type |Se incluídos `response_type` inclui `token`. Será sempre `Bearer`. |
+| expires_in |Se incluídos `response_type` inclui `token`. Indica o número de segundos que o token é válido, para efeitos de colocação em cache. |
+| scope |Se incluídos `response_type` inclui `token`.  Indica os âmbitos que se para o qual o access_token será válido. |
 | id_token |Id_token que a aplicação pedida. Pode utilizar o id_token para verificar a identidade do utilizador e iniciar uma sessão com o utilizador.  Obter mais detalhes sobre id_tokens e os respetivos conteúdos está incluído no [referência de token de ponto final v 2.0](active-directory-v2-tokens.md). |
 | state |Se um parâmetro de estado está incluído no pedido, o mesmo valor deve aparecer na resposta. A aplicação deverá certificar-se de que os valores de estado no pedido e resposta são idênticos. |
 
@@ -166,11 +166,11 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores.  Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| client_id |Necessário |O Id da aplicação que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuído a sua aplicação. |
+| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores.  Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| client_id |Necessário |ID de aplicação que o portal de registo ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) atribuído a sua aplicação. |
 | response_type |Necessário |Tem de incluir `id_token` para OpenID Connect início de sessão.  Poderão incluir outras response_types, tais como `code`. |
 | redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação.  Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url. |
-| Âmbito |Necessário |Uma lista separada por espaço de âmbitos.  Para obter os tokens, incluir todos os [âmbitos](active-directory-v2-scopes.md) precisa para o recurso de interesse. |
+| scope |Necessário |Uma lista separada por espaço de âmbitos.  Para obter os tokens, incluir todos os [âmbitos](active-directory-v2-scopes.md) precisa para o recurso de interesse. |
 | response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Pode ser um dos `query`, `form_post`, ou `fragment`. |
 | state |recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token.  Pode ser uma cadeia de todos os conteúdos que pretende.  Um valor exclusivo gerado aleatoriamente é normalmente utilizado para impedir ataques de falsificação de pedidos entre sites.  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
 | nonce |Necessário |Um valor incluído no pedido de gerado pela aplicação, que será incluída no id_token resultante como uma afirmação.  A aplicação, em seguida, pode verificar este valor para mitigar ataques de repetição de token.  O valor é, geralmente, uma cadeia exclusiva, aleatório que pode ser utilizada para identificar a origem do pedido. |
@@ -198,7 +198,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Será sempre `Bearer`. |
 | state |Se um parâmetro de estado está incluído no pedido, o mesmo valor deve aparecer na resposta. A aplicação deverá certificar-se de que os valores de estado no pedido e resposta são idênticos. |
 | expires_in |Quanto o token de acesso é válido (em segundos). |
-| Âmbito |Os âmbitos que o token de acesso é válido para. |
+| scope |Os âmbitos que o token de acesso é válido para. |
 
 #### <a name="error-response"></a>Resposta de erro
 As respostas de erro também podem ser enviadas para o `redirect_uri` para a aplicação pode processar corretamente.  Em case de `prompt=none`, será um erro esperado:
@@ -216,6 +216,16 @@ error=user_authentication_required
 
 Se receber este erro no pedido iframe, o utilizador tem interativamente iniciar sessão novamente para obter um novo token.  Pode escolher processar este caso no forma que achar mais faz sentido para a sua aplicação.
 
+## <a name="validating-access-tokens"></a>A validar os tokens de acesso
+
+Depois de receber um access_token, certifique-se validar a assinatura do token, bem como as seguintes afirmações. Também pode optar por validar afirmações adicionais com base no seu cenário. 
+
+* **público-alvo** de afirmação, para se certificar de que o token se destinar a ser indicado para a sua aplicação
+* **emissor** de afirmação, para verificar se o token foi emitido para a sua aplicação pelo ponto final v 2.0
+* **não antes** e **hora de expiração** afirmações, certifique-se de que o token não expirou
+
+Para mais informações sobre as afirmações presentes no token de acesso, consulte o [referência de token de ponto final v 2.0](active-directory-v2-tokens.md)
+
 ## <a name="refreshing-tokens"></a>Atualizar tokens
 Ambos `id_token`s e `access_token`s irá expirar após um curto período de tempo, pelo que a aplicação tem de ser preparada para atualizar estes tokens periodicamente.  Para atualizar qualquer tipo de token, pode efetuar o pedido de iframe oculta mesmo from above utilizando o `prompt=none` parâmetro para controlar o comportamento do Azure AD.  Se pretender receber uma nova `id_token`, certifique-se de utilizar `response_type=id_token` e `scope=openid`, bem como um `nonce` parâmetro.
 
@@ -228,5 +238,5 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores.  Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
+| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são `common`, `organizations`, `consumers`e inquilinos identificadores.  Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | post_logout_redirect_uri | recomendado | O URL que o utilizador deve ser reencaminhado para depois de concluída a fim de sessão. Este valor tem de corresponder a um redirecionamento que URIs registados para a aplicação. Se não incluída, o utilizador será apresentado uma mensagem genérica pelo ponto final v 2.0. |

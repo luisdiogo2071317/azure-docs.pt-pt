@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Encriptação de disco do Azure FAQ
 
@@ -34,7 +34,7 @@ GA de encriptação de disco do Azure suporta modelos Azure Resource Manager, do
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Quanto custo Azure Disk Encryption?
 
-Não há sem qualquer encargo para encriptar os discos da VM com o Azure Disk Encryption.
+Existem sem qualquer encargo para encriptar os discos da VM com o Azure Disk Encryption, mas existem custos associados a utilização do Cofre de chaves do Azure. Para obter mais informações sobre o Cofre de chaves do Azure, os custos consulte o [preços do Cofre de chaves](https://azure.microsoft.com/pricing/details/key-vault/) página.
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Os escalões de máquina virtual suporta a Azure Disk Encryption?
 
@@ -68,7 +68,7 @@ Encriptação de disco do Azure é suportada no seguintes distribuições de ser
 | SLES | Prioridade: 11-SP4 | Disco de dados |
 | SLES | 11 SP4 | Disco de dados |
 
-*__ADE é suportada para RHEL para o disco de dados. A implementação atual do ADE funcionar para o disco do SO, mas não é suportada atualmente jointly. Microsoft e Red Hat trabalhar para uma solução jointly suportada. No provisório, pode referenciar o documento técnico ADE para encriptação de disco de SO Linux [aqui](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE é suportada para RHEL para o disco de dados. A implementação atual do ADE funcionar para o disco do SO, mas não é suportada atualmente jointly. Microsoft e Red Hat trabalhar para uma solução jointly suportada. No provisório, pode referenciar o documento técnico ADE para encriptação de disco de SO Linux [aqui](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Como posso começar a utilizar o Azure Disk Encryption?
 

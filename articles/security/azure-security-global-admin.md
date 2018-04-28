@@ -8,11 +8,11 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: a247f5afbca491dc9c31c74453860961188411c9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a7a08c54fe0c59e1e100e1c46e7a640da0692077
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Impor autenticação multifator (MFA) para os administradores da subscrição
 
@@ -23,7 +23,7 @@ Além disso, permitindo [Azure multi-factor Authentication (MFA)](https://docs.m
 
 Por exemplo: impor o MFA do Azure para os seus utilizadores e configurá-lo para utilizar uma chamada telefónica ou mensagem de texto como verificação. Se as credenciais do utilizador ficam comprometidas, o atacante será capaz de aceder a qualquer recurso uma vez que ele não terá acesso para o telefone do utilizador. As organizações que não adicione camadas adicionais de proteção de identidade sejam mais suscetíveis de ataque de roubo de credenciais, que pode levar ao comprometimento de dados.
 
-Uma alternativa para as organizações que pretende manter a autenticação completa controlo no local é utilizar [do servidor multi-factor Authentication Azure](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), também designado por "MFA no local". Através deste método, irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
+Uma alternativa para as organizações que pretende manter a autenticação completa controlo no local é utilizar [do servidor multi-factor Authentication Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), também designado por "MFA no local". Através deste método, irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
 
 Para verificar que na sua organização tem privilégios administrativos, que pode verificar, utilizando o seguinte comando do PowerShell V2 do Microsoft Azure AD:
 
@@ -33,7 +33,7 @@ Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } 
 
 ## <a name="enabling-mfa"></a>Ative a MFA
 
-Reveja como [MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-whats-next) funciona antes de continuar.
+Reveja como [MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) funciona antes de continuar.
 
 Desde que os utilizadores tenham licenças que incluam a Multi-Factor Authentication do Azure, não é necessário fazer nada para ativar a MFA do Azure. Pode requerer a verificação de dois passos para cada utilizador. As licenças que permitem a MFA do Azure são:
 
@@ -43,5 +43,5 @@ Desde que os utilizadores tenham licenças que incluam a Multi-Factor Authentica
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Ativar a verificação de dois passos para os utilizadores
 
-Utilize um dos procedimentos listados na [como requerer a verificação de dois passos](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) para um utilizador ou grupo começar a utilizar o MFA do Azure. Pode optar por impor a verificação de dois passos para todos os inícios de sessão ou pode criar políticas de acesso condicional para exigir a verificação apenas quando lhe interessa.
+Utilize um dos procedimentos listados na [como requerer a verificação de dois passos](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) para um utilizador ou grupo começar a utilizar o MFA do Azure. Pode optar por impor a verificação de dois passos para todos os inícios de sessão ou pode criar políticas de acesso condicional para exigir a verificação apenas quando lhe interessa.
 

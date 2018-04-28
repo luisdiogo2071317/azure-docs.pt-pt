@@ -8,13 +8,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bb0b9e3db4637a6b872c7fed9653a16457b848db
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,14 +94,14 @@ Para copiar dados do Amazon S3, defina a propriedade de tipo do conjunto de dado
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **AmazonS3Object** |Sim |
 | bucketName | O nome do registo de S3. |Sim |
-| key | A chave do objeto de S3. Aplica-se apenas ao prefixo não está especificado. |Não |
-| prefixo | Prefixo para a chave do objeto de S3. Objetos cujas chaves começar a utilizar este prefixo estão selecionados. Aplica-se apenas quando chave não está especificada. |Não |
+| key | O **filtro nome ou o caráter universal** da chave do objeto de S3 sob o registo especificado. Aplica-se apenas quando a propriedade de "prefixo" não está especificada. <br/><br/>O filtro de caráter universal só é suportado para a parte do nome de ficheiro, mas não faz parte de pasta. Permitidos carateres universais são: `*` (vários carateres) e `?` (único caráter).<br/>-Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"` |Não |
+| prefixo | Prefixo para a chave do objeto de S3. Objetos cujas chaves começar a utilizar este prefixo estão selecionados. Aplica-se apenas quando a propriedade de "chave" não está especificada. |Não |
 | versão | A versão do objeto S3, se o controlo de versões de S3 estiver ativado. |Não |
 | formato | Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
 
-> [!NOTE]
-> **bucketName + chave** Especifica a localização do objeto S3, onde o registo é o contentor de raiz para objetos de S3 e a chave é o caminho completo para o objeto de S3.
+>[!TIP]
+>Para copiar todos os ficheiros numa pasta, especifique **bucketName** para o registo e **prefixo** para a parte da pasta.<br>Para copiar um único ficheiro com um nome específico, especifique **bucketName** para o registo e **chave** para nome de parte plus ficheiros da pasta.<br>Para copiar um subconjunto de ficheiros de uma pasta, especifique **bucketName** para o registo e **chave** para o filtro de pasta parte plus com carateres universais.
 
 **Exemplo: utilizar o prefixo**
 

@@ -1,6 +1,6 @@
 ---
-title: "Controlar operações personalizadas com o SDK .NET da Azure Application Insights | Microsoft Docs"
-description: "Controlo personalizadas operações com o SDK .NET da Azure Application Insights"
+title: Controlar operações personalizadas com o SDK .NET da Azure Application Insights | Microsoft Docs
+description: Controlo personalizadas operações com o SDK .NET da Azure Application Insights
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Controlar operações personalizadas com o Application Insights SDK do .NET
 
@@ -413,7 +413,7 @@ async Task BackgroundTask()
 }
 ```
 
-Neste exemplo, `telemetryClient.StartOperation` cria `RequestTelemetry` e preenche o contexto de correlação. Imaginemos que tem uma operação de principal que foi criada por pedidos recebidos que a operação agendada. Desde que `BackgroundTask` começa a mesma assíncrona controla o fluxo como um pedido recebido, é correlacionado com essa operação principal. `BackgroundTask`e todos os itens de telemetria aninhadas são automaticamente correlacionados com o pedido que, mesmo depois do pedido termina.
+Neste exemplo, `telemetryClient.StartOperation` cria `RequestTelemetry` e preenche o contexto de correlação. Imaginemos que tem uma operação de principal que foi criada por pedidos recebidos que a operação agendada. Desde que `BackgroundTask` começa a mesma assíncrona controla o fluxo como um pedido recebido, é correlacionado com essa operação principal. `BackgroundTask` e todos os itens de telemetria aninhadas são automaticamente correlacionados com o pedido que, mesmo depois do pedido termina.
 
 Quando a tarefa é iniciado a partir do thread de segundo plano que não tem qualquer operação (`Activity`) associados à mesma, `BackgroundTask` não tem qualquer principal. No entanto, este pode ter aninhadas operações. Todos os itens de telemetria comunicados pela tarefa estão correlacionados com o `RequestTelemetry` criado no `BackgroundTask`.
 
@@ -450,11 +450,11 @@ public async Task RunMyTaskAsync()
 
 Disposing operação faz com que a operação seja interrompido, pelo que poderá fazê-lo em vez de chamar `StopOperation`.
 
-*Aviso*: em alguns casos poderá exceção unhanded [impedir](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` ser chamado para operações não podem ser controladas.
+*Aviso*: em alguns casos poderá exceção unhanded [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` ser chamado para operações não podem ser controladas.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Processamento de operações simultâneas e controlo
 
-`StopOperation`apenas interrompe a operação que foi iniciada. Se a operação de execução atual não corresponde à que pretende parar, `StopOperation` não produz qualquer efeito. Esta situação pode acontecer se iniciar múltiplas operações em paralelo no mesmo contexto de execução:
+`StopOperation` apenas interrompe a operação que foi iniciada. Se a operação de execução atual não corresponde à que pretende parar, `StopOperation` não produz qualquer efeito. Esta situação pode acontecer se iniciar múltiplas operações em paralelo no mesmo contexto de execução:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");

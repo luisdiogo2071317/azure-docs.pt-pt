@@ -1,11 +1,11 @@
 ---
-title: "Configurar as ligações de S2S VPN de ativo-ativo para Gateways de VPN: o Gestor de recursos do Azure: PowerShell | Microsoft Docs"
-description: "Este artigo explica como configurar ligações de ativo-ativo com Gateways de VPN do Azure com o Azure Resource Manager e o PowerShell."
+title: 'Configurar as ligações de S2S VPN de ativo-ativo para Gateways de VPN: o Gestor de recursos do Azure: PowerShell | Microsoft Docs'
+description: Este artigo explica como configurar ligações de ativo-ativo com Gateways de VPN do Azure com o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c09abe97d34b7220d76481a403165f1b7e07fcaa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurar ligações de S2S VPN de ativo-ativo com Gateways de VPN do Azure
 
@@ -94,7 +94,7 @@ Confirme que muda para o modo do PowerShell para utilizar os cmdlets do Resource
 Abra a consola do PowerShell e ligue-se à sua conta. Utilize o seguinte exemplo para o ajudar na ligação:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -276,7 +276,7 @@ Da mesma forma, abaixo apresenta uma lista de parâmetros que irá introduzir no
 
 Assim que são estabelecida a ligação (túneis), terá duplos dispositivos VPN redundantes e túneis ligar a rede no local e o Azure:
 
-![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![Dual-redundância-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Parte 3 - estabelecer uma ligação de VNet a VNet ativo-ativo
 Esta secção cria uma ligação de VNet a VNet ativo-ativo com o BGP. 
@@ -416,7 +416,7 @@ Neste passo, ativar o modo ativo-ativo e atualizar o gateway. No exemplo, o gate
 
 * Não é possível alterar um SKU legado para um os SKUs de novo utilizando este passo. Apenas pode redimensionar um SKU legado para outro SKU legado suportado. Por exemplo, não é possível alterar o SKU do padrão para VpnGw1 (mesmo que VpnGw1 é suportado para ativo-ativo) porque o padrão é um SKU de legado e VpnGw1 é um SKU atual. Para obter mais informações sobre SKUs de redimensionamento e migrar, consulte [SKUs de Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Se pretender redimensionar um SKU atual, por exemplo VpnGw1 para VpnGw3, pode fazê-utilizar este passo porque os SKUs estão na mesma família SKU. Para tal, teria de utilizar o valor:```-GatewaySku VpnGw3```
+* Se pretender redimensionar um SKU atual, por exemplo VpnGw1 para VpnGw3, pode fazê-utilizar este passo porque os SKUs estão na mesma família SKU. Para tal, teria de utilizar o valor: ```-GatewaySku VpnGw3```
 
 Quando estiver a utilizar isto no seu ambiente, se não precisa de redimensionar o gateway, não terá de especificar o GatewaySku. Tenha em atenção que neste passo, tem de definir o objeto do gateway no PowerShell para acionar a atualização real. Esta atualização pode demorar 30 para 45 minutos, mesmo que não são redimensionar o gateway.
 

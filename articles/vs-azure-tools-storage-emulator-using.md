@@ -2,23 +2,20 @@
 title: Configurar e utilizar o emulador de armazenamento com o Visual Studio | Microsoft Docs
 description: Configurar e utilizar o emulador de armazenamento com o Visual Studio
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: c8e7996f-6027-4762-806e-614b93131867
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: c8e7996f-6027-4762-806e-614b93131867
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: ecf9df0d94f34df69750a8baa7f5502764cf9b06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c502d5e0869d35ded5c3ba7e790da0558d219e0e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurar e utilizar o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -54,5 +51,5 @@ Na primeira vez que executa ou de depuração do serviço do Visual Studio, o em
 O emulador do storage fornece uma interface de utilizador para ver o estado dos serviços de armazenamento local e para iniciar, parar e repô-las. Assim que foi iniciado o serviço de emulador de armazenamento, pode apresentar a interface de utilizador de modo a iniciar ou parar o serviço clicando no ícone da área de notificação para o emulador do Microsoft Azure na barra de tarefas do Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Visualizar os dados de emulador de armazenamento no Explorador de servidores
-O nó de armazenamento do Azure no Explorador de servidores permite-lhe ver os dados e alterar as definições para os dados de BLOBs e de tabela na suas contas do storage, incluindo o emulador de armazenamento. Consulte [recursos de gerir o armazenamento de Blobs do Azure com o Explorador de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
+O nó de armazenamento do Azure no Explorador de servidores permite-lhe ver os dados e alterar as definições para os dados de BLOBs e de tabela na suas contas do storage, incluindo o emulador de armazenamento. Consulte [recursos de gerir o armazenamento de Blobs do Azure com o Explorador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) para obter mais informações.
 

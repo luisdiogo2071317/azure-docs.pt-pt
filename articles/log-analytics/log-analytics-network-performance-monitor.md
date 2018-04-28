@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -158,7 +158,7 @@ Configure as capacidades que pretende:
 
 - [Monitor de desempenho](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
 - [Monitor de ponto final de serviço](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
+- [Monitor do ExpressRoute](log-analytics-network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -249,6 +249,24 @@ Quando seleciona um nó ou paire sobre os mesmos no mapa de topologia, pode ver 
 ## <a name="log-analytics-search"></a>Análise de registos de pesquisa 
 
 Todos os dados que é páginas graficamente expostas através do dashboard de monitorização de desempenho de rede e desagregar também está disponível nativamente no [análise de registos de pesquisa](log-analytics-log-search-new.md). Pode efetuar análises interativas dos dados no repositório e correlacionar dados de diferentes origens. Também pode criar alertas personalizados e vistas e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar as suas próprias consultas e relatórios. 
+
+## <a name="alerts"></a>Alertas
+
+Monitor de desempenho de rede utiliza as capacidades de alertas de [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+
+Isto significa que todos os alertas é gerida utilizando [grupos ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+
+Se for um utilizador NPM, criar um alerta através do OMS: 
+1. Verá uma ligação que irá redirecionar para o Portal do Azure. Clique nele para aceder ao portal.
+2. Clique no mosaico da solução de Monitor de desempenho de rede. 
+3. Navegue para configurar.  
+4. Selecione o teste de que pretende criar um alerta e siga o abaixo mencionado passos.
+
+Se for um utilizador NPM, criar um alerta através do Portal do Azure:  
+1. Pode optar por introduzir o seu correio eletrónico diretamente ou pode optar por criar alertas através de grupos de ação.
+2. Se optar por introduzir diretamente o seu correio eletrónico, grupo de uma ação com o nome **NPM E-Mail ActionGroup** é criado e o id de correio eletrónico é adicionado a esse grupo de ação.
+3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação criado anteriormente. Pode saber como criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+4. Depois do alerta foi criado com êxito, pode utilizar a ligação de gerir alertas para gerir os alertas. 
 
 ##<a name="pricing"></a>Preços
 

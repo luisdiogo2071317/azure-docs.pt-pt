@@ -1,43 +1,39 @@
 ---
-title: 'Início rápido: Aumentar horizontalmente computação no Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
-description: As tarefas do PowerShell para aumentar horizontalmente recursos de computação ao ajustar unidades do data warehouse.
+title: 'Início Rápido: Dimensionar a computação no Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+description: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início rápido: Escala de computação no Azure SQL Data Warehouse no PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início Rápido: Dimensionar a computação do Azure SQL Data Warehouse no PowerShell
 
-Dimensionar a computação no Azure SQL Data Warehouse no PowerShell. [Aumentar horizontalmente computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou escala fazer uma cópia de computação para reduzir os custos. 
+Dimensionar a computação do Azure SQL Data Warehouse no PowerShell. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Este tutorial requer o Azure PowerShell versão do módulo 5.1.1 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para encontrar a versão de que tem atualmente. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md)(Instalar o módulo do Azure PowerShell). 
+Este tutorial requer a versão 5.1.1 ou posterior do módulo do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão que tem atualmente. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md)(Instalar o módulo do Azure PowerShell).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este guia de introdução pressupõe que já tiver um armazém de dados do SQL Server que podem ser dimensionados. Se precisar de criar um, utilize [criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**. 
+Este guia de introdução pressupõe que já tem um armazém de dados SQL que pode dimensionar. Se precisar de criar um, utilize [Criar e Ligar - Portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) e siga as instruções no ecrã.
+Inicie a sessão na sua subscrição do Azure com o comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) e siga as instruções no ecrã.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Para ver a subscrição que está a utilizar, execute [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
@@ -46,32 +42,32 @@ Para ver a subscrição que está a utilizar, execute [Get-AzureRmSubscription](
 Get-AzureRmSubscription
 ```
 
-Se precisar de utilizar uma subscrição diferente que não o predefinido, execute [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Se precisar de utilizar uma subscrição diferente que não a predefinida, execute [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-data-warehouse-information"></a>Procurar informações do armazém de dados
+## <a name="look-up-data-warehouse-information"></a>Procure pelas informações de armazém de dados
 
-Localize o nome de base de dados, o nome do servidor e o grupo de recursos para o armazém de dados que pretende colocar em pausa e retomar. 
+Localize o nome da base de dados, nome do servidor e grupo de recursos para o armazém de dados que planeia colocar em pausa e retomar.
 
-Siga estes passos para encontrar informações de localização para o seu armazém de dados.
+Siga estes passos para encontrar as informações de localização para o seu armazém de dados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Clique em **bases de dados SQL** na página da esquerda do portal do Azure.
-3. Selecione **mySampleDataWarehouse** do **bases de dados SQL** página. Esta ação abre o armazém de dados. 
+2. Clique em **bases de dados SQL** na página da esquerda do Portal do Azure.
+3. Selecione **mySampleDataWarehouse** da página de **bases de dados SQL**. Esta ação abre o armazém de dados.
 
-    ![Grupo de recursos e nome de servidor](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
+    ![O nome do servidor e grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote o nome de armazém de dados, que será utilizado como o nome de base de dados. Lembre-se de que o armazém de dados é um tipo de base de dados. Também anote o nome do servidor e o grupo de recursos. Irá utilizá-las na colocar em pausa e retomar comandos.
-5. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como o nome do servidor nos cmdlets do PowerShell. Na imagem anterior, o nome de servidor completo é newserver 20171113.database.windows.net. Utilizamos **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
+4. Escreva o nome do armazém de dados, que vai ser utilizado como o nome da base de dados. Recorde-se que um armazém de dados é um tipo de base de dados. Anote também o nome do servidor e do grupo de recursos. Vai utilizá-los nos comandos de pausa e retomar.
+5. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como nome de servidor nos cmdlets do PowerShell. Na imagem anterior, o nome completo do servidor é newserver-20171113.database.windows.net. Utilizamos **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [criar e ligar - portal](create-data-warehouse-portal.md) criado **mySampleDataWarehouse** e inicializado-lo com 400 DWUs. Os seguintes passos ajustar as DWUs para **mySampleDataWarehouse**.
+No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
-Para alterar as unidades do data warehouse, utilize o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet do PowerShell. O exemplo seguinte define as unidades de armazém de dados para DW300 para a base de dados **mySampleDataWarehouse** que está alojado no grupo de recursos **myResourceGroup** no servidor  **mynewserver 20171113**.
+Para alterar as unidades de armazém de dados, utilize o cmdlet do PowerShell [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). O exemplo seguinte define as unidades de armazém de dados para DW300 para a base de dados **mySampleDataWarehouse**, que está alojada no grupo de Recursos **myResourceGroup** no servidor **mynewserver-20171113**.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -79,16 +75,16 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do armazém de dados
 
-Para ver o estado atual do armazém de dados, utilize o [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) cmdlet do PowerShell. Este obtém o estado do **mySampleDataWarehouse** base de dados no ResourceGroup **myResourceGroup** e servidor **mynewserver 20171113.database.windows.net**.
+Para ver o estado atual do armazém de dados, pode utilizar o cmdlet [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) do PowerShell. Este obtém o estado da base de dados **mySampleDataWarehouse** no ResourceGroup **myResourceGroup** e do servidor **mynewserver 20171113.database.windows.net**.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
 $database
 ```
 
-Que irá resultar no algo semelhante ao seguinte:
+Que resulta em algo como:
 
-```powershell   
+```powershell
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20171113
 DatabaseName                  : mySampleDataWarehouse
@@ -114,7 +110,7 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Pode ver o **estado** da base de dados no resultado. Neste caso, pode ver que esta base de dados está online.  Quando executar este comando, deverá receber um valor de estado de Online, Pausing, a retomar, dimensionamento ou em pausa. 
+Pode ver o **Estado** da base de dados na saída. Neste caso, pode ver que esta base de dados está online.  Quando executar este comando, deve receber um valor de Estado de Online, A Colocar em Pausa, A Retomar, A Dimensionar ou Em Pausa.
 
 Para ver o estado por si só, utilize o seguinte comando:
 
@@ -122,8 +118,8 @@ Para ver o estado por si só, utilize o seguinte comando:
 $database | Select-Object DatabaseName,Status
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que tem aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+## <a name="next-steps"></a>Passos seguintes
+Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
 >[Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

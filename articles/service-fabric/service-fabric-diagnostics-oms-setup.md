@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar a análise de registos para um cluster
 
-Pode configurar uma área de trabalho de análise de registos através do Azure Resource Manager, o PowerShell ou o Azure Marketplace. Se a manter um modelo do Resource Manager atualizada da sua implementação para utilização futura, utilize o mesmo modelo para configurar o ambiente do OMS. Implementação através do Marketplace é mais fácil se já tiver um cluster implementado com diagnóstico ativado. Se não tiver acesso de nível de subscrição na conta que pretende implementar OMS, implemente utilizando o PowerShell ou o modelo do Resource Manager.
+Análise de registos é a nossa recomendação para monitorizar os eventos ao nível do cluster. Pode configurar a área de trabalho de análise de registos através do Azure Resource Manager, o PowerShell ou o Azure Marketplace. Se a manter um modelo do Resource Manager atualizada da sua implementação para utilização futura, utilize o mesmo modelo para configurar o ambiente de análise de registos. Implementação através do Marketplace é mais fácil se já tiver um cluster implementado com diagnóstico ativado. Se não tiver acesso de nível de subscrição da conta para o qual estiver a implementar, implemente utilizando o PowerShell ou o modelo do Resource Manager.
 
 > [!NOTE]
-> Para configurar o registo de análise para monitorizar o seu cluster, tem de ter ativado para ver eventos de plataforma ao nível do cluster ou de diagnóstico.
+> Para configurar o registo de análise para monitorizar o seu cluster, tem de ter ativado para ver eventos de plataforma ao nível do cluster ou de diagnóstico. Consulte [como configurar o diagnóstico na clusters do Windows](service-fabric-diagnostics-event-aggregation-wad.md) e [como configurar o diagnóstico na clusters do Linux](service-fabric-diagnostics-event-aggregation-lad.md) para obter mais informações
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Implementar o OMS, utilizando o Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Implementar uma área de trabalho de análise de registos ao utilizar o Azure Marketplace
 
-Se pretender adicionar uma área de trabalho do OMS depois de implementar um cluster, visite no portal do Azure Marketplace e procure **análise de recursos de infraestrutura de serviço**:
+Se pretender adicionar uma área de trabalho de análise de registos, depois de implementar um cluster, visite no portal do Azure Marketplace e procure **análise de recursos de infraestrutura de serviço**. Esta é uma solução personalizada para implementações de Service Fabric que tenha dados específicos de Service Fabric. Este processo irá criar a solução (o dashboard para ver informações) e a área de trabalho (a agregação de dados de cluster subjacente).
 
 1. Selecione **novo** no menu de navegação esquerdo. 
 
@@ -39,7 +39,7 @@ Se pretender adicionar uma área de trabalho do OMS depois de implementar um clu
 
     ![Análise de SF OMS no Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Na janela de criação de análise de recursos de infraestrutura de serviço, selecione **Selecione uma área de trabalho** para o **área de trabalho OMS** campo e, em seguida, **criar uma nova área de trabalho**. Preencha as entradas necessárias. O único requisito aqui é que a subscrição para o cluster do Service Fabric e a área de trabalho do OMS é o mesmo. Quando as suas entradas tem sido validadas, a área de trabalho do OMS começa a implementar. A implementação demora apenas alguns minutos.
+4. Na janela de criação de análise de recursos de infraestrutura de serviço, selecione **Selecione uma área de trabalho** para o **área de trabalho OMS** campo e, em seguida, **criar uma nova área de trabalho**. Preencha as entradas necessárias. O único requisito aqui é que a subscrição para o cluster do Service Fabric e a área de trabalho é o mesmo. Quando as suas entradas tem sido validadas, inicia a sua área de trabalho implementar. A implementação demora apenas alguns minutos.
 
 5. Quando terminar, selecione **criar** novamente na parte inferior da janela de criação de análise de recursos de infraestrutura de serviço. Certifique-se de que a nova área de trabalho aparece em **área de trabalho OMS**. Esta ação adiciona a solução para a área de trabalho que criou.
 
@@ -48,9 +48,9 @@ Se estiver a utilizar o Windows, continue com os seguintes passos para ligar OMS
 >[!NOTE]
 >Ativar esta experiência para os clusters do Linux ainda não está disponível. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Ligar a área de trabalho do OMS ao cluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ligar a área de trabalho de análise do registo ao cluster 
 
-1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfOMSWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições de solução, as definições de área de trabalho e aceder ao portal do OMS.
+1. A área de trabalho tem de estar ligados dos dados de diagnóstico provenientes do seu cluster. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfWorkspace\>**  e aceda à página de descrição geral. A partir daí, pode alterar as definições de solução, as definições de área de trabalho e aceder ao portal do OMS.
 
 2. No menu de navegação esquerdo, em **origens de dados da área de trabalho**, selecione **registos de contas de armazenamento**.
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

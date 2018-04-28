@@ -1,348 +1,478 @@
 ---
 title: Esquema de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Microsoft Docs
-description: Definir fluxos de trabalho com base no esquema de definição de fluxo de trabalho para o Azure Logic Apps
+description: Escrever as definições de fluxo de trabalho personalizado para o Azure Logic Apps com a linguagem de definição de fluxo de trabalho
 services: logic-apps
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: SyntaxC4
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
-ms.date: 03/21/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: reference
+ms.date: 04/25/2018
+ms.author: estfan
+ms.openlocfilehash: 7c253fd83bcc1f1dde93ac6ef0c26da1fa1a9a4b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
+# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definições de fluxo de trabalho de aplicações lógicas com o esquema de linguagem de definição de fluxo de trabalho
 
-Uma definição de fluxo de trabalho contém a lógica real, que é executada como parte da sua aplicação lógica. Esta definição inclui um ou mais acionadores que iniciar a aplicação lógica e uma ou mais ações para a aplicação lógica para tomar.  
+Quando criar um fluxo de trabalho de aplicação lógica com [Azure Logic Apps](../logic-apps/logic-apps-overview.md), definição subjacente do seu fluxo de trabalho descreve a lógica real, que é executada para a sua aplicação lógica. Esta descrição segue uma estrutura que tenha definido e validadas pelo esquema de linguagem de definição de fluxo de trabalho, que utiliza [JavaScript Object Notation (JSON)](https://www.json.org/) formato. 
   
-## <a name="basic-workflow-definition-structure"></a>Estrutura de definição de fluxo de trabalho básico
+## <a name="workflow-definition-structure"></a>Estrutura de definição de fluxo de trabalho
 
-Segue-se a estrutura básica de uma definição de fluxo de trabalho:  
+Uma definição de fluxo de trabalho tem pelo menos um acionador que cria uma instância da sua aplicação lógica, além de uma ou mais ações que executa a sua aplicação lógica. 
+
+Segue-se a estrutura de alto nível para uma definição de fluxo de trabalho:  
   
 ```json
-{
-    "$schema": "<schema-of the-definition>",
-    "contentVersion": "<version-number-of-definition>",
-    "parameters": { <parameter-definitions-of-definition> },
-    "triggers": [ { <definition-of-flow-triggers> } ],
-    "actions": [ { <definition-of-flow-actions> } ],
-    "outputs": { <output-of-definition> }
+"definition": {
+  "$schema": "<workflow-definition-language-schema-version>",
+  "contentVersion": "<workflow-definition-version-number>",
+  "parameters": { "<workflow-parameter-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" },
+  "actions": { "<workflow-action-definitions>" },
+  "outputs": { "<workflow-output-definitions>" }
 }
 ```
   
-> [!NOTE]
-> O [API de REST de gestão do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows) documentação tem informações sobre como criar e gerir fluxos de trabalho de aplicação de lógica.
-  
-|Nome do elemento|Necessário|Descrição|  
-|------------------|--------------|-----------------|  
-|$schema|Não|Especifica a localização para o ficheiro de esquema JSON que descreve a versão de idioma de definição. Esta localização é necessária quando referenciar uma definição externamente. Segue-se a localização deste documento: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
-|contentVersion|Não|Especifica a versão de definição. Quando implementar um fluxo de trabalho utilizando a definição, pode utilizar este valor para se certificar de que é utilizada a definição adequada.|  
-|parâmetros|Não|Especifica os parâmetros utilizados para dados de entrada para a definição. Pode ser definido um máximo de 50 parâmetros.|  
-|Acionadores|Não|Especifica as informações de acionadores que iniciar o fluxo de trabalho. Pode ser definido um máximo de 10 acionadores.|  
-|ações|Não|Especifica as ações que são executadas conforme executa o fluxo. Pode ser definido um máximo de 250 ações.|  
-|saídas|Não|Especifica informações sobre os recursos implementados. Pode ser definido um máximo de 10 saídas.|  
-  
+| Elemento | Necessário | Descrição | 
+|---------|----------|-------------| 
+| definição | Sim | O elemento inicial para a sua definição de fluxo de trabalho | 
+| $schema | Apenas quando externamente que referencia uma definição de fluxo de trabalho | A localização para o ficheiro de esquema JSON que descreve a versão de idioma de definição de fluxo de trabalho, o que pode encontrar aqui: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
+| contentVersion | Não | O número de versão para a sua definição de fluxo de trabalho, o que é "1.0.0.0" por predefinição. Para ajudar a identificar e confirme a definição correta quando implementar um fluxo de trabalho, especifique um valor a utilizar. | 
+| parâmetros | Não | As definições para um ou mais parâmetros transmitir dados para o seu fluxo de trabalho <p><p>Parâmetros máximos: 50 | 
+| Acionadores | Não | As definições para um ou mais acionadores que instanciar o seu fluxo de trabalho. Pode definir mais do que um acionador, mas apenas com a linguagem de definição de fluxo de trabalho, não visualmente através do Designer de aplicações lógicas. <p><p>Acionadores máximas: 10 | 
+| ações | Não | As definições para uma ou mais ações executar no tempo de execução do fluxo de trabalho <p><p>Ações máximas: 250 | 
+| saídas | Não | As definições para as saídas que devolvem a partir de um fluxo de trabalho a executar <p><p>Saídas máximas: 10 |  
+|||| 
+
 ## <a name="parameters"></a>Parâmetros
 
-Esta secção especifica os parâmetros que são utilizados na definição de fluxo de trabalho no momento da implementação. Tem de ser declarados todos os parâmetros nesta secção antes de poderem ser utilizados noutras secções da definição.  
-  
-O exemplo seguinte mostra a estrutura de uma definição do parâmetro:  
+No `parameters` secção, defina os parâmetros que aceitam entradas para o fluxo de trabalho em tempo de execução. Antes de poder utilizar estes parâmetros noutras secções de fluxo de trabalho, certifique-se de que todos os parâmetros nestas secções, declarar.
+
+Segue-se a estrutura geral de uma definição do parâmetro:  
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": <default-value-of-parameter>,
-        "allowedValues": [ <array-of-allowed-values> ],
-        "metadata" : { "key": { "name": "value"} }
+  "<parameter-name>": {
+    "type": "<parameter-type>",
+    "defaultValue": "<default-parameter-value>",
+    "allowedValues": [ <array-with-permitted-parameter-values> ],
+    "metadata": { 
+      "key": { 
+        "name": "<key-value>"
+      } 
     }
-}
+  }
+},
 ```
 
-|Nome do elemento|Necessário|Descrição|  
-|------------------|--------------|-----------------|  
-|tipo|Sim|**Tipo**: cadeia <p> **Declaração**: `"parameters": {"parameter1": {"type": "string"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Declaração**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Declaração**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Especificação**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Declaração**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: matriz <p> **Declaração**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: objeto <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Declaração**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Especificação**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Nota:** o `securestring` e `secureobject` tipos não são devolvidos em `GET` operações. Todas as palavras-passe, chaves e segredos devem utilizar este tipo.|  
-|defaultValue|Não|Especifica o valor predefinido para o parâmetro quando for especificado nenhum valor momento que o recurso é criado.|  
-|allowedValues|Não|Especifica uma matriz de valores permitidos para o parâmetro.|  
-|do IdP|Não|Especifica informações adicionais sobre o parâmetro, como uma descrição legível ou tempo de criação de dados utilizadas pelo Visual Studio ou outras ferramentas.|  
-  
-Este exemplo mostra como pode utilizar um parâmetro na secção de corpo de uma ação:  
-  
-```json
-"body" :
-{
-  "property1": "@parameters('parameter1')"
-}
-```
-
- Parâmetros também podem ser utilizados nas saídas.  
+| Elemento | Necessário | Tipo | Descrição |  
+|---------|----------|------|-------------|  
+| tipo | Sim | int, vírgula flutuante, cadeia, securestring, bool, array, um objeto JSON, secureobject <p><p>**Tenha em atenção**: para todas as palavras-passe, chaves e segredos, utilize o `securestring` e `secureobject` tipos porque o `GET` estes tipos não devolvido pela operação. | O tipo para o parâmetro |
+| defaultValue | Não | Igual a `type` | O valor do parâmetro predefinido quando é especificado nenhum valor quando cria uma instância de fluxo de trabalho | 
+| allowedValues | Não | Igual a `type` | Uma matriz com valores que pode aceitar o parâmetro |  
+| do IdP | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, por exemplo, o nome ou uma descrição para a sua aplicação lógica ou tempo de criação de dados utilizadas pelo Visual Studio ou outras ferramentas legível |  
+||||
   
 ## <a name="triggers-and-actions"></a>Acionadores e ações  
 
-Acionadores e ações especificam as chamadas que podem participar na execução do fluxo de trabalho. Para obter detalhes sobre nesta secção, consulte [ações de fluxo de trabalho e é acionado](logic-apps-workflow-actions-triggers.md).
+Na definição de fluxo de trabalho, o `triggers` e `actions` secções definem as chamadas que ocorrem durante a execução do fluxo de trabalho. Para obter mais informações sobre estas secções e a sintaxe, consulte [acionadores de fluxo de trabalho e ações](../logic-apps/logic-apps-workflow-actions-triggers.md).
   
-## <a name="outputs"></a>Saídas  
+## <a name="outputs"></a>Saídas 
 
-Saídas especificam informações que podem ser devolvidas a partir de um fluxo de trabalho a executar. Por exemplo, se tiver um estado específico ou um valor que pretende controlar para cada execução, pode incluir os dados nas saídas de execução. São apresentados os dados da API de REST de gestão para essa execução e a IU de gestão para que executar no portal do Azure. Também pode fluir estes saídas para outros sistemas externos, como o Power BI para criar dashboards. Saídas são *não* utilizados para responder a pedidos recebidos da API de REST do serviço. Para responder a um pedido recebido através de `response` tipo de ação, eis um exemplo:
-  
+No `outputs` secção, definir os dados que o fluxo de trabalho pode devolver quando terminar em execução. Por exemplo, para controlar um estado específico ou um valor de cada ser executada, especificar que a saída de fluxo de trabalho devolve os dados. 
+
+Segue-se a estrutura geral de uma definição de saída: 
+
 ```json
-"outputs": {  
-  "key1": {  
-    "value": "value1",  
-    "type" : "<type-of-value>"  
-  }  
+"outputs": {
+  "<key-name>": {  
+    "type": "<key-type>",  
+    "value": "<key-value>"  
+  }
 } 
 ```
 
-|Nome do elemento|Necessário|Descrição|  
-|------------------|--------------|-----------------|  
-|chave1|Sim|Especifica o identificador da chave para a saída. Substitua **chave1** com um nome que pretende utilizar para identificar a saída.|  
-|valor|Sim|Especifica o valor de saída.|  
-|tipo|Sim|Especifica o tipo para o valor que foi especificado. Os tipos dos valores possíveis são: <ul><li>`string`</li><li>`securestring`</li><li>`int`</li><li>`bool`</li><li>`array`</li><li>`object`</li></ul>|
-  
-## <a name="expressions"></a>Expressões  
+| Elemento | Necessário | Tipo | Descrição | 
+|---------|----------|------|-------------| 
+| <*nome da chave*> | Sim | Cadeia | O nome da chave para a saída do valor de retorno |  
+| tipo | Sim | int, vírgula flutuante, cadeia, securestring, bool, array, um objeto JSON | O tipo para o valor de retorno de saída | 
+| valor | Sim | Igual a `type` | O valor de retorno de saída |  
+||||| 
 
-Valores JSON na definição podem ser literais ou podem ser expressões que são avaliadas quando a definição é utilizada. Por exemplo:  
-  
-```json
-"name": "value"
-```
-
- ou  
-  
-```json
-"name": "@parameters('password') "
-```
+Para obter o resultado de um fluxo de trabalho a executar, reveja o histórico de execução da aplicação lógica e os detalhes no portal do Azure ou utilize o [API de REST do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Também pode passar o resultado para sistemas externos, por exemplo, o Power BI para que pode criar dashboards. 
 
 > [!NOTE]
-> Alguns expressões obter os respetivos valores de ações de tempo de execução que poderão não existir no início da execução. Pode utilizar **funções** para ajudar a obter alguns destes valores.  
-  
-As expressões podem aparecer em qualquer local, um valor de cadeia JSON e sempre resultar no outro valor JSON. Quando um valor JSON tem sido determinado para ser uma expressão, o corpo da expressão é extraído ao remover no início de sessão (@). Se necessitar de uma cadeia literal que começa com @, que a cadeia tem ser escape utilizando@. Os exemplos seguintes mostram como expressões são avaliadas.  
-  
-|Valor JSON|Resultado|  
-|----------------|------------|  
-|"parâmetros de"|Os carateres 'parameters' são devolvidos.|  
-|"parâmetros de [1]"|Os carateres 'parameters [1]' são devolvidos.|  
-|"@@"|Uma cadeia de 1 caráter que contém ' @' é devolvido.|  
-|" @"|Uma cadeia de carateres de 2 que contém ' @' é devolvido.|  
-  
-Com *cadeia interpolação*, expressões também podem aparecer dentro de cadeias, onde as expressões são moldadas numa `@{ ... }`. Por exemplo: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
+> Ao responder a pedidos recebidos a partir da API REST do serviço, não utilize `outputs`. Em alternativa, utilize o `Response` tipo de ação. Para obter mais informações, consulte [acionadores de fluxo de trabalho e ações](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-O resultado é sempre uma cadeia, o que faz esta funcionalidade semelhante a `concat` função. Suponha que definiu `myNumber` como `42` e `myString` como `sampleString`:  
-  
-|Valor JSON|Resultado|  
-|----------------|------------|  
-|"@parameters('myString')"|Devolve `sampleString` como uma cadeia.|  
-|"@{parameters('myString')}"|Devolve `sampleString` como uma cadeia.|  
-|"@parameters('myNumber')"|Devolve `42` como um *número*.|  
-|"@{parameters('myNumber')}"|Devolve `42` como um *cadeia*.|  
-|"Resposta é: @{parameters('myNumber')}"|Devolve a cadeia `Answer is: 42`.|  
-|"@concat(' Resposta é: ', string(parameters('myNumber')))"|Devolve a cadeia `Answer is: 42`|  
-|"Resposta é: @ @ {parameters('myNumber')}"|Devolve a cadeia `Answer is: @{parameters('myNumber')}`.|  
-  
-## <a name="operators"></a>Operadores  
+<a name="expressions"></a>
 
-Os operadores são os carateres que pode utilizar no interior de expressões ou funções. 
-  
-|Operador|Descrição|  
-|--------------|-----------------|  
-|.|O operador ponto permite-lhe as propriedades de um objeto de referência|  
-|?|O operador de ponto de interrogação permite-lhe referência nulas propriedades de um objeto sem um erro de tempo de execução. Por exemplo, pode utilizar esta expressão para processar saídas de Acionador nulo: <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
-|'|A plica é a única forma moldar literais de cadeia. Não é possível utilizar aspas no interior de expressões porque este pontuação está em conflito com as aspas JSON que encapsula num wrapper a expressão de toda.|  
-|[]|Os parênteses Retos pode ser utilizados para obter um valor a partir de uma matriz com um índice específico. Por exemplo, se tiver uma ação que transmite `range(0,10)`para o `forEach` função, pode utilizar esta função Obter itens de matrizes:  <p>`myArray[item()]`|  
-  
-## <a name="functions"></a>Funções  
+## <a name="expressions"></a>Expressões
 
-Também pode chamar funções dentro de expressões. A tabela seguinte mostra as funções que podem ser utilizadas numa expressão.  
-  
-|Expressão|Avaliação|  
-|----------------|----------------|  
-|"@function('Hello')"|Chama o membro da função da definição com a cadeia literal Olá como o primeiro parâmetro.|  
-|"@function('-' Útil s!')"|Chama o membro da função da definição com a cadeia de literal 'É útil!' como o primeiro parâmetro|  
-|"@function.prop1 ()"|Devolve o valor da propriedade prop1 o `myfunction` membro da definição.|  
-|"@function('Hello').prop1"|Chama o membro da função da definição com a cadeia literal "Olá" como o primeiro parâmetro e devolve a propriedade prop1 do objeto.|  
-|"@function(parameters('Hello'))"|Avalia o parâmetro de Olá e transmite o valor para a função|  
-  
-### <a name="referencing-functions"></a>Funções de referência  
+Com JSON, pode ter valores literais que existe no momento da conceção, por exemplo:
 
-Pode utilizar estas funções para referenciar saídas de outras ações na aplicação lógica ou valores transmitidos quando a aplicação lógica foi criada. Por exemplo, pode referenciar os dados de um passo para utilizá-lo noutro.  
-  
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|parâmetros|Devolve um valor de parâmetro que é definido na definição do. <p>`parameters('password')` <p> **Número de parâmetro**: 1 <p> **Nome**: parâmetro <p> **Descrição**: necessário. O nome do parâmetro cujos valores que pretende.|  
-|action|Permite que uma expressão de valor de derivar de outro nome JSON e pares de valor ou o resultado da ação de tempo de execução atual. A propriedade representada pelo propertyPath no exemplo seguinte é opcional. Se propertyPath não for especificado, a referência é o objecto de acção de todo. Esta função só pode ser utilizada dentro de efetue-até condições de uma ação. <p>`action().outputs.body.propertyPath`|  
-|ações|Permite que uma expressão de valor de derivar de outro nome JSON e pares de valor ou o resultado da ação de tempo de execução. Estas expressões explicitamente declarar que uma ação depende de outra ação. A propriedade representada pelo propertyPath no exemplo seguinte é opcional. Se propertyPath não for especificado, a referência é o objecto de acção de todo. Pode utilizar este elemento ou o elemento de condições para especificar dependências, mas não terá de utilizar ambas para o mesmo recurso dependente. <p>`actions('myAction').outputs.body.propertyPath` <p> **Número de parâmetro**: 1 <p> **Nome**: nome da ação <p> **Descrição**: necessário. O nome da ação cujos valores que pretende. <p> Estão disponíveis propriedades no objecto de acção: <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Consulte o [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646) para obter detalhes sobre essas propriedades.|
-|Acionador|Permite que uma expressão de valor de derivar de outro nome JSON e pares de valor ou o resultado do acionador de tempo de execução. A propriedade representada pelo propertyPath no exemplo seguinte é opcional. Se propertyPath não for especificado, é a referência ao objeto de Acionador de todo. <p>`trigger().outputs.body.propertyPath` <p>Quando utilizada dentro de entradas de um acionador, a função devolve as saídas da execução anterior. No entanto, quando utilizada dentro de condição de um acionador, o `trigger` função devolve as saídas da execução atual. <p> Estão disponíveis propriedades no objecto do acionador: <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Consulte o [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644) para obter detalhes sobre essas propriedades.|
-|actionOutputs|Esta função é a abreviatura para `actions('actionName').outputs` <p> **Número de parâmetro**: 1 <p> **Nome**: nome da ação <p> **Descrição**: necessário. O nome da ação cujos valores que pretende.|  
-|actionBody e corpo|Estas funções são a abreviatura para `actions('actionName').outputs.body` <p> **Número de parâmetro**: 1 <p> **Nome**: nome da ação <p> **Descrição**: necessário. O nome da ação cujos valores que pretende.|  
-|triggerOutputs|Esta função é a abreviatura para `trigger().outputs`|  
-|triggerBody|Esta função é a abreviatura para `trigger().outputs.body`|  
-|item|Quando utilizada dentro de uma ação repetida, esta função devolve o item que está na matriz para este iteração da ação. Por exemplo, se tiver uma ação que é executada para cada item uma matriz de mensagens, pode utilizar esta sintaxe: <p>`"input1" : "@item().subject"`| 
-  
-### <a name="collection-functions"></a>Funções de coleção  
+```json
+"customerName": "Sophia Owen", 
+"rainbowColors": ["red", "orange", "yellow", "green", "blue", "indigo", "violet"], 
+"rainbowColorsCount": 7 
+```
 
-Estas funções funcionam sobre as coleções e geralmente aplicam-se às matrizes, cadeias e, por vezes, dicionários.  
+Também pode ter valores que não existem até que o tempo de execução. Para representar estes valores, pode utilizar *expressões*, quais são avaliadas em tempo de execução. Uma expressão é uma sequência que pode conter um ou mais [funções](#functions), [operadores](#operators), variáveis, valores explícitos ou constantes. Na sua definição de fluxo de trabalho, pode utilizar uma expressão em qualquer lugar um valor de cadeia JSON por lhe o prefixo de expressão com no início de sessão (@). Quando a avaliação de uma expressão que representa um valor JSON, o corpo da expressão é extraído removendo a @ caráter e sempre os resultados no outro valor JSON. 
+
+Por exemplo, para definida anteriormente `customerName` propriedade, pode obter o valor da propriedade utilizando o [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) funcionar numa expressão e atribuir esse valor para o `accountName` propriedade:
+
+```json
+"customerName": "Sophia Owen", 
+"accountName": "@parameters('customerName')"
+```
+
+*Cadeia interpolação* também permite utilizar várias expressões no interior de cadeias que são eliminadas pelo @ caráter e chavetas ({}). Segue-se a sintaxe:
+
+```json
+@{ "<expression1>", "<expression2>" }
+```
+
+O resultado é sempre uma cadeia, tornar esta capacidade semelhante para o `concat()` funcione, por exemplo: 
+
+```json
+"customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
+```
+
+Se tiver uma cadeia literal, que começa com o caráter, @ prefixo de caráter com outra caráter como um caráter de escape @ @: @ @
+
+Estes exemplos mostram como são avaliadas as expressões:
+
+| Valor JSON | Resultado |
+|------------|--------| 
+| "Sophia Owen" | Devolver os seguintes carateres: 'Sophia Owen' |
+| "matriz [1]" | Devolver os seguintes carateres: 'array [1]' |
+| "@@" | Estes carateres ser devolvido como uma cadeia de carateres de um: ' @' |   
+| " @" | Estes carateres ser devolvido como uma cadeia de dois carateres: ' @' |
+|||
+
+Para obter estes exemplos, suponha que definir "myBirthMonth" igual a "Janeiro" e "myAge" igual ao número 42:  
   
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|contém|Devolve VERDADEIRO se o dicionário contém uma lista de chaves, contém um valor ou a cadeia contém subcadeia. Por exemplo, esta função devolve `true`: <p>`contains('abacaba','aca')` <p> **Número de parâmetro**: 1 <p> **Nome**: dentro da coleção <p> **Descrição**: necessário. A coleção para pesquisar no. <p> **Número de parâmetro**: 2 <p> **Nome**: encontrar o objeto <p> **Descrição**: necessário. O objeto localizar dentro de **dentro da coleção**.|  
-|comprimento|Devolve o número de elementos de uma cadeia ou matriz. Por exemplo, esta função devolve `3`:  <p>`length('abc')` <p> **Número de parâmetro**: 1 <p> **Nome**: coleção <p> **Descrição**: necessário. A coleção para o qual pretende obter o comprimento.|  
-|Vazio|Devolve true se o objeto, cadeia ou matriz está vazia. Por exemplo, esta função devolve `true`: <p>`empty('')` <p> **Número de parâmetro**: 1 <p> **Nome**: coleção <p> **Descrição**: necessário. A coleção para verificar se está vazia.|  
-|intersecção|Devolve uma única matriz nem um objeto que tenha elementos comuns entre as matrizes ou objetos transmitidos. Por exemplo, esta função devolve `[1, 2]`: <p>`intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])` <p>Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma combinação de ambos). Se existirem dois objetos com o mesmo nome, o objeto de última com esse nome é apresentado no objeto final. <p> **Número de parâmetro**: 1... *n* <p> **Nome**: coleção *n* <p> **Descrição**: necessário. As coleções a avaliar. Um objeto tem de ser transmitidas nas aparecer nos resultados de todas as coleções.|  
-|União|Devolve uma matriz única ou o objeto com todos os elementos na matriz ou objeto transmitido para esta função. Por exemplo, esta função devolve `[1, 2, 3, 10, 101]`: <p>`union([1, 2, 3], [101, 2, 1, 10])` <p>Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome no resultado final, o objeto de última com esse nome é apresentado no objeto final. <p> **Número de parâmetro**: 1... *n* <p> **Nome**: coleção *n* <p> **Descrição**: necessário. As coleções a avaliar. Um objeto que é apresentado em qualquer uma das coleções também é apresentada nos resultados.|  
-|primeiro|Devolve o primeiro elemento da matriz ou a cadeia transmitida. Por exemplo, esta função devolve `0`: <p>`first([0,2,3])` <p> **Número de parâmetro**: 1 <p> **Nome**: coleção <p> **Descrição**: necessário. A coleção para tirar o objeto do primeiro.|  
-|última|Devolve o último elemento na matriz ou cadeia transmitida. Por exemplo, esta função devolve `3`: <p>`last('0123')` <p> **Número de parâmetro**: 1 <p> **Nome**: coleção <p> **Descrição**: necessário. A coleção para tirar o objeto de última.|  
-|tirar|Devolve o primeiro **contagem** transmitido elementos da matriz ou cadeia. Por exemplo, esta função devolve `[1, 2]`:  <p>`take([1, 2, 3, 4], 2)` <p> **Número de parâmetro**: 1 <p> **Nome**: coleção <p> **Descrição**: necessário. A coleção a partir de onde tirar o primeiro **contagem** objetos. <p> **Número de parâmetro**: 2 <p> **Nome**: contagem <p> **Descrição**: necessário. O número de objetos a demorar entre o **coleção**. Tem de ser um número inteiro positivo.|  
-|Ignorar|Devolve os elementos na matriz que começa no índice **contagem**. Por exemplo, esta função devolve `[3, 4]`: <p>`skip([1, 2 ,3 ,4], 2)` <p> **Número de parâmetro**: 1 <p> **Nome**: coleção <p> **Descrição**: necessário. A coleção para ignorar a primeira **contagem** objetos de. <p> **Número de parâmetro**: 2 <p> **Nome**: contagem <p> **Descrição**: necessário. O número de objetos para remover o início de **coleção**. Tem de ser um número inteiro positivo.|  
-|aderir|Devolve uma cadeia com cada item de uma matriz associada por um delimitador, por exemplo devolve `"1,2,3,4"`:<br /><br /> `join([1, 2, 3, 4], ',')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para associar os itens do.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: delimitador<br /><br /> **Descrição**: necessário. A cadeia para delimitar itens.|  
-  
+```json
+"myBirthMonth": "January",
+"myAge": 42
+```
+
+Estes exemplos mostram como são avaliadas as expressões seguintes:
+
+| Expressão de JSON | Resultado |
+|-----------------|--------| 
+| "@parameters('myBirthMonth')" | Devolver esta cadeia: "Janeiro" |  
+| "@{parameters('myBirthMonth')}" | Devolver esta cadeia: "Janeiro" |  
+| "@parameters('myAge')" | Devolver este número: 42 |  
+| "@{parameters('myAge')}" | Devolver este número como uma cadeia de carateres: "42" |  
+| "A minha idade é @{parameters('myAge')}" | Devolver esta cadeia: "a minha idade é 42" |  
+| "@concat('Está na minha idade', string(parameters('myAge')))" | Devolver esta cadeia: "a minha idade é 42" |  
+| "A minha idade é @ @ {parameters('myAge')}" | Esta cadeia, que inclui a expressão de retorno: "a minha idade é @{parameters('myAge')}' | 
+||| 
+
+Quando estiver a trabalhar visualmente no Designer de aplicações lógica, pode criar expressões através do construtor de expressão, por exemplo: 
+
+![Designer de aplicações lógicas > builder de expressão](./media/logic-apps-workflow-definition-language/expression-builder.png)
+
+Quando tiver terminado, a expressão é apresentado para a propriedade correspondente na sua definição de fluxo de trabalho, por exemplo, o `searchQuery` propriedade aqui:
+
+```json
+"Search_tweets": {
+  "inputs": {
+    "host": {
+      "connection": {
+       "name": "@parameters('$connections')['twitter']['connectionId']"
+      }
+    }
+  },
+  "method": "get",
+  "path": "/searchtweets",
+  "queries": {
+    "maxResults": 20,
+    "searchQuery": "Azure @{concat('firstName','', 'LastName')}"
+  }
+},
+```
+
+<a name="operators"></a>
+
+## <a name="operators"></a>Operadores
+
+No [expressões](#expressions) e [funções](#functions), operadores realizam tarefas específicas, tais como uma propriedade ou um valor numa matriz de referência. 
+
+| Operador | Tarefa | 
+|----------|------|
+| ' | Para utilizar um literal de cadeia como entrada ou em expressões e funções, molde a cadeia apenas com aspas único, por exemplo, `'<myString>'`. Não utilize aspas (""), que estão em conflito com a formatação JSON em torno de uma expressão completa. Por exemplo: <p>**Sim**: length('Hello') </br>**Não**: length("Hello") <p>Quando passar matrizes ou números, não precisa de pontuação de encapsulamento de aplicações. Por exemplo: <p>**Sim**: comprimento ([1, 2, 3]) </br>**Não**: comprimento ("[1, 2, 3]") | 
+| [] | Para fazer referência a um valor na posição específica (índice) numa matriz, utilize parênteses Retos. Por exemplo, para obter o segundo item numa matriz: <p>`myArray[1]` | 
+| . | Para fazer referência a uma propriedade de um objeto, utilize o operador de ponto. Por exemplo, para obter o `name` propriedade para um `customer` objeto JSON: <p>`"@parameters('customer').name"` | 
+| ? | Para efeitos de referência nulas propriedades de um objeto sem um erro de tempo de execução, utilize o operador de ponto de interrogação. Por exemplo, para lidar com saídas nulo a partir de um acionador, pode utilizar esta expressão: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` | 
+||| 
+
+<a name="functions"></a>
+
+## <a name="functions"></a>Funções
+
+Alguns expressões obter os valores de ações de tempo de execução que não possam ainda existir quando uma aplicação lógica começa a ser executada. Referência ou trabalhar com estes valores em expressões, pode utilizar *funções*. Por exemplo, pode utilizar funções de bibliotecas para cálculos, tais como o [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) função, que devolve a soma de números inteiros ou floats. 
+
+Seguem-se apenas algumas tarefas de exemplo que pode realizar com as funções: 
+
+| Tarefa | Sintaxe de função | Resultado | 
+| ---- | --------------- | -------------- | 
+| Devolva uma cadeia no formato em minúsculas. | toLower ('<*texto*>') <p>Por exemplo: toLower('Hello') | "Olá" | 
+| Devolve um identificador exclusivo global (GUID). | GUID() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+Este exemplo mostra como pode obter o valor da `customerName` parâmetro e atribua o valor para o `accountName` propriedade utilizando o [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) função numa expressão:
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+Seguem-se algumas formas gerais que pode utilizar as funções em expressões de:
+
+| Tarefa | Sintaxe de função numa expressão | 
+| ---- | -------------------------------- | 
+| Realizar o trabalho com um item através da transmissão de que o item a uma função. | "@<*functionName*> (<*item*>)" | 
+| 1. Obter o *parameterName*do valor utilizando o aninhada `parameters()` função. </br>2. Realizar o trabalho com o resultado transferindo esse valor a *functionName*. | "@<*functionName*> (parâmetros ('<*parameterName*>'))" | 
+| 1. Obter o resultado da função aninhada interna *functionName*. </br>2. O resultado de passar para a função externa *functionName2*. | "@<*functionName2*> (<*functionName*> (<*item*>))" | 
+| 1. Obter o resultado do *functionName*. </br>2. Uma vez que o resultado é um objeto com a propriedade *propertyName*, obter esse valor da propriedade. | "@<*functionName*>(<*item*>). <*propertyName*>" | 
+||| 
+
+Por exemplo, o `concat()` função pode efetuar dois ou mais valores de cadeia como parâmetros. Esta função combina essas cadeias numa cadeia. Pode passar no literais de cadeia, por exemplo, "Sophia" e "Owen", para que obtenha uma cadeia de combinado de "SophiaOwen":
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+Em alternativa, pode obter valores de cadeia de parâmetros. Este exemplo utiliza o `parameters()` função em cada `concat()` parâmetro e o `firstName` e `lastName` parâmetros. Em seguida, transmite as cadeias de resultantes para o `concat()` funcionar para que obtenha uma cadeia combinada, por exemplo, "SophiaOwen":
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+Qualquer forma, os dois exemplos atribua o resultado para o `customerName` propriedade. 
+
+Para obter informações detalhadas sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+Em alternativa, saber mais sobre as funções com base no respetivo objetivo geral.
+
+<a name="string-functions"></a>
+
 ### <a name="string-functions"></a>Funções de cadeia
 
-As seguintes funções só se aplicam a cadeias. Também pode utilizar algumas funções de coleção em cadeias.  
-  
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|concat|Combina qualquer número de cadeias em conjunto. Por exemplo, se o parâmetro 1 é `p1`, esta função devolve `somevalue-p1-somevalue`: <p>`concat('somevalue-',parameters('parameter1'),'-somevalue')` <p> **Número de parâmetro**: 1... *n* <p> **Nome**: cadeia *n* <p> **Descrição**: necessário. As cadeias de combinar numa cadeia única.|  
-|subcadeia|Devolve um subconjunto de carateres a partir de uma cadeia. Por exemplo, esta função devolve `abc`: <p>`substring('somevalue-abc-somevalue',10,3)` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a partir da qual foi efetuada a subcadeia. <p> **Número de parâmetro**: 2 <p> **Nome**: índice inicial <p> **Descrição**: necessário. O índice de onde a subcadeia começa no parâmetro 1. <p> **Número de parâmetro**: 3 <p> **Nome**: comprimento <p> **Descrição**: necessário. O comprimento da subcadeia.|  
-|Substituir|Substitui uma cadeia com uma determinada cadeia. Por exemplo, esta função devolve `the new string`: <p>`replace('the old string', 'old', 'new')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia é procurada para o parâmetro 2 e atualizada com o parâmetro 3, quando o parâmetro 2 encontra-se no parâmetro 1. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia antiga <p> **Descrição**: necessário. A cadeia de substituir o parâmetro 3, quando é encontrada uma correspondência no parâmetro 1 <p> **Número de parâmetro**: 3 <p> **Nome**: nova cadeia <p> **Descrição**: necessário. A cadeia é utilizada para substituir a cadeia no parâmetro 2 quando é encontrada uma correspondência no parâmetro 1.|  
-|GUID|Esta função gera uma cadeia exclusiva global (GUID). Por exemplo, esta função pode gerar este GUID: `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` <p>`guid()` <p> **Número de parâmetro**: 1 <p> **Nome**: formato <p> **Descrição**: opcional. Um especificador de formato único indica [como formatar o valor deste Guid](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). O parâmetro de formato pode ser "N", "D", "B", "P" ou "X". Se o formato não for fornecido, "D" é utilizada.|  
-|toLower|Converte uma cadeia em minúsculas. Por exemplo, esta função devolve `two by two is four`: <p>`toLower('Two by Two is Four')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas inferior. Se um carácter na cadeia de não tiver um equivalente em minúsculas, o caráter está incluído o inalterados na cadeia devolvida.|  
-|toUpper|Converte uma cadeia em maiúsculas. Por exemplo, esta função devolve `TWO BY TWO IS FOUR`: <p>`toUpper('Two by Two is Four')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a converter para maiúsculas e minúsculas superior. Se um carácter na cadeia de não tiver um equivalente em maiúsculas, caráter está incluído inalterados na cadeia devolvida.|  
-|indexOf|Localize o índice de um valor dentro de um caso de cadeia insensitively. Por exemplo, esta função devolve `7`: <p>`indexof('hello, world.', 'world')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor a pesquisar o índice da.|  
-|lastindexof|Localize o índice de um valor dentro de um caso de cadeia último insensitively. Por exemplo, esta função devolve `3`: <p>`lastindexof('foofoo', 'foo')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor a pesquisar o índice da.|  
-|startswith|Verifica se a cadeia começa com um caso de valor insensitively. Por exemplo, esta função devolve `true`: <p>`startswith('hello, world', 'hello')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor de cadeia pode começar a utilizar.|  
-|endswith|Verifica se a cadeia termina com um caso de valor insensitively. Por exemplo, esta função devolve `true`: <p>`endswith('hello, world', 'world')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que pode conter o valor. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O valor de cadeia pode terminar com.|  
-|dividir|Divide a cadeia com um separador. Por exemplo, esta função devolve `["a", "b", "c"]`: <p>`split('a;b;c',';')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que é dividida. <p> **Número de parâmetro**: 2 <p> **Nome**: cadeia <p> **Descrição**: necessário. O separador.|  
-  
-### <a name="logical-functions"></a>Funções lógicas  
+Para trabalhar com cadeias, pode utilizar estas funções de cadeia bem como algumas [funções de coleção](#collection-functions). Funções de cadeia só funcionam em cadeias. 
 
-Estas funções são úteis no interior de condições e podem ser utilizadas para avaliar a qualquer tipo de lógica.  
-  
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|é igual a|Devolve true se dois valores são iguais. Por exemplo, se parameter1 someValue, esta função devolve `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto comparar para **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto comparar para **objeto 1**.|  
-|menor|Devolve VERDADEIRO se o primeiro argumento for menor do que o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `true`: <p>`less(10,100)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é inferior a **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é superior ao **objeto 1**.|  
-|lessOrEquals|Devolve true se o primeiro argumento é menor ou igual ao segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `true`: <p>`lessOrEquals(10,10)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é menor ou igual a **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é maior que ou igual a **objeto 1**.|  
-|maior|Devolve true se o primeiro argumento é maior do que o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `false`:  <p>`greater(10,10)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é superior ao **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é inferior a **objeto 1**.|  
-|greaterOrEquals|Devolve true se o primeiro argumento é igual ou superior para o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, esta função devolve `false`: <p>`greaterOrEquals(10,100)` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de objeto <p> **Descrição**: necessário. O objeto para verificar se é maior que ou igual a **objeto 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: objeto 2 <p> **Descrição**: necessário. O objeto para verificar se é menor ou igual a **objeto 1**.|  
-|e|Devolve true se ambos os parâmetros são verdadeiras. Ambos os argumentos tem de ser em booleanos. Por exemplo, esta função devolve `false`: <p>`and(greater(1,10),equals(0,0))` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 booleano <p> **Descrição**: necessário. O primeiro argumento tem de ser `true`. <p> **Número de parâmetro**: 2 <p> **Nome**: 2 booleano <p> **Descrição**: necessário. O segundo argumento tem de ser `true`.|  
-|ou|Devolve VERDADEIRO se o parâmetro for VERDADEIRO. Ambos os argumentos tem de ser em booleanos. Por exemplo, esta função devolve `true`: <p>`or(greater(1,10),equals(0,0))` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 booleano <p> **Descrição**: necessário. O primeiro argumento que pode ser `true`. <p> **Número de parâmetro**: 2 <p> **Nome**: 2 booleano <p> **Descrição**: necessário. O segundo argumento pode ser `true`.|  
-|não|Devolve true se os parâmetros são `false`. Ambos os argumentos tem de ser em booleanos. Por exemplo, esta função devolve `true`: <p>`not(contains('200 Success','Fail'))` <p> **Número de parâmetro**: 1 <p> **Nome**: booleano <p> **Descrição**: devolve true se os parâmetros são `false`. Ambos os argumentos tem de ser em booleanos. Esta função devolve `true`:  `not(contains('200 Success','Fail'))`|  
-|Se|Devolve um valor especificado com base em se a expressão resultou numa `true` ou `false`.  Por exemplo, esta função devolve `"yes"`: <p>`if(equals(1, 1), 'yes', 'no')` <p> **Número de parâmetro**: 1 <p> **Nome**: expressão <p> **Descrição**: necessário. Um valor booleano que determina qual o valor de expressão deve ser devolvido. <p> **Número de parâmetro**: 2 <p> **Nome**: VERDADEIRO <p> **Descrição**: necessário. O valor a devolver se a expressão é `true`. <p> **Número de parâmetro**: 3 <p> **Nome**: False <p> **Descrição**: necessário. O valor a devolver se a expressão é `false`.|  
-  
-### <a name="conversion-functions"></a>Funções de conversão  
+| Função de cadeia | Tarefa | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combinar dois ou mais cadeias e a cadeia combinada de retorno. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verifique se uma cadeia termina com a subcadeia especificada. | 
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gere um identificador exclusivo global (GUID) como uma cadeia. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devolve a posição inicial para uma subcadeia. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devolve a posição final de uma subcadeia. | 
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia com a cadeia especificada e devolve a cadeia atualizada. | 
+| [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que tenha todos os carateres de uma cadeia e separa cada caráter pelo caráter delimitador específico. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia começa com uma subcadeia específica. | 
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Devolva carateres a partir de uma cadeia, a partir da posição especificada. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Devolva uma cadeia no formato em minúsculas. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Devolva uma cadeia no formato maiúsculas. | 
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remover espaços em branco à direita e à esquerda de uma cadeia e devolver a cadeia atualizada. | 
+||| 
 
-Estas funções são utilizadas para a conversão entre cada um dos tipos nativos no idioma:  
-  
-- string  
-  
-- número inteiro  
-  
-- Número de vírgula flutuante  
-  
-- boolean  
-  
-- Matrizes  
-  
-- dicionários  
+<a name="collection-functions"></a>
 
--   Formulários  
-  
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|Int|Converta o parâmetro para um número inteiro. Por exemplo, esta função devolve 100 como um número, em vez de uma cadeia: <p>`int('100')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um número inteiro.|  
-|string|Converta o parâmetro numa cadeia. Por exemplo, esta função devolve `'10'`: <p>`string(10)` <p>Também pode converter um objeto numa cadeia. Por exemplo, se o `myPar` parâmetro é um objeto com uma propriedade `abc : xyz`, em seguida, esta função devolve `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
-|json|Converter o parâmetro para um valor de tipo JSON e é o oposto da `string()`. Por exemplo, esta função devolve `[1,2,3]` como uma matriz, em vez de uma cadeia: <p>`json('[1,2,3]')` <p>Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, esta função devolve `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo. <p>O `json()` função suporta XML de entrada demasiado. Por exemplo, o valor do parâmetro: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>é convertido para este JSON: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Número de vírgula flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, esta função devolve `10.333`: <p>`float('10.333')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
-|bool|Converta o parâmetro booleano. Por exemplo, esta função devolve `false`: <p>`bool(0)` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
-|base64|Devolve a representação de base64 de cadeia de entrada. Por exemplo, esta função devolve `c29tZSBzdHJpbmc=`: <p>`base64('some string')` <p> **Número de parâmetro**: 1 <p> **Nome**: 1 de cadeia <p> **Descrição**: necessário. A cadeia de codificar para base64 representação.|  
-|base64ToBinary|Devolve uma representação binária de uma cadeia codificada em base64. Por exemplo, esta função devolve a representação binária do `some string`: <p>`base64ToBinary('c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia codificada em base64.|  
-|base64ToString|Devolve uma representação de cadeia de uma cadeia de based64 codificado. Por exemplo, esta função devolve `some string`: <p>`base64ToString('c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia codificada em base64.|  
-|Binário|Devolve uma representação de um valor binária.  Por exemplo, esta função devolve uma representação binária do `some string`: <p>`binary('some string')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido em binário.|  
-|dataUriToBinary|Devolve uma representação binária de um URI de dados. Por exemplo, esta função devolve a representação binária do `some string`: <p>`dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. O URI para converter para representação binária de dados.|  
-|dataUriToString|Devolve uma representação de cadeia de um URI de dados. Por exemplo, esta função devolve `some string`: <p>`dataUriToString('data:;base64,c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia<p> **Descrição**: necessário. O URI para converter para representação de cadeia de dados.|  
-|dataUri|Devolve um URI de um valor de dados. Por exemplo, esta função devolve dados URI `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=`: <p>`dataUri('some string')` <p> **Número de parâmetro**: 1<p> **Nome**: valor<p> **Descrição**: necessário. O valor para converter para o URI de dados.|  
-|decodeBase64|Devolve uma representação de cadeia de uma cadeia de entrada based64. Por exemplo, esta função devolve `some string`: <p>`decodeBase64('c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: devolve uma representação de cadeia de uma cadeia de entrada based64.|  
-|encodeUriComponent|URL escapes a cadeia que é transmitida no. Por exemplo, esta função devolve `You+Are%3ACool%2FAwesome`: <p>`encodeUriComponent('You Are:Cool/Awesome')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia para o escape carateres não seguro URL do.|  
-|decodeUriComponent|Anular-URL-escapes a cadeia que é transmitida no. Por exemplo, esta função devolve `You Are:Cool/Awesome`: <p>`decodeUriComponent('You+Are%3ACool%2FAwesome')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia de descodificar os carateres não seguro URL do.|  
-|decodeDataUri|Devolve uma representação binária de dados de entrada, cadeia URI. Por exemplo, esta função devolve a representação binária do `some string`: <p>`decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia <p> **Descrição**: necessário. DataURI descodificar para uma representação binária.|  
-|uriComponent|Devolve um URI codificado representação de um valor. Por exemplo, esta função devolve `You+Are%3ACool%2FAwesome`: <p>`uriComponent('You Are:Cool/Awesome')` <p> **Número de parâmetro**: 1<p> **Nome**: cadeia <p> **Descrição**: necessário. A cadeia a ser URI codificado.|  
-|uriComponentToBinary|Devolve que uma representação binária de um URI cadeia codificada. Por exemplo, esta função devolve uma representação binária do `You Are:Cool/Awesome`: <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **Número de parâmetro**: 1 <p> **Nome**: cadeia<p> **Descrição**: necessário. A cadeia URI codificado.|  
-|uriComponentToString|Devolve que uma representação de cadeia de um URI cadeia codificada. Por exemplo, esta função devolve `You Are:Cool/Awesome`: <p>`uriComponentToString('You+Are%3ACool%2FAwesome')` <p> **Número de parâmetro**: 1<p> **Nome**: cadeia<p> **Descrição**: necessário. A cadeia URI codificado.|  
-|xml|Devolve uma representação XML do valor. Por exemplo, esta função devolve XML conteúdo representado pelo `'\<name>Alan\</name>'`: <p>`xml('\<name>Alan\</name>')` <p>O `xml()` função suporta um objeto JSON de entrada demasiado. Por exemplo, o parâmetro `{ "abc": "xyz" }` é convertida em conteúdo XML: `\<abc>xyz\</abc>` <p> **Número de parâmetro**: 1<p> **Nome**: valor<p> **Descrição**: necessário. O valor a converter XML.|  
-|array|Converta o parâmetro de uma matriz. Por exemplo, esta função devolve `["abc"]`: <p>`array('abc')` <p> **Número de parâmetro**: 1 <p> **Nome**: valor <p> **Descrição**: necessário. O valor que é convertido numa matriz.|
-|createArray|Cria uma matriz de parâmetros. Por exemplo, esta função devolve `["a", "c"]`: <p>`createArray('a', 'c')` <p> **Número de parâmetro**: 1... *n* <p> **Nome**: quaisquer *n* <p> **Descrição**: necessário. Os valores para combinar numa matriz.|
-|triggerFormDataValue|Devolve um valor único correspondente ao nome da chave de dados do formulário ou saída de Acionador de formulário com codificação.  Se existirem vários corresponde-será erro.  Por exemplo, o seguinte irá devolver `bar`: `triggerFormDataValue('foo')`<br /><br />**Número de parâmetro**: 1<br /><br />**Nome**: nome da chave<br /><br />**Descrição**: necessário. O nome da chave do valor de dados do formulário para devolver.|
-|triggerFormDataMultiValues|Devolve uma matriz de valores correspondentes o nome da chave de dados do formulário ou saída de Acionador de formulário com codificação.  Por exemplo, o seguinte irá devolver `["bar"]`: `triggerFormDataValue('foo')`<br /><br />**Número de parâmetro**: 1<br /><br />**Nome**: nome da chave<br /><br />**Descrição**: necessário. O nome da chave dos formato de valores de dados para devolver.|
-|triggerMultipartBody|Devolve o corpo de uma parte de uma saída de várias partes do acionador.<br /><br />**Número de parâmetro**: 1<br /><br />**Nome**: índice<br /><br />**Descrição**: necessário. O índice da peça a obter.|
-|formDataValue|Devolve um valor único correspondente ao nome da chave de dados do formulário ou saída de ação de formulário com codificação.  Se existirem vários corresponde-será erro.  Por exemplo, o seguinte irá devolver `bar`: `formDataValue('someAction', 'foo')`<br /><br />**Número de parâmetro**: 1<br /><br />**Nome**: nome da ação<br /><br />**Descrição**: necessário. O nome da ação com um dados do formulário ou a resposta de formulário com codificação.<br /><br />**Número de parâmetro**: 2<br /><br />**Nome**: nome da chave<br /><br />**Descrição**: necessário. O nome da chave do valor de dados do formulário para devolver.|
-|formDataMultiValues|Devolve uma matriz de valores correspondentes o nome da chave de dados do formulário ou saída de ação de formulário com codificação.  Por exemplo, o seguinte irá devolver `["bar"]`: `formDataMultiValues('someAction', 'foo')`<br /><br />**Número de parâmetro**: 1<br /><br />**Nome**: nome da ação<br /><br />**Descrição**: necessário. O nome da ação com um dados do formulário ou a resposta de formulário com codificação.<br /><br />**Número de parâmetro**: 2<br /><br />**Nome**: nome da chave<br /><br />**Descrição**: necessário. O nome da chave dos formato de valores de dados para devolver.|
-|multipartBody|Devolve o corpo de uma parte de uma saída de várias partes de uma ação.<br /><br />**Número de parâmetro**: 1<br /><br />**Nome**: nome da ação<br /><br />**Descrição**: necessário. O nome da ação com uma resposta com várias partes.<br /><br />**Número de parâmetro**: 2<br /><br />**Nome**: índice<br /><br />**Descrição**: necessário. O índice da peça a obter.|
+### <a name="collection-functions"></a>Funções de coleção
 
-### <a name="manipulation-functions"></a>Funções de manipulação
- 
-Estas funções se aplicam ao XML e objetos.
- 
-|Nome da função|Descrição|  
-|-------------------|-----------------| 
-|Unir|Devolve o objeto não nulo primeiro os argumentos transmitidos. **Tenha em atenção**: uma cadeia vazia não é nula. Por exemplo, se não for definidos um parâmetros 1 e 2, esta função devolve `fallback`:  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **Número de parâmetro**: 1... *n* <p> **Nome**: objeto*n* <p> **Descrição**: necessário. Os objetos para procurar um valor nulo.|
-|addProperty|Devolve um objeto com uma propriedade adicional. Se a propriedade já existe no tempo de execução será emitido um erro. Por exemplo, esta função devolve o objeto `{ "abc" : "xyz", "def": "uvw" }`: <p>`addProperty(json('{"abc" : "xyz"}'), 'def', 'uvw')` <p> **Número de parâmetro**: 1 <p> **Nome**: objeto <p> **Descrição**: necessário. O objeto a adicionar uma nova propriedade para. <p> **Número de parâmetro**: 2 <p> **Nome**: nome da propriedade <p> **Descrição**: necessário. O nome da nova propriedade. <p> **Número de parâmetro**: 3 <p> **Nome**: valor <p> **Descrição**: necessário. O valor para atribuir a nova propriedade.|
-|setProperty|Devolve um objeto com uma propriedade adicional ou uma propriedade existente, defina o valor especificado. Por exemplo, esta função devolve o objeto `{ "abc" : "uvw" }`: <p>`setProperty(json('{"abc" : "xyz"}'), 'abc', 'uvw')` <p> **Número de parâmetro**: 1 <p> **Nome**: objeto <p> **Descrição**: necessário. O objeto no qual pretende definir a propriedade.<p> **Número de parâmetro**: 2 <p> **Nome**: nome da propriedade<p> **Descrição**: necessário. O nome da propriedade novo ou existente. <p> **Número de parâmetro**: 3 <p> **Nome**: valor <p> **Descrição**: necessário. O valor a atribuir à propriedade.|
-|removeProperty|Devolve um objeto com uma propriedade foi removida. Se não existe propriedade para remover o objeto original é devolvido. Por exemplo, esta função devolve o objeto `{ "abc" : "xyz" }`: <p>`removeProperty(json('{"abc" : "xyz", "def": "uvw"}'), 'def')` <p> **Número de parâmetro**: 1 <p> **Nome**: objeto <p> **Descrição**: necessário. O objeto para remover a propriedade do.<p> **Número de parâmetro**: 2 <p> **Nome**: nome da propriedade <p> **Descrição**: necessário. O nome da propriedade para remover. <p>|
-|XPath|Devolva uma matriz de correspondência de expressão de xpath de um valor que avalia a expressão de xpath para nós XML. <p> **Exemplo 1** <p>Assumir o valor do parâmetro `p1` é uma representação de cadeia deste XML: <p>`<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>` <p>Este código: `xpath(xml(parameters('p1')), '/lab/robot/name')` <p>Devolve <p>`[ <name>R1</name>, <name>R2</name> ]` <p>durante este código: <p>`xpath(xml(parameters('p1')), ' sum(/lab/robot/parts)')` <p>Devolve <p>`13` <p> <p> **Exemplo 2** <p>Dado o seguinte conteúdo XML: <p>`<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>` <p>Este código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')` <p>ou este código: <p>`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')` <p>Devolve <p>`<Location xmlns="http://abc.com">xyz</Location>` <p>E este código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')` <p>Devolve <p>``xyz`` <p> **Número de parâmetro**: 1 <p> **Nome**: Xml <p> **Descrição**: necessário. O XML no qual se avalia a expressão XPath. <p> **Número de parâmetro**: 2 <p> **Nome**: XPath <p> **Descrição**: necessário. A expressão de XPath para avaliar.|
+Para trabalhar com coleções, geralmente, matrizes, cadeias e por vezes, dicionários, pode utilizar estas funções de coleção. 
 
-### <a name="math-functions"></a>Funções de bibliotecas  
+| Função de coleção | Tarefa | 
+| ------------------- | ---- | 
+| [contém](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verifique se uma coleção tem um item específico. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. | 
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devolva o primeiro item de uma coleção. | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Devolver uma coleção que tenha *apenas* os itens comuns entre coleções especificadas. | 
+| [aderir](../logic-apps/workflow-definition-language-functions-reference.md#join) | Devolver uma cadeia com *todos os* os itens a partir de uma matriz, separados por caráter especificado. | 
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Devolva o último item de uma coleção. | 
+| [comprimento](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devolva o número de itens numa cadeia ou matriz. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens da frente de uma coleção e devolver *todas as outras* itens. | 
+| [tirar](../logic-apps/workflow-definition-language-functions-reference.md#take) | Itens de retorno do início de uma coleção. | 
+| [União](../logic-apps/workflow-definition-language-functions-reference.md#union) | Devolver uma coleção que tenha *todos os* os itens às coleções especificadas. | 
+||| 
 
-Estas funções podem ser utilizadas para qualquer um dos tipos de números: **números inteiros** e **floats**.  
-  
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|adicionar|Devolve o resultado da adição de dois números. Por exemplo, esta função devolve `20.333`: <p>`add(10,10.333)` <p> **Número de parâmetro**: 1 <p> **Nome**: Summand 1 <p> **Descrição**: necessário. O número para adicionar a **Summand 2**. <p> **Número de parâmetro**: 2 <p> **Nome**: Summand 2 <p> **Descrição**: necessário. O número para adicionar a **Summand 1**.|  
-|sub|Devolve o resultado de subtraindo dois números. Por exemplo, esta função devolve `-0.333`: <p>`sub(10,10.333)` <p> **Número de parâmetro**: 1 <p> **Nome**: Minuend <p> **Descrição**: necessário. O número que **Subtrahend** é removido. <p> **Número de parâmetro**: 2 <p> **Nome**: Subtrahend <p> **Descrição**: necessário. O número para remover o **Minuend**.|  
-|MUL|Devolve o resultado de multiplicando dois números. Por exemplo, esta função devolve `103.33`: <p>`mul(10,10.333)` <p> **Número de parâmetro**: 1 <p> **Nome**: Multiplicand 1 <p> **Descrição**: necessário. O número a multiplicar **Multiplicand 2** com. <p> **Número de parâmetro**: 2 <p> **Nome**: Multiplicand 2 <p> **Descrição**: necessário. O número a multiplicar **Multiplicand 1** com.|  
-|div|Devolve o resultado da divisão de dois números. Por exemplo, esta função devolve `1.0333`: <p>`div(10.333,10)` <p> **Número de parâmetro**: 1 <p> **Nome**: dividendo <p> **Descrição**: necessário. O número dividir pelo **Divisor**. <p> **Número de parâmetro**: 2 <p> **Nome**: Divisor <p> **Descrição**: necessário. O número dividir o **dividendo** pelo.|  
-|MOD|Devolve o resto após a divisão de dois números (módulo). Por exemplo, esta função devolve `2`: <p>`mod(10,4)` <p> **Número de parâmetro**: 1 <p> **Nome**: dividendo <p> **Descrição**: necessário. O número dividir pelo **Divisor**. <p> **Número de parâmetro**: 2 <p> **Nome**: Divisor <p> **Descrição**: necessário. O número dividir o **dividendo** pelo. Após a divisão, os restantes foi atribuído.|  
-|min.|Existem dois padrões diferentes para chamar esta função. <p>Aqui `min` demora uma matriz e a função devolve `0`: <p>`min([0,1,2])` <p>Em alternativa, esta função pode demorar uma lista separada por vírgulas de valores e também devolve `0`: <p>`min(0,1,2)` <p> **Tenha em atenção**: todos os valores têm de ser números, pelo que o se o parâmetro é uma matriz, a matriz tem de conter apenas números. <p> **Número de parâmetro**: 1 <p> **Nome**: ou valor de coleção <p> **Descrição**: necessário. É uma matriz de valores para localizar o valor mínimo ou o primeiro valor de um conjunto. <p> **Número de parâmetro**: 2... *n* <p> **Nome**: valor *n* <p> **Descrição**: opcional. Se o primeiro parâmetro é um valor, em seguida, pode passar valores adicionais e é devolvido o valor mínimo de todos os valores transmitidos.|  
-|máx.|Existem dois padrões diferentes para chamar esta função. <p>Aqui `max` demora uma matriz e a função devolve `2`: <p>`max([0,1,2])` <p>Em alternativa, esta função pode demorar uma lista separada por vírgulas de valores e também devolve `2`: <p>`max(0,1,2)` <p> **Tenha em atenção**: todos os valores têm de ser números, pelo que o se o parâmetro é uma matriz, a matriz tem de conter apenas números. <p> **Número de parâmetro**: 1 <p> **Nome**: ou valor de coleção <p> **Descrição**: necessário. É uma matriz de valores para encontrar o valor máximo ou o primeiro valor de um conjunto. <p> **Número de parâmetro**: 2... *n* <p> **Nome**: valor *n* <p> **Descrição**: opcional. Se o primeiro parâmetro é um valor, em seguida, pode passar valores adicionais e o número máximo de todos os valores transmitidos é devolvido.|  
-|intervalo|Gera uma matriz de números inteiros a partir de um determinado número. Definir o comprimento da matriz devolvido. <p>Por exemplo, esta função devolve `[3,4,5,6]`: <p>`range(3,4)` <p> **Número de parâmetro**: 1 <p> **Nome**: índice inicial <p> **Descrição**: necessário. O primeiro número inteiro na matriz. <p> **Número de parâmetro**: 2 <p> **Nome**: contagem <p> **Descrição**: necessário. Este valor é o número de números inteiros que se encontra na matriz.|  
-|rand|Gera um número inteiro aleatório dentro do intervalo especificado (inclusive apenas no final primeiro). Por exemplo, esta função pode devolver um `0` ou '1': <p>`rand(0,2)` <p> **Número de parâmetro**: 1 <p> **Nome**: mínimo <p> **Descrição**: necessário. O número inteiro menor que pode ser devolvido. <p> **Número de parâmetro**: 2 <p> **Nome**: máximo <p> **Descrição**: necessário. Este valor é o número inteiro seguinte após o maior número inteiro que pode ser devolvido.|  
- 
-### <a name="date-functions"></a>Funções de data  
+<a name="comparison-functions"></a>
 
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|utcnow|Devolve o timestamp atual como uma cadeia, por exemplo: `2017-03-15T13:27:36Z`: <p>`utcnow()` <p> **Número de parâmetro**: 1 <p> **Nome**: formato <p> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|addseconds|Adiciona um número inteiro de segundos para um carimbo de cadeia transmitido. O número de segundos pode ser positivo ou negativo. Por predefinição, o resultado é uma cadeia no formato ISO 8601 ("o"), a menos que é fornecido um especificador de formato. Por exemplo: `2015-03-15T13:27:00Z`: <p>`addseconds('2015-03-15T13:27:36Z', -36)` <p> **Número de parâmetro**: 1 <p> **Nome**: Timestamp <p> **Descrição**: necessário. Uma cadeia que contém a hora. <p> **Número de parâmetro**: 2 <p> **Nome**: segundos <p> **Descrição**: necessário. O número de segundos a adicionar. Pode ser negativo a subtrair segundos. <p> **Número de parâmetro**: 3 <p> **Nome**: formato <p> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|addminutes|Adiciona um número inteiro de minutos para um carimbo de cadeia transmitido. O número de minutos pode ser positivo ou negativo. Por predefinição, o resultado é uma cadeia no formato ISO 8601 ("o"), a menos que é fornecido um especificador de formato. Por exemplo: `2015-03-15T14:00:36Z`: <p>`addminutes('2015-03-15T13:27:36Z', 33)` <p> **Número de parâmetro**: 1 <p> **Nome**: Timestamp <p> **Descrição**: necessário. Uma cadeia que contém a hora. <p> **Número de parâmetro**: 2 <p> **Nome**: minutos <p> **Descrição**: necessário. O número de minutos para adicionar. Pode ser negativo a subtrair minutos. <p> **Número de parâmetro**: 3 <p> **Nome**: formato <p> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|addhours|Adiciona um número inteiro de horas para um carimbo de cadeia transmitido. O número de horas pode ser positivo ou negativo. Por predefinição, o resultado é uma cadeia no formato ISO 8601 ("o"), a menos que é fornecido um especificador de formato. Por exemplo: `2015-03-16T01:27:36Z`: <p>`addhours('2015-03-15T13:27:36Z', 12)` <p> **Número de parâmetro**: 1 <p> **Nome**: Timestamp <p> **Descrição**: necessário. Uma cadeia que contém a hora. <p> **Número de parâmetro**: 2 <p> **Nome**: horas <p> **Descrição**: necessário. O número de horas para adicionar. Pode ser negativo a subtrair horas. <p> **Número de parâmetro**: 3 <p> **Nome**: formato <p> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|adddays|Adiciona um número inteiro de dias para um carimbo de cadeia transmitido. O número de dias pode ser positivo ou negativo. Por predefinição, o resultado é uma cadeia no formato ISO 8601 ("o"), a menos que é fornecido um especificador de formato. Por exemplo: `2015-03-13T13:27:36Z`: <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **Número de parâmetro**: 1 <p> **Nome**: Timestamp <p> **Descrição**: necessário. Uma cadeia que contém a hora. <p> **Número de parâmetro**: 2 <p> **Nome**: dias <p> **Descrição**: necessário. O número de dias a adicionar. Pode ser negativo a subtrair dias. <p> **Número de parâmetro**: 3 <p> **Nome**: formato <p> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|formatDateTime|Devolve uma cadeia no formato de data. Por predefinição, o resultado é uma cadeia no formato ISO 8601 ("o"), a menos que é fornecido um especificador de formato. Por exemplo: `2015-03-15T13:27:36Z`: <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **Número de parâmetro**: 1 <p> **Nome**: data <p> **Descrição**: necessário. Uma cadeia que contém a data. <p> **Número de parâmetro**: 2 <p> **Nome**: formato <p> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|startOfHour|Devolve o início da hora para um carimbo de cadeia transmitido. Por exemplo `2017-03-15T13:00:00Z`:<br /><br /> `startOfHour('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.<br /><br />**Número de parâmetro**: 2<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
-|startOfDay|Devolve o início do dia para um carimbo de cadeia transmitido. Por exemplo `2017-03-15T00:00:00Z`:<br /><br /> `startOfDay('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.<br /><br />**Número de parâmetro**: 2<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").| 
-|startOfMonth|Devolve o início do mês para um carimbo de cadeia transmitido. Por exemplo `2017-03-01T00:00:00Z`:<br /><br /> `startOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.<br /><br />**Número de parâmetro**: 2<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").| 
-|dayOfWeek|Devolve o dia do componente de semana de um carimbo de cadeia.  Domingo for 0, segunda é 1 e assim sucessivamente. Por exemplo `3`:<br /><br /> `dayOfWeek('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
-|DayOfMonth|Devolve o dia do componente de mês de um carimbo de cadeia. Por exemplo `15`:<br /><br /> `dayOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
-|DayOfYear|Devolve o dia do componente de ano de um carimbo de cadeia. Por exemplo `74`:<br /><br /> `dayOfYear('2017-03-15T13:27:36Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
-|batimentos|Devolve os batimentos serão propriedade timestamp uma cadeia. Por exemplo `1489603019`:<br /><br /> `ticks('2017-03-15T18:36:59Z')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Esta é uma cadeia que contém a hora.| 
-  
-### <a name="workflow-functions"></a>Funções de fluxo de trabalho  
+### <a name="comparison-functions"></a>Funções de comparação
 
-Estas funções de ajudam a obter informações sobre o fluxo de trabalho em tempo de execução.  
-  
-|Nome da função|Descrição|  
-|-------------------|-----------------|  
-|listCallbackUrl|Devolve uma cadeia para a chamada para invocar o acionador ou ação. <p> **Tenha em atenção**: esta função só pode ser utilizada num **httpWebhook** e **apiConnectionWebhook**, não num **manual**, **periodicidade**, **http**, ou **apiConnection**. <p>Por exemplo, o `listCallbackUrl()` funcionar devolve: <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  
-|fluxo de trabalho|Esta função fornece todos os detalhes do fluxo de trabalho próprio em tempo de execução. <p> Estão disponíveis propriedades no objecto do fluxo de trabalho: <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> O valor da `run` propriedade é um objeto com as seguintes propriedades: <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>Consulte o [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617) para obter detalhes sobre essas propriedades.<p> Por exemplo, para obter o nome da atual executar, utilize o `"@workflow().run.name"` expressão. |
+Para trabalhar com condições, compare os valores e resultados de expressão ou avaliar vários tipos de lógica, pode utilizar estas funções de comparação. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Função de comparação | Tarefa | 
+| ------------------- | ---- | 
+| [E](../logic-apps/workflow-definition-language-functions-reference.md#and) | Verifique se todas as expressões forem verdadeiras. | 
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Verifique se os dois valores são equivalentes. | 
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Verifique se o primeiro valor é maior do que o segundo valor. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Verifique se o primeiro valor é maior que ou igual ao valor segundo. | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Certifique-se uma expressão true ou false. Com base no resultado, devolva um valor especificado. | 
+| [menor](../logic-apps/workflow-definition-language-functions-reference.md#less) | Verifique se o primeiro valor é menor que o segundo valor. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Verifique se o primeiro valor é menor ou igual ao valor segundo. | 
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Verifique se uma expressão é falsa. | 
+| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verifique se, pelo menos, uma expressão for verdadeira. |
+||| 
+
+<a name="conversion-functions"></a>
+
+### <a name="conversion-functions"></a>Funções de conversão
+
+Para alterar o tipo ou formato de um valor, pode utilizar estas funções de conversão. Por exemplo, pode alterar um valor de um booleano para um número inteiro. Para saber como Logic Apps processa os tipos de conteúdo durante a conversão, consulte [processar tipos de conteúdo](../logic-apps/logic-apps-content-type.md). Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Função de conversão | Tarefa | 
+| ------------------- | ---- | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Devolva uma matriz de um único especificado de entrada. Várias entradas, consulte [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Devolva a versão para uma cadeia com codificação base64. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Devolva a versão binária para uma cadeia com codificação base64. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Devolva a versão de cadeia para uma cadeia com codificação base64. | 
+| [Binário](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Devolva a versão binária para um valor de entrada. | 
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Devolva a versão booleana para um valor de entrada. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Devolva uma matriz de várias entradas. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Devolva o URI de dados para um valor de entrada. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Devolva a versão binária para um URI de dados. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Devolva a versão de cadeia para um URI de dados. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Devolva a versão de cadeia para uma cadeia com codificação base64. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Devolva a versão binária para um URI de dados. | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Devolve uma cadeia que substitui o escape carateres com versões descodificadas. | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Devolveu uma cadeia que substitui carateres não seguro URL com carateres de escape. | 
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Devolver uma vírgula flutuante número para um valor de entrada. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Devolva a versão de número inteiro de uma cadeia. | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Devolva o valor de tipo JavaScript Object Notation (JSON) ou o objeto para uma cadeia ou XML. | 
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Devolva a versão de cadeia para um valor de entrada. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Devolva a versão codificado de URI para um valor de entrada, substituindo carateres não seguro URL com carateres de escape. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Devolva a versão binária para uma cadeia com codificação URI. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Devolva a versão de cadeia para uma cadeia com codificação URI. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Devolva a versão XML para uma cadeia. | 
+||| 
+
+<a name="math-functions"></a>
+
+### <a name="math-functions"></a>Funções de bibliotecas
+
+Para trabalhar com números inteiros e floats, pode utilizar estas funções de bibliotecas. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Função de bibliotecas | Tarefa | 
+| ------------- | ---- | 
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Devolve o resultado da adição de dois números. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Devolve o resultado da divisão de dois números. | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Devolva o valor mais alto de um conjunto de números ou uma matriz. | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Devolva o valor mais baixo de um conjunto de números ou uma matriz. | 
+| [MOD](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Devolve o resto da divisão de dois números. | 
+| [MUL](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Devolva o produto de multiplicando dois números. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Devolva um número inteiro aleatório a partir de um intervalo especificado. | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Devolva uma matriz de número inteiro que é iniciado a partir de um número inteiro especificado. | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Devolve o resultado de subtraindo o segundo número do primeiro número. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+### <a name="date-and-time-functions"></a>Funções de data e hora
+
+Para trabalhar com as datas e horas, pode utilizar estas funções de data e hora.
+Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Função de data ou hora | Tarefa | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Adicione um número de dias para um carimbo. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Adicione um número de horas para um carimbo. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Adicione um número de minutos para um carimbo. | 
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Adicione um número de segundos para um carimbo. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Adicione um número de unidades de tempo para um carimbo. Consulte também [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Converta um carimbo de Universal tempo coordenada (UTC) com o fuso horário de destino. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Converter um carimbo de fuso horário a origem com o fuso horário de destino. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Converta um carimbo de origem fuso horário Universal tempo coordenada (UTC). | 
+| [DayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Devolva o dia do componente de mês de um carimbo. | 
+| [DayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Devolva o dia do componente da semana de um carimbo. | 
+| [DayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Devolva o dia do componente de ano a partir de um carimbo. | 
+| [FormatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Devolva a data a partir de um carimbo. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Devolva o timestamp atual e as unidades de tempo especificado. Consulte também [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Devolva o timestamp atual menos as unidades de tempo especificado. Consulte também [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Devolva o início do dia para um carimbo. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Devolva o início da hora para um carimbo. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Devolva o início do mês para um carimbo. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Subtrair um número de unidades de tempo de um carimbo. Consulte também [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). | 
+| [batimentos](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Devolver o `ticks` valor da propriedade para um carimbo especificado. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Devolva o timestamp atual como uma cadeia. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+### <a name="workflow-functions"></a>Funções de fluxo de trabalho
+
+Estas funções de fluxo de trabalho podem ajudá-lo:
+
+* Obter detalhes sobre uma instância de fluxo de trabalho em tempo de execução. 
+* Trabalhar com as entradas utilizadas para instanciar as logic apps.
+* Referencia as saídas de acionadores e ações.
+
+Por exemplo, pode referenciar as saídas de uma ação e utilizar esses dados numa ação posterior. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Função de fluxo de trabalho | Tarefa | 
+| ----------------- | ---- | 
+| [Ação](../logic-apps/workflow-definition-language-functions-reference.md#action) | Devolva o resultado da ação atualmente em tempo de execução ou valores a partir de outros pares de nome e valor JSON. Consulte também [ações](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Devolver uma ação `body` saída no tempo de execução. Consulte também [corpo](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Devolve o resultado de uma ação no tempo de execução. Consulte [ações](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [ações](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Devolva o resultado de uma ação no tempo de execução ou valores a partir de outros pares de nome e valor JSON. Consulte também [ação](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
+| [Corpo](#body) | Devolver uma ação `body` saída no tempo de execução. Consulte também [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Criar uma matriz com os valores que correspondem a um nome de chave na *dados do formulário* ou *codificado de formulário* saídas de ação. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Devolver um valor único que corresponda a um nome de chave uma ação *dados do formulário* ou *codificado de formulário saída*. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando dentro de uma ação repetida através de uma matriz, devolva o item atual na matriz durante iteração atual a ação. | 
+| [Itens](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando dentro de uma para cada ou efetue até ciclo, devolva o item atual do ciclo especificado.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Devolva o "URL de chamada de retorno" que chama um acionador ou ação. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devolva o corpo de uma parte específica no resultado de uma ação que tem várias partes. | 
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Devolva o valor para um parâmetro que é descrito a definição da aplicação lógica. | 
+| [Acionador](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Devolve o resultado de um acionador em tempo de execução, ou a partir de outros pares de nome e valor JSON. Consulte também [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Devolver um acionador `body` saída no tempo de execução. Consulte [acionador](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Devolver um valor único correspondente um nome de chave na *dados do formulário* ou *codificado de formulário* acionar saídas. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Devolva o corpo de uma parte específica na saída de várias partes de um acionador. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Criar uma matriz cujos valores corresponderem a um nome de chave na *dados do formulário* ou *codificado de formulário* acionar saídas. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Devolva o resultado de um acionador em tempo de execução ou valores a partir de outros pares de nome e valor JSON. Consulte [acionador](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [variáveis](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Devolva o valor para uma variável especificada. | 
+| [fluxo de trabalho](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Devolva todos os detalhes sobre o fluxo de trabalho durante o tempo de execução. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+### <a name="uri-parsing-functions"></a>Análise de funções URI
+
+Para trabalhar com identificadores de recurso uniforme (URI) e obter vários valores de propriedade para estes URIs, pode utilizar estes URI análise funções. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Analisar a função URI | Tarefa | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Devolver o `host` valor para um identificador de recurso uniforme (URI). | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Devolver o `path` valor para um identificador de recurso uniforme (URI). | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Devolver o `path` e `query` valores para um identificador de recurso uniforme (URI). | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Devolver o `port` valor para um identificador de recurso uniforme (URI). | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Devolver o `query` valor para um identificador de recurso uniforme (URI). | 
+| [UriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Devolver o `scheme` valor para um identificador de recurso uniforme (URI). | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+### <a name="json-and-xml-functions"></a>Funções de JSON e XML
+
+Para trabalhar com objetos JSON e nós XML, pode utilizar estas funções de manipulação. Para obter a referência completa sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+
+| Função de manipulação de | Tarefa | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Adicionar uma propriedade e o valor ou o par nome / valor, para um objeto JSON e retorno do objeto atualizado. | 
+| [Unir](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Devolva o primeiro valor não nulo a partir de um ou mais parâmetros. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remover uma propriedade de um objeto JSON e retorno do objeto atualizado. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Defina o valor da propriedade de um objeto JSON e devolver o objeto atualizado. | 
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Verifique o XML para nós ou valores que correspondem a uma expressão de XPath (linguagem XML) e devolver valores ou nós correspondente. | 
+||| 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Ações de fluxo de trabalho e acionadores](logic-apps-workflow-actions-triggers.md)
+* Saiba mais sobre [ações de linguagem de definição de fluxo de trabalho e é acionado](../logic-apps/logic-apps-workflow-actions-triggers.md)
+* Saiba mais sobre programaticamente criar e gerir as logic apps com o [API de REST do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows)

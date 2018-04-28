@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0e7f2060f81812cd69ed1af0246287757985243
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e o multi-factor Authentication: proteger os dados pessoais com controlos de identidades e acessos
 
@@ -125,7 +125,7 @@ Se os utilizadores têm de licenças que incluem o Azure multi-factor Authentica
 
 ![Utilizadores MFA ativada](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Se não tiver licenças atualmente tem de aceder através do processo de determinar o tipo de implementação mais adequado para o seu cenário. Pode começar ao observar o artigo intitulado [escolher a solução de Azure multi-factor Autehntication para si](../multi-factor-authentication/multi-factor-authentication-get-started.md). Se decidir que precisa de criar um servidor multi-factor Authentication. Pode iniciar, seguindo estes passos:
+Se não tiver licenças atualmente tem de aceder através do processo de determinar o tipo de implementação mais adequado para o seu cenário. Pode começar ao observar o artigo intitulado [escolher a solução de Azure multi-factor Autehntication para si](../active-directory/authentication/concept-mfa-whichversion.md). Se decidir que precisa de criar um servidor multi-factor Authentication. Pode iniciar, seguindo estes passos:
 
 1. Selecione **do Active Directory** no portal do Azure (com sessão iniciado como administrador).
 
@@ -137,7 +137,7 @@ Se não tiver licenças atualmente tem de aceder através do processo de determi
 
 4. Clicar em **Guardar**
 
-Nesta janela também tem a opção para transferir o servidor MFA. Pode obter detalhes adicionais sobre como o tamanho e planear a implementação, revendo o artigo [introdução com o servidor multi-factor Authentication do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+Nesta janela também tem a opção para transferir o servidor MFA. Pode obter detalhes adicionais sobre como o tamanho e planear a implementação, revendo o artigo [introdução com o servidor multi-factor Authentication do Azure](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 Para obter mais instruções sobre como gerir o seu fornecedor de autenticação Multifator, consulte [introdução de um fornecedor do multi-factor Auth do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 

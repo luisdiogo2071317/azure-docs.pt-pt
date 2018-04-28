@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola de série de máquina virtual (pré-visualização) 
 
@@ -109,7 +109,7 @@ Se precisar de ativar o carregador de arranque do Windows pede-lhe para mostrar 
 
 Esta secção inclui comandos de exemplo para realizar tarefas comuns em cenários em que poderá ter de utilizar SAC para aceder a VM, por exemplo, quando tiver de resolver problemas de falhas de ligação de RDP.
 
-SAC foi incluído em todas as versões do Windows desde o Windows Server 2003, mas está desativada por predefinição. SAC depende o `sacdrv.sys` controladores de kernel, o `Special Administration Console Helper` serviço (`sacsvr`) e o `sacsess.exe` processo. Para obter mais informações, consulte [definições e ferramentas de serviços de gestão de emergência](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC foi incluído em todas as versões do Windows desde o Windows Server 2003, mas está desativada por predefinição. SAC depende o `sacdrv.sys` controladores de kernel, o `Special Administration Console Helper` serviço (`sacsvr`) e o `sacsess.exe` processo. Para obter mais informações, consulte [definições e ferramentas de serviços de gestão de emergência](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC permite-lhe ligar ao seu SO em execução através de porta série. Quando iniciar CMD de SAC, `sacsess.exe` inicia `cmd.exe` no seu SO em execução. Pode ver que na tarefa de gestor se RDP para a VM ao mesmo tempo estão ligadas a SAC através da funcionalidade de consola de série. CMD aceder através de SAC é o mesmo `cmd.exe` utilizar quando estiver ligado através de RDP. As mesmas ferramentas e comandos estão disponíveis, incluindo a capacidade de inicie o PowerShell a partir dessa instância CMD. Que é uma principal diferença entre SAC e do ambiente de recuperação do Windows (WinRE) em que SAC é permitindo-lhe gerir o seu SO em execução, onde o WinRE arranca num SO diferente, mínimo. Enquanto as VMs do Azure não suportam a capacidade de aceder WinRE, com a funcionalidade de consola de série, as VMs do Azure podem ser geridas através de SAC.
 
@@ -266,11 +266,11 @@ Neste exemplo devolve a versão do ficheiro do controlador NIC virtual, que é n
 #### <a name="scan-for-system-file-corruption"></a>Análise de danos no sistema de ficheiros
 `sfc /scannow`
 
-Consulte também [reparar uma imagem do Windows](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Consulte também [reparar uma imagem do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="scan-for-system-file-corruption"></a>Análise de danos no sistema de ficheiros
 `dism /online /cleanup-image /scanhealth`
 
-Consulte também [reparar uma imagem do Windows](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Consulte também [reparar uma imagem do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="export-file-permissions-to-text-file"></a>Permissões de ficheiros de exportação para o ficheiro de texto
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Guardar as permissões do ficheiro no ficheiro ACL
@@ -516,7 +516,7 @@ Pode consultar os metadados de instância do Azure de dentro da sua VM do Azure 
 
 Consulta de metadados de instância requer conectividade de rede de convidado bom estado de funcionamento, porque faz uma chamada REST através do anfitrião do Azure para o serviço de metadados de instância. Por isso, se é possível consultar os metadados de instância, que indica que o convidado é capaz de comunicar através da rede para um serviço alojado no Azure.
 
-Para obter mais informações, consulte [metadados de instância do Azure service](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Para obter mais informações, consulte [metadados de instância do Azure service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Metadados de instância
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

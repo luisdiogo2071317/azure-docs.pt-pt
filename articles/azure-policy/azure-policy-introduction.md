@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b948721c9190b38d0770fd38739d53d252f513d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -53,13 +53,17 @@ No Azure Policy, disponibilizamos algumas políticas incorporadas que estão dis
 - **Impor etiqueta e respetivo valor**: esta política impõe uma etiqueta obrigatória e o respetivo valor a um recurso.
 - **Tipos de recurso não permitidos**: esta política permite-lhe especificar os tipos de recurso que a sua organização não pode implementar.
 
-Pode atribuir qualquer uma destas políticas através do portal do Azure, do PowerShell ou da CLI do Azure.
+Pode atribuir qualquer uma destas políticas através do portal do Azure, do PowerShell ou da CLI do Azure. Depois de efetuar alterações a uma definição de política, a reavaliação de política ocorre aproximadamente uma vez a cada hora.
 
 Para saber mais sobre as estruturas de definições de política, veja este artigo: [Estrutura de Definição de Política](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Atribuição de política
 
-Uma atribuição de política é uma definição de política que foi atribuída para ter lugar num âmbito específico. Este âmbito pode ir desde um grupo de gestão a um grupo de recursos. O termo *âmbito* refere-se a todos os grupos de recursos, subscrições ou grupos de gestão a que a definição de política está atribuída. As atribuições de política são herdadas por todos os recursos subordinados. Assim, se for aplicada uma política a um grupo de recursos, esta é aplicada a todos os recursos nesse grupo. No entanto, pode excluir um subâmbito da atribuição de política. Por exemplo, no âmbito da subscrição, pode atribuir uma política que impede a criação de recursos de rede. No entanto, exclui um grupo de recursos na subscrição destinado à infraestrutura de rede. Concede acesso a este grupo de recursos de rede aos utilizadores que considere de confiança através da criação de recursos de rede.
+Uma atribuição de política é uma definição de política que foi atribuída para ter lugar num âmbito específico. Este âmbito pode ir desde um grupo de gestão a um grupo de recursos. O termo *âmbito* refere-se a todos os grupos de recursos, subscrições ou grupos de gestão a que a definição de política está atribuída. As atribuições de política são herdadas por todos os recursos subordinados. Assim, se for aplicada uma política a um grupo de recursos, esta é aplicada a todos os recursos nesse grupo. No entanto, pode excluir um subâmbito da atribuição de política.
+
+Por exemplo, no âmbito da subscrição, pode atribuir uma política que impede a criação de recursos de rede. No entanto, exclui um grupo de recursos na subscrição destinado à infraestrutura de rede. Concede acesso a este grupo de recursos de rede aos utilizadores que considere de confiança através da criação de recursos de rede.
+
+Noutro exemplo, poderá atribuir uma política de lista branca de tipo de recurso ao nível do grupo de gestão. Em seguida, atribua uma política mais permissiva (permitindo mais tipos de recursos) num grupo de gestão subordinado ou mesmo diretamente em subscrições. No entanto, este exemplo não funciona porque a política é um sistema de negação explícita. Em vez disso, tem de excluir o grupo de gestão do subordinado ou uma subscrição da atribuição de política ao nível do grupo de gestão. Em seguida, atribua a política mais permissiva no grupo de gestão subordinado ou ao nível da subscrição. Resumindo, se qualquer política resulta na negação de um recurso, então, a única forma de permitir que o recurso é modificando a política de negação.
 
 Para obter mais informações sobre definições e atribuições de política, veja [Criar uma atribuição de política para identificar recursos não conformes no ambiente do Azure](assign-policy-definition.md).
 

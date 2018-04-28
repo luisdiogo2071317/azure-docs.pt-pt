@@ -1,7 +1,7 @@
 ---
 title: Monitorização de recursos e aplicações do Azure | Microsoft Docs
 description: Descrição geral dos serviços da Microsoft e funcionalidades que contribuem para uma estratégia completa de monitorização para os seus serviços do Azure e aplicações.
-author: robb
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: c20e97e445dc79bdb65dcde40d323989005f5f5d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorização de aplicações do Azure e de recursos
 
@@ -63,9 +63,9 @@ Métricas estão disponíveis que fornecer estatísticas de desempenho de recurs
 Também pode enviar estas métricas e registos de análise de registos do Azure para análise de tendências e detalhada ou criar regras de alerta adicionais para proativamente notificá-lo de problemas críticos como resultado que Analysis Services.  
 
 > [!NOTE]
-> Atualmente, o envio de métricas multidimensionais para análise de registos através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+> Atualmente, o envio de métricas multidimensionais para análise de registos através de definições de diagnóstico não é suportada. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, durante a exportação para análise de registos a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, durante a exportação para análise de registos a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
 >
 >
 
@@ -161,6 +161,6 @@ Após uma falha comunicada, utilize mapa de serviço para efetuar forenses para 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre:
 
-* [Monitor do Azure](https://azure.microsoft.com/en-us/services/monitor/) para começar com métricas e alertas de monitorização principal.
+* [Monitor do Azure](https://azure.microsoft.com/services/monitor/) para começar com métricas e alertas de monitorização principal.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se estiver a tentar diagnosticar problemas na sua aplicação web do app Service.
 * [Análise de registo](https://azure.microsoft.com/documentation/services/log-analytics/) para analisar os dados de monitorização recolhidos e registos.

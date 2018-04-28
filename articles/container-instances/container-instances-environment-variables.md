@@ -1,20 +1,20 @@
 ---
-title: "Definir variáveis de ambiente em instâncias de contentor do Azure"
-description: "Saiba como definir variáveis de ambiente de instâncias de contentor do Azure"
+title: Definir variáveis de ambiente em instâncias de contentor do Azure
+description: Saiba como definir variáveis de ambiente de instâncias de contentor do Azure
 services: container-instances
 author: david-stanford
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: dastanfo
-ms.openlocfilehash: f845e96a3e05be3f9109446d0d9e88934c4794cc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 37fde41b6dc2ea0a4d3b4b38a0e3df81a297c125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="set-environment-variables"></a>Variáveis de ambiente de conjunto
+# <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
 A definição de variáveis de ambiente nas instâncias de contentor permite-lhe fornecer a configuração dinâmica da aplicação ou script execute ao contentor.
 
@@ -110,7 +110,7 @@ Get-AzureRmContainerInstanceLog `
  ('GUILDENSTERN', 54)]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como personalizar a entrada para o contentor, saiba como manter o resultado de contentores serem concluídas.
 > [!div class="nextstepaction"]

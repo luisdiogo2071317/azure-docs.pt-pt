@@ -2,18 +2,19 @@
 title: Classes de recursos para a gestão de carga de trabalho - Azure SQL Data Warehouse | Microsoft Docs
 description: Orientações para a utilização de classes de recursos para gerir a simultaneidade e recursos para consultas no armazém de dados SQL do Azure de computação.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/11/2018
-ms.author: kevin
-ms.reviewer: jrj
-ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/26/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestão de carga de trabalho com classes de recursos no Azure SQL Data Warehouse
 Orientações para a utilização de classes de recursos para gerir a memória e simultaneidade de consultas no Azure SQL Data Warehouse.  
@@ -21,29 +22,31 @@ Orientações para a utilização de classes de recursos para gerir a memória e
 ## <a name="what-is-workload-management"></a>O que é a gestão de carga de trabalho?
 Gestão de carga de trabalho é a capacidade para otimizar o desempenho global de todas as consultas. Executa uma carga de trabalho bem atento consultas e operações de carga de forma eficiente, independentemente de estar computação intensivas ou e/s intensivas.  Armazém de dados do SQL Server fornece capacidades de gestão de carga de trabalho para ambientes de vários utilizadores. Um armazém de dados não se destina a multi-inquilinos cargas de trabalho.
 
-A capacidade de desempenho do armazém de dados é determinada pelo [camada de desempenho](memory-and-concurrency-limits.md#performance-tiers) e [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+A capacidade de desempenho do armazém de dados é determinada pelo [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
 
 - Para ver os limites de memória e simultaneidade para todos os perfis de desempenho, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md).
 - Para ajustar a capacidade de desempenho, pode [aumentar ou reduzir verticalmente](quickstart-scale-compute-portal.md).
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recursos da consulta. Este resto deste artigo explica quais são as classes de recursos e como ajustá-los.
-
+A capacidade de desempenho de uma consulta é determinada pela classe de recursos a consulta. O resto deste artigo explica quais são as classes de recursos e como ajustá-los.
 
 ## <a name="what-are-resource-classes"></a>Quais são as classes de recurso?
-Classes de recursos são previamente determinadas limites de recursos no Azure SQL Data Warehouse que regem recursos de computação e simultaneidade para execução da consulta. Classes de recurso podem ajudar a gerir a sua carga de trabalho através da definição de limites no número de consultas que são executadas em simultâneo e os recursos de computação atribuídos a cada consulta. Não há um compromisso entre a memória e concorrência.
+A capacidade de desempenho de uma consulta é determinada pela classe de recursos do utilizador.  Classes de recursos são previamente determinadas limites de recursos no Azure SQL Data Warehouse que regem recursos de computação e simultaneidade para execução da consulta. Classes de recurso podem ajudar a gerir a sua carga de trabalho através da definição de limites no número de consultas que são executadas em simultâneo e os recursos de computação atribuídos a cada consulta. Não há um compromissos desativar entre a memória e concorrência.
 
 - Classes de recursos mais pequenas reduza a memória máxima por consulta, mas aumentam a simultaneidade.
 - Maior classes de recurso aumenta a memória máxima por consulta, embora reduza a simultaneidade. 
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recursos do utilizador.
+Existem dois tipos de classes de recursos:
 
-- Para ver a utilização de recursos para as classes de recursos, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums).
-- Para ajustar a classe de recursos, pode executar a consulta em outro utilizador ou [alterar a classe de recursos do utilizador atual](#change-a-user-s-resource-class) associação. 
+- Classes de recursos estático, que são adequadas para aumento simultaneidade um tamanho de conjunto de dados é fixo.
+- Classes de recursos dinâmicos, que são adequadas para conjuntos de dados que estão a crescer de tamanho e aumentar o desempenho, o nível de serviço é escalado para cima.   
 
 Classes de recursos utilizam ranhuras de concorrência para medir o consumo de recursos.  [Ranhuras de concorrência](#concurrency-slots) explicado posteriormente neste artigo. 
 
+- Para ver a utilização de recursos para as classes de recursos, consulte [limites de memória e simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums).
+- Para ajustar a classe de recursos, pode executar a consulta em outro utilizador ou [alterar a classe de recursos do utilizador atual](#change-a-users-resource-class) associação. 
+
 ### <a name="static-resource-classes"></a>Classes de recurso estático
-Classes de recurso estático atribuir a mesma quantidade de memória, independentemente do nível de desempenho atual, o que é medido em [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Uma vez que as consultas de obter a atribuição de memória mesmo, independentemente do nível de desempenho, [aumentar horizontalmente o armazém de dados](quickstart-scale-compute-portal.md) permite consultas mais ser executada dentro de uma classe de recursos.
+Classes de recurso estático atribuir a mesma quantidade de memória, independentemente do nível de desempenho atual, o que é medido em [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). Uma vez que as consultas de obter a atribuição de memória mesmo, independentemente do nível de desempenho, [aumentar horizontalmente o armazém de dados](quickstart-scale-compute-portal.md) permite consultas mais ser executada dentro de uma classe de recursos.  Classes de recurso estáticos são ideais se o volume de dados é conhecido e constante.
 
 As classes de estático recursos são implementadas com estas funções de base de dados predefinidos:
 
@@ -56,19 +59,31 @@ As classes de estático recursos são implementadas com estas funções de base 
 - staticrc70
 - staticrc80
 
-Estas classes de recursos são mais adequadas para soluções que aumentar a classe de recursos para obter recursos de computação adicionais.
-
 ### <a name="dynamic-resource-classes"></a>Classes de recursos dinâmicos
-Classes de recursos dinâmicos alocar uma variável quantidade de memória consoante o nível de serviço atual. Ao aumentar verticalmente para um maior nível de serviço, as suas consultas obtém automaticamente mais memória. 
+Classes de recursos dinâmicos alocar uma variável quantidade de memória consoante o nível de serviço atual. Enquanto as classes de recurso estáticos são úteis para simultaneidade superior e volumes de dados estáticos, classes de recursos dinâmicos melhor são mais adequadas para uma variável ou crescente quantidade de dados.  Ao aumentar verticalmente para um maior nível de serviço, as suas consultas obtém automaticamente mais memória.  
 
 As classes de recursos dinâmicos são implementadas com estas funções de base de dados predefinidos:
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
-Estas classes de recursos são mais adequadas para soluções que aumento computação escala para obter recursos adicionais. 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Classes de recursos dinâmicos Gen2 são verdadeiramente dinâmicas
+Quando digging para os detalhes das classes de recursos dinâmicos no Gen1, existem alguns detalhes que adicionam complexidade adicional para compreender o respetivo comportamento:
+
+- A classe de recursos smallrc funciona com um modelo de memória fixa como uma classe de recurso estático.  Consultas de Smallrc não obter dinamicamente mais memória, aumenta o nível de serviço.
+- Como alterar níveis de serviço, a simultaneidade de consulta disponível pode aceder ou reduzir verticalmente.
+- Níveis de dimensionamento não fornecer uma alteração proporcional a memória alocada para as mesmo classes de recursos.
+
+No **Gen2 apenas**, classes de recursos dinâmicos são verdadeiramente dinâmicas endereçamento pontos mencionados acima.  A nova regra é 3-10-22-70 para as alocações de percentagem de memória para classes de recursos de pequena-média-grande-xlarge, **independentemente do nível de serviço**.  A tabela abaixo tenha os detalhes consolidados da percentagens de alocação de memória e o número mínimo de consultas em simultâneo que são executadas, independentemente do nível de serviço.
+
+| Classe de Recursos | Percentagem de memória | Consultas em simultâneo mín. |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | % de 3                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | % de 22               | 4                      |
+| xlargerc       | 70%               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Classe de recursos predefinidos
@@ -144,10 +159,11 @@ Apenas as consultas de recursos regida consumam ranhuras de concorrência. Consu
 
 Classes de recursos são implementadas como funções de base de dados previamente definido. Existem dois tipos de classes de recurso: estáticos e dinâmicos. Para ver uma lista das classes de recursos, utilize a seguinte consulta:
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>Alterar a classe de recursos de um utilizador
 
@@ -197,7 +213,7 @@ Para otimizar o desempenho, utilize as classes de recursos diferente. O fornecem
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Código de exemplo para localizar a classe de recursos melhores
  
-Pode utilizar o seguinte procedimento armazenado para descobrir a concessão de memória e de concorrência por classe de recursos num determinado SLO e classe de recurso melhor mais próximo para operações CCI que consomem muita memória na tabela CCI não particionadas uma classe de recursos específico:
+Pode utilizar o seguinte procedimento armazenado no **Gen1 apenas** para descobrir simultaneidade e memória conceder por classe de recursos num SLO especificado e a classe de recursos melhor mais próxima para memória da tabela que consomem muita CCI operações em CCI não particionado em uma classe de recursos específico:
 
 Eis o objetivo deste procedimento armazenado:  
 1. Para ver a simultaneidade e memória conceder por classe de recursos num SLO indicado. Utilizador tem de fornecer um valor nulo para o esquema e tablename conforme mostrado neste exemplo.  
@@ -228,6 +244,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> Os valores definidos nesta versão do procedimento armazenado só se aplicam a Gen1.
+>
+>
 
 A seguinte instrução cria Table1 que é utilizada nos exemplos anteriores.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -294,7 +314,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -306,7 +326,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

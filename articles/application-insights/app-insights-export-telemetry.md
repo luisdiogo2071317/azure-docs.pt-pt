@@ -1,8 +1,8 @@
 ---
-title: "A exportação contínua de telemetria do Application Insights | Microsoft Docs"
-description: "Exportar dados de diagnóstico e utilização para o armazenamento no Microsoft Azure e transferi-la a partir daí."
+title: A exportação contínua de telemetria do Application Insights | Microsoft Docs
+description: Exportar dados de diagnóstico e utilização para o armazenamento no Microsoft Azure e transferi-la a partir daí.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar a telemetria do Application Insights
 Pretende manter a sua telemetria durante mais tempo do que o período de retenção padrão? Ou processá-la de alguma forma especializada? A exportação contínua é ideal para este. Os eventos que vir no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os dados e escrever independentemente código que precisa de processá-la.  
@@ -31,10 +31,11 @@ Antes de configurar a exportação contínua, existem algumas alternativas que p
 * [Análise de](app-insights-analytics.md) fornece um idioma de consulta poderosa para telemetria. -Também pode exportar os resultados.
 * Se estiver à procura para [explore os dados no Power BI](app-insights-export-power-bi.md), pode fazê-lo sem utilizar a exportação contínua.
 * O [REST API de acesso a dados](https://dev.applicationinsights.io/) permite-lhe aceder programaticamente à sua telemetria.
+* Também pode aceder à configuração [a exportação contínua através do Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Após a exportação contínua copia os dados para armazenamento (onde-pode permanecer para, desde que pretender), ainda está disponível no Application Insights para o habitual [período de retenção](app-insights-data-retention-privacy.md).
 
-## <a name="setup"></a>Criar uma exportação contínua
+## <a name="setup"></a> Criar uma exportação contínua
 1. No recurso do Application Insights para a sua aplicação, abra a exportação contínua e selecione **adicionar**:
 
     ![Desloque para baixo e clique em exportação contínua](./media/app-insights-export-telemetry/01-export.png)
@@ -71,12 +72,12 @@ Para parar a exportação permanentemente, elimine-o. Se o fizer, não elimina o
 ### <a name="cant-add-or-change-an-export"></a>Não é possível adicionar ou alterar uma exportação?
 * Para adicionar ou alterar exportações, necessita de direitos de acesso de proprietário, Contribuidor ou Contribuidor do Application Insights. [Saiba mais sobre as funções][roles].
 
-## <a name="analyze"></a>Os eventos obter?
+## <a name="analyze"></a> Os eventos obter?
 Os dados exportados são a telemetria não processados que recebemos da sua aplicação, exceto que iremos adicionar dados de localização que iremos calcular do endereço IP do cliente.
 
 Dados que foi ignorados pelo [amostragem](app-insights-sampling.md) não está incluído nos dados exportados.
 
-Outras métricas calculadas não estão incluídas. Por exemplo, vamos não exportar utilisation de CPU média, mas vamos exportar a telemetria não processados a partir do qual é calculada a média.
+Outras métricas calculadas não estão incluídas. Por exemplo, vamos não exportar a utilização da CPU média, mas vamos exportar a telemetria não processados a partir do qual é calculada a média.
 
 Os dados também incluem os resultados de qualquer [testes web de disponibilidade](app-insights-monitor-web-app-availability.md) que configurou.
 
@@ -85,7 +86,7 @@ Os dados também incluem os resultados de qualquer [testes web de disponibilidad
 >
 >
 
-## <a name="get"></a>Inspecione os dados
+## <a name="get"></a> Inspecione os dados
 Pode inspecionar o armazenamento diretamente no portal. Clique em **procurar**, selecione a sua conta de armazenamento e, em seguida, abra **contentores**.
 
 Para inspecionar o armazenamento do Azure no Visual Studio, abra **vista**, **Cloud Explorer**. (Se não tiver esse comando de menu, tem de instalar o SDK do Azure: Abra o **novo projeto** caixa de diálogo, expanda Visual c# / nuvem e escolha **obter o Microsoft Azure SDK para .NET**.)
@@ -100,19 +101,19 @@ Eis a forma do caminho:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-onde
+Onde
 
-* `blobCreationTimeUtc`é de hora em que o blob foi criado no interna transição armazenamento
-* `blobDeliveryTimeUtc`é o tempo quando blob é copiado para o armazenamento de destino de exportação
+* `blobCreationTimeUtc` é de hora em que o blob foi criado no interna transição armazenamento
+* `blobDeliveryTimeUtc` é o tempo quando blob é copiado para o armazenamento de destino de exportação
 
-## <a name="format"></a>Formato de dados
+## <a name="format"></a> Formato de dados
 * Cada blob é um ficheiro de texto que contém vários ' \n'-separated linhas. Contém a telemetria processada durante um período de tempo de aproximadamente meio um minuto.
 * Cada linha representa um ponto de dados de telemetria, como uma vista de página ou a pedido.
 * Cada linha é um documento JSON não formatado. Se pretende manter-se e stare-la, abra-o no Visual Studio e escolha edite, avançadas, ficheiro de formato:
 
 ![Ver a telemetria com uma ferramenta adequada](./media/app-insights-export-telemetry/06-json.png)
 
-Durações de tempo são em ticks, onde os batimentos de 10 000 = 1ms. Por exemplo, estes valores mostram um tempo de 1ms para enviar um pedido a partir do browser, 3ms para receberem e 1.8s para processar a página no browser:
+Durações de tempo são em ticks, onde os batimentos de 10 000 = 1 ms. Por exemplo, estes valores mostram um tempo de 1 ms para enviar um pedido a partir do browser, 3 ms para receber e 1.8 s para processar a página no browser:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},

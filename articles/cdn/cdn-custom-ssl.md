@@ -1,6 +1,6 @@
 ---
-title: Configure o HTTPS um domínio personalizado de CDN do Azure | Microsoft Docs
-description: Saiba como ativar ou desativar HTTPS no seu domínio personalizado de ponto final de CDN do Azure.
+title: Tutorial - Configurar o HTTPS num domínio personalizado da CDN do Azure | Microsoft Docs
+description: Neste tutorial, vai aprender a ativar e desativar o HTTPS no seu domínio personalizado do ponto final da CDN do Azure.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -11,202 +11,227 @@ ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2018
-ms.author: rli; v-deasim
-ms.openlocfilehash: ca3dad18973197f63e69e6568b8ea5988b279e01
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 04/12/2018
+ms.author: rli
+ms.custom: mvc
+ms.openlocfilehash: a8f2da5a68552c35a55a7bbb764afc7b36af6962
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-https-on-an-azure-cdn-custom-domain"></a>Configure o HTTPS um domínio personalizado de CDN do Azure
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Azure entrega rede conteúdos (CDN) suporta o protocolo HTTPS para um domínio personalizado no ponto final da CDN. Utilizando o protocolo HTTPS no seu domínio personalizado, certifique-se de que os dados confidenciais é entregue em segurança através de encriptação SSL quando é enviado através da internet. Fornece HTTPS confiança de autenticação e protege as suas aplicações web contra ataques. Além disso, a fornecer a segura do conteúdo utilizando o seu próprio nome de domínio (por exemplo, https:\//www.contoso.com). O fluxo de trabalho para permitir HTTPS é simplificado através de ativação de um clique e gestão de certificados completo, todos os sem custos adicionais.
+Este tutorial mostra como ativar o protocolo HTTP num domínio personalizado que está associado a um ponto final da Rede de Entrega de Conteúdos (CDN) do Azure. A utilização do protocolo HTTPS no seu domínio personalizado (por exemplo, https:\//www.contoso.com) garante que os seus dados confidenciais são entregues em segurança através de encriptação SSL quando são enviados pela Internet. O HTTPS proporciona confiança e autenticação e protege as suas aplicações Web de ataques. O fluxo de trabalho para ativar o HTTPS é simplificado através da ativação de um clique e da gestão de certificados completa, ambas sem custos adicionais.
 
-CDN do Azure também suporta HTTPS num nome de anfitrião de ponto final CDN, por predefinição. Por exemplo, se criar um ponto final de CDN (por exemplo, https:\//contoso.azureedge.net), HTTPS é ativado automaticamente.  
+A CDN do Azure suporta o HTTPS num nome de anfitrião do ponto final da CDN, por predefinição. Por exemplo, se criar um ponto final da CDN (por exemplo, https:\//contoso.azureedge.net), o HTTPS é ativado automaticamente.  
 
 Alguns dos principais atributos da funcionalidade HTTPS são:
 
-- Sem custos adicionais: existem sem custos de aquisição do certificado ou a renovação e sem custos adicionais para tráfego HTTPS. Só paga pelos GB de saída da CDN.
+- Sem custos adicionais: não há custos para a aquisição ou renovação de certificados nem para o tráfego HTTPS. Só paga pelos GB de saída da CDN.
 
-- Ativação Simple: aprovisionamento de um clique está disponível a partir de [portal do Azure](https://portal.azure.com). Também pode utilizar a REST API ou outras ferramentas de programador para ativar a funcionalidade.
+- Ativação simples: está disponível no [portal do Azure](https://portal.azure.com) o aprovisionamento de um clique. Também pode utilizar a API REST ou outras ferramentas de programador para ativar a funcionalidade.
 
-- Conclua a gestão de certificados: todos os certificados de aprovisionamento e gestão é processada por si. Certificados são automaticamente aprovisionados e renovados antes da expiração, o que elimina os riscos de interrupção do serviço devido a um certificado prestes a expirar.
+- Gestão de certificados completa: todas as atividades de aprovisionamento e gestão de certificados são feitas por si. Os certificados são aprovisionados e renovados automaticamente antes de expirarem, o que elimina os riscos de interrupção do serviço devido à expiração dos mesmos.
 
->[!NOTE] 
->Antes de ativar o suporte de HTTPS, tem de ter já estabeleceu um [domínio personalizado de CDN do Azure](./cdn-map-content-to-custom-domain.md).
+Neste tutorial, ficará a saber como:
+> [!div class="checklist"]
+> - Ativar o protocolo HTTPS no seu domínio personalizado
+> - Validar o domínio
+> - Desativar o protocolo HTTPS no seu domínio personalizado
 
-## <a name="enabling-https"></a>Ativar HTTPS
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para ativar HTTPS, um domínio personalizado, siga estes passos:
+Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, veja [Início Rápido: Criar um perfil e um ponto final da CDN do Azure](cdn-create-new-endpoint.md).
 
-### <a name="step-1-enable-the-feature"></a>Passo 1: Ativar a funcionalidade 
+Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto final da CDN. Para obter mais informações, veja [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
 
-1. No [portal do Azure](https://portal.azure.com), navegue até à sua **CDN do Azure Standard da Verizon** ou **CDN do Azure Premium da Verizon** perfil da CDN.
+## <a name="enable-the-https-feature"></a>Ativar a funcionalidade HTTPS
 
-2. Na lista de pontos finais, clique no ponto final que contém o domínio personalizado.
+Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
-3. Clique no domínio personalizado para o qual pretende ativar HTTPS.
+1. No [portal do Azure](https://portal.azure.com), navegue para o seu perfil da **CDN do Azure Standard da Verizon** ou da **CDN do Azure Premium da Verizon**.
+
+2. Na lista de pontos finais da CDN, selecione o ponto final que contém o seu domínio personalizado.
+
+    ![Lista de pontos finais](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
+
+    É apresentada a página **Ponto final**.
+
+3. Na lista de domínios personalizados, selecione o domínio personalizado no qual pretende ativar o HTTPS.
 
     ![Lista de domínios personalizados](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-4. Clique em **no** para ativar HTTPS, em seguida, clique em **aplicar**.
+    É apresentada a página **Domínio personalizado**.
 
-    ![Estado HTTPS de domínio personalizado](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+4. Selecione **Ativar** para ativar o HTTPS e selecione **Aplicar**.
+
+    ![Estado do HTTPS do domínio personalizado](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
-### <a name="step-2-validate-domain"></a>Passo 2: Validar o domínio
+## <a name="validate-the-domain"></a>Validar o domínio
 
->[!NOTE]
->Se tiver um registo de autorização de autoridade de certificado (CAA) com o seu fornecedor DNS, tem de incluir DigiCert como uma AC válida. Um registo de CAA permite que os proprietários de domínio especificar os seus fornecedores de serviços de DNS que as ACs estão autorizados a emitir certificados para os domínios. Se uma AC recebe uma ordem de um certificado para um domínio que tenha um registo de CAA e essa AC não está indicada como um emissor autorizado, é proibido de emitir o certificado para esse domínio ou um subdomínio. Para obter informações sobre como gerir registos de CAA, consulte [registos gerir CAA](https://support.dnsimple.com/articles/manage-caa-record/). Para obter uma ferramenta de registo CAA, consulte [CAA registo auxiliar](https://sslmate.com/caa/).
+Se já tiver um domínio personalizado em utilização e que esteja mapeado para o ponto final personalizado com um registo CNAME, avance para  
+[O domínio personalizado está mapeado para o ponto final da CDN](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Caso contrário, se a entrada do registo CNAME para o ponto final já não existir ou contiver o subdomínio cdnverify, avance para [O domínio personalizado não está mapeado para o ponto final da CDN](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
-#### <a name="custom-domain-is-mapped-to-cdn-endpoint"></a>Domínio personalizado é mapeado para o ponto final de CDN
+### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>O domínio personalizado está mapeado para o ponto final da CDN por um registo CNAME
 
-Quando tiver adicionado a um domínio personalizado para o ponto final, criou um registo CNAME na tabela de DNS do seu registo de domínios para mapear para o nome de anfitrião de ponto final CDN. Se esse registo CNAME ainda existe e não contém o subdomínio cdnverify, a autoridade de certificação (AC) de DigiCert utiliza-o para validar a propriedade do seu domínio personalizado. 
+Quando adicionou um domínio personalizado ao ponto final, criou um registo CNAME na tabela de DNS da sua entidade de registo de domínios para mapeá-lo para o nome de anfitrião do ponto final da CDN. Se esse registo CNAME ainda existir e não contiver o subdomínio cdnverify, a autoridade de certificação (AC) DigiCert utiliza-o para validar a propriedade do seu domínio personalizado. 
 
-O registo CNAME deve estar no seguinte formato, onde *nome* é o nome de domínio personalizado e *valor* é o nome de anfitrião de ponto final CDN:
+O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu domínio personalizado e *Valor* é o nome de anfitrião do ponto final da CDN:
 
 | Nome            | Tipo  | Valor                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-Para obter mais informações sobre registos CNAME, consulte [criar o registo CNAME DNS](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records).
+Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
-Se o registo CNAME no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e adiciona-o para o certificado de nomes de alternativo do requerente (SAN). DigitCert não enviar uma mensagem de verificação e não terá de aprovar o pedido. O certificado é válido durante um ano e será automaticamente-renovada antes de expirar. Avance para [passo 3: aguardar propagação](#step-3-wait-for-propagation). 
+Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e adiciona-o ao certificado Nomes Alternativos do Requerente (SAN). DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será renovado automaticamente antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 
-A validação automática normalmente demora alguns minutos. Se não vir o seu domínio validado dentro de uma hora, abra um pedido de suporte.
+Normalmente, a validação automática demora alguns minutos. Se não vir o seu domínio validado ao fim de uma hora, abra um pedido de suporte.
 
-#### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>Registo CNAME não está mapeado para o ponto final de CDN
+>[!NOTE]
+>Se tiver um registo Autorização de Autoridade de Certificação (CAA) com o seu fornecedor de DNS, tem de incluir DigiCert como AC válida. O registo CAA permite aos proprietários de domínios especificar junto dos respetivos fornecedores de DNS que ACs têm autorização para emitir certificados para os seus domínios. Se uma AC receber um pedido de certificado para um domínio que tenha um registo CAA e essa AC não estiver listada como emissora autorizada, estará proibida de emitir o certificado para esse domínio ou subdomínio. Para obter informações sobre como gerir registos CAA, veja [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/) (Gerir registos CAA). Para obter uma ferramenta de registo CAA, veja [CAA Record Helper](https://sslmate.com/caa/) (Ajuda para Registos CAA).
 
-Se a entrada de registo CNAME para o ponto final já não existe ou contém o subdomínio cdnverify, siga o resto das instruções neste passo.
+### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>O domínio personalizado não está mapeado para o ponto final da CDN
 
-Depois de ativar HTTPS no seu domínio personalizado, a autoridade de certificação (AC) de DigiCert valida a propriedade do seu domínio ao contactar o respetivo registrant, de acordo com o domínio [WHOIS](http://whois.domaintools.com/) informações registrant. Contacte é efetuada através do endereço de e-mail (por predefinição) ou o número de telefone listados no registo WHOIS. Validação do domínio deve ser concluída antes de HTTPS estará ativo no seu domínio personalizado. Tem de seis dias úteis para aprovar o domínio. Pedidos que não estão aprovados dentro de seis dias úteis automaticamente foram cancelados. 
+Se a entrada do registo CNAME para o seu ponto final já não existir ou contiver o subdomínio cdnverify, siga o resto das instruções neste passo.
+
+Depois de ativar o HTTPS no domínio personalizado, a autoridade de certificação (AC) DigiCert valida a propriedade do seu domínio ao contactar a entidade de registo do mesmo, de acordo com as respetivas informações de registo em [WHOIS](http://whois.domaintools.com/). O contacto é feito por endereço de e-mail (por predefinição) ou pelo número de telefone indicado no registo em WHOIS. Antes de o HTTPS estar ativo no domínio personalizado, tem de concluir a validação do domínio. Tem seis dias úteis para aprovar o domínio. Os pedidos que não forem aprovados ao fim de seis dias úteis são cancelados automaticamente. 
 
 ![Registo WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
-DigiCert também envia uma mensagem de verificação para endereços de e-mail adicionais. Se as informações de registrant WHOIS são privadas, certifique-se de que podem aprovar diretamente a partir de um dos seguintes endereços:
+DigiCert também envia um e-mail de verificação para endereços de e-mail adicionais. Se as informações do registo em WHOIS forem privadas, confirme que pode aprovar diretamente a partir de um dos endereços seguintes:
 
-admin@&lt;your-domain-name.com&gt;  
-administrator@&lt;your-domain-name.com&gt;  
-webmaster@&lt;your-domain-name.com&gt;  
-hostmaster@&lt;your-domain-name.com&gt;  
-postmaster@&lt;your-domain-name.com&gt;  
+admin@&lt;o-seu-nome-de-domínio.com&gt;  
+administrador@&lt;o-seu-nome-de-domínio.com&gt;  
+webmaster@&lt;o-seu-nome-de-domínio.com&gt;  
+hostmaster@&lt;o-seu-nome-de-domínio.com&gt;  
+postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
-Deverá receber uma mensagem de e-mail dentro de alguns minutos, semelhantes ao seguinte exemplo, pedir-lhe aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com a lista branca. Se não receber uma mensagem de e-mail dentro de 24 horas, contacte o suporte da Microsoft.
+Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com à lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
     
-![Correio eletrónico de validação do domínio](./media/cdn-custom-ssl/domain-validation-email.png)
+![E-mail de validação do domínio](./media/cdn-custom-ssl/domain-validation-email.png)
 
-Ao clicar na ligação de aprovação, o utilizador é direcionado para o seguinte formato de aprovação online: 
+Quando clica na ligação de aprovação, é direcionado para o seguinte formulário de aprovação online: 
     
 ![Formulário de validação do domínio](./media/cdn-custom-ssl/domain-validation-form.png)
 
-Siga as instruções no formulário; tem duas opções de verificação:
+Siga as instruções do formulário; tem duas opções de verificação:
 
-- Pode aprovar todas as ordens futuras colocadas através da mesma conta para o mesmo domínio de raiz; Por exemplo, contoso.com. Esta abordagem é recomendada se planear adicionar domínios personalizados adicionais para o mesmo domínio de raiz.
+- Pode aprovar todas as encomendas futuras feitas através da mesma conta para o mesmo domínio de raiz; por exemplo, contoso.com. Esta abordagem é recomendada se planear adicionar mais domínios personalizados para o mesmo domínio de raiz.
 
-- Pode aprovar apenas o nome de anfitrião específico utilizado neste pedido. Aprovação adicional é necessária para os pedidos subsequentes.
+- Pode aprovar apenas o nome de anfitrião específico utilizado neste pedido. É necessária aprovação adicional para pedidos subsequentes.
 
-Após a aprovação, DigiCert adiciona o seu nome de domínio personalizado para o certificado de SAN. O certificado é válido durante um ano e será automaticamente-renovada antes de ter expirado.
+Após a aprovação, a DigiCert adiciona o seu nome de domínio personalizado ao certificado SAN. O certificado é válido durante um ano e será renovado automaticamente antes de expirar.
 
-### <a name="step-3-wait-for-propagation"></a>Passo 3: Aguardar propagação
+## <a name="wait-for-propagation"></a>Aguardar pela propagação
 
-Depois do nome de domínio é validado, pode demorar até 6 8 horas para a funcionalidade HTTPS de domínio personalizado para ser ativado. Quando o processo estiver concluído, o estado HTTPS personalizado no portal do Azure está definido como **ativado** e os passos de operação de quatro na caixa de diálogo de domínio personalizado são marcados como concluídos. O domínio personalizado está agora pronto para utilizar HTTPS.
+Após a validação do nome de domínio, a ativação da funcionalidade HTTPS no domínio personalizado pode demorar entre 6 a 8 horas. Quando o processo estiver concluído, o estado do HTTPS personalizado no portal do Azure é definido como **Ativado** e os quatro passos da operação na caixa de diálogo de domínio personalizado são marcados como concluídos. O seu domínio personalizado está agora pronto para utilizar o HTTPS.
 
-![Ativar a caixa de diálogo HTTPS](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
+![Caixa de diálogo Ativar HTTPS](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
 ### <a name="operation-progress"></a>Progresso da operação
 
-A tabela seguinte mostra o progresso da operação que ocorre quando ativar HTTPS. Depois de ativar HTTPS, quatro passos de operação aparecem na caixa de diálogo de domínio personalizado. À medida que cada passo for Active Directory, detalhes de substep adicionais são apresentados sob o passo como que avança. Nem todas estas substeps ocorrerá. Depois de um passo concluir com êxito, é apresentada uma marca de verificação verde junto ao mesmo. 
+A tabela seguinte mostra o progresso da operação que ocorre quando ativa o HTTPS. Depois de ativar o HTTPS, aparecem quatro passos da operação na caixa de diálogo do domínio personalizado. À medida que cada passo é ativado, aparecem detalhes de subpassos adicionais abaixo dos passos. Nem todos estes subpassos vão ocorrer. Depois da conclusão bem-sucedida de um passo, aparece uma marca de verificação verde junto ao mesmo. 
 
-| Passo de operação | Detalhes de substep de operação | 
+| Passo da operação | Detalhes do subpasso da operação | 
 | --- | --- |
-| 1 submeter pedido | Submeter pedido |
+| 1 Submeter o pedido | Submeter o pedido |
 | | O seu pedido HTTPS está a ser submetido. |
 | | O seu pedido HTTPS foi submetido com êxito. |
-| Validação de domínio 2 | Domínio é validado automaticamente se for CNAME mapeado para o ponto final da CDN. Caso contrário, será enviado um pedido de verificação para o e-mail listado no registo do seu domínio (WHOIS registrant). Verifique o domínio logo que possível. |
+| 2 Validação do domínio | O domínio é validado automaticamente se estiver mapeado para o ponto final da CDN através de CNAME. Caso contrário, será enviado um pedido de verificação para o e-mail indicado nas informações de registo do seu domínio (registo WHOIS). Verifique o domínio assim que possível. |
 | | A propriedade do domínio foi validada com êxito. |
-| | Pedido de validação de propriedade de domínio expirou (cliente provavelmente não responder dentro de dias 6). HTTPS não será ativado no seu domínio. * |
-| | Pedido de validação de propriedade de domínio foi rejeitado pelo cliente. HTTPS não será ativado no seu domínio. * |
-| Aprovisionamento de certificados 3 | A autoridade de certificação está a emitir o certificado necessário para ativar o HTTPS no seu domínio. |
-| | O certificado foi emitido e está atualmente a ser implementado à rede da CDN. Isto pode demorar até 6 horas. |
+| | O pedido de validação da propriedade do domínio expirou (é provável que o cliente não tenha respondido em seis dias). O HTTPS não será ativado no seu domínio. * |
+| | O cliente rejeitou o pedido de validação da propriedade do domínio. O HTTPS não será ativado no seu domínio. * |
+| 3 Aprovisionamento do certificado | A autoridade de certificação está a emitir o certificado necessário para ativar o HTTPS no seu domínio. |
+| | O certificado foi emitido e está a ser implementado na rede CDN. Este processo poderá demorar até seis horas. |
 | | O certificado foi implementado com êxito na rede CDN. |
-| 4 concluída | O HTTPS foi ativado com êxito no seu domínio. |
+| 4 Concluído | O HTTPS foi ativado com êxito no seu domínio. |
 
-\* Esta mensagem não aparecer, a menos que ocorreu um erro. 
+\* Esta mensagem não aparece, a menos que tenha ocorrido um erro. 
 
-
-Se ocorrer um erro antes do pedido ser submetido, será apresentada a seguinte mensagem de erro:
+Se ocorrer um erro antes de o pedido ser submetido, será apresentada a seguinte mensagem de erro:
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
-## <a name="disabling-https"></a>Desativar HTTPS
+## <a name="clean-up-resources---disable-https"></a>Limpar recursos - desativar HTTPS
 
-Depois de ter ativado HTTPS um domínio personalizado, pode desativá-lo mais tarde. Para desativar o HTTPS, siga estes passos:
+Nos passos anteriores, ativou o protocolo HTTPS no seu domínio personalizado. Se já não pretender utilizar o seu domínio personalizado com o HTTPS, pode seguir os passos abaixo para desativá-lo:
 
-### <a name="step-1-disable-the-feature"></a>Passo 1: Desativar a funcionalidade 
+### <a name="disable-the-https-feature"></a>Desativar a funcionalidade HTTPS 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até à sua **CDN do Azure Standard da Verizon** ou **CDN do Azure Premium da Verizon** perfil da CDN.
+1. No [portal do Azure](https://portal.azure.com), navegue para o seu perfil da **CDN do Azure Standard da Verizon** ou da **CDN do Azure Premium da Verizon**.
 
-2. Na lista de pontos finais, clique no ponto final que contém o domínio personalizado.
+2. Na lista de pontos finais, clique no ponto final que contém o seu domínio personalizado.
 
-3. Clique no domínio personalizado para o qual pretende desativar o HTTPS.
+3. Clique no domínio personalizado no qual pretende desativar o HTTPS.
 
     ![Lista de domínios personalizados](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. Clique em **desativar** para desativar o HTTPS, em seguida, clique em **aplicar**.
+4. Clique em **Desativar** para desativar o HTTPS e clique em **Aplicar**.
 
-    ![Caixa de diálogo HTTPS personalizada](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
+    ![Caixa de diálogo de HTTPS personalizado](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
-### <a name="step-2-wait-for-propagation"></a>Passo 2: Aguardar propagação
+### <a name="wait-for-propagation"></a>Aguardar pela propagação
 
-Depois da funcionalidade HTTPS de domínio personalizado está desativada, pode demorar até 6 8 horas para este efeito. Quando o processo estiver concluído, o estado HTTPS personalizado no portal do Azure está definido como **desativado** e os passos de operação de três na caixa de diálogo de domínio personalizado são marcados como concluídos. O domínio personalizado já não pode utilizar o HTTPS.
+A desativação da funcionalidade HTTPS no domínio personalizado pode demorar entre 6 a 8 horas a ter efeito. Quando o processo estiver concluído, o estado do HTTPS personalizado no portal do Azure é definido como **Desativado** e os três passos da operação na caixa de diálogo de domínio personalizado são marcados como concluídos. O domínio personalizado já não pode utilizar o HTTPS.
 
-![Desative a caixa de diálogo HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
+![Caixa de diálogo Desativar HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
-### <a name="operation-progress"></a>Progresso da operação
+#### <a name="operation-progress"></a>Progresso da operação
 
-A tabela seguinte mostra o progresso da operação que ocorre quando desativar o HTTPS. Depois de desativar HTTPS, três passos de operação aparecem na caixa de diálogo de domínio personalizado. À medida que cada passo for Active Directory, são apresentados detalhes adicionais no passo. Depois de um passo concluir com êxito, é apresentada uma marca de verificação verde junto ao mesmo. 
+A tabela seguinte mostra o progresso da operação que ocorre quando desativa o HTTPS. Depois de desativar o HTTPS, aparecem três passos da operação na caixa de diálogo Domínio personalizado. À medida que cada passo é ativado, aparecem detalhes adicionais abaixo dos mesmos. Depois da conclusão bem-sucedida de um passo, aparece uma marca de verificação verde junto ao mesmo. 
 
 | Progresso da operação | Detalhes da operação | 
 | --- | --- |
-| 1 submeter pedido | A enviar o seu pedido |
-| 2 desaprovisionamento de certificado | A eliminar certificado |
-| 3 concluída | Certificado eliminado |
+| 1 Submeter o pedido | Submeter o pedido |
+| 2 Desaprovisionamento do certificado | Eliminar o certificado |
+| 3 Concluído | Certificado eliminado |
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-1. *Quem é o fornecedor de certificado e o tipo de certificado que é utilizado?*
+1. *Quem é o fornecedor do certificado e que tipo de certificado é utilizado?*
 
-    A Microsoft utiliza um certificado de nomes de alternativo do requerente (SAN) fornecido pelo DigiCert. Um certificado SAN pode proteger vários nomes de domínio completamente qualificado com um certificado.
+    A Microsoft utiliza um certificado Nomes Alternativo do Requerente (SAN), que é fornecido pela DigiCert. Os certificados SAN podem proteger vários nomes de domínio completamente qualificados com um único certificado.
 
-2. *Pode utilizar a minha certificados dedicado?*
+2. *Posso utilizar o meu certificado dedicado?*
     
-    Atualmente não, mas é no plano.
+    Atualmente não, mas faz parte dos nossos planos.
 
-3. *E se não receber correio eletrónico de verificação de domínio do DigiCert?*
+3. *E se não receber o e-mail de verificação do domínio da DigiCert?*
 
-    Se tiver uma entrada CNAME para o seu domínio personalizado que aponta diretamente para o seu nome de anfitrião de ponto final (e não estiver a utilizar o nome de subdomínio cdnverify), não irão receber um e-mail de verificação de domínio. Validação ocorre automaticamente. Caso contrário, se não tiver uma entrada CNAME e que ainda não recebeu uma mensagem de e-mail dentro de 24 horas, contacte o suporte da Microsoft.
+    Se tiver uma entrada CNAME para o seu domínio personalizado que aponte diretamente para o nome de anfitrião do seu ponto final (e não estiver a utilizar o nome de subdomínio cdnverify), não receberá um e-mail de verificação do domínio. A validação ocorre automaticamente. Caso contrário, se não tiver uma entrada CNAME e não tiver recebido um e-mail passadas 24 horas, contacte o suporte da Microsoft.
 
-4. *Está a utilizar um certificado SAN menos seguro do que um certificado dedicado?*
+4. *A utilização de um certificado SAN é mais insegura do que um certificado dedicado?*
     
-    Um certificado SAN segue as normas de segurança e de encriptação mesmas como um certificado dedicado. Todos os certificados SSL emitidos utilizarem SHA-256 para segurança do servidor avançada.
+    Os certificados SAN seguem as mesmas normas de encriptação e segurança dos certificados dedicados. Todos os certificados SSL emitidos utilizam SHA-256 para proporcionar mais segurança ao servidor.
 
-5. *Pode utilizar um domínio personalizado HTTPS com o Azure CDN da Akamai?*
+5. *Posso utilizar um HTTPS no domínio personalizado com a CDN do Azure da Akamai?*
 
-    Atualmente, esta funcionalidade só está disponível com a CDN do Azure da Verizon. Microsoft está a funcionar no suporte esta funcionalidade com o Azure CDN da Akamai nos próximos meses.
+    Atualmente, esta funcionalidade só está disponível com a CDN do Azure da Verizon. A Microsoft está a trabalhar no sentido de oferecer suporte para esta funcionalidade na CDN do Azure da Akamai nos próximos meses.
 
-6. *É necessário um registo de autorização de autoridade do certificado com a minha fornecedor DNS?*
+6. *Preciso de um registo Autorização de Autoridade de Certificação junto do meu fornecedor de DNS?*
 
-    Não, um registo de autorização de autoridade do certificado não é atualmente necessário. No entanto, se tiver um, tem de incluir DigiCert como uma AC válida.
+    Não, atualmente os registos Autorização de Autoridade de Certificação não são necessários. No entanto, se tiver um, o mesmo tem de incluir a DigiCert como AC válida.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como configurar um [domínio personalizado no ponto final de CDN do Azure](./cdn-map-content-to-custom-domain.md)
+O que aprendeu:
 
+> [!div class="checklist"]
+> - A ativar o protocolo HTTPS no seu domínio personalizado
+> - A validar o domínio
+> - A desativar o protocolo HTTPS no seu domínio personalizado
+
+Avance para o próximo tutorial para saber como configurar a colocação em cache no seu ponto final da CDN.
+
+> [!div class="nextstepaction"]
+> [Controlar o comportamento da colocação em cache da CDN do Azure com as regras de colocação em cache](cdn-caching-rules.md)
 

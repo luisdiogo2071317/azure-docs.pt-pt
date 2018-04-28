@@ -1,11 +1,11 @@
 ---
-title: "Carregar ficheiros para uma conta dos Serviços de Multimédia do Azure com Aspera | Microsoft Docs"
-description: "Este tutorial orienta-o ao longo dos passos para carregar ficheiros para uma conta de armazenamento que está associada a uma conta dos Serviços de Multimédia com o serviço **Aspera Server On Demand** no Azure."
+title: Carregar ficheiros para uma conta dos Serviços de Multimédia do Azure com Aspera | Microsoft Docs
+description: Este tutorial orienta-o ao longo dos passos para carregar ficheiros para uma conta de armazenamento que está associada a uma conta dos Serviços de Multimédia com o serviço **Aspera Server On Demand** no Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: johndeu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 58fec9746828863c4d0bff223fb6e9fb122256c3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com o serviço Aspera Server On Demand no Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/08/2018
 
 O **Aspera** é um software de transferência de ficheiros de alta velocidade. O **Aspera Server On Demand** para o Azure permite o carregamento e a transferência em alta velocidade de ficheiros grandes diretamente para o armazenamento de objetos BLOB do Azure. Para obter informações sobre o **Aspera Server On Demand**, veja o site [Aspera Cloud](http://cloud.asperasoft.com/). 
   
-O **Aspera Server On Demand** par o Azure está disponível para compra no [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Para concluir a compra do **Aspera Server On Demand** para o Azure, inicie sessão no Azure Marketplace com o seu Windows Live ID.
+O **Aspera Server On Demand** par o Azure está disponível para compra no [Azure Marketplace](https://azure.microsoft.com/marketplace/). Para concluir a compra do **Aspera Server On Demand** para o Azure, inicie sessão no Azure Marketplace com o seu Windows Live ID.
 
 Este tutorial orienta-o ao longo dos passos para carregar ficheiros para uma conta de armazenamento que está associada a uma conta dos Serviços de Multimédia com o serviço **Aspera Server On Demand** no Azure. 
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 487eca98b9be20faaa52c0a8952e84c6027ee1f0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de agente do observador de rede para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-[Observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
+[Observador de rede do Azure](/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
 
 Este documento fornece detalhes sobre as plataformas suportadas e opções de implementação para a extensão de máquina virtual de agente do observador de rede do Linux. Instalação do agente não interromper, nem requer um reinício, da máquina virtual.
 
@@ -40,7 +40,7 @@ A extensão de agente do observador de rede pode ser executada em relação a es
 | Ubuntu | 16.04 LTS, 14.04 LTS e 12.04 LTS |
 | Debian | 7 e 8 |
 | RedHat | 6 e 7. x |
-| Oracle Linux | 7x |
+| Oracle Linux | 7 x |
 | SUSE | 11 e 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
@@ -49,7 +49,7 @@ Tenha em atenção que CoreOS não é suportado neste momento.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída algumas das funcionalidades do agente do observador de rede podem avaria ou ficar indisponíveis. Para obter mais detalhes, consulte o [documentação de observador de rede](https://review.docs.microsoft.com/azure/network-watcher/).
+Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída algumas das funcionalidades do agente do observador de rede podem avaria ou ficar indisponíveis. Para obter mais detalhes, consulte o [documentação de observador de rede](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -78,7 +78,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do observador de red
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publisher | Microsoft.Azure.NetworkWatcher |
+| Fabricante | Microsoft.Azure.NetworkWatcher |
 | tipo | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
@@ -112,4 +112,4 @@ Resultado da execução de extensão é registado para ficheiros encontrados no 
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda, a qualquer altura neste artigo, pode consulte a documentação do observador de rede ou contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/en-us/support/faq/).
+Se precisar de mais ajuda, a qualquer altura neste artigo, pode consulte a documentação do observador de rede ou contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

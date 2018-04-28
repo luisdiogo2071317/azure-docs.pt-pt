@@ -1,8 +1,8 @@
 ---
-title: "Identidade híbrida: comparação das ferramentas de integração de diretórios | Microsoft Docs"
-description: "Nesta página, encontra uma tabela abrangente que compara as várias ferramentas de integração de diretórios que podem ser utilizadas para a integração de diretórios."
+title: 'Identidade híbrida: comparação das ferramentas de integração de diretórios | Microsoft Docs'
+description: Nesta página, encontra uma tabela abrangente que compara as várias ferramentas de integração de diretórios que podem ser utilizadas para a integração de diretórios.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/09/2018
+ms.date: 04/27/2018
 ms.author: billmath
-ms.openlocfilehash: 78ca910b4dfd5a706d2f1df7f70291fb48f096f5
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação das ferramentas de integração de diretórios de identidade híbrida
 Ao longo dos anos, as ferramentas de integração de diretórios cresceram e evoluíram.  Este documento tem o objetivo de ajudar a fornecer uma visão consolidada destas ferramentas e uma comparação das funcionalidades que estão disponíveis em cada uma.
@@ -43,16 +43,14 @@ PP = Pré-visualização Pública
 | Ligar a uma única floresta do AD no local |● |● |● |● |● |
 | Ligar a várias florestas do AD no local |● |● | |● |● |
 | Ligar a várias Organizações do Exchange no local |● | | | | |
-| Ligar a um único diretório LDAP no local |●* | | |● |● |
-| Ligar a vários diretórios LDAP no local |●*  | | |● |● |
-| Ligar a diretórios AD no local e diretórios LDAP no local |●* | | |● |● |
+| Ligar a um único diretório LDAP no local | | | |● |● |
+| Ligar a vários diretórios LDAP no local |  | | |● |● |
+| Ligar a diretórios AD no local e diretórios LDAP no local | | | |● |● |
 | Ligar a sistemas personalizados (por exemplo, SQL Server, Oracle, MySQL, etc.) |FR | | |● |● |
 | Sincronizar atributos definidos pelo cliente (extensões de diretório) |● | | | | |
 | Ligar a HR no local (por exemplo, SAP, Oracle eBusiness, PeopleSoft) |FR | | |● |● |
 | Suporta as regras de sincronização do FIM e os conectores para o aprovisionamento para sistemas no local. | | | |● |● |
-&#42; Atualmente, existem duas opções suportadas para isto.  São:
-   1. Pode utilizar o conector LDAP genérico e ativá-lo fora do Azure AD Connect.  Isto é complexo e requer um parceiro para inclusão e um contrato de suporte Premier para manutenção.  Esta opção pode processar diretórios LDAP individuais e múltiplos.
-   2. Pode desenvolver a sua própria solução para mover objetos de LDAP para o Active Directory.  Em seguida, sincronize os objetos com o Azure AD Connect.  MIM ou FIM poderiam ser utilizados como uma solução possível para mover os objetos.
+
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Nuvem para a Sincronização no Local
 | Funcionalidade | Azure Active Directory Connect | Serviços de Sincronização do Azure Active Directory | Ferramenta de Sincronização do Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

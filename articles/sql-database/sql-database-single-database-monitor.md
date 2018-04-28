@@ -10,14 +10,14 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c9fa74304e8672bc18f403aae138a3c1dbea3d4e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e56a40e1afef9c622d14804cb7f845b7b6edae6a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorizar o desempenho de base de dados na Base de Dados SQL do Azure
-A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. A monitorização ajuda-o a determinar se a base de dados tem excesso de capacidade ou está a ter problemas porque os recursos estão a ser excessivamente utilizados e a decidir se está na altura de ajustar o nível de desempenho e a [camada de serviços](sql-database-service-tiers.md) da base de dados. Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
+A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. Monitorização ajuda-o a determinar se a base de dados tem excesso de capacidade ou está a ter problemas porque os recursos são ser excessivamente utilizados saída e, em seguida, decidir se está na altura de ajustar o nível de desempenho e serviço camadas da base de dados no [baseado em DTU modelo de compra](sql-database-service-tiers-dtu.md) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md). Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
 
 > [!TIP]
 > Utilize [Azure SQL inteligente Insights](sql-database-intelligent-insights.md) para automático de monitorização do desempenho da sua base de dados. Quando é detetado um problema de desempenho, é gerado um registo de diagnóstico com os detalhes e análise de causa raiz (RCA) do problema. Recomendação de melhoramento de desempenho é fornecida quando possível.
@@ -31,7 +31,7 @@ No [portal do Azure](https://portal.azure.com/), pode monitorizar a utilização
 * Percentagem de ES de Dados
 * Percentagem de tamanho da Base de Dados
 
-Depois de adicionar estas métricas, pode continuar a visualizá-las no **monitorização** gráfico com mais informações sobre o **métrica** janela. As quatro métricas mostram a percentagem de utilização média relativa à **DTU** da base de dados. Consulte o artigo [camadas do serviço](sql-database-service-tiers.md) para detalhes sobre as DTUs.
+Depois de adicionar estas métricas, pode continuar a visualizá-las no **monitorização** gráfico com mais informações sobre o **métrica** janela. As quatro métricas mostram a percentagem de utilização média relativa à **DTU** da base de dados. Consulte o [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md) artigos para obter mais informações sobre os escalões de serviço.  
 
 ![Monitorização da camada de serviços do desempenho da base de dados.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

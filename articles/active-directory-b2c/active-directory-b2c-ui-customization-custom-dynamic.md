@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a IU com conteúdo dinâmico utilizando as políticas personalizadas
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Ao utilizar o Azure Active Directory B2C políticas personalizadas (Azure AD B2C), que pode enviar um parâmetro por uma cadeia de consulta. Transferindo o parâmetro para o ponto final de HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou início de sessão do Azure AD B2C, com base num parâmetro que passa a partir do seu web ou aplicação móvel. 
 
 ## <a name="prerequisites"></a>Pré-requisitos

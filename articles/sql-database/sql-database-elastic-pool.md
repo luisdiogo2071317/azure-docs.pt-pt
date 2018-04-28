@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 930b5607f343b87adc253cc99d74ddf28235a50b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Ajudar a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -32,9 +32,9 @@ Conjuntos elásticos resolverem este problema, garantindo que as bases de dados 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Conjuntos elásticos ativar o programador comprar recursos para um agrupamento partilhado por várias bases de dados para acomodar imprevisíveis períodos de utilização por bases de dados individuais. Pode configurar recursos para o conjunto baseada em qualquer no [DTU com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). O requisito de recursos para um conjunto é determinado pela agregação de utilização das suas bases de dados. A quantidade de recursos disponíveis para o conjunto é controlada pela atribuição de programador. O programador simplesmente adiciona as bases de dados para o conjunto, define os recursos mínimos e máximo para as bases de dados (DTUs minumumn e máximo ou mínimo ou máximo vCores consoante à sua escolha do modelo de resourceing) e, em seguida, define os recursos do conjunto com base no seu orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
+Conjuntos elásticos ativar o programador comprar recursos para um agrupamento partilhado por várias bases de dados para acomodar imprevisíveis períodos de utilização por bases de dados individuais. Pode configurar recursos para o conjunto baseada em qualquer no [DTU com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). O requisito de recursos para um conjunto é determinado pela agregação de utilização das suas bases de dados. A quantidade de recursos disponíveis para o conjunto é controlada pela atribuição de programador. O programador simplesmente adiciona as bases de dados para o conjunto, define os recursos mínimos e máximo para as bases de dados (mínimo e máximo DTUs ou mínimo ou máximo vCores dependendo da sua escolha de resourcing modelo) e, em seguida, define os recursos do conjunto com base na respetiva atribuição. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 
-Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Com muita carga, uma base de dados pode consumir mais recursos para satisfazer o pedido. Bases de dados carrega leve consumam inferior e bases de dados não carga consumam não existem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Além disso, tem um orçamento previsível para o conjunto. Recursos adicionais podem ser adicionados a um conjunto existente sem período de indisponibilidade de base de dados, exceto que as bases de dados poderão ter de ser movidos para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Da mesma forma, se recursos adicionais já não são necessárias estes podem ser removidos de um conjunto existente em qualquer ponto no tempo. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
+Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Com muita carga, uma base de dados pode consumir mais recursos para satisfazer o pedido. Bases de dados carrega leve consumam inferior e bases de dados não carga consumam não existem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Plus, terá de um orçamento previsível para o conjunto. Recursos adicionais podem ser adicionados a um conjunto existente sem período de indisponibilidade de base de dados, exceto que as bases de dados poderão ter de ser movidos para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Da mesma forma, se recursos adicionais já não são necessárias estes podem ser removidos de um conjunto existente em qualquer ponto no tempo. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando considerar um conjunto elástico da base de dados SQL?
 
@@ -81,7 +81,7 @@ Para que a relação de custo-eficácia de um conjunto de 100 eDTUs seja superio
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de bases de dados com picos simultâneos
 
-Ao partilhar resourcess, nem todas as bases de dados num agrupamento podem utilizar em simultâneo resourcess até ao limite disponível das bases de dados. As bases de dados menos pico ou em simultâneo, o menor podem ser definidos os recursos de agrupamento e fica do conjunto mais económica. Em geral, não mais do que 2/3 (ou 67%) das bases de dados no conjunto devem peak em simultâneo para o respetivo limite de recursos.
+Ao partilhar recursos, nem todas as bases de dados num agrupamento em simultâneo podem utilizar recursos até ao limite disponível das bases de dados. As bases de dados menos pico ou em simultâneo, o menor podem ser definidos os recursos de agrupamento e fica do conjunto mais económica. Em geral, não mais do que 2/3 (ou 67%) das bases de dados no conjunto devem peak em simultâneo para o respetivo limite de recursos.
 
 ***Com base em DTU compra exemplo de modelo***<br>
 Para reduzir os custos de três bases de dados S3 num conjunto de 200 eDTU, duas bases de dados, no máximo, podem ter o pico de utilização ao mesmo tempo. Caso contrário, se mais de duas destas quatro bases de dados S3 tiverem o pico em simultâneo, o conjunto terá de ser dimensionado para mais de 200 eDTUs. Se o conjunto for redimensionado para mais de 200 eDTUs, será necessário adicionar mais bases de dados S3 ao conjunto, de modo a manter os custos inferiores aos dos níveis de desempenho para bases de dados individuais.
@@ -98,7 +98,7 @@ Uma base de dados S3 que tenha como pico 100 DTUs e utilize, em média, 67 DTUs 
 
 O tamanho de um agrupamento de melhor depende os agregado dos recursos necessários para todas as bases de dados no agrupamento de. Isto envolve a determinar o seguinte:
 
-* Máximos recursos utilizados por todas as bases de dados no conjunto (máximas DTUs ou vCores máximo consoante à sua escolha do modelo de resourceing).
+* Máximos recursos utilizados por todas as bases de dados no conjunto (máximas DTUs ou vCores máximo dependendo da sua escolha de resourcing modelo).
 * Bytes de armazenamento máximos utilizados por todas as bases de dados do conjunto.
 
 Para os escalões de serviço disponíveis para cada modelo de recursos, consulte o [DTU com base no modelo de compra](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
@@ -177,7 +177,7 @@ Se gostaria de monitorizar as bases de dados dentro do conjunto, pode clicar em 
 
 Pode editar o gráfico e a página de métrica para apresentar outras métricas, tais como a percentagem de CPU, percentagem de es de dados e a percentagem de es de registo utilizados.
 
-No **editar gráfico** formulário, pode selecionar uma hora fixa intervalo ou clique em **personalizado** para selecionar qualquer período de 24 horas nas últimas duas semanas e, em seguida, selecione os recursos para monitorizar.
+No **editar gráfico** formulário, pode selecionar uma hora fixa intervalo ou clique em **personalizado** para selecionar qualquer janela de 24 horas nas últimas duas semanas e, em seguida, selecione os recursos para monitorizar.
 
 #### <a name="to-select-databases-to-monitor"></a>Para selecionar as bases de dados para monitorizar
 
@@ -269,17 +269,17 @@ Para criar e gerir elástico da base de dados SQL agrupamentos utilizam estes pe
 |[Obter conjuntos elásticos-](/rest/api/sql/elasticpools/get)|Obtém um conjunto elástico.|
 |[Conjuntos elásticos - lista pelo servidor](/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
 |[Conjuntos elásticos - atualização](/rest/api/sql/elasticpools/update)|As atualizações de um conjunto elástico existente.|
-|[Recomenda conjuntos elásticos - Get](/rest/api/sql/recommendedelasticpools/get)|Obtém um conjunto elástico recommented.|
+|[Recomenda conjuntos elásticos - Get](/rest/api/sql/recommendedelasticpools/get)|Obtém um conjunto elástico recomendado.|
 |[Recomenda conjuntos elásticos - lista pelo servidor](/rest/api/sql/recommendedelasticpools/listbyserver)|Devolve os conjuntos elásticos recomendados.|
-|[Recomenda conjuntos elásticos - as métricas de lista](/rest/api/sql/recommendedelasticpools/listmetrics)|Devolve recommented métricas do conjunto elástico.|
+|[Recomenda conjuntos elásticos - as métricas de lista](/rest/api/sql/recommendedelasticpools/listmetrics)|Devolve recomendado métricas do conjunto elástico.|
 |[Atividades do conjunto elástico](/rest/api/sql/elasticpoolactivities)|Devolve as atividades do conjunto elástico.|
 |[Atividades de base de dados do conjunto elástico](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade em bases de dados dentro de um conjunto elástico.|
 |[Bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|
 |[Get - bases de dados](/rest/api/sql/databases/get)|Obtém uma base de dados.|
 |[Para obter agrupamento elástico de bases de dados-](/rest/api/sql/databases/getbyelasticpool)|Obtém uma base de dados dentro de um conjunto elástico.|
-|[Para obter as bases de dados - recomendado conjunto elástico](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém uma base de dados dentro de um conjunto elástico recommented.|
+|[Para obter as bases de dados - recomendado conjunto elástico](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém uma base de dados dentro de um conjunto elástico recomendado.|
 |[Bases de dados - lista por agrupamento elástico](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num agrupamento elástico.|
-|[Bases de dados - lista por conjunto elástico recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devolve uma lista de bases de dados dentro de um conjunto elástico recommented.|
+|[Bases de dados - lista por conjunto elástico recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devolve uma lista de bases de dados dentro de um conjunto elástico recomendado.|
 |[Bases de dados - lista pelo servidor](/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
 |[Bases de dados - atualização](/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
 

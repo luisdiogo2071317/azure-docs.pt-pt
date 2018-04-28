@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>O Azure Active Directory B2C: Uma ferramenta auxiliar utilizada para demonstrar a funcionalidade de personalização de interface (IU) de utilizador de página
 Este artigo é um complemento para a [principal artigo de personalização de IU](active-directory-b2c-reference-ui-customization.md) no Azure Active Directory (Azure AD) B2C. Os passos seguintes descrevem como para a funcionalidade da página IU personalização utilizando o conteúdo HTML e CSS de exemplo que fornecemos.
@@ -29,7 +29,7 @@ O conteúdo de exemplo que fornecemos pode ser utilizado para customze duas pág
 ## <a name="register-an-application"></a>Registar uma aplicação
 Terá [registar uma aplicação](active-directory-b2c-app-registration.md) no inquilino do B2C que pode ser utilizado para executar a sua política. Depois de registar a sua aplicação, tem algumas opções que pode utilizar para executar, na verdade, a política de inscrição:
 
-* Criar um Azure AD B2C aplicações de início rápido listadas na secção "Introdução" [inscrever-se e iniciar sessão em consumidores nas suas aplicações](active-directory-b2c-overview.md#get-started).
+* Criar um Azure AD B2C aplicações de início rápido listadas na secção "Introdução" [inscrever-se e iniciar sessão em consumidores nas suas aplicações](active-directory-b2c-overview.md).
 * Utilize o pré-criadas [do Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) aplicação. Se optar por utilizar o playground, tem de registar uma aplicação no seu inquilino do B2C utilizando o **URI de redirecionamento** `https://aadb2cplayground.azurewebsites.net/`.
 * Utilize o **executar agora** botão na sua política do [portal do Azure](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Para personalizar o aspeto e funcionalidade da sua política, tem primeiro de cr
 Para efeitos deste tutorial, iremos tiver já criado algum conteúdo de exemplo e está lojado-lo no Blob Storage do Azure. O conteúdo de exemplo é uma personalização muito básica no tema da nossa empresa fictícias, "No diretório Wingtip Toys". Para experimentar na sua própria política, siga estes passos:
 
 1. Inicie sessão no seu inquilino no [portal do Azure](https://portal.azure.com/) e navegue para o painel de funcionalidades do B2C.
-2. Clique em **políticas de inscrição ou início de sessão** e, em seguida, clique em sua política (por exemplo, "b2c\_1\_sessão\_cópias de segurança\_sessão\_no").
+2. Clique em **políticas de inscrição ou início de sessão**, clique a política e clique em Editar (por exemplo, "b2c\_1\_sessão\_segurança\_sessão\_no").
 3. Clique em **personalização de página IU** e, em seguida, **unificado a página de inscrição ou início de sessão**.
 4. Ativar/desativar a **página personalizada utilize** mudar para **Sim**. No **página personalizada URI** campo, introduza `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Clique em **OK**.
 5. Clique em **página de inscrição de conta Local**. Ativar/desativar a **modelo personalizado utilize** mudar para **Sim**. No **página personalizada URI** campo, introduza `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
@@ -52,7 +52,7 @@ Agora pode experimentar a política personalizada. Pode utilizar a sua própria 
 ## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Carregar o conteúdo de exemplo para o Blob Storage do Azure
 Se gostaria de utilizar o Blob Storage do Azure para alojar o conteúdo da página, pode criar a sua própria conta de armazenamento e utilizar o nosso ferramenta auxiliar de B2C para carregar os ficheiros.
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Create a storage account
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **+ novo** > **dados + armazenamento** > **conta de armazenamento**. Precisa de uma subscrição do Azure para criar uma conta do Blob Storage do Azure. Pode inscrever numa avaliação gratuita no [Web site Azure](https://azure.microsoft.com/pricing/free-trial/).
 3. Forneça um **nome** para o armazenamento de conta (por exemplo, "contoso") e escolha as seleções adequadas para **escalão de preço**, **grupo de recursos** e  **Subscrição**. Certifique-se de que tem o **afixar ao Startboard** opção selecionada. Clique em **Criar**.

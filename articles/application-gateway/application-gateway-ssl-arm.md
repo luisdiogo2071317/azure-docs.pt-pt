@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicação com a terminação de SSL - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o Azure PowerShell."
+title: Criar um gateway de aplicação com a terminação de SSL - Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,17 +11,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 4972597e8e2db36be47c86b9aa1e592d94d4c2fe
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3a10cf99c34ea32168c04588777f75c7e18a7b45
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicação com a terminação de SSL com o Azure PowerShell
 
 Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](application-gateway-introduction.md) com um certificado para [terminação de SSL](application-gateway-backend-ssl.md) que utiliza um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao conjunto predefinido de back-end do gateway de aplicação. 
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um certificado autoassinado
@@ -31,7 +31,7 @@ Neste artigo, saiba como:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
@@ -187,7 +187,7 @@ $appgw = New-AzureRmApplicationGateway `
   -SslCertificates $cert
 ```
 
-## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquina virtual
+## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
 Neste exemplo, pode criar um conjunto para fornecer os servidores para o conjunto de back-end no gateway de aplicação de dimensionamento de máquina virtual. Atribuir a escala definida para o conjunto de back-end, quando configurar as definições de IP.
 
@@ -250,7 +250,7 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -258,7 +258,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Aviso seguro](./media/application-gateway-ssl-arm/application-gateway-secure.png)
 
-Para aceitar a segurança de aviso se utilizou um certificado autoassinado, selecione **detalhes** e, em seguida, **avance para a página Web**. O Web site do IIS protegido, em seguida, é apresentado como no exemplo seguinte:
+Para aceitar a segurança de aviso se utilizou um certificado autoassinado, selecione **detalhes** e, em seguida, **avance para a página Web**. O site IIS protegido é apresentado como no exemplo seguinte:
 
 ![URL de base de teste no gateway de aplicação](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
 

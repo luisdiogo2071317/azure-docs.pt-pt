@@ -1,6 +1,6 @@
 ---
-title: "Configurar sempre nos serviços de escuta do grupo de disponibilidade – Microsoft Azure | Microsoft Docs"
-description: "Configure serviços de escuta de grupo de disponibilidade no modelo Azure Resource Manager, utilizando um balanceador de carga interno com um ou mais endereços IP."
+title: Configurar sempre nos serviços de escuta do grupo de disponibilidade – Microsoft Azure | Microsoft Docs
+description: Configure serviços de escuta de grupo de disponibilidade no modelo Azure Resource Manager, utilizando um balanceador de carga interno com um ou mais endereços IP.
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On disponibilidade grupo escuta - Resource Manager
 Este tópico mostra como:
@@ -48,10 +48,10 @@ Configure a Firewall do Windows para permitir o acesso do SQL Server. As regras 
 > 
 > 
 
-O script do PowerShell seguinte cria um balanceador de carga interno, configura a regras de balanceamento de carga e define um endereço IP para o Balanceador de carga. Para executar o script, abra o ISE do Windows PowerShell e cole o script no painel de Script. Utilize `Login-AzureRMAccount` para iniciar sessão no PowerShell. Se tiver várias subscrições do Azure, utilize `Select-AzureRmSubscription ` para configurar a subscrição. 
+O script do PowerShell seguinte cria um balanceador de carga interno, configura a regras de balanceamento de carga e define um endereço IP para o Balanceador de carga. Para executar o script, abra o ISE do Windows PowerShell e cole o script no painel de Script. Utilize `Connect-AzureRmAccount` para iniciar sessão no PowerShell. Se tiver várias subscrições do Azure, utilize `Select-AzureRmSubscription ` para configurar a subscrição. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ A porta de front-end é a porta que as aplicações a utilizar para ligar à ins
 O script seguinte adiciona um novo endereço IP para um balanceador de carga existente. O ILB utiliza a porta do serviço de escuta para a porta de front-end de balanceamento de carga. Esta porta pode ser a porta do SQL Server está a escutar. Para instâncias predefinida do SQL Server, a porta é 1433. A regra para um grupo de disponibilidade de balanceamento de carga requer um IP flutuante (devolução direta do servidor) para a porta de back-end é o mesmo que a porta de front-end. Atualize as variáveis para o seu ambiente. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

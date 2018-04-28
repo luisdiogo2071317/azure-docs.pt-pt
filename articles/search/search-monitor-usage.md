@@ -1,25 +1,20 @@
 ---
-title: "Monitorizar a utilização e as estatísticas num serviço da Azure Search | Microsoft Docs"
-description: "Controlar o tamanho de consumo e o índice de recursos para a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure."
-services: search
-documentationcenter: 
+title: Monitorizar a utilização e as estatísticas num serviço da Azure Search | Microsoft Docs
+description: Controlar o tamanho de consumo e o índice de recursos para a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Monitorizar um serviço da Azure Search
 
@@ -89,7 +84,7 @@ Quando os dados são copiados para uma conta de armazenamento, os dados são for
 
 Não há um blob, por hora, por contentor.
 
-Caminho de exemplo:`resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Caminho de exemplo: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 #### <a name="log-schema"></a>Esquema de registo
 Os blobs de registos contém os registos de tráfego do serviço de pesquisa.
@@ -98,12 +93,12 @@ Cada blob tem registos na operação demorou local durante a mesma hora.
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| hora |DateTime |"2015-12-07T00:00:43.6872559Z" |TimeStamp da operação |
-| resourceId |Cadeia |"SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>FORNECEDORES/PREDEFINIDOS/RESOURCEGROUPS /<br/> MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |O ResourceId |
-| operationName |Cadeia |"Query.Search" |O nome da operação |
-| operationVersion |Cadeia |"2015-02-28" |A api-version utilizada |
-| categoria |Cadeia |"OperationLogs" |constante |
-| resultType |Cadeia |"Êxito" |Os valores possíveis: êxito ou falha |
+| hora |datetime |"2015-12-07T00:00:43.6872559Z" |TimeStamp da operação |
+| resourceId |string |"SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>FORNECEDORES/PREDEFINIDOS/RESOURCEGROUPS /<br/> MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |O ResourceId |
+| operationName |string |"Query.Search" |O nome da operação |
+| operationVersion |string |"2015-02-28" |A api-version utilizada |
+| categoria |string |"OperationLogs" |constante |
+| resultType |string |"Êxito" |Os valores possíveis: êxito ou falha |
 | resultSignature |Int |200 |Código de resultado HTTP |
 | durationMS |Int |50 |Duração da operação em milissegundos |
 | propriedades |objeto |consulte a tabela seguinte |Objeto que contém dados específicos da operação |
@@ -111,23 +106,23 @@ Cada blob tem registos na operação demorou local durante a mesma hora.
 **Esquema de propriedades**
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| Descrição |Cadeia |"Obter /indexes('content')/docs" |Ponto final da operação |
-| Consulta |Cadeia |"? pesquisa = azuresearch, uma vez & $count = true & api-version = 2015-02-28" |Os parâmetros de consulta |
+| Descrição |string |"Obter /indexes('content')/docs" |Ponto final da operação |
+| Consulta |string |"? pesquisa = azuresearch, uma vez & $count = true & api-version = 2015-02-28" |Os parâmetros de consulta |
 | Documentos |Int |42 |Número de documentos processados |
-| indexName |Cadeia |"testindex" |Nome do índice associado com a operação |
+| indexName |string |"testindex" |Nome do índice associado com a operação |
 
 #### <a name="metrics-schema"></a>Esquema de métricas
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |Cadeia |"SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>FORNECEDORES/PREDEFINIDOS/RESOURCEGROUPS /<br/>MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |o id de recurso |
-| metricName |Cadeia |"Latência" |o nome da métrica |
-| hora |DateTime |"2015-12-07T00:00:43.6872559Z" |carimbo da operação |
-| Média |Int |64 |O valor médio dos exemplos não processados no intervalo de métrica de tempo |
+| resourceId |string |"SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>FORNECEDORES/PREDEFINIDOS/RESOURCEGROUPS /<br/>MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |o id de recurso |
+| metricName |string |"Latência" |o nome da métrica |
+| hora |datetime |"2015-12-07T00:00:43.6872559Z" |carimbo da operação |
+| média |Int |64 |O valor médio dos exemplos não processados no intervalo de métrica de tempo |
 | mínimo |Int |37 |O valor mínimo de exemplos não processados no intervalo de métrica de tempo |
-| Máximo |Int |78 |O valor máximo de exemplos não processados no intervalo de métrica de tempo |
+| máximo |Int |78 |O valor máximo de exemplos não processados no intervalo de métrica de tempo |
 | total |Int |258 |O valor total de exemplos não processados no intervalo de métrica de tempo |
-| Contagem |Int |4 |O número de amostras em bruto utilizado para gerar a métrica |
-| intervalo de agregação |Cadeia |"PT1M" |O intervalo de tempo da métrica no ISO 8601 |
+| contagem |Int |4 |O número de amostras em bruto utilizado para gerar a métrica |
+| intervalo de agregação |string |"PT1M" |O intervalo de tempo da métrica no ISO 8601 |
 
 Todas as métricas são reportadas nos intervalos de um minuto. Cada métrica expõe valores mínimos, máximo e médio por minuto.
 
@@ -144,7 +139,7 @@ A pesquisa do Azure fornece um [o pacote de conteúdos do Power BI](https://app.
 
 ![Dashboard do Power BI para a pesquisa do Azure][4]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja [dimensionar as réplicas e de partições](search-limits-quotas-capacity.md) para obter orientações sobre como equilibrar a atribuição de partições e réplicas para um serviço existente.
 
 Visite [gerir o serviço de pesquisa no Microsoft Azure](search-manage.md) para obter mais informações sobre a administração de serviço, ou [desempenho e a otimização de](search-performance-optimization.md) para obter orientações sobre a otimização.

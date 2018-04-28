@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Reportar dados de utilização de pilha do Azure para o Azure 
 
@@ -27,7 +27,7 @@ Dados de utilização, também designado por dados de consumo representa a quant
 Azure sistemas de vários nós pilha que utilizem o modelo de faturação baseada no consumo devem reportar dados de utilização do Azure para fins de faturação.  Os operadores do Azure da pilha devem configurar as respetivas instâncias de pilha do Azure para dados de utilização de relatórios para o Azure.
 
 > [!NOTE]
-> Relatórios de dados de utilização é necessário para os pilha do Azure com vários nós utilizadores no modelo de pagamento-como-,-utilização de licenças. É opcional para os clientes que licença no modelo de capacidade (consulte o [como comprar o página](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Para os utilizadores do Kit de desenvolvimento de pilha do Azure, operadores de pilha do Azure podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não serão cobrados por qualquer utilização que implicar. 
+> Relatórios de dados de utilização é necessário para os pilha do Azure com vários nós utilizadores no modelo de pagamento-como-,-utilização de licenças. É opcional para os clientes que licença no modelo de capacidade (consulte o [como comprar o página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Para os utilizadores do Kit de desenvolvimento de pilha do Azure, operadores de pilha do Azure podem reportar dados de utilização e a funcionalidade de teste. No entanto, os utilizadores não serão cobrados por qualquer utilização que implicar. 
 
 
 ![fluxo de faturação](media/azure-stack-usage-reporting/billing-flow.png)

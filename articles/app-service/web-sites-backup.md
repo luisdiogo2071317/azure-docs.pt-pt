@@ -1,8 +1,8 @@
 ---
-title: "Efetuar cópia de segurança da sua aplicação no Azure"
-description: "Saiba como criar cópias de segurança das suas aplicações no App Service do Azure."
+title: Efetuar cópia de segurança da sua aplicação no Azure
+description: Saiba como criar cópias de segurança das suas aplicações no App Service do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de cópia de segurança e restauro no [App Service do Azure](app-service-web-overview.md) permite-lhe facilmente criar cópias de segurança de aplicação com base num agendamento ou manualmente. Pode restaurar a aplicação para um instantâneo de um estado anterior ao substituir a aplicação existente ou o restauro para outra aplicação. 
@@ -30,14 +30,14 @@ Para obter informações sobre o restauro de uma aplicação de cópia de segura
 ## <a name="what-gets-backed-up"></a>O que obtém uma cópia de segurança
 Serviço de aplicações pode fazer cópias de segurança as seguintes informações para uma conta de armazenamento do Azure e um contentor que configurou a sua aplicação para utilizar. 
 
-* Configuração de aplicação
+* Configuração da aplicação
 * Conteúdo do ficheiro
 * Base de dados ligada à sua aplicação
 
 São suportadas as seguintes soluções de base de dados com a funcionalidade cópia de segurança: 
-   - [Base de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Base de dados do Azure para MySQL (pré-visualização)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Base de dados do Azure para PostgreSQL (pré-visualização)](https://azure.microsoft.com/en-us/services/postgres)
+   - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+   - [Base de dados do Azure para MySQL (pré-visualização)](https://azure.microsoft.com/services/mysql)
+   - [Base de dados do Azure para PostgreSQL (pré-visualização)](https://azure.microsoft.com/services/postgres)
    - [MySQL na aplicação](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
@@ -71,13 +71,13 @@ São suportadas as seguintes soluções de base de dados com a funcionalidade c�
 ![clique em configurar](./media/web-sites-backup/ClickConfigure1.png)
 3. No **configuração de cópia de segurança** página, clique em **armazenamento: não configurado** para configurar uma conta de armazenamento.
    
-    ![Escolha a conta de armazenamento][ChooseStorageAccount]
+    ![Escolher conta de armazenamento][ChooseStorageAccount]
 4. Escolha o destino de cópia de segurança, selecionando um **conta de armazenamento** e **contentor**. A conta de armazenamento têm de pertencer à mesma subscrição que a aplicação que pretende criar cópias de segurança. Se assim o desejar, pode criar uma nova conta de armazenamento ou um novo contentor nas respetivas páginas. Quando tiver terminado, clique em **selecione**.
    
-    ![Escolha a conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![Escolher conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. No **configuração de cópia de segurança** página que é ainda deixada aberta, pode configurar **base de dados de cópia de segurança**, em seguida, selecione as bases de dados que pretende incluir nas cópias de segurança (base de dados SQL ou MySQL), em seguida, clique em **OK**.  
    
-    ![Escolha a conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![Escolher conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Para uma base de dados for apresentada nesta lista, a cadeia de ligação tem de existir o **cadeias de ligação** secção o **definições da aplicação** página para a sua aplicação.
@@ -97,7 +97,7 @@ Assim que a conta de armazenamento e o contentor está configurado, pode iniciar
 ## <a name="configure-automated-backups"></a>Configurar cópias de segurança automatizadas
 1. No **configuração de cópia de segurança** página, defina **cópia de segurança agendada** para **no**. 
    
-    ![Escolha a conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![Escolher conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Definir a agenda de cópia de segurança irão mostrar as opções de cópia de segurança, **Agendar cópia de segurança** para **no**, em seguida, configure a agenda de cópia de segurança conforme pretendido e clique em **OK**.
    
     ![Ativar as cópias de segurança automatizadas][SetAutomatedBackupOn]
@@ -165,7 +165,7 @@ Para exemplos, consulte:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter informações sobre o restauro de uma aplicação de uma cópia de segurança, consulte [restaurar uma aplicação no Azure](web-sites-restore.md). 
 
 

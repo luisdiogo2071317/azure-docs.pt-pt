@@ -1,12 +1,12 @@
 ---
-title: "Serviço de aplicações na pilha do Azure: a falhas de atualização de domínio | Microsoft Docs"
-description: "Como redistribuir o serviço de aplicações do Azure na pilha do Azure em vários domínios de falhas"
+title: 'Serviço de aplicações na pilha do Azure: a falhas de atualização de domínio | Microsoft Docs'
+description: Como redistribuir o serviço de aplicações do Azure na pilha do Azure em vários domínios de falhas
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 851747263879aa89fabe8b168876238a004ea8b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 42adef66fb1b1141ab44aab3a1ccdaae022202b5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Como redistribuir o serviço de aplicações do Azure na pilha do Azure em vários domínios de falhas
 
@@ -55,7 +55,7 @@ Para redistribuir os conjuntos de dimensionamento implementados para o fornecedo
 2. Ampliar junto a cada conjunto.  Por exemplo, se tiver três instâncias existentes no conjunto de dimensionamento, deve aumentar horizontalmente a 6 para que as novas instâncias de três serão aprovisionadas entre domínios de falhas.
     a. [Configurar o ambiente de administrador de pilha do Azure no PowerShell](azure-stack-powershell-configure-admin.md) b. Utilize este exemplo para aumentar horizontalmente o conjunto de dimensionamento:
         ```powershell
-                Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
+                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
@@ -77,7 +77,7 @@ Para redistribuir os conjuntos de dimensionamento implementados para o fornecedo
 
 5. Repita estes passos para **cada** conjunto de dimensionamento da máquina virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Também pode experimentar o outro [plataforma como dos serviços de serviço (PaaS)](azure-stack-tools-paas-services.md).
 

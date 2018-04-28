@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: abd3ef00148795f4b3e79e2ed64dd35f56946455
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 68e3775be36b434acb5c25b522f9e28bec1b6125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiar dados de ECC SAP através do Azure Data Factory
 
@@ -124,7 +124,7 @@ Para copiar dados de SAP ECC, defina o tipo de origem na atividade de cópia par
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **SapEccSource** | Sim |
-| consulta | Opções de consulta de OData para filtrar dados. Exemplo: "$select = o nome, descrição & $top = 10".<br/><br/>Conector SAP ECC copia dados a partir do URL combinado: (o url especificado no serviço ligado) / (caminho especificado no conjunto de dados)? (consulta especificada na origem de atividade de cópia). Consulte [componentes de URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sim |
+| consulta | Opções de consulta de OData para filtrar dados. Exemplo: "$select = o nome, descrição & $top = 10".<br/><br/>Conector SAP ECC copia dados a partir do URL combinado: (o url especificado no serviço ligado) / (caminho especificado no conjunto de dados)? (consulta especificada na origem de atividade de cópia). Consulte [componentes de URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo:**
 
@@ -170,7 +170,7 @@ Quando copiar dados a partir do SAP ECC, são utilizados os seguintes mapeamento
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Duplo |
-| Edm.Single | Solteiro |
+| Edm.Single | Único |
 | Edm.Guid | Cadeia |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

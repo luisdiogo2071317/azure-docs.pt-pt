@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Clever | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Clever."
+title: 'Tutorial: Integração do Azure Active Directory com Clever | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Clever.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: Integração do Azure Active Directory com Clever
 
@@ -101,37 +101,38 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
 3. No **domínio Clever e URLs** secção, execute os seguintes passos:
 
     ![Clever URLs de domínio e única informações de início de sessão](./media/active-directory-saas-clever-tutorial/tutorial_clever_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://clever.com/in/<companyname>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://clever.com/in/<companyname>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://clever.com/<companyname>`
+    b. No **identificador** caixa de texto, escreva o URL: `https://clever.com/oauth/saml/metadata.xml`
 
-    > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Clever](https://clever.com/about/contact/) para obter estes valores.
+    > [!NOTE]
+    > Início de sessão do valor de URL não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Clever](https://clever.com/about/contact/) para obter este valor.
 
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
-
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+    
+    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
 5. A aplicação Clever espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizados para o **atributos Token SAML** configuração.
 
     A seguinte captura de ecrã mostra um exemplo para este.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png)
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos:
     
     | Nome do Atributo  | Valor do Atributo |
-    | --------------- | -------------------- |    
-    | clever.Student.credentials.District\_nome de utilizador  | User.userPrincipalName |
+    | --------------- | -------------------- |
+    | clever.Teacher.credentials.district_username|user.userprincipalname|
+    | clever.Student.credentials.district_username| user.userprincipalname |
     | nome próprio  | User.givenName |
-    | Apelido  | User.Surname |    
+    | Apelido  | User.Surname |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -145,56 +146,35 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Deixe o **espaço de nomes** caixa de texto em branco.
     
-    d. Clique em **OK**.     
-
-5. Clique em **guardar** botão.
+    d. Clique em **OK**.
+    
+7. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-8. Para gerar o **metadados** url, execute os seguintes passos:
+8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Clever como administrador.
 
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
-     
-    d. Agora, a página de propriedades do **Clever** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-9. Numa janela do browser web diferente, inicie sessão no site da sua empresa Clever como administrador.
-
-10. Na barra de ferramentas, clique em **instantânea de início de sessão**.
+9. Na barra de ferramentas, clique em **instantânea de início de sessão**.
 
     ![Início de sessão instantânea](./media/active-directory-saas-clever-tutorial/ic798984.png "instantânea início de sessão")
 
-11. No **instantânea de início de sessão** página, execute os seguintes passos:
-      
+    > [!NOTE]
+    > Antes de testar o início de sessão único, terá de contactar [equipa de suporte de cliente Clever](https://clever.com/about/contact/) para ativar o Office 365 SSO no back-end.
+
+10. No **instantânea de início de sessão** página, execute os seguintes passos:
+    
       ![Início de sessão instantânea](./media/active-directory-saas-clever-tutorial/ic798985.png "instantânea início de sessão")
-      
+    
       a. Tipo de **URL de início de sessão**.
-      
+    
       >[!NOTE]
       >O **URL de início de sessão** é um valor personalizado. Contacte [equipa de suporte de cliente Clever](https://clever.com/about/contact/) para obter este valor.
-      
+    
       b. Como **sistema de identidade**, selecione **ADFS**.
 
-      c. Tipo de **URL de metadados** no **URL de metadados** caixa de texto.
-      
+      c. No **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure.
+    
       d. Clique em **Guardar**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -227,12 +207,12 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="create-a-clever-test-user"></a>Criar um utilizador de teste Clever
 
 Para permitir que os utilizadores do Azure AD iniciem sessão nos Clever, têm de ser aprovisionados para Clever.
 
-Em caso de Clever, trabalhar com [equipa de suporte de cliente Clever](https://clever.com/about/contact/) para adicionar os utilizadores na plataforma Clever. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Em caso de Clever, trabalhar com [equipa de suporte de cliente Clever](https://clever.com/about/contact/) para adicionar os utilizadores na plataforma Clever. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 >[!NOTE]
 >Pode utilizar quaisquer outras ferramentas do utilizador Clever conta criação ou APIs fornecidas pelo Clever aprovisionar contas de utilizador do Azure AD.
@@ -241,17 +221,17 @@ Em caso de Clever, trabalhar com [equipa de suporte de cliente Clever](https://c
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Clever.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir Britta Simon a Clever, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **Clever**.
 
-    ![O Clever ligação na lista de aplicações](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
+    ![O Clever ligação na lista de aplicações](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
@@ -266,13 +246,13 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
 Quando clica no mosaico Clever no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação Clever.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

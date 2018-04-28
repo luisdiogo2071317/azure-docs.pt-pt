@@ -1,12 +1,12 @@
 ---
-title: "Ciclos - matrizes de processo ou ações repetidas - Azure Logic Apps | Microsoft Docs"
-description: "Processar matrizes com \"para cada\" ciclos ou ações repetidas até forem cumpridas condições específicas em logic apps"
+title: Ciclos - matrizes de processo ou ações repetidas - Azure Logic Apps | Microsoft Docs
+description: Processar matrizes com "para cada" ciclos ou ações repetidas até forem cumpridas condições específicas em logic apps
 services: logic-apps
 keywords: para cada ciclos
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Ciclos: Processar matrizes ou repita ações até for cumprida uma condição
 
@@ -154,9 +154,6 @@ Repetir ações até que a condição é cumprida ou algum Estado é alterado, u
 * Quando obtiver resposta que pretende que a chamada um ponto final.
 * Criar um registo numa base de dados, aguarde até que um campo específico, em que seja aprovado registo e continuar o processamento. 
 
-> [!NOTE]
-> "Até" ciclos não podem incluir ciclos de "Foreach" ou outro "Até" ciclos.
-
 Por exemplo, às 8:00 por dia, esta aplicação lógica incrementa uma variável até que o valor da variável de é igual a 10. Em seguida, a aplicação lógica envia uma mensagem de e-mail confirma que o valor atual. Embora este exemplo utiliza o Outlook do Office 365, pode utilizar qualquer fornecedor de correio eletrónico suportado pelo Logic Apps ([rever os conectores listam aqui](https://docs.microsoft.com/connectors/)). Se utilizar outra conta de e-mail, os passos gerais são os mesmos, mas a IU poderá ser ligeiramente diferente. 
 
 1. Criar uma aplicação lógica em branco. No Designer de aplicação lógica, procure "recurrence" e selecione este acionador: **agenda - periodicidade** 
@@ -232,7 +229,7 @@ Um ciclo "Até" tem limites de predefinição parar a execução se qualquer uma
 
 | Propriedade | Valor predefinido | Descrição | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | O número máximo de ciclos executar antes de sai do ciclo. A predefinição é 60 ciclos. | 
+| **Contagem** | 60 | O número máximo de ciclos executar antes de sai do ciclo. A predefinição é 60 ciclos. | 
 | **Tempo limite** | PT1H | A quantidade máxima de tempo para executar um ciclo antes do ciclo sai. A predefinição é uma hora e é especificada no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no ciclo demora mais que o limite de tempo limite, o ciclo atual não parar, mas o próximo ciclo não iniciar, porque não é cumprida a condição de limite. | 
 |||| 
 

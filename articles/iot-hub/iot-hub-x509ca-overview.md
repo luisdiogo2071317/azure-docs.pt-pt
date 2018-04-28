@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de segurança de AC de x. 509 do Azure IoT Hub | Microsoft Docs"
-description: "Descrição geral - como autenticar dispositivos ao utilizar autoridades de certificação x. 509 do IoT Hub."
+title: Descrição geral de segurança de AC de x. 509 do Azure IoT Hub | Microsoft Docs
+description: Descrição geral - como autenticar dispositivos ao utilizar autoridades de certificação x. 509 do IoT Hub.
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 11f340ebe1719c680cce5f6ad34150d3717c57d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo com certificados de AC de x. 509
 
@@ -69,7 +69,7 @@ Saiba mais aqui como [registar o certificado de AC](iot-hub-security-x509-get-st
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Como criar um dispositivo no IoT Hub
 
-A preclude representação do dispositivo, o IoT Hub requer para informá-lo a saber que dispositivos que são esperados.  Fazê-lo através da criação de uma entrada de dispositivo no registo de dispositivos do IoT Hub.  Este processo é um processo automatizado quando utilizar o IoT Hub [serviço de aprovisionamento de dispositivos](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
+A preclude representação do dispositivo, o IoT Hub requer para informá-lo a saber que dispositivos que são esperados.  Fazê-lo através da criação de uma entrada de dispositivo no registo de dispositivos do IoT Hub.  Este processo é um processo automatizado quando utilizar o IoT Hub [serviço de aprovisionamento de dispositivos](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
 
 Saiba mais aqui como [criar manualmente um dispositivo no IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
 
@@ -81,7 +81,7 @@ Uma ligação do dispositivo concluída com êxito ao IoT Hub conclui o processo
 
 Saiba mais aqui como [concluir este passo de ligação do dispositivo](iot-hub-security-x509-get-started.md#authenticatedevice).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba mais sobre [o valor de autenticação de AC de x. 509](iot-hub-x509ca-concept.md) no IoT.
 

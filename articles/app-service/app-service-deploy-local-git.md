@@ -1,8 +1,8 @@
 ---
-title: "Implementação de Git Local no Serviço de Aplicações do Azure"
-description: "Saiba como ativar a implementação de Git local para o App Service do Azure."
+title: Implementação de Git Local no Serviço de Aplicações do Azure
+description: Saiba como ativar a implementação de Git local para o App Service do Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 4cbe26055bdbf906223a327ab8cf94bebe9e7998
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -45,7 +45,7 @@ Certifique-se de que a raiz do repositório tem os ficheiros corretos no seu pro
 | Runtime | Ficheiros do diretório de raiz |
 |-|-|
 | ASP.NET (apenas Windows) | _*.sln_, _*.csproj_, ou _default.aspx_ |
-| Núcleo de ASP.NET | _*.sln_ or _*.csproj_ |
+| Núcleo de ASP.NET | _*.sln_ ou _*.csproj_ |
 | PHP | _index.php_ |
 | Ruby (apenas Linux) | _Gemfile_ |
 | Node.js | _Server.js_, _app.js_, ou _Package. JSON_ com um script de início |
@@ -189,3 +189,5 @@ git config --global http.postBuffer 524288000
 
 * [Documentação do Kudu projeto](https://github.com/projectkudu/kudu/wiki)
 * [Implementação contínua do serviço de aplicações do Azure](app-service-continuous-deployment.md)
+* [Exemplo: Criar a aplicação Web e implementar código a partir de um repositório de Git local (CLI do Azure)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Exemplo: Criar a aplicação Web e implementar código a partir de um repositório de Git local (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

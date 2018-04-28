@@ -1,24 +1,19 @@
 ---
 title: Mapeamentos de campo na indexadores de pesquisa do Azure
 description: Configurar os mapeamentos de campo de indexador de Azure Search para caber diferenças nos nomes de campo e representações de dados
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo na indexadores de pesquisa do Azure
 Quando utilizar indexadores de pesquisa do Azure, pode encontrar sozinho ocasionalmente em situações em que os dados de entrada não bastante corresponde ao esquema do seu índice de destino. Nesses casos, pode utilizar **campo mapeamentos** para transformar os dados para a forma pretendida.
@@ -151,7 +146,7 @@ A tabela seguinte compara as codificações de base64 diferente da cadeia `00>00
 | Base64 com preenchimento | `MDA+MDA/MDA=` | Utilizar URL segura carateres e remover preenchimento | Utilize carateres base64 padrão e adicione o preenchimento |
 | Base64 sem preenchimento | `MDA+MDA/MDA` | Utilizar URL segura carateres | Utilizar carateres base64 padrão |
 | URL segura base64 com preenchimento | `MDA-MDA_MDA=` | Remova o preenchimento | Adicionar o preenchimento |
-| URL segura base64 sem preenchimento | `MDA-MDA_MDA` | Nenhuma | Nenhum |
+| URL segura base64 sem preenchimento | `MDA-MDA_MDA` | Nenhuma | Nenhuma |
 
 <a name="extractTokenAtPositionFunction"></a>
 

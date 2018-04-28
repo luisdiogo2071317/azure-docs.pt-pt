@@ -1,24 +1,19 @@
 ---
-title: "Considerações do Azure de desempenho e a otimização de pesquisa | Microsoft Docs"
+title: Considerações do Azure de desempenho e a otimização de pesquisa | Microsoft Docs
 description: Otimizar o desempenho da Azure Search e configure a escala ideal
-services: search
-documentationcenter: 
 author: LiamCavanagh
-manager: pablocas
-editor: 
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Considerações do Azure de desempenho e a otimização de pesquisa
 Uma experiência de pesquisa excelente é uma chave para êxito Mobile muitos e aplicações web. Da propriedade real, para utilizar marketplaces carro para catálogos de mercados online, pesquisa rápida e resultados relevantes irão afetar a experiência do cliente. Este documento destina-se a ajuda a detetar as melhores práticas tirar o máximo partido da Azure Search, especialmente para cenários avançados com requisitos sofisticados para escalabilidade, multilingues suportam ou classificação personalizada.  Além disso, este documento descreve as características e abrange abordagens funcionem eficazmente nas aplicações de cliente do mundo real.
@@ -98,7 +93,7 @@ A pesquisa do Azure oferece a capacidade de analisar e monitorizar o desempenho 
 
 STA é uma ferramenta valiosa para compreender as taxas de latência essa perspetiva da Azure Search.  Uma vez que as métricas de desempenho de consulta registadas baseiam-se na hora que uma consulta demora a ser totalmente processados na Azure Search (desde o momento em que é pedido quando é enviado), que é possível utilizar esta opção para determinar se os problemas de latência são no lado do serviço de pesquisa do Azure ou fora do serviço, tal como de latência de rede.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre os limites de serviços e escalões de preços para cada um deles, consulte o artigo [Service limites na Azure Search](search-limits-quotas-capacity.md).
 
 Visite [planeamento de capacidade](search-capacity-planning.md) para saber mais sobre as combinações de partição e réplica.

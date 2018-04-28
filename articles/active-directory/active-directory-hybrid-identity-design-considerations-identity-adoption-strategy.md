@@ -1,11 +1,11 @@
 ---
-title: "Estrutura de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs"
-description: "Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação."
-documentationcenter: 
+title: Estrutura de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs
+description: Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida cumprir os requisitos de negócio que foram abordados:
@@ -65,7 +65,7 @@ A estratégia de que utiliza determinarão a experiência de início de sessão 
 | Browsers da Web |Autenticação baseada em formulários |início de sessão único, por vezes, é necessário fornecer o ID de organização |
 | Outlook |Pedido de credenciais |Pedido de credenciais |
 | Skype para empresas (Lync) |Pedido de credenciais |único início de sessão para o Lync,-lhe pedido que as credenciais para o Exchange |
-| Skydrive Pro |Pedido de credenciais |O início de sessão único |
+| SkyDrive Pro |Pedido de credenciais |O início de sessão único |
 | Office Pro Plus subscrição |Pedido de credenciais |O início de sessão único |
 
 **Origens externas ou não fidedignas**:
@@ -90,7 +90,7 @@ Deve também estar ciente de que capacidades não estarão disponíveis:
 * Transição do Office para autenticação passiva permite que os mesmos para suportarem puro IdPs de 2.0 SAML mas suporte continuarão a estar numa base do cliente pelo cliente
 
 > [!NOTE]
-> Para obter a lista mais atualizada ler o artigo https://aka.ms/ssoproviders.
+> Para a lista mais atualizada, leia o artigo https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -196,7 +196,7 @@ Embora poderá ter settled numa solução para a sua estratégia, ainda tem de u
 | AD no local |Servidor Multi-Factor Authentication |
 
 > [!NOTE]
-> Deve também garantir que a opção de estrutura de autenticação multifator que selecionou suporta as funcionalidades que são necessárias para o design.  Para obter mais informações, leia [escolher a solução de segurança multifator para si](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> Deve também garantir que a opção de estrutura de autenticação multifator que selecionou suporta as funcionalidades que são necessárias para o design.  Para obter mais informações, leia [escolher a solução de segurança multifator para si](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

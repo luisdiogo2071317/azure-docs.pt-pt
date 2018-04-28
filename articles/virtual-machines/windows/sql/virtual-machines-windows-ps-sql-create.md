@@ -1,11 +1,11 @@
 ---
 title: Guia de aprovisionamento para VMs de SQL Server com o Azure PowerShell | Microsoft Docs
-description: "Fornece os passos e comandos do PowerShell para criar uma VM do Azure com imagens de Galeria de máquina virtual do SQL Server."
+description: Fornece os passos e comandos do PowerShell para criar uma VM do Azure com imagens de Galeria de máquina virtual do SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como aprovisionar as máquinas de virtuais do SQL Server com o Azure PowerShell
 
@@ -31,10 +31,10 @@ Este artigo requer o Azure PowerShell versão do módulo 3,6 ou posterior. Execu
 
 ## <a name="configure-your-subscription"></a>Configurar a sua subscrição
 
-1. Abra o PowerShell e estabeleça o acesso à sua conta do Azure ao executar o comando **Add-AzureRmAccount**.
+1. Abra o PowerShell e estabeleça o acesso à sua conta do Azure ao executar o comando **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Deverá ver um ecrã de início de sessão para introduzir as suas credenciais. Utilize o mesmo e-mail e palavra-passe que utiliza para iniciar sessão no portal do Azure.
@@ -128,7 +128,7 @@ Execute o cmdlet seguinte para criar o novo grupo de recursos.
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 A máquina virtual necessita de recursos de armazenamento para o disco do sistema operativo e para os ficheiros de dados e de registo do SQL Server. De simplicidade, criamos um único disco para ambos. Pode anexar mais discos posteriormente utilizando o [Azure adicionar disco](/powershell/module/azure/add-azuredisk) cmdlet para colocar os dados do SQL Server e o registo de ficheiros em discos dedicados. Utilize o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet para criar uma conta de armazenamento standard no seu novo grupo de recursos e com o nome da conta de armazenamento, o nome do Sku de armazenamento e a localização definidos utilizando as variáveis que anteriormente inicializado .
 
 Execute o cmdlet seguinte para criar a sua nova conta de armazenamento.
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 Também pode eliminar permanentemente todos os recursos associados à máquina virtual com o comando **Remove-AzureRmResourceGroup**. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado.
 
 ## <a name="example-script"></a>Script de exemplo
-O script seguinte contém o script do PowerShell concluído para este tutorial. Parte do pressuposto de que configurou já a subscrição do Azure para utilizar com o **Add-AzureRmAccount** e **Select-AzureRmSubscription** comandos.
+O script seguinte contém o script do PowerShell concluído para este tutorial. Parte do pressuposto de que configurou já a subscrição do Azure para utilizar com o **Connect-AzureRmAccount** e **Select-AzureRmSubscription** comandos.
 
 ```PowerShell
 # Variables

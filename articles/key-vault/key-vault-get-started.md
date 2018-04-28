@@ -1,8 +1,8 @@
 ---
-title: "Introdução ao Cofre de Chaves do Azure | Microsoft Docs"
-description: "Utilize este tutorial para ajudá-lo com o Cofre de Chaves do Azure para criar um contentor protegido no Azure para armazenar e gerir chaves criptográficas e segredos no Azure."
+title: Introdução ao Cofre de Chaves do Azure | Microsoft Docs
+description: Utilize este tutorial para ajudá-lo com o Cofre de Chaves do Azure para criar um contentor protegido no Azure para armazenar e gerir chaves criptográficas e segredos no Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução Cofre de Chaves do Azure
 Este artigo ajuda-o a começar a utilizar o Azure Key Vault com o PowerShell e orienta-o ao longo das atividades seguintes:
@@ -49,10 +49,10 @@ Para obter ajuda detalhada para qualquer cmdlet que visualiza neste tutorial, ut
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Por exemplo, para obter ajuda para o cmdlet **Login-AzureRmAccount**, introduza:
+Por exemplo, para obter ajuda para o cmdlet **Connect-AzureRmAccount** introduza:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 Pode ainda ler os seguintes artigos para se familiarizar com o modelo de implementação Azure Resource Manager no Azure PowerShell:
@@ -64,13 +64,13 @@ Pode ainda ler os seguintes artigos para se familiarizar com o modelo de impleme
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
  Se estiver a utilizar uma instância específica do Azure, utilize o parâmetro -Environment. Por exemplo: 
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. O Azure PowerShell obtém todas as subscrições associadas a esta conta e, por defeito, utiliza a primeira.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 O resultado deste cmdlet mostra as propriedades do cofre de chaves que criou. As duas propriedades mais importantes são:
 
 * **Nome do Cofre**: No exemplo, o nome é **ContosoKeyVault**. Irá utilizar este nome para outros cmdlets do Cofre de Chaves.
-* **URI do Cofre**: No exemplo, trata-se de https://contosokeyvault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **URI do Cofre**: no exemplo, isto é https://contosokeyvault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 A sua conta do Azure pode agora realizar quaisquer operações neste cofre de chaves. Por enquanto, não foi autorizado mais ninguém.
 
@@ -138,7 +138,7 @@ para ver o URI desta chave, escreva:
 $key.id
 ```
 
-Pode referenciar uma chave que criou ou carregou para o Azure Key Vault com o URI da mesma. Para obter a versão atual, pode utilizar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** e **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.  
+Pode referenciar uma chave que criou ou carregou para o Azure Key Vault com o URI da mesma. Para obter a versão atual que pode utilizar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** e utilizar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importar um ficheiro PFX existente para o Azure Key Vault
 
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-Agora, pode referenciar esta palavra-passe que adicionou ao Cofre de Chaves do Azure utilizando o seu respetivo URI. Aceda a **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão mais recente e aceda a **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
+Agora, pode referenciar esta palavra-passe que adicionou ao Cofre de Chaves do Azure utilizando o seu respetivo URI. Utilizar **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e utilizar **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
 
 Para apresentar o URI para este segredo, escreva:
 
@@ -221,7 +221,7 @@ Para obter um token, a aplicação deve apresentar ambos os valores ao Azure Act
 
 Registar uma aplicação no Azure Active Directory:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, clique em **Registos de aplicações**. Se não vir registos de aplicações, clique em **mais serviços** e encontre-as aí.  
 >[!NOTE]
 Tem de selecionar o mesmo diretório que contém a subscrição do Azure com a qual criou o seu cofre de chaves. 
@@ -241,7 +241,10 @@ Tem de selecionar o mesmo diretório que contém a subscrição do Azure com a q
 10. Vai utilizar as informações de **ID da Aplicação** e de **chave** no passo seguinte para definir as permissões do seu cofre.
 
 ## <a id="authorize"></a>Autorizar a aplicação a utilizar a chave ou o segredo
-Para autorizar a aplicação a aceder à chave ou ao segredo no cofre, utilize o cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+Existem duas formas de autorizar a aplicação a aceder à chave ou segredo no cofre.
+
+### <a name="using-powershell"></a>Com o PowerShell
+Para utilizar o PowerShell, utilize o cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Por exemplo, se o nome do seu cofre for **ContosoKeyVault** e a aplicação que pretender autorizar tiver como ID de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e se pretender autorizar a aplicação a desencriptar e assinar com chaves no seu cofre, execute o seguinte procedimento:
 
@@ -254,6 +257,13 @@ Se pretender autorizar essa mesma aplicação a ler os segredos no seu cofre, ex
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
+Para alterar a autorização de uma aplicação para utilizar chaves ou segredos:
+1. Selecione **Políticas de Acesso** no painel de recursos do Cofre de Chaves
+2. Clique no botão [+ Adicionar novo] na parte superior do painel
+3. Clique em **Selecionar Principal** para selecionar a aplicação que criou anteriormente
+4. No menu pendente **Permissões da chave**, selecione "Desencriptar" e "Assinar" para autorizar a aplicação a desencriptar e assinar com chaves no seu Cofre
+5. No menu pendente **Permissões secretas**, selecione "Obter" para permitir que a aplicação leia os segredos no cofre
 
 ## <a id="HSM"></a>Trabalhar com um módulo de hardware de segurança (HSM)
 Para mais segurança, pode importar ou gerar chaves nos módulos de segurança de hardware (HSMs) que nunca deixam o limite do HSM. Os HSMs têm a certificação FIPS 140-2 de nível 2 validada. Se este requisito não se aplica a si, ignore esta secção e aceda a [Eliminar o cofre de chaves e as chaves e segredos associados](#delete).

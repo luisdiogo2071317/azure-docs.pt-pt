@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b08e2b7315d180a387f27ab2082b7f9f6a9bbfff
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir a máquina virtual do Windows que tenha vários NICs
 Máquinas virtuais (VMs) no Azure pode ter vários virtual interface as placas de rede (NICs) ligadas aos mesmos. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM que tenha vários NICs anexados ao mesmo. Também irá aprender a adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -235,7 +235,7 @@ Também pode utilizar `copyIndex()` acrescentar um número para um nome de recur
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Pode ler um exemplo completo de [criar vários NICs utilizando modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Pode ler um exemplo completo de [criar vários NICs utilizando modelos do Resource Manager](../../virtual-network/template-samples.md).
 
 Adicionar rotas para NICs secundários para o SO, efetuando os passos em [configurar o sistema operativo para vários NICs](#configure-guest-os-for-multiple-nics).
 

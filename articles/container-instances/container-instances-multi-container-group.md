@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: 4159aa9d7f19d700ea8dfd9fc15f5f0baa95be62
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-a-container-group"></a>Implementar um grupo contentor
 
@@ -108,7 +108,7 @@ Neste exemplo, um grupo contentor com dois contentores, é definido um endereço
 }
 ```
 
-Para utilizar um registo de imagem do contentor privada, adicione um objeto para o documento JSON com o seguinte formato.
+Para utilizar um registo de imagem do contentor privada, adicione um objeto para o documento JSON com o seguinte formato. Para uma implementação de exemplo desta configuração, consulte o [referência de modelo de Gestor de recursos de ACI] [ template-reference] documentação.
 
 ```json
 "imageRegistryCredentials": [
@@ -134,7 +134,7 @@ Implementar o modelo com o [criar a implementação do grupo az] [ az-group-depl
 az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Dentro de alguns segundos, deverá receber uma resposta inicial a partir do Azure.
+Dentro de alguns segundos, deverá receber uma resposta inicial do Azure.
 
 ## <a name="view-deployment-state"></a>Ver o estado de implementação
 
@@ -197,7 +197,7 @@ Connection: keep-alive
 
 Como pode ver, a sidecar periodicamente é efetuar um pedido de HTTP para a aplicação web principal através de rede local do grupo para se certificar de que está em execução. Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um código de resposta HTTP diferente de 200 OK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo abrange os passos necessários para implementar uma instância de contentor do Azure multi contentor. Para uma experiência de instâncias de contentor do Azure do ponto-a-ponto, consulte o tutorial de instâncias de contentor do Azure.
 
@@ -210,3 +210,4 @@ Este artigo abrange os passos necessários para implementar uma instância de co
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

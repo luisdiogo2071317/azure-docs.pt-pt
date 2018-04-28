@@ -9,11 +9,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 Criação de batches de operações para a SQL Database do Azure significativamente melhora o desempenho e a escalabilidade das suas aplicações. Para compreender as vantagens, a primeira parte deste artigo abrange alguns resultados do teste de exemplo que comparam sequenciais e batches pedidos para uma base de dados do SQL Server. O resto do artigo mostra as técnicas, cenários e as considerações para ajudar a utilizar a criação de batches com êxito nas suas aplicações do Azure.
@@ -32,9 +32,9 @@ Uma das vantagens da utilização de base de dados SQL é que não tem de gerir 
 A primeira parte do documento examina várias técnicas de lotes para aplicações de .NET que utilizam a base de dados SQL. As últimas duas secções abrangem os cenários e as diretrizes de lotes.
 
 ## <a name="batching-strategies"></a>Estratégias de criação de batches
-### <a name="note-about-timing-results-in-this-topic"></a>Tenha em atenção sobre os resultados de temporização neste tópico
+### <a name="note-about-timing-results-in-this-article"></a>Tenha em atenção sobre os resultados de temporização neste artigo
 > [!NOTE]
-> Resultados não são benchmarks mas não se destinam a mostrar **desempenho relativo**. As temporizações baseiam-se uma média de, pelo menos, 10 execuções do teste. As operações são inserções para uma tabela vazia. Estes testes foram medidos pre-V12 e não necessariamente corresponde ao débito que podem ocorrer numa base de dados V12 utilizando a nova [escalões de serviço](sql-database-service-tiers.md). A vantagem relativa de técnica de lotes deve ser semelhante.
+> Resultados não são benchmarks mas não se destinam a mostrar **desempenho relativo**. As temporizações baseiam-se uma média de, pelo menos, 10 execuções do teste. As operações são inserções para uma tabela vazia. Estes testes foram medidos pre-V12 e não necessariamente corresponde ao débito que podem ocorrer numa base de dados V12 utilizando a nova [escalões de serviço DTU](sql-database-service-tiers-dtu.md) ou [escalões de serviço vCore](sql-database-service-tiers-vcore.md). A vantagem relativa de técnica de lotes deve ser semelhante.
 > 
 > 
 
@@ -209,7 +209,7 @@ Cópia em massa SQL é outra forma de inserir grandes quantidades de dados de um
         }
     }
 
-Existem alguns casos onde cópia em massa é preferencial através de parâmetros de valor de tabela. Consulte a tabela de comparação de valor de tabela parâmetros versus operações de inserção em massa no tópico [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb510489.aspx).
+Existem alguns casos onde cópia em massa é preferencial através de parâmetros de valor de tabela. Consulte a tabela de comparação de valor de tabela parâmetros versus operações de inserção em massa no artigo [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Os seguintes resultados de teste do ad-hoc mostram o desempenho da criação de batches com **SqlBulkCopy** em milissegundos.
 
@@ -309,7 +309,7 @@ No nossos testes, normalmente, não havia nenhuma vantagem em lotes grande de ú
 > 
 > 
 
-Pode ver que o melhor desempenho para 1000 linhas é submetê-las ao mesmo tempo. Outros testes (não apresentados aqui) surgiu um ganhos de desempenho pequeno para interromper um lote de 10000 linhas dois lotes de 5000. Mas o esquema de tabela para estes testes é relativamente simple, pelo que deverá efetuar testes no seus dados específicos e tamanhos de batch para verificar estes findings.
+Pode ver que o melhor desempenho para 1000 linhas é submetê-las ao mesmo tempo. Outros testes (não apresentados aqui), surgiu um ganhos de desempenho pequeno para interromper um lote de 10000 linhas dois lotes de 5000. Mas o esquema de tabela para estes testes é relativamente simple, pelo que deverá efetuar testes no seus dados específicos e tamanhos de batch para verificar estes findings.
 
 Outro fator a ter em consideração é que, se o batch total ficar demasiado grande, base de dados do SQL Server poderá limitar e refuse consolidar o lote. Para obter os melhores resultados, teste o seu cenário específico para determinar se existe um tamanho de lote ideal. Se o tamanho do lote configuráveis no tempo de execução para ativar os ajustes rápidos com base no desempenho ou erros.
 
@@ -592,7 +592,7 @@ Em seguida, crie um procedimento armazenado ou escrever código que utiliza a in
 Para obter mais informações, consulte a documentação e exemplos de instrução MERGE. Embora o trabalho mesmo foi possível efetuar um passo de várias armazenados chamada de procedimento com separar INSERT e as operações de ATUALIZAÇÃO, a instrução de intercalação é mais eficiente. Código de base de dados também pode construir chamadas de Transact-SQL que utilizem a instrução de intercalação diretamente, sem necessidade de dois chamadas de base de dados para inserir e a ATUALIZAÇÃO.
 
 ## <a name="recommendation-summary"></a>Recomendação resumo
-A lista seguinte fornece um resumo das recomendações lotes debatidos neste tópico:
+A lista seguinte fornece um resumo das recomendações lotes abordadas neste artigo:
 
 * Utilize a colocação em memória intermédia e criação de batches para aumentar o desempenho e a escalabilidade das aplicações de base de dados SQL.
 * Compreenda fala entre a criação de batches/colocação em memória intermédia e resiliência. Durante uma falha de função, o risco de perda de um lote não processado de dados críticos da empresa poderá compensar o benefício de desempenho de criação de batches.

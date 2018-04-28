@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao registo do fluxo de grupos de segurança de rede com o observador de rede do Azure | Microsoft Docs"
-description: "Esta página explica como utilizar os registos de fluxo NSG uma funcionalidade do observador de rede do Azure"
+title: Grupos de introdução ao registo do fluxo de segurança de rede com o observador de rede do Azure | Microsoft Docs
+description: Este artigo explica como utilizar a funcionalidade de registos de fluxo NSG do observador de rede do Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo de grupos de segurança de rede
 
-Registos de fluxo do grupo de segurança de rede são uma funcionalidade do observador de rede que permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Estes registos de fluxo são escritos no formato json e Mostrar fluxos de saída e entrados numa base por regra, o NIC o fluxo de mensagens em fila aplica-se a informações de 5 cadeias de identificação sobre o fluxo (origem/destino IP, porta de origem/destino, protocolo), e se o tráfego foi permitido ou negado.
+Registos de fluxo de grupo (NSG) de segurança de rede são uma funcionalidade do observador de rede que permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um NSG. Registos de fluxo são escritos no formato json e mostram fluxos de saída e entrados numa base por regra, o fluxo aplica-se a interface de rede (NIC), informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo) e se o tráfego tiver sido permitido ou negado.
 
-![Descrição geral de registos de fluxo][1]
+![Descrição geral de registos de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Enquanto o fluxo de registos de grupos de segurança de rede de destino, não são apresentados os mesmos como os outros registos. Registos de fluxo são armazenados apenas dentro de uma conta de armazenamento e seguindo o caminho de registo, conforme mostrado no exemplo seguinte:
+Enquanto o fluxo de registos NSGs de destino, não são apresentados os mesmos como os outros registos. Registos de fluxo são armazenados apenas dentro de uma conta de armazenamento e siga o caminho de registo apresentado no exemplo seguinte:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-As políticas de retenção mesmo como visualizado outros registos em aplicam para registos de fluxo. Os registos de tem uma política de retenção que pode ser definida a partir do dia 1 a 365 dias. Se não definir uma política de retenção, os registos são mantidos para sempre.
+As políticas de retenção mesmo visualizadas para outros registos aplicam-se nos registos de fluxo. Pode definir políticas de retenção do registo de 1 dia, a 365 dias. Se não definir uma política de retenção, os registos são mantidos para sempre.
 
 ## <a name="log-file"></a>Ficheiro de registo
 
-Registos de fluxo tem várias propriedades. A lista seguinte é uma lista das propriedades que são devolvidos no registo de fluxo de NSG:
+Registos de fluxo incluem as seguintes propriedades:
 
 * **tempo** - tempo quando o evento foi registado
 * **systemId** -ID de recurso do grupo de segurança de rede
-* **categoria** -a categoria do evento, isto é possível sempre NetworkSecurityGroupFlowEvent
+* **categoria** -a categoria do evento. A categoria é sempre **NetworkSecurityGroupFlowEvent**
 * **ResourceId** -o recurso Id o NSG
 * **operationName** -sempre NetworkSecurityGroupFlowEvents
 * **propriedades** -uma coleção de propriedades do fluxo
@@ -59,15 +59,14 @@ Registos de fluxo tem várias propriedades. A lista seguinte é uma lista das pr
                     * **Fluxo de tráfego** -a direção do fluxo de tráfego. Os valores válidos são **posso** para entrada e **Nã** para saída.
                     * **Tráfego** - se a tráfego foi permitido ou negado. Os valores válidos são **A** para permitidos e **D** para negado.
 
-
-Segue-se um exemplo de um registo de fluxo. Como pode ver, existem vários registos que se seguem a lista de propriedades descrita na secção anterior. 
+O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existem vários registos que se seguem a lista de propriedades descrita na secção anterior.
 
 > [!NOTE]
-> Os valores na propriedade flowTuples são uma lista separada por vírgulas.
+> Os valores na **flowTuples* propriedade são uma lista separada por vírgulas.
  
 ```json
 {
-    "records": 
+    "records":
     [
         
         {
@@ -102,12 +101,6 @@ Segue-se um exemplo de um registo de fluxo. Como pode ver, existem vários regis
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Aprenda a ativar registos de fluxo, visitando [fluxo ativar registo](network-watcher-nsg-flow-logging-portal.md).
-
-Saiba mais sobre o registo de NSG, visitando [Iniciar análise para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md).
-
-Determinar se o tráfego é permitido ou negado numa VM, visitando [verificar o tráfego de verificar com o fluxo IP](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
-
+- Para saber como ativar registos de fluxo, consulte o artigo [o registo de fluxo de ativar o NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para saber mais sobre o registo de NSG, consulte [Iniciar análise para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Para determinar se o tráfego é permitido ou negado de ou para uma VM, consulte [diagnosticar um problema de filtro de tráfego de rede VM](diagnose-vm-network-traffic-filtering-problem.md)

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação de Kit de desenvolvimento de pilha do Azure"
+title: Documentação de Kit de desenvolvimento de pilha do Azure
 metadata:
   document_id: 
-  title: "Referência de API de documentação - tutoriais, de Kit de desenvolvimento de pilha do Azure"
+  title: Referência de API de documentação - tutoriais, de Kit de desenvolvimento de pilha do Azure
   description: Saiba como implementar e utilizar o Kit de desenvolvimento de pilha do Azure.
   services: azure-stack
   author: jeffgilb
@@ -12,30 +12,30 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/16/2018
+  ms.date: 04/13/2018
   ms.author: jeffgilb
-  ms.openlocfilehash: e95cf07386dd2c0ef6fe3a1133c8d727b7f929b3
-  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+  ms.openlocfilehash: a981164b82ede0695fce83f76e886cc0aa5b80c4
+  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/17/2018
+  ms.lasthandoff: 04/23/2018
 abstract:
-  description: "O Kit de desenvolvimento de pilha do Azure (ASDK) é uma implementação de nó único da pilha do Azure que pode transferir e utilizar gratuitamente. O ASDK destina-se para proporcionar um ambiente em que pode avaliar pilha do Azure e desenvolver aplicações modernas utilizando APIs e as ferramentas consistente com o Azure num ambiente de não produção. <br/><br/>Se tiver um operador de pilha do Azure que gere a infraestrutura de sistemas integrada e que oferece serviços, consulte a nossa <a href=\"/azure/azure-stack/\">documentação de operador</a>."
+  description: O Kit de desenvolvimento de pilha do Azure (ASDK) é uma implementação de nó único da pilha do Azure que pode transferir e utilizar gratuitamente. O ASDK destina-se para proporcionar um ambiente em que pode avaliar pilha do Azure e desenvolver aplicações modernas utilizando APIs e as ferramentas consistente com o Azure num ambiente de não produção. <br/><br/>Se tiver um operador de pilha do Azure que gere a infraestrutura de sistemas integrada e que oferece serviços, consulte a nossa <a href="/azure/azure-stack/">documentação de operador</a>.<br/><br/>Se a um utilizador de pilha do Azure que utiliza os serviços ou baseia-se aplicações de pilha do Azure, consulte a nossa <a href="/azure/azure-stack/user">documentação do utilizador</a>.
 sections:
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: "Saiba como adicionar serviços para a sua implementação ASDK."
+    text: Saiba como adicionar serviços para a sua implementação ASDK.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-stack/asdk/asdk-deploy">Implementar o ASDK</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-marketplace-item">Adicionar um item do marketplace pilha do Azure</a>
-    - html: "<a href=\"/azure/azure-stack/asdk/asdk-offer-services\">Oferta IaaS serviços</a>"
+    - html: <a href="/azure/azure-stack/asdk/asdk-offer-services">Oferta IaaS serviços</a>
     - html: <a href="/azure/azure-stack/asdk/asdk-subscribe-services">Subscrever uma oferta</a>
-    - html: "<a href=\"/azure/azure-stack/asdk/asdk-update-offers\">Ofertas de atualização e planos</a>"
-    - html: "<a href=\"/azure/azure-stack/asdk/asdk-create-vm-template\">Criar uma máquina virtual a partir de um modelo</a>"
-- title: "Referência"
+    - html: <a href="/azure/azure-stack/asdk/asdk-update-offers">Ofertas de atualização e planos</a>
+    - html: <a href="/azure/azure-stack/asdk/asdk-create-vm-template">Criar uma máquina virtual a partir de um modelo</a>
+- title: Referência
   items:
   - type: list
     style: cards

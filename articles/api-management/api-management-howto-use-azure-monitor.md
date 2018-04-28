@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f4b1a6e3ee995fb309577fd6df611a705e613041
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
-O Azure Monitor é um serviço que fornece uma única origem para monitorizar todos os recursos do Azure. Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas e registos provenientes de recursos do Azure, como a Gestão de API. 
+Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas ou registos provenientes de recursos do Azure.
 
 Neste tutorial, ficará a saber como:
 
@@ -43,24 +43,22 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## <a name="view-metrics-of-your-apis"></a>Ver métricas das APIs
 
 A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilidade quase em tempo real sobre o estado geral e o estado de funcionamento das suas APIs. Segue-se um resumo de algumas das métricas disponíveis:
 
 * Capacidade (pré-visualização): ajuda-o a tomar decisões sobre a atualização/mudança para uma versão anterior dos serviços APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da criação de relatórios. A métrica varia entre 0 e 100 e é calculada com base nos recursos do gateway, como a utilização da CPU e da memória.
 * Total de Pedidos do Gateway: número de pedidos da API num determinado período. 
-* Pedidos do Gateway Com Êxito: número de pedidos da API que receberam códigos de resposta HTTP com êxito, incluindo 304, 307 e tudo o que for inferior a 301 (por exemplo, 200). 
+* Pedidos do Gateway Com Êxito: número de pedidos da API que receberam códigos de resposta HTTP com êxito, incluindo 304, 307 e tudo o que for inferior a 301 (por exemplo, 200).
 * Pedidos do Gateway Falhados: número de pedidos da API que receberam códigos de resposta HTTP erróneos, incluindo 400 e tudo o que for superior a 500.
-* Pedidos do Gateway Não Autorizados: número de pedidos da API que receberam códigos de resposta HTTP, incluindo 401, 403 e 429. 
+* Pedidos do Gateway Não Autorizados: número de pedidos da API que receberam códigos de resposta HTTP, incluindo 401, 403 e 429.
 * Outros Pedidos do Gateway: número de pedidos da API que receberam códigos de resposta HTTP que não pertencem a nenhuma das categorias anteriores (por exemplo, 418).
 
 Para aceder a métricas:
 
 1. Selecione **Métricas** no menu junto à parte inferior da página.
 2. Na lista pendente, selecione as métricas que lhe interessam (pode adicionar múltiplas métricas). 
-    
+
     Por exemplo, selecione **Total de Pedidos do Gateway** e **Pedidos do Gateway Falhados** na lista de métricas disponíveis.
 3. O gráfico mostra o número total de chamadas à API. Mostra também o número de chamadas à API que falharam. 
 
@@ -89,7 +87,7 @@ Para configurar alertas:
 
 ## <a name="activity-logs"></a>Registos de Atividade
 
-Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos serviços de Gestão de API. Ao utilizar registos de atividades, pode determinar o "quê, quem e quando" de quaisquer operações de escrita (PUT, POST, DELETE) efetuadas nos seus serviços de Gestão de API. 
+Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos serviços de Gestão de API. Ao utilizar registos de atividades, pode determinar o "quê, quem e quando" de quaisquer operações de escrita (PUT, POST, DELETE) efetuadas nos seus serviços de Gestão de API.
 
 > [!NOTE]
 > Os registos de atividades não incluem operações de leitura (GET) nem operações executadas no Portal do Azure ou com as APIs de Gestão originais.
@@ -103,7 +101,7 @@ Para ver registos de atividades:
 
 ## <a name="diagnostic-logs"></a>Registos de Diagnóstico
 
-Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
+Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso.
 
 Para configurar os registos de diagnóstico:
 
@@ -116,15 +114,15 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 ```json
 {  
     "isRequestSuccess" : "",
-    "time": "",   
-    "operationName": "",      
-    "category": "",   
-    "durationMs": ,   
-    "callerIpAddress": "",   
-    "correlationId": "",   
-    "location": "",      
-    "httpStatusCodeCategory": "",      
-    "resourceId": "",      
+    "time": "",
+    "operationName": "",
+    "category": "",
+    "durationMs": ,
+    "callerIpAddress": "",
+    "correlationId": "",
+    "location": "",
+    "httpStatusCodeCategory": "",
+    "resourceId": "",
     "properties": {   
         "method": "", 
         "url": "", 
@@ -206,7 +204,7 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Ver registos de atividades
 > * Ver registos de diagnóstico
-> * Ver métricas da API 
+> * Ver métricas da API
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
 
 Avance para o tutorial seguinte:

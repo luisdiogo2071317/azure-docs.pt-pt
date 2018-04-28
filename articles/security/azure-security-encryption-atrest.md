@@ -3,7 +3,7 @@ title: Dados de Microsoft Azure encriptação-em-Rest | Microsoft Docs
 description: Este artigo fornece uma descrição geral do Microsoft Azure dados encriptação em-rest, as capacidades gerais e as considerações gerais.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: c0bc3c8774b68b49be95d5df86319a2e0463e6ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
+# <a name="azure-data-encryption-at-rest"></a>Dados do Azure encriptação em Rest
 Existem várias ferramentas dentro do Microsoft Azure para salvaguardar os dados de acordo com as necessidades de segurança e conformidade da sua empresa. Este documento centra-se em:
 - Como os dados estão protegidos Inativos em todo o Microsoft Azure
 - Descreve os vários componentes a demorar de parte da implementação da proteção de dados,
@@ -246,19 +246,19 @@ Blob do Azure e ficheiro suporta encriptação de Inativos para cenários de enc
 
 Atualmente, o SQL Azure suporta encriptação de Inativos para cenários de encriptação do lado do cliente e do lado de serviço gerida pela Microsoft.
 
-Servidor de suporte para encriptação atualmente é fornecida através da funcionalidade SQL denominada a encriptação transparente de dados. Depois de um cliente do SQL Azure permite chave TDE são automaticamente criados e geridos para os mesmos. Pode ser ativada a encriptação de Inativos nos níveis de base de dados e servidor. A partir de Junho de 2017, [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) será ativada por predefinição nas bases de dados recentemente criados.
+Suporte para encriptação de servidor atualmente é fornecido através da funcionalidade SQL denominada a encriptação transparente de dados. Depois de um cliente do SQL Azure permite chave TDE são automaticamente criados e geridos para os mesmos. Pode ser ativada a encriptação de Inativos nos níveis de base de dados e servidor. A partir de Junho de 2017, [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) será ativada por predefinição nas bases de dados recentemente criados.
 
 Encriptação do lado do cliente de dados SQL Azure é suportada através de [sempre encriptados](https://msdn.microsoft.com/library/mt163865.aspx) funcionalidade. Sempre encriptado utiliza uma chave que criada e armazenada pelo cliente. Os clientes podem armazenar a chave mestra num arquivo de certificados do Windows, o Cofre de chaves do Azure ou um módulo de Hardware de segurança local. Utilizar o SQL Server Management Studio, os utilizadores do SQL Server escolhem que gostaria de utilizar para encriptar as colunas de chave.
 
 |                                  |                |                     | **Modelo de encriptação**             |                              |        |
 |----------------------------------|----------------|---------------------|------------------------------|------------------------------|--------|
-|                                  |                |                     |                              |                              | **Client** |
+|                                  |                |                     |                              |                              | **Cliente** |
 |                                  | **Gestão de chaves** | **O serviço gerido chave** | **Cliente gerido no Cofre de chaves** | **Cliente gerido no local** |        |
 | **Armazenamento e bases de dados**            |                |                     |                              |                              |        |
 | Disco (IaaS)                      |                | -                   | Sim                          | Sim*                         | -      |
 | SQL Server (IaaS)                |                | Sim                 | Sim                          | Sim                          | Sim    |
-| Azure SQL (PaaS)                 |                | Sim                 | Pré-visualização                      | -                            | Sim    |
-| Armazenamento do Azure (Blobs de blocos/páginas) |                | Sim                 | Pré-visualização                      | -                            | Sim    |
+| Azure SQL (PaaS)                 |                | Sim                 | Sim                          | -                            | Sim    |
+| Armazenamento do Azure (Blobs de blocos/páginas) |                | Sim                 | Sim                          | -                            | Sim    |
 | Armazenamento do Azure (ficheiros)            |                | Sim                 | -                            | -                            | -      |
 | Armazenamento do Azure (tabelas, filas)   |                | -                   | -                            | -                            | Sim    |
 | Cosmos BD (documento DB)          |                | Sim                 | -                            | -                            | -      |
@@ -275,7 +275,7 @@ Encriptação do lado do cliente de dados SQL Azure é suportada através de [se
 | Power BI                         |                | Sim                 | -                            | -                            | -      |
 | **Serviços IoT**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Sim    |
-| Service Bus                      |                | Sim (escalão Premium)              | -                            | -                            | Sim    |
+| Service Bus                      |                | Sim              | -                            | -                            | Sim    |
 | Event Hubs                       |                | Sim             | -                            | -                            | -      |
 
 

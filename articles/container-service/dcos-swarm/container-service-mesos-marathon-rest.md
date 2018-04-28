@@ -1,19 +1,19 @@
 ---
 title: Gerir o cluster DC/OS do Azure com a API REST do Marathon
-description: "Implemente contentores num cluster do serviço de contentor do Azure DC/OS, utilizando a API de REST do Marathon."
+description: Implemente contentores num cluster do serviço de contentor do Azure DC/OS, utilizando a API de REST do Marathon.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gestão de contentores de DC/SO através da API de REST do Marathon
 
@@ -27,7 +27,7 @@ Antes de avançarmos, necessita de um cluster DC/OS configurado no Serviço de C
 * [Ligar a um cluster do Azure Container Service](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Acesso o APIs de DC/SO
-Depois de ligar ao cluster do Serviço de Contentor do Azure, pode aceder ao DC/OS e às APIs REST relacionadas através de http://localhost:local-port. Os exemplos neste documento partem do princípio de que está a utilizar um túnel na porta 80. Por exemplo, os pontos finais Marathon podem ser obtidos em URIs começando com `http://localhost/marathon/v2/`. 
+Depois de ligar para o cluster do serviço de contentor do Azure, pode aceder a DC/OS e APIs REST relacionadas através de http://localhost:local-port. Os exemplos neste documento partem do princípio de que está a utilizar um túnel na porta 80. Por exemplo, os pontos finais Marathon podem ser obtidos em URIs começando com `http://localhost/marathon/v2/`. 
 
 Para obter mais informações sobre as diversas APIs, consulte a documentação do Mesosphere da [API do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e da [API do Chronos](https://mesos.github.io/chronos/docs/api.html), bem como a documentação do Apache da [API do Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -120,7 +120,7 @@ Pode utilizar a API do Marathon para aumentar ou reduzir horizontalmente em impl
 A partir da sua ligação em túnel, execute o seguinte comando para aumentar horizontalmente a aplicação.
 
 > [!NOTE]
-> O URI é http://localhost/marathon/v2/apps/, seguido do ID da aplicação a dimensionar. Se estiver a utilizar o exemplo Nginx facultado aqui, o URI será http://localhost/marathon/v2/apps/nginx.
+> O URI é http://localhost/marathon/v2/apps/ seguido o ID da aplicação a dimensionar. Se estiver a utilizar o exemplo Nginx que é fornecida aqui, o URI será http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -179,7 +179,7 @@ Também pode utilizar a API do Marathon para aumentar ou reduzir horizontalmente
 Execute o seguinte comando para aumentar horizontalmente a aplicação:
 
 > [!NOTE]
-> O URI é http://localhost/marathon/v2/apps/, seguido do ID da aplicação a dimensionar. Se estiver a utilizar o exemplo Nginx facultado aqui, o URI será http://localhost/marathon/v2/apps/nginx.
+> O URI é http://localhost/marathon/v2/apps/ seguido o ID da aplicação a dimensionar. Se estiver a utilizar o exemplo Nginx facultado aqui, o URI será http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -187,7 +187,7 @@ Execute o seguinte comando para aumentar horizontalmente a aplicação:
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Leia mais sobre os pontos finais de HTTP do Mesos](http://mesos.apache.org/documentation/latest/endpoints/)
 * [Leia mais sobre a API de REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

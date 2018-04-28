@@ -1,19 +1,19 @@
 ---
-title: "Conjuntos de agente DC/OS para o serviço de contentor do Azure"
-description: "Como funcionam os agrupamentos de agente públicas e privadas com um cluster do serviço de contentor do Azure DC/OS"
+title: Conjuntos de agente DC/OS para o serviço de contentor do Azure
+description: Como funcionam os agrupamentos de agente públicas e privadas com um cluster do serviço de contentor do Azure DC/OS
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81059fd75f0e61324221614c4bb8eccd94203478
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Conjuntos de agente DC/OS para o serviço de contentor do Azure
 Clusters DC/SO no serviço de contentor do Azure contêm nós de agente em dois conjuntos, um conjunto público e um conjunto privado. Uma aplicação pode ser implementada para o agrupamento, que afeta a acessibilidade entre as máquinas no seu serviço de contentor. As máquinas podem ser expostas à internet (público) ou manter interno (privado). Este artigo fornece uma breve descrição geral do motivo que existem conjuntos de públicos e privados.
@@ -38,7 +38,7 @@ O conjunto privado e o conjunto público são conjuntos de dimensionamento de m�
 ## <a name="use-agent-pools"></a>Utilizar conjuntos de agente
 Por predefinição, **Marathon** implementa qualquer aplicação nova para o *privada* nós de agente. Tem de ser explicitamente implementar a aplicação para o *pública* nós durante a criação da aplicação. Selecione o **opcional** separador e introduza **slave_public** para o **funções dos recursos aceites** valor. Este processo é documentado [aqui](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) e no [DC/SO](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Leia mais sobre [gerir os contentores de DC/SO](container-service-mesos-marathon-ui.md).
 
 * Saiba como [abrir a firewall](container-service-enable-public-access.md) fornecida pelo Azure, para permitir o acesso público aos contentores de DC/OS.

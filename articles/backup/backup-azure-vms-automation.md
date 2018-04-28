@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b5869e44e22fab1e996fcd58b4258849603a711
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilizar cmdlets de AzureRM.RecoveryServices.Backup para fazer uma cópia de segurança de máquinas virtuais
 
@@ -79,9 +79,9 @@ Para começar:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Conta de início de sessão para o seu Azure através de **Login-AzureRmAccount**. Este cmdlet apresenta uma página web pede-lhe as credenciais da conta: 
-    - Em alternativa, pode incluir as credenciais da conta como um parâmetro no **Login-AzureRmAccount** cmdlet, utilizando o **-Credential** parâmetro.
-    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especificar o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou inquilino. Por exemplo: **Login-AzureRmAccount-inquilino "fabrikam.com"**
+3. Conta de início de sessão para o seu Azure através de **Connect-AzureRmAccount**. Este cmdlet apresenta uma página web pede-lhe as credenciais da conta: 
+    - Em alternativa, pode incluir as credenciais da conta como um parâmetro no **Connect-AzureRmAccount** cmdlet, utilizando o **-Credential** parâmetro.
+    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especificar o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou inquilino. Por exemplo: **Connect-AzureRmAccount-inquilino "fabrikam.com"**
 4. Associe a subscrição que pretende utilizar com a conta, uma vez que uma conta pode ter várias subscrições:
 
     ```PS

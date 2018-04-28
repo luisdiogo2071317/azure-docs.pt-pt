@@ -9,11 +9,11 @@ ms.custom: business continuity
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 09672c9f8ba725e46f2cdbb1a13de101137cb718
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 89839d18e90a75f81e78edcb7f54e77a31ea4886
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a georreplicação ativa para a SQL Database do Azure no portal do Azure e iniciação de ativação pós-falha
 
@@ -33,7 +33,7 @@ Os seguintes passos criar uma nova base de dados secundária numa parceria de ge
 
 Para adicionar uma base de dados secundária, tem de ser o proprietário da subscrição ou coproprietário.
 
-A base de dados secundária tem o mesmo nome que a base de dados primária e tem, por predefinição, o mesmo nível de serviço. A base de dados secundária pode ser uma base de dados ou uma base de dados num agrupamento elástico. Para obter mais informações, consulte [escalões de serviço](sql-database-service-tiers.md).
+A base de dados secundária tem o mesmo nome que a base de dados primária e tem, por predefinição, o mesmo nível de serviço. A base de dados secundária pode ser uma base de dados ou uma base de dados num agrupamento elástico. Para obter mais informações, consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md).
 Depois do elemento secundário é criado e pré-propagadas, dados começa a replicar da base de dados primária para a nova base de dados secundária.
 
 > [!NOTE]

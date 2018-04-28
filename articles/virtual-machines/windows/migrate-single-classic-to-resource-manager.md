@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 1241f893ca69e3ddaf464e66943caa2697e6d8e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migrar manualmente uma VM clássica para ARM geridos disco VM nova do VHD 
 
@@ -72,7 +72,7 @@ Por predefinição, o disco de política de colocação em cache é *só de leit
 
 ### <a name="pricing"></a>Preços
 
-Reveja o [preços para discos geridos](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Preços dos discos de geridos Premium é a mesmo discos Premium não gerido. Mas preços para os discos padrão geridos são diferente de discos padrão de não gerido.
+Reveja o [preços para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/). Preços dos discos de geridos Premium é a mesmo discos Premium não gerido. Mas preços para os discos padrão geridos são diferente de discos padrão de não gerido.
 
 
 ## <a name="checklist"></a>Lista de verificação

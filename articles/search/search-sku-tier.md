@@ -1,25 +1,19 @@
 ---
-title: "Escolha um SKU ou escalão de preço para a Azure Search | Microsoft Docs"
-description: "A pesquisa do Azure pode ser aprovisionada nestes SKUs: gratuita, básico e padrão, está disponível em vários níveis de capacidade e configurações de recursos onde padrão."
+title: Escolha um SKU ou escalão de preço para a Azure Search | Microsoft Docs
+description: 'A pesquisa do Azure pode ser aprovisionada nestes SKUs: gratuita, básico e padrão, está disponível em vários níveis de capacidade e configurações de recursos onde padrão.'
 services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 8d4b7bca-02a5-43ee-b3f8-03551dfb32fd
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Escolher um SKU ou escalão de preço para o Azure Search
 Na Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço específico ou SKU. As opções incluem **livres**, **básico**, ou **padrão**, onde **padrão** está disponível em várias configurações e as capacidades.
@@ -78,9 +72,9 @@ O gráfico seguinte é um subconjunto dos limites de [limites de serviço da Azu
 | Contrato de Nível de Serviço (SLA) |N.º <sup>1</sup> |Sim |Sim |Sim |Sim |Sim |
 | Limites de índice |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
 | Limites do documento |10 000 total |milhões de 1 por serviço |milhões de 15 por partição |milhões de 60 por partição |milhões de 120 por partição |milhões de 1 por índice |
-| Partições máximas |N/D |1 |12 |12 |12 |3 <sup>2</sup> |
+| Partições máximas |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
 | Tamanho da partição |Total de 50 MB |2 GB por serviço |25 GB por partição |100 GB por partição (até um máximo de 1.2 TB por serviço) |200 GB por partição (até um máximo de 2.4 TB por serviço) |200 GB (até um máximo de 600 GB por serviço) |
-| Réplicas máximas |N/D |3 |12 |12 |12 |12 |
+| Réplicas máximas |N/A |3 |12 |12 |12 |12 |
 
 <sup>1</sup> funcionalidades de pré-visualização e o escalão gratuito não são fornecidos com os contratos de nível de serviço (SLAs). Para todos os escalões faturáveis, SLAs entram em vigor quando aprovisionar redundância suficiente para o seu serviço. Dois ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação SLA (leitura / escrita). O número de partições não é uma consideração de SLA. 
 

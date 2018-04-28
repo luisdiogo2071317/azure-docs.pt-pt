@@ -1,18 +1,18 @@
 ---
-title: "Montar um volume emptyDir em instâncias de contentor do Azure"
-description: "Saiba como montar um volume emptyDir para partilhar dados entre os contentores de um grupo contentor em instâncias de contentor do Azure"
+title: Montar um volume emptyDir em instâncias de contentor do Azure
+description: Saiba como montar um volume emptyDir para partilhar dados entre os contentores de um grupo contentor em instâncias de contentor do Azure
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 01b44f357d160a48852ee843cd8bebd138e95dfc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 89289a7a0bb5c486c662d528c5014bdbd8eebaca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montar um volume emptyDir em instâncias de contentor do Azure
 
@@ -41,6 +41,7 @@ Em primeiro lugar, preencher o `volumes` matriz no grupo contentor `properties` 
 
 Por exemplo, o modelo do Resource Manager seguinte cria um grupo de contentor constituídas por duas contentores, cada um dos qual monta o *emptyDir* volume:
 
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
 Para ver um exemplo de implementação de instância de contentor com um modelo Azure Resource Manager, consulte [implementar o contentor de vários grupos em instâncias de contentor do Azure](container-instances-multi-container-group.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -193,7 +193,7 @@ Propriedade | Descrição | Necessário
 nome | Nome da coluna. | Sim
 tipo | Tipo de dados da coluna. Fábrica de dados suporta os seguintes tipos de dados provisória como valores permitidos: **Int16, Int32, Int64, único, Double, Decimal, Byte [], booleano, String, Guid, Datetime, Datetimeoffset e Timespan** | Não
 Cultura | . Idioma baseado em NET a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
-formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [data personalizada e cadeias de formato de hora](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formato datetime. | Não
+formato | Formato de cadeia a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [data personalizada e cadeias de formato de hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formato datetime. | Não
 
 ### <a name="example"></a>Exemplo
 No seguinte exemplo, suponha que a origem de dados de Blob está num formato CSV e contém três colunas: userid, nome e lastlogindate. São do tipo Int64, cadeia e Datetime com um formato de datetime personalizado utilizando abreviados nomes francês para um dia da semana.

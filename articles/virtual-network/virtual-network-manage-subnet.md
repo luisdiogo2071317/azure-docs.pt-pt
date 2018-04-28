@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 550fe16c5997947b528d284b7afdce9af0b7a56b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00b0635d894ff8a41c810345cfa94363029e78e8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -31,14 +31,14 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
 ## <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que pretende adicionar uma sub-rede para.
-3. Em **definições**, selecione **sub-redes**.
+3. Em **DEFINIÇÕES**, selecione **sub-redes**.
 4. Selecione **+ sub-rede**.
 5. Introduza valores para os seguintes parâmetros:
     - **Nome**: O nome tem de ser exclusivo dentro da rede virtual.
@@ -57,7 +57,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que contém a sub-rede que pretende alterar as definições.
-3. Em **definições**, selecione **sub-redes**.
+3. Em **DEFINIÇÕES**, selecione **sub-redes**.
 4. Na lista de sub-redes, selecione a sub-rede que pretende alterar as definições. Pode alterar as seguintes definições:
 
     - **Intervalo de endereços:** se não existem recursos são implementados dentro da sub-rede, pode alterar o intervalo de endereços. Se existirem quaisquer recursos na sub-rede, deve mover os recursos para outra sub-rede ou eliminá-los primeiro da sub-rede. Os passos que efetuar para mover ou eliminar um recurso variam consoante o recurso. Para saber como mover ou eliminar os recursos que estão em sub-redes, leia a documentação para cada tipo de recurso que pretende mover ou eliminar. Consulte as restrições de **intervalo de endereços** no passo 5 [adicionar uma sub-rede](#add-a-subnet).
@@ -76,7 +76,7 @@ Pode eliminar uma sub-rede apenas se existem não existem recursos na sub-rede. 
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o.
 2. Na lista de redes virtuais, selecione a rede virtual que contém a sub-rede que pretende eliminar.
-3. Em **definições**, selecione **sub-redes**.
+3. Em **DEFINIÇÕES**, selecione **sub-redes**.
 4. Na lista de sub-redes, selecione **...** , à direita para a sub-rede que pretende eliminar
 5. Selecione **eliminar**e, em seguida, selecione **Sim**.
 

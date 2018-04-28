@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>Técnicos de segurança do Azure
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 |[Segurança de rede do Azure](azure-network-security.md)|Apresenta-lhe a vasta gama de controlos de rede, que pode configurar para melhorar a segurança das soluções de que implementar no Azure. O foco incide controlos de segurança do cliente com acesso à rede.|
 |[Segurança operacional do Azure](azure-operational-security.md)|Fornece um abrangente os serviços disponíveis e as tecnologias de segurança operacional orientado para o cliente com o Azure.|
 |[Capacidades técnicas de segurança do Azure](azure-security-technical-capabilities.md)|Vai as funcionalidades de segurança e a funcionalidade de armazenamento do Azure, bases de dados do Azure SQL, o modelo de máquina virtual do Azure e a infraestrutura e ferramentas de suporte que gerir tudo.|
-|[Guia de segurança do Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fornece uma descrição geral de cada uma das funcionalidades de segurança que podem ser utilizadas com o Storage do Azure. Abrange segurança plane de gestão, a segurança dos dados plane, a encriptação de inativos, de encriptação em trânsito e análise de armazenamento.|
+|[Guia de segurança do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fornece uma descrição geral de cada uma das funcionalidades de segurança que podem ser utilizadas com o Storage do Azure. Abrange segurança plane de gestão, a segurança dos dados plane, a encriptação de inativos, de encriptação em trânsito e análise de armazenamento.|
 |[Classificação de dados para preparação da cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Este documento transferível apresenta as noções básicas sobre a classificação de dados e o respetivo valor no contexto da nuvem de computação. As organizações avaliar nuvem informática para utilização futura ou organizações atualmente utilizar serviços em nuvem e procurar formas para otimizar será de gestão de dados beneficiam de neste documento.|
 |[Governação no Azure](governance-in-azure.md)|Explica as funcionalidades de segurança e governação incorporadas no Azure. Os problemas de governação principal abordados sejam: políticas, processos e implementação de procedimentos para os objetivos da organização; segurança e compatibilidade contínuas com as normas de organização; monitorização e alertas.
 |[Isolamento na nuvem pública do Azure](azure-isolation.md)|Descreve como o Azure fornece isolamento contra utilizadores maliciosos e não malicioso. Funciona como um guia de arquitetura soluções de nuvem por oferta de várias opções de isolamento para arquitetos de TI. Se debruça é em controlos de segurança orientado para o cliente e não tenta SLAs de endereço, considerações de prática de DevOps e modelos de preços.|

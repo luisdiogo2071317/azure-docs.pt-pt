@@ -1,24 +1,19 @@
 ---
-title: "A indexação de blobs CSV com o indexador de blob do Azure Search | Microsoft Docs"
-description: "Saiba como índice blobs CSV pesquisa do Azure"
-services: search
-documentationcenter: 
+title: A indexação de blobs CSV com o indexador de blob do Azure Search | Microsoft Docs
+description: Saiba como índice blobs CSV pesquisa do Azure
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dfb1bd48a47e45363e8761a3d79901e5171b37d1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>A indexação de blobs CSV com o indexador de blob do Azure Search
 Por predefinição, [indexador de blob do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa os blobs de texto delimitado por como um segmento de texto único. No entanto, com blobs que contém os dados CSV, muitas vezes, pretende tratar cada linha no blob como um documento separado. Por exemplo, dado o seguinte texto delimitado: 
@@ -47,7 +42,7 @@ Neste artigo, ficará a saber como analisar os blobs CSV com um indexador de blo
 
 Para obter mais detalhes sobre a API de indexador criar, veja [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-`firstLineContainsHeaders`indica que a primeira linha (não em branco) de cada blob contém os cabeçalhos.
+`firstLineContainsHeaders` indica que a primeira linha (não em branco) de cada blob contém os cabeçalhos.
 Se os blobs não contém uma linha de cabeçalho inicial, os cabeçalhos devem ser especificados na configuração do indexador: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 

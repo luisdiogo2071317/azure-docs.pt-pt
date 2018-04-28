@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7d263dbb89b10876c3a1deb330f969c598addd6a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gerir os recursos do Batch com os cmdlets do PowerShell
 
@@ -33,9 +33,9 @@ Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. Recomendamo
 Efetue as seguintes operações para utilizar o Azure PowerShell para gerir os recursos do Batch.
 
 * [Instale e configure o Azure PowerShell](/powershell/azure/overview).
-* Execute o cmdlet **Login-AzureRmAccount** para ligar à sua subscrição (os cmdlets do Azure Batch enviados no módulo do Azure Resource Manager):
+* Execute o cmdlet **Connect-AzureRmAccount** para ligar à sua subscrição (os cmdlets do Azure Batch enviados no módulo do Azure Resource Manager):
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Registe no espaço de nomes do fornecedor do Batch**. Esta operação só tem de ser efetuada **uma vez por subscrição**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

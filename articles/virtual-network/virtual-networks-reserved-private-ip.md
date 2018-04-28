@@ -3,7 +3,7 @@ title: Estático clássico IP - VM do Azure - privado interno
 description: Noções sobre IPs interno estático (DIPs) e como geri-los
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: genli
-ms.openlocfilehash: b668a06b91a5fcb1dd08737e0422b599bdb3e27f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cdf33632c282a872d0eb83dd1a1b1c639fc14bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP de privada interno estático através do PowerShell (clássica)
 Na maioria dos casos, não terá de especificar um endereço IP estático interno para a máquina virtual. As VMs numa rede virtual serão recebem automaticamente um endereço IP de um intervalo que especificou. Mas em certos casos, a especificação de um endereço IP estático para uma VM específica faz sentido. Por exemplo, se a VM estiver prestes a executar DNS ou serão um controlador de domínio. Um endereço IP estático interno permanece com a VM, mesmo através de um Estado de paragem/desaprovisionamento. 

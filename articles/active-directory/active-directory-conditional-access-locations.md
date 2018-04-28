@@ -1,26 +1,26 @@
 ---
-title: "Condições de localização do acesso condicional do Azure Active Directory | Microsoft Docs"
-description: "Saiba como utilizar a condição de localização para controlar o acesso às suas aplicações em nuvem com base na localização de rede de um utilizador."
+title: Condições de localização do acesso condicional do Azure Active Directory | Microsoft Docs
+description: Saiba como utilizar a condição de localização para controlar o acesso às suas aplicações em nuvem com base na localização de rede de um utilizador.
 services: active-directory
-keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condições de localização do acesso condicional do Azure Active Directory 
 
@@ -43,7 +43,14 @@ Uma localização é uma etiqueta para uma localização de rede que quer repres
 
 Com o nome localizações, pode criar agrupamentos lógicos de intervalos de endereços IP, países e regiões. 
 
- Uma localização de nome tem os seguintes componentes:
+Pode aceder as localizações com nome no **gerir** secção da página de acesso condicional.
+
+![Localizações](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+Uma localização com nome tem os seguintes componentes:
 
 ![Localizações](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ O número de localizações com nome, que pode configurar é limitado pelo taman
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
 
-Também pode configurar os intervalos de endereços IP que representa a intranet local da sua organização no [definições do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta funcionalidade permite-lhe configurar até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, consulte [IPs fidedignos](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+Também pode configurar os intervalos de endereços IP que representa a intranet local da sua organização no [definições do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta funcionalidade permite-lhe configurar até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, consulte [IPs fidedignos](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Se tem de confiar IPs configurada, são apresentados como **IPS fidedignos do MFA** na lista de localizações para a condição de localização.   
 
 ### <a name="skipping-multi-factor-authentication"></a>A ignorar a autenticação multifator
 
-Na página de definições do serviço de autenticação multifator, pode identificar os utilizadores da intranet da empresa, selecionando **ignorar multi-factor authentication para pedidos de utilizadores federados na minha intranet**. Esta definição indica que interior empresarial rede afirmação, que é emitida pelo AD FS, deve ser fidedigna e utilizada para identificar o utilizador como estando na rede empresarial. Para obter mais informações, consulte [ativar a funcionalidade de IPs fidedignos ao utilizar o acesso condicional](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+Na página de definições do serviço de autenticação multifator, pode identificar os utilizadores da intranet da empresa, selecionando **ignorar multi-factor authentication para pedidos de utilizadores federados na minha intranet**. Esta definição indica que interior empresarial rede afirmação, que é emitida pelo AD FS, deve ser fidedigna e utilizada para identificar o utilizador como estando na rede empresarial. Para obter mais informações, consulte [ativar a funcionalidade de IPs fidedignos ao utilizar o acesso condicional](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Depois de selecionar esta opção, incluindo a localização nomeada **IPS fidedignos do MFA** serão aplicadas a todas as políticas com esta opção selecionada.
 
@@ -100,7 +107,7 @@ Quando configurar a condição de localização, tem a opção para distinguir e
 
 ### <a name="any-location"></a>Qualquer localização
 
-Por predefinição, a seleção **qualquer localização** faz com que uma política a aplicar a todos os endereços IP, o que significa que quaisquer endereços na Internet. Esta definição não não está limitada a endereços IP que configurou como localização com nome. Quando seleciona **qualquer localização**, ainda pode excluir localizações específicas de uma política. Por exemplo, pode aplicar uma política para todas as localizações, exceto fidedignas localizações para definir o âmbito para todas as localizações, exceto a rede empresarial.
+Por predefinição, a seleção **qualquer localização** faz com que uma política a aplicar a todos os endereços IP, o que significa que quaisquer endereços na Internet. Esta definição não está limitada a endereços IP que configurou como localização com nome. Quando seleciona **qualquer localização**, ainda pode excluir localizações específicas de uma política. Por exemplo, pode aplicar uma política para todas as localizações, exceto fidedignas localizações para definir o âmbito para todas as localizações, exceto a rede empresarial.
 
 ### <a name="all-trusted-locations"></a>Todas as localizações fidedignas
 
@@ -112,7 +119,7 @@ Esta opção aplica-se a:
 
 ### <a name="selected-locations"></a>Localizações selecionadas
 
-Com esta opção, pode selecionar um ou mais localizações com nome. Para uma política com estas definições se apliquem, o utilizador precisa de ligar a partir de qualquer uma das localizações selecionadas. Whe clicar **selecione** abre o controlo de seleção de rede nomeada que mostra a lista de redes com nome. A lista mostra também se a localização de rede foi marcada como fidedigna. A localização nomeada chamado **IPs fidedignos do MFA** é utilizado para incluir as definições de IP que podem ser configuradas na página de definição de serviço de autenticação multifator.
+Com esta opção, pode selecionar um ou mais localizações com nome. Para uma política com estas definições se apliquem, o utilizador precisa de ligar a partir de qualquer uma das localizações selecionadas. Ao clicar em **selecione** abre o controlo de seleção de rede nomeada que mostra a lista de redes com nome. A lista mostra também se a localização de rede foi marcada como fidedigna. A localização nomeada chamado **IPs fidedignos do MFA** é utilizado para incluir as definições de IP que podem ser configuradas na página de definição de serviço de autenticação multifator.
 
 ## <a name="what-you-should-know"></a>O que deve conhecer
 

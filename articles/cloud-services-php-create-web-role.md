@@ -1,24 +1,23 @@
 ---
-title: "Criar funções web e de trabalho do Azure para PHP | Microsoft Docs"
-description: "Um guia para criar funções web e de trabalho do PHP num serviço em nuvem do Azure e configurar o runtime PHP."
-services: 
+title: Criar funções web e de trabalho do Azure para PHP
+description: Um guia para criar funções web e de trabalho do PHP num serviço em nuvem do Azure e configurar o runtime PHP.
+services: ''
 documentationcenter: php
-author: rmcmurray
-manager: erikre
-editor: 
+author: msangapu
+manager: cfowler
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/11/2018
+ms.author: msangapu
+ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Como criar funções web e de trabalho do PHP
 ## <a name="overview"></a>Descrição geral
@@ -202,7 +201,7 @@ Para parar os emuladores, execute este comando:
 ## <a name="publish-your-application"></a>Publicar a aplicação
 Para publicar a aplicação, terá de importar primeiro as definições de publicação utilizando o [importação AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Em seguida, pode publicar a aplicação utilizando o [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. Para obter informações sobre o início de sessão, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte o [Centro para programadores do PHP](/develop/php/).
 
 [Azure SDK para PHP]: /develop/php/common-tasks/download-php-sdk/ (Azure SDK para PHP)

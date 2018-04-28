@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 507986e4fa83e1821b1d7a1938b356feee81e9d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Utilize um MSI de VM Linux para aceder à base de dados do Azure Cosmos 
 
@@ -46,7 +46,7 @@ Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 - Utilize [Shell de nuvem do Azure](~/articles/cloud-shell/overview.md) do portal do Azure ou através de **tente-** botão, localizado no canto superior direito de cada bloco de código.
 - [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir utilizar uma consola local do CLI.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -113,7 +113,7 @@ A resposta inclui os detalhes do sistema atribuídos do MSI (nota principalID da
 ```
 ## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Conceder o acesso do MSI da VM de Linux para as chaves de acesso da conta de base de dados do Cosmos
 
-Cosmos DB não suportam de forma nativa a autenticação do Azure AD.  No entanto, pode utilizar um MSI para obter uma chave de acesso do Cosmos BD do Gestor de recursos, em seguida, utilizar a chave para aceder à base de dados do Cosmos.  Neste passo, pode conceder que o sistema atribuído acesso do MSI para as chaves para a conta de base de dados do Cosmos.
+Cosmos DB não suportam de forma nativa a autenticação do Azure AD. No entanto, pode utilizar um MSI para obter uma chave de acesso do Cosmos BD do Gestor de recursos, em seguida, utilizar a chave para aceder à base de dados do Cosmos. Neste passo, pode conceder o acesso do MSI para as chaves para a conta de base de dados do Cosmos.
 
 Para conceder o acesso de identidade do MSI para a conta de base de dados do Cosmos no Azure Resource Manager utilizando a CLI do Azure, atualize os valores para `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, e `<COSMOS DB ACCOUNT NAME>` para o seu ambiente. Substitua `<MSI PRINCIPALID>` com o `principalId` propriedade devolvida pelo `az resource show` no [obter principalID do MSI da VM com Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  BD do cosmos suporta dois níveis de granularidade quando utilizar chaves de acesso: leitura/escrita acesso à conta e o acesso só de leitura à conta.  Atribuir o `DocumentDB Account Contributor` função se pretender obter chaves de leitura/escrita para a conta ou atribuir o `Cosmos DB Account Reader Role` função se pretender obter chaves de só de leitura para a conta:
 
@@ -149,7 +149,7 @@ Para concluir estes passos, precisa de um cliente SSH. Se estiver a utilizar o W
 4. Utilize o CURL para obter acesso token para o Azure Resource Manager: 
      
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]

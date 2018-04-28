@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP para máquinas virtuais utilizando o PowerShell
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 04/16/2018
 
 Este artigo explica como criar uma máquina virtual (VM) através do modelo de implementação Azure Resource Manager com o PowerShell. Vários endereços IP não não possível atribuir recursos criados através do modelo de implementação clássica. Para saber mais sobre modelos de implementação do Azure, leia o [compreender os modelos de implementação](../resource-manager-deployment-model.md) artigo.
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Criar uma VM com vários endereços IP
 
 Os passos que se seguem explicam como criar um VM de exemplo com vários endereços IP, conforme descrito no cenário. Alterar valores das variáveis conforme necessário para a implementação.
 
 1. Abra uma linha de comandos do PowerShell e conclua os restantes passos nesta secção dentro de uma única sessão do PowerShell. Se ainda não tiver PowerShell instalada e configurada, concluir os passos a [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo.
-2. Início de sessão à sua conta com o `login-azurermaccount` comando.
+2. Início de sessão à sua conta com o `Connect-AzureRmAccount` comando.
 3. Substitua *myResourceGroup* e *westus* com um nome e localização da sua escolha. Crie um grupo de recursos. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
     ```powershell

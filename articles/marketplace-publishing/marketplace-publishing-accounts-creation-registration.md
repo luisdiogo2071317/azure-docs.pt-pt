@@ -1,11 +1,11 @@
 ---
 title: Criar e registar a conta de publicador | Microsoft Docs
-description: "Instruções para criar uma conta Microsoft Developer, pelo que, após a aprovação, pode propor vários oferecem tipos no Azure Marketplace."
+description: Instruções para criar uma conta Microsoft Developer, pelo que, após a aprovação, pode propor vários oferecem tipos no Azure Marketplace.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Criar uma conta Microsoft Developer
 Este artigo orienta-o através da criação de contas necessárias e o processo de registo para se tornar um Developer Microsoft aprovados para o Azure Marketplace.
@@ -37,7 +37,7 @@ O endereço de que forma o nome de utilizador deve estar no seu domínio e contr
 Ao criar uma conta da empresa, siga estas diretrizes se mais do que uma pessoa precisar de aceder a conta ao iniciar sessão com a conta Microsoft que abrir a conta.
 
 > [!Important]
-> Importante para permitir que vários utilizadores a aceder à sua conta do Dev Center, recomendamos a utilização do Azure Active Directory para atribuir funções a utilizadores individuais, quem podem aceder a conta ao iniciar sessão com as respetivas indivíduo credenciais do Azure AD. Para obter mais informações, consulte [gerir os utilizadores da conta](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Importante para permitir que vários utilizadores a aceder à sua conta do Dev Center, recomendamos a utilização do Azure Active Directory para atribuir funções a utilizadores individuais, quem podem aceder a conta ao iniciar sessão com as respetivas indivíduo credenciais do Azure AD. Para obter mais informações, consulte [gerir os utilizadores da conta](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Criar a sua conta Microsoft com um endereço de e-mail que pertence ao domínio da sua empresa, mas não até um indivíduo único — por exemplo, windowsapps@fabrikam.com.
 * Limitar o acesso a esta conta Microsoft para o menor número possível de programadores.
@@ -49,7 +49,7 @@ Ao criar uma conta da empresa, siga estas diretrizes se mais do que uma pessoa p
 
 A conta de programador deve ser acedida principalmente a partir de PCs fidedignos. Isto é crucial, porque não há um limite ao número de códigos gerados por conta, por semana. Também permite que a experiência de início de sessão mais integrada.
 
-Para obter mais informações sobre as diretrizes de conta de programador adicionais e segurança, clique em [aqui](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Para obter mais informações sobre as diretrizes de conta de programador adicionais e segurança, clique em [aqui](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instruções
 1. Abra uma nova Chrome Incognito ou Internet Explorer InPrivate navegação sessão para se certificar de que tem não sessão iniciada numa conta existente.

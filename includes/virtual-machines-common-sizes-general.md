@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 48c4ee60487ed4a78bf7a823011b833d46db4ecf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 Tamanhos de VM de objetivo geral fornecem equilibrado CPU para memória rácio. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -20,7 +20,10 @@ Tamanhos de VM de objetivo geral fornecem equilibrado CPU para memória rácio. 
 
 - As VMs da série D foram concebidos para executar aplicações que exigem um maior desempenho de poder de computação e disco temporário. As VMs da série D fornecem processadores mais rápidos, um rácio de memória para vCPU superior e uma unidade de estado sólida (SSD) para o disco temporário. Para obter detalhes, consulte o anúncio no blogue do Azure, [Novos Tamanhos de Máquinas Virtuais da Série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- Dv3 série, série Dv2, seguimento para a série de D original, funcionalidades uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se no processador de última geração de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell), podendo chegar aos 3,1 GHz com o Intel Turbo Boost Technology 2.0. A série Dv2 tem as mesmas configurações de memória e disco da série D.
+- A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Se baseia na mais recente Intel Xeon® E5-2673 v3 da geração 2.4 GHz (Haswell) ou processadores do E5-2673 v4 2.3 GHz (Broadwell) e com o Intel Turbo intensificação tecnologia 2.0, pode ir até GHz 3.1. A série Dv2 tem as mesmas configurações de memória e disco da série D.
+
+- As funcionalidades de série Dv3 o processador do mesmo como Dv2-série, mas numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de objetivo mais comum e colocar o Dv3 em alinhamento com o objetivo geral VMs da maioria das outras nuvens.  Memória foi expandida (a partir de ~3.5 GiB/vCPU para 4 GiB/vCPU) enquanto os limites de disco e rede tem sido ajustados numa base por núcleo para alinhar com a mudança para Hyper-Threading.  O Dv3 já não tem os tamanhos VM de elevada da memória de famílias de D/Dv2, aqueles terem sido movidos para a nova família de Ev3.
+
 
 - Os tamanhos do escalão básico destinam-se, principalmente, ao desenvolvimento de cargas de trabalho e outras aplicações que não requerem balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória.
 
@@ -77,6 +80,7 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 <sup>1</sup> série Dv3 VM funcionalidade tecnologia® Hyper-Threading da Intel
 
+
 ## <a name="dsv2-series"></a>Série DSv2
 
 ACU: 210-250
@@ -99,8 +103,8 @@ ACU: 210-250
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8x500            | 2 / 1500                                     |
-| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | Apr 00                                       |
-| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | Aug 00                                       |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
 

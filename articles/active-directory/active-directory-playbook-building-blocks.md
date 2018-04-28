@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory prova do manual de comunicação social conceito: blocos modulares
 
@@ -380,8 +380,8 @@ Hora para concluído aproximada: 15 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Ative a gestão de palavra-passe self-service no seu inquilino. | [Azure Active Directory reposição palavra-passe para os administradores de TI](active-directory-passwords-update-your-own-password.md) |
-| Ative a palavra-passe repetição de escrita gerir palavras-passe no local. Note que isto requer específico do Azure AD Connect versões | [Pré-requisitos da Repetição de Escrita de Palavras-passe](active-directory-passwords-writeback.md) |
-| Identifique os utilizadores de PoC que irão utilizar esta funcionalidade e certifique-se de que são membros de um grupo de segurança. Os utilizadores têm de ser não-administradores demonstramos completamente a capacidade | [Personalizar: Gestão de palavras-passe do Azure ao AD: restringir o acesso a reposição de palavra-passe](active-directory-passwords-writeback.md) |
+| Ative a palavra-passe repetição de escrita gerir palavras-passe no local. Note que isto requer específico do Azure AD Connect versões | [Pré-requisitos da Repetição de Escrita de Palavras-passe](authentication/howto-sspr-writeback.md) |
+| Identifique os utilizadores de PoC que irão utilizar esta funcionalidade e certifique-se de que são membros de um grupo de segurança. Os utilizadores têm de ser não-administradores demonstramos completamente a capacidade | [Personalizar: Gestão de palavras-passe do Azure ao AD: restringir o acesso a reposição de palavra-passe](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Passos
@@ -412,7 +412,7 @@ Hora para concluído aproximada: 10 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Identificar os utilizadores POC que irão utilizar o MFA  |  |
-| Telefone com boa receção de desafio MFA  | [O que é o Multi-Factor Authentication do Azure?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Telefone com boa receção de desafio MFA  | [O que é o Multi-Factor Authentication do Azure?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Passos
 
@@ -421,7 +421,7 @@ Hora para concluído aproximada: 10 minutos
 | Navegue para o painel "Utilizadores e grupos" no Portal de gestão do Azure AD | [Portal de gestão do Azure AD: Utilizadores e grupos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Escolha o painel de "Todos os utilizadores" |  |
 | Na parte superior da barra no botão "Multi-factor Authentication" de escolha | Direcionar o URL para o portal do Azure MFA: https://aka.ms/mfaportal |
-| Nas definições do "Utilizador" selecionar os utilizadores de PoC e ativá-los para a MFA | [Estados do Utilizador no Multi-Factor Authentication do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| Nas definições do "Utilizador" selecionar os utilizadores de PoC e ativá-los para a MFA | [Estados do Utilizador no Multi-Factor Authentication do Azure](authentication/howto-mfa-userstates.md) |
 | Inicie sessão como o utilizador de PoC e o percurso durante o processo de prova  |  |
 
 ### <a name="considerations"></a>Considerações
@@ -457,7 +457,7 @@ Hora para concluído aproximada: 10 minutos
 
 ### <a name="considerations"></a>Considerações
 
-Se estiver a utilizar Federação, pode utilizar o fornecedor de identidade no local (IdP) para comunicar o estado de rede da empresa dentro/externa com afirmações. Pode utilizar esta técnica sem ter de gerir a lista de endereços IP que podem ser complexas para avaliar e gerir grandes organizações. A configuração, tem de conta para o cenário "roaming de rede" (um utilizador registo a partir da rede interna e ao comutadores com sessão iniciada localizações como num café) e certifique-se de que compreende as implicações. Saiba mais: [proteger recursos da nuvem com o Azure multi-factor Authentication e o AD FS: IPs fidedignos para utilizadores federados](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Se estiver a utilizar Federação, pode utilizar o fornecedor de identidade no local (IdP) para comunicar o estado de rede da empresa dentro/externa com afirmações. Pode utilizar esta técnica sem ter de gerir a lista de endereços IP que podem ser complexas para avaliar e gerir grandes organizações. A configuração, tem de conta para o cenário "roaming de rede" (um utilizador registo a partir da rede interna e ao comutadores com sessão iniciada localizações como num café) e certifique-se de que compreende as implicações. Saiba mais: [proteger recursos da nuvem com o Azure multi-factor Authentication e o AD FS: IPs fidedignos para utilizadores federados](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Ferramenta de avaliação da solução do Cortana Intelligence
 ## <a name="overview"></a>Descrição geral
@@ -195,7 +195,7 @@ Para obter mais informações sobre a criação de serviços web de reparametriz
 Para obter mais informações sobre automatizar o processo de preparação do modelo utilizando o Azure Data Factory, consulte [modelos de atualizar o Azure Machine Learning utilizando a atividade do recurso da atualização](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Documentação existente
-[Microsoft Azure certificadas para aumentar a sua empresa de nuvem](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure certificadas para aumentar a sua empresa de nuvem](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Certificado para Cortana Intellignece do Microsoft Azure](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Certificado para Cortana Intellignece do Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory auth - SQL do Azure (descrição geral) | Microsoft Docs"
-description: "Saiba mais sobre como utilizar o Azure Active Directory para a autenticação com base de dados SQL, geridos instância e do armazém de dados do SQL Server"
+title: Azure Active Directory auth - SQL do Azure (descrição geral) | Microsoft Docs
+description: Saiba mais sobre como utilizar o Azure Active Directory para a autenticação com base de dados SQL, geridos instância e do armazém de dados do SQL Server
 services: sql-database
 author: GithubMirek
 manager: craigg
@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Utilizar a autenticação do Active Directory do Azure para a autenticação com base de dados do SQL Server, instância geridos ou SQL Data Warehouse
 A autenticação do Active Directory do Azure é um mecanismo de ligar à base de dados do Microsoft Azure SQL Server e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) utilizando as identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure AD, pode gerir centralmente as identidades de utilizadores de base de dados e outros serviços Microsoft numa localização central. Gestão de ID central fornece um único local para gerir utilizadores de base de dados e simplifica a gestão de permissão. Vantagens incluem o seguinte:
 
 * Fornece uma alternativa à autenticação do SQL Server.
 * Ajuda a parar a proliferação de identidades de utilizador em servidores de base de dados.
-* Permite a rotação de palavra-passe num único local
+* Permite a rotação de palavra-passe num único local.
 * Os clientes podem gerir as permissões de base de dados através de grupos externos (Azure AD).
 * -Pode eliminar armazenar palavras-passe através da autenticação integrada do Windows e outras formas de autenticação suportados pelo Azure Active Directory.
 * Autenticação do Azure AD utiliza os utilizadores de base de dados contida para autenticar identidades ao nível da base de dados.
@@ -75,7 +75,7 @@ Limitações do AD do Azure relacionados com a instância geridos:
 - Só o administrador do Azure AD, pode criar bases de dados, os utilizadores do Azure AD estão confinados a uma única base de dados em não tem esta permissão
 - Propriedade de base de dados:
   - Principal do Azure AD não é possível alterar a propriedade da base de dados (ALTER autorização na base de dados) e não é possível definir como proprietário.
-  - Para bases de dados criadas pelo administrador do Azure AD não está definida nenhuma propriedade (campo owner_sid sys.sysdatabases é 0x1)
+  - Para bases de dados criadas pelo administrador do Azure AD não está definida nenhuma propriedade (campo owner_sid sys.sysdatabases é 0x1).
 - SQL Server Agent não pode ser gerida quando inicia sessão utilizando a principais do Azure AD. 
 - Azure AD admin não pode ser representado EXECUTE AS a utilizar
 - Ligação DAC não é suportada com principais do Azure AD. 

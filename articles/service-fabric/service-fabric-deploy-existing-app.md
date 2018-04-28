@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9d1e2f801db2ed7edf262f8a5f221057ef791106
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>O pacote e implementar um executável existente para o Service Fabric
 Quando o empacotamento um executável existente como um [executável convidado](service-fabric-guest-executables-introduction.md), pode escolher a utilizar um modelo de projeto do Visual Studio ou [criar manualmente o pacote de aplicação](#manually). Com o Visual Studio, a estrutura de pacote de aplicação e ficheiros de manifesto são criados pelo modelo de projeto novo.
@@ -43,7 +43,7 @@ O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar a im
 4. Dê um nome ao serviço e clique em **OK**.
 5. Se o serviço precisa de um ponto final para a comunicação, agora pode adicionar o protocolo, porta e tipo para o ficheiro ServiceManifest.xml. Por exemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Agora pode utilizar o pacote e publique ação contra o seu cluster local através da depuração a solução no Visual Studio. Quando estiver pronto, pode publicar a aplicação para um cluster remoto ou verifique a solução ao controlo de origem.
-7. Leitura [verificar a sua aplicação em execução](#check-your-running-application) Consulte como visualizar o seu serviço executável do convidado em execução no Service Fabric Explorer.
+7. Leitura [verificar a sua aplicação em execução](#check-your-running-application) para ver como visualizar o seu serviço executável do convidado em execução no Service Fabric Explorer.
 
 Para um exemplo de instruções, consulte [criar a primeira aplicação executável de convidados utilizando o Visual Studio](quickstart-guest-app.md).
 
@@ -156,7 +156,7 @@ Não há SetupEntryPoint apenas uma, pelo que os scripts de configuração tem d
 
 No exemplo anterior, o SetupEntryPoint executa um ficheiro batch chamado `LaunchConfig.cmd` que está localizado no `scripts` subdiretório do diretório de código (assumindo que o elemento de WorkingFolder está definido como base de código).
 
-#### <a name="update-entrypoint"></a>Update EntryPoint
+#### <a name="update-entrypoint"></a>Atualizar o ponto de entrada
 ```xml
 <EntryPoint>
   <ExeHost>

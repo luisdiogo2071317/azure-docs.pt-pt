@@ -1,25 +1,20 @@
 ---
-title: "Armazém de dados SQL do Azure perguntas mais frequentes | Microsoft Docs"
-description: "Este artigo apresenta uma lista saída perguntas mais frequentes sobre o Azure SQL Data Warehouse de clientes e os programadores"
+title: Armazém de dados SQL do Azure perguntas mais frequentes | Microsoft Docs
+description: Este artigo apresenta uma lista saída perguntas mais frequentes sobre o Azure SQL Data Warehouse de clientes e os programadores
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
+author: acomet
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 3/1/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 4c00710ecc0c91f8407eca81b78176075fcbd6ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/17/2018
+ms.author: acomet
+ms.reviewer: igorstan
+ms.openlocfilehash: 475dd2de05c2691d4698ae1112118ecea9bc2d2f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse perguntas mais frequentes
 
@@ -102,7 +97,7 @@ P: ligar ao HDI?
 
 R: HDI pode utilizar ADLS ou WASB como a camada HDFS. Se tiver como a camada HDFS, pode carregar os dados no armazém de dados do SQL Server. No entanto, não é possível gerar o cálculo de pushdown para a instância HDI. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações no armazém de dados do SQL Server como um todo, consulte a nossa [descrição geral] página.
 
 

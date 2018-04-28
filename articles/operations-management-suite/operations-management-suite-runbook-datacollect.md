@@ -1,11 +1,11 @@
 ---
-title: "Recolha de dados de análise de registos com um runbook na automatização do Azure | Microsoft Docs"
-description: "Passo a passo tutorial que explica a criação de um runbook na automatização do Azure para recolher dados para o repositório do OMS para análise pelo análise de registos."
+title: Recolha de dados de análise de registos com um runbook na automatização do Azure | Microsoft Docs
+description: Passo a passo tutorial que explica a criação de um runbook na automatização do Azure para recolher dados para o repositório do OMS para análise pelo análise de registos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados de análise de registos com um runbook de automatização do Azure
 Pode recolher uma quantidade significativa de dados da análise de registos a partir de uma variedade de origens, incluindo [origens de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../log-analytics/log-analytics-azure-storage.md).  Há um cenários embora onde que precisa para recolher dados que não se encontra acessível através destas origens padrão.  Nestes casos, pode utilizar o [API de Recoletor de dados de HTTP](../log-analytics/log-analytics-data-collector-api.md) para escrever dados para análise de registos a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
@@ -72,7 +72,7 @@ A galeria do PowerShell que dá-lhe a opção rápida para implementar um módul
 
 
 
-## <a name="3-create-runbook"></a>3. Criar o runbook
+## <a name="3-create-runbook"></a>3. Criar runbook
 
 A automatização do Azure tem um editor no portal de onde pode editar e testar o runbook.  Tem a opção para utilizar o editor de scripts para trabalhar com [PowerShell diretamente](../automation/automation-edit-textual-runbook.md) ou [criar um runbook gráfico](../automation/automation-graphical-authoring-intro.md).  Para este tutorial, irá trabalhar com um script do PowerShell. 
 
@@ -97,7 +97,7 @@ A automatização do Azure tem um editor no portal de onde pode editar e testar 
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -185,9 +185,9 @@ A forma mais comum para iniciar um runbook que recolhe dados de monitorização 
 | Propriedade | Valor |
 |:--|:--|
 | Nome | Hora a hora a AutomationJobs |
-| É iniciado | Selecione sempre, pelo menos, 5 minutos posterior à hora atual. |
-| Recorrência | Recorrente |
-| Repetir cada | 1 hora |
+| Inicia | Selecione sempre, pelo menos, 5 minutos posterior à hora atual. |
+| Recorrência | Periódico |
+| Repetir a cada | 1 hora |
 | Expiração do conjunto | Não |
 
 Assim que a agenda for criada, tem de definir os valores de parâmetros que vão ser utilizados sempre que esta agenda inicia o runbook.
@@ -210,7 +210,7 @@ Everytime um runbook é iniciado, [é criada uma tarefa](../automation/automatio
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Utilize [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) para criar uma vista que apresenta os dados que já recolhidos para o repositório de análise de registos.
 - O runbook do pacote um [solução de gestão](operations-management-suite-solutions-creating.md) para distribuir pelos clientes.
 - Saiba mais sobre [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).

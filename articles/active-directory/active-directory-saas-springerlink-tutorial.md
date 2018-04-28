@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ligação Springer | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Springer ligação."
+title: 'Tutorial: Integração do Azure Active Directory com ligação Springer | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Springer ligação.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e532659be9b8aef303a20900465d16a7641d8cfe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b004bec7c022662a1c90f54079af4fd25c84fab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Azure Active Directory com ligação Springer
 
@@ -107,45 +107,25 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Springer ligação domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
 
-    a. No **identificador** caixa de texto, escreva o URL:`https://fsso.springer.com`
+    a. No **identificador** caixa de texto, escreva o URL: `https://fsso.springer.com`
 
-    b. No **URL de resposta** caixa de texto, escreva o URL:`https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    b. No **URL de resposta** caixa de texto, escreva o URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
 4. Verifique **Mostrar avançadas definições de URL**. Se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Springer ligação domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva o URL:`https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+    No **URL de início de sessão** caixa de texto, escreva o URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-5. Clique em **guardar** botão.
+5. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas. 
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_certificate.png)    
+
+6. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-6. Para gerar o **metadados** url, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_endpoint.png)
-     
-    d. Agora, a página de propriedades do **Springer ligação** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Para configurar o início de sessão único em **Springer ligação** lado, terá de enviar o gerado **URL de metadados** para [equipa de suporte de ligação de Springer](mailto:identity@springernature.com).
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-
+7. Para configurar o início de sessão único em **Springer ligação** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de ligação de Springer](mailto:identity@springernature.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

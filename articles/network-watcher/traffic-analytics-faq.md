@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de tráfego perguntas mais frequentes
 
@@ -104,11 +104,15 @@ ms.lasthandoff: 04/16/2018
 
         Está a ver as informações de recursos no dashboard; No entanto, não existem estatísticas relacionadas com o fluxo estão presentes. Dados não podem existir devido a não existem fluxos de comunicação entre os recursos. Aguarde a 60 minutos e Reverificar estado. Se tiver a certeza de que os fluxos de comunicação entre recursos existem e criar problemas no [fórum de voz do utilizador](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Como a análise de tráfego tem um preço?
+14. Pode configurar a análise de tráfego utilizando o PowerShell ou um modelo Azure Resource Manager?
+
+    Não, análise de tráfego só pode ser configurada através do portal do Azure.
+
+15.  Como a análise de tráfego tem um preço?
 
         Análise de tráfego é limitado otimização registos reduzidos e armazenar os registos avançados na área de trabalho de análise de registos. Enquanto na pré-visualização, análise de tráfego não é faturada otimização registos reduzidos, no entanto, retenção de dados numa área de trabalho está sujeito a faturação às taxas de publicada. Esta resposta será atualizada depois de preços para análise de tráfego estão disponível.
 
-15.  Como navegar através de teclado na vista de mapa Georreplicação?
+16.  Como navegar através de teclado na vista de mapa Georreplicação?
 
         A página de mapa georreplicação contém duas secções principais:
     

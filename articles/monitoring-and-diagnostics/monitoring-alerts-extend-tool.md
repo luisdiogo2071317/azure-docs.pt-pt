@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Como expandir alertas (cópia) do OMS no Azure
 A partir **14 de Maio de 2018**, todos os clientes através de alertas que são configurados no [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), será expandido para o Azure. Alertas que são expandidos para o Azure comportam-se da mesma forma que OMS. As capacidades de monitorização permaneçam intactas. Expandir alertas criados no OMS para o Azure fornece várias vantagens. Para obter mais informações sobre as vantagens e o processo de alargar alertas do OMS no Azure, consulte [expandir os alertas do OMS no Azure](monitoring-alerts-extend.md).
@@ -221,7 +221,7 @@ E por fim, se todos os alertas na área de trabalho especificado, já está agen
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas 
-Durante o processo de alargar alertas do OMS no Azure, pode haver problemas ocasionais que impede que o sistema de criação necessários [ação grupos](monitoring-action-groups.md). Nestes casos, uma mensagem de erro será apresentada no portal do OMS através de faixa na secção de alerta e, na chamada GET efetuada à API.
+Durante o processo de alargar alertas do OMS no Azure, pode haver ocasional problema que impede que o sistema de criação necessários [ação grupos](monitoring-action-groups.md). Nestes casos, uma mensagem de erro será apresentada no portal do OMS através de faixa na secção de alerta e, na chamada GET efetuada à API.
 
 Listadas abaixo estão os passos de remediação para cada erro:
 1. **Erro: A subscrição não está registada para utilizar o espaço de nomes 'insights'**: ![página Definições de alerta de portal do OMS com a mensagem de erro de registo](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +236,14 @@ Listadas abaixo estão os passos de remediação para cada erro:
     a. Quando bloqueia âmbito estiver ativada, restringindo qualquer alteração nova na subscrição ou grupo de recursos que contém a área de trabalho de análise de registos (OMS); o sistema não consegue expandir alertas (cópia) no Azure e criar grupos de ação necessária.
     
     b. Para resolver, elimine o *ReadOnly* bloqueio na sua subscrição ou grupo de recursos que contém a área de trabalho; utilizando o portal do Azure, o Powershell, CLI do Azure ou API. Para obter mais informações, veja o artigo no [utilização de recursos do bloqueio](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Depois de resolvido de acordo com os passos ilustrados no artigo, OMS irá expandir os alertas no Azure dentro da execução agendada o dia seguinte; sem a necessidade de qualquer ação ou foi iniciado.
+
+3. **Erro: Política está presente ao nível do grupo de recursos/subscrição**: ![página Definições de alerta de portal do OMS com a mensagem de erro de política](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Quando [política Azure](../azure-policy/azure-policy-introduction.md) é aplicada, restringindo a qualquer recurso novo na subscrição ou grupo de recursos que contém a área de trabalho de análise de registos (OMS); o sistema não consegue expandir alertas (cópia) no Azure e criar grupos de ação necessária.
+    
+    b. Para resolver, edite a política a causar o *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* erro, o que impede a criação de novos recursos na sua subscrição ou grupo de recursos que contém a área de trabalho. Através do portal do Azure, Powershell, a CLI do Azure ou a API; pode auditar as ações para localizar a política apropriada que provoca a falha. Para obter mais informações, veja o artigo no [visualização de registos de atividade para auditar as ações](../azure-resource-manager/resource-group-audit.md). 
     
     c. Depois de resolvido de acordo com os passos ilustrados no artigo, OMS irá expandir os alertas no Azure dentro da execução agendada o dia seguinte; sem a necessidade de qualquer ação ou foi iniciado.
 

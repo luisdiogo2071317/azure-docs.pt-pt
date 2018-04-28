@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do Azure gerida aplicações | Microsoft Docs"
-description: "Descreve os conceitos do Azure gerida aplicações"
+title: Descrição geral do Azure gerida aplicações | Microsoft Docs
+description: Descreve os conceitos do Azure gerida aplicações
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas pelo Azure
 
@@ -52,7 +52,7 @@ Para obter informações sobre como publicar uma aplicação gerida no Marketpla
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicações geridas
 
-Normalmente, os recursos para uma aplicação gerida residirem em dois grupos de recursos. O consumidor gere um grupo de recursos e o publicador a outro grupo de recursos. Ao definir a aplicação gerida, o publicador Especifica os níveis de acesso. A imagem seguinte mostra um cenário em que o publicador solicita a função de proprietário do grupo de recursos geridos. O publicador colocar um bloqueio de só de leitura neste grupo de recursos para o consumidor.
+Normalmente, os recursos para uma aplicação gerida residirem em dois grupos de recursos. O consumidor gere um grupo de recursos e o publicador a outro grupo de recursos. Ao definir a aplicação gerida, o publicador Especifica os níveis de acesso. A imagem seguinte mostra um cenário em que o publicador solicita a função de proprietário do grupo de recursos geridos. O publicador colocar um bloqueio de só de leitura neste grupo de recursos para o consumidor. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
 
 ![Acesso de grupo de recursos](./media/overview/access.png)
 

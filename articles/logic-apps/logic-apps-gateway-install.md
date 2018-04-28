@@ -1,25 +1,25 @@
 ---
 title: Instalar o gateway de dados no local - Azure Logic Apps | Microsoft Docs
-description: "Antes de aceder a origens de dados no local, instale o gateway de dados no local para a transferência de dados rápida e encriptação entre origens de dados no local e as logic apps"
-keywords: "aceder a dados no local, a transferência de dados, a encriptação e origens de dados"
+description: Antes de aceder a origens de dados no local, instale o gateway de dados no local para a transferência de dados rápida e encriptação entre origens de dados no local e as logic apps
+keywords: aceder a dados no local, a transferência de dados, a encriptação e origens de dados
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para Azure Logic Apps
 
@@ -54,9 +54,9 @@ Para obter informações sobre como utilizar o gateway com outros serviços, con
 
 ## <a name="requirements"></a>Requisitos
 
-**Minimum**
+**mínimo**
 
-* .NET 4.5 Framework
+* 4.5 do .NET framework
 * versão de 64 bits do Windows 7 ou Windows Server 2008 R2 (ou posterior)
 
 **recomendado**
@@ -242,6 +242,11 @@ Assim, quando o utilizador na nuvem interage com um elemento que está ligado à
 6. Os resultados são enviados da origem de dados, de volta para o gateway e, em seguida, ao serviço de nuvem do gateway. O serviço de gateway de nuvem, em seguida, utiliza os resultados.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Administração de nível de inquilino 
+
+Atualmente, não há nenhum único local onde os administradores inquilinos podem gerir todos os gateways que outros utilizadores tem instalado e configurado.  Se a um administrador inquilino, recomendamos que colocar os utilizadores na sua organização para adicioná-o como um administrador para cada gateway instalarem. Isto permite-lhe gerir todos os gateways na sua organização através da página de definições do Gateway ou através de [comandos do PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

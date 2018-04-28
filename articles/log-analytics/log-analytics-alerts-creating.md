@@ -1,8 +1,8 @@
 ---
 title: Criar alertas no OMS Log Analytics | Microsoft Docs
-description: "Alertas na análise de registos identificar informações importantes no seu repositório do OMS e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve como criar uma regra de alerta e detalhes de ações diferentes que podem realizar."
+description: Alertas na análise de registos identificar informações importantes no seu repositório do OMS e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve como criar uma regra de alerta e detalhes de ações diferentes que podem realizar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,34 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b692822660ab12f89b274cea75727fb808d673f8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Trabalhar com regras de alertas na análise de registos
-Os alertas são criados pelas regras de alerta que execute automaticamente pesquisas de registo em intervalos regulares.  É possível criar um registo de alerta se os resultados correspondentes aos critérios de específicos.  A regra pode, em seguida, execute automaticamente uma ou mais ações para notificá-lo do alerta proativamente ou da invocação do outro processo.   
+
+> [!NOTE]
+> Este artigo descreve clássicos alertas de análise de registos que são geridos no portal do OMS.  Os alertas na análise de registos são [que está a ser expandido para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Quando isto é feito, em seguida, irá criar e editar regras de alertas no portal do Azure e Nota Utilize os procedimentos neste artigo.
+
+
+Os alertas são criados por regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares.  É possível criar um registo de alerta se os resultados correspondentes aos critérios de específicos.  A regra pode, em seguida, executar automaticamente uma ou mais ações para notificá-lo do alerta proativamente ou invocar outro processo.   
 
 Este artigo descreve os processos para criar e editar regras de alertas utilizando o portal do OMS.  Para obter detalhes sobre as diferentes definições e como implementar a lógica necessária, consulte [alertas de compreender na análise de registos](log-analytics-alerts.md).
 
->[!NOTE]
-> Atualmente não é possível criar ou modificar uma regra de alerta no portal do Azure. 
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 Para criar uma regra de alerta através do portal do OMS, pode começa por criar uma pesquisa de registo dos registos que deve invocar o alerta.  O **alerta** botão estará disponível para que possa criar e configurar a regra de alerta.
 
 >[!NOTE]
-> Um máximo de 250 regras de alertas pode atualmente possível criar uma área de trabalho do OMS. 
+> Um máximo de 250 regras de alertas atualmente pode ser criado numa área de trabalho de análise de registos. 
 
 1. Na página de descrição geral do OMS, clique em **pesquisa registo**.
 2. Crie uma nova consulta de pesquisa de registo ou selecionar uma pesquisa de registo guardado. 
-3. Clique em **alerta** na parte superior da página para abrir o **Adicionar regra de alerta** ecrã.
+3. Clique em **Alerta** na parte superior da página para abrir o ecrã **Adicionar Regra de Alerta**.
 4. Configurar a regra de alerta utilizando informações [detalhes de regras de alerta](#details-of-alert-rules) abaixo.
-6. Clique em **guardar** para concluir a regra de alerta.  Será iniciada imediatamente a executar.
+6. Clique em **Guardar** para concluir a regra de alerta.  Será iniciada imediatamente a executar.
 
 
 ## <a name="edit-an-alert-rule"></a>Editar uma regra de alerta
@@ -59,7 +62,7 @@ Pode efetuar várias ações desta vista.
 ## <a name="details-of-alert-rules"></a>Detalhes de regras de alerta
 Quando criar ou editar uma regra de alerta no portal do OMS, trabalhar com o **Adicionar regra de alerta** ou **Editar regra de alerta** página.  As tabelas seguintes descrevem os campos neste ecrã.
 
-![Regra de alerta](media/log-analytics-alerts/add-alert-rule.png)
+![Regra de Alerta](media/log-analytics-alerts/add-alert-rule.png)
 
 ### <a name="alert-information"></a>Informações de alerta
 Estas são as definições básicas para a regra de alerta e os alertas que cria.
@@ -88,7 +91,7 @@ Define a frequência de execução da consulta de pesquisa.
 | Frequência de alerta | Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual ou menor do que a janela de tempo.  Se o valor é maior do que a janela de tempo, em seguida, o risco de registos que está a ser omitidos.<br><br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta é executada em 1:00, devolve registos entre 12:30 e 1:00 PM.  Da próxima vez que executar a consulta é 2:00 quando devolvam registos entre 1:30 e 2:00.  Nunca deverá ser avaliados de quaisquer registos criados entre 1:00 e 1:30. |
 
 
-### <a name="generate-alert-based-on"></a>Gerar alerta com base no
+### <a name="generate-alert-based-on"></a>Gerar alerta com base em
 Define os critérios que irão ser avaliados em comparação com os resultados da consulta de pesquisa para determinar se deve ser criado um alerta.  Estes detalhes será diferentes consoante o tipo de regra de alerta que selecionar.  Pode obter os detalhes para os tipos de regra de alerta diferente do [alertas de compreender na análise de registos](log-analytics-alerts.md).
 
 | Propriedade | Descrição |
@@ -105,8 +108,8 @@ Define os critérios que irão ser avaliados em comparação com os resultados d
 
 | Propriedade | Descrição |
 |:--- |:---|
-| Valor de agregação | Valor de limiar que cada valor de agregação nos resultados de exceder para ser considerado uma violação. |
-| Alerta de Acionador com base em | O número de falhas de um alerta a ser criado.  Pode especificar **Total de falhas** para qualquer combinação de falhas em todos os resultados definido ou **falhas consecutivas** para exigir que as falhas tem de ocorrer amostras consecutivas. |
+| Agregar valor | Valor de limiar que cada valor de agregação nos resultados de exceder para ser considerado uma violação. |
+| Acionar alerta com base em | O número de falhas de um alerta a ser criado.  Pode especificar **Total de falhas** para qualquer combinação de falhas em todos os resultados definido ou **falhas consecutivas** para exigir que as falhas tem de ocorrer amostras consecutivas. |
 
 ### <a name="actions"></a>Ações
 Regras de alertas sempre criará um [alerta de registo](#alert-records) quando é cumprido o limiar.  Também pode definir uma ou mais respostas para ser executado como enviar uma mensagem de e-mail ou iniciar um runbook.
@@ -149,7 +152,7 @@ Ações de Runbook inicia um runbook na automatização do Azure.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Instalar o [solução de gestão de alertas](log-analytics-solution-alert-management.md) para analisar alertas criados na análise de registos, juntamente com os alertas recolhidas a partir do System Center Operations Manager (SCOM).
 * Leia mais sobre [pesquisas de registo](log-analytics-log-searches.md) que pode gerar alertas.
 * Conclua uma explicação passo a passo para [configurar um webook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  

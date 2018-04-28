@@ -2,7 +2,7 @@
 title: Ativar o Azure Active Directory Domain Services com o PowerShell | Microsoft Docs
 description: Ativar o Azure Active Directory Domain Services com o PowerShell
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: a456a6265400abe1d3a3620df74e41d8b4399b97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22be243b9da5afd93744ca9410b63a8ec936088a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar o Azure Active Directory Domain Services com o PowerShell
 Este artigo mostra como ativar os serviços de domínio do Azure Active Directory (AD) através do PowerShell.
@@ -161,7 +161,7 @@ $AzureLocation = "westus"
 Connect-AzureAD
 
 # Login to your Azure subscription.
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
@@ -225,7 +225,7 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 * Ative a sincronização de palavra-passe para os serviços de domínio do Azure AD para que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as respetivas credenciais empresariais.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de criado o seu domínio gerido, execute as seguintes tarefas de configuração para poder utilizar o domínio gerido:
 
 * [Atualizar as definições do servidor DNS para a rede virtual para apontar para o seu domínio gerido](active-directory-ds-getting-started-dns.md)

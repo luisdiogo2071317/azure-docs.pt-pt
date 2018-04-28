@@ -1,6 +1,6 @@
 ---
-title: "Executar uma sequência de simulação de VMs de Hyper-V para um site secundário utilizando o Azure Site Recovery | Microsoft Docs"
-description: "Saiba como executar uma simulação de recuperação para as VMs de Hyper-V em nuvens VMM para um datacenter secundário utilizando o Azure Site Recovery."
+title: Executar uma sequência de simulação de VMs de Hyper-V para um site secundário utilizando o Azure Site Recovery | Microsoft Docs
+description: Saiba como executar uma simulação de recuperação para as VMs de Hyper-V em nuvens VMM para um datacenter secundário utilizando o Azure Site Recovery.
 services: site-recovery
 author: ponatara
 manager: abhemraj
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: ponatara
-ms.openlocfilehash: a586eac3be39a4d3fb35dff7a4b1cc40f32f2720
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c389776f62db5fd04f67ef22822e21fd4aee368f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar uma simulação de recuperação para as VMs de Hyper-V para um site secundário
 
@@ -45,17 +45,24 @@ Quando executar uma ativação pós-falha de teste, está a pedido para selecion
 
 **Opção** | **Detalhes** 
 --- | --- 
-Nenhum | VM de teste é criada no anfitrião no qual se encontra a VM de réplica. Não é adicionado à nuvem e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina para uma rede VM, depois de terem sido criadas.
+**Nenhum** | VM de teste é criada no anfitrião no qual se encontra a VM de réplica. Não é adicionado à nuvem e não está ligado a nenhuma rede.<br/><br/> Pode ligar a máquina para uma rede VM, depois de terem sido criadas.
 **Utilizar existentes** | VM de teste é criada no anfitrião no qual se encontra a VM de réplica. Não é adicionada a para a nuvem.<br/><br/>Crie uma rede VM que está isolada da sua rede de produção.<br/><br/>Se estiver a utilizar uma rede baseada em VLAN, recomendamos que crie uma rede lógica separada (não utilizada em produção) no VMM para esta finalidade. Esta rede lógica é utilizada para criar redes VM para as ativações pós-falha de teste.<br/><br/>A rede lógica deve estar associada a, pelo menos, um dos adaptadores de rede de todos os servidores de Hyper-V que alojam máquinas virtuais.<br/><br/>Para redes lógicas VLAN, os sites de rede que adicionar à rede lógica devem ser isolados.<br/><br/>Se estiver a utilizar uma rede lógica baseada em Virtualização de rede do Windows, o Azure Site Recovery cria automaticamente redes isoladas de VM. 
 **Criar uma rede** | Uma rede de teste temporário é criada automaticamente com base nas definições que especificou nas **rede lógica** e os respetivos sites de rede relacionadas.<br/><br/> Ativação pós-falha verifica se as VMs são criadas. |Deve utilizar esta opção se utilizar mais do que uma rede VM a um plano de recuperação.<br/><br/> Se estiver a utilizar redes de Virtualização de rede do Windows, esta opção pode criar automaticamente redes VM com as mesmas definições (sub-redes e conjuntos de endereços IP) na rede da máquina virtual de réplica. Estas redes VM são automaticamente limpa após a conclusão da ativação pós-falha de teste.<br/><br/> O teste é criada a VM no anfitrião no qual existe a máquina virtual de réplica. Não é adicionada a para a nuvem.
 
 ### <a name="best-practices"></a>Melhores práticas
 
 - Uma rede de produção de teste faz com que o período de indisponibilidade para cargas de trabalho de produção. Peça aos seus utilizadores para não utilizar aplicações relacionadas quando o exercício de recuperação após desastre está em curso.
-- A rede de teste não necessita fazer corresponder o tipo de rede lógica de VMM utilizado para ativação pós-falha de teste. No entanto, algumas combinações não funcionam: - se a réplica utiliza DHCP e do isolamento baseado em VLAN, a rede VM para a réplica não necessita de um conjunto de endereços IP estáticos. Ao utilizar a virtualização de rede do Windows para a ativação pós-falha de teste poderá não funciona porque não existem conjuntos de endereços estão disponíveis. 
-        -Ativação pós-falha de teste não funcionará se a rede de réplica utiliza sem isolamento, e a rede de teste utiliza Virtualização de rede do Windows. Isto acontece porque a rede sem isolamento não tem sub-redes necessárias para criar uma rede de Virtualização de rede do Windows.
+
+- A rede de teste não necessita fazer corresponder o tipo de rede lógica de VMM utilizado para ativação pós-falha de teste. No entanto, algumas combinações não funcionam:
+
+     - Se a réplica utiliza DHCP e do isolamento baseado em VLAN, a rede VM para a réplica não necessita de um conjunto de endereços IP estáticos. Ao utilizar a virtualização de rede do Windows para a ativação pós-falha de teste poderá não funciona porque não existem conjuntos de endereços estão disponíveis. 
+        
+     - Ativação pós-falha de teste não funcionará se a rede de réplica utiliza sem isolamento, e a rede de teste utiliza Virtualização de rede do Windows. Isto acontece porque a rede sem isolamento não tem sub-redes necessárias para criar uma rede de Virtualização de rede do Windows.
+        
 - Recomendamos que não utiliza a rede que selecionou mapeamento da rede, para ativação pós-falha de teste.
+
 - Como máquinas virtuais de réplica estão ligadas a redes VM mapeadas após a ativação pós-falha depende de como a rede VM está configurada na consola do VMM.
+
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>Rede VM configurada sem isolamento nem isolação de VLAN
 

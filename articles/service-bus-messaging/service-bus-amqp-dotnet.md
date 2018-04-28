@@ -1,11 +1,11 @@
 ---
-title: Service Bus com o .NET e AMQP 1.0 | Microsoft Docs
+title: Service Bus do Azure com o .NET e AMQP 1.0 | Microsoft Docs
 description: Utilizar o Service Bus do Azure a partir do .NET com AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utilize o barramento de serviço a partir do .NET com AMQP 1.0
 
@@ -62,7 +62,7 @@ Para facilitar a interoperabilidade com clientes não .NET, utilize apenas os ti
 
 | Tipo de objeto de corpo de .NET | Tipo AMQP mapeada | Tipo de secção de corpo de AMQP |
 | --- | --- | --- |
-| bool |booleano |Valor AMQP |
+| bool |boolean |Valor AMQP |
 | byte |ubyte |Valor AMQP |
 | ushort |ushort |Valor AMQP |
 | UInt |UInt |Valor AMQP |
@@ -71,18 +71,18 @@ Para facilitar a interoperabilidade com clientes não .NET, utilize apenas os ti
 | curto |curto |Valor AMQP |
 | Int |Int |Valor AMQP |
 | longa |longa |Valor AMQP |
-| flutuante |flutuante |Valor AMQP |
+| Número de vírgula flutuante |Número de vírgula flutuante |Valor AMQP |
 | duplo |duplo |Valor AMQP |
 | Decimal |decimal128 |Valor AMQP |
 | char |char |Valor AMQP |
 | DateTime |carimbo de data/hora |Valor AMQP |
 | GUID |UUID |Valor AMQP |
-| Byte] |Binário |Valor AMQP |
+| byte[] |Binário |Valor AMQP |
 | string |string |Valor AMQP |
 | Ser |lista |Valor AMQP: contidos na coleção de itens só podem ser aqueles que são definidos nesta tabela. |
 | Array |array |Valor AMQP: contidos na coleção de itens só podem ser aqueles que são definidos nesta tabela. |
 | System.Collections.IDictionary |Mapa |Valor AMQP: contidos na coleção de itens só podem ser aqueles que são definidos nesta tabela. Nota: as chaves de cadeia só são suportadas. |
-| Uri |Descrito cadeia (consulte a tabela seguinte) |Valor AMQP |
+| URI |Descrito cadeia (consulte a tabela seguinte) |Valor AMQP |
 | DateTimeOffset |Descrito longa (consulte a tabela seguinte) |Valor AMQP |
 | TimeSpan |Descrito longa (consulte o seguinte) |Valor AMQP |
 | Stream |Binário |Dados de AMQP (pode estar vários). As secções de dados contém os bytes não processados do objeto de sequência. |
@@ -90,21 +90,16 @@ Para facilitar a interoperabilidade com clientes não .NET, utilize apenas os ti
 
 | Tipo .NET | AMQP mapeada descrito tipo | Notas |
 | --- | --- | --- |
-| Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Funcionalidades não suportadas, restrições e diferenças comportamentais
+## <a name="behavioral-differences"></a>Diferenças comportamentais
 
-As seguintes funcionalidades da API de .NET de barramento de serviço não são atualmente suportadas ao utilizar AMQP:
-
-* Transações
-* Enviar através de destino de transferência
-
-Também existem algumas pequenas diferenças no comportamento da API .NET do Service Bus ao utilizar AMQP, em comparação comparada o protocolo predefinido:
+Existem algumas pequenas diferenças no comportamento da API .NET do Service Bus ao utilizar AMQP, em comparação comparada o protocolo predefinido:
 
 * O [OperationTimeout] [ OperationTimeout] propriedade é ignorada.
-* `MessageReceiver.Receive(TimeSpan.Zero)`é implementado como `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+* `MessageReceiver.Receive(TimeSpan.Zero)` é implementado como `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * A concluir as mensagens por tokens de bloqueio só pode ser efetuada pelos recetores mensagem que inicialmente receberam as mensagens.
 
 ## <a name="control-amqp-protocol-settings"></a>Definições do protocolo de controlo AMQP

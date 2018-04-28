@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fcdcc4cf948550467257fa6cbe9287cd26d49962
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4089fe636ad25f97fe78f0bd10553b93d768321d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados de Spark utilizando o Azure Data Factory 
 
@@ -47,9 +47,9 @@ As seguintes propriedades são suportadas para o serviço ligado do Spark:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Spark** | Sim |
 | anfitrião | Nome de anfitrião ou endereço IP do servidor do Spark  | Sim |
-| porta | A porta TCP que o servidor de Spark utiliza para escutar ligações de cliente.  | Sim |
-| serverType | O tipo de servidor de Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não |
-| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, * * HTTP * * | Não |
+| porta | A porta TCP que o servidor de Spark utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
+| Tipo | O tipo de servidor de Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não |
+| thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, **HTTP** | Não |
 | authenticationType | O método de autenticação utilizado para aceder ao servidor de Spark. <br/>Valores permitidos são: **anónimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | o nome de utilizador | O nome de utilizador que utilizar para aceder ao servidor de Spark.  | Não |
 | palavra-passe | A palavra-passe correspondente ao utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
@@ -76,8 +76,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Spark:
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
-            },
-            "httpPath" : "gateway/sandbox/spark"
+            }
         }
     }
 }

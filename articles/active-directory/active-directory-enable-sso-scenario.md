@@ -1,8 +1,8 @@
 ---
-title: "Gestão de aplicações com o Azure Active Directory | Microsoft Docs"
-description: "Este artigo as vantagens de integrar o Azure Active Directory no local, a nuvem e de aplicações SaaS."
+title: Gestão de aplicações com o Azure Active Directory | Microsoft Docs
+description: Este artigo as vantagens de integrar o Azure Active Directory no local, a nuvem e de aplicações SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestão de aplicações com o Azure Active Directory
 Para além do fluxo de trabalho real ou conteúdo, as empresas têm dois requisitos básicos para todas as aplicações:
@@ -111,5 +111,6 @@ Com o Azure AD pode proteger as suas aplicações com políticas de acesso granu
 Para começar a integrar aplicações com o Azure AD, observe o [guia de introdução de integrar o Azure Active Directory com aplicações obter](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Consulte também
-[Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
+[Artigo de índice para a gestão de aplicações no Azure Active Directory](active-directory-apps-index.md)
+[plano de implementação passo a passo para SSO para uma aplicação SaaS](http://aka.ms/ssodeploymentplan)
 

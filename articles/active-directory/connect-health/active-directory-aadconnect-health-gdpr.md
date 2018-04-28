@@ -1,36 +1,32 @@
 ---
-title: "Estado de funcionamento e regulamento de proteção de dados de geral do Azure AD Connect | Microsoft Docs"
-description: Este documento descreve como obter a conformidade de era GDPR com o Azure AD Connect.
+title: Estado de funcionamento e privacidade do utilizador do Azure AD Connect | Microsoft Docs
+description: Este documento descreve a privacidade do utilizador com o Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bf26e91308cfec0dc8ede20e683919b5764a4868
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect-health"></a>Conformidade GDPR e o Azure AD Connect Health 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidade do utilizador e o Azure AD Connect Health 
 
-[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR impõe novas regras em empresas, agências governamentais, não lucros e outras organizações que ofereçam bens e serviços a pessoas no EU ou que recolher e analisam dados associados ao residentes de EU. 
-
-Produtos e serviços Microsoft, estão disponíveis atualmente para o ajudar a satisfazer os requisitos de GDPR. Saiba mais sobre a política de Microsoft Privacy [Centro de confiança](https://www.microsoft.com/trustcenter).
-
-O Azure AD Connect Health monitoriza o serviço de sincronização e de infraestrutura de identidade no local. Também apresenta os alertas das informações e analisa. Microsoft está empenhada em conformidade GDPR nos vários serviços de nuvem quando a imposição começa Maio de 2018 e para fornecer relacionadas com GDPR oferece garantias ao rendimento no respetivos contractual compromissos. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> Este artigo descreve a compatibilidade de GDPR no Azure AD Connect Health. Para obter informações sobre a compatibilidade de GDPR no Azure AD Connect, consulte [GDPR compatibilidade e o Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>Este artigo lida com a privacidade do Azure AD Connect Health e utilizador.  Para obter informações sobre privacidade do Azure AD Connect e utilizador, consulte o artigo [aqui](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
-## <a name="gdpr-classification"></a>Classificação de GDPR
+## <a name="user-privacy-classification"></a>Classificação de privacidade do utilizador
 O Azure AD Connect Health se enquadrar o **dados processador** categoria de classificação de GDPR. Como um pipeline de processador de dados, o serviço fornece serviços de processamento de dados para parceiros de chaves e os consumidores de fim. O Azure AD Connect Health não gera dados de utilizador e não tem nenhum controlo independente ao longo do que os dados pessoais são recolhidos e como são utilizadas. Obtenção de dados, agregação, análise e relatórios do Azure AD Connect Health baseiam-se em dados no local existentes. 
 
 ## <a name="data-retention-policy"></a>Política de retenção de dados
@@ -67,5 +63,5 @@ Voltar a ativar a monitorização no Azure AD Connect Health para um serviço mo
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Rever a política de Microsoft Privacy no Centro de confiança](https://www.microsoft.com/trustcenter)
-* [Do Azure AD Connect e GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Operações do Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Do Azure AD Connect e privacidade do utilizador](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+

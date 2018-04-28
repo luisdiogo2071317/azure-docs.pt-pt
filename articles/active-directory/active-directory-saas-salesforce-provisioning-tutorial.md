@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configurar o Salesforce para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e da Salesforce."
+title: 'Tutorial: Configurar o Salesforce para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e da Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para aprovisionamento de utilizadores automática
 
@@ -27,9 +27,13 @@ O objetivo deste tutorial é mostrar os passos necessários para efetuar no Sale
 
 O cenário descrito neste tutorial assume que já tem os seguintes itens:
 
-*   Um inquilino do Azure Active directory.
-*   Tem de ter um inquilino para Salesforce válido para o trabalho ou Salesforce para Education. É possível utilizar uma conta de avaliação gratuita para o serviço.
-*   Uma conta de utilizador no Salesforce com permissões de administrador de equipa.
+*   Um inquilino do Azure Active directory
+*   Um inquilino em Salesforce.com
+
+>[!IMPORTANT] 
+>Se estiver a utilizar uma conta de avaliação em Salesforce.com, em seguida, será não é possível configurar o aprovisionamento automatizado do utilizador. Contas de avaliação não tem o acesso necessário do API ativado até que adquiridas. Pode contornar esta limitação, utilizando um livre [conta de programador](https://developer.salesforce.com/signup) para concluir este tutorial.
+
+Se estiver a utilizar um ambiente Sandbox do Salesforce, consulte o [tutorial de integração do Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Atribuir utilizadores a Salesforce
 

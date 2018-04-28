@@ -1,6 +1,6 @@
 ---
 title: Teste de caneta | Microsoft Docs
-description: "O artigo fornece uma descrição geral de penetração testar o processo de (pentest) e como executar pentest contra as suas aplicações em execução na infraestrutura do Azure."
+description: O artigo fornece uma descrição geral de penetração testar o processo de (pentest) e como executar pentest contra as suas aplicações em execução na infraestrutura do Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 5f2a72d133218e72d1db86b787c998cc50269d3a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1b7b6604de80beadf15dabe0d2da1d7a2e5fabd6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="pen-testing"></a>Teste de caneta
 Uma das vantagens da utilização do Azure para implementação e teste de aplicações é que pode obter rapidamente ambientes criados.  Não tem de se preocupar com requisitioning, aquisição, "racking e empilhamento" hardware os seus próprios no local.
@@ -34,7 +34,7 @@ O que fazer?
 A partir do dia 15 de Junho de 2017, Microsoft já não necessita de aprovação anterior ao realizar uma penetração testes relativamente aos recursos do Azure. Os clientes que pretendem formally documento futuros penetração testar ações de envolvimento com o Microsoft Azure são encorajados a preencher a [formulário de notificação de teste do Azure Service penetração](https://portal.msrc.microsoft.com/en-us/engage/pentest). Esta é apenas relacionados com o processo para o Microsoft Azure e não é aplicável a qualquer outro serviço de nuvem da Microsoft. 
 
 >[!IMPORTANT] 
->Enquanto notificar Microsoft a respeito de caneta atividades de teste já não é necessário clientes tem ainda está em conformidade com a [Microsoft Cloud Unified penetração testar regras do Engagement](https://technet.microsoft.com/en-us/mt784683). 
+>Enquanto notificar Microsoft a respeito de caneta atividades de teste já não é necessário clientes tem ainda está em conformidade com a [Microsoft Cloud Unified penetração testar regras do Engagement](https://technet.microsoft.com/mt784683). 
 
 Testes padrão, que pode realizar incluem:
 

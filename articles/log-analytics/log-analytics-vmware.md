@@ -1,11 +1,11 @@
 ---
-title: "Solução de monitorização da VMware no Log Analytics | Microsoft Docs"
-description: "Saiba mais sobre como a solução de monitorização de VMware pode ajudar a gerir os registos e monitorizar anfitriões ESXi."
+title: Solução de monitorização da VMware no Log Analytics | Microsoft Docs
+description: Saiba mais sobre como a solução de monitorização de VMware pode ajudar a gerir os registos e monitorizar anfitriões ESXi.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização do VMware (pré-visualização) na análise de registos
 
 ![Símbolo de VMware](./media/log-analytics-vmware/vmware-symbol.png)
+
+> [!NOTE]
+> A solução de monitorização de VMware foi preterida.  Os clientes que já instalou a solução podem continuar a utilizá-la, mas VMware monitorização não podem ser adicionado a quaisquer novas áreas de trabalho.
 
 A solução de monitorização do VMware na análise de registos é uma solução que ajuda a criar um registo centralizado e a abordagem de monitorização para os registos de VMware grandes. Este artigo descreve como pode resolver problemas, capturar e gerir os anfitriões ESXi numa única localização utilizando a solução. Com a solução, pode ver os dados detalhados para todos os seus anfitriões ESXi numa única localização. Pode ver as contagens de principais de eventos, o estado e as tendências de anfitriões VM e ESXi fornecidos através de registos de anfitrião ESXi. Pode resolver ao visualizar e pesquisar registos de anfitrião ESXi centralizados. Além disso, pode criar alertas com base em consultas de pesquisa de registo.
 
@@ -116,7 +119,7 @@ No **VMware** vista do dashboard, painéis estão organizados por:
 * Anfitrião superior ao número de eventos
 * Contagens de principais de eventos
 * Atividades de máquinas virtuais
-* ESXi Host Disk Events
+* Eventos do anfitrião ESXi do disco
 
 ![solution1](./media/log-analytics-vmware/solutionview1-1.png)
 

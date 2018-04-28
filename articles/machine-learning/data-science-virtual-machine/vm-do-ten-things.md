@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dez coisas que pode fazer na Máquina Virtual Data Science
+# <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas, pode fazê-lo nos dados de ciência de Máquina Virtual do Windows
 
-A Máquina Virtual de ciência de dados Microsoft (DSVM) é um ambiente de desenvolvimento de ciência de dados de elevado desempenho que lhe permite efetuar várias tarefas de exploração e modelação de dados. O ambiente inclui já criados e integrados em com várias ferramentas de análise de dados populares que facilitam a começar a trabalhar rapidamente com o Analysis Services no local, na nuvem ou implementações híbridas. O DSVM funciona diretamente com vários serviços do Azure e é capaz de ler e processar os dados que já estão armazenados no Azure, no Azure SQL Data Warehouse, o Azure Data Lake, o Storage do Azure, ou do BD Azure Cosmos. -Também pode utilizar outras ferramentas de análise, como o Azure Machine Learning e o Azure Data Factory.
+A Máquina Virtual de ciência de dados de Windows (DSVM) é um ambiente de desenvolvimento de ciência de dados de elevado desempenho que lhe permite efetuar várias tarefas de exploração e modelação de dados. O ambiente inclui já criados e integrados em com várias ferramentas de análise de dados populares que facilitam a começar a trabalhar rapidamente com o Analysis Services no local, as implementações de nuvem ou híbrida. O DSVM funciona diretamente com vários serviços do Azure e é capaz de ler e processar os dados que já estão armazenados no Azure, no Azure SQL Data Warehouse, o Azure Data Lake, o Storage do Azure, ou do BD Azure Cosmos. Também pode tirar partido outras ferramentas de análise, como o Azure Machine Learning e o Azure Data Factory.
 
 Neste artigo, irá aprender a utilizar o seu DSVM para efetuar várias tarefas de ciência de dados e interagir com outros serviços do Azure. Seguem-se algumas das ações que pode fazer no DSVM:
 
@@ -208,7 +208,7 @@ Cientistas de dados podem partilhar grandes conjuntos de dados, código ou outro
 Pode utilizar o Azure Powershell para criar uma partilha de serviço de ficheiros do Azure. Eis o script para ser executada no Azure PowerShell para criar uma partilha de ficheiros do Azure de serviço.
 
     # Authenticate to Azure.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     # Select your subscription
     Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
     # Create a new resource group.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5e657d3c171b63734ad4bf6c0097a3142993360
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com acelerados da rede
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/16/2018
 >   2. Voltar a criar a máquina virtual com acelerados rede ativada.
 >
 
-Neste tutorial, irá aprender a criar uma máquina virtual (VM) do Linux com acelerados da rede. Na melhoria de rede permite que a virtualização de e/s de raiz única (SR-IOV) para uma VM, melhorando em grande medida o desempenho de rede. Este caminho de elevado desempenho ignora o anfitrião datapath, reduzindo a latência, interferência e utilização da CPU, para utilização com cargas de trabalho de rede mais demanding em tipos VM suportados. A imagem seguinte mostra a comunicação entre duas VMs com e sem redes na melhoria:
+Neste tutorial, irá aprender a criar uma máquina virtual (VM) do Linux com acelerados da rede. Para criar uma VM do Windows com acelerados da rede, consulte [criar uma VM do Windows com a rede acelerados](create-vm-accelerated-networking-powershell.md). Na melhoria de rede permite que a virtualização de e/s de raiz única (SR-IOV) para uma VM, melhorando em grande medida o desempenho de rede. Este caminho de elevado desempenho ignora o anfitrião datapath, reduzindo a latência, interferência e utilização da CPU, para utilização com cargas de trabalho de rede mais demanding em tipos VM suportados. A imagem seguinte mostra a comunicação entre duas VMs com e sem redes na melhoria:
 
 ![Comparação](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -78,7 +78,7 @@ Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create
 az group create --name myResourceGroup --location centralus
 ```
 
-Tem de selecionar uma região de Linux suportada listada na [Linux acelerados redes](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Selecione uma região de Linux suportada listada na [Linux acelerados redes](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* com uma sub-rede:
 
@@ -141,7 +141,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nic"></a>Criar uma VM e anexe o NIC
-Quando criar a VM, especifique o NIC que criou com `--nics`. Tem de selecionar um tamanho e a distribuição listados em [Linux acelerados redes](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+Quando criar a VM, especifique o NIC que criou com `--nics`. Selecione um tamanho e a distribuição listados na [Linux acelerados redes](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). O exemplo seguinte cria uma VM chamada *myVM* com a imagem de UbuntuLTS e um tamanho que suporte redes acelerados (*Standard_DS4_v2*):
 
@@ -158,7 +158,7 @@ az vm create \
 
 Para obter uma lista de todos os tamanhos de VM e características, consulte [tamanhos de VM com Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Assim que a VM é criada, é devolvido o resultado semelhante ao seguinte exemplo de saída. Tome nota do **publicIpAddress**. Este endereço é utilizado para aceder a VM em passos subsequentes.
+Assim que a VM é criada, é devolvido o resultado semelhante ao seguinte exemplo de saída. Anote o **publicIpAddress**. Este endereço é utilizado para aceder a VM em passos subsequentes.
 
 ```azurecli
 {

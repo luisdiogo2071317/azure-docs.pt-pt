@@ -1,8 +1,8 @@
 ---
-title: "Criar aplicação Scala para executar em clusters do Spark - Azure HDInsight | Microsoft Docs"
-description: "Crie uma aplicação de Spark escrita no Scala com Apache Maven como o sistema de compilação e um archetype Maven existente para Scala fornecida o IntelliJ IDEA."
+title: Criar aplicação Scala para executar em clusters do Spark - Azure HDInsight | Microsoft Docs
+description: Crie uma aplicação de Spark escrita no Scala com Apache Maven como o sistema de compilação e um archetype Maven existente para Scala fornecida o IntelliJ IDEA.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 24becbf5f539ac031d6f5b217a4c5a6b59f572f8
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d64d60112641992a5a56ee5d129e7cbe754bde9d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Criar uma aplicação de Scala Maven para executar no cluster do Apache Spark no HDInsight
 

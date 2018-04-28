@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d57c80e8e965e15d92736ec482247f02064f6009
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Azure Active Directory com OpsGenie
 
@@ -112,33 +112,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     No **URL de início de sessão** caixa de texto, escreva o URL: `https://app.opsgenie.com/auth/login`
 
-4. Clique em **guardar** botão.
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+
+5. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-5. No **OpsGenie configuração** secção, clique em **configurar OpsGenie** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** da secção de referência rápida.
+6. No **OpsGenie configuração** secção, clique em **configurar OpsGenie** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** da secção de referência rápida.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
-
-6. Para gerar o **URL de metadados**, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
-     
-    d. Agora, a página de propriedades do **OpsGenie** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Abrir outra instância do browser e, em seguida, inicie sessão na OpsGenie como administrador.
 
@@ -160,13 +144,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     a. No **SAML 2.0 Endpoint** caixa de texto, colar **único início de sessão no URL do serviço**valor que copiou do portal do Azure.
     
-    b. No **Url de metadados:** caixa de texto, colar **URL de metadados**valor que copiou do portal do Azure.
+    b. No **Url de metadados:** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure.
     
     c. Clique em **guardar alterações**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.

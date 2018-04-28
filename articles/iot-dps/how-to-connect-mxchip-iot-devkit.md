@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Utilizar o aprovisionamento automático do serviço de aprovisionamento de dispositivos do Azure IoT Hub para registar o DevKit de IoT MXChip com o IoT Hub
 
@@ -54,7 +54,7 @@ Para ligar o DevKit ao dispositivo de aprovisionamento de instância de serviço
 4. Abra o Visual Studio Code, ligar a DevKit para o seu computador e, em seguida, abra a pasta que contém o código clonou.
 
 5. Abra **DevKitDPS.ino**. Localizar e substituir `[Global Device Endpoint]` e `[ID Scope]` com valores que apontou apenas para baixo.
-  ![Ponto final de DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) pode deixar o **registrationId** em branco. A aplicação gera uma por si com base na versão de firmware e do endereço de MAC. Se pretender personalizar o ID de registo, tem de utilizar apenas alfanuméricos, minúsculas e hífen combinações com um máximo de 128 carateres. Para obter mais informações, consulte [gerir inscrições de dispositivos com o portal do Azure](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  ![Ponto final de DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) pode deixar o **registrationId** em branco. A aplicação gera uma por si com base na versão de firmware e do endereço de MAC. Se pretender personalizar o ID de registo, tem de utilizar apenas alfanuméricos, minúsculas e hífen combinações com um máximo de 128 carateres. Para obter mais informações, consulte [gerir inscrições de dispositivos com o portal do Azure](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. Utilizar rápida aberta no VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) e o tipo *tarefas de carregamento de dispositivo* para criar e carregar o código para o DevKit.
 

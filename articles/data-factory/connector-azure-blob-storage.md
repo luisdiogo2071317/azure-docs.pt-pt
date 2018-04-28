@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: b0eca20a801bbe431eff8ed0accffe2705d6c41c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c214dc34361bea49ad00cb5dfab71a7e6855996
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,10 +134,13 @@ Para copiar dados para e do armazenamento de BLOBs, defina a propriedade de tipo
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida **AzureBlob**. |Sim |
-| folderPath | O caminho para o contentor e a pasta no armazenamento de Blobs. Um exemplo é myblobcontainer/myblobfolder /. |Sim |
-| fileName | Especifique o nome do blob no **folderPath** se pretende copiar para e de um blob específico. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os blobs na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída e **preserveHierarchy** não esteja especificado o sink de atividade, a atividade de cópia gera automaticamente o nome do blob com o seguinte formato: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Um exemplo é `Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz`. |Não |
+| folderPath | Caminho para o contentor e a pasta no armazenamento de Blobs. Um exemplo é myblobcontainer/myblobfolder /. |Sim |
+| fileName | **Filtro de nome ou o caráter universal** para blob(s) sob a "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os blobs na pasta. <br/><br/>Para o filtro, permitidos são de carateres universais: `*` (vários carateres) e `?` (único caráter).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída e **preserveHierarchy** não esteja especificado o sink de atividade, a atividade de cópia gera automaticamente o nome do blob com o padrão seguinte: `Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]`. Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não |
 | formato | Se pretender copiar ficheiros como entre arquivos baseados em ficheiros (cópia binário), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Definir o **tipo** propriedade **formato** para um destes valores. Para obter mais informações, consulte o [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são **Optimal** e **Fastest**. |Não |
+
+>[!TIP]
+>Para copiar todos os blobs numa pasta, especifique **folderPath** apenas.<br>Para copiar um blob único com um nome específico, especifique **folderPath** com parte de pasta e **fileName** com o nome de ficheiro.<br>Para copiar um subconjunto de blobs de uma pasta, especifique **folderPath** com parte de pasta e **fileName** com filtro de caráter universal. 
 
 **Exemplo:**
 

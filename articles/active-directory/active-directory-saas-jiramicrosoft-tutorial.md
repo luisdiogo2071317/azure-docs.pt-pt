@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Microsoft Azure Active Directory-início de sessão único para JIRA | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e do Microsoft Azure Active Directory-início de sessão único para JIRA."
+title: 'Tutorial: Integração do Azure Active Directory com o Microsoft Azure Active Directory-início de sessão único para JIRA | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e do Microsoft Azure Active Directory-início de sessão único para JIRA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ade72311977d1a9f40eb0750afd9d906b883d6c6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Tutorial: Integração do Azure Active Directory com o Microsoft Azure Active Directory-início de sessão único para JIRA
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_samlbase.png)
 
 3. No **Microsoft Azure Active Directory-início de sessão único para o domínio de JIRA e URLs** secção, execute os seguintes passos:
@@ -128,29 +128,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. A porta é opcional se for um URL com nome. Estes valores são recebidos durante a configuração de Jira Plug-in do, que é explicada mais tarde no tutorial.
- 
-4. Para gerar o **metadados** url, execute os seguintes passos:
 
-    a. Clique em **registos de aplicação**.
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
     
-    ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\endpoint.png)
+    ![Configurar o início de sessão único](./media/active-directory-saas-msaadssojira-tutorial/tutorial_metadataurl.png)
      
-    d. Agora, a página de propriedades do **Microsoft Azure Active Directory-início de sessão único para JIRA** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\appid.png)
-
-    e. Gerar o **URL de metadados** através do padrão de seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` e copie este valor no bloco de notas, porque é utilizado mais tarde para a configuração do plug-in.
-
 5. Clique em **guardar** botão.
 
     ![Configurar o início de sessão único](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_general_400.png)
@@ -175,34 +159,30 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     > [!TIP]
     > Certifique-se de que existe apenas um certificado mapeado contra a aplicação para que não há nenhum erro de resolver os metadados. Se existirem vários certificados, depois de resolver os metadados, o administrador obtém um erro.
- 
-    a. No **URL de metadados** colar o **URL de metadados** gerado a partir do Azure AD e clique em de **resolver** botão. Lê o URL de metadados do IdP e preenche a todas as informações de campos.
+
+    a. No **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure e clique em de **resolver** botão. Lê o URL de metadados do IdP e preenche a todas as informações de campos.
 
     b. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os no **identificador, o URL de resposta e o URL de início de sessão** caixas de texto em respetivamente **Microsoft Azure Active Directory-início de sessão único para o domínio de JIRA e URLs** secção no portal do Azure.
 
     c. No **nome do botão de início de sessão** escreva o nome do botão para a organização quer que os utilizadores vejam no ecrã de início de sessão.
 
-    d. No **localizações de ID de utilizador de SAML** selecione **ID de utilizador está a ser o elemento de NameIdentifier da declaração de assunto** ou **ID de utilizador está a ser um elemento de atributo**.  Este ID tem de ser o id de utilizador JIRA. Se o id de utilizador não corresponde, sistema não permitirá que os utilizadores iniciem sessão. 
+    d. No **localizações de ID de utilizador de SAML** selecione **ID de utilizador está a ser o elemento de NameIdentifier da declaração de assunto** ou **ID de utilizador está a ser um elemento de atributo**.  Este ID tem de ser o id de utilizador JIRA. Se o id de utilizador não corresponde, sistema não permitirá que os utilizadores iniciem sessão.
 
     > [!Note]
     > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterar isto para uma opção de atributo e introduza o nome do atributo adequado.
 
-    e. Se selecionar **ID de utilizador está a ser um elemento de atributo** opção, em seguida, no **nome de atributo** caixa de texto, escreva o nome do atributo onde é esperado o Id de utilizador. 
+    e. Se selecionar **ID de utilizador está a ser um elemento de atributo** opção, em seguida, no **nome de atributo** caixa de texto, escreva o nome do atributo onde é esperado o Id de utilizador.
 
     f. Se estiver a utilizar o domínio Federado (por exemplo, etc. do AD FS) com o Azure AD, em seguida, clique em de **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
     
     g. No **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
 
-    h. Verifique **ativar início de sessão único limite** se pretende terminar a sessão do Azure AD quando um utilizador terminar a sessão de JIRA. 
+    h. Verifique **ativar início de sessão único limite** se pretende terminar a sessão do Azure AD quando um utilizador terminar a sessão de JIRA.
 
     i. Clique em **guardar** botão para guardar as definições.
 
     > [!NOTE]
     > Para obter mais informações sobre a instalação e a resolução de problemas, visite [guia de administração do conector do MS JIRA SSO](ms-confluence-jira-plugin-adminguide.md) e também existir [FAQ](ms-confluence-jira-plugin-faq.md) para a assistência
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

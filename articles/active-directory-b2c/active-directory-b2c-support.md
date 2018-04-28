@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4f665985cbb1bb02d5f2378d1953de76303de04d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Do Azure Active Directory B2C: Pedidos de suporte de ficheiros
 Pode ficheiro pedidos de suporte para o Azure Active Directory (Azure AD) B2C no portal do Azure com os seguintes passos:
@@ -35,7 +35,7 @@ Pode ficheiro pedidos de suporte para o Azure Active Directory (Azure AD) B2C no
    * **Emitir tipo** é **técnica**.
    * Escolha as adequadas **subscrição**.
    * **Serviço** é **do Active Directory**.
-   * Escolha as adequadas **plano de suporte**. Se não tiver uma, pode inscrever para uma [aqui](https://azure.microsoft.com/en-us/support/plans/).
+   * Escolha as adequadas **plano de suporte**. Se não tiver uma, pode inscrever para uma [aqui](https://azure.microsoft.com/support/plans/).
      
      ![Suporte - Noções básicas](./media/active-directory-b2c-support/support-basics.png)
 6. No **problema** painel, utilize estes detalhes e clique em **seguinte**.

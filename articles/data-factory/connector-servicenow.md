@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6926ae6c67e3397006e95595a8dc28bab67256da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados de ServiceNow utilizando o Azure Data Factory
 
@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ServiceNow:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **ServiceNow** | Sim |
-| endpoint | O ponto final do servidor do ServiceNow (`http://ServiceNowData.com`).  | Sim |
+| endpoint | O ponto final do servidor do ServiceNow (`http://<instance>.service-now.com`).  | Sim |
 | authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são: **básico**, **OAuth2** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor do ServiceNow para autenticação básica e OAuth2.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome de utilizador para a autenticação básica e OAuth2. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
@@ -63,7 +63,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ServiceNow:
     "properties": {
         "type": "ServiceNow",
         "typeProperties": {
-            "endpoint" : "http://ServiceNowData.com",
+            "endpoint" : "http://<instance>.service-now.com",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

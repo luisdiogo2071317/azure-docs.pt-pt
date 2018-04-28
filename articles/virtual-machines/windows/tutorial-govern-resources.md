@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3c32b5ce90d4e5aafacb8211ff8f432bc3c78db8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Governação de máquina virtual com o Azure PowerShell
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/16/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure. Para instalações locais, tem também [transferir o módulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo no Azure Active Directory.
+Se optar por instalar e utilizar o PowerShell localmente, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure. Para instalações locais, tem também [transferir o módulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo no Azure Active Directory.
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 

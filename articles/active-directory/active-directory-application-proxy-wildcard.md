@@ -1,8 +1,8 @@
 ---
-title: "Aplicações de caráter universal no proxy de aplicações do Azure Active Directory | Microsoft Docs"
-description: "Saiba como utilizar aplicações de caráter universal no proxy de aplicações do Azure Active Directory."
+title: Aplicações de caráter universal no proxy de aplicações do Azure Active Directory | Microsoft Docs
+description: Saiba como utilizar aplicações de caráter universal no proxy de aplicações do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory 
 
@@ -70,7 +70,7 @@ Quando utilizar domínios personalizados, terá de criar uma entrada DNS com um 
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Para confirmar que tiver configurado o CNAME corretamente, pode utilizar [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) dos pontos finais de destino, por exemplo, `expenses.adventure-works.com`.  A resposta deve incluir o alias já mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Para confirmar que tiver configurado o CNAME corretamente, pode utilizar [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) dos pontos finais de destino, por exemplo, `expenses.adventure-works.com`.  A resposta deve incluir o alias já mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Considerações

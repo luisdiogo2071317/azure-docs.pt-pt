@@ -1,11 +1,11 @@
 ---
-title: "Pré-carregar recursos num ponto final do Azure CDN | Microsoft Docs"
-description: "Saiba como carregar previamente conteúdo em cache num ponto final de CDN do Azure."
+title: Pré-carregar recursos num ponto final do Azure CDN | Microsoft Docs
+description: Saiba como carregar previamente conteúdo em cache num ponto final de CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: mazha
-ms.openlocfilehash: e00205ddcaab277029d7185d0158a64818d0d49b
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar recursos num ponto final da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -67,6 +67,6 @@ Este tutorial orienta-o através da pré-carregamento de conteúdo em cache em t
 
 ## <a name="see-also"></a>Consulte também
 * [Remover um ponto final de CDN do Azure](cdn-purge-endpoint.md)
-* [Referência da API de REST de CDN do Azure: pré-carregar conteúdo num ponto final](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/loadcontent)
-* [Referência da API de REST de CDN do Azure: remover o conteúdo de um ponto final](https://docs.microsoft.com/en-us/rest/api/cdn/endpoints/purgecontent)
+* [Referência da API de REST de CDN do Azure: pré-carregar conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referência da API de REST de CDN do Azure: remover o conteúdo de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

@@ -3,17 +3,17 @@ title: Resolução de problemas de instâncias de contentor do Azure
 description: Saiba como resolver problemas com instâncias de contentor do Azure
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ac7ddbccdef736bce941716883cf821a0f5c1f34
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Resolver problemas de implementação e contentor em instâncias de contentor do Azure
 
@@ -279,7 +279,7 @@ Instâncias de contentor do Azure utiliza um mecanismo de colocação em cache p
 Para garantir que o tempo de arranque de contentor mais rápido do Windows, utilize um do **três mais recente** versões dos seguintes **duas imagens** como a imagem de base:
 
 * [Windows Server 2016] [ docker-hub-windows-core] (LTS apenas)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+* [Servidor do Windows Server 2016 Nano][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Recurso erro não está disponível
 

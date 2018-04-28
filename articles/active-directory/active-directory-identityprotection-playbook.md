@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory Identity Protection manual de comunicação social | Microsoft Docs"
+title: Azure Active Directory Identity Protection manual de comunicação social | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection lhe permite limitar a capacidade de um atacante para explora um dispositivo ou identidade comprometida e para proteger uma identidade ou um dispositivo que anteriormente era suspeito ou conhecido for comprometida.
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection manual de comunicação social
 
@@ -50,7 +50,7 @@ Concluir o procedimento seguinte, é necessário utilizar:
 
 **Para simular um início de sessão de um IP anónimo, execute os seguintes passos**:
 
-1. Utilizar o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Utilizar o [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), navegue para [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
 2. Introduza as credenciais da conta que pretende ver apresentado no **inícios de sessão de endereços IP anónimos** relatório.
 
 O início de sessão aparece no dashboard do Identity Protection dentro de 10 a 15 minutos. 
@@ -76,7 +76,7 @@ A concluir o procedimento seguinte requer a utilização de uma conta de utiliza
 **Para simular um início de sessão a partir de uma localização familiarizado, execute os seguintes passos**:
 
 1. Quando iniciar sessão com a sua conta de teste, falha o desafio MFA não transferindo o desafio MFA.
-2. Utilizando a nova VPN, navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com) e introduza as credenciais da sua conta de teste.
+2. Utilizando a nova VPN, navegue para [ https://myapps.microsoft.com ](https://myapps.microsoft.com) e introduza as credenciais da sua conta de teste.
    
 
 O início de sessão aparece no dashboard do Identity Protection dentro de 10 a 15 minutos.
@@ -90,18 +90,18 @@ Simulando a condição de deslocação impossível é difícil, porque o algorit
 
 **Para simular um deslocação impossível para localização atípica, execute os seguintes passos**:
 
-1. Utilizando o seu browser padrão, navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Utilizando o seu browser padrão, navegue para [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
 2. Introduza as credenciais da conta que pretende gerar um evento de risco deslocação impossível para.
 3. Altere o agente de utilizador. Pode alterar agente de utilizador no Internet Explorer a partir de ferramentas de programador ou alterar o agente de utilizador no Firefox ou Chrome utilizando um suplemento de alternador do agente de utilizador.
 4. Altere o seu endereço IP. Pode alterar o seu endereço IP utilizando uma VPN, um suplemento de Tor ou girar configurar uma nova máquina no Azure num centro de dados diferentes.
-5. Início de sessão para [https://myapps.microsoft.com](https://myapps.microsoft.com) com as mesmas credenciais como antes e dentro de alguns minutos após o anterior início de sessão.
+5. Início de sessão para [ https://myapps.microsoft.com ](https://myapps.microsoft.com) com as mesmas credenciais como antes e dentro de alguns minutos após o anterior início de sessão.
 
 O início de sessão aparece no dashboard do Identity Protection dentro de 2 a 4 horas.
 
 ## <a name="simulating-vulnerabilities"></a>Simulando vulnerabilidades
 Vulnerabilidades são fragilidades num ambiente do Azure AD que podem ser forem exploradas por um ator incorretos. Atualmente 3 tipos de vulnerabilidades estão anexados no Azure AD Identity Protection que tiram partido de outras funcionalidades do Azure AD. Estas vulnerabilidades serão apresentadas no dashboard do Identity Protection automaticamente depois destas funcionalidades estão configuradas.
 
-* Azure AD [multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [multi-factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
@@ -120,7 +120,7 @@ Para obter mais informações, consulte [política de segurança do utilizador r
 
 **Para testar uma política de segurança de risco do utilizador, execute os seguintes passos**:
 
-1. Início de sessão para [https://portal.azure.com](https://portal.azure.com) com credenciais de administrador global para o seu inquilino.
+1. Início de sessão para [ https://portal.azure.com ](https://portal.azure.com) com credenciais de administrador global para o seu inquilino.
 2. Navegue para **identidade proteção**. 
 3. No **do Azure AD Identity Protection** página, clique em **política do utilizador risco**.
 4. No **atribuições** secção, selecione os utilizadores pretendidos (e grupos) e o nível de risco do utilizador.
@@ -145,7 +145,7 @@ Para obter mais informações, consulte [política de segurança do utilizador r
 
 **Para testar um início de sessão na política de risco, execute os seguintes passos:**
 
-1. Início de sessão para [https://portal.azure.com ](https://portal.azure.com) com credenciais de administrador global para o seu inquilino.
+1. Início de sessão para [ https://portal.azure.com ](https://portal.azure.com) com credenciais de administrador global para o seu inquilino.
 
 2. Navegue para **do Azure AD Identity Protection**.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -53,7 +53,7 @@ Conjuntos de back-end podem ser compostos por NICs, conjuntos de dimensionamento
 
 **Q. As regiões está disponível no serviço?**
 
-Gateway de aplicação está disponível em todas as regiões do global Azure. Também está disponível no [Azure China](https://www.azure.cn/) e [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Gateway de aplicação está disponível em todas as regiões do global Azure. Também está disponível no [Azure China](https://www.azure.cn/) e [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **Q. Esta é uma implementação dedicada para a minha subscrição ou é partilhado entre os clientes?**
 
@@ -329,4 +329,4 @@ A razão mais comum é acesso para o back-end está a ser bloqueado por um NSG o
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Para obter mais informações sobre a visita de Gateway de aplicação [introdução ao Gateway de aplicação](application-gateway-introduction.md).
+Para obter mais informações sobre a visita de Gateway de aplicação [que é o Gateway de aplicação do Azure?](overview.md)

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do Serviço de Armazenamento do Azure para Dados Inativos
 
@@ -72,7 +72,7 @@ R: Sim, se lhe [utilizar as suas próprias chaves de encriptação](storage-serv
 
 **P: está ativada por predefinição de encriptação do serviço de armazenamento, quando criar uma conta de armazenamento?**
 
-R: Sim, a encriptação do serviço de armazenamento (através de chaves gerida pela Microsoft) está ativada por predefinição para todas as contas de armazenamento – Azure Resource Manager e clássico. Foi ativada para todos os serviços, bem como – armazenamento de BLOBs, o Table storage, armazenamento de filas e ficheiros do Azure.
+R: Sim, a encriptação do serviço de armazenamento está ativada por predefinição para todas as contas de armazenamento e todos os serviços de armazenamento do Azure.
 
 **P: como é diferente do Azure Disk Encryption?**
 

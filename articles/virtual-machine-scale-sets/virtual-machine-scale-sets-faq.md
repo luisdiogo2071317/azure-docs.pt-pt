@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b0a704a6ac4a317e0d8e280a9353b04f9b4d919b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -170,7 +170,7 @@ Para obter mais informações, consulte [criar ou atualizar um dimensionamento d
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -337,7 +337,7 @@ A documentação do Cofre de chaves do Azure indica se a API de REST do segredo 
  
 Método | do IdP
 --- | ---
-INTRODUÇÃO | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Substitua {*segredo-name*} com o nome e a substituir {*segredo versão*} com a versão do segredo que pretende obter. A versão secreta poderão ser excluída. Nesse caso, é obtida a versão atual.
   

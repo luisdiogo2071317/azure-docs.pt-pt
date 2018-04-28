@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outro
 
@@ -82,8 +82,8 @@ O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sis
 - Debian 7 [ (versões de kernel suportado)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Debian 8 [ (versões de kernel suportado)](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3)
-- SUSE Linux Enterprise Server 11 SP3
-- SUSE Linux Enterprise Server 11 SP4
+- SP3 do SUSE Linux Enterprise Server 11
+- SP4 do SUSE Linux Enterprise Server 11
 
 (Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger o computador novamente post a atualização.)
 
@@ -130,7 +130,7 @@ Europa | RU oeste, RU Sul, Europa Norte, Europa Ocidental
 Austrália   | Leste da Austrália, Sudeste da Austrália
 Azure Government    | E.u. a US Virginia, E.U.A. us Iowa, E.U.A. us Arizona, E.U.A. us Texas, DOD de e.u. a leste, DOD de e.u. a Central
 Alemanha | Alemanha Central, Alemanha Nordeste
-China | China East, China North
+China | Leste da China, Norte da China
 
 >[!NOTE]
 >
@@ -168,6 +168,8 @@ Encriptação de Inativos (SSE) | Suportadas | Para contas de armazenamento de c
 Encriptação de disco do Azure (ADE) | Não suportado |
 Disco frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ativar a replicação novamente para a VM.
 Excluir o disco | Não suportado|   Disco temporário é excluído por predefinição.
+Direto de espaços de armazenamento  | Não suportado|
+Servidor de ficheiros de escalamento horizontal  | Não suportado|
 LRS | Suportadas |
 GRS | Suportadas |
 RA-GRS | Suportadas |

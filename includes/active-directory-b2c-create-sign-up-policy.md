@@ -1,4 +1,4 @@
-Para ativar a inscrição na sua aplicação, tem de criar uma política de inscrição. Esta política descreve as experiências que os consumidores têm durante a inscrição e os conteúdos de tokens que a aplicação recebe nas inscrições com êxito.
+Se pretender ativar apenas inscrição na sua aplicação, utilize um **inscrição** política. Esta política descreve as experiências de que os clientes percorrer durante a inscrição e os conteúdos de tokens que a aplicação recebe num ups de início de sessão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

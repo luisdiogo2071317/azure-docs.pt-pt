@@ -1,6 +1,6 @@
 ---
-title: "PowerShell para pontos finais do serviço de rede Virtual e as regras do SQL Server | Microsoft Docs"
-description: "Fornece scripts do PowerShell para criar e gerir pontos finais do serviço Virtual para a base de dados do SQL do Azure."
+title: PowerShell para pontos finais do serviço de rede Virtual e as regras do SQL Server | Microsoft Docs
+description: Fornece scripts do PowerShell para criar e gerir pontos finais do serviço Virtual para a base de dados do SQL do Azure.
 services: sql-database
 author: MightyPen
 manager: jhubbard
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5fcf33d3d54b118c1c25f1467a496da3644a2345
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Utilizar o PowerShell para criar um ponto final do serviço Virtual e uma regra para a SQL Database do Azure
 
@@ -50,6 +50,9 @@ A lista seguinte mostra a sequência de outras *principais* cmdlets que tem de e
 - Pode já iniciar sessão no Azure, tal como através de [portal do Azure][http-azure-portal-link-ref-477t].
 - Já pode executar scripts do PowerShell.
 
+> [!NOTE]
+> Certifique-se de que pontos finais de serviço estão ativados para a Vnet/sub-rede que pretende adicionar ao seu servidor; caso contrário a criação da regra de Firewall Vnet irá falhar.
+
 #### <a name="one-script-divided-into-four-chunks"></a>Um script dividido em quatro segmentos
 
 A nossa demonstração script do PowerShell está dividida numa sequência de scripts mais pequenos. A divisão facilita learning e proporciona flexibilidade. Os scripts devem ser executados na respetiva sequência indicada. Se não tiver agora tempo para executar os scripts, nosso resultado do teste real é apresentado ao script 4.
@@ -79,7 +82,7 @@ Este script do PowerShell primeiro atribui valores de variáveis. Os scripts sub
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -519,7 +522,7 @@ Este PowerShell script não atualizar tudo, exceto se responder Sim, se é pede-
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

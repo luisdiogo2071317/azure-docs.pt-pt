@@ -1,27 +1,24 @@
 ---
-title: Vistas de sistema do SQL Data Warehouse | Microsoft Docs
-description: As ligações ao sistema vistas conteúdo para o SQL Data Warehouse.
+title: Vistas de sistema - Azure SQL Data Warehouse | Microsoft Docs
+description: Ligações a documentação para vistas de sistema suportadas no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-ms.date: 01/22/2018
-ms.author: barbkess
-ms.openlocfilehash: 96bd74a9c68cc77d35832836afa966958ed37264
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="system-views"></a>Vistas de sistema
+# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Vistas de sistema suportadas no Azure SQL Data Warehouse
+Fornece hiperligações para a documentação para instruções de T-SQL suportadas no Azure SQL Data Warehouse.
+
 ## <a name="sql-data-warehouse-catalog-views"></a>Vistas de catálogo SQL Data Warehouse
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -162,7 +159,7 @@ Armazém de dados do SQL Server e o Analytics Platform System Parallel Data Ware
 | sys.dm_pdw_nodes_exec_query_resource_semaphores |[sys.dm_exec_query_resource_semaphores](http://msdn.microsoft.com/library/ms366321.aspx) |
 | sys.dm_pdw_nodes_exec_query_stats |[sys.dm_exec_query_stats](http://msdn.microsoft.com/library/ms189741.aspx) |
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
-| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
+| sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
 | sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
@@ -224,7 +221,7 @@ Os DMVs seguintes são aplicáveis ao SQL Data Warehouse, mas tem de ser executa
 ## <a name="sql-server-informationschema-views"></a>Vistas do SQL Server INFORMATION_SCHEMA
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [COLUMNS](http://msdn.microsoft.com/library/ms188348.aspx)
-* [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
+* [PARÂMETROS](http://msdn.microsoft.com/library/ms173796.aspx)
 * [ROTINAS](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
 * [TABELAS](http://msdn.microsoft.com/library/ms186224.aspx)
@@ -233,14 +230,4 @@ Os DMVs seguintes são aplicáveis ao SQL Data Warehouse, mas tem de ser executa
 * [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações de referência, consulte [geral de referência do armazém de dados do SQL Server] [geral de referência do armazém de dados do SQL Server].
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
+Para obter mais informações de referência, consulte [instruções T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), e [elementos de linguagem T-SQL no Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

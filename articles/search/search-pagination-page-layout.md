@@ -1,24 +1,19 @@
 ---
 title: Como paginar os resultados da pesquisa na Azure Search | Microsoft Docs
-description: "Paginação na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure."
-services: search
-documentationcenter: 
+description: Paginação na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como utilizar a API de REST do serviço de pesquisa do Azure para implementar elementos padrão de uma página de resultados de pesquisa, tal como contagens totais, obtenção de documento, as ordens de ordenação e navegação.
@@ -73,7 +68,7 @@ Ordenação ordena, muitas vezes, a predefinição para relevância, mas é comu
 
  ![][3]
 
-Na Azure Search, ordenação baseiam o `$orderby` para todos os campos que são indexados como uma expressão`"Sortable": true.`
+Na Azure Search, ordenação baseiam o `$orderby` para todos os campos que são indexados como uma expressão `"Sortable": true.`
 
 Relevância é fortemente associada com perfis de classificação. Pode utilizar a predefinição de classificação, que depende de análise de texto e estatísticas para classificar todos os resultados, com as pontuações superiores acontecimentos para documentos com mais ou mais fortes correspondências um termo de pesquisa que ordem.
 
@@ -102,7 +97,7 @@ Pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, o pedi
 
 Consulte [documentos sobre pesquisa (API da Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter mais informações sobre `$filter` expressões.
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 * [API de REST do serviço de pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 * [Operações do índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 * [Operações do documento](http://msdn.microsoft.com/library/azure/dn800962.aspx)

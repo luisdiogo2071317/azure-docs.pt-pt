@@ -11,13 +11,15 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.openlocfilehash: bde1ef711fe19b7e26f2d93b58d653dc816b1a07
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0a3f69f8262e67de624d4cd97e0cad49c6a96ef0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Instruções: Integrar o REST API trocas de afirmações da sua viagem do Azure AD B2C utilizador como um passo de orquestração
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 A estrutura de experiência de identidade (IEF) subjacente do Azure Active Directory B2C (Azure AD B2C) permite que o Programador de identidade integrar uma interação com uma API RESTful em journey um utilizador.  
 

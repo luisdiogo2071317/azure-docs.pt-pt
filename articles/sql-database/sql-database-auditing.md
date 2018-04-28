@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria também:
@@ -165,8 +165,18 @@ Na produção, que é provável que atualize periodicamente as chaves de armazen
 3. Aceda ao painel de configuração de auditoria, mude a chave de acesso de armazenamento do secundário do primário para e, em seguida, clique em **OK**. Em seguida, clique em **guardar** no topo do painel de configuração de auditoria.
 4. Volte ao painel de configuração de armazenamento e voltar a gerar a chave de acesso secundária (em preparação para ciclo de atualização a chave seguinte).
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
+## <a name="additional-information"></a>Informações Adicionais
 
+* Para obter detalhes sobre o registo de formato de hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte o [referência de formatos de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Auditoria de base de dados SQL do Azure armazena 4000 carateres dos dados para campos de caráter no registo de auditoria. Quando o **instrução** ou **data_sensitivity_information** valores devolvidos por uma ação auditável contém mais de 4000 carateres, quaisquer dados para além dos primeiro 4000 carateres serão  **truncados e não terem sido auditadas**.
+
+* Os registos de auditoria são escritos **os Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure.
+   * **Armazenamento Premium** está atualmente **não suportado** pelos Blobs de acréscimo.
+   * **Armazenamento na VNet** está atualmente **não suportado**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
 
 * **Cmdlets do PowerShell**:
 

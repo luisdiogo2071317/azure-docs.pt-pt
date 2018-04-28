@@ -3,20 +3,19 @@ title: Computação ambientes suportados pelo Azure Data Factory | Microsoft Doc
 description: Saiba mais sobre os ambientes de computação que pode utilizar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para dados de transformação ou processo.
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
+author: douglaslMS
 manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: shengc
-ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: douglasl
+ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica vários ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido vs traga o seu próprio) suportados pela fábrica de dados, quando configurar serviços ligados de ligação estes computação ambientes para um Azure data factory.
@@ -138,9 +137,9 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 
 O serviço ligado de HDInsight a pedido no requer uma autenticação principal de serviço para criar clusters do HDInsight em seu nome. Para utilizar a autenticação principal de serviço, registar uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder a **contribuinte** função de subscrição ou o grupo de recursos no qual o cluster do HDInsight é criado. Para obter passos detalhados, consulte [portal de utilização para criar um Azure Active Directory principal de serviço e aplicação que pode aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tome nota dos seguintes valores que utilizar para definir o serviço ligado:
 
-- ID da Aplicação
+- ID da aplicação
 - Chave da aplicação 
-- ID do Inquilino
+- ID do inquilino
 
 Utilize a autenticação principal de serviço, especificando as seguintes propriedades:
 
@@ -286,7 +285,7 @@ Pode criar um serviço ligado do Azure HDInsight para registar o seu próprio cl
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | A propriedade de tipo deve ser definida como **HDInsight**. | Sim      |
 | clusterUri        | O URI de cluster do HDInsight.        | Sim      |
-| nome do utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
+| o nome de utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
 | palavra-passe          | Especifique a palavra-passe da conta de utilizador.   | Sim      |
 | linkedServiceName | Nome do serviço ligado do Storage do Azure que se refere ao blob storage do Azure utilizado pelo HDInsight cluster. <p>Atualmente, não é possível especificar o que serviço para esta propriedade de ligado um Azure Data Lake Store. Se o cluster do HDInsight tem acesso ao Data Lake Store, pode aceder a dados no Azure Data Lake Store de scripts Hive/Pig. </p> | Sim      |
 | connectVia        | O tempo de execução de integração a ser utilizado para emitir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não       |
@@ -501,7 +500,7 @@ A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de d
 
 | Nome                             | Exclusividade de nome                          | Verificações de validação                        |
 | :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Gestor de Dados                     | Exclusivo em todo o Microsoft Azure. Os nomes são sensível, ou seja, `MyDF` e `mydf` Consulte para a mesma fábrica de dados. | <ul><li>Cada fábrica de dados está associada ao exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
+| Data Factory                     | Exclusivo em todo o Microsoft Azure. Os nomes são sensível, ou seja, `MyDF` e `mydf` Consulte para a mesma fábrica de dados. | <ul><li>Cada fábrica de dados está associada ao exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
 | Os serviços ligados/tabelas/pipelines | Exclusivo com uma fábrica de dados. Os nomes são sensível. | <ul><li>Número máximo de carateres num nome de tabela: a 260.</li><li>Nomes de objeto tem de começar com uma letra, o número ou um caráter de sublinhado (_).</li><li>Os seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
 | Grupo de Recursos                   | Exclusivo em todo o Microsoft Azure. Os nomes são sensível. | <ul><li>Número máximo de carateres: 1000.</li><li>O nome pode conter letras, dígitos e os seguintes carateres: "-", "_",","e"."</li></ul> |
 

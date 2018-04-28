@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reparametrização de um serviço web de novo Gestor de recursos com base utilizando os cmdlets do PowerShell de gestão do Machine Learning
-Quando a reparametrização de um novo serviço web, atualize a definição de serviço web preditiva para referenciar o novo modelo treinado.  
+Quando a reparametrização de um novo serviço web, atualize a definição de serviço web preditiva para referenciar o novo modelo treinado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Tem de configurar uma experimentação de preparação e de uma experimentação preditiva conforme mostrado no [Machine Learning reparametrização dos modelos programáticos](retrain-models-programmatically.md). 
+Tem de configurar uma experimentação de preparação e de uma experimentação preditiva conforme mostrado no [Machine Learning reparametrização dos modelos programáticos](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> A experimentação preditiva tem de ser implementada como um Gestor de recursos do Azure (novo) com base do machine learning serviço web. Para implementar um novo serviço web tem de ter permissões suficientes na subscrição aos quais pode implementar o serviço web. Para obter mais informações, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md). 
+> A experimentação preditiva tem de ser implementada como um Gestor de recursos do Azure (novo) com base do machine learning serviço web.
+> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição aos quais pode implementar o serviço web. Para obter mais informações, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md).
 
 Para obter informações adicionais sobre implementar os serviços web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
@@ -48,7 +49,7 @@ Os passos que efetuar são:
 6. Atualizar o serviço web com a nova definição de serviço Web
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>Inicie sessão na sua conta do Azure Resource Manager
-Tem primeiro de iniciar sessão sua conta do Azure de dentro do ambiente de PowerShell utilizando o [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+Tem primeiro de iniciar sessão sua conta do Azure de dentro do ambiente de PowerShell utilizando o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## <a name="get-the-web-service-definition"></a>Obter a definição de serviço Web
 Em seguida, obter o serviço Web ao chamar o [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. A definição de serviço Web é uma representação interna do modelo treinado do serviço web e não é modificável diretamente. Certifique-se de que estão a obter a definição de serviço Web para a sua experimentação preditiva e não a experimentação de preparação.

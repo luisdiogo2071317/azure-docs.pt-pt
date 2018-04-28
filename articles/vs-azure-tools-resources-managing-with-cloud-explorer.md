@@ -2,23 +2,20 @@
 title: Gerir recursos do Azure com o Explorador de nuvem | Microsoft Docs
 description: Saiba como utilizar o Explorador de nuvem para procurar e gerir recursos do Azure no Visual Studio.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: f5205bb158141a3f8e0296fefe2528d1bc5ea64c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9d8ae465e80ab38c1d7b0f6082865c110c0ff06b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gerir os recursos associados as contas do Azure no Visual Studio Cloud Explorer
 Explorador de nuvem permite-lhe ver os recursos do Azure e os grupos de recursos, inspecionar as respetivas propriedades e efetuar ações de diagnóstico de chave para programadores no Visual Studio. 

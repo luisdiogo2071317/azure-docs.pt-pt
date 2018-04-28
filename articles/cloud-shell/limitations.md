@@ -1,12 +1,12 @@
 ---
-title: "Limitações de Shell de nuvem do Azure | Microsoft Docs"
-description: "Descrição geral das limitações da Shell de nuvem do Azure"
+title: Limitações de Shell de nuvem do Azure | Microsoft Docs
+description: Descrição geral das limitações da Shell de nuvem do Azure
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações da Shell de nuvem do Azure
 
@@ -76,7 +76,7 @@ Utilizar cmdlets do PowerShell, os utilizadores não é podem criar os ficheiros
 
 ### <a name="gui-applications-are-not-supported"></a>Não são suportadas aplicações de GUI
 
-Se o utilizador executa um comando que iria criar uma caixa de diálogo do Windows, tais como `Connect-AzureAD` ou `Login-AzureRMAccount`, um vê uma mensagem de erro, tais como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Se o utilizador executa um comando que iria criar uma caixa de diálogo do Windows, tais como `Connect-AzureAD` ou `Connect-AzureRmAccount`, um vê uma mensagem de erro, tais como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

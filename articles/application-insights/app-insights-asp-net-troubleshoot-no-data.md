@@ -1,6 +1,6 @@
 ---
-title: "Resolução de problemas sem dados - Application Insights para .NET"
-description: "Não existem dados no Azure Application Insights? Tente aqui."
+title: Resolução de problemas sem dados - Application Insights para .NET
+description: Não existem dados no Azure Application Insights? Tente aqui.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Algumas das minha telemetria está em falta
@@ -65,7 +65,7 @@ Parece que ocorreu um erro enquanto foram a instalar o Application Insights ou t
 
 No Explorador de soluções, clique no seu projeto e escolha **Application Insights > configurar o Application Insights**. Obterá uma caixa de diálogo invites que inicie sessão no Azure e cria um recurso do Application Insights, ou reutilize um existente.
 
-## <a name="NuGetBuild"></a>"Pacotes de NuGet estão em falta" no meu servidor de compilação
+## <a name="NuGetBuild"></a> "Pacotes de NuGet estão em falta" no meu servidor de compilação
 *Tudo baseia-se OK quando estou a depuração no meu computador de desenvolvimento, mas como posso obter um erro de NuGet no servidor de compilação.*
 
 Consulte [restauro do pacote NuGet](http://docs.nuget.org/Consume/Package-Restore) e [restauro automático do pacote](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -124,7 +124,7 @@ Corrija:
     Não existe, verá algumas gráficos de resumo. Pode clicar sucessivamente para ver mais detalhes.
 * No Visual Studio, enquanto está a depurar a aplicação, clique no botão do Application Insights.
 
-## <a name="q03"></a>Não existem dados de servidor (ou não existem dados de todo)
+## <a name="q03"></a> Não existem dados de servidor (ou não existem dados de todo)
 *Posso executou a minha aplicação e, em seguida, abrir o serviço do Application Insights no Microsoft Azure, mas todos os gráficos mostram 'Aprenda a recolher...' ou 'Não configurada'.* Ou, *apenas dados de vista de página e utilizador, mas não existem dados de servidor.*
 
 * Execute a sua aplicação no modo de depuração no Visual Studio (F5). Utilize a aplicação, de modo a gerar alguma telemetria. Certifique-se de que consegue ver os eventos registados na janela de saída do Visual Studio. 

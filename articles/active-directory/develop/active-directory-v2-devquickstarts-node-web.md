@@ -1,39 +1,39 @@
 ---
-title: "Azure Active Directory v 2.0 sessão-in de aplicação de web de Node.js | Microsoft Docs"
-description: "Saiba como criar uma aplicação web Node.js que inicia sessão um utilizador através de uma conta Microsoft pessoal e uma conta escolar ou profissional."
+title: Azure Active Directory v 2.0 sessão-in de aplicação de web de Node.js | Microsoft Docs
+description: Saiba como criar uma aplicação web Node.js que inicia sessão um utilizador através de uma conta Microsoft pessoal e uma conta escolar ou profissional.
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1b889e72-f5c3-464a-af57-79abf5e2e147
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 05/13/2017
+ms.date: 04/20/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 230d8ad16dc62564f3c1149443dd59fbb9974db5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb16502ca255bf99c3780ff3975b6ca7f5a79993
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Adicionar início de sessão a uma aplicação web Node.js
 
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades funcionam com o ponto final v 2.0. Para determinar se deve utilizar o ponto final v 2.0 ou o ponto final v 1.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).
-> 
+>
 
-Neste tutorial, iremos utilizar o Passport para efetuar as seguintes tarefas:
+Neste tutorial, utilizamos [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) para efetuar as seguintes tarefas:
 
 * Numa aplicação web, inicie sessão no utilizador utilizando o Azure Active Directory (Azure AD) e o ponto final v 2.0.
 * Apresentar informações sobre o utilizador.
 * O utilizador fora da aplicação de início de sessão.
 
-**Passport** é o middleware de autenticação do Node.js. Flexível e modulares, Passport pode ser removido discretamente em qualquer baseada em Express ou restify aplicação web. No Passport, um conjunto abrangente de estratégias suporta a autenticação utilizando um nome de utilizador e palavra-passe, Facebook, Twitter ou outras opções. Desenvolvemos uma estratégia para o Azure AD. Neste artigo, vamos mostrar-lhe como instalar o módulo e, em seguida, adicione o Azure AD `passport-azure-ad` Plug-in.
+[Passport](http://passportjs.org/) é um middleware de autenticação de Node.js. Flexível e modulares, Passport pode ser removido discretamente em qualquer baseada em Express ou restify aplicação web. No Passport, um conjunto abrangente de estratégias suporta a autenticação utilizando um nome de utilizador e palavra-passe, Facebook, Twitter ou outras opções. Desenvolvemos uma estratégia para o Azure AD. Neste artigo, vamos mostrar-lhe como instalar o módulo e, em seguida, adicione o Azure AD **passport-azure-ad** Plug-in.
 
 ## <a name="download"></a>Transferência
 O código deste tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs). Para seguir o tutorial, pode [transferir a estrutura da aplicação como um ficheiro. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) ou clonar a estrutura:
@@ -47,40 +47,29 @@ Criar uma nova aplicação em [apps.dev.microsoft.com](https://apps.dev.microsof
 
 * Copiar o **Id da aplicação** atribuída à aplicação. É necessário para este tutorial.
 * Adicionar o **Web** plataforma para a sua aplicação.
-* Copiar o **URI de redirecionamento** do portal. Tem de utilizar o valor URI predefinido `urn:ietf:wg:oauth:2.0:oob`.
+* Adicione o seguinte URL configurado na amostra `http://localhost:3000/auth/openid/return` como o **URI de redirecionamento**.
 
-## <a name="2-add-prerequisities-to-your-directory"></a>2: Adicionar prerequisities ao seu diretório
-Numa linha de comandos, altere os diretórios para ir para a pasta raiz, se não estiver já existe. Execute os seguintes comandos:
+## <a name="2-prerequisities-to-run-the-sample"></a>2: Prerequisities para executar o exemplo
 
-* `npm install express`
-* `npm install ejs`
-* `npm install ejs-locals`
-* `npm install restify`
-* `npm install mongoose`
-* `npm install bunyan`
-* `npm install assert-plus`
-* `npm install passport`
-* `npm install webfinger`
-* `npm install body-parser`
-* `npm install express-session`
-* `npm install cookie-parser`
+Terá de ter instalado para compilar e executar este exemplo de Node.js. Pode instalar Node.js de http://nodejs.org/.
 
-Além disso, utilizamos `passport-azure-ad` na estrutura do início rápido:
+Numa linha de comandos, altere os diretórios para ir para a pasta raiz, se não estiver já existe.
+Execute o seguinte comando para instalar os módulos de nó pré-requisitos listados no `package.json` ficheiro:
 
-* `npm install passport-azure-ad`
+`npm install`
 
-Esta ação instala as bibliotecas que `passport-azure-ad` utiliza.
+Esta ação também instala as bibliotecas que `passport-azure-ad` utiliza.
 
-## <a name="3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3: configurar a sua aplicação para utilizar a estratégia de passport-nó-js
+## <a name="3-set-up-your-app-to-use-passport-azure-ad"></a>3: configurar a aplicação a utilizar o passport-azure-ad
 Configure o middleware Express para utilizar o protocolo de autenticação OpenID Connect. Utilizar o Passport para emitir pedidos de início de sessão e fim de sessão, gerir a sessão do utilizador e obter informações sobre o utilizador, entre outros.
 
-1.  Na raiz do projeto, abra o ficheiro de Config.js. No `exports.creds` secção, introduza os valores de configuração da sua aplicação.
-  
-  * `clientID`: O **Id da aplicação** atribuída à sua aplicação no portal do Azure.
+1.  Na raiz do projeto, abra o ficheiro de config.js. No `exports.creds` secção, introduza os valores de configuração da sua aplicação.
+
+  * `clientID`: O **Id da aplicação** atribuída à sua aplicação no portal.
   * `returnURL`: O **URI de redirecionamento** que introduziu no portal.
   * `clientSecret`: O segredo que gerou no portal.
 
-2.  Na raiz do projeto, abra o ficheiro App.js. Para invocar a stratey OIDCStrategy, o que vem com `passport-azure-ad`, adicione a seguinte chamada:
+2.  Na raiz do projeto, abra o ficheiro app.js. A invocar OIDCStrategy vem com `passport-azure-ad`, adicione a seguinte chamada:
 
   ```JavaScript
   var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -135,8 +124,8 @@ O Passport utiliza um padrão semelhante para todas as respetivas estratégias (
 
   > [!IMPORTANT]
   > O código anterior entra qualquer utilizador que pode autenticar-se ao seu servidor. Isto é conhecido como registo automático. Num servidor de produção, não pretender permitir que qualquer pessoa sem primeiro passá-los através de um processo de registo que escolher. Isto é, normalmente, o padrão que veem nas aplicações de consumidor. A aplicação pode permitir-lhe registar com o Facebook, mas, em seguida, pede-lhe para introduzir informações adicionais. Se não utilizar um programa da linha de comandos para este tutorial, foi possível extrair o e-mail do objeto do token que é devolvido. Em seguida, pode pedir ao utilizador para introduzir informações adicionais. Porque se trata de um servidor de teste, adicione o utilizador diretamente para a base de dados em memória.
-  > 
-  > 
+  >
+  >
 
 4.  Adicione os métodos que utiliza para controlar os utilizadores que tem sessão iniciados, conforme requerido pelo Passport. Isto inclui as informações do utilizador de serialização e:
 
@@ -234,7 +223,7 @@ O Passport utiliza um padrão semelhante para todas as respetivas estratégias (
   // POST /auth/openid/return
   //   Use passport.authenticate() as route middleware to authenticate the
   //   request. If authentication fails, the user is redirected back to the
-  //   sign-in page. Otherwise, the primary route function is called. 
+  //   sign-in page. Otherwise, the primary route function is called.
   //   In this example, it redirects the user to the home page.
 
   app.post('/auth/openid/return',
@@ -245,10 +234,10 @@ O Passport utiliza um padrão semelhante para todas as respetivas estratégias (
     });
   ```
 
-## <a name="4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4: utilizar o Passport para emitir pedidos de início de sessão e fim de sessão para o Azure AD
+## <a name="4-add-sign-in-and-sign-out-requests-to-azure-ad"></a>4: adicionar os pedidos de início de sessão e fim de sessão para o Azure AD
 A aplicação está agora configurada para comunicar com o ponto final v 2.0, utilizando o protocolo de autenticação OpenID Connect. O `passport-azure-ad` estratégia encarrega-se de que todos os detalhes das mensagens de autenticação de composição, tokens de validação do Azure AD e manter a sessão do utilizador. Tudo o falta fazer é conceder aos seus utilizadores uma forma para iniciar sessão e terminar sessão e para recolher mais informações sobre o utilizador que tenha sessão iniciada.
 
-1.  Adicionar o **predefinido**, **início de sessão**, **conta**, e **terminar** métodos no ficheiro App.js:
+1.  Adicionar o **predefinido**, **início de sessão**, **conta**, e **terminar** métodos no ficheiro app.js:
 
   ```JavaScript
 
@@ -277,7 +266,7 @@ A aplicação está agora configurada para comunicar com o ponto final v 2.0, ut
   ```
 
   Seguem-se os detalhes:
-    
+
     * O `/` rota redireciona para a vista de index.ejs. Transfere o utilizador no pedido (se existir).
     * O `/account` encaminhar primeiro *garante que sejam autenticados* (implementar que no seguinte código). Em seguida, transmite o utilizador no pedido. Isto é, pelo que pode obter mais informações sobre o utilizador.
     * O `/login` encaminhar chamadas a `azuread-openidconnect` autenticador de `passport-azuread`. Se que não for bem sucedido, o utilizador será redirecionado novamente para `/login`.
@@ -309,7 +298,7 @@ A aplicação está agora configurada para comunicar com o ponto final v 2.0, ut
   ```
 
 
-## <a name="5-create-the-views-and-routes-in-express-that-you-show-your-user-on-the-website"></a>5: criar as vistas e rotas no Express que mostram o utilizador no Web site
+## <a name="5-create-the-views-and-routes-in-express"></a>5: criar as vistas e rotas no Express
 Adicione as rotas e vistas que apresentam informações ao utilizador. As rotas e vistas também processam as `/logout` e `/login` rotas que criou.
 
 1. No diretório de raiz, crie o `/routes/index.js` rota.
@@ -338,7 +327,7 @@ Adicione as rotas e vistas que apresentam informações ao utilizador. As rotas 
   };
   ```
 
-  `/routes/index.js`e `/routes/user.js` são rotas simples transferem o pedido para as vistas, incluindo o utilizador, se estiver presente.
+  `/routes/index.js` e `/routes/user.js` são rotas simples transferem o pedido para as vistas, incluindo o utilizador, se estiver presente.
 
 3.  No diretório de raiz, crie o `/views/index.ejs` vista. Esta página chama o **início de sessão** e **terminar** métodos. Também é utilizar o `/views/index.ejs` vista para capturar as informações da conta. Pode utilizar política de acesso `if (!user)` como o utilizador que está a ser transferido no pedido. É uma prova que tem um utilizador com sessão iniciado.
 
@@ -399,13 +388,19 @@ Adicione as rotas e vistas que apresentam informações ao utilizador. As rotas 
   </html>
   ```
 
-6.  Para compilar e executar a aplicação, execute `node app.js`. Em seguida, aceda a `http://localhost:3000`.
 
-7.  Inicie sessão com uma conta Microsoft pessoal ou uma conta escolar ou profissional. Tenha em atenção que a identidade do utilizador é refletida na lista /account. 
+  ## <a name="6-build-and-run-your-app"></a>6: criar e executar a aplicação
+  1. Para compilar e executar a aplicação, execute o seguinte comando do diretório de raiz de aplicações.
+
+  `node app.js`
+
+   Em seguida, aceda a `http://localhost:3000` no seu browser.
+
+  2. Inicie sessão com uma conta Microsoft pessoal ou uma conta escolar ou profissional. Tenha em atenção que a identidade do utilizador é refletida no `/account` rota.
 
 Tem agora uma aplicação web que está protegida pela utilização de protocolos padrão da indústria. Pode autenticar utilizadores na sua aplicação através das respetivas contas pessoais, profissionais ou escolares.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para referência, o exemplo concluído (sem os valores de configuração) é fornecido tal como [um ficheiro. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/complete.zip). Também pode cloná-lo a partir do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
@@ -421,4 +416,3 @@ Seguem-se alguns recursos adicionais:
 
 ### <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança dos nossos produtos
 Aconselhamo-lo para se inscrever ser notificado quando ocorrem incidentes de segurança. No [as notificações de segurança técnica Microsoft](https://technet.microsoft.com/security/dd252948) página, Subscrever alertas Advisories de segurança.
-

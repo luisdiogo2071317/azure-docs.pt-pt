@@ -1,19 +1,19 @@
 ---
 title: Monitor de um cluster do Azure DC/SO - ELK pilha
-description: "Monitorize um cluster DC/OS em cluster do serviço de contentor do Azure com ELK (Elasticsearch, Logstash e Kibana)."
+description: Monitorize um cluster DC/OS em cluster do serviço de contentor do Azure com ELK (Elasticsearch, Logstash e Kibana).
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitor de um cluster do serviço de contentor do Azure com ELK
 
@@ -27,7 +27,7 @@ Neste artigo, vamos demonstrar como implementar a pilha ELK (Elasticsearch Logst
 Pilha ELK é uma combinação de Elasticsearch, Logstash e Kibana que fornece uma pilha de ponto a ponto que pode ser utilizada para monitorizar e analisar os registos do cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurar a pilha ELK num cluster do DC/OS
-Aceder à IU do DC/OS, através de [http://localhost:80 /](http://localhost:80/) uma vez na IU do DC/OS, navegue para **universo**. Procurar e instalar Elasticsearch, Logstash e Kibana o universo de DC/OS e por essa ordem específica. Pode saber mais sobre a configuração se pode aceder a **avançadas instalação** ligação.
+Aceder à IU do DC/OS, através de [ http://localhost:80/ ](http://localhost:80/) uma vez na IU do DC/OS, navegue para **universo**. Procurar e instalar Elasticsearch, Logstash e Kibana o universo de DC/OS e por essa ordem específica. Pode saber mais sobre a configuração se pode aceder a **avançadas instalação** ligação.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
@@ -55,7 +55,7 @@ Depois de navegar para o URL, deverá ver o dashboard HAPROXY conforme mostrado 
 
 Para aceder ao dashboard Kibana, que é implementado na porta 5601, terá de abrir a porta 5601. Siga as instruções [aqui](container-service-enable-public-access.md). Em seguida, abra o dashboard Kibana em: `http://localhost:5601`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para o registo de sistema e aplicação de reencaminhamento e configuração, consulte [gestão do registo no DC/SO com ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/).
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
+ms.date: 04/24/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f87487c4ee56ae90eb5825b0e77610fac73bd3fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Afirmações opcionais no Azure AD (pré-visualização)
 
@@ -65,7 +65,9 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `fwd`                      | Endereço IP.  Adiciona o endereço IPv4 original do cliente pedir (quando dentro de uma VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | País do utilizador                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | País do inquilino de recursos                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | Estado da conta de utilizadores no inquilino.  Se o utilizador for um membro do inquilino, o valor é `0`.  Se forem um convidado, o valor é `1`.  | JWT, SAML | | |
 | `upn`                      | UserPrincipalName afirmação.  Embora esta afirmação é automaticamente incluída, pode especificá-la como uma afirmação opcional para anexar propriedades adicionais para modificar o respetivo comportamento no caso de utilizador convidado. | JWT, SAML  |           | Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Afirmações opcionais v 2.0
 Estas afirmações sempre estão incluídas no v 1.0 tokens, mas são removidas de tokens de v 2.0, a menos que o pedido.  Estas afirmações só são aplicáveis para JWTs (tokens de identidade e Tokens de acesso).  
 
@@ -79,8 +81,8 @@ Estas afirmações sempre estão incluídas no v 1.0 tokens, mas são removidas 
 | `pwd_url`     | URL de palavra-passe de alteração             | Um URL que os utilizadores podem visitar para alterar a palavra-passe.                                                                        |       |
 | `in_corp`     | Dentro da rede empresarial        | Sinais se o cliente está a iniciar sessão da rede empresarial. Se não estiverem, a afirmação não está incluída                     |       |
 | `nickname`    | Alcunha                        | Um nome adicional para o utilizador, separado do nome do primeiro ou último.                                                             |       |                                                                                                                |       |
-| `family_name` | Apelido                       | Fornece o último nome, apelido ou nome de família do utilizador, tal como definido no objeto de utilizador do Azure AD. <br>"family_name":"Miller" |       |
-| `given_name`  | Nome próprio                      | Fornece o primeiro ou "fornecido" nome do utilizador, conforme definido no objeto de utilizador do Azure AD.<br>"given_name": "Frank"                   |       |
+| `family_name` | Apelido                       | Fornece o último nome, apelido ou nome de família do utilizador, tal como definido no objeto de utilizador do Azure AD. <br>"family_name": "Santos" |       |
+| `given_name`  | Nome próprio                      | Fornece o primeiro ou "fornecido" nome do utilizador, conforme definido no objeto de utilizador do Azure AD.<br>"given_name": "Francisco"                   |       |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de afirmações opcionais
 

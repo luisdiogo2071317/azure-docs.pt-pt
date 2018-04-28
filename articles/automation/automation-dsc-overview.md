@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4282333fc8c6f0835c451b781f70dfaed0697d96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Descrição geral do DSC da automatização do Azure
 
@@ -25,7 +25,7 @@ Automation DSC do Azure fornece várias vantagens relativamente ao utilizar o DS
 
 ### <a name="built-in-pull-server"></a>Servidor de solicitação incorporadas
 
-A automatização do Azure fornece um [servidor de solicitação do DSC](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) para que nós de destino recebem automaticamente as configurações, está em conformidade com o estado pretendido e devolver relatórios sobre a sua conformidade.
+A automatização do Azure fornece um [servidor de solicitação do DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) para que nós de destino recebem automaticamente as configurações, está em conformidade com o estado pretendido e devolver relatórios sobre a sua conformidade.
 O servidor de solicitação incorporada na automatização do Azure elimina a necessidade de configurar e manter o seu próprio servidor de solicitação.
 A automatização do Azure pode visar virtuais ou físicas Windows ou Linux máquinas, na nuvem ou no local.
 

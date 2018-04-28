@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5785fd6dc9b2c66913f7226a9c75246382c0485
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters do HDInsight baseado em Windows através da ação de Script
 **Ação de script** pode ser utilizado para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante o processo de criação do cluster para instalar software adicional num cluster.
@@ -85,7 +85,7 @@ O HDInsight fornece vários scripts para instalar os seguintes componentes nos c
 Este script do PowerShell seguinte demonstra como instalar o Spark no cluster do HDInsight baseado em Windows.  
 
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -108,7 +108,7 @@ Este script do PowerShell seguinte demonstra como instalar o Spark no cluster do
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
@@ -308,7 +308,7 @@ O serviço de HDInsight fornece várias formas de utilizar componentes personali
 ## <a name="develop-script-action-scripts"></a>Desenvolver scripts de ação de Script
 Consulte [scripts de ação de Script desenvolver para o HDInsight][hdinsight-write-script].
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Criar clusters do Hadoop no HDInsight] [ hdinsight-provision-cluster] fornece instruções sobre como criar um cluster do HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de Script para o HDInsight][hdinsight-write-script]
 * [Instalar e utilizar o Spark nos clusters do HDInsight][hdinsight-install-spark]

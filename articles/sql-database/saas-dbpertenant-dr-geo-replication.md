@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação após desastre para uma aplicação de SaaS multi-inquilino através da base de dados georreplicação
 
-Neste tutorial, explore um cenário de recuperação de desastre completa para uma aplicação de SaaS multi-inquilino implementado utilizando o modelo de base de dados por inquilino. Para proteger a aplicação a partir de uma falha, utilize [ _georreplicação_ ](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) criar réplicas de bases de dados do catálogo e de inquilino numa região de recuperação alternativo. Se ocorrer uma falha, pode rapidamente falha a estas réplicas para retomar as operações de negócio normal. Na ativação pós-falha, as bases de dados na região original, tornar-se as réplicas secundárias das bases de dados na região de recuperação. Depois destas réplicas fique novamente online são automaticamente catch cópias de segurança para o estado das bases de dados na região de recuperação. Após a interrupção estiver resolvida, falhar novamente para as bases de dados na região de produção original.
+Neste tutorial, explore um cenário de recuperação de desastre completa para uma aplicação de SaaS multi-inquilino implementado utilizando o modelo de base de dados por inquilino. Para proteger a aplicação a partir de uma falha, utilize [ _georreplicação_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) criar réplicas de bases de dados do catálogo e de inquilino numa região de recuperação alternativo. Se ocorrer uma falha, pode rapidamente falha a estas réplicas para retomar as operações de negócio normal. Na ativação pós-falha, as bases de dados na região original, tornar-se as réplicas secundárias das bases de dados na região de recuperação. Depois destas réplicas fique novamente online são automaticamente catch cópias de segurança para o estado das bases de dados na região de recuperação. Após a interrupção estiver resolvida, falhar novamente para as bases de dados na região de produção original.
 
 Este tutorial explicar fluxos de trabalho de ativação pós-falha e a reativação pós-falha. Irá aprender como:
 > [!div classs="checklist"]
@@ -82,7 +82,7 @@ Neste tutorial, utilize primeiro georreplicação para criar as réplicas de apl
 Mais tarde, um passo repatriation separado, ativação pós-falha as bases de dados do catálogo e de inquilino na região de recuperação para a região original. As aplicações e bases de dados permanecem disponíveis em toda a repatriation. Quando terminar, a aplicação é totalmente funcional na região original.
 
 > [!Note]
-> A aplicação é recuperada para o _região emparelhado_ da região na qual a aplicação é implementada. Para obter mais informações, consulte [Azure emparelhado regiões](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> A aplicação é recuperada para o _região emparelhado_ da região na qual a aplicação é implementada. Para obter mais informações, consulte [Azure emparelhado regiões](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Reveja o estado de funcionamento da aplicação
 
@@ -103,7 +103,7 @@ Antes de começar o processo de recuperação, reveja o estado de bom estado de 
 Nesta tarefa, inicie um processo que sincroniza-se a configuração de servidores, conjuntos elásticos e bases de dados para o catálogo de inquilino. O processo mantém estas informações atualizadas no catálogo.  O processo funciona com o catálogo do Active Directory, se a região original ou na região de recuperação. As informações de configuração são utilizadas como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original e, em seguida, mais tarde durante repatriation para garantir a região original é tornada consistente com todas as alterações efetuadas a ambiente de recuperação. O catálogo também é utilizado para controlar o estado de recuperação dos recursos de inquilino
 
 > [!IMPORTANT]
-> De simplicidade, o processo de sincronização e outros processos de recuperação e repatriation execução longa são implementados nestes tutoriais de como as tarefas de Powershell locais ou sessões que são executados com o início de sessão de utilizador do cliente. Os tokens de autenticação emitidos quando o início de sessão irá expirar após várias horas e, em seguida, as tarefas falhará. Num cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure fiáveis tipo, a ser executado um principal de serviço. Consulte [utilize o Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> De simplicidade, o processo de sincronização e outros processos de recuperação e repatriation execução longa são implementados nestes tutoriais de como as tarefas de Powershell locais ou sessões que são executados com o início de sessão de utilizador do cliente. Os tokens de autenticação emitidos quando o início de sessão irá expirar após várias horas e, em seguida, as tarefas falhará. Num cenário de produção, os processos de execução longa devem ser implementados como serviços do Azure fiáveis tipo, a ser executado um principal de serviço. Consulte [utilize o Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. No _ISE do PowerShell_, abra o ficheiro de Modules\UserConfig.psm1 ...\Learning. Substitua `<resourcegroup>` e `<user>` em linhas 10 e 11 com o valor utilizado quando implementou a aplicação.  Guarde o ficheiro!
 
@@ -181,7 +181,7 @@ Agora imagine houver uma falha na região na qual a aplicação é implementada 
 
 2. Prima **F5** para executar o script.  
     * O script abre-se numa nova janela do PowerShell e, em seguida, inicia uma série de tarefas do PowerShell que são executadas em paralelo. Estas tarefas efetuar a ativação pós-falha de bases de dados do inquilino para a região de recuperação.
-    * A região de recuperação é a _região emparelhado_ associada com a região do Azure no qual implementou a aplicação. Para obter mais informações, consulte [Azure emparelhado regiões](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a _região emparelhado_ associada com a região do Azure no qual implementou a aplicação. Para obter mais informações, consulte [Azure emparelhado regiões](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Monitorize o estado do processo de recuperação na janela do PowerShell.
     ![Processo de ativação pós-falha](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -310,4 +310,4 @@ Pode saber mais sobre as tecnologias de base de dados SQL do Azure fornece para 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que tirar partido da aplicação Wingtip SaaS](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que tirar partido da aplicação Wingtip SaaS](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

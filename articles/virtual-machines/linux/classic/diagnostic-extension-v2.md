@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Utilizar a Extensão de Diagnóstico do Linux para monitorizar os dados de desempenho e diagnóstico de uma VM do Linux
 
@@ -53,7 +53,7 @@ A versão mais recente da extensão é **2.3**, e **quaisquer versões antigas (
 
 Pode ativar esta extensão utilizando o [portal do Azure](https://portal.azure.com/#), Azure PowerShell ou scripts da CLI do Azure.
 
-Para ver e configurar os dados de sistema e o desempenho diretamente a partir do portal do Azure, siga [estes passos no blogue do Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Para ver e configurar os dados de sistema e o desempenho diretamente a partir do portal do Azure, siga [estes passos no blogue do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Este artigo incida no como ativar e configurar a extensão através da utilização de comandos da CLI do Azure. Isto permite-lhe ler e ver os dados diretamente a partir da tabela de armazenamento.
 
@@ -88,7 +88,7 @@ Passo 1. Crie um ficheiro denominado PrivateConfig.json com o seguinte conteúdo
         "storageAccountKey" : "the key of the account"
     }
 
-Passo 2. Executar **vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 definir a extensão da vm do azure.* --private-config-path PrivateConfig.json**.
+Passo 2. Executar **vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 definir a extensão da vm do azure.* – o caminho de configuração privada PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Cenário 2. Personalizar as métricas de monitor de desempenho
 

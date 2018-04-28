@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -64,7 +64,7 @@ Para provar a propriedade de ponto final, escreverá novamente o código de vali
 
 Pode proteger o ponto final de webhook ao adicionar parâmetros de consulta para o URL do webhook quando criar uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que pode utilizar o webhook para reconhecer o evento é proveniente de grelha de eventos com permissões válidas. Grelha de eventos irá incluir estes parâmetros de consulta em cada entrega de eventos para o webhook.
 
-Ao editar a subscrição de evento, os parâmetros de consulta não irão sejam apresentados ou devolvidos, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
+Ao editar a subscrição de evento, os parâmetros de consulta não irão sejam apresentados ou devolvidos, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Por fim, é importante ter em atenção que a grelha de eventos do Azure suporta apenas pontos finais de webhook HTTPS.
 

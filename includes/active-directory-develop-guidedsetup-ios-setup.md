@@ -2,7 +2,7 @@
 
 Esta secção fornece instruções passo a passo para saber como criar um novo projeto para demonstrar como integrar uma aplicação iOS (Swift) com *início de sessão com a Microsoft* que possa consultar APIs da Web que necessitam de um token.
 
-> Prefere transferir o projeto do XCode este exemplo em vez disso? [Transferir um projeto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) e avance para o [passo da configuração](#create-an-application-express) para configurar o exemplo de código antes de executar.
+> Prefere transferir o projeto do XCode este exemplo em vez disso? [Transferir um projeto](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) e avance para o [passo da configuração](#register-your-application) para configurar o exemplo de código antes de executar.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>Instalar Carthage para transferir e criar MSAL

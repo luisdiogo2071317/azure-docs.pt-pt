@@ -1,6 +1,6 @@
 ---
 title: As cargas de trabalho de contentor do Azure batch | Microsoft Docs
-description: "Saiba como executar aplicações a partir de imagens do contentor do Azure batch."
+description: Saiba como executar aplicações a partir de imagens do contentor do Azure batch.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor do Azure batch
 
@@ -34,7 +34,7 @@ Este artigo pressupõe familiaridade com conceitos de contentor do Docker e como
     * Batch Java SDK versão 3.0
     * SDK Node.js versão 3.0 do batch
 
-* Contas: Na sua conta do Azure, terá de criar uma conta do Batch e, opcionalmente, uma conta do Storage para fins gerais.
+* Contas: Na sua conta do Azure, terá de criar uma conta do Batch e, opcionalmente, uma conta de armazenamento do Azure.
 
 * Uma imagem de VM suportada. Contentores só são suportados em conjuntos criados com a configuração de Máquina Virtual a partir de imagens detalhadas na secção seguinte, "suportadas imagens da máquina virtual".
 

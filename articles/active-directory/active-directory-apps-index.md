@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista completa de todos os documentos escritas sobre as várias funcionalidades relacionadas com a aplicação no Azure Active Directory (Azure AD).
@@ -42,8 +42,8 @@ Esta secção fornece acesso rápido para guias de resolução de problemas rele
 |:---:| --- |
 | Federado Single Sign-On |[Resolução de problemas baseados em SAML Single Sign-On](active-directory-saml-debugging.md) |
 | Baseado em palavra-passe de início de sessão |[A extensão do painel de acesso de resolução de problemas para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
-| Proxy da Aplicação |[Guia de resolução de problemas de Proxy de aplicações](active-directory-application-proxy-troubleshoot.md) |
-| Início de sessão único no local AD e o Azure AD |[Resolução de problemas de sincronização de Hash de palavra-passe](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Resolução de problemas de repetição de escrita de palavras-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Proxy da aplicação |[Guia de resolução de problemas de Proxy de aplicações](active-directory-application-proxy-troubleshoot.md) |
+| Início de sessão único no local AD e o Azure AD |[Resolução de problemas de sincronização de Hash de palavra-passe](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Resolução de problemas de repetição de escrita de palavras-passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[As associações de grupo dinâmico de resolução de problemas](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Início de Sessão Único (SSO)
@@ -96,7 +96,7 @@ Se a sua organização manter um Windows Server Active Directory no local, junta
 | Uma descrição geral sobre as opções de início de sessão único disponibilizadas no Azure AD Connect, bem como informações sobre gerir ambientes híbridos |[Início de sessão do utilizador em Opções no Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Orientações gerais para gerir ambientes com ambos no local do Active Directory e o Azure Active Directory |[Considerações de conceção de identidade híbrida do Azure AD](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md) |
 | Documentação de orientação sobre como utilizar a sincronização de palavra-passe para permitir SSO |[Implementar a sincronização de palavra-passe com o Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Resolver problemas de sincronização de palavra-passe](https://support.microsoft.com/en-us/kb/2855271) |
-| Documentação de orientação sobre como utilizar a repetição de escrita de palavras-passe para permitir SSO |[Introdução à gestão de palavra-passe no Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Resolver problemas na Repetição de Escrita de Palavras-passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Documentação de orientação sobre como utilizar a repetição de escrita de palavras-passe para permitir SSO |[Introdução à gestão de palavra-passe no Azure AD](authentication/quickstart-sspr.md)<br /><br />[Resolver problemas na Repetição de Escrita de Palavras-passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Documentação de orientação sobre como utilizar fornecedores de identidade de terceiros para permitir SSO |[Lista de fornecedores de identidade de terceiros compatível que podem ser utilizadas para ativar o início de sessão único](https://aka.ms/ssoproviders) |
 | Como o Windows 10 utilizadores possam desfrutar as vantagens de início de sessão através da associação do Azure AD |[Expandir as capacidades de nuvem para o Windows 10 dispositivos através do Azure Active Directory aderir](active-directory-azureadjoin-overview.md) |
 
@@ -186,7 +186,7 @@ O painel de acesso do Azure AD é onde os utilizadores finais podem iniciar as s
 | Ver uma comparação entre as diferentes opções disponíveis para implementar as aplicações de início de sessão único para os utilizadores |[Implementação do Azure AD integrado a aplicações para utilizadores](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Uma descrição geral do painel de acesso e o respetivo MyApps equivalente móveis |[Introdução ao painel de acesso e MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Como aceder a aplicações do Azure AD do Web site do Office 365 |[Utilizar o iniciador de aplicações do Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Como aceder a aplicações do Azure AD a partir da aplicação móvel de Browser gerido do Intune |[Browser gerido do Intune](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Como aceder a aplicações do Azure AD a partir da aplicação móvel de Browser gerido do Intune |[Browser gerido do Intune](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Como aceder a aplicações do Azure AD através de ligações avançadas para iniciar o início de sessão único |[Obter ligações de início de sessão diretas às suas aplicações](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Painel de acesso está disponível para [todas as edições do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9fb928b7cb8e1a83734b64a8b9c19bc3cf3203ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizar o ponto final com privilégios na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Como um operador de pilha do Azure, deve utilizar o portal de administrador, PowerShell ou APIs do Azure Resource Manager para as tarefas de gestão mais diárias. No entanto, para algumas menos operações comuns, tem de utilizar o *ponto final com privilégios* (PEP). O PEP é uma consola de PowerShell remota pré-configurada que fornece-lhe apenas suficiente capacidades para o ajudar a efetuar uma tarefa necessária. O ponto final utiliza [JEA PowerShell (apenas suficiente administração)](https://docs.microsoft.com/en-us/powershell/jea/overview) para expor apenas um conjunto de cmdlets restrito. Para aceder a PEP e invocar o conjunto de cmdlets restrito, é utilizada uma conta de baixo privilégio. Não existem contas de administrador são necessárias. Para segurança adicional, processamento de scripts não é permitido.
+Como um operador de pilha do Azure, deve utilizar o portal de administrador, PowerShell ou APIs do Azure Resource Manager para as tarefas de gestão mais diárias. No entanto, para algumas menos operações comuns, tem de utilizar o *ponto final com privilégios* (PEP). O PEP é uma consola de PowerShell remota pré-configurada que fornece-lhe apenas suficiente capacidades para o ajudar a efetuar uma tarefa necessária. O ponto final utiliza [JEA PowerShell (apenas suficiente administração)](https://docs.microsoft.com/powershell/jea/overview) para expor apenas um conjunto de cmdlets restrito. Para aceder a PEP e invocar o conjunto de cmdlets restrito, é utilizada uma conta de baixo privilégio. Não existem contas de administrador são necessárias. Para segurança adicional, processamento de scripts não é permitido.
 
 Pode utilizar o PEP para efetuar tarefas, tais como o seguinte:
 
@@ -108,7 +108,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Sugestões para utilizar o ponto final com privilégios 
 
-Tal como mencionado acima, o PEP é um [PowerShell JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) ponto final. Ao fornecer uma camada de segurança forte, um ponto final JEA reduz algumas das capacidades básicas do PowerShell, como a conclusão do processamento de scripts ou separador. Se tentar qualquer tipo de operação de script, a operação falhar com o erro **ScriptsNotAllowed**. Este comportamento está previsto.
+Tal como mencionado acima, o PEP é um [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) ponto final. Ao fornecer uma camada de segurança forte, um ponto final JEA reduz algumas das capacidades básicas do PowerShell, como a conclusão do processamento de scripts ou separador. Se tentar qualquer tipo de operação de script, a operação falhar com o erro **ScriptsNotAllowed**. Este comportamento está previsto.
 
 Por isso, por exemplo, para obter a lista de parâmetros para um cmdlet específico, executar o seguinte comando:
 
@@ -116,7 +116,7 @@ Por isso, por exemplo, para obter a lista de parâmetros para um cmdlet específ
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Em alternativa, pode utilizar o [Import-PSSession](https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet para importar todos os cmdlets do PEP para a sessão atual no seu computador local. Ao fazê-lo, todos os cmdlets e funções do PEP estão agora disponíveis no seu computador local, juntamente com a conclusão de separador e, mais em geral, processamento de scripts. 
+Em alternativa, pode utilizar o [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet para importar todos os cmdlets do PEP para a sessão atual no seu computador local. Ao fazê-lo, todos os cmdlets e funções do PEP estão agora disponíveis no seu computador local, juntamente com a conclusão de separador e, mais em geral, processamento de scripts. 
 
 Para importar a sessão PEP no seu computador local, efetue os seguintes passos:
 

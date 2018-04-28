@@ -1,25 +1,19 @@
 ---
 title: Exemplos de consulta Lucene de Azure Search | Microsoft Docs
-description: "Consulta lucene para pesquisa difusa, pesquisa de proximidade, os aumentos termo, pesquisa de expressão regular e pesquisa com carateres universais."
-services: search
-documentationcenter: 
+description: Consulta lucene para pesquisa difusa, pesquisa de proximidade, os aumentos termo, pesquisa de expressão regular e pesquisa com carateres universais.
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para a criação de consultas na Azure Search
 Quando construir consultas para a Azure Search, pode utilizar a predefinição é [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou a alternativa [Parser de consulta Lucene na Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). O Parser de consulta Lucene suporta construções de consulta mais complexas, como consultas de âmbito de campo, pesquisa difusa, pesquisa de proximidade, os aumentos termo e pesquisa de expressão regular.
@@ -117,7 +111,7 @@ Uma pesquisa de expressão regular localiza uma correspondência com base nos co
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-O URL para este exemplo não irá compor corretamente na página. Como solução, copie o URL mais abaixo e cole o endereço de URL do browser:`http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+O URL para este exemplo não irá compor corretamente na página. Como solução, copie o URL mais abaixo e cole o endereço de URL do browser: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Exemplo de pesquisa com carateres universais
 Pode utilizar a sintaxe geralmente reconhecido para vários (\*) ou únicas pesquisas de caráter universal (?) caráter. Tenha em atenção que o parser de consulta Lucene suporta a utilização destas símbolos com um termo único e não uma frase de acesso.
@@ -128,12 +122,12 @@ Pode utilizar a sintaxe geralmente reconhecido para vários (\*) ou únicas pesq
 
 Não é possível utilizar um * ou? símbolo como o primeiro caráter de uma procura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Tente especificar o Parser de consulta Lucene no seu código. As hiperligações seguintes explicam como configurar a consultas de pesquisa para o .NET e a API REST. As ligações utilizam a sintaxe de simples de predefinido, por isso terá de aplicar o que aprendeu do artigo para especificar o **queryType**.
 
 * [Consultar o índice da Azure Search utilizando o SDK .NET](search-query-dotnet.md)
 * [Consultar o índice da Azure Search utilizando a API REST](search-query-rest-api.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
  [Como completa a pesquisa em texto funciona na Azure Search](search-lucene-query-architecture.md)

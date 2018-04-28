@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Enlaces de Cosmos BD do Azure para as funções do Azure
 
@@ -38,7 +38,7 @@ Os enlaces de BD do Cosmos para a versão de funções 1. x são fornecidos no [
 
 ## <a name="trigger"></a>Acionador
 
-O acionador de base de dados do Azure Cosmos utiliza o [Azure Cosmos DB alteração Feed](../cosmos-db/change-feed.md) para escutar alterações de em partições. O feed de alteração publica inserções e atualizações, eliminações não. 
+O acionador de base de dados do Azure Cosmos utiliza o [Azure Cosmos DB alteração Feed](../cosmos-db/change-feed.md) para escutar alterações de em partições. O feed de alteração publica inserções e atualizações, eliminações não. O acionador é invocado para cada insert ou update efetuadas na coleção que está a ser monitorizada. 
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 
@@ -159,8 +159,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** || tem de ser definido como `cosmosDBTrigger`. |
-|**direction** || tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** || tem de ser definido como `cosmosDBTrigger`. |
+|**direção** || tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
 |**name** || O nome da variável utilizado no código de função que representa a lista de documentos com as alterações. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta de base de dados do Azure Cosmos a ser monitorizada. |
 |**databaseName**|**DatabaseName**  | O nome da base de dados do Azure Cosmos DB com a coleção que está a ser monitorizada. |
@@ -170,7 +170,13 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção utilizado para armazenar concessões. Quando não definido, o valor `leases` é utilizado. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcional) Quando definido como `true`, a coleção de concessões é criada automaticamente quando já não existir. O valor predefinido é `false`. |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Opcional) Define a quantidade de unidades de pedido para atribuir quando é criada a coleção de concessões. Esta definição é apenas utilizado quando `createLeaseCollectionIfNotExists` está definido como `true`. Este parâmetro é automaticamente definido quando o enlace é criado utilizando o portal.
-| |**LeaseOptions** | Configurar opções de concessão definindo as propriedades numa instância do [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) classe.
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Opcional) Se estiver definida, adiciona um prefixo concessões criadas na coleção de concessão para esta função, efetivamente, permitindo duas funções de Azure separado partilhar a mesma coleção de concessão utilizando prefixos diferentes.
+|**FeedPollDelay**| **FeedPollDelay**| (Opcional) Quando o conjunto, define, em milissegundos, o atraso entre uma partição para novas alterações do feed de consulta atuais depois de todas as alterações são drained. Predefinição é 5000 (5 segundos).
+|**LeaseAcquireInterval**| **LeaseAcquireInterval**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo para iniciar uma tarefa para calcular se as partições são distribuídas uniformemente entre instâncias de anfitrião conhecido. Predefinição é 13000 (13 segundos).
+|**LeaseExpirationInterval**| **LeaseExpirationInterval**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo para o qual o período de concessão é criado numa concessão que representa uma partição. Se a concessão for renovada não dentro deste intervalo, fará com que expire e propriedade da partição irá mudar para outra instância. Predefinição é 60000 (60 segundos).
+|**LeaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente retido por uma instância. Predefinição é 17000 (17 segundos).
+|**CheckpointFrequency**| **CheckpointFrequency**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo entre pontos de verificação de concessão. Predefinição é sempre após uma chamada de função com êxito.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Se estiver definida, customizes a quantidade máxima de itens recebidos por chamadas de função.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -474,14 +480,14 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**     || tem de ser definido como `documentdb`.        |
-|**direction**     || tem de ser definido como `in`.         |
+|**tipo**     || tem de ser definido como `documentdb`.        |
+|**direção**     || tem de ser definido como `in`.         |
 |**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |A base de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | O ID do documento para obter. Esta propriedade suporta [expressões de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns). Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir uma, é obtida a coleção completa. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta de base de dados SQL do Azure Cosmos utilizada para obter vários documentos. A propriedade suporta os enlaces de tempo de execução, tal como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir uma, é obtida a coleção completa.|
-|**connection**     |**ConnectionStringSetting**|O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
+|**Ligação**     |**ConnectionStringSetting**|O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor de chave de partição para a pesquisa. Pode incluir parâmetros de enlace.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -746,15 +752,15 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**     || tem de ser definido como `documentdb`.        |
-|**direction**     || tem de ser definido como `out`.         |
+|**tipo**     || tem de ser definido como `documentdb`.        |
+|**direção**     || tem de ser definido como `out`.         |
 |**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção em que o documento é criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Um valor booleano para indicar se a coleção é criada quando não existe. A predefinição é *falso* porque são criadas novas coleções com débito reservado, que tem custos implicações. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` for VERDADEIRO, define o caminho de chave de partição para a coleção criada.|
 |**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` for VERDADEIRO, define o [débito](../cosmos-db/set-throughput.md) da coleção criada.|
-|**connection**    |**ConnectionStringSetting** |O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
+|**Ligação**    |**ConnectionStringSetting** |O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -769,9 +775,9 @@ Por predefinição, quando escreve para o parâmetro de saída na sua função, 
 
 | Vínculo | Referência |
 |---|---|
-| CosmosDB | [Códigos de erro CosmosDB](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Códigos de erro CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um guia de introdução que utiliza um acionador de base de dados do Cosmos](functions-create-cosmos-db-triggered-function.md)

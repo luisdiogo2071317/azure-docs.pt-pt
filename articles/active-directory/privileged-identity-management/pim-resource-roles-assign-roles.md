@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management para recursos do Azure - atribuir funções | Microsoft Docs
+title: Atribuir funções para recursos do Azure utilizando o Privileged Identity Management | Microsoft Docs
 description: Descreve como atribuir funções no PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,64 +13,64 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 9a9046afe2ee1e578333ff9d29f6fb21e95a0f22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 501f063992d2f5c7769a5c9059b346aa2b5c2bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---assign"></a>Atribuir Privileged Identity Management - funções dos recursos-
+# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Atribuir funções para recursos do Azure utilizando o Privileged Identity Management
 
 ## <a name="assign-roles"></a>Atribuir funções
 
-Para atribuir um utilizador ou grupo a uma função, selecione a função (se visualizar funções) 
+Para atribuir um utilizador ou grupo a uma função quando estiver a visualizar a **funções** painel, selecione a função e, em seguida, selecione **adicionar utilizador**. 
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+![Painel "Funções" com o botão "Adicionar utilizador"](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
 
-ou clique em Adicionar na barra de ação (se na vista de membros).
+Também pode selecionar **adicionar utilizador** do **membros** painel.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+![Painel "Membros" com o botão "Adicionar utilizador"](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
 
 
-Se adicionar um utilizador ou grupo a partir do separador Membros, terá: 
+Se estiver a adicionar um utilizador ou grupo a partir de **membros** painel, tem de: 
 
-1. Escolha uma função de menu Adicionar para poder selecionar um utilizador ou grupo.
+1. Escolher uma função do **selecionar uma função** painel para poder selecionar um utilizador ou grupo.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+   ![Painel "Selecionar uma função"](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
 
 2. Escolha um utilizador ou grupo a partir do diretório.
 
-3. Escolha o tipo de atribuição adequada no menu de lista pendente. 
+3. Selecione o tipo de atribuição adequada no menu de lista pendente: 
 
-    - **Apenas na atribuição de tempo:** fornece os membros do grupo ou utilizador com acesso elegível, mas não persistente para a função para um determinado período de tempo ou indefinidamente (se configurada nas definições de função). 
-    - **A atribuição direta:** que não é necessário que os membros de utilizador ou grupo ativar a atribuição de função (conhecida como acesso persistente). A Microsoft recomenda utilizando a atribuição direta para utilização de curto prazo, como no chamada desvia ou atividades confidenciais do tempo, em que não irá ser necessário acesso quando a tarefa estiver concluída.
+   - **Apenas no tempo**: disponibiliza os membros do grupo ou utilizador elegível mas não persistente acesso para a função durante um período especificado ou indefinidamente (se configurada nas definições de função). 
+   - **Direto**: não necessita que os membros de utilizador ou grupo ativar a atribuição de função (conhecida como acesso persistente). Recomendamos que utilize a atribuição direta para a utilização de curto prazo, onde não irá ser necessário acesso quando a tarefa estiver concluída. Os exemplos são na chamada desvia e atividades sensíveis ao tempo.
 
-Uma caixa de verificação abaixo da lista pendente Tipo de atribuição permite-lhe especificar se a atribuição de deve ser permanente (permanentemente elegível para ativar imediatamente no tempo atribuição/permanentemente Active Directory para a atribuição direta).
+4. Se a atribuição permanente (permanentemente elegível para uma atribuição de just-in-time ou permanentemente ativa para uma atribuição direta), selecione a caixa de verificação abaixo o **tipo de atribuição** caixa.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+   ![Painel "Definições de associação" com a caixa "Tipo de atribuição" e a caixa de verificação relacionada](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
 
->[!NOTE]
->A caixa de verificação pode ser unmodifiable se outro administrador tiver especificado a duração máxima de atribuição para cada tipo de atribuição nas definições de função.
+   >[!NOTE]
+   >A caixa de verificação pode ser unmodifiable se outro administrador tiver especificado a duração máxima de atribuição para cada tipo de atribuição nas definições de função.
 
- Para especificar uma duração de atribuição específico, desmarque a caixa de verificação e modificar o início e/ou campos de data e hora de fim.
+   Especifique uma duração de atribuição específico, desmarque a caixa de verificação e modificar as caixas data e hora de início e/ou de fim.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+   ![Painel "Definições de associação" com as caixas de data de início, hora de início, a data de fim e a hora de fim](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
 
 
 ## <a name="manage-role-assignments"></a>Gerir atribuições de funções
 
-Os administradores podem gerir atribuições de função, selecionando funções ou membros do painel de navegação esquerdo. Selecionar funções permite aos administradores para definir o âmbito das respetivas tarefas de gestão para uma função específica, enquanto membros apresenta todas as atribuições de função de utilizador e grupo para o recurso.
+Os administradores podem gerir atribuições de função, selecionando um **funções** ou **membros** no painel esquerdo. Selecionar **funções** permite aos administradores definir o âmbito das respetivas tarefas de gestão para uma função específica. Selecionar **membros** apresenta todas as atribuições de função de utilizador e grupo para o recurso.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+![Painel "Funções"](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+![Painel "Membros"](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
 
 >[!NOTE]
-Se tiver uma função pendentes de ativação, uma faixa de notificação é apresentada na parte superior da página, ao visualizar associação.
+Se tiver uma função pendentes de ativação, uma faixa de notificação é apresentada na parte superior do painel quando estiver a visualizar a associação.
 
 
 ## <a name="modify-existing-assignments"></a>Altere as atribuições existentes
 
-Para modificar atribuições existentes da vista de detalhes de utilizador/grupo, selecione a alterar as definições na barra de ação na parte superior da página. Altere o tipo de atribuição para apenas na hora de atribuição ou atribuição direta.
+Para modificar atribuições existentes da vista de detalhes de utilizador/grupo, selecione **alterar definições** na barra de ação. Alterar o tipo de atribuição para **apenas no tempo** ou **direta**.
 
-![](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+![Painel "Detalhes de utilizador" com o botão "Alterar definições"](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)

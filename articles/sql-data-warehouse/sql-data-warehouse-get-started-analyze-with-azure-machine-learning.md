@@ -2,24 +2,19 @@
 title: Analisar dados com o Azure Machine Learning | Microsoft Docs
 description: Utilize o Azure Machine Learning para criar um modelo preditivo de machine learning com base em dados armazenados no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 03/02/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: 3197948e32fe5c95b111fe5495a0e5f85966a24b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 4a5137ef22455c304dc672520aabd16cac2570e1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -124,7 +119,7 @@ Verá mais duas colunas adicionadas ao conjunto de dados de teste.
 
 Ao comparar a coluna BikeBuyer (real) com as Etiquetas Classificadas (predição), pode ver quão bom foi o desempenho do modelo. Nos passos seguintes, pode utilizar este modelo para fazer predições para clientes novos e publicar este modelo como um serviço Web ou escrever os resultados de volta para o SQL Data Warehouse.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como criar modelos preditivos de machine learning, consulte [Introduction to Machine Learning on Azure (Introdução ao Machine Learning no Azure)][Introduction to Machine Learning on Azure].
 
 <!--Image references-->

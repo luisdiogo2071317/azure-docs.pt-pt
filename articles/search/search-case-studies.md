@@ -1,25 +1,20 @@
 ---
-title: "Quem está a utilizar a pesquisa do Azure: casos práticos e stories cliente | Microsoft Docs"
-description: "Casos práticos e stories cliente sobre a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure."
-services: search
-documentationcenter: 
+title: 'Quem está a utilizar a pesquisa do Azure: casos práticos e stories cliente | Microsoft Docs'
+description: Casos práticos e stories cliente sobre a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: ad48e927-aaf9-48f5-8efd-48150cfe79b2
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc15d214d48978b2f8a6bceb3d1a0e945f10bd67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Quem está a utilizar a pesquisa do Azure: casos práticos e stories de cliente
 Saiba como as organizações seguintes movido experiência reencaminhar as respetivas empresas ao integrar uma procura avançada do Azure nas suas aplicações online.

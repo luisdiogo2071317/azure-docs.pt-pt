@@ -1,8 +1,8 @@
 ---
-title: "Otimização diretrizes de ramo de registo do desempenho do Azure Data Lake Store | Microsoft Docs"
-description: "Desempenho de ramo de registo do Azure Data Lake Store diretrizes de otimização"
+title: Otimização diretrizes de ramo de registo do desempenho do Azure Data Lake Store | Microsoft Docs
+description: Desempenho de ramo de registo do Azure Data Lake Store diretrizes de otimização
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Orientações para do Hive no HDInsight e o Azure Data Lake Store de otimização do desempenho
 
@@ -88,6 +88,6 @@ Para verificar se a introdução limitada, tem de ativar a depuração de regist
 ## <a name="further-information-on-hive-tuning"></a>Mais informações sobre a otimização de ramo de registo
 
 Seguem-se alguns blogues que o irão ajudar a otimizar as consultas do Hive:
-* [Otimizar as consultas do Hive do Hadoop no HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Otimizar as consultas do Hive do Hadoop no HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Resolução de problemas de desempenho das consultas do Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 * [Ignite peça no otimizar do Hive no HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

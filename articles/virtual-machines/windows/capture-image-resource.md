@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 8195c5e86e6e8d7e2a0bd059820998692667eca8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4445787fd559c6d0a6dfc891910cb9a139a6907e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerida de uma VM generalizada no Azure
 
@@ -40,7 +40,7 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 
 1. Iniciar sessão para a máquina virtual do Windows.
 2. Abra a janela de linha de comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
-3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)**e certifique-se de que o **Generalize** caixa de verificação está selecionada.
+3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está selecionada.
 4. No **as opções de encerramento**, selecione **encerramento**.
 5. Clique em **OK**.
    
@@ -66,7 +66,7 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 Criar uma imagem diretamente a partir da VM garante que a imagem inclui todos os discos associados a VM, incluindo o disco do SO e discos de dados. Este exemplo mostra como criar uma imagem gerida a partir de uma VM que utiliza discos geridos pelo.
 
 
-Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Este artigo requer a versão do módulo 5.7.0 de AzureRM ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Este artigo requer a versão do módulo 5.7.0 de AzureRM ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 
 > [!NOTE]

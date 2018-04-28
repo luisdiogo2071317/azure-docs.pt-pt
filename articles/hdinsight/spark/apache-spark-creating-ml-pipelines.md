@@ -2,27 +2,25 @@
 title: Criar um pipeline de aprendizagem do Apache Spark - Azure HDInsight | Microsoft Docs
 description: Utilize a biblioteca de aprendizagem do Apache Spark para criar pipelines de dados.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: maxluk
-ms.openlocfilehash: 238ab5f940fbea836b75e20b015ae16f22eef3e9
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 75fdc427be42ff8895cde8add7c7b0623da6a808
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Criar um pipeline do Spark machine learning
+# <a name="create-a-spark-machine-learning-pipeline"></a>Criar um pipeline de machine learning do Spark
 
 Biblioteca de aprendizagem do Apache Spark máquina escalável (MLlib) proporciona capacidades de modelação para um ambiente distribuído. O pacote de Spark [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) é um conjunto de APIs de alto nível incorporados no DataFrames. Estas APIs ajudam a criar e otimizar práticas pipelines de aprendizagem automática.  *Spark aprendizagem* refere-se a esta API com base em MLlib DataFrame, não mais antigo com base em RDD pipeline API.
 
@@ -36,7 +34,7 @@ Cada instância sem monitorização de estado de um transformador ou um Estimato
 
 ## <a name="pipeline-example"></a>Exemplo de pipeline
 
-Para demonstrar uma utilização de um pipeline de ML prática, este exemplo utiliza o exemplo `HVAC.csv` ficheiro de dados que vem previamente carregado no armazenamento de cluster do HDInsight, o Storage do Azure ou para o Data Lake Store predefinida. Para ver os conteúdos do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv`contém um conjunto de tempo de destino e temperatures reais de AVAC (*aquecimento, ventilação e ar condicionado*) edifícios vários sistemas. O objetivo é para preparar o modelo de dados e produzir uma previsão temperatura para um determinado edifício.
+Para demonstrar uma utilização de um pipeline de ML prática, este exemplo utiliza o exemplo `HVAC.csv` ficheiro de dados que vem previamente carregado no armazenamento de cluster do HDInsight, o Storage do Azure ou para o Data Lake Store predefinida. Para ver os conteúdos do ficheiro, navegue para o `/HdiSamples/HdiSamples/SensorSampleData/hvac` diretório. `HVAC.csv` contém um conjunto de tempo de destino e temperatures reais de AVAC (*aquecimento, ventilação e ar condicionado*) edifícios vários sistemas. O objetivo é para preparar o modelo de dados e produzir uma previsão temperatura para um determinado edifício.
 
 O seguinte código:
 

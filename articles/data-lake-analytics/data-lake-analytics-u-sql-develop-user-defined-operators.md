@@ -2,7 +2,7 @@
 title: Desenvolver operadores definido pelo utilizador U-SQL (UDOs) | Microsoft Docs
 description: 'Saiba como desenvolver operadores definido pelo utilizador a ser utilizada e reutilizada em tarefas de Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: kfile
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definido pelo utilizador U-SQL (UDOs)
 Saiba como desenvolver operadores definido pelo utilizador para processar os dados numa tarefa U-SQL.
@@ -130,5 +130,5 @@ Para obter instruções sobre como desenvolver para fins gerais assemblagens U-S
 2. Expanda amostras, expanda saídas e, em seguida, faça duplo clique em **Drivers.csv**.
 
 ## <a name="see-also"></a>Consulte também
-* [Expandir as expressões de U-SQL com o código de utilizador](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [Expandir as expressões de U-SQL com o código de utilizador](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [Utilizar as ferramentas do Data Lake para Visual Studio para desenvolver aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

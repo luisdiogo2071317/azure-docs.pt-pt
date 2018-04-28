@@ -8,18 +8,19 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 9d1763697e93ea0bd5eaeaeb92f5f882f39a6c64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/25/2018
+ms.openlocfilehash: 6dd96ee96201b05e4b272214983e955fcc5b9125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilizar dados de referência para pesquisas com no Stream Analytics
 Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto de dados finito que é estático ou abrandamento alterar natureza, utilizada para efetuar uma pesquisa de ou para correlacionar com o fluxo de dados. Para tornar a utilização de dados de referência na sua tarefa do Azure Stream Analytics, normalmente, utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Do Stream Analytics utiliza o Blob storage do Azure como a camada de armazenamento para dados de referência e com a referência do Azure Data Factory dados podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para utilização como dados de referência, [qualquer número de baseado na nuvem e arquivos de dados no local](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definido na configuração de entrada) por ordem de data/hora especificada no nome do blob ascendente. - **Apenas** suporta a adicionar ao fim da sequência com uma data/hora **maior** à especificada pela última blob na sequência.
 
 Do Stream Analytics tem uma **limite de 100 MB por blob** mas tarefas podem processar vários blobs de referência utilizando o **padrão do caminho** propriedade.
 
+Suporte de compressão não está disponível para dados de referência. 
 
 ## <a name="configuring-reference-data"></a>Configurar dados de referência
 Para configurar os dados de referência, terá primeiro de criar uma entrada que é do tipo **dados de referência**. A tabela abaixo explica cada propriedade que terá de fornecer ao criar os dados de referência de entrada com a respetiva descrição:
@@ -91,16 +92,9 @@ Se os dados de referência for um conjunto de dados de alteração lenta, em seg
 2. Os blobs de dados de referência são **não** ordenada por hora do blob da "Última modificação", mas apenas pela hora e data especificada no blob nome utilizando {date} e {time} substituições.
 3. Para evitar ter de número elevado de lista de blobs, considere eliminar blobs muito antigos para o qual processamento já não será efetuado. Tenha em atenção que poderá ir ASA tem Reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
-## <a name="get-help"></a>Obter ajuda
-Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
-
 ## <a name="next-steps"></a>Passos Seguintes
-Agora já conhece o Stream Analytics, um serviço gerido para a transmissão da análise dos dados a partir da Internet das Coisas. Para obter mais informações sobre este serviço, consulte:
-
-* [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Início rápido: Criar uma tarefa de Stream Analytics, utilizando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

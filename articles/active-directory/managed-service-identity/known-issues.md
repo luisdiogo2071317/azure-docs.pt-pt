@@ -1,24 +1,24 @@
 ---
-title: "Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory"
-description: "Problemas conhecidos com a identidade de serviço gerida do Azure Active Directory."
+title: Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
+description: Problemas conhecidos com a identidade de serviço gerida do Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas Mais Frequentes (FAQs)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>Existe uma versão de pré-visualização privada disponível, para as funcionalidades adicionais?
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Existe um programa de pré-visualização privada disponível para visualizar funcionalidades futuras MSI e integrações?
 
-Sim. Se gostaria de ser considerados para a inscrição na pré-visualização privada, [visite a nossa página de inscrição](https://aka.ms/azuremsiprivatepreview).
+Sim. Se gostaria de ser considerados para inscrição no programa de pré-visualização privada, [visite a nossa página de inscrição](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI funciona com Cloud Services do Azure?
 
@@ -42,10 +42,24 @@ Não, MSI ainda não estiver integrado com o ADAL ou MSAL. Para obter mais infor
 
 O limite de segurança da identidade é o recurso ao qual está ligado a. Por exemplo, o limite de segurança para um MSI de Máquina Virtual, é a Máquina Virtual. Qualquer código em execução nessa VM, é capaz de ligar para o ponto final do MSI e pedir tokens. É a experiência semelhante com outros recursos que suportam MSI.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>Posso utilizar o ponto final MSI VM IMDS ou o ponto final de extensão de VM de MSI?
+
+Quando utilizar MSI com VMs, Aconselhamo-utilizando o ponto final IMDS de MSI. O serviço de metadados de instância do Azure é um ponto final de REST acessível para todas as VMs de IaaS criados através do Azure Resource Manager. Algumas das vantagens da utilização do MSI através de IMDS são:
+
+1. Todos os sistemas operativos do IaaS do Azure suportada pode utilizar o MSI através de IMDS. 
+2. Já não tem de instalar uma extensão da VM para ativar o MSI. 
+3. Os certificados utilizados por MSI deixam de estar presentes na VM. 
+4. O ponto final IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM. 
+
+A extensão de VM de MSI ainda é disponíveis para ser utilizada hoje em dia; No entanto, daqui para a frente, será predefinida para utilizar o ponto final IMDS. A extensão de VM de MSI será iniciado um plano de preterição em breve. 
+
+Para obter mais informações sobre o serviço de Metada de instância do Azure, consulte [documentação IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições suportadas de Linux?
 
-As distribuições de Linux seguintes suportam MSI: 
+Todas as distribuições de Linux suportadas pelo IaaS do Azure podem ser utilizadas com MSI através de ponto final IMDS. 
 
+Nota: A extensão da VM MSI só suporta as distribuições de Linux seguintes:
 - CoreOS Stable
 - CentOS 7.1
 - VM de RedHat 7.2

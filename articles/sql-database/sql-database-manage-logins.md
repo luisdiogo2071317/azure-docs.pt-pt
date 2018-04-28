@@ -1,7 +1,7 @@
 ---
-title: "Inícios de sessão e utilizadores do SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre a gestão da segurança da Base de Dados SQL, mais concretamente como gerir o acesso às bases de dados e a segurança dos inícios de sessão através da conta principal ao nível do servidor."
-keywords: "segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados"
+title: Inícios de sessão e utilizadores do SQL do Azure | Microsoft Docs
+description: Saiba mais sobre a gestão da segurança da Base de Dados SQL, mais concretamente como gerir o acesso às bases de dados e a segurança dos inícios de sessão através da conta principal ao nível do servidor.
+keywords: segurança de base de dados sql,gestão de segurança da base de dados,segurança de início de sessão,segurança de base de dados,acesso de base de dados
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1f512cdbb0275e9ae2d868a326df0e4e5dd2ee24
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 54bf692f35e2529fe7d0b14684c9acc7d66b9903
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Controlar e conceder acesso à base de dados
 
@@ -75,7 +75,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
 1. Ao utilizar uma conta de administrador, ligue à base de dados mestra.
 2. Passo opcional: crie um início de sessão da autenticação do SQL Server, utilizando a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Instrução de exemplo:
    
-   ```
+   ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
    ```
    
@@ -86,15 +86,15 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
 
 3. Na base de dados mestra, crie um utilizador com a instrução [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). O utilizador pode ser um utilizador de base de dados contido do Azure Active Directory (se tiver configurado o ambiente para autenticação do Azure AD), um utilizador de base de dados contido de autenticação do SQL Server ou um utilizador de autenticação do SQL Server com base num início de sessão de autenticação do SQL Server (criado no passo anterior). Instruções de exemplo:
    
-   ```
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-   CREATE USER Tran WITH PASSWORD = '<strong_password>';
-   CREATE USER Mary FROM LOGIN Mary; 
+   ```sql
+   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
+   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
 4. Adicione o utilizador novo à função de base de dados **dbmanager** com a instrução [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Instruções de exemplo:
    
-   ```
+   ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
@@ -114,21 +114,25 @@ Geralmente, as contas de não administrador não precisam de acesso à base de d
 
 Para criar utilizadores, ligue à base de dados e execute instruções semelhantes aos exemplos seguintes:
 
-```
+```sql
 CREATE USER Mary FROM LOGIN Mary; 
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Inicialmente, apenas um dos administradores ou o proprietário da base de dados pode criar utilizadores. Para permitir que outros utilizadores criem utilizadores novos, conceda-lhes a permissão `ALTER ANY USER`, mediante uma instrução como:
 
-```
+```sql
 GRANT ALTER ANY USER TO Mary;
 ```
 
 Para conceder aos utilizadores adicionais controlo total da base de dados, torne-os membros da função de base de dados fixa **db_owner** com a instrução `ALTER ROLE`.
 
+```sql
+ALTER ROLE db_owner ADD MEMBER Mary; 
+```
+
 > [!NOTE]
-> O motivo mais comum para criar utilizadores de base de dados baseados em inícios de sessão é ter utilizadores de autenticação do SQL Server que precisam de aceder a várias bases de dados. Os utilizadores com base em inícios de sessão são associados ao início de sessão e é mantida apenas uma palavra-passe para esse início de sessão. Os utilizadores da base de dados contidos nas bases de dados individuais são entidades individuais e cada uma mantém a sua própria palavra-passe. Isto pode baralhar os utilizadores de base de dados contidos, se estes não mantiverem as palavras-passe idênticas.
+> É um motivo comum para criar um utilizador de base de dados com base num início de sessão do servidor lógico para os utilizadores que necessitam de aceder a várias bases de dados. Uma vez que continha os utilizadores de base de dados são entidades individuais, cada base de dados mantém o seu próprio utilizador e a sua própria palavra-passe. Isto pode provocar overhead à medida que o utilizador tem, em seguida, lembre-se de cada palavra-passe para cada base de dados, pode ficar untenable quando ter de alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar inícios de sessão do SQL Server e de elevada disponibilidade (georreplicação ativa e grupos de ativação pós-falha), os inícios de sessão do SQL Server tem de definir manualmente em cada servidor. Caso contrário, o utilizador de base de dados serão já não é mapeado para o início de sessão do servidor depois de ocorre uma ativação pós-falha e não será capaz de aceder a ativação pós-falha post de base de dados. Para obter mais informações sobre como configurar inícios de sessão para georreplicação, consulte [configurar e gerir a segurança de SQL Database do Azure para georrestauro ou de ativação pós-falha](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Configurar a firewall ao nível da base de dados
 Como melhor prática, os utilizadores não administradores só devem ter acesso às bases de dados que utilizam através da firewall. Em vez de autorizar os endereços IP deles através da firewall ao nível do servidor e conceder acesso a todas as bases de dados, utilize a instrução [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) para configurar a firewall ao nível da base de dados. Não é possível configurar a firewall ao nível da base de dados no portal.
@@ -164,7 +168,7 @@ Ao gerir inícios de sessão e utilizadores na Base de Dados SQL, considere o se
 * Ao executar as instruções `CREATE/ALTER/DROP LOGIN` e `CREATE/ALTER/DROP DATABASE` numa aplicação ADO.NET, não deve utilizar comandos parametrizados. Para obter mais informações, consulte [Comandos e Parâmetros](https://msdn.microsoft.com/library/ms254953.aspx).
 * Ao executar as instruções `CREATE/ALTER/DROP DATABASE` e `CREATE/ALTER/DROP LOGIN`, cada uma das seguintes declarações tem de ser a única instrução num batch do Transact-SQL. Caso contrário, ocorrerá um erro. Por exemplo, o Transact-SQL seguinte verifica se a base de dados existe. Se existir, é chamada uma instrução `DROP DATABASE` para remover a base de dados. Uma vez que a instrução `DROP DATABASE` não é a única instrução no batch, executar a seguinte instrução do Transact-SQL ocorre um erro.
 
-  ```
+  ```sql
   IF EXISTS (SELECT [name]
            FROM   [sys].[databases]
            WHERE  [name] = N'database_name')

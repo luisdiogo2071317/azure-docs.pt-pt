@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 70dff848ce0674461749075e6498741c3eb9a381
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquina virtual que utiliza as zonas de disponibilidade
 
@@ -70,15 +70,15 @@ Para utilizar zonas disponibilidade, o conjunto de dimensionamento tem de ser cr
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-O processo de criação de um conjunto de dimensionamento que utiliza uma zona de disponibilidade é o mesmo, conforme detalhado no [introdução artigo](quick-create-portal.md). Certifique-se de que tem [registado para as zonas de disponibilidade de pré-visualização](http://aka.ms/azenroll). Quando seleciona uma região do Azure suportada, pode criar uma escala definida das zonas disponíveis, conforme mostrado no exemplo seguinte:
+O processo de criação de um conjunto de dimensionamento que utiliza uma zona de disponibilidade é o mesmo, conforme detalhado no [introdução artigo](quick-create-portal.md). Quando seleciona uma região do Azure suportada, pode criar uma escala definida num ou mais zonas disponíveis, conforme mostrado no exemplo seguinte:
 
-![Criar um conjunto numa única zona disponibilidade de dimensionamento](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
+![Criar um conjunto numa única zona disponibilidade de dimensionamento](media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
 
 O conjunto de dimensionamento e o suporte de recursos, tais como o Balanceador de carga do Azure e o endereço IP público, são criados na zona único que especificar.
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
 
-O processo de criação de um conjunto de dimensionamento que utiliza uma zona de disponibilidade é o mesmo, conforme detalhado no [introdução artigo](quick-create-cli.md). Para utilizar zonas disponibilidade, tem de criar o conjunto de dimensionamento numa região do Azure suportada e ter [registado para as zonas de disponibilidade de pré-visualização](http://aka.ms/azenroll).
+O processo de criação de um conjunto de dimensionamento que utiliza uma zona de disponibilidade é o mesmo, conforme detalhado no [introdução artigo](quick-create-cli.md). Para utilizar zonas disponibilidade, tem de criar o conjunto numa região do Azure suportada de dimensionamento.
 
 Adicionar o `--zones` parâmetro para o [az vmss criar](/cli/azure/vmss#az_vmss_create) de comandos e especificar qual horário a utilizar (tais como zona *1*, *2*, ou *3*). O exemplo seguinte cria um conjunto nomeado de dimensionamento de zona único *myScaleSet* na zona *1*:
 

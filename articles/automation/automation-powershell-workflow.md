@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 32f991f0b0017e673828b1ceb832511e118efa92
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 173d151c2b86db621ee452e68b06baa709f86cdc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Conceitos chave do fluxo de trabalho do Windows PowerShell para runbooks de automatização de aprendizagem 
 Os Runbooks na automatização do Azure são implementados como fluxos de trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas com algumas diferenças significativas que podem ser confusas para um novo utilizador.  Embora este artigo destina-se para o ajudar a escrever runbooks com o fluxo de trabalho do PowerShell, recomendamos que escrever runbooks com o PowerShell, a menos que precisa de pontos de verificação.  Existem várias diferenças de sintaxe durante a criação de runbooks do fluxo de trabalho do PowerShell e estas diferenças requerem um pouco mais trabalho escrever fluxos de trabalho efetivos.  
@@ -228,7 +228,7 @@ O mesmo código seguinte demonstra como lidar com isto nos runbooks do fluxo de 
     workflow CreateTestVms
     {
        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-       $null = Add-AzureRmAccount -Credential $Cred
+       $null = Connect-AzureRmAccount -Credential $Cred
 
        $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
 
@@ -243,7 +243,7 @@ O mesmo código seguinte demonstra como lidar com isto nos runbooks do fluxo de 
           $Cred = $null
           Checkpoint-Workflow
           $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-          $null = Add-AzureRmAccount -Credential $Cred
+          $null = Connect-AzureRmAccount -Credential $Cred
          }
      }
 

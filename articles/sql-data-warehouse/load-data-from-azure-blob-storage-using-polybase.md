@@ -1,31 +1,24 @@
 ---
-title: 'Tutorial: Carregamento de dados Polybase - Azure Storage Blob para o Azure SQL Data Warehouse | Microsoft Docs'
-description: Um tutorial que utiliza o portal do Azure e o SQL Server Management Studio para carregar dados de táxis de Nova Iorque do armazenamento de blobs do Azure para o Azure SQL Data Warehouse.
+title: 'Tutorial: Dados de carga Nova Iorque Taxicab Azure SQL Data Warehouse | Microsoft Docs'
+description: Tutorial utiliza o Azure portal e o SQL Server Management Studio para carregar dados de Nova Iorque Taxicab de um público Azure blob para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Tutorial : Utilizar o PolyBase para carregar dados do armazenamento de blobs do Azure para o Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Dados de carga Nova Iorque Taxicab Azure SQL Data Warehouse
 
-O PolyBase é a tecnologia de carregamento padrão para carregar dados para o SQL Data Warehouse. Neste tutorial, utilize o PolyBase para carregar dados de táxis de Nova Iorque do armazenamento de blobs do Azure para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
+Este tutorial utiliza o PolyBase para carregar dados de Nova Iorque Taxicab de um público Azure blob para o Azure SQL Data Warehouse. Este tutorial utiliza o [portal do Azure](https://portal.azure.com) e o [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Criar um armazém de dados no portal do Azure
@@ -50,7 +43,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Criar um armazém de dados SQL vazio
 
-É criado um armazém de dados SQL do Azure com um conjunto definido de [recursos de computação](performance-tiers.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
+É criado um armazém de dados SQL do Azure com um conjunto definido de [recursos de computação](memory-and-concurrency-limits.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
 
 Siga estes passos para criar um armazém de dados SQL vazio. 
 
@@ -170,7 +163,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="create-a-user-for-loading-data"></a>Criar um utilizador para carregar dados
 
-A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Os [valores máximos de memória](performance-tiers.md#memory-maximums) são definidos de acordo com o [escalão de desempenho](performance-tiers.md) e a [classe de recursos](resource-classes-for-workload-management.md). 
+A conta de administrador do servidor destina-se a efetuar operações de gestão e não é adequada para executar consultas em dados do utilizador. O carregamento de dados é uma operação de memória intensiva. Valores máximos de memória estão definidos de acordo com [camada de desempenho](memory-and-concurrency-limits.md#performance-tiers), [unidades do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md), e [classe de recursos](resource-classes-for-workload-management.md). 
 
 É melhor criar um início de sessão e utilizador dedicado para carregar dados. Em seguida, adicione o utilizador de carregamento a uma [classe de recursos](resource-classes-for-workload-management.md) que permita uma alocação de memória máxima adequada.
 
@@ -221,7 +214,7 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC20
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Criar tabelas externas para os dados de exemplo
 
-Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Este tutorial mostra-lhe como utilizar o [Polybase](/sql/relational-databases/polybase/polybase-guide) para carregar os dados de táxis da cidade de Nova Iorque a partir de um blob de armazenamento do Azure. Para referência futura e para saber como colocar os seus dados no armazenamento de blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
+Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Este tutorial mostra como utilizar as tabelas externas para carregar dados de ficheiro cab de taxi de Nova Iorque cidade de um blob de armazenamento do Azure. Para referência futura e para saber como colocar os seus dados no armazenamento de blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
 
 Execute os seguintes scripts SQL para especificar informações sobre os dados que pretende carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. 
 
@@ -599,7 +592,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados. 
 
 Fez tudo isto:

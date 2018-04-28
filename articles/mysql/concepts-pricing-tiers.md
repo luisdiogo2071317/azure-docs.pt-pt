@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -36,7 +36,7 @@ Para escolher um escalão de preço, utilize a tabela seguinte como ponto de par
 | Fins Gerais | A maioria das empresas cargas de trabalho que requerem com balanceamento de computação e memória com débito dimensionável de e/s. Os exemplos incluem servidores para o alojamento web e de aplicações móveis e de outras aplicações da empresa.|
 | Memória Otimizada | Base de dados de elevado desempenho cargas de trabalho que necessitam de desempenho de memória para o processamento de transações mais rápido e simultaneidade superior. Os exemplos incluem servidores para processamento de dados em tempo real e aplicações de analíticas ou transacionais de elevado desempenho.|
 
-Depois de criar um servidor, o número de vCores pode ser alterado a cópia de segurança ou para baixo em segundos. Também independentemente pode ajustar a quantidade de armazenamento da cópia de segurança e o período de retenção de cópias de segurança ou reduzir verticalmente sem período de indisponibilidade de aplicações. Para obter mais informações, consulte a secção "Dimensionar recursos".
+Depois de criar um servidor, o número de vCores pode ser alterado ou reduzir verticalmente (dentro do mesmo escalão de preço) dentro de segundos. Também independentemente pode ajustar a quantidade de armazenamento da cópia de segurança e o período de retenção de cópias de segurança ou reduzir verticalmente sem período de indisponibilidade de aplicações. Não é possível alterar o escalão de preço ou o tipo de armazenamento de cópia de segurança depois de um servidor é criado. Para obter mais informações, consulte o [Dimensionar recursos](#scale-resources) secção.
 
 ## <a name="compute-generations-vcores-and-memory"></a>Memória, vCores e gerações de computação
 
@@ -53,13 +53,13 @@ Computação recursos são fornecidos como vCores, que representam a CPU lógica
 | EUA Oeste 2 |  | X |
 | Canadá Central | X | X |
 | Leste do Canadá | X | X |
-| Sul do Brasil | X |  |
+| Sul do Brasil | X | X |
 | Europa do Norte | X | X |
 | Europa Ocidental | X | X |
 | Reino Unido Oeste |  | X |
 | Reino Unido Sul |  | X |
 | Ásia Oriental | X |  |
-| Sudeste Asiático | X |  |
+| Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
 | Índia Central | X |  |
 | Índia Ocidental | X |  |
@@ -90,7 +90,7 @@ O serviço demora automaticamente cópias de segurança do seu servidor. O perí
 
 ## <a name="scale-resources"></a>Dimensionar recursos
 
-Depois de criar o seu servidor, pode alterar independentemente o vCores, a quantidade de armazenamento e o período de retenção de cópias de segurança. Não é possível alterar o escalão de preço ou o tipo de armazenamento de cópia de segurança depois de um servidor é criado. vCores e o período de retenção de cópias de segurança podem ser escalados para cima ou para baixo. O tamanho de armazenamento só pode ser aumentado. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. Para obter um exemplo de dimensionamento ao utilizar a CLI do Azure, consulte [monitorizar e dimensionar uma base de dados do Azure para o servidor de MySQL, utilizando a CLI do Azure](scripts/sample-scale-server.md).
+Depois de criar o seu servidor, pode alterar independentemente o vCores, a quantidade de armazenamento e o período de retenção de cópias de segurança. Não é possível alterar o escalão de preço ou o tipo de armazenamento de cópia de segurança depois de um servidor é criado. O número de vCores pode ser escalado para cima ou para baixo dentro do mesmo escalão de preço. O período de retenção de cópias de segurança pode ser escalado para cima ou para baixo do 7 para 35 dias. O tamanho de armazenamento só pode ser aumentado. Dimensionamento dos recursos pode ser feito através do portal ou a CLI do Azure. Para obter um exemplo de dimensionamento ao utilizar a CLI do Azure, consulte [monitorizar e dimensionar uma base de dados do Azure para o servidor de MySQL, utilizando a CLI do Azure](scripts/sample-scale-server.md).
 
 Quando alterar o número de vCores, é criada uma cópia do servidor original com a nova alocação de computação. Depois do novo servidor está a funcionar, as ligações são mudadas ao longo para o novo servidor. Durante o momento em que quando o sistema passa para o novo servidor, podem ser estabelecidas sem ligações novas e todas as transações não consolidadas são revertidas. Esta janela varia, mas na maioria dos casos é inferior a um minuto.
 

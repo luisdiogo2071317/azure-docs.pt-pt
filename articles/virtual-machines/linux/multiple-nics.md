@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: d981ffc9a0053ed8bf2d49f386f7c1c82d50c907
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1968222940888c1e5399e257a9694d47adce2e45
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com a rede de várias placas de interface
 Pode criar uma máquina virtual (VM) no Azure com várias interfaces de rede virtual (NICs) ligadas ao mesmo. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM com vários NICs anexados e como adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -181,7 +181,7 @@ Também pode utilizar um `copyIndex()` a em seguida, anexe um número para um no
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Pode ler um exemplo completo de [criar vários NICs com modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Pode ler um exemplo completo de [criar vários NICs com modelos do Resource Manager](../../virtual-network/template-samples.md).
 
 Adicionar tabelas de encaminhamento para o SO convidado, efetuando os passos em [configurar o SO convidado para vários NICs](#configure-guest-os-for- multiple-nics).
 

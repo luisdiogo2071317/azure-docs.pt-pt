@@ -3,7 +3,7 @@ title: Integrar aplicações com o Azure Active Directory
 description: Como adicionar, atualizar ou remover uma aplicação no Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: mtillman
 manager: mtillman
 editor: mbaldwin
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +56,7 @@ Qualquer aplicação que pretende utilizar as capacidades do Azure AD primeiro t
 5. Quando terminar, clique em **criar**. Azure AD atribui um ID exclusivo da aplicação para a aplicação e, está a ser direcionado para a página de registo principal da sua aplicação. Dependendo se a aplicação é um web ou a aplicação nativa, são fornecidas diferentes opções para adicionar capacidades adicionais à sua aplicação. Consulte a secção seguinte para uma descrição geral de consentimento e detalhes sobre como ativar funcionalidades de configuração adicionais no registo da aplicação (credenciais, as permissões, ativar início de sessão para os utilizadores de outros inquilinos).
 
   > [!NOTE]
-  > Por predefinição, a aplicação registada recentemente está configurada para permitir **apenas** utilizadores a partir do mesmo inquilino para iniciar sessão sua aplicação.
+  > Por predefinição, uma aplicação web recentemente registado está configurada para permitir **apenas** utilizadores a partir do mesmo inquilino para iniciar sessão sua aplicação.
   > 
   > 
 
@@ -65,7 +65,7 @@ Assim que a aplicação foi registada com o Azure AD, poderá ter de ser atualiz
 
 ### <a name="overview-of-the-consent-framework"></a>Descrição geral do framework consentimento
 
-A estrutura de consentimento do Azure AD torna mais fácil desenvolver web do multi-inquilino e aplicações de cliente nativo, incluindo aplicações de várias camadas. Estas aplicações permitam início de sessão por contas de utilizador de um inquilino do Azure AD, diferente em que a aplicação está registada. Pode também precisam de acesso web APIs, tais como o Microsoft Graph API (para aceder ao Azure Active Directory, o Intune e serviços do Office 365) e APIs de outros serviços da Microsoft, além das suas próprias APIs da web. A arquitetura baseia-se um utilizador ou um administrador dar consentimento para uma aplicação que lhe pede para ser registado no seu diretório, o que poderá envolver o método aceder aos dados de diretório.
+A estrutura de consentimento do Azure AD torna mais fácil desenvolver aplicações de cliente nativo e web do multi-inquilino. Estas aplicações permitam início de sessão por contas de utilizador de um inquilino do Azure AD, diferente em que a aplicação está registada. Pode também precisam de acesso web APIs, tais como o Microsoft Graph API (para aceder ao Azure Active Directory, o Intune e serviços do Office 365) e APIs de outros serviços da Microsoft, além das suas próprias APIs da web. A arquitetura baseia-se um utilizador ou um administrador dar consentimento para uma aplicação que lhe pede para ser registado no seu diretório, o que poderá envolver o método aceder aos dados de diretório.
 
 Por exemplo, se precisar de uma aplicação de cliente web ler informações de calendário sobre o utilizador a partir do Office 365, esse utilizador é necessário para autorizar a aplicação de cliente pela primeira vez. Depois de consentimento é determinado, a aplicação de cliente será capaz de ligar para o Microsoft Graph API em nome do utilizador e utilize as informações de calendário, conforme necessário. O [Microsoft Graph API](https://graph.microsoft.io) fornece acesso aos dados do Office 365 (por exemplo, calendários e mensagens do Exchange, sites e apresenta uma lista do SharePoint, documentos do OneDrive, blocos de notas do OneNote, tarefas a partir da Planner, livros do Excel, etc.), bem como os utilizadores e grupos do Azure AD e outros objetos de dados da cloud services da Microsoft mais. 
 
@@ -93,17 +93,17 @@ Os passos seguintes mostram como o consentimento experiência funciona para o pr
 
 5. Depois do utilizador concede consentimento, é devolvido um código de autorização da aplicação, o que é resgatadas para adquirir um token de acesso e atualizar o token. Para obter mais informações sobre este fluxo, consulte o [aplicação a secção de API em cenários de autenticação da web para o Azure AD web](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
-6. Como administrador, pode também autorizar para as permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede a caixa de diálogo de consentimento de apresentação para cada utilizador no inquilino e é efetuado a sua aplicação página no [portal do Azure](https://portal.azure.com). Do **definições** página para a sua aplicação, clique em **permissões obrigatórias** e clique em de **conceder permissões de** botão. 
+6. Como administrador, pode também autorizar para as permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede a caixa de diálogo de consentimento de apresentação para cada utilizador no inquilino e pode ser feito no [portal do Azure](https://portal.azure.com) pelos utilizadores com a função de administrador. Do **definições** página para a sua aplicação, clique em **permissões obrigatórias** e clique em de **conceder permissões de** botão. 
 
   ![Conceder permissões de administrador explícita consentimento](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > Conceder explícita consentimento utilizando o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, a aplicação falha quando o token de acesso é solicitado.   
+  > Conceder explícita consentimento utilizando o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, a aplicação falha quando o token de acesso é solicitado. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurar uma aplicação de cliente para aceder a APIs web
 Por ordem para uma aplicação de cliente web confidencial conseguir a participar num fluxo de concessão de autorização que necessita de autenticação (e obter um token de acesso), tem de estabelecer credenciais seguras. O método de autenticação predefinido suportado pelo portal do Azure é o ID de cliente + chave secreta. Esta secção aborda os passos de configuração necessários para fornecer a chave secreta com credenciais do cliente.
 
-Além disso, antes de um cliente pode aceder a uma API web do expostas por uma aplicação de recursos (por exemplo, o Microsoft Graph API), a arquitetura de consentimento garante o cliente obtém a concessão de permissão necessária, com base nas permissões pedidas. Por predefinição, todas as aplicações podem escolher permissões "Windows Azure Active Directory" (Graph API) e "Windows API de gestão de serviços do Azure." O [permissão de "início de sessão e perfil de utilizador de leitura" Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o cliente está a ser registado num inquilino com contas de subscrever o Office 365, APIs da Web e permissões para o Exchange Online e SharePoint estão disponíveis para seleção. Pode selecionar [dois tipos de permissões](active-directory-dev-glossary.md#permissions) para cada pretendido web API:
+Além disso, antes de um cliente pode aceder a uma API web do expostas por uma aplicação de recursos (por exemplo, a Microsoft Graph API), a arquitetura de consentimento garante o cliente obtém a concessão de permissão necessária, com base nas permissões pedidas. Por predefinição, todas as aplicações podem escolher permissões "Windows Azure Active Directory" (Graph API) e "Windows API de gestão de serviços do Azure." O [permissão de "início de sessão e perfil de utilizador de leitura" Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) também está selecionada por predefinição. Se o cliente está a ser registado num inquilino com contas de subscrever o Office 365, as APIs web e permissões para o Exchange Online e SharePoint estão disponíveis para seleção. Pode selecionar [dois tipos de permissões](active-directory-dev-glossary.md#permissions) para cada pretendido web API:
 
 - Permissões de aplicação: A aplicação de cliente precisa de aceder à API web diretamente como propriamente dito (nenhum contexto de utilizador). Este tipo de permissão requer consentimento de administrador e também não está disponível para aplicações cliente nativo.
 
@@ -120,7 +120,7 @@ Além disso, antes de um cliente pode aceder a uma API web do expostas por uma a
    ![Atualizar o registo de uma aplicação](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. É direcionado para a página de registo principal da aplicação, o qual abre o **definições** página para a aplicação. Para adicionar uma chave secreta para credenciais da sua aplicação web:
-  - Clique em de **chaves** secção no **definições** página.  
+  - Clique em de **chaves** secção no **definições** página. 
   - Adicione uma descrição para a sua chave.
   - Selecione um ou duração de dois anos.
   - Clique em **Guardar**. A coluna mais à direita irá conter o valor da chave, depois de guardar as alterações de configuração. **Certifique-se de copiar a chave** para utilização no código da aplicação de cliente, porque não está acessível uma vez sair desta página.
@@ -141,7 +141,7 @@ Além disso, antes de um cliente pode aceder a uma API web do expostas por uma a
 6. Quando terminar, clique no **selecione** botão no **ativar o acesso ao** página, o **feito** botão no **acesso à API adicionar** página. É encaminhado para o **as permissões necessárias** página, onde o novo recurso é adicionado à lista de APIs.
 
   > [!NOTE]
-  > Ao clicar no **feito** botão também automaticamente define as permissões para a sua aplicação no seu diretório com base nas permissões para outras aplicações que configurou.  Pode ver as permissões ao observar a aplicação **definições** página.
+  > Ao clicar no **feito** botão também automaticamente define as permissões para a sua aplicação no seu diretório com base nas permissões para outras aplicações que configurou. Pode ver as permissões ao observar a aplicação **definições** página.
   > 
   > 
 
@@ -182,7 +182,7 @@ A secção seguinte mostra como para expor os âmbitos de acesso, modificando o 
   > Pode expor os âmbitos adicionais mais tarde conforme necessários. Considere-se de que a API web poderá expor associados uma variedade de diferentes funções de vários âmbitos. O recurso pode controlar o acesso para a API web em tempo de execução, através da avaliação de âmbito (`scp`) claim(s) no token de acesso de OAuth 2.0 recebido.
   > 
 
-6. Quando terminar, clique em **guardar**. Agora a API web está configurada para utilização por outras aplicações no seu diretório.  
+6. Quando terminar, clique em **guardar**. Agora a API web está configurada para utilização por outras aplicações no seu diretório. 
 
   ![Atualizar o registo de uma aplicação](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +210,7 @@ Para obter mais informações sobre a aplicação manifesto conceitos em geral, 
 
 Conforme mencionado anteriormente, além de expor/aceder a APIs para as suas próprias aplicações, pode registar a aplicação de cliente de acesso a APIs expostas pela recursos Microsoft. A Microsoft Graph API, referido como "Microsoft Graph" na lista de recursos/API no portal, está disponível para todas as aplicações que são registadas com o Azure AD. Se estiver a registar a aplicação cliente de um inquilino que contém as contas que tenham efetuado a inscrição para uma subscrição do Office 365, também pode aceder os âmbitos expostos pelos vários recursos do Office 365.
 
-Para ver um debate completado em âmbitos exposta pelo Microsoft Graph API, consulte o [âmbitos de permissões | Conceitos do Microsoft Graph API](https://graph.microsoft.io/docs/authorization/permission_scopes) artigo.
+Para ver um debate completado em âmbitos exposta pelo Microsoft Graph API, consulte o [referência de permissões de Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) artigo.
 
 > [!NOTE]
 > Devido a uma limitação atual, as aplicações de cliente nativo só é possível chamar para a Azure AD Graph API se utilizarem a permissão "Aceder ao diretório da sua organização". Esta restrição não se aplica para aplicações web.
@@ -247,7 +247,7 @@ Depois de efetuar as alterações, utilizadores e os administradores de outras o
 
 #### <a name="changing-the-application-to-support-multi-tenant"></a>Alterar a aplicação para suportar o multi-inquilino
 
-Suporte para aplicações de multi-inquilinos depende de descontos elevados a estrutura de consentimento do Azure AD. Consentimento é o mecanismo que permite ao utilizador a partir de outro inquilino, para conceder o acesso de aplicações a recursos protegidos por inquilino do utilizador. Esta experiência é referida como "consentimento do utilizador".
+Suporte para aplicações de multi-inquilinos depende de descontos elevados a estrutura de consentimento do Azure AD. Consentimento é o mecanismo que permite ao utilizador a partir de outro inquilino para conceder o acesso de aplicações a recursos protegidos por inquilino do utilizador. Esta experiência é referida como "consentimento do utilizador".
 
 Também pode oferecer a sua aplicação web:
 
@@ -289,7 +289,7 @@ Por predefinição, a concessão implícita de OAuth 2.0 está desativado para a
 Esta secção descreve como remover o registo de uma aplicação de inquilino do Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Remover uma aplicação criada pela sua organização
-As aplicações que registou-se a sua organização mostram sob o filtro "As minhas aplicações" na página do seu inquilino principal "registos de aplicação". Estas aplicações são aqueles que registou manualmente através do portal do Azure, ou de forma programática através do PowerShell ou a Graph API. Mais especificamente, são representados por ambos os um objeto de aplicação e um Principal de serviço no seu inquilino. Para obter mais informações, consulte [objectos da aplicação e objetos de principais de serviço](active-directory-application-objects.md).
+As aplicações que registou-se a sua organização são apresentadas sob o filtro "As minhas aplicações" na página do seu inquilino principal "registos de aplicação". Estas aplicações são aqueles que registou manualmente através do portal do Azure, ou de forma programática através do PowerShell ou a Graph API. Mais especificamente, são representados por ambos os um objeto de aplicação e um Principal de serviço no seu inquilino. Para obter mais informações, consulte [objectos da aplicação e objetos de principais de serviço](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Para remover uma aplicação de inquilino único do seu diretório
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -307,15 +307,15 @@ As aplicações que registou-se a sua organização mostram sob o filtro "As min
 6. Clique em **Sim** na mensagem de confirmação.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Remover uma aplicação de multi-inquilino autorizada por outra organização
-Um subconjunto das aplicações que mostram sob o filtro "Todas as aplicações" (excluindo a registos de "As minhas aplicações") na página "Registos de aplicação" principal do seu inquilino, são aplicações de multi-inquilinos. Em termos técnicos, estas aplicações de multi-inquilinos são de outro inquilino em foram registadas no seu inquilino durante o processo de consentimento. Estes erro são mais especificamente, representados por apenas um objeto principal do serviço no seu inquilino, a com nenhum objeto de aplicação correspondente. Para obter mais informações sobre as diferenças entre a aplicação e objetos de principal de serviço, consulte [aplicação e objetos de principal de serviço no Azure AD](active-directory-application-objects.md).
+Um subconjunto das aplicações que são apresentados o filtro "Todas as aplicações" (excluindo a registos de "As minhas aplicações") na página "Registos de aplicação" principal do seu inquilino, são aplicações de multi-inquilinos. Em termos técnicos, estas aplicações de multi-inquilinos são de outro inquilino em foram registadas no seu inquilino durante o processo de consentimento. Estes erro são mais especificamente, representados por apenas um objeto principal do serviço no seu inquilino, a com nenhum objeto de aplicação correspondente. Para obter mais informações sobre as diferenças entre a aplicação e objetos de principal de serviço, consulte [aplicação e objetos de principal de serviço no Azure AD](active-directory-application-objects.md).
 
-Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (depois de ter concedido consentimento), o administrador da empresa tem de remover o respetivo principal de serviço. O administrador tem de ter acesso de administrador global e pode remover através do portal do Azure ou utilizar o [Cmdlets do Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
+Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (depois de ter concedido consentimento), o administrador da empresa tem de remover o respetivo principal de serviço. O administrador tem de ter acesso de administrador global e pode removê-lo através do portal do Azure ou utilizar o [Cmdlets do Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 - Consulte o [diretrizes de imagem corporativa para aplicações integradas](active-directory-branding-guidelines.md) para dicas sobre visual orientações para a sua aplicação.
 - Para obter mais informações sobre a relação entre objetos de aplicação e um Principal de serviço de uma aplicação, consulte [objectos da aplicação e objetos de principais de serviço](active-directory-application-objects.md).
 - Para mais informações sobre a função desempenhada por manifesto de aplicação, consulte o artigo [compreender o manifesto da aplicação do Azure Active Directory](active-directory-application-manifest.md)
-- Consulte o [Glossário de programador do Azure AD](active-directory-dev-glossary.md) para definições de alguns dos conceitos de programador do Azure Active Directory (AD) principal.
+- Consulte o [Glossário de programador do Azure AD](active-directory-dev-glossary.md) para definições de alguns dos conceitos do programador do principal do Azure AD.
 - Visite o [guia para programadores do Active Directory](active-directory-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados com o programador.
 

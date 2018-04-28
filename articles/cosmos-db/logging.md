@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 0b49a23de62385a8aa362680dde845512d9302fc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -140,7 +140,7 @@ Se já tiver instalado o Azure PowerShell e não souber a versão, a partir do t
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. O Azure PowerShell obtém todas as subscrições que estão associados com esta conta e, por predefinição, utiliza o primeiro.

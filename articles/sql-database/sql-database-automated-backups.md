@@ -11,11 +11,11 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança de base de dados SQL automáticas
 
@@ -44,13 +44,16 @@ Cópias de segurança da base de dados completa semanal, acontecem cópias de se
 A armazenamento de cópia de segurança a georreplicação ocorre com base na agenda de replicação de armazenamento do Azure.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>O período de tempo, manter a minha cópias de segurança?
-Cada cópia de segurança da base de dados do SQL Server tem um período de retenção baseia o [camada de serviço](sql-database-service-tiers.md) da base de dados. O período de retenção para uma base de dados no:
+Cada cópia de segurança da base de dados do SQL Server tem um período de retenção que baseia-se na camada de serviço da base de dados e é diferente entre o [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) e [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md). 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>Retenção da base de dados para o modelo de compra baseado em DTU
+O período de retenção para uma base de dados no modelo de compra baseado em DTU depende da camada de serviço. O período de retenção para uma base de dados para o:
 
 * Camada de serviço básico é de 7 dias.
 * Camada de serviço Standard é 35 dias.
 * Camada de serviço Premium é 35 dias.
-* Camada de objetivo geral é configurável com máximos de 35 dias (7 dias por predefinição) *
+* Para fins gerais camada é configurável com máximos de 35 dias (7 dias por predefinição) *
 * Camada de negócio crítico (pré-visualização) é configurável com máximos de 35 dias (7 dias por predefinição) *
 
 \* Durante a pré-visualização, o período de retenção de cópias de segurança não é configurável e é resolvido para 7 dias.
@@ -63,20 +66,26 @@ Se eliminar uma base de dados, a base de dados SQL mantém as cópias de seguran
 
 > [!IMPORTANT]
 > Se eliminar o Azure SQL server que aloja as bases de dados do SQL Server, todas as bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor eliminado.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Retenção da base de dados para o modelo de compra baseado em vCore (pré-visualização)
+
+Armazenamento de cópias de segurança da base de dados está alocado para suportar o ponto no tempo restaurar (PITR) e de longo prazo retenção imediatamente disponíveis capacidades da base de dados do SQL Server. Este tipo de armazenamento é alocado em separado para cada base de dados e cobrado como dois encargos de separado por base de dados. 
+
+- **PITR**: base de dados individuais de cópias de segurança são copiadas para o armazenamento RA-GRS são automaticamente. O tamanho de armazenamento dinamicamente aumenta à medida que novas cópias de segurança são criadas.  O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações copiadas a cada 5 minutos. O consumo de armazenamento depende a taxa de alteração da base de dados e o período de retenção. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. É fornecida uma quantidade de armazenamento mínima igual a 1 x do tamanho dos dados, sem encargos adicionais. Para a maioria das bases de dados, esta quantidade é suficiente para armazenar 7 dias de cópias de segurança. Para obter mais informações, consulte [Restauroponto no tempo](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Imediatamente disponíveis**: base de dados do SQL Server oferece a opção de configurar a retenção de longa duração das cópias de segurança completas para até 10 anos. Se estiver ativada a política de imediatamente disponíveis, as cópias de segurança presumem são armazenadas no armazenamento RA-GRS automaticamente, mas pode controlar a frequência de cópias de segurança são copiadas. Para cumprir o requisito de conformidade diferente, pode selecionar períodos de retenção diferentes para cópias de segurança semanais, mensais e/ou anuais. Esta configuração irá definir a quantidade de armazenamento será utilizado para as cópias de segurança imediatamente disponíveis. Pode utilizar a Calculadora de preços imediatamente disponíveis para estimar os custos de armazenamento imediatamente disponíveis. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Como expandir o período de retenção de cópias de segurança?
 
 Se a sua aplicação requer que as cópias de segurança estão disponíveis para o período de tempo que o período de retenção de cópias de segurança PITR máximo, pode configurar uma política de retenção de cópias de segurança de longa duração para bases de dados individuais (política imediatamente disponíveis). Isto permite-lhe expandir o período de retenção de incorporada-it do máximo de 35 dias para até 10 anos. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
-Depois de adicionar a política de imediatamente disponíveis para uma base de dados utilizando o portal do Azure ou a API, as cópias de segurança da base de dados completa semanal serão copiadas automaticamente para um contentor de armazenamento RA-GRS separado para a retenção de longa duração (armazenamento imediatamente disponíveis). Se a base de dados é encriptado com TDE as cópias de segurança são encriptadas automaticamente inativos. Base de dados SQL automaticamente eliminará as cópias de segurança expiradas com base no respetivo timestamp e a política de imediatamente disponíveis. Depois de configurar a política, não precisa de gerir a agenda de cópia de segurança ou preocupar com a limpeza dos ficheiros antigos. Pode utilizar o portal do Azure ou o PowerShell para ver, restaurar ou eliminar estas cópias de segurança.
+Depois de adicionar a política de imediatamente disponíveis para uma base de dados utilizando o portal do Azure ou a API, as cópias de segurança da base de dados completa semanal serão copiadas automaticamente para um contentor de armazenamento RA-GRS separado para a retenção de longa duração (armazenamento imediatamente disponíveis). Se a base de dados é encriptado com TDE as cópias de segurança são encriptadas automaticamente inativos. Base de dados SQL automaticamente eliminará as cópias de segurança expiradas com base no respetivo timestamp e a política de imediatamente disponíveis. Depois de configurar a política, não precisa de gerir a agenda de cópia de segurança ou preocupar com a limpeza dos ficheiros antigos. Pode utilizar o portal do Azure ou o PowerShell para ver, restaure ou eliminar estas cópias de segurança.
 
 ## <a name="are-backups-encrypted"></a>As cópias de segurança são encriptadas?
 
 Quando TDE está ativada para uma base de dados SQL do Azure, cópias de segurança também são encriptadas. Todas as novas bases de dados do SQL do Azure estão configurados com TDE ativada por predefinição. Para obter mais informações sobre TDE, consulte [encriptação transparente de dados com a SQL Database do Azure](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>As cópias de segurança automáticas são compatíveis com GDPR?
-Se a cópia de segurança contiver dados pessoais, que está sujeita a Regulamento de proteção de dados gerais (GDPR), é necessário para aplicar medidas de segurança avançada para proteger os dados contra acesso não autorizado. Para cumprir o GDPR, terá de uma forma de gerir os pedidos de dados de proprietários de dados sem ter de aceder a cópias de segurança.  Para cópias de segurança de curto prazo, uma solução pode ser bastante a cópia de segurança janela em 30 dias, que é o tempo permitido para concluir os pedidos de acesso de dados.  Se forem necessárias mais termo as cópias de segurança, recomenda-se para armazenar apenas os dados de "pseudonymized" em cópias de segurança. Por exemplo, se os dados sobre uma pessoa tem de ser eliminada ou atualizada, não serão necessários eliminar ou atualizar as cópias de segurança existentes. Pode encontrar mais informações sobre as GDPR as melhores práticas no [governação de dados de conformidade de GDPR](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
+Se a cópia de segurança contiver dados pessoais, que está sujeita a Regulamento de proteção de dados gerais (GDPR), é necessário para aplicar medidas de segurança avançada para proteger os dados contra acesso não autorizado. Para cumprir o GDPR, terá de uma forma de gerir os pedidos de dados de proprietários de dados sem ter de aceder a cópias de segurança.  Para cópias de segurança de curta duração, uma solução pode ser bastante a cópia de segurança janela em 30 dias, que é o tempo permitido para concluir os pedidos de acesso de dados.  Se forem necessárias mais termo as cópias de segurança, recomenda-se para armazenar apenas os dados de "pseudonymized" em cópias de segurança. Por exemplo, se os dados sobre uma pessoa tem de ser eliminada ou atualizada, não serão necessários eliminar ou atualizar as cópias de segurança existentes. Pode encontrar mais informações sobre as GDPR as melhores práticas no [governação de dados de conformidade de GDPR](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

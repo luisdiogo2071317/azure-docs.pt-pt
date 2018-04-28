@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 884acc4885da3a321477c51f6d7b76748d797d9b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -59,14 +59,14 @@ Registos de diagnóstico de recursos de não-computação recursos estão config
 Estas definições são facilmente configuradas através de definições de diagnóstico para um recurso no portal do Azure, através do Azure PowerShell e comandos da CLI ou através de [API REST da Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!NOTE]
-> Atualmente, o envio de métricas multidimensionais através de definições de diagnóstico não é suportada. Métricas com dimensões são exportadas como simplificadas único dimensional métricas agregadas em valores de dimensão.
+> Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: A métrica de 'Receber mensagens em fila' num Hub de eventos pode ser explorou e charted num nível de fila por. No entanto, quando exportou através de definições de diagnóstico que a métrica será representada como todas as mensagens a receber em todos os coloca em fila de eventos Hub.
+> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
 > [!WARNING]
-> Os registos de diagnóstico e métricas de camada de SO convidado de utilização de recursos (por exemplo, VMs ou Service Fabric) de computação de [um mecanismo separado para a configuração e seleção de saídas](../azure-diagnostics.md).
+> Os registos de diagnóstico e de métricas da camada de SO convidado de utilização de recursos (por exemplo, VMs ou Service Fabric) de computação [um mecanismo separado para a configuração e seleção de saídas](../azure-diagnostics.md).
 
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Como ativar a coleção de registos de diagnóstico de recursos
 

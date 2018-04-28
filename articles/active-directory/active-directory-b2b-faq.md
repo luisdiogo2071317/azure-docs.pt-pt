@@ -1,13 +1,13 @@
 ---
-title: "Colaboração B2B do Active Directory Azure perguntas mais frequentes | Microsoft Docs"
-description: "Obtenha respostas às perguntas mais frequentes sobre a colaboração B2B do Azure Active Directory do."
+title: Colaboração B2B do Active Directory Azure perguntas mais frequentes | Microsoft Docs
+description: Obtenha respostas às perguntas mais frequentes sobre a colaboração B2B do Azure Active Directory do.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração B2B do Active Directory Azure perguntas mais frequentes
 
@@ -85,7 +85,7 @@ Sim. Seguem-se os detalhes importantes para a reposição de palavra-passe self-
 Sim. Pode ser enviado um e-mail de reposição de palavra-passe que permite ao utilizador para repor a palavra-passe de inquilinos JIT.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 fornecem suporte online para colaboração B2B do Azure AD?
-Sim, o Dynamics 365 (online) fornece suporte para colaboração B2B do Azure AD. Para obter mais informações, consulte o artigo de Dynamics 365 [convidar os utilizadores com colaboração B2B do Azure AD](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Sim, o Dynamics 365 (online) fornece suporte para colaboração B2B do Azure AD. Para obter mais informações, consulte o artigo de Dynamics 365 [convidar os utilizadores com colaboração B2B do Azure AD](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>O que é a duração de uma palavra-passe inicial para um utilizador recentemente criado de colaboração B2B?
 Azure AD tem um conjunto fixo de caráter, força de palavra-passe e conta de contas de utilizador de nuvem de requisitos de bloqueio que aplicam-se igualmente a todas as do Azure AD. Contas de utilizador de nuvem são contas que não federadas com o outro fornecedor de identidade, tais como 

@@ -1,25 +1,19 @@
 ---
 title: Indexadores na Azure Search | Microsoft Docs
-description: "Pesquise a base de dados SQL do Azure, o Azure Cosmos DB ou o armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search."
-services: search
-documentationcenter: 
+description: Pesquise a base de dados SQL do Azure, o Azure Cosmos DB ou o armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.openlocfilehash: 8def65c15d631909c69428a1cb5f100beb1f9b08
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores na Pesquisa do Azure
 > [!div class="op_single_selector"]
@@ -72,7 +66,7 @@ Um indexador irá automatizar algumas tarefas relacionadas com a ingestão de da
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Passo 3: criar e agendar o indexador
 A definição de indexador é uma construção que especifica o índice, a origem de dados e uma agenda. Um indexador pode fazer referência a uma origem de dados de outro serviço, desde que essa origem de dados seja da mesma subscrição. Para mais informações sobre a estruturação de um indexador, consulte o artigo [Create Indexer (Azure Search REST API) (Criar um indexador (API REST do Azure Search))](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as tarefas específicas de cada tipo de origem de dados.
 
 * [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

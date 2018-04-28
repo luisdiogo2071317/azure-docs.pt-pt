@@ -2,23 +2,19 @@
 title: Recursos para desenvolver um armazém de dados no Azure | Microsoft Docs
 description: Conceitos de desenvolvimento, as decisões de conceção, recomendações e técnicas de programação para o SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: barbkess
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: develop
-ms.date: 03/22/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: c81a6f9af556a86f10d2482333fdc98f9cfb1454
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: d9a272b2f43e080cd44b7179fe6f9dc55507142b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>As decisões de conceção e técnicas de programação para o SQL Data Warehouse
 Veja através destes artigos de desenvolvimento para compreender melhor as decisões de conceção importantes, recomendações e técnicas de programação para o SQL Data Warehouse.
@@ -26,25 +22,25 @@ Veja através destes artigos de desenvolvimento para compreender melhor as decis
 ## <a name="key-design-decisions"></a>Decisões de conceção de chave
 Os artigos seguintes realce conceitos e as decisões de conceção para desenvolver um armazém de dados distribuídos através do armazém de dados do SQL Server:
 
-* [connections][connections]
-* [concurrency][concurrency]
-* [transactions][transactions]
+* [Ligações][connections]
+* [Simultaneidade][concurrency]
+* [Transações][transactions]
 * [Esquemas definido pelo utilizador][user-defined schemas]
 * [distribuição de tabela][table distribution]
 * [índices da tabela][table indexes]
 * [partições da tabela][table partitions]
 * [CTAS][CTAS]
-* [statistics][statistics]
+* [Estatísticas][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recomendações de desenvolvimento e técnicas de programação
 Estes artigos realce técnicas de programação específicas, sugestões e as recomendações para desenvolver o seu armazém de dados do SQL Server:
 
 * [Procedimentos armazenados][stored procedures]
 * [labels][labels]
-* [views][views]
+* [vistas][views]
 * [tabelas temporárias][temporary tables]
-* [dynamic SQL][dynamic SQL]
-* [looping][looping]
+* [SQL dinâmico][dynamic SQL]
+* [ciclo][looping]
 * [Agrupar por opções][group by options]
 * [Atribuição de variáveis][variable assignment]
 

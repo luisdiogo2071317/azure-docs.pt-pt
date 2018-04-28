@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerir zonas DNS no DNS do Azure utilizando o 2.0 CLI do Azure
 
@@ -47,7 +47,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja [Iniciar sessão no Azure a partir da CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja [Iniciar sessão no Azure a partir da CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -68,7 +68,7 @@ az account set --subscription "subscription name"
 ```
 
 ### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Opcional: para instalar/utilização zonas de DNS privado do Azure da funcionalidade (pré-visualização pública)
-A funcionalidade de zona de DNS privado do Azure é lançada em pré-visualização pública através de uma extensão para a CLI do Azure. Instalar o dns"" extensão da CLI do Azure 
+A funcionalidade de Zona Privada do DNS do Azure foi lançada em Pré-visualização Pública através de uma extensão para a CLI do Azure. Instalar a extensão “dns” da CLI do Azure 
 ```
 az extension add --name dns
 ``` 
@@ -146,27 +146,27 @@ O exemplo seguinte é a resposta.
 Tenha em atenção que os registos DNS não são devolvidos pelo `az network dns zone show`. Para listar os registos DNS, utilize `az network dns record-set list`.
 
 
-## <a name="list-dns-zones"></a>Zonas DNS de lista
+## <a name="list-dns-zones"></a>Listar zonas DNS
 
-Para enumerar zonas DNS, utilize `az network dns zone list`. Para obter ajuda, consulte `az network dns zone list --help`.
+Para enumerar as zonas DNS, utilize `az network dns zone list`. Para obter ajuda, consulte `az network dns zone list --help`.
 
-Especificar o grupo de recursos lista apenas dessas zonas no grupo de recursos:
+Especificar o grupo de recursos lista apenas essas zonas no grupo de recursos:
 
 ```azurecli
 az network dns zone list --resource-group MyResourceGroup
 ```
 
-O grupo de recursos a omissão apresenta uma lista de todas as zonas na subscrição:
+A omissão do grupo de recursos lista todas as zonas na subscrição:
 
 ```azurecli
 az network dns zone list 
 ```
 
-## <a name="update-a-dns-zone"></a>Atualize uma zona DNS
+## <a name="update-a-dns-zone"></a>Atualizar uma zona DNS
 
-É possível efetuar alterações a um recurso de zona DNS utilizando `az network dns zone update`. Para obter ajuda, consulte `az network dns zone update --help`.
+É possível efetuar alterações a um recurso de zona DNS com `az network dns zone update`. Para obter ajuda, consulte `az network dns zone update --help`.
 
-Este comando não atualizar qualquer um dos conjuntos de registos de DNS na zona (consulte [como registos DNS gerir](dns-operations-recordsets-cli.md)). Só é utilizado para atualizar propriedades do recurso de zona em si. Estas propriedades são actualmente limitadas à [do Azure Resource Manager 'etiquetas'](dns-zones-records.md#tags) para o recurso de zona.
+Este comando não atualiza qualquer um dos conjuntos de registos de DNS na zona (veja [Como gerir recursos DNS](dns-operations-recordsets-cli.md)). Só é utilizado para atualizar propriedades do recurso da própria zona. Estas propriedades são actualmente limitadas à [do Azure Resource Manager 'etiquetas'](dns-zones-records.md#tags) para o recurso de zona.
 
 O exemplo seguinte mostra como atualizar as etiquetas numa zona DNS. As etiquetas existentes são substituídas pelo valor especificado.
 
@@ -176,14 +176,14 @@ az network dns zone update --resource-group myresourcegroup --name contoso.com -
 
 ## <a name="delete-a-dns-zone"></a>Eliminar uma zona DNS
 
-Zonas DNS podem ser eliminadas utilizando `az network dns zone delete`. Para obter ajuda, consulte `az network dns zone delete --help`.
+As zonas DNS podem ser eliminadas com `az network dns zone delete`. Para obter ajuda, consulte `az network dns zone delete --help`.
 
 > [!NOTE]
-> Também eliminar uma zona DNS elimina todos os registos DNS na zona. Esta operação não pode ser anulada. Se a zona DNS se encontra em utilização, serviços, utilizando a zona irão falhar quando a zona é eliminada.
+> A eliminação de uma zona DNS também elimina todos os registos DNS na zona. Esta operação não pode ser anulada. Se a zona DNS estiver em utilização, os serviços que utilizam a zona irão falhar quando a zona for eliminada.
 >
->Para proteger contra eliminação acidental de zona, consulte [como pretende proteger os registos e zonas DNS](dns-protect-zones-recordsets.md).
+>Para proteção contra a eliminação acidental de uma zona, veja [Como proteger zonas e registos DNS](dns-protect-zones-recordsets.md).
 
-Este comando solicita a confirmação. O opcional `--yes` comutador suprime esta linha de comandos.
+Este comando solicita a confirmação. O `--yes` comutador opcional suprime esta linha de comandos.
 
 O exemplo seguinte mostra como eliminar a zona *contoso.com* do grupo de recursos *MyResourceGroup*.
 

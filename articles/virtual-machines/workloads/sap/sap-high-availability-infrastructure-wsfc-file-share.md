@@ -1,13 +1,13 @@
 ---
-title: "Preparação de infraestrutura do Azure para disponibilidade elevada de SAP através de um cluster de ativação pós-falha do Windows e a partilha de ficheiros para instâncias de SAP ASCS/SCS | Microsoft Docs"
-description: "Preparação de infraestrutura do Azure para disponibilidade elevada de SAP através de um cluster de ativação pós-falha do Windows e a partilha de ficheiros para instâncias de SAP ASCS/SCS"
+title: Preparação de infraestrutura do Azure para disponibilidade elevada de SAP através de um cluster de ativação pós-falha do Windows e a partilha de ficheiros para instâncias de SAP ASCS/SCS | Microsoft Docs
+description: Preparação de infraestrutura do Azure para disponibilidade elevada de SAP através de um cluster de ativação pós-falha do Windows e a partilha de ficheiros para instâncias de SAP ASCS/SCS
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 2ce38add-1078-4bb9-a1da-6f407a9bc910
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f9e2108a7714dcbfd4f2db583cb6ee4b803f65a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2945f731a71a66d2594eb31afb50d1ae775a2b42
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para disponibilidade elevada do SAP através de uma partilha de ficheiros e de cluster de ativação pós-falha do Windows para instâncias de SAP ASCS/SCS
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/16/2017
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (Configuração de elevada disponibilidade do SAP várias SID)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -212,7 +212,7 @@ Este artigo descreve os passos de preparação de infraestrutura do Azure que s�
 
 Antes de iniciar a instalação, consulte o artigo seguinte:
 
-* [Guia de arquitetura: instâncias de Cluster SAP ASCS/SCS numa ativação pós-falha Windows cluster utilizando a partilha de ficheiros][sap-high-availability-guide-wsfc-shared-disk]
+* [Guia de arquitetura: instâncias de Cluster SAP ASCS/SCS numa ativação pós-falha Windows cluster utilizando a partilha de ficheiros][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomes de anfitriões e endereços IP
@@ -227,7 +227,7 @@ Antes de iniciar a instalação, consulte o artigo seguinte:
 
 **Tabela 1**: cluster ASCS/SCS
 
-| SAP \<SID > | Número de instância do SAP ASCS/SCS |
+| SAP \<SID &GT; | Número de instância do SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -341,6 +341,6 @@ _**Figura 2**: ecrã de IU para o modelo de Gestor de recursos de Azure de servi
 
 No **tipo de conta de armazenamento** caixa, selecione **armazenamento Premium**. Todas as outras definições são os mesmos que as definições para os discos geridos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Instale uma partilha de ficheiros e de cluster de ativação pós-falha de Windows para instâncias de SAP ASCS/SCS SAP NetWeaver elevada disponibilidade][sap-high-availability-installation-wsfc-file-share]

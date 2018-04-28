@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="storsimple-solution-support"></a>Suporte da solução StorSimple
 
@@ -83,7 +83,7 @@ Se o contrato de suporte expirou, tenha em atenção, consoante o período de te
 Além do inglês, é fornecido suporte de idioma local nos seguintes idiomas durante o horário comercial: japonês, coreano, Taiwanese e chinês tradicional.
 
 ## <a name="support-scope"></a>Âmbito do suporte 
-O suporte para problemas relacionados com a gestão da faturação e da subscrição encontra-se disponível em todos os níveis. Para receber suporte do StorSimple, cliente têm de estar inscritos ativamente para planos de suporte do StorSimple Standard ou Premium. A equipa de suporte do StorSimple será responsável por resolver todos os problemas que afetam a solução StorSimple. Para receber suporte para problemas relacionados com o Azure, o que não estão diretamente relacionadas com StorSimple, cliente tem de estar inscritos num plano de suporte do Azure adequada. Consulte [aqui](https://azure.microsoft.com/en-us/support/plans/) para obter mais detalhes. A equipa de suporte refere-se não StorSimple casos de suporte para a equipa do Azure para necessitam de seguimento com base na elegibilidade do cliente para o suporte do Azure. 
+O suporte para problemas relacionados com a gestão da faturação e da subscrição encontra-se disponível em todos os níveis. Para receber suporte do StorSimple, cliente têm de estar inscritos ativamente para planos de suporte do StorSimple Standard ou Premium. A equipa de suporte do StorSimple será responsável por resolver todos os problemas que afetam a solução StorSimple. Para receber suporte para problemas relacionados com o Azure, o que não estão diretamente relacionadas com StorSimple, cliente tem de estar inscritos num plano de suporte do Azure adequada. Consulte [aqui](https://azure.microsoft.com/support/plans/) para obter mais detalhes. A equipa de suporte refere-se não StorSimple casos de suporte para a equipa do Azure para necessitam de seguimento com base na elegibilidade do cliente para o suporte do Azure. 
 
 
 | **GRAVIDADE** |**SITUAÇÃO DO CLIENTE**                                                                                                                                | RESPOSTA DE MICROSOFT ESPERADO <sup>2                                                                                       | RESPOSTA DE CLIENTE ESPERADO                                                                                                                                                       |

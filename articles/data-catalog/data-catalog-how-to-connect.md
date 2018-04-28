@@ -1,12 +1,12 @@
 ---
 title: Como ligar a origens de dados | Microsoft Docs
-description: "Artigo procedimentos realce como ligar a origens de dados detetadas com o catálogo de dados do Azure."
+description: Artigo procedimentos realce como ligar a origens de dados detetadas com o catálogo de dados do Azure.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como ligar a origens de dados
 ## <a name="introduction"></a>Introdução
@@ -46,9 +46,9 @@ Ao utilizar o "Abrir em..." menu para origens de dados no portal do catálogo de
 | Excel |.odc |Excel 2010 ou posterior |
 | Excel (primeiros 1000) |.odc |Excel 2010 ou posterior |
 | Power Query |.xlsx |Excel 2016 ou o Excel 2010 ou o Excel 2013 com o Power Query para o suplemento do Excel instalado |
-| Ambiente de trabalho do Power BI |.pbix |Power BI Desktop Julho de 2016 ou posterior |
+| Ambiente de trabalho do Power BI |. pbix |Power BI Desktop Julho de 2016 ou posterior |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 atualização 4 ou posterior com ferramentas do SQL Server instalada |
-| Gestor de relatórios |http:// |Consulte [requisitos de browser do SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
+| Gestor de relatórios |http:// |Consulte [requisitos de browser do SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Os dados, as ferramentas
 As opções disponíveis no menu dependerão do tipo de recurso de dados atualmente selecionado. Obviamente, nem todas as ferramentas de possíveis serão incluídas a "Abrir em..." menu, mas é ainda mais fácil ligar à origem de dados utilizando qualquer ferramenta de cliente. Quando um recurso de dados está selecionado no **catálogo de dados do Azure** portal, a localização de conclua é apresentada no painel Propriedades.

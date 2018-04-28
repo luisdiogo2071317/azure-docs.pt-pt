@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f0769340ca15f2b60cbcb2669e1a5cf9beef6b8e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registe um Contrato Enterprise do Azure e veja os dados de custos
 
@@ -24,7 +24,7 @@ Utiliza o Contrato Enterprise do Azure para registar com o Azure Cost Management
 
 - Inicie sessão no portal do Azure em http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Criar um registo de avaliação
+## <a name="register-with-azure-cost-management"></a>Registar com o Azure Cost Management
 
 1. No portal do Azure, clique em **Cost Management + Faturação** na lista de serviços.
 2. Em **Descrição geral**, clique em **Cost Management**  

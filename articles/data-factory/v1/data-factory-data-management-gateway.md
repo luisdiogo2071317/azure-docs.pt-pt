@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9ed679c555d9bb363ffb4d896e791dcbd1b90f8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -259,7 +259,7 @@ Consulte a hora de atualização agendada nos seguintes locais:
 
 O separador de início do Data Management Gateway Configuration Manager apresenta o agendamento de atualização e a última vez que o gateway foi instalado/atualizar.
 
-![Atualizações agendadas](media/data-factory-data-management-gateway/UpdateSection.png)
+![Agendar atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Pode instalar a atualização de imediato ou aguarde que o gateway ser atualizados automaticamente na hora agendada. Por exemplo, a imagem seguinte mostra a mensagem de notificação apresentada no Gestor de configuração do Gateway, juntamente com o botão de atualização que podem clicar para instalá-lo imediatamente.
 
@@ -407,7 +407,7 @@ Esta secção fornece os passos para mover cliente do gateway de uma máquina pa
 
 1. No portal, navegue para o **home page da fábrica de dados**e clique em de **serviços ligados** mosaico.
 
-    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    ![Ligação de Gateways de dados](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 2. Selecione o gateway no **GATEWAYS dados** secção o **serviços ligados** página.
 
     ![Página dos serviços ligada com o gateway selecionado](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
@@ -484,7 +484,7 @@ Esta secção descreve como criar e registar um gateway utilizando cmdlets do Po
 2. Inicie sessão sua conta do Azure executando o seguinte comando e introduzir as suas credenciais do Azure.
 
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Utilize o **New-AzureRmDataFactoryGateway** cmdlet para criar um gateway lógico da seguinte forma:
 

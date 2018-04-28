@@ -3,7 +3,7 @@ title: Especificar as definições de DNS num ficheiro de configuração de rede
 description: Como alterar as definições de servidor DNS numa rede virtual utilizando um ficheiro de configuração de rede virtual no modelo de implementação clássica
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: 8e6cfc285b3fb23944dfa0189bb492a9b8fa9a88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ed7f02d3e389db3bc772c4fcb00a7b3877d60173
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificar as definições de DNS num ficheiro de configuração de rede virtual
 Um ficheiro de configuração de rede tem dois elementos que pode utilizar para especificar as definições do sistema de nomes de domínio (DNS): **DnsServers** e **DnsServerRef**. Pode adicionar uma lista de servidores DNS especificando os respetivos endereços IP e referenciar nomes para o **DnsServers** elemento. Em seguida, pode utilizar um **DnsServerRef** elemento para especificar que as entradas de servidor DNS do elemento DnsServers de são utilizadas para os sites de rede diferente dentro da sua rede virtual.

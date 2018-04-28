@@ -1,6 +1,6 @@
 ---
-title: "Implementação Resource Manager e clássico | Microsoft Docs"
-description: "Descreve as diferenças entre o modelo de implementação Resource Manager e clássica (ou de gestão do serviço) modelo de implementação."
+title: Implementação Resource Manager e clássico | Microsoft Docs
+description: Descreve as diferenças entre o modelo de implementação Resource Manager e clássica (ou de gestão do serviço) modelo de implementação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 06da24babd470e81bed9c45a32c59ad9cfd153fe
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>O Azure Resource Manager vs. de implementação clássica: compreender o estado dos seus recursos e modelos de implementação
 Neste artigo, pode saber mais sobre modelos de implementação clássica e do Azure Resource Manager. Modelos de implementação clássica e Resource Manager representam duas formas diferentes de implementar e gerir as suas soluções do Azure. Trabalhar com eles através de dois conjuntos diferentes de API e os recursos implementados podem conter diferenças importantes. Dois modelos não são compatíveis com cada um dos outros. Este artigo descreve as diferenças.
@@ -108,7 +108,7 @@ A tabela seguinte descreve as alterações na forma como interagem fornecedores 
 | Contas de Armazenamento |A máquina virtual requer uma conta de armazenamento que armazena os VHDs para o sistema operativo, os discos de dados temporário e adicionais. |A máquina virtual requer uma conta de armazenamento para armazenar os respetivos discos no armazenamento de Blobs. |
 | Conjuntos de Disponibilidade |A Disponibilidade para a plataforma era indicada configurando o mesmo “AvailabilitySetName” nas Máquinas Virtuais. A contagem máxima de domínios de falhas era 2. |O Conjunto de Disponibilidade é um recurso exposto pelo Fornecedor Microsoft.Compute. As Máquinas Virtuais que requerem elevada disponibilidade têm de ser incluídas no Conjunto de Disponibilidade. A contagem máxima de domínios de falhas é agora 3. |
 | Grupos de Afinidade |Os Grupos de Afinidade eram necessários para criar Redes Virtuais. No entanto, com a introdução das Redes Virtuais Regionais, deixaram de ser necessários. |Para simplificar, o conceito de Grupos de Afinidade não existe nas APIs expostas através do Azure Resource Manager. |
-| Balanceamento de Carga |A criação de um Serviço em Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implementadas. |O Balanceador de Carga é um recurso exposto pelo fornecedor Microsoft.Network. A interface de rede primária das Máquinas Virtuais que precisam de balanceamento de carga deve mencionar o balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. Uma instância de Balanceador de carga referencia o conjunto de back-end de endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência um endereço Balanceador de carga público ou privado IP (opcional). [Leia mais.](../virtual-network/resource-groups-networking.md) |
+| Balanceamento de Carga |A criação de um Serviço em Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implementadas. |O Balanceador de Carga é um recurso exposto pelo fornecedor Microsoft.Network. A interface de rede primária das Máquinas Virtuais que precisam de balanceamento de carga deve mencionar o balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. Uma instância de Balanceador de carga referencia o conjunto de back-end de endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência um endereço Balanceador de carga público ou privado IP (opcional). |
 | Endereço IP Virtual |Serviços cloud obtém um VIP predefinido (endereço de IP Virtual) quando é adicionada uma VM para um serviço em nuvem. O Endereço IP Virtual é o endereço associado ao balanceador de carga implícito. |O endereço IP público é um recurso exposto pelo fornecedor Microsoft.Network. Endereço IP público pode ser estático (reservado) ou dinâmico. Os IPs públicos dinâmicos podem ser atribuídos a um balanceador de carga. Os IPs Públicos podem ser protegidos utilizando Grupos de Segurança. |
 | Endereço IP Reservado |Pode reservar um Endereço IP no Azure e associá-lo a um Serviço em Nuvem para garantir que o Endereço IP é temporário. |Endereço IP público pode ser criado no modo estático e oferece a mesma capacidade de um endereço IP reservado. |
 | Endereço IP Público (PIP) por VM |Endereços IP públicos também pode ser associados a uma VM diretamente. |O endereço IP público é um recurso exposto pelo fornecedor Microsoft.Network. Endereço IP público pode ser estático (reservado) ou dinâmico. |
@@ -147,7 +147,7 @@ Toda a automatização e os scripts que criou continuarem a trabalhar para as m�
 
 Um conjunto abrangente de modelos de arranque pode ser encontrado no [modelos de início rápido do Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * A guiá-lo através da criação de modelo que define uma máquina virtual, a conta de armazenamento e a rede virtual, consulte [instruções do modelo do Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver os comandos para implementar um modelo, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
 

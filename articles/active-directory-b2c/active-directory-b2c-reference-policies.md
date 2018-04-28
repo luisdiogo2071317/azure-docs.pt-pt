@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Do Azure Active Directory B2C: Políticas incorporadas
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Criar uma política de inscrição ou início de sessão
 
-Esta política processa ambas as experiências de inscrição & início de sessão do consumidor com uma configuração única. Os consumidores são guiados para baixo a solução certa (inscrição ou início de sessão) dependendo no contexto. Também descreve os conteúdos de tokens que a aplicação receberá após ups de início de sessão com êxito ou inícios de sessão.  Um exemplo de código para a política de inscrição ou início de sessão é [aqui disponível](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendado que utilize esta política através de uma política de inscrição e a política de início de sessão.  
+Esta política processa ambas as experiências de inscrição & início de sessão do consumidor com uma configuração única. Os consumidores são guiados para baixo a solução certa (inscrição ou início de sessão) dependendo no contexto. Também descreve os conteúdos de tokens que a aplicação receberá após ups de início de sessão com êxito ou inícios de sessão.  Um exemplo de código para o **se inscrever ou iniciar sessão** política é [aqui disponível](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  É recomendado que utilize esta política através de um **inscrição** política ou um **início de sessão** política.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ Esta política processa ambas as experiências de inscrição & início de sess�
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Como associar a uma política de inscrição ou iniciar sessão com uma política de reposição de palavra-passe?
-Quando criar uma política de inscrição ou início de sessão (com contas locais), verá um **palavra-passe de Forgot?** ligação na primeira página da experiência. Ao clicar nesta hiperligação não automaticamente acionador uma palavra-passe política de reposição. 
+Quando cria um **se inscrever ou iniciar sessão** política (com contas locais), consulte um **palavra-passe de Forgot?** ligação na primeira página da experiência. Ao clicar nesta hiperligação não automaticamente acionador uma palavra-passe política de reposição. 
 
 Em vez disso, o código de erro **`AADB2C90118`** é devolvido para a sua aplicação. A aplicação tem de processar este código de erro ao invocar uma política de reposição de palavra-passe específica. Para obter mais informações, consulte um [amostra que demonstra a abordagem de ligar políticas](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Posso utilizar uma política de inscrição ou início de sessão ou uma política de inscrição e uma política de início de sessão?
-Recomendamos que utilize uma política de inscrição ou início de sessão através de uma política de inscrição e uma política de início de sessão.  
+Recomendamos que utilize um **se inscrever ou iniciar sessão** política através de um **inscrição** política e um **início de sessão** política.  
 
-A política de inscrição ou início de sessão tem mais capacidades que a política de início de sessão. Também permite-lhe utilizar personalização de IU de página e tem um melhor suporte para a localização. 
+O **se inscrever ou iniciar sessão** política tem capacidades mais do que o **início de sessão** política. Também permite-lhe utilizar personalização de IU de página e tem um melhor suporte para a localização. 
 
-A política de início de sessão é recomendada se não precisa de localizar as suas políticas, só precisa de capacidades de personalização secundária para a imagem corporativa e pretender palavra-passe reposição incorporada no mesmo.
+O **início de sessão** política é recomendada se não precisa de localizar as suas políticas, só precisa de capacidades de personalização secundária para a imagem corporativa e pretender palavra-passe reposição incorporada no mesmo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Token, a sessão e a configuração de início de sessão único](active-directory-b2c-token-session-sso.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 00bd606fc1b0d2c075789addd1b601becf7a011b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0517c85c62aaffd1055206120281c7b7de31ad82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso de aplicações com a pilha do Azure
 
@@ -41,7 +41,7 @@ Dependendo de como tiver implementado pilha do Azure, que comece por criar um se
 
 Se implementou a pilha do Azure com o Azure AD como o arquivo de identidade, pode criar principais de serviço, tal como, fazê-lo para o Azure.  Esta secção mostra como efetuar os passos através do portal.  Verifique se tem o [necessárias permissões do Azure AD](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes do início.
 
-### <a name="create-service-principal"></a>Criar principal de serviço
+### <a name="create-service-principal"></a>Criar um principal de serviço
 Nesta secção, vai criar uma aplicação (principal de serviço) no Azure AD que irá representar a sua aplicação.
 
 1. Inicie sessão na sua conta do Azure através de [portal do Azure](https://portal.azure.com).

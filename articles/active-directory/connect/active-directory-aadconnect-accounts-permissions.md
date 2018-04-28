@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Do Azure AD Connect: Contas e permissões
 O Assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -58,7 +58,7 @@ O [conta](#active-directory-account) criados para leitura e escrita para o AD DS
 
 | Permissão | Utilizado para |
 | --- | --- |
-| <li>Replicar as alterações de diretório</li><li>Alterações de diretório de replicar todos os |Sincronização de palavra-passe |
+| <li>Replicar as alterações de diretório</li><li>Alterações de diretório de replicar todos os |Sincronização de hash de palavra-passe |
 | Leitura/escrita todas as propriedades de utilizador |Importar e o Exchange híbrido |
 | Leitura/escrita todas as propriedades iNetOrgPerson |Importar e o Exchange híbrido |
 | Grupo de todas as propriedades de leitura/escrita |Importar e o Exchange híbrido |
@@ -87,10 +87,10 @@ As permissões necessárias depende de funcionalidades opcionais, ativar. Se tiv
 | Funcionalidade | Permissões |
 | --- | --- |
 | funcionalidade de msDS-ConsistencyGuid |Permissões de escrita para o atributo msDS-ConsistencyGuid documentado [conceitos de Design - utilizando msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Sincronização de palavra-passe |<li>Replicar as alterações de diretório</li>  <li>Alterações de diretório de replicar todos os |
+| Sincronização de hash de palavra-passe |<li>Replicar as alterações de diretório</li>  <li>Alterações de diretório de replicar todos os |
 | Implementação híbrida do Exchange |Permissões de escrita para os atributos documentados [repetição de escrita do Exchange híbrida](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para utilizadores, grupos e contactos. |
 | Pasta de público de correio do Exchange |Permissões de leitura para os atributos documentados [pasta pública de correio eletrónico Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| Repetição de escrita de palavras-passe |Permissões de escrita para os atributos documentados [introdução à gestão de palavra-passe](../active-directory-passwords-writeback.md) para os utilizadores. |
+| Repetição de escrita de palavras-passe |Permissões de escrita para os atributos documentados [introdução à gestão de palavra-passe](../authentication/howto-sspr-writeback.md) para os utilizadores. |
 | Repetição de escrita do dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Repetição de escrita do grupo |Ler, criar, atualizar e eliminar o grupo de objetos para sincronizados **grupos do Office 365**.  Para obter mais informações consulte [repetição de escrita do grupo](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -146,7 +146,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL Server remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associada ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA,gMSA | **gMSA**</br>Conta de domínio |
+| **máquina associada ao domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA, gMSA | **gMSA**</br>Conta de domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual

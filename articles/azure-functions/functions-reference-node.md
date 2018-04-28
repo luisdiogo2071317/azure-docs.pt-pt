@@ -1,13 +1,13 @@
 ---
-title: "Referência para programadores de JavaScript para as funções do Azure | Microsoft Docs"
-description: "Compreenda como desenvolver funções utilizando o JavaScript."
+title: Referência para programadores de JavaScript para as funções do Azure | Microsoft Docs
+description: Compreenda como desenvolver funções utilizando o JavaScript.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia para programadores do JavaScript de funções do Azure
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 A experiência de JavaScript para as funções do Azure torna mais fácil exportar uma função, o que é transmitida como um `context` objeto para comunicar com o tempo de execução e para receber e enviar dados através dos enlaces.
 
@@ -208,7 +207,7 @@ O `request` objeto tem as seguintes propriedades:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Um objeto que contém o corpo do pedido.               |
+| _Corpo_        | Um objeto que contém o corpo do pedido.               |
 | _Cabeçalhos_     | Um objeto que contém os cabeçalhos do pedido.                   |
 | _Método_      | O método HTTP do pedido.                                |
 | _originalUrl_ | O URL do pedido.                                        |
@@ -223,7 +222,7 @@ O `response` objeto tem as seguintes propriedades:
 
 | Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Um objeto que contém o corpo da resposta.         |
+| _Corpo_    | Um objeto que contém o corpo da resposta.         |
 | _Cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
 | _status_  | O código de estado HTTP da resposta.                     |

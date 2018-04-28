@@ -1,24 +1,23 @@
 ---
-title: Configurar PHP nas Web Apps do App Service do Azure | Microsoft Docs
+title: Configurar PHP nas Web Apps do App Service do Azure
 description: Saiba como configurar a instalação do PHP predefinidos ou adicione uma instalação personalizada do PHP para Web Apps no App Service do Azure.
 services: app-service
 documentationcenter: php
-author: cephalin
+author: msangapu
 manager: cfowler
-editor: ''
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: cephalin
-ms.openlocfilehash: a9059be43a6188b81b57f1503bba241b3138e114
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 04/11/2018
+ms.author: msangapu
+ms.openlocfilehash: 3dbd41756ede8577fee43d9758e39eb36130a6ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar PHP nas Web Apps do App Service do Azure
 
@@ -50,7 +49,7 @@ Versões do PHP 7.0 e PHP 7.2 também estão disponíveis, mas não ativado por 
 
 1. Abrir Azure PowerShell, início de sessão e à sua conta:
 
-        PS C:\> Login-AzureRmAccount
+        PS C:\> Connect-AzureRmAccount
 1. Defina a versão do PHP para a aplicação web.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
@@ -192,7 +191,7 @@ Por predefinição, o serviço de aplicações não faz nada com Composer, se ti
 Para obter mais informações, consulte o [Centro para programadores do PHP](/develop/php/).
 
 > [!NOTE]
-> Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://azure.microsoft.com/try/app-service/), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Não é necessário cartão de crédito; sem compromissos.
+> Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://azure.microsoft.com/try/app-service/), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.
 >
 
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/

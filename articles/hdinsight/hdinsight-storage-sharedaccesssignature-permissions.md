@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 2c201af6b1c14553e31ca71e28fc22d99ec900bd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 328f052e1ccad3ac26cce62c858e050253192ae8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure armazenamento para restringir o acesso aos dados no HDInsight
 
@@ -163,7 +163,7 @@ Um exemplo de como criar um cluster do HDInsight que utiliza a SAS está incluí
 1. A partir da linha de comandos, utilize o seguinte comando para autenticar a sua subscrição do Azure:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Quando lhe for solicitado, inicie sessão com a conta para a sua subscrição do Azure.

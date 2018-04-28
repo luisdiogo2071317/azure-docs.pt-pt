@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
-Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementado o Azure Resource Manager. Os passos apresentados nos procedimentos utilizam o portal do Azure. Armazene os dados de cópia de segurança da máquina virtual num cofre dos serviços de recuperação. O Cofre retém os dados de cópia de segurança de máquinas virtuais clássicos e implementadas no Resource Manager.
+Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementado o Azure Resource Manager. Os passos apresentados nos procedimentos utilizam o portal do Azure. Quando a cópia de segurança de uma máquina virtual, os dados de cópia de segurança ou pontos de recuperação, são armazenadas num cofre dos serviços de recuperação. Os cofres dos serviços de recuperação armazenam dados de cópia de segurança para máquinas virtuais clássicos e implementadas no Resource Manager.
 
 > [!NOTE]
 > O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Antes de proteger (ou cópia de segurança) uma máquina virtual implementadas no Resource Manager, certifique-se de que estes pré-requisitos existem:
 
-* Criar um cofre dos serviços de recuperação (ou identificar um cofre dos serviços de recuperação existente) *na mesma região que a VM*.
+* Crie ou identifique um cofre dos serviços de recuperação *na mesma região que a máquina virtual*.
 * Selecionar um cenário, definir a política de cópia de segurança e definir os itens para proteger.
-* Verifique a instalação de um agente de VM na máquina virtual.
+* Verifique a instalação de um agente VM (extensão) na máquina virtual.
 * Verifique a conectividade de rede.
 * Para VMs com Linux, se pretender personalizar o seu ambiente de cópia de segurança para cópias de segurança consistentes com aplicações, siga o [passos para configurar scripts anterior ao instantâneo e posterior ao instantâneo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,12 +51,12 @@ Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 * Não é suportada a cópia de segurança de máquinas virtuais com mais de 16 discos de dados.
 * Não é suportada a cópia de segurança de máquinas virtuais com um endereço IP reservado e nenhum ponto final de definidos.
 * Não é suportada a cópia de segurança de VMs com Linux encriptados através de encriptação de Linux Unified chave configuração (LUKS).
-* Não recomendamos a cópia de segurança de VMs que contém a configuração de Volumes Partilhados de Cluster (CSV) ou servidor de ficheiros de escalamento horizontal. Necessitam que envolvem todas as VMs incluídas na configuração do cluster durante a uma tarefa de instantâneo. A consistência multi VM não suporta a cópia de segurança do Azure. 
+* Não recomendamos a cópia de segurança de VMs que contém a configuração de Volumes Partilhados de Cluster (CSV) ou servidor de ficheiros de escalamento horizontal. Se o tiver feito, falha de escritores CSV é esperada. Necessitam que envolvem todas as VMs incluídas na configuração do cluster durante a uma tarefa de instantâneo. A consistência multi VM não suporta a cópia de segurança do Azure. 
 * Dados de cópia de segurança não incluem unidades de rede montado ligadas a uma VM.
 * A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando existe a VM, a operação de restauro irá falhar.
 * Por várias regiões criar cópias de segurança e restauro não são suportadas.
-* Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas, não é suportada para os clientes na pilha de cópia de segurança de VM antigo. 
 * Durante a configuração anterior cópias de segurança, certifique-se de que o **Firewalls e redes virtuais** as definições de conta de armazenamento permitem o acesso a partir de todas as redes.
+* Para redes selecionadas, depois de configurar as definições de rede virtual e de firewall para a sua conta de armazenamento, selecione **permitir fidedigna serviços da Microsoft para aceder a esta conta de armazenamento** como uma exceção para ativar o serviço de cópia de segurança do Azure aceder à conta de armazenamento de rede restringida.
 * Pode criar cópias de segurança máquinas virtuais em todas as regiões públicas do Azure. (Consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas.) Se a região que procura não é suportada atualmente, não serão apresentados na lista pendente durante a criação do cofre.
 * Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Para obter mais informações, consulte [restaurar um controlador de domínio do DC várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Máquinas virtuais que têm as seguintes configurações de rede especiais o restauro é suportado apenas através do PowerShell. VMs criadas através do fluxo de trabalho de restauro na IU não terá estas configurações de rede após a conclusão da operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -167,7 +167,7 @@ Antes de registar uma máquina virtual com um cofre dos serviços de recuperaç�
 
    ![Botão "Ativar a cópia de segurança"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Depois de ativar a cópia de segurança com êxito, a política de cópia de segurança será executado numa agenda. Se pretende gerar uma tarefa de cópia de segurança a pedido para cópia de segurança de máquinas virtuais, ver [acionar a tarefa de cópia de segurança](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Depois de ativar a cópia de segurança com êxito, a política de cópia de segurança será executado numa agenda. Se pretende gerar uma tarefa de cópia de segurança a pedido para cópia de segurança de máquinas virtuais, ver [acionar a tarefa de cópia de segurança](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 Se tiver problemas ao registar a máquina virtual, consulte as seguintes informações sobre como instalar o agente da VM e conectividade de rede. Provavelmente, não terá as seguintes informações se estiver a proteger máquinas virtuais criadas no Azure. Mas, se tiver migrado máquinas virtuais no Azure, não se esqueça de que instalou corretamente o agente da VM e que a máquina virtual pode comunicar com a rede virtual.
 
@@ -208,6 +208,10 @@ A lista de permissões os intervalos IP do datacenter do Azure, consulte o [Web 
 Pode permitir que as ligações para o armazenamento da região específica utilizando [etiquetas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tem prioridade mais alta do que a regra que bloqueia o acesso à internet. 
 
 ![NSG com etiquetas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+O vídeo seguinte explica o procedimento passo a passo para configurar as etiquetas de serviço: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > As etiquetas de serviço de armazenamento estão disponíveis apenas em regiões específicas e estão em pré-visualização. Para obter uma lista de regiões, consulte [etiquetas de serviço para o armazenamento](../virtual-network/security-overview.md#service-tags).
@@ -298,7 +302,7 @@ Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-## <a name="questions"></a>Dúvidas?
+## <a name="questions"></a>Tem dúvidas?
 Se tiver dúvidas ou se houver alguma funcionalidade que pretende ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Passos Seguintes

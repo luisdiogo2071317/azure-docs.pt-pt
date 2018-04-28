@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
 ms.openlocfilehash: 3ad5a5e0e5ea2cccfc70c3fac946a18cb1942a8b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao Azure Cosmos DB: Graph API
 
@@ -85,7 +85,7 @@ BD do Azure do Cosmos oferece as seguintes capacidades diferenciadas quando comp
 
  Armazenar vértices heterogéneas e as margens e consultar estes documentos através de uma sintaxe familiar do Gremlin. BD do Azure do Cosmos utiliza uma tecnologia de indexação altamente em simultâneo, livres de bloqueio, estruturada em registos para indexar automaticamente todos os conteúdos. Esta capacidade permite consultas em tempo real e traversals sem a necessidade de especificar sugestões de esquema, índices secundários ou vistas. Saiba mais em [consultar gráficos utilizando Gremlin](gremlin-support.md).
 
-* Totalmente gerida
+* Totalmente gerido
 
  BD do Azure do Cosmos elimina a necessidade de gerir a base de dados e recursos de máquinas. Como um serviço completamente gerido do Microsoft Azure, que não precisa de gerir máquinas virtuais, implementar e configurar o software, gerir o dimensionamento, ou lidar com atualizações de camada de dados complexas. Cada gráfico automaticamente é uma cópia de segurança e protegido contra falhas regionais. Pode facilmente adicionar uma conta de base de dados do Azure Cosmos e aprovisionar capacidade conforme necessário, para se poder concentrar na sua aplicação em vez de explorar e gerir a sua base de dados.
 

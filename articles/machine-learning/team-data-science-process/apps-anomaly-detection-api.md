@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning a deteção de anomalias API
 ## <a name="overview"></a>Descrição geral
@@ -47,7 +47,7 @@ A oferta de deteção de anomalias inclui ferramentas úteis para ajudar a come�
 Para utilizar a API, terá de a implementar a sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-do [galeria do Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços Web do AzureML (e os respetivos recursos relacionados) à sua subscrição do Azure - uma para deteção de anomalias com deteção de sazonalidade e um sem deteção de sazonalidade.  Depois de concluída a implementação, poderá gerir as suas APIs do [serviços web do AzureML](https://services.azureml.net/webservices/) página.  Nesta página, poderá encontrar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>A API de dimensionamento
-Por predefinição, a sua implementação terá um plano de faturação do programador/teste gratuito que inclui 1.000 transações/mês e horas de computação 2/mês.  Pode atualizar para outro plano de acordo com as suas necessidades.  Estão disponíveis detalhes sobre os preços dos planos diferentes [aqui](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) em "Preços da API de Web de produção".
+Por predefinição, a sua implementação terá um plano de faturação do programador/teste gratuito que inclui 1.000 transações/mês e horas de computação 2/mês.  Pode atualizar para outro plano de acordo com as suas necessidades.  Estão disponíveis detalhes sobre os preços dos planos diferentes [aqui](https://azure.microsoft.com/pricing/details/machine-learning/) em "Preços da API de Web de produção".
 
 ## <a name="managing-aml-plans"></a>Gerir AML planos 
 Pode gerir o seu plano de faturação [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome de grupo de recursos que escolheu durante a implementação da API, mais uma cadeia que é exclusiva para a sua subscrição.  Estão disponíveis instruções sobre como atualizar o seu plano [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) na secção "Gerir planos de faturação".
@@ -120,13 +120,13 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 
 | Parâmetros de entrada | Descrição | Definição predefinida | Tipo | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |integer |10-2000 |Dependente de séries de tempo |
+| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |número inteiro |10-2000 |Dependente de séries de tempo |
 | detectors.spikesdips | Se pretende detetar apenas os picos de apenas dips ou ambos |Ambos |enumerar |Ambos, os picos de Dips |Ambos |
 | bileveldetector.sensitivity |Sensibilidade de nível de bidirecional alterar detector. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| trenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |duplo |Nenhum |3.25-5 (valores menores significam mais confidencial) |
-| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |integer |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |integer |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |integer |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
+| trenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |número inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
 
 ### <a name="output"></a>Saída
 A API é executado todos os detetores nos seus dados de séries de tempo e devolve pontuações de anomalias e indicadores de pico de pedidos de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
@@ -156,20 +156,20 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 
 | Parâmetros de entrada | Descrição | Definição predefinida | Tipo | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |O intervalo de agregação em segundos para agregar séries de tempo de entrada |0 (nenhum agregação é efetuada) |integer |0: Ignorar caso contrário, a agregação ', ' > 0 |5 minutos para 1 dia, dependentes de séries de tempo |
+| preprocess.aggregationInterval |O intervalo de agregação em segundos para agregar séries de tempo de entrada |0 (nenhum agregação é efetuada) |número inteiro |0: Ignorar caso contrário, a agregação ', ' > 0 |5 minutos para 1 dia, dependentes de séries de tempo |
 | preprocess.aggregationFunc |Função utilizada para agregar dados para o AggregationInterval especificado |média |enumerar |soma, média, comprimento |N/A |
 | preprocess.replaceMissing |Valores utilizados para impute dados em falta |lkv (última conhecido valor) |enumerar |zero, lkv, média |N/A |
-| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |integer |10-2000 |Dependente de séries de tempo |
+| detectors.historyWindow |Histórico de (em n. º de pontos de dados) utilizado para o cálculo de pontuação de anomalias |500 |número inteiro |10-2000 |Dependente de séries de tempo |
 | detectors.spikesdips | Se pretende detetar apenas os picos de apenas dips ou ambos |Ambos |enumerar |Ambos, os picos de Dips |Ambos |
 | bileveldetector.sensitivity |Sensibilidade de nível de bidirecional alterar detector. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
 | postrenddetector.sensitivity |Sensibilidade para detector tendência positivo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
-| negtrenddetector.sensitivity |Sensibilidade para detector tendência negativo. |3.25 |duplo |Nenhum |3.25-5 (valores menores significam mais confidencial) |
-| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |integer |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |integer |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| seasonality.enable |Se a análise de sazonalidade é para ser executada |true |boolean |TRUE, false |Dependente de séries de tempo |
-| seasonality.numSeasonality |Número máximo de ciclos periódicos para ser detetada |1 |integer |1, 2 |1-2 |
-| seasonality.transform |Se sazonais (e) componentes de tendência deverá ser removidos antes de aplicar a deteção de anomalias |deseason |enumerar |Nenhum, deseason, deseasontrend |N/A |
-| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |integer |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
+| negtrenddetector.sensitivity |Sensibilidade para detector tendência negativo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
+| tspikedetector.sensitivity |Sensibilidade para TSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| zspikedetector.sensitivity |Sensibilidade para ZSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
+| seasonality.Enable |Se a análise de sazonalidade é para ser executada |true |boolean |TRUE, false |Dependente de séries de tempo |
+| seasonality.numSeasonality |Número máximo de ciclos periódicos para ser detetada |1 |número inteiro |1, 2 |1-2 |
+| seasonality.Transform |Se sazonais (e) componentes de tendência deverá ser removidos antes de aplicar a deteção de anomalias |deseason |enumerar |Nenhum, deseason, deseasontrend |N/A |
+| postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |número inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/A |
 
 ### <a name="output"></a>Saída
 A API é executado todos os detetores nos seus dados de séries de tempo e devolve pontuações de anomalias e indicadores de pico de pedidos de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 

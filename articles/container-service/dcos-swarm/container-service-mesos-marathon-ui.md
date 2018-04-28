@@ -1,19 +1,19 @@
 ---
 title: Gerir o cluster DC/OS do Azure com a IU do Marathon
-description: "Implemente contentores num serviço de cluster do Serviço de Contentor do Azure utilizando a IU da Web do Marathon."
+description: Implemente contentores num serviço de cluster do Serviço de Contentor do Azure utilizando a IU da Web do Marathon.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gerir um cluster DC/SO do Azure Container Service através da Marathon Web UI
 
@@ -33,12 +33,12 @@ Antes de avançarmos, necessita de um cluster DC/OS configurado no Serviço de C
 >
 
 ## <a name="explore-the-dcos-ui"></a>Explorar a IU do DC/OS
-Com um túnel do Secure Shell (SSH) [estabelecido](../container-service-connect.md), aceda a http://localhost/. Este procedimento permite carregar a IU da Web do DC/OS e mostrar as informações sobre o cluster, tais como recursos utilizados, agentes ativos e serviços em execução.
+Com um túnel Secure Shell (SSH) [estabelecida](../container-service-connect.md), navegue até à http://localhost/. Este procedimento permite carregar a IU da Web do DC/OS e mostrar as informações sobre o cluster, tais como recursos utilizados, agentes ativos e serviços em execução.
 
 ![IU do DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Explorar a IU do Marathon
-Para ver a IU do Marathon, aceda a http://localhost/marathon. Neste ecrã, pode iniciar um novo contentor ou outra aplicação no cluster do DC/OS do Serviço de Contentor do Azure. Também pode ver informações sobre contentores e aplicações em execução.  
+Para ver a IU do Marathon, navegue até à http://localhost/marathon. Neste ecrã, pode iniciar um novo contentor ou outra aplicação no cluster do DC/OS do Serviço de Contentor do Azure. Também pode ver informações sobre contentores e aplicações em execução.  
 
 ![IU do Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -82,7 +82,7 @@ De voltar à página principal do Marathon, pode ver o estado de implementação
 
 ![IU da página principal do Marathon – estado de implementação do contentor](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Quando voltar a mudar para o IU da Web do DC/OS (http://localhost/), verá que uma tarefa (neste caso, um contentor formatado para Docker) está em execução no cluster do DC/OS.
+Quando voltar a mudar para o DC/SO IU da web (http://localhost/), verá que uma tarefa (neste caso, um formatado para Docker contentor) está em execução no cluster DC/OS.
 
 ![IU da Web do DC/OS – tarefa em execução no cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 
@@ -100,7 +100,7 @@ Neste exemplo, a aplicação está em execução num nó de agente público. Ace
     ![Nginx da Internet](./media/container-service-mesos-marathon-ui/nginx.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Trabalhar com o DC/OS e a API do Marathon](container-service-mesos-marathon-rest.md)
 
 * Descrição aprofundada sobre o Azure Container Service com Mesos

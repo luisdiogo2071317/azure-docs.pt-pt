@@ -1,11 +1,11 @@
 ---
-title: "Introdução à autenticação para Mobile Apps no Xamarin iOS"
-description: "Saiba como utilizar as Mobile Apps para autenticar os utilizadores da sua aplicação Xamarin iOS através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
+title: Introdução à autenticação para Mobile Apps no Xamarin iOS
+description: Saiba como utilizar as Mobile Apps para autenticar os utilizadores da sua aplicação Xamarin iOS através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adicionar autenticação à sua aplicação Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ Nesta secção, irá modificar a aplicação para apresentar um ecrã de início
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Abra **Info. plist** de ficheiros, navegue para **URL tipos** no **avançadas** secção. Configurar agora o **identificador** e **esquemas de URL** do tipo de URL e clique em **Adicionar tipo de URL**. **Esquemas de URL** deve ser o mesmo que o {url_scheme_of_your_app}.
-7. No Visual Studio ou no Xamarin Studio ligado ao anfitrião de compilação do Xamarin no Mac, execute o projeto de cliente, direcionado para um dispositivo ou emulador. Certifique-se de que a aplicação apresenta sem dados.
+7. No Visual Studio, ligado para o anfitrião de Mac ou o Visual Studio para Mac, execute o projeto de cliente, direcionado para um dispositivo ou emulador. Certifique-se de que a aplicação apresenta sem dados.
    
     Execute o gesto de atualização ao extrair baixo a lista de itens, o que fará com que o ecrã início de sessão. Depois de introduzir credenciais válidas com êxito, a aplicação irá apresentar a lista de itens todo e que pode efetuar atualizações para os dados.
 

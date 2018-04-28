@@ -2,23 +2,20 @@
 title: Preparar para publicar ou implementar um serviço em nuvem do Visual Studio | Microsoft Docs
 description: Saiba os procedimentos para configurar os serviços de conta de nuvem e de armazenamento e configurar a sua aplicação do Azure.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ghogen
-ms.openlocfilehash: 8a7d6f114bfa10170cdfe7126e01a35b02affd20
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7656f0ea7ddc283d430eacdccb60a1a2df6e3b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>Preparar para publicar ou implementar um serviço em nuvem do Visual Studio
 
@@ -45,7 +42,7 @@ Um serviço em nuvem executa as funções no ambiente do Azure. Pode criar um se
 1. Selecione **+ adicionar**, em seguida, forneça as informações necessárias (DNS nome, subscrição, grupo de recursos e localização). Não é necessário carregar um pacote neste momento, porque, fazê-lo mais tarde no Visual Studio.
 1. Selecione **criar** para concluir o processo.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Uma conta do storage fornece acesso aos serviços tabela, fila e Blob. Pode criar uma conta do storage através do Visual Studio ou o [portal do Azure](https://portal.azure.com/).
 

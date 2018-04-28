@@ -2,17 +2,17 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-network
-author: genli
+author: genlin
 ms.service: virtual-network
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: a84b31d64f8f9900d342e245ca66cde3c0395be1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ae4c3100ae13fdb05e17974b433b247128c1a50
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Como criar uma rede virtual com um ficheiro de configuração de rede a partir do PowerShell
 Azure utiliza um ficheiro xml para definir todas as redes virtuais disponíveis para uma subscrição. Pode transferir este ficheiro, editá-lo para modificar ou eliminar as redes virtuais existentes e criar novas redes virtuais. Neste tutorial, saiba como transferir este ficheiro, referido como ficheiro de configuração (ou netcfg) de rede e editá-lo para criar uma nova rede virtual. Para saber mais sobre o ficheiro de configuração de rede, consulte o [esquema de configuração de rede virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).

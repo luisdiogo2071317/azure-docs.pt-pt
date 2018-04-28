@@ -1,11 +1,11 @@
 ---
-title: Script do PowerShell do Azure de exemplo - criar um cluster do Service Fabric | Microsoft Docs
-description: Script do PowerShell do Azure de exemplo - criar um cluster do Service Fabric.
+title: Exemplo do Script do Azure PowerShell - Criar um cluster do Service Fabric | Microsoft Docs
+description: Exemplo do Script do Azure PowerShell - Criar um cluster do Service Fabric.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 01/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b0d33b714092a826012677c95124d74bf2c72999
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
-Este script de exemplo cria um cluster do Service Fabric cinco nós protegido por um certificado x. 509.  O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós do cluster.  Personalize os parâmetros conforme necessário.
+Este script de exemplo cria um cluster do Service Fabric com cinco nós protegido por um certificado X.509.  O comando cria um certificado autoassinado e carrega-o para um novo cofre de chaves. O certificado é também copiado para um diretório local.  Defina o parâmetro *-OS* para escolher a versão do Windows ou Linux que é executada nos nós do cluster.  Personalize os parâmetros conforme necessário.
 
-Se necessário, instale o Azure PowerShell com a instrução foi encontrada no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma ligação com o Azure. 
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma ligação ao Azure. 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -33,23 +33,23 @@ Se necessário, instale o Azure PowerShell com a instrução foi encontrada no [
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, cluster e todos os recursos relacionados.
+Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos, o cluster e todos os recursos relacionados.
 
 ```powershell
 $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Cria um novo cluster de Service Fabric. |
+| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Cria um novo cluster do Service Fabric. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Amostras de Azure Powershell adicionais para o Azure Service Fabric podem ser encontradas no [exemplos do PowerShell do Azure](../service-fabric-powershell-samples.md).
+Pode ver os exemplos do Azure Powershell adicionais para o Azure Service Fabric em [Exemplos do Azure PowerShell](../service-fabric-powershell-samples.md).

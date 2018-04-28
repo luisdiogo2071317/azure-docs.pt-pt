@@ -1,24 +1,18 @@
 ---
-title: "Análise de tráfego de pesquisa para a Azure Search | Microsoft Docs"
-description: "Ative a análise de tráfego de pesquisa para a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure, para desbloquear informações sobre os seus utilizadores e os dados."
+title: Análise de tráfego de pesquisa para a Azure Search | Microsoft Docs
+description: Ative a análise de tráfego de pesquisa para a Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure, para desbloquear informações sobre os seus utilizadores e os dados.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>O que é a análise de tráfego de pesquisa
 Análise de tráfego de pesquisa é um padrão para implementar um ciclo de comentários do seu serviço de pesquisa. Este padrão descreve os dados necessários e como recolhê-la utilizando o Application Insights, um leader da indústria para monitorizar os serviços em várias plataformas.
@@ -139,7 +133,7 @@ Sempre que um pedido de pesquisa é emitido por um utilizador, deve iniciar que 
 
 Sempre que um utilizador clica num documento, que é um sinal de que tem de ter sessão iniciado para efeitos de análise de pesquisa. Utilize eventos personalizados do Application Insights para registar estes eventos com o esquema seguinte:
 
-**ServiceName**: nome do serviço de pesquisa (cadeia) **SearchId**: identificador de exclusivo (guid) de consulta de pesquisa relacionados **DocId**: identificador de documento (cadeia) **posição** : página de resultados de classificação (int) do documento na pesquisa
+**ServiceName**: nome do serviço de pesquisa (cadeia) **SearchId**: identificador de exclusivo (guid) de consulta de pesquisa relacionados **DocId**: identificador de documento (cadeia) **posição**: página de resultados de classificação (int) do documento na pesquisa
 
 > [!NOTE]
 > Posição refere-se para a ordem cardinal na sua aplicação. Está livre para definir este número, desde que é sempre o mesmo, para permitir a comparação.
@@ -184,7 +178,7 @@ Métricas incluídas no modelo de ambiente de trabalho do Power BI:
 ![Modelo de BI de energia para ler a partir do Application Insights][3]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Instrumente a sua aplicação de pesquisa para obter dados de elevado desempenho e insightful sobre o serviço de pesquisa.
 
 Pode encontrar mais informações sobre o Application Insights [aqui](https://go.microsoft.com/fwlink/?linkid=842905). Visite o Application Insights [página de preços](https://azure.microsoft.com/pricing/details/application-insights/) para saber mais sobre os diferentes escalões de serviço.

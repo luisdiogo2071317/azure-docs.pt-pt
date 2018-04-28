@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes no App Service do Azure de teste
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ Ao implementar a aplicação web, a aplicação web no Linux, back-end móvel e 
 * Implementar uma aplicação para uma ranhura pela primeira vez e trocar-o em produção assegura que todas as instâncias da ranhura são preparadas antes de a ser alternados em produção. Isto elimina o período de indisponibilidade quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado e não existem pedidos são ignorados devido a operações de comutação. Este fluxo de trabalho completo pode ser automatizado configurando [automática comutação](#Auto-Swap) quando a validação de pré-troca de não é necessária.
 * Depois de uma troca a ranhura de aplicação previamente testada tem agora a aplicação de produção anterior. Se as alterações alternadas para a ranhura de produção não tem o aspeto esperado, pode efetuar a troca mesma imediatamente para obter o seu "último boa site conhecido" novamente.
 
-Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
+Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
 
 * Quando a aplicação tiver várias ranhuras, não é possível alterar a camada.
 * Dimensionamento não está disponível para ranhuras de não produção.
@@ -54,7 +54,7 @@ A aplicação deve estar em execução a **padrão** ou **Premium** camada por o
    
     ![Origem da Configuração][ConfigurationSource1]
    
-    A primeira adicionar uma ranhura, apenas terá duas opções: configuração de clone da ranhura de predefinição na produção ou não de todo.
+    Adicionar uma ranhura de pela primeira vez, só tem duas opções: configuração de clone da ranhura de predefinição na produção ou não de todo.
     Depois de criar várias ranhuras, será possível clonar a configuração a partir de uma ranhura diferente em produção:
    
     ![Origens de configuração][MultipleConfigurationSources]
@@ -67,8 +67,8 @@ Não há nenhum conteúdo após a criação da ranhura de implementação. Pode 
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Configuração para as ranhuras de implementação
-Ao clonar a configuração a partir de outro bloco de implementação, a configuração clonada é editável. Além disso, alguns elementos de configuração irão seguir o conteúdo através de uma troca (não ranhura específica) enquanto outros elementos de configuração e irão permanecer na mesma ranhura após uma troca (específica da ranhura). As listas seguintes mostram a configuração que será alterado quando trocar ranhuras.
+## <a name="which-settings-are-swapped"></a>Quais as definições são trocadas?
+Ao clonar a configuração a partir de outro bloco de implementação, a configuração clonada é editável. Além disso, alguns elementos de configuração irão seguir o conteúdo através de uma troca (não ranhura específica) enquanto outros elementos de configuração e irão permanecer na mesma ranhura após uma troca (específica da ranhura). As listas seguintes mostram as definições que alterar ao trocar ranhuras.
 
 **As definições que são trocadas**:
 
@@ -87,7 +87,7 @@ Ao clonar a configuração a partir de outro bloco de implementação, a configu
 * Definições de dimensionamento
 * Programadores de WebJobs
 
-Para configurar uma cadeia de ligação ou definição de aplicação para stick para uma ranhura (não alternada), aceda a **definições da aplicação** painel para uma ranhura específica, em seguida, selecione o **ranhura definição** caixa para a configuração elementos devem stick a ranhura. Tenha em atenção que um elemento de configuração marcar como ranhura específica tem o efeito de estabelecer que o elemento não swappable como em todas as ranhuras de implementação associadas à aplicação.
+Para configurar uma cadeia de ligação ou definição de aplicação para stick para uma ranhura (não alternada), aceda a **definições da aplicação** painel para uma ranhura específica, em seguida, selecione o **ranhura definição** caixa para a configuração elementos devem stick a ranhura. Marcar um elemento de configuração como ranhura específica tem o efeito de estabelecer que o elemento não swappable como em todas as ranhuras de implementação associadas à aplicação.
 
 ![Definições de ranhura][SlotSettings]
 
@@ -123,13 +123,13 @@ Para cargas de trabalho pesadas, que pretende validar que a aplicação se compo
 
 Quando utiliza o **troca com pré-visualização** opção (consulte [trocar ranhuras de implementação](#Swap)), serviço de aplicações efetua o seguinte procedimento:
 
-- Mantém a ranhura de destino inalterada, para a carga de trabalho existente nesse ranhura (por exemplo, produção) não é afetada.
+- Mantém a ranhura de destino inalterada, para a carga de trabalho existente nesse ranhura (como produção) não é afetada.
 - Aplica-se os elementos de configuração da ranhura de destino para a ranhura de origem, incluindo as definições de aplicação e as cadeias de ligação de específicos da ranhura.
 - Reinicia os processos de trabalho a ranhura de origem utilizando estes elementos de configuração acima mencionados.
 - Quando concluir a troca: desloca a ranhura de origem de pré-warmed cópia de segurança para a ranhura de destino. Ranhura de destino é movida para a ranhura de origem como uma troca manual.
 - Se cancelar a troca: volta os elementos de configuração da ranhura de origem para a ranhura de origem.
 
-Pode pré-visualizar exatamente como a aplicação irá comportar-se com a configuração da ranhura de destino. Depois de concluir a validação, conclua a troca num passo separado. Este passo tem a vantagem adicional que a ranhura de origem já está preparada com a configuração pretendida e os clientes não irão experimentar qualquer período de inatividade.  
+Pode pré-visualizar exatamente como a aplicação irá comportar-se com a configuração da ranhura de destino. Depois de concluir a validação, conclua a troca num passo separado. Este passo tem a vantagem adicional que a ranhura de origem já está preparada com a configuração pretendida e os clientes não sofrem qualquer período de inatividade.  
 
 Exemplos de cmdlets PowerShell do Azure disponíveis para comutação multi fase são incluídos nos cmdlets PowerShell do Azure para a secção de ranhuras de implementação.
 
@@ -146,14 +146,14 @@ Troca automática simplifica a cenários de DevOps onde pretende implementar con
 > [!NOTE]
 > Troca automática não é suportada nas web apps no Linux.
 
-É fácil a configuração automática de comutação para uma ranhura. Siga os passos abaixo:
+É fácil a configuração automática de comutação para uma ranhura. Siga estes passos.
 
 1. No **ranhuras de implementação**, selecione uma ranhura de não produção e escolha **definições da aplicação** no painel de recursos que ranhura.  
    
     ![][Autoswap1]
 2. Selecione **no** para **automática comutação**, selecione a ranhura de destino pretendida no **automática trocar a ranhura**e clique em **guardar** na barra de comando. Certifique-se a configuração para a ranhura exatamente a configuração pretendida para a ranhura de destino.
    
-    O **notificações** separador irá flash um verde **êxito** depois de concluída a operação.
+    O **notificações** separador está intermitente um verde **êxito** depois de concluída a operação.
    
     ![][Autoswap2]
    
@@ -161,26 +161,36 @@ Troca automática simplifica a cenários de DevOps onde pretende implementar con
    > Para testar a comutação de automaticamente para a sua aplicação, primeiro selecione uma ranhura de destino de não produção no **automática trocar a ranhura** para se familiarizar com a funcionalidade.  
    > 
    > 
-3. Execute um push de código para esse ranhura de implementação. Troca automática irá ocorrer após um curto período de tempo e a atualização será apresentada no URL da ranhura de destino.
+3. Execute um push de código para esse ranhura de implementação. Acontece de troca automática após um curto período de tempo e a atualização é refletida no URL da ranhura de destino.
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Reverter uma aplicação de produção após a troca
+## <a name="roll-back-a-production-app-after-swap"></a>Reverter uma aplicação de produção após a troca
 Se os erros são identificados em produção após uma troca de ranhura, reverta ranhuras para os respetivos Estados de pré-comutação de ao trocar dois ranhuras mesmas imediatamente.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Warm-up personalizado antes de comutação
-Algumas aplicações podem exigir ações warm-up personalizado. O `applicationInitialization` elemento de configuração em Web. config permite-lhe especificar as ações de inicialização personalizada para ser executada antes de um pedido é recebido. A operação de troca espera que este warm-up personalizado concluir. Eis um fragmento de Web. config de exemplo.
+Algumas aplicações podem exigir ações warm-up personalizado. O `applicationInitialization` elemento de configuração em Web. config permite-lhe especificar as ações de inicialização personalizada para ser executada antes de um pedido é recebido. A operação de troca aguarda que este warm-up personalizado concluir. Eis um fragmento de Web. config de exemplo.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Monitorize o progresso de comutação
+
+Por vezes, a operação de troca demora algum tempo a concluir, tais como quando a aplicação que está a ser alternada tem um período de tempo warm-up longo. Pode obter mais informações sobre as operações de comutação no [registo de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) no [portal do Azure](https://portal.azure.com).
+
+Na página da aplicação do portal, no painel de navegação esquerdo, selecione **registo de atividade**.
+
+Uma operação de troca aparece na consulta de registo como `Slotsswap`. Pode expandi-lo e selecione um dos suboperations ou erros para ver os detalhes.
+
+![Registo de atividade para a troca de ranhura](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Para eliminar uma ranhura de implementação
+## <a name="delete-a-deployment-slot"></a>Eliminar uma ranhura de implementação
 No painel de uma ranhura de implementação, abra o painel da ranhura de implementação, clique em **descrição geral** (a página predefinida) e clique em **eliminar** na barra de comando.  
 
 ![Eliminar uma ranhura de implementação][DeleteStagingSiteButton]
@@ -189,41 +199,47 @@ No painel de uma ranhura de implementação, abra o painel da ranhura de impleme
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets do PowerShell do Azure para as ranhuras de implementação
+## <a name="automate-with-azure-powershell"></a>Automatizar com o Azure PowerShell
+
 O Azure PowerShell é um módulo que fornece cmdlets para gerir o Azure através do Windows PowerShell, incluindo suporte para gerir as ranhuras de implementação no App Service do Azure.
 
 * Para obter informações sobre como instalar e configurar o Azure PowerShell e sobre a autenticação do Azure PowerShell com a sua subscrição do Azure, consulte [como instalar e configurar o Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Criar uma ranhura de implementação
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Inicie uma troca com pré-visualização (fase multi swap) e aplicar a configuração da ranhura de destino a ranhura de origem
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelar uma troca pendente (troca com a revisão) e restaurar a configuração da ranhura de origem
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Trocar ranhuras de implementação
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Monitor de comutação eventos no registo de atividade
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,53 +253,14 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandos de Interface de linha de comandos (CLI do Azure) do Azure para as ranhuras de implementação
-A CLI do Azure fornece comandos de várias plataformas para trabalhar com o Azure, incluindo suporte para gerir as ranhuras de implementação do serviço de aplicações.
+## <a name="automate-with-azure-cli"></a>Automatizar com a CLI do Azure
 
-* Para obter instruções sobre como instalar e configurar a CLI do Azure, incluindo informações sobre como ligar a CLI do Azure a sua subscrição do Azure, consulte [instalar e configurar a CLI do Azure](../cli-install-nodejs.md).
-* Para listar os comandos disponíveis para o Azure App Service na CLI do Azure, chamar `azure site -h`.
+Para [CLI do Azure](https://github.com/Azure/azure-cli) comandos para as ranhuras de implementação, consulte [ranhura de implementação de webapp az](/cli/azure/webapp/deployment/slot).
 
-> [!NOTE] 
-> Para [Azure CLI 2.0](https://github.com/Azure/azure-cli) comandos para as ranhuras de implementação, consulte [ranhura de implementação de webapp az](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>lista de sites do Azure
-Para obter informações sobre as aplicações na subscrição atual, chamar **a lista de sites do azure**, como no exemplo seguinte.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>criar o site do Azure
-Para criar uma ranhura de implementação, chame **do azure site criar** e especifique o nome de uma aplicação existente e o nome da ranhura para criar, como no exemplo seguinte.
-
-`azure site create webappslotstest --slot staging`
-
-Para ativar o controlo de origem para a nova ranhura, utilize o **– git** opção, como no exemplo seguinte.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>troca de site do Azure
-Para efetuar a implementação atualizada espaço a aplicação de produção, utilize o **troca de site do azure** comando para efetuar uma operação de troca, como no exemplo seguinte. A aplicação de produção não irá ocorrer algum tempo, nem vai sofrer-uma arranque a frio.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>eliminação de site do Azure
-Para eliminar uma ranhura de implementação que já não é necessária, utilize o **eliminação de site do azure** comando, como no exemplo seguinte.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Veja uma aplicação Web em ação. [Experimentar o App Service](https://azure.microsoft.com/try/app-service/) imediatamente e crie uma aplicação de arranque de curta duração — sem cartões de crédito, sem compromissos.
-> 
-> 
-
-## <a name="next-steps"></a>Próximos Passos
-[Web do App Service do Azure aplicação – bloquear o acesso web para as ranhuras de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[introdução ao serviço de aplicações no Linux](../app-service/containers/app-service-linux-intro.md)
-[avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+## <a name="next-steps"></a>Passos Seguintes
+[Web do App Service do Azure aplicação – bloquear o acesso web para as ranhuras de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Introdução ao serviço de aplicações no Linux](../app-service/containers/app-service-linux-intro.md)  
+[Versão de avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

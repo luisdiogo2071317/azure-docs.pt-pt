@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a112951409fc6177240b9eddc9fcd7f6c0c932cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Normalmente mais frequentes sobre o Service Fabric
 
 Existem muitos perguntas mais comuns sobre o Service Fabric pode fazer e como devem ser utilizado. Este documento inclui muitas desses perguntas comuns e as respetivas respostas.
 
 ## <a name="cluster-setup-and-management"></a>Configuração do cluster e gestão
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Como posso reversão meu certificado de cluster do Service Fabric?
+
+A reverter a qualquer atualização à sua aplicação requer que a deteção de falha de estado de funcionamento antes do quórum do cluster de Service Fabric consolidação da alteração; consolidadas as alterações só podem ser revertidas reencaminhar. Escalamento engenheiro através dos serviços de suporte de cliente, poderá ser necessária para recuperar o cluster, se uma alteração de certificado de não monitorizado inovadora foi introduzida.  [Atualização da aplicação de Service Fabric](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica-se [parâmetros de atualização da aplicação](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), e entrega promessa de atualização de um período de indisponibilidade de zero.  Seguintes nossa aplicação recomendada monitorizado de modo de atualização, progresso automático através de domínios de atualização é baseado no verificações de estado de funcionamento falha back graduais, passando automaticamente se atualizar um serviço predefinido.
+ 
+Se o cluster ainda está a tirar partido a propriedade de Thumbprint do certificado clássica no seu modelo do Resource Manager, recomenda- [cluster de alteração de thumbprint do certificado para o nome comum](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para tirar partido dos segredos modernos funcionalidades de gestão.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Pode criar um cluster que abrange várias regiões do Azure ou o meus próprio centros de dados?
 
@@ -89,7 +95,7 @@ Enquanto que estamos a trabalhar uma experiência melhorada, hoje em dia, o util
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Pode encriptar dados anexados discos de um tipo de nó de cluster (conjunto de dimensionamento da máquina virtual)?
 Sim.  Para obter mais informações, consulte [criar um cluster com discos de dados anexados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [encriptar discos (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), e [encriptar discos (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>Quais são os diretórios e os processos que preciso para serem excluídos ao executar um programa de software antivírus no meu cluster?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e os processos que preciso para serem excluídos ao executar um programa de software antivírus no meu cluster?
 
 | **Diretórios de excluídas antivírus** |
 | --- |
@@ -164,6 +170,6 @@ Iremos [anunciou recentemente](https://blogs.msdn.microsoft.com/azureservicefabr
 
 Siga o [blogue de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes, como é que está a ser anunciados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais sobre conceitos de Service Fabric principais e melhores práticas](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

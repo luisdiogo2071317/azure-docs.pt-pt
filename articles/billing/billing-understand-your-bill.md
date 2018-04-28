@@ -1,11 +1,11 @@
 ---
 title: Compreender a fatura do Azure
-description: "Saiba como leia e compreenda a sua utilização e a fatura para a sua subscrição do Azure"
-services: 
-documentationcenter: 
+description: Saiba como leia e compreenda a sua utilização e a fatura para a sua subscrição do Azure
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ec4fd970c6b552d87e006f9e0ab55d3495c9b0c8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare da sua fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
@@ -102,7 +102,7 @@ Se lhe [pague por faturação](billing-how-to-pay-by-invoice.md), envie o pagame
 [Criar um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pedir para o estado do pagamento. 
 
 ## <a name="tips-for-cost-management"></a>Sugestões para a gestão de custos
-- Estimar os custos, utilizando o [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) e [custo total da Calculadora de propriedade](https://aka.ms/azure-tco-calculator)e obter o [detalhadas informações sobre preços para cada serviço](https://azure.microsoft.com/en-us/pricing/).
+- Estimar os custos, utilizando o [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) e [custo total da Calculadora de propriedade](https://aka.ms/azure-tco-calculator)e obter o [detalhadas informações sobre preços para cada serviço](https://azure.microsoft.com/pricing/).
 - [Configurar alertas de faturação](billing-set-up-alerts.md).
 - [Reveja a utilização e os custos regularmente no portal do Azure](billing-getting-started.md#costs).
 

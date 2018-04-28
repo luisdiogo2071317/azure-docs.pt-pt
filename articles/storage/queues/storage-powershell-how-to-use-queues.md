@@ -1,12 +1,12 @@
 ---
-title: "Efetuar operações em armazenamento de filas do Azure com o PowerShell | Microsoft Docs"
-description: "Como realizar operações no armazenamento de filas do Azure com o PowerShell"
+title: Efetuar operações em armazenamento de filas do Azure com o PowerShell | Microsoft Docs
+description: Como realizar operações no armazenamento de filas do Azure com o PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 36eb6db83bb902b35efb8c9666ab06e0c618d602
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de filas do Azure com o Azure PowerShell
 
@@ -38,15 +38,15 @@ Não existem nenhum cmdlets do PowerShell para o plane de dados para filas. Para
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Obter a lista de localizações
 
-Se não souber qual localização que pretende utilizar, pode listar as localizações disponíveis. Depois de é apresentada a lista, localize aquela que pretende utilizar. Utilizará este exercício **eastus**. Armazene-o na variável **localização** para utilização futura.
+Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Utilizará este exercício **eastus**. Armazene-o na variável **localização** para utilização futura.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -66,7 +66,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Criar conta de armazenamento
 
-Criar uma conta de armazenamento para fins gerais standard com a utilização do armazenamento localmente redundante (LRS) [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Obter o contexto da conta de armazenamento que define a conta de armazenamento a ser utilizado. Quando a atuar numa conta de armazenamento, referenciar o contexto em vez de repetidamente fornecer as credenciais.
+Criar uma conta de armazenamento para fins gerais standard com a utilização do armazenamento localmente redundante (LRS) [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Obter o contexto da conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -171,13 +171,13 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover todos os recursos que criou neste exercício, remova o grupo de recursos. Isto também elimina todos os recursos contidos dentro do grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
+Para remover todos os recursos que criou neste exercício, remova o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo procedimentos, aprendeu sobre a gestão de armazenamento de filas básica com o PowerShell, incluindo como:
 
@@ -190,7 +190,7 @@ Este artigo procedimentos, aprendeu sobre a gestão de armazenamento de filas b�
 > * Eliminar uma fila
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de armazenamento do Microsoft Azure PowerShell
-* [Cmdlets do PowerShell do armazenamento](/powershell/module/azurerm.storage#storage)
+* [Cmdlets do Armazenamento do PowerShell](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
 * O [Explorador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.

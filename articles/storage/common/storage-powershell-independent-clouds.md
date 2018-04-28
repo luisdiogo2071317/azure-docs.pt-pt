@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerir o armazenamento em nuvens independentes do Azure com o PowerShell
 
@@ -48,7 +48,7 @@ Get-AzureRmEnvironment
 Inicie sessão na sua conta que tenha acesso à nuvem para o qual pretende ligar e configurar o ambiente. Este exemplo mostra como iniciar sessão numa conta que utiliza a nuvem do Azure Government.   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzureRmAccount –Environment AzureUSGovernment
 ```
 
 Para aceder à nuvem China, utilize o ambiente **AzureChinaCloud**. Para aceder à nuvem alemão, utilize **AzureGermanCloud**.
@@ -61,7 +61,7 @@ Get-AzureRmLocation | select Location, DisplayName
 
 A tabela seguinte mostra as localizações para a nuvem em alemão.
 
-|Localização | DisplayName |
+|Localização | displayName |
 |----|----|
 | germanycentral | Alemanha Central|
 | germanynortheast | Alemanha Nordeste | 
@@ -85,11 +85,10 @@ Este comando devolve os seguintes resultados.
 
 | Nome| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | core.usgov.cloudapi.net |
-
+| AzureUSGovernment | Core.usgovcloudapi.NET |
 
 Para obter todas as propriedades para o ambiente especificado, chame **Get-AzureRmEnvironment** e especifique o nome da nuvem. Este fragmento de código devolve uma lista de propriedades; Procure **StorageEndpointSuffix** na lista. O exemplo seguinte é para a nuvem alemão.
 

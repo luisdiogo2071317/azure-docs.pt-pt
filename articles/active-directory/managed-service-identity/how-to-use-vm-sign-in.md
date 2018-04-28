@@ -1,11 +1,11 @@
 ---
-title: "Como utilizar uma identidade de serviço gerida do Azure VM para início de sessão"
-description: "Passo a passo instruções e exemplos de utilizar um principal de serviço do MSI de VM do Azure para o cliente de script iniciar sessão e de recursos de acesso."
+title: Como utilizar uma identidade de serviço gerida do Azure VM para início de sessão
+description: Passo a passo instruções e exemplos de utilizar um principal de serviço do MSI de VM do Azure para o cliente de script iniciar sessão e de recursos de acesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: MT
+ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Como utilizar um Azure VM geridos serviço de identidade (MSI) para início de sessão 
 
@@ -51,7 +51,7 @@ O script seguinte demonstra como:
 2. Chamar o Gestor de recursos do Azure e obter ID de principal de serviço a VM CLI encarrega-se da gestão de aquisição token/utilização por si automaticamente. Não se esqueça de substituir o nome de máquina virtual para `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -61,20 +61,11 @@ O script seguinte demonstra como:
 
 O script seguinte demonstra como:
 
-1. Adquirir um token de acesso do MSI da VM.  
-2. Utilize o token de acesso para iniciar sessão Azure AD, sob o principal de serviço correspondente do MSI.   
-3. Chame um cmdlet do Azure Resource Manager para obter informações sobre a VM. PowerShell encarrega-se de gerir a utilização de token para si automaticamente.  
+1. iniciar sessão Azure AD ao abrigo do serviço MSI da VM principal  
+2. Chame um cmdlet do Azure Resource Manager para obter informações sobre a VM. PowerShell encarrega-se de gerir a utilização de token para si automaticamente.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
@@ -91,7 +82,7 @@ Consulte [que suporte do Azure AD a autenticação de serviços do Azure](overvi
 Respostas como as seguintes podem indicar que a VM MSI não foi corretamente configurada:
 
 - PowerShell: *Invoke-WebRequest: não é possível ligar ao servidor remoto*
-- CLI: *MSI: não foi possível obter um token de 'http://localhost:50342 / / token oauth2' com um erro de ' HTTPConnectionPool (anfitrião = 'localhost', porta = 50342)* 
+- CLI: *MSI: não foi possível obter um token de 'http://localhost:50342/oauth2/token' com um erro de ' HTTPConnectionPool (anfitrião = 'localhost', porta = 50342)* 
 
 Se receber um destes erros, regressar à VM do Azure no [portal do Azure](https://portal.azure.com) e:
 

@@ -1,12 +1,12 @@
 ---
-title: "Exemplos de armazenamento do Azure através do .NET | Microsoft Docs"
-description: "Ver, transferir e executar o código de exemplo e aplicações para o Storage do Azure. Detete a introdução aos exemplos para blobs, filas, tabelas e ficheiros, utilizando as bibliotecas de cliente do armazenamento de .NET."
+title: Exemplos de armazenamento do Azure através do .NET | Microsoft Docs
+description: Ver, transferir e executar o código de exemplo e aplicações para o Storage do Azure. Detete a introdução aos exemplos para blobs, filas, tabelas e ficheiros, utilizando as bibliotecas de cliente do armazenamento de .NET.
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 74777ed14ebb41ad31657f814e86724ff1e5e62e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e6973f0decc448657d869afb8823dd03c62d272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemplos de armazenamento do Azure através do .NET
 
@@ -26,11 +26,11 @@ ms.lasthandoff: 10/11/2017
 
 A tabela seguinte fornece uma descrição geral do nosso repositório de exemplos e os cenários abrangidos em cada amostra. Clique nas ligações para ver o código de exemplo correspondente no GitHub.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de exemplo</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de Exemplo</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Blob de acréscimo</td> 
-<td><a href="https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Exemplo de método CloudBlobContainer.GetAppendBlobReference</a></td> 
+<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">Exemplo de método CloudBlobContainer.GetAppendBlobReference</a></td> 
 </tr> 
 <tr> 
 <td>Blob de bloco</td>
@@ -130,7 +130,7 @@ A tabela seguinte fornece uma descrição geral do nosso repositório de exemplo
 <td><a href="https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs">Exemplo de armazenamento de ficheiros de .NET de armazenamento do Azure</a></td> 
 </tr>
 <tr> 
-<td rowspan="8"><b>Fila</b></td>
+<td rowspan="8"><b>fila</b></td>
 <td>Adicionar mensagem</td> 
 <td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Introdução ao serviço de fila do Azure no .NET</a></td> 
 </tr> 
@@ -210,7 +210,7 @@ Consulte os guias seguintes se estiver à procura para obter instruções sobre 
 * [Introdução ao serviço de tabela do Azure no .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Introdução ao serviço de ficheiros do Azure no .NET](../storage-dotnet-how-to-use-files.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para informações sobre amostras para outros idiomas:
 

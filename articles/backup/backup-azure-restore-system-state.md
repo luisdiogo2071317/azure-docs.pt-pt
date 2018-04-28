@@ -1,12 +1,12 @@
 ---
-title: "Cópia de segurança do Azure: Restaurar estado do sistema para um servidor do Windows | Microsoft Docs"
-description: "Passo por explicação passo para restaurar o estado do sistema do Windows Server a partir de uma cópia de segurança no Azure."
+title: 'Cópia de segurança do Azure: Restaurar estado do sistema para um servidor do Windows | Microsoft Docs'
+description: Passo por explicação passo para restaurar o estado do sistema do Windows Server a partir de uma cópia de segurança no Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar estado do sistema para o Windows Server
 
@@ -34,7 +34,7 @@ Este artigo explica como restaurar cópias de segurança do Estado do sistema do
 ## <a name="recover-system-state-files-to-the-same-server"></a>Ficheiros de estado do sistema de recuperação para o mesmo servidor
 Os passos seguintes explicam como reverter a configuração do Windows Server para um estado anterior. A reverter a configuração do servidor para um estado conhecido, estável, pode ser extremamente valioso. Os seguintes passos restaurar estado do sistema do servidor a partir de um cofre dos serviços de recuperação. 
 
-1. Abra o **cópia de segurança do Microsoft Azure** snap-in. Se não souber qual o snap-in foi instalado, procure o computador ou servidor para **cópia de segurança do Microsoft Azure**.
+1. Abra o snap-in **Microsoft Azure Backup**. Se não souber qual o snap-in foi instalado, procure o computador ou servidor para **cópia de segurança do Microsoft Azure**.
 
     A aplicação de ambiente de trabalho deve aparecer nos resultados da pesquisa.
 
@@ -171,7 +171,7 @@ Uma vez tiver recuperado o estado do sistema de ficheiros utilizando o Azure Rec
 Cópia de segurança do Estado do sistema inclui dados do Active Directory. Utilize os seguintes passos para restaurar os serviços de domínio do Active Directory (AD DS) do seu estado atual para um estado anterior.
 
 1. Reinicie o controlador de domínio no serviços restaurar modo diretório (DSRM).
-2. Siga os passos [aqui](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) utilizar cmdlets de cópia de segurança do Windows Server para recuperar o AD DS.
+2. Siga os passos [aqui](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) utilizar cmdlets de cópia de segurança do Windows Server para recuperar o AD DS.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Resolver problemas de restauro de estado do sistema com falhas

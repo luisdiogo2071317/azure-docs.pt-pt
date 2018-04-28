@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure através de cópias de segurança da base de dados automatizada
 Base de dados do SQL Server fornece estas opções para a base de dados de recuperação utilizando [cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) e [cópias de segurança no retenção de longo prazo](sql-database-long-term-retention.md). Pode restaurar a partir de uma cópia de segurança da base de dados para:
@@ -50,7 +50,7 @@ O tempo de recuperação para restaurar uma base de dados através de cópias de
   
   Para uma base de dados muito grande e/ou Active Directory, o restauro pode demorar várias horas. Se não houver indisponibilidade prolongada numa região, é possível que existem grande número de pedidos de georrestauro processados por noutras regiões. Quando existem muitos pedidos, pode aumentar o tempo de recuperação para bases de dados nessa região. Base de dados a maioria das restaura concluída no prazo de 12 horas.
 
-Para uma única subscrição, existe a algumas limitações no número de pedidos de restauro em simultâneo (incluindo o ponto de restauro de tempo, restauro georreplicação e restauro a partir da cópia de segurança de retenção de longo prazo) que está a ser submetidas e proceeded:
+Para uma única subscrição, existem algumas limitações no número de pedidos de restauro em simultâneo (incluindo o ponto de restauro de tempo, restauro georreplicação e restauro a partir da cópia de segurança de retenção longo prazo) que está a ser submetidas e proceeded:
 |  | **N. º máximo de pedidos em simultâneo a ser processado** | **N. º máximo de pedidos simultâneos sejam submetidas** |
 | :--- | --: | --: |
 |Base de dados individual (por subscrição)|10|60|
@@ -82,7 +82,7 @@ Geralmente, restaurar uma base de dados para um ponto anterior para fins de recu
 
 Recuperar para um ponto no tempo no portal do Azure, abra a página da base de dados e clique em **restaurar** na barra de ferramentas.
 
-![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
+![ponto no tempo de restauro](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Restauro da base de dados eliminada
 Pode restaurar uma base de dados eliminada para o tempo de eliminação de uma base de dados eliminada no mesmo servidor lógico a utilizar o portal do Azure [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), ou o [REST (createMode = restaurar)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Pode restaurar uma base de dados eliminada para um ponto anterior no tempo durante a utilização de retenção [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
@@ -97,7 +97,7 @@ Pode restaurar uma base de dados eliminada para o tempo de eliminação de uma b
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para recuperar uma base de dados eliminado durante o respetivo [período de retenção](sql-database-service-tiers.md) no portal do Azure, abra a página para o servidor e, na área de operações, clique em **eliminou bases de dados**.
+Para recuperar uma base de dados eliminado durante o respetivo [período de retenção baseados em DTU modelo](sql-database-service-tiers-dtu.md) ou [período de retenção baseados em vCore modelo](sql-database-service-tiers-vcore.md) no portal do Azure, abra a página para o servidor e, na área de operações, clique em **Eliminou bases de dados**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -123,7 +123,7 @@ Restauro de ponto no tempo numa secundária georreplicação não é atualmente 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para georrestauro uma base de dados durante a respetiva [período de retenção](sql-database-service-tiers.md) no portal do Azure, abra a página de bases de dados SQL e, em seguida, clique em **adicionar**. No **selecionar origem** caixa de texto, selecione **cópia de segurança**. Especifique a cópia de segurança efetuar a recuperação na região e no servidor da sua preferência. 
+Para georrestauro uma base de dados durante a respetiva [período de retenção baseados em DTU modelo](sql-database-service-tiers-dtu.md) ou [período de retenção baseados em vCore modelo](sql-database-service-tiers-vcore.md) no portal do Azure, abra a página de bases de dados SQL e, em seguida, clique em **adicionar** . No **selecionar origem** caixa de texto, selecione **cópia de segurança**. Especifique a cópia de segurança efetuar a recuperação na região e no servidor da sua preferência. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Execução através de programação de recuperação utilizando cópias de segurança automatizadas
 Como anteriormente referido, além de portal do Azure, a recuperação de base de dados pode ser efetuada através de programação utilizando o Azure PowerShell ou a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis.
@@ -132,9 +132,9 @@ Como anteriormente referido, além de portal do Azure, a recuperação de base d
 | Cmdlet | Descrição |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém uma ou mais bases de dados. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Obtém uma base de dados eliminada pode restaurar. |
-| [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Obtém uma cópia de segurança georredundante uma base de dados. |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Restaura uma base de dados do SQL Server. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Obtém uma base de dados eliminada que pode restaurar. |
+| [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Obtém uma cópia de segurança georredundante de uma base de dados. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Restaura uma base de dados SQL. |
 |  | |
 
 ### <a name="rest-api"></a>API REST

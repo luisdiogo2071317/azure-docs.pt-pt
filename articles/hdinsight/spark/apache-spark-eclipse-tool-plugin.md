@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit de Azure do Eclipse para criar Spark aplicações para um cluster do HDInsight
 
@@ -71,7 +69,7 @@ O utilizador pode optar por [iniciar sessão na subscrição do Azure](#Sign-in-
    
    ![Um nome de cluster para ver os recursos de expansão](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>Ligar um cluster
+<h2 id="linkcluster">Ligar um cluster</h2>
 Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, também ligar um cluster do hadoop de segurança utilizando o nome de utilizador de domínio (tais como: user1@contoso.com).
 1. Clique em **ligar um cluster** de **Explorador do Azure**.
 
@@ -97,7 +95,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, t
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Configurar um projeto do Spark Scala para um cluster do Spark do HDInsight
 
 1. Na área de trabalho Eclipse IDE, selecione **ficheiro**, selecione **novo**e, em seguida, selecione **projeto**. 
-2. No Assistente de novo projeto, expanda **HDInsight**, selecione **Spark no HDInsight (Scala)**e, em seguida, selecione **seguinte**.
+2. No Assistente de novo projeto, expanda **HDInsight**, selecione **Spark no HDInsight (Scala)** e, em seguida, selecione **seguinte**.
 
    ![Selecionar o Spark no HDInsight (Scala) projeto](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. O Assistente de criação de projeto Scala Deteta automaticamente se tiver instalado o Scala Plug-in. Selecione **OK** para continuar a transferir o Scala Plug-in e, em seguida, siga as instruções para reiniciar o Eclipse.

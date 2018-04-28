@@ -1,8 +1,8 @@
 ---
 title: Microsoft Dynamics CRM e o Azure Application Insights | Microsoft Docs
-description: "Obter telemetria de utilizar o Application Insights do Microsoft Dynamics CRM Online. Instruções do programa de configuração, obter dados, visualização e exportação."
+description: Obter telemetria de utilizar o Application Insights do Microsoft Dynamics CRM Online. Instruções do programa de configuração, obter dados, visualização e exportação.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mazharmicrosoft
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Instruções: Ativar a telemetria para utilizar o Application Insights do Microsoft Dynamics CRM Online
 Este artigo mostra como obter dados de telemetria [Microsoft Dynamics CRM Online](https://www.dynamics.com/) utilizando [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vamos explicar o processo de adição de script do Application Insights à sua aplicação completado captura de dados e visualização de dados.
@@ -60,7 +60,7 @@ Para monitorizar a sua aplicação, adicionar um Application Insights SDK à sua
     ![Abra o editor de texto](./media/app-insights-sample-mscrm/00004.png)
 2. Copie o código do Application Insights. Ao copiar, certifique-se ignorar tags de script. Consulte abaixo a captura de ecrã:
 
-    ![Definir a sua chave de instrumentação](./media/app-insights-sample-mscrm/00005.png)
+    ![Definir a sua chave de instrumentação](./media/app-insights-sample-mscrm/000005.png)
 
     O código inclui a chave de instrumentação que identifica o recurso do Application insights.
 3. Guarde e publicar.

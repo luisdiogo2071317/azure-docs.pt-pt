@@ -1,11 +1,11 @@
 ---
-title: "Script do PowerShell do Azure de exemplo - Dimensionar manualmente uma aplicação web | Microsoft Docs"
-description: "Script do PowerShell do Azure de exemplo - Dimensionar manualmente uma aplicação web"
+title: Exemplo do Script do Azure PowerShell - Dimensionar manualmente uma aplicação web | Microsoft Docs
+description: Exemplo do Script do Azure PowerShell - Dimensionar manualmente uma aplicação web
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.service: app-service
@@ -16,17 +16,17 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e99dfc02b6ab4123cd5f95997285dca5cb686380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 4f46a7be718070b0a823dde75e3335e9454ba44b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="scale-a-web-app-manually"></a>Dimensionar manualmente uma aplicação web
+# <a name="scale-a-web-app-manually"></a>Dimensionar uma aplicação Web manualmente
 
-Neste cenário, irá aprender a criar um grupo de recursos, a aplicação serviço plano e a aplicação web. Em seguida, irá aumentar o plano do App Service de uma única instância para várias instâncias.
+Neste cenário, vai aprender a criar um grupo de recursos, um plano de serviço de aplicações e aplicações web. Vai então dimensionar o Plano do Serviço de Aplicações a partir de uma única instância para várias instâncias.
 
-Se necessário, instale o Azure PowerShell com a instrução foi encontrada no [Guia do Azure PowerShell](/powershell/azure/overview)e, em seguida, execute `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se for preciso, instale o Azure PowerShell com a instrução que se encontra no [Guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Connect-AzureRmAccount` para criar uma ligação ao Azure.
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -34,25 +34,25 @@ Se necessário, instale o Azure PowerShell com a instrução foi encontrada no [
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
-Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, aplicação web e todos os recursos relacionados.
+Depois de executar o script de exemplo, o seguinte comando pode ser utilizado para remover o grupo de recursos, a aplicação Web e todos os recursos relacionados.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Novo-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Novo AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Cria um plano de serviço de aplicações. |
-| [Novo AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação web. |
-| [Conjunto AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | Modifica a configuração de uma aplicação web. |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Cria um plano do Serviço de Aplicações. |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação Web. |
+| [Set-AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | Modifica a configuração de uma aplicação web. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-Exemplos do Azure Powershell adicionais para Web Apps do Azure App Service podem ser encontrados no [exemplos do PowerShell do Azure](../app-service-powershell-samples.md).
+Pode ver os exemplos do Azure Powershell adicionais para as Aplicações Web do Serviço de Aplicações do Azure em [Exemplos do Azure PowerShell](../app-service-powershell-samples.md).

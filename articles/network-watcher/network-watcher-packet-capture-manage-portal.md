@@ -1,11 +1,11 @@
 ---
 title: Gerir capturas de pacotes com observador de rede do Azure - portal do Azure | Microsoft Docs
-description: "Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede através do portal do Azure"
+description: Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede através do portal do Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 508b9e7eef757277d4bc0e93a26f3a63045f31e4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com observador de rede do Azure através do portal
 
@@ -131,7 +131,7 @@ Na vista de captura de pacote, clique o **menu de contexto** (…) ou clique com
 
 ## <a name="download-a-packet-capture"></a>Transferir uma captura de pacotes
 
-Depois de concluída a sua sessão de captura de pacote, o ficheiro de captura é carregado para o blob storage ou para um ficheiro local na VM. A localização de armazenamento da captura de pacotes está definida na criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser transferida aqui: http://storageexplorer.com/
+Depois de concluída a sua sessão de captura de pacote, o ficheiro de captura é carregado para o blob storage ou para um ficheiro local na VM. A localização de armazenamento da captura de pacotes está definida na criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser transferida aqui:  http://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, ficheiros de captura de pacotes são guardados para uma conta de armazenamento disponíveis na seguinte localização:
 ```
@@ -142,7 +142,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 
-Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de verificação de IP](network-watcher-check-ip-flow-verify-portal.md)
+Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de verificação de IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

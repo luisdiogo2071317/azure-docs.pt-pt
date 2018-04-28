@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 855cb159474836e4c015f84d7d57546b5e1a2e99
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Movimento de dados utilizando o Data Factory tem foram certificado para:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [ESTRELA DE CSA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
 Se estiver interessado na forma como o Azure protege a própria infraestrutura e de conformidade do Azure, visite o [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
@@ -68,7 +68,7 @@ Alguns dados armazena suporte a encriptação de dados inativos. Recomendamos qu
 Encriptação de dados transparente (TDE) no Azure SQL Data Warehouse ajuda a proteger contra a ameaça de atividade maliciosa efetuando em tempo real encriptação e desencriptação de dados inativos. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [proteger uma base de dados no SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
-Base de dados SQL do Azure também suporta a encriptação de dados transparente (TDE), que ajuda a proteger contra a ameaça de atividade maliciosa efetuando em tempo real encriptação e desencriptação de dados, sem necessidade de alterações à aplicação. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [encriptação transparente de dados para a base de dados SQL e do armazém de dados](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Base de dados SQL do Azure também suporta a encriptação de dados transparente (TDE), que ajuda a proteger contra a ameaça de atividade maliciosa efetuando em tempo real encriptação e desencriptação de dados, sem necessidade de alterações à aplicação. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [encriptação transparente de dados para a base de dados SQL e do armazém de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 O Azure Data Lake Store também proporciona a encriptação dos dados armazenados na conta. Quando ativada, o Data Lake Store é automaticamente encripta os dados antes de a persistência e desencripta antes da obtenção, tornando-a transparente para o cliente acede os dados. Para obter mais informações, consulte [segurança no Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
@@ -86,7 +86,7 @@ Amazon Redshift suporta encriptação de cluster para dados inativos. Para obter
 Salesforce suporta a encriptação de plataforma de proteção que permite que a encriptação de todos os ficheiros, anexos e campos personalizados. Para obter mais informações, consulte [compreender o fluxo de autenticação do Web Server OAuth](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Cenários híbridos
-Cenários híbridos requerem integração personalizada alojada tempo de execução para ser instalada numa rede no local, no interior de uma rede virtual (Azure) ou dentro de uma nuvem privada virtual (Amazon). O tempo de execução automática alojada integração tem de ser capaz de aceder aos arquivos de dados local. Para mais informações sobre o tempo de execução automática alojada integração, consulte [como criar e configurar autoalojado integração runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime). 
+Cenários híbridos requerem integração personalizada alojada tempo de execução para ser instalada numa rede no local, no interior de uma rede virtual (Azure) ou dentro de uma nuvem privada virtual (Amazon). O tempo de execução automática alojada integração tem de ser capaz de aceder aos arquivos de dados local. Para mais informações sobre o tempo de execução automática alojada integração, consulte [como criar e configurar autoalojado integração runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
 
 ![canais de tempo de execução de integração personalizada alojada](media/data-movement-security-considerations/data-management-gateway-channels.png)
 

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb37ce7e61796494be0a9282afdc620b0ca5886a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Como efetuar uma prova de posse x. 509 para certificados de AC com o serviço de aprovisionamento de dispositivos
 
@@ -58,7 +58,7 @@ A Microsoft fornece ferramentas e exemplos que podem ajudar a criar um certifica
 
 - O **SDK do Azure IoT Hub C** fornece PowerShell (Windows) e scripts de Bash (Linux) para ajudar a criar certificados de AC e folha para desenvolvimento e efetuar uma prova de posse utilizando um código de verificação. Pode transferir o [ficheiros](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevantes para o sistema para uma pasta de trabalho e siga as instruções no [Leia-me certificados de AC de gerir](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para efetuar uma prova de posse num certificado de AC. 
 - O **Azure IoT Hub c# SDK** contém o [exemplo de verificação de certificado do grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), que pode utilizar para efetuar uma prova de posse.
-- Pode seguir os passos a [scripts do PowerShell para gerir os certificados x. 509 assinado para AC](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) artigo na documentação do IoT Hub, especificamente o script mencionado na secção intitulada [prova de posse do seu Certificado da AC de x. 509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
+- Pode seguir os passos a [scripts do PowerShell para gerir os certificados x. 509 assinado para AC](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) artigo na documentação do IoT Hub, especificamente o script mencionado na secção intitulada [prova de posse do seu Certificado da AC de x. 509](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
 > [!IMPORTANT]
 > Para além de efetuar uma prova de posse, os scripts do PowerShell e Bash citou anteriormente também permitem-lhe criar certificados de folha que podem ser utilizados para autenticar e aprovisionar dispositivos, certificados intermediários e certificados de raiz. Estes certificados devem ser utilizados para desenvolvimento apenas. Nunca deve ser utilizadas num ambiente de produção. 

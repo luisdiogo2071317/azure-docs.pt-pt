@@ -1,19 +1,19 @@
 ---
-title: "CI/CD com o serviço de contentor do Azure e do Swarm"
-description: "Utilizar o serviço de contentor do Azure com o Docker Swarm, um registo de contentor do Azure e Visual Studio Team Services continuamente fornecer aplicações de .NET Core um contentor multi"
+title: CI/CD com o serviço de contentor do Azure e do Swarm
+description: Utilizar o serviço de contentor do Azure com o Docker Swarm, um registo de contentor do Azure e Visual Studio Team Services continuamente fornecer aplicações de .NET Core um contentor multi
 services: container-service
 author: jcorioland
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 38877afb63e993eeaab723a6ea5f4c40d3c956a5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 81a07fdfe1c862bc30fb9d567db9a393c0610990
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Pipeline de CI/CD completa para implementar uma aplicação de várias contentor no serviço de contentor do Azure com o Docker Swarm utilizando o Visual Studio Team Services
 
@@ -220,6 +220,6 @@ O fluxo de trabalho de versão é composto por duas tarefas que adicionar.
 
 Agora que são efetuadas com a configuração, está na altura para testar este novo pipeline de CI/CD. É a forma mais fácil para testá-lo para atualizar o código de origem e consolidar as alterações no repositório do GitHub. Poucos segundos depois de emitir o código, verá uma nova compilação em execução no Visual Studio Team Services. Depois de concluída com êxito, uma nova versão será acionada e irá implementar a nova versão da aplicação no cluster do serviço de contentor do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Para obter mais informações sobre CI/CD com o Visual Studio Team Services, consulte o [descrição geral de compilação VSTS](https://www.visualstudio.com/docs/build/overview).

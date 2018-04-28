@@ -1,11 +1,11 @@
 ---
-title: "Adicionar inquilinos para utilização e faturação à pilha do Azure | Microsoft Docs"
-description: "Os passos necessários adicionar um utilizador final a pilha de Azure geridos por um fornecedor de serviço em nuvem."
+title: Adicionar inquilinos para utilização e faturação à pilha do Azure | Microsoft Docs
+description: Os passos necessários adicionar um utilizador final a pilha de Azure geridos por um fornecedor de serviço em nuvem.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicionar o inquilino para a utilização e faturação à pilha do Azure
 
@@ -58,7 +58,7 @@ Atualize o registo com a nova subscrição do cliente. Azure relatórios de util
 > Para realizar este passo, tem de ter [registado Azure pilha](azure-stack-register.md).
 
 1. Abra o Windows PowerShell com uma linha de comandos elevada e execute:  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Escreva as credenciais do Azure.
 3. Na sessão do PowerShell, execute:
 

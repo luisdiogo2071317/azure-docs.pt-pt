@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicação com um conjunto de dimensionamento de máquina virtual - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação com um conjunto com o Azure PowerShell de dimensionamento de máquina virtual."
+title: Criar um gateway de aplicação com um conjunto de dimensionamento de máquina virtual - Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicação com um conjunto com o Azure PowerShell de dimensionamento de máquina virtual.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: c33a43d97b5b1054932d30eb13e9d2138421b14c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6693b68c4c2ae68f1c8e0a03cd7ec6d75d9980de
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-and-virtual-machine-scale-set-using-azure-powershell"></a>Criar uma aplicação gateway e máquina virtual de conjunto de dimensionamento com o Azure PowerShell
 
 Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](application-gateway-introduction.md) que utiliza um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao conjunto predefinido de back-end do gateway de aplicação.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure a rede
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 3,6 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 3,6 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -145,7 +145,7 @@ $appgw = New-AzureRmApplicationGateway `
   -Sku $sku
 ```
 
-## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquina virtual
+## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
 Neste exemplo, pode criar um conjunto para fornecer os servidores para o conjunto de back-end no gateway de aplicação de dimensionamento de máquina virtual. Atribuir a escala definida para o conjunto de back-end, quando configurar as definições de IP.
 
@@ -208,7 +208,7 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

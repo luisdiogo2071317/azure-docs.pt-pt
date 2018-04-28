@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado pretendido com modelos Azure Resource Manager
 
@@ -33,7 +33,7 @@ Este artigo descreve o modelo Azure Resource Manager para o [processador de exte
 
 O fragmento seguinte entra **recursos** secção do modelo.
 A extensão de DSC herda as propriedades de extensão predefinido.
-Para obter mais informações, consulte [VirtualMachineExtension classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Para obter mais informações, consulte [VirtualMachineExtension classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +83,7 @@ Um nó de conjunto de dimensionamento de máquina virtual tem um **propriedades*
 Em **extensões**, adicione os detalhes para a extensão de DSC.
 
 A extensão de DSC herda as propriedades de extensão predefinido.
-Para obter mais informações, consulte [VirtualMachineScaleSetExtension classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para obter mais informações, consulte [VirtualMachineScaleSetExtension classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -197,7 +197,7 @@ Para obter uma lista de argumentos que estão disponíveis para o script da conf
 
 ## <a name="default-configuration-script"></a>Script de configuração predefinida
 
-Para obter mais informações sobre os seguintes valores, consulte [definições básicas de Gestor de configuração locais](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Para obter mais informações sobre os seguintes valores, consulte [definições básicas de Gestor de configuração locais](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 Pode utilizar o script de configuração da predefinição de extensão de DSC configurar apenas o MMC propriedades que estão listadas na seguinte tabela.
 
 | Nome da propriedade | Tipo | Descrição |
@@ -324,7 +324,7 @@ Eis como o formato anterior feita no formato atual:
 | settings.configuration.url |settings.ModulesUrl |
 | settings.configuration.script |Primeira parte das definições. ConfigurationFunction (antes de \\ \\) |
 | settings.configuration.function |Segunda parte das definições. ConfigurationFunction (após \\ \\) |
-| settings.configurationArguments |settings.Properties |
+| settings.configurationArguments |definições. Propriedades |
 | settings.configurationData.url |protectedSettings.DataBlobUri (sem SAS token) |
 | settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
 | settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
@@ -352,7 +352,7 @@ Para obter mais informações, consulte a tabela em [detalhes](#details).
 
 ### <a name="invalid-url"></a>URL inválido
 
-"ConfigurationData.url é '{0}'. Não é um URL válido""DataBlobUri é '{0}'. Não é um URL válido""Configuration.url é '{0}'. Não é um URL válido"
+"ConfigurationData.url é '{0}'. Não é um URL válido"" DataBlobUri é '{0}'. Não é um URL válido"" Configuration.url é '{0}'. Não é um URL válido"
 
 **Problema**: A especificar o URL não é válido.
 
@@ -361,7 +361,7 @@ Certifique-se de que todos os URLs de resolver para localizações válidas que 
 
 ### <a name="invalid-configurationargument-type"></a>Tipo de ConfigurationArgument inválido
 
-"ConfigurationArguments inválidos do tipo de {0}"
+"Tipo configurationArguments inválido {0}"
 
 **Problema**: O *ConfigurationArguments* propriedade não é possível resolver uma **tabela hash** objeto.
 
@@ -370,7 +370,7 @@ Siga o formato fornecido no exemplo anterior. Procurar aspas, vírgulas e chavet
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicado
 
-"Encontrada argumentos duplicados '{0}' na configurationArguments público e protegido"
+"Encontrado duplicados argumentos{0}' no configurationArguments público e protegido"
 
 **Problema**: O *ConfigurationArguments* nas definições públicas e o *ConfigurationArguments* nas definições protegidas têm propriedades com o mesmo nome.
 

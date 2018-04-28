@@ -1,6 +1,6 @@
 ---
-title: "Criar um gateway de aplicação com uma firewall de aplicação web - Azure PowerShell | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação com uma firewall de aplicação web utilizando o Azure PowerShell."
+title: Criar um gateway de aplicação com uma firewall de aplicação web - Azure PowerShell | Microsoft Docs
+description: Saiba como criar um gateway de aplicação com uma firewall de aplicação web utilizando o Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -11,22 +11,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: fe36076988e65837340ec70982de788e532c455d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 662e8bc8b1119022cf88bf40108bb8d1e680f122
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Criar um gateway de aplicação com uma firewall de aplicação web com o Azure PowerShell
 
 Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](application-gateway-introduction.md) com um [firewall de aplicações web](application-gateway-web-application-firewall-overview.md) (WAF) que utiliza um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. As utilizações WAF [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regras para proteger a sua aplicação. Estas regras incluem a proteção contra ataques, tais como a injeção de SQL, ataques de scripts entre sites e hijacks de sessão. 
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure a rede
 > * Criar um gateway de aplicação com WAF ativada
-> * Criar um conjunto de dimensionamento de máquina virtual
+> * Criar um conjunto de dimensionamento de máquinas virtuais
 > * Criar uma conta de armazenamento e configurar o diagnóstico
 
 ![Exemplo de firewall de aplicação Web](./media/application-gateway-web-application-firewall-powershell/scenario-waf.png)
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -153,7 +153,7 @@ $appgw = New-AzureRmApplicationGateway `
   -WebApplicationFirewallConfig $wafConfig
 ```
 
-## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquina virtual
+## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
 
 Neste exemplo, pode criar um conjunto para fornecer os servidores para o conjunto de back-end no gateway de aplicação de dimensionamento de máquina virtual. Atribuir a escala definida para o conjunto de back-end, quando configurar as definições de IP.
 
@@ -252,7 +252,7 @@ Set-AzureRmDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+Pode utilizar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -267,7 +267,7 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Configure a rede
 > * Criar um gateway de aplicação com WAF ativada
-> * Criar um conjunto de dimensionamento de máquina virtual
+> * Criar um conjunto de dimensionamento de máquinas virtuais
 > * Criar uma conta de armazenamento e configurar o diagnóstico
 
 Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 7304ade9c47034b6cb76eb87126f09fb5af65c8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
@@ -47,7 +47,7 @@ Esta secção fornece uma referência para as seguintes políticas de gestão de
     -   [Definir variável](api-management-advanced-policies.md#set-variable) -manter um valor de uma variável de contexto nomeado para acesso posterior.  
     -   [Definir o método de pedido](api-management-advanced-policies.md#SetRequestMethod) -permite-lhe alterar o método HTTP para um pedido.  
     -   [Definir o código de estado](api-management-advanced-policies.md#SetStatus) -altera o código de estado HTTP para o valor especificado.  
-    -   [Rastreio](api-management-advanced-policies.md#Trace) -adiciona uma cadeia para o [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) saída.  
+    -   [Rastreio](api-management-advanced-policies.md#Trace) -adiciona uma cadeia para o [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) saída.  
     -   [Aguarde](api-management-advanced-policies.md#Wait) -aguarda para colocado [pedido de envio](api-management-advanced-policies.md#SendRequest), [obter o valor da cache](api-management-caching-policies.md#GetFromCacheByKey), ou [controlar o fluxo](api-management-advanced-policies.md#choose) políticas seja concluída antes de continuar.  
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar com Basic](api-management-authentication-policies.md#Basic) -autenticar com um serviço de back-end utilizando a autenticação básica.  

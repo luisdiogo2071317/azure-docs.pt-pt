@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>VMs de início/paragem durante a solução de off-hours (pré-visualização) na automatização do Azure
 
@@ -54,16 +54,15 @@ Execute os seguintes passos para adicionar as VMs de início/paragem durante a s
    ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. O **Adicionar solução** é apresentada a página. Lhe for pedido para configurar a solução antes de importá-lo na sua subscrição de automatização.
+
    ![Página de solução de adicionar de gestão de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. No **Adicionar solução** página, selecione **área de trabalho**. Selecione uma área de trabalho de análise de registos que está ligada à mesma subscrição do Azure que está a ser a conta de automatização. Se não tiver uma área de trabalho, selecione **criar nova área de trabalho**. No **área de trabalho OMS** página, efetue o seguinte:
    * Especifique um nome para a **Área de Trabalho do OMS**.
    * Selecione um **subscrição** para ligar a selecionando a partir da lista pendente, se a predefinição selecionada não é adequada.
    * Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
    * Selecione uma **Localização**. Atualmente, são as únicas localizações disponíveis **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **EUA Leste**, **Este do Japão**, **Sudeste asiático**, **sul do RU**, e **Europa Ocidental**.
-   * Selecione um **Escalão de preço**. A solução oferece duas camadas: **livres** e **por nó (OMS)**. O escalão gratuito tem um limite na quantidade de dados recolhidos por dia, o período de retenção e os minutos de tempo de execução da tarefa de runbook. A camada por nó não tem um limite na quantidade de dados recolhidos diariamente.
-
-        > [!NOTE]
-        > Embora a camada por GB (autónomo) paga é apresentada como uma opção, não é aplicável. Se selecioná-lo e continuar com a criação desta solução na sua subscrição, falhará. Esta opção será contemplada quando a solução for lançada oficialmente. Minutos de tarefa de automatização solução apenas utiliza e deste ingestão de registo. Não adiciona nós adicionais ao seu ambiente.
+   * Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Análise de registos foi atualizado [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e a camada por GB é a única opção.
 
 1. Depois de fornecer as informações necessárias sobre o **área de trabalho OMS** página, clique em **criar**. Pode controlar o progresso em **notificações** no menu, que devolve ao **Adicionar solução** página quando terminar.
 1. No **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho de análise de registos, terá de criar também uma nova conta de automatização ser associadas a ele. Selecione **criar uma conta de automatização**e o **conta de automatização de adicionar** , indique o seguinte:
@@ -80,6 +79,9 @@ Execute os seguintes passos para adicionar as VMs de início/paragem durante a s
    * Especifique o **VM excluir lista (cadeia)**. Este é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais do que um nome e separe cada um com uma vírgula (valores não são maiúsculas e minúsculas). Utilizar um caráter universal é suportado. Este valor é armazenado no **External_ExcludeVMNames** variável.
    * Selecione um **agenda**. Este é um periódica data e hora para iniciar e parar as VMs nos grupos de recurso de destino. Por predefinição, a agenda está configurada para o fuso horário UTC. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedule).
    * Para receber **notificações por correio eletrónico** do SendGrid, aceite o valor predefinido de **Sim** e forneça um endereço de correio eletrónico válido. Se selecionar **não** mas decidir numa data posterior que pretende receber notificações por e-mail, pode atualizar o **External_EmailToAddress** variável com endereços de correio eletrónico válidos separados por vírgulas e, em seguida, modificar a variável **External_IsSendEmail** com o valor **Sim**.
+
+> [!IMPORTANT]
+> O valor predefinido para **nomes ResourceGroup de destino** é um **&ast;**. Isto destina-se todas as VMs numa subscrição. Se não pretender que a solução para todas as VMs na sua subscrição, que este valor tem de ser atualizado para uma lista de nomes de grupo de recursos antes de ativar as agendas de destino.
 
 1. Depois de ter configurado as definições iniciais necessárias para a solução, clique em **OK** para fechar o **parâmetros** página e selecione **criar**. Depois de todas as definições serem validadas, a solução for implementada para a sua subscrição. Este processo pode demorar vários segundos a concluir e pode controlar o progresso em **notificações** no menu.
 
@@ -175,7 +177,7 @@ A tabela seguinte lista os runbooks implementados à sua conta de automatizaçã
 
 Todos os runbooks principais incluem o *WhatIf* parâmetro. Quando definido como **verdadeiro**, *WhatIf* suporta com detalhes sobre o comportamento exato runbook demora quando executar sem o *WhatIf* parâmetro e valida o correto VMs estão a ser visados. Um runbook só efetua as ações definidas quando o *WhatIf* parâmetro está definido como **falso**.
 
-|**Runbook** | **Parâmetros** | **Descrição**|
+|**runbook** | **Parâmetros** | **Descrição**|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamada a partir do runbook principal. Este runbook cria alertas numa base por recurso para o cenário de AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: VERDADEIRO ou FALSO  | Cria ou atualiza as regras de alertas do Azure em VMs nos grupos direcionados subscrição ou recurso. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, *vm1 vm2, vm3*.<br> *WhatIf* valida a lógica de runbook sem executar.|
@@ -225,7 +227,7 @@ Não deve ativar todas as agendas, porque pode criar ações de agenda sobrepost
 |Schedule_AutoStop_CreateAlert_Parent | Cada 8 horas | Executa o runbook de AutoStop_CreateAlert_Parent a cada 8 horas, por sua vez interrompe baseados em VM valores existentes na External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Em alternativa, pode especificar uma lista separada por vírgulas de VMs utilizando o parâmetro VMList.|
 |Scheduled_StopVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *parar* diariamente à hora especificada. Para automaticamente todas as VMs que cumpram as regras definidas pelo variáveis de recurso. Deve ativar o agendamento relacionado, **agendada-StartVM**.|
 |Scheduled_StartVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *iniciar* diariamente à hora especificada.  Inicia automaticamente todas as VMs que cumpram as regras definidas pelas variáveis adequadas. Deve ativar o agendamento relacionado, **agendada StopVM**.|
-|Sequenced-StopVM | 1:00:00 (UTC), cada sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de *parar* cada sexta-feira no momento especificado. Sequencialmente (ascendente) deixa de todas as VMs com uma etiqueta de **SequenceStop** definidos pelas variáveis adequadas. Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta. Deve ativar o agendamento relacionado, **Sequenced-StartVM**.|
+|StopVM sequenciado | 1:00:00 (UTC), cada sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de *parar* cada sexta-feira no momento especificado. Sequencialmente (ascendente) deixa de todas as VMs com uma etiqueta de **SequenceStop** definidos pelas variáveis adequadas. Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta. Deve ativar o agendamento relacionado, **Sequenced-StartVM**.|
 |Sequenciado-StartVM | 1:00 PM (UTC), cada segunda-feira | Executa o runbook Sequenced_Parent com um parâmetro de *iniciar* cada segunda-feira no momento especificado. Sequencialmente (descendente) inicia todas as VMs com uma etiqueta de **SequenceStart** definidos pelas variáveis adequadas. Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta. Deve ativar o agendamento relacionado, **Sequenced StopVM**.|
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
@@ -280,7 +282,7 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 Consulta | Descrição|
 ----------|----------|
-Localizar a tarefa de runbook ScheduledStartStop_Parent tiver concluído com êxito | search Category == "JobLogs" &#124; where ( RunbookName_s == "ScheduledStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc|
+Localizar a tarefa de runbook ScheduledStartStop_Parent tiver concluído com êxito | Procurar categoria = = "JobLogs" &#124; onde (RunbookName_s = = "ScheduledStartStop_Parent") &#124; onde (ResultType = = "Concluído") &#124; resumir AggregatedValue = existente pelo ResultType, bin (TimeGenerated, 1h) &#124; ordenar por TimeGenerated Desc|
 Localizar a tarefa de runbook SequencedStartStop_Parent tiver concluído com êxito | search Category == "JobLogs" &#124; where ( RunbookName_s == "SequencedStartStop_Parent" ) &#124; where ( ResultType == "Completed" )  &#124; summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) &#124; sort by TimeGenerated desc
 
 ## <a name="viewing-the-solution"></a>Ver a solução

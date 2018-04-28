@@ -1,5 +1,3 @@
-Para ativar o início de sessão na sua aplicação, terá de criar uma política de início de sessão. Esta política descreve as experiências que os consumidores terão durante o início de sessão e os conteúdos de tokens que a aplicação receberá nos inícios de sessão com êxito.
-
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Na secção de políticas de definições, selecione **Políticas de inscrição ou início de sessão** e clique em **+ Adicionar**.

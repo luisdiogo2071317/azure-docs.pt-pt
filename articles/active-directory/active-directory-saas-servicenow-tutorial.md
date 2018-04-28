@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o ServiceNow | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ServiceNow."
+title: 'Tutorial: Integração do Azure Active Directory com o ServiceNow | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc5b41da83f183aaf62723212f7197fb50dc536d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Azure Active Directory com o ServiceNow
 
@@ -119,37 +119,21 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE] 
     > Estes valores não estiverem reais. Terá de atualizar estes valores do URL de início de sessão real e o identificador que é explicada mais tarde no tutorial.
 
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. No **certificado de assinatura de SAML** secção, execute os seguintes passos: 
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+    a. Clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas, como o Url de metadados de Federação esta aplicação será utilizado mais tarde no tutorial.
+
+    b. Clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
 5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. Para gerar o **metadados** url, execute os seguintes passos:
+6. Inicie sessão aplicação ServiceNow como administrador.
 
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-    
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-
-    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-    d. Agora, aceda a **ServiceNow** propriedades e copie o **ID da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
-
-    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-    e. Gerar o **URL de metadados** através do padrão de seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Copie o valor gerado no bloco de notas como estes metadados que URL será utilizado mais tarde no tutorial.
-
-7. Inicie sessão aplicação ServiceNow como administrador.
-
-8. Ativar o **integração - vários único início de sessão instalador de fornecedor** Plug-in, seguindo os passos seguintes:
+7. Ativar o **integração - vários único início de sessão instalador de fornecedor** Plug-in, seguindo os passos seguintes:
 
     a. No painel de navegação no lado esquerdo, procurar **definição de sistema** secção na barra de pesquisa e, em seguida, clique em **plug-ins**.
 
@@ -163,9 +147,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     d. Clique em de **ativar** botão.
 
-9. Existem duas formas em que **ServiceNow** pode ser configurada automática e manual.
+8. Existem duas formas em que **ServiceNow** pode ser configurada automática e manual.
 
-10. Para configurar **ServiceNow** automaticamente siga os passos abaixo
+9. Para configurar **ServiceNow** automaticamente siga os passos abaixo
 
     a. Volte à **ServiceNow** Signle início de sessão na página no portal do Azure.
 
@@ -201,15 +185,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     * Clique em **ativar** no canto superior direito da página.
 
-11. Para configurar **ServiceNow** manualmente siga os passos abaixo
+10. Para configurar **ServiceNow** manualmente siga os passos abaixo
 
-12. Inicie sessão aplicação ServiceNow como administrador.
+11. Inicie sessão aplicação ServiceNow como administrador.
 
-13. No painel de navegação no lado esquerdo, procurar **SSO do fornecedor de Multi** secção na barra de pesquisa e, em seguida, clique em **propriedades**.
+12. No painel de navegação no lado esquerdo, procurar **SSO do fornecedor de Multi** secção na barra de pesquisa e, em seguida, clique em **propriedades**.
 
     ![Configurar o URL da aplicação](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "configurar o URL da aplicação")
 
-14. No **várias propriedades do fornecedor de SSO** caixa de diálogo, execute os seguintes passos:
+13. No **várias propriedades do fornecedor de SSO** caixa de diálogo, execute os seguintes passos:
 
     ![Configurar o URL da aplicação](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "configurar o URL da aplicação")
 
@@ -265,7 +249,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Selecione **URL** opção **metadados de fornecedor de identidade de importação** caixa de diálogo.
 
-    b. Introduza o **URL de metadados** gerado a partir do portal do Azure.
+    b. Introduza o **Url de metadados de Federação de aplicação** que copiou do portal do Azure.
 
     c. Clique em **importar**.
 
@@ -358,7 +342,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+    ![Configurar o início de sessão único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. Clique em **guardar** botão.
 
@@ -459,11 +443,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > Pode configurar o Azure AD para emitir o ID de utilizador do Azure AD (nome principal de utilizador) ou o endereço de e-mail como o identificador exclusivo no SAML token acedendo ao **ServiceNow > atributos > Single Sign-On** secção do portal do Azure e o mapeamento do campo pretendido para o **nameidentifier** atributo. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome principal de utilizador) tem de corresponder ao valor armazenado no ServiceNow para o campo introduzido (por exemplo, user_name)
 
     f. Clique em **Guardar**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação! Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
+ 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.

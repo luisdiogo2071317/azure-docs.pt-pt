@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 A máquina de Virtual de ciência de dados do Microsoft é uma imagem de máquina virtual (VM) do Windows Azure previamente instalado e configurado com várias ferramentas populares que são frequentemente utilizadas para análise de dados e de aprendizagem. As ferramentas incluídas são:
 
-* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Azure Machine Learning](../service/index.yml) Workbench
 * [Microsoft Machine Learning servidor](https://docs.microsoft.com/machine-learning-server/index) edição Programador
 * Distribuição do Python anaconda
 * Bloco de notas do Jupyter (com R, Python, PySpark kernels)
@@ -192,7 +192,7 @@ O [ **instalador de plataforma Web Microsoft** ](https://www.microsoft.com/web/d
 Seguem-se alguns passos seguintes para continuar a exploração e de aprendizagem. 
 
 * Explorar as várias ferramentas de ciência de dados de ciência de dados VM clicando no menu de início e a saída as ferramentas de verificação listado no menu.
-* Saiba mais sobre serviços do Azure Machine Learning e Workbench, visitando o produto [página início rápido e tutoriais](../preview/index.yml). 
+* Saiba mais sobre serviços do Azure Machine Learning e Workbench, visitando o produto [página início rápido e tutoriais](../service/index.yml). 
 * Navegue para **c:\Programas\Microsoft Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para exemplos que utilizam a biblioteca de RevoScaleR do R suporta análise de dados à escala da empresa.  
 * Leia o artigo: [10 coisas que pode fazer na ciência de dados de Máquina Virtual](http://aka.ms/dsvmtenthings)
 * Aprenda a criar soluções analíticas ponto a ponto sistematicamente utilizando o [o processo de ciência de dados de equipa](../team-data-science-process/index.yml).

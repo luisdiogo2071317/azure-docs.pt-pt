@@ -1,25 +1,25 @@
 ---
-title: "Tipos de aplicação para o ponto de final de v 2.0 do Azure Active Directory | Microsoft Docs"
-description: "Os tipos de aplicações e os cenários suportados pelo ponto final v 2.0 do Azure Active Directory."
+title: Tipos de aplicação para o ponto de final de v 2.0 do Azure Active Directory | Microsoft Docs
+description: Os tipos de aplicações e os cenários suportados pelo ponto final v 2.0 do Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: hpsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 291cd1adaf36d7f02aae84f97b7f7b3e6bca2c9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicação para o ponto de final de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) suporta a autenticação para uma variedade de arquiteturas de aplicações modernas, todos eles com base em protocolos de norma da indústria [OAuth 2.0 ou o OpenID Connect](active-directory-v2-protocols.md). Este artigo descreve os tipos de aplicações que podem ser criados utilizando v 2.0 do Azure AD, independentemente do seu idioma preferencial ou plataforma. As informações neste artigo foi concebidas para ajudar a compreender os cenários de alto nível antes de [começar a trabalhar com o código](active-directory-appmodel-v2-overview.md#getting-started).
@@ -120,4 +120,4 @@ Neste fluxo, a aplicação interage diretamente com o `/token` ponto final para 
 
 ![Fluxo de autenticação de aplicação do daemon](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Criar uma aplicação de daemon, consulte a documentação de credenciais do cliente no nosso [introdução](active-directory-appmodel-v2-overview.md#getting-started) secção ou tente um [aplicação de exemplo .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Criar uma aplicação de daemon, consulte o [cliente credenciais documentação](active-directory-v2-protocols-oauth-client-creds.md), ou tente um [aplicação de exemplo .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

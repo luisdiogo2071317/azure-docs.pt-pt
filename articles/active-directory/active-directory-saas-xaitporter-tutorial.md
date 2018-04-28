@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com XaitPorter | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e XaitPorter."
+title: 'Tutorial: Integração do Azure Active Directory com XaitPorter | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e XaitPorter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e18850d902e5a11da904af719e598c4e247ce0d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integração do Azure Active Directory com XaitPorter
 
@@ -108,38 +108,22 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio XaitPorter e os URLs únicos de informações de início de sessão](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.xaitporter.com/saml/login`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.xaitporter.com/saml/login`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.xaitporter.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente XaitPorter](https://www.xait.com/support/) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente XaitPorter](https://www.xait.com/support/) para obter estes valores.
+     
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas. 
 
-4. Clique em **guardar** botão.
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_certificate.png) 
+
+5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-xaitporter-tutorial/tutorial_general_400.png)
 
-5. Para gerar o **metadados** url, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
-     
-    d. Agora, a página de propriedades do **XaitPorter** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-6. Forneça o **endereço IP** ou o **URL de metadados** para o [SmartRecruiters suporta equipa](https://www.smartrecruiters.com/about-us/contact-us/), para que XaitPorter pode Certifique-se de que o endereço IP é acessível a partir do seu XaitPorter instância da lista branca de configuração no seu lado. 
+6. Fornecer o **endereço IP** ou o **Url de metadados de Federação de aplicação** para o [SmartRecruiters suporta equipa](https://www.smartrecruiters.com/about-us/contact-us/), para que XaitPorter pode Certifique-se de que o endereço IP é acessível a partir do seu Instância de XaitPorter configurar a lista branca na respetiva lado. 
 
 7. Numa janela do browser web diferente, inicie sessão no site da sua empresa XaitPorter como administrador.
 
@@ -157,15 +141,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Selecione **ativar a autenticação de início de sessão único**.
 
-    b. No **as definições do fornecedor de identidade** caixa de texto, colar **URL de metadados** que copiou do Azure e clique em **obter**.
+    b. No **as definições do fornecedor de identidade** caixa de texto, colar **Url de metadados de Federação de aplicação** que copiou do portal do Azure e clique em **obter**.
 
     c. Selecione **ativar Autocreation de utilizadores**.
 
     d. Clique em **OK**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

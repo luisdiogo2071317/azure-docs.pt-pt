@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2018
+ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: c98712b8fb2f8d6a85906b2c78fb678fc0f970b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -67,7 +67,7 @@ Todas as amostras de modelo de política do Azure estão em [modelos de polític
 ## <a name="mode"></a>Modo
 
 O **modo** determina que tipos de recursos serão avaliados para uma política. Os modos suportados são:
-* `all`: avaliar os grupos de recursos e todos os tipos de recursos 
+* `all`: avaliar os grupos de recursos e todos os tipos de recursos
 * `indexed`: apenas avaliar os tipos de recursos que suportam as etiquetas e a localização
 
 Recomendamos que defina **modo** para `all` na maioria dos casos. Todas as definições de política criadas através da utilização do portal de `all` modo. Se utilizar o PowerShell ou a CLI do Azure, tem de especificar o **modo** parâmetro manualmente. Se a definição de política não contém um **modo** valor-assume a predefinição `indexed` para efeitos compatibilidade.
@@ -346,8 +346,8 @@ Pode utilizar os aliases de propriedade para aceder às propriedades específica
 
 | Alias | Descrição |
 | ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Defina a DTU partilhada total para o conjunto elástico da base de dados. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Defina a edição do conjunto elástico. |
+| servidores/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Defina a DTU partilhada total para o conjunto elástico da base de dados. |
+| servidores/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Defina a edição do conjunto elástico. |
 
 **Microsoft.Storage/storageAccounts**
 

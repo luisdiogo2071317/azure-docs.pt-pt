@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Utilize o cliente Beeline com Apache Hive
 
@@ -252,10 +252,17 @@ Para localizar o nome de domínio completamente qualificado de um headnode, util
 
 O Spark fornece a suas próprias implementação do HiveServer2, o que é por vezes referido como o servidor Thrift de Spark. Este serviço utiliza o Spark SQL para resolver as consultas em vez do Hive e pode fornecer um melhor desempenho, dependendo da sua consulta.
 
-Para ligar ao servidor Thrift de Spark de um Spark no HDInsight cluster, utilize porta `10002` em vez de `10001`. Por exemplo, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+O __cadeia de ligação__ utilizada quando ligar através da internet é ligeiramente diferente. Em vez de contendo `httpPath=/hive2` é `httpPath/sparkhive2`. Segue-se um exemplo de ligar através da internet:
 
-> [!IMPORTANT]
-> O servidor Thrift de Spark não está acessível diretamente através da internet. Apenas poderá ligar ao mesmo a partir de uma sessão SSH ou dentro da mesma rede Virtual do Azure como o cluster do HDInsight.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Quando ligar diretamente a partir do nó principal do cluster, ou a partir de um recurso dentro da mesma rede Virtual do Azure como o cluster do HDInsight, porta `10002` deve ser utilizada para servidor Thrift de Spark em vez de `10001`. Segue-se um exemplo de ligar diretamente ao nó principal:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>Passos seguintes
 

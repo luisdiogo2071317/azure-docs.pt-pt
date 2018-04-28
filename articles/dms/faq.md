@@ -1,21 +1,21 @@
 ---
-title: "FAQ sobre como utilizar o serviço de migração de base de dados do Azure | Microsoft Docs"
-description: "Saiba mais perguntas mais frequentes sobre como utilizar o serviço de migração de base de dados do Azure para efetuar migrações de base de dados."
+title: FAQ sobre como utilizar o serviço de migração de base de dados do Azure | Microsoft Docs
+description: Saiba mais perguntas mais frequentes sobre como utilizar o serviço de migração de base de dados do Azure para efetuar migrações de base de dados.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas mais comuns sobre como utilizar o serviço de migração de base de dados do Azure, juntamente com respostas relacionadas.
@@ -48,11 +48,11 @@ Durante uma migração típica, simples da base de dados, pode:
 ### <a name="q-what-are-the-prerequisites-for-using-the-azure-database-migration-service"></a>Q. Quais são os pré-requisitos para utilizar o serviço de migração de base de dados do Azure?
 Existem vários pré-requisitos necessários para garantir que o serviço de migração de base de dados do Azure é executada de facilmente quando efetuar as migrações de base de dados. Alguns dos pré-requisitos aplicam a todos os cenários (pares de destino de origem) suportados pelo serviço, enquanto outros pré-requisitos são exclusivos para um cenário específico.
 Os pré-requisitos de serviço de migração de base de dados do Azure que são comuns em todos os cenários de migração suportados incluem a necessidade de:
-- Criar uma VNET para o serviço de migração de base de dados do Azure utilizando o modelo de implementação Azure Resource Manager, que fornece a conectividade de site a site para os seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Certifique-se de que a sua escolha de regras do Azure (VNET) rede segurança grupo de rede Virtual bloquear a comunicação seguinte portas 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego do Azure VNET NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Criar uma VNET para o serviço de migração de base de dados do Azure utilizando o modelo de implementação Azure Resource Manager, que fornece a conectividade de site a site para os seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Certifique-se de que a sua escolha de regras do Azure (VNET) rede segurança grupo de rede Virtual bloquear a comunicação seguinte portas 443, 53, 9354, 445, 12000. Para mais detalhes sobre a filtragem de tráfego do Azure VNET NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Quando utilizar uma aplicação de firewall à frente da sua bases de dados de origem, poderá ter de adicionar regras de firewall para permitir que o serviço de migração de base de dados do Azure para aceder a bases de dados de origem para migração.
  
-Para obter uma lista de todos os pré-requisitos necessários para competem ter cenários de migração específico utilizando o serviço de migração de base de dados do Azure, consulte os tutoriais relacionados no serviço de migração de base de dados do Azure [documentação](https://docs.microsoft.com/en-us/azure/dms/dms-overview) no Docs.microsoft.com.
+Para obter uma lista de todos os pré-requisitos necessários para competem ter cenários de migração específico utilizando o serviço de migração de base de dados do Azure, consulte os tutoriais relacionados no serviço de migração de base de dados do Azure [documentação](https://docs.microsoft.com/azure/dms/dms-overview) no Docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>Q. Como encontrar o endereço IP para o serviço de migração de base de dados do Azure para que pode criar uma lista de permissões para as regras de firewall utilizada para aceder à minha base de dados de origem para migração?
 Terá de adicionar regras de firewall, permitindo que o serviço de migração de base de dados do Azure aceder à sua base de dados de origem para migração. O endereço IP para o serviço for dinâmico, mas se estiver a utilizar o Expressroute, este endereço é em privado atribuído pela sua rede empresarial. A forma mais fácil para identificar o endereço IP adequado é parecer no mesmo grupo de recursos como o recurso do serviço de migração de base de dados do Azure aprovisionado para encontrar a Interface de rede associado. Normalmente, o nome do recurso de Interface de rede começa com o prefixo NIC e seguido por um caráter único e a sequência de número, exemplo NIC jj6tnztnmarpsskr82rbndyp. Ao selecionar este recurso de interface de rede, pode ver o endereço IP que tem de ser incluído na lista de permissões na página do portal do Azure descrição geral do recurso.
@@ -80,7 +80,7 @@ Pode efetuar algumas coisas para acelerar a migração de base de dados utilizan
 - Temporariamente escala de instância de destino a SQL Database do Azure para o escalão Premium SKU durante a operação de migração de dados para minimizar a base de dados do SQL Azure limitação que poderá ter impacto em atividades de transferência de dados ao utilizar os SKUs de nível inferior.
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Como configurar uma rede Virtual do Azure?
-Ao tutoriais Microsoft vários podem orientá-lo durante o processo de configuração de uma VNET do Azure, a documentação oficial aparece no artigo [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+Ao tutoriais Microsoft vários podem orientá-lo durante o processo de configuração de uma VNET do Azure, a documentação oficial aparece no artigo [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. É por que motivo o meu serviço de migração de base de dados do Azure parado ou indisponível?
 Se o utilizador explicitamente parar o serviço de migração de base de dados do Azure (DMS) ou se o serviço está inativo durante um período de 24 horas, o serviço será num parado ou automaticamente o estado em pausa. Em cada caso, o serviço estará disponível e num estado parado.  Para retomar migrações Active Directory, reinicie o serviço.
