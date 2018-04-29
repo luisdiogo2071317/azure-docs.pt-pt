@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -112,7 +112,7 @@ Como pode ver, uma rede Virtual do Azure fornece máquinas virtuais para ligar �
 
 -   Conectividade no local
 
--   Filtragem de tráfego
+-   Filtragem do tráfego
 
 -   Encaminhamento
 
@@ -124,7 +124,7 @@ O Azure oferece resolução dos nomes internos para VMs e [serviços em nuvem](h
 
 Pode implementar várias VNets dentro de cada Azure [subscrição](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) e o Azure [região](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json). Cada VNet está isolado de outras VNets. Para cada VNet pode:
 
--   Especifique um espaço de endereços IP privado personalizado utilizando endereços (RFC 1918) públicos e privados. Recursos do Azure atribui ligado para a VNet um endereço IP privado do espaço de endereço, atribuir.
+-   Especificar um espaço de endereços IP privado personalizado, utilizando endereços públicos e privados (RFC 1918). Recursos do Azure atribui ligado para a VNet um endereço IP privado do espaço de endereço, atribuir.
 
 -   Segmentar a VNet numa ou mais sub-redes e atribuir uma parte do espaço de endereços VNet para cada sub-rede.
 
@@ -160,17 +160,17 @@ As VNets podem ser ligadas para [no local](https://docs.microsoft.com/azure/virt
 
 Pode ligar a sua rede no local para uma VNet com qualquer combinação das seguintes opções:
 
-- **Ponto a site rede privada virtual (VPN):** estabelecida entre um único PC à sua rede e a VNet. Este tipo de ligação é excelente se de que está a começar com o Azure ou para os programadores, porque necessita de pouca ou nenhuma alterações à sua rede existente. A ligação utiliza o protocolo SSTP para fornecer comunicações encriptadas através da Internet entre o computador e a VNet. A latência de uma VPN ponto a site é imprevisível, uma vez que o tráfego atravessar da Internet.
+- **Ponto a site rede privada virtual (VPN):** estabelecida entre um único PC à sua rede e a VNet. Este tipo de ligação é excelente se estiver a começar a utilizar o Azure ou para os programadores, uma vez que necessita de pouca ou nenhumas alterações à sua rede existente. A ligação utiliza o protocolo SSTP para fornecer comunicações encriptadas através da Internet entre o computador e a VNet. A latência de uma VPN ponto a site é imprevisível, uma vez que o tráfego atravessar da Internet.
 
 - **VPN de site para site:** estabelecida entre o dispositivo VPN e um Gateway de VPN do Azure. Este tipo de ligação permite qualquer recurso no local que está a autorizar para aceder a uma VNet. A ligação é uma VPN IPsec/IKE que fornece comunicações encriptadas através da Internet entre o dispositivo no local e o gateway de VPN do Azure. A latência de uma ligação site a site é imprevisível, uma vez que o tráfego atravessar da Internet.
 
-- **O ExpressRoute do Azure:** estabelecida entre a rede e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada. Tráfego atravessar não da Internet. A latência de uma ligação ExpressRoute é previsível, uma vez que o tráfego não atravessar da Internet. Para saber mais sobre todas as opções de ligação anterior, leia o [diagramas de topologia de ligação](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** estabelecida entre a rede e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada. Tráfego atravessar não da Internet. A latência de uma ligação ExpressRoute é previsível, uma vez que o tráfego não atravessar da Internet. Para saber mais sobre todas as opções de ligação anterior, leia o [diagramas de topologia de ligação](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Filtragem do tráfego**
 
 Instâncias de função da VM e serviços em nuvem [tráfego de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) pode ser filtrada entrada e saída por endereço IP de origem e porta, endereço IP de destino e porta e protocolo.
 
-Pode filtrar o tráfego de rede entre as sub-redes utilizando um ou ambos das seguintes opções:
+Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
 - **Rede (NSG) de grupos de segurança:** cada NSG pode conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego por endereço IP de origem e de destino, porta e protocolo. Pode aplicar um NSG para cada NIC numa VM. Também pode aplicar um NSG para sub-rede um NIC ou outros recursos do Azure, está ligado. Para saber mais sobre NSGs, leia o [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
@@ -180,7 +180,7 @@ Pode filtrar o tráfego de rede entre as sub-redes utilizando um ou ambos das se
 
 Opcionalmente, pode substituir predefinição do Azure encaminhamento por configurar as seus próprios rotas ou utilizar rotas BGP através de um gateway de rede.
 
-O Azure cria as tabelas de rotas ativar recursos ligados a nenhuma sub-rede qualquer VNet para comunicar entre si, por predefinição. Pode implementar um ou ambos das seguintes opções para substituir as rotas predefinidas que Azure cria:
+O Azure cria as tabelas de rotas ativar recursos ligados a nenhuma sub-rede qualquer VNet para comunicar entre si, por predefinição. Pode implementar uma ou ambas das seguintes opções para substituir as rotas predefinidas que o Azure cria:
 
 - **Rotas definidas pelo utilizador:** pode criar as tabelas de rotas personalizadas com rotas esse controlo onde o tráfego é encaminhado para cada sub-rede. Para saber mais sobre as rotas definidas pelo utilizador, leia o [rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 

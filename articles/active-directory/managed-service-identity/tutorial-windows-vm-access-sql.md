@@ -1,8 +1,8 @@
 ---
 title: Utilize um MSI de VM do Windows para aceder ao SQL do Azure
-description: "Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure."
+description: Um tutorial que explica o processo de utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5459739e9d3469adc7dbf65c8dcc0de918ea0c73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utilizar um Windows VM geridos serviço de identidade (MSI) para aceder ao SQL do Azure
 
@@ -38,7 +38,7 @@ Este tutorial mostra como utilizar uma identidade de serviço geridas (MSI) para
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows num novo grupo de recursos
 
@@ -55,17 +55,13 @@ Para este tutorial, iremos criar uma nova VM do Windows.  Também pode ativar MS
 
 ## <a name="enable-msi-on-your-vm"></a>Ativar o MSI da VM 
 
-Um MSI da VM permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Ativar MSI diz ao Azure para criar uma identidade de gerido para a VM. Nos bastidores, permitir MSI duas coisas: instala a extensão da VM do MSI da VM e permite MSI no Gestor de recursos do Azure.
+Um MSI da VM permite-lhe obter os tokens de acesso do Azure AD sem a necessidade de colocar as credenciais para o seu código. Ativar MSI diz ao Azure para criar uma identidade de gerido para a VM. Nos bastidores, permitir MSI duas coisas: regista a VM com o Azure Active Directory para criar a respetiva identidade gerida e configura a identidade da VM.
 
 1.  Selecione o **Máquina Virtual** que pretende ativar o MSI em.  
 2.  Na barra de navegação esquerdo em **configuração**. 
 3.  Verá **identidade de serviço geridas**. Para registar e ativar o MSI, selecione **Sim**, se pretender desativá-la, escolha não. 
 4.  Certifique-se de que clica **guardar** para guardar a configuração.  
     ![Texto alternativo da imagem](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Se pretende verificar e certifique-se as extensões na VM, clique em **extensões**. Se estiver ativado MSI, em seguida, **ManagedIdentityExtensionforWindows** aparece na lista.
-
-    ![Texto alternativo da imagem](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceder o acesso VM para uma base de dados no servidor de SQL do Azure
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Em seguida, adicione o MSI da VM para o grupo.  É necessário o MSI **ObjectId**, que pode obter com o Azure PowerShell.  Em primeiro lugar, transferir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Em seguida, inicie sessão com `Login-AzureRmAccount`, e execute os seguintes comandos para:
+Em seguida, adicione o MSI da VM para o grupo.  É necessário o MSI **ObjectId**, que pode obter com o Azure PowerShell.  Em primeiro lugar, transferir [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Em seguida, inicie sessão com `Connect-AzureRmAccount`, e execute os seguintes comandos para:
 - Certifique-se do que contexto da sessão está definido para a subscrição do Azure pretendida, se tiver vários.
 - Listar os recursos disponíveis na sua subscrição do Azure, verifique na corretos grupo de recursos e nomes VM.
 - Obter propriedades da VM MSI, utilizando os valores adequados para `<RESOURCE-GROUP>` e `<VM-NAME>`.
@@ -182,7 +178,7 @@ Código em execução na VM pode obter um token do MSI e utilizar o token para a
 
 SQL do Azure nativamente autenticação de suporte do Azure AD, para que possa aceitar tokens de acesso diretamente obtidos através de MSI.  Utilizar o **token de acesso** método de criação de uma ligação ao SQL Server.  Isto faz parte da integração do SQL do Azure com o Azure AD e é diferente de fornecer credenciais na cadeia de ligação.
 
-Eis um exemplo de código de .net de abrir uma ligação ao SQL Server utilizando um token de acesso.  Este código tem de executar na VM para poder aceder ao ponto final MSI da VM.  **.NET framework 4.6** ou superior, é necessário utilizar o método de token de acesso.  Substitua os valores do AZURE-SQL-SERVERNAME e base de dados em conformidade.  Tenha em atenção o ID de recurso para o SQL do Azure "https://database.windows.net/".
+Eis um exemplo de código de .net de abrir uma ligação ao SQL Server utilizando um token de acesso.  Este código tem de executar na VM para poder aceder ao ponto final MSI da VM.  **.NET framework 4.6** ou superior, é necessário utilizar o método de token de acesso.  Substitua os valores do AZURE-SQL-SERVERNAME e base de dados em conformidade.  Tenha em atenção o ID de recurso para o SQL do Azure é "https://database.windows.net/".
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ Em alternativa, uma forma rápida para testar a configuração de ponto a ponto 
 4.  Através do PowerShell `Invoke-WebRequest`, efetue um pedido para o ponto final local de MSI para obter acesso token para SQL do Azure.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Converter a resposta de um objeto JSON para um objeto do PowerShell. 

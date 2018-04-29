@@ -2,23 +2,20 @@
 title: Utilizar Scripts do Windows PowerShell para publicar a ambientes de teste e desenvolvimento | Microsoft Docs
 description: Saiba como utilizar scripts do Windows PowerShell a partir do Visual Studio para publicar no desenvolvimento e ambientes de teste.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 5fff1301-5469-4d97-be88-c85c30f837c1
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 58d1c8398e626544a7b02198ec0431203aedcc81
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 866575a483e705e1c972a0b56d98f26e9cf0c631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Utilizar scripts do Windows PowerShell para publicar em ambientes de desenvolvimento e teste
 
@@ -323,7 +320,7 @@ Para obter ajuda para funções que pode utilizar a linha de comandos do Windows
 | Find-AzureVM |Obtém a máquina virtual do Azure especificada. |
 | Format-DevTestMessageWithTime |Prepends a data e hora para uma mensagem. Esta função foi concebida para mensagens escritas para os fluxos de erro e Verbose. |
 | Get-AzureSQLDatabaseConnectionString |Monta uma cadeia de ligação para ligar a uma base de dados SQL do Azure. |
-| Get-AzureVMStorage |Devolve o nome da primeira conta de armazenamento com o padrão de nome "devtest*" (sensível) na localização especificada ou o grupo de afinidade. Se o "devtest*" conta de armazenamento não corresponde a localização ou o grupo de afinidade, a função ignora-lo. Especifique uma localização ou um grupo de afinidade. |
+| Get-AzureVMStorage |Devolve o nome da primeira conta de armazenamento com o padrão de nome "devtest *" (sensível) na localização especificada ou o grupo de afinidade. Se o "devtest*" conta de armazenamento não corresponde a localização ou o grupo de afinidade, a função ignora-lo. Especifique uma localização ou um grupo de afinidade. |
 | Get-MSDeployCmd |Devolve um comando para executar a ferramenta de MsDeploy.exe. |
 | New-AzureVMEnvironment |Localiza ou cria uma máquina virtual na subscrição que correspondem aos valores no ficheiro de configuração JSON. |
 | Publish-WebPackage |Uma web e utiliza MsDeploy.exe publicou o pacote. Ficheiro zip para implementar os recursos para um Web site. Esta função não gera qualquer saída. Se a chamada para MSDeploy.exe falhar, a função emite uma exceção. Para obter uma saída mais detalhada, utilize o **-Verbose** opção. |
@@ -334,7 +331,7 @@ Para obter ajuda para funções que pode utilizar a linha de comandos do Windows
 | Test-AzureModuleVersion |Devolve `$true` se a versão do módulo do Azure é 0.7.4 ou posterior. Devolve `$false` se o módulo não está instalado ou uma versão anterior. Esta função não tem parâmetros. |
 | Test-HttpsUrl |Converte o URL de entrada para um objeto de URI. Devolve `$True` se o URL absoluto e a esquema é https. Devolve `$false` se o URL é relativo, a esquema não é HTTPS ou cadeia de entrada não pode ser convertida para um URL. |
 | Membro de teste |Devolve `$true` se uma propriedade ou método é um membro do objeto. Caso contrário, devolve `$false`. |
-| Write-ErrorWithTime |Escreve uma mensagem de erro prefixo com a hora atual. Esta função chama o **formato DevTestMessageWithTime** função preceder o tempo antes de escrever a mensagem para a sequência de erro. |
+| Escrita ErrorWithTime |Escreve uma mensagem de erro prefixo com a hora atual. Esta função chama o **formato DevTestMessageWithTime** função preceder o tempo antes de escrever a mensagem para a sequência de erro. |
 | Write-HostWithTime |Escreve uma mensagem para o programa de anfitrião (**escrita anfitrião**) prefixo com a hora atual. O efeito de escrita para o programa anfitrião varia. A maioria dos programas nesse anfitrião do Windows PowerShell escrever estas mensagens de saída padrão. |
 | Write-VerboseWithTime |Escreve uma mensagem verbosa prefixo com a hora atual. Uma vez que chama **Write-Verbose**, a mensagem apresentada apenas quando o script é executado com o **verboso** parâmetro ou quando o **VerbosePreference** preferência estiver definida como **continuar**. |
 

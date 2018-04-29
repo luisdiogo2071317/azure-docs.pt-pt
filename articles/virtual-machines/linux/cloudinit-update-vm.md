@@ -1,24 +1,24 @@
 ---
 title: Utilizar a cloud init para atualizar e instalar pacotes de uma VM com Linux no Azure | Microsoft Docs
-description: "Como utilizar a cloud init para atualizar e instalar pacotes numa VM com Linux durante a criação com o 2.0 CLI do Azure"
+description: Como utilizar a cloud init para atualizar e instalar pacotes numa VM com Linux durante a criação com o 2.0 CLI do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Utilizar a cloud init para atualizar e instalar pacotes de uma VM com Linux no Azure
 Este artigo mostra como utilizar [nuvem init](https://cloudinit.readthedocs.io) para atualizar pacotes um Linux da máquina virtual (VM) ou dimensionamento da máquina virtual define (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure. Para obter mais informações sobre como nuvem init nativamente funciona no Azure e os distros suportados do Linux, consulte [nuvem init descrição-geral](using-cloud-init.md)
@@ -58,23 +58,22 @@ SSH para o endereço IP público da sua VM apresentado no resultado do comando a
 ssh <publicIpAddress>
 ```
 
-Execute a ferramenta de gestão de pacote e procurar atualizações. O exemplo seguinte utiliza `apt-get` numa VM com Ubuntu:
+Execute a ferramenta de gestão de pacote e procurar atualizações.
 
 ```bash
-sudo apt-get upgrade
+sudo yum update
 ```
 
-Como nuvem init verificadas e atualizações instaladas no arranque, não deverá haver nenhum atualizações a aplicar, conforme mostrado no seguinte exemplo de saída:
+Como nuvem init verificadas e atualizações instaladas no arranque, deve ser não existem atualizações adicionais para aplicar.  Consulte o processo de atualização, o número de pacotes alteradas, bem como a instalação do `httpd` executando `yum history` e reveja o resultado semelhante ao abaixo.
 
 ```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Loaded plugins: fastestmirror, langpacks
+ID     | Command line             | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+     3 | -t -y install httpd      | 2018-04-20 22:42 | Install        |    5
+     2 | -t -y upgrade            | 2018-04-20 22:38 | I, U           |   65
+     1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
-
-Também pode ver que `httpd` foi instalado através da execução `yum history` e reveja o tipo de referência de saída `httpd`. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter exemplos adicionais nuvem-init das alterações de configuração, consulte o seguinte:

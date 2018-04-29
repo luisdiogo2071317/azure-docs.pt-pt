@@ -1,13 +1,13 @@
 ---
-title: "Ligar os gateways de VPN do Azure para dispositivos VPN baseado na política vários locais: o Gestor de recursos do Azure: PowerShell | Microsoft Docs"
-description: "Configure um Azure baseado na rota VPN gateway vários baseadas em políticas VPN em dispositivos com o Azure Resource Manager e o PowerShell."
+title: 'Ligar os gateways de VPN do Azure para dispositivos VPN baseado na política vários locais: o Gestor de recursos do Azure: PowerShell | Microsoft Docs'
+description: Configure um Azure baseado na rota VPN gateway vários baseadas em políticas VPN em dispositivos com o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dc2dc660262cec892270f8d6e70691fdd169a5c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Ligar os gateways de VPN do Azure para vários dispositivos no local baseadas em políticas VPN com o PowerShell
 
@@ -45,7 +45,7 @@ Atualmente, o Azure suporta ambos os modos de gateways VPN: gateways de VPN base
 
 |                          | **Gateway de PolicyBased VPN** | **Gateway de RouteBased VPN**               |
 | ---                      | ---                         | ---                                      |
-| **SKU de Gateway do Azure**    | Básica                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **SKU de Gateway do Azure**    | Básica                       | Básico, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **Versão do IKE**          | IKEv1                       | IKEv2                                    |
 | **Máx. Ligações S2S** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -67,7 +67,7 @@ Como é mostrado no diagrama, o gateway de VPN do Azure tem seletores de tráfeg
 
 As instruções neste artigo siga o mesmo exemplo, conforme descrito em [política IPsec/IKE configurar para ligações S2S ou VNet a VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md) estabelecer uma ligação S2S VPN. É mostrado no diagrama seguinte:
 
-![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![política de s2s](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 O fluxo de trabalho para ativar esta conectividade:
 1. Criar a rede virtual, o gateway VPN e o gateway de rede local para a ligação entre locais
@@ -113,7 +113,7 @@ Para utilizar os cmdlets Resource Manager, certifique-se de que muda para o modo
 Abra a consola do PowerShell e ligue-se à sua conta. Utilize o seguinte exemplo para o ajudar na ligação:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

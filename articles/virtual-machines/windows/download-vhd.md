@@ -3,7 +3,7 @@ title: Transferir um VHD do Windows a partir do Azure | Microsoft Docs
 description: Transferir um VHD do Windows no portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: davidmu
-ms.openlocfilehash: c9a75890af86a5342debe1d6fdb18f5e9bd2b227
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 83d6715d6d8178e273131a6bc123627126644271
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Transferir um VHD do Windows a partir do Azure
 
@@ -37,7 +37,7 @@ Para utilizar o VHD como uma imagem para criar outras VMs, conclua estes passos:
 2.  [Ligar à VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.  Na VM, abra a janela de linha de comandos como administrador.
 4.  Altere o diretório para *%windir%\system32\sysprep* e execute o sysprep.exe.
-5.  Na caixa de diálogo Ferramenta de preparação do sistema, selecione **introduza sistema Out-of-Box experiência (OOBE)**e certifique-se de que **Generalize** está selecionada.
+5.  Na caixa de diálogo Ferramenta de preparação do sistema, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que **Generalize** está selecionada.
 6.  Nas opções de encerramento, selecione **encerramento**e, em seguida, clique em **OK**. 
 
 Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou o disco de dados, conclua estes passos:

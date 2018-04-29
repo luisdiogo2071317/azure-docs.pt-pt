@@ -1,6 +1,6 @@
 ---
-title: "Cópia de segurança de recursos de infraestrutura de serviço e de restauro | Microsoft Docs"
-description: "Documentação conceptual para cópia de segurança do serviço de recursos de infraestrutura e de restauro"
+title: Cópia de segurança de recursos de infraestrutura de serviço e de restauro | Microsoft Docs
+description: Documentação conceptual para cópia de segurança do serviço de recursos de infraestrutura e de restauro
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Criar cópias de segurança e restauro Reliable Services e Reliable Actors
 Azure Service Fabric é uma plataforma de elevada disponibilidade que replica o estado em vários nós para manter esta elevada disponibilidade.  Assim, mesmo se um nó no cluster falha, os serviços continuam a estar disponíveis. Apesar deste redundância incorporada no fornecida pela plataforma do pode ser suficiente para algumas, em certos casos é desejável que o serviço de cópia de segurança de dados (para um arquivo de externo).
@@ -84,7 +84,7 @@ Os utilizadores podem aumentar a probabilidade de ser capaz de fazer cópias de 
 Tenha em atenção que aumentar estes valores aumenta a por utilização de disco de réplica.
 Para obter mais informações, consulte [fiável de serviços de configuração](service-fabric-reliable-services-configuration.md)
 
-`BackupInfo`Fornece informações sobre a cópia de segurança, incluindo a localização da pasta onde o tempo de execução guardar a cópia de segurança (`BackupInfo.Directory`). A função de chamada de retorno pode mover o `BackupInfo.Directory` para um arquivo de externo ou noutra localização.  Esta função devolve também um booleano que indica se foi possível mover com êxito a pasta de cópia de segurança para a localização de destino.
+`BackupInfo` Fornece informações sobre a cópia de segurança, incluindo a localização da pasta onde o tempo de execução guardar a cópia de segurança (`BackupInfo.Directory`). A função de chamada de retorno pode mover o `BackupInfo.Directory` para um arquivo de externo ou noutra localização.  Esta função devolve também um booleano que indica se foi possível mover com êxito a pasta de cópia de segurança para a localização de destino.
 
 O código seguinte demonstra como o `BackupCallbackAsync` método pode ser utilizado para carregar a cópia de segurança para o Storage do Azure:
 
@@ -99,7 +99,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 }
 ```
 
-No exemplo que precede, `ExternalBackupStore` é a classe de exemplo que é utilizada para a interface com o Blob storage do Azure, e `UploadBackupFolderAsync` é o método que comprime a pasta e coloca-lo no arquivo de Blob do Azure.
+No exemplo anterior, `ExternalBackupStore` é a classe de exemplo que é utilizada para a interface com o Blob storage do Azure, e `UploadBackupFolderAsync` é o método que comprime a pasta e coloca-lo no arquivo de Blob do Azure.
 
 Tenha em atenção que:
 
@@ -141,19 +141,19 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-`RestoreDescription`transmitida para o `RestoreContext.RestoreAsync` chamada contém um membro chamado `BackupFolderPath`.
+`RestoreDescription` transmitida para o `RestoreContext.RestoreAsync` chamada contém um membro chamado `BackupFolderPath`.
 Ao restaurar uma única cópia de segurança completa, isto `BackupFolderPath` deve ser definido como o caminho local da pasta que contém a cópia de segurança completa.
 Ao restaurar uma cópia de segurança completa e um número de cópias de segurança incrementais, `BackupFolderPath` deve ser definido como o caminho local da pasta que contém não apenas a cópia de segurança completa, mas também todas as cópias de segurança incrementais.
-`RestoreAsync`chamada pode acionar `FabricMissingFullBackupException` se o `BackupFolderPath` fornecido não contém uma cópia de segurança completa.
+`RestoreAsync` chamada pode acionar `FabricMissingFullBackupException` se o `BackupFolderPath` fornecido não contém uma cópia de segurança completa.
 -Também pode acionar `ArgumentException` se `BackupFolderPath` tem uma cadeia quebrada de cópias de segurança incrementais.
 Por exemplo, se contém a cópia de segurança completa, o primeiro incremental e a terceira cópia de segurança incremental, mas não a segunda cópia de segurança incremental.
 
 > [!NOTE]
-> O RestorePolicy está definido como seguro por predefinição.  Isto significa que o `RestoreAsync` API irá falhar com ArgumentException se detetar que a pasta de cópia de segurança contém um estado anterior ou igual ao estado nesta réplica.  `RestorePolicy.Force`pode ser utilizada para ignorar esta verificação de segurança. Isto é especificado como parte da `RestoreDescription`.
+> O RestorePolicy está definido como seguro por predefinição.  Isto significa que o `RestoreAsync` API irá falhar com ArgumentException se detetar que a pasta de cópia de segurança contém um estado anterior ou igual ao estado nesta réplica.  `RestorePolicy.Force` pode ser utilizada para ignorar esta verificação de segurança. Isto é especificado como parte da `RestoreDescription`.
 > 
 
 ## <a name="deleted-or-lost-service"></a>Serviço foi eliminado ou perdido
-Se um serviço for removido, tem primeiro de recriar o serviço antes dos dados podem ser restaurados.  É importante criar o serviço com a mesma configuração, por ex., particionar o esquema, para que os dados podem ser restaurados de forma totalmente integrada.  Depois do serviço de cópia de segurança, a API de restauro dos dados (`OnDataLossAsync` acima) tem de ser invocado em cada partição deste serviço. Uma forma de alcançar isto é, utilizando `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` em cada partição.  
+Se um serviço for removido, tem primeiro de recriar o serviço antes dos dados podem ser restaurados.  É importante criar o serviço com a mesma configuração, por exemplo, a criação de partições esquema, para que os dados podem ser restaurados de forma totalmente integrada.  Depois do serviço de cópia de segurança, a API de restauro dos dados (`OnDataLossAsync` acima) tem de ser invocado em cada partição deste serviço. Uma forma de alcançar isto é, utilizando `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` em cada partição.  
 
 A partir deste ponto, a implementação é o mesmo que o cenário acima. Cada partição tem de restaurar a mais recente relevante cópia de segurança da loja externa. Uma advertência é que o ID de partição pode agora alterou, uma vez que o tempo de execução cria partição IDs dinamicamente. Assim, o serviço tem de armazenar o nome de serviço e informações de partição adequado para identificar a cópia de segurança mais recente correta para restaurar a partir de cada partição.
 
@@ -178,7 +178,7 @@ Tenha em atenção que:
 ## <a name="backup-and-restore-reliable-actors"></a>Cópia de segurança e restauro Reliable Actors
 
 
-Reliable Actors Framework for criada sobre Reliable Services. ActorService que aloja o actor(s) é um serviço fiável com monitorização de estado. Por conseguinte, todas as cópias de segurança e restauro funcionalidades disponíveis no Reliable Services estão também disponível para Reliable Actors (exceto os comportamentos que são específico do fornecedor de estado). Uma vez que as cópias de segurança serão efetuadas numa base por partição, Estados de todos os atores nessa partição serão efetuadas cópias de (e restauro é semelhante e irá acontecer numa base por partição). Para efetuar cópia de segurança/restauro, o proprietário do serviço deve criar uma classe de serviço de atores personalizado que derive da classe de ActorService e, em seguida, fazer cópia de segurança/restauro, semelhante a Reliable Services, tal como descrito acima nas secções anteriores.
+Reliable Actors Framework for criada sobre Reliable Services. ActorService, que aloja o actor(s) é um serviço fiável com monitorização de estado. Por conseguinte, todas as cópias de segurança e restauro funcionalidades disponíveis no Reliable Services estão também disponível para Reliable Actors (exceto os comportamentos que são específico do fornecedor de estado). Uma vez que as cópias de segurança serão efetuadas numa base por partição, Estados de todos os atores nessa partição serão efetuadas cópias de (e restauro é semelhante e irá acontecer numa base por partição). Para efetuar cópia de segurança/restauro, o proprietário do serviço deve criar uma classe de serviço de atores personalizado que derive da classe de ActorService e, em seguida, fazer cópia de segurança/restauro, semelhante a Reliable Services, tal como descrito acima nas secções anteriores.
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -222,12 +222,12 @@ Depois de cópia de segurança incremental foi ativada, efetuando uma cópia de 
   - A réplica nunca realizou uma cópia de segurança completa, uma vez que ficou primário.
   - Alguns dos registos de registo foram truncados desde a última cópia de segurança foi feita.
 
-Quando a cópia de segurança incremental é ativada, `KvsActorStateProvider` não utiliza a memória intermédia circular para gerir os respetivos registos de registo e periodicamente trunca-lo. Se nenhuma cópia de segurança estiver atribuída ao utilizador durante um período de 45 minutos, o sistema trunca automaticamente os registos de registo. Este intervalo pode ser configurado com a especificação `logTrunctationIntervalInMinutes` no `KvsActorStateProvider` construtor (semelhante ao ativar a cópia de segurança incremental). Também poderão obter truncados os registos de registo, se a réplica primária necessita para criar outra réplica mediante o envio de todos os respetivos dados.
+Quando a cópia de segurança incremental é ativada, `KvsActorStateProvider` não utiliza a memória intermédia circular para gerir os respetivos registos de registo e periodicamente trunca-lo. Se nenhuma cópia de segurança estiver atribuída ao utilizador durante um período de 45 minutos, o sistema trunca automaticamente os registos de registo. Este intervalo pode ser configurado com a especificação `logTrunctationIntervalInMinutes` no `KvsActorStateProvider` construtor (semelhante ao ativar a cópia de segurança incremental). Os registos de registo também podem obter truncados se a réplica primária tem de criar a réplica outra mediante o envio de todos os respetivos dados.
 
 Ao efetuar o restauro a partir de uma cadeia de cópia de segurança, semelhante a Reliable Services, o BackupFolderPath deve conter subdiretórios com um subdiretório com cópia de segurança completa e outros sub-diretórios que contêm incremental backup(s). A API de restauro irá gerar FabricException com a mensagem de erro apropriada se a validação da cadeia de cópia de segurança falhar. 
 
 > [!NOTE]
-> `KvsActorStateProvider`Atualmente, ignora a opção RestorePolicy.Safe. Suporte para esta funcionalidade está a ser planeado a uma versão futura.
+> `KvsActorStateProvider` Atualmente, ignora a opção RestorePolicy.Safe. Suporte para esta funcionalidade está a ser planeado a uma versão futura.
 > 
 
 ## <a name="testing-backup-and-restore"></a>Testar a cópia de segurança e restauro
@@ -255,17 +255,13 @@ Isto implica que para os implementadores de StatefulService `RunAsync` não ser�
 Em seguida, `OnDataLossAsync` será invocado principal nova.
 Até que um serviço concluir esta API com êxito (devolvendo true ou false) e termina a reconfiguração relevante, a API irá manter a ser chamada um de cada vez.
 
-`RestoreAsync`primeiro ignora todos os Estados existente em que foi chamado na réplica primária.  
-Em seguida, o Gestor de estado fiável cria todos os objetos fiáveis existem na pasta de cópia de segurança.  
-Em seguida, os objetos fiáveis são deu instruções ao restaurar a partir os respetivos pontos de verificação na pasta de cópia de segurança.  
-Por fim, o Gestor de estado fiável recupera o suas próprias estado a partir dos registos de registo na pasta de cópia de segurança e efetua a recuperação.  
-Como parte do processo de recuperação, as operações a partir de "ponto de partida" com os registos de consolidação na pasta de cópia de segurança são reproduzidas para os objetos fiáveis.  
-Este passo garante que o estado recuperado é consistente.
+`RestoreAsync` primeiro ignora todos os Estados existente em que foi chamado na réplica primária. Em seguida, o Gestor de estado fiável cria todos os objetos fiáveis existem na pasta de cópia de segurança. Em seguida, os objetos fiáveis são deu instruções ao restaurar a partir os respetivos pontos de verificação na pasta de cópia de segurança. Por fim, o Gestor de estado fiável recupera o suas próprias estado a partir dos registos de registo na pasta de cópia de segurança e efetua a recuperação. Como parte do processo de recuperação, as operações a partir de "ponto de partida" com os registos de consolidação na pasta de cópia de segurança são reproduzidas para os objetos fiáveis. Este passo garante que o estado recuperado é consistente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Início rápido de serviços fiável](service-fabric-reliable-services-quick-start.md)
   - [Notificações de serviços fiáveis](service-fabric-reliable-services-notifications.md)
   - [Configuração de serviços fiável](service-fabric-reliable-services-configuration.md)
   - [Referência para programadores para coleções fiável](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Cópia de segurança e restauro periódicos no Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

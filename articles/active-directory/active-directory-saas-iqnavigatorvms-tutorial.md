@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com IQNavigator VMS | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e IQNavigator VMS."
+title: 'Tutorial: Integração do Azure Active Directory com IQNavigator VMS | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e IQNavigator VMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 82c91ba8fa340fb2b179d61200a69e94ab85b6d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddb2883c0b90aaffa82bbc701cdc20de1feb7e19
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Tutorial: Integração do Azure Active Directory com IQNavigator VMS
 
@@ -103,7 +103,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_samlbase.png)
 
 3. No **IQNavigator VMS domínio e os URLs** secção, execute os seguintes passos:
@@ -112,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. No **identificador** caixa de texto, escreva o URL:`iqn.com`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
 4. Verifique **Mostrar avançadas definições de URL**, executar o passo seguinte:
 
@@ -120,46 +120,26 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     No **reencaminhamento estado** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.iqnavigator.com`
 
-    > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o estado real do URL de resposta e reencaminhamento. Contacte [equipa de suporte de cliente de VMS IQNavigator](https://www.beeline.com/iqn-product-support/) para obter estes valores. 
+    > [!NOTE]
+    > Estes valores não estiverem reais. Atualize estes valores com o estado real do URL de resposta e reencaminhamento. Contacte [equipa de suporte de cliente de VMS IQNavigator](https://www.beeline.com/iqn-product-support/) para obter estes valores.
 
-5. Clique em **guardar** botão.
-
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
-
-6. Para gerar o **metadados** url, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
+5. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
     
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpointicon.png)
+    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_endpoint.png)
-     
-    d. Agora, a página de propriedades do **IQNavigator VMS** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Aplicação IQNavigator esperar que o valor do identificador de utilizador exclusivo na afirmação de identificador de nome. Cliente pode mapear o valor correto para a afirmação de identificador de nome. Neste caso, podemos ter mapeado o utilizador. UserPrincipalName para efeitos de demonstração. Mas, de acordo com as definições da sua organização deve mapear o valor correto para o mesmo.   
+6. Aplicação IQNavigator esperar que o valor do identificador de utilizador exclusivo na afirmação de identificador de nome. Cliente pode mapear o valor correto para a afirmação de identificador de nome. Neste caso, podemos ter mapeado o utilizador. UserPrincipalName para efeitos de demonstração. Mas, de acordo com as definições da sua organização deve mapear o valor correto para o mesmo.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
+7. Clique em **guardar** botão.
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_400.png)
+
 8. No **IQNavigator VMS configuração** secção, clique em **configurar VMS de IQNavigator** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-9. Para configurar o início de sessão único em **IQNavigator VMS** lado, terá de enviar o **URL de metadados**, **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** para [equipa de suporte de IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+9. Para configurar o início de sessão único em **IQNavigator VMS** lado, terá de enviar o **Url de metadados de Federação de aplicação**, **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML**para [equipa de suporte de IQNavigator VMS](https://www.beeline.com/iqn-product-support/). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
@@ -174,11 +154,11 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
 
 2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png) 
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_02.png)
 
 3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png) 
+
+    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-iqnavigatorvms-tutorial/create_aaduser_03.png)
 
 4. No **utilizador** diálogo página, execute os seguintes passos:
  
@@ -191,7 +171,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
     c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
 
     d. Clique em **Criar**.
- 
+
 ### <a name="creating-a-iqnavigator-vms-test-user"></a>Criar um utilizador de teste IQNavigator VMS
 
 O objetivo desta secção consiste em criar um utilizador chamado Britta Simon em IQNavigator VMS. Trabalhar com [equipa de suporte de IQNavigator VMS](https://www.beeline.com/iqn-product-support/) para adicionar os utilizadores na conta IQNavigator VMS.
@@ -200,21 +180,21 @@ O objetivo desta secção consiste em criar um utilizador chamado Britta Simon e
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso às IQNavigator VMS.
 
-![Atribua o utilizador][200] 
+![Atribua o utilizador][200]
 
 **Para atribuir Britta Simon IQNavigator VMS, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
-    ![Atribua o utilizador][201] 
+    ![Atribua o utilizador][201]
 
 2. Na lista de aplicações, selecione **IQNavigator VMS**.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_app.png)
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![Atribua o utilizador][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
@@ -237,8 +217,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

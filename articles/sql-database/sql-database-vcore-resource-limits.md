@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Base de dados do SQL do Azure baseados em vCore compra limites de modelo (pré-visualização)
 
@@ -40,10 +40,9 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Destino IOPS|320|640|1280|2560|5120|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)
 |Funcionários em simultâneo de máx. (pedidos)|200|400|800|1600|3200|
-|Inícios de sessão simultâneos máx.|200|400|800|1600|3200|
-|Máx. permitido sessões|3000|3000|3000|3000|3000|
+|Máx. permitido sessões|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/D|N/D|N/D|N/A|
+|Várias AZ|N/A|N/D|N/D|N/D|N/A|
 |Leitura de escalamento horizontal|N/A|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|
 |||
@@ -63,10 +62,9 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 |Destino IOPS|5000|10000|20000|40000|80000|
 |Latência de e/s (aproximada)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|
 |Funcionários em simultâneo de máx. (pedidos)|200|400|800|1600|3200|
-|Inícios de sessão simultâneos máx.|200|400|800|1600|3200|
-|Máx. permitido sessões|3000|3000|3000|3000|3000|
+|Máx. permitido sessões|30000|30000|30000|30000|30000|
 |Número de réplicas|3|3|3|3|3|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|
+|Várias AZ|Sim|Sim|Sim|Sim|Sim|
 |Leitura de escalamento horizontal|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|
 |||
@@ -117,18 +115,17 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 |Destino IOPS|320|640|1280|2560|5120|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms 5-10 (leitura)|ms de 5 a 7 (escrita)<br>ms 5-10 (leitura)|ms de 5 a 7 (escrita)<br>ms 5-10 (leitura)|ms de 5 a 7 (escrita)<br>ms 5-10 (leitura)|ms de 5 a 7 (escrita)<br>ms 5-10 (leitura)|
 |Funcionários em simultâneo de máx. (pedidos)|210|420|840|1680|3360|
-|Inícios de sessão simultâneos máx.|210|420|840|1680|3360|
-|Máx. permitido sessões|3000|3000|3000|3000|3000|
+|Máx. permitido sessões|30000|30000|30000|30000|30000|
 |Densidade de agrupamento máx.|100|200|500|500|500|
-|Clique em-paragem do conjunto elástico mínimo/máximo|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
+|Clique em-paragem do conjunto elástico mínimo/máximo|0.25, 0, 1 a 0,5|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|
 |Número de réplicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/D|N/D|N/D|N/A|
+|Várias AZ|N/A|N/D|N/D|N/D|N/A|
 |Leitura de escalamento horizontal|N/A|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|
 |||
 
 ### <a name="business-critical-service-tier"></a>Camada de serviços críticos de negócio
-|Nível de desempenho|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Nível de desempenho|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|
 |vCores|1|2|4|8|16|
@@ -142,11 +139,10 @@ Para conjuntos elásticos SQL Database, as tabelas seguintes mostram os recursos
 |Destino IOPS|320|640|1280|2560|5120|
 |Latência de e/s (aproximada)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|1-2 ms (escrita)<br>ms 1-2 (leitura)|
 |Funcionários em simultâneo de máx. (pedidos)|210|420|840|1680|3360|
-|Inícios de sessão simultâneos máx.|210|420|840|1680|3360|
-|Máx. permitido sessões|3000|3000|3000|3000|3000|
+|Máx. permitido sessões|30000|30000|30000|30000|30000|
 |Densidade de agrupamento máx.|N/A|50|100|100|100|
-|Clique em-paragem do conjunto elástico mínimo/máximo|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|
+|Clique em-paragem do conjunto elástico mínimo/máximo|0.25, 0, 1 a 0,5|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|
+|Várias AZ|Sim|Sim|Sim|Sim|Sim|
 |Leitura de escalamento horizontal|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|Tamanho de base de dados X 1|
 |||

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Trisotech Digital Enterprise Server | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Trisotech Digital Enterprise Server."
+title: 'Tutorial: Integração do Azure Active Directory com Trisotech Digital Enterprise Server | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Trisotech Digital Enterprise Server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82e88b0b2b7f04f2849bf5c3a780df3c8f1c9849
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a70962c63fdf9ab723ce437563a4670d536300aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Active Directory com Trisotech Digital Enterprise Server
 
@@ -111,31 +111,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.trisotech.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do servidor Enterprise Digital Trisotech](mailto:support@trisotech.com) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do servidor Enterprise Digital Trisotech](mailto:support@trisotech.com) para obter estes valores.
 
-4. Clique em **guardar** botão.
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas. 
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+
+5. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
-
-5. Para gerar o **metadados** url, execute os seguintes passos:
-
-    a. Clique em **registos de aplicação**.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
-   
-    b. Clique em **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
-
-    c. Clique no botão Copiar para copiar **documento de METADADOS de Federação** url e cole-o bloco de notas.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
-     
-    d. Agora, a página de propriedades do **Trisotech Digital Enterprise Server** e copie o **Id da aplicação** utilizando **cópia** botão e cole-o bloco de notas.
- 
-    ![Configurar o início de sessão único](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 6. Numa janela do browser web diferente, inicie sessão no site da sua empresa Trisotech Digital Enterprise a configuração do servidor como administrador.
 
@@ -153,21 +137,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Selecione **protegida Assertion Markup Language 2 (SAML 2)** na lista pendente no **método de autenticação**.
 
-    b. No **URL de metadados** caixa de texto, cole o **URL de metadados** valor que copiou formulário do portal do Azure.
+    b. No **URL de metadados** caixa de texto, cole o **Url de metadados de Federação de aplicação** valor que copiou formulário do portal do Azure.
 
     c. No **ID da aplicação** caixa de texto, introduza o URL a utilizar o padrão seguinte: `https://<companyname>.trisotech.com`.
 
-    d. Clique em **guardar**
+    d. Clicar em **Guardar**
 
     e. Introduza o nome de domínio no **permitido domínios (vazio significa que todas as pessoas)** caixa de texto, automaticamente atribui licenças para utilizadores que correspondam a domínios permitido
 
-    f. Clique em **guardar**
+    f. Clicar em **Guardar**
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+ ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 

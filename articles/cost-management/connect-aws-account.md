@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 109235718f085ea2912f601f0657e08230e3e91d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ligar a uma conta Amazon Web Services
 
@@ -91,7 +91,7 @@ As secções seguintes guiá-lo a criar um utilizador só de leitura para fornec
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configurar o acesso de utilizador com base do AWS IAM na gestão de custo
 
-1. Abra o portal de Cloudyn do portal do Azure ou navegue até ao https://azure.cloudyn.com/ e iniciar sessão.
+1. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com/ e inicie sessão.
 2. Clique no símbolo roda dentada por e, em seguida, selecione **contas na nuvem**.
 3. Na gestão de contas, selecione o **AWS contas** separador e, em seguida, clique em **adicionar novo +**.
 4. Para **nome da conta**, escreva um nome de conta.

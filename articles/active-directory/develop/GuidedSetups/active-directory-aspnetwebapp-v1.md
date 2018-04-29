@@ -1,24 +1,24 @@
 ---
-title: "Servidor Web do Azure AD v1 ASP.NET introdução | Microsoft Docs"
-description: "Implementar Microsoft início de sessão numa solução ASP.NET com uma aplicação de baseadas no browser web tradicional utilizando o padrão de OpenID Connect"
+title: Servidor Web do Azure AD v1 ASP.NET introdução | Microsoft Docs
+description: Implementar Microsoft início de sessão numa solução ASP.NET com uma aplicação de baseadas no browser web tradicional utilizando o padrão de OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET
@@ -250,7 +250,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>Testar o seu código
 
-Prima `F5` para executar o projeto no Visual Studio. O browser abre e direciona a *http://localhost: {porta}* onde vir o *iniciar sessão com a Microsoft* botão. Avançar e clique nele para iniciar sessão.
+Prima `F5` para executar o projeto no Visual Studio. O browser abre e direciona a *http://localhost:{port}* onde vir o *iniciar sessão com a Microsoft* botão. Avançar e clique nele para iniciar sessão.
 
 Quando estiver pronto para testar, utilizar uma conta profissional (Azure Active Directory) para iniciar sessão. 
 
@@ -280,7 +280,7 @@ Além disso, pode ver uma tabela, incluindo todas as afirmações de utilizador 
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Teste aceder a um método que tenha um *[autorizar]* atributo (opcional)
 Neste passo, testar o acesso a controlador de afirmações como um utilizador anónimo:<br/>
 Selecione a ligação ao fim de sessão do utilizador e concluir o processo de início de sessão.<br/>
-Agora no seu browser, escreva http://localhost: {porta} / afirmações para aceder ao seu controlador de que está protegido com o `[Authorize]` atributo
+Agora no seu browser, escreva http://localhost:{port}/claims para aceder ao seu controlador de que está protegido com o `[Authorize]` atributo
 
 #### <a name="expected-results"></a>Resultados esperados
 Deverá receber a linha de comandos exigir que se autentique, para ver a vista.

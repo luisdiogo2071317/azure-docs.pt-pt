@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0c8fc2551f529fbff647d3400144fa2a9600bbd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Serviços de domínio do Azure AD - resolver problemas com alertas
 Este artigo fornece os guias de resolução de problemas de todos os alertas que pode deparar-se no seu domínio gerido.
@@ -130,7 +130,7 @@ Dentro da rede virtual, máquinas poderão fazer pedidos para recursos do Azure 
 
 **Resolução:**
 
-Para restaurar o seu serviço, [renovar a sua subscrição do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associada do seu domínio gerido.
+Para restaurar o seu serviço, [renovar a sua subscrição do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associada do seu domínio gerido.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Suspensão devido a uma configuração inválida
 

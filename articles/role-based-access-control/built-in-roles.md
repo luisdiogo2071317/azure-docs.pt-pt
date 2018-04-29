@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 3b689c6028470021734ad78dd88748f4079c383f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e413d921390cfb87c27c530c6870945c28c0df8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -579,6 +579,7 @@ Criar e gerir fábricas de dados, assim como os recursos subordinados dentro dos
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read | Funções de leitura e atribuições de função |
+| Microsoft.DataFactory/factory/* | Criar e gerir as fábricas de dados e recursos subordinados dentro delas. |
 | Microsoft.DataFactory/dataFactories/* | Criar e gerir as fábricas de dados e recursos subordinados dentro delas. |
 | Microsoft.Insights/alertRules/* | Criar e gerir regras de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |

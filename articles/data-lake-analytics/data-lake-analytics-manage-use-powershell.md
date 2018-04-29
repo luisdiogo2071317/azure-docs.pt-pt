@@ -1,8 +1,8 @@
 ---
 title: Gerir o Azure Data Lake Analytics com o Azure PowerShell | Microsoft Docs
-description: "Saiba como gerir contas de Data Lake Analytics, origens de dados, tarefas e itens de catálogo. "
+description: 'Saiba como gerir contas de Data Lake Analytics, origens de dados, tarefas e itens de catálogo. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 69530ab2ad795eaf611cb749d8c439ab07cafeac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerir a Análise do Azure Data Lake com o Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -50,16 +50,16 @@ $location = "<Location>"
 Inicie sessão com um id de subscrição.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 Inicie sessão com um nome de subscrição.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-O `Login-AzureRmAccount` cmdlet sempre pede-lhe credenciais. Pode evitar que está a ser solicitado, utilizando os seguintes cmdlets:
+O `Connect-AzureRmAccount` cmdlet sempre pede-lhe credenciais. Pode evitar que está a ser solicitado, utilizando os seguintes cmdlets:
 
 ```powershell
 # Save login session information
@@ -292,7 +292,7 @@ Utilize o `-Result` parâmetro para detetar se as tarefas terminadas foi conclu�
 
 * Cancelado
 * Com Falhas
-* Nenhum
+* Nenhuma
 * Bem-sucedido
 
 ``` powershell
@@ -604,7 +604,7 @@ $deploymentName = "MyDataLakeAnalyticsDeployment"
 $armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
 
 # Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $rg -Location $location

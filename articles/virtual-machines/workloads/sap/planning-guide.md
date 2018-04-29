@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c2c3443f014f6c42ba9e8b68b21c2b9d0fdb1549
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -236,7 +236,7 @@ ms.lasthandoff: 04/05/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -966,7 +966,7 @@ Neste caso, pretendemos carregar um VHD, com ou sem sistema operativo no mesmo e
 
 **PowerShell**
 
-* Inicie sessão na sua subscrição com *Login-AzureRmAccount*
+* Inicie sessão na sua subscrição com *Connect-AzureRmAccount*
 * Definir a subscrição da sua contexto com *Set-AzureRmContext* e SubscriptionId de parâmetro ou SubscriptionName - consulte <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Carregar o VHD com *adicionar AzureRmVhd* para uma conta de armazenamento do Azure - consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Opcional) Criar um disco gerido a partir de VHD com *New-AzureRmDisk* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -993,7 +993,7 @@ Neste caso, pretendemos carregar um VHD, com ou sem sistema operativo no mesmo e
 Para carregar uma VM existente ou VHD a partir da rede no local para utilizá-la como uma imagem de VM do Azure VM ou VHD tem de cumprir os requisitos listados em capítulo [preparação para implementar uma VM com uma imagem específica do cliente para SAP] [ planning-guide-5.2.2] deste documento.
 
 * Utilize *sysprep* no Windows ou *waagent-deprovision* no Linux para generalizar o VM - consulte [referência técnica do Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar uma Máquina virtual Linux para utilizar como um modelo do Resource Manager] [ capture-image-linux-step-2-create-vm-image] para Linux
-* Inicie sessão na sua subscrição com *Login-AzureRmAccount*
+* Inicie sessão na sua subscrição com *Connect-AzureRmAccount*
 * Definir a subscrição da sua contexto com *Set-AzureRmContext* e SubscriptionId de parâmetro ou SubscriptionName - consulte <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Carregar o VHD com *adicionar AzureRmVhd* para uma conta de armazenamento do Azure - consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Opcional) Criar uma imagem de disco gerida a partir de VHD com *New-AzureRmImage* -consulte o artigo <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
@@ -1964,7 +1964,7 @@ A figura seguinte ilustrado a mesma horizontal utilizando discos geridos.
 
 ![Arquitetura de HA do SAP NetWeaver aplicações com o SQL Server em IaaS do Azure][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA on Linux
+##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA no Linux
 A arquitetura para SAP HA no Linux no Azure é basicamente o mesmo para Windows, tal como descrito acima. Consulte a nota SAP [1928533] para obter uma lista das soluções de elevada disponibilidade suportadas.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Utilizar o início automático para instâncias SAP

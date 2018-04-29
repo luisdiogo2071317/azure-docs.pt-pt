@@ -3,7 +3,7 @@ title: Gerir o Azure endereços IP reservados (clássica) - PowerShell | Microso
 description: Compreender os endereços IP reservados (clássica) e como geri-los através do PowerShell.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 370f30a61727e6c349f6e043f1aed2d9dba47fca
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25fe3c5361ff58f8d62d5d083b7a69f517d2a267
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Endereços IP reservados (clássico)
 
@@ -26,7 +26,6 @@ ms.lasthandoff: 04/16/2018
 > * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Modelo](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 Endereços IP no Azure enquadram-se em duas categorias: dinâmicos e reservado. Endereços IP públicos geridos pelo Azure são dinâmicos por predefinição. Isto significa que o endereço IP utilizado para um serviço de nuvem especificada (VIP) ou aceder a uma VM ou instância de função diretamente (ILPIP) pode ser alteradas ocasionalmente, quando recursos são encerrar ou parados (desalocados).

@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery de resolução de problemas para problemas de replicação do Azure para o Azure e erros | Microsoft Docs"
-description: "Erros e problemas de resolução de problemas quando replicar máquinas virtuais do Azure para recuperação após desastre"
+title: Azure Site Recovery de resolução de problemas para problemas de replicação do Azure para o Azure e erros | Microsoft Docs
+description: Erros e problemas de resolução de problemas quando replicar máquinas virtuais do Azure para recuperação após desastre
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
 
@@ -199,6 +199,17 @@ Para ativar a replicação da VM, o estado de aprovisionamento deve ser **com ê
 
 - Se **provisioningState** é **falha**, contacte o suporte com os detalhes para a resolução de problemas.
 - Se **provisioningState** é **atualização**, outra extensão foi possível obter implementar. Verifique se existem quaisquer operações em curso na VM, aguarde que estas concluídas e repita a recuperação de Site falha **ativar a replicação** tarefa.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM + /Safari/Chrome erro do serviço de cópia sombra de volumes (código de erro 151025)
+**Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
+--- | --- | ---
+151025<br></br>**Mensagem**: a extensão de recuperação do Site não conseguiu instalar | -Serviço de "System aplicação COM+" desativado.</br></br>-O serviço 'Cópia sombra de volumes' está desativado.| Definir serviços 'sistema aplicação COM+' e 'Cópia sombra de volumes' para o modo de arranque automático ou manual.
+
+### <a name="fix-the-problem"></a>Corrija o problema
+
+Pode abrir a consola de 'serviços de' e certifique-se "Sistema aplicação COM+" e 'Cópia sombra de volumes' não estão definida como 'Desativado' de tipo de arranque.
+  ![com erro](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Replicar máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

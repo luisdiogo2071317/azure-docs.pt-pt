@@ -3,10 +3,10 @@ title: FAQ do Azure IoT Suite | Microsoft Docs
 description: Perguntas mais frequentes sobre o IoT Suite
 services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c79c90c4f6c28153d4d299015a06a6bc37145081
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 49e94e771deb4582b922400d81e8388faf164f40
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas mais frequentes sobre o IoT Suite
 
@@ -33,6 +33,12 @@ O código de origem é armazenado no repositórios do GitHub seguintes:
 * [(Java) de solução pré-configurada de monitorização remota](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Solução pré-configurada de manutenção preditiva](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solução de fábrica ligado pré-configurada](https://github.com/Azure/azure-iot-connected-factory)
+
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-preconfigured-solutions"></a>Os SDKs pode utilizar para desenvolver clientes de dispositivo para as soluções pré-configuradas
+
+Pode encontrar ligações para SDKs do dispositivo IoT idioma diferente (C, .NET, Java, Node.js, Python) no [SDKs do IoT do Microsoft Azure](https://github.com/Azure/azure-iot-sdks) repositórios do GitHub.
+
+Se estiver a utilizar o dispositivo DevKit, pode encontrar recursos e exemplos de [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) repositório do GitHub.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-preconfigured-solutions"></a>Nova arquitetura do micro-serviços está disponível para todas as soluções pré-configuradas três?
 

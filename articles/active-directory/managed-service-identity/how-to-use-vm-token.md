@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 360e395743dcf4b4bae98a756f6483dd0d269775
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como utilizar um Azure VM geridos serviço de identidade (MSI) para a aquisição do token 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Este artigo fornece vários exemplos de código e o script para a aquisição do token, bem como orientações tópicos importantes, como o tratamento de expiração do token e erros de HTTP. Recomendamos que utilize uma identidade de serviço geridas com o ponto final IMDS, como o ponto final de extensão VM vai ser preterido.
+
+Identidade de serviço geridas fornece serviços do Azure com uma identidade gerido automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter de credenciais no seu código. 
+
+Este artigo fornece vários exemplos de código e o script para a aquisição do token, bem como orientações tópicos importantes, como o tratamento de expiração do token e erros de HTTP. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,14 +35,14 @@ Se planeia utilizar os Azure PowerShell exemplos neste artigo, não se esqueça 
 
 
 > [!IMPORTANT]
-> - Todos os código/script de exemplo neste artigo assume que o cliente está em execução numa máquina Virtual ativada de MSI. Utilize a funcionalidade VM "Ligar" no portal do Azure, para ligar remotamente à VM. Para obter mais informações sobre como ativar MSI numa VM, consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (utilizando o PowerShell, CLI, um modelo ou um SDK do Azure). 
+> - Todos os código/script de exemplo neste artigo assume que o cliente está em execução numa máquina Virtual com uma identidade de serviço geridas. Utilize a funcionalidade VM "Ligar" no portal do Azure, para ligar remotamente à VM. Para obter mais informações sobre como ativar MSI numa VM, consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](qs-configure-portal-windows-vm.md), ou um dos artigos variantes (utilizando o PowerShell, CLI, um modelo ou um SDK do Azure). 
 
 > [!IMPORTANT]
-> - O limite de segurança de uma identidade geridos, é o recurso. Todos os código/scripts em execução numa máquina Virtual ativado por MSI, pode pedir e obter tokens. 
+> - O limite de segurança de uma identidade de serviço geridos, é o recurso que está a ser utilizado. Todos os código/scripts em execução numa máquina Virtual pode pedir e obter tokens para qualquer identidade de serviço geridas disponíveis no mesmo. 
 
 ## <a name="overview"></a>Descrição geral
 
-Uma aplicação cliente pode pedir um MSI [token de acesso só de aplicação](../develop/active-directory-dev-glossary.md#access-token) para aceder a um recurso especificado. O token é [com base no principal de serviço MSI](overview.md#how-does-it-work). Como tal, não é necessário para o cliente para se registar para obter um token de acesso na sua própria principal de serviço. O token é adequado para utilização como um token de portador no [que exigem que as credenciais de cliente de chamadas de serviço a serviço](../develop/active-directory-protocols-oauth-service-to-service.md).
+Uma aplicação cliente pode pedir uma identidade de serviço geridas [token de acesso só de aplicação](../develop/active-directory-dev-glossary.md#access-token) para aceder a um recurso especificado. O token é [com base no principal de serviço MSI](overview.md#how-does-it-work). Como tal, não é necessário para o cliente para se registar para obter um token de acesso na sua própria principal de serviço. O token é adequado para utilização como um token de portador no [que exigem que as credenciais de cliente de chamadas de serviço a serviço](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -48,7 +51,7 @@ Uma aplicação cliente pode pedir um MSI [token de acesso só de aplicação](.
 | [Obter um token aceda a utilizar](#get-a-token-using-go) | Exemplo de como utilizar o ponto final de REST do MSI de um cliente aceda |
 | [Obter um token com o Azure PowerShell](#get-a-token-using-azure-powershell) | Exemplo de como utilizar o ponto final de REST do MSI de um cliente de PowerShell |
 | [Obter um token utilizando CURL](#get-a-token-using-curl) | Exemplo de como utilizar o ponto final de REST do MSI de um cliente de Bash/CURL |
-| [Processamento de expiração do token](#handling-token-expiration) | Orientações para processar os tokens de acesso expirado |
+| [Lidar com colocação em cache de token](#handling-token-caching) | Orientações para processar os tokens de acesso expirado |
 | [Processamento de erros](#error-handling) | Orientações para processamento de erros de HTTP devolvidos do ponto final token MSI |
 | [IDs de recurso para serviços do Azure](#resource-ids-for-azure-services) | Onde obter IDs de recurso para serviços do Azure suportados |
 
@@ -56,10 +59,10 @@ Uma aplicação cliente pode pedir um MSI [token de acesso só de aplicação](.
 
 A interface fundamental para adquirir um token de acesso é baseada em REST, tornando-o acessível para qualquer aplicação de cliente em execução na VM que pode efetuar chamadas de REST de HTTP. Isto é semelhante para o modelo de programação do Azure AD, exceto o cliente utiliza um ponto final na máquina virtual (vs um Azure ponto final do AD).
 
-Exemplo de pedido utilizando o ponto final de serviço de metadados de instância do MSI (IMDS) *(recomendado)*:
+Exemplo de pedido utilizando o ponto final de serviço de metadados de instância do Azure (IMDS) *(recomendado)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Elemento | Descrição |
@@ -70,7 +73,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | Um cadeia parâmetro de consulta, que indica que o URI de ID de aplicação do recurso de destino. É também apresentado no `aud` afirmação (público-alvo) do token emitido. Neste exemplo solicita um token para aceder ao Gestor de recursos do Azure, que tem um URI de ID de aplicação de https://management.azure.com/. |
 | `Metadata` | Um HTTP pedido campo do cabeçalho, necessário para MSI como uma mitigação de ataques de falsificação de pedidos de lado do servidor (SSRF). Este valor tem de ser definido como "true", em todas as letras maiúsculas e minúsculas.
 
-Exemplo de pedido utilizando o ponto de final de extensão de VM MSI *(para ser preterida)*:
+Exemplo de pedido utilizando o Endpoint de extensão de VM de identidade de serviço geridas (MSI) *(para ser preterida)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -264,23 +267,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>Expiração do token 
+## <a name="token-caching"></a>A colocação em cache token
 
-Se são colocação em cache o token no seu código, estará preparado para processar cenários em que o recurso indicado que o token expirou. 
+Enquanto o subsistema de identidade de serviço geridas (MSI) que está a ser utilizado (extensão da VM IMDS/MSI) em cache tokens, também é recomendável para implementar a colocação em cache token no seu código. Como resultado, deve preparar para cenários em que o recurso indica que o token expirou. 
 
-Nota: Uma vez que o subsistema de IMDS MSI cache tokens, numa transmissão chama aos resultados do Azure AD apenas quando:
-- ocorre uma falha de acerto na cache devido a nenhum token na cache
-- o token expirou
+Na transmissão chamadas para o Azure AD resultam apenas quando:
+- Falha de acerto na cache ocorre devido a nenhum token na cache de subsistema de MSI
+- o token em cache expirou
 
 ## <a name="error-handling"></a>Processamento de erros
 
-O ponto final MSI sinalizar erros através do campo do código de estado do cabeçalho de mensagem de resposta HTTP, como 4xx ou 5xx erros:
+O ponto final de identidade de serviço geridas sinalizar erros através do campo do código de estado do cabeçalho de mensagem de resposta HTTP, como 4xx ou 5xx erros:
 
 | Código de Estado | Motivo de erro | Como processar |
 | ----------- | ------------ | ------------- |
 | 429 demasiados muitos pedidos. |  Limitar IMDS foi atingido o limite. | Tente novamente com término exponencial. Consulte a documentação de orientação abaixo. |
 | Erro de 4xx no pedido. | Um ou mais dos parâmetros estavam incorreta. | Não repita.  Analise os detalhes do erro para obter mais informações.  erros de 4xx são erros em tempo de design.|
 | 5XX erro transitório de serviço. | O sistema secundárias do MSI ou o Azure Active Directory devolveu um erro transitório. | É seguro Repita após uma espera de, pelo menos, 1 segundo.  Se a repetir a forma demasiado rápida ou demasiadas vezes, IMDS e/ou do Azure AD pode devolver um erro de limite de velocidade (429).|
+| 404 não encontrado. | Ponto final IMDS está a atualizar. | Tente novamente com Expontential término. Consulte a documentação de orientação abaixo. |
+| tempo limite | Ponto final IMDS está a atualizar. | Tente novamente com Expontential término. Consulte a documentação de orientação abaixo. |
 
 Se ocorrer um erro, o corpo da resposta correspondente HTTP contém um JSON com os detalhes do erro:
 
@@ -303,11 +308,11 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 |           | access_denied | O proprietário do recurso ou autorização servidor negou o pedido. |  |
 |           | unsupported_response_type | O servidor de autorização não suporta a obtenção de um token de acesso através deste método. |  |
 |           | invalid_scope | Âmbito do pedido é inválido, desconhecido ou com formato incorreto. |  |
-| Erro interno do servidor 500 | desconhecido | Falha ao obter o token do Active directory. Para mais informações, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que foi ativado MSI da VM. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET está formatado corretamente, particularmente o URI especificado na cadeia de consulta do recurso. Consulte o "exemplo de pedido" no [anterior a secção REST](#rest) por exemplo, ou [que suporte do Azure AD a autenticação de serviços do Azure](overview.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de serviços e os respetivos IDs de recurso.
+| Erro interno do servidor 500 | desconhecido | Falha ao obter o token do Active directory. Para mais informações, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que foi ativado MSI da VM. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET está formatado corretamente, particularmente o URI especificado na cadeia de consulta do recurso. Consulte o "exemplo de pedido" no [anterior a secção REST](#rest) por exemplo, ou [que suporte do Azure AD a autenticação de serviços do Azure](services-support-msi.md) para obter uma lista de serviços e os respetivos IDs de recurso.
 
-## <a name="throttling-guidance"></a>Orientações de limitação 
+## <a name="retry-guidance"></a>Repita a documentação de orientação 
 
-Os limites de limitação aplicam-se ao número de chamadas efetuadas para o ponto final IMDS de MSI. Quando o limiar de limitação for excedido, o ponto final MSI IMDS limita qualquer mais pedidos enquanto a limitação está em vigor. Durante este período, o ponto final MSI IMDS irá devolver o código de estado HTTP 429 ("demasiados muitos pedidos"), e falharem os pedidos. 
+Os limites de limitação aplicam-se ao número de chamadas efetuadas para o ponto final IMDS. Quando o limiar de limitação for excedido, o ponto final IMDS limita qualquer mais pedidos enquanto a limitação está em vigor. Durante este período, o ponto final IMDS irá devolver o código de estado HTTP 429 ("demasiados muitos pedidos"), e falharem os pedidos. 
 
 Para repetir, recomendamos a estratégia de seguinte: 
 
@@ -317,7 +322,7 @@ Para repetir, recomendamos a estratégia de seguinte:
 
 ## <a name="resource-ids-for-azure-services"></a>IDs de recurso para serviços do Azure
 
-Consulte [que suporte do Azure AD a autenticação de serviços do Azure](overview.md#azure-services-that-support-azure-ad-authentication) para obter uma lista de recursos que suportam o Azure AD e foi testados com MSI e os respetivos IDs de recurso.
+Consulte [que suporte do Azure AD a autenticação de serviços do Azure](services-support-msi.md) para obter uma lista de recursos que suportam o Azure AD e foi testados com MSI e os respetivos IDs de recurso.
 
 
 ## <a name="related-content"></a>Conteúdo relacionado

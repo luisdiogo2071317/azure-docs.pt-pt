@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro do SQL Server para as aplicações de cliente de base de dados SQL: base de dados de erros de ligação e outros problemas
 
@@ -34,7 +34,7 @@ Erros de falhas transitórias normalmente manifestam como uma das seguintes mens
 * Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * Uma ligação existente foi forçado a fechar pelo anfitrião remoto.
 * System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Consulte a exceção interna para obter mais detalhes. ---> System.Data.SqlClient.SqlException: Ocorreu um erro ao nível de transporte ao receber os resultados do servidor. (fornecedor: fornecedor de sessão, erro: 19 - ligação física não é utilizável)
-* Uma tentativa de ligação para uma base de dados secundário falhou porque a base de dados está no processo reconfguration e este estiver ocupado aplicar novas páginas ao meio de um transation Active Directory na base de dados primária. 
+* Uma tentativa de ligação para uma base de dados secundário falhou porque a base de dados está no processo de reconfiguração e este estiver ocupado aplicar novas páginas ao meio de uma transação ativa na base de dados primária. 
 
 Para obter exemplos de código de lógica de repetição, consulte:
 
@@ -50,10 +50,10 @@ Os seguintes erros estão transitórios e devem ser repetidos na lógica da apli
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir a base de dados "%.&#x2a;ls" pedida pelo início de sessão. O início de sessão falha. |
 | 40197 |17 |O serviço encontrou um erro ao processar o pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está desativado devido a software ou atualizações de hardware, falhas de hardware ou outros problemas de ativação pós-falha. O código de erro (%d) incorporado a mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou a ativação pós-falha que ocorreram. Alguns exemplos de erro estão incorporados códigos de mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Restabelecer a ligação ao servidor da SQL Database automaticamente liga-o para uma cópia de bom estado de funcionamento da base de dados. A aplicação tem de detetar o código de erro incorporados (%d) dentro da mensagem para resolução de problemas no registo de 40197, erros e tente restabelecer a ligação à base de dados do SQL Server até que os recursos estão disponíveis e a ligação é estabelecida novamente. |
-| 40501 |20 |O serviço está atualmente ocupado. Repita o pedido após 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, consulte:<br/>• [Dos limites de recursos de base de dados do azure SQL](sql-database-service-tiers.md). |
+| 40501 |20 |O serviço está atualmente ocupado. Repita o pedido após 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, consulte:<br/>• [Dos limites de recursos de base de dados do azure SQL](sql-database-service-tiers-dtu.md). |
 | 40613 |17 |Base de dados '%.&#x2a;ls' no servidor '%.&#x2a;ls' não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de '%.&#x2a;ls'. |
 | 49918 |16 |Não é possível processar o pedido. Não existem recursos suficientes para processar o pedido.<br/><br/>O serviço está atualmente ocupado. Repita o pedido mais tarde. |
-| 49919 |16 |Não é possível o processo de criar ou atualizar o pedido. Demasiado muitas criar ou atualizar operações em curso da subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários criar ou atualizar pedidos para a sua subscrição ou o servidor. Pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Aguarde até pendentes criar ou pedidos de atualização estiverem concluídos ou elimine uma das suas pedidos pendentes e repita o pedido mais tarde. |
+| 49919 |16 |Não é possível o processo de criar ou atualizar o pedido. Demasiado muitas criar ou atualizar operações em curso da subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários criar ou atualizar pedidos para a sua subscrição ou o servidor. Pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Aguarde até que pendentes criar ou atualizar pedidos estiverem concluídos ou elimine uma das suas pedidos pendentes e repita o pedido mais tarde. |
 | 49920 |16 |Não é possível processar o pedido. Existem demasiadas operações em curso da subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários pedidos para esta subscrição. Pedidos estão atualmente bloqueados para a otimização de recursos. Consulta [operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para o estado da operação. Aguarde até que os pedidos pendentes são concluída ou elimine uma das suas pedidos pendentes e repetir o pedido mais tarde. |
 | 4221 |16 |Início de sessão para leitura secundária falhou devido a tempo espera 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. A réplica não está disponível para início de sessão porque as versões de linha estão em falta para transações que estavam em trânsito quando a réplica foi reciclada. É possível resolver o problema por reverter ou consolidar as transações ativas na réplica primária. As ocorrências esta condição podem ser minimizadas através de evitando transações de escrita longo principal. |
 
@@ -86,12 +86,12 @@ Os seguintes erros são causados por utilização excessiva de recursos ao traba
 
 Tópicos relacionados:
 
-* Informações mais detalhadas estão disponíveis aqui: [dos limites de recursos de base de dados do Azure SQL](sql-database-service-tiers.md).
+* Informações mais detalhadas estão disponíveis aqui: [dos limites de recursos de base de dados do Azure SQL](sql-database-service-tiers-dtu.md).
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 10928 |20 |ID de recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID do recurso = 1. Para sessões, o ID do recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Dos limites de recursos de base de dados do azure SQL](sql-database-service-tiers.md). |
-| 10929 |20 |ID de recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar pedidos de maiores %d para esta base de dados. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID do recurso = 1. Para sessões, o ID do recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Dos limites de recursos de base de dados do azure SQL](sql-database-service-tiers.md). |
+| 10928 |20 |ID de recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID do recurso = 1. Para sessões, o ID do recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Dos limites de recursos de base de dados do azure SQL](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID de recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar pedidos de maiores %d para esta base de dados. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID do recurso = 1. Para sessões, o ID do recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Dos limites de recursos de base de dados do azure SQL](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |A base de dados atingiu a quota de tamanho. Particione ou elimine dados, remova índices ou consulte a documentação para encontrar possíveis resoluções. |
 | 40549 |16 |Sessão foi terminada porque tem uma transação de longa execução. Tente encurtar a transação. |
 | 40550 |16 |A sessão foi terminada porque obteve demasiados bloqueios. Tente ler ou modificar algumas linhas numa única transação. |
@@ -115,7 +115,7 @@ Para criar e utilizar conjuntos elásticos relacionados com os seguintes erros:
 | 40862 |EX_USER |Nome do conjunto elástico têm de ser especificado se o objetivo de serviço do conjunto elástico está especificado. |Nenhuma |Objetivo de serviço do conjunto elástico não identifica exclusivamente um conjunto elástico. |Especifique o nome do conjunto elástico se utilizar o objetivo de serviço do conjunto elástico. |
 | 40864 |EX_USER |As DTUs do conjunto elástico tem de ser, pelo menos, (%d) DTUs no escalão de serviço ' %. * ls'. |DTUs do conjunto elástico; camada de serviço do conjunto elástico. |A tentar definir as DTUs do conjunto elástico abaixo o limite mínimo. |Volte a tentar definir as DTUs para elástico agrupamento para, pelo menos, o limite mínimo. |
 | 40865 |EX_USER |As DTUs do conjunto elástico não podem exceder (%d) DTUs no escalão de serviço ' %. * ls'. |DTUs do conjunto elástico; camada de serviço do conjunto elástico. |A tentar definir as DTUs do conjunto elástico supera o limite máximo. |Repita a definição as DTUs do conjunto elástico não maior do que o limite máximo. |
-| 40867 |EX_USER |O máximo de DTUS por base de dados tem de ser, pelo menos, (%d) no escalão de serviço ' %. * ls'. |Máximo de DTUS por base de dados; camada de serviço do conjunto elástico |A tentar definir o máximo de DTUS por base de dados abaixo do limite suportado. | onsider utilizando a camada de serviço do conjunto elástico que suporta a definição pretendida. |
+| 40867 |EX_USER |O máximo de DTUS por base de dados tem de ser, pelo menos, (%d) no escalão de serviço ' %. * ls'. |Máximo de DTUS por base de dados; camada de serviço do conjunto elástico |A tentar definir o máximo de DTUS por base de dados abaixo do limite suportado. | Considere utilizar a camada de serviço do conjunto elástico que suporta a definição pretendida. |
 | 40868 |EX_USER |O máximo de DTUS por base de dados não pode exceder (%d) no escalão de serviço ' %. * ls'. |Máximo de DTUS por base de dados; camada de serviço do conjunto elástico. |A tentar definir o máximo de DTUS por base de dados para além do limite suportado. | Considere utilizar a camada de serviço do conjunto elástico que suporta a definição pretendida. |
 | 40870 |EX_USER |O mínimo de DTUS por base de dados não pode exceder (%d) no escalão de serviço ' %. * ls'. |Mínimo de DTUS por base de dados; camada de serviço do conjunto elástico. |A tentar definir o mínimo de DTUS por base de dados para além do limite suportado. | Considere utilizar a camada de serviço do conjunto elástico que suporta a definição pretendida. |
 | 40873 |EX_USER |O número de bases de dados (%d) e o mínimo de DTUS por base de dados (%d) não pode exceder as DTUs do conjunto elástico (%d). |Número de bases de dados num conjunto elástico; Mínimo de DTUS por base de dados; DTUs do conjunto elástico. |A tentar especificar mínimo de DTUS para bases de dados no conjunto elástico excede as DTUs do conjunto elástico. | É aconselhável aumentar as DTUs do conjunto elástico ou diminuir o mínimo de DTUS por base de dados para reduzir o número de bases de dados no agrupamento elástico. |
@@ -173,11 +173,11 @@ Os seguintes erros não enquadram-se em qualquer categorias anteriores.
 | 40607 |16 |Inícios de sessão do Windows não são suportados nesta versão do SQL Server. |
 | 40611 |16 |Os servidores podem ter no máximo 128 regras de firewall definidas. |
 | 40614 |16 |O endereço IP inicial da regra da firewall não pode exceder o endereço IP final. |
-| 40615 |16 |Não é possível abrir o servidor '{0}' pedido pelo início de sessão. Cliente com o endereço IP '{1}' não tem permissão para aceder ao servidor.<br /><br />Para ativar o acesso, utilize o Portal de base de dados do SQL Server ou execute SP2\_definir\_firewall\_regra na base de dados mestra para criar uma regra de firewall para este endereço IP ou intervalo de endereços. Pode demorar até cinco minutos para que esta alteração tenha efeito. |
+| 40615 |16 |Não é possível abrir o servidor '{0}' pedido pelo início de sessão. Cliente com o endereço IP{1}' não tem permissão para aceder ao servidor.<br /><br />Para ativar o acesso, utilize o Portal de base de dados do SQL Server ou execute SP2\_definir\_firewall\_regra na base de dados mestra para criar uma regra de firewall para este endereço IP ou intervalo de endereços. Pode demorar até cinco minutos para que esta alteração tenha efeito. |
 | 40617 |16 |O firewall nome da regra que começa com (nome da regra) é demasiado longo. Comprimento máximo é 128. |
 | 40618 |16 |O nome da regra de firewall não pode estar vazio. |
 | 40620 |16 |Falha de início de sessão do utilizador "%.&#x2a;ls". A alteração da palavra-passe falhou. Alteração de palavra-passe durante o início de sessão não é suportada nesta versão do SQL Server. |
-| 40627 |20 |A operação no servidor '{0}' e da base de dados '{1}' está em curso. Aguarde alguns minutos antes de tentar novamente. |
+| 40627 |20 |A operação no servidor '{0}'e da base de dados'{1}' está em curso. Aguarde alguns minutos antes de tentar novamente. |
 | 40630 |16 |Falha na validação da palavra-passe. A palavra-passe não cumpre os requisitos de política porque é demasiado pequeno. |
 | 40631 |16 |A palavra-passe que especificou é demasiado longa. A palavra-passe deve ter mais do que 128 carateres. |
 | 40632 |16 |Falha na validação da palavra-passe. A palavra-passe não cumpre os requisitos de política porque não é suficientemente complexa. |
@@ -204,6 +204,7 @@ Os seguintes erros não enquadram-se em qualquer categorias anteriores.
 | 45169 |16 |O sistema SQL do azure está em carga e é colocando um limite superior no número de operações CRUD de servidor em simultâneo para uma única subscrição (por exemplo, criar servidor). A subscrição especificada na mensagem de erro foi excedido o número máximo de ligações em simultâneo, e o pedido foi negado. Tente novamente mais tarde. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Leia sobre [funcionalidades de base de dados SQL do Azure](sql-database-features.md).
-* Leia sobre [escalões de serviço](sql-database-service-tiers.md).
+* Leia sobre [funcionalidades da SQL Database do Azure](sql-database-features.md).
+* Leia sobre [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md).
+* Leia sobre [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md).
 

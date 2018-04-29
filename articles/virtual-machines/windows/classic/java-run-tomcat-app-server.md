@@ -1,11 +1,10 @@
 ---
-title: "Executar o servidor de aplicações Java numa VM do Azure clássico | Microsoft Docs"
-description: "Este tutorial utiliza recursos criados com o modelo de implementação clássica e mostra como criar uma Máquina Virtual do Windows e configurá-la para executar o servidor de aplicações do Apache Tomcat."
+title: Executar o servidor de aplicações Java numa VM do Azure clássico
+description: Este tutorial utiliza recursos criados com o modelo de implementação clássica e mostra como criar uma Máquina Virtual do Windows e configurá-la para executar o servidor de aplicações do Apache Tomcat.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicações Java numa máquina virtual criada com o modelo de implementação clássica
 > [!IMPORTANT]
@@ -113,7 +112,7 @@ Para ver o Tomcat em execução a partir de computadores externos, terá de cria
 6. Para o **tipo de regra**, selecione **porta**e, em seguida, clique em **seguinte**.  
    ![Nova porta de regra de entrada][NewRulePort]
 7. No **protocolo e portas** ecrã, selecione **TCP**, especifique **8080** como o **portas locais específicas**e, em seguida, clique em  **Seguinte**.  
-  ![Nova regra de entrada][NewRuleProtocol]
+  ![Nova regra de entrada ][NewRuleProtocol]
 8. No **ação** ecrã, selecione **permitir a ligação**e, em seguida, clique em **seguinte**.
    ![Nova ação de regra de entrada][NewRuleAction]
 9. No **perfil** ecrã, certifique-se de que **domínio**, **privada**, e **pública** são selecionadas e, em seguida, clique em **seguinte**.

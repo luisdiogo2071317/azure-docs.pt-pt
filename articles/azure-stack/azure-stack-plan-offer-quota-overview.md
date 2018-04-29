@@ -1,25 +1,25 @@
 ---
-title: "Pilha plano, oferta, quota e subscrição descrição geral do Azure | Microsoft Docs"
-description: "Como um operador da nuvem, pretender compreender os planos de pilha do Azure, ofertas, quotas e subscrições."
+title: Pilha plano, oferta, quota e subscrição descrição geral do Azure | Microsoft Docs
+description: Como um operador da nuvem, pretender compreender os planos de pilha do Azure, ofertas, quotas e subscrições.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plano, oferta, quota e descrição geral da subscrição
 
@@ -32,10 +32,10 @@ As ofertas de conter um ou mais planos e cada plano inclui um ou mais serviços.
 - a quantidade desses recursos que os utilizadores podem consumir
 - as regiões que tem acesso a recursos
 
-Quando fornecer um serviço, que terá de seguir estes passos de alto nível:
+Quando fornecer um serviço, siga estes passos de alto nível:
 
 1. Adicione um serviço que pretende fornecer aos seus utilizadores.
-2. Crie um plano que contém um ou mais serviços. Ao criar um plano, terá de selecionar ou criar quotas que definem os limites de recursos de cada serviço no plano.
+2. Crie um plano que contém um ou mais serviços. Ao criar um plano, selecione ou crie quotas que definem os limites de recursos de cada serviço no plano.
 3. Crie uma oferta que contém um ou mais planos (incluindo planos base e planos de suplemento opcional).
 
 Depois de ter criado a oferta, podem subscrever os seus utilizadores para aceder a serviços e recursos que fornece ao. Os utilizadores podem subscrever para ofertas tantos como pretendem. O diagrama seguinte mostra um exemplo simples de um utilizador que tiver subscrito dois oferece. Cada oferta tem um plano ou dois e cada plano lhes dá acesso aos serviços.
@@ -52,13 +52,15 @@ Para ajudar a gerir a sua capacidade de nuvem, selecione ou crie uma quota para 
 
 Quotas podem ser configuradas por região. Por exemplo, um plano de serviços de computação da região A ter uma quota de duas máquinas virtuais, 4 GB de RAM e 10 núcleos de CPU. No Kit de desenvolvimento de pilha do Azure, apenas uma região (com o nome *local*) está disponível.
 
+Saiba mais sobre [tipos de quota na pilha de Azure](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Plano base
 
 Ao criar uma oferta, o administrador de serviços pode incluir um plano de base. Estes esquemas de base são incluídas por predefinição, quando um utilizador subscreve que oferta. Quando um utilizador subscreve, têm acesso a todos os fornecedores de recursos especificado esses planos base (com as quotas correspondentes).
 
 ### <a name="add-on-plans"></a>Planos de suplementos
 
-Também pode incluir planos de suplemento opcional numa oferta. Planos de suplemento não estão incluídos por predefinição na subscrição. Planos de suplemento são planos adicionais (com as quotas) disponíveis numa oferta, que pode adicionar um subscritor para as suas subscrições. Por exemplo, pode oferecer um plano de base com recursos limitados para uma versão de avaliação e um plano de suplemento com recursos mais significativas para os clientes que optar por adotar o serviço.
+Planos de suplemento são opcionais planos de que adicionar a uma oferta. Planos de suplemento não estão incluídos por predefinição na subscrição. Planos de suplemento são planos adicionais (com as quotas) disponíveis numa oferta, que pode adicionar um subscritor para as suas subscrições. Por exemplo, pode oferecer um plano de base com recursos limitados para uma versão de avaliação e um plano de suplemento com recursos mais significativas para os clientes que optar por adotar o serviço.
 
 ## <a name="offers"></a>Ofertas
 

@@ -1,3 +1,20 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>Ver dados de custos
 
 A Gestão de Custos do Azure pela Cloudyn proporciona acesso a todos os dados dos seus recursos na cloud. A partir dos relatórios do dashboard, pode encontrar relatórios padrão e personalizados numa vista com separadores. Seguem-se alguns exemplos de um dashboard popular e de um relatório que lhe mostram os seus dados de custo de imediato.

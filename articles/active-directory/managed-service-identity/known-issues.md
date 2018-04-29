@@ -14,21 +14,17 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas Mais Frequentes (FAQs)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Existe um programa de pré-visualização privada disponível para visualizar funcionalidades futuras MSI e integrações?
-
-Sim. Se gostaria de ser considerados para inscrição no programa de pré-visualização privada, [visite a nossa página de inscrição](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>MSI funciona com Cloud Services do Azure?
 
@@ -53,7 +49,7 @@ Quando utilizar MSI com VMs, Aconselhamo-utilizando o ponto final IMDS de MSI. O
 
 A extensão de VM de MSI ainda é disponíveis para ser utilizada hoje em dia; No entanto, daqui para a frente, será predefinida para utilizar o ponto final IMDS. A extensão de VM de MSI será iniciado um plano de preterição em breve. 
 
-Para obter mais informações sobre o serviço de Metada de instância do Azure, consulte [documentação IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+Para obter mais informações sobre o serviço de Metada de instância do Azure, consulte [documentação IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições suportadas de Linux?
 
@@ -122,3 +118,16 @@ Depois da VM é iniciada, a etiqueta pode ser removida utilizando os seguintes c
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-msi-preview"></a>Os problemas conhecidos com o utilizador atribuído MSI *(pré-visualização)*
+
+- A única forma de remover todos os utilizadores atribuídos MSIs ao ativar o sistema atribuída MSI. 
+- O aprovisionamento da extensão VM a uma VM pode falhar devido a falhas de pesquisa DNS. Reiniciar a VM e tente novamente. 
+- Adicionar um MSI 'inexistente' fará com que a VM falhar. *Nota: A correção falhar atribuir-identity se MSI não existir, está a ser revertidas Escalamento*
+- Tutorial de armazenamento do Azure só está disponível no Central nos EUAP neste momento. 
+- Criar um utilizador atribuído MSI com carateres especiais (ou seja, um caráter de sublinhado) no nome, não é suportada.
+- Quando adicionar um segundo utilizador atribuído a identidade, o clientID poderão não estar disponível para tokens de pedidos para o mesmo. Como uma mitigação, reinicie a extensão de VM de MSI com os seguintes comandos de dois bash:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- VMAgent no Windows não suporta atualmente utilizador atribuído MSI. 
+- Quando uma VM tem um utilizador atribuído MSI, mas nenhum sistema atribuída MSI, o portal de IU irá mostrar MSI como ativada. Para ativar o sistema atribuído MSI, utilize um modelo Azure Resource Manager, um CLI do Azure ou um SDK.

@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral dos escalões de preços das Mensagens Standard e Premium do Azure Service Bus | Microsoft Docs"
-description: "Escalões de Mensagens Standard e Premium do Service Bus"
+title: Descrição geral dos escalões de preços das Mensagens Standard e Premium do Azure Service Bus | Microsoft Docs
+description: Escalões de Mensagens Standard e Premium do Service Bus
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: sethm
-ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: cf750f451351f729296991499f233b235b27a5e7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -64,7 +64,7 @@ A introdução às Mensagens Premium é simples e o processo é semelhante ao da
 
 ![create-premium-namespace][create-premium-namespace]
 
-Também pode criar [espaços de nomes Premium com modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Também pode criar [espaços de nomes Premium com modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

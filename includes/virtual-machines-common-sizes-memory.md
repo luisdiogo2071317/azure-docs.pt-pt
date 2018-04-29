@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3652e26bb775ae6ac1897bea529e7ae69d77cdbd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 Otimização de memória oferta de tamanhos VM numa proporção de memória a CPU elevada que são ótimos para servidores de base de dados relacional, caches médias e grandes e análise de memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -22,8 +22,9 @@ Otimização de memória oferta de tamanhos VM numa proporção de memória a CP
 
 * As VMs da série D foram concebidos para executar aplicações que exigem um maior desempenho de poder de computação e disco temporário. As VMs da série D fornecem processadores mais rápidos, um rácio de memória para núcleo de vCPU e uma unidade de estado sólida (SSD) para o armazenamento temporário. Para obter detalhes, consulte o anúncio no blogue do Azure, [Novos Tamanhos de Máquinas Virtuais da Série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-* A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se no processador de última geração de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell), podendo chegar aos 3,1 GHz com o Intel Turbo Boost Technology 2.0. A série Dv2 tem as mesmas configurações de memória e disco da série D.
+* A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Se baseia na geração de mais recente 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) ou processadores do E5-2673 v4 2.3 GHz (Broadwell) e com o Intel Turbo intensificação tecnologia 2.0, pode ir até GHz 3.1. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
+* O série Ev3 funcionalidades E5-2673 v4 2.3 GHz (Broadwell) processador numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de objetivo mais comum e colocar o Ev3 em alinhamento com o objetivo geral VMs da maioria das outras nuvens.  Memória foi expandida (a partir de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de disco e rede tem sido ajustados numa base por núcleo para alinhar com a mudança para Hyper-Threading.  O Ev3 é siga até os tamanhos VM de elevada da memória de famílias de D/Dv2.
 
 ## <a name="esv3-series-sup1sup"></a>Série Esv3 <sup>1</sup>
 

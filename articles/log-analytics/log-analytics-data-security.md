@@ -1,24 +1,24 @@
 ---
-title: "Registo de segurança de dados de análise | Microsoft Docs"
-description: "Saiba mais sobre como a análise de registos protege a sua privacidade e protege os seus dados."
+title: Registo de segurança de dados de análise | Microsoft Docs
+description: Saiba mais sobre como a análise de registos protege a sua privacidade e protege os seus dados.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Registo de segurança de dados de análise
 Este documento destina-se para fornecer informações específicas do Log Analytics do Azure para complementar as informações no [Centro de fidedignidade do Azure](../security/security-microsoft-trust-center.md).  
@@ -46,7 +46,7 @@ Como parte da sua [contrato de subscrição](https://azure.microsoft.com/support
 
 A tabela seguinte lista algumas das soluções disponíveis e fornece exemplos dos tipos de dados que recolher.
 
-| Solução | **Tipos de dados** |
+| **Solução** | **Tipos de dados** |
 | --- | --- |
 | Capacidade e o desempenho |Dados de desempenho e metadados |
 | Avaliação de Software Maligno |Dados de configuração e metadados |
@@ -57,7 +57,7 @@ A tabela seguinte lista algumas das soluções disponíveis e fornece exemplos d
 
 A tabela seguinte mostra exemplos dos tipos de dados:
 
-| Tipo de dados | **Campos** |
+| **Tipo de dados** | **Campos** |
 | --- | --- |
 | Alerta |Alerta de nome, descrição do alerta, Timemodified, ID do problema, IsMonitorAlert, RuleId, estado de resolução do, prioridade, gravidade, categoria, proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
@@ -155,9 +155,9 @@ O Windows ou dados de agente em cache do servidor de gestão estão protegidos p
 Como descrito acima, são enviados dados do servidor de gestão ou agentes direta ligados através de SSL para centros de dados do Microsoft Azure. Opcionalmente, pode utilizar o ExpressRoute para fornecer segurança adicional para os dados. O ExpressRoute é uma forma de ligar diretamente ao Azure a partir da sua rede WAN existente, tal como um protocolo multi etiqueta mudança VPN (MPLS) fornecida por um fornecedor de serviço de rede. Para obter mais informações, consulte [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. O serviço de análise de registos recebe e processa dados
-Serviço de análise de registos de tNão assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. Os dados não processados não processados, em seguida, são armazenados num Hub de eventos do Azure na região, eventualmente, serão armazenados os dados inativos. O tipo de dados armazenados depende os tipos de soluções que foram importados e utilizadas para recolher dados. Em seguida, a análise de registos processos os dados não processados de serviço e insere-lo na base de dados.
+O serviço de análise de registos assegura que recebidos dados de uma origem fidedigna validando certificados e a integridade dos dados com a autenticação do Azure. Os dados não processados não processados, em seguida, são armazenados num Hub de eventos do Azure na região, eventualmente, serão armazenados os dados inativos. O tipo de dados armazenados depende os tipos de soluções que foram importados e utilizadas para recolher dados. Em seguida, a análise de registos processos os dados não processados de serviço e insere-lo na base de dados.
 
-O período de retenção de dados recolhidos armazenados na base de dados depende o plano selecionado quando foi criada a área de trabalho.  Para a camada paga, os dados recolhidos estão disponíveis para o 31 dias por predefinição, mas podem ser expandidos a 365 dias.  Estes dados ainda não são encriptados em descanso e estão a ser planeados mid 2018. 
+O período de retenção de dados recolhidos armazenados na base de dados depende o plano de preço selecionado. Para o *livres* escalão, os dados recolhidos estão disponíveis para 7 dias. Para o *Paid* camada, os dados recolhidos está disponível para o 31 dias por predefinição, mas pode ser expandida para 720 dias. Os dados são armazenados encriptados Inativos no armazenamento do Azure, para garantir a confidencialidade de dados. Últimas duas semanas de dados também são armazenadas na cache baseadas em SSD e esta cache atualmente não estejam encriptado.  Planeamos suportar essa encriptação na metade de 2018 posterior.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilize a análise de registos para aceder aos dados
 Para aceder à sua área de trabalho de análise de registos, pode iniciar sessão no portal do Azure com a conta institucional ou a conta Microsoft que configurou anteriormente. Todo o tráfego entre o portal e serviço de análise de registos é enviado através de um canal HTTPS seguro. Quando utilizar o portal, um ID de sessão é gerado no cliente do utilizador (web browser) e os dados são armazenados numa cache local até a sessão é terminada. Quando terminar, a cache é eliminada. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são automaticamente removidos. Cookies de sessão estão marcados HTTPOnly e estão protegidos. Após um período de inatividade previamente determinado, foi terminada a sessão do portal do Azure.

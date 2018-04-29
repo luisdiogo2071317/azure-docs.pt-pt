@@ -1,12 +1,12 @@
 ---
-title: "Efetuar operações de API de tabela de base de dados do Azure Cosmos com o PowerShell | Microsoft Docs"
-description: "Como realizar operações de API de tabela de base de dados do Azure Cosmos com o PowerShell"
+title: Efetuar operações de API de tabela de base de dados do Azure Cosmos com o PowerShell | Microsoft Docs
+description: Como realizar operações de API de tabela de base de dados do Azure Cosmos com o PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Efetuar operações de API de tabela de base de dados do Azure Cosmos com o Azure PowerShell 
 
@@ -55,10 +55,10 @@ Obter o grupo de recursos e nome da conta de base de dados a partir do portal do
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-table-or-reference-a-table"></a>Criar uma tabela ou referenciar uma tabela
@@ -100,7 +100,7 @@ Se tiver criado um novo grupo de recursos e criar uma nova conta de base de dado
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo procedimentos, aprendeu sobre operações de API de tabela comuns com o PowerShell, incluindo como: 
 

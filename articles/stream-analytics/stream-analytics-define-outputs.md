@@ -1,6 +1,6 @@
 ---
-title: Tipos de saídas de tarefas do Azure Stream Analytics
-description: Saiba mais sobre a filtragem de opções de saídas de dados de Stream Analytics, incluindo o Power BI para resultados de análise.
+title: Compreender as saídas do Azure Stream Analytics
+description: Este artigo descreve as opções de saída de dados disponível no Azure Stream Analytics, incluindo o Power BI para resultados de análise.
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -8,20 +8,25 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
-ms.openlocfilehash: 30fa7e081c24339b7fa9f572d9feb25a0f920a86
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.openlocfilehash: d80fe0bf3a0a91d2e364479f0c0f6b82ddf629d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Transmitir saídas de análise: opções de armazenamento e análise
-Durante a criação de uma tarefa de Stream Analytics, considere como os dados resultantes são consumidos. Como pode ver os resultados da tarefa de Stream Analytics e onde pode armazená-lo?
+# <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
+Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa de Stream Analytics. Utilizar os dados de saída, pode fazê-lo ainda mais análise de negócio e dados do armazém de dados. 
 
-Para ativar uma variedade de padrões de aplicação, o Azure Stream Analytics tem diferentes opções para armazenar a saída e ver resultados de análise. Isto torna mais fácil ver o resultado da tarefa e dá-lhe a flexibilidade de consumo e o armazenamento de resultado da tarefa de armazém de dados e outros fins. Qualquer saída configurada na tarefa tem de existir antes da tarefa é iniciada e eventos de iniciar o fluxo. Por exemplo, se utilizar o Blob storage como resultado, a tarefa não criar uma conta do storage automaticamente. Crie uma conta de armazenamento antes da tarefa de Stream Analytics é iniciada.
+Ao conceber a sua consulta do Stream Analytics, consulte o nome da utilização de saída a [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Pode utilizar um resultado por tarefa única ou várias saídas por transmissão em fluxo de trabalho se for necessário, fornecendo vários cláusulas INTO na consulta.
+
+Para criar, editar e testar a tarefa do Stream Analytics produz, pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+
+Suporte de tipos algumas saídas [criação de partições](#partitioning), e [tamanhos de batch de saída](#output-batch-size) variar para otimizar o débito.
+
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-Suporta análise de sequência [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). O Azure Data Lake Store é um repositório de hiper escala a nível da empresa para cargas de trabalho de análise de macrodados. Arquivo data Lake permite-lhe armazenar dados de qualquer tamanho, tipo e velocidade de ingestão para análises exploratórias e operacionais. Além disso, o Stream Analytics tem de estar autorizado a aceder ao Data Lake Store.
+Suporta análise de sequência [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). O Azure Data Lake Store é um repositório de hiper escala a nível da empresa para cargas de trabalho de análise de macrodados. Arquivo data Lake permite-lhe armazenar dados de qualquer tamanho, tipo e velocidade de ingestão para análises exploratórias e operacionais. Do Stream Analytics tem de estar autorizado a aceder ao Data Lake Store.
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Autorizar uma conta do Azure Data Lake Store
 
@@ -29,61 +34,28 @@ Suporta análise de sequência [Azure Data Lake Store](https://azure.microsoft.c
 
    ![Autorizar o arquivo Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-2. Se já tiver acesso ao Data Lake Store, clique em "Autorizar agora" e uma página irá aparecer que indica "Redirecting para autorização". Depois de autorização é concluída com êxito, é-lhe apresentada a página que lhe permite configurar a saída do Data Lake Store.  
+2. Se já tiver acesso ao Data Lake Store, selecione **autorizar agora** e uma página aparece indicar **redirecionar para autorização**. Depois de autorização é concluída com êxito, é-lhe apresentada a página que lhe permite configurar a saída do Data Lake Store.
 
 3. Depois de ter a conta de Data Lake Store autenticada, pode configurar as propriedades para a saída do Data Lake Store. A tabela abaixo é a lista de nomes de propriedade e a respetiva descrição para configurar a saída do Data Lake Store.
 
    ![Autorizar o arquivo Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
-<table>
-<tbody>
-<tr>
-<td><B>NOME DA PROPRIEDADE</B></td>
-<td><B>DESCRIÇÃO</B></td>
-</tr>
-<tr>
-<td>Alias de saída</td>
-<td>Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para este arquivo Data Lake.</td>
-</tr>
-<tr>
-<td>Nome da Conta</td>
-<td>O nome da conta de armazenamento do Data Lake onde está a enviar o resultado. É-lhe apresentada uma lista pendente de contas do Data Lake Store que estão disponíveis na sua subscrição.</td>
-</tr>
-<tr>
-<td>Caminho prefixo padrão</td>
-<td>O caminho do ficheiro utilizado para escrever ficheiros dentro do arquivo de conta especificado do Data Lake. Pode especificar um ou mais instâncias das {date} e {time} variáveis.<BR> Exemplo 1: pasta1/logs / {date} / {time}<BR>Exemplo 2: pasta1/logs / {date}<BR>Além disso, seguem-se as situações, onde é criado um novo ficheiro:<BR>1. Alteração do esquema de saída <BR>2. Reinicie o interno ou externo de uma tarefa<BR><BR>Além disso, se o padrão do caminho de ficheiro não contém à direita "/", o último padrão no caminho de ficheiro é tratado como um prefixo de nome de ficheiro.<BR></td>
-</tr>
-<tr>
-<td>Formato de data [<I>opcional</I>]</td>
-<td>Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD</td>
-</tr>
-<tr>
-<td>Formato de hora [<I>opcional</I>]</td>
-<td>Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH.</td>
-</tr>
-<tr>
-<td>Formato de serialização de eventos</td>
-<td>Formato de serialização para dados de saída. JSON, CSV e Avro são suportados.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento.</td>
-</tr>
-<tr>
-<td>Delimitador</td>
-<td>Só é aplicável a serialização de CSV. Stream Analytics suporta um número de delimitadores comuns para serializar os dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical.</td>
-</tr>
-<tr>
-<td>Formato</td>
-<td>Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para.</td>
-</tr>
-</tbody>
-</table>
+| Nome da propriedade | Descrição | 
+| --- | --- |
+| Alias de saída | Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para este arquivo Data Lake. | 
+| Nome da conta | O nome da conta de armazenamento do Data Lake onde está a enviar o resultado. É-lhe apresentada uma lista pendente de contas do Data Lake Store que estão disponíveis na sua subscrição. |
+| Padrão do prefixo do caminho | O caminho do ficheiro utilizado para escrever ficheiros dentro do arquivo de conta especificado do Data Lake. Pode especificar um ou mais instâncias das {date} e {time} variáveis.</br><ul><li>Exemplo 1: pasta1/logs / {date} / {time}</li><li>Exemplo 2: pasta1/logs / {date}</li></ul>Se o padrão do caminho de ficheiro não contém à direita "/", o último padrão no caminho de ficheiro é tratado como um prefixo de nome de ficheiro. </br></br>Nestas circunstâncias, os novos ficheiros são criados:<ul><li>Alteração do esquema de saída</li><li>Reinicie o interno ou externo de uma tarefa.</li></ul> |
+| Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD |
+|Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
+| Formato de serialização de eventos | Formato de serialização para dados de saída. JSON, CSV e Avro são suportados.| 
+| Encoding | Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento.|
+| Delimitador | Só é aplicável a serialização de CSV. Stream Analytics suporta um número de delimitadores comuns para serializar os dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical.|
+| Formato | Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para.|
 
-### <a name="renew-data-lake-store-authorization"></a>Renovar autorização do arquivo Data Lake
-Terá de voltar a sua conta do Data Lake Store, se a palavra-passe tiver sido alterado desde que a tarefa foi criada ou pela última vez autenticada. Se não a reautenticação, a tarefa não será saída resultados e é registado um erro que indica a necessidade de nova autorização nos registos de operação. Atualmente, não há uma limitação em que o token de autenticação tem de ser atualizados manualmente todos os 90 dias para todas as tarefas com a saída do Data Lake Store. 
+### <a name="renew-data-lake-store-authorization"></a>Renove a autorização de Data Lake Store
+Terá de voltar a sua conta do Data Lake Store, se a palavra-passe tiver sido alterado desde que a tarefa foi criada ou pela última vez autenticada. Se não a reautenticação, a tarefa não produziu resultados de saída e mostra um erro que indica a necessidade de reautorização nos registos de operação. Atualmente, não há uma limitação em que o token de autenticação tem de ser atualizados manualmente todos os 90 dias para todas as tarefas com a saída do Data Lake Store. 
 
-Para renovar a autorização, **parar** a tarefa > vá para a saída do Data Lake Store > clique o **renove a autorização** associar e, por um breve período de tempo a página irá aparecer que indica "Redirecting para autorização..". A página será fechada automaticamente e se tiver êxito, irá indicar "Autorização tem foi renovada com êxito". Em seguida, tem de clicar em **guardar** na parte inferior da página, pode proceder ao reiniciar a tarefa a partir do **hora da última paragem** para evitar a perda de dados.
+Para renovar a autorização, **parar** a tarefa > vá para a saída do Data Lake Store > clique o **renove a autorização** associar e, por um breve período de tempo a página irá aparecer que indica **redirecionar para autorização...** . A página fecha-se automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Em seguida, tem de clicar em **guardar** na parte inferior da página, pode proceder ao reiniciar a tarefa a partir do **hora da última paragem** para evitar a perda de dados.
 
 ![Autorizar o arquivo Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
@@ -93,15 +65,14 @@ Para renovar a autorização, **parar** a tarefa > vá para a saída do Data Lak
 | Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para esta base de dados. |
-| Base de Dados |O nome da base de dados em que está a enviar resultado |
-| Nome do servidor |O nome do servidor de base de dados SQL |
-| Nome de utilizador |O nome de utilizador, que tem acesso ao escrever na base de dados |
-| Palavra-passe |A palavra-passe para ligar à base de dados |
-| Tabela |O nome da tabela em que o resultado é escrito. O nome da tabela é sensível e o esquema desta tabela deve corresponder exatamente ao número de campos e os respetivos tipos gerados pelo seu resultado da tarefa. |
+| Base de Dados | O nome da base de dados em que está a enviar o resultado. |
+| Nome do servidor | O nome do servidor de base de dados SQL. |
+| Nome de utilizador | O nome de utilizador, que tem acesso ao escrever o databas. |
+| Palavra-passe | A palavra-passe para estabelecer ligação com o databas.e |
+| Tabela | O nome da tabela em que o resultado é escrito. O nome da tabela é sensível e o esquema desta tabela deve corresponder exatamente ao número de campos e os respetivos tipos gerados pelo seu resultado da tarefa. |
 
 > [!NOTE]
 > Atualmente, a oferta da SQL Database do Azure é suportada para uma saída da tarefa no Stream Analytics. No entanto, uma máquina de Virtual do Azure com o SQL Server com uma base de dados ligada não é suportada. Trata-se sujeita a alterações em futuros lançamentos.
-> 
 > 
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
@@ -109,62 +80,23 @@ O blob storage oferece uma solução económica e dimensionável para armazenar 
 
 A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a criação de uma saída de blob.
 
-<table>
-<tbody>
-<tr>
-<td>NOME DA PROPRIEDADE</td>
-<td>DESCRIÇÃO</td>
-</tr>
-<tr>
-<td>Alias de saída</td>
-<td>Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para o armazenamento de Blobs.</td>
-</tr>
-<tr>
-<td>Conta de Armazenamento</td>
-<td>O nome da conta do storage onde está a enviar o resultado.</td>
-</tr>
-<tr>
-<td>Chave da Conta de Armazenamento</td>
-<td>A chave secreta associada à conta de armazenamento.</td>
-</tr>
-<tr>
-<td>Contentor de armazenamento</td>
-<td>Contentores fornecem um agrupamento lógico blobs armazenados no Microsoft serviço Blob do Azure. Quando carregar um blob para o serviço Blob, tem de especificar um contentor para esse blob.</td>
-</tr>
-<tr>
-<td>Padrão de prefixo de caminho [opcional]</td>
-<td>O padrão do caminho de ficheiro utilizado para escrever os blobs no contentor especificado. <BR> O padrão de caminho, pode optar por utilizar uma ou mais instâncias das 2 variáveis seguintes para especificar a frequência com que os blobs são escritos: <BR> {date}, {time} <BR> Exemplo 1: cluster1/logs / {date} / {time} <BR> Exemplo 2: cluster1/logs / {date} <BR> <BR> Atribuição de nome de ficheiro, segue-se a seguinte convenção: <BR> {Caminho prefixo Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Ficheiros de saída de exemplo: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Além disso, seguem-se as situações, onde é criado um novo ficheiro: <BR> 1. Ficheiro atual excede o número máximo permitido de blocos (atualmente 50 000) <BR> 2. Alteração do esquema de saída <BR> 3. Reinício de interno ou externo de uma tarefa  </td>
-</tr>
-<tr>
-<td>Formato de data [opcional]</td>
-<td>Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD</td>
-</tr>
-<tr>
-<td>Formato de hora [opcional]</td>
-<td>Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH.</td>
-</tr>
-<tr>
-<td>Formato de serialização de eventos</td>
-<td>Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento.</td>
-</tr>
-<tr>
-<td>Delimitador</td>
-<td>Só é aplicável a serialização de CSV. Stream Analytics suporta um número de delimitadores comuns para serializar os dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical.</td>
-</tr>
-<tr>
-<td>Formato</td>
-<td>Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para.</td>
-</tr>
-</tbody>
-</table>
+| Nome da propriedade | Descrição | 
+| --- | --- |
+| Alias de saída | Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para o armazenamento de Blobs. |
+| Conta de Armazenamento | O nome da conta do storage onde está a enviar o resultado. |
+| Chave da Conta de Armazenamento | A chave secreta associada à conta de armazenamento. |
+| Contentor de armazenamento | Contentores fornecem um agrupamento lógico blobs armazenados no Microsoft serviço Blob do Azure. Quando carregar um blob para o serviço Blob, tem de especificar um contentor para esse blob. |
+| Padrão do caminho | Opcional. O padrão do caminho de ficheiro utilizado para escrever os blobs no contentor especificado. </br> O padrão de caminho, pode optar por utilizar uma ou mais instâncias das 2 variáveis seguintes para especificar a frequência com que os blobs são escritos: </br> {date}, {time} </br> Exemplo 1: cluster1/logs / {date} / {time} </br> Exemplo 2: cluster1/logs / {date} <BR> <BR> Atribuição de nome de ficheiro, segue-se a seguinte convenção: </br> {Caminho prefixo Pattern}/schemaHashcode_Guid_Number.extension </br></br> Ficheiros de saída de exemplo: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD |
+| Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
+| Formato de serialização de eventos | Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados.
+| Encoding | Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
+| Delimitador | Só é aplicável a serialização de CSV. Stream Analytics suporta um número de delimitadores comuns para serializar os dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
+| Formato | Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para. |
 
 Ao utilizar o armazenamento de BLOBs como resultado, é criado um novo ficheiro no blob nos seguintes casos:
 
-* Se o ficheiro excede o número máximo de blocos permitidos (tenha em atenção que o número máximo permitido de blocos pode ser contactado sem atingir o tamanho máximo de blob permitidos. Por exemplo, se a taxa de saída é elevada, pode ver bytes mais por blocos e o tamanho do ficheiro é maior. Se a taxa de saída é baixa, cada bloco tem menos de dados e o tamanho de ficheiro é menor.)  
+* Se o ficheiro excede o número máximo de blocos permitidos. O número máximo permitido de blocos pode aceder sem atingir o tamanho máximo de blob permitidos. Por exemplo, se a taxa de saída é elevada, pode ver bytes mais por blocos e o tamanho do ficheiro é maior. Se a taxa de saída é baixa, cada bloco tem menos de dados e o tamanho do ficheiro é mais pequeno.
 * Se existir uma alteração de esquema no resultado, e o formato de saída requer o esquema fixo (CSV e Avro).  
 * Se uma tarefa for reiniciada uma externamente ou a reinicialização interna de uma tarefa.  
 * Se a consulta completamente estar particionada, é criado novo ficheiro para cada partição de saída.  
@@ -178,16 +110,16 @@ Existem alguns parâmetros que são necessários para configurar os fluxos de da
 
 | Nome da propriedade | Descrição |
 | --- | --- |
-| Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para o Hub de eventos. |
-| Espaço de Nomes do Service Bus |Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo Hub de eventos, também criou um espaço de nomes do Service Bus |
-| Hub de Eventos |O nome do seu Hub de eventos de saída |
-| Nome de política do Hub de eventos |A política de acesso partilhado, que pode ser criada no separador Configurar do Hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso |
-| Chave de política de Hub de eventos |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
-| Coluna de chave de partição [opcional] |Esta coluna contém a chave de partição do Hub de eventos de saída. |
-| Formato de serialização de eventos |Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
-| Encoding |Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento |
-| Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Formato |Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para. |
+| Alias de saída | Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para o Hub de eventos. |
+| Espaço de nomes do Hub de Eventos |Um espaço de nomes do Hub de eventos é um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo Hub de eventos, também criou um espaço de nomes do Hub de eventos. |
+| O nome do hub de eventos | O nome do seu Hub de eventos de saída. |
+| Nome da política do Hub de Eventos | A política de acesso partilhado, que pode ser criada no separador Configurar do Hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
+| Chave da política do Hub de Eventos | A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de Hub de eventos. |
+| Coluna de chave de partição [opcional] | Esta coluna contém a chave de partição do Hub de eventos de saída. |
+| Formato de serialização de eventos | Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
+| Encoding | Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
+| Delimitador | Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
+| Formato | Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para. |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) pode ser utilizado como uma saída de uma tarefa de Stream Analytics para fornecer uma experiência avançada de visualização de resultados de análise. Esta capacidade pode ser utilizada para dashboards operacionais, a geração de relatórios e métrica orientadas por relatório.
@@ -196,26 +128,27 @@ Existem alguns parâmetros que são necessários para configurar os fluxos de da
 1. Quando o Power BI é selecionada como uma saída no portal do Azure, são-lhe pedido para autorizar um utilizador de BI energia existente ou criar uma nova conta do Power BI.  
    
    ![Autorizar o utilizador do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
-2. Crie uma nova conta se não, mas tiver um, clique em autorizar agora.  É apresentado um ecrã de como o seguinte.  
+
+2. Crie uma nova conta se não, mas tiver um, clique em autorizar agora.  É apresentada a seguinte página:
    
    ![Conta do Azure Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+
 3. Neste passo, forneça a conta escolar ou profissional para autorizar a saída do Power BI. Se tiver não terminado já sessão para o Power BI, escolha agora o início de sessão cópias de segurança. A conta escolar ou profissional que utiliza para o Power BI pode ser diferente da conta de subscrição do Azure, o qual tem sessão iniciada com.
 
 ### <a name="configure-the-power-bi-output-properties"></a>Configurar as propriedades de saída do Power BI
 Depois de ter a conta do Power BI autenticada, pode configurar as propriedades para a saída do Power BI. A tabela abaixo é a lista de nomes de propriedade e respetiva descrição para configurar a saída do Power BI.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para este resultado de PowerBI. |
-| Área de trabalho de grupo |Para ativar a partilha de dados com outros utilizadores do Power BI pode selecionar os grupos no interior da sua conta do Power BI ou escolha "A minha área de trabalho" se não pretender escrever a um grupo.  Atualizar um grupo existente exige renovar a autenticação do Power BI. |
+| Área de trabalho de Grupo |Para ativar a partilha de dados com outros utilizadores do Power BI pode selecionar os grupos no interior da sua conta do Power BI ou escolha "A minha área de trabalho" se não pretender escrever a um grupo.  Atualizar um grupo existente exige renovar a autenticação do Power BI. |
 | Nome do conjunto de dados |Forneça um nome de conjunto de dados que pretender para a saída do Power BI utilizar |
-| Nome da Tabela |Forneça um nome de tabela em que o conjunto de dados de saída do Power BI. Atualmente, saída do Power BI de tarefas do Stream Analytics só pode ter uma tabela num conjunto de dados |
+| Nome da tabela |Forneça um nome de tabela em que o conjunto de dados de saída do Power BI. Atualmente, saída do Power BI de tarefas do Stream Analytics só pode ter uma tabela num conjunto de dados |
 
 Para uma passagem de configurar um Power BI saída e o dashboard, consulte o [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md) artigo.
 
 > [!NOTE]
 > Não explicitamente crie o conjunto de dados e a tabela no dashboard do Power BI. O conjunto de dados e a tabela é preenchida automaticamente quando a tarefa é iniciada e a tarefa é iniciada a saída de bombagem no Power BI. Tenha em atenção que se a consulta da tarefa não gerar resultados, o conjunto de dados e tabela não é criada. Tenha em atenção que, se o Power BI já tinha um conjunto de dados e uma tabela com o mesmo nome que aquele fornecido nesta tarefa de Stream Analytics, os dados existentes for substituídos.
-> 
 > 
 
 ### <a name="schema-creation"></a>Criação de esquema
@@ -225,7 +158,6 @@ O Azure Stream Analytics cria um conjunto de dados do Power BI e a tabela em nom
 O Azure Stream Analytics atualiza o modelo de dados dinâmica no tempo de execução se altera o esquema de saída. Todas as alterações de nome de coluna, alterações de tipos de coluna e a adição ou remoção de colunas são registadas.
 
 Esta tabela aborda os conversões de tipo de dados de [tipos de dados do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) para Power BIs [tipos de modelo de dados de entidade (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) se um conjunto de dados do POWER BI e a tabela não existe.
-
 
 Partir do Stream Analytics | Para o Power BI
 -----|-----|------------
@@ -250,11 +182,11 @@ Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
 
 ### <a name="renew-power-bi-authorization"></a>Renovar autorização do Power BI
-Terá de voltar a sua conta do Power BI, se a palavra-passe tiver sido alterado desde que a tarefa foi criada ou pela última vez autenticada. Se a multi-factor Authentication (MFA) está configurado no seu inquilino do Azure Active Directory (AAD), que terá também de renovação da autorização do Power BI em duas semanas. Um sintoma de que este problema é nenhum resultado da tarefa e um "erro do utilizador de autenticar" nos registos de operação:
+Se a palavra-passe de conta do Power BI é alterado depois da tarefa de Stream Analytics foi criada ou pela última vez autenticada, terá de voltar a Stream Analytics. Se o multi-factor Authentication (MFA) é configurado no seu inquilino do Azure Active Directory (AAD), terá também de renovação da autorização do Power BI em duas semanas. Um sintoma de que este problema é nenhum resultado da tarefa e um "erro do utilizador de autenticar" nos registos de operação:
 
   ![Erro de token de atualização do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
-Para resolver este problema, parar a tarefa em execução e avance para a saída do Power BI.  Clique na ligação "Autorização de renovação" e reinicie a tarefa da hora da última paragem para evitar a perda de dados.
+Para resolver este problema, parar a tarefa em execução e avance para a saída do Power BI.  Selecione o **renovar autorização** ligação e reinicie a tarefa do **hora da última paragem** para evitar a perda de dados.
 
   ![Power BI é renovada de autorização](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
@@ -263,28 +195,28 @@ Para resolver este problema, parar a tarefa em execução e avance para a saída
 
 A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a criação de uma saída de tabela.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para o armazenamento desta tabela. |
-| Conta de Armazenamento |O nome da conta do storage onde está a enviar o resultado. |
-| Chave da Conta de Armazenamento |A chave de acesso associada à conta de armazenamento. |
+| Conta de armazenamento |O nome da conta do storage onde está a enviar o resultado. |
+| Chave da conta de armazenamento |A chave de acesso associada à conta de armazenamento. |
 | Nome da Tabela |O nome da tabela. A tabela é criada, se não existir. |
 | Chave de partição |O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador exclusivo para a partição dentro de determinada tabela que forma a primeira parte da chave primária de uma entidade. É um valor de cadeia que pode ser até 1 KB de tamanho. |
-| Chave de linha |O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo de uma entidade dentro de uma determinada partição. -Forma a segunda parte da chave primária de uma entidade. A chave de linha é um valor de cadeia que pode ser até 1 KB de tamanho. |
-| Tamanho do lote |O número de registos para uma operação em lote. Normalmente, a predefinição é suficiente para a maioria das tarefas, consulte o [especificação de operação em lote tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre a modificação esta definição. |
+| Chave da fila |O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo de uma entidade dentro de uma determinada partição. -Forma a segunda parte da chave primária de uma entidade. A chave de linha é um valor de cadeia que pode ser até 1 KB de tamanho. |
+| Tamanho do batch |O número de registos para uma operação em lote. A predefinição (100) é suficiente para a maioria das tarefas. Consulte o [especificação de operação em lote tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre a modificação esta definição. |
  
 ## <a name="service-bus-queues"></a>Filas de Service Bus
 [Filas do Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem um primeiro In, entrega de mensagens First Out (FIFO) para um ou mais consumidores concorrentes. Normalmente, são esperadas mensagens sejam recebidas e processadas pelos recetores na ordem temporal em que foram adicionadas à fila e cada mensagem é recebida e processada por apenas um consumidor de mensagens.
 
 A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a criação de uma saída da fila.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado de consulta para esta fila do Service Bus. |
-| Espaço de Nomes do Service Bus |Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. |
+| Espaço de nomes do Service Bus |Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. |
 | Nome da fila |O nome da fila de barramento de serviço. |
-| Nome da política de fila |Quando cria uma fila, também pode criar políticas de acesso partilhado no separador de configuração. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
-| Chave de política de fila |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
+| Nome da política da fila |Quando cria uma fila, também pode criar políticas de acesso partilhado no separador de configuração. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
+| Chave da política da fila |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
 | Formato de serialização de eventos |Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
 | Encoding |Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento |
 | Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
@@ -300,12 +232,12 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado de consulta a este tópico de barramento de serviço. |
-| Espaço de Nomes do Service Bus |Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo Hub de eventos, também criou um espaço de nomes do Service Bus |
-| Nome do Tópico |Tópicos são entidades de mensagens, semelhantes a filas e hubs de eventos. Foram concebidos para recolher fluxos de eventos a partir de um número de diferentes dispositivos e serviços. Quando é criado um tópico, também são atribuído a um nome específico. As mensagens enviadas para um tópico não está disponível, a menos que é criada uma subscrição, por isso, certifique-se existem uma ou mais subscrições em tópico |
-| Nome da política de tópico |Quando cria um tópico, também pode criar políticas de acesso partilhado no separador de configuração. Cada política de acesso partilhado tem o nome, as permissões que definir e chaves de acesso |
-| Chave de política de tópico |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
+| Espaço de nomes do Service Bus |Um espaço de nomes do Service Bus é um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo Hub de eventos, também criou um espaço de nomes do Service Bus |
+| Nome do tópico |Tópicos são entidades de mensagens, semelhantes a filas e hubs de eventos. Foram concebidos para recolher fluxos de eventos a partir de um número de diferentes dispositivos e serviços. Quando é criado um tópico, também são atribuído a um nome específico. As mensagens enviadas para um tópico não está disponível, a menos que é criada uma subscrição, por isso, certifique-se existem uma ou mais subscrições em tópico |
+| Nome da política do tópico |Quando cria um tópico, também pode criar políticas de acesso partilhado no separador de configuração. Cada política de acesso partilhado tem o nome, as permissões que definir e chaves de acesso |
+| Chave da política do tópico |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
 | Formato de serialização de eventos |Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
- | Encoding |Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento |
+| Encoding |Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento |
 | Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 
 O número de partições é [com base no SKU de barramento de serviço e tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.
@@ -318,7 +250,7 @@ O número de partições é [com base no SKU de barramento de serviço e tamanho
 > APIs de BD do Cosmos outros Azure ainda não são suportadas. Se o ponto de Azure Stream Analytics para as contas de base de dados do Azure Cosmos criado com outras APIs, os dados poderão não ser corretamente armazenados. 
 
 A tabela seguinte descreve as propriedades para criar uma saída de BD do Cosmos do Azure.
-| Nome da propriedade | Descrição |
+| Nome da propriedade | descrição |
 | --- | --- |
 | Alias de saída | Um alias para fazer referência este resultado da consulta do Stream Analytics. |
 | Sink | BD do Cosmos |
@@ -327,7 +259,7 @@ A tabela seguinte descreve as propriedades para criar uma saída de BD do Cosmos
 | Chave de conta | A chave de acesso partilhado para a conta de base de dados do Cosmos. |
 | Base de Dados | O nome de base de dados de base de dados do Cosmos. |
 | Padrão do nome de coleção | O nome da coleção ou os respetivos padrão para as coleções a ser utilizado. <br/>O formato de nome de coleção pode ser construído utilizando o token {partition} opcional, onde as partições começam do 0. Dois exemplos:  <br/>1. _MyCollection_ – uma coleção designada "MyCollection" tem de existir.  <br/>2. _MyCollection {partition}_ – com base na coluna de criação de partições. <br/>As coleções de coluna de criação de partições têm de existir – "MyCollection0", "MyCollection1", "MyCollection2" e assim sucessivamente. |
-| Chave de partição | Opcional. Isto só é necessário se estiver a utilizar um token {partition} no seu padrão de nome de coleção.<br/> A chave de partição é o nome do campo em eventos de saída utilizado para especificar a chave de partições da saída nas coleções.<br/> Para o resultado única coleção, nenhuma coluna de saída arbitrários pode ser utilizada por exemplo, PartitionId. |
+| Chave de partição | Opcional. Isto só é necessário se estiver a utilizar um token {partition} no seu padrão de nome de coleção.<br/> A chave de partição é o nome do campo em eventos de saída utilizado para especificar a chave de partições da saída nas coleções.<br/> Para o resultado única coleção, pode ser utilizada qualquer coluna de saída arbitrários. Por exemplo, PartitionId. |
 | ID do documento |Opcional. O nome do campo em eventos de saída utilizado para especificar a chave primária na qual insert ou update baseiam-se operações.  
 
 ## <a name="azure-functions"></a>Funções do Azure
@@ -335,15 +267,15 @@ As Funções do Azure são um serviço de computação sem servidor lhe que perm
 
 O Azure Stream Analytics invoca as funções do Azure através de acionadores HTTP. O novo adaptador de saída de função do Azure está disponível com as seguintes propriedades configuráveis:
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | descrição |
 | --- | --- |
-| Aplicação de Funções |Nome da sua aplicação de funções do Azure |
+| Function App |Nome da sua aplicação de funções do Azure |
 | Função |Nome da função na sua aplicação de funções do Azure |
-| Tamanho de lote máximo |Esta propriedade pode ser utilizada para definir o tamanho máximo para cada lote de saída que é enviado para a função do Azure. Por predefinição, este valor é 256 KB |
-| Contagem máxima de Batch  |Como o nome indica, esta propriedade permite-lhe especificar o número máximo de eventos em cada lote que é enviado para as funções do Azure. O valor de contagem de lote máximo predefinido é 100 |
 | Chave |Se pretender utilizar uma função do Azure a partir de outra subscrição, pode fazê-fornecendo a chave para aceder à sua função |
+| Tamanho máximo de lote |Esta propriedade pode ser utilizada para definir o tamanho máximo para cada lote de saída que é enviado para a função do Azure. Por predefinição, este valor é 256 KB |
+| Contagem máxima de lotes  |Como o nome indica, esta propriedade permite-lhe especificar o número máximo de eventos em cada lote que é enviado para as funções do Azure. O valor de contagem de lote máximo predefinido é 100 |
 
-Tenha em atenção que quando o Azure Stream Analytics recebe 413 exceção de (http pedido entidade demasiado grande) da função do Azure, reduz o tamanho de lotes envia para as funções do Azure. No código da função do Azure, utilize esta exceção para se certificar de que o Azure Stream Analytics não enviar os lotes de grande dimensão. Além disso, certifique-se de que os valores de contagem e tamanho de lote máximo utilizados na função são consistentes com os valores que introduziu no portal do Stream Analytics. 
+Quando o Azure Stream Analytics recebe 413 exceção de (http pedido entidade demasiado grande) da função do Azure, reduz o tamanho de lotes envia para as funções do Azure. No código da função do Azure, utilize esta exceção para se certificar de que o Azure Stream Analytics não enviar os lotes de grande dimensão. Além disso, certifique-se de que os valores de contagem e tamanho de lote máximo utilizados na função são consistentes com os valores que introduziu no portal do Stream Analytics. 
 
 Além disso, numa situação em que nenhum evento de destino numa janela de tempo, nenhuma saída é gerada. Como resultado, a função computeResult não for chamada. Este comportamento é consistente com as funções de agregação em janela incorporadas.
 
@@ -353,28 +285,38 @@ A tabela seguinte resume o suporte de partição e o número de escritores de sa
 
 | Tipo de saída | Suporte de criação de partições | Chave de partição  | Número de escritores de saída | 
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Sim | Utilize {date} e {time} tokens. o padrão de prefixo do caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Mesmo como entrada. | 
+| Azure Data Lake Store | Sim | Utilize {date} e {time} tokens. o padrão de prefixo do caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Segue-se de que a entrada partições para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
 | Base de Dados SQL do Azure | Não | Nenhuma | Não aplicável. | 
-| Armazenamento de Blobs do Azure | Sim | Utilize {date} e {time} tokens. o padrão de caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Mesmo como entrada. | 
-| Hub de eventos do Azure | Sim | Sim | Mesmo que as partições do Hub de eventos de saída. |
+| Armazenamento de Blobs do Azure | Sim | Utilize {date} e {time} tokens. o padrão de caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Segue-se de que a entrada partições para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
+| Hub de eventos do Azure | Sim | Sim | Varia consoante o alinhamento de partição.</br> Quando o resultado da chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é o mesmo número de saída partições do Hub de eventos. Cada escritor utiliza do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada escritor utiliza EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. | 
-| Armazenamento de Tabelas do Azure | Sim | Nenhuma coluna de saída.  | Igual ao passo de entrada ou anterior. | 
-| Tópico de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual a saída.  |
-| Fila de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual a saída. |
-| Azure Cosmos DB | Sim | Utilize o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se a cláusula PARTITION BY na consulta. | Mesmo como entrada. |
+| Armazenamento de Tabelas do Azure | Sim | Nenhuma coluna de saída.  | Segue-se de que a entrada partições para [totalmente paralyzed consultas](stream-analytics-scale-jobs.md). | 
+| Tópico de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual ao número de partições existentes no tópico de saída.  |
+| Fila de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual ao número de partições na fila de saída. |
+| Azure Cosmos DB | Sim | Utilize o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se a cláusula PARTITION BY na consulta. | Segue-se de que a entrada partições para [totalmente paralyzed consultas](stream-analytics-scale-jobs.md). |
 | Funções do Azure | Não | Nenhuma | Não aplicável. | 
 
+## <a name="output-batch-size"></a>Tamanho do lote de saída
+O Azure Stream Analytics utiliza lotes de tamanho variável para processar os eventos e escrever saídas. Normalmente, o motor de Stream Analytics não escrever uma mensagem numa altura e utiliza lotes para uma eficiência. Quando a entrada e a taxa de eventos de saída é elevada, utiliza lotes maior. Quando a taxa de saída é baixa, utiliza os lotes mais pequena para manter a latência baixa. 
 
-## <a name="get-help"></a>Obter ajuda
-Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+A tabela seguinte explica algumas das considerações sobre a criação de batches de saída:
+
+| Tipo de saída | Tamanho máximo de mensagem | Otimização de tamanho de lote |
+| :--- | :--- | :--- | 
+| Azure Data Lake Store | Consulte [limites de armazenamento do Data Lake](../azure-subscription-service-limits.md#data-lake-store-limits) | Até 4 MB por operação de escrita |
+| Base de Dados SQL do Azure | Inserir 10 000 máx. de linhas por em massa única</br>Linhas de 100 mín. por inserção em massa única </br>Consulte também [limita SQL do Azure](../sql-database/sql-database-resource-limits.md) |  Cada lote é inicialmente em massa inserida com tamanho de lote máximo e pode dividir o lote em metade (até que o tamanho do lote Min) com base na repetição erros do SQL Server. |
+| Armazenamento de Blobs do Azure | Consulte [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits) | O tamanho máximo do bloco de Blob é 4 MB</br>Contagem máxima de bock do Blob é 50000 |
+| Hub de eventos do Azure   | 256 KB por mensagem </br>Consulte também [limita os Event Hubs](../event-hubs/event-hubs-quotas.md) |    Quando a criação de partições de saída de entrada não alinha, cada evento é packed individualmente num EventData e enviado num batch de até ao tamanho máximo de mensagem (1 MB para Premium SKU). </br></br>  Quando a criação de partições de entrada-saída está alinhada, vários eventos são packed para um único EventData até tamanho máximo de mensagem e enviados.    |
+| Power BI | Consulte [limita a API de Rest do Power BI](https://msdn.microsoft.com/library/dn950053.aspx) |
+| Armazenamento de Tabelas do Azure | Consulte [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits) | Predefinido é 100 entidades por transação única e pode ser configurado para um valor menor conforme necessário. |
+| Fila do Service Bus do Azure   | 256 KB por mensagem</br> Consulte também [limita do Service Bus](../service-bus-messaging/service-bus-quotas.md) | Evento único por mensagem |
+| Tópico do Service Bus do Azure | 256 KB por mensagem</br> Consulte também [limita do Service Bus](../service-bus-messaging/service-bus-quotas.md) | Evento único por mensagem |
+| Azure Cosmos DB   | Consulte [limita a BD do Cosmos do Azure](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch tamanho e frequência é ajustadas dinamicamente com base CosmosDB as respostas de escrita. </br> Não existem limitações predeterminadas do Stream Analytics. |
+| Funções do Azure   | | Tamanho do lote predefinido é 246 KB. </br> Contagem de eventos de predefinida por lote é 100. </br> O tamanho do lote é configurável e pode ser aumentado ou diminuído no Stream Analytics [opções de saída](#azure-functions). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora já conhece o Stream Analytics, um serviço gerido para a transmissão da análise dos dados a partir da Internet das Coisas. Para obter mais informações sobre este serviço, consulte:
-
-* [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Início rápido: Criar uma tarefa de Stream Analytics, utilizando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

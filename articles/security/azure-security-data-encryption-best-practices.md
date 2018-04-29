@@ -3,8 +3,8 @@ title: Encriptação e de segurança dos dados melhores práticas | Microsoft Do
 description: Este artigo fornece um conjunto de melhores práticas de segurança dos dados e utilizar encriptação incorporada no capacidades do Azure.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 159bdf681761b9fc46f77cbcf25a210db11d1d9b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados do Azure e encriptação
+
 Uma das chaves para proteção de dados na nuvem é contabilidade para os Estados possíveis em que os dados poderão ocorrer e que controlos estão disponíveis para esse Estado. Para efeitos de dados do Azure segurança encriptação melhores práticas e recomendações serão à volta de Estados dos dados seguintes:
 
 * Em rest: Isto inclui informações de todos os objetos de armazenamento, contentores e tipos de que existem estaticamente no suporte de dados físico, ser-torção ou optical disco.
@@ -50,17 +51,19 @@ Dados do Azure encriptação melhores práticas de segurança e abordadas neste 
 * Impor a encriptação de dados ao nível do ficheiro
 
 ## <a name="enforce-multi-factor-authentication"></a>Impor autenticação multifator
-O primeiro passo no acesso a dados e controlo no Microsoft Azure estão a autenticar o utilizador. [Azure multi-factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) é um método de verificar a identidade do utilizador utilizando outro método que apenas um nome de utilizador e palavra-passe. Esta autenticação método ajuda a salvaguardar o acesso a dados e aplicações, cumprindo o pedido do utilizador para um processo de início de sessão simple.
+
+O primeiro passo no acesso a dados e controlo no Microsoft Azure estão a autenticar o utilizador. [Azure multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) é um método de verificar a identidade do utilizador utilizando outro método que apenas um nome de utilizador e palavra-passe. Esta autenticação método ajuda a salvaguardar o acesso a dados e aplicações, cumprindo o pedido do utilizador para um processo de início de sessão simple.
 
 Ao ativar a MFA do Azure para os seus utilizadores, que está a adicionar uma segunda camada de segurança para inícios de sessão de utilizador e de transações. Neste caso, uma transação poderá aceder a um documento localizado num servidor de ficheiros ou o SharePoint Online. Também ajuda-o MFA do Azure que as TI reduzem a probabilidade de que uma credencial comprometida terão acesso aos dados da organização.
 
 Por exemplo: se impor o MFA do Azure para os seus utilizadores e configurá-lo para utilizar uma chamada telefónica ou mensagem de texto como verificação, se a credencial do utilizador for comprometida, o atacante não conseguirá aceder a qualquer recurso uma vez que ele não terá acesso para o telefone do utilizador. As organizações que não adicione esta camada adicional de proteção de identidade sejam mais suscetíveis de ataque de roubo de credenciais, que pode levar ao comprometimento de dados.
 
-Uma alternativa para as organizações que pretende manter a autenticação controlo no local é utilizar [do servidor multi-factor Authentication Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), também denominado MFA no local. Ao utilizar este método irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
+Uma alternativa para as organizações que pretende manter a autenticação controlo no local é utilizar [do servidor multi-factor Authentication Azure](../active-directory/authentication/howto-mfaserver-deploy.md), também denominado MFA no local. Ao utilizar este método irá ainda ser capaz de impôr a autenticação multifator, mantendo o MFA server no local.
 
-Para obter mais informações sobre o MFA do Azure, leia o artigo [introdução ao Azure multi-factor Authentication na nuvem](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Para obter mais informações sobre o MFA do Azure, leia o artigo [introdução ao Azure multi-factor Authentication na nuvem](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Controlo de acesso (RBAC) baseado em funções de utilização
+
 Restringir o acesso com base no [precisa de saber](https://en.wikipedia.org/wiki/Need_to_know) e [menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança. Este é imperativo para as organizações que pretendem aplicar políticas de segurança para acesso a dados. Azure baseada em funções controlo de acesso (RBAC) pode ser utilizado para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito. O âmbito de uma atribuição de função pode ser uma subscrição, um grupo de recursos ou um único recurso.
 
 Pode tirar partido [funções incorporadas do RBAC](../role-based-access-control/built-in-roles.md) no Azure para atribuir os privilégios aos utilizadores. Considere a utilização de *contribuinte de conta de armazenamento* para os operadores da nuvem que necessitam de gerir as contas do storage e *contribuinte de conta de armazenamento clássico* função para gerir contas de armazenamento clássicas. Para os operadores da nuvem que necessita para gerir VMs e conta de armazenamento, considere adicionar-lhes *contribuinte de Máquina Virtual* função.
@@ -70,6 +73,7 @@ As organizações que não a impor controlo de acesso de dados ao tirar partido 
 Pode saber mais sobre o RBAC do Azure ao ler o artigo [controlo de acesso em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Encriptar Virtual Machines do Azure
+
 Para muitas organizações, [encriptação de dados Inativos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é um passo obrigatório para soberania dos dados, conformidade e privacidade de dados. Encriptação de disco do Azure permite aos administradores de TI encriptar discos do Windows e Linux IaaS Máquina Virtual (VM). Tira partido do Azure Disk Encryption a funcionalidade do BitLocker de padrão da indústria do Windows e a funcionalidade de DM-Crypt do Linux para fornecer a encriptação de volume para o SO e os discos de dados.
 
 Pode tirar partido do Azure Disk Encryption para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus requisitos de conformidade e segurança organizacional. As organizações também devem considerar utilizar a encriptação para ajudar a mitigar os riscos acesso a dados relacionados para não autorizado. Também é recomendável que encriptar unidades antes de escrever os dados confidenciais.
@@ -125,6 +129,7 @@ As organizações que não estão a utilizar encriptação de nível de base de 
 Pode saber mais sobre a encriptação de SQL TDE ao ler o artigo [encriptação transparente de dados com a SQL Database do Azure](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Proteger dados em trânsito
+
 Proteger dados em trânsito deve fazer parte essencial da sua estratégia de proteção de dados. Uma vez que os dados irão ser movidos anterior e descritos de diversas localizações, a recomendação geral é que utilize sempre protocolos SSL/TLS para trocar dados entre localizações diferentes. Em algumas circunstâncias, poderá pretender isolar o canal de comunicação completa entre o local e nuvem infraestrutura através da utilização de uma rede privada virtual (VPN).
 
 Para dados mover entre a infraestrutura no local e o Azure, deve considerar as proteções de adequada, tais como HTTPS ou VPN.
@@ -142,6 +147,7 @@ As organizações que falham para proteger dados em trânsito sejam mais suscet�
 Pode saber mais sobre a opção de VPN do Azure ao ler o artigo [planeamento e design para o Gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Impor a encriptação de dados ao nível do ficheiro
+
 Outra camada de proteção que pode aumentar o nível de segurança para os seus dados está a encriptar o próprio ficheiro, independentemente da localização do ficheiro.
 
 [O Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os seus ficheiros e e-mail. O Azure RMS funciona em vários dispositivos — telemóveis, tablets e PCs ao proteger dentro da sua organização e fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção permanece com os dados, mesmo quando sai dos limites da organização.

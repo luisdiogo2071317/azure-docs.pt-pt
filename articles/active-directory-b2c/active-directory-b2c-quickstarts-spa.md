@@ -1,6 +1,6 @@
 ---
-title: Testar uma aplicação de página única ativada pelo Azure AD B2C
-description: Início rápido para experimentar um exemplo de aplicação de página única que utiliza o Azure Active Directory B2C para autenticar e inscrever utilizadores.
+title: Guia de introdução - Definir início de sessão para uma aplicação de página única utilizando o Azure Active Directory B2C | Microsoft Docs
+description: Execute um exemplo de aplicação de página única que utiliza o Azure Active Directory B2C para fornecer início de sessão na conta.
 services: active-directory-b2c
 documentationcenter: ''
 author: davidmu1
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
-ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 96baf0297c3d2976f3d6fb112b0bd0ce077a186f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Início Rápido: Testar uma aplicação de página única ativada pelo Azure AD B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guia de introdução: Definir o início de sessão para uma aplicação de página única utilizando o Azure Active Directory B2C
 
 O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud para manter as aplicações, as empresas e os clientes protegidos. O Azure AD B2C permite às aplicações efetuar a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos.
 

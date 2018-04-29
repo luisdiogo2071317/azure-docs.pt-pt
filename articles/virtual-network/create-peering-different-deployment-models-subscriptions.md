@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -204,7 +204,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
     > [!WARNING]
     > Importar um ficheiro de configuração foi alterada de rede pode fazer com que as alterações às redes virtuais existentes (clássica) na sua subscrição. Certifique-se apenas a adicionar a rede virtual anterior e que não alterar ou remover quaisquer redes virtuais existentes da sua subscrição. 
 
-5. Inicie sessão na subscrição do User-b como UserB utilizar comandos do Gestor de recursos, introduzindo o `login-azurermaccount` comando.
+5. Inicie sessão na subscrição do User-b como UserB utilizar comandos do Gestor de recursos, introduzindo o `Connect-AzureRmAccount` comando.
 6. Atribuir permissões de utilizador para a rede virtual cópia B. o seguinte script para um editor de texto no seu PC e substituir `<SubscriptionB-id>` com o ID de subscrição B. Se não souber o Id de subscrição, introduza o `Get-AzureRmSubscription` comando para vê-la. O valor para **Id** na saída devolvida é o ID de subscrição. Azure criar a rede virtual (clássica) que criou no passo 4 num grupo de recursos com o nome *predefinido redes*. Ao executar o script, copie o script modificado, cole-a para o PowerShell e, em seguida, prima `Enter`.
     
     ```powershell 
@@ -214,7 +214,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Termine sessão no Azure como UserB e inicie sessão na subscrição do User-como UserA, introduzindo o `login-azurermaccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#permissions).
+7. Termine sessão no Azure como UserB e inicie sessão na subscrição do User-como UserA, introduzindo o `Connect-AzureRmAccount` comando. A conta que iniciar sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [peering permissões de rede Virtual](virtual-network-manage-peering.md#permissions).
 8. Criar a rede virtual (Resource Manager) ao copiar o script seguinte, colando-para o PowerShell e, em seguida, premindo `Enter`:
 
     ```powershell
@@ -323,7 +323,7 @@ Quando tiver terminado neste tutorial, pode querer eliminar os recursos que crio
     > [!WARNING]
     > Importar um ficheiro de configuração foi alterada de rede pode fazer com que as alterações às redes virtuais existentes (clássica) na sua subscrição. Certifique-se apenas a remover a rede virtual anterior e que não alterar ou remover quaisquer outras redes virtuais existentes da sua subscrição. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Exaustivamente familiarizar-se com importante [restrições de peering de rede virtual e comportamentos](virtual-network-manage-peering.md#requirements-and-constraints) antes de criar uma rede virtual para a produção de peering utilize.
 - Saiba mais sobre todos os [definições de rede virtual peering](virtual-network-manage-peering.md#create-a-peering).

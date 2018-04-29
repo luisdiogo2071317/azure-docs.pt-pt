@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 699d621856e9febf7a5d4093d7fdc86c39d5f242
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Repor o licenciamento requisitos de palavra-passe self-service do Azure AD
 
-Ordem de palavra-passe do Azure Active Directory (Azure AD) Repor para a função, *tem de ter pelo menos uma licença atribuída na sua organização*. Iremos não impõem licenciamento a experiência de reposição de palavra-passe por utilizador. Para manter a conformidade com o contrato de licenciamento da Microsoft, terá de atribuir licenças para os utilizadores que utilizam as funcionalidades premium.
+Ordem de palavra-passe do Azure Active Directory (Azure AD) Repor para a função, *tem de ter pelo menos uma licença atribuída na sua organização*. Iremos não impõem licenciamento a experiência de reposição de palavra-passe por utilizador. É necessária uma licença adequada se um utilizador beneficiar direta ou indiretamente de qualquer funcionalidade abrangida por essa licença.
 
 * **Os utilizadores apenas na nuvem**: do Office 365 qualquer paga SKU ou do Azure AD Basic
 * **Nuvem** ou **os utilizadores no local**: Azure AD Premium P1 ou P2, Enterprise Mobility + de segurança (EMS) ou Microsoft 365
@@ -37,8 +37,9 @@ Para utilizar a repetição de escrita de palavras-passe, tem de ter uma das seg
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 (Plan E3)
-* Microsoft 365 (Plan E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > Autónomo Office 365 licenciamento planos *não suportam a repetição de escrita de palavras-passe* e requerem que tenha um dos planos anteriores para esta funcionalidade funcione.

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração de gestão do Automation DSC do Azure
 
@@ -31,7 +31,7 @@ Automation DSC do Azure podem ser utilizado para gerir uma variedade de máquina
 Além disso, se não estiver pronto para gerir a configuração da máquina da nuvem, DSC de automatização do Azure também pode ser utilizado como um ponto final só de relatório. Isto permite-lhe definir a configuração pretendida do (emitir) através do DSC no local e visualizar detalhes de relatórios avançados conformidade de nó com o estado pretendido na automatização do Azure.
 
 > [!NOTE]
-> Gerir as VMs do Azure com o DSC está incluído, sem encargos adicionais se a extensão de máquina virtual DSC instalada é superior ao 2.70. Consulte o [ **automatização página de preços** ](https://azure.microsoft.com/en-us/pricing/details/automation/) para obter mais detalhes.
+> Gerir as VMs do Azure com o DSC está incluído, sem encargos adicionais se a extensão de máquina virtual DSC instalada é superior ao 2.70. Consulte o [ **automatização página de preços** ](https://azure.microsoft.com/pricing/details/automation/) para obter mais detalhes.
 
 
 As secções seguintes descrevem como pode carregar cada tipo de máquina Automation DSC do Azure.
@@ -195,7 +195,7 @@ A máquina este comando é executado a partir tem de ter a versão mais recente 
 
 ## <a name="generating-dsc-metaconfigurations"></a>Gerar DSC metaconfigurations
 
-Para carregar genericamente qualquer computador no DSC da automatização do Azure, uma [configuração meta do DSC](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) pode ser gerada que, quando aplicada, indica o agente de DSC na máquina para solicitar a partir de e/ou reportar a Automation DSC do Azure. DSC metaconfigurations para Automation DSC do Azure pode ser gerada através de uma configuração de DSC do PowerShell ou os cmdlets do PowerShell de automatização do Azure.
+Para carregar genericamente qualquer computador no DSC da automatização do Azure, uma [configuração meta do DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig) pode ser gerada que, quando aplicada, indica o agente de DSC na máquina para solicitar a partir de e/ou reportar a Automation DSC do Azure. DSC metaconfigurations para Automation DSC do Azure pode ser gerada através de uma configuração de DSC do PowerShell ou os cmdlets do PowerShell de automatização do Azure.
 
 > [!NOTE]
 > DSC metaconfigurations contêm os segredos necessários para carregar uma máquina para uma automatização conta para a gestão. Certifique-se proteger corretamente qualquer metaconfigurations DSC que criar ou eliminá-los após a utilização.

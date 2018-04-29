@@ -6,20 +6,20 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: f318f98479caed8efb4a3705939cb9ac0dd5b237
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para o Azure replicação
 
 >[!NOTE]
 > Replicação de recuperação de site para máquinas virtuais do Azure está atualmente em pré-visualização.
 
-Este artigo fornece orientações para a rede quando estiver a replicar e a recuperar as VMs do Azure de uma região para outro, utilizando [do Azure Site Recovery](site-recovery-overview.md). 
+Este artigo fornece orientações para a rede quando estiver a replicar e a recuperar as VMs do Azure de uma região para outro, utilizando [do Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -57,19 +57,18 @@ login.microsoftonline.com | Necessário para autorização e autenticação para
 
 Se estiver a utilizar um proxy de firewall baseada em IP, ou as regras do NSG para controlar a conectividade de saída, estes intervalos IP tem de ser permitido.
 
-- Todos os intervalos de endereços IP que correspondem à localização de origem.
-    - Pode transferir o [intervalos de endereços IP](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+- Todos os intervalos de endereços IP que correspondem às contas de armazenamento na região de origem
+    - Tem de criar um [etiqueta do serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base em regras NSG para a região de origem.
     - Terá de permitir que estes endereços, de modo a que os dados podem ser escritos para a conta de armazenamento de cache da VM.
 - Todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais de endereço IP V4 de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
     - Se o novo endereço é adicionado para os intervalos do Office 365 no futuro, terá de criar novas regras NSG.
-- Endereços de IP de ponto final de serviço de recuperação de site. Estes estão disponíveis num [ficheiro XML](https://aka.ms/site-recovery-public-ips)e dependem da sua localização de destino.
--  Pode [transferir e utilizar este script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702), para criar automaticamente as regras necessárias no NSG. 
+- Endereços de IP de ponto final de serviço de recuperação de site. Estes estão disponíveis num [ficheiro XML](https://aka.ms/site-recovery-public-ips) e dependem da sua localização de destino.
+-  Pode [transferir e utilizar este script](https://aka.ms/nsg-rule-script), para criar automaticamente as regras necessárias no NSG.
 - Recomendamos que crie as regras do NSG necessárias num NSG de teste e, certifique-se de que existem não existem problemas antes de criar as regras sobre um NSG de produção.
-- Para criar o número necessário de regras do NSG, certifique-se de que a sua subscrição está na lista de permissões. Azure contacte o suporte para aumentar o limite de regras do NSG na sua subscrição.
 
-Intervalos de endereços IP são os seguintes:
 
->
+Intervalos de endereços IP de recuperação de site são as seguintes:
+
    **Target** | **Recuperação de sites IP** |  **Recuperação de site do IP de monitorização**
    --- | --- | ---
    Ásia Oriental | 52.175.17.132 | 13.94.47.61
@@ -99,50 +98,73 @@ Intervalos de endereços IP são os seguintes:
    Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
    Coreia Central | 52.231.28.253 | 52.231.32.85
    Coreia do Sul | 52.231.298.185 | 52.231.200.144
-   
-   
-  
+
+
+
 
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
 
-Este exemplo mostra como configurar as regras do NSG para uma VM replicar. 
+Este exemplo mostra como configurar as regras do NSG para uma VM replicar.
 
-- Se estiver a utilizar as regras do NSG para controlar a conectividade de saída, utilize "Permitir HTTPS a saída" regras para todos os os necessários intervalos de endereços IP.
-- O exemplo presumes que a localização de origem da VM é "Leste EUA" e a localização de destino é "E.U.A. Central.
+- Se estiver a utilizar as regras do NSG para controlar a conectividade de saída, utilize "Permitir HTTPS a saída" regras para a porta: 443 para todos os os necessários intervalos de endereços IP.
+- O exemplo presumes que a localização de origem da VM é "Leste EUA" e a localização de destino é "Central EUA".
 
 ### <a name="nsg-rules---east-us"></a>Regras do NSG - EUA leste
 
-1. Criar regras que correspondem aos [intervalos de endereços IP do Leste nos](https://www.microsoft.com/download/confirmation.aspx?id=41653). Isto é necessário para que os dados podem ser escritos para a conta de armazenamento de cache da VM.
-2. Criar regras para todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais de endereço IP V4 de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-3. Crie regras que correspondem a localização de destino:
+1. Crie uma regra de segurança HTTPS (443) saída para "Storage.EastUS" no NSG, conforme mostrado na captura de ecrã abaixo.
+
+      ![etiqueta de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Criar regras de saída de HTTPS (443) para todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais de endereço IP V4 de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que corresponde à localização de destino:
 
    **Localização** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação do site**
     --- | --- | ---
    EUA Central | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Regras do NSG - e.u. a Central 
+### <a name="nsg-rules---central-us"></a>Regras do NSG - e.u. a Central
 
 Estas regras são necessárias para que a replicação pode ser ativada a partir da região de destino para a origem região pós-falha:
 
-* Regras que correspondem aos [intervalos de IP de E.U.A. Central](https://www.microsoft.com/download/confirmation.aspx?id=41653). Estes são necessários para que os dados podem ser escritos para a conta de armazenamento de cache da VM.
+1. Crie uma regra de segurança HTTPS (443) saída para "Storage.CentralUS" no NSG.
 
-* Regras para todos os intervalos IP que correspondem ao Office 365 [pontos finais de endereço IP V4 de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Criar regras de saída de HTTPS (443) para todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais de endereço IP V4 de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
-* Regras que correspondem à localização de origem:
-    - EUA Leste
-    - Endereço IP de recuperação de sites: 13.82.88.226
-    - Endereço IP de monitorização de recuperação de sites: 104.45.147.24
+3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que corresponde à localização de origem:
 
+   **Localização** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação do site**
+    --- | --- | ---
+   EUA Central | 13.82.88.226 | 104.45.147.24
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN 
+## <a name="network-virtual-appliance-configuration"></a>Configuração de aplicação virtual de rede
+
+Se estiver a utilizar dispositivos de rede virtual (NVAs) para controlar o tráfego de rede de saída de VMs, poderá obter limitada a aplicação se todo o tráfego de replicação atravessa a NVA. Recomendamos que crie um ponto final de serviço de rede na sua rede virtual para "Armazenamento", para que o tráfego de replicação não ir para a NVA.
+
+### <a name="create-network-service-endpoint-for-storage"></a>Criar o ponto final do serviço de rede de armazenamento
+Pode criar um ponto final de serviço de rede na sua rede virtual para "Armazenamento", para que o tráfego de replicação não deixe o limite do Azure.
+
+- Selecione a rede virtual do Azure e clique em 'Pontos finais de serviço'
+
+    ![ponto final de armazenamento](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+
+- Clique em 'Adicionar' e 'Adicionar pontos finais de serviço' separador é aberto
+- Selecione 'Microsoft' em 'Service' e as sub-redes em campo 'Sub-redes' necessárias e clique em 'Add'
+
+>[!NOTE]
+>Não é restringir o acesso de rede virtual para as contas de armazenamento utilizadas para ASR. Deve permitir acesso a partir de 'Todas as redes'
+
+## <a name="expressroutevpn"></a>ExpressRoute/VPN
 
 Se tiver uma ligação ExpressRoute ou VPN entre no local e a localização do Azure, siga as orientações nesta secção.
 
 ### <a name="forced-tunneling"></a>Túnel forçado
 
-Normalmente, é possível definir uma rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída a passagem a localização no local. Não recomendamos esta. O tráfego de replicação e comunicação de serviço de recuperação de Site não devem deixar o limite do Azure. A solução consiste em adicionar as rotas definidas pelo utilizador (UDRs) para [estes intervalos IP](#outbound-connectivity-for-azure-site-recovery-ip-ranges) para que o tráfego de replicação não é aceite no local.
+Normalmente, é possível definir uma rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída a passagem a localização no local ou. Não recomendamos esta. O tráfego de replicação não deve deixar o limite do Azure.
 
-### <a name="connectivity"></a>Conectividade 
+Pode [criar um ponto final de serviço de rede](#create-network-service-endpoint-for-storage) no seu virtual de rede para "Armazenamento", para que o tráfego de replicação não deixe o limite do Azure.
+
+
+### <a name="connectivity"></a>Conectividade
 
 Siga estas diretrizes para ligações entre a localização de destino e a localização no local:
 - Se a aplicação tem de ligar às máquinas no local ou se não existirem clientes que ligam à aplicação no local através de VPN/ExpressRoute, certifique-se de que tem, pelo menos, um [ligação site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) entre a sua região do Azure de destino e o Centro de dados no local.

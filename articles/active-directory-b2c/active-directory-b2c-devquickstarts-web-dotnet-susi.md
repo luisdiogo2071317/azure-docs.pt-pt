@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 3f601fbbbb9aab0f942b26da9ad1c8c0a0dc9b16
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com o Azure Active Directory B2C perfil de inscrição, início de sessão, editar e reposição de palavra-passe
 
@@ -28,7 +28,7 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ligar o seu inquilino do B2C para uma conta do Azure. Pode criar uma conta do Azure gratuita [aqui](https://azure.microsoft.com/en-us/).
+- Tem de ligar o seu inquilino do B2C para uma conta do Azure. Pode criar uma conta do Azure gratuita [aqui](https://azure.microsoft.com/).
 - Terá de [Microsoft Visual Studio](https://www.visualstudio.com/) ou programa semelhante para ver e modificar o código de exemplo.
 
 ## <a name="create-an-azure-ad-b2c-directory"></a>Criar um diretório do Azure AD B2C

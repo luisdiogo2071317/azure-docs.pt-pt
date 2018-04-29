@@ -1,28 +1,28 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentação de Operador do Azure Stack"
+title: Documentação de Operador do Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: "Documentação de Operador do Azure Stack - Tutoriais, Referência da API"
-  description: "Saiba como utilizar a pilha do Azure para fornecer serviços do Azure a partir do seu centro de dados. Saiba e demonstrar funcionalidades de um Kit de desenvolvimento ou de um ambiente integrado sistemas."
+  title: Documentação de Operador do Azure Stack - Tutoriais, Referência da API
+  description: Saiba como utilizar a pilha do Azure para fornecer serviços do Azure a partir do seu centro de dados. Saiba e demonstrar funcionalidades de um Kit de desenvolvimento ou de um ambiente integrado sistemas.
   services: azure-stack
-  author: czeumault
-  manager: carolz
+  author: jeffgilb
+  manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/02/2017
-  ms.author: carolz
-  ms.openlocfilehash: 59dea633182c774bab3408f8503a6bd6f5f5d783
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.date: 04/13/2018
+  ms.author: jeffgilb
+  ms.openlocfilehash: 9da39d733c51c637fdf13d1fb9c5649276ea8a23
+  ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 04/23/2018
 abstract:
-  description: "O Microsoft Azure Stack é uma plataforma de cloud híbrida que lhe permite fornecer serviços do Azure a partir do seu datacenter. Saiba como implementar o Kit de desenvolvimento de pilha do Azure, como gerir a infraestrutura para sistemas integrados e o kit de desenvolvimento e como oferecer serviços com os nossos inícios rápidos e tutoriais.<br/><br/>Se a um utilizador de pilha do Azure que utiliza os serviços ou baseia-se aplicações de pilha do Azure, consulte a nossa <a href=\"/azure/azure-stack/user\">documentação do utilizador</a>."
+  description: O Microsoft Azure Stack é uma plataforma de cloud híbrida que lhe permite fornecer serviços do Azure a partir do seu datacenter. Saiba como gerir a infraestrutura de sistemas integrada de pilha do Azure e como a oferta de serviços com os nossos inícios rápidos e tutoriais.<br/><br/>Se a um utilizador de pilha do Azure que utiliza os serviços ou baseia-se aplicações de pilha do Azure, consulte a nossa <a href="/azure/azure-stack/user">documentação do utilizador</a>.<br/><br/>Se for um operador de pilha do Azure interessado no Azure pilha Development Kit (ASDK), uma implementação de nó único da pilha do Azure que pode transferir e utilizar gratuitamente, consulte a nossa <a href="/azure/azure-stack/asdk">documentação ASDK</a>.
 sections:
-- title: "Início Rápido"
+- title: Início Rápido
   items:
   - type: paragraph
     text: Configurar o hardware e implementar o Kit de desenvolvimento de pilha do Azure.
@@ -31,30 +31,30 @@ sections:
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_deploy.svg
-      text: Implementar o Kit de desenvolvimento de pilha do Azure
+      text: Implementar o Development Kit do Azure Stack
       href: azure-stack-deploy-overview.md
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: "Saiba como adicionar serviços para a implementação de pilha do Azure."
+    text: Saiba como adicionar serviços para a implementação de pilha do Azure.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-tenant-vm\">Oferecer máquinas virtuais na pilha do Azure</a>"
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Oferecer máquinas virtuais na pilha do Azure</a>
     - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Oferecer bases de dados do SQL na pilha do Azure</a>
-    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-app-service\">Oferecem as aplicações Web na pilha do Azure</a>"
-- title: "Vídeo de Formação Gratuita da PluralSight"
+    - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Oferecem as aplicações Web na pilha do Azure</a>
+- title: Vídeo de Formação Gratuita da PluralSight
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: "Conheça as noções básicas do Azure Stack"
+    - title: Conheça as noções básicas do Azure Stack
       href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
-- title: "Referência"
+- title: Referência
   items:
   - type: list
     style: cards

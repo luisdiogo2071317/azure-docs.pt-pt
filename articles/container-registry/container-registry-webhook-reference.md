@@ -1,18 +1,18 @@
 ---
-title: "Referência do esquema de webhook de registo de contentor do Azure"
-description: "Webhook pedido JSON payload referência para o registo de contentor do Azure."
+title: Referência do esquema de webhook de registo de contentor do Azure
+description: Webhook pedido JSON payload referência para o registo de contentor do Azure.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook de registo de contentor do Azure
 
@@ -46,7 +46,7 @@ Acionado quando é feita uma imagem de contentor para um repositório de Webhook
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
 |`action`|Cadeia|A ação que acionou o evento de webhook.|
 |[destino](#target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
-|[pedido](#request)|Tipo complexo|O pedido que gerou o evento de webhook.|
+|[Pedido](#request)|Tipo complexo|O pedido que gerou o evento de webhook.|
 
 ### <a name="target"></a>destino
 
@@ -98,7 +98,7 @@ Exemplo [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Eliminar evento
+## <a name="delete-event"></a>Eliminar o evento
 
 Webhook acionado quando um repositório ou manifesto é eliminado. Não é acionado quando é eliminada uma etiqueta.
 
@@ -110,9 +110,9 @@ Webhook acionado quando um repositório ou manifesto é eliminado. Não é acion
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
 |`action`|Cadeia|A ação que acionou o evento de webhook.|
 |[destino](#delete_target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
-|[pedido](#delete_request)|Tipo complexo|O pedido que gerou o evento de webhook.|
+|[Pedido](#delete_request)|Tipo complexo|O pedido que gerou o evento de webhook.|
 
-### <a name="delete_target"></a>destino
+### <a name="delete_target"></a> destino
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
@@ -120,7 +120,7 @@ Webhook acionado quando um repositório ou manifesto é eliminado. Não é acion
 |`digest`|Cadeia|O resumo do conteúdo, tal como definido pela especificação de API do registo V2 HTTP.|
 |`repository`|Cadeia|O nome do repositório.|
 
-### <a name="delete_request"></a>pedido
+### <a name="delete_request"></a> Pedido
 
 |Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
@@ -160,6 +160,6 @@ az acr repository delete -n MyRegistry --repository MyRepository
 az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Utilizar o registo de contentor do Azure webhooks](container-registry-webhook.md)

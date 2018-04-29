@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 56559adbc2ebd4e4379326607a28333d538504da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8cc6fa994c750f4718e6cc065819763d8be4f18c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados de Phoenix utilizando o Azure Data Factory 
 
@@ -46,7 +46,7 @@ As seguintes propriedades são suportadas para o serviço de Phoenix ligado:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Phoenix** | Sim |
 | anfitrião | O endereço IP ou anfitrião nome do servidor Phoenix. (ou seja, 192.168.222.160)  | Sim |
-| porta | A porta TCP que o servidor de Phoenix utiliza para escutar ligações de cliente. O valor predefinido é 8765.  | Não |
+| porta | A porta TCP que o servidor de Phoenix utiliza para escutar ligações de cliente. O valor predefinido é 8765. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL parcial correspondente para o servidor de Phoenix. (ou seja, /gateway/sandbox/phoenix/version). O valor predefinido é `hbasephoenix` se WindowsAzureHDInsightService a utilizar.  | Não |
 | authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor Phoenix. <br/>Valores permitidos são: **anónimo**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor Phoenix.  | Não |
@@ -67,7 +67,7 @@ As seguintes propriedades são suportadas para o serviço de Phoenix ligado:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
+            "port" : "443",
             "httpPath" : "hbasephoenix",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",

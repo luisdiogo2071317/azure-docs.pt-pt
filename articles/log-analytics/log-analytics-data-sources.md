@@ -1,8 +1,8 @@
 ---
 title: Configurar origens de dados no Log Analytics do Azure | Microsoft Docs
-description: "Origens de dados definem os dados que recolhe de análise de registos de agentes e outro ligado origens.  Este artigo descreve o conceito de como Log Analytics utiliza origens de dados, explica os detalhes sobre como configurá-las e fornece um resumo das origens de dados diferentes disponíveis."
+description: Origens de dados definem os dados que recolhe de análise de registos de agentes e outro ligado origens.  Este artigo descreve o conceito de como Log Analytics utiliza origens de dados, explica os detalhes sobre como configurá-las e fornece um resumo das origens de dados diferentes disponíveis.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Origens de dados de análise de registos
 Análise de registos recolhe dados do seu origens ligadas e armazena-os na sua área de trabalho de análise de registos.  Os dados que são recolhidos de cada um são definidos pelas origens de dados que configurar.  Dados de análise de registos são armazenados como um conjunto de registos.  Cada origem de dados cria registos de um determinado tipo, com cada tipo de ter o seu próprio conjunto de propriedades.
@@ -29,16 +29,19 @@ Origens de dados são diferentes [soluções de gestão](log-analytics-add-solut
 
 
 ## <a name="summary-of-data-sources"></a>Resumo das origens de dados
-As origens de dados que estão atualmente disponíveis no Log Analytics estão listadas na seguinte tabela.  Cada um tem uma ligação para um artigo separado que fornece detalhes para essa origem de dados.
+A tabela seguinte lista as origens de dados que estão atualmente disponíveis no registo de análise.  Cada um tem uma ligação para um artigo separado que fornece detalhes para essa origem de dados.   Também fornece informações de método e frequência de recolha de dados para análise de registos.  Pode utilizar as informações neste artigo para identificar as diferentes soluções disponíveis e para compreender os requisitos de ligação e de fluxo de dados para soluções de gestão diferente. Para uma explicação das colunas, consulte [detalhes de recolha de dados para soluções de gestão no Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| Origem de Dados | Tipo de evento | Descrição |
-|:--- |:--- |:--- |
-| [Registos personalizados](log-analytics-data-sources-custom-logs.md) |\<LogName\>_CL |Ficheiros de texto em agentes Windows ou Linux que contém informações de registo. |
-| [Registos de eventos do Windows](log-analytics-data-sources-windows-events.md) |Evento |Eventos recolhidos a partir de computadores de Windows de início de sessão de evento. |
-| [Contadores de desempenho do Windows](log-analytics-data-sources-performance-counters.md) |Desempenho |Contadores de desempenho recolhidos a partir de computadores Windows. |
-| [Contadores de desempenho do Linux](log-analytics-data-sources-performance-counters.md) |Desempenho |Contadores de desempenho recolhidos a partir de computadores com Linux. |
-| [Registos do IIS](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Os registos de serviços de informação Internet no formato de W3C. |
-| [Syslog](log-analytics-data-sources-syslog.md) |Syslog |Eventos syslog nos computadores Windows ou Linux. |
+
+| Origem de dados | Plataforma | Agente de monitorização da Microsoft | Agente do Operations Manager | Storage do Azure | O Operations Manager necessárias? | Dados de agente do Operations Manager enviados através do grupo de gestão | Frequência da recolha |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Registos personalizados](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | sobre chegada |
+| [Registos personalizados](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | sobre chegada |
+| [Registos do IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
+| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Mínimo de 10 segundos, conforme agendado |
+| [Contadores de desempenho](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Mínimo de 10 segundos, conforme agendado |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |storage do Azure: 10 minutos; do agente: sobre chegada |
+| [Registos de eventos do Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | sobre chegada |
+
 
 ## <a name="configuring-data-sources"></a>Configurar origens de dados
 Configurar origens de dados a partir de **dados** menu na análise de registos **definições avançadas**.  Qualquer configuração é transmitida para todas as origens ligadas na sua área de trabalho.  Atualmente não é possível excluir quaisquer agentes desta configuração.

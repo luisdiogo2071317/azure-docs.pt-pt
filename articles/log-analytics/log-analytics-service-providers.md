@@ -1,11 +1,11 @@
 ---
-title: "Funcionalidades de análise de registo para fornecedores de serviços | Microsoft Docs"
-description: "Análise de registos pode ajudar geridos fornecedores de serviços (MSPs), as grandes empresas, os fabricantes Sofware independentes (ISVs) e fornecedores de serviços de alojamento gerirem e monitorizar os servidores de infraestrutura de nuvem ou no local do cliente."
+title: Funcionalidades de análise de registo para fornecedores de serviços | Microsoft Docs
+description: Análise de registos pode ajudar geridos fornecedores de serviços (MSPs), as grandes empresas, os fabricantes Sofware independentes (ISVs) e fornecedores de serviços de alojamento gerirem e monitorizar os servidores de infraestrutura de nuvem ou no local do cliente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funcionalidades de análise do registo para fornecedores de serviços
 Análise de registos pode ajudar os fornecedores de serviços geridos (MSPs), as grandes empresas, os fabricantes independentes de software (ISV) e fornecedores de serviços de alojamento gerir e monitorizar os servidores de infraestrutura de nuvem ou no local do cliente. 
@@ -40,7 +40,7 @@ Como um *provedor de soluções de nuvem* , pode:
 Para iniciar sessão subscrição do inquilino, tem de especificar o identificador de inquilino. O identificador de inquilino é muitas vezes, essa última parte do endereço de correio electrónico utilizado para iniciar sessão.
 
 * No portal do OMS, adicionar `?tenant=contoso.com` no URL para o portal. Por exemplo, `mms.microsoft.com/?tenant=contoso.com`
-* No PowerShell, utilize o `-Tenant contoso.com` parâmetro ao utilizar `Add-AzureRmAccount` cmdlet
+* No PowerShell, utilize o `-Tenant contoso.com` parâmetro ao utilizar `Connect-AzureRmAccount` cmdlet
 * O identificador de inquilino é adicionado automaticamente ao utilizar o `OMS portal` ligação a partir do portal do Azure para abra e inicie sessão portal do OMS para a área de trabalho selecionado
 
 Como um *cliente* de um fornecedor de solução em nuvem, pode:
@@ -77,7 +77,7 @@ Para personalizado vistas de dados, utilize o [dashboard](../azure-portal/azure-
 
 Para os relatórios de nível executivos resumir os dados em áreas de trabalho pode utilizar a integração entre o análise de registos e [PowerBI](log-analytics-powerbi.md). Se precisar de integrar com outro sistema de relatórios, pode utilizar a API de pesquisa (através do PowerShell ou [REST](log-analytics-log-search-api.md)) para executar consultas e exportar os resultados da pesquisa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Automatizar a criação e a configuração de áreas de trabalho utilizando [modelos do Resource Manager](log-analytics-template-workspace-configuration.md)
 * Automatizar a criação de áreas de trabalho utilizando [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Utilize [alertas](log-analytics-alerts.md) para integrar com sistemas existentes

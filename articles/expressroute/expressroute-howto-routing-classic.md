@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: d6c675d314e96cd0caab7e5eb5c60e3b1458e4a0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar o peering de um circuito de ExpressRoute (clássica)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Pode configurar um, dois ou todos os três peerings (Azure privado, Azure públi
 ### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Inicie sessão na sua conta do Azure e selecionar uma subscrição
 1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
 
 2. Verifique as subscrições da conta.
 
@@ -120,7 +120,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
      
     Pode utilizar o cmdlet abaixo se optar por utilizar um hash MD5.
      
-        New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+        Novo AzureBGPPeering - AccessType privada - ServiceKey "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - VlanId 100 - SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Assegure que especifica o seu número AS como ASN de peering, não cliente ASN.
@@ -295,7 +295,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
      
     Pode executar o cmdlet seguinte para configurar pering da Microsoft para o seu circuito
      
-        New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+        Novo AzureBGPPeering - AccessType Microsoft - ServiceKey "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - VlanId 300 - PeerAsn 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes "123.0.0.0/30" - RoutingRegistryName "ARIN" - SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Para ver os detalhes do peering da Microsoft
 Pode obter os detalhes de configuração com o cmdlet seguinte.

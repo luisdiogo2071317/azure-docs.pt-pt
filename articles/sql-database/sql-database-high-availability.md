@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 Desde inception a oferta Azure SQL da base de dados PaaS, Microsoft fez promessa aos seus clientes que o serviço está incorporada no elevada disponibilidade (ed) e os clientes não são necessários para funcionar, adicione lógica especial para ou tomar decisões em torno HA. A Microsoft tem controlo total sobre a configuração do sistema HA e a operação, oferecendo aos clientes um SLA. O SLA HA aplica-se a uma base de dados do SQL Server numa região e não proporciona proteção em caso de uma falha de região total é decorrentes de factores fora do controlo razoável da Microsoft (por exemplo, desastre natural war, atos terrorismo, riots, ação government, ou um rede falha ou de dispositivo externa aos datacenters da Microsoft, incluindo nos sites de cliente ou entre sites de cliente e o Centro de dados da Microsoft).
@@ -87,9 +87,14 @@ A versão de redundante da zona da arquitetura de elevada disponibilidade é ilu
 ## <a name="read-scale-out"></a>Leitura de escalamento horizontal
 Tal como descrito, Premium e críticos de negócio (pré-visualização) do serviço tire partido de camadas quórum-conjuntos e tecnologia de AlwaysON para disponibilidade elevada nas única zona e configurações de zona redundante. Uma das vantagens de AlwasyON é que as réplicas sempre estão no estado de uma forma consistente. Porque as réplicas tenham o mesmo nível de desempenho como principais, a aplicação pode tirar partido dessa capacidade extra para a manutenção as cargas de trabalho só de leitura em nenhum extra Custo (leitura Escalamento horizontal). Desta forma, as consultas só de leitura serão isoladas da carga de trabalho de leitura e escrita principal e não irão afetar o desempenho dele. Leitura destina-se a funcionalidade de escalamento horizontal para aplicações que incluem logicamente separados só de leitura cargas de trabalho, tais como a análise e, por conseguinte, foi possível tirar partido desta capacidade adicional sem ligar para o site primário. 
 
-Para utilizar a funcionalidade de ampliação de leitura com uma base de dados específica, tem de ativar explicitamente-lo ao criar a base de dados ou posteriormente alterando a sua configuração através do PowerShell invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [ Novo-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou através da API de REST do Azure Resource Manager utilizando o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método.
+Para utilizar a funcionalidade de ampliação de leitura com uma base de dados específica, que tem explicitamente a ativa ao criar a base de dados ou posteriormente alterando a sua configuração através do PowerShell invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou através da API de REST do Azure Resource Manager utilizando o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método.
 
-Depois de leitura Escalamento horizontal é ativado para uma base de dados, a ligação para a base de dados de aplicações serão direcionadas para a réplica de leitura e escrita ou para uma réplica só de leitura de acordo com a base de dados a `ApplicationIntent` propriedade configurada da aplicação cadeia de ligação. Para obter informações sobre o `ApplicationIntent` propriedade, consulte [especificar tipo de aplicação](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+Depois de leitura Escalamento horizontal é ativado para uma base de dados, a ligação para a base de dados de aplicações serão direcionadas para a réplica de leitura e escrita ou para uma réplica só de leitura de acordo com a base de dados a `ApplicationIntent` propriedade configurada da aplicação cadeia de ligação. Para obter informações sobre o `ApplicationIntent` propriedade, consulte [especificar tipo de aplicação](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Se leitura Escalamento horizontal está desativado ou defina a propriedade de ReadScale uma camada de serviço não suportado, todas as ligações são direcionadas para a réplica de leitura e escrita, independentemente do `ApplicationIntent` propriedade.  
+
+> [!NOTE]
+> É possível ativar a leitura de dimensionamento horizontal em padrão ou uma base de dados de objetivo geral, apesar de não irá resultar no encaminhamento a só de leitura se destina a sessão para uma réplica separada. Isto é feito para suportar as aplicações existentes que aumentar vertical ou entre camadas de objetivo geral/Standard e Premium/negócio crítico.  
 
 A funcionalidade de ampliação leitura suporta consistência ao nível da sessão. Se a sessão só de leitura fosse ligado depois do fazer com que a um erro de ligação pela indisponibilidade de réplica, podem ser redirecionado para uma réplica diferentes. Embora seja pouco provável, pode resultar no processamento do conjunto de dados que está obsoleto. Da mesma forma, se uma aplicação escreve dados através de uma sessão de leitura / escrita e imediatamente lê-lo utilizando a sessão só de leitura, é possível que os novos dados não são imediatamente visíveis.
 

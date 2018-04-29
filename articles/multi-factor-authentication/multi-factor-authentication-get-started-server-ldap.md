@@ -1,8 +1,8 @@
 ---
-title: "Autenticação LDAP e Servidor MFA do Azure | Microsoft Docs"
-description: "Esta é a página do Multi-Factor Authentication do Azure que irá ajudar a implementar a Autenticação LDAP e o Servidor Multi-Factor Authentication do Azure."
+title: Autenticação LDAP e Servidor MFA do Azure | Microsoft Docs
+description: Esta é a página do Multi-Factor Authentication do Azure que irá ajudar a implementar a Autenticação LDAP e o Servidor Multi-Factor Authentication do Azure.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.openlocfilehash: 37f96afab67680b3140a6f4da6bff0c23a1f328f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e o servidor do Azure multi-factor Authentication
 Por predefinição, o Servidor Multi-Factor Authentication do Azure está configurado para importar ou sincronizar os utilizadores do Active Directory. No entanto, pode ser configurado para ser vinculado a diferentes diretórios LDAP, como um diretório do ADAM ou controlador de domínio específico do Active Directory. Quando estiver ligado a um diretório através de LDAP, o servidor do Azure multi-factor Authentication pode atuar como um proxy LDAP para efetuar as autenticações. Também permite a utilização do enlace de LDAP como destino RADIUS, para pré-autenticação de utilizadores através da utilização da Autenticação do IIS ou para autenticação primária no portal de utilizador do MFA do Azure.

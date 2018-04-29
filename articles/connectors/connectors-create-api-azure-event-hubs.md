@@ -1,14 +1,14 @@
 ---
-title: "Configurar a monitorização de eventos com o Event Hubs do Azure para o Azure Logic Apps | Microsoft Docs"
+title: Configurar a monitorização de eventos com o Event Hubs do Azure para o Azure Logic Apps | Microsoft Docs
 description: Monitorizar os fluxos de dados para receber eventos e enviar eventos com as logic apps com o Event Hubs do Azure
 services: logic-apps
 keywords: fluxo de dados, o monitor de eventos, os event hubs
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorizar, receber e enviar eventos com o conector de Event Hubs
 
@@ -76,11 +76,28 @@ A [ *acionador* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um
 3. Selecione o Hub de eventos para monitorizar e configurar o intervalo de frequência e para quando procurar o Hub de eventos.
 
     ![Especifique o Hub de eventos ou grupo de consumidores](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Todos os acionadores de Hub de eventos *longa consulta* acionadores, o que significa que, quando um acionador é acionado, o acionador processa todos os eventos e, em seguida, aguarda 30 segundos mais eventos de eventos apareça Hub.
+    > Se não há eventos recebidos em 30 segundos, é ignorada a execução do acionador. Caso contrário, o acionador continua ler eventos até que o Hub de eventos está vazio.
+    > A seguinte consulta de Acionador baseia-se no intervalo de periodicidade especificado nas propriedades do acionador.
 
-    > [!TIP]
-    > Para, opcionalmente, selecione um grupo de consumidores para ler eventos, escolha **Mostrar opções avançadas**.
 
-4. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
+4. Para, opcionalmente, selecione algumas das opções avançadas de Acionador, escolha **Mostrar opções avançadas**.
+
+    ![Acionar opções avançadas](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Propriedade | Detalhes |
+    | --- | --- |
+    | Tipo de conteúdo  |Selecione o tipo de conteúdo dos eventos na lista pendente. Por predefinição, está selecionado application/octet-stream. |
+    | Esquema do conteúdo |Introduza o esquema do conteúdo no JSON para os eventos que são lidos a partir do Event Hub. |
+    | Nome do grupo de consumidores |Introduza o Hub de eventos [nome do grupo de consumidores](../event-hubs/event-hubs-features.md#consumer-groups) para leitura dos eventos. Quando não for especificado o nome do grupo de consumidores, é utilizado o grupo de consumidores predefinido. |
+    | Chave de partição mínima |Introduza o mínimo [partição](../event-hubs/event-hubs-features.md#partitions) ID ler. Por predefinição, todas as partições são de leitura. |
+    | Chave de partição máximo |Introduza o número máximo [partição](../event-hubs/event-hubs-features.md#partitions) ID ler. Por predefinição, todas as partições são de leitura. |
+    | Contagem máxima de eventos |Introduza um valor para o número máximo de eventos. Devolve o acionador entre um e o número de eventos especificado por esta propriedade. |
+    |||
+
+5. Guarde a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**.
 
 Agora, quando a sua aplicação lógica verifica o Hub de eventos selecionada e localiza um novo evento, o acionador executa as ações na sua aplicação lógica para o evento encontrado.
 

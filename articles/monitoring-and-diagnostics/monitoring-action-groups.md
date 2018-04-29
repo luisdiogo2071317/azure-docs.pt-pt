@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -93,7 +93,7 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 
 <dt>Webhook</dt>
 <dd>Pode ter até 10 ações de Webhook num grupo de ação
-<dd>Repetir lógica - a chamada de webhook será tentada novamente um máximo de 3 vezes quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504</dd>
+<dd>Repetir lógica - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será tentada novamente um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final de HTTP não responde. A primeira tentativa ocorre após 10 segundos. O segundo e o último novamente ocorre após 100 segundos.</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Gerir os grupos de ação ##

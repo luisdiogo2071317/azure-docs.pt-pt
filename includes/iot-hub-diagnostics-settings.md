@@ -4,13 +4,13 @@
 1. Selecione **definições de diagnóstico**.
 1. Selecione **ative os diagnósticos**.
 
-   ![Ative os diagnósticos][1]
+   ![Ativar os diagnósticos][1]
 
 1. Dê um nome das definições de diagnóstico.
 1. Selecione onde pretende enviar os registos. Pode selecionar qualquer combinação de três opções:
-   * Para uma conta de armazenamento de arquivo
-   * Fluxo para um hub de eventos
-   * Enviar ao Log Analytics
+   * Arquivar numa conta de armazenamento
+   * Transmitir em fluxo para um hub de eventos
+   * Enviar para o Log Analytics
 1. Escolha as operações que pretende monitorizar e ativar os registos para essas operações. As operações que definições de diagnóstico podem reportar são:
    * Ligações
    * Telemetria do dispositivo
@@ -28,7 +28,7 @@
 Se pretender ativar as definições de diagnóstico com o PowerShell, utilize o seguinte código:
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

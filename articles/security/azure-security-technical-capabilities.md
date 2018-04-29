@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0cef0a261b0362fcb9776e63c10e96aedc408b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -134,7 +134,7 @@ Quando utiliza o Azure Active Directory B2C, os consumidores podem inscrever-se 
 
 #### <a name="device-registration"></a>Registo de dispositivo
 
-[Registo de dispositivos do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) é o alicerce da baseado nos dispositivos [acesso condicional](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) cenários. Quando um dispositivo é registado, o registo de dispositivos do Azure AD fornece o dispositivo com uma identidade que é utilizado para autenticar o dispositivo quando o utilizador inicia sessão. O dispositivo autenticado e os atributos do dispositivo podem então ser utilizados para aplicar políticas de acesso condicional para aplicações alojadas na nuvem e no local.
+[Registo de dispositivos do Azure AD](https://docs.microsoft.com/azure/active-directory/device-management-introduction) é o alicerce da baseado nos dispositivos [acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) cenários. Quando um dispositivo é registado, o registo de dispositivos do Azure AD fornece o dispositivo com uma identidade que é utilizado para autenticar o dispositivo quando o utilizador inicia sessão. O dispositivo autenticado e os atributos do dispositivo podem então ser utilizados para aplicar políticas de acesso condicional para aplicações alojadas na nuvem e no local.
 
 Quando combinada com um [gestão de dispositivos móveis (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) solução, como o Intune, os atributos do dispositivo no Azure Active Directory são atualizados com informações adicionais sobre o dispositivo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 73b0c35ac81d9b32cd56a6fd23119f3889867499
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d6a4701c0318edf8292c777615196a2170a68750
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rota
 
@@ -31,10 +31,10 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
-## <a name="create-a-route-table"></a>Criar uma tabela de rota
+## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
 Não há um limite para quantas tabelas de rota, pode criar por localização do Azure e subscrição. Para obter mais detalhes, veja [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -82,7 +82,7 @@ Na caixa de pesquisa na parte superior do portal, introduza *tabelas de rotas* n
 - CLI do Azure: [atualização de tabela de rotas de rede az](/cli/azure/network/route-table/route#az_network_route_table_update)
 - PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
-## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rota para uma sub-rede
+## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
 Uma sub-rede pode ter zero ou uma tabela de rotas associada ao mesmo. Uma tabela de rota pode ser associada a zero ou várias sub-redes. Uma vez que as tabelas de rotas não estão associadas às redes virtuais, tem de associar uma tabela de rota para cada sub-rede que pretende que a tabela de rotas associada. Todo o tráfego que sai da sub-rede é encaminhado com base nas rotas criou dentro de tabelas de rota, [predefinido rotas](virtual-networks-udr-overview.md#default), e as rotas propagadas a partir de uma rede no local, se a rede virtual está ligada a um (gateway de rede virtual do Azure ExpressRoute, ou uma VPN, se utilizar o BGP com um gateway de VPN). Só pode associar uma tabela de rotas para sub-redes em redes virtuais que existem na mesma localização do Azure e subscrição enquanto a tabela de rotas.
 
@@ -132,7 +132,7 @@ Não há um limite para quantas rotas por tabela de rotas podem criar por locali
 1. Na caixa de pesquisa na parte superior do portal, introduza *tabelas de rotas* na caixa de pesquisa. Quando **tabelas de rotas** aparece nos resultados da pesquisa, selecionados-lo.
 2. Selecione a tabela de rota da lista que pretende adicionar uma rota para.
 3. Selecione **rotas**, em **definições**.
-4. Selecione **+ adicionar**.
+4. Selecione **+ Adicionar**.
 5. Introduza um único **nome** da rota na tabela de rota.
 6. Introduza o **prefixo de endereço**, na notação CIDR, o que pretende para encaminhar o tráfego para. O prefixo não pode ser duplicado na rota mais do que uma tabela de rotas, embora possam ser o prefixo dentro de outro prefixo. Por exemplo, se definidas 10.0.0.0/16 como um prefixo numa rota, pode definir outra rota com o prefixo de endereço 10.0.0.0/24. Azure seleciona uma rota para o tráfego com base na correspondência de prefixo mais longo. Para obter mais informações sobre como o Azure seleciona rotas, consulte o artigo [descrição geral de encaminhamento](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Selecione um **próximo salto tipo**. Para obter uma descrição detalhada de todos os tipos de salto seguintes, consulte [descrição geral de encaminhamento](virtual-networks-udr-overview.md).

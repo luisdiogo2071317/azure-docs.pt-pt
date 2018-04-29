@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -23,18 +23,19 @@ As alterações ao software instalado, os serviços do Windows, registo do Windo
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
-
 Para começar a controlar as alterações, tem de ativar a solução de controlo de alterações e de inventário para a sua conta de automatização.
 
 1. No portal do Azure, navegue até à sua conta de automatização
 1. Selecione **alterações** em **configuração**.
-2. Selecione uma área de trabalho de análise do registo existente ou **criar nova área de trabalho** e clique em **ativar**.
+1. Selecione uma área de trabalho de análise do registo existente ou **criar nova área de trabalho** e clique em **ativar**.
 
 Isto permite que a solução para a sua conta de automatização. A solução pode demorar até 15 minutos a ativar. A faixa azul notifica-o quando a solução está ativada. Navegue de volta para o **alterações** página para gerir a solução.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configurar o registo de alterações e inventário
 
-Para saber como para os computadores integrar a solução visite: [soluções de integração automatização](automation-onboard-solutions-from-automation-account.md). Quando ativar um novo ficheiro ou a chave de registo para acompanhar, está ativado para registo de alterações e inventário.
+Para saber como para os computadores integrar a solução visite: [soluções de integração automatização](automation-onboard-solutions-from-automation-account.md). Assim que tiver uma integração máquina com a solução de controlo de alterações e de inventário pode configurar os itens para controlar. Quando ativar um novo ficheiro ou a chave de registo para acompanhar, está ativado para registo de alterações e inventário.
+
+Para controlar as alterações em ficheiros no Windows e Linux, são utilizados os hashes MD5 dos ficheiros. Os hashes presumem, em seguida, são utilizados para detetar se foi efetuada uma alteração desde o último inventário.
 
 ### <a name="configure-linux-files-to-track"></a>Configurar ficheiros de Linux para controlar
 
@@ -109,6 +110,7 @@ Outras limitações:
 ## <a name="known-issues"></a>Problemas Conhecidos
 
 A solução de controlo de alterações atualmente estão a ocorrer os seguintes problemas:
+
 * Atualizações de correção não são recolhidas para Windows 10 criadores Update e no Windows Server 2016 Core RS3 máquinas.
 
 ## <a name="change-tracking-data-collection-details"></a>Alterar os detalhes de recolha de dados de controlo
@@ -117,13 +119,13 @@ A tabela seguinte mostra a frequência de recolha de dados para os tipos de alte
 
 | **Tipo de alteração** | **Frequência** |
 | --- | --- |
-| Registo do Windows | minutos de 50 | 
-| Ficheiro do Windows | 30 minutos | 
-| Ficheiro do Linux | 15 minutos | 
-| Serviços Windows | 30 minutos | 
+| Registo do Windows | minutos de 50 |
+| Ficheiro do Windows | 30 minutos |
+| Ficheiro do Linux | 15 minutos |
+| Serviços Windows | 30 minutos |
 | Aplicações daemons do Linux | 5 minutos |
-| Software do Windows | 30 minutos | 
-| Software do Linux | 5 minutos | 
+| Software do Windows | 30 minutos |
+| Software do Linux | 5 minutos |
 
 ### <a name="registry-key-change-tracking"></a>Alteração de chave de registo de controlo
 
@@ -189,8 +191,8 @@ A tabela seguinte fornece pesquisas de registo de exemplo para alterar registos 
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124;resumir arg_max(TimeGenerated, *) por SoftwareName, o computador         | Mostra os registos de inventário mais recentes dos serviços do Windows que foi definido como Auto, mas foram reportados como a ser parado<br>Os resultados estão limitados para o registo mais recente do que SoftwareName e de computador      |
-|ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124;ordem pelo TimeGenerated desc|Mostra os registos de alteração de software removido|
+|ConfigurationData<br>&#124;onde ConfigDataType = = "WindowsServices" e SvcStartupType = = "Auto"<br>&#124;onde SvcState = = "Parado"<br>&#124;resumir arg_max(TimeGenerated, *) por SoftwareName, o computador         | Mostra os registos de inventário mais recentes dos serviços do Windows que foi definido como Auto, mas foram reportados como a ser parado<br>Os resultados estão limitados para o registo mais recente do que SoftwareName e de computador      |
+|ConfigurationChange<br>&#124;onde ConfigChangeType = = "Software" e ChangeCategory = = "Removido"<br>&#124;ordem pelo TimeGenerated desc|Mostra os registos de alteração de software removido|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

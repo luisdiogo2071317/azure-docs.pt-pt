@@ -1,20 +1,20 @@
 ---
-title: "Ligar uma conta do Google Cloud Platform a gestão de custo do Azure | Microsoft Docs"
-description: "Ligar a uma conta do Google Cloud Platform para ver o custo e repots de dados de utilização na gestão de custo."
+title: Ligar uma conta do Google Cloud Platform a gestão de custo do Azure | Microsoft Docs
+description: Ligar a uma conta do Google Cloud Platform para ver o custo e repots de dados de utilização na gestão de custo.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ligar a uma conta do Google Cloud Platform
 
@@ -24,7 +24,7 @@ Pode ligar a sua conta do Google Cloud Platform existente para o Azure custo Man
 
 Iniciar ao recolher informações sobre o seu projeto.
 
-1. Inicie sessão na consola do Google Cloud Platform no [https://console.cloud.google.com](https://console.cloud.google.com).
+1. Inicie sessão na consola do Google Cloud Platform no [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Reveja as informações de projeto que pretende integrar a gestão de custos e tenha em atenção que o **nome do projeto** e **ID de projeto**. Manter as informações útil para os passos seguintes.  
     ![Consola do Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Se a faturação não está ativada e ligada ao seu projeto, crie uma conta de faturação. Para obter mais informações, consulte [criar uma nova conta de faturação](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
@@ -59,7 +59,7 @@ Para recolher informações de recursos e de utilização, a gestão de custos t
 
 ## <a name="add-a-google-cloud-account-to-cost-management"></a>Adicione uma conta do Google Cloud a gestão de custos
 
-1. Abra o portal de Cloudyn do portal do Azure ou navegue até ao [https://azure.cloudyn.com](https://azure.cloudyn.com/) e iniciar sessão.
+1. Abra o portal de Cloudyn do portal do Azure ou navegue até ao [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) e iniciar sessão.
 2. Clique em **definições** (symbol roda dentada) e, em seguida, selecione **contas na nuvem**.
 3. No **gestão de contas**, selecione o **contas Google** separador e, em seguida, clique em **adicionar novo +**.
 4. No **nome da conta Google**, introduza o endereço de e-mail da conta de faturação, em seguida, clique em **seguinte**.

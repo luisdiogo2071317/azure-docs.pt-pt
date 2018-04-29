@@ -1,11 +1,11 @@
 ---
 title: IoT Hub do Azure como | Microsoft Docs
-description: "Como um programador, como utilizar as várias funcionalidades do IoT Hub?"
+description: Como um programador, como utilizar as várias funcionalidades do IoT Hub?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Como utilizar o IoT Hub do Azure
 
@@ -52,11 +52,11 @@ Se preferir saber mais sobre funcionalidades específicas do IoT Hub ao trabalha
 
 - [Utilize as propriedades do pretendido para configurar dispositivos][lnk-properties-tutorial]. Este tutorial mostra como para utilizar o dispositivo do duplo pretendida e reportado a propriedades, remotamente configurou o dispositivo.
 
-- [Utilize tarefas de dispositivo para iniciar uma atualização de firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como utilizar funcionalidades de gestão de chaves de dispositivo como duplos e métodos diretos. Saiba como utilizar estas funcionalidades para atualizar remotamente o firmware do seu dispositivo.
+- [Utilize a gestão de dispositivos para atualizar o firmware do dispositivo][lnk-jobs-tutorial]. Este tutorial mostra como utilizar funcionalidades de gestão de chaves de dispositivo como duplos e métodos diretos. Saiba como utilizar estas funcionalidades para atualizar remotamente o firmware do seu dispositivo.
 
 - [Tarefas de agenda e difusão][lnk-schedule-tutorial]. Este tutorial mostra como utilizar métodos diretos e propriedades pretendidas para interagir com vários dispositivos a uma hora agendada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o serviço do IoT Hub, veja o [guia para programadores][lnk-devguide].
 

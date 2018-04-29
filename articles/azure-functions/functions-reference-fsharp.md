@@ -1,13 +1,13 @@
 ---
-title: "Azure funções F # de referência para programadores | Microsoft Docs"
-description: "Compreenda como desenvolver as funções do Azure utilizando o F #."
+title: 'Azure funções F # de referência para programadores | Microsoft Docs'
+description: 'Compreenda como desenvolver as funções do Azure utilizando o F #.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
 manager: jbronsk
-editor: 
-tags: 
-keywords: "Azure funções, funções, processamento, webhooks, computação dinâmica, arquitetura sem servidor, F # de eventos"
+editor: ''
+tags: ''
+keywords: 'Azure funções, funções, processamento, webhooks, computação dinâmica, arquitetura sem servidor, F # de eventos'
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: functions
 ms.devlang: fsharp
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2c84de3f38a49bc97fda04a7a4eb449a1f7d14bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência F # para programadores das funções do Azure
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 O F # para as funções do Azure é uma solução para uma fácil execução pequenos blocos de código, ou "funções", na nuvem. Fluxos de dados para a sua função F # através de argumentos da função. Argumento nomes estão especificados na `function.json`, e existem nomes predefinidos para aceder ao coisas como os tokens de registo e o cancelamento da função.
 

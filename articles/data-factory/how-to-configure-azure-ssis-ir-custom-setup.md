@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: ed0f992985b49e4d84ca42a2e9d73121466a2c74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8390284f969fe9375a70801724881db26806a1d8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Configuração personalizada para o tempo de execução de integração do Azure-SSIS
 
@@ -36,6 +36,8 @@ Pode instalar componentes livres ou sem licença e pagos ou licenciados componen
     ```
 
 -   Não é possível chamar diretamente `gacutil.exe` para instalar as assemblagens na Cache de assemblagem Global (GAC), neste momento. Como solução, utilize `gacinstall.cmd` (fornecido no contentor de pré-visualização pública).
+
+-   Se for necessário associar o IV Azure SSIS com a configuração personalizada a um VNet, VNet de Gestor de recursos de Azure só é suportada. VNet clássica não é suportada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
 Microsoft Azure Active Directory (Azure AD) é um identidades e acessos na nuvem solução de gestão que fornece serviços de diretório, governação de identidade e gestão de acesso de aplicação. Azure AD rapidamente [permite início de sessão único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) em 1 000 das aplicações previamente integradas, comerciais e personalizadas no [Galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Muitas destas aplicações, provavelmente já utilizar como o Office 365, em Salesforce.com, caixa, ServiceNow e Workday.
@@ -89,7 +89,7 @@ Em vez disso que escolher entre no local ou de soluções de identidade baseada 
 > [!TIP]
 > Para obter mais informações sobre como CIOs efetuou do Azure Active Directory parte central da respetiva as estratégias, transfira o [Guia do CIO ao Azure Active Directory](https://aka.ms/AzureADCIOGuide).
 
-### <a name="azure-ad-domain-services"></a>Serviços de Domínio do Azure AD
+### <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 **Serviços de domínio do Azure AD** oferece uma opção baseado na nuvem para utilizar o AD DS para o controlo de configuração de VM do Azure simples e uma forma para satisfazer os requisitos de identidade no local para o desenvolvimento de aplicações de rede e o teste. Serviços de domínio do Azure AD não se destina a comparação de precisão e deslocar no local infraestrutura de AD DS para VMs do Azure gerida pelos serviços de domínio do Azure AD. Em vez disso, as VMs do Azure nos domínios geridos deve ser utilizadas para suportar o desenvolvimento, teste e movimento de aplicações no local que necessitem de métodos de autenticação do AD DS para a nuvem.
 
 ## <a name="common-scenarios-and-recommendations"></a>Recomendações e cenários comuns
@@ -107,7 +107,7 @@ Seguem-se alguns cenários comuns de identidades e acessos com base em recomenda
 Temos um ton excelente recursos online para o ajudar a saber tudo sobre o Azure AD. Aqui está uma lista dos artigos excelente para começar:
 
 * [Ativar o seu diretório para a gestão híbrida com o Azure AD Connect](active-directory-aadconnect.md)
-* [Segurança adicional para um mundo de alguma vez ligado](../multi-factor-authentication/multi-factor-authentication.md)
+* [Segurança adicional para um mundo de alguma vez ligado](authentication/multi-factor-authentication.md)
 * [Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Introdução aos relatórios do Azure AD](active-directory-reporting-getting-started.md)
 * [Gerir as palavras-passe a partir de qualquer lugar](active-directory-passwords-update-your-own-password.md)

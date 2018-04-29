@@ -1,27 +1,25 @@
 ---
 title: Otimizar as tarefas do Spark para desempenho - Azure HDInsight | Microsoft Docs
-description: "Mostra as estratégias comuns para o melhor desempenho dos clusters do Spark."
+description: Mostra as estratégias comuns para o melhor desempenho dos clusters do Spark.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 64ddb70f071a9fadc6fef64dcd3506c6d6255481
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 381f9ef2dac2c1dfdada32a917626b17c5969a98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="optimize-spark-jobs"></a>Otimizar as tarefas do Spark
+# <a name="optimize-spark-jobs"></a>Otimizar tarefas do Spark
 
 Saiba como otimizar a configuração de cluster do Spark para a carga de trabalho específica.  O desafio mais comuns é a pressão de memória, devido a configurações incorrecta (tamanho particularmente mal executores), execução longa operações e tarefas que resultam em operações Cartesian. Pode acelerar tarefas com a colocação em cache adequado e permitindo para [desfasamento de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitorizar e rever execuções de tarefa de Spark de longa execução e o consumo de recursos.
 
@@ -38,7 +36,7 @@ Spark 1. x utiliza RDDs dados abstratos e, em seguida, Spark 2 introduzida DataF
     * Acesso direto à memória
     * Baixa sobrecarga libertação de memória (GC)
     * Não como programador compatível com como conjuntos de dados, como não são as verificações de tempo de compilação ou programação do objeto de domínio
-* **DataSets**
+* **Conjuntos de dados**
     * Boa em complexas pipelines ETL onde o impacto do desempenho é aceitável
     * Não é bom em agregações em que o impacto de desempenho pode ser considerável
     * Fornece a Otimização da consulta através de Catalyst
@@ -66,7 +64,7 @@ Quando cria um novo cluster do Spark, tem a opção para selecionar o Blob Stora
 | Tipo de arquivo | Sistema de Ficheiros | Velocidade | Transitório | Casos de utilização |
 | --- | --- | --- | --- | --- |
 | Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Cluster transitório |
-| Azure Data Lake Store | **adl:**//url/ | **Faster** | Sim | Cluster transitório |
+| Azure Data Lake Store | **adl:**//url/ | **Mais rápida** | Sim | Cluster transitório |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | Não | Cluster de 24x7 interativa |
 
 ## <a name="use-the-cache"></a>Utilizar a cache
@@ -82,7 +80,7 @@ Spark fornece os seus próprios mecanismos de colocação em cache nativos, que 
     * Utiliza na memória e a colocação em cache de SSD.
 
 * HDFS local (recomendado)
-    * `hdfs://mycluster`caminho.
+    * `hdfs://mycluster` caminho.
     * Utiliza a colocação em cache de SSD.
     * Dados em cache serão perdidos quando eliminar o cluster, que requerem uma reconstrução da cache.
 
@@ -164,9 +162,9 @@ Consoante a carga de trabalho de cluster do Spark, pode determinar que uma confi
 
 Seguem-se alguns parâmetros comuns, que pode ajustar:
 
-* `--num-executors`Define o número apropriado de executor.
-* `--executor-cores`Define o número de núcleos para cada executor. Normalmente, deve ter executores middle-sized, tal como outros processos consumam algumas da memória disponível.
-* `--executor-memory`Define o tamanho de memória para cada executor, que controla o tamanho da pilha no YARN. Deve deixar alguns memória para a sobrecarga de execução.
+* `--num-executors` Define o número apropriado de executor.
+* `--executor-cores` Define o número de núcleos para cada executor. Normalmente, deve ter executores middle-sized, tal como outros processos consumam algumas da memória disponível.
+* `--executor-memory` Define o tamanho de memória para cada executor, que controla o tamanho da pilha no YARN. Deve deixar alguns memória para a sobrecarga de execução.
 
 ### <a name="select-the-correct-executor-size"></a>Selecione o tamanho de executor correto
 

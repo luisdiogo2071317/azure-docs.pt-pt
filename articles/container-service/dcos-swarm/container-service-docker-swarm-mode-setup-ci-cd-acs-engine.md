@@ -1,19 +1,19 @@
 ---
-title: "CI/CD com o motor do serviço de contentor do Azure e o modo do Swarm"
-description: "Utilize o motor do serviço de contentor do Azure com o Docker Swarm modo, um registo de contentor do Azure e o Visual Studio Team Services continuamente fornecer aplicações de .NET Core um contentor multi"
+title: CI/CD com o motor do serviço de contentor do Azure e o modo do Swarm
+description: Utilize o motor do serviço de contentor do Azure com o Docker Swarm modo, um registo de contentor do Azure e o Visual Studio Team Services continuamente fornecer aplicações de .NET Core um contentor multi
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Pipeline de CI/CD completa para implementar uma aplicação de várias contentor no serviço de contentor do Azure com o motor de ACS e o Docker Swarm modo utilizando o Visual Studio Team Services
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 12/06/2017
 
 Nowadays, um dos maiores desafios quando desenvolver aplicações modernas para a nuvem está a ser capaz de fornecer estas aplicações continuamente. Neste artigo, irá aprender a implementar uma integração completa contínua e, em seguida, através do pipeline de implementação (CI/CD): 
 * Motor do serviço de contentor do Azure com o modo do Docker Swarm
-* Azure Container Registry
+* Registo de Contentores do Azure
 * Visual Studio Team Services
 
 Este artigo baseia-se uma aplicação simples, disponível no [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), desenvolvidas com o ASP.NET Core. A aplicação é constituída por quatro diferentes serviços: APIs e front-end um web de três web:
@@ -218,7 +218,7 @@ O fluxo de trabalho de versão é composto por duas tarefas que adicionar.
 
 1. Configurar uma tarefa para copiar em segurança o ficheiro de compose para um *implementar* pasta o Docker Swarm nó mestre, utilizando a ligação de SSH que configurou anteriormente. Consulte o ecrã seguinte para obter mais detalhes.
     
-    Pasta de origem:```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
+    Pasta de origem: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
     ![Visual Studio Team Services, o-versão SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
@@ -244,7 +244,7 @@ O fluxo de trabalho de versão é composto por duas tarefas que adicionar.
 
 Agora que são efetuadas com a configuração, está na altura para testar este novo pipeline de CI/CD. É a forma mais fácil para testá-lo para atualizar o código de origem e consolidar as alterações no repositório do GitHub. Poucos segundos depois de emitir o código, verá uma nova compilação em execução no Visual Studio Team Services. Depois de concluída com êxito, uma nova versão é acionada e implementar a nova versão da aplicação no cluster do serviço de contentor do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre CI/CD com o Visual Studio Team Services, consulte o [descrição geral de compilação VSTS](https://www.visualstudio.com/docs/build/overview).
 * Para obter mais informações sobre o motor de ACS, consulte o [repositório do GitHub do motor de ACS](https://github.com/Azure/acs-engine).

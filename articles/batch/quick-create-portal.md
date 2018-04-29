@@ -1,5 +1,5 @@
 ---
-title: "Início Rápido do Azure - Executar Trabalho do Batch - Portal"
+title: Início Rápido do Azure - Executar Trabalho do Batch - Portal
 description: Aprenda rapidamente a executar um trabalho do Batch com o portal do Azure.
 services: batch
 author: dlepow
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início Rápido: executar o seu primeiro trabalho do Batch com o portal do Azure
 
@@ -37,7 +37,7 @@ Siga estes passos para criar uma conta do Batch de exemplo para fins de teste. T
 
 2. Introduza valores em **Nome da conta** e **Grupo de recursos**. O nome da conta tem de ser exclusivo dentro da **localização** do Azure selecionada, só pode ter carateres em minúsculas ou números e conter entre 3 e 24 carateres. 
 
-3. Em **Conta de armazenamento**, selecione uma conta de armazenamento de fins gerais existente ou crie uma nova.
+3. Em **Conta de armazenamento**, selecione uma conta de armazenamento existente ou crie uma nova.
 
 4. Nas definições restantes, mantenha as predefinições e clique em **Criar** para criar a conta.
 
@@ -82,7 +82,7 @@ O Batch cria o conjunto de imediato, mas demora alguns minutos a alocar e a inic
 
 Após alguns minutos, o estado do conjunto passa para **Estável** e o nó é iniciado. Clique em **Nós** para verificar o estado dos nós. Quando o estado de um nó for **Inativo**, o mesmo estará pronto para executar tarefas. 
 
-## <a name="create-a-job"></a>Criar um trabalho
+## <a name="create-a-job"></a>Criar uma tarefa
 
 Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Inicialmente, os trabalhos não têm tarefas. 
 

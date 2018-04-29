@@ -108,8 +108,10 @@
                   href: azure-stack-version-profiles-powershell.md
                 - name: CLI 2.0 do Azure
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: GO
+                - name: ACEDA
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
                 - name: Suportado por perfis APIs do fornecedor de recursos
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Utilizar o módulo de política

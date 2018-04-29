@@ -5,9 +5,9 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceber e implementar uma base de dados Oracle no Azure
 
@@ -136,7 +136,7 @@ O débito de rede total é estimado com base nas seguintes informações:
 
 ![Captura de ecrã do SQL * débito Net](./media/oracle-design/sqlnet_info.png)
 
-Com base nos seus requisitos de largura de banda de rede, existem vários tipos de gateway para escolher. Estes incluem basic VpnGw e Azure ExpressRoute. Para obter mais informações, consulte o [página de preços de gateway VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Com base nos seus requisitos de largura de banda de rede, existem vários tipos de gateway para escolher. Estes incluem basic VpnGw e Azure ExpressRoute. Para obter mais informações, consulte o [página de preços de gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recommendations (Recomendações)**
 
@@ -231,7 +231,7 @@ Depois de configurar e configurar o seu ambiente do Azure, o passo seguinte cons
 - [Configurar a porta de Golden Oracle](configure-oracle-golden-gate.md)
 - [Cópia de segurança do Oracle e recuperação](oracle-backup-recovery.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Criar as VMs de elevada disponibilidade](../../linux/create-cli-complete.md)
 - [Explorar amostras de CLI do Azure de implementação de VM](../../linux/cli-samples.md)

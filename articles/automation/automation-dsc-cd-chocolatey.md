@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e92bb8b4078bc5c85a639d3b5b38c124152576f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais utilizando o DSC de automatização e Chocolatey
 Um universo de DevOps existem diversas ferramentas para ajudá-lo com vários pontos no pipeline de integração contínua.  Configuração de estado de Desired de automatização do Azure (DSC) é uma adição de nova boas-vindas para as opções que podem utilizar agrupamentos de DevOps.  Este artigo demonstra definição cópia contínua implementação (CD) para um computador Windows.  Pode expandir facilmente técnica para incluir tantos computadores Windows, conforme necessário na função (um web site, por exemplo) e a partir daí, bem como funções adicionais.
@@ -50,7 +50,7 @@ Provavelmente já estiver a fazer o bits na parte superior, ou a maior parte do 
 Se não estiver a começar com um modelo ARM, que também é OK.  Existem cmdlets do PowerShell concebidos para ajudar a registar as suas VMs com o servidor de solicitação e todas as restantes. Para obter mais detalhes, consulte este artigo: [máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md)
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Passo 1: Configurar a conta de servidor e a automatização de solicitação
-Numa linha de comandos do PowerShell (Add-AzureRmAccount) autenticada: (pode demorar alguns minutos enquanto o servidor de solicitação é configurado)
+Numa linha de comandos do PowerShell (ligar-AzureRmAccount) autenticada: (pode demorar alguns minutos enquanto o servidor de solicitação é configurado)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 

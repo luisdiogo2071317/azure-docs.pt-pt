@@ -1,6 +1,6 @@
 ---
-title: "Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação | Microsoft Docs"
-description: "As instruções e informações de suporte para atualizar o seu Cofre de cópia de segurança do Azure para um cofre dos serviços de recuperação."
+title: Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação | Microsoft Docs
+description: As instruções e informações de suporte para atualizar o seu Cofre de cópia de segurança do Azure para um cofre dos serviços de recuperação.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 
@@ -57,7 +57,7 @@ Pode utilizar scripts do PowerShell para atualizar os cofres de cópia de segura
 
 Utilize o seguinte script para atualizar os cofres. O seguinte script de exemplo tem uma explicação dos parâmetros.
 
-RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-localização** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName**`<rgname>`
+RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-localização** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** -o número de ID de subscrição do cofre que está a ser atualizado.<br/>
 **VaultName** -o nome do Cofre de cópia de segurança que está a ser atualizado.<br/>
@@ -84,7 +84,7 @@ O script do PowerShell pede-lhe para introduzir as suas credenciais. Introduza a
 ### <a name="pre-requisites-checking"></a>A verificação de pré-requisitos
 Depois de introduzir as suas credenciais do Azure, Azure verifica se o seu ambiente cumpre os seguintes pré-requisitos:
 
-- **Versão do agente mínimo** -atualizar cofres de cópia de segurança para os cofres dos serviços de recuperação requer que o agente MARS ser, pelo menos, versão 2.0.9083.0. Se tiver registados para um cofre de cópia de segurança com um agente anteriores ao 2.0.9083.0 de itens, a verificação de pré-requisitos falha. Se falhar a verificação de pré-requisitos, atualize o agente e tente atualizar novamente o cofre. Pode transferir a versão mais recente do agente de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versão do agente mínimo** -atualizar cofres de cópia de segurança para os cofres dos serviços de recuperação requer que o agente MARS ser, pelo menos, versão 2.0.9083.0. Se tiver registados para um cofre de cópia de segurança com um agente anteriores ao 2.0.9083.0 de itens, a verificação de pré-requisitos falha. Se falhar a verificação de pré-requisitos, atualize o agente e tente atualizar novamente o cofre. Pode transferir a versão mais recente do agente de [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tarefas de configuração em curso**: se alguém está a configurar as tarefas de um cofre de cópia de segurança definido para ser actualizado ou registar um item, a verificação de pré-requisitos falha. Concluir a configuração, ou terminou o registo de item e, em seguida, inicie o processo de atualização do cofre.
 - **Modelo de faturação baseada no armazenamento**: cofres dos serviços de recuperação suportam o modelo de faturação baseada na instância. Se executar a atualização do cofre num cofre de cópia de segurança que utiliza o modelo de faturação baseada no armazenamento, são-lhe pedido para atualizar o modelo de faturação, juntamente com o cofre. Caso contrário, pode atualizar o modelo de faturação em primeiro lugar, e, em seguida, executar a atualização do cofre.
 - Identifica um grupo de recursos para o Cofre dos serviços de recuperação. Para tirar partido das funcionalidades de implementação Resource Manager, tem de colocar um cofre dos serviços de recuperação num grupo de recursos. Se não souber o grupo de recursos para utilizar, forneça um nome e o processo de atualização cria o grupo de recursos por si. O processo de atualização também associa o Cofre de novo grupo de recursos.
@@ -106,7 +106,7 @@ O Cofre de serviços de recuperação suporta a especificação informações de
 
 ## <a name="enhanced-security"></a>Segurança melhorada
 
-Quando um cofre de cópia de segurança é atualizado para um cofre dos serviços de recuperação, as definições de segurança para essa cofre automaticamente estão ativadas. Quando as definições de segurança são em determinadas operações, tais como as cópias de segurança a eliminar ou alterar uma frase de acesso necessitar de um [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN. Para obter mais informações sobre a segurança avançada, consulte o artigo [funcionalidades de segurança para proteger cópias de segurança híbrida](backup-azure-security-feature.md). 
+Quando um cofre de cópia de segurança é atualizado para um cofre dos serviços de recuperação, as definições de segurança para essa cofre automaticamente estão ativadas. Quando as definições de segurança são em determinadas operações, tais como as cópias de segurança a eliminar ou alterar uma frase de acesso necessitar de um [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. Para obter mais informações sobre a segurança avançada, consulte o artigo [funcionalidades de segurança para proteger cópias de segurança híbrida](backup-azure-security-feature.md). 
 
 Quando a segurança avançada estiver ativada, os dados são mantidos cópias de segurança para 14 dias depois das informações de ponto de recuperação foi eliminadas do cofre. Os clientes são cobrados para armazenamento destes dados de segurança. Retenção de dados de segurança se aplica a pontos de recuperação direcionados para o agente de cópia de segurança do Azure, servidor de cópia de segurança do Azure e System Center Data Protection Manager. 
 

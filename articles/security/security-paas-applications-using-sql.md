@@ -5,8 +5,8 @@ services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3e7dc4dfba001228a4d11e2b21cdeed8e7af45ac
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-databases-in-azure"></a>Proteger bases de dados PaaS no Azure
 
@@ -51,7 +51,7 @@ Vantagens da utilização da autenticação do Azure AD em vez de autenticação
 - Utilizadores de base de dados utiliza contido para autenticar identidades ao nível da base de dados.
 - Suporta a autenticação baseada em tokens para aplicações ligar à base de dados do SQL Server.
 - Suporta ADFS (Federação de domínio) ou autenticação de utilizador/palavra-passe nativo para um local do Azure AD sem sincronização de domínio.
-- Suporta ligações a partir do SQL Server Management Studio que utilizam a autenticação do Active Directory Universal, que inclui [multi-factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA inclui autenticação forte com uma gama de opções de verificação fácil — chamada telefónica, mensagem de texto, os smart cards com pin ou a notificação da aplicação móvel. Para obter mais informações, consulte [SSMS suporte para o MFA do Azure AD com base de dados SQL e SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Suporta ligações a partir do SQL Server Management Studio que utilizam a autenticação do Active Directory Universal, que inclui [multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA inclui autenticação forte com uma gama de opções de verificação fácil — chamada telefónica, mensagem de texto, os smart cards com pin ou a notificação da aplicação móvel. Para obter mais informações, consulte [SSMS suporte para o MFA do Azure AD com base de dados SQL e SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Para saber mais sobre a autenticação do Azure AD, consulte:
 
@@ -86,7 +86,7 @@ Encriptação de nível de aplicações também deve ser utilizada para dados se
 
 Pode utilizar as precauções adicionais para ajudar a proteger a base de dados, tais como conceber um sistema seguro, encriptação ativos confidenciais e criação de uma firewall em torno de servidores de base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo introduzidos uma coleção de base de dados SQL e SQL Data Warehouse melhores práticas de segurança para proteger o seu web de PaaS e as aplicações móveis. Para obter mais informações sobre como proteger as suas implementações PaaS, consulte:
 
 - [Proteger implementações PaaS](security-paas-deployments.md)

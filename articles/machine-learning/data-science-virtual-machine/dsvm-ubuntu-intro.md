@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar as máquinas de ciência de dados para Linux (Ubuntu)
 
@@ -95,7 +95,7 @@ Eis os passos para criar uma instância da máquina de Virtual de ciência de da
    
    b. **Tamanho**:
    
-   * Selecione um dos tipos de servidor que cumpra os requisitos funcionais e restrições de custo. Selecione **ver tudo** para ver mais opções de tamanhos de VM. Selecione uma VM de classe de NC para formação GPU.
+   * Selecione um dos tipos de servidor que cumpra os requisitos funcionais e restrições de custo. Selecione **ver tudo** para ver mais opções de tamanhos de VM. Selecione um NC ou classe ND VM para formação GPU. O [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) regiões com GPUs listas de páginas.
    
    c. **Definições**:
    

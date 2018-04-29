@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize dados armazém cópias de segurança para restaurar o seu armazém de dados para um ponto de restauro na região primária. Utilize cópias de segurança georredundante restaurar para uma região geográfica diferentes. 
@@ -55,9 +55,9 @@ Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo f
 > 
 
 ## <a name="geo-backups"></a>Cópias de segurança a Georreplicação
-O SQL Data Warehouse efetua uma georreplicação-cópia de segurança uma vez por dia para um [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a georreplicação-cópia de segurança para o servidor na região georreplicação-emparelhado. Uma georreplicação-cópia de segurança garante que pode restaurar o armazém de dados no caso de não é possível aceder os instantâneos na sua região primária.
+O SQL Data Warehouse efetua uma georreplicação-cópia de segurança uma vez por dia para um [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a georreplicação-cópia de segurança para um servidor em qualquer outra região onde o armazém de dados do SQL Server é suportado. Uma georreplicação-cópia de segurança garante que pode restaurar o armazém de dados no caso de não é possível aceder os instantâneos na sua região primária.
 
-As cópias de segurança a Georreplicação estão por predefinição. Se o seu armazém de dados está otimizado para elasticidade, pode [ativamente](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não é possível ativamente georreplicação-cópias de segurança com o otimizado para a camada de desempenho de computação.
+As cópias de segurança a Georreplicação estão por predefinição. Se o seu armazém de dados é Gen1, pode [ativamente](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não é possível ativamente cópias de segurança de georreplicação para Gen2, como a proteção de dados é um gurantee incorporada.
 
 ## <a name="backup-costs"></a>Custos de cópia de segurança
 Vai notar que a fatura do Azure tem um item de linha para o Premium Storage do Azure e um item de linha para o armazenamento georredundante. A taxa de Premium Storage é o custo total para armazenar os dados na região primária, que inclui os instantâneos.  A taxa georredundante abrange o custo de armazenar cópias de segurança georreplicação.  

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 28caca06dd756732314f758e6acb4629f857dd91
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado Azure para criar uma nova VM
 
@@ -51,7 +51,7 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 
 1. Iniciar sessão para a máquina virtual do Windows.
 2. Abra a janela de linha de comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
-3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)**e certifique-se de que o **Generalize** caixa de verificação está selecionada.
+3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está selecionada.
 4. No **as opções de encerramento**, selecione **encerramento**.
 5. Clique em **OK**.
    
@@ -74,7 +74,7 @@ Se ainda não tiver o PowerShell na versão 1.4 ou superior instalado, leia [com
 1. Abra o Azure PowerShell e inicie sessão na sua conta do Azure. Será apresentada uma janela de pop-up para introduzir as credenciais da conta do Azure.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. Obter a IDs de subscrição para as subscrições disponíveis.
    

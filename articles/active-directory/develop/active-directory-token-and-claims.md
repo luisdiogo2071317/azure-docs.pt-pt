@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
-Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token.
+Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token. 
 
 ## <a name="types-of-tokens"></a>Tipos de tokens
 Azure AD suporta o [protocolo de autorização do OAuth 2.0](active-directory-protocols-oauth-code.md), que utiliza access_tokens e refresh_tokens.  Também suporta a autenticação e início de sessão através de [OpenID Connect](active-directory-protocols-openid-connect-code.md), que apresenta um tipo de token, o id_token terceiro.  Cada um destes tokens é representada como um "token de portador".
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT afirmação | Nome | Descrição |
 | --- | --- | --- |
-| `appid` |ID da aplicação |Identifica a aplicação que está a utilizar o token para aceder a um recurso. A aplicação pode agir como o próprio ou em nome de um utilizador. O ID da aplicação normalmente representa um objeto de aplicação, mas também pode representar um objeto principal do serviço no Azure AD. <br><br> **Valor de JWT exemplo**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Audiência |O destinatário do token. A aplicação que recebe o token tem de verificar que o valor de audiência está correto e rejeitar quaisquer tokens se destina a um público-alvo diferentes. <br><br> **Valor de SAML do exemplo**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de JWT exemplo**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Referência de classe de contexto de autenticação de aplicação |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se estiver a ID de cliente e o segredo do cliente, o valor é 1. <br><br> **Valor de JWT exemplo**: <br> `"appidacr": "0"` |
 | `acr` |Referência de classe de contexto de autenticação |Indica como o requerente foi autenticado, em vez do cliente na afirmação de referência de classe de contexto de autenticação de aplicação. Um valor de "0" indica que a autenticação de utilizador final não cumpria os requisitos da norma ISO/IEC 29115. <br><br> **Valor de JWT exemplo**: <br> `"acr": "0"` |
@@ -163,9 +162,8 @@ Atualizar tokens podem invalidados ou revogados em qualquer altura, por diversos
   * Alteração de palavra-passe involuntary: Se um administrador força um utilizador para alterar a palavra-passe ou repõe-lo, em seguida, tokens do utilizador são também invalidados se de que foram attained utilizando a palavra-passe.  Ver notas abaixo para exceções. 
   * Violação de segurança: Em caso de uma violação de segurança (por exemplo, o arquivo local de palavras-passe é quebrado) o administrador pode revogar todos os tokens de atualização atualmente emitidos.  Isto irá forçar a todos os utilizadores para autenticar novamente. 
 
-Nota: 
-
-Se um método de palavra-passe de autenticação era utilizado (Windows Hello, a aplicação de autenticação, a biometria como um rosto ou impressão digital) para obter um token, a alteração de palavra-passe do utilizador não irá forçar o utilizador novamente autenticado (mas irá forçar a respetiva aplicação de autenticador Para voltar autenticar).  Isto acontece porque a autenticação escolhida de entrada (uma letra, por exemplo) não foi alterado e pode ser utilizado, por conseguinte, novamente para autenticar novamente.
+> [!NOTE]
+>Se um método de palavra-passe de autenticação era utilizado (Windows Hello, a aplicação de autenticação, a biometria como um rosto ou impressão digital) para obter um token, a alteração de palavra-passe do utilizador não irá forçar o utilizador novamente autenticado (mas irá forçar a respetiva aplicação de autenticador Para voltar autenticar).  Isto acontece porque a autenticação escolhida de entrada (uma letra, por exemplo) não foi alterado e pode ser utilizado, por conseguinte, novamente para autenticar novamente.
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 

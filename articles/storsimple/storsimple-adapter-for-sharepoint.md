@@ -5,7 +5,7 @@ services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
 ms.service: storsimple
 ms.devlang: NA
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instale e configure o adaptador do StorSimple para SharePoint
 ## <a name="overview"></a>Descrição geral
@@ -216,7 +216,7 @@ Recolha as seguintes informações antes de mover os dados de volta para os cont
 ### <a name="move-the-blobs-back-to-the-content-databases"></a>Mover os BLOBs de volta para as bases de dados de conteúdo
 Antes de desinstalar o adaptador do StorSimple para software do SharePoint, tem de migrar todos os BLOBs que foram externalized novamente para as bases de dados de conteúdo do SQL Server. Se tentar desinstalar o adaptador do StorSimple para SharePoint antes de mover todos os BLOBs novamente para as bases de dados de conteúdos, verá a seguinte mensagem de aviso.
 
-![Mensagem de aviso](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+![mensagem de aviso](./media/storsimple-adapter-for-sharepoint/sasp1.png)
 
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Para mover os BLOBs novamente para as bases de dados de conteúdo
 1. Transferir a cada um dos objetos externalized.
@@ -252,7 +252,7 @@ Depois de mover os BLOBs novamente para as bases de dados de conteúdo do SQL Se
 1. Abra o painel de controlo e, em seguida, clique em **programas e funcionalidades**.
 2. Selecione **StorSimple adaptador para o SharePoint**e, em seguida, clique em **desinstalação**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
@@ -261,4 +261,4 @@ Depois de mover os BLOBs novamente para as bases de dados de conteúdo do SQL Se
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+[8]: https://technet.microsoft.com/library/ff943565.aspx

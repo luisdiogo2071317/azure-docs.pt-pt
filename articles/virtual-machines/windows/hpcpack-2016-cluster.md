@@ -2,10 +2,10 @@
 title: Cluster HPC Pack 2016 no Azure | Microsoft Docs
 description: Saiba como implementar um cluster HPC Pack 2016 no Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Implementar um cluster HPC Pack 2016 no Azure
 
@@ -56,7 +56,7 @@ Depois do certificado é criado no arquivo do utilizador atual, utilize o snap-i
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Carregar o certificado para um cofre de chaves do Azure
 
-Antes de implementar o cluster HPC, carregue o certificado PFX para um [Cofre de chaves do Azure](../../key-vault/index.md) como um segredo e as seguintes informações para utilização durante a implementação do registo: **nome do cofre**, **Cofre grupo de recursos**, **URL de certificado**, e **thumbprint do certificado**.
+Antes de implementar o cluster HPC, carregue o certificado PFX para um [Cofre de chaves do Azure](../../key-vault/index.yml) como um segredo e as seguintes informações para utilização durante a implementação do registo: **nome do cofre**, **Cofre grupo de recursos**, **URL de certificado**, e **thumbprint do certificado**.
 
 Segue um script do PowerShell de exemplo para carregar o certificado, crie o Cofre de chaves e gerar as informações necessárias. Para obter mais informações sobre como carregar um certificado para um cofre de chaves do Azure, consulte [introdução ao Cofre de chaves do Azure](../../key-vault/key-vault-get-started.md).
 
@@ -156,6 +156,6 @@ Dependendo da topologia de cluster, implementação pode demorar de 30 minutos o
 
 3. Clique em **Connect** para iniciar sessão no qualquer um de nós principais através de ambiente de trabalho remoto com o seu nome de utilizador de administrador especificadas. Se o cluster é implementado num domínio do Active Directory, o nome de utilizador tem o formato \<privateDomainName >\\\<adminUsername > (por exemplo, hpc.local\hpcadmin).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Submeta tarefas ao cluster. Consulte [cluster submeter as tarefas HPC um pacote HPC no Azure](hpcpack-cluster-submit-jobs.md) e [gerir um cluster HPC Pack 2016 no Azure utilizando o Azure Active Directory](hpcpack-cluster-active-directory.md).
 

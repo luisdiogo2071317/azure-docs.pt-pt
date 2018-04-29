@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db81baa5df13c8c5ca38e0e1ab2dffda1e31370a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar encargos inesperados com o custo de gestão e de faturação do Azure
 
@@ -29,7 +29,7 @@ Quando se inscreve no Azure, existem várias coisas que pode fazer para obter um
 
 - Se numa avaliação gratuita, a sua subscrição está [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), do Azure no Open (AIO) ou elegíveis do BizSpark, a subscrição é automaticamente desativada quando todos os seus créditos são utilizados. Saiba mais sobre [limites de gastos](#spending-limit) para evitar que a sua subscrição unexpectantly desativada.
 
-- Caso tenha efetuado a cópia de segurança para [conta gratuita do Azure](https://azure.microsoft.com/en-us/free/), [pode utilizar alguns dos serviços do Azure mais populares gratuitamente durante 12 meses](billing-create-free-services-included-free-account.md). Juntamente com recomendações listadas abaixo, consulte [evitar obter gratuitamente cobrados conta](billing-avoid-charges-free-account.md).
+- Caso tenha efetuado a cópia de segurança para [conta gratuita do Azure](https://azure.microsoft.com/free/), [pode utilizar alguns dos serviços do Azure mais populares gratuitamente durante 12 meses](billing-create-free-services-included-free-account.md). Juntamente com recomendações listadas abaixo, consulte [evitar obter gratuitamente cobrados conta](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obter os custos estimados antes de adicionar serviços do Azure
 
@@ -51,7 +51,7 @@ Normalmente, quando adicionar um serviço no portal do Azure, não há uma vista
 
 ![Exemplo: uma VM do Windows A1 demore custo $66.96 EUR por mês](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="set-up-billing-alerts"></a>Configurar alertas de faturação
+### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
 
 Configure alertas de faturação para receber e-mails quando os custos de utilização excedem um período que especificar. Se tiver de créditos mensais, configure alertas para quando utilizar a segurança de um período especificado. Para obter mais informações, consulte [configurar alertas para as subscrições do Microsoft Azure de faturação](billing-set-up-alerts.md).
 

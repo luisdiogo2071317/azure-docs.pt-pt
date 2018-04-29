@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: jroth
-ms.openlocfilehash: e4f955a0880254cb67ccd3e46ad04b3685341263
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9d3fbbab76f16a8546c431d5acf913bf419edeb4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Melhores práticas de desempenho do SQL Server nas Máquinas Virtuais do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo fornece as melhores práticas para otimizar o desempenho de SQL Server na máquina de Virtual do Microsoft Azure. Ao executar o SQL Server em Azure Virtual Machines, recomendamos que continue a utilizar o mesmo desempenho de base de dados de otimização de opções que são aplicáveis ao SQL Server no ambiente de servidor no local. No entanto, o desempenho da base de dados relacional numa nuvem pública depende de vários fatores, tais como o tamanho de uma máquina virtual e a configuração dos discos de dados.
+Este artigo fornece orientação para otimizar o desempenho de SQL Server na máquina de Virtual do Microsoft Azure. Ao executar o SQL Server em Azure Virtual Machines, recomendamos que continue a utilizar o mesmo desempenho de base de dados de otimização de opções que são aplicáveis ao SQL Server no ambiente de servidor no local. No entanto, o desempenho da base de dados relacional numa nuvem pública depende de vários fatores, tais como o tamanho de uma máquina virtual e a configuração dos discos de dados.
 
-Quando criar imagens do SQL Server, [considerar as suas VMs no portal do Azure de aprovisionamento](virtual-machines-windows-portal-sql-server-provision.md). VMs de SQL Server aprovisionado no Portal com o Resource Manager, siga as melhores práticas.
+[Imagens do SQL Server aprovisionadas no portal do Azure](quickstart-sql-vm-create-portal.md) siga as melhores práticas configuração de armazenamento. Para obter mais informações sobre como o armazenamento é configurado, consulte [configuração de armazenamento para VMs de SQL Server](virtual-machines-windows-sql-server-storage-configuration.md). Após o aprovisionamento, considere aplicar outras otimizações abordadas neste artigo. Base as suas opções na sua carga de trabalho e certifique-se através de teste.
 
-Este artigo concentra-se em obter o *melhor* desempenho para o SQL Server em VMs do Azure. Se a carga de trabalho for inferior pedir o seu trabalho, não poderá necessitar de cada otimização listada abaixo. Considere as necessidades de desempenho e padrões de carga de trabalho como avaliar estas recomendações.
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+> [!TIP]
+> Este artigo concentra-se em obter o *melhor* desempenho para o SQL Server em VMs do Azure. Se a carga de trabalho for inferior pedir o seu trabalho, não poderá necessitar de cada otimização listada abaixo. Considere as necessidades de desempenho e padrões de carga de trabalho como avaliar estas recomendações.
 
 ## <a name="quick-check-list"></a>Lista de verificação rápida
 
@@ -41,8 +40,8 @@ Segue-se uma lista de verificação rápida para um desempenho ideal do SQL Serv
 | --- | --- |
 | [Tamanho da VM](#vm-size-guidance) |[DS3](../sizes-general.md) ou superior para o SQL Server Enterprise edition.<br/><br/>[DS2](../sizes-general.md) ou superior para edições Standard do SQL Server e Web. |
 | [Armazenamento](#storage-guidance) |Utilize [armazenamento Premium](../premium-storage.md). Armazenamento Standard só é recomendado para dev/teste.<br/><br/>Manter o [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e VM do SQL Server na mesma região.<br/><br/>Desativar o Azure [armazenamento georredundante](../../../storage/common/storage-redundancy.md) (georreplicação) na conta de armazenamento. |
-| [Discos](#disks-guidance) |Utilize um mínimo de 2 [P30 discos](../premium-storage.md#scalability-and-performance-targets) (1 para ficheiros de registo; 1 para ficheiros de dados e o TempDB).<br/><br/>Evite utilizar o sistema operativo ou discos temporários para o armazenamento de base de dados ou registo.<br/><br/>Ative colocação em cache de leitura em discos que alojam os ficheiros de dados e ficheiros de dados TempDB.<br/><br/>Não ative a colocação em cache em discos que alojam o ficheiro de registo.<br/><br/>Importante: Pare o serviço do SQL Server ao alterar as definições de cache para um disco da VM do Azure.<br/><br/>Stripe vários discos de dados do Azure para obter o aumento do débito de e/s.<br/><br/>O formato com o tamanho de alocação documentado. |
-| [E/S](#io-guidance) |Ative a compressão de página de base de dados.<br/><br/>Ative a inicialização instantânea de ficheiros para ficheiros de dados.<br/><br/>Limitar o aumento automático na base de dados.<br/><br/>Desative autoshrink na base de dados.<br/><br/>Mova bases de dados de todos os discos de dados, incluindo bases de dados do sistema.<br/><br/>Mova SQL Server erro registo e rastreio ficheiro diretórios para discos de dados.<br/><br/>Configure localizações de ficheiros de cópia de segurança e a base de dados predefinidos.<br/><br/>Ative páginas bloqueadas.<br/><br/>Aplica correções de desempenho de SQL Server. |
+| [Discos](#disks-guidance) |Utilize um mínimo de 2 [P30 discos](../premium-storage.md#scalability-and-performance-targets) (1 para ficheiros de registo e 1 para ficheiros de dados e TempDB; ou stripe dois ou mais discos e o arquivo de todos os ficheiros de um único volume).<br/><br/>Evite utilizar o sistema operativo ou discos temporários para o armazenamento de base de dados ou registo.<br/><br/>Ative colocação em cache de leitura em discos que alojam os ficheiros de dados e ficheiros de dados TempDB.<br/><br/>Não ative a colocação em cache em discos que alojam o ficheiro de registo.<br/><br/>Importante: Pare o serviço do SQL Server ao alterar as definições de cache para um disco da VM do Azure.<br/><br/>Stripe vários discos de dados do Azure para obter o aumento do débito de e/s.<br/><br/>O formato com o tamanho de alocação documentado. |
+| [E/S](#io-guidance) |Ative a compressão de página de base de dados.<br/><br/>Ative a inicialização instantânea de ficheiros para ficheiros de dados.<br/><br/>Limitar autogrowing na base de dados.<br/><br/>Desative autoshrink na base de dados.<br/><br/>Mova bases de dados de todos os discos de dados, incluindo bases de dados do sistema.<br/><br/>Mova SQL Server erro registo e rastreio ficheiro diretórios para discos de dados.<br/><br/>Configure localizações de ficheiros de cópia de segurança e a base de dados predefinidos.<br/><br/>Ative páginas bloqueadas.<br/><br/>Aplica correções de desempenho de SQL Server. |
 | [Funcionalidades específicas](#feature-specific-guidance) |Cópia de segurança diretamente ao armazenamento de Blobs. |
 
 Para mais informações sobre *como* e *por que motivo* para efetuar estas otimizações, reveja os detalhes e as orientações fornecidas nas secções seguintes.
@@ -83,13 +82,13 @@ Predefinição a colocação em cache da política no disco do sistema operativo
 
 A unidade de armazenamento temporário, identificada como o **D**: disco, não é transferido para o blob storage do Azure. Não armazene os ficheiros de base de dados de utilizador ou ficheiros de registo de transação de utilizador no **D**: unidade.
 
-Para a série D, série Dv2 e VMs de série de G, unidade temporária nestas VMS é baseadas em SSD. Se a carga de trabalho fizer utilização intensa de TempDB (por exemplo, para objetos temporários ou associações complexas), TempDB a armazenar o **D** unidade pode resultar numa maior débito de TempDB e reduzir a latência de TempDB.
+Para a série D, série Dv2 e VMs de série de G, unidade temporária nestas VMS é baseadas em SSD. Se a carga de trabalho fizer utilização intensa de TempDB (como objetos temporários ou associações complexas), TempDB a armazenar o **D** unidade pode resultar numa maior débito de TempDB e reduzir a latência de TempDB.
 
 Para VMs que suportam o Premium Storage (série DS, série dsv2 e GS série), recomendamos o armazenamento de TempDB num disco que suporte o Premium Storage com cache de leitura ativado. Há uma exceção para esta recomendação; Se a utilização de TempDB escrita intensivas, pode alcançar um desempenho superior armazenando TempDB local **D** unidade, o que também seja baseadas em SSD nestes tamanhos de máquina.
 
 ### <a name="data-disks"></a>Discos de dados
 
-* **Utilizar discos de dados de ficheiros de registo e dados**: Se não estiver a utilizar striping de disco, utilize 2 Premium Storage [P30 discos](../premium-storage.md#scalability-and-performance-targets) em que um disco contém os ficheiros de registo e o outro contém os dados e ficheiros de TempDB. Cada disco de armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo do tamanho, conforme descrito no seguinte artigo: [utilizando o Premium Storage para discos](../premium-storage.md). Se estiver a utilizar uma técnica de striping do disco, tais como espaços de armazenamento, tem de colocar todos os ficheiros na mesma unidade.
+* **Utilizar discos de dados de ficheiros de registo e dados**: Se não estiver a utilizar striping de disco, utilize dois Premium Storage [P30 discos](../premium-storage.md#scalability-and-performance-targets) em que um disco contém os ficheiros de registo e o outro contém os dados e ficheiros de TempDB. Cada disco de armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo do tamanho, conforme descrito no artigo, [utilizando o Premium Storage para discos](../premium-storage.md). Se estiver a utilizar uma técnica de striping do disco, tais como espaços de armazenamento, é recomendado colocar todos os dados e ficheiros na mesma unidade de registo.
 
    > [!NOTE]
    > Quando aprovisiona uma VM do SQL Server no portal, tem a opção de editar a configuração de armazenamento. Consoante a configuração, o Azure configura um ou mais discos. Vários discos são combinados num agrupamento de armazenamento única com striping. Ambos os ficheiros de dados e de registo de residir em conjunto nesta configuração. Para obter mais informações, consulte [configuração de armazenamento para VMs de SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
@@ -112,16 +111,24 @@ Para VMs que suportam o Premium Storage (série DS, série dsv2 e GS série), re
 
   * Para o Windows 2008 R2 ou anterior, pode utilizar discos dinâmicos (volumes repartido do SO) e o tamanho do stripe é sempre 64 KB. Tenha em atenção que esta opção é preterida a partir do Windows 8/Windows Server 2012. Para obter informações, consulte a declaração de suporte em [serviço de discos virtuais está a mudar para a API de gestão de armazenamento do Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * Se estiver a utilizar [espaços de armazenamento direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) com um cenário como [instâncias de Cluster de ativação pós-falha do SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md), tem de configurar um único agrupamento. Tenha em atenção que embora diferentes volumes podem ser criadas em conjunto único, serão todos partilham as mesmas características, tais como a mesma política de colocação em cache. 
+  * Se estiver a utilizar [espaços de armazenamento direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) com um cenário como [instâncias de Cluster de ativação pós-falha do SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md), tem de configurar um único agrupamento. Tenha em atenção que embora diferentes volumes podem ser criadas em conjunto único, serão todos partilham as mesmas características, tais como a mesma política de colocação em cache.
 
   * Determine o número de discos associados ao seu agrupamento de armazenamento com base nas suas expectativas de carga. Tenha em atenção que os tamanhos de VM diferentes permitem números diferentes de discos de dados anexados. Para obter mais informações, consulte [tamanhos das Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
   * Se não estiver a utilizar o armazenamento Premium (cenários de desenvolvimento/teste), recomenda-se adicionar o número máximo de discos de dados suportados pela sua [tamanho da VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e utilizar Striping de disco.
 
-* **Política de colocação em cache**: discos de dados para o Premium Storage, ativar a colocação em cache de leitura de discos de dados que aloja os ficheiros de dados e ficheiros de dados TempDB apenas. Se não estiver a utilizar o armazenamento Premium, não ative a qualquer colocação em cache em qualquer discos de dados. Para obter instruções sobre como configurar a colocação em cache do disco, consulte os artigos seguintes. Para o modelo de implementação clássico (ASM) consulte o artigo: [conjunto AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [conjunto AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o modelo de implementação Azure Resource Manager, consulte: [conjunto AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) e [conjunto AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+* **Política de colocação em cache**: tenha em atenção as seguintes recomendações para colocar em cache da política consoante a configuração de armazenamento.
 
-  > [!WARNING]
-  > Pare o serviço SQL Server quando alterar a definição de cache de discos de VM do Azure para evitar a possibilidade de quaisquer danos na base de dados.
+  * Se estiver a utilizar discos separados para os ficheiros de dados e de registo, ative a colocação em cache de leitura de discos de dados que aloja os ficheiros de dados e ficheiros de dados TempDB. Isto pode resultar numa vantagem significativa do desempenho. Não ative a colocação em cache no disco que contém o ficheiro de registo, pois Isto causa um decréscimo secundário no desempenho.
+
+  * Se estiver a utilizar striping de disco, a maioria das cargas de trabalho serão vantajoso contar com colocação em cache de leitura. Devido a ganhos de desempenho com striping de disco, esta recomendação aplica-se mesmo quando o ficheiro de registo na mesma unidade. Cargas de trabalho determinadas cargas pesadas de escrita, um melhor desempenho pode ser conseguido com sem colocação em cache. Só pode ser determinado através de teste.
+
+  * As recomendações anteriores aplicam-se a discos de armazenamento Premium. Se não estiver a utilizar o armazenamento Premium, não ative a qualquer colocação em cache em qualquer discos de dados.
+
+  * Para obter instruções sobre como configurar a colocação em cache do disco, consulte os artigos seguintes. Para o modelo de implementação clássico (ASM) consulte o artigo: [conjunto AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [conjunto AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o modelo de implementação Azure Resource Manager, consulte: [conjunto AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) e [conjunto AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+
+     > [!WARNING]
+     > Pare o serviço SQL Server quando alterar a definição de cache de discos de VM do Azure para evitar a possibilidade de quaisquer danos na base de dados.
 
 * **Tamanho de unidade de alocação de NTFS**: quando formatar o disco de dados, é recomendado que utilize um tamanho de unidade de alocação de 64 KB para ficheiros de registo e dados, bem como TempDB.
 

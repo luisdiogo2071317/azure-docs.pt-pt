@@ -1,11 +1,11 @@
 ---
-title: "Integração contínua nos serviços de equipa de VS com projetos de grupo de recursos do Azure | Microsoft Docs"
-description: "Descreve como configurar a integração contínua no Visual Studio Team Services utilizando projetos de implementação do grupo de recursos do Azure no Visual Studio."
+title: Integração contínua nos serviços de equipa de VS com projetos de grupo de recursos do Azure | Microsoft Docs
+description: Descreve como configurar a integração contínua no Visual Studio Team Services utilizando projetos de implementação do grupo de recursos do Azure no Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Visual Studio Team Services com projetos de implementação do grupo de recursos do Azure
 Para implementar um modelo do Azure, executar tarefas em várias etapas: cópia de compilação, teste, para o Azure (também denominada "Testes") e implementar o modelo. Existem duas formas diferentes de implementar modelos Visual Studio Team Services (VS equipa de serviços). Ambos os métodos de fornecer os mesmos resultados, por isso, escolha a que melhor se adequa o fluxo de trabalho.
@@ -52,7 +52,7 @@ Os procedimentos seguintes descrevem os passos necessários para configurar a im
 1. Editar a definição da compilação VS Team Services e adicione um passo de compilação do Azure PowerShell. Escolha a definição de compilação sob o **criar definições** categoria e, em seguida, escolha o **editar** ligação.
    
    ![Editar definições de compilação][0]
-2. Adicione um novo **Azure PowerShell** compilar passo para a definição de compilação e, em seguida, escolha o **passo de compilação de adicionar...** Adicionar...
+2. Adicione um novo **Azure PowerShell** compilar passo para a definição de compilação e, em seguida, escolha o **passo de compilação de adicionar...** Editar...
    
    ![Adicione o passo de compilação][1]
 3. Escolha o **tarefas implementar** categoria, selecione o **Azure PowerShell** de tarefas e, em seguida, escolha o **adicionar** botão.
@@ -74,11 +74,11 @@ Os procedimentos seguintes descrevem os passos necessários para configurar a im
       ![Opção de principal de serviço][5]
    5. Adicionar informações da sua subscrição do Azure para o **adicionar subscrição do Azure** caixa de diálogo. Tem de fornecer os seguintes itens:
       
-      * Id de subscrição
-      * Nome da subscrição
+      * ID da Subscrição
+      * Nome da Subscrição
       * Id de Principal de serviço
       * Chave de Principal de serviço
-      * Id do inquilino
+      * Id de Inquilino
    6. Adicionar um nome à sua escolha para a **subscrição** caixa nome. Este valor apareçam mais à frente no **subscrição do Azure** na lista pendente no VS Team Services. 
    7. Se não souber o ID de subscrição do Azure, pode utilizar um dos seguintes comandos para obtê-lo.
       
@@ -106,7 +106,7 @@ Os procedimentos seguintes descrevem os passos necessários para configurar a im
    
    | Parâmetro | Descrição |
    | --- | --- |
-   | -ResourceGroupLocation |O valor de geolocalização onde está localizado, tal como o grupo de recursos **eastus** ou **'EUA Leste'**. (Adicionar plicas se não existir espaço no nome.) Consulte [regiões do Azure](https://azure.microsoft.com/en-us/regions/) para obter mais informações. |
+   | -ResourceGroupLocation |O valor de geolocalização onde está localizado, tal como o grupo de recursos **eastus** ou **'EUA Leste'**. (Adicionar plicas se não existir espaço no nome.) Consulte [regiões do Azure](https://azure.microsoft.com/regions/) para obter mais informações. |
    | -ResourceGroupName |O nome do grupo de recursos utilizado para esta implementação. |
    | -UploadArtifacts |Este parâmetro, quando presente, especifica que os artefactos que precisam de ser carregado para o Azure a partir do sistema local. Só tem de definir este parâmetro se a implementação do modelo exige artefactos adicionais que pretende testar a utilizar o script do PowerShell (como scripts de configuração ou modelos aninhados). |
    | -StorageAccountName |O nome da conta de armazenamento utilizado para artefactos fase para esta implementação. Este parâmetro só é utilizado se estão a transição artefactos para implementação. Se este parâmetro for fornecido, é criada uma nova conta de armazenamento se o script não tiver criado um durante uma implementação anterior. Se o parâmetro for especificado, a conta de armazenamento tem de existir. |
@@ -134,7 +134,7 @@ Os procedimentos seguintes descrevem os passos necessários para configurar a im
 1. Edite a definição da compilação VS Team Services para adicionar a que criar novo dois passos. Escolha a definição de compilação sob o **criar definições** categoria e, em seguida, escolha o **editar** ligação.
    
    ![Editar defintion de compilação][12]
-2. Adicionar os passos de criação de novo para a definição de compilação utilizando o **passo de compilação de adicionar...** Adicionar...
+2. Adicionar os passos de criação de novo para a definição de compilação utilizando o **passo de compilação de adicionar...** Editar...
    
    ![Adicione o passo de compilação][13]
 3. Escolha o **implementar** categoria da tarefa, selecione o **a cópia de ficheiros do Azure** de tarefas e, em seguida, escolha o **adicionar** botão.
@@ -177,7 +177,7 @@ Os procedimentos seguintes descrevem os passos necessários para configurar a im
      ![Configurar tarefas de implementação do grupo de recursos do Azure][17]
 7. Depois de adicionar os itens requeridos, guardar a definição de compilação e escolha **fila nova compilação** na parte superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Leitura [descrição geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md) para saber mais sobre o Azure Resource Manager e os grupos de recursos do Azure.
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png

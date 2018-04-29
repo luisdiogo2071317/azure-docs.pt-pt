@@ -2,23 +2,20 @@
 title: A construção de cadeias de filtro para o estruturador de tabela | Microsoft Docs
 description: A construção de cadeias de filtro para o estruturador de tabela
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/18/2016
 ms.author: ghogen
-ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7390e8f463d14f2e74e05263e970665a0199029a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>A construção de cadeias de filtro para o estruturador de tabela
 ## <a name="overview"></a>Descrição geral
@@ -31,7 +28,7 @@ São suportados os seguintes operadores lógicos para todos os tipos de propried
 
 | Operador lógico | Descrição | Cadeia de filtro de exemplo |
 | --- | --- | --- |
-| EQ |Equal |Cidade eq 'Redmond' |
+| EQ |Igual a |Cidade eq 'Redmond' |
 | gt |Mais do que |Preços gt 20 |
 | ge |Maior que ou igual a |Preços ge 10 |
 | lt |Menos do que |Preços lt 20 |

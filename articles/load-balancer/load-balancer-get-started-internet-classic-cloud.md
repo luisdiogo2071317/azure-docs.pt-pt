@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga com acesso à Internet para serviços cloud do Azure | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga com acesso à Internet no modelo de implementação clássica para serviços em nuvem"
+title: Criar um balanceador de carga com acesso à Internet para serviços cloud do Azure | Microsoft Docs
+description: Saiba como criar um balanceador de carga com acesso à Internet no modelo de implementação clássica para serviços em nuvem
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: b389d9a01db394b79d07ff9c3d6d1cd94e811472
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6e4c54350d1b76b536648f7eca274e5ee3271417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Introdução à criação de um balanceador de carga com acesso à Internet para serviços em nuvem
 
@@ -43,22 +43,22 @@ O exemplo seguinte mostra como um ficheiro servicedefinition.csdef para uma impl
 Ao verificar o fragmento do ficheiro .csdef gerado por uma implementação na cloud, pode ver o ponto final externo configurado para utilizar as portas HTTP na porta 10000, 10001 e 10002.
 
 ```xml
-<ServiceDefinition name=“Tenant“>
-    <WorkerRole name=“FERole” vmsize=“Small“>
-<Endpoints>
-    <InputEndpoint name=“FE_External_Http” protocol=“http” port=“10000“ />
-    <InputEndpoint name=“FE_External_Tcp“  protocol=“tcp“  port=“10001“ />
-    <InputEndpoint name=“FE_External_Udp“  protocol=“udp“  port=“10002“ />
+<ServiceDefinition name="Tenant">
+    <WorkerRole name="FERole" vmsize="Small">
+        <Endpoints>
+            <InputEndpoint name="FE_External_Http" protocol="http" port="10000" />
+            <InputEndpoint name="FE_External_Tcp"  protocol="tcp"  port="10001" />
+            <InputEndpoint name="FE_External_Udp"  protocol="udp"  port="10002" />
 
-    <InputEndpointname=“HTTP_Probe” protocol=“http” port=“80” loadBalancerProbe=“MyProbe“ />
+            <InputEndpoint name="HTTP_Probe" protocol="http" port="80" loadBalancerProbe="MyProbe" />
 
-    <InstanceInputEndpoint name=“InstanceEP” protocol=“tcp” localPort=“80“>
-        <AllocatePublicPortFrom>
-            <FixedPortRange min=“10110” max=“10120“  />
-        </AllocatePublicPortFrom>
-    </InstanceInputEndpoint>
-    <InternalEndpoint name=“FE_InternalEP_Tcp” protocol=“tcp“ />
-</Endpoints>
+            <InstanceInputEndpoint name="InstanceEP" protocol="tcp" localPort="80">
+                <AllocatePublicPortFrom>
+                    <FixedPortRange min="10110" max="10120"  />
+                </AllocatePublicPortFrom>
+            </InstanceInputEndpoint>
+            <InternalEndpoint name="FE_InternalEP_Tcp" protocol="tcp" />
+        </Endpoints>
     </WorkerRole>
 </ServiceDefinition>
 ```
@@ -69,7 +69,7 @@ Segue-se um exemplo de uma sonda de estado de funcionamento:
 
 ```xml
 <LoadBalancerProbes>
-    <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
+    <LoadBalancerProbe name="MyProbe" protocol="http" path="Probe.aspx" intervalInSeconds="5" timeoutInSeconds="100" />
 </LoadBalancerProbes>
 ```
 

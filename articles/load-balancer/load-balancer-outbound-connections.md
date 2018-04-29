@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -146,12 +146,12 @@ A tabela seguinte mostra os preallocations de porta de realizar o SNAT para as c
 
 | Tamanho do conjunto (instâncias de VM) | Portas de realizar o SNAT preallocated por configuração de IP|
 | --- | --- |
-| 1-50 | 1,024 |
+| 1 a 50 | 1,024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 801-1,000 | 32 |
+| 1000 801 | 32 |
 
 >[!NOTE]
 > Ao utilizar o padrão de Balanceador de carga com [frontends vários](load-balancer-multivip-overview.md), [cada endereço IP de front-end multiplica o número de portas de realizar o SNAT disponíveis](#multivipsnat) na tabela anterior. Por exemplo, um conjunto de back-end de 50 da VM com 2 carga regras de balanceamento, cada um com um endereço IP de front-end separado, irá utilizar as portas de realizar o SNAT 2048 (2 x 1024) por configuração de IP. Consulte os detalhes para [frontends vários](#multife).
@@ -243,10 +243,11 @@ Se um NSG bloquear pedidos de sonda de estado de funcionamento da etiqueta prede
 
 ## <a name="limitations"></a>Limitações
 - DisableOutboundSnat não está disponível como uma opção quando configurar uma regra no portal de balanceamento de carga.  Utilize as ferramentas REST, modelo ou cliente em vez disso.
+- As funções de trabalho Web fora de uma VNet pode estar acessíveis quando é utilizado apenas um padrão Balanceador de carga interno devido a um efeito de como função de serviços de pre-VNet. Não precisará neste como o respetivo serviço próprio ou subjacentes plataforma podem ser alteradas sem aviso prévio. Têm de assumir sempre que tem de criar explicitamente conectividade de saída, se assim o desejar quando utiliza um padrão Balanceador de carga interno apenas. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).
-- Saiba mais sobre [padrão Balanceador de carga](load-balancer-standard-overview.md).
+- Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 - Saiba mais sobre algumas da outra chave [capacidades de rede](../networking/networking-overview.md) no Azure.

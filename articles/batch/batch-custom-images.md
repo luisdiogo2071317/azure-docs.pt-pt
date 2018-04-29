@@ -1,18 +1,18 @@
 ---
 title: Aprovisionar conjuntos do Azure Batch de imagens personalizadas | Microsoft Docs
-description: "Pode criar um lote de nós que contêm o software e os dados que precisa para a sua aplicação de computação do conjunto a partir de uma imagem personalizada para aprovisionar. Imagens personalizadas são uma forma eficaz para configurar nós de computação para executar as cargas de trabalho do Batch."
+description: Pode criar um lote de nós que contêm o software e os dados que precisa para a sua aplicação de computação do conjunto a partir de uma imagem personalizada para aprovisionar. Imagens personalizadas são uma forma eficaz para configurar nós de computação para executar as cargas de trabalho do Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais 
 
@@ -40,7 +40,7 @@ Utilizar uma imagem personalizada configurada para o seu cenário, pode fornecer
 
     
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
-Pode preparar uma imagem gerida a partir de um VHD, de uma VM do Azure com discos geridos ou de um instantâneo VM. 
+Pode preparar uma imagem gerida a partir de um VHD, de uma VM do Azure com discos geridos ou de um instantâneo VM. Lote, é recomendável criar uma imagem gerida a partir de uma VM com discos geridos ou um instantâneo VM. A imagem gerida e o recurso subjacente devem existir para os conjuntos de aumentar verticalmente e podem ser removidos depois do conjunto ser eliminado. 
 
 Quando preparar a imagem, tenha em consideração os seguintes pontos:
 

@@ -1,11 +1,11 @@
 ---
 title: Selecione as imagens de VM do Windows no Azure | Microsoft Docs
-description: "Saiba como utilizar o Azure PowerShell para determinar o publicador, oferta, SKU e versão para imagens de VM do Marketplace."
+description: Saiba como utilizar o Azure PowerShell para determinar o publicador, oferta, SKU e versão para imagens de VM do Marketplace.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 6d88eea96d95ac998575b9b034ac970eabc38913
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858b5976ef422ab410f42c44f94473aa4fd10970
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Como localizar as imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -32,10 +32,10 @@ Certifique-se de que é instalado e configurado a versão mais recente [módulo 
 ## <a name="table-of-commonly-used-windows-images"></a>Tabela de imagens do Windows utilizadas normalmente
 | Publicador | Oferta | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |Centro de dados de 2016 |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
-| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
-| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
+| MicrosoftWindowsServer |WindowsServer |2016 Datacenter com contentores |
+| MicrosoftWindowsServer |WindowsServer |Servidor de Nano de 2016 |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
@@ -80,7 +80,7 @@ Preencha o nome SKU que escolheu e execute os seguintes comandos:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Da saída do `Get-AzureRMVMImage` comando, pode selecionar uma imagem de versão para implementar uma nova máquina virtual.

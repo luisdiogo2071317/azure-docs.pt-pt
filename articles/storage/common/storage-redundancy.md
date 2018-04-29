@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -46,7 +46,7 @@ Consulte [preços do Storage do Azure](https://azure.microsoft.com/pricing/detai
 > Armazenamento Premium suporta armazenamento apenas localmente redundante (LRS). Para obter informações sobre o Premium Storage, consulte [Premium Storage: armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Alterar a estratégia de replicação
-Iremos permitem-lhe alterar estratégia de replicação da sua conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), ou um dos muitos [ Bibliotecas de cliente do Azure](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num tempo.
+Iremos permitem-lhe alterar estratégia de replicação da sua conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou um dos muitos [ Bibliotecas de cliente do Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num tempo.
 
    > [!NOTE]
    > Atualmente, não é possível utilizar o Portal ou a API para converter a sua conta para o ZRS. No entanto, planeamos suportar a migrar para o ZRS do LRS, GRS e RA-GRS depois do ZRS estiver geralmente disponível. Consulte [armazenamentocomredundânciadezona (ZRS)](storage-redundancy-zrs.md) para obter mais detalhes.

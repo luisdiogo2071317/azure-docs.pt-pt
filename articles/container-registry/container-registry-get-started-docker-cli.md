@@ -3,17 +3,17 @@ title: Imagem de Docker push privada registo do Azure
 description: Enviar e extrair imagens do Docker para um registo privado de contentor do Azure com a CLI do Docker
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 40f2d3bde5e92a035709b1a8e49b76d3da079680
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
@@ -61,7 +61,7 @@ Executar o seguinte [docker run](https://docs.docker.com/engine/reference/run/) 
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Navegue até à [http://localhost:8080](http://localhost:8080) para ver a página predefinida de web servidos pelo Nginx no contentor em execução. Deverá ver uma página semelhante ao seguinte:
+Navegue até à [ http://localhost:8080 ](http://localhost:8080) para ver a página predefinida de web servidos pelo Nginx no contentor em execução. Deverá ver uma página semelhante ao seguinte:
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -103,7 +103,7 @@ Utilize o [docker run](https://docs.docker.com/engine/reference/run/) comando a 
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Navegue para [http://localhost:8080](http://localhost:8080) para ver o contentor em execução.
+Navegue até à [ http://localhost:8080 ](http://localhost:8080) para ver o contentor em execução.
 
 Para parar e remover o contentor, prima `Control` + `C`.
 

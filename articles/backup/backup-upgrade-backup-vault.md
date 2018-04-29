@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Atualizado para o Cofre dos serviços de recuperação Cofre de cópia de segurança
 Este artigo fornece uma descrição geral fornece o Cofre dos serviços de recuperação, perguntas mais frequentes sobre a atualização de cópia de segurança existente do cofre dos serviços de recuperação cofre e passos pós-atualização. Um cofre dos serviços de recuperação é o equivalente do Azure Resource Manager um cofre de cópia de segurança que aloja os seus dados de cópia de segurança. Os dados são, geralmente, cópias de dados ou informações de configuração para máquinas virtuais (VMs), cargas de trabalho, servidores ou estações de trabalho, se no local ou no Azure.
@@ -60,7 +60,7 @@ O segundo ecrã mostra a ajuda das ligações disponíveis para o ajudar a come�
 O Cofre de serviços de recuperação suporta a especificação informações de fuso horário na política de cópia de segurança. Depois de cofre é atualizado com êxito, vá para políticas de cópia de segurança a partir do menu de definições do cofre e atualizar as informações de fuso horário para cada uma das políticas configuradas no cofre. Este ecrã mostra já o tempo de agenda de cópia de segurança especificado como por fuso horário local utilizado quando criou a política. 
 
 ## <a name="enhanced-security"></a>Segurança melhorada
-Quando um cofre de cópia de segurança é atualizado para um cofre dos serviços de recuperação, as definições de segurança para essa cofre automaticamente estão ativadas. Quando as definições de segurança são em determinadas operações, tais como as cópias de segurança a eliminar ou alterar uma frase de acesso necessitar de um [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN. Para obter mais informações sobre a segurança avançada, consulte o artigo [funcionalidades de segurança para proteger cópias de segurança híbrida](backup-azure-security-feature.md). Quando a segurança avançada estiver ativada, os dados são mantidos cópias de segurança para 14 dias depois das informações de ponto de recuperação foi eliminadas do cofre. Os clientes são cobrados para armazenamento destes dados de segurança. Retenção de dados de segurança se aplica a pontos de recuperação direcionados para o agente de cópia de segurança do Azure, servidor de cópia de segurança do Azure e System Center Data Protection Manager. 
+Quando um cofre de cópia de segurança é atualizado para um cofre dos serviços de recuperação, as definições de segurança para essa cofre automaticamente estão ativadas. Quando as definições de segurança são em determinadas operações, tais como as cópias de segurança a eliminar ou alterar uma frase de acesso necessitar de um [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. Para obter mais informações sobre a segurança avançada, consulte o artigo [funcionalidades de segurança para proteger cópias de segurança híbrida](backup-azure-security-feature.md). Quando a segurança avançada estiver ativada, os dados são mantidos cópias de segurança para 14 dias depois das informações de ponto de recuperação foi eliminadas do cofre. Os clientes são cobrados para armazenamento destes dados de segurança. Retenção de dados de segurança se aplica a pontos de recuperação direcionados para o agente de cópia de segurança do Azure, servidor de cópia de segurança do Azure e System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Recolher dados do seu Cofre
 Uma vez atualizar para um cofre dos serviços de recuperação, configure os relatórios para cópia de segurança do Azure (para o agente de VMs de IaaS e dos serviços de recuperação do Microsoft Azure) e utilizar o Power BI para aceder aos relatórios. Para obter informações adicionais sobre a recolha de dados, consulte o artigo [relatórios de configurar a cópia de segurança do Azure](backup-azure-configure-reports.md).

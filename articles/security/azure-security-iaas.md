@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 
@@ -52,7 +52,7 @@ No passado, o perímetro de rede foi utilizado para controlar o acesso a dados e
 
 Um dos passos mais vantajoso que pode tomar para proteger uma conta consiste em ativar a autenticação de dois fatores. A autenticação de dois fatores é uma forma de autenticar utilizando algo para além de uma palavra-passe. Ajuda a mitigar o risco de acesso por alguém que gere para obter a palavra-passe de alguém de outra pessoa.
 
-[Multi-factor Authentication do Azure](../multi-factor-authentication/multi-factor-authentication.md) ajuda a salvaguardar o acesso a dados e aplicações cumprindo o pedido do utilizador para um processo de início de sessão simple. Fornece autenticação forte com uma variedade de opções de verificação fácil--chamada telefónica, mensagem de texto ou notificação de aplicação móvel. Os utilizadores escolher o método preferem.
+[Multi-factor Authentication do Azure](../active-directory/authentication/multi-factor-authentication.md) ajuda a salvaguardar o acesso a dados e aplicações cumprindo o pedido do utilizador para um processo de início de sessão simple. Fornece autenticação forte com uma variedade de opções de verificação fácil--chamada telefónica, mensagem de texto ou notificação de aplicação móvel. Os utilizadores escolher o método preferem.
 
 A forma mais fácil de utilizar o multi-factor Authentication é a aplicação móvel Microsoft Authenticator que pode ser utilizada em dispositivos móveis com o Windows, iOS e Android. Com a versão mais recente do Windows 10 e a integração do Active Directory no local com o Azure Active Directory (Azure AD), [Windows Hello para empresas](../active-directory/active-directory-azureadjoin-passport-deployment.md) pode ser utilizado para totalmente integrada-início de sessão único aos recursos do Azure. Neste caso, o dispositivo Windows 10 é utilizado como segundo fator de autenticação.
 
@@ -118,7 +118,7 @@ Em alternativa, pode utilizar o [ponto a site](../vpn-gateway/vpn-gateway-howto-
 >[!NOTE]
 >Pode utilizar qualquer uma das opções de VPN para reconfigurar as ACLs no NSGs para não permitir o acesso aos pontos finais de gestão da Internet.
 
-É outra opção vale considerar um [Gateway de ambiente de trabalho remoto](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) implementação. Pode utilizar esta implementação para ligar em segurança para servidores de ambiente de trabalho remoto através de HTTPS, ao aplicar controlos mais detalhados para essas ligações.
+É outra opção vale considerar um [Gateway de ambiente de trabalho remoto](../active-directory/authentication/howto-mfaserver-nps-rdg.md) implementação. Pode utilizar esta implementação para ligar em segurança para servidores de ambiente de trabalho remoto através de HTTPS, ao aplicar controlos mais detalhados para essas ligações.
 
 Funcionalidades que iriam tem acesso a incluir:
 
@@ -166,7 +166,7 @@ Deve ser protegidas todas as máquinas virtuais no IaaS do Azure para que estes 
 
 Gestor de conformidade de segurança é uma ferramenta livre. Pode utilizá-lo para configurar e gerir os seus ambientes de trabalho, o Centro de dados tradicional e a nuvem privada e pública utilizando a política de grupo e o System Center Configuration Manager rapidamente.
 
-Gestor de conformidade de segurança fornece pronto para implementar políticas e pacotes de configuração de gestão de configuração pretendida são testados. Estas linhas de base baseiam-se no [orientações de segurança do Microsoft](https://technet.microsoft.com/en-us/library/cc184906.aspx) recomendações e do setor melhores práticas. Ajudam a gerir a que se desviam configuração, os requisitos de conformidade de endereço e reduzir a ameaças de segurança.
+Gestor de conformidade de segurança fornece pronto para implementar políticas e pacotes de configuração de gestão de configuração pretendida são testados. Estas linhas de base baseiam-se no [orientações de segurança do Microsoft](https://technet.microsoft.com/library/cc184906.aspx) recomendações e do setor melhores práticas. Ajudam a gerir a que se desviam configuração, os requisitos de conformidade de endereço e reduzir a ameaças de segurança.
 
 Pode utilizar o Gestor de conformidade de segurança para importar a configuração atual dos seus computadores ao utilizar dois métodos diferentes. Em primeiro lugar, pode importar políticas de grupo baseada no Active Directory. Segundo, pode importar a configuração de "mestre dourada" computador de referência utilizando o [LocalGPO ferramenta](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) fazer cópias de segurança na política de grupo local. Em seguida, pode importar a política de grupo local para o Gestor de conformidade de segurança.
 

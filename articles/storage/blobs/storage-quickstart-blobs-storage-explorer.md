@@ -1,19 +1,19 @@
 ---
-title: Início Rápido do Azure - carregar, transferir e listar os blobs no Armazenamento do Microsoft Azure através do Explorador de Armazenamento do Azure | Microsoft Docs
-description: Neste início rápido, utilize o Explorador de Armazenamento para criar uma conta de armazenamento e um contentor. Em seguida, utilize o Explorador de Armazenamento para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
+title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com o Explorador de Armazenamento do Azure | Microsoft Docs
+description: Neste início rápido, irá utilizar o Explorador de Armazenamento do Azure no armazenamento de objetos (Blobs). Em seguida, utilize o Explorador de Armazenamento para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Início Rápido: carregar, transferir e listar blobs através do Explorador de Armazenamento
 

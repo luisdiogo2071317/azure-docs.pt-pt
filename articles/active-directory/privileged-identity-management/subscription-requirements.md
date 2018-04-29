@@ -1,8 +1,8 @@
 ---
-title: "Privilegiado subscrições de gestão de identidades - Azure | Microsoft Docs"
-description: "Explica a subscrição e os requisitos para gestão e a utilização do Azure AD Privileged Identity Management no seu inquilino de licenciamento"
+title: Privilegiado subscrições de gestão de identidades - Azure | Microsoft Docs
+description: Explica a subscrição e os requisitos para gestão e a utilização do Azure AD Privileged Identity Management no seu inquilino de licenciamento
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisitos da subscrição do Azure Active Directory Privileged Identity Management
 
@@ -40,7 +40,7 @@ Este comando obtém uma lista de subscrições no seu inquilino. Se não houver 
 
 Se este comando devolve uma linha na qual SkuPartNumber é "AAD_PREMIUM_P2" ou "EMSPREMIUM" e IsTrial for "True", isto indica que uma versão de avaliação do Azure AD Premium P2 está presente no inquilino.  Se o estado da subscrição não está ativado e não tiver uma subscrição do Azure AD Premium P2 ou EMS E5 comprar, em seguida, tem de comprar uma subscrição do Azure AD Premium P2 ou EMS E5 subscrição para continuar a utilizar o Azure AD Privileged Identity Management.
 
-Do Azure AD Premium P2 está disponível através de um [Enterprise Agreement do Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), a [programa de licenciamento em Volume abrir](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)e o [programa de fornecedores de soluções de nuvem](https://partner.microsoft.com/en-US/cloud-solution-provider). Os subscritores do Azure e o Office 365 também podem comprar o Azure AD Premium P2 online.  Podem encontrar mais informações sobre preços do Azure AD Premium e como ordenar online em [preços do Azure Active Directory](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Do Azure AD Premium P2 está disponível através de um [Enterprise Agreement do Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), a [programa de licenciamento em Volume abrir](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)e o [programa de fornecedores de soluções de nuvem](https://partner.microsoft.com/en-US/cloud-solution-provider). Os subscritores do Azure e o Office 365 também podem comprar o Azure AD Premium P2 online.  Podem encontrar mais informações sobre preços do Azure AD Premium e como ordenar online em [preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Não está disponível no inquilino do Azure AD Privileged Identity Management
 
@@ -57,7 +57,7 @@ Quando uma subscrição do Azure AD Premium P2 ou EMS E5 subscrição expira, ou
 - Quaisquer revisões de acesso em curso das funções do Azure AD irão terminar e as definições de configuração do Azure AD Privileged Identity Management serão removidas.
 - O Azure AD Privileged Identity Management já não irá enviar mensagens de correio eletrónico no alterações à atribuição de função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução ao Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
 - [Funções no Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)

@@ -1,11 +1,11 @@
 ---
-title: "Estrutura de identidade híbrida - requisitos de multi-factor authentication do Azure | Microsoft Docs"
-description: "Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação."
-documentationcenter: 
+title: Estrutura de identidade híbrida - requisitos de multi-factor authentication do Azure | Microsoft Docs
+description: Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação.
+documentationcenter: ''
 services: active-directory
 author: femila
 manager: billmath
-editor: 
+editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para a sua solução de identidade híbrida
 Neste mundo de mobilidade, com utilizadores que acedem aos dados e aplicações na nuvem e de qualquer dispositivo, proteger esta informação tornou essencial da.  Todos os dias há um novo título sobre uma violação de segurança.  Contudo, não há nenhuma garantia de tais danos, o multi-factor authentication, fornece uma camada adicional de segurança para ajudar a evitar estas violações.
 Comece por ao avaliar os requisitos de organizações para autenticação multifator. Ou seja, o que é a organização tentar proteger.  Esta avaliação é importante definir os requisitos técnicos para configurar e ativar os utilizadores de organizações para autenticação multifator.
 
 > [!NOTE]
-> Se não estiver familiarizado com a MFA e o que faz, recomenda-se vivamente que leia o artigo [que é o Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) antes de continuar a ler nesta secção.
+> Se não estiver familiarizado com a MFA e o que faz, recomenda-se vivamente que leia o artigo [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md) antes de continuar a ler nesta secção.
 > 
 > 
 

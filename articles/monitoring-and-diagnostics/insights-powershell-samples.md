@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure PowerShell de Monitor
 Este artigo apresenta o exemplo comandos do PowerShell para o ajudar a aceder às funcionalidades de monitorização do Azure.
@@ -38,7 +38,7 @@ Os exemplos no artigo mostram como pode utilizar os cmdlets de Monitor do Azure.
 Primeiro, inicie sessão sua subscrição do Azure.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Verá um ecrã de início de sessão. Uma vez que iniciar sessão na sua conta, TenantID, e são apresentados o ID de subscrição predefinido. Todos os cmdlets do Azure funciona no contexto da sua subscrição predefinida. Para ver a lista de subscrições tiver acesso, utilize o seguinte comando:

@@ -2,26 +2,24 @@
 title: Em massa carregamento para o Apache Phoenix utilizando psql - Azure HDInsight | Microsoft Docs
 description: Utilize a ferramenta de psql para carregar dados de carregamento em massa para tabelas de Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 0a623113ee9f3fe2c0f5f616ecd79b8311a8ffc1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2c192707c6cf8f84d2ca1c0307770cadd5cdb8bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="bulk-load-data-into-phoenix-using-psql"></a>Carregamento em massa para o Phoenix utilizando psql
+# <a name="bulk-load-data-into-phoenix-using-psql"></a>Carregamento de dados em massa para o Phoenix com psql
 
 [O Apache Phoenix](http://phoenix.apache.org/) é um open source, paralelo em grande escala base de dados relacional incorporado no [HBase](../hbase/apache-hbase-overview.md). O Phoenix fornece consultas de como o SQL através de HBase. O Phoenix utiliza controladores JDBC para permitir aos utilizadores criar, eliminar e alterar as tabelas, índices, vistas e sequências e upsert linhas SQL individualmente e em massa. O Phoenix utiliza compilação nativo noSQL, em vez de utilizar o MapReduce para compilar consultas, para criar aplicações de latência baixa por cima do HBase. O Phoenix adiciona coprocessadores para suportar a execução com o código fornecido pelo cliente no espaço de endereço do servidor, ao executar o código localizado conjuntamente com os dados. Isto minimiza a transferência de dados de cliente/servidor.  Trabalhar com dados com o Phoenix no HDInsight, primeiro criar tabelas e, em seguida, carregar dados para o-los.
 

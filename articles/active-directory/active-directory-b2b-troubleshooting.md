@@ -1,13 +1,13 @@
 ---
-title: "Resolução de problemas de colaboração B2B do Azure Active Directory do | Microsoft Docs"
-description: "Responsabilidade para problemas comuns com a colaboração B2B do Azure Active Directory do"
+title: Resolução de problemas de colaboração B2B do Azure Active Directory do | Microsoft Docs
+description: Responsabilidade para problemas comuns com a colaboração B2B do Azure Active Directory do
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 588e154d35fda539ac6ee8803ed96e6cd9a3d1df
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 82c171c59b7f465afd760d50b36d17912ee7c8e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração B2B do Azure Active Directory do
 
@@ -63,7 +63,7 @@ Para resolver este problema, o administrador do utilizador externo tem de sincro
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>Como dos does\#', que não é normalmente um caráter válido, a sincronização com o Azure AD?
 
-"\#" é um caráter reservado UPNs para colaboração B2B do Azure AD ou utilizadores externos, porque a conta de convidados user@contoso.com fica user_contoso.com#EXT@fabrikam.onmicrosoft.com. Por conseguinte, \# UPNs feitos no local não são permitidos para iniciar sessão no portal do Azure. 
+"\#" é um caráter reservado UPNs para colaboração B2B do Azure AD ou utilizadores externos, porque a conta de convidados user@contoso.com fica user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Por conseguinte, \# UPNs feitos no local não são permitidos para iniciar sessão no portal do Azure. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recebo um erro ao adicionar utilizadores externos a um grupo sincronizado
 
