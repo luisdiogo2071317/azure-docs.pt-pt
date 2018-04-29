@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -26,7 +26,7 @@ Depois de começar a utilizar um ou mais bases de dados de BD do Cosmos do Azure
 
 ## <a name="logs-available-in-azure"></a>Registos disponíveis no Azure
 
-Antes de iremos falar sobre como monitorizar a sua conta de base de dados do Azure Cosmos, vamos clarificar alguns aspetos sobre o registo e monitorização. Existem diferentes tipos de registos na plataforma do Azure. Existem [registos de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, monitorização heartbeat, registos de operações e assim sucessivamente. Não há um plethora de registos. Pode ver a lista completa de registos no [Log Analytics do Azure](https://azure.microsoft.com/en-us/services/log-analytics/) no portal do Azure. 
+Antes de iremos falar sobre como monitorizar a sua conta de base de dados do Azure Cosmos, vamos clarificar alguns aspetos sobre o registo e monitorização. Existem diferentes tipos de registos na plataforma do Azure. Existem [registos de atividade do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, monitorização heartbeat, registos de operações e assim sucessivamente. Não há um plethora de registos. Pode ver a lista completa de registos no [Log Analytics do Azure](https://azure.microsoft.com/services/log-analytics/) no portal do Azure. 
 
 A imagem seguinte mostra os diferentes tipos de registos do Azure que estão disponíveis:
 
@@ -51,7 +51,7 @@ Registos de atividade (controlo plane operações) podem ser mais rico natureza 
 
 ### <a name="azure-metrics"></a>Métricas do Azure
 
-[As métricas do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) têm o tipo mais importante de dados de telemetria do Azure (também denominado _contadores de desempenho_) que é emitido pelo Azure mais recursos. Métricas permitem-lhe ver informações sobre débito, armazenamento, consistência, disponibilidade e a latência dos seus recursos Azure Cosmos DB. Para obter mais informações, consulte [monitorização e a depuração com métricas do BD Azure Cosmos](use-metrics.md).
+[As métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) têm o tipo mais importante de dados de telemetria do Azure (também denominado _contadores de desempenho_) que é emitido pelo Azure mais recursos. Métricas permitem-lhe ver informações sobre débito, armazenamento, consistência, disponibilidade e a latência dos seus recursos Azure Cosmos DB. Para obter mais informações, consulte [monitorização e a depuração com métricas do BD Azure Cosmos](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 

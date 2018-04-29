@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual do Windows utilizando o PowerShell na pilha do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas*
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Este detalhes guia através do PowerShell para criar uma máquina virtual do Windows Server 2016 na pilha do Azure. Pode executar os passos descritos neste artigo do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseado no Windows, se estiver ligado através de VPN.
+Pode criar uma máquina virtual do Windows Server 2016 com o Azure PowerShell de pilha. Siga os passos neste artigo para criar e utilizar uma máquina virtual. Este artigo também dá-lhe os passos para:
+
+* Ligar à máquina virtual com um cliente remoto.
+* Instalar o servidor de web IIS e ver a home page predefinida.
+* Limpe os seus recursos.
+
+>[!NOTE]
+ Pode executar os passos descritos neste artigo, o Kit de desenvolvimento de pilha do Azure ou a partir de um cliente externo baseado em Windows, se estiver ligado através de uma VPN.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

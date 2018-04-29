@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerir o registo de inquilino na pilha do Azure
 
@@ -47,7 +47,7 @@ Tenha em atenção que apenas uma subscrição do Azure pode ser associada um in
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o cmdlet New-AzureRmResource para atualizar o recurso de registo. Inicie sessão no Azure (`Connect-AzureRmAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
+Utilize o cmdlet New-AzureRmResource para atualizar o recurso de registo. Inicie sessão no Azure (`Add-AzureRmAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Obter uma lista de todos os inquilinos que foram adicionados a um registo.
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o cmdlet Get-AzureRmResovurce para listar todas as registado inquilinos. Inicie sessão no Azure (`Connect-AzureRmAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
+Utilize o cmdlet Get-AzureRmResovurce para listar todas as registado inquilinos. Inicie sessão no Azure (`Add-AzureRmAccount`) utilizando a conta utilizada para o registo inicial. Eis um exemplo de como adicionar um inquilino:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

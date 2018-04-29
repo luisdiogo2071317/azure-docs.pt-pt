@@ -8,16 +8,14 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/19/2018
-ms.openlocfilehash: 5ebf2d1025c8f9469a83a408cb79e3d944a601bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.date: 04/25/2018
+ms.openlocfilehash: 1fc1791d75355cc30f2ef43fc17e39a868e2c756
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de fluxo como entrada para o Stream Analytics
-
-Do Stream Analytics aceita entrada de dados de vários tipos de origens de eventos. A ligação de dados fornecida como entrada para uma tarefa de Stream Analytics é referida como a tarefa *entrada*. 
 
 Do Stream Analytics tem integração de primeira classe com fluxos de dados do Azure como entradas de três tipos de recursos:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
@@ -25,17 +23,6 @@ Do Stream Analytics tem integração de primeira classe com fluxos de dados do A
 - [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
 Estes recursos entrados podem em direto na mesma subscrição do Azure como a tarefa de Stream Analytics, ou a partir de uma subscrição diferente.
-
-## <a name="compare-stream-and-reference-inputs"></a>Comparar as entradas de referência e de fluxo
-Como os dados são forçados a uma origem de dados, tem consumidas pela tarefa de Stream Analytics e processados em tempo real. Entradas são divididas em dois tipos: entradas de dados de referência e entradas de fluxo de dados.
-
-### <a name="data-stream-input"></a>Entrada de fluxo de dados
-Um fluxo de dados é uma sequência de eventos unbounded ao longo do tempo. Tarefas do Stream Analytics tem de incluir entradas de fluxo de dados de pelo menos um. Os Event Hubs, o IoT Hub e o armazenamento de BLOBs são suportados como origens de entrada de fluxo de dados. Os Event Hubs são utilizados para recolher fluxos de eventos de vários dispositivos e serviços. Estes fluxos podem incluir feeds de atividade de redes sociais, as cotações compromissos informações ou dados de sensores. Os Hubs IoT estão otimizados para recolher dados de dispositivos ligados em cenários Internet das coisas (IoT).  O blob storage pode ser utilizado como uma origem de entrada para a ingestão de dados do volume como um fluxo, tais como ficheiros de registo.  
-
-### <a name="reference-data-input"></a>Entrada de dados de referência
-Stream Analytics suporta também conhecida como de entrada *referência a dados*. Estes são dados auxiliares que é o estático ou que as alterações lentamente. Dados de referência é normalmente utilizados para efetuar a correlação e pesquisas. Por exemplo, poderá associar dados na entrada de fluxo de dados para dados em dados de referência, sucederia com executaria uma associação SQL para procurar valores estáticos. Armazenamento de Blobs do Azure está atualmente a única origem de entrada suportada para dados de referência. Os blobs de origem de dados de referência estão limitados a 100 MB de tamanho.
-
-Para saber como criar entradas de dados de referência, consulte [utilizar dados de referência](stream-analytics-use-reference-data.md).  
 
 ### <a name="compression"></a>Compressão
 Stream Analytics suporta a compressão em todos os fluxo entrada as origens de dados. Os tipos de referência atualmente suportados são: None, GZip e Deflate compressão. Suporte de compressão não está disponível para dados de referência. Se o formato de entrada for dados Avro são comprimidos,-lo é processada de forma transparente. Não é necessário especificar o tipo de compressão com serialização Avro. 
@@ -50,7 +37,6 @@ Para criar novas entradas e lista ou editar entradas existentes na sua tarefa de
 7. Selecione **teste** na página de detalhes de entrada para verificar se as opções de ligação são válidos e a funcionar. 
 8. Clique com o botão direito no nome de uma entrada existente e selecione **dados de entrada de exemplo** conforme necessário para fins de teste ainda mais.
 
-Também pode utilizar [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input), e [Visual Studio](stream-analytics-tools-for-visual-studio.md) para criar, editar e testar a tarefa do Stream Analytics entradas.
 
 ## <a name="stream-data-from-event-hubs"></a>Dados de fluxo dos Event Hubs
 
@@ -72,7 +58,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** página no portal
 | **Nome do Hub de eventos** | O nome do hub de eventos para utilizar como entrada. |
 | **Nome de política do Hub de eventos** | A política de acesso partilhado fornece acesso ao Hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. Esta opção é preenchida automaticamente no, a menos que selecione a opção de fornecer as definições de Hub de eventos manualmente.|
 | **Grupo de consumidores do Hub de eventos** (recomendado) | Recomenda-se vivamente a utilizar um grupo de consumidores distinta para cada tarefa de Stream Analytics. Esta cadeia identifica o grupo de consumidores para utilizar para a ingestão de dados do hub de eventos. Não se for especificado nenhum grupo de consumidores, a tarefa de Stream Analytics utiliza o grupo de consumidores $Default.  |
-| **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada. |
+| **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhada com a especificação e não inclui 0 à esquerda para números decimais. |
 | **Codificação** | UTF-8 atualmente é o único formato de codificação suportado. |
 | **Tipo de compressão de evento** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, tais como None (predefinição), GZip, ou Deflate. |
 
@@ -95,7 +81,7 @@ FROM Input
 ```
 
 > [!NOTE]
-> Quando utilizar o Hub de eventos como um ponto final para rotas de Hub IoT, pode aceder à utilização de medadata IoT Hub a [GetMetadataPropertyValue função](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> Quando utilizar o Hub de eventos como um ponto final para rotas de Hub IoT, pode aceder à utilização de medadata IoT Hub a [GetMetadataPropertyValue função](https://msdn.microsoft.com/library/azure/mt793845.aspx).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Dados de fluxo do IoT Hub
@@ -122,7 +108,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** página no portal
 | **Nome da política de acesso partilhado** | A política de acesso partilhado fornece acesso ao IoT Hub. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
 | **Chave de política de acesso partilhado** | A chave de acesso partilhado utilizada para autorizar o acesso ao IoT Hub.  Esta opção é preenchida automaticamente no, exceto se selecionar a opção para fornecer definições de Iot Hub manualmente. |
 | **Grupo de consumidores** | É vivamente recomendado que utilize um grupo de consumidores diferente para cada tarefa de Stream Analytics. O grupo de consumidores é utilizado para a ingestão de dados do IoT Hub. Do Stream Analytics utiliza o grupo de consumidores $Default, a menos que especifique o contrário.  |
-| **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada. |
+| **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhada com a especificação e não inclui 0 à esquerda para números decimais. |
 | **Codificação** | UTF-8 atualmente é o único formato de codificação suportado. |
 | **Tipo de compressão de evento** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, tais como None (predefinição), GZip, ou Deflate. |
 
@@ -171,7 +157,7 @@ A tabela seguinte explica cada propriedade no **nova entrada** página no portal
 | **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar os blobs no contentor especificado. No caminho, pode especificar uma ou mais instâncias das três variáveis seguintes: `{date}`, `{time}`, ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` carácter não é um valor permitido para o prefixo do caminho. Só é válido <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">carateres de Blobs do Azure</a> são permitidos. |
 | **Formato de data** (opcional) | Se utilizar a variável de data no caminho, o formato da data em que os ficheiros estão organizados. Exemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de hora em que os ficheiros estão organizados. Atualmente é o único valor suportado `HH` durante horas. |
-| **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) para fluxos de dados recebidos. |
+| **Formato de serialização de eventos** | O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhada com a especificação e não inclui 0 à esquerda para números decimais. |
 | **Codificação** | Para CSV e JSON, UTF-8 atualmente é o único formato de codificação suportado. |
 | **Compressão** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, tais como None (predefinição), GZip, ou Deflate. |
 
@@ -195,12 +181,8 @@ FROM Input
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Aprendeu sobre as opções de ligação de dados no Azure para as tarefas do Stream Analytics. Para saber mais sobre o Stream Analytics, consulte:
-
-* [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Início rápido: Criar uma tarefa de Stream Analytics, utilizando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

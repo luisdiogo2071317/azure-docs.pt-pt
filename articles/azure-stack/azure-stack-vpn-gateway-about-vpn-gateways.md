@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca do VPN gateway para a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -26,11 +26,11 @@ ms.lasthandoff: 04/23/2018
 
 Antes de poder enviar o tráfego de rede entre a rede virtual do Azure e o seu site no local, tem de criar um gateway de rede virtual para a rede virtual.
 
-Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego encriptado através de uma ligação pública. Pode utilizar gateways de VPN para enviar o tráfego de forma segura entre uma rede virtual na pilha do Azure e uma rede virtual no Azure ou entre uma rede virtual e a outra rede que está ligada a um dispositivo VPN.
+Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego encriptado através de uma ligação pública. Pode utilizar gateways de VPN para enviar tráfego de forma segura entre uma rede virtual na pilha do Azure e uma rede virtual no Azure. Também pode enviar tráfego de forma segura entre uma rede virtual e a outra rede que está ligada a um dispositivo VPN.
 
 Quando cria um gateway de rede virtual, tem de especificar o tipo de gateway que pretende criar. Pilha do Azure suporta um tipo de gateway de rede virtual: o tipo de 'Vpn'.
 
-Cada rede virtual pode ter dois gateways de rede virtual, mas apenas um de cada tipo. Dependendo das definições que escolher, pode criar várias ligações para um gateway de VPN individual. Um exemplo disto é uma configuração de ligação multilocal.
+Cada rede virtual pode ter dois gateways de rede virtual, mas apenas um de cada tipo. Dependendo das definições que escolher, pode criar várias ligações para um gateway de VPN individual. Um exemplo é uma configuração de ligação de vários sites.
 
 > [!NOTE]
 > No Azure, o débito de largura de banda para o SKU de Gateway de VPN que escolher tem de ser dividido por todas as ligações que estão ligadas à mesma.  Na pilha do Azure, o valor de largura de banda para o SKU de Gateway de VPN é aplicado a cada recurso de ligação que está ligado ao mesmo.     
@@ -46,10 +46,10 @@ Uma ligação de gateway de VPN depende de vários recursos que estão configura
 As definições que escolheu para cada recurso são essenciais para a criação de uma ligação com êxito. Para obter informações sobre recursos individuais e as definições do Gateway de VPN, consulte [definições do gateway de VPN sobre para Azure pilha](azure-stack-vpn-gateway-settings.md). Pode encontrar informações para ajudar a compreender os tipos de gateway, tipos de VPN, tipos de ligação, sub-redes de gateway, gateways de rede local e várias outras definições de recursos que pretende considerar.
 
 ### <a name="deployment-tools"></a>Ferramentas de implementação
-Pode começar por criar e configurar recursos utilizando uma ferramenta de configuração, como o portal do Azure. Mais tarde, pode decidir mudar para outra ferramenta, como o PowerShell, para configurar recursos adicionais ou modificar os recursos existentes, quando aplicável. Atualmente, não pode configurar todos os recursos e definições de recursos no portal do Azure. As instruções nos artigos para cada topologia de ligação especificam quando uma ferramenta de configuração especifica é necessária.
+Pode criar e configurar recursos através de uma ferramenta de configuração, como o portal do Azure. Mais tarde poderá mudar para outra ferramenta como o PowerShell para configurar recursos adicionais ou modificar recursos existentes, quando aplicável. Atualmente, não pode configurar todos os recursos e definições de recursos no portal do Azure. As instruções nos artigos para cada topologia de ligação especificam quando uma ferramenta de configuração especifica é necessária.
 
 ## <a name="connection-topology-diagrams"></a>Diagramas de topologia de ligação
-É importante saber que existem configurações diferentes disponíveis para as ligações de gateway VPN. Deve determinar qual das configurações se adequa melhor às suas necessidades. Nas secções abaixo, pode ver informações e diagramas de topologias relativos às ligações de gateways de VPN seguintes. As secções seguintes contêm tabelas que listam:
+É importante saber que existem configurações diferentes disponíveis para as ligações de gateway VPN. Determine que configuração melhor se adequa às suas necessidades. Nas secções abaixo, pode ver informações e diagramas de topologias relativos às ligações de gateways de VPN seguintes. As secções seguintes contêm tabelas que listam:
 
 - O modelo de implementação disponível
 - As ferramentas de configuração disponíveis
@@ -78,8 +78,8 @@ Quando seleciona um gateway superior SKU, como padrão sobre o Basic ou HighPerf
 
 Pilha do Azure não suporta o gateway de UltraPerformance SKU, que é utilizada exclusivamente com o Expressroute.
 
-Quando selecionar um SKU, considere o seguinte:
-- Pilha do Azure não suporta gateways baseado na política.
+Quando selecionar SKU, considere o seguinte:
+- Pilha do Azure não suporta os gateways baseados na política.
 - Border Gateway Protocol (BGP) não é suportada no SKU básico.
 - Gateway de VPN do ExpressRoute coexistentes configurações não são suportadas na pilha do Azure
 - As ligações do Gateway de VPN S2S do modo ativo/ativo podem ser configuradas apenas no SKU HighPerformance.
@@ -93,8 +93,8 @@ A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo
 |**Standard SKU**       | 100 Mbps  | 10    |
 |**SKU de elevado desempenho** | 200 Mbps    | 5 |
 ***(1)***  Débito do VPN não é um débito garantido para ligações em vários locais através da Internet. É a medida de débito mais alta possível.  
-***(2)***  Número de túneis máx. é o total por implementação de pilha do Azure para todas as subscrições.
-***(3)***  BGP não é suportado para o SKU básico.
+***(2)***  Número de túneis máx. é o total por implementação de pilha do Azure para todas as subscrições.  
+***(3)***  BGP não é suportado para o SKU básico.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [definições para gateways de VPN](azure-stack-vpn-gateway-settings.md) para pilha do Azure.

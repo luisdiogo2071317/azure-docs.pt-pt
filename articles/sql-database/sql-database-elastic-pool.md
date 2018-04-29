@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Ajudar a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -32,7 +32,7 @@ Conjuntos elásticos resolverem este problema, garantindo que as bases de dados 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Conjuntos elásticos ativar o programador comprar recursos para um agrupamento partilhado por várias bases de dados para acomodar imprevisíveis períodos de utilização por bases de dados individuais. Pode configurar recursos para o conjunto baseada em qualquer no [DTU com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). O requisito de recursos para um conjunto é determinado pela agregação de utilização das suas bases de dados. A quantidade de recursos disponíveis para o conjunto é controlada pela atribuição de programador. O programador simplesmente adiciona as bases de dados para o conjunto, define os recursos mínimos e máximo para as bases de dados (mínimo e máximo DTUs ou mínimo ou máximo vCores dependendo da sua escolha de resourcing modelo) e, em seguida, define os recursos do conjunto com base na respetiva atribuição. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
+Conjuntos elásticos ativar o programador comprar recursos para um agrupamento partilhado por várias bases de dados para acomodar imprevisíveis períodos de utilização por bases de dados individuais. Pode configurar recursos para o conjunto baseada em qualquer no [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md). O requisito de recursos para um conjunto é determinado pela agregação de utilização das suas bases de dados. A quantidade de recursos disponíveis para o conjunto é controlada pela atribuição de programador. O programador simplesmente adiciona as bases de dados para o conjunto, define os recursos mínimos e máximo para as bases de dados (mínimo e máximo DTUs ou mínimo ou máximo vCores dependendo da sua escolha de resourcing modelo) e, em seguida, define os recursos do conjunto com base na respetiva atribuição. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 
 Dentro do conjunto, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro de parâmetros definidos. Com muita carga, uma base de dados pode consumir mais recursos para satisfazer o pedido. Bases de dados carrega leve consumam inferior e bases de dados não carga consumam não existem recursos. O aprovisionamento de recursos para o conjunto completo e não para bases de dados individuais simplifica as tarefas de gestão. Plus, terá de um orçamento previsível para o conjunto. Recursos adicionais podem ser adicionados a um conjunto existente sem período de indisponibilidade de base de dados, exceto que as bases de dados poderão ter de ser movidos para fornecer os recursos de computação adicionais para a nova reserva de eDTU. Da mesma forma, se recursos adicionais já não são necessárias estes podem ser removidos de um conjunto existente em qualquer ponto no tempo. Além disso, pode adicionar ou subtrair bases de dados ao conjunto. Se uma base de dados estiver a subutilizar recursos de forma previsível, remova-a.
 
@@ -101,7 +101,7 @@ O tamanho de um agrupamento de melhor depende os agregado dos recursos necessár
 * Máximos recursos utilizados por todas as bases de dados no conjunto (máximas DTUs ou vCores máximo dependendo da sua escolha de resourcing modelo).
 * Bytes de armazenamento máximos utilizados por todas as bases de dados do conjunto.
 
-Para os escalões de serviço disponíveis para cada modelo de recursos, consulte o [DTU com base no modelo de compra](sql-database-service-tiers.md#dtu-based-purchasing-model) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+Para os escalões de serviço disponíveis para cada modelo de recursos, consulte o [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) ou [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md).
 
 A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para além das recomendações, uma experiência incorporada prevê a utilização de eDTUs para um grupo personalizado de bases de dados no servidor. Desta forma, pode fazer uma análise de hipóteses ao adicionar, interativamente, bases de dados ao conjunto e removê-las para ver uma análise da utilização de recursos e obter conselhos de dimensionamento antes de consolidar as alterações. Para obter as instruções, veja [Monitor, manage, and size an elastic pool (Monitorizar, gerir e dimensionar conjuntos elásticos)](sql-database-elastic-pool-manage-portal.md).
 
@@ -112,11 +112,11 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
    Para o modelo de compra baseado em DTU: máx. (<*número Total de bds* X *médio de utilização da DTU por BD*>,<br>
    <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
 
-   Para o modelo de compra baseado em vCore: máx. (<*número Total de bds* X *médio vCore utilização por BD*>,<br>
+   Para vCore com base no modelo de compra (pré-visualização): máx. (<*número Total de bds* X *médio vCore utilização por BD*>,<br>
    <*Número de em simultâneo peaking DBs* X *picos de utilização vCore por BD*)
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
-3. O DTU com base no modelo de compra, têm maior as estimativas de eDTU do passo 1 e o passo 2. Modelo de compra baseado em vCore, têm a estimativa vCore do passo 1.
+3. O DTU com base no modelo de compra, têm maior as estimativas de eDTU do passo 1 e o passo 2. Para o vCore com base no modelo de compra (pré-visualização), tome a estimativa vCore do passo 1.
 4. Consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/) e localizar o conjunto de menor tamanho que é maior do que a estimativa do passo 3.
 5. Compare o preço do conjunto do Passo 5 com o preço de utilizar os níveis de desempenho adequado para bases de dados individuais.
 

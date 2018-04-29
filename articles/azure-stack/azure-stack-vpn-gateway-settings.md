@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN do Azure pilha
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>SKUs de gateway
 Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione os SKU que atendem as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA.
 
->[!NOTE]
-> As redes virtuais clássicas devem continuar a usar os SKU antigos. Para obter mais informações sobre os SKU antigos do gateway, consulte [Trabalhar com os SKU do gateway de rede virtual (antigos)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy).
-
 Pilha do Azure oferece os seguintes SKUs de gateway VPN:
 
 |   | Débito do VPN Gateway |Gateway de VPN máximo de túneis IPsec |
 |-------|-------|-------|
 |**SKU básico**  | 100 Mbps  | 10    |
 |**Standard SKU**           | 100 Mbps  | 10    |
-|**SKU de elevado desempenho** | 200 Mbps    | 30    |
+|**SKU de elevado desempenho** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>O redimensionamento de SKUs de gateway
 Pilha do Azure não suporta um redimensionamento de SKUs entre os SKUs legados suportados.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Quando criar o gateway de rede virtual para uma configuração de gateway VPN, tem de especificar um tipo de VPN. O tipo de VPN que escolher depende da topologia de ligação que pretende criar.  Também pode dependem de um tipo de VPN no hardware que está a utilizar. Configurações de S2S requerem um dispositivo VPN. Alguns dispositivos VPN só suportam um determinado tipo VPN.
 
 > [!IMPORTANT]  
-> Neste momento, a pilha do Azure só suporta o tipo de VPN de baseada na rota. Se o dispositivo suporta apenas as VPNs baseadas de política, ligações a esses dispositivos do Azure pilha não são suportadas.
+> Neste momento, a pilha do Azure só suporta o tipo de VPN de baseada na rota. Se o dispositivo suporta apenas as VPNs baseadas de política, ligações a esses dispositivos do Azure pilha não são suportadas.  Além disso, a pilha do Azure suporta a utilização de Seletores de tráfego de baseado em política para rota com base em Gateways neste momento, como configurações de política IPSec/IKE personalizadas não são ainda suportado.
 
 - **PolicyBased**: *(suportado pelo Azure, mas não através da pilha do Azure)* VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec com as políticas de IPsec que estão configuradas com as combinações de prefixos de endereços entre a rede no local e a VNet de pilha do Azure. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN.
 
-- **RouteBased**: RouteBased VPNs utilizam "rotas" no reencaminhamento IP ou na tabela de encaminhamento para direcionar os pacotes para as respetivas interfaces de túnel. As interfaces de túnel, em seguida, encriptam ou desencriptam os pacotes dentro e fora dos túneis. A política (ou o Seletor de tráfego) para as VPNs de RouteBased estão configuradas como qualquer a qualquer (ou carateres universais). O valor para um tipo de RouteBased VPN é RouteBased.
+- **RouteBased**: RouteBased VPNs utilizam "rotas" no reencaminhamento IP ou na tabela de encaminhamento para direcionar os pacotes para as respetivas interfaces de túnel. As interfaces de túnel, em seguida, encriptam ou desencriptam os pacotes dentro e fora dos túneis. A política (ou o Seletor de tráfego) para as VPNs de RouteBased estão configuradas como qualquer a qualquer (ou carateres universais) por predefinição e não pode ser alterada. O valor para um tipo de RouteBased VPN é RouteBased.
 
 O exemplo do PowerShell seguinte especifica o - VpnType como RouteBased. Quando estiver a criar um gateway, tem de confirmar se o -VpnType está correto para a sua configuração.
 
@@ -110,7 +107,7 @@ A tabela seguinte lista os requisitos para gateways de VPN.
 |--|--|--|--|--|
 | **Conetividade site a Site (conetividade S2S)** | Não suportado | Configuração de RouteBased VPN | Configuração de RouteBased VPN | Configuração de RouteBased VPN |
 | **Método de autenticação**  | Não suportado | Chave pré-partilhada para a conetividade S2S  | Chave pré-partilhada para a conetividade S2S  | Chave pré-partilhada para a conetividade S2S  |   
-| **Número máximo de ligações S2S**  | Não suportado | 10 | 10| 30|
+| **Número máximo de ligações S2S**  | Não suportado | 10 | 10| 5|
 |**Suporte de encaminhamento ativo (BGP)** | Não suportado | Não suportado | Suportadas | Suportadas |
 
 ### <a name="gateway-subnet"></a>Sub-rede de gateway
@@ -160,7 +157,7 @@ Ao contrário do Azure, o que suporta vários ofertas como um iniciador e um dis
 |Versão do IKE |IKEv2 |
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|
 |Encriptação e hash algoritmos (autenticação) | GCMAES256|
-|Duração de SA (Tempo)  | segundos 27,700 |
+|Duração de SA (Tempo)  | 27,000 segundos |
 |Duração de SA (Bytes) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Deteção de Elemento Inutilizado | Suportadas|  

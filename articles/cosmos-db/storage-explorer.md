@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 8c584ec0c8d89a232d573399cfabe02fc8aa1c87
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
 
@@ -76,7 +76,7 @@ Uma forma alternativa de ligar ao Azure Cosmos DB é utilizar uma cadeia de liga
 
 Utilize os seguintes passos para ligar ao Azure Cosmos DB pelo Emulador, só suporta atualmente a conta de SQL.
 
-1. Instale o Emulador e inicie. Para saber como instalar o Emulador, veja [Emulador do Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+1. Instale o Emulador e inicie. Para saber como instalar o Emulador, veja [Emulador do Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Localize **Local e Ligada** na árvore à esquerda, clique com o botão direito do rato em **Contas do Cosmos DB** e selecione **Ligar ao Emulador do Cosmos DB...**
 
@@ -210,7 +210,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-O [Azure Cosmos DB no Explorador de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) é uma aplicação autónoma que permite ligar a contas do Azure Cosmos DB alojadas no Azure e Clouds Soberanas do Windows, macOS ou Linux. Permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento.
+O [Azure Cosmos DB no Explorador de armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) é uma aplicação autónoma que permite ligar a contas do Azure Cosmos DB alojadas no Azure e Clouds Soberanas do Windows, macOS ou Linux. Permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento.
 
 São soluções para problemas comuns detetados para o Azure Cosmos DB no Explorador de Armazenamento.
 

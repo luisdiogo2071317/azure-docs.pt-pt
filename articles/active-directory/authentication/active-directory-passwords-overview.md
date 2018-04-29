@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 7d1103e0ab21d2eac336a0e460156d47012b2a86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Azure AD self-service reposição palavra-passe para profissionais de TI
 
@@ -50,7 +50,7 @@ Está disponível em três camadas, dependendo da sua subscrição do Azure AD S
 
 * **Azure AD livres**: os administradores só de nuvem podem repor as suas próprias palavras-passe.
 * **Azure AD Basic** ou qualquer **subscrição do Office 365 paga**: os utilizadores de apenas na nuvem podem repor as respetivas palavras-passe.
-* **O Azure AD Premium**: qualquer utilizador ou administrador, incluindo apenas na nuvem, federada, ou a palavra-passe sincronizar os utilizadores, pode repor as respetivas palavras-passe. Palavras-passe no local requerem a repetição de escrita de palavras-passe para ser ativada.
+* **O Azure AD Premium**: qualquer utilizador ou administrador, incluindo autenticação apenas na nuvem, federada, pass-through ou utilizadores de sincronização de hash de palavra-passe, pode repor as suas próprias palavras-passe. Palavras-passe no local requerem a repetição de escrita de palavras-passe para ser ativada.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Do Azure AD preços, SLA, atualizações e informações gerais
 

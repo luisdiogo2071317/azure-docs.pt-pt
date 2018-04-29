@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como utilizar a API de REST do serviço de pesquisa do Azure para implementar elementos padrão de uma página de resultados de pesquisa, tal como contagens totais, obtenção de documento, as ordens de ordenação e navegação.
 
-Em cada caso mencionado abaixo, as opções relacionadas com a página que contribuem para os dados ou informações à sua página de resultados de pesquisa especificadas através do [pesquisa documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) pedidos enviados para o serviço de pesquisa do Azure. Os pedidos de incluir um comando GET, caminho e os parâmetros de consulta que o informam o serviço que está a ser pedido e como formular a resposta.
+Em cada caso mencionado abaixo, as opções relacionadas com a página que contribuem para os dados ou informações à sua página de resultados de pesquisa especificadas através do [pesquisa documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pedidos enviados para o serviço de pesquisa do Azure. Os pedidos de incluir um comando GET, caminho e os parâmetros de consulta que o informam o serviço que está a ser pedido e como formular a resposta.
 
 > [!NOTE]
-> Um pedido válido inclui um número de elementos, tais como um URL do serviço e um caminho, verbo HTTP `api-version`, e assim sucessivamente. Para uma forma abreviada, iremos recortadas exemplos para realçar apenas a sintaxe que é relevante para paginação. Consulte o [API de REST do serviço de pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) documentação para obter detalhes sobre a sintaxe do pedido.
+> Um pedido válido inclui um número de elementos, tais como um URL do serviço e um caminho, verbo HTTP `api-version`, e assim sucessivamente. Para uma forma abreviada, iremos recortadas exemplos para realçar apenas a sintaxe que é relevante para paginação. Consulte o [API de REST do serviço de pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice) documentação para obter detalhes sobre a sintaxe do pedido.
 > 
 > 
 
@@ -59,7 +59,7 @@ Para devolver um subconjunto de campos para um esquema em mosaico:
 
 Imagens e os ficheiros de suporte de dados não são diretamente pesquisáveis e devem ser armazenados no noutra plataforma de armazenamento, como o armazenamento de Blobs do Azure, para reduzir os custos. O índice e a documentos, defina um campo que armazena o endereço de URL do conteúdo externo. Em seguida, pode utilizar o campo como referência da imagem. O URL da imagem deve ser o documento.
 
-Para obter uma página de descrição do produto para uma **onClick** evento, utilize [pesquisa documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) passem a chave do documento para obter. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*. 
+Para obter uma página de descrição do produto para uma **onClick** evento, utilize [pesquisa documento](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) passem a chave do documento para obter. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -81,7 +81,7 @@ Poderá criar um método que aceita a opção de ordenação selecionado como en
  ![][5]
 
 > [!NOTE]
-> Enquanto a predefinição de classificação é suficiente para vários cenários, recomendamos que basing relevância num perfil de classificação personalizado em vez disso. Um perfil de classificação personalizado dá-lhe uma forma de itens de aumento que são mais úteis para a sua empresa. Consulte [adicionar um perfil de classificação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obter mais informações. 
+> Enquanto a predefinição de classificação é suficiente para vários cenários, recomendamos que basing relevância num perfil de classificação personalizado em vez disso. Um perfil de classificação personalizado dá-lhe uma forma de itens de aumento que são mais úteis para a sua empresa. Consulte [adicionar um perfil de classificação](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) para obter mais informações. 
 > 
 > 
 
@@ -95,12 +95,12 @@ Pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, o pedi
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Consulte [documentos sobre pesquisa (API da Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter mais informações sobre `$filter` expressões.
+Consulte [documentos sobre pesquisa (API da Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter mais informações sobre `$filter` expressões.
 
 ## <a name="see-also"></a>Consultar Também
-* [API de REST do serviço de pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Operações do índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Operações do documento](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [API de REST do serviço de pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice)
+* [Operações do índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Operações do documento](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Vídeos e tutoriais sobre pesquisa do Azure](search-video-demo-tutorial-list.md)
 * [Navegação por facetas na pesquisa do Azure](search-faceted-navigation.md)
 

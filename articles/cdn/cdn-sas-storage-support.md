@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 09efd5cd54fbd05d85939b3ae08bfbb37e91058d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -55,9 +55,9 @@ Esta opção é a mais simples e utiliza um único token SAS, o que é transmiti
 
     ![Regras de colocação em cache de CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
-2. Depois de configurar SAS na sua conta de armazenamento, utilize o token SAS com o URL da CDN do Azure para aceder ao ficheiro. 
+2. Depois de configurar SAS na sua conta de armazenamento, tem de utilizar o token SAS com os URLs de servidor de ponto final e a origem da CDN para aceder ao ficheiro. 
    
-   O URL resultante tem o seguinte formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   O URL de ponto final CDN resultante tem o seguinte formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    Por exemplo:   
    ```
@@ -66,9 +66,9 @@ Esta opção é a mais simples e utiliza um único token SAS, o que é transmiti
    
 3. Otimizar a duração da cache utilizando regras de colocação em cache ou adicionando `Cache-Control` cabeçalhos no servidor de origem. Porque a CDN do Azure trata o token SAS como uma cadeia de consulta simples, como melhor prática, deve configurar uma duração de colocação em cache expira no ou antes da data de expiração de SAS. Caso contrário, se um ficheiro é colocado em cache durante um período de tempo que as SAS está ativa, o ficheiro poderá estar acessível a partir do servidor de origem da CDN do Azure, depois de decorrido o tempo de expiração de SAS. Se esta situação ocorre e pretender que os ficheiros na cache inacessível, tem de efetuar uma operação de remoção do ficheiro para desmarcá-la a partir da cache. Para obter informações sobre como definir a duração da cache na CDN do Azure, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-security-token-using-a-rewrite-rule"></a>Opção 2: Oculta utilizando uma regra de reescrever token de segurança CDN
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opção 2: Oculta token CDN SAS utilizando uma regra de reescrever
  
-Com esta opção, pode proteger o armazenamento de BLOBs de origem sem necessidade de um utilizador CDN do Azure utilizar um token SAS no URL. Poderá utilizar esta opção se não precisa de restrições de acesso específicas para o ficheiro, mas pretende impedir que os utilizadores acedam a origem de armazenamento diretamente para melhorar os tempos de descarga da CDN do Azure. Esta opção só está disponível para **CDN do Azure Premium da Verizon** perfis. 
+Esta opção só está disponível para **CDN do Azure Premium da Verizon** perfis. Com esta opção, pode proteger o armazenamento de BLOBs no servidor de origem. Poderá utilizar esta opção se não precisa de restrições de acesso específicas para o ficheiro, mas pretende impedir que os utilizadores acedam a origem de armazenamento diretamente para melhorar os tempos de descarga da CDN do Azure. O token SAS, que é desconhecido para o utilizador, é necessário para que qualquer pessoa que acedem aos ficheiros no contentor especificado do servidor de origem. No entanto, devido a regra, o URL Rewrite o token SAS não é necessário no ponto final de CDN.
  
 1. Utilize o [motor de regras](cdn-rules-engine.md) para criar uma regra de URL Rewrite. Novas regras demorar cerca de 90 minutos para propagar.
 
@@ -79,7 +79,7 @@ Com esta opção, pode proteger o armazenamento de BLOBs de origem sem necessida
    A seguinte regra de URL Rewrite de exemplo utiliza um padrão de expressão regular com um grupo de captura e um ponto final com o nome *storagedemo*:
    
    Origem:   
-   `(/test/*.)`
+   `(/test/.*)`
    
    Destino:   
    ```
@@ -88,22 +88,21 @@ Com esta opção, pode proteger o armazenamento de BLOBs de origem sem necessida
 
    ![Regra de CDN URL Rewrite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
-2. Depois da nova regra fica ativa, pode aceder ao ficheiro na CDN do Azure sem utilizar um token SAS no URL, no seguinte formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Depois da nova regra fica ativa, qualquer pessoa pode aceder a ficheiros no contentor especificado no ponto final de CDN, independentemente se estiver a utilizar um token SAS no URL. Eis o formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por exemplo:   
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   Tenha em atenção que qualquer pessoa, independentemente se se estiver a utilizar um token SAS, pode agora aceder aos ficheiros no ponto final de CDN. 
 
 3. Otimizar a duração da cache utilizando regras de colocação em cache ou adicionando `Cache-Control` cabeçalhos no servidor de origem. Porque a CDN do Azure trata o token SAS como uma cadeia de consulta simples, como melhor prática, deve configurar uma duração de colocação em cache expira no ou antes da data de expiração de SAS. Caso contrário, se um ficheiro é colocado em cache durante um período de tempo que as SAS está ativa, o ficheiro poderá estar acessível a partir do servidor de origem da CDN do Azure, depois de decorrido o tempo de expiração de SAS. Se esta situação ocorre e pretender que os ficheiros na cache inacessível, tem de efetuar uma operação de remoção do ficheiro para desmarcá-la a partir da cache. Para obter informações sobre como definir a duração da cache na CDN do Azure, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opção 3: Utilizar a autenticação de token de segurança CDN com uma regra de reescrever
 
-Esta opção é a mais segura e personalizáveis. Para utilizar a autenticação de token de segurança de CDN do Azure, tem de ter um **CDN do Azure Premium da Verizon** perfil. Acesso de cliente é baseado nos parâmetros de segurança que definiu no token de segurança. No entanto, se as SAS mais tarde se torne inválida, a CDN do Azure não conseguir revalidate o conteúdo do servidor de origem.
+Para utilizar a autenticação de token de segurança de CDN do Azure, tem de ter um **CDN do Azure Premium da Verizon** perfil. Esta opção é a mais segura e personalizáveis. Acesso de cliente é baseado nos parâmetros de segurança que definiu no token de segurança. Assim que tiver criado e configurar o token de segurança, será necessário em todos os URLs de ponto final CDN. No entanto, devido a regra, o URL Rewrite o token SAS não é necessário no ponto final de CDN. Se o token SAS mais tarde se torne inválido, o Azure CDN já não poderá revalidate o conteúdo do servidor de origem.
 
 1. [Criar um token de segurança de CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) e ative-a utilizando o motor de regras para o ponto final de CDN e o caminho onde os utilizadores podem aceder ao ficheiro.
 
-   Um URL de token de segurança tem o seguinte formato:   
+   Um URL de ponto final de tokens de segurança tem o seguinte formato:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
    Por exemplo:   
@@ -111,14 +110,14 @@ Esta opção é a mais segura e personalizáveis. Para utilizar a autenticação
    https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
-   As opções de parâmetros para uma autenticação de token de segurança são diferentes as opções de parâmetros para um token SAS. Se optar por utilizar um período de tempo de expiração quando cria um token de segurança, defina-o para o mesmo valor que a hora de expiração para o token SAS. Se o fizer, garante que a hora de expiração é previsível. 
+   As opções de parâmetros para uma autenticação de token de segurança são diferentes as opções de parâmetros para um token SAS. Se optar por utilizar um período de tempo de expiração quando cria um token de segurança, deve defini-lo para o mesmo valor que a hora de expiração para o token SAS. Se o fizer, garante que a hora de expiração é previsível. 
  
 2. Utilize o [motor de regras](cdn-rules-engine.md) para criar uma regra de URL Rewrite para ativar o acesso de token SAS para todos os blobs no contentor. Novas regras demorar cerca de 90 minutos para propagar.
 
    A seguinte regra de URL Rewrite de exemplo utiliza um padrão de expressão regular com um grupo de captura e um ponto final com o nome *storagedemo*:
    
    Origem:   
-   `(/test/*.)`
+   `(/test/.*)`
    
    Destino:   
    ```
@@ -127,7 +126,7 @@ Esta opção é a mais segura e personalizáveis. Para utilizar a autenticação
 
    ![Regra de CDN URL Rewrite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
-3. Se renovar a SAS, atualize a regra de Url Rewrite com o novo token SAS. 
+3. Se renovar a SAS, certifique-se de que atualiza a regra de Url Rewrite com o novo token SAS. 
 
 ## <a name="sas-parameter-considerations"></a>Considerações de parâmetro SAS
 

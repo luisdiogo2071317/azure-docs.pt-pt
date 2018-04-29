@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 8ea69fbc95b9d9b2452f041e99c46d223581bdac
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 25a908c542bf8fdd8008841a1865cdfb40d847fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -28,7 +28,7 @@ Se estiver a desenvolver uma aplicação de ambiente de trabalho, o Azure Active
 
 Para Android clientes que necessitam de aceder a recursos protegidos, o Azure AD fornece o Active Directory Authentication Library (ADAL). É o único objetivo da ADAL facilitar a sua aplicação obter os tokens de acesso. Para demonstrar como é fácil, iremos irá criar uma aplicação Android lista de tarefas que:
 
-* Obtém acesso para chamar uma API da lista de tarefas utilizando os tokens [protocolo de autenticação OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+* Obtém acesso para chamar uma API da lista de tarefas utilizando os tokens [protocolo de autenticação OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 * Obtém a lista de tarefas de um utilizador.
 * Inicia os utilizadores.
 
@@ -274,7 +274,7 @@ Tenha em atenção que os IDs de correlação são centrais para o diagnóstico 
 #### <a name="errors--exceptions"></a>Erros e exceções
 Exceções são o diagnóstico primeiro. Vamos tentar fornecer mensagens de erro úteis. Se encontrar um que não seja útil, ficheiro, um problema e informe-nos. Inclua informações de dispositivo como modelo e número SDK.
 
-Para obter mais informações sobre erros de que a aplicação deve processar, consulte o [melhores práticas de processamento de erros](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
+Para obter mais informações sobre erros de que a aplicação deve processar, consulte o [melhores práticas de processamento de erros](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
 
 #### <a name="logs"></a>Registos
 Pode configurar a biblioteca a gerar mensagens de registo que pode utilizar para ajudar a diagnosticar problemas. Configurar o registo ao efetuar a chamada seguinte para configurar uma chamada de retorno ADAL utilizará a manualmente desativar cada mensagem do registo como é gerada.

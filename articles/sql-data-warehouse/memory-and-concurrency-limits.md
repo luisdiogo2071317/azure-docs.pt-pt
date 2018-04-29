@@ -10,66 +10,58 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 4e6e95e8601e7ab8b836e2aa1aa21ef4d5779954
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 380990ac4173f0495f35aeb0e7a3995af938dffb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de memória e simultaneidade para o Azure SQL Data Warehouse
 Ver os limites de memória e simultaneidade atribuídos a vários níveis de desempenho e classes de recursos no Azure SQL Data Warehouse. Para obter mais informações e para aplicar estas capacidades ao seu plano de gestão de carga de trabalho, consulte [classes de recursos para a gestão de carga de trabalho](resource-classes-for-workload-management.md). 
 
-## <a name="performance-tiers"></a>Escalões de desempenho
+Existem atualmente duas gerações disponíveis no armazém de dados do SQL Server – Gen1 e Gen2. Recomendamos que utilize Gen2 do SQL Server do armazém de dados para obter o melhor desempenho para a carga de trabalho do armazém de dados. Gen2 introduz uma nova cache do disco de estado sólido NVMe que mantém os dados acedidos com mais frequência próximo as CPUs. Esta ação remove a e/s remoto para as cargas de trabalho mais intensivas e pedir o seu trabalho. Para além de desempenho, Gen2 oferece o nível de escala maior, permitindo-lhe dimensionar até 30 000 unidades de armazém de dados e fornecer armazenamento columnar ilimitado. Iremos suportar a geração anterior (Gen1) do SQL Data Warehouse ainda e manter as funcionalidades da mesmas; No entanto, Aconselhamo-lo para [atualizar para Gen2](upgrade-to-latest-generation.md) convier mais antigo. 
 
-O SQL Data Warehouse oferece dois escalões de desempenho que estão otimizados para cargas de trabalho analíticas. Um escalão de desempenho é uma opção que determina a configuração do seu armazém de dados. Esta opção é uma das opções de primeiro que efetuar durante a criação de um armazém de dados.  
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
-
-- O **escalão de desempenho Otimizado para Elasticidade** separa as camadas de armazenamento e computação na arquitetura. Esta opção é ideal para as cargas de trabalho que podem tirar partido da separação entre a computação e o armazenamento ao dimensionar frequentemente para suportar curtos períodos de atividade de pico. Este escalão de computação tem o nível de preço de entrada mais baixo e é dimensionado para suportar a maioria das cargas de trabalho do cliente.
-
-- O **escalão de desempenho Otimizado para Computação** utiliza o hardware do Azure mais recente para introduzir uma nova cache do Disco de Estado Sólido NVMe que mantém os dados acedidos mais frequentemente próximos das CPUs, que é exatamente onde os quer. Ao escalar automaticamente o armazenamento, este escalão de desempenho é a opção ideal para consultas complexas, uma vez que a E/S é mantida no local para a camada de computação. Além disso, o columnstore foi melhorado para armazenar uma quantidade ilimitada de dados no SQL Data Warehouse. O escalão de desempenho Otimizado para Computação fornece o maior nível de escalabilidade, ao permitir dimensionar até 30.000 Unidades do Data Warehouse (cDWU). Escolha este escalão para cargas de trabalho que requerem um desempenho contínuo e incrivelmente rápido.
-
-## <a name="data-warehouse-limits"></a>Limites de armazém de dados
+## <a name="data-warehouse-capacity-settings"></a>Definições de capacidade do armazém de dados
 As tabelas seguintes mostram a capacidade máxima para o armazém de dados em níveis de desempenho diferentes. Para alterar o nível de desempenho, consulte [dimensionar a computação - portal](quickstart-scale-compute-portal.md).
 
-### <a name="optimized-for-elasticity"></a>Otimizado para Elasticidade
+### <a name="gen1"></a>Gen1
 
-Os níveis de serviço para Optimized para o intervalo de camada de desempenho do elasticidade entre DW100 a DW6000. 
+Os níveis de serviço para o intervalo de Gen1 entre DW100 a DW6000. 
 
-| Nível de desempenho | Consultas em simultâneo máx. | Nós de computação | Distribuições por nó de computação | Memória máxima por distribuição (MB) | Memória máxima do armazém de dados (GB) |
-|:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
-| DW100         | 4                      | 1             | 60                             | 400                              |  24                                |
-| DW200         | 8                      | 2             | 30                             | 800                              |  48                                |
-| DW300         | 12                     | 3             | 20                             | 1,200                            |  72                                |
-| DW400         | 16                     | 4             | 15                             | 1,600                            |  96                                |
-| DW500         | 20                     | 5             | 12                             | 2,000                            | 120                                |
-| DW600         | 24                     | 6             | 10                             | 2,400                            | 144                                |
-| DW1000        | 32                     | 10            | 6                              | 4,000                            | 240                                |
-| DW1200        | 32                     | 12            | 5                              | 4,800                            | 288                                |
-| DW1500        | 32                     | 15            | 4                              | 6,000                            | 360                                |
-| DW2000        | 32                     | 20            | 3                              | 8,000                            | 480                                |
-| DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
-| DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
+| Nível de desempenho | Nós de computação | Distribuições por nó de computação | Memória por do armazém de dados (GB) |
+|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100             | 1             | 60                             |  24                            |
+| DW200             | 2             | 30                             |  48                            |
+| DW300             | 3             | 20                             |  72                            |
+| DW400             | 4             | 15                             |  96                            |
+| DW500             | 5             | 12                             | 120                            |
+| DW600             | 6             | 10                             | 144                            |
+| DW1000            | 10            | 6                              | 240                            |
+| DW1200            | 12            | 5                              | 288                            |
+| DW1500            | 15            | 4                              | 360                            |
+| DW2000            | 20            | 3                              | 480                            |
+| DW3000            | 30            | 2                              | 720                            |
+| DW6000            | 60            | 1                              | 1440                           |
 
-### <a name="optimized-for-compute"></a>Otimizado para Computação
+### <a name="gen2"></a>Gen2
 
-Optimized para a camada de desempenho de computação fornece 2,5 x mais memória por consulta que Optimized para a camada de desempenho de elasticidade. Esta memória adicional ajuda Optimized, para a camada de desempenho de computação, fornecer o desempenho dele rápida.  Os níveis de desempenho de Optimized para o intervalo de camada de desempenho do processamento de DW1000c a DW30000c. 
+Gen2 fornece 2,5 x mais memória por consulta que o Gen1. Esta memória adicional ajuda Gen2 fornecer o desempenho dele rápida.  Os níveis de desempenho para o intervalo de Gen2 de DW1000c a DW30000c. 
 
-| Nível de desempenho | Consultas em simultâneo máx. | Nós de computação | Distribuições por nó de computação | Memória máxima por distribuição (GB) | Memória máxima do armazém de dados (GB) |
-|:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
-| DW1000c       | 32                     | 2             | 30                             |  10                              |   600                              |
-| DW1500c       | 32                     | 3             | 20                             |  15                              |   900                              |
-| DW2000c       | 32                     | 4             | 15                             |  20                              |  1200                              |
-| DW2500c       | 32                     | 5             | 12                             |  25                              |  1500                              |
-| DW3000c       | 32                     | 6             | 10                             |  30                              |  1800                              |
-| DW5000c       | 32                     | 10            | 6                              |  50                              |  3000                              |
-| DW6000c       | 32                     | 12            | 5                              |  60                              |  3600                              |
-| DW7500c       | 32                     | 15            | 4                              |  75                              |  4500                              |
-| DW10000c      | 32                     | 20            | 3                              | 100                              |  6000                              |
-| DW15000c      | 32                     | 30            | 2                              | 150                              |  9000                              |
-| DW30000c      | 32                     | 60            | 1                              | 300                              | 18000                              |
+| Nível de desempenho | Nós de computação | Distribuições por nó de computação | Memória por do armazém de dados (GB) |
+|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW1000c           | 2             | 30                             |   600                          |
+| DW1500c           | 3             | 20                             |   900                          |
+| DW2000c           | 4             | 15                             |  1200                          |
+| DW2500c           | 5             | 12                             |  1500                          |
+| DW3000c           | 6             | 10                             |  1800                          |
+| DW5000c           | 10            | 6                              |  3000                          |
+| DW6000c           | 12            | 5                              |  3600                          |
+| DW7500c           | 15            | 4                              |  4500                          |
+| DW10000c          | 20            | 3                              |  6000                          |
+| DW15000c          | 30            | 2                              |  9000                          |
+| DW30000c          | 60            | 1                              | 18000                          |
 
-O máximo cDWU é DW30000c, que tem 60 nós de computação e de uma distribuição por nó de computação. Por exemplo, um armazém de dados a 600 TB no DW30000c processa aproximadamente 10 TB por nó de computação.
+O DWU Gen2 máximo é DW30000c, que tem 60 nós de computação e de uma distribuição por nó de computação. Por exemplo, um armazém de dados a 600 TB no DW30000c processa aproximadamente 10 TB por nó de computação.
 
 
 ## <a name="concurrency-maximums"></a>Valores máximos de concorrência
@@ -77,44 +69,8 @@ Para garantir que cada consulta tem recursos suficientes para executar de forma 
 
 Ranhuras de concorrência também determinam a atribuição de prioridades de CPU. Para obter mais informações, consulte [analisar a carga de trabalho](analyze-your-workload.md)
 
-### <a name="optimized-for-compute"></a>Otimizado para Computação
-A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos dinâmicos](resource-classes-for-workload-management.md). Estas aplicam-se para Optimized para a camada de desempenho de computação.
-
-**Classes de recursos dinâmicos**
-| Nível de Desempenho | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
-|:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
-| DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |
-| DW1500c       | 32                         |   60                        | 1                     |  8                     |  16                   |  32                    |
-| DW2000c       | 32                         |   80                        | 1                     | 16                     |  32                   |  64                    |
-| DW2500c       | 32                         |  100                        | 1                     | 16                     |  32                   |  64                    |
-| DW3000c       | 32                         |  120                        | 1                     | 16                     |  32                   |  64                    |
-| DW5000c       | 32                         |  200                        | 1                     | 32                     |  64                   | 128                    |
-| DW6000c       | 32                         |  240                        | 1                     | 32                     |  64                   | 128                    |
-| DW7500c       | 32                         |  300                        | 1                     | 64                     | 128                   | 128                    |
-| DW10000c      | 32                         |  400                        | 1                     | 64                     | 128                   | 256                    |
-| DW15000c      | 32                         |  600                        | 1                     | 64                     | 128                   | 256                    |
-| DW30000c      | 32                         | 1200                        | 1                     | 64                     | 128                   | 256                    |
-
-**Classes de recurso estático**
-
-A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos estático](resource-classes-for-workload-management.md).  
-
-| Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
-|:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW2000c       | 32                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW2500c       | 32                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 32                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW5000c       | 32                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW6000c       | 32                         |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW7500c       | 32                         |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW10000c      | 32                         |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-
-### <a name="optimized-for-elasticity"></a>Otimizado para Elasticidade
-A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos dinâmicos](resource-classes-for-workload-management.md).  Estas aplicam-se para Optimized para a camada de desempenho de elasticidade.
+### <a name="gen1"></a>Gen1
+A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos dinâmicos](resource-classes-for-workload-management.md).  Estas aplicam-se para Gen1.
 
 **Classes de recursos dinâmicos**
 
@@ -129,11 +85,11 @@ A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de conc
 | DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
 | DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
 | DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
+| DW2000        | 48                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 64                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
 
-**Classes de recurso estático** a tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos estático](resource-classes-for-workload-management.md).  Estas aplicam-se para Optimized para a camada de desempenho de elasticidade.
+**Classes de recurso estático** a tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos estático](resource-classes-for-workload-management.md).  Estas aplicam-se para Gen1.
 
 | Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de concorrência máximo |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
@@ -146,9 +102,46 @@ A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de conc
 | DW1000        | 32                         |  40                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1200        | 32                         |  48                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500        | 32                         |  60                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW2000        | 32                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000        | 32                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW6000        | 32                         | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW2000        | 48                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW3000        | 64                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW6000        | 128                        | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+
+### <a name="gen2"></a>Gen2
+A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos dinâmicos](resource-classes-for-workload-management.md). Ao contrário Gen1, classes de recursos dinâmicos em Gen2 são verdadeiramente dinâmicas.  Gen2 segue uma alocação de percentagem de memória de 3-10-22-70 para classes de pequena-média-grande-xlarge recursos. 
+
+**Classes de recursos dinâmicos**
+
+| Nível de Desempenho | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
+|:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
+| DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
+| DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |
+| DW2500c       | 32                         |  100                        | 3                     | 10                     |  22                   |  70                    |
+| DW3000c       | 32                         |  120                        | 3                     | 12                     |  26                   |  84                    |
+| DW5000c       | 32                         |  200                        | 6                     | 20                     |  44                   | 140                    |
+| DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
+| DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
+| DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
+| DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
+| DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
+
+**Classes de recurso estático**
+
+A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos estático](resource-classes-for-workload-management.md).  
+
+| Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+|:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
+| DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
+| DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW10000c      | 128                        |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
 Quando for cumprida uma destes limiares, consultas novas são colocados em fila e executadas numa base first in, First Out.  Como um consultas concluída e o número de consultas e de ranhuras descerem abaixo os limites, o SQL Data Warehouse versões consultas em fila. 
 

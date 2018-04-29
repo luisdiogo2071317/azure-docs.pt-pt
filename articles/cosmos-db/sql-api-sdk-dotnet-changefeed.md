@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 24a1a04bf7170886b232611eefd7174192904ff0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -40,6 +40,8 @@ ms.lasthandoff: 04/23/2018
 |**Arquitetura suportada atual**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [O Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="stable-builds"></a>Estáveis compilações
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Correções de estimativa de trabalho pendentes.
@@ -65,6 +67,23 @@ ms.lasthandoff: 04/23/2018
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
 * Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.14.1 e abaixo.
+
+### <a name="pre-release-builds"></a>Versão de pré-lançamento compilações
+
+### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Nova v2 API:
+  * Padrão de construtor para construção flexível do processador: a classe de ChangeFeedProcessorBuilder.
+    * Pode efetuar qualquer combinação de parâmetros.
+    * Pode demorar DocumentClient instância para a recolha de monitorização e/ou concessão (não disponível no v1).
+  * IChangeFeedObserver.ProcessChangesAsync agora demora CancellationToken.
+  * IRemainingWorkEstimator - o restantes estimator de trabalho pode ser utilizada em separado do processador.
+  * Novos pontos de extensibilidade:
+    * IParitionLoadBalancingStrategy - para personalizado de balanceamento de carga de partições entre instâncias do processador.
+    * ILease, ILeaseManager - para a gestão de concessão personalizado.
+    * IPartitionProcessor - alterações de processamento personalizadas numa partição.
+* Utiliza o registo - [LibLog](https://github.com/damianh/LibLog) biblioteca.
+* 100% compatível com versões anteriores com a API de v1.
+* Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21.1 e superior.
 
 ## <a name="release--retirement-dates"></a>Versão & extinção datas
 A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.

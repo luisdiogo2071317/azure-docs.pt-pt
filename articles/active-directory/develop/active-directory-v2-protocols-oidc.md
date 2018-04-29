@@ -3,7 +3,7 @@ title: Azure Active Directory v 2.0 e o protocolo OpenID Connect | Microsoft Doc
 description: Crie aplicações web, utilizando a implementação de v 2.0 do Azure AD do protocolo de autenticação OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 04/18/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fd1f29f5c2920ea9956d883b9668f36c934a5e59
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v 2.0 e o protocolo OpenID Connect
 OpenID Connect é um protocolo de autenticação incorporado no OAuth 2.0, que pode utilizar a sessão em segurança um utilizador a uma aplicação web. Quando utilizar a implementação do ponto final v 2.0 do OpenID Connect, pode adicionar início de sessão e acesso à API às suas aplicações baseadas na web. Neste artigo, vamos mostrar-lhe como efetuar esta independente de idioma. Iremos descrevem como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de open source de Microsoft.
@@ -42,6 +42,9 @@ OpenID Connect descreve um documento de metadados que contém a maioria das info
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+> [!TIP] 
+> Experimente! Clique em [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver o `common` configuração de inquilinos. 
+>
 
 O `{tenant}` pode efetuar uma das quatro valores:
 
@@ -52,7 +55,7 @@ O `{tenant}` pode efetuar uma das quatro valores:
 | `consumers` |Apenas os utilizadores com uma conta Microsoft pessoal podem iniciar sessão para a aplicação. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` |Apenas os utilizadores com uma conta escolar ou profissional de um específico do Azure AD inquilino pode iniciar sessão para a aplicação. O nome de domínio amigável dos inquilino do Azure AD ou identificador GUID do inquilino pode ser utilizado. |
 
-Os metadados são um documento de JavaScript Object Notation (JSON) simples. Consulte o fragmento seguinte para obter um exemplo. Conteúdo do fragmento é totalmente descrito no [OpenID Connect especificação](https://openid.net).
+Os metadados são um documento de JavaScript Object Notation (JSON) simples. Consulte o fragmento seguinte para obter um exemplo. Conteúdo do fragmento é totalmente descrito no [OpenID Connect especificação](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
@@ -78,6 +81,9 @@ Quando a aplicação web tem de autenticar o utilizador, pode direcionar o utili
 * O `response_type` parâmetro tem de incluir `id_token`.
 * O pedido tem de incluir o `nonce` parâmetro.
 
+> [!IMPORTANT]
+> Por ordem com êxito pedir um token de ID, o registo de aplicação no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **[concessão implícita](active-directory-v2-protocols-implicit.md)** ativada para o cliente Web.  Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código' "
+
 Por exemplo:
 
 ```
@@ -94,8 +100,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Clique na hiperligação seguinte para executar este pedido. Depois de iniciar sessão, o seu browser será redirecionado para https://localhost/myapp/, com um token de ID na barra de endereço. Tenha em atenção que este pedido utiliza `response_mode=query` (para fins de demonstração apenas). Recomendamos que utilize `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Clique na hiperligação seguinte para executar este pedido. Depois de iniciar sessão, o seu browser será redirecionado para https://localhost/myapp/, com um token de ID na barra de endereço. Tenha em atenção que este pedido utiliza `response_mode=fragment` (para fins de demonstração apenas). Recomendamos que utilize `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
@@ -107,11 +113,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Recomendado |O URI de redirecionamento da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. Este deve corresponder exatamente um do redirecionamento de URIs registados no portal, exceto que tem de ser codificado de URL. |
 | scope |Necessário |Uma lista separada por espaço de âmbitos. Para OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento IU. Também pode incluir outros âmbitos neste pedido para pedir consentimento. |
 | nonce |Necessário |Um valor incluído no pedido de gerado pela aplicação, que será incluída no valor de id_token resultante como uma afirmação. A aplicação pode verificar este valor para mitigar ataques de repetição de token. O valor é normalmente uma cadeia de aleatório, exclusiva que pode ser utilizada para identificar a origem do pedido. |
-| response_mode |Recomendado |Especifica o método que deve ser utilizado para enviar o código de autorização resultante para a sua aplicação. Pode ser um dos `query`, `form_post`, ou `fragment`. Para aplicações web, recomendamos que utilize `response_mode=form_post`, para garantir que a transferência mais segura de tokens para a aplicação. |
+| response_mode |Recomendado |Especifica o método que deve ser utilizado para enviar o código de autorização resultante para a sua aplicação. Pode ser `form_post` ou `fragment`. Para aplicações web, recomendamos que utilize `response_mode=form_post`, para garantir que a transferência mais segura de tokens para a aplicação. |
 | state |Recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token. Pode ser uma cadeia de qualquer conteúdo que pretende. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista que do utilizador estava no. |
 | linha de comandos |Opcional |Indica o tipo de interação do utilizador que é necessário. São os únicos valores válidos neste momento `login`, `none`, e `consent`. O `prompt=login` afirmação força o utilizador introduza as suas credenciais nesse pedido, o qual negates o início de sessão único. O `prompt=none` afirmação é o oposto. Esta afirmação assegura que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal. Se o pedido não é possível concluir automaticamente através de um início de sessão único, o ponto final v 2.0 devolve um erro. O `prompt=consent` afirmação aciona a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão. A caixa de diálogo pede ao utilizador para conceder permissões para a aplicação. |
 | login_hint |Opcional |Pode utilizar este parâmetro para pré-preencher o campo de endereço de e-mail e nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência. Muitas vezes, as aplicações utilizam este parâmetro durante a reautenticação, após já extrair o nome de utilizador de um anterior início de sessão utilizando o `preferred_username` de afirmação. |
-| domain_hint |Opcional |Este valor pode ser `consumers` ou `organizations`. Se incluído, ignora o processo de deteção baseada em e-mail que o utilizador atravessa a v 2.0-na página sessão, para uma experiência de utilizador ligeiramente mais simplificada. Muitas vezes, as aplicações utilizam este parâmetro durante a reautenticação, a extrair o `tid` afirmações do ID token. Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad`, utilize `domain_hint=consumers`. Caso contrário, utilize `domain_hint=organizations`. |
+| domain_hint |Opcional |Este valor pode ser `consumers` ou `organizations`. Se incluído, ignora o processo de deteção baseada em e-mail que o utilizador atravessa a v 2.0-na página sessão, para uma experiência de utilizador ligeiramente mais simplificada. Muitas vezes, as aplicações utilizam este parâmetro durante a reautenticação, a extrair o `tid` afirmações do ID token. Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad` (Account Microsoft consumidor inquilino), utilize `domain_hint=consumers`. Caso contrário, utilize `domain_hint=organizations`. |
 
 Neste momento, é pedido ao utilizador para introduzir as suas credenciais e concluir a autenticação. O ponto final v 2.0 verifica que o utilizador consentiu as permissões indicadas a `scope` parâmetro de consulta. Se o utilizador não se consentiu para qualquer um dessas permissões, o ponto final v 2.0 pede ao utilizador consentimento para as permissões necessárias. Pode ler mais sobre [permissões, consentimento e aplicações multi-inquilino](active-directory-v2-scopes.md).
 
@@ -195,7 +201,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ## <a name="single-sign-out"></a>Fim de sessão único
 Quando lhe redireciona o utilizador para o `end_session_endpoint`, o ponto final v 2.0 limpa a sessão do utilizador do browser. No entanto, o utilizador ainda pode ser iniciado outras aplicações que utilizem contas Microsoft para autenticação. Para ativar as aplicações iniciar o utilizador terminar em simultâneo, a v 2.0 o ponto final envia um pedido de HTTP GET para o registado `LogoutUrl` de todas as aplicações que o utilizador tem atualmente sessão iniciado para. As aplicações devem responder para este pedido por qualquer sessão que identifica o utilizador de limpeza e devolver um `200` resposta.  Se pretender suportar terminar o início de sessão único na sua aplicação, tem de implementar como uma `LogoutUrl` no código da aplicação.  Pode definir o `LogoutUrl` partir do portal de registo da aplicação.
 
-## <a name="protocol-diagram-token-acquisition"></a>Diagrama de protocolo: aquisição do Token
+## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: aquisição do token de acesso
 Muitas aplicações web tem de assinar não só o utilizador no, mas também para aceder a um serviço web em nome do utilizador através da utilização de OAuth. Este cenário combina OpenID Connect para a autenticação de utilizador ao obter simultaneamente um código de autorização que pode utilizar para obter os tokens de acesso, se estiver a utilizar o fluxo de código de autorização do OAuth.
 
 O fluxo de aquisição de início de sessão e token OpenID Connect completo semelhante ao seguinte diagrama. Iremos descrevem cada passo em detalhe nas secções seguintes do artigo.
@@ -212,7 +218,7 @@ GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
-&response_mode=form_post                              // 'query', 'form_post', or 'fragment'
+&response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
@@ -221,8 +227,8 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Clique na hiperligação seguinte para executar este pedido. Depois de iniciar sessão, o browser é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereço. Tenha em atenção que este pedido utiliza `response_mode=query` (para fins de demonstração apenas). Recomendamos que utilize `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Clique na hiperligação seguinte para executar este pedido. Depois de iniciar sessão, o browser é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereço. Tenha em atenção que este pedido utiliza `response_mode=fragment` (para fins de demonstração apenas). Recomendamos que utilize `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
