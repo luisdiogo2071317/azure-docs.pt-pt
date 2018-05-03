@@ -1,0 +1,2 @@
+Este artigo é parte de uma série vasta para lhe fornecer considerações de design e diretrizes à medida que cria fora de uma infraestrutura de aplicação no Azure. Pode [ver os tópicos adicionais da série](#next-steps). Embora rapidamente pode criar um ambiente de desenvolvimento/teste no Azure, existem considerações adicionais quando implementar um ambiente seguro e prontos para produção, altamente disponível.
+
