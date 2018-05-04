@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 676dff1ae651d4754b96da52a68a9c7a7f35c2b8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: f7297e938c5561328a07e22012205cc2ef3ac419
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar a pilha do Azure com o Azure
 Registar [Azure pilha](azure-stack-poc.md) com o Azure permite-lhe para transferir os itens do marketplace a partir do Azure e configurar dados de comércio relatórios de volta à Microsoft. Depois de registar pilha do Azure, utilização é considerada comércio do Azure e pode vê-lo sob a subscrição utilizada para o registo. 
@@ -59,10 +59,10 @@ Podem aceder a ambientes ligados à internet e ao Azure. Para estes ambientes, t
 ### <a name="register-the-azure-stack-resource-provider"></a>Registar o fornecedor de recursos de pilha do Azure
 Para registar o fornecedor de recursos de pilha do Azure com o Azure, inicie o ISE do PowerShell como administrador e utilize os seguintes comandos do PowerShell com o **EnvironmentName** parâmetro definido para o tipo de subscrição do Azure adequada (consulte parâmetros abaixo). 
 
-1. Adicione a conta do Azure que utiliza para registar a pilha do Azure. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. É-lhe pedido que introduza as suas credenciais de conta de administrador global do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.
+1. Adicione a conta do Azure que utiliza para registar a pilha do Azure. Para adicionar a conta, execute o **Connect-AzureRmAccount** cmdlet. É-lhe pedido que introduza as suas credenciais de conta de administrador global do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.
 
    ```PowerShell
-      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
+      Connect-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
    | Parâmetro | Descrição |  
@@ -94,7 +94,7 @@ Utilize estes passos para registar a pilha do Azure com o Azure utilizando o mod
 2. Em seguida, na mesma sessão do PowerShell, certifique-se de que tem sessão iniciada contexto do PowerShell correto do Azure. Esta é a conta do azure que foi utilizada para registar o fornecedor de recursos do Azure pilha acima. PowerShell para executar: 
 
   ```powershell 
-  Login-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
+  Connect-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
   ``` 
 
 3. Na mesma sessão do PowerShell, execute o **conjunto AzsRegistration** cmdlet. PowerShell para executar:  

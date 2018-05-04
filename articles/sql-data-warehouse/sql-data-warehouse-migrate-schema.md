@@ -1,25 +1,20 @@
 ---
 title: Migrar o esquema para o SQL Data Warehouse | Microsoft Docs
-description: "Sugestões para migrar o esquema para o Azure SQL Data Warehouse para desenvolver soluções."
+description: Sugestões para migrar o esquema para o Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: 538b60c9-a07f-49bf-9ea3-1082ed6699fb
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: fb1085450a16acb0f9a06a9dea9d91fc5ca23363
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Migrar as esquemas para o SQL Data Warehouse
 Orientações para migrar as esquemas SQL ao SQL Data Warehouse. 
@@ -61,7 +56,7 @@ O SQL Data Warehouse é um sistema de base de dados distribuída. Cada tabela é
 Para escolher a melhor opção de distribuição para cada tabela, consulte [distribuídas tabelas](sql-data-warehouse-tables-distribute.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de ter migrado com êxito o seu esquema de base de dados ao SQL Data Warehouse, avance para um dos seguintes artigos:
 
 * [Migrar os dados][Migrate your data]

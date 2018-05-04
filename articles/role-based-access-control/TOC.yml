@@ -1,0 +1,37 @@
+- name: Descrição geral da gestão do acesso
+  href: manage-access-to-azure-resources.md
+- name: Acesso a recursos no Azure
+  href: rbac-and-directory-admin-roles.md
+- name: Controlo de acesso baseado em funções (RBAC)
+  href: overview.md
+  items:
+    - name: Gerir atribuições de funções
+      items:
+        - name: Utilizador
+          href: role-assignments-users.md
+        - name: Recurso
+          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
+        - name: CLI do Azure
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
+    - name: Funções incorporadas
+      href: built-in-roles.md
+    - name: Funções personalizadas
+      href: custom-roles.md
+    - name: Atribuir funções personalizadas a utilizadores internos e externos
+      href: role-assignments-external-users.md
+    - name: Registos de atividade
+      href: change-history-report.md
+    - name: Elevar o acesso de administrador de inquilino
+      href: elevate-access-global-admin.md
+    - name: Resolução de problemas
+      href: troubleshooting.md
+    - name: Operações do fornecedor de recursos
+      href: resource-provider-operations.md
+- name: Privileged Identity Management (PIM) para o Azure
+  href: pim-azure-resource.md
+- name: Acesso condicional para a gestão do Azure
+  href: conditional-access-azure-management.md

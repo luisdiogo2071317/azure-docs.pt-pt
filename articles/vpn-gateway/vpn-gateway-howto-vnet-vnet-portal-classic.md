@@ -1,13 +1,13 @@
 ---
-title: "Criar uma ligação entre as VNets: clássico: portal do Azure | Microsoft Docs"
+title: 'Criar uma ligação entre as VNets: clássico: portal do Azure | Microsoft Docs'
 description: Ligar redes virtuais do Azure em conjunto com o PowerShell e o portal do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma ligação VNet a VNet (clássica)
 
@@ -97,7 +97,7 @@ Se estiver a utilizar este artigo como um exercício, pode utilizar os seguintes
 
 **Valores da TestVNet1**
 
-Name: TestVNet1<br>
+Nome: TestVNet1<br>
 Espaço de endereços: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nome da sub-rede: predefinido<br>
 Intervalo de endereços da sub-rede: 10.11.0.1/24<br>
@@ -107,7 +107,7 @@ GatewaySubnet: 10.11.1.0/27
 
 **Valores da TestVNet4**
 
-Name: TestVNet4<br>
+Nome: TestVNet4<br>
 Espaço de endereços: 10.41.0.0/16, 10.42.0.0/16 (opcional)<br>
 Nome da sub-rede: predefinido<br>
 Intervalo de endereços da sub-rede: 10.41.0.1/24<br>
@@ -218,7 +218,7 @@ Nos passos seguintes, irá ligar à sua conta do Azure e transfira e veja o fich
 2. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Verifique as subscrições da conta.

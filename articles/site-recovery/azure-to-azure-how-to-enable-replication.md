@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4479f7bbe657908d4c1ed94f5eaa00401efcb87e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais do Azure para outra região do Azure
 
@@ -48,7 +48,7 @@ Ative a replicação. Este procedimento assume que a região do Azure primária 
 4. No **definições**, opcionalmente, pode configurar as definições do site de destino:
 
     - **Localização de destino**: A localização onde os dados de máquina virtual de origem serão replicados. Consoante a sua localização máquinas selecionadas, a recuperação de sites fornece a lista de regiões de destino adequado. Recomendamos que mantenha a localização de destino a mesma como a localização do Cofre de serviços de recuperação.
-    - **Grupo de recursos de destino**: O grupo de recursos para que todos os seus máquinas virtuais replicadas pertence. Por predefinição o Azure Site Recovery cria um novo grupo de recursos na região de destino com um nome que o sufixo "asr". No caso de grupo de recursos criado pelo Azure Site Recovery já existe, é reutilizado. Também pode optar por personalizá-la conforme mostrado na secção abaixo.
+    - **Grupo de recursos de destino**: O grupo de recursos para que todos os seus máquinas virtuais replicadas pertence. Por predefinição o Azure Site Recovery cria um novo grupo de recursos na região de destino com um nome que o sufixo "asr". No caso de grupo de recursos criado pelo Azure Site Recovery já existe, é reutilizado. Também pode optar por personalizá-la conforme mostrado na secção abaixo. A localização do grupo de recursos de destino pode ser qualquer região do Azure, exceto a região na qual as máquinas virtuais de origem estão alojadas.
     - **Rede Virtual de destino**: por predefinição, a recuperação de sites cria uma nova rede virtual na região de destino com um nome que o sufixo "asr". Esta é mapeada para a sua rede de origem e utilizada para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento da rede.
     - **As contas de armazenamento de destino (se a origem de VM não utiliza discos geridos pelo)**: por predefinição, a recuperação de sites cria uma nova conta de armazenamento de destino mimicking a configuração de armazenamento VM de origem. No caso de conta de armazenamento já existe, é reutilizado.
     - **Réplica discos geridos pelo (se a sua VM de origem utilizar discos geridos)**: recuperação de sites cria a nova réplica gerida discos na região de destino para espelhar discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) como a VM de origem disco de gerido.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com QPrism | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e QPrism."
+title: 'Tutorial: Integração do Azure Active Directory com QPrism | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integração do Azure Active Directory com QPrism
 
@@ -37,7 +37,7 @@ Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure A
 Para configurar a integração do Azure AD com QPrism, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um QPrism início de sessão único subscrição ativado
+- Um QPrism-início de sessão único ativada subscrição
 
 Para testar os passos neste tutorial, siga estas recomendações:
 
@@ -103,41 +103,22 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     ![Domínio QPrism e os URLs únicos de informações de início de sessão](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL que utiliza o padrão do seguinte:`https://<customer domain>.qmyzone.com/login`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL que utiliza o padrão do seguinte: `https://<customer domain>.qmyzone.com/login`
 
-    b. No **identificador** caixa de texto, escreva um URL que utiliza o padrão do seguinte:`https://<customer domain>.qmyzone.com/metadata.php`
+    b. No **identificador** caixa de texto, escreva um URL que utiliza o padrão do seguinte: `https://<customer domain>.qmyzone.com/metadata.php`
          
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualizar estes valores com o identificador real e início de sessão no URL. Contacte [equipa de suporte de cliente QPrism](mailto:qsupport-ce@quatrro.com) para obter estes valores. 
 
-4. Para gerar o **metadados** URL, efetue o seguinte procedimento:
+4. No **certificado de assinatura de SAML** secção, clique no botão Copiar para copiar **Url de metadados de Federação de aplicação** e cole-o bloco de notas.
 
-    a. Selecione **registos de aplicação**.
-    
-    ![Configurar os registos de aplicação de início de sessão único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Selecione **pontos finais** para abrir **pontos finais** caixa de diálogo.  
-    
-    ![Configurar o ponto final de início de sessão único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Selecione o botão Copiar para copiar o **documento de METADADOS de Federação** URL e cole-o bloco de notas.
-    
-    ![Configurar o ponto final de início de sessão único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Agora, a página de propriedades do **QPrism**e copie o **ID da aplicação** utilizando **cópia**. Em seguida, cole-o bloco de notas.
- 
-    ![Configurar o ID da aplicação de início de sessão único](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Gerar o **URL de metadados** utilizando o padrão do seguinte:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+     ![A hiperligação de transferência do certificado](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Selecione **Guardar**.
 
     ![Configurar o início de sessão de gravação botão](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Para configurar o início de sessão único no **QPrism** lado, enviar o **URL de metadados** para o [equipa de suporte de QPrism](mailto:qsupport-ce@quatrro.com). Estes Certifique-se de que a SAML único início de sessão na ligação está corretamente em ambos os lados.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação. Depois de adicionar esta aplicação a partir de **do Active Directory** > **aplicações empresariais** secção, basta clicar no **Single Sign-On** separador e aceder a incorporados documentação através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. Para configurar o início de sessão único em **QPrism** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de QPrism](mailto:qsupport-ce@quatrro.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

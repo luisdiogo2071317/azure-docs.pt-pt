@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montar uma partilha de Ficheiros do Azure e aceder à partilha no Windows
 Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de Ficheiros do Azure podem ser montadas no Windows e no Windows Server. Este artigo mostra três formas diferentes de montar uma partilha de Ficheiros do Azure no Windows - com a IU do Explorador de Ficheiros, através do PowerShell e através da Linha de Comandos. 
 
 Para montar uma partilha de Ficheiros do Azure fora da região do Azure na qual está alojada, como, por exemplo, no local ou noutra região do Azure, o SO tem de suportar SMB 3.0. 
 
-Pode montar partilhas de ficheiros do Azure numa instalação do Windows que esteja a ser executada numa VM do Azure ou no local. A tabela abaixo mostra as versões de SO que suportam a montagem de partilhas de ficheiros e em que ambiente:
+Pode montar partilhas de ficheiros do Azure numa instalação do Windows que esteja a ser executada numa VM do Azure ou no local. A tabela seguinte mostra as versões de SO que suportam a montagem de partilhas de ficheiros e em que ambiente:
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montável no Local |
 |------------------------|-------------|-----------------------|----------------------|
@@ -49,11 +49,20 @@ Pode montar partilhas de ficheiros do Azure numa instalação do Windows que est
 
 * **Chave da Conta de Armazenamento**: para montar uma partilha de Ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
 
-* **Certifique-se de que a porta 445 está aberta**: os Ficheiros do Azure utilizam o protocolo SMB. O SMB comunica através da porta TCP 445 - verifique se a firewall não está a bloquear as portas TCP 445 no computador cliente.
+* **Certifique-se de que a porta 445 está aberta**: os Ficheiros do Azure utilizam o protocolo SMB. O SMB comunica através da porta TCP 445 - verifique se a firewall não está a bloquear as portas TCP 445 no computador cliente. Pode utilizar o Portqry para verificar se a porta TCP 445 está aberta. Se a porta TCP 445 for apresentada como filtrada, a porta TCP está bloqueada. Segue-se uma consulta de exemplo:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Se a porta TCP 445 estiver bloqueada por uma regra no caminho de rede, verá a seguinte saída:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Para obter mais informações sobre como utilizar o Portqry, veja [Descrição do utilitário de linha de comandos Portqry.exe](https://support.microsoft.com/help/310099).
+
 
 ## <a name="persisting-connections-across-reboots"></a>Persistir ligações entre reinícios
 ### <a name="cmdkey"></a>CmdKey
-A forma mais fácil de estabelecer ligações persistentes é guardar as suas credenciais de contas de armazenamento no Windows ao utilizar o utilitário da linha de comandos "CmdKey". Segue-se um exemplo de linhas de comandos para fazer as suas credenciais de conta de armazenamento persistir na VM:
+A forma mais fácil de estabelecer uma ligação persistente é guardar as suas credenciais de contas de armazenamento no Windows ao utilizar o utilitário de linha de comandos "CmdKey". Segue-se uma linha de comandos de exemplo para fazer as suas credenciais de conta de armazenamento persistir na VM:
 ```
 C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
 ```
@@ -84,7 +93,7 @@ Quando as credenciais tiverem persistido, já não terá de fornecê-las ao liga
 
 2. **Navegue para o item "Este PC", no lado esquerdo da janela. Esta ação altera os menus disponíveis no friso. No menu Computador, selecione “Mapear Unidade de Rede”**.
     
-    ![Instantâneo do menu pendente “Mapear unidade de rede”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
+    ![Instantâneo do menu pendente "Mapear unidade de rede"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
 3. **Copie o caminho UNC do painel "Ligar" no portal do Azure.** 
 

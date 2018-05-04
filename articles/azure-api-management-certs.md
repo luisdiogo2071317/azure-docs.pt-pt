@@ -1,11 +1,11 @@
 ---
-title: "Carregar um certificado de gestão de serviço do Azure | Microsoft Docs"
-description: "Saiba como carregar o certificado de gestão de serviço para o portal do Azure."
+title: Carregar um certificado de gestão de serviço do Azure | Microsoft Docs
+description: Saiba como carregar o certificado de gestão de serviço para o portal do Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gestão de serviço do Azure
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (tais como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação de vários serviços do Azure. 
@@ -30,7 +30,7 @@ Certificados de gestão permitem-lhe autenticar com o modelo de implementação 
 
 Se quiser obter mais informações sobre os certificados do Azure (incluindo a criar um certificado autoassinado), consulte o artigo [descrição geral de certificados para serviços de nuvem do Azure](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Também pode utilizar [do Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) para autenticar o código de cliente para fins de automatização.
+Também pode utilizar [do Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar o código de cliente para fins de automatização.
 
 **Nota:** tem de ser um coadministrador na subscrição executar quaisquer operações em certificados de gestão. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como adicionar ou remover Coadministradores do novo Portal do Azure 
 

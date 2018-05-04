@@ -1,23 +1,19 @@
 ---
-title: "Modelação de arquitetura \"multitenancy\" na Azure Search | Microsoft Docs"
-description: "Saiba mais sobre os padrões de conceção comuns para aplicações de SaaS multi-inquilino durante a utilização da Azure Search."
-services: search
-manager: jhubbard
+title: Modelação de arquitetura "multitenancy" na Azure Search | Microsoft Docs
+description: Saiba mais sobre os padrões de conceção comuns para aplicações de SaaS multi-inquilino durante a utilização da Azure Search.
+manager: jlembicz
 author: ashmaka
-documentationcenter: 
-ms.assetid: 72e9696a-553b-47dc-9e05-a82db0ebf094
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões para aplicações de SaaS multi-inquilino e da Azure Search de conceção
 Uma aplicação multi-inquilino é aquele que fornece as mesmas serviços e recursos para qualquer número de inquilinos que não é possível ver ou partilhar os dados de qualquer outro inquilino. Este documento descreve as estratégias de isolamento de inquilino para multi-inquilino aplicações criadas com a Azure Search.
@@ -130,7 +126,7 @@ Este método pode ser utilizado para obter uma funcionalidade de contas de utili
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 A pesquisa do Azure é uma escolha apelativa para muitas aplicações, [ler mais sobre as capacidades de robustas o serviço](http://aka.ms/whatisazsearch). Quando avaliar os padrões de conceção vários para aplicações multi-inquilino, considere o [vários escalões de preços](https://azure.microsoft.com/pricing/details/search/) e o respetivo [os limites de serviço](search-limits-quotas-capacity.md) a melhor adaptarem da Azure Search para ajustar à aplicação e arquiteturas de todos os tamanhos de cargas de trabalho.
 
 Quaisquer perguntas sobre a Azure Search e cenários de multi-inquilino podem ser direcionadas para azuresearch_contact@microsoft.com.

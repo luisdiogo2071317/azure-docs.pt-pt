@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -767,7 +767,6 @@ Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que d
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). É semelhante no conceito aos Anúncios da Contoso, mas implementa mais funcionalidades e mais práticas de codificação do mundo real.
 * [Aplicação de Várias Camadas do Serviço em Nuvem do Azure com Tabelas, Filas e Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Apresenta as tabelas do Storage do Azure, bem como os blobs e as filas. Com base na versão anterior do Azure SDK para .NET, serão necessárias algumas modificações para trabalhar com a versão atual.
-* [Noções Básicas do Serviço em Nuvem no Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Uma exemplo abrangente que demonstra uma vasta gama de melhores práticas, produzido pelo grupo de Padrões e Práticas da Microsoft.
 
 Para obter informações gerais sobre como desenvolver para a nuvem, consulte [Compilar Aplicações na Nuvem Reais com o Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +776,5 @@ Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte 1 dos Cloud Services do Azure: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
-* [Armazenamento do Azure](/documentation/services/storage/)
+* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

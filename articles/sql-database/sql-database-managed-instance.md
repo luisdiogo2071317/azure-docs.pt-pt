@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma instância geridos (pré-visualização)?
 
@@ -67,9 +67,9 @@ A tabela seguinte mostra várias propriedades, acessíveis através do Transact 
 
 ![O início de sessão único](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>com base em vCore modelo de compra
+## <a name="vcore-based-purchasing-model-preview"></a>com base em vCore modelo de compra (pré-visualização)
 
-O modelo de compra baseado em vCore proporciona a flexibilidade, o controlo, a transparência e uma forma simples de traduzir requisitos no local carga de trabalho para a nuvem. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para cópia de segurança para as poupanças de 30 por cento com o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O modelo de compra baseado em vCore (pré-visualização) permite a flexibilidade, o controlo, a transparência uma forma simples de traduzir locais e requisitos de carga de trabalho para a nuvem. Este modelo permite-lhe dimensionar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para cópia de segurança para as poupanças de 30 por cento com o [benefício de utilização de híbrida do Azure para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolha entre gerações de hardware.
 - As CPUs Lógicas de Geração 4 baseiam-se nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz.
@@ -186,7 +186,7 @@ O serviço de migração de base de dados do Azure é um serviço completamente 
 A abordagem de migração tira partido das cópias de segurança do SQL Server para o armazenamento de Blobs do Azure. Cópias de segurança armazenadas no blob storage do Azure podem ser diretamente restauradas na instância geridos. Para restaurar uma base de dados existente do SQL Server para uma instância de gerido, pode:
 
 - Utilize [o serviço de migração de dados (DMS)](/sql/dma/dma-overview). Para um tutorial, consulte [migrar para uma instância geridos utilizando o serviço de migração de base de dados do Azure (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados
-- Utilize o [comando T-SQL RESTORE](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Utilize o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Para um tutorial que mostra como restaurar Wide a World Importers - ficheiro de cópia de segurança da base de dados padrão, consulte [restaurar um ficheiro de cópia de segurança para uma instância geridos](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial mostra que tem de carregar um ficheiro de cópia de segurança para o armazenamento do blogue do Azure e segura-la utilizando uma chave de assinatura (SAS) de acesso partilhado.
   - Para obter informações sobre o restauro a partir do URL, consulte [restaurar nativo a partir do URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Importar de um ficheiro BACPAC](sql-database-import.md)

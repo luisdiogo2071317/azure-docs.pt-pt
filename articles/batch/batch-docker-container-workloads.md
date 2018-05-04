@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 128bf85fae71b44b0deebb3974d4a9b317e6a380
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor do Azure batch
 
@@ -138,7 +138,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-for-container-configuration"></a>Prefetch imagens para a configuração do contentor
 
-Para prefetch imagens do contentor no conjunto, adicionar a lista de imagens de contentor (`containerImageNames`) para o `ContainerConfiguration`e atribua um nome de lista de imagens. O exemplo seguinte parte do princípio de que está a utilizar uma imagem personalizada do Ubuntu 16.04 LTS, prefetch uma imagem de TensorFlow de [Docker Hub](https://hub.docker.com), e iniciar TensorFlow numa tarefa de início.
+Para prefetch imagens do contentor no conjunto, adicionar a lista de imagens de contentor (`containerImageNames`) para o `ContainerConfiguration`e atribua um nome de lista de imagens. O exemplo seguinte parte do princípio de que está a utilizar uma imagem personalizada do Ubuntu 16.04 LTS e prefetch uma imagem de TensorFlow de [Docker Hub](https://hub.docker.com). Este exemplo inclui uma tarefa de início que é executado no anfitrião VM em nós do conjunto. Pode fazer isto, por exemplo, para um servidor de ficheiros que pode ser acedido pelos contentores de montagem.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
@@ -151,15 +151,8 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
     containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
 
-// Set a native command line start task
+// Set a native host command line start task
 StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
-
-// Define container settings
-TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu");
-StartTask startTaskContainer = new StartTask(
-    CommandLine: "<docker-image-command-line>",
-    TaskContainerSettings: startTaskContainerSettings);
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(

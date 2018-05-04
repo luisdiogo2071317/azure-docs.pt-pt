@@ -1,11 +1,11 @@
 ---
 title: Gerir capturas de pacotes com observador de rede do Azure - Azure CLI 2.0 | Microsoft Docs
-description: "Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede a utilizar o Azure CLI 2.0"
+description: Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede a utilizar o Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2c0cb9b72d23f46e60c96efe96a9ad32ba6fc746
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 804a60431faad745f8fdf01db822151dd2c8bc68
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Gerir capturas de pacotes com observador de rede do Azure a utilizar o Azure CLI 2.0
 
@@ -78,7 +78,7 @@ Para garantir que o agente está instalado, execute o `vm extension show` cmdlet
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
-O exemplo seguinte é um exemplo de resposta a execução`az vm extension show`
+O exemplo seguinte é um exemplo de resposta a execução `az vm extension show`
 
 ```json
 {
@@ -263,7 +263,7 @@ az network watcher packet-capture delete --name packetCaptureName --location wes
 
 ## <a name="download-a-packet-capture"></a>Transferir uma captura de pacotes
 
-Depois de concluída a sua sessão de captura de pacote, o ficheiro de captura pode ser carregado para o blob storage ou para um ficheiro local na VM. A localização de armazenamento da captura de pacotes está definida na criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser transferida aqui: http://storageexplorer.com/
+Depois de concluída a sua sessão de captura de pacote, o ficheiro de captura pode ser carregado para o blob storage ou para um ficheiro local na VM. A localização de armazenamento da captura de pacotes está definida na criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser transferida aqui:  http://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, ficheiros de captura de pacotes são guardados para uma conta de armazenamento disponíveis na seguinte localização:
 
@@ -275,6 +275,6 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 
-Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de verificação de IP](network-watcher-check-ip-flow-verify-portal.md)
+Determinar se determinados o tráfego é permitido dentro ou fora da sua VM, visitando [Certifique-se de fluxo de verificação de IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->

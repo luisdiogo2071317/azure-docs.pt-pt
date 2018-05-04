@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -51,6 +51,7 @@ Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. De
 - [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): contém informações sobre tempos limite que tenham acontecido numa base de dados.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): contém informações sobre eventos que aconteceram numa base de dados a bloquear.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contém informações inteligentes. [Saiba mais sobre as informações inteligente](sql-database-intelligent-insights.md).
+- **Auditoria** / **SQLSecurityAuditEvents**: atualmente indisponível.
 
 Se selecionar os Event Hubs ou uma conta de armazenamento, pode especificar uma política de retenção. Esta política elimina os dados que é mais antigos do que um período de tempo selecionado. Se especificar a análise de registos, a política de retenção depende o escalão de preço selecionado. Para obter mais informações, consulte [preços de análise de registos](https://azure.microsoft.com/pricing/details/log-analytics/). 
 

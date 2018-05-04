@@ -1,25 +1,20 @@
 ---
-title: "A encriptação transparente de dados no SQL Data Warehouse (Portal) | Microsoft Docs"
-description: "Encriptação de dados transparente (TDE) no SQL Data Warehouse"
+title: A encriptação transparente de dados no SQL Data Warehouse (Portal) | Microsoft Docs
+description: Encriptação de dados transparente (TDE) no SQL Data Warehouse
 services: sql-data-warehouse
-documentationcenter: 
-author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: fabf75d3-9bbf-4e0d-9b31-8b5a8713f08d
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 10/31/2016
-ms.author: rortloff;barbkess
-ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: 9c4abb0416acc656a4cfae332377c398260191de
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Começar com transparente dados encriptação (TDE) no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -38,8 +33,8 @@ Para ativar o TDE para um SQL Data Warehouse, siga os passos abaixo:
 
 1. Abrir a base de dados no [portal do Azure](https://portal.azure.com)
 2. No painel da base de dados, clique o **definições** botão
-3. Selecione o **encriptação transparente de dados** opção![][1]
-4. Selecione o **no** definição![][2]
+3. Selecione o **encriptação transparente de dados** opção ![][1]
+4. Selecione o **no** definição ![][2]
 5. Selecione **guardar**
    ![][3]  
 
@@ -48,20 +43,20 @@ Para desativar o TDE para um SQL Data Warehouse, siga os passos abaixo:
 
 1. Abrir a base de dados no [portal do Azure](https://portal.azure.com)
 2. No painel da base de dados, clique o **definições** botão
-3. Selecione o **encriptação transparente de dados** opção![][1]
-4. Selecione o **desativar** definição![][4]
+3. Selecione o **encriptação transparente de dados** opção ![][1]
+4. Selecione o **desativar** definição ![][4]
 5. Selecione **guardar**
    ![][5]  
 
 ## <a name="encryption-dmvs"></a>Encriptação DMVs
 Encriptação pode ser confirmada com DMVs os seguintes:
 
-* [Databases]
+* [sys.databases]
 * [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
-[Databases]: http://msdn.microsoft.com/library/ms178534.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->

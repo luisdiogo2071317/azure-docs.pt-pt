@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias nas funções durável (funções do Azure)
 
@@ -77,6 +77,7 @@ O [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api
 * **CreatedTime**: A hora em que a função do orchestrator começou a ser executada.
 * **LastUpdatedTime**: A hora em que o orchestration último checkpointed.
 * **Entrada**: A entrada da função como um valor JSON.
+* **CustomStatus**: Estado de orquestração personalizado no formato JSON. 
 * **Saída**: O resultado da função como um valor JSON (se a função foi concluída). Se a função do orchestrator falhou, esta propriedade incluirá os detalhes da falha. Se a função do orchestrator foi terminada, esta propriedade incluirá o motivo fornecido para a terminação (se aplicável).
 * **RuntimeStatus**: um dos seguintes valores:
     * **Executar**: A instância começar a ser executada.

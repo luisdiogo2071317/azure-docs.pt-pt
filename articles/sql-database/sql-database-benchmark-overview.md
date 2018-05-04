@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Descrição geral de referência de DTU de base de dados SQL do Azure
 ## <a name="overview"></a>Descrição geral
-No modelo de compra baseado em DTU, base de dados de SQL do Microsoft Azure oferece três [escalões de serviço](sql-database-service-tiers.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto crescente de recursos ou "power", foi concebida para fornecer o débito velocidades cada vez.
+No modelo de compra baseado em DTU, base de dados de SQL do Microsoft Azure oferece três [escalões de serviço](sql-database-service-tiers-dtu.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto crescente de recursos ou "power", foi concebida para fornecer o débito velocidades cada vez.
 
 > [!IMPORTANT]
-> Base de dados SQL do Azure agora também suporta um modelo de compra baseado em vCore (pré-visualização). Para informações, consulte [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+> Base de dados SQL do Azure agora também suporta um modelo de compra baseado em vCore (pré-visualização). Para informações, consulte [vCore com base no modelo de compra](sql-database-service-tiers-vcore.md).
 
 É importante ser capaz de quantificar como potência crescente de cada nível de desempenho traduz para desempenho de base de dados maior. Para fazer este Microsoft desenvolveu o Benchmark de base de dados de SQL do Azure (ASDB). O benchmark exercises uma mistura de operações básicas encontrado em todas as cargas de trabalho OLTP. Iremos medir o débito obtido para bases de dados em execução em cada nível de desempenho.
 
@@ -98,7 +98,7 @@ A tabela abaixo mostra o número de utilizadores que efetivamente constante para
 | Camada de serviço (nível de desempenho) | Utilizadores | Tamanho da Base de Dados |
 | --- | --- | --- |
 | Básica |5 |720 MB |
-| Standard (S0) |10 |1 GB |
+| Padrão (S0) |10 |1 GB |
 | Padrão (S1) |20 |2.1 GB |
 | Padrão (S2) |50 |7.1 GB |
 | Premium (P1) |100 |14 GB |
@@ -126,6 +126,8 @@ O Benchmark de base de dados SQL do Azure mede o desempenho relativo de base de 
 ## <a name="resources"></a>Recursos
 [Introdução à base de dados SQL](sql-database-technical-overview.md)
 
-[Camadas de serviços e níveis de desempenho](sql-database-service-tiers.md)
+[Os escalões de serviço com base em DTU e níveis de desempenho](sql-database-service-tiers-dtu.md)
+
+[os escalões de serviço com base em vCore e níveis de desempenho](sql-database-service-tiers-vcore.md)
 
 [Guia de desempenho das bases de dados](sql-database-performance-guidance.md)

@@ -1,23 +1,19 @@
 ---
-title: "Atualizar para versão 2 do SDK de gestão de .NET Dazure Search | Microsoft Docs"
-description: "Atualizar para o SDK de gestão de .NET do Azure Search versão 2"
-services: search
-documentationcenter: 
+title: Atualizar para versão 2 do SDK de gestão de .NET Dazure Search | Microsoft Docs
+description: Atualizar para o SDK de gestão de .NET do Azure Search versão 2
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
+ms.author: brjohnst
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: brjohnst
-ms.openlocfilehash: ade32dcb4e0885c251c17fad46fb753b6134d027
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a6b6c01f0cc811abca90139e4c26c27b7bd7119f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Atualizar para o SDK de gestão de .NET do Azure Search versão 2
 Se estiver a utilizar a versão 1.0.2 ou mais antiga do [SDK de gestão de .NET de pesquisa do Azure](https://aka.ms/search-mgmt-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 2.
@@ -29,7 +25,7 @@ Versão 2 do SDK de gestão do Azure Search .NET contém algumas alterações de
 ## <a name="whats-new-in-version-2"></a>Novidades na versão 2
 Versão 2 do SDK de gestão do Azure Search .NET destina-se a mesma versão geralmente disponível da API de REST de gestão de pesquisa do Azure como versões anteriores do SDK, especificamente 2015-08-19. As alterações ao SDK estão estritamente do lado do cliente de alterações para melhorar a facilidade de utilização do SDK em si. Estas alterações incluem o seguinte:
 
-* `Services.CreateOrUpdate`e respetivas versões assíncronas agora automaticamente consultam o aprovisionamento `SearchService` e devolve até que o serviço aprovisionamento estiver concluído. Isto poupa tem de ter de escrever desse código, consulta por si.
+* `Services.CreateOrUpdate` e respetivas versões assíncronas agora automaticamente consultam o aprovisionamento `SearchService` e devolve até que o serviço aprovisionamento estiver concluído. Isto poupa tem de ter de escrever desse código, consulta por si.
 * Se pretender continuar a consultar manualmente o aprovisionamento de serviço, pode utilizar o novo `Services.BeginCreateOrUpdate` método ou uma das respetivas versões assíncronas.
 * Novos métodos `Services.Update` e respetivas versões assíncronas foram adicionadas ao SDK. Estes métodos utilizam HTTP aplicar o PATCH para suportar uma atualização incremental de um serviço. Por exemplo, pode agora dimensionar um serviço transferindo uma `SearchService` instância destes métodos que contém apenas o pretendido `partitionCount` e `replicaCount` propriedades. A forma de chamar antiga `Services.Get`, modificar o devolvido `SearchService`e passou-a para `Services.CreateOrUpdate` ainda é suportada, mas já não é necessário. 
 

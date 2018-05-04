@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
@@ -34,7 +34,7 @@ Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi r
 2. Inicie sessão sua conta do Azure utilizando o seguinte comando.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Execute o seguinte comando para registar o fornecedor do Azure Data Factory.
 
@@ -45,7 +45,7 @@ Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi r
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Não autorizado Ocorreu um erro ao executar um cmdlet de fábrica de dados
 Provavelmente não está a utilizar a conta ou a subscrição do Azure adequada com o Azure PowerShell. Utilize os seguintes cmdlets para selecionar a conta e a subscrição do Azure adequadas que devem ser utilizadas com o Azure PowerShell.
 
-1. Login-AzureRmAccount - utilize o ID de direito de utilizador e palavra-passe
+1. Ligar-AzureRmAccount - utilize o ID de direito de utilizador e palavra-passe
 2. Get-AzureRmSubscription - ver todas as subscrições da conta.
 3. SELECT-AzureRmSubscription &lt;nome da subscrição&gt; -selecione a subscrição correta. Utilize a mesma que utiliza para criar uma fábrica de dados no portal do Azure.
 

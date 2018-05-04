@@ -7,9 +7,9 @@ Primeiro tem de ter a versão mais recente [Azure PowerShell](http://msdn.micros
 > 
 > 
 
-Execute o [ **Add-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet e será apresentada com um início de sessão no ecrã para introduzir as suas credenciais. Utilize as mesmas credenciais que utiliza para iniciar sessão no Portal do Azure.
+Execute o [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet e será apresentada com um início de sessão no ecrã para introduzir as suas credenciais. Utilize as mesmas credenciais que utiliza para iniciar sessão no Portal do Azure.
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 
 Se tiver várias subscrições, utilize o [ **Set-AzureRmContext** ](http://msdn.microsoft.com/library/mt619263.aspx) cmdlet para selecionar a subscrição a sessão do PowerShell deve utilizar. Para ver que subscrição a sessão atual do PowerShell está a utilizar, execute [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). Para ver todas as subscrições, execute [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
 

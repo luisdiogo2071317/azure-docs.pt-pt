@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
-1.  Com as credenciais da conta Microsoft, inicie sessão no portal do Azure acedendo a este URL: <https://portal.azure.com/>. Se implementar o dispositivo no portal de administração pública, inicie sessão no: <https://portal.azure.us/>
+1.  Utilizar as credenciais da conta Microsoft, inicie sessão no portal do Azure neste URL: <https://portal.azure.com/>. Se implementar o dispositivo no portal de administração pública, inicie sessão no: <https://portal.azure.us/>
 
 2.  No portal do Azure, clique em **+ criar um recurso** &gt; **armazenamento** &gt; **série Virtual StorSimple**.
 
@@ -18,7 +18,7 @@
 
         -   Se tiver cargas de trabalho existentes no Azure que também tenciona implementar com o dispositivo StorSimple, recomendamos que utilize esse datacenter.
 
-        -   O armazenamento de Gestor de dispositivos do StorSimple e o Azure pode estar em duas localizações separadas. Se for esse o caso, terá de criar separadamente a conta do Gestor de Dispositivos do StorSimple e a conta de armazenamento do Azure. Para criar uma conta de armazenamento do Azure, vá para o serviço de Armazenamento do Azure no portal do Azure e siga os passos em [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) (Criar uma Conta de armazenamento do Azure). Uma vez criada esta conta, adicione-a ao Gestor de Dispositivos do StorSimple seguindo os passos em [Configure a new storage account for the service](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) (Configurar uma nova conta de armazenamento para o serviço).
+        -   O armazenamento de Gestor de dispositivos do StorSimple e o Azure pode estar em duas localizações separadas. Se for esse o caso, terá de criar separadamente a conta do Gestor de Dispositivos do StorSimple e a conta de armazenamento do Azure. Para criar uma conta de armazenamento do Azure, vá para o serviço de Armazenamento do Azure no portal do Azure e siga os passos em [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) (Criar uma Conta de armazenamento do Azure). Uma vez criada esta conta, adicione-a ao Gestor de Dispositivos do StorSimple seguindo os passos em [Configure a new storage account for the service](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) (Configurar uma nova conta de armazenamento para o serviço).
 
         -   Se implementar o dispositivo virtual no Portal do Governo dos EUA, o serviço do Gestor de dispositivos do StorSimple está disponível nas localizações dos EUA Iowa e Virginia-nos.
 

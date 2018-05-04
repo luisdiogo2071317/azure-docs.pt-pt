@@ -1,12 +1,12 @@
 ---
-title: "Processamento de erros nas funções durável - Azure"
-description: "Saiba como processar erros na extensão do durável funções para as funções do Azure."
+title: Processamento de erros nas funções durável - Azure
+description: Saiba como processar erros na extensão do durável funções para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ee5362d33bb9dadadb4194457cfd7726f4825f56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 108c6020956b398effb8ba9dd4471190362359d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Processamento de erros nas funções durável (funções do Azure)
 
@@ -26,7 +26,7 @@ Duráveis orchestrations de função são implementados no código e podem utili
 
 ## <a name="errors-in-activity-functions"></a>Erros nas funções de atividade
 
-Qualquer exceção que é acionada numa função de atividade é marshalled novamente para a função do orchestrator e emitida como um `TaskFailedException`. Pode escrever o código de processamento e a compensação de erro que se adapta às suas necessidades na função do orchestrator.
+Qualquer exceção que é acionada numa função de atividade é marshalled novamente para a função do orchestrator e emitida como um `FunctionFailedException`. Pode escrever o código de processamento e a compensação de erro que se adapta às suas necessidades na função do orchestrator.
 
 Por exemplo, considere a seguinte função do orchestrator que transfere funds a partir de uma conta para outra:
 
@@ -80,7 +80,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }
@@ -132,7 +132,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 
 Se uma função do orchestrator falhar com uma exceção não processada, os detalhes da exceção são registados e a instância concluída com um `Failed` estado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como diagnosticar problemas](durable-functions-diagnostics.md)

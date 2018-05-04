@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connector-version-release-history"></a>Histórico de Versões do Conector
 Os conectores do Forefront Identity Manager (FIM) e o Microsoft Identity Manager (MIM) são atualizados com frequência.
@@ -34,7 +34,7 @@ Ligações relacionadas:
 * [Transferir conectores mais recentes](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Conector de LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md) documentação de referência
 * [Conector do SQL Server genérico](active-directory-aadconnectsync-connector-genericsql.md) documentação de referência
-* [Conector de serviços de Web](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentação de referência
+* [Conector de serviços de Web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentação de referência
 * [Conector de PowerShell](active-directory-aadconnectsync-connector-powershell.md) documentação de referência
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) documentação de referência
 
@@ -103,7 +103,7 @@ Ligações relacionadas:
 * Notas de Lotus:
   * Quando a opção **permitir certifiers personalizados para unidades de organização/Organizational** está desativada, em seguida, o conector falha durante a exportação (atualização) depois do fluxo de exportação, todos os atributos são exportados para Domino mas no momento da exportação um KeyNotFoundException é devolvido para sincronização. 
     * Isto acontece porque a operação de mudança de nome ocorre uma falha ao tentar alterar DN (atributo de nome de utilizador), alterar um dos atributos abaixo:  
-      - LastName
+      - Apelido
       - FirstName
       - MiddleInitial
       - AltFullName

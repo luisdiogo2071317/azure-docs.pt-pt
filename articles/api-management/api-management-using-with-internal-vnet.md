@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de API Management do Azure com uma rede virtual interna
 Com redes virtuais do Azure, a API Management do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para efetuar a ligação. API Management podem ser implementada em dois modos principais dentro de uma rede virtual:
@@ -87,13 +87,13 @@ Quando cria um serviço de API Management, com o nome "contoso", por exemplo, os
 
 Para aceder a estes pontos finais de serviço de API Management, pode criar uma máquina virtual numa sub-rede ligada à rede virtual em que a API Management está implementada. Pressupondo que o endereço IP virtual interno para o seu serviço é 10.0.0.5, é possível mapear o ficheiro de anfitriões % SystemDrive%\drivers\etc\hosts, da seguinte forma:
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.0.0.5 contoso.azure-api.net
 
    * 10.0.0.5     contoso.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.0.0.5 contoso.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.0.0.5 contoso.scm.azure-api.net
 
 Em seguida, pode aceder a todos os pontos finais do serviço da máquina virtual que criou. Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar registos A DNS e aceder a estes pontos finais a partir de qualquer lugar na sua rede virtual. 
 
@@ -115,7 +115,7 @@ Em seguida, pode aceder a todos os pontos finais do serviço da máquina virtual
 Para obter mais informações, consulte os artigos seguintes:
 * [Problemas comuns de configuração de rede ao configurar a API Management do Azure numa rede virtual][Common network configuration problems]
 * [Perguntas mais frequentes de rede virtual](../virtual-network/virtual-networks-faq.md)
-* [Criar um registo no DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [Criar um registo no DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

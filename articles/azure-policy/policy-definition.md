@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/18/2018
+ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 285ee153a86270fe65846dc6a22786e007a8a595
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -70,7 +70,7 @@ O **modo** determina que tipos de recursos serão avaliados para uma política. 
 * `all`: avaliar os grupos de recursos e todos os tipos de recursos
 * `indexed`: apenas avaliar os tipos de recursos que suportam as etiquetas e a localização
 
-Recomendamos que defina **modo** para `all` na maioria dos casos. Todas as definições de política criadas através da utilização do portal de `all` modo. Se utilizar o PowerShell ou a CLI do Azure, tem de especificar o **modo** parâmetro manualmente. Se a definição de política não contém um **modo** valor-assume a predefinição `indexed` para efeitos compatibilidade.
+Recomendamos que defina **modo** para `all` na maioria dos casos. Todas as definições de política criadas através da utilização do portal de `all` modo. Se utiliza o PowerShell ou a CLI do Azure, pode especificar o **modo** parâmetro manualmente. Se a definição de política não contém um **modo** valor-assume a predefinição `all` no Azure PowerShell e a `null` na CLI do Azure, que é equivalente a `indexed`, para efeitos compatibilidade.
 
 `indexed` deve ser utilizado quando a criação de políticas que irá impor localizações ou etiquetas. Não é necessária mas impedirá a recursos que não suportam as etiquetas e localizações de ser apresentado como não conformes nos resultados de compatibilidade. A única exceção é **grupos de recursos**. Devem definir políticas que estão a tentar aplicar etiquetas num grupo de recursos ou localização **modo** para `all` e o destino especificamente o `Microsoft.Resources/subscriptions/resourceGroup` tipo. Por exemplo, consulte [etiquetas de grupo de recursos de impor](scripts/enforce-tag-rg.md).
 

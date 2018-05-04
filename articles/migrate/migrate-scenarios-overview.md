@@ -4,15 +4,14 @@ description: Leia um documento técnico de descrição geral sobre como migrar o
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: be322596da0c3e5ba18aa64285c437cdb823fc4b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 8ba490998ea5f20efca591327716a6e39e9c1ba8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrating-your-on-premises-workloads-to-azure"></a>Migrar as suas cargas de trabalho no local para o Azure
 
@@ -27,11 +26,11 @@ Esta série de artigos de migração mostra-lhe como planear e criar uma estrat�
 
 **Cenário** | **Solução** | **Serviços** | **Artigo** 
 --- | --- | --- | ---
-[Cenário 1: Deteção e avaliação](migrate-scenarios-assessment.md) | Descobrir e avaliar aplicações e dados no local para migração para o Azure | Assistente de Migração de Dados, serviço Azure Migrate  | Já disponível
-**Cenário 2: Migração lift-and-shift** | Realojar aplicações internas no Azure. Otimizar no Azure após a migração. | Azure Site Recovery, Azure Database Migration Service, Instância Gerida SQL do Azure | Já disponível
-**Cenário 3: Refatorizar e migrar** | Modernizar e refatorizar aplicações de cliente locais durante a migração para o Azure. | Em planeamento | Planeado
-**Cenário 4: Rearquitetar e migrar** | Rearquitete e migre sites transacionais de cliente durante a migração para o Azure. | Em planeamento | Planeado
-**Cenário 5: Recriar** |Recriar e migrar dados e aplicações de cliente para o Azure | Em planeamento | Planeado
+[Cenário 1: Deteção e avaliação](migrate-scenarios-assessment.md) | Detetar e avaliar a infraestrutura para a migração para o Azure, dados e aplicações no local | Assistente de Migração de Dados, serviço Azure Migrate  | Já disponível
+**[Cenário 2: Aplicação de realojamento](migrate-scenarios-lift-and-shift.md)** | Comparação de precisão e shift as aplicações do Azure. | Azure Site Recovery, Azure Database Migration Service, Instância Gerida SQL do Azure | Já disponível
+**Cenário 3: Refactorize aplicação** | Refatorar aplicações durante a migração para o Azure. | Em planeamento | Planeado
+**Cenário 4: Aplicação de Rearchitect** | Rearchitect aplicações durante a migração para o Azure. | Em planeamento | Planeado
+**Cenário 5: Aplicação de reconstrução** |Reconstruir aplicações durante a migração para o Azure | Em planeamento | Planeado
 
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Alertas de compreender na análise de registos
 
@@ -67,7 +67,7 @@ Regras de alerta são definidas pelos seguintes detalhes:
  
     - **Alertas falsas**. Consultas de alertas, por vezes, foram concebidas para identificar a ausência de eventos. Um exemplo desta situação é detetar quando uma máquina virtual está offline ao pesquisar de heartbeats em falta. Como acima, se o heartbeat não está disponível para pesquisar na mesma janela de tempo de alerta, em seguida, um alerta é gerado porque os dados de heartbeat não foi ainda pesquisáveis e, por conseguinte, não existe. Este é o mesmo resultado como se a VM foi legitimamente offline e não ocorreu nenhuma dados de heartbeat gerados por este. Executar a consulta o dia seguinte durante a janela de tempo corretos mostra que ocorreram heartbeats e alertas de falha. Na verdade, de heartbeats não foram ainda disponíveis para a pesquisa porque a janela de tempo de alerta foi definida demasiado pequena.
 
-- **Frequência**.  Especifica a frequência de consulta deve ser executada e pode ser utilizada para tornar os alertas mais dinâmico para o cenário normal. O valor pode ser entre cinco minutos e 24 horas e deve ser igual ou menor do que a janela de tempo de alerta.  Se o valor é maior do que a janela de tempo, em seguida, o risco de registos que está a ser omitidos.<br>Se o objetivo é fiáveis para atrasa até 30 minutos e o atraso normal é de 10 minutos, a janela de tempo deve ser uma hora e o valor de frequência deve ser de 10 minutos. Isto seria acionar um alerta com dados que tenha um atraso de 10 minutos a ingestão entre 10 e 20 minutos de quando os dados do alerta foi gerados.<br>Para evitar criar vários alertas para os mesmos dados, porque a janela de tempo é demasiado grande, o [suprimir alertas](log-analytics-tutorial-response.md#create-alerts) opção pode ser utilizada para suprimir alertas para, pelo menos, desde a janela de tempo.
+- **Frequência**.  Especifica a frequência de consulta deve ser executada e pode ser utilizada para tornar os alertas mais dinâmico para o cenário normal. O valor pode ser entre cinco minutos e 24 horas e deve ser igual ou menor do que a janela de tempo de alerta.  Se o valor é maior do que a janela de tempo, em seguida, o risco de registos que está a ser omitidos.<br>Se o objetivo é fiáveis para atrasa até 30 minutos e o atraso normal é de 10 minutos, a janela de tempo deve ser uma hora e o valor de frequência deve ser de 10 minutos. Isto seria acionar um alerta com dados que tenha um atraso de 10 minutos a ingestão entre 10 e 20 minutos de quando os dados do alerta foi gerados.<br>Para evitar criar vários alertas para os mesmos dados, porque a janela de tempo é demasiado grande, a opção de suprimir alertas pode ser utilizada para suprimir alertas para, pelo menos, desde a janela de tempo.
   
 - **Limiar**. Os resultados da pesquisa de registo são avaliados para determinar se deve ser criado um alerta. O limiar é diferente para os diferentes tipos de regras de alertas.
 

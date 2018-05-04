@@ -1,25 +1,25 @@
 ---
-title: "Introdução ao Azure Active Directory | Microsoft Docs"
-description: "Obter licenças, adicione o nome de domínio, criar uma página de início de sessão personalizada e adicionar self-service reposição palavra-passe no Diretory Active Directory do Azure"
-keywords: 
+title: Introdução ao Azure Active Directory | Microsoft Docs
+description: Obter licenças, adicione o nome de domínio, criar uma página de início de sessão personalizada e adicionar self-service reposição palavra-passe no Diretory Active Directory do Azure
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introdução ao Azure AD
 Gestão de identidades moderna requer reliablity scaleable e consistente para garantir a disponibilidade da a das aplicações e serviços apenas aos utilizadores autenticados. Para suportar adequadamente as necessidades de gestão de identidades de utilizadores, TI precisam de uma forma de fornecer acesso ao software aprovado, público como um serviço (SaaS) de aplicações, uma forma de anfitrião interno aplicações de linha de negócio e até mesmo formas de melhorar no local desenvolvimento da aplicação e a utilização. Todos estes requisitos apontam para a necessidade de uma solução de gestão de identidade baseada na nuvem.      
@@ -81,7 +81,7 @@ Pode utilizar a atribuição baseada em grupo de licenças para configurar regra
 Revisão atribuída e licenças disponíveis em **do Azure Active Directory** > **licenças** > **todos os produtos**.
 
 ## <a name="configure-self-service-password-reset"></a>Configurar a reposição personalizada de palavra-passe
-[Reposição de palavra-passe self-service (SSPR)](active-directory-passwords-getting-started.md) oferece uma simples significa para administradores de TI permitir que os utilizadores reponham ou as respetivas contas ou palavras-passe de desbloqueio. O sistema inclui relatórios detalhados para controlar quando os utilizadores utilizam o sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
+[Reposição de palavra-passe self-service (SSPR)](authentication/quickstart-sspr.md) oferece uma simples significa para administradores de TI permitir que os utilizadores reponham ou as respetivas contas ou palavras-passe de desbloqueio. O sistema inclui relatórios detalhados para controlar quando os utilizadores utilizam o sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
 
 ### <a name="verification-step"></a>Passo de verificação
 Reveja ativada propriedades SSPR em **do Azure Active Directory** > **reposição de palavra-passe** para garantir que o utilizador adequado e atribuições de grupo foram efetuadas. 

@@ -6,20 +6,24 @@ documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: parakhj
+ms.assetid: 357d193a-e33b-469c-8a93-0a8f45a60a9f
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: davidmu
-ms.openlocfilehash: 52cefd4fad96e94dd2cf0871fac12a9a4d74b96f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 46223f1ec6b82828983861dae26ec8d777b77b86
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="azure-active-directory-b2c-add-a-custom-openid-connect-identity-provider-in-built-in-policies"></a>O Azure Active Directory B2C: Adicionar um fornecedor de identidade OpenID Connect personalizado nas políticas incorporadas
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, desenvolvido com OAuth 2.0, que podem ser utilizados para assinar com segurança os utilizadores. A maioria dos fornecedores de identidade que utilizam este protocolo, como o Azure AD, são suportadas no Azure AD B2C. Este artigo explica como adicionar fornecedores de identidade OpenID Connect personalizados para as políticas incorporadas.
+>[!NOTE]
+> Esta funcionalidade está em pré-visualização pública. Não utilize a funcionalidade em ambientes de produção.
+
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, desenvolvido com OAuth 2.0, que podem ser utilizados para assinar com segurança os utilizadores. A maioria dos fornecedores de identidade que utilizam este protocolo, tais como [do Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), são suportadas no Azure AD B2C. Este artigo explica como adicionar fornecedores de identidade OpenID Connect personalizados para as políticas incorporadas.
 
 ## <a name="configuring-a-custom-openid-connect-identity-provider"></a>Configurar um fornecedor de identidade OpenID Connect personalizado
 
@@ -87,6 +91,6 @@ Para cada um dos mapeamentos abaixo, consulte a documentação do fornecedor de 
 * `Surname`: Introduza a afirmação que fornece o apelido do utilizador.
 * `Email`: Introduza a afirmação que fornece o endereço de e-mail do utilizador.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Adicionar personalizado OpenID Connect fornecedor de identidade para o [política incorporada](active-directory-b2c-reference-policies.md).

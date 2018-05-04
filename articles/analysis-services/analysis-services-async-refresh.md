@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 
@@ -198,7 +198,7 @@ Eis um exemplo de código c# para ajudar a começar, [RestApiSample no GitHub](h
 1.  Clonar ou transferir o repositório. Abra a solução de RestApiSample.
 2.  Localizar a linha **cliente. BaseAddress =...** e forneça o [base URL](#base-url).
 
-Pode utilizar o exemplo de código início de sessão interativo, nome de utilizador/palavra-passe, ou [principal de serviço](#service-principle).
+Pode utilizar o exemplo de código início de sessão interativo, nome de utilizador/palavra-passe, ou [principal de serviço](#service-principal).
 
 #### <a name="interactive-login-or-usernamepassword"></a>Início de sessão interativo ou o nome de utilizador/palavra-passe
 
@@ -235,14 +235,14 @@ Esta forma de autenticação necessita de ser criada uma aplicação do Azure co
 
 #### <a name="service-principal"></a>Principal de serviço
 
-Consulte [criar principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um principal de serviço e atribuir as permissões necessárias nas do Azure . Depois de concluir os passos, conclua os seguintes passos adicionais:
+Consulte [criar serviço principal - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um principal de serviço e atribuir as permissões necessárias nas do Azure . Depois de concluir os passos, conclua os seguintes passos adicionais:
 
 1.  O código de exemplo, encontrar **cadeia autoridade =...** , substitua **comuns** com a sua organização ID de inquilino.
 2.  Comentário/anule os comentários para a classe de ClientCredential é utilizada para instanciar o objeto de cred. Certifique-se a \<ID da aplicação > e \<chave da aplicação > valores são acedidos de forma segura ou utilizar a autenticação baseada em certificado para principais de serviço.
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Exemplos](analysis-services-samples.md)   
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   

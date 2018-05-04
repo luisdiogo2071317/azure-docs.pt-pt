@@ -1,47 +1,61 @@
 ---
-title: JavaScript as funções definidas pelo utilizador no Azure Stream Analytics
-description: Este artigo descreve como realizar uma consulta avançada mechanics com as funções definidas pelo utilizador do JavaScript no Azure Stream Analytics.
+title: 'Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics | Microsoft Docs '
+description: Neste tutorial, vai realizar mecânicas de consulta avançada com as funções definidas pelo utilizador do JavaScript
+keywords: javascript, funções definidas pelo utilizador, udf
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: SnehaGunda
 manager: kfile
-ms.reviewer: jasonh
+ms.assetid: ''
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 462bd55dfae3a2c471d1111637a6de0bc95e6bfa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.topic: tutorial
+ms.reviewer: jasonh
+ms.custom: mvc
+ms.date: 04/01/2018
+ms.workload: data-services
+ms.author: sngun
+ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Stream Analytics JavaScript definido pelo utilizador as funções do Azure
-O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas em JavaScript. Com a avançada conjunto de **cadeia**, **RegExp**, **bibliotecas**, **matriz**, e **data** métodos que JavaScript Fornece, transformações de dados complexas Stream Analytics tarefas ficam mais fáceis de criar.
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
 
-## <a name="javascript-user-defined-functions"></a>Funções definidas pelo utilizador de JavaScript
-As funções definidas pelo utilizador de JavaScript suportam funções escalares sem monitorização de estado, apenas de computação que não necessitam de conectividade externa. O valor devolvido de uma função só pode ser um valor escalar (único). Depois de adicionar uma função definida pelo utilizador do JavaScript para uma tarefa, pode utilizar a função em qualquer parte da consulta, como uma função escalar incorporada.
+O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o conjunto avançado de métodos de **Cadeia**, **RegExp**, **Matemática**, **Matriz** e **Data** que o JavaScript dispõe, as transformações de dados complexas com tarefas do Stream Analytics tornam-se mais fáceis de criar.
 
-Seguem-se alguns cenários em que poderão ser úteis funções definidas pelo utilizador do JavaScript:
-* Analisar e manipular a cadeias com funções de expressão regular, por exemplo, **Regexp_Replace()** e **Regexp_Extract()**
-* Descodificar e codificação de dados, por exemplo, conversão de binário para hexadecimal
-* Efetuar cálculos mathematic com JavaScript **bibliotecas** funções
-* Efetuar operações de matriz como ordenação, associação, localizar e preenchimento
+Neste tutorial, ficará a saber como:
 
-Eis algumas coisas que não pode fazer com uma função definida pelo utilizador de JavaScript no Stream Analytics:
-* Chamada saída REST pontos finais externos, por exemplo, executar inverter a pesquisa IP ou solicitar dados de referência de uma origem externa
-* Executar a serialização de formato de evento personalizado ou entradas/saídas de desserialização
+> [!div class="checklist"]
+> * Definir uma função definida pelo utilizador do JavaScript
+> * Adicionar a função ao portal
+> * Definir uma consulta que executa a função
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="javascript-user-defined-functions"></a>Funções definidas pelo utilizador do JavaScript
+As funções definidas pelo utilizador do JavaScript suportam funções escalares apenas de computação e sem estado que não necessitam de conectividade externa. O valor devolvido de uma função só pode ser um valor escalar (único). Depois de adicionar uma função definida pelo utilizador do JavaScript para uma tarefa, pode utilizar a função em qualquer parte da consulta, como uma função escalar incorporada.
+
+Seguem-se alguns cenários onde as funções definidas pelo utilizador do JavaScript poderão ser úteis:
+* Analisar e manipular cadeias com funções de expressão regular, por exemplo, **Regexp_Replace()** e **Regexp_Extract()**
+* Descodificar e codificar dados, por exemplo, conversão de binário para hexadecimal
+* Realizar cálculos matemáticos com funções **Matemáticas** do JavaScript
+* Realizar operações de matriz, como ordenar, associar, encontrar e preencher
+
+Eis algumas coisas que não pode fazer com uma função definida pelo utilizador do JavaScript no Stream Analytics:
+* Chamar pontos finais REST externos, por exemplo, realizar pesquisa de IP inversa ou solicitar dados de referência de uma origem externa
+* Executar a serialização de formato de evento personalizado ou a desserialização em entradas/saídas
 * Criar agregações personalizadas
 
-Embora as funções como **Date.GetDate()** ou **Math.random()** não são bloqueadas na definição de funções, deve evitar utilizá-los. Estas funções **não** devolver o mesmo resultado sempre que chamá-los e o serviço Azure Stream Analytics não manter um diário de alterações de invocações de função e devolveu resultados. Se uma função devolve diferentes resultados os mesmos eventos, não é garantida repetibilidade quando uma tarefa for reiniciada por si ou pelo serviço do Stream Analytics.
+Embora as funções como **Date.GetDate()** ou **Math.random()** não estejam bloqueadas na definição das funções, deve evitar utilizá-las. Estas funções **não** devolvem o mesmo resultado sempre que as chamar e o serviço Azure Stream Analytics não mantém um diário das invocações de função e dos resultados devolvidos. Se uma função devolve diferentes resultados nos mesmos eventos, não é garantida repetibilidade quando uma tarefa for reiniciada por si ou pelo serviço do Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Adicionar uma função definida pelo utilizador do JavaScript no portal do Azure
-Para criar uma função de utilizador definida de JavaScript simple sob uma tarefa de Stream Analytics existente, execute estes passos:
+Para criar uma função simples definida pelo utilizador do JavaScript sob uma tarefa do Stream Analytics existente, siga estes passos:
 
-1.  No portal do Azure, localize a tarefa de Stream Analytics.
-2.  Em **tarefa TOPOLOGIA**, selecione a sua função. É apresentada uma lista vazia de funções.
-3.  Para criar uma nova função definida pelo utilizador, selecione **adicionar**.
-4.  No **nova função** painel, para **tipo de função**, selecione **JavaScript**. Um modelo de função predefinido é apresentado no editor.
-5.  Para o **UDF alias**, introduza **hex2Int**e altere a implementação de função da seguinte forma:
+1.  No portal do Azure, encontre a tarefa do Stream Analytics.
+2.  Em **TOPOLOGIA DA TAREFA**, selecione a sua função. É apresentada uma lista vazia das funções.
+3.  Para criar uma nova função definida pelo utilizador, selecione **Adicionar**.
+4.  No painel **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. É apresentado um modelo de função predefinido no editor.
+5.  Para o **alias do UDF**, introduza **hex2Int** e altere a implementação da função da seguinte forma:
 
     ```
     // Convert Hex value to integer.
@@ -50,13 +64,13 @@ Para criar uma função de utilizador definida de JavaScript simple sob uma tare
     }
     ```
 
-6.  Selecione **Guardar**. A função é apresentada na lista de funções.
-7.  Selecione o novo **hex2Int** funcionar e verifique a definição de função. Todas as funções têm um **UDF** prefixo adicionado para o alias da função. Terá de *incluem o prefixo* quando chamar a função na sua consulta do Stream Analytics. Neste caso, tem de chamar **UDF.hex2Int**.
+6.  Selecione **Guardar**. A função é apresentada na lista das funções.
+7.  Selecione a nova função **hex2Int** e marque a definição da função. Todas as funções têm um prefixo **UDF** adicionado ao alias da função. Tem de *incluir o prefixo* quando chama a função na sua consulta do Stream Analytics. Neste caso, tem de chamar **UDF.hex2Int**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
-1. No editor de consulta, em **tarefa TOPOLOGIA**, selecione **consulta**.
-2.  Editar a consulta e, em seguida, chame a função definida pelo utilizador, como esta:
+1. No editor de consulta, em **TOPOLOGIA DA TAREFA**, selecione **Consulta**.
+2.  Edite a consulta e, em seguida, chame a função definida pelo utilizador, da seguinte forma:
 
     ```
     SELECT
@@ -68,51 +82,51 @@ Para criar uma função de utilizador definida de JavaScript simple sob uma tare
         InputStream
     ```
 
-3.  Para carregar o ficheiro de dados de exemplo, clique com botão direito a entrada da tarefa.
-4.  Para testar a sua consulta, selecione **testar**.
+3.  Para carregar o ficheiro de dados de exemplo, clique com botão direito do rato na entrada da tarefa.
+4.  Para testar a sua consulta, selecione **Testar**.
 
 
 ## <a name="supported-javascript-objects"></a>Objetos de JavaScript suportados
-Stream Analytics JavaScript definido pelo utilizador as funções do Azure suportam objetos de JavaScript padrão, incorporados. Para obter uma lista destes objetos, consulte [objetos Global](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+As funções definidas pelo utilizador do JavaScript do Stream Analytics suportam objetos do JavaScript standard incorporados. Para obter uma lista destes objetos, veja [Objetos Globais](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
-### <a name="stream-analytics-and-javascript-type-conversion"></a>A conversão do tipo do Stream Analytics e JavaScript
+### <a name="stream-analytics-and-javascript-type-conversion"></a>Conversão de tipos do Stream Analytics e do JavaScript
 
-Existem diferenças na tipos Stream Analytics consultar o idioma e o suporte de JavaScript. Esta tabela lista os mapeamentos de conversão entre os dois:
+Existem diferenças nos tipos que a linguagem de consulta do Stream Analytics e do JavaScript suportam. Esta tabela lista os mapeamentos de conversão entre os dois:
 
 Stream Analytics | JavaScript
 --- | ---
-bigint | Número (JavaScript só pode representar números inteiros até precisamente 2 ^ 53)
-DateTime | Data (JavaScript só suporta milissegundos)
-duplo | Número
-nvarchar(MAX) | Cadeia
-Gravar | Objeto
-Matriz | Matriz
-NULO | Valor nulo
+bigint | Number (o JavaScript só pode representar números inteiros até precisamente 2^53)
+DateTime | Date (o JavaScript só suporta milissegundos)
+double | Number
+nvarchar(MAX) | String
+Record | Object
+Array | Array
+NULL | Null
 
 
-Seguem-se conversões de JavaScript para Stream Analytics:
+Seguem-se conversões do JavaScript para o Stream Analytics:
 
 
 JavaScript | Stream Analytics
 --- | ---
-Número | Bigint (se o número for arredondar e entre longa. MinValue e longa. MaxValue; caso contrário, é aspas)
-Data | DateTime
-Cadeia | nvarchar(MAX)
-Objeto | Gravar
-Matriz | Matriz
-Nulo, indefinido | NULO
-Qualquer outro tipo (por exemplo, uma função ou erro) | Não é suportados (resultados de erro de tempo de execução)
+Number | Bigint (se o número for redondo e entre long.MinValue e long.MaxValue; caso contrário, é duplo)
+Date | DateTime
+String | nvarchar(MAX)
+Object | Record
+Array | Array
+Null, Undefined | NULL
+Qualquer outro tipo (por exemplo, uma função ou erro) | Não suportado (resultados num erro de runtime)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Erros de tempo de execução de JavaScript são considerados fatais e estão anexados através do registo de atividade. Para obter o registo, no portal do Azure, aceda ao seu trabalho e selecione **registo de atividade**.
+Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.
 
 
-## <a name="other-javascript-user-defined-function-patterns"></a>Outros padrões de função definida pelo utilizador de JavaScript
+## <a name="other-javascript-user-defined-function-patterns"></a>Outros padrões da função definida pelo utilizador do JavaScript
 
-### <a name="write-nested-json-to-output"></a>Escrever aninhada JSON para a saída
-Se tiver um passo de processamento de seguimento que utiliza uma tarefa de Stream Analytics resultado como entrada e requer um formato JSON, pode escrever uma cadeia JSON para saída. O exemplo seguinte, chama o **JSON.stringify()** funcionar para todos os pares nome/valor da entrada do pacote e, em seguida, escrevê-los como um valor de cadeia única na saída.
+### <a name="write-nested-json-to-output"></a>Escrever JSON aninhado para a saída
+Se tiver um passo de processamento de seguimento que utiliza uma saída da tarefa do Stream Analytics como entrada e requer um formato JSON, pode escrever uma cadeia JSON para a saída. O exemplo seguinte chama a função **JSON.stringify()** para empacotar todos os pares de nome/valor da entrada e, em seguida, escreve-os como um valor de cadeia único na saída.
 
-**Definição de função definida pelo utilizador JavaScript:**
+**Definição da função definida pelo utilizador do JavaScript:**
 
 ```
 function main(x) {
@@ -133,12 +147,19 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## <a name="get-help"></a>Obter ajuda
-Para obter ajuda adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="clean-up-resources"></a>Limpar recursos
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
-* [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Gestão de Stream Analytics referência da REST API do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
+
+1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou.  
+2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
+
+## <a name="get-help"></a>Obter ajuda
+Para obter mais ajuda, experimente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, criou uma tarefa do Stream Analytics que executa uma função simples definida pelo utilizador do JavaScript. Para saber mais sobre o Stream Analytics, avance para os artigos de cenário em tempo real:
+
+> [!div class="nextstepaction"]
+> [Análise de sentimento do Twitter em tempo real no Azure Stream Analytics](stream-analytics-twitter-sentiment-analysis-trends.md)

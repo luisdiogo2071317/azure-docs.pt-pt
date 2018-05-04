@@ -1,6 +1,6 @@
 ---
-title: "Expanda a transformação de JSON utilizando o Azure Machine Learning Workbench"
-description: "O documento de referência para a transformação 'JSON expanda'"
+title: Expanda a transformação de JSON utilizando o Azure Machine Learning Workbench
+description: O documento de referência para a transformação 'JSON expanda'
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 21de94d2d0d3cc12aabcb8e9e8b0eec39b0a2710
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="expand-json-transformation"></a>Expanda a transformação de JSON
 O **expanda JSON** transformação permite aos utilizadores expandir uma coluna existente que contenha o texto JSON válido em várias colunas.
@@ -36,5 +36,5 @@ A origem columnn *cliente* é expandido para duas colunas *Customer.Name* e *Cus
 | Cliente                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|
 | {"Name": "Carrie Dodson", "Phone": "123-4567-890"}   | Carrie Dodson   | 123-4567-890   |
-| { "Name" : "Leonard Robledo", "Phone" : "456-7890-123"} | Leonard Robledo | 456-7890-123   |
+| {"Name": "Leonard Robledo", "Phone": "456-7890-123"} | Leonard Robledo | 456-7890-123   |
 

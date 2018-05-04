@@ -6,13 +6,13 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: cb011ee54894f53cda81d9d116899dcaeb558b6d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Criar um índice para documentos em vários idiomas na Azure Search
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Muitas aplicações móveis e web servem os utilizadores à volta de todo o mund
 
 Se o idioma do agente de emissão de uma consulta é conhecido, um pedido de pesquisa pode ser confinado num campo específico utilizando o **searchFields** parâmetro de consulta. A consulta seguinte será emitida apenas relativamente a descrição na Polaco:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 Pode consultar o índice no portal, utilizando **Explorador de pesquisa** colar numa consulta semelhante às mostrado acima. Explorador de pesquisa está disponível a partir da barra de comandos, no painel do serviço. Consulte [consultar o índice da Azure Search no portal do](search-explorer.md) para obter mais detalhes.
 
@@ -77,7 +77,7 @@ Por vezes, não é conhecido o idioma do agente de emissão de uma consulta, cas
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 Se tiver um programador de .NET, tenha em atenção que pode configurar analisadores de idioma a utilizar o [SDK .NET da Azure Search](http://www.nuget.org/packages/Microsoft.Azure.Search). A versão mais recente inclui suporte para os Microsoft dos analisadores de idiomas, bem como.
 

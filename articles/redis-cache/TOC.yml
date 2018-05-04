@@ -2,23 +2,9 @@
   href: index.md
 - name: Descrição geral
   items:
-    - name: Porquê utilizar a cache de Redis
-      href: 'https://azure.microsoft.com/services/cache/'
-    - name: Explorar as funcionalidades do escalão premium
-      href: cache-premium-tier-intro.md
-    - name: Cenários
-      items:
-        - name: Aceder aos itens numa cache
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache'
-        - name: Configurar uma elevada disponibilidade
-          href: 'https://azure.microsoft.com/pricing/details/cache/'
-        - name: Ligar de forma segura com o SSL
-          href: 'cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache'
-        - name: Migrar do Serviço de Cache Gerida
-          href: cache-migrate-to-redis.md
-        - name: Documentação de orientação de Padrões e Práticas de Colocação em Cache
-          href: ../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json
-- name: Introdução
+    - name: Sobre a Cache de Redis do Azure
+      href: cache-overview.md
+- name: Inícios rápidos
   items:
     - name: ASP.NET
       href: cache-web-app-howto.md
@@ -30,9 +16,27 @@
       href: cache-java-get-started.md
     - name: Python
       href: cache-python-get-started.md
-    - name: Perguntas Frequentes sobre a Cache de Redis
-      href: cache-faq.md
-- name: Procedimento
+- name: Tutoriais
+  items:
+    - name: Colocação de classificações em cache
+      href: cache-web-app-cache-aside-leaderboard.md
+- name: Amostras
+  items:
+    - name: Exemplos da Cache de Redis
+      href: cache-redis-samples.md
+    - name: Azure PowerShell
+      href: cache-howto-manage-redis-cache-powershell.md
+    - name: CLI do Azure
+      href: cli-samples.md
+- name: Conceitos
+  items:
+    - name: Melhores práticas
+      items:
+        - name: Melhores Práticas para a Cache de Redis do Azure
+          href: 'https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f'
+        - name: Melhores Práticas de Colocação em Cache da Arquitetura do Azure
+          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+- name: Guias de procedimentos
   items:
     - name: Planear
       items:
@@ -72,6 +76,8 @@
           href: 'cache-administration.md#reboot'
         - name: Agendar atualizações
           href: 'cache-administration.md#schedule-updates'
+        - name: Configurar o acesso redis-cli.exe
+          href: cache-how-to-redis-cli-tool.md
     - name: Monitorizar e resolver problemas
       items:
         - name: Monitorizar no portal do Azure
@@ -114,5 +120,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cache/'
-    - name: Exemplos da cache de Redis
-      href: cache-redis-samples.md
+    - name: Perguntas Frequentes sobre a Cache de Redis
+      href: cache-faq.md
+    - name: Vídeos
+      href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc'

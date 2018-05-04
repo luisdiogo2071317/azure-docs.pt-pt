@@ -1,19 +1,19 @@
 ---
-title: "Utilizar rascunho com o serviço de contentor do Azure e Azure registo de contentor"
-description: "Crie um cluster do Kubernetes no ACS e um Azure Container Registry para criar a sua primeira aplicação no Azure com o Draft."
+title: Utilizar rascunho com o serviço de contentor do Azure e Azure registo de contentor
+description: Crie um cluster do Kubernetes no ACS e um Azure Container Registry para criar a sua primeira aplicação no Azure com o Draft.
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Utilizar o Draft com o Azure Container Service e o Azure Container Registry para criar e implementar uma aplicação no Kubernetes
 
@@ -99,7 +99,7 @@ Uma vez que já tem um cluster, pode utilizar o comando [az acs kubernetes get-c
 ## <a name="install-and-configure-draft"></a>Instalar e configurar o Draft
 
 
-1. Rascunho para o seu ambiente no https://github.com/Azure/draft/releases de transferir e instalar no seu caminho, para que possa ser utilizado o comando.
+1. Transferir o rascunho para o seu ambiente no https://github.com/Azure/draft/releases e instalar no seu caminho, para que possa ser utilizado o comando.
 2. Transferir helm para o seu ambiente no https://github.com/kubernetes/helm/releases e [instalá-lo no seu caminho, para que possa ser utilizado o comando](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configure o Draft para utilizar o seu registo e criar subdomínios para cada gráfico do Helm que crie. Para configurar o Draft, precisa:
   - Do nome do Azure Container Registry (neste exemplo, `draftacsdemo`)

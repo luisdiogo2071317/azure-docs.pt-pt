@@ -3,7 +3,7 @@ title: Comandos do PowerShell comuns para redes virtuais do Azure | Microsoft Do
 description: Comandos do PowerShell comuns para ajudá-lo à criação de uma rede virtual e os respetivos recursos associados para as VMs.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
-ms.openlocfilehash: 31c0e558ca87d918d8e662d7aa4c12502961288a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: a5b3f84c27a0a5f6458808940b16a9001097b30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos do PowerShell comuns para redes virtuais do Azure
 
@@ -38,8 +38,8 @@ Algumas variáveis poderão ser útil se executar mais do que um dos comandos ne
 | ---- | ------- |
 | Criar configurações de sub-rede |$subnet1 = [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>Uma rede típica pode ter uma sub-rede para uma [internet com o Balanceador de carga](../../load-balancer/load-balancer-internet-overview.md) e uma sub-rede separada para uma [Balanceador de carga interno](../../load-balancer/load-balancer-internal-overview.md). |
 | Criar uma rede virtual |$vnet = [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
-| Teste para um nome de domínio único |[Test-AzureRmDnsAvailability](https://docs.microsoft.com/powershell/module/azurerm.network/test-azurermdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Pode especificar um nome de domínio DNS para um [recurso de IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md), que cria um mapeamento para domainname.location.cloudapp.azure.com para o endereço IP público nos servidores DNS geridos pelo Azure. O nome pode conter apenas letras, números e hífenes. O primeiro e último carateres têm de ser uma letra ou número e o nome de domínio tem de ser exclusivos dentro da respetiva localização do Azure. Se **verdadeiro** é devolvido o nome proposto é exclusivo global. |
-| Crie um endereço IP público |$pip = [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) -Name "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Location $location -AllocationMethod Dynamic<BR><BR>O endereço IP público utiliza o nome de domínio que anteriormente testado e é utilizado na configuração de front-end de Balanceador de carga. |
+| Teste para um nome de domínio único |[Teste AzureRmDnsAvailability](https://docs.microsoft.com/powershell/module/azurerm.network/test-azurermdnsavailability) - DomainNameLabel "myDNS"-localização $location<BR><BR>Pode especificar um nome de domínio DNS para um [recurso de IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md), que cria um mapeamento para domainname.location.cloudapp.azure.com para o endereço IP público nos servidores DNS geridos pelo Azure. O nome pode conter apenas letras, números e hífenes. O primeiro e último carateres têm de ser uma letra ou número e o nome de domínio tem de ser exclusivos dentro da respetiva localização do Azure. Se **verdadeiro** é devolvido o nome proposto é exclusivo global. |
+| Crie um endereço IP público |$pip = [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) -Name "myPublicIp" - ResourceGroupName $myResourceGroup - DomainNameLabel "myDNS"-localização $location - AllocationMethod dinâmico<BR><BR>O endereço IP público utiliza o nome de domínio que anteriormente testado e é utilizado na configuração de front-end de Balanceador de carga. |
 | Criar uma configuração de IP de front-end |$frontendIP = [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>A configuração de front-end inclui o endereço IP público que criou anteriormente para tráfego de rede recebido. |
 | Criar um conjunto de endereços de back-end |$beAddressPool = [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>Fornece endereços internos para o back-end de Balanceador de carga que são acedidos através de uma interface de rede. |
 | Criar uma sonda |$healthProbe = [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) -Name "myProbe" -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2<BR><BR>Contém as sondas de estado de funcionamento utilizadas para verificar a disponibilidade de instâncias de máquinas virtuais no conjunto de endereços de back-end. |
@@ -66,7 +66,7 @@ Algumas variáveis poderão ser útil se executar mais do que um dos comandos ne
 
 | Tarefa | Comando |
 | ---- | ------- |
-| Adicionar uma sub-rede para uma rede virtual |[Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) -AddressPrefix XX.X.X.X/XX -Name "mySubnet1" -VirtualNetwork $vnet<BR><BR>Adiciona uma sub-rede para uma rede virtual existente. O valor de $vnet representa o objeto devolvido pelo Get-AzureRmVirtualNetwork. |
+| Adicionar uma sub-rede para uma rede virtual |[AzureRmVirtualNetworkSubnetConfig adicionar](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) - AddressPrefix XX. X.X.X/XX-Name "mySubnet1" - VirtualNetwork $vnet<BR><BR>Adiciona uma sub-rede para uma rede virtual existente. O valor de $vnet representa o objeto devolvido pelo Get-AzureRmVirtualNetwork. |
 | Eliminar uma rede virtual |[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup<BR><BR>Remove o grupo de recursos de rede virtual especificado. |
 | Eliminar uma interface de rede |[Remove-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworkinterface) -Name "myNIC" -ResourceGroupName $myResourceGroup<BR><BR>Remove o grupo de recursos a interface de rede especificado. |
 | Eliminar um balanceador de carga |[Remove-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermloadbalancer) -Name "myLoadBalancer" -ResourceGroupName $myResourceGroup<BR><BR>Remove o grupo de recursos do Balanceador de carga especificado. |

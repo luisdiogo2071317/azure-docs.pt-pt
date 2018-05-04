@@ -1,6 +1,6 @@
 ---
 title: Induce Chaos em clusters de Service Fabric | Microsoft Docs
-description: "Utilizar a inserção de falhas e APIs de serviço de análise do Cluster para gerir Chaos no cluster."
+description: Utilizar a inserção de falhas e APIs de serviço de análise do Cluster para gerir Chaos no cluster.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 81206257cb2c7157bbb1ffcf3a79ced7c896ef80
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 40ceb62e544d2aa71296e24da957cb062029da9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induce Chaos controlada em clusters de Service Fabric
 Sistemas distribuídos em grande escala, como infraestruturas de nuvem são inerentemente pouco fiáveis. Recursos de infraestrutura de serviço do Azure permite aos programadores escrever fiáveis serviços distribuídos por cima de uma infraestrutura pouco fiável. Para escrever robustos serviços distribuídos por cima de uma infraestrutura pouco fiável, os programadores têm de ser capaz de testar a estabilidade do respetivos serviços enquanto infraestrutura subjacente pouco fiável passar pelas transições de estado complicado devido a falhas.
@@ -33,7 +33,7 @@ Assim que tiver configurado Chaos com a frequência e o tipo de falhas de hardwa
 > Na sua forma atual, Chaos induces falhas apenas seguras, que indica que a ausência de falhas externas de uma perda de quórum, ou perda de dados nunca ocorre.
 >
 
-Enquanto Chaos está em execução, produz diferentes eventos de capturar o estado de execução neste momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas Chaos decidiu para ser executado nesse iteração. Um ValidationFailedEvent contém os detalhes de uma falha de validação (problemas de estado de funcionamento ou estabilidade) que foi encontrado durante a validação do cluster. Pode invocar a API de GetChaosReport (c#, Powershell ou REST) para obter o relatório de execuções de Chaos. Estes eventos obterem continuados num [dicionário fiável](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tem uma política de truncagem ditada pelo duas configurações: **MaxStoredChaosEventCount** (o valor predefinido é 25000) e  **StoredActionCleanupIntervalInSeconds** (valor predefinido é de 3600). Cada *StoredActionCleanupIntervalInSeconds* Chaos verificações e a todos os, mas o mais recente *MaxStoredChaosEventCount* eventos, são removidos do dicionário de fiável.
+Enquanto Chaos está em execução, produz diferentes eventos de capturar o estado de execução neste momento. Por exemplo, um ExecutingFaultsEvent contém todas as falhas Chaos decidiu para ser executado nesse iteração. Um ValidationFailedEvent contém os detalhes de uma falha de validação (problemas de estado de funcionamento ou estabilidade) que foi encontrado durante a validação do cluster. Pode invocar a API de GetChaosReport (c#, Powershell ou REST) para obter o relatório de execuções de Chaos. Estes eventos obterem continuados num [dicionário fiável](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections), que tem uma política de truncagem ditada pelo duas configurações: **MaxStoredChaosEventCount** (o valor predefinido é 25000) e  **StoredActionCleanupIntervalInSeconds** (valor predefinido é de 3600). Cada *StoredActionCleanupIntervalInSeconds* Chaos verificações e a todos os, mas o mais recente *MaxStoredChaosEventCount* eventos, são removidos do dicionário de fiável.
 
 ## <a name="faults-induced-in-chaos"></a>Falhas induzidas no Chaos
 Chaos gera falhas em todo o cluster do Service Fabric e comprimir falhas que o se verificam no meses ou anos para algumas horas. A combinação de falhas intercaladas com a taxa de falhas elevada encontra nos casos extremos que caso contrário, poderão ser perdidos. Neste exercício de Chaos leva a uma melhoria significativa na qualidade de código do serviço.
