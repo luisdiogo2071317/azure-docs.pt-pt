@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 90a1a7c836c0cd75adf003e8f7cdad4f90f42f51
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -29,7 +29,7 @@ Este artigo descreve os detalhes de configuração de agentes de mapa de serviç
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>Origens ligadas
@@ -84,7 +84,7 @@ Utilize as opções da tabela seguinte para instalar a partir de uma linha de co
 
     InstallDependencyAgent-Windows.exe /?
 
-| Flag | Descrição |
+| Sinalizador | Descrição |
 |:--|:--|
 | /? | Obter uma lista das opções da linha de comandos. |
 | /S | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -106,7 +106,7 @@ Para ver uma lista dos sinalizadores de instalação, execute a instalação do 
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Flag | Descrição |
+| Sinalizador | Descrição |
 |:--|:--|
 | -ajudar | Obter uma lista das opções da linha de comandos. |
 | -s | Efetue uma instalação automática com sem avisos do utilizador. |

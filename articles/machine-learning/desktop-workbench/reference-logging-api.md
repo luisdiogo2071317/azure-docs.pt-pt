@@ -1,6 +1,6 @@
 ---
-title: "Referência da API de registo de ML do Azure | Microsoft Docs"
-description: "Referência da API de registo."
+title: Referência da API de registo de ML do Azure | Microsoft Docs
+description: Referência da API de registo.
 services: machine-learning
 author: akshaya-a
 ms.author: akannava
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="logging-api-reference"></a>Referência da API de registo
 
@@ -83,6 +83,6 @@ $ az ml history info -r <runid> -a <artifact/path>
 # promote a particular artifact
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Percorrer o [classificar iris tutoria, parte 2](tutorial-classifying-iris-part-2.md) para ver a API de registo em ação.
 - Reveja [como histórico de execuções de utilização e métricas de modelo no Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) compreender mais profundo como APIs de registo pode ser utilizado no histórico de execução.

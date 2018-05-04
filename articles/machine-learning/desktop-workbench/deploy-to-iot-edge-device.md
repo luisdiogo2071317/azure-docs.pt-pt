@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ms.openlocfilehash: ceab96b1ef28527c8aa2692b83d3609f133f339c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Implementar um modelo do Azure Machine Learning para um dispositivo de limite de IoT do Azure
 
@@ -31,11 +31,11 @@ Seguem-se adicionais coisas a salientar.
 ### <a name="add-registry-credentials-to-the-edge-runtime-on-your-edge-device"></a>Adicione as credenciais do registo para o tempo de execução do Edge no seu dispositivo de limite
 No computador onde estiver a executar o limite de IoT, adicione as credenciais do seu registo para que o tempo de execução possa ter acesso ao contentor de extração.
 
-Para o Windows, execute o seguinte comando:
+No Windows, execute o seguinte comando:
 ```cmd/sh
 iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
 ```
-Para Linux, execute o seguinte comando:
+No Linux, execute o seguinte comando:
 ```cmd/sh
 sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
 ```

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
 ms.openlocfilehash: 2251f8d241f3ec47d46c04160caf997bcd025124
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Recolher dados do modelo através da utilização de recolha de dados
 
@@ -38,7 +38,7 @@ Em seguida, execute o seguinte comando:
 
     pip install azureml.datacollector
 
-## <a name="set-environment-variables"></a>Variáveis de ambiente de conjunto
+## <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
 Recolha de dados do modelo depende de duas variáveis de ambiente. AML_MODEL_DC_STORAGE_ENABLED tem de ser definido como **verdadeiro** (todo em minúsculas) e AML_MODEL_DC_STORAGE tem de ser definida para a cadeia de ligação para a conta de armazenamento do Azure onde pretende armazenar os dados.
 

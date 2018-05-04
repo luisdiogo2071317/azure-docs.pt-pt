@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6ea915ac10314f6304c98e40a50b26e3d1ee79eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e análise de registos
 O [Azure Application Insights](app-insights-overview.md) serviço utiliza um número de endereços IP. Poderá ter de conhecer estes endereços, se a aplicação que está a monitorizar estiver alojada atrás de uma firewall.
@@ -49,11 +49,6 @@ Configuração de Monitor do Estado - necessária apenas quando efetuar alteraç
 | Configuração |`auth.gfx.ms` | |`443` |
 | Configuração |`login.live.com` | |`443` |
 | Instalação |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (Transferências do NuGet) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| Objetivo | do IdP | IP | Portas |
-| --- | --- | --- | --- |
-| Dados de falhas |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir da qual [testes web de disponibilidade](app-insights-monitor-web-app-availability.md) são executados. Se pretender executar testes web na sua aplicação, mas o servidor web está restrito a servir clientes específicos, terá de permitir tráfego de entrada do nosso disponibilidade servidores de teste.
@@ -218,7 +213,7 @@ Nota: *. applicationinsights.io domínio pertence a equipa do Application Insigh
 
 Nota: *. loganalytics.io domínio é propriedade da equipa de análise de registos.
 
-## <a name="application-insights-azure-portal-extension"></a>Application Insights extensão de Portal do Azure
+## <a name="application-insights-azure-portal-extension"></a>Portal de Insights Azure aplicação extensão
 
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |

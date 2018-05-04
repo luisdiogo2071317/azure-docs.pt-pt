@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -131,6 +131,7 @@ O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON
 |-----------------|-----------|-------------|
 | runtimeStatus   | string    | O estado do tempo de execução da instância. Os valores incluem *executar*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
 | Entrada           | JSON      | Os dados JSON utilizados para inicializar a instância. |
+| customStatus    | JSON      | Os dados JSON utilizados para o estado de orquestração personalizado. Este campo é `null` se não for definido. |
 | saída          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
 | createdTime     | string    | A hora em que foi criada a instância. Utiliza ISO 8601 expandido notação. |
 | lastUpdatedTime | string    | A hora em que a instância persistente pela última vez. Utiliza ISO 8601 expandido notação. |
@@ -180,6 +181,7 @@ Eis um payload de resposta de exemplo, incluindo os orchestration execução his
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

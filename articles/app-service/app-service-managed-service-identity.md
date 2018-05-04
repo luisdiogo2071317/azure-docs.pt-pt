@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como utilizar a identidade de serviço geridas (pré-visualização pública) do Azure no serviço de aplicações e funções do Azure
 
 > [!NOTE] 
 > Identidade de serviço geridas para o serviço de aplicações e funções do Azure está atualmente em pré-visualização. Serviço de aplicações no Linux e a aplicação Web para contentores não são atualmente suportadas.
+
+
+> [!Important] 
+> Identidade de serviço geridas para o serviço de aplicações e funções do Azure não irão comportar-se conforme esperado se a aplicação é migrada através de subscrições/inquilinos. A aplicação precisa de obter uma nova identidade e a identidade existente não é possível eliminar corretamente sem eliminar o próprio site. A aplicação terá de ser recriado com uma identidade nova e a jusante recursos tem de ter atualizadas para utilizar a nova identidade de políticas de acesso.
+
 
 Este tópico mostra-lhe como criar uma identidade de aplicação gerida para aplicações de serviço de aplicações e funções do Azure e como utilizá-la para aceder a outros recursos. Uma identidade de serviço gerida do Azure Active Directory permite à aplicação aceder facilmente a outros recursos protegidos do AAD, tais como o Cofre de chaves do Azure. A identidade é gerida pela plataforma do Azure e não necessita de aprovisionar ou rodar os segredos. Para obter mais informações sobre a identidade de serviço geridas, consulte o [descrição geral de identidade de serviço geridas](../active-directory/managed-service-identity/overview.md).
 

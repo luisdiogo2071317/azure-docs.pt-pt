@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: dfa3e1996ecbd3d78fef9f85facb7da1c209fafa
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 3235813708b3c097e7f66610796f75eafd06aa05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-versions-in-azure-search"></a>Versões de API na Azure Search
 A pesquisa do Azure lança atualizações de funcionalidade regularmente. Por vezes, mas nem sempre, estas atualizações requerem-nos publicar uma nova versão da nossa API para preservar a compatibilidade com versões anteriores. Publicar uma nova versão permite-lhe controlar quando e como integrar atualizações de serviço de pesquisa no seu código.
@@ -30,16 +30,16 @@ Abaixo é um instantâneo das versões atuais do todas programação interfaces 
 
 | Interfaces | Mais recente versão principal | Estado |
 | --- | --- | --- |
-| [SDK do .NET](https://aka.ms/search-sdk) |3.0 |Geralmente disponível, lançada Novembro de 2016 |
+| [SDK do .NET](https://aka.ms/search-sdk) |5.0 |Geralmente disponível, lançada Abril de 2018 |
 | [Pré-visualização do SDK .NET](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Pré-visualização, lançada Maio de 2017 |
-| [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Geralmente disponível |
+| [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Geralmente disponível |
 | [Pré-visualização da API de REST do serviço](search-api-2016-09-01-preview.md) |2016-09-01-preview |Pré-visualização |
 | [SDK de Gestão .NET](https://aka.ms/search-mgmt-sdk) |2.0 |Geralmente disponível |
 | [API REST de Gestão](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Geralmente disponível |
 
 Para as APIs REST, incluindo o `api-version` em cada chamada é necessária. Isto torna mais fácil para uma versão específica, tal como uma pré-visualização API de destino. O exemplo a seguir ilustra como o `api-version` parâmetro for especificado:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
+    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
 > [!NOTE]
 > Apesar de cada pedido tem um `api-version`, recomendamos que utilize a mesma versão para todos os pedidos de API. Isto é especialmente verdadeiro quando novas versões de API introduzem atributos ou operações que não são reconhecidas por versões anteriores. A combinação de versões de API pode ter consequências inesperadas e devem ser evitados.

@@ -1,6 +1,6 @@
 ---
-title: "Combinar as colunas por utilizar o Azure Machine Learning Workbench de transformação de exemplo"
-description: "O documento de referência para a transformação 'Combinar colunas por exemplo'"
+title: Combinar as colunas por utilizar o Azure Machine Learning Workbench de transformação de exemplo
+description: O documento de referência para a transformação 'Combinar colunas por exemplo'
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Combinar as colunas por transformação de exemplo
 Esta transformação permite ao utilizador adicionar uma nova coluna através da combinação de valores de várias colunas. Utilizador pode especificar um separador ou fornecem exemplos de valores combinados para efetuar esta transformação. Quando o utilizador fornece exemplos de combinação, a transformação é processada pelo mesmo **por exemplo** motor que é utilizado no **derivar coluna, por exemplo** transformação.

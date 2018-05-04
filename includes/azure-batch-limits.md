@@ -2,8 +2,8 @@
 | --- | --- | --- |
 | Contas do Batch por região por subscrição | 1 - 3 |50 |
 | Dedicado núcleos por conta do Batch | 10 - 100 | N/A<sup>1</sup> |
-| Prioridade baixa núcleos por conta do Batch | 10 - 100 | N/A<sup>2</sup> |
-| Tarefas ativas e agendamentos de trabalhos<sup>3</sup> por conta do Batch | 20 - 100 | 5000<sup>4</sup> |
+| Prioridade baixa núcleos por conta do Batch | 10 - 100 | N/D<sup>2</sup> |
+| Tarefas ativas e agendamentos de trabalhos<sup>3</sup> por conta do Batch | 100 - 300 | 5000<sup>4</sup> |
 | Conjuntos por conta do Batch | 20 - 100 | 2500 |
 
 > [!NOTE]

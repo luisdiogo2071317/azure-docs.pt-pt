@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+manager: dougeby
+ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: atribuir acesso a dados de gestão de custos
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Embora já tenha acesso de administrador, os seus colegas na organização podem também precisar de ter acesso de administrador. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Gestão de Utilizadores**. Clique em **Adicionar Novo Utilizador** para adicionar um novo utilizador.
 
-Introduza as informações necessárias sobre o utilizador. Pode deixar o campo da palavra-passe em branco para que o utilizador possa definir uma nova palavra-passe no primeiro início de sessão. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários.
+Introduza as informações necessárias sobre o utilizador. O ID de Início de Sessão tem de ser um endereço de e-mail válido. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. No primeiro início de sessão, o utilizador define uma palavra-passe.
 
 Em **O utilizador tem acesso de administrador**, está selecionada a entidade de raiz da sua organização. Mantenha a raiz selecionada e, em seguida, guarde as informações de utilizador. A seleção da entidade de raiz permite ao utilizador ter permissão de administrador não só para a entidade de raiz na árvore, mas também para todas as entidades que residem abaixo da mesma.  
   ![Adicionar novo utilizador com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ Quando definir a hierarquia de entidades de custo, é recomendado identificar a 
 
 Quando registou o seu contrato ou conta do Azure no Cloudyn, os dados dos recursos do Azure, incluindo utilização, desempenho, faturação e dados de etiqueta das suas subscrições, foram copiados para a sua conta do Cloudyn. No entanto, tem de criar manualmente a árvore de entidades. Caso tenha ignorado o registo do Azure Resource Manager, apenas os dados de faturação e alguns relatórios de imobilizado estão disponíveis no portal do Cloudyn.
 
-No portal do Cloudyn, clique em **Definições** na parte superior direita e selecione **Contas da Cloud**. Começa por uma única entidade (raiz) e cria a árvore de entidades na raiz. Segue-se um exemplo de uma hierarquia de entidades que poderá assemelhar-se a muitas organizações de TI após a conclusão da árvore:
+No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**. Começa por uma única entidade (raiz) e cria a árvore de entidades na raiz. Segue-se um exemplo de uma hierarquia de entidades que poderá assemelhar-se a muitas organizações de TI após a conclusão da árvore:
 
 ![árvore de entidades](.\media\tutorial-user-access\entity-tree.png)
 

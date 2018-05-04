@@ -1,24 +1,24 @@
 ---
-title: "Captura de descrição geral dos Event Hubs do Azure | Microsoft Docs"
+title: Captura de descrição geral dos Event Hubs do Azure | Microsoft Docs
 description: Captura de dados de telemetria com capturar os Hubs de eventos
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm;darosa
-ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.date: 04/30/2018
+ms.author: sethm
+ms.openlocfilehash: 00eee302cc15d94ec62f5f3332e18ee2df24f5cd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Captura de Hubs de eventos do Azure
 
@@ -71,13 +71,13 @@ Os ficheiros produzidos pela captura de Hubs de eventos têm o esquema Avro segu
 
 Uma forma fácil para explorar os ficheiros do Avro é utilizando o [Avro ferramentas] [ Avro Tools] jar do Apache. Depois de transferir este jar, pode ver o esquema de um ficheiro Avro específico, executando o seguinte comando:
 
-```
+```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 Este comando devolve
 
-```
+```json
 {
 
     "type":"record",

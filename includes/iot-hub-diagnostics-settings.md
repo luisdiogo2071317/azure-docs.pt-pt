@@ -27,7 +27,7 @@
 
 Se pretender ativar as definições de diagnóstico com o PowerShell, utilize o seguinte código:
 
-```
+```azurepowershell
 Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true

@@ -15,11 +15,11 @@ ms.date: 04/18/2018
 ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19eb8399c59efa94e68c0d334ba708f900ce841a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -71,7 +71,7 @@ Por exemplo, se precisar de uma aplicação de cliente web ler informações de 
 
 A estrutura de consentimento baseia OAuth 2.0 e o respetivos vários fluxos, tais como conceder credenciais de cliente e de concessão do código de autorização, com clientes públicos ou confidenciais. Ao utilizar o OAuth 2.0, do Azure AD torna possível criar vários tipos de aplicações de cliente, tal como um telemóvel, tablet, servidor ou uma aplicação web e obter acesso aos recursos necessários.
 
-Para obter mais informações sobre como utilizar a estrutura de consentimento com OAuth2.0 concede de autorização, consulte [autorizar o acesso a aplicações web utilizando o OAuth 2.0 e o Azure AD](active-directory-protocols-oauth-code.md) e[cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md). Para obter informações sobre como obter acesso autorizado ao Office 365 através do Microsoft Graph, consulte [autenticação da aplicação com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Para obter mais informações sobre como utilizar a estrutura de consentimento com OAuth2.0 concede de autorização, consulte [autorizar o acesso a aplicações web utilizando o OAuth 2.0 e o Azure AD](active-directory-protocols-oauth-code.md) e [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md). Para obter informações sobre como obter acesso autorizado ao Office 365 através do Microsoft Graph, consulte [autenticação da aplicação com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Exemplo de experiência de consentimento
 

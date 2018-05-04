@@ -1,24 +1,24 @@
 ---
-title: "Criar a sua primeira aplicação de microsserviços do Azure no Linux com C# | Microsoft Docs"
-description: "Criar e implementar uma aplicação do Service Fabric com C#"
+title: Criar a sua primeira aplicação de microsserviços do Azure no Linux com C# | Microsoft Docs
+description: Criar e implementar uma aplicação do Service Fabric com C#
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 30ed7eb736b2012a0e9ed4c10d4bfd1aff35faac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar aplicaçõ
   ```bash
   sudo npm install -g yo
   ```
-3. Instalar o gerador de aplicações Java Yeo do Service Fabric a partir do NPM
+3. Instalar o gerador de aplicações C# Yeoman do Service Fabric a partir do NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp

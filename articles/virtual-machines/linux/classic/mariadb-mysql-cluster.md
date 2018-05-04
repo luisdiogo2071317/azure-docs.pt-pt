@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>Cluster MariaDB (MySQL): tutorial do Azure
 > [!IMPORTANT]
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager](../../../resource-manager-deployment-model.md) e clássico. Este artigo abrange o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo do Azure Resource Manager.
 
 > [!NOTE]
-> Cluster de MariaDB Enterprise está agora disponível no Azure Marketplace. A nova oferta irão implementar automaticamente um cluster de MariaDB Galera no Azure Resource Manager. Deve utilizar a nova oferta de [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
+> Cluster de MariaDB Enterprise está agora disponível no Azure Marketplace. A nova oferta irão implementar automaticamente um cluster de MariaDB Galera no Azure Resource Manager. Deve utilizar a nova oferta de [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
 >
 >
 
@@ -146,7 +146,7 @@ Este artigo descreve como concluir os seguintes passos:
             then editing `/etc/selinux/config` to set `SELINUX=permissive`
 6. Valide executa MySQL.
 
-   a. Start MySQL.
+   a. Inicie o MySQL.
 
            service mysql start
    b. Proteger a instalação do MySQL, defina a palavra-passe de raiz, remover utilizadores anónimos para desativar o início de sessão remoto raiz e remover a base de dados de teste.

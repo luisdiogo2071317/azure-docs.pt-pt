@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral conceptual dos funcionalidades de pré-visualização do Azure Machine Learning | Microsoft Docs"
-description: "Uma descrição geral conceptual das funcionalidades de pré-visualização do Azure Machine Learning, tais como as subscrições, contas, áreas de trabalho, projetos, etc."
+title: Descrição geral conceptual dos funcionalidades de pré-visualização do Azure Machine Learning | Microsoft Docs
+description: Uma descrição geral conceptual das funcionalidades de pré-visualização do Azure Machine Learning, tais como as subscrições, contas, áreas de trabalho, projetos, etc.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning---concepts"></a>Conceitos o Azure Machine Learning-
 
@@ -34,7 +34,7 @@ Este artigo define e descreve os conceitos que precisa de saber para utilizar o 
 - **Área de trabalho:** uma área de trabalho é o componente principal para a partilha e de colaboração no Azure ML. Projetos estão agrupados dentro de uma área de trabalho. Uma área de trabalho, em seguida, pode ser partilhada com vários utilizadores que foram adicionados à conta de experimentação.
 
 
-- **Projeto:** no Azure Machine Learning, um projeto é o contentor lógico para todo o trabalho a ser efetuado para resolver um problema. Mapeia para uma pasta único ficheiro no disco local, e pode adicionar todos os ficheiros ou sub pastas ao mesmo. Um projeto, opcionalmente, pode ser associado com um repositório de Git para controlo de origem e de colaboração.  
+- **Projeto:** no Azure Machine Learning, um projeto é o contentor lógico para todo o trabalho a ser efetuado para resolver um problema. Mapeiam para uma pasta de ficheiro individual no disco local e pode adicionar ficheiros ou sub-pastas à mesma. Um projeto, opcionalmente, pode ser associado com um repositório de Git para controlo de origem e de colaboração.  
 
 - **Experimentação:** do Azure ML, uma experimentação é um ou mais ficheiros de código origem que podem ser executados a partir de um ponto de entrada único. Pode conter tarefas, tais como a ingestão de dados, engenharia da funcionalidade, formação de modelo ou avaliação de modelo. Atualmente, do Azure ML suporta Python ou PySpark experimentações apenas.
 

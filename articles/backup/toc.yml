@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Modelos do Resource Manager
+      href: backup-rm-template-samples.md
 - name: Conceitos
   items:
     - name: FAQ
@@ -67,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Proteger cargas de trabalho
           items:
-            - name: Utilizar o Azure Backup Server para criar cópias de segurança de um servidor VMware
+            - name: Servidor VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Utilizar o Azure Backup Server para criar cópias de segurança do Exchange
+            - name: Troca
               href: backup-azure-exchange-mabs.md
-            - name: Utilizar o Azure Backup Server para criar cópias de segurança de farms do SharePoint
+            - name: Farm do SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Utilizar o Azure Backup Server para criar cópias de segurança do SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Proteger o estado do sistema e a recuperação bare-metal
               href: backup-mabs-system-state-and-bmr.md
+            - name: Ficheiros e aplicações no Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Recuperar dados do Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
     - name: Partilhas de Ficheiros do Azure

@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementar uma base de dados distribuída geograficamente
 
@@ -380,4 +380,17 @@ Instale [Maven](https://maven.apache.org/download.cgi) ao utilizar o instalador 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, veja [Georreplicação ativa e grupos de ativação pós-falha](sql-database-geo-replication-overview.md).
+Neste tutorial, aprendeu a configurar uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e, em seguida, testar o seu plano de ativação pós-falha.  Aprendeu a: 
+
+> [!div class="checklist"]
+> * Criar utilizadores da base de dados e conceder-lhes permissões
+> * Configurar uma regra de firewall ao nível da base de dados
+> * Criar um grupo de ativação pós-falha de georreplicação
+> * Criar e compilar uma aplicação Java para consultar uma base de dados SQL do Azure
+> * Efetuar um teste de recuperação após desastre
+
+Avance para o tutorial seguinte para aprender a criar uma Instância Gerida.
+
+> [!div class="nextstepaction"]
+>[Criar uma Instância Gerida](sql-database-managed-instance-create-tutorial-portal.md)
+

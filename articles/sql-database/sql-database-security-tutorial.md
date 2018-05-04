@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger a sua Base de Dados SQL do Azure
 
-A Base de Dados SQL protege os seus dados ao limitar o acesso à base de dados com regras de firewall, mecanismos de autenticação que exigem que os utilizadores forneçam a sua identidade e autorização a dados através de permissões e associações baseadas em funções, bem como através de segurança ao nível da linha e máscara de dados dinâmicos.
+A Base de dados SQL protege os seus dados ao: 
+- Limitar o acesso à base de dados através de regras de firewall 
+- Utilizar mecanismos de autenticação que precisam da respetiva identidade
+- Autorizar os dados através de permissões e associações baseadas em funções 
+- Segurança ao Nível da Linha
+- Máscara de dados dinâmica
+
+A Base de Dados SQL também tem monitorização, auditoria e deteção de ameaças sofisticadas. 
 
 Pode melhorar a proteção da sua base de dados contra utilizadores mal intencionados ou o acesso não autorizado com apenas alguns passos simples. Neste tutorial, ficará a saber como: 
 
@@ -155,7 +162,7 @@ A encriptação de dados transparente (TDE) da Base de Dados SQL do Azure encrip
 
 3. Se necessário, defina **Encriptação de dados** como ATIVADA e clique em **Guardar**.
 
-O processo de encriptação é iniciado em segundo plano. Pode monitorizar o progresso ao estabelecer ligação à Base de Dados SQL com o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) e consultar a coluna encryption_state da vista `sys.dm_database_encryption_keys`.
+O processo de encriptação é iniciado em segundo plano. Pode monitorizar o progresso ao estabelecer ligação à Base de Dados SQL com o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) e consultar a coluna encryption_state da vista [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). O estado 3 indica que a base de dados está encriptada. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Ativar a auditoria da Base de Dados SQL, se necessário
 
@@ -167,7 +174,7 @@ A Auditoria de Base de Dados SQL do Azure controla os eventos da base de dados e
 
     ![Painel de Auditoria](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Se preferir ativar um tipo de Auditoria (ou uma localização?) diferente do especificado ao nível do servidor, selecione a opção **ATIVADA** em Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria Blob do servidor estiver ativada, a auditoria configurada da base de dados coexistirá com a auditoria Blob do servidor.
+3. Se preferir ativar um tipo de Auditoria (ou uma localização?) diferente do especificado ao nível do servidor, selecione a opção **ATIVADA** em Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria de Blobs do servidor estiver ativada, a auditoria configurada da base de dados coexistirá com a auditoria de Blobs do servidor.
 
     ![Ativar a auditoria](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

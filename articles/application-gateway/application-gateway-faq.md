@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -178,6 +178,11 @@ Não, mas o aplicação Gateway tem uma métrica de débito que pode ser utiliza
 **Q. É manual escala cima/para baixo causa período de indisponibilidade?**
 
 Sem períodos de indisponibilidade, existe instâncias estão distribuídas por domínios de atualização e domínios de falhas.
+
+**Q. É o aplicação gateway suporte ligação drenagem?**
+
+Sim. Pode configurar a ligação a ser drenado e alterar os membros dentro de um conjunto de back-end sem interrupção. Isto irá permitir ligações existentes continuar a ser enviados para os respetivos destino anterior até essa ligação foi fechada ou um limite de tempo configurável expira. Tenha em atenção que aguarda apenas para ligações em trânsito atuais concluir a ser drenado e de ligação. Gateway de aplicação não está ciente de estado de sessão da aplicação.
+
 
 **Q. Posso alterar tamanho da instância de média a grande sem interrupção?**
 

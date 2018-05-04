@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d1a40eb8c3ac842976ffb1da42650466725b35e6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Base de dados (DTUs) de unidades de transação e unidades de transação de base de dados elásticas (eDTUs)
 Este artigo explica as Unidades de Transação da Base de Dados (DTUs) e as Unidades de Transação da Base de Dados Elástica (eDTUs) e o que acontece quando atinge o limite máximo de DTUs ou eDTUs. Para informações específico sobre os preços, consulte [preços da SQL Database do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/).
@@ -32,12 +32,12 @@ Para obter informações mais aprofundada sobre o consumo de recursos (DTU) da s
 - Desagregar os detalhes de uma consulta, ver o texto e o histórico de utilização de recursos.
 - Desempenho de acesso de otimização de recomendações que mostram as ações executadas pelo [SQL Database Advisor](sql-database-advisor.md).
 
-Pode [alterar as camadas de serviços](sql-database-service-tiers.md) em qualquer altura, com um período mínimo de indisponibilidade para a aplicação (em média, menos de quatro segundos). Para muitas empresas e aplicações, ser capaz de criar bases de dados e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Para este cenário, utilize um conjunto elástico com um determinado número de eDTUs que são partilhados entre vários base de dados no conjunto.
+Pode alterar [escalões de serviço DTU](sql-database-service-tiers-dtu.md) em qualquer altura, sem período de indisponibilidade mínimo para a sua aplicação (em média, menos em quatro segundos). Para muitas empresas e aplicações, ser capaz de criar bases de dados e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Para este cenário, utilize um conjunto elástico com um determinado número de eDTUs que são partilhadas entre várias bases de dados no conjunto.
 
 ![Introdução à Base de Dados SQL: DTUs de base de dados individual por camada e nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Quais são as unidades de transação de base de dados elásticas (eDTUs)?
-Em vez do que fornecem um conjunto de recursos (DTUs) dedicado para uma base de dados do SQL Server que está sempre disponível, independentemente de se não necessário, pode colocar as bases de dados para um [conjunto elástico](sql-database-elastic-pool.md) num servidor de base de dados SQL que partilha um conjunto de recursos entre esses base de dados. Recursos partilhados num conjunto elástico medido pela elástico unidades de transação de base de dados ou eDTUs. Os conjuntos elásticos fornecem uma solução económica e simples para gerir os objetivos de desempenho de várias bases de dados que tenham padrões de utilização extremamente variáveis e imprevisíveis. Num conjunto elástico, pode garantir que nenhum uma base de dados utiliza todos os recursos de agrupamento e também que uma quantidade mínima de recursos está sempre disponível para uma base de dados num agrupamento elástico. 
+Em vez do que fornecem um conjunto de recursos (DTUs) dedicado para uma base de dados do SQL Server que está sempre disponível, independentemente de se não necessário, pode colocar as bases de dados para um [conjunto elástico](sql-database-elastic-pool.md) num servidor de base de dados SQL que partilha um conjunto de recursos entre essas bases de dados. Recursos partilhados num conjunto elástico medido pela elástico unidades de transação de base de dados ou eDTUs. Os conjuntos elásticos fornecem uma solução económica e simples para gerir os objetivos de desempenho de várias bases de dados que tenham padrões de utilização extremamente variáveis e imprevisíveis. Num conjunto elástico, pode garantir que nenhum uma base de dados utiliza todos os recursos de agrupamento e também que uma quantidade mínima de recursos está sempre disponível para uma base de dados num agrupamento elástico. 
 
 ![Introdução à Base de Dados SQL: eDTUs por camada e nível](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -55,6 +55,7 @@ Os conjuntos são adequados para um grande número de bases de dados com padrõe
 Os níveis de desempenho são calibrados e geridos para fornecerem os recursos necessários para executar a carga de trabalho da base de dados até aos limites máximos permitidos para a camada de serviço/nível de desempenho selecionado. Se a carga de trabalho estiver a chegar aos limites num dos limites de CPU, E/S de Dados ou E/S de Registo, continua a receber os recursos no nível máximo permitido, mas é provável que sinta um aumento da latência nas suas consultas. Estes limites não resultam em erros, mas num abrandamento da carga de trabalho, a menos que o abrandamento se torne tão acentuado que as consultas comecem a exceder o tempo limite. Se estiver a atingir os limites de número de sessões/pedidos (threads de trabalho) de utilizadores em simultâneo máximo permitido, serão apresentados erros específicos. Consulte [dos limites de recursos de base de dados do Azure SQL]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) para informações sobre o limite de recursos diferente da CPU, memória, dados e/s e transações no registo de e/s.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Consulte [camada de serviço](sql-database-service-tiers.md) para obter informações sobre as DTUs e eDTUs disponíveis para bases de dados individuais e conjuntos elásticos, bem como os limites de recursos diferente da CPU, memória, dados e/s e transações no registo de e/s.
+* Consulte [DTU com base no modelo de compra](sql-database-service-tiers-dtu.md) para obter informações sobre as DTUs e eDTUs disponíveis para bases de dados individuais e conjuntos elásticos, bem como os limites de recursos diferente da CPU, memória, dados e/s e transações no registo de e/s.
+* Consulte [vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md) para obter informações sobre os escalões de serviço e da alocação e de recursos baseados em vCore. 
 * Veja [SQL Database Query Performance Insight (Informações de Desempenho de Consultas de Base de Dados SQL)](sql-database-query-performance.md) para compreender o seu consumo (de DTUs).
 * Veja [Descrição geral de referência da Base de Dados SQL](sql-database-benchmark-overview.md) para compreender a metodologia por detrás da carga de trabalho de referência do OLTP utilizada para determinar a combinação de DTU.

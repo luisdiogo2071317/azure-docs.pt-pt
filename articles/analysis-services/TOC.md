@@ -1,18 +1,22 @@
 # [Documentação do Analysis Services](index.md)
 
 # Descrição geral
-## [Sobre o Analysis Services](analysis-services-overview.md)
-## [Origens de dados suportadas](analysis-services-datasource.md)
-## [Autenticação e permissões de utilizador](analysis-services-manage-users.md)
-## [Ligar a origens de dados no local](analysis-services-gateway.md)
-## [Nível de compatibilidade](analysis-services-compat-level.md)
-## [Elevada disponibilidade](analysis-services-bcdr.md)
+## [O que é o Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Introdução
 ## [Criar um servidor no portal do Azure](analysis-services-create-server.md)
 ## [Criar um servidor com o Azure PowerShell](analysis-services-create-powershell.md)
 ## [Implementar um modelo do Visual Studio](analysis-services-deploy.md)
 ## [Criar um modelo no portal do Azure (pré-visualização)](analysis-services-create-model-portal.md)
+
+# Conceitos
+## [Origens de dados suportadas](analysis-services-datasource.md)
+## [Ligar a origens de dados no local](analysis-services-gateway.md)
+## [Ligar aos servidores](analysis-services-connect.md)
+## [Autenticação e permissões de utilizador](analysis-services-manage-users.md)
+## [Nível de compatibilidade](analysis-services-compat-level.md)
+## [Elevada disponibilidade](analysis-services-bcdr.md)
 
 # Procedimentos 
 ## [Instalar e configurar um gateway de dados no local](analysis-services-gateway-install.md)
@@ -21,7 +25,7 @@
 ## [Atualizar com API REST](analysis-services-async-refresh.md)
 ## [Configurar o escalamento horizontal](analysis-services-scale-out.md)
 ## Automatizar tarefas administrativas
-### [Criar o principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Criar o principal de serviço - Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Criar principal de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)
 ## Gestão de servidores
@@ -31,7 +35,7 @@
 ### [Gerir administradores de servidor](analysis-services-server-admins.md)
 ### [Monitorizar as métricas do servidor](analysis-services-monitor.md)
 ### [Configurar registo de diagnósticos](analysis-services-logging.md)
-### [Utilizar o gateway para origens de dados na VNET](analysis-services-vnet-gateway.md)
+### [Utilizar o gateway para origens de dados na VNet](analysis-services-vnet-gateway.md)
 ## Ligar
 ### [Obter bibliotecas de cliente](analysis-services-data-providers.md)
 ### [Ligar com o Excel](analysis-services-connect-excel.md)

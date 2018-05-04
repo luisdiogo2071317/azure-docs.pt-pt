@@ -1,12 +1,12 @@
 ---
-title: "Implementar uma aplicação do Azure Service Fabric com integração contínua (Team Services) | Microsoft Docs"
-description: "Neste tutorial, irá aprender a configurar a integração contínua e implementação para uma aplicação do Service Fabric com o Visual Studio Team Services.  Implemente uma aplicação num cluster do Service Fabric no Azure."
+title: Implementar uma aplicação do Azure Service Fabric com integração contínua (Team Services) | Microsoft Docs
+description: Neste tutorial, irá aprender a configurar a integração contínua e implementação para uma aplicação do Service Fabric com o Visual Studio Team Services.  Implemente uma aplicação num cluster do Service Fabric no Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b61b7f89c127b297f058082d86952f2a45d766a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: implementar uma aplicação com CI/CD num cluster do Service Fabric
-Este tutorial é a terceira parte de uma série e descreve como configurar a integração contínua e implementação para uma aplicação do Azure Service Fabric com o Visual Studio Team Services.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Compilar uma aplicação .NET](service-fabric-tutorial-create-dotnet-app.md) é utilizada como exemplo.
+Este tutorial é a quarta parte de uma série e descreve como configurar a integração contínua e implementação para uma aplicação do Azure Service Fabric com o Visual Studio Team Services.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Compilar uma aplicação .NET](service-fabric-tutorial-create-dotnet-app.md) é utilizada como exemplo.
 
 Na terceira parte da série, ficará a saber como:
 
@@ -36,6 +36,7 @@ Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * [Criar uma aplicação .NET do Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implementar a aplicação num cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Adicionar um ponto final HTTPS a um serviço de front-end ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Configurar o CI/CD com o Visual Studio Team Services
 > * [Configurar a monitorização e os diagnósticos da aplicação](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -124,7 +125,7 @@ Ative um acionador de implementação contínua para que uma versão seja criada
 
 ![Ativar o acionador][enable-trigger]
 
-Selecione **+Versão** -> **Criar Versão** -> **Criar** para criar manualmente uma versão.  Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3". 
+Selecione **+Versão** -> **Criar Versão** -> **Criar** para criar manualmente uma versão.  Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue para [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170616.3". 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Consolidar e emitir alterações, acionar uma versão
 Para verificar se o pipeline de integração contínua está a funcionar, dê entrada de algumas alterações de código no Team Services.    
@@ -143,7 +144,7 @@ A emissão das alterações ao Team Services aciona automaticamente uma compila�
 
 Para verificar o progresso da compilação, mude para o separador **Compilações** no **Team Explorer** no Visual Studio.  Depois de verificar se a compilação é executada com êxito, defina uma definição de versão que implementa a aplicação num cluster.
 
-Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
+Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue para [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 

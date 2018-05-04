@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ac6c3e428148a6609b264b0b8f8cff416b0fa4d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Cenário 1: Avaliar as cargas de trabalho no local para migração para o Azure
 
@@ -285,7 +285,7 @@ Antes de começar, tenha em conta que, atualmente, o recoletor só suporta "Ingl
 5. Em **Especificar detalhes do vCenter Server**, efetue o seguinte:
     - Especifique o nome (FQDN) ou o endereço IP do vCenter Server.
     - Em **Username** (Nome de utilizador) e **Password** (Palavra-passe), especifique as credenciais da conta só de leitura que o recoletor utilizará para detetar VMs no vCenter Server.
-    - Em **Select scope** (Selecionar âmbito), selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1000 VMs. 
+    - Em **Select scope** (Selecionar âmbito), selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs. 
 
     ![Ligar ao vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 

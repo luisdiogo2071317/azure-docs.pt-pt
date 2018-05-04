@@ -3,7 +3,7 @@ title: Limites de Quota do Azure Data Lake Analytics
 description: Saiba como ajuste e aumentar os limites de quota em contas do Azure Data Lake Analytics (ADLA).
 services: data-lake-analytics
 keywords: Azure Data Lake Analytics
-documentationcenter: 
+documentationcenter: ''
 author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limites de Quota do Azure Data Lake Analytics
 
@@ -24,9 +24,13 @@ Saiba como ajuste e aumentar os limites de quota em contas do Azure Data Lake An
 
 ## <a name="azure-subscriptions-limits"></a>Limites de subscrições do Azure
 
-**Número máximo de ADLA contas por subscrição:** 5
+**Número máximo de ADLA contas por subscrição por região:** 5
 
-Este é o número máximo de contas ADLA que pode criar por subscrição, por região. Se tentar criar uma conta ADLA sexto, obterá um erro "Atingiu o número máximo de contas de Data Lake Analytics permitidas (5) na região em nome da subscrição". Nesta situação, pode escolher outra região se adequado ou eliminar quaisquer contas ADLA não utilizadas na mesma região ou contacte do Azure suportam por [abrir um pedido de suporte](#increase-maximum-quota-limits) para pedir um aumento de quota.
+Se tentar criar uma conta ADLA sexto, obterá um erro "Atingiu o número máximo de contas de Data Lake Analytics permitidas (5) na região em nome da subscrição". 
+
+Se pretender que ultrapassem este limite, pode experimentar estas opções:
+* Escolha outra região se adequado
+* Contacte o suporte do Azure por [abrir um pedido de suporte](#increase-maximum-quota-limits) para pedir um aumento de quota.
 
 ## <a name="adla-account-limits"></a>Limites de conta ADLA
 

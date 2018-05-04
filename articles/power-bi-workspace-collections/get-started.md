@@ -1,12 +1,12 @@
 ---
-title: "Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI"
-description: "As Coleções de Áreas de Trabalho do Power BI são um serviço do Azure que permite aos programadores de aplicações adicionar relatórios de Power BI interativos às suas próprias aplicações."
+title: Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI
+description: As Coleções de Áreas de Trabalho do Power BI são um serviço do Azure que permite aos programadores de aplicações adicionar relatórios de Power BI interativos às suas próprias aplicações.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI
 
@@ -42,7 +42,7 @@ Uma **Coleção de Área de Trabalho** é o recurso mais superior do Azure e um 
 
 Vamos guiá-lo pelos passos para criar uma **Coleção de Áreas de Trabalho** através do portal do Azure.
 
-1. Abra e inicie sessão no **portal do Azure**: [http://portal.azure.com](http://portal.azure.com).
+1. Abra e Inicie sessão no **portal do Azure**: [http://portal.azure.com](http://portal.azure.com).
 2. Selecione **+ Novo** no painel superior.
    
    ![+ Novo no portal do Azure](media/get-started/create-workspace-1.png)
@@ -114,7 +114,7 @@ Pode criar conjuntos de dados nas Coleções de Áreas de Trabalho do Power BI c
 
 Pode criar um relatório a partir de um conjunto de dados diretamente na aplicação com a API JavaScript. Para obter mais informações, veja [Criar um novo relatório a partir de um conjunto de dados nas Coleções de Áreas de Trabalho do Power BI](create-report-from-dataset.md).
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consulte também
 
 [Introdução com exemplo](get-started-sample.md)  
 [Autenticação e autorização nas Coleções de Áreas de Trabalho do Power BI](app-token-flow.md)  

@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure (Pré-visualização)
 
@@ -77,7 +74,7 @@ Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conec
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-Ao utilizar qualquer firewall baseada em IP ou regras do NSG para controlar a conectividade de saída, os seguintes intervalos de endereços IP têm de estar na lista de permissões. Transfira uma lista de intervalos das seguintes ligações:
+Se quiser controlar a conectividade de saída com endereços IP em vez de URLs, adicione os intervalos do datacenter adequados, os endereços do Office 365 e os endereços de ponto final de serviço à lista de permissões para as firewalls baseadas em IP, o proxy ou as regras do NSG.
 
   - [Intervalos IP do Datacenter do Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Intervalos de IP do Datacenter do Windows Azure na Alemanha](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ Ao utilizar qualquer firewall baseada em IP ou regras do NSG para controlar a co
   - [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Endereços IP do ponto final do serviço Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Utilize estas listas para configurar os controlos de acesso à sua rede. Pode utilizar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para criar as regras do NSG necessárias.
+Pode utilizar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para criar as regras do NSG necessárias.
 
 ## <a name="verify-azure-vm-certificates"></a>Verificar os certificados de VM do Azure
 
@@ -105,7 +102,7 @@ O Azure Site Recovery fornece três funções incorporadas para controlar as ope
 
 - **Leitor do Site Recovery** - esta função tem permissões para ver todas as operações de gestão do Site Recovery. Esta função é mais adequada para um executivo de monitorização de TI que pode monitorizar o estado atual da proteção e emitir pedidos de suporte.
 
-Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../active-directory/role-based-access-built-in-roles.md)
+Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
@@ -144,9 +141,9 @@ O Site Recovery cria as predefinições e a política de replicação para a reg
 
 - **Contas de armazenamento em cache**: o Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações às VMs de origem são enviadas para esta conta antes da replicação para a localização de destino.
 
-- **As contas de armazenamento de destino (se não utilizar a VM de origem gerido discos)**: por predefinição, a recuperação de sites cria uma nova conta do storage na região de destino para espelhar a conta de armazenamento VM de origem.
+- **Contas de armazenamento de destino (se a VM de origem não utilizar discos geridos)**: por predefinição, o Site Recovery cria uma nova conta de armazenamento na região de destino para espelhar a conta de armazenamento das VMs de origem.
 
-- **Réplica discos geridos pelo (se a VM de origem utilizar discos geridos)**: por predefinição, a recuperação de sites cria discos de réplica gerido na região de destino para espelhar discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) como a VM de origem gerido disco.
+- **Discos geridos de réplica (se a VM de origem utilizar discos geridos)**: por predefinição, o Site Recovery cria discos geridos de réplica na região de destino para espelhar os discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerido da VM de origem.
 
 - **Conjuntos de disponibilidade de destino**: por predefinição, o Site Recovery cria um novo conjunto de disponibilidade na região de destino com o sufixo "asr". Só é possível adicionar conjuntos de disponibilidade se as VMs fizerem parte de um conjunto na região de origem.
 
@@ -176,7 +173,7 @@ Para substituir as predefinições da política de replicação, clique em **Per
 
 3. Em **Definições** > **Itens Replicados**, pode ver o estado das VMs e o progresso da replicação inicial. Clique na VM para desagregar as respetivas definições.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou a recuperação após desastre para uma VM do Azure. O passo seguinte consiste em testar a configuração.
 

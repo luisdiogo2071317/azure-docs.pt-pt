@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: e8ebbd1a0ac2153913a2e5f506505ffb481b3822
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: c4cd3c79b64ef6ba86c7764f0ae27e29418e9ee5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de armazenamento
 ## <a name="overview"></a>Descrição geral
@@ -55,7 +55,7 @@ Explorador de armazenamento do Azure pode funcionar em outros distros, mas os ú
 
 Também tem de ter as seguintes dependências/bibliotecas de instalada para ser executada Exploer de armazenamento do Azure no Linux:
 
-* [.NET core 2. x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET core 2. x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (Nota: libsecret 1.so.0 tem de estar disponível no seu computador. Se tiver uma versão diferente do libsecret instalado, pode experimentar soft respetivo ficheiro do SO da associação ao incidente libsecret 1.so.0)
 * libgconf-2-4
 * GCC atualizado

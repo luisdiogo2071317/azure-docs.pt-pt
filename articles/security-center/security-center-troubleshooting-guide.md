@@ -1,11 +1,11 @@
 ---
-title: "Guia de Resolução de Problemas do Centro de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda a resolver problemas no Centro de Segurança do Azure."
+title: Guia de Resolução de Problemas do Centro de Segurança do Azure | Microsoft Docs
+description: Este documento ajuda a resolver problemas no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0c5f7a932cef904abbca25b63cf8e0d96db73c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), analistas de segurança de informações e administradores da cloud cujas organizações utilizam o Centro de Segurança do Azure e que precisam de resolver problemas relacionados com o Centro de Segurança.
@@ -39,7 +39,7 @@ Este guia explica como resolver problemas relacionados com o Centro de Seguranç
 O registo de auditoria contém todas as operações de escrita (PUT, POST, DELETE) efetuadas nos seus recursos, no entanto, não inclui as operações de leitura (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Agente de Monitorização da Microsoft
-O Centro de Segurança utiliza o Agente de Monitorização da Microsoft – é o mesmo agente utilizado pelo Operations Management Suite e o serviço Log Analytics – para recolher dados de segurança das máquinas virtuais do Azure. Assim que a recolha de dados estiver ativa e o agente estiver corretamente instalado no computador de destino, o processo abaixo deve estar em execução:
+O Centro de Segurança utiliza o Agente de Monitorização da Microsoft (é o mesmo agente utilizado pelo serviço Log Analytics) para recolher dados de segurança das máquinas virtuais do Azure. Assim que a recolha de dados estiver ativa e o agente estiver corretamente instalado no computador de destino, o processo abaixo deve estar em execução:
 
 * HealthService.exe
 
@@ -84,7 +84,7 @@ O **estado da monitorização** define o motivo pelo qual o Centro de Segurança
 Para os agentes se ligarem e registarem no Centro de Segurança, precisam de ter acesso aos recursos de rede, incluindo os números de porta e os URLs de domínio.
 
 - Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
-- Para as firewalls que restringem o acesso à Internet, tem de configurar a firewall para permitir o acesso ao OMS. Não é necessária nenhuma ação nas definições do agente.
+- Para as firewalls que restringem o acesso à Internet, tem de configurar a firewall para permitir o acesso ao Log Analytics. Não é necessária nenhuma ação nas definições do agente.
 
 A tabela seguinte mostra os recursos necessários para a comunicação.
 

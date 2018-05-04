@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -187,7 +187,7 @@ END
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade Copy e uma atividade StoredProcedure encadeadas num pipeline. 
 
-1. Na página **introdução** da IU do Data Factory , clique no mosaico **Criar pipeline**. 
+1. Na página **introdução** da IU do Data Factory, clique no mosaico **Criar pipeline**. 
 
    ![Página de introdução da IU do Data Factory](./media/tutorial-incremental-copy-portal/get-started-page.png)    
 3. Na página **Geral** da janela **Propriedades** do pipeline, introduza o nome **IncrementalCopyPipeline**. 
@@ -299,7 +299,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
 29. Na caixa de ferramentas **Atividades**, expanda **Geral** e arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** na superfície de desenho do pipeline. **Ligue** a saída verde (Êxito) da atividade **Copy** à atividade **Stored Procedure**. 
     
     ![Atividade Copy - origem](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Selecione **Atividade Storage Procedure** no estruturador do pipeline e altere o nome para **StoredProceduretoWriteWatermarkActivity**. 
+24. Selecione **Atividade de Procedimento Armazenado** no estruturador do pipeline e altere o nome para **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Atividade Stored Procedure - nome](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Mude para o separador **Conta do SQL** e selecione *AzureSqlDatabaseLinkedService** em **Serviço ligado**. 
@@ -313,7 +313,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
         | Nome | Tipo | Valor | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Cadeia | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Para validar as definições do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Para fechar a janela **Relatório de Validação do Pipeline**, clique em >>.   

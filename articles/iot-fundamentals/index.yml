@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Noções básicas do IoT do Azure
+metadata:
+  title: Noções básicas do IoT do Azure
+  description: O IoT do Azure é um conjunto de serviços cloud geridos pela Microsoft que ligam, monitorizam e controlam milhares de milhões de recursos de Internet das Coisas.
+  services: iot
+  author: BryanLa
+  manager: timlt
+  ms.service: iot
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/20/2018
+  ms.author: bryanla
+  ms.openlocfilehash: a86827616c96dd877a88fdd89cb5b0205c2cface
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 04/28/2018
+abstract:
+  description: Bem-vindo ao Microsoft Azure e à Internet das Coisas (IoT). O IoT do Azure é uma coleção abrangente de serviços e soluções concebidos para ajudá-lo a criar aplicações IoT de ponta a ponta no Azure. Desde soluções de Software como Serviço (SaaS) completamente alojadas e geridas a diferentes e especializadas ofertas de Plataforma como Serviço (PaaS), bem como tecnologias para criar vantagens inteligentes, o Azure IoT entrega um sólido conjunto de opções e ferramentas adaptadas às necessidades da sua indústria e às capacidades e recursos da sua empresa.
+sections:
+- title: Inícios rápidos de cinco minutos
+  items:
+  - type: paragraph
+    text: Veja o quão rapida e facilmente pode aprender sobre o Azure IoT ao explorar estes inícios rápidos
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-central/quick-deploy-iot-central">Saiba como criar uma nova aplicação do Azure IoT Central.</a>
+    - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Saiba como criar um hub IoT e ligar ao seu primeiro dispositivo simulado para o Azure (Node.js).</a>
+    - html: <a href="/azure/iot-edge/quickstart-linux">Implemente o seu primeiro módulo do IoT Edge e processe dados num dispositivo simulado em Windows, Linux ou Mac.</a>
+    - html: <a href="/azure/location-based-services/quick-demo-map-app">Inicie uma aplicação de pesquisa em mapa através do Azure Location Based Services (pré-visualização).</a>
+    - html: <a href="/azure/time-series-insights/time-series-quickstart">Explorar o Time Series Insights</a>
+- title: Tecnologias e soluções
+  items:
+  - type: paragraph
+    text: Iniciar rapidamente com soluções pré-configuradas e ofertas de SaaS.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-suite">Suite IoT</a>
+    - html: <a href="/azure/iot-central">Centro de IoT</a>
+  - type: paragraph
+    text: Criar sobre as ofertas de Plataforma como serviço (PaaS).
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-hub">Hub IoT</a>
+    - html: <a href="/azure/iot-dps">Serviços de Aprovisionamento de Dispositivos no Hub IoT</a>
+    - html: <a href="/azure/location-based-services">Azure Location Based Services</a>
+    - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">SDKs do Serviço de IoT</a>
+  - type: paragraph
+    text: Criar um Edge inteligente.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-edge">IoT Edge</a>
+    - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks">SDKs do Dispositivo IoT</a>
+- title: Amostras
+  items:
+  - type: paragraph
+    text: Encontre exemplos para dispositivos e linguagens comuns.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0">Todas as amostras</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=C">Amostras em C</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=dotnet">Exemplos .NET</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=python">Amostras de Python</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=iot-hub&sort=0&platform=nodejs">Amostras de Node.js</a>
+- title: Vídeos
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-18-Contoso-HVACs-Digital-transformation-through-Internet-of-Things-solutions/player
+      html: <p>A Transformação Digital da Contoso HVAC através de soluções da Internet das Coisas</p>
+      image:
+        src: media/index/i_video.png
+      title: Introdução
+    - href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-88-Codeless-IoT-Solution/player
+      html: <p>Solução IoT sem código com o Azure IoT Central</p>
+      image:
+        src: media/index/i_video.png
+      title: Demonstração
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de Comandos
+      html: <p><a href="/cli/azure/iot">CLI do Azure</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Extensão da CLI do Azure IoT</a></p>
+    - title: Linguagens
+      html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">SDKs do Azure IoT para .Net, C, Java, Node.js, Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/iothub">Hub IoT</a></p><p><a href="/rest/api/iot-dps">Serviço de Aprovisionamento de Dispositivos no Hub IoT</a></p><p><a href="/rest/api/location-based-services-management/">Gestão dos Location Based Services</a></p><p><a href="/rest/api/location-based-services/">Funcional dos Location Based Services</a></p><p><a href="/rest/api/time-series-insights-management/">Gestão do Time Series Insights</a></p><p><a href="/rest/api/time-series-insights/">Time Series Insights</a></p>

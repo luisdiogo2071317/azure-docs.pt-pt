@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: d80fe0bf3a0a91d2e364479f0c0f6b82ddf629d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 10d7b5d3670bd7a5f289a6f9f2754ecc6aa18795
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa de Stream Analytics. Utilizar os dados de saída, pode fazê-lo ainda mais análise de negócio e dados do armazém de dados. 
@@ -104,7 +104,7 @@ Ao utilizar o armazenamento de BLOBs como resultado, é criado um novo ficheiro 
 * Se o resultado é tempo particionado com o padrão de prefixo do caminho, um novo blob é utilizado quando a consulta é movido para a hora seguinte.
 
 ## <a name="event-hub"></a>Hub de Eventos
-[Os Event Hubs](https://azure.microsoft.com/services/event-hubs/) é altamente dimensionável de publicação-subscrição ingestor de eventos. -Pode recolher milhões de eventos por segundo. Uma utilização de um Hub de eventos como saída é quando o resultado de uma tarefa de Stream Analytics torna-se a entrada de outra tarefa de transmissão em fluxo.
+O [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/) serviço é altamente dimensionável de publicação-subscrição ingestor de eventos. -Pode recolher milhões de eventos por segundo. Uma utilização de um Hub de eventos como saída é quando o resultado de uma tarefa de Stream Analytics torna-se a entrada de outra tarefa de transmissão em fluxo.
 
 Existem alguns parâmetros que são necessários para configurar os fluxos de dados de Hub de eventos como uma saída.
 
@@ -254,7 +254,7 @@ A tabela seguinte descreve as propriedades para criar uma saída de BD do Cosmos
 | --- | --- |
 | Alias de saída | Um alias para fazer referência este resultado da consulta do Stream Analytics. |
 | Sink | BD do Cosmos |
-| Importar opção | Escolha o "Selecionar base de dados do Cosmos da sua subscrição", ou a "definições de forneça Cosmos DB manualmente".
+| Opção de Importar | Escolha o "Selecionar base de dados do Cosmos da sua subscrição", ou a "definições de forneça Cosmos DB manualmente".
 | ID de conta | O nome ou o ponto final o URI da conta de base de dados do Cosmos. |
 | Chave de conta | A chave de acesso partilhado para a conta de base de dados do Cosmos. |
 | Base de Dados | O nome de base de dados de base de dados do Cosmos. |

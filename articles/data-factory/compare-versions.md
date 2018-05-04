@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparar Azure Data Factory V1 e V2
 Este artigo compara a V2 e a V1 do Azure Data Factory. Para uma introdução ao V1, veja [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). Para uma introdução ao V2, veja [Introdução ao Azure Data Factory (V2 – pré-visualização)](introduction.md).
@@ -139,11 +139,7 @@ Os SDKs que são atualizados para a V2 não são compatíveis com versões anter
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
-Para criar e gerir recursos subordinados para um Data Factory v2:
-
--   A função de Contribuinte do Data Factory versão 1 não pode ser utilizada para criar e gerir recursos da v2.
--   A função de Contribuinte de ARM padrão, criada no recurso do Data Factory, é suficiente para criar e gerir recursos subordinados de um Data Factory v2 implementado com o PowerShell ou os SDKs. Não é suficiente criar e gerir recursos subordinados de um Data Factory v2 implementado a partir do portal do Azure ou com a implementação do modelo ARM.
--   Para criar e gerir recursos subordinados de um Data Factory v2 implementado a partir do portal do Azure ou com a implementação do modelo ARM, tem de ser membro da função "Operador de Tarefas de Automatização" ao nível do grupo de recursos ou ao nível da subscrição. A sua organização também pode criar uma função personalizada que contenha "Microsoft.Resources/deployments/*" na lista "Ações", conforme descrito em [Criar funções personalizadas para controlo de acesso em funções do Azure](../active-directory/role-based-access-control-custom-roles.md).
+A função de Contribuidor do Data Factory versão 1 pode ser utilizada para criar e gerir recursos do Data Factory v2.
 
 ## <a name="monitoring-experience"></a>Experiência de monitorização
 No V2, também pode monitorizar fábricas de dados ao utilizar o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell suportam a monitorização de [tempos de execução de integração](monitor-integration-runtime.md). Ambos o V1 e V2 suportam monitorização visual através de uma aplicação de monitorização que pode ser aberta a partir do portal do Azure.

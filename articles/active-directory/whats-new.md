@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que é novo no Azure Active Directory?
 
@@ -39,6 +39,217 @@ Azure AD recebe melhoramentos numa base contínua. Para se manter atualizado com
 -   Planos de alterações
 
 Esta página é atualizada mensalmente, por isso, revê-lo regularmente.
+
+
+## <a name="april-2018"></a>De 2018 Abril
+ 
+
+
+### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C acesso Token são GA
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** B2C - gestão de identidades de consumidor  
+**Capacidade de produto:** B2B/B2C
+ 
+
+Pode agora aceder da API Web protegida pelo Azure AD B2C utilizando tokens de acesso. A funcionalidade está a mover de pré-visualização pública depois da disponibilidade geral A experiência de IU para configurar aplicações do Azure AD B2C e da API web foi melhorada e outras melhorias secundárias foram efetuadas.
+ 
+Para obter mais informações, consulte [do Azure AD B2C: pedir tokens de acesso](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-access-tokens).
+
+
+---
+ 
+
+### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>Testar a configuração de início de sessão único para aplicações baseadas no SAML
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações da empresa  
+**Capacidade de produto:** SSO
+ 
+
+Quando configurar SAML com base em aplicações de SSO conseguir a integração na página Configuração de teste. Se ocorrer um erro durante o início de sessão, pode fornecer o erro na experiência de teste e do Azure AD fornece-lhe os passos de resolução para resolver o problema específico.
+
+Para obter mais informações, consulte:
+
+- [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+- [Como depurar baseados em SAML-início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+
+
+---
+ 
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Agora tem do Azure AD os termos de utilização por utilizador de relatórios
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** os termos de utilização  
+**Capacidade de produto:** conformidade
+ 
+
+Os administradores podem agora selecionar um determinado ToU e ver todos os utilizadores que tenham autorizado que ToU e que data/hora demorou local.
+
+
+Para obter mais informações, consulte o [termos do Azure AD de utilização da funcionalidade](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+ 
+
+---
+ 
+### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>O Azure AD Connect Health: IP duvidoso para proteção de bloqueio de extranet do AD FS 
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** outros  
+**Capacidade de produto:** monitorização e relatórios
+ 
+
+Ligar o estado de funcionamento agora suporta a capacidade de detetar IP endereços que exceder um limiar de inícios de sessão falhados U/P numa base por hora ou diariamente. As capacidades fornecidas por esta funcionalidade são:
+
+- Relatório abrangente que mostra o número de inícios de sessão falhados gerados uma hora a hora/diariamente com limiar personalizável e endereço IP.
+- Alertas baseados em e-mail mostrar quando um endereço IP específico excedeu o limiar de inícios de sessão falhados U/P numa base diária/hora a hora.
+- Uma opção de transferência para efetuar uma análise detalhada dos dados
+
+
+Para obter mais informações, consulte [relatório de IP arriscados](https://aka.ms/aadchriskyip).
+
+ 
+
+---
+ 
+
+### <a name="easy-app-config-with-metadata-file-or-url"></a>Configuração de aplicações fácil com os metadados ficheiro ou URL
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações da empresa  
+**Capacidade de produto:** SSO
+ 
+
+Na página de aplicações da empresa, os administradores podem carregar um ficheiro de metadados SAML para configurar SAML com base em início de sessão para a aplicação AAD Galeria e não galeria.
+
+Além disso, pode utilizar o URL de metadados de Federação de aplicação do Azure AD para configurar o SSO com a aplicação de destino.
+
+Para obter mais informações, consulte [configurar início de sessão único para aplicações que não estejam na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
+ 
+
+---
+ 
+
+### <a name="azure-ad-terms-of-use-now-generally-available"></a>Azure AD termos de utilização agora geralmente disponível
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** os termos de utilização  
+**Capacidade de produto:** conformidade
+ 
+
+Azure AD os termos de utilização foi movido de pré-visualização pública para geralmente disponível.
+
+Para obter mais informações, consulte o [termos do Azure AD de utilização da funcionalidade](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+ 
+
+---
+ 
+
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites aos utilizadores B2B de organizações específicas
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** B2B  
+**Capacidade de produto:** B2B/B2C
+ 
+
+Agora pode especificar que as organizações de parceiro que pretende partilhar e colaborar em colaboração B2B do Azure AD. Para tal, pode optar por criar a lista de específicos permitir ou negar domínios. Quando um domínio é bloqueado com estas capacidades, os funcionários já não podem enviar convites para pessoas nesse domínio.
+
+Isto ajuda a controlar o acesso aos seus recursos, ao ativar uma experiência uniforme para os utilizadores aprovados.
+
+Esta funcionalidade de colaboração B2B está disponível para todos os clientes do Azure Active Directory e pode ser utilizada em conjunto com as funcionalidades do Azure AD Premium, como a proteção de identidades e acesso condicional para o controlo mais granular sobre quando e como os utilizadores de negócios externos iniciam sessão no e obter acesso.
+
+Para obter mais informações, consulte [ou de bloqueios convites aos utilizadores B2B de organizações específicas](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
+
+ 
+
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações da empresa  
+**Capacidade de produto:** 3rd integração de terceiros
+ 
+
+De 2018 Abril, foram adicionados seguintes 13 novas aplicações na nossa Galeria de aplicações com a Federação suportam:
+
+
+
+O critério HCM, [FiscalNote](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [segredo de servidor (no local)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [sinal dinâmica](https://docs.microsoft.com/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mindwireless-tutorial), [OrgChart Agora](https://docs.microsoft.com/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ziflow-tutorial), [Monitor de desempenho AppNeta](https://docs.microsoft.com/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx laboratórios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [ Nuvem de Cisco](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ciscocloud-tutorial), Shelf, [SafetyNet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-safetynet-tutorial)
+
+
+
+ Pode encontrar a lista dos tutoriais disponíveis aqui: [ https://aka.ms/appstutorial ](https://aka.ms/appstutorial).
+
+Para obter mais informações, consulte [listar a aplicação na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+
+
+ 
+
+---
+ 
+### <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications-public-preview"></a>Os utilizadores do Azure AD B2B conceder acedem às suas aplicações no local (pré-visualização pública)
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** B2B  
+**Capacidade de produto:** B2B/B2C
+ 
+
+Como uma organização que utiliza as capacidades de colaboração B2B do Azure Active Directory (Azure AD) para convidar utilizadores convidados de organizações de parceiros ao seu Azure AD, agora pode fornecer estes utilizadores B2B acesso a aplicações no local. Estas aplicações no local podem utilizar a autenticação baseada em SAML ou autenticação integrada de Windows (IWA) com a delegação restringida de Kerberos (KCD).
+
+Para obter mais informações, consulte [conceder B2B utilizadores no Azure AD acedem às suas aplicações no local](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises)
+ 
+
+---
+ 
+### <a name="get-sso-integration-tutorials-from-the-azure-marketplace"></a>Obter tutoriais de integração do SSO no Azure Marketplace
+
+**Tipo:** funcionalidade foi alterado  
+**Categoria de serviço:** outros  
+**Capacidade de produto:** 3rd integração de terceiros
+ 
+
+Se uma aplicação que está listada no [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) suporta SAML com base início de sessão único, clicando em **obtê-lo agora** fornece-lhe o tutorial de integração associado a essa aplicação. 
+
+
+---
+
+### <a name="faster-performance-of-azure-ad-automatic-user-provisioning-to-saas-applications"></a>Desempenho mais rápido do Azure AD aprovisionamento de utilizador automáticas para aplicações SaaS
+
+**Tipo:** funcionalidade foi alterado  
+**Categoria de serviço:** aprovisionamento de aplicações  
+**Capacidade de produto:** 3rd integração de terceiros
+ 
+
+Anteriormente, os clientes utilizando o aprovisionamento conectores para aplicações SaaS (por exemplo Salesforce, ServiceNow e caixa) de utilizadores do Azure Active Directory foi experiência de desempenho muito lento se os seus inquilinos do Azure AD continha mais de 100 000 utilizadores combinados e grupos e estava a utilizar as atribuições de grupo e utilizador para determinar quais os utilizadores devem ser aprovisionados.
+
+Em 2nd de Abril, melhoramentos de desempenho muito significativas foram implementados para o serviço de aprovisionamento do Azure AD reduzir significativamente a quantidade de tempo necessário para efetuar sincronizações iniciais entre o Azure Active Directory e aplicações de SaaS de destino.
+
+
+Como resultado, muitos clientes que tinham as sincronizações iniciais para as aplicações que demorou o número de dias ou nunca foi concluída, são agora concluir dentro de um fim de minutos ou horas.
+
+Para obter mais informações, consulte [o que acontece durante o aprovisionamento?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning#what-happens-during-provisioning)
+
+---
+ 
+
+### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>Self-service reposição palavra-passe a partir do ecrã de bloqueio do Windows 10 para o Azure AD híbrido associado máquinas
+
+**Tipo:** funcionalidade foi alterado  
+**Categoria de serviço:** reposição personalizada de palavra-passe  
+**Capacidade de produto:** autenticação de utilizador
+ 
+
+Foi atualizado com a funcionalidade de SSPR do Windows 10 incluem suporte para as máquinas que fazem híbrida do Azure AD associado. Esta funcionalidade está disponível no Windows 10 RS4 permite aos utilizadores para repor a palavra-passe no ecrã de bloqueio de uma máquina Windows 10. Os utilizadores que estão ativados e registados para a reposição de palavra-passe self-service podem utilizar esta funcionalidade.
+
+Para obter mais informações, consulte [palavra-passe do Azure AD a partir do ecrã de início de sessão de reposição](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows).
+ 
+
+---
+
+
 
 ## <a name="march-2018"></a>De 2018 Março
  
@@ -73,6 +284,32 @@ Agora pode adicionar Twitter ou GitHub como um fornecedor de identidade no Azure
 
 Para obter mais informações, consulte [o que é a colaboração B2B do Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Restringir o acesso ao browser utilizando o Browser gerido do Intune para iOS e Android com acesso condicional de baseadas em aplicações do Azure AD
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** acesso condicional  
+**Capacidade de produto:** segurança de identidade e de proteção
+ 
+
+**Agora em pré-visualização pública!**
+
+**Browser gerido do Intune SSO:** os seus empregados podem utilizar o início de sessão único em clientes nativos (como o Microsoft Outlook) e o Intune Managed Browser para todas as aplicações do Azure AD ligados.
+
+**Gerido Browser condicional acesso suporte do Intune:** pode agora pedir aos funcionários utilizar o Intune Managed browser através de políticas de acesso condicional baseado na aplicação.
+
+Leia mais sobre este assunto na nossa [blogue](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
+
+Para obter mais informações, consulte:
+
+- [Configurar o acesso condicional baseado na aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Configurar políticas de browser gerido](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 
@@ -336,7 +573,7 @@ Para obter mais informações, consulte [personalizar afirmações emitidas no t
 
 Para facilitar a implementação de aplicação e reduzem o overhead administrativo, agora suportamos a capacidade de publicar aplicações utilizando carateres universais. Para publicar uma aplicação de carateres universais, pode seguir o fluxo de publicação de aplicações padrão, mas utilizar um caráter universal nos URLs internos e externos.
 
-Para obter mais informações, consulte [aplicações universais do proxy de aplicações do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+Para obter mais informações, consulte [aplicações universais do proxy de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard)
 
  
 
@@ -479,7 +716,7 @@ As seguintes aplicações serão adicionadas no final de Fevereiro
 
 - Microsoft Launcher
 
-- Microsoft Invoicing
+- Faturação da Microsoft
 
 Para obter mais informações, consulte:
 
@@ -495,7 +732,7 @@ Para obter mais informações, consulte:
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** os termos de utilização  
-**Capacidade de produto:** governação
+**Capacidade de produto:** conformidade
  
 
 Quando são apresentados os termos de utilização, pode agora, clique em **ter visualização de relatórios de problemas? Clique aqui**. Ao clicar nesta hiperligação abre os termos de utilização nativamente no seu dispositivo. Independentemente do tamanho do tipo de letra do documento ou o tamanho de ecrã do dispositivo, pode aplicar zoom e ler o documento conforme necessário. 
@@ -630,7 +867,7 @@ Para obter mais informações, consulte:
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** termos de utilização  
-**Capacidade de produto:** governação/compatibilidade
+**Capacidade de produto:** conformidade
  
 Agora pode voltar ao painel de acesso e ver os termos de utilização que anteriormente aceites.
 
@@ -681,7 +918,7 @@ Para obter mais informações, consulte [menos avisos de início de sessão: A n
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** termos de utilização  
-**Capacidade de produto:** governação/compatibilidade
+**Capacidade de produto:** conformidade
  
 Uma opção para os administradores requer que os utilizadores expandir os termos de utilização antes de aceitar os termos.
 
@@ -838,7 +1075,7 @@ Para obter mais informações, consulte:
 
 **Tipo:** nova funcionalidade    
 **Categoria de serviço:** termos de utilização  
-**Capacidade de produto:** governação/compatibilidade
+**Capacidade de produto:** conformidade
 
 
 
@@ -1128,7 +1365,7 @@ Para obter mais informações, consulte [referência para MFA relatórios no por
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** termos de utilização  
-**Capacidade de produto:** governação/compatibilidade  
+**Capacidade de produto:** conformidade  
 
 
 
@@ -1171,7 +1408,7 @@ Para obter mais informações, consulte [Privileged Identity Management para rec
 
 **Tipo:** nova funcionalidade  
 **Categoria de serviço:** revisões de acesso  
-**Capacidade de produto:** governação/compatibilidade  
+**Capacidade de produto:** conformidade  
 
 
 

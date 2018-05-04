@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 0b56b15af7c573304db9a1b6e6e9f37453a63458
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: classificar Íris: implementar um modelo
 O Azure Machine Learning (pré-visualização) é uma solução de análise avançada e ciência de dados completa e integrada para os cientistas de dados profissionais. Os cientistas de dados podem utilizá-los para preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
@@ -120,7 +120,7 @@ Para implementar o serviço Web juntamente com o ficheiro de modelo, também pre
 
 Agora, está pronto para preparar o ambiente para operacionalizar o modelo.
 
-## <a name="prepare-to-operationalize-locally"></a>Preparar para operacionalizar localmente
+## <a name="prepare-to-operationalize-locally-for-development-and-testing-your-service"></a>Prepare operar localmente [Para programar e testar o serviço]
 Utilize a implementação de _modo local_ para executar em contentores do Docker no seu computador local.
 
 Pode utilizar o _modo local_ para desenvolvimento e testes. O motor do Docker tem de estar em execução localmente para concluir os passos seguintes de modo a operacionalizar o modelo. Pode utilizar o sinalizador `-h` no final de cada comando para mostrar a mensagem de ajuda correspondente.
@@ -257,7 +257,7 @@ Agora, está pronto para criar o serviço Web em tempo real.
    docker ps
    ```
 
-## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>Criar um serviço Web em tempo real com comandos separados
+## <a name="optional-alternative-create-a-real-time-web-service-by-using-separate-commands"></a>[Alternativa opcional] Criar um serviço Web em tempo real com comandos separados
 Como alternativa ao comando **az ml service create realtime** mostrado anteriormente, também pode realizar os passos em separado. 
 
 Em primeiro lugar, registe o modelo. Em seguida, gere o manifesto, crie a imagem do Docker e crie o serviço Web. Esta abordagem passo a passo dá-lhe mais flexibilidade a cada passo. Além disso, pode reutilizar as entidades geradas nos passos anteriores e recriá-las apenas quando necessário.

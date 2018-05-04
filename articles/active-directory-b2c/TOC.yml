@@ -94,6 +94,8 @@
       items:
         - name: Configurar fornecedores de identidades
           items:
+            - name: OpenID Connect personalizado
+              href: active-directory-b2c-setup-oidc-idp.md
             - name: Conta Microsoft
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -159,6 +161,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Multi-inquilino
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: Configurar fornecedores de SAML
               items:
                 - name: ADFS
@@ -195,12 +199,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Ativar a opção Manter a sessão iniciada
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: A controlar o comportamento do utilizador
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Resolução de problemas
               items:
                 - name: Recolher registos com o Application Insights
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: Controlar o comportamento do utilizador
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Referência
           items:
             - name: Notas de versão

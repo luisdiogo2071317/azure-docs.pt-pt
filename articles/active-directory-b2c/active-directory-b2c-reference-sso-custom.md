@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 1d64c031b1504dd8c35c1b498bbd931945fcad31
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>O Azure AD B2C: Início de sessão (SSO) sessão gestão único
 
@@ -67,9 +67,6 @@ Este fornecedor pode ser utilizado para armazenar afirmações numa sessão. Est
 ```
 
 Para adicionar afirmações na sessão, utilize o `<PersistedClaims>` elemento do perfil técnico. Quando o fornecedor é utilizado para repovoar a sessão, o persistente afirmações são adicionadas para a matriz de afirmações. `<OutputClaims>` é utilizado para obter afirmações da sessão.
-
-> [!NOTE]
-> Quando utilizar o DefaultSSOSessionProvider para armazenar afirmações numa sessão, terá de garantir que quaisquer afirmações que precisam de ser reencaminhado para a aplicação ou é utilizado pelas condições prévias nos passos subsequentes, são armazenados na sessão ou aumentado mediante uma leitura do perfil de utilizadores no diretório. Isto irá garantir que a autenticação percursos não falhará em falta afirmações.
 
 ### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 

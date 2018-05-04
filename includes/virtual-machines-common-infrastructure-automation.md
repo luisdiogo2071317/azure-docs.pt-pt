@@ -62,7 +62,7 @@ Saiba mais detalhes sobre init de nuvem no Azure:
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[Configuração de estado pretendido ' (DSC) da PowerShell](https://msdn.microsoft.com/en-us/powershell/dsc/overview) é uma plataforma de gestão para definir a configuração das máquinas de destino. Também pode ser utilizado o DSC no Linux através do [servidor Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
+[Configuração de estado pretendido ' (DSC) da PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) é uma plataforma de gestão para definir a configuração das máquinas de destino. Também pode ser utilizado o DSC no Linux através do [servidor Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
 
 Configurações de DSC definem o que instalar num computador e como configurar o anfitrião. Um motor de Gestor de configuração Local (MMC) é executado em cada nó de destino que processa o pedido ações com base nas configurações premidas. Um servidor de solicitação é um serviço web que é executada num anfitrião central para armazenar as configurações de DSC e os recursos associados. O servidor de solicitação comunica com o motor de MMC em cada anfitrião de destino para fornecer as configurações necessárias e relatórios sobre a conformidade.
 
@@ -130,5 +130,5 @@ Aprenda a:
 - [Criar uma infraestrutura de desenvolvimento numa VM com Linux no Azure com Jenkins, GitHub e Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Existem muitas opções diferentes utilizar ferramentas de automatização de infraestrutura no Azure. Tem de ter a liberdade de utilizar a solução que melhor se adeque às suas necessidades e ambiente. Para começar a utilizar e experimente algumas das ferramentas incorporadas no Azure, consulte como automatizar a personalização de um [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) ou [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.

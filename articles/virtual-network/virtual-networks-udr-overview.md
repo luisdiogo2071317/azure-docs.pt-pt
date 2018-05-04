@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -41,7 +41,7 @@ Cada rota contém um prefixo de endereço e o tipo de salto seguinte. Quando o t
 |Predefinição|10.0.0.0/8                                              |Nenhuma           |
 |Predefinição|172.16.0.0/12                                           |Nenhuma           |
 |Predefinição|192.168.0.0/16                                          |Nenhuma           |
-|Predefinição|100.64.0.0/10                                           |Nenhum           |
+|Predefinição|100.64.0.0/10                                           |Nenhuma           |
 
 Os tipos de salto seguintes listados na tabela anterior representam a forma como o Azure encaminha o tráfego destinado ao prefixo de endereço listado. As explicações para os tipos de salto seguintes são as seguintes:
 
@@ -122,7 +122,9 @@ Os gateways de rede no local podem utilizar o BGP (Border Gateway Protocol) para
 - **VPN**: opcionalmente, pode utilizar o BGP. Para obter detalhes, veja [BGP com ligações VPN de site a site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando utiliza o BGP para trocar rotas com o Azure, é adicionada uma rota separada à tabela de rotas de todas as sub-redes numa rede virtual para cada prefixo anunciado. A rota é adicionada com *Gateway de rede virtual* listado como a origem e o tipo de próximo salto. 
- 
+
+A propagação de rotas do BGP pode ser desativada numa sub-rede através de uma propriedade numa tabela de rotas. Quando trocar as rotas com o Azure com o BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com a propagação do BGP desativada. A conectividade com ligações VPN é conseguida através de rotas personalizadas (#custom-routes) com um tipo de salto seguinte de VPN. Para obter detalhes, veja [Como desativar a propagação de rotas do BGP](/manage-route-table#create-a-route-table.md).
+
 ## <a name="how-azure-selects-a-route"></a>Como o Azure seleciona uma rota
 
 Quando o tráfego de saída é enviado a partir de uma sub-rede, o Azure seleciona uma rota com base no endereço IP de destino, através da utilização do algoritmo de correspondência de prefixo mais longo. Por exemplo, uma tabela de rotas tem duas rotas: uma rota especifica o prefixo de endereço 10.0.0.0/24 e a outra especifica o prefixo de endereço 10.0.0.0/16. O Azure encaminha o tráfego destinado a 10.0.0.5, para o tipo de próximo salto especificado na rota com o prefixo de endereço 10.0.0.0/24, porque 10.0.0.0/24 é um prefixo mais longo do que 10.0.0.0/16, apesar de 10.0.0.5 estar dentro de ambos os prefixos de endereço. O Azure encaminha o tráfego destino a 10.0.1.5, para o tipo de próximo salto especificado na rota com o prefixo de endereço 10.0.0.0/16, porque 10.0.1.5n não está incluído no prefixo de endereço 10.0.0.0/24, pelo que a rota com o prefixo de endereço 10.0.0.0/16 é a que tem o prefixo mais longo que tem correspondência.
@@ -210,7 +212,7 @@ A tabela de rotas de *Subnet1* na imagem contém as rotas seguintes:
 |3   |Utilizador   |Ativa |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Predefinição|Inválido|10.1.0.0/16         |VNet peering           |                   |              |
 |5   |Predefinição|Inválido|10.2.0.0/16         |VNet peering           |                   |              |
-|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|6   |Utilizador   |Ativa |10.1.0.0/16         |Nenhuma                   |                   |ToVNet2-1-Drop|
 |7   |Utilizador   |Ativa |10.2.0.0/16         |Nenhuma                   |                   |ToVNet2-2-Drop|
 |8   |Predefinição|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
 |9   |Utilizador   |Ativa |10.10.0.0/16        |Aplicação virtual      |10.0.100.4         |To-On-Prem    |
@@ -244,9 +246,9 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 |Predefinição |Ativa |10.2.0.0/16         |VNet peering              |                   |
 |Predefinição |Ativa |10.10.0.0/16        |Gateway de rede virtual   |[X.X.X.X]          |
 |Predefinição |Ativa |0.0.0.0/0           |Internet                  |                   |
-|Predefinição |Ativa |10.0.0.0/8          |Nenhum                      |                   |
-|Predefinição |Ativa |100.64.0.0/10       |Nenhum                      |                   |
-|Predefinição |Ativa |172.16.0.0/12       |Nenhum                      |                   |
+|Predefinição |Ativa |10.0.0.0/8          |Nenhuma                      |                   |
+|Predefinição |Ativa |100.64.0.0/10       |Nenhuma                      |                   |
+|Predefinição |Ativa |172.16.0.0/12       |Nenhuma                      |                   |
 |Predefinição |Ativa |192.168.0.0/16      |Nenhuma                      |                   |
 
 A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereços 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas *Subnet1* quando a rota definida pelo utilizador para o prefixo 0.0.0.0/0 foi adicionada a *Subnet1*.  

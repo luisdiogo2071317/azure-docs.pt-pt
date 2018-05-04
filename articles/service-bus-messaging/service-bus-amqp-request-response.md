@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações de pedido-resposta baseados em
 
@@ -69,7 +69,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Transferência de uma mensagem de pedido  
 
 Transferências de uma mensagem de pedido.  
-  
+Um Estado de transação pode ser adicionado, opcionalmente, para operações que suporta a transação.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +80,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Receber uma mensagem de resposta  
@@ -144,7 +149,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha.|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente uma secção de amqp-valor que contenha um mapa com as seguintes entradas:  
   
@@ -179,7 +184,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 0xcc: nenhum conteúdo – não existem mais mensagens|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um **mapa** com as seguintes entradas:  
   
@@ -195,7 +200,7 @@ O mapa que representa uma mensagem tem de conter as seguintes entradas:
   
 ### <a name="schedule-message"></a>Mensagem de agenda  
 
-As agendas de mensagens.  
+As agendas de mensagens. Esta operação suporta transações.
   
 #### <a name="request"></a>Pedir  
 
@@ -216,9 +221,10 @@ O mapa que representa uma mensagem tem de conter as seguintes entradas:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|message-id|string|Sim|`amqpMessage.Properties.MessageId` como cadeia|  
-|session-id|string|Sim|`amqpMessage.Properties.GroupId as string`|  
-|chave de partição|string|Sim|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|id da mensagem|string|Sim|`amqpMessage.Properties.MessageId` como cadeia|  
+|id de sessão|string|Não|`amqpMessage.Properties.GroupId as string`|  
+|chave de partição|string|Não|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|através de partição-chave|string|Não|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |message|matriz de bytes|Sim|Mensagem codificado por transmissão AMQP 1.0.|  
   
 #### <a name="response"></a>Resposta  
@@ -228,13 +234,13 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha.|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um mapa com as seguintes entradas:  
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|matriz de longa|Sim|Número de sequência de mensagens agendadas. Número de sequência é utilizado para cancelar.|  
+|números de sequência|matriz de longa|Sim|Número de sequência de mensagens agendadas. Número de sequência é utilizado para cancelar.|  
   
 ### <a name="cancel-scheduled-message"></a>Cancelar a mensagem agendada  
 
@@ -253,7 +259,7 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|matriz de longa|Sim|Números de sequência de mensagens agendadas para cancelar.|  
+|números de sequência|matriz de longa|Sim|Números de sequência de mensagens agendadas para cancelar.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -262,13 +268,13 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha.|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um mapa com as seguintes entradas:  
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|matriz de longa|Sim|Número de sequência de mensagens agendadas. Número de sequência é utilizado para cancelar.|  
+|números de sequência|matriz de longa|Sim|Número de sequência de mensagens agendadas. Número de sequência é utilizado para cancelar.|  
   
 ## <a name="session-operations"></a>Operações de sessão  
   
@@ -289,7 +295,7 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|session-id|string|Sim|ID de sessão.|  
+|id de sessão|string|Sim|ID de sessão.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -298,7 +304,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 0xcc: nenhum conteúdo – não existem mais mensagens|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um mapa com as seguintes entradas:  
   
@@ -324,8 +330,8 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |from-sequence-number|longa|Sim|Número de sequência da qual pretende iniciar peek.|  
-|message-count|Int|Sim|Número máximo de mensagens para observar.|  
-|session-id|string|Sim|ID de sessão.|  
+|Contagem de mensagens|Int|Sim|Número máximo de mensagens para observar.|  
+|id de sessão|string|Sim|ID de sessão.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -334,7 +340,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 0xcc: nenhum conteúdo – não existem mais mensagens|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um mapa com as seguintes entradas:  
   
@@ -365,7 +371,7 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|session-id|string|Sim|ID de sessão.|  
+|id de sessão|string|Sim|ID de sessão.|  
 |Estado da sessão|matriz de bytes|Sim|Dados binários opaco.|  
   
 #### <a name="response"></a>Resposta  
@@ -375,7 +381,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 ### <a name="get-session-state"></a>Obter estado da sessão  
 
@@ -394,7 +400,7 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|session-id|string|Sim|ID de sessão.|  
+|id de sessão|string|Sim|ID de sessão.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -403,7 +409,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um **mapa** com as seguintes entradas:  
   
@@ -439,7 +445,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 0xcc: nenhum conteúdo – não existem mais mensagens|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um **mapa** com as seguintes entradas:  
   
@@ -466,14 +472,14 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |nome da regra|string|Sim|Nome da regra, não incluindo nomes de subscrição e o tópico.|  
-|rule-description|Mapa|Sim|Descrição da regra conforme especificado na secção seguinte.|  
+|Descrição da regra|Mapa|Sim|Descrição da regra conforme especificado na secção seguinte.|  
   
 O **descrição da regra** mapa tem de incluir as seguintes entradas, onde **sql filtro** e **filtro de correlação** são mutuamente exclusivos:  
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |sql-filter|Mapa|Sim|`sql-filter`, conforme especificado na secção seguinte.|  
-|correlation-filter|Mapa|Sim|`correlation-filter`, conforme especificado na secção seguinte.|  
+|filtro de correlação|Mapa|Sim|`correlation-filter`, conforme especificado na secção seguinte.|  
 |sql-rule-action|Mapa|Sim|`sql-rule-action`, conforme especificado na secção seguinte.|  
   
 O mapa de filtro do sql tem de incluir as seguintes entradas:  
@@ -486,14 +492,14 @@ O **filtro de correlação** mapa tem de incluir, pelo menos, um dos seguintes e
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|correlation-id|string|Não||  
-|message-id|string|Não||  
+|id de correlação|string|Não||  
+|id da mensagem|string|Não||  
 |para|string|Não||  
 |a resposta|string|Não||  
 |Etiqueta|string|Não||  
-|session-id|string|Não||  
+|id de sessão|string|Não||  
 |resposta-para--id de sessão|string|Não||  
-|content-type|string|Não||  
+|tipo de conteúdo|string|Não||  
 |propriedades|Mapa|Não|Mapas ao Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
 O **ação de regra de sql** mapa tem de incluir as seguintes entradas:  
@@ -509,7 +515,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 ### <a name="remove-rule"></a>Remover Regra  
   
@@ -535,8 +541,87 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
+### <a name="get-rules"></a>Obter regras
+
+#### <a name="request"></a>Pedir
+
+A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
+
+|Chave|Tipo de valor|Necessário|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|operação|string|Sim|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|UInt|Não|Servidor tempo limite da operação em milissegundos.|  
+
+O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** secção que contém um **mapa** com as seguintes entradas:  
+  
+|Chave|Tipo de valor|Necessário|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|Parte superior|Int|Sim|O número de regras para obter a página de início.|  
+|Ignorar|Int|Sim|O número de regras para ignorar. Define o índice de início (+ 1) na lista de regras. | 
+
+#### <a name="response"></a>Resposta
+
+A mensagem de resposta inclui as seguintes propriedades:
+
+|Chave|Tipo de valor|Necessário|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
+|regras| matriz de mapa|Sim|Matriz de regras. Cada regra é representada por um mapa.|
+
+Cada entrada de mapa na matriz inclui as seguintes propriedades:
+
+|Chave|Tipo de valor|Necessário|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+|Descrição da regra|matriz de objetos descritos|Sim|`com.microsoft:rule-description:list` com o AMQP descrito código 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` é uma matriz de objetos descritos. A matriz inclui o seguinte:
+
+|Índice|Tipo de valor|Necessário|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | matriz de objetos descritos | Sim | `filter` conforme especificado abaixo. |
+| 1 | matriz de objetos descrito | Sim | `ruleAction` conforme especificado abaixo. |
+| 2 | string | Sim | Nome da regra. |
+
+`filter` pode ser de qualquer um dos seguintes tipos:
+
+| Nome de descritor | Código de descritor | Valor |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro de correlação |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | VERDADEIRO filtro que representa 1 = 1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | FALSO filtro que representa 1 = 0 |
+
+`com.microsoft:sql-filter:list` é uma matriz descrita que inclui:
+
+|Índice|Tipo de valor|Necessário|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Sim | Expressão de filtro do SQL Server |
+
+`com.microsoft:correlation-filter:list` é uma matriz descrita que inclui:
+
+|O índice (se existir)|Tipo de valor|Conteúdo de valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | ID de Correlação |
+| 1 | string | ID da mensagem |
+| 2 | string | Para |
+| 3 | string | Responder A |
+| 4 | string | Etiqueta |
+| 5 | string | ID de sessão |
+| 6 | string | Resposta para o ID de sessão|
+| 7 | string | Tipo de Conteúdo |
+| 8 | Mapa | Mapa das propriedades de uma aplicação definida |
+
+`ruleAction` pode ser qualquer um dos seguintes tipos:
+
+| Nome de descritor | Código de descritor | Valor |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Ação de regra vazia - nenhuma ação de regra presente |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Ação de regra SQL |
+
+`com.microsoft:sql-rule-action:list` é uma matriz de objetos descritos cuja entrada primeiro é uma cadeia que contém a expressão a ação de regra SQL.
+
 ## <a name="deferred-message-operations"></a>Operações de mensagem diferida  
   
 ### <a name="receive-by-sequence-number"></a>Receber por número de sequência  
@@ -556,7 +641,7 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|matriz de longa|Sim|Números de sequência.|  
+|números de sequência|matriz de longa|Sim|Números de sequência.|  
 |receiver-settle-mode|ubyte|Sim|**Recetor liquidar os** modo conforme especificado no v 1.0 do AMQP core.|  
   
 #### <a name="response"></a>Resposta  
@@ -566,7 +651,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
-|statusDescription|string|Não|Descrição do Estado.|  
+|StatusDescription|string|Não|Descrição do Estado.|  
   
 O corpo da mensagem de resposta deve consistir exclusivamente um **amqp valor** secção que contém um **mapa** com as seguintes entradas:  
   
@@ -583,7 +668,7 @@ O mapa que representa uma mensagem tem de conter as seguintes entradas:
   
 ### <a name="update-disposition-status"></a>Estado de atualização de disposição  
 
-Atualiza o estado de disposição de mensagens diferidas.  
+Atualiza o estado de disposição de mensagens diferidas. Esta operação suporta transações.
   
 #### <a name="request"></a>Pedir  
 
@@ -598,7 +683,7 @@ O corpo da mensagem de pedido deve consistir exclusivamente um **amqp valor** se
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|string|Sim|concluída<br /><br /> Abandonado<br /><br /> Suspenso|  
+|Estado de disposição|string|Sim|concluída<br /><br /> Abandonado<br /><br /> Suspenso|  
 |tokens de bloqueio|matriz de uuid|Sim|Tokens de bloqueio de mensagem para atualizar o estado de disposição.|  
 |deadletter-reason|string|Não|Pode ser definido se o estado de disposição está definido como **suspenso**.|  
 |deadletter-description|string|Não|Pode ser definido se o estado de disposição está definido como **suspenso**.|  
@@ -611,7 +696,7 @@ A mensagem de resposta tem de incluir as seguintes propriedades da aplicação:
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – com êxito, caso contrário falha|  
-|statusDescription|string|Não|Descrição do Estado.|
+|StatusDescription|string|Não|Descrição do Estado.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

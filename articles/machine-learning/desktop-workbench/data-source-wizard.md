@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: 4f9a2249142220f3c57cb2e479a175d4227749fd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="data-source-wizard"></a>Assistente de origem de dados #
 
@@ -22,7 +22,7 @@ O Assistente de origem de dados é uma forma rápida e fácil para assegurar a u
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>Passo 1: Acionar o Assistente de origem de dados ## 
 
-Para colocar os dados para um projeto com o Assistente de origem de dados. Selecione o  **+**  botão junto à caixa de pesquisa na vista de dados e escolha Adicionar origem de dados. 
+Para colocar os dados para um projeto com o Assistente de origem de dados. Selecione o **+** botão junto à caixa de pesquisa na vista de dados e escolha Adicionar origem de dados. 
 
 ![Adicionar origem de dados](media/data-source-wizard/add-data-source.png)
 

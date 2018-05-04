@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com RealtimeBoard | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e RealtimeBoard."
+title: 'Tutorial: Integração do Azure Active Directory com RealtimeBoard | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e RealtimeBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5734d9ae2f5633fc7386b5cb0754769af9bf96bc
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integração do Azure Active Directory com RealtimeBoard
 
@@ -108,13 +108,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio RealtimeBoard e os URLs únicos de informações de início de sessão](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url.png)
 
-    No **identificador** caixa de texto, escreva um URL como:`https://realtimeboard.com/`
+    No **identificador** caixa de texto, escreva um URL como: `https://realtimeboard.com/`
 
 4. Verifique **Mostrar avançadas definições de URL**, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL como:`https://realtimeboard.com/sso/saml`
+    No **URL de início de sessão** caixa de texto, escreva um URL como: `https://realtimeboard.com/sso/saml`
 
 5. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -124,7 +124,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Para configurar o início de sessão único em **RealtimeBoard** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de RealtimeBoard](mailto:support@realtimeboard.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Configurar o início de sessão único a **RealtimeBoard** lado, siga o [RealtimeBoard instruções](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-)e utilizar os dados da sua transferido **XML de metadados**.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

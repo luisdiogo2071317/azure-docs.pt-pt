@@ -1,0 +1,117 @@
+- name: Documentação do Gestor de Tráfego
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é o Gestor de Tráfego?
+      href: traffic-manager-overview.md
+- name: Início Rápido
+  items:
+    - name: Criar um perfil do Gestor de Tráfego
+      href: traffic-manager-create-profile.md
+- name: Amostras
+  items:
+    - name: CLI do Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Tutoriais
+  items:
+    - name: Encaminhar o tráfego com base na localização geográfica do ponto final
+      href: traffic-manager-configure-geographic-routing-method.md
+    - name: Encaminhar o tráfego de baixa latência
+      href: traffic-manager-configure-performance-routing-method.md
+    - name: Distribuir o tráfego para um conjunto de pontos finais
+      href: traffic-manager-configure-weighted-routing-method.md
+    - name: Encaminhar o tráfego para um ponto final prioritário
+      href: traffic-manager-configure-priority-routing-method.md
+- name: Conceitos
+  items:
+    - name: Métodos de encaminhamento
+      href: traffic-manager-routing-methods.md
+      items:
+        - name: Hierarquia de País/Região utilizada pelo Gestor de Tráfego
+          href: traffic-manager-geographic-regions.md
+    - name: Perfis do Gestor de Tráfego aninhados
+      href: traffic-manager-nested-profiles.md
+    - name: Tipos de ponto final
+      href: traffic-manager-endpoint-types.md
+    - name: Monitorização de ponto final
+      href: traffic-manager-monitoring.md
+    - name: Medidas Reais de Utilizadores
+      href: traffic-manager-rum-overview.md
+    - name: Vista de Tráfego
+      href: traffic-manager-traffic-view-overview.md
+    - name: FAQs
+      href: traffic-manager-FAQs.md
+- name: Procedimento
+  items:
+    - name: Enviar Medidas de Utilizador Reais para o Gestor de tráfego
+      items:
+        - name: Utilizar o Visual Studio SDK
+          href: traffic-manager-create-rum-visual-studio.md
+        - name: Utilizar páginas web
+          href: traffic-manager-create-rum-web-pages.md
+    - name: Gerir pontos finais
+      href: traffic-manager-manage-endpoints.md
+    - name: Gerir perfis
+      href: traffic-manager-manage-profiles.md
+    - name: Verificar definições do Gestor de Tráfego
+      href: traffic-manager-testing-settings.md
+    - name: Combinar serviços de balanceamento de carga
+      href: traffic-manager-load-balancing-azure.md
+    - name: Medir o desempenho do Gestor de Tráfego
+      href: traffic-manager-performance-considerations.md
+    - name: Utilizar o Azure PowerShell para gerir o Gestor de Tráfego
+      href: traffic-manager-powershell-arm.md
+    - name: Apontar o domínio da Internet para o Gestor de Tráfego
+      href: traffic-manager-point-internet-domain.md
+    - name: Resolução de problemas
+      items:
+        - name: Resolução de problemas do estado degradado no Gestor de Tráfego do Azure
+          href: traffic-manager-troubleshooting-degraded.md
+- name: Referência
+  items:
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.trafficmanager
+    - name: CLI do Azure
+      href: /cli/azure/network/traffic-manager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.trafficmanager
+    - name: Node.js
+      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_traffic_manager'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/mt163667.aspx'
+- name: Relacionado
+  items:
+    - name: Gateway de Aplicação
+      href: /azure/application-gateway/
+    - name: Load balancer
+      href: /azure/load-balancer/
+    - name: DNS do Azure
+      href: /azure/dns/
+- name: Recursos
+  items:
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blogue
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Fórum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/traffic-manager/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Limites do Serviço
+      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/traffic-manager/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=traffic-manager'

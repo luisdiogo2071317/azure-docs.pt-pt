@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: sashan
-ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utilizar réplicas de só de leitura para carregar saldo de consulta só de leitura cargas de trabalho (pré-visualização)
 
@@ -21,11 +21,13 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="overview-of-read-scale-out"></a>Descrição geral de escalamento horizontal de leitura
 
-Cada base de dados no escalão Premium ([DTU com base no modelo de compra](sql-database-service-tiers.md#dtu-based-purchasing-model)) ou na camada de negócio crítico ([vCore com base no modelo de compra](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) é automaticamente aprovisionado com várias réplicas Always ON para suporta o SLA de disponibilidade. Estas réplicas são aprovisionadas com o mesmo nível de desempenho, como a réplica de leitura e escrita utilizado pelas ligações de base de dados normal. O **escalável leitura** funcionalidade permite-lhe carregar saldo base de dados SQL só de leitura cargas de trabalho utilizando a capacidade das réplicas só de leitura em vez de partilhar a réplica de leitura e escrita. Desta forma, a carga de trabalho só de leitura será isolada da carga de trabalho de leitura e escrita principal e não irá afetar o desempenho dele. A funcionalidade destina-se para as aplicações que incluem logicamente separados cargas de trabalho só de leitura, por exemplo, análises e, por conseguinte, foi possível obter os benefícios de desempenho utilizando esta capacidade adicional na não custo extra.
+Cada base de dados no escalão Premium ([DTU com base no modelo de compra](sql-database-service-tiers-dtu.md)) ou na camada de negócio crítico ([vCore com base no modelo de compra (pré-visualização)](sql-database-service-tiers-vcore.md)) é automaticamente aprovisionado com vários Always ON réplicas para suportar o SLA de disponibilidade. Estas réplicas são aprovisionadas com o mesmo nível de desempenho, como a réplica de leitura e escrita utilizado pelas ligações de base de dados normal. O **escalável leitura** funcionalidade permite-lhe carregar saldo base de dados SQL só de leitura cargas de trabalho utilizando a capacidade das réplicas só de leitura em vez de partilhar a réplica de leitura e escrita. Desta forma, a carga de trabalho só de leitura será isolada da carga de trabalho de leitura e escrita principal e não irá afetar o desempenho dele. A funcionalidade destina-se para as aplicações que incluem logicamente separados cargas de trabalho só de leitura, por exemplo, análises e, por conseguinte, foi possível obter os benefícios de desempenho utilizando esta capacidade adicional na não custo extra.
 
 Para utilizar a funcionalidade de ampliação de leitura com uma base de dados específica, tem de ativar explicitamente-lo ao criar a base de dados ou posteriormente alterando a sua configuração através do PowerShell invocando o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) ou o [ Novo-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets ou através da API de REST do Azure Resource Manager utilizando o [bases de dados - criar ou atualizar](/rest/api/sql/databases/createorupdate) método. 
 
 Depois de leitura Escalamento horizontal é ativado para uma base de dados, a ligação para a base de dados de aplicações serão direcionadas para a réplica de leitura e escrita ou para uma réplica só de leitura de acordo com a base de dados a `ApplicationIntent` propriedade configurada da aplicação cadeia de ligação. Para obter informações sobre o `ApplicationIntent` propriedade, consulte [especificar tipo de aplicação](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+
+Se leitura Escalamento horizontal está desativado ou defina a propriedade de ReadScale uma camada de serviço não suportado, todas as ligações são direcionadas para a réplica de leitura e escrita, independentemente do `ApplicationIntent` propriedade.
 
 > [!NOTE]
 > Durante a pré-visualização, os arquivo de dados de consulta e de eventos expandidos não são suportados nas réplicas só de leitura.
@@ -54,6 +56,12 @@ Uma das seguintes cadeias de ligação liga-se o cliente para uma réplica de le
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+Pode verificar se estiver ligado a uma réplica só de leitura ao executar a consulta seguinte. Devolverá READ_ONLY quando ligado a uma réplica só de leitura.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Ativar e desativar leitura Escalamento horizontal com o Azure PowerShell

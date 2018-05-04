@@ -1,6 +1,6 @@
 ---
-title: "Utilize as transformações de dados de preparação de dados no Azure Machine Learning | Microsoft Docs"
-description: "Este artigo fornece uma lista completa das transformações disponíveis para a preparação de dados do Azure Machine Learning."
+title: Utilize as transformações de dados de preparação de dados no Azure Machine Learning | Microsoft Docs
+description: Este artigo fornece uma lista completa das transformações disponíveis para a preparação de dados do Azure Machine Learning.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Transformações de dados de utilização de preparação de dados no Azure Machine Learning
 
@@ -34,7 +34,7 @@ No menu de contexto mostra apenas as transformações válidas para o tipo de da
 
 Está disponível um pequeno subconjunto de transformações contextuais clicando uma célula. Estes transformações de cópia, substituir e filtram. Estes são dados tipo com suporte para, pelo que as opções para uma coluna de número diferentes de uma coluna de cadeia.
 
-## <a name="derive-column-by-example"></a>Derivar coluna por exemplo
+## <a name="derive-column-by-example"></a>Derivar Coluna por Exemplo
 Utilize esta transformação para criar uma nova coluna como um derivativo de uma ou mais colunas existentes. A transformação analisa as colunas de entrada (selecionadas) e o exemplo fornecido e, em seguida, determina o resultado pretendido na coluna novo. 
 
 Para utilizar esta transformação, selecione uma ou mais colunas. Adicione uma nova coluna derivada (em branco), por exemplo. Escreva um exemplo de que pretende ver no derivada coluna (partindo do princípio de que deriva de outras colunas) e o "por exemplo" tecnologia tenta de preencher todas as outras células na coluna. 

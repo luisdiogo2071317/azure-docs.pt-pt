@@ -30,7 +30,7 @@ As secções seguintes fornecem mais informações sobre as tecnologias de supor
 
 
 
-## <a name="marketplace-solutions"></a>Soluções de Marketplace
+## <a name="marketplace-solutions"></a>Soluções do Marketplace
 
 Visite o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) para imagens de Linux e VM do Windows e soluções concebidas para HPC. Os exemplos incluem:
 
@@ -57,7 +57,7 @@ Execute personalizadas ou comerciais aplicações HPC no Azure. São vários os 
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB distribuídas Server informática](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
-* [StarCCM+](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
+* [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
 
@@ -181,7 +181,7 @@ Seguem-se exemplos de clientes que tiverem resolvido problemas empresariais com 
 * Saiba mais sobre soluções de Macrocomputação para [simulação de engenharia](https://simulation.azure.com/), [composição](https://simulation.azure.com/), [mercados banking e capital](https://finance.azure.com/), e [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Para os anúncios mais recentes, veja o [blogue da equipa do Microsoft HPC e Batch](http://blogs.technet.com/b/windowshpc/) e o [blogue do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Utilizar o Azure gerido e dimensionável [Batch](https://azure.microsoft.com/services/batch/) serviço para executar cargas de trabalho de computação intensivas sem gerir a infraestrutura subjacente [Saiba mais](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Utilizar o Azure gerido e dimensionável [Batch](https://azure.microsoft.com/services/batch/) serviço para executar cargas de trabalho de computação intensivas sem gerir a infraestrutura subjacente [Saiba mais](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

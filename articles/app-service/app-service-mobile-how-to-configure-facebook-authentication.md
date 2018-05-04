@@ -1,24 +1,24 @@
 ---
-title: "Como configurar a autenticação do Facebook para a sua aplicação de serviços aplicacionais"
-description: "Saiba como configurar a autenticação do Facebook para a sua aplicação de serviços de aplicações."
+title: Como configurar a autenticação do Facebook para a sua aplicação de serviços aplicacionais
+description: Saiba como configurar a autenticação do Facebook para a sua aplicação de serviços de aplicações.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: mattchenderson
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: c1b4c91d384c56c4f55bf8d31ced250f51c0d837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d2b294fc0663770f9a699e300672695225dfdfd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Como configurar a sua aplicação do Serviço de Aplicações para utilizar o início de sessão do Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -27,19 +27,20 @@ Este tópico mostra como configurar o serviço de aplicações do Azure para uti
 
 Para concluir o procedimento deste tópico, tem de ter uma conta do Facebook que tem um endereço de correio eletrónico verificado e um número de telemóvel. Para criar uma nova conta do Facebook, aceda a [facebook.com].
 
-## <a name="register"></a>Registar a aplicação com o Facebook
+## <a name="register"> </a>Registar a aplicação com o Facebook
 1. Inicie sessão no [portal do Azure]e navegue até à sua aplicação. Copiar o **URL**. Irá utilizá-lo para configurar a sua aplicação do Facebook.
 2. Na outra janela do browser, navegue para o [Facebook programadores] credenciais de contas do Web site e inicie sessão com o Facebook.
 3. (Opcional) Se ainda não registou, clique em **aplicações** > **registar como um programador**, em seguida, aceite a política e siga os passos de registo.
-4. Clique em **as minhas aplicações** > **adicionar uma nova aplicação** > **Web site** > **ignorar e criar o ID da aplicação**. 
-5. No **nome a apresentar**, escreva um nome exclusivo para a sua aplicação, o tipo do **correio eletrónico de contacto**, escolha um **categoria** para a sua aplicação, em seguida, clique em **criar ID da aplicação**e concluir a verificação de segurança. Isto leva-o para o dashboard de programador para a nova aplicação do Facebook.
-6. Em "Iniciar sessão Facebook", clique em **começar**. Adicionar a sua aplicação **URI de redirecionamento** para **URIs de redirecionamento OAuth válido**, em seguida, clique em **guardar alterações**. 
+4. Clique em **as minhas aplicações** > **adicionar uma nova aplicação**.
+5. No **nome a apresentar**, escreva um nome exclusivo para a sua aplicação. Também fornecem a **correio eletrónico de contacto**e, em seguida, clique em **ID da aplicação criar** e concluir a verificação de segurança. Isto leva-o para o dashboard de programador para a nova aplicação do Facebook.
+7. Em **início de sessão do Facebook**, clique em **configurar**e, em seguida, escolha **definições** no painel de navegação esquerdo em **início de sessão do Facebook**.
+8. Adicionar a sua aplicação **URI de redirecionamento** para **URIs de redirecionamento OAuth válido**, em seguida, clique em **guardar alterações**.
    
    > [!NOTE]
    > O URI é o URL da aplicação anexada com o caminho de redirecionamento */.auth/login/facebook/callback*. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Certifique-se de que está a utilizar o esquema de HTTPS.
    > 
    > 
-7. No painel de navegação esquerdo, clique em **definições**. No **segredo da aplicação** campo, clique em **mostrar**, forneça a palavra-passe, se o pedido, em seguida, tome nota dos valores de **ID da aplicação** e **segredo da aplicação** . Pode utilizá-las mais tarde para configurar a sua aplicação no Azure.
+7. No painel de navegação esquerdo, clique em **definições** > **básico**. No **segredo da aplicação** campo, clique em **mostrar**, forneça a palavra-passe, se o pedido, em seguida, tome nota dos valores de **ID da aplicação** e **segredo da aplicação** . Pode utilizá-las mais tarde para configurar a sua aplicação no Azure.
    
    > [!IMPORTANT]
    > O segredo de aplicação é uma credencial de segurança importantes. Não partilhe este segredo com ninguém e distribui-lo dentro de uma aplicação de cliente.
@@ -47,7 +48,7 @@ Para concluir o procedimento deste tópico, tem de ter uma conta do Facebook que
    > 
 8. A conta do Facebook que foi utilizada para registar a aplicação é um administrador da aplicação. Neste momento, apenas os administradores podem iniciar sessão para esta aplicação. Para autenticar a outras contas do Facebook, clique em **revisão da aplicação** e ativar **disponibilizar < nome da aplicação-> público** para ativar o acesso de público geral através da autenticação do Facebook.
 
-## <a name="secrets"></a>Facebook adicionar informações a sua aplicação
+## <a name="secrets"> </a>Adicionar informações do Facebook à sua aplicação
 1. Volta a [portal do Azure], navegue até à sua aplicação. Clique em **definições** > **autenticação / autorização**e certifique-se de que **autenticação do serviço de aplicações** é **no**.
 2. Clique em **Facebook**, cole os valores de ID de aplicação e o segredo de aplicação que obteve anteriormente, opcionalmente ativar qualquer âmbitos necessários para a sua aplicação, em seguida, clique em **OK**.
    
@@ -59,7 +60,7 @@ Para concluir o procedimento deste tópico, tem de ter uma conta do Facebook que
 
 Agora está pronto a utilizar o Facebook para autenticação na sua aplicação.
 
-## <a name="related-content"></a>Relacionados com o conteúdo
+## <a name="related-content"> </a>Conteúdo relacionado
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->

@@ -6,13 +6,13 @@ author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Funcionalidades exclusivas de blobs de página do Azure
 
@@ -21,9 +21,6 @@ Storage do Azure oferece três tipos de armazenamento de BLOBs: Blobs de blocos,
 Os blobs de páginas são uma coleção de páginas de 512 bytes, que fornecem a capacidade de leitura/escrita arbitrários intervalos de bytes. Por conseguinte, os blobs de páginas são ideais para armazenar as estruturas de dados baseada no índice e dispersos como SO e discos de dados para máquinas virtuais e bases de dados. Por exemplo, BD SQL do Azure utiliza os blobs de páginas como o armazenamento persistente subjacente para as suas bases de dados. Além disso, os blobs de páginas também, muitas vezes, são utilizados para os ficheiros com atualizações com base no intervalo.  
 
 As principais funcionalidades de blobs de páginas do Azure são a interface REST, as características de durabilidade do armazenamento subjacente e as capacidades de migração totalmente integrada para o Azure. Estas funcionalidades são abordadas mais detalhadamente na secção seguinte. Além disso, os blobs de páginas do Azure atualmente são suportados em dois tipos de armazenamento: padrão de armazenamento e de armazenamento Premium. Armazenamento Premium foi concebido especificamente para cargas de trabalho que necessitam de elevado desempenho consistente e a latência baixa efetuar blobs de páginas de premium ideal para bases de dados de armazenamento de dados de performant elevada.  Armazenamento Standard é mais económico para executar cargas de trabalho insensível à latência.
-
-> [!WARNING]
-> Os blobs de páginas no armazenamento Premium foram concebidos para utilização como VHDs apenas. A Microsoft não recomenda armazenar outros tipos de dados em blobs de páginas no armazenamento Premium, como o custo poderá ser significativamente maior. Utilize blobs de blocos para armazenar dados que não está a ser um VHD.
 
 ## <a name="sample-use-cases"></a>Casos de utilização de exemplo
 

@@ -1,58 +1,67 @@
 ---
-title: Executar as funções do Azure a partir de tarefas do Azure Stream Analytics
-description: Este artigo descreve como configurar as funções do Azure como um sink de saída das tarefas do Stream Analytics, para cargas de trabalho de evento unidade.
+title: 'Tutorial: Executar as Funções do Azure com tarefas do Azure Stream Analytics | Microsoft Docs'
+description: Neste tutorial, irá aprender a configurar Funções do Azure como um sink de saída para tarefas do Stream Analytics.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
-ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/19/2017
-ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.workload: data-services
+ms.date: 04/09/2018
+ms.author: jasonh
+ms.reviewer: jasonh
+ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar as funções do Azure a partir de tarefas do Azure Stream Analytics 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar Funções do Azure a partir de tarefas do Azure Stream Analytics 
 
-Pode executar as funções do Azure a partir do Azure Stream Analytics através da configuração de funções como um dos sinks de saída para a tarefa de Stream Analytics. As funções são uma experiência de cálculo a pedido condicionada por eventos que lhe permite implementar o código que é acionado pelos eventos que ocorrem no Azure ou serviços de terceiros. Esta capacidade de funções para responder a acionadores torna uma saída natural para tarefas do Stream Analytics.
+Pode executar Funções do Azure a partir do Azure Stream Analytics ao configurar as Funções como um dos sinks de saída para a tarefa do Stream Analytics. As Funções são uma experiência de cálculo a pedido orientada por eventos que lhe permite implementar o código que é acionado pelos eventos que ocorrem no Azure ou em serviços de terceiros. Esta capacidade que as Funções têm de responder a acionadores torna-as numa saída natural para as tarefas do Stream Analytics.
 
-Do Stream Analytics invoca funções através de acionadores HTTP. O adaptador de saída de funções permite aos utilizadores ligar funções Stream Analytics, para que os eventos podem ser acionados baseada em consultas do Stream Analytics. 
+O Stream Analytics invoca Funções através de acionadores HTTP. O adaptador de saída das Funções permite aos utilizadores ligarem Funções ao Stream Analytics, para que os eventos possam ser acionados com base em consultas do Stream Analytics. 
 
-Este tutorial demonstra como ligar o Stream Analytics para [a Cache de Redis do Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md), utilizando [das funções do Azure](../azure-functions/functions-overview.md). 
+Neste tutorial, ficará a saber como:
 
-## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurar uma tarefa de Stream Analytics para executar uma função 
+> [!div class="checklist"]
+> * Criar uma tarefa do Stream Analytics
+> * Criar uma função do Azure
+> * Configurar a função do Azure como saída para a sua tarefa
 
-Esta secção demonstra como configurar uma tarefa de Stream Analytics para executar uma função que escreve dados para a Cache de Redis do Azure. A tarefa de Stream Analytics lê eventos a partir do Event Hubs do Azure e executa uma consulta que invoca a função. Esta função lê os dados da tarefa do Stream Analytics e escreve-o para a Cache de Redis do Azure.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-![Diagrama que mostra as relações entre os serviços do Azure](./media/stream-analytics-with-azure-functions/image1.png)
+## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurar uma tarefa do Stream Analytics para executar uma função 
 
-Os seguintes passos são necessários para realizar esta tarefa:
-* [Criar uma tarefa de Stream Analytics com os Event Hubs como entrada](#create-stream-analytics-job-with-event-hub-as-input)  
+Esta secção demonstra como configurar uma tarefa do Stream Analytics para executar uma função que escreve dados para a Cache de Redis do Azure. A tarefa do Stream Analytics lê eventos a partir dos Hubs de Eventos do Azure e executa uma consulta que invoca a função. Esta função lê os dados da tarefa do Stream Analytics e escreve-os na Cache de Redis do Azure.
+
+![O diagrama mostra as relações entre os serviços do Azure](./media/stream-analytics-with-azure-functions/image1.png)
+
+Os seguintes passos são precisos para realizar esta tarefa:
+* [Criar uma tarefa do Stream Analytics com os Hubs de Eventos como entrada](#create-stream-analytics-job-with-event-hub-as-input)  
 * [Criar uma instância da Cache de Redis do Azure](#create-an-azure-redis-cache)  
-* [Criar uma função em funções do Azure que pode escrever dados para a Cache de Redis do Azure](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Atualizar a tarefa de Stream Analytics com a função como saída](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Verifique a Cache de Redis do Azure para obter os resultados](#check-redis-cache-for-results)  
+* [Criar uma função nas Funções do Azure que pode escrever dados na Cache de Redis do Azure](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
+* [Atualizar a tarefa do Stream Analytics com a função como saída](#update-the-stream-analytic-job-with-azure-function-as-output)  
+* [Verifique a Cache de Redis do Azure para obter resultados](#check-redis-cache-for-results)  
 
-## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Criar uma tarefa de Stream Analytics com os Event Hubs como entrada
+## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Criar uma tarefa do Stream Analytics com os Hubs de Eventos como entrada
 
-Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-detection.md) tutorial para criar um hub de eventos, iniciar a aplicação do gerador de eventos e criar uma tarefa de Stream Analytics. (Ignore os passos para criar a consulta e de saída. Em vez disso, consulte as secções seguintes para configurar a saída de funções.)
+Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-fraud-detection.md) para criar um hub de eventos, inicie a aplicação do gerador de eventos e crie uma tarefa do Stream Analytics. (Ignore os passos para criar a consulta e a saída. Em vez disso, veja as secções seguintes para configurar a saída de Funções.)
 
 ## <a name="create-an-azure-redis-cache-instance"></a>Criar uma instância da Cache de Redis do Azure
 
-1. Criar uma cache na Cache de Redis do Azure, utilizando os passos descritos no [criar uma cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+1. Criar uma cache na Cache de Redis do Azure através dos passos descritos em [Criar uma cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Depois de criar a cache em **definições**, selecione **chaves de acesso**. Anote o **cadeia de ligação principal**.
+2. Depois de criar a cache em **Definições**, selecione **Chaves de Acesso**. Anote a **Cadeia de ligação primária**.
 
-   ![Cadeia de ligação de captura de ecrã da Cache de Redis Azure](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Captura de ecrã da cadeia de ligação da Cache de Redis do Azure](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Criar uma função em funções do Azure que pode escrever dados para a Cache de Redis do Azure
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Criar uma função nas Funções do Azure que pode escrever dados na Cache de Redis do Azure
 
-1. Consulte o [criar uma aplicação de função](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) secção da documentação de funções. Isto explica-lhe como criar uma aplicação de função e um [função de acionada por HTTP de mensagens em fila nas funções do Azure](../azure-functions/functions-create-first-azure-function.md#create-function), utilizando a linguagem de CSharp.  
+1. Veja a secção [Criar uma aplicação de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) na documentação das Funções. Esta secção explica-lhe como criar uma aplicação de funções e uma [função acionada por HTTP nas Funções do Azure](../azure-functions/functions-create-first-azure-function.md#create-function), através da linguagem de CSharp.  
 
-2. Navegue para o **run.csx** função. A atualização com o seguinte código. (Certifique-se de que substitui "\<a cadeia de ligação da cache de redis aqui\>" com a cadeia de ligação principal de Cache de Redis do Azure que obteve na secção anterior.)  
+2. Navegue para a função **run.csx**. Atualize-a com o seguinte código. (Certifique-se de que substitui "\<a sua cadeia de ligação da cache de redis aqui\>" pela cadeia de ligação principal de Cache de Redis do Azure que obteve na secção anterior.)  
 
    ```csharp
    using System;
@@ -103,7 +112,7 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
 
    ```
 
-   Quando o Stream Analytics recebe a exceção "HTTP do pedido entidade demasiado grande" da função, reduz o tamanho de lotes envia para funções. Na sua função, utilize o seguinte código para verificar que o do Stream Analytics não enviar os lotes de grande dimensão. Certifique-se de que os valores de contagem e tamanho de lote máximo utilizados na função são consistentes com os valores que introduziu no portal do Stream Analytics.
+   Quando o Stream Analytics recebe a exceção "Entidade do Pedido HTTP Demasiado Grande" da função, reduz o tamanho dos lotes que envia para as Funções. Na sua função, utilize o seguinte código para verificar que o Stream Analytics não envia lotes demasiado grandes. Certifique-se de que os valores de contagem e tamanho de lote máximo utilizados na função são consistentes com os valores introduzidos no portal do Stream Analytics.
 
    ```csharp
    if (dataArray.ToString().Length > 262144)
@@ -112,7 +121,7 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
       }
    ```
 
-3. No editor de texto à sua escolha, crie um ficheiro JSON com o nome **project.json**. Utilize o seguinte código e guardá-lo no seu computador local. Este ficheiro contém as dependências de pacote NuGet necessárias para a função de c#.  
+3. Num editor de texto à sua escolha, crie um ficheiro JSON designado **project.json**. Utilize o seguinte código e guarde-o no seu computador local. Este ficheiro contém as dependências do pacote NuGet precisas para a função de C#.  
    
    ```json
        {
@@ -128,35 +137,35 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
 
    ```
  
-4. Volte ao portal do Azure. Do **funcionalidades da plataforma** separador, navegue até à sua função. Em **ferramentas de desenvolvimento**, selecione **Editor do serviço de aplicações**. 
+4. Regresse ao portal do Azure. A partir do separador **Funcionalidades da plataforma**, navegue até à sua função. Em **Ferramentas de Desenvolvimento**, selecione **Editor do Serviço de Aplicações**. 
  
-   ![Captura de ecrã do Editor de serviço de aplicações](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Captura de ecrã do Editor do Serviço de Aplicações](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. No Editor de serviço de aplicações, clique no seu diretório de raiz e carregar o **project.json** ficheiro. Depois do carregamento for bem-sucedido, atualize a página. Deverá ver um ficheiro gerado automaticamente com o nome **project.lock.json**. O ficheiro gerado automaticamente contém referências aos ficheiros. dll que são especificados no ficheiro project.json.  
+5. No Editor do Serviço de Aplicações, clique com o botão direito do rato no seu diretório de raiz e carregue o ficheiro **project.json**. Depois de o carregamento ser bem-sucedido, atualize a página. Deverá ver um ficheiro gerado automaticamente com o nome **project.lock.json**. O ficheiro gerado automaticamente contém referências aos ficheiros .dll que são especificados no ficheiro project.json.  
 
-   ![Captura de ecrã do Editor de serviço de aplicações](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Captura de ecrã do Editor do Serviço de Aplicações](./media/stream-analytics-with-azure-functions/image4.png)
 
  
 
-## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Atualizar a tarefa de Stream Analytics com a função como saída
+## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Atualizar a tarefa do Stream Analytics com a função como saída
 
 1. Abra a sua tarefa do Stream Analytics no portal do Azure.  
 
-2. Navegue para a sua função e selecione **descrição geral** > **saídas** > **adicionar**. Para adicionar uma nova saída, selecione **função do Azure** para a opção de sink. O novo adaptador de saída de funções está disponível, com as seguintes propriedades:  
+2. Navegue para a sua função e selecione **Descrição Geral** > **Saídas** > **Adicionar**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O novo adaptador de saída das Funções está disponível com as seguintes propriedades:  
 
    |**Nome da propriedade**|**Descrição**|
    |---|---|
-   |Alias de saída| Um nome amigável de utilizador que utilizar na consulta da tarefa para a referência de saída. |
-   |Importar opção| Pode utilizar a função da subscrição atual, ou forneça as definições manualmente se a função estiver localizada na outra subscrição. |
-   |Aplicação de Funções| Nome da sua aplicação de funções. |
-   |Função| Nome da função na sua aplicação de funções (nome da sua função run.csx).|
-   |Tamanho de lote máximo|Define o tamanho máximo para cada lote de saída, que é enviado para a sua função. Por predefinição, este valor é definido como 256 KB.|
-   |Contagem máxima de Batch|Especifica o número máximo de eventos em cada lote que é enviado para a função. O valor predefinido é 100. Esta propriedade é opcional.|
-   |Chave|Permite-lhe utilizar uma função a partir de outra subscrição. Forneça o valor da chave para aceder à sua função. Esta propriedade é opcional.|
+   |Alias de saída| Um nome de utilizador amigável que utiliza na consulta da tarefa para a referência de saída. |
+   |Opção de Importar| Pode utilizar a função da subscrição atual ou fornecer as definições manualmente se a função estiver localizada noutra subscrição. |
+   |Aplicação de Funções| Nome da sua aplicação de Funções. |
+   |Função| Nome da função na sua Aplicação de funções (nome da sua função run.csx).|
+   |Tamanho Máx. de Lote|Define o tamanho máximo para cada lote de saída que é enviado para a sua função. Por predefinição, este valor está definido como 256 KB.|
+   |Contagem Máx. de Lotes|Especifica o número máximo de eventos em cada lote que é enviado para a função. O valor predefinido é 100. Esta propriedade é opcional.|
+   |Chave|Permite-lhe utilizar uma função a partir de outra subscrição. Indique o valor da chave para aceder à sua função. Esta propriedade é opcional.|
 
-3. Forneça um nome para o alias de saída. Neste tutorial, iremos nome **saop1** (pode utilizar qualquer nome à sua escolha). Preencha outros detalhes.  
+3. Indique um nome para o alias de saída. Neste tutorial, designamos de **saop1** (pode utilizar qualquer nome à sua escolha). Preencha outros detalhes.  
 
-4. Abra a sua tarefa do Stream Analytics e atualizar a consulta para o seguinte. (Certifique-se de que substitui o texto "saop1" se tem de chamar o sink de saída diferente.)  
+4. Abra a sua tarefa do Stream Analytics e atualize a consulta para o seguinte. (Certifique-se de que substitui o texto "saop1" se tiver dado outra designação ao sink de saída.)  
 
    ```sql
     SELECT 
@@ -169,25 +178,38 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Iniciar a aplicação de telcodatagen.exe executando o seguinte comando na linha de comandos (utilize o formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
+5. Inicie a aplicação telcodatagen.exe ao executar o seguinte comando na linha de comandos (utilize o formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
    **telcodatagen.exe 1000 .2 2**
     
-6.  Inicie a tarefa de Stream Analytics.
+6.  Inicie a tarefa do Stream Analytics.
 
-## <a name="check-azure-redis-cache-for-results"></a>Verifique a Cache de Redis do Azure para obter os resultados
+## <a name="check-azure-redis-cache-for-results"></a>Verifique a Cache de Redis do Azure para obter resultados
 
-1. Navegue até ao portal do Azure e localizar a Cache de Redis do Azure. Selecione **consola**.  
+1. Navegue até ao portal do Azure e encontre a Cache de Redis do Azure. Selecione **Consola**.  
 
-2. Utilize [comandos de cache de Redis](https://redis.io/commands) para se certificar de que os dados na cache de Redis. (O comando assume o formato Get {chave}.) Por exemplo:
+2. Utilize os [Comandos da cache de Redis](https://redis.io/commands) para se certificar de que os seus dados estão na cache de Redis. (O comando assume o formato Get {key}.) Por exemplo:
 
-   **Obter "19/12/2017 21:32:24-123414732"**
+   **Get "12/19/2017 21:32:24 - 123414732"**
 
-   Este comando deve imprimir o valor para o nome da chave:
+   Este comando deve imprimir o valor para a chave especificada:
 
-   ![Captura de ecrã do Azure Redis Cache de saída](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Captura de ecrã da saída da Cache de Redis do Azure](./media/stream-analytics-with-azure-functions/image5.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-No portal do Azure, quando tenta repor o tamanho de lote máximo / valor de contagem máxima de Batch para vazio (predefinição), o valor de volta a mudar para o valor introduzido anteriormente após guardar. Introduza manualmente os valores predefinidos para estes campos neste caso.
+No portal do Azure, quando tenta repor o Tamanho Máx. de Lote/Contagem Máx. de Lotes para vazio (predefinição), o valor regressa ao valor introduzido anteriormente após guardar. Introduza manualmente os valores predefinidos para estes campos neste caso.
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
+
+1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou.  
+2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Neste tutorial, irá criar uma tarefa do Stream Analytics simples que executa uma Função do Azure, para obter mais informações sobre tarefas do Stream Analytics, avance para o próximo tutorial:
+
+> [!div class="nextstepaction"]
+> [Executar funções definidas pelo utilizador do JavaScript nas tarefas do Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

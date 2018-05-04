@@ -5,7 +5,7 @@ services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de clientes do Apache Cordova para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -105,7 +105,7 @@ Siga estas instruções para adicionar as suas definições locais para a config
              "https://localhost:3000"
          ],
 
-    Substitua os URLs com os URLs do seu serviço.  Os exemplos incluem "http://localhost:3000" (para o serviço de exemplo de Node.js) ou "http://localhost:4400" (para o serviço de Ripple).  No entanto, estes URLs são exemplos - sua situação, incluindo para os serviços mencionados nos exemplos, poderão ser diferentes.
+    Substitua os URLs com os URLs do seu serviço.  Os exemplos incluem "http://localhost:3000" (para o serviço de amostra Node.js), ou "http://localhost:4400" (para o serviço de Ripple).  No entanto, estes URLs são exemplos - sua situação, incluindo para os serviços mencionados nos exemplos, poderão ser diferentes.
 8. Clique em de **leitura/escrita** botão no canto superior direito do ecrã.
 9. Clique na verde **colocar** botão.
 
@@ -118,7 +118,7 @@ Adicione também estes URLs de loopback para as definições CORS para o serviç
 4. Clique em **CORS** sob o menu de API.
 5. Introduza o URL que pretende adicionar na caixa fornecida e prima Enter.
 6. Introdução de URLs adicionais conforme necessário.
-7. Clique em **guardar** para guardar as definições.
+7. Clique em **Guardar** para guardar as definições.
 
 Demora, aproximadamente, 10 a 15 segundos para as novas definições surtam efeito.
 
@@ -180,4 +180,4 @@ Pode encontrar detalhes de API de detalhado no nosso [documentação da API](htt
 [phonegap-Plug-in-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [dispositivo de plug-in cordova]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-Plug-in-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

@@ -6,7 +6,7 @@
 ## [Ativar a segurança operacional](../azure-operational-security.md)
 ## [Governação no Azure](../governance-in-azure.md)
 ## [Isolamento na cloud do Azure](../azure-isolation.md)
-## [Arquitetura de rede híbrida segura](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Arquitetura de rede híbrida segura](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Capacidades técnicas de segurança](../azure-security-technical-capabilities.md)
 
 # [Segurança e encriptação de dados](../security-azure-encryption-overview.md)
@@ -111,7 +111,7 @@
 ### [Requisito 12 - política](pci-dss-requirement-12-policy.md)
 ## [UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ### [Descrição geral de princípios](uk-official-three-tier-applications-principles-overview.md)
-## [Dados de estado de funcionamento de HIPAA/HITRUST e AI](azure-health.md)
+## [Dados de estado de funcionamento HIPAA/HITRUST e AI](azure-health.md)
 
 # [Documentos técnicos](../security-white-papers.md)
 # [Descrições gerais técnicas](../security-overviews.md)

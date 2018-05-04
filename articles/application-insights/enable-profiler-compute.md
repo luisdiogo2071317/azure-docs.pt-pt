@@ -1,8 +1,8 @@
 ---
-title: "Ativar o gerador de perfis do Application Insights para aplicações alojadas nos recursos de Cloud Services do Azure | Microsoft Docs"
-description: "Saiba como configurar o gerador de perfis do Application Insights numa aplicação em execução nos serviços de nuvem do Azure."
+title: Ativar o gerador de perfis do Application Insights para aplicações alojadas nos recursos de Cloud Services do Azure | Microsoft Docs
+description: Saiba como configurar o gerador de perfis do Application Insights numa aplicação em execução nos serviços de nuvem do Azure.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ef6d8cb47971b1cf261edceb13485b940eff3d13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Ativar o gerador de perfis do Application Insights para as VMs do Azure, recursos de infraestrutura de serviço e serviços em nuvem do Azure
 
@@ -40,7 +40,7 @@ Para ativar completamente o gerador de perfis, tem de alterar a configuração e
 
 ## <a name="set-up-the-application-insights-instance"></a>Configurar a instância do Application Insights
 
-1. [Criar um novo recurso do Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource), ou selecione um existente. 
+1. [Criar um novo recurso do Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), ou selecione um existente. 
 
 2. Vá para o recurso do Application Insights e, em seguida, copie a chave de instrumentação.
 

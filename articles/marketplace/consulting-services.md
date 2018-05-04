@@ -14,18 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 918af6da62e0e3a1409528691bdd460b2ad61a3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Serviços de consultoria do Azure Marketplace
 Consultar os serviços no Azure Marketplace disponibiliza a parceiros da Microsoft o objetivo da ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure. O Azure Marketplace suporta a listagem das ofertas de serviço consultadoria de parceiros de integrador de sistema (TAMA) da Microsoft. 
 
 Estas ofertas de serviços consultadoria são específicas do cliente ações de envolvimento. Que está a ser corrigidos no âmbito e na duração, pode ser preço fixo ou livre e ter um resultado definido. Potenciais clientes, podem facilmente pedir para ser contactado pelo parceiros. Parceiros de recebem uma notificação no seu sistema CRM e têm como objetivo responder a pedidos de dentro de 48 horas.
 
-Os storefronts marketplace consultadoria serviços no storefront do Azure Marketplace vs AppSource estão alinhados com audiências e produtos em nuvem da Microsoft para ajudar os clientes localizar que precisam. Cada storefront oferece opções de publicação especializadas para o ajudar a maximizar o investimento de publicação. A tabela seguinte resume estas opções:
+## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Serviços de consultoria no Azure Marketplace vs AppSource Storefront
+Os storefronts marketplace estão alinhados com audiências e produtos em nuvem da Microsoft para ajudar os clientes localizar que precisam. Cada storefront oferece opções de publicação especializadas para o ajudar a maximizar o investimento de publicação. A tabela seguinte resume estas opções:
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|

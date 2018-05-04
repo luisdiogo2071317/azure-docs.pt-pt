@@ -1,6 +1,6 @@
 ---
-title: "Suportado destinos de dados e saídas disponíveis com a preparação de dados do Azure Machine Learning | Microsoft Docs"
-description: "Este documento fornece uma lista completa de destinos suportados e produz disponível para a preparação de dados do Azure Machine Learning"
+title: Suportado destinos de dados e saídas disponíveis com a preparação de dados do Azure Machine Learning | Microsoft Docs
+description: Este documento fornece uma lista completa de destinos suportados e produz disponível para a preparação de dados do Azure Machine Learning
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Suportado exportações de dados para esta pré-visualização 
 É possível exportar para vários formatos diferentes. Pode utilizar estes formatos de manter os resultados intermédios de preparação de dados antes dos resultados integra o resto do fluxo de trabalho do Machine Learning.

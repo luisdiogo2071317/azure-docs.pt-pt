@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos
+# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
 ## <a name="overview"></a>Descrição geral
 
@@ -32,9 +32,9 @@ Cada um destes cenários de acesso a dados beneficia de uma camada de armazename
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que suportam camadas
 
-Só pode incluir os seus dados de armazenamento de objetos à camada frequente, esporádica ou de arquivos em contas de Armazenamento de Blobs ou de Fins Gerais v2 (GPv2). As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de Armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. GPv2 proporciona uma nova estrutura de preço para blobs, ficheiros e filas, bem como acesso a uma variedade de outras funcionalidades de armazenamento novas. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Por este motivo, os clientes devem considerar a utilização destas contas, mas utilizá-las apenas depois de analisarem os preços de todos os serviços, pois algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Para saber mais, veja [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Opções de contas de armazenamento do Azure).
+Só pode incluir os seus dados de armazenamento de objetos à camada frequente, esporádica ou de arquivos em contas de armazenamento de Blobs ou de Fins Gerais v2 (GPv2). As contas de Fins Gerais (GPv1) não suportam as camadas. No entanto, os clientes podem converter facilmente as respetivas contas GPv1 ou de armazenamento de Blobs existentes em contas GPv2 através de um processo de um só clique no portal do Azure. GPv2 proporciona uma nova estrutura de preço para blobs, ficheiros e filas, bem como acesso a uma variedade de outras funcionalidades de armazenamento novas. Além disso, no futuro, algumas funcionalidades e reduções de preços só estarão disponíveis nas contas GPv2. Por este motivo, os clientes devem considerar a utilização destas contas, mas utilizá-las apenas depois de analisarem os preços de todos os serviços, pois algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Para saber mais, veja [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Opções de contas de armazenamento do Azure).
 
-As contas GPv2 e de Armazenamento de Blobs expõem o atributo **Access Tier** (Camada de Acesso) ao nível da conta, que lhe permite especificar a camada de armazenamento predefinida como frequente ou esporádica para qualquer blob na conta de armazenamento que não tenha a camada definida ao nível do objeto. Relativamente aos objetos cuja camada está definida ao nível do objeto, a camada da conta não se aplicará. A camada de arquivo só pode ser aplicada ao nível do blob. Pode alternar entre estas camadas de armazenamento em qualquer altura.
+As contas GPv2 e de armazenamento de Blobs expõem o atributo **Access Tier** (Camada de Acesso) ao nível da conta, que lhe permite especificar a camada de armazenamento predefinida como frequente ou esporádica para qualquer blob na conta de armazenamento que não tenha a camada definida ao nível do objeto. Relativamente aos objetos cuja camada está definida ao nível do objeto, a camada da conta não se aplicará. A camada de arquivo só pode ser aplicada ao nível do blob. Pode alternar entre estas camadas de armazenamento em qualquer altura.
 
 ## <a name="hot-access-tier"></a>Escalão de acesso frequente
 
@@ -81,7 +81,7 @@ Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob
 
 Quando um blob é movido para uma camada mais esporádica (frequente->esporádica, frequente->arquivos ou esporádica->arquivos), a operação é faturada como uma operação de escrita da camada de destino na qual a operação de escrita (por 10 000) e os encargos de escrita de dados (por GB) da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (arquivo->esporádica, arquivo->frequente ou esporádica->frequente), a operação é faturada como uma leitura da camada de origem onde a operação de leitura (por 10 000) e os encargos de obtenção de dados (por GB) da camada de origem são aplicáveis.
 
-Se mudar a camada da conta de frequente para esporádica, são-lhe cobradas operações de escrita (por 10 000) para todos os blobs que não tenham uma camada definida em contas GPv2 apenas. Estas cobranças não acontecem nas contas de Armazenamento de Blobs. Se mudar a conta GPv2 ou de Armazenamento de Blobs de esporádica para frequente, são-lhe cobradas as operações de escrita (por 10 000) e obtenção de dados (por GB). Podem também aplicar-se cobranças com deteções precoces para qualquer blob que seja retirado da camada esporádica ou de arquivo.
+Se mudar a camada da conta de frequente para esporádica, são-lhe cobradas operações de escrita (por 10 000) para todos os blobs que não tenham uma camada definida em contas GPv2 apenas. Estas cobranças não acontecem nas contas de armazenamento de Blobs. Se mudar a conta GPv2 ou de armazenamento de Blobs de esporádica para frequente, são-lhe cobradas as operações de escrita (por 10 000) e obtenção de dados (por GB). Podem também aplicar-se cobranças com deteções precoces para qualquer blob que seja retirado da camada esporádica ou de arquivo.
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminação precoce de blobs de acesso esporádico e de arquivo
 
@@ -102,14 +102,14 @@ A tabela seguinte mostra uma comparação das camadas de armazenamento frequente
 | **Metas de escalabilidade e desempenho** | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais |
 
 > [!NOTE]
-> As contas do Armazenamento de Blobs suportam as mesmas metas de desempenho e escalabilidade que as contas do Storage para fins gerais. Consulte [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações.
+> As contas do Blob Storage suportam as mesmas metas de desempenho e escalabilidade que as contas do Storage para fins gerais. Consulte [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações.
 
 ## <a name="quickstart-scenarios"></a>Cenários de início rápido
 
 Nesta secção, são demonstrados os seguintes cenários através do portal do Azure:
 
-* Como alterar a camada de acesso predefinida de uma conta de Armazenamento de Blobs ou GPv2.
-* Como alterar a camada de um blob numa conta de Armazenamento de Blobs ou GPv2.
+* Como alterar a camada de acesso predefinida de uma conta de armazenamento de Blobs ou GPv2.
+* Como alterar a camada de um blob numa conta de armazenamento de Blobs ou GPv2.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso predefinida de uma conta GPv2 ou de Armazenamento de Blobs
 
@@ -123,7 +123,7 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 5. Clique em Guardar na parte superior do painel.
 
-### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob numa conta GPv2 ou de Armazenamento de Blobs.
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Altere a camada de um blob numa conta GPv2 ou de armazenamento de Blobs.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -135,11 +135,11 @@ Nesta secção, são demonstrados os seguintes cenários através do portal do A
 
 ## <a name="faq"></a>FAQ
 
-**Posso utilizar contas de Armazenamento de Blobs ou GPv2 se quiser adicionar os meus dados a uma camada?**
+**Posso utilizar contas de armazenamento de Blobs ou GPv2 se quiser adicionar os meus dados a uma camada?**
 
-Para adicionar a camadas, recomendamos que utilize uma conta GPv2 em vez de uma conta de Armazenamento de Blobs. As contas GPv2 suportam todas as funcionalidades que as contas de Armazenamento de Blobs suportam e muitas mais. Os preços entre ambas são quase idênticos, mas algumas funcionalidades e reduções de preços só estarão disponíveis nas GPv2. As contas GPv1 não suportam as camadas.
+Para adicionar a camadas, recomendamos que utilize uma conta GPv2 em vez de uma conta de armazenamento de Blobs. As contas GPv2 suportam todas as funcionalidades que as contas de armazenamento de Blobs suportam e muitas mais. Os preços entre ambas são quase idênticos, mas algumas funcionalidades e reduções de preços só estarão disponíveis nas GPv2. As contas GPv1 não suportam as camadas.
 
-A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes devem analisá-las cuidadosamente antes de optarem pelas GPv2. Pode converter facilmente uma conta de Armazenamento de Blobs ou GPv1 existente em GPv2 através de um processo de um só clique simples. Para saber mais, veja [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Opções de contas de armazenamento do Azure).
+A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes devem analisá-las cuidadosamente antes de optarem pelas GPv2. Pode converter facilmente uma conta de armazenamento de Blobs ou GPv1 existente em GPv2 através de um processo de um só clique simples. Para saber mais, veja [Azure storage account options](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Opções de contas de armazenamento do Azure).
 
 **Posso armazenar objetos nas três camadas de armazenamento (frequente, esporádica e de arquivo) na mesma conta?**
 
@@ -147,7 +147,7 @@ Sim. O atributo **Access Tier** definido ao nível de uma conta é a camada pred
 
 **Posso alterar a camada de armazenamento da minha conta de Armazenamento de Blobs ou GPv2?**
 
-Sim, pode definir o atributo **Access Tier** na conta de armazenamento para alterar a camada de armazenamento predefinida. A alteração da camada de armazenamento aplica-se a todos os objetos armazenados na conta que não têm uma camada explícita definida. A alteração da camada de armazenamento de frequente para esporádica implica operações de escrita (por 10 000) para todos os blobs sem uma camada definida apenas em contas GPv2 e a alteração de esporádica para frequente implica custos de operações de leitura (por 10 000) e obtenção de dados (por GB) para todos os blobs em contas de Armazenamento de Blobs e GPv2.
+Sim, pode definir o atributo **Access Tier** na conta de armazenamento para alterar a camada de armazenamento predefinida. A alteração da camada de armazenamento aplica-se a todos os objetos armazenados na conta que não têm uma camada explícita definida. A alteração da camada de armazenamento de frequente para esporádica implica operações de escrita (por 10 000) para todos os blobs sem uma camada definida apenas em contas GPv2 e a alteração de esporádica para frequente implica custos de operações de leitura (por 10 000) e obtenção de dados (por GB) para todos os blobs em contas de armazenamento de Blobs e GPv2.
 
 **Posso definir a camada de acesso de conta predefinida como arquivo?**
 
@@ -159,7 +159,7 @@ As camadas de armazenamento frequente e esporádico, juntamente com a atribuiç�
 
 **O comportamento dos blobs na camada de armazenamento esporádico é diferente dos blobs na camada de armazenamento frequente?**
 
-Os blobs na camada de armazenamento frequente têm a mesma latência dos blobs nas contas de Armazenamento de Blobs, GPv1 e GPv2. Os blobs na camada de armazenamento esporádico têm uma latência semelhante (em milissegundos) aos blobs nas contas de Armazenamento de Blobs, GPv1 e GPv2. Os blobs na camada de armazenamento de arquivo têm várias horas latência nas contas de Armazenamento de Blobs, GPv1 e GPv2.
+Os blobs na camada de armazenamento frequente têm a mesma latência dos blobs nas contas de armazenamento de Blobs, GPv1 e GPv2. Os blobs na camada de armazenamento esporádico têm uma latência semelhante (em milissegundos) aos blobs nas contas de armazenamento de Blobs, GPv1 e GPv2. Os blobs na camada de armazenamento de arquivo têm várias horas latência nas contas de armazenamento de Blobs, GPv1 e GPv2.
 
 Os blobs na camada de armazenamento esporádico têm um nível de serviço (SLA) de disponibilidade ligeiramente inferior ao dos blobs armazenados na camada de armazenamento frequente. Para obter mais detalhes, consulte [SLA para o armazenamento](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
 
@@ -189,12 +189,12 @@ O armazenamento de dados, juntamente com outros limites, é definido ao nível d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Avaliar as camadas frequente, esporádica e de arquivo nas contas GPv2 e de Armazenamento de Blobs
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Avaliar as camadas frequente, esporádica e de arquivo nas contas GPv2 e de armazenamento de Blobs
 
 [Verificar a disponibilidade das camadas frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
 
 [Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Verificar os preços das camadas de armazenamento frequente, esporádica e de arquivo nas contas de Armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
+[Verificar os preços das camadas de armazenamento frequente, esporádica e de arquivo nas contas de armazenamento de Blobs e GPv2 por região](https://azure.microsoft.com/pricing/details/storage/)
 
 [Verificar os preços das transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)

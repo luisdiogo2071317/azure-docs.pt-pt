@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/27/2018
+ms.date: 04/27/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e68e87bb19b8c64cf06c03831b22cf43d773efde
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
 
@@ -26,12 +26,13 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | Acionadores dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Serviços ligados dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Tempos de execução de integração dentro de uma fábrica de dados <sup>4</sup> | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Núcleos de CPU totais para o Azure SSIS integração Runtime(s) sob uma subscrição | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Pipeline em simultâneo é executada por pipeline | 20 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Atividades de máx. por pipeline | 20 | 30 |
 | Parâmetros de máx. por pipeline | 20 | 30 |
 | Bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> | 100 KB | 2000 KB |
-| Unidades de movimento de dados de nuvem <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de movimento de dados por execução da atividade de nuvem <sup>3</sup> | 256 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Repetir contagem pipeline para execuções de atividade | 1 day(timeout) | 1 dia (tempo limite) |
 | Escrever chamadas de API | 2500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chamadas da API de leitura | 12,500/hr<br/><br/> Este limite é imposta pelo Azure Resource Manager, não o Azure Data Factory. | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
@@ -48,7 +49,7 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | Bytes por objeto para objetos de pipeline <sup>1</sup> |200 KB |200 KB |
 | Bytes por objeto para o conjunto de dados e objetos do serviço ligado <sup>1</sup> |100 KB |2000 KB |
 | Núcleos a pedido no cluster de HDInsight numa subscrição <sup>2</sup> |60 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Unidades de movimento de dados de nuvem <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Unidades de movimento de dados por execução da atividade de nuvem <sup>3</sup> |32 |[Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Repetir contagem pipeline para execuções de atividade |1000 |MaxInt (32 bits) |
 
 <sup>1</sup> pipeline, conjunto de dados e objetos do serviço ligado de representar um agrupamento lógico da carga de trabalho. Os limites para estes objetos não estão relacionadas com a quantidade de dados, pode mover e processar com o serviço do Azure Data Factory. Fábrica de dados foi concebida para dimensionar para processar petabytes de dados.

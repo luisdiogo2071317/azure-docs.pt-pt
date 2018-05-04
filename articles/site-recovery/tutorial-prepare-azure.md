@@ -1,18 +1,18 @@
 ---
-title: "Criar recursos para utilização com o Azure Site Recovery | Microsoft Docs"
-description: "Aprenda a preparar o Azure para a replicação de máquinas no local com o Azure Site Recovery."
+title: Criar recursos para utilização com o Azure Site Recovery | Microsoft Docs
+description: Aprenda a preparar o Azure para a replicação de máquinas no local com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar os recursos do Azure para a replicação de máquinas no local
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 Este tutorial mostra como preparar os componentes do Azure quando pretende replicar VMs no local (Hyper-V ou VMware) ou servidores físicos Windows/Linux para o Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Certifique-se de que a conta tem permissões de replicação.
-> * Crie uma conta do Storage do Azure.
+> * Certifique-se de que a conta do Azure tem permissões de replicação.
+> * Crie uma conta do Storage do Azure. Os dados replicados são armazenados no mesmo.
+> * Crie um cofre dos Serviços de Recuperação.
 > * Configure uma rede do Azure. Quando as VMs do Azure são criadas após a ativação pós-falha, são associadas a esta rede do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
@@ -39,9 +40,9 @@ Se acabou de criar a conta gratuita do Azure, é o administrador da sua subscri�
 - Criar uma VM na rede virtual selecionada.
 - Escrever na conta de armazenamento selecionada.
 
-A função incorporada Contribuinte de Máquina Virtual tem estas permissões. Também precisa de permissão para gerir as operações do Site Recovery. A função Contribuinte do Site Recovery tem todas as permissões necessárias para gerir as operações do Azure Site Recovery num cofre dos Serviços de Recuperação.
+Para concluir estas tarefas, a conta deve estar atribuída à função incorporada de Contribuidor de Máquina Virtual. Além disso, para gerir as operações do Site Recovery num cofre, a conta deve estar atribuída à função incorporada de Contribuidor do Site Recovery.
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento quando fizer a ativação pós-falha do local para o Azure.
 
@@ -54,7 +55,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 7. Em **Grupo de recursos**, introduza um novo grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Nestes tutoriais, utilize o nome **ContosoRG**.
 8. Em **Localização**, selecione a localização geográfica para a conta de armazenamento. A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação. Nestes tutoriais, utilize a região **Europa Ocidental**.
 
-   ![Criar uma conta do Storage](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Selecione **Criar** para criar a conta de armazenamento.
 

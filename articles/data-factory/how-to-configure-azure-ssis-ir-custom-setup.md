@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 8390284f969fe9375a70801724881db26806a1d8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: af92eec8b6461563a366805d5eb4cbb964b028a5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Configuração personalizada para o tempo de execução de integração do Azure-SSIS
 
@@ -29,13 +29,7 @@ Pode instalar componentes livres ou sem licença e pagos ou licenciados componen
 
 ## <a name="current-limitations"></a>Limitações atuais
 
--   Não é possível diretamente utilizar scripts que chamam xcopy ou robocopy ou ferramentas semelhantes para copiar os ficheiros neste momento. Como solução, crie um `cmd` ficheiro que contém os scripts que chamam ferramentas xcopy ou robocopy (por exemplo, `install.cmd`) e chame este `cmd` em vez disso, o ficheiro. Por exemplo:
-
-    ```
-    start /wait cmd /c "call install.cmd > %CUSTOM\_SETUP\_SCRIPT\_LOG\_DIR%\\install.cmd.log"
-    ```
-
--   Não é possível chamar diretamente `gacutil.exe` para instalar as assemblagens na Cache de assemblagem Global (GAC), neste momento. Como solução, utilize `gacinstall.cmd` (fornecido no contentor de pré-visualização pública).
+-   Se pretender utilizar `gacutil.exe` para instalar as assemblagens na Cache de assemblagem Global (GAC), tem de fornecer como parte da sua configuração personalizada, ou utilizar a cópia fornecida no contentor de pré-visualização pública.
 
 -   Se for necessário associar o IV Azure SSIS com a configuração personalizada a um VNet, VNet de Gestor de recursos de Azure só é suportada. VNet clássica não é suportada.
 
@@ -125,7 +119,7 @@ Para personalizar a sua resposta a incidentes SSIS do Azure, terá dos seguintes
 
     c. Selecione o contentor de pré-visualização pública ligado e faça duplo clique o `CustomSetupScript` pasta. Nesta pasta são os seguintes itens:
 
-       1. A `Sample` pasta, que contém uma configuração personalizada para uma tarefa básica de instalação em cada nó do seu IR. SSIS do Azure A tarefa não produz qualquer efeito mas suspensão por alguns segundos. Também contém a pasta `gacinstall.cmd` para substituir `gacutil.exe`.
+       1. A `Sample` pasta, que contém uma configuração personalizada para uma tarefa básica de instalação em cada nó do seu IR. SSIS do Azure A tarefa não produz qualquer efeito mas suspensão por alguns segundos. A pasta também contém um `gacutil` pasta, que contém `gacutil.exe`.
 
        2. A `UserScenarios` pasta, que contém oito setups personalizados para cenários de utilizador reais.
 
@@ -133,21 +127,23 @@ Para personalizar a sua resposta a incidentes SSIS do Azure, terá dos seguintes
 
     d. Faça duplo clique o `UserScenarios` pasta. Nesta pasta são os seguintes itens:
 
-       1. A `BCP` pasta, que contém uma configuração personalizada para instalar os utilitários da linha de comandos do SQL Server (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu IR. SSIS do Azure
+       1. A `.NET FRAMEWORK 3.5` pasta, que contém uma configuração personalizada para instalar uma versão anterior do .NET Framework que poderão ser necessárias para componentes personalizados em cada nó do seu IR. SSIS do Azure
 
-       2. Um `EXCEL` pasta, que contém uma configuração personalizada para instalar as assemblagens de open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu IR. SSIS do Azure
+       2. A `BCP` pasta, que contém uma configuração personalizada para instalar os utilitários da linha de comandos do SQL Server (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu IR. SSIS do Azure
 
-       3. Um `MSDTC` pasta, que contém uma configuração personalizada para ativar e iniciar o serviço de coordenador de transações distribuídas ' (MSDTC) da Microsoft em cada nó do seu IR. SSIS do Azure
+       3. Um `EXCEL` pasta, que contém uma configuração personalizada para instalar as assemblagens de open source (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu IR. SSIS do Azure
 
-       4. Um `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação automática (`client.rsp`) para instalar o controlador do OCI do Oracle em cada nó do seu Azure SSIS IR Enterprise Edition (pré-visualização privada). Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, origem e destino. Em primeiro lugar, tem de transferir `winx64_12102_client.zip` de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e, em seguida, carregá-la em conjunto com `main.cmd` e `client.rsp` para o contentor. Se utilizar TNS para ligar a Oracle, também terá de transferir `tnsnames.ora`, editá-lo e carregue-o para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
+       4. Um `MSDTC` pasta, que contém uma configuração personalizada para modificar as configurações de rede e segurança para a instância do coordenador de transações distribuídas ' (MSDTC) da Microsoft em cada nó do seu IR. SSIS do Azure.
 
-       5. Um `ORACLE STANDARD` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador de Oracle ODP.NET em cada nó do seu IR. SSIS do Azure Esta configuração permite-lhe utilizar o Gestor de ligações do ADO.NET, origem e destino. Em primeiro lugar, transferir `ODP.NET_Managed_ODAC122cR1.zip` de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregá-la em conjunto com `main.cmd` para o contentor.
+       5. Um `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação automática (`client.rsp`) para instalar o controlador do OCI do Oracle em cada nó do seu Azure SSIS IR Enterprise Edition (pré-visualização privada). Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, origem e destino. Em primeiro lugar, tem de transferir `winx64_12102_client.zip` de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e, em seguida, carregá-la em conjunto com `main.cmd` e `client.rsp` para o contentor. Se utilizar TNS para ligar a Oracle, também terá de transferir `tnsnames.ora`, editá-lo e carregue-o para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
 
-       6. Um `SAP BW` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar a assemblagem de conector SAP .NET (`librfc32.dll`) em cada nó do seu Azure SSIS IR Enterprise Edition (pré-visualização privada). Esta configuração permite-lhe utilizar o Gestor de ligações do SAP BW, origem e destino. Em primeiro lugar, carregar 64 bits ou a versão de 32 bits do `librfc32.dll` da pasta de instalação SAP para o contentor, em conjunto com `main.cmd`. O script, em seguida, copia a assemblagem SAP para o `%windir%\SysWow64` ou `%windir%\System32` pasta durante a configuração.
+       6. Um `ORACLE STANDARD` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador de Oracle ODP.NET em cada nó do seu IR. SSIS do Azure Esta configuração permite-lhe utilizar o Gestor de ligações do ADO.NET, origem e destino. Em primeiro lugar, transferir `ODP.NET_Managed_ODAC122cR1.zip` de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregá-la em conjunto com `main.cmd` para o contentor.
 
-       7. A `STORAGE` pasta, que contém uma configuração personalizada para instalar o Azure PowerShell em cada nó do seu IR. SSIS do Azure Esta configuração permite-lhe implementar e executar SSIS pacotes que são executados [scripts do PowerShell para manipular a sua conta do Storage do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Cópia `main.cmd`, uma amostra `AzurePowerShell.msi` (ou instale a versão mais recente) e `storage.ps1` para o contentor. Utilize PowerShell.dtsx como um modelo para os pacotes. O modelo de pacote combina uma [a tarefa de transferir BLOBs do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), que transfere `storage.ps1` como um script de PowerShell modificável e um [executar tarefa de processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) que executa o script em cada nó.
+       7. Um `SAP BW` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar a assemblagem de conector SAP .NET (`librfc32.dll`) em cada nó do seu Azure SSIS IR Enterprise Edition (pré-visualização privada). Esta configuração permite-lhe utilizar o Gestor de ligações do SAP BW, origem e destino. Em primeiro lugar, carregar 64 bits ou a versão de 32 bits do `librfc32.dll` da pasta de instalação SAP para o contentor, em conjunto com `main.cmd`. O script, em seguida, copia a assemblagem SAP para o `%windir%\SysWow64` ou `%windir%\System32` pasta durante a configuração.
 
-       8. A `TERADATA` pasta, que contém um script de configuração personalizada (`main.cmd)`, o ficheiro associado (`install.cmd`) e os pacotes de instalador (`.msi`). Estes ficheiros instalar Teradata conectores, a API de TPT e o controlador ODBC em cada nó do seu Azure SSIS IR Enterprise Edition (pré-visualização privada). Esta configuração permite-lhe utilizar o Gestor de ligações de Teradata, origem e destino. Em primeiro lugar, transfira o ficheiro Teradata ferramentas e utilitários (TTU) 15.x zip (por exemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) de [Teradata](http://partnerintelligence.teradata.com)e, em seguida, carregue-o em conjunto com o procedimento acima `.cmd` e `.msi` ficheiros para o contentor.
+       8. A `STORAGE` pasta, que contém uma configuração personalizada para instalar o Azure PowerShell em cada nó do seu IR. SSIS do Azure Esta configuração permite-lhe implementar e executar SSIS pacotes que são executados [scripts do PowerShell para manipular a sua conta do Storage do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Cópia `main.cmd`, uma amostra `AzurePowerShell.msi` (ou instale a versão mais recente) e `storage.ps1` para o contentor. Utilize PowerShell.dtsx como um modelo para os pacotes. O modelo de pacote combina uma [a tarefa de transferir BLOBs do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), que transfere `storage.ps1` como um script de PowerShell modificável e um [executar tarefa de processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) que executa o script em cada nó.
+
+       9. A `TERADATA` pasta, que contém um script de configuração personalizada (`main.cmd)`, o ficheiro associado (`install.cmd`) e os pacotes de instalador (`.msi`). Estes ficheiros instalar Teradata conectores, a API de TPT e o controlador ODBC em cada nó do seu Azure SSIS IR Enterprise Edition (pré-visualização privada). Esta configuração permite-lhe utilizar o Gestor de ligações de Teradata, origem e destino. Em primeiro lugar, transfira o ficheiro Teradata ferramentas e utilitários (TTU) 15.x zip (por exemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) de [Teradata](http://partnerintelligence.teradata.com)e, em seguida, carregue-o em conjunto com o procedimento acima `.cmd` e `.msi` ficheiros para o contentor.
 
     ![Pastas na pasta de cenários de utilizador](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

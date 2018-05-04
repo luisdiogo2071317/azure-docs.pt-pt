@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3473cb5260773fda0534c4f0aca1db731cce74eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="templates-for-azure-policy"></a>Modelos de política do Azure
 
@@ -79,6 +79,9 @@ A tabela seguinte inclui ligações para modelos json para a política do Azure.
 | [Tipos de recursos permitidos](scripts/allowed-res-types.md) | Garante que apenas os tipos de recursos aprovados são implementados. Especifique uma matriz de tipos de recursos que são permitidos.  |
 | [Permitido SKUs de conta de armazenamento](scripts/allowed-stor-acct-skus.md) | Requer que as contas do storage um SKU aprovado. Especifique uma matriz de SKUs aprovados. |
 | [Aplicar a etiqueta e o respetivo valor predefinido](scripts/apply-tag-def-val.md) | Acrescenta um nome de etiqueta especificado e valor, se essa tag não for fornecido. Especifique o nome de etiqueta e o valor a aplicar.  |
+| [Auditoria de encriptação de base de dados SQL](scripts/sql-database-encryption-audit.md) | Auditorias se a base de dados SQL não tiver a encriptação transparente de dados ativada. |
+| [Definições de auditoria do SQL Server de auditoria](scripts/sql-server-audit.md) | As auditorias de SQL server com base em se as definições de auditoria estão ativadas. |
+| [Impor a encriptação de Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nega as contas de Data Lake Store não tem a encriptação ativada. |
 | [Impor a etiqueta e o respetivo valor](scripts/enforce-tag-val.md) | Requer um nome de etiqueta especificada e o valor. Especifique o nome de etiqueta e o valor para impor.  |
 | [Não é permitida tipos de recursos](scripts/not-allowed-res-type.md) | Proíbe a implementação dos tipos de recurso especificado. Especifique uma matriz de tipos de recursos para bloquear.  |
 | [Necessita do SQL Server versão 12.0](scripts/req-sql-12.md) | Necessita de servidores do SQL Server para utilizar a versão 12.0.  |

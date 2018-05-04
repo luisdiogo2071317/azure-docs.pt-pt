@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Azure Scheduler no portal do Azure | Microsoft Docs"
-description: "Introdução ao Agendador do Azure no portal do Azure"
+title: Introdução ao Azure Scheduler no portal do Azure | Microsoft Docs
+description: Introdução ao Agendador do Azure no portal do Azure
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introdução ao Agendador do Azure no portal do Azure
 É fácil criar tarefas agendadas no Agendador do Azure. Neste tutorial, ficará a saber como criar uma tarefa. Também irá aprender capacidades de monitorização e gestão do Agendador.
@@ -105,9 +105,9 @@ Pode clicar numa execução para visualizar os seus **Detalhes de Histórico**, 
    ![][job-history-details]
 
 ### <a name="users"></a>Utilizadores
-O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Agendador do Azure. Para saber como utilizar o separador de Utilizadores, consulte o [Controlo de Acesso Baseado em Funções do Azure](../active-directory/role-based-access-control-configure.md)
+O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Agendador do Azure. Para saber como utilizar o separador de Utilizadores, consulte o [Controlo de Acesso Baseado em Funções do Azure](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
  [O que é o Scheduler?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Scheduler](scheduler-concepts-terms.md)

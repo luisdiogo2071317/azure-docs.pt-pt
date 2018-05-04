@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Resolver problemas de máquina virtual do Windows implementar no Azure
 
@@ -95,10 +95,6 @@ Controladores para as VMs baseadas no Windows estão localizados [aqui](n-series
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Não é possível localizar a uma instância GPU na minha VM série N
 
 Para tirar partido das capacidades de GPU de VMs de série N do Azure com o Windows Server 2016 ou o Windows Server 2012 R2, tem de instalar os controladores da placa NVIDIA em cada VM após a implementação. As informações de configuração de controladores estão disponíveis para [VMs do Windows](n-series-driver-setup.md) e [VMs com Linux](../linux/n-series-driver-setup.md).
-
-## <a name="are-client-images-supported-for-n-series"></a>Imagens de cliente são suportadas para série N?
-
-Atualmente, o Azure suporta apenas a série N em VMs com sistemas operativos Windows Server e do Linux.
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>Série N VMs está disponível na minha região?
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
@@ -25,9 +25,12 @@ Este tutorial mostra como preparar a sua infraestrutura de VMware no local quand
 > * Analisar os requisitos de servidor VMware
 > * Analisar os requisitos de VM de VMware
 
-Nesta série de tutoriais, mostramos como fazer a cópia de segurança de uma única VM com o Azure Site Recovery. Se tenciona proteger várias VMs de VMware, deve transferir a [ferramenta Planeador de Implementações](https://aka.ms/asr-deployment-planner) para a replicação de VMware. Esta ferramenta permite recolher informações sobre a compatibilidade das VMs, os discos por VM e as alterações a dados por disco. A ferramenta também abarca os requisitos de largura de banda da rede e a infraestrutura do Azure necessários para uma replicação e ativação pós-falha de teste bem-sucedidas. [Saiba mais](site-recovery-deployment-planner.md) sobre como executar a ferramenta.
+Nesta série de tutoriais, mostramos como replicar uma única VM com o Azure Site Recovery. 
 
 Este é o segundo tutorial da série. Certifique-se de que [configurou os componentes do Azure](tutorial-prepare-azure.md) conforme descrito no tutorial anterior.
+
+Se estiver a replicar várias VMs, transfira a [ferramenta Planeador de Implementações](https://aka.ms/asr-deployment-planner) para a replicação de VMware. [Saiba mais](site-recovery-deployment-planner.md).
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta para a deteção automática
 

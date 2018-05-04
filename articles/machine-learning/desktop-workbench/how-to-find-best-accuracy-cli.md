@@ -1,6 +1,6 @@
 ---
-title: "Localizar é executado com o melhor exatidão e duração mais baixa no Azure Machine Learning Workbench | Microsoft Docs"
-description: "Caso de utilização de um ponto-a-ponto para localizar melhor exatidão através da CLI através do Azure Machine Learning Workbench"
+title: Localizar é executado com o melhor exatidão e duração mais baixa no Azure Machine Learning Workbench | Microsoft Docs
+description: Caso de utilização de um ponto-a-ponto para localizar melhor exatidão através da CLI através do Azure Machine Learning Workbench
 services: machine-learning
 author: totekp
 ms.author: kefzhou
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Localizar é executado com o melhor exatidão e duração mais baixa
 Tendo em conta vários é executado, um caso de utilização é encontrar é executado com o melhor exatidão. Uma abordagem é utilizar a interface de linha de comandos (CLI) com um [JMESPath](http://jmespath.org/) consulta. Para obter mais informações sobre como utilizar JMESPath na CLI do Azure, consulte [JMESPath utilizar consultas com o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo seguinte, é quatro executado é criados com valores de precisão de 0, 0.98, 1 e 1. Executa é filtradas se estão no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` onde `Threshold = .03`.

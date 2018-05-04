@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controlo de acesso no Azure Data Lake Store
 
@@ -150,7 +150,7 @@ No Azure, as conta do Data Lake Store têm várias funções do Azure, incluindo
 * Contribuintes
 * Leitores
 
-Qualquer pessoa na função de **Proprietários** para uma conta do Data Lake Store é automaticamente um superutilizador relativamente a essa conta. Para saber mais, veja [Controlo de acesso baseado em funções](../active-directory/role-based-access-control-configure.md).
+Qualquer pessoa na função de **Proprietários** para uma conta do Data Lake Store é automaticamente um superutilizador relativamente a essa conta. Para saber mais, veja [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md).
 Se quiser criar uma função de controlo de acesso baseado em funções (RBAC) com permissões de superutilizador, esta tem de ter as permissões seguintes:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ O grupo proprietário pode ser alterado por:
 * Pelo utilizador proprietário, se o utilizador proprietário também for membro do grupo de destino.
 
 > [!NOTE]
-> O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.
+> O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.  Enquanto o grupo proprietário estiver definido como o utilizador que criou a conta no caso da pasta raiz, **Caso 1** acima, uma conta de utilizador individual não é válida para fornecer permissões através do grupo proprietário.  Pode atribuir esta permissão a um grupo de utilizadores válido, se aplicável.
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
 

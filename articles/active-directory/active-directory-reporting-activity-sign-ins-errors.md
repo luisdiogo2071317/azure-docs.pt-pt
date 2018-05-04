@@ -1,25 +1,25 @@
 ---
-title: "Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory | Microsoft Docs"
-description: "Referência aos códigos de erro dos relatórios de atividades de início de sessão."
+title: Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory | Microsoft Docs
+description: Referência aos códigos de erro dos relatórios de atividades de início de sessão.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory
 
@@ -65,6 +65,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |50055|Palavra-passe inválida; palavra-passe expirada introduzida.|
 |50057|A conta de utilizador está desativada.|
 |50058|Não foram encontradas informações sobre a identidade do utilizador entre as credenciais fornecidas, ou o utilizador não foi encontrado no inquilino, ou um pedido de início de sessão silencioso foi enviado, mas nenhum utilizador tem sessão iniciada ou o serviço não conseguiu autenticar o utilizador.|
+|50072|O utilizador tem de se inscrever na autenticação de segundo fator (interativa)|
 |50074|O utilizador não passou na submissão da MFA.|
 |50079|O utilizador tem de se inscrever na autenticação de segundo fator.|
 |50089|A validação do token de fluxo falhou devido à expiração do token de fluxo.|
@@ -97,7 +98,6 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |81013|Não é possível encontrar o objeto de utilizador com base nas informações na permissão do Kerberos do utilizador.|
 |90014|Utilizado em vários casos nos quais um campo que era esperado não está presente na credencial.|
 |90093|O Graph devolveu com um código de erro proibido para o pedido.|
-
 
 
 ## <a name="next-steps"></a>Passos seguintes

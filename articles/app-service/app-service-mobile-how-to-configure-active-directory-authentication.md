@@ -1,31 +1,31 @@
 ---
-title: "Configurar a autenticação do Azure Active Directory para a sua aplicação de serviços aplicacionais"
-description: "Saiba como configurar a autenticação do Azure Active Directory para a sua aplicação de serviços de aplicações."
+title: Configurar a autenticação do Azure Active Directory para a sua aplicação de serviços aplicacionais
+description: Saiba como configurar a autenticação do Azure Active Directory para a sua aplicação de serviços de aplicações.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configure a sua aplicação de serviço de aplicações a utilizar o início de sessão do Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Este artigo mostra como configurar os serviços de aplicações do Azure para utilizar o Azure Active Directory como um fornecedor de autenticação.
 
-## <a name="express"></a>Configurar o Azure Active Directory utilizando as definições rápidas
+## <a name="express"> </a>Configurar o Azure Active Directory utilizando as definições rápidas
 1. No [portal do Azure], navegue para a sua aplicação de serviço de aplicações. No painel de navegação esquerdo, selecione **autenticação / autorização**.
 2. Se **autenticação / autorização** não estiver ativada, selecione **no**.
 3. Selecione **do Azure Active Directory**e, em seguida, selecione **Express** em **modo de gestão**.
@@ -37,10 +37,10 @@ Este artigo mostra como configurar os serviços de aplicações do Azure para ut
 
 Agora está pronto a utilizar o Azure Active Directory para autenticação na sua aplicação de serviço de aplicações.
 
-## <a name="advanced"></a>(Método alternativo) configurar manualmente o Azure Active Directory com definições avançadas
+## <a name="advanced"> </a>(Método alternativo) Configurar manualmente o Azure Active Directory com definições avançadas
 Também pode optar por fornecer as definições de configuração manualmente. Esta é a solução preferida, se pretender utilizar o inquilino do AAD é diferente do inquilino com o qual poderá iniciar sessão no Azure. Para concluir a configuração, terá primeiro de criar um registo no Azure Active Directory e, em seguida, tem de fornecer alguns dos detalhes de registo para o App Service.
 
-### <a name="register"></a>Registar a aplicação de serviço de aplicações com o Azure Active Directory
+### <a name="register"> </a>Registar a aplicação de serviço de aplicações com o Azure Active Directory
 1. Inicie sessão no [portal do Azure]e navegue para a sua aplicação de serviço de aplicações. Copie a sua aplicação **URL**. Irá utilizá-lo para configurar o registo de aplicações do Azure Active Directory.
 2. Navegue para **do Active Directory**, em seguida, selecione o **registos de aplicação**, em seguida, clique em **novo registo de aplicação** na parte superior para iniciar um novo registo de aplicação. 
 3. No **criar** página, introduza um **nome** para registo da aplicação, selecione o **aplicação Web / API** escreva, pelo **URL de início de sessão** caixa colar o URL da aplicação (a partir do passo 1). Em seguida, clique para **criar**.
@@ -52,9 +52,9 @@ Também pode optar por fornecer as definições de configuração manualmente. E
 9. Fechar o **aplicação registada** página. No **registos de aplicação** página, clique em de **pontos finais** botão na parte superior, em seguida, copie o **documento de metadados de Federação** URL. 
 10. Abra uma nova janela do browser e navegue para o URL, colar e navegar para a página XML. Na parte superior do documento é um **EntityDescriptor** elemento, deverá haver um **entityID** atributo do formulário `https://sts.windows.net/` seguido de um GUID específico no seu inquilino (denominado um "ID do inquilino"). Copie este valor - serve como a **URL do emissor**. Irá configurar a sua aplicação para utilizá-lo mais tarde.
 
-### <a name="secrets"></a>Informações adicionar do Azure Active Directory para a sua aplicação de serviço de aplicações
+### <a name="secrets"> </a>Adicionar informações do Active Directory do Azure para a sua aplicação de serviço de aplicações
 1. Volta a [portal do Azure], navegue para a sua aplicação de serviço de aplicações. Clique em **autenticação/autorização**. Se não estiver ativada a funcionalidade de autenticação/autorização, ative o comutador para **no**. Clique em **do Azure Active Directory**, em fornecedores de autenticação, para configurar a sua aplicação. (Opcional) Por predefinição, o serviço de aplicações fornece autenticação mas não restringir o acesso autorizado ao conteúdo do site e APIs. Tem de autorizar os utilizadores no seu código de aplicação. Definir **ação a tomar quando o pedido não é autenticado** para **iniciar sessão com o Azure Active Directory**. Esta opção requer que todos os pedidos de ser autenticados e todos os pedidos não autenticados são redirecionados para o Azure Active Directory para autenticação.
-2 na configuração da autenticação do Active Directory, clique em **avançadas** em **modo de gestão**. Cole o ID da aplicação na caixa de ID de cliente (a partir do passo 8) e cole no entityId (a partir do passo 10) o valor do URL do emissor. Em seguida, clique em **OK**.
+2. Na configuração da autenticação do Active Directory, clique em **avançadas** em **modo de gestão**. Cole o ID da aplicação na caixa de ID de cliente (a partir do passo 8) e cole no entityId (a partir do passo 10) o valor do URL do emissor. Em seguida, clique em **OK**.
 3. Na página de configuração da autenticação do Active Directory, clique em **guardar**.
 
 Agora está pronto a utilizar o Azure Active Directory para autenticação na sua aplicação de serviço de aplicações.
@@ -74,7 +74,7 @@ Azure Active Directory também permite-lhe registar clientes nativos, que propor
 
 Agora que configurou uma aplicação cliente nativa que pode aceder à sua aplicação de serviço de aplicações.
 
-## <a name="related-content"></a>Relacionados com o conteúdo
+## <a name="related-content"> </a>Conteúdo relacionado
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->

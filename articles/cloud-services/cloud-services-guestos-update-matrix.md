@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 1f24db331b3d59eaad54c5c2488e56913261cff2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4206d90ddd65f58bcdb92661f64d005a5e40563
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -83,7 +83,7 @@ Implementação de SO convidado de Julho está a iniciar 19 de Julho e tem uma v
 ## <a name="family-5-releases"></a>Versões de família 5
 **Windows Server 2016**
 
-.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações.
@@ -111,7 +111,7 @@ Implementação de SO convidado de Julho está a iniciar 19 de Julho e tem uma v
 ## <a name="family-4-releases"></a>Versões de família 4
 **Windows Server 2012 R2**
 
-.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 4.0, 4.5, 4.5.1, o 4.5.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações
@@ -138,7 +138,7 @@ Implementação de SO convidado de Julho está a iniciar 19 de Julho e tem uma v
 ## <a name="family-3-releases"></a>Versões da família 3
 **Windows Server 2012**
 
-.NET Framework Installed: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 4.0, 4.5, 4.5.1, o 4.5.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações
@@ -165,7 +165,7 @@ Implementação de SO convidado de Julho está a iniciar 19 de Julho e tem uma v
 ## <a name="family-2-releases"></a>Versões de família 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework Installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com uma * estão sujeitas a alterações
@@ -247,7 +247,7 @@ Se atualizar manualmente o SO convidado, consulte o [política de extinção de 
 A política de Suportabilidade e extinção de SO convidado é explicada [aqui][retirepolicy].
 
 [Feed RSS de atualização de SO do convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -265,4 +265,4 @@ A política de Suportabilidade e extinção de SO convidado é explicada [aqui][
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx

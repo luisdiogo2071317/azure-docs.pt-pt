@@ -4,7 +4,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
-É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](../articles/sql-database/sql-database-service-tiers.md). A base de dados é criada num [Grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e num [servidor lógico da Base de Dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
+É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](../articles/sql-database/sql-database-service-tiers-dtu.md). A base de dados é criada num [Grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e num [servidor lógico da Base de Dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
 
 Siga estes passos para criar uma base de dados SQL vazia. 
 

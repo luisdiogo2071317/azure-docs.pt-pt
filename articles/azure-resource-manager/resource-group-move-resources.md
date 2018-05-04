@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 341ee58904cb08a024ac9f14839cf011e72b4dd2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8ad73132839aaa77166c115feff9a70db864ba12
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -148,7 +148,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Armazenamento
 * Armazenamento (clássica) - consulte [limitações de implementação clássica](#classic-deployment-limitations)
 * Estado do Stream Analytics - Stream Analytics não não possível mover as tarefas em execução.
-* Base de dados do SQL server - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas.
+* Base de dados do SQL server - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Isto inclui bases de dados SQL Database do Azure e Azure SQL Data Warehouse. 
 * Gestor de Tráfego
 * Não é possível mover máquinas virtuais - VMs com discos geridos. Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássicas) - consulte [limitações de implementação clássica](#classic-deployment-limitations)

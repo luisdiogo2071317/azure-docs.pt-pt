@@ -1,12 +1,12 @@
 ---
 title: Resolver problemas de desfasamento de dados utilizando ferramentas do Azure Data Lake para Visual Studio | Microsoft Docs
-description: "Resolução de problemas possíveis soluções para problemas de desfasamento de dados utilizando ferramentas do Azure Data Lake para Visual Studio."
+description: Resolução de problemas possíveis soluções para problemas de desfasamento de dados utilizando ferramentas do Azure Data Lake para Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1d33b5d2392832899fd30636e9d40231fc74ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de desfasamento de dados utilizando ferramentas do Azure Data Lake para Visual Studio
 
 ## <a name="what-is-data-skew"></a>O que é dados desfasamento?
 
-Brevemente indicado, o desfasamento de dados é um valor excessiva representado. Imagine que atribuiu 50 examiners dedução dos impostos para auditar dedução dos impostos devolve, um examiner para cada Estado de E.U.A.. Wyoming examiner, porque não existe a população é pequena, tem pouco fazer. Na Califórnia, no entanto, o examiner é mantida muito ocupado devido a população de grande o estado.
+Brevemente indicado, o desfasamento de dados é um valor excessiva representado. Imagine que atribuiu 50 examiners dedução dos impostos para auditar dedução dos impostos devolve, um examiner para cada Estado de E.U.A. Wyoming examiner, porque não existe a população é pequena, tem pouco fazer. Na Califórnia, no entanto, o examiner é mantida muito ocupado devido a população de grande o estado.
     ![Exemplo de problema de desfasamento de dados](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
 
 No nosso cenário, os dados é unevenly distribuídos por todos os examiners de dedução dos impostos, que significa que alguns examiners tem de trabalhar mais do que outras pessoas. No seu próprio trabalho ocorrer com frequência situações semelhante ao exemplo dedução dos impostos examiner aqui. Em termos mais técnicos, um vértice muito mais dados ao respetivos elementos, recebe uma situação que torna o vertex eventualmente de trabalho mais do que outros e esse atrasar uma tarefa de toda. O que é um, a tarefa pode falhar, porque poderão ter vértices, por exemplo, uma limitação de tempo de execução de 5 horas e uma limitação de 6 GB de memória.
@@ -49,13 +49,13 @@ Em vez de utilizar apenas _estado_ como uma chave de partição, pode utilizar m
 
 ### <a name="option-4-use-round-robin-distribution"></a>Opção 4: Utilizar a distribuição de round robin
 
-Se não é possível localizar uma chave adequada para a partição e a distribuição, pode tentar utilizar a distribuição de round robin. Distribuição de round robin processa todas as linhas igualmente e aleatoriamente coloca-os no registos correspondentes. Os dados obtém distribuídos uniformemente, mas perder informações localidade, uma desvantagem que também pode reduzir o desempenho de tarefa para algumas operações. Além disso, se estão a fazer a agregação para a chave distorcida mesmo assim, o problema de desfasamento de dados serão mantidas. Para saber mais sobre a distribuição de round robin, consulte a secção de U-SQL tabela distribuições em [CREATE TABLE (U-SQL): criar uma tabela com o esquema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
+Se não é possível localizar uma chave adequada para a partição e a distribuição, pode tentar utilizar a distribuição de round robin. Distribuição de round robin processa todas as linhas igualmente e aleatoriamente coloca-os no registos correspondentes. Os dados obtém distribuídos uniformemente, mas perder informações localidade, uma desvantagem que também pode reduzir o desempenho de tarefa para algumas operações. Além disso, se estão a fazer a agregação para a chave distorcida mesmo assim, o problema de desfasamento de dados serão mantidas. Para saber mais sobre a distribuição de round robin, consulte a secção de U-SQL tabela distribuições em [CREATE TABLE (U-SQL): criar uma tabela com o esquema](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Solução 2: Melhorar o plano de consulta
 
 ### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: Utilizar a instrução CREATE STATISTICS
 
-U-SQL fornece a instrução CREATE STATISTICS em tabelas. Esta declaração fornece mais informações para o otimizador de consultas sobre as características dos dados, como a distribuição de valor, que estão armazenados numa tabela. Para a maior parte das consultas, o otimizador de consultas já gera as estatísticas de necessárias para um plano de consulta de alta qualidade. Ocasionalmente, poderá ser necessário melhorar o desempenho das consultas, criar estatísticas adicionais com CREATE STATISTICS ou ao modificar a estrutura da consulta. Para obter mais informações, consulte o [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) página.
+U-SQL fornece a instrução CREATE STATISTICS em tabelas. Esta declaração fornece mais informações para o otimizador de consultas sobre as características dos dados, como a distribuição de valor, que estão armazenados numa tabela. Para a maior parte das consultas, o otimizador de consultas já gera as estatísticas de necessárias para um plano de consulta de alta qualidade. Ocasionalmente, poderá ser necessário melhorar o desempenho das consultas, criar estatísticas adicionais com CREATE STATISTICS ou ao modificar a estrutura da consulta. Para obter mais informações, consulte o [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) página.
 
 Exemplo de código:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: c0bc3c8774b68b49be95d5df86319a2e0463e6ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Dados do Azure encriptação em Rest
 Existem várias ferramentas dentro do Microsoft Azure para salvaguardar os dados de acordo com as necessidades de segurança e conformidade da sua empresa. Este documento centra-se em:
@@ -236,10 +236,10 @@ Qualquer cliente utilizando a infraestrutura do Azure como um serviço (IaaS) fu
 
 #### <a name="azure-storage"></a>Storage do Azure
 
-Blob do Azure e ficheiro suporta encriptação de Inativos para cenários de encriptado do lado do servidor, bem como os dados de cliente encriptado (encriptação do lado do cliente).
+Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas e ficheiros do Azure) suportam a encriptação do lado do servidor inativos, com alguns dos serviços de suporte gerida pelo cliente chaves e a encriptação do lado do cliente.  
 
-- Lado do servidor: os clientes utilizam o armazenamento de Blobs do Azure podem ativar a encriptação de Inativos em cada conta de recursos de armazenamento do Azure. É efetuada uma vez ativada encriptação do lado do servidor transparente para a aplicação. Consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption) para obter mais informações.
-- Do lado do cliente: a encriptação do lado do cliente de Blobs do Azure é suportada. Quando os clientes de encriptação do lado do cliente a utilizar encriptar os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Consulte [encriptação do lado do cliente e o Cofre de chaves do Azure para armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) para obter mais informações.
+- Lado do servidor: Todos os serviços de armazenamento do Azure ativar a encriptação do lado do servidor por predefinição, utilizando o serviço gerido chaves, que é transparente para a aplicação. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Armazenamento de Blobs do Azure e de ficheiros do Azure também suportam chaves gerida pelo cliente no Cofre de chaves do Azure. Para obter mais informações, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Do lado do cliente: Blobs do Azure, tabelas e filas suportam a encriptação do lado do cliente. Quando utilizar a encriptação do lado do cliente, os clientes encriptar os dados e carregar os dados como um blob encriptado. Gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [encriptação do lado do cliente e o Cofre de chaves do Azure para armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -259,8 +259,8 @@ Encriptação do lado do cliente de dados SQL Azure é suportada através de [se
 | SQL Server (IaaS)                |                | Sim                 | Sim                          | Sim                          | Sim    |
 | Azure SQL (PaaS)                 |                | Sim                 | Sim                          | -                            | Sim    |
 | Armazenamento do Azure (Blobs de blocos/páginas) |                | Sim                 | Sim                          | -                            | Sim    |
-| Armazenamento do Azure (ficheiros)            |                | Sim                 | -                            | -                            | -      |
-| Armazenamento do Azure (tabelas, filas)   |                | -                   | -                            | -                            | Sim    |
+| Armazenamento do Azure (ficheiros)            |                | Sim                 | Sim                          | -                            | -      |
+| Armazenamento do Azure (tabelas, filas)   |                | Sim                 | -                            | -                            | Sim    |
 | Cosmos BD (documento DB)          |                | Sim                 | -                            | -                            | -      |
 | StorSimple                       |                | Sim                 | -                            | -                            | Sim    |
 | Cópia de segurança                           |                | -                   | -                            | -                            | Sim    |

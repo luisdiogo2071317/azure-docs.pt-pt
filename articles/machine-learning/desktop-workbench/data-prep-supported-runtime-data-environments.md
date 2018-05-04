@@ -1,6 +1,6 @@
 ---
-title: "Suportado combinações de ambientes de execução e os dados para preparativos de dados do Azure Machine Learning | Microsoft Docs"
-description: "Este documento fornece uma lista completa das combinações suportadas de tempos de execução diferentes e origens de dados para o Azure Machine Learning dados preparativos"
+title: Suportado combinações de ambientes de execução e os dados para preparativos de dados do Azure Machine Learning | Microsoft Docs
+description: Este documento fornece uma lista completa das combinações suportadas de tempos de execução diferentes e origens de dados para o Azure Machine Learning dados preparativos
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: bdd1c51c915787d9e9522f6691ae0ff06d546484
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz suportada para esta versão 
 Quando o código carrega dados através da utilização de origens de dados do Azure Machine Learning ou do Azure Machine Learning dados preparativos, obter ou um Pandas ou localizações de dados e ambientes de computação do Spark dataframe, seguintes combinações de experimentação são suportados:
@@ -28,7 +28,7 @@ Quando o código carrega dados através da utilização de origens de dados do A
 |PySpark docker (VM com Linux)     |Suportado apenas os ficheiros de projeto *     |Suportadas         | Suportado (2)        |         |
 |Python de Máquina Virtual de ciência de dados do Azure     |Suportado apenas os ficheiros de projeto *         |Não suportado         |Não suportado         |         |
 |PySPark de Máquina Virtual de ciência de dados do Azure     | Suportado apenas os ficheiros de projeto *        |Não suportado         |Não suportado         |         |
-|Azure HDInsight PySpark     | Não suportado        |Suportadas         |Suportado (2)         |         |
+|PySpark do Azure HDInsight     | Não suportado        |Suportadas         |Suportado (2)         |         |
 |Python do Azure HDInsight     | Não suportado        | Não suportado        | Não suportado        |         |
 
 O Azure Data Lake Store não é atualmente suportado para qualquer destino de computação.

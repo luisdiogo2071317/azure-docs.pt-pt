@@ -1,3 +1,5 @@
+- name: Noções básicas do IoT do Azure
+  href: ../iot-fundamentals/index.yml
 - name: Documentação do Azure IoT Edge
   href: index.yml
 - name: Descrição geral
@@ -76,6 +78,32 @@
       href: security.md
     - name: Glossário do IoT Edge
       href: iot-edge-glossary.md
+- name: Relacionado
+  items:
+    - name: Soluções
+      items:
+        - name: Soluções Pré-configuradas do IoT Suite
+          href: /azure/iot-suite
+        - name: Centro de IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de plataforma
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: SDKs de Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do Dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
     - name: Catálogo de dispositivos Azure Certified for IoT

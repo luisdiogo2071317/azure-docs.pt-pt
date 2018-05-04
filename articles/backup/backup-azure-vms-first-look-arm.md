@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer cópias de segurança de máquinas virtuais do Azure para o Cofre dos serviços de recuperação
 
@@ -39,7 +39,9 @@ Para obter mais informações sobre como proteger VMs de Armazenamento Premium, 
 Para obter mais informações sobre o que pode e não é possível efetuar a cópia de segurança, consulte o artigo [preparar o ambiente para fazer cópias de segurança de VMs do Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> Este tutorial assume que já tem uma VM na sua subscrição do Azure e que tomou medidas para permitir que o serviço de cópia de segurança aceda à VM.
+> Serviço de cópia de segurança cria um grupo de recursos separado do grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança.
+O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>`
+<br>Ex: AzureBackupRG_northeurope_1
 >
 >
 

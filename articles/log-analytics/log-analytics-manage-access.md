@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>Gerir áreas de trabalho
 
@@ -34,7 +34,7 @@ Para criar uma área de trabalho, terá de:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de áreas de trabalho necessárias
 Uma área de trabalho é um recurso do Azure e é um contentor onde os dados são recolhidos, agregados, analisados e apresentados no portal do Azure.
 
-Pode ter múltiplas áreas de trabalho por subscrição do Azure e ter acesso a mais do que uma área de trabalho. Anteriormente, conseguia apenas analisar os dados a partir da área de trabalho atual e este fator limitava a capacidade de consulta em várias áreas de trabalho definidas na subscrição. Agora pode [consultar em várias áreas de trabalho](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), o que proporciona uma vista dos dados em todo o sistema. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
+Pode ter múltiplas áreas de trabalho por subscrição do Azure e ter acesso a mais do que uma área de trabalho. Anteriormente, conseguia apenas analisar os dados a partir da área de trabalho atual e este fator limitava a capacidade de consulta em várias áreas de trabalho definidas na subscrição. Agora pode [consultar em várias áreas de trabalho](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), o que proporciona uma vista dos dados em todo o sistema. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
 
 Atualmente, uma área de trabalho fornece:
 
@@ -77,7 +77,7 @@ Por predefinição, a conta Microsoft ou da Organização que cria a área de tr
 Existem dois modelos de permissões que controlam o acesso a uma área de trabalho do Log Analytics:
 
 1. Funções de utilizador do Log Analytics legadas
-2. [Acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md)
+2. [Acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md)
 
 A tabela seguinte resume o acesso que pode ser definido com cada modelo de permissões:
 
@@ -104,7 +104,7 @@ As atividades seguintes também necessitam de permissões do Azure:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gerir o acesso ao Log Analytics com permissões do Azure
-Para conceder acesso à área de trabalho do Log Analytics com permissões do Azure, siga os passos em [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../active-directory/role-based-access-control-configure.md).
+Para conceder acesso à área de trabalho do Log Analytics com permissões do Azure, siga os passos em [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
 
 O Azure tem duas funções de utilizador incorporadas para o Log Analytics:
 - Leitor do Log Analytics
@@ -156,7 +156,7 @@ Utilize estas funções para conceder aos utilizadores acesso em âmbitos difere
 - Grupo de Recursos - acesso a todas as áreas de trabalho no grupo de recursos
 - Recurso - acesso apenas à área de trabalho especificada
 
-Utilize [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md) para criar funções com as permissões específicas necessárias.
+Utilize [funções personalizadas](../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Funções de utilizador do Azure e funções de utilizador do portal do Log Analytics
 Se tiver, pelo menos, permissão de leitura do Azure na área de trabalho do Log Analytics, pode abrir o portal do OMS ao clicar na tarefa **Portal do OMS** quando visualizar a área de trabalho do Log Analytics.
@@ -174,7 +174,7 @@ A atribuição de funções no portal do OMS é determinada da seguinte forma:
 | Para subscrições geridas para o Fornecedor de Soluções em Nuvem (CSP) <br> A conta em que tiver sessão iniciada está no Azure Active Directory associado à área de trabalho | Administrador | Normalmente, o cliente de um CSP |
 | Para subscrições geridas para o Fornecedor de Soluções em Nuvem (CSP) <br> A conta em que tiver sessão iniciada não está no Azure Active Directory associado à área de trabalho | Contribuinte | Normalmente, o CSP |
 
-<sup>1</sup> Consulte as [permissões do Azure](../active-directory/role-based-access-control-custom-roles.md) para obter mais informações sobre as definições de funções. Quando avaliar funções, uma ação de `*` não é equivalente a `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Consulte as [permissões do Azure](../role-based-access-control/custom-roles.md) para obter mais informações sobre as definições de funções. Quando avaliar funções, uma ação de `*` não é equivalente a `Microsoft.OperationalInsights/workspaces/*`.
 
 Alguns pontos a ter em conta sobre o portal do Azure:
 

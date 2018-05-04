@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de Utilização do Azure Active Directory
 Os Termos de Utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais.  Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores.
@@ -96,7 +96,7 @@ Para dar início a uma auditoria, utilize o seguinte procedimento:
 2. Clique em “Ver registos de auditoria”.</br>
 ![Evento de Auditoria](media/active-directory-tou/tou8.png)
 3.  No ecrã de registos de auditoria do Azure AD, pode filtrar as informações com a ajuda das listas pendentes fornecidas para se focar em informações específicas do registo de auditoria.
-![Evento de Auditoria](media/active-directory-tou/tou9.png)
+[Evento de Auditoria](media/active-directory-tou/tou9.png)
 4.  Também pode transferir as informações para um ficheiro. csv para utilização local.
 
 ## 

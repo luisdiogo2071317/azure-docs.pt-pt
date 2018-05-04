@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Resolução de problemas da cópia de segurança de Ficheiros do Azure
 Pode resolver problemas e erros encontrados ao utilizar a cópia de segurança de Ficheiros do Azure com as informações listadas nas tabelas seguintes.
@@ -59,9 +59,10 @@ A tabela seguinte apresenta informações para a configuração da cópia de seg
 | O restauro falha porque um dos ficheiros na origem não existe. | <ul><li> Os itens selecionados não estão presentes nos dados do ponto de recuperação. Para recuperar os ficheiros, forneça a lista de ficheiros correta. <li> O instantâneo da partilha de ficheiros que corresponde ao ponto de recuperação foi eliminado manualmente. Selecione outro ponto de recuperação e repita a operação de restauro. |
 | Está em curso uma tarefa de Recuperação para o mesmo destino. | <ul><li>A cópia de segurança da partilha de ficheiros não suporta a recuperação paralela para a mesma Partilha de ficheiros de destino. <li>Aguarde que a recuperação existente termine e tente novamente. Se não encontrar uma tarefa de recuperação no cofre dos Serviços de Recuperação, verifique nos outros cofres de Serviços de Recuperação na mesma subscrição. |
 | A operação de restauro falhou uma vez que a partilha de ficheiros de destino está cheia. | Aumente a quota de tamanho da partilha de ficheiros de destino para acomodar os dados de restauro e repita a operação. |
+| A operação de restauro falhou porque ocorreu um erro ao executar as operações de pré-restauro nos recursos do Serviço de Sincronização de Ficheiros associados à partilha de ficheiros de destino. | Tente novamente após algum tempo. Se o problema persistir, contacte o suporte da Microsoft. |
 | Não foi possível recuperar com êxito um ou mais ficheiros. Para obter mais informações, verifique a lista de ficheiros com falhas no caminho indicado acima. | <ul> <li> Os motivos das falhas de recuperação são apresentados no ficheiro (o caminho é indicado nos detalhes da Tarefa), resolva as falhas e repita a operação de restauro apenas para os ficheiros com falhas. <li> Motivos comuns para as falhas do restauro de ficheiros: <br/> - Verifique se os ficheiros com falhas não estão atualmente em utilização. <br/> - Existe um diretório com o mesmo nome dos ficheiros com falhas no diretório principal. |
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 Para obter mais informações sobre a cópia de segurança das partilhas de ficheiros do Azure, veja:
 - [Fazer cópia de segurança das partilhas de ficheiros do Azure](backup-azure-files.md)
 - [FAQ sobre a cópia de segurança das partilhas de ficheiros do Azure](backup-azure-files-faq.md)

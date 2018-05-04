@@ -10,19 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração contínua e a implementação no Azure Data Factory
 
 A prática testar cada alteração efetuada para a integração contínua é o código base automaticamente e antecipadamente quanto possível. A implementação contínua segue os testes que ocorre durante a integração contínua e pushes alterações a um sistema de teste ou de produção.
 
 Para o Azure Data Factory, integração contínua & implementação significa mover pipelines de fábrica de dados de um ambiente (desenvolvimento, teste, produção) para outro. Para efetuar a integração contínua & implementação, pode utilizar a integração de IU de fábrica de dados com modelos Azure Resource Manager. A IU da fábrica de dados pode gerar um modelo do Resource Manager, quando seleciona o **modelo ARM** opções. Quando seleciona **modelo ARM exportar**, o portal gera o modelo do Resource Manager para a fábrica de dados e um ficheiro de configuração que inclui todas as cadeias de ligações e outros parâmetros. Em seguida, terá de criar um ficheiro de configuração para cada ambiente (desenvolvimento, teste, produção). O ficheiro de modelo do Resource Manager principal permanece igual para todos os ambientes.
+
+Para uma introdução nove minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Criar um modelo do Resource Manager para cada ambiente
 Selecione **modelo ARM exportar** para exportar o modelo do Resource Manager para a fábrica de dados no ambiente de desenvolvimento.

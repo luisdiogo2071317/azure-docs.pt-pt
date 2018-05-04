@@ -1,11 +1,11 @@
 ---
 title: Azure Notification Hubs
-description: "Saiba como adicionar capacidades de notificação push com Notification Hubs do Azure."
+description: Saiba como adicionar capacidades de notificação push com Notification Hubs do Azure.
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea8d569a8d51afee352860ab60a1fe311496b83c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-notification-hubs"></a>Azure Notification Hubs
 ## <a name="overview"></a>Descrição geral
@@ -130,12 +130,12 @@ Aqui estão algumas das conveniências que esta integração proporciona a progr
 * **Flexibilidade**: os programadores podem sempre optar por trabalhar diretamente com Notification Hubs, mesmo com a integração no local.
 * **Experiência integrada no [portal do Azure]**: o Push como uma capacidade está representada visualmente em Mobile Apps e os programadores podem trabalhar facilmente com o notification hub associado através das Mobile Apps.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Pode encontrar mais informações sobre os Notification Hubs nos seguintes tópicos:
 
 * **[Como os clientes estão a utilizar os Hubs de Notificação]**
 * **[Tutoriais e guias dos Hubs de Notificação]**
-* **Tutoriais de introdução aos Hubs de notificação**: [iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [xamarin. IOS], [xamarin. Android]
+* **Tutoriais de introdução aos Hubs de notificação**: [iOS], [Android], [Windows Universal], [Windows Phone], [ Kindle], [xamarin. IOS], [xamarin. Android]
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
@@ -145,12 +145,12 @@ Pode encontrar mais informações sobre os Notification Hubs nos seguintes tópi
 [Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started
 [Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started
 [Windows Phone]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started
-[Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started
+[ Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started
 [xamarin. IOS]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
 [xamarin. Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
 [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-[Aplicações Móveis do Serviço de Aplicações]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
+[Aplicações Móveis do Serviço de Aplicações]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [portal do Azure]: https://portal.azure.com
 [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

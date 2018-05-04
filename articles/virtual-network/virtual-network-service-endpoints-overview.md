@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -29,7 +29,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 
 - **Armazenamento do Azure**: Disponível em Geral. Todas as regiões na cloud pública do Azure e no Azure Government.
 - **Base de Dados SQL do Azure**: Disponibilidade Geral em todas as regiões do Azure. 
-- **Azure SQL Datawarehouse**: Pré-visualização. Todas as regiões na cloud pública do Azure.
+- **Azure SQL Data Warehouse**: Pré-visualização. Todas as regiões na cloud pública do Azure.
 
 Para obter notificações mais atualizadas da pré-visualização, veja a página [Atualizações da Rede Virtual do Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -87,6 +87,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 - **Redes virtuais múltiplas, ligadas ou ponto a ponto**: para proteger serviços do Azure em várias sub-redes numa rede virtual ou em várias redes virtuais, pode ativar pontos finais de serviço em cada uma destas sub-redes de forma independente e proteger os recursos de serviço do Azure em todas essas sub-redes.
 - **Filtrar tráfego de saída de uma rede virtual para os serviços do Azure**: se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure a partir da rede virtual, pode implementar uma aplicação de rede virtual nessa rede virtual. Em seguida, pode aplicar pontos finais de serviço à sub-rede onde está implementada a aplicação de rede virtual e proteger o recurso de serviço do Azure apenas nesta sub-rede. Este cenário poderá ser útil se pretender restringir o acesso aos serviços do Azure a partir da rede virtual apenas a recursos específicos do Azure através da filtragem da aplicação de rede virtual. Para obter mais informações, veja [saída com aplicações de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Proteger recursos do Azure nos serviços implementados diretamente em redes virtuais**: vários serviços do Azure podem ser implementados diretamente em sub-redes específicas numa rede virtual. Pode proteger recursos de serviço do Azure para sub-redes de [serviços geridos](virtual-network-for-azure-services.md) ao configurar um ponto final de serviço na sub-rede do serviço gerido.
+- **Tráfego de disco de uma máquina virtual do Azure**: o tráfego de Disco da Máquina Virtual (incluindo montar e desmontar, diskIO), para discos geridos/não geridos, não é afetado pelas alterações do encaminhamento de pontos finais de serviço para o Armazenamento do Azure. Pode limitar o acesso REST aos blobs de página para selecionar redes, através de pontos finais de serviço e [regras de rede de Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Registo e resolução de problemas
 
@@ -105,7 +106,7 @@ Depois configurar os pontos finais de serviço para um serviço específico, val
 
 Os pontos finais de serviço podem ser configurados de forma independente em redes virtuais por um utilizador com acesso de escrita numa rede virtual. Para proteger os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão *Microsoft.Network/JoinServicetoaSubnet* para as sub-redes que estão a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
 
-Saiba mais sobre [funções incorporadas](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a atribuição de permissões específicas a [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Saiba mais sobre [funções incorporadas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a atribuição de permissões específicas a [funções personalizadas](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço da rede virtual e do Azure pertencerem a subscrições diferentes, os recursos devem existir no mesmo inquilino do Active Directory (AD). 
 
@@ -123,5 +124,5 @@ Para um recurso de serviço do Azure (como uma conta do Armazenamento do Microso
 - Saiba como [proteger uma conta do Armazenamento do Microsoft Azure para uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger uma conta da Base de Dados SQL do Microsoft Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
--  Início rápido: [modelo do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto final de serviço numa Sub-rede da VNet e na conta de Armazenamento do Azure segura dessa sub-rede.
+-  Início rápido: [modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto final de serviço numa Sub-rede da VNet e na conta de Armazenamento do Azure segura dessa sub-rede.
 
