@@ -1,6 +1,6 @@
 ---
-title: "Proteção de suporte de dados de Blueprint - automatização de aplicações FedRAMP Web - de conformidade e segurança do Azure"
-description: "Automatização de aplicações FedRAMP Web - suporte de dados de proteção"
+title: Proteção de suporte de dados de Blueprint - automatização de aplicações FedRAMP Web - de conformidade e segurança do Azure
+description: Automatização de aplicações FedRAMP Web - suporte de dados de proteção
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="media-protection-mp"></a>Proteção de suporte de dados (MP)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de proteção de suporte de dados que abrange o objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de proteção do suporte de dados e controlos de proteção de suporte de dados associada; analisa e atualiza a política de proteção de suporte de dados atual [atribuição: frequência definida de organização]; e procedimentos de proteção do suporte de dados [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **2 do pacote de gestão** organização restringe o acesso a [atribuição: definido de organização tipos de suportes de dados digitais e/ou não digital] para [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão 3.a** organização marca o suporte de dados do sistema de informações que indicam as limitações de distribuição, avisos e marcas de segurança aplicável (se aplicável) das informações de processamento.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 3.b** exempts a organização [atribuição: definido de organização tipos de suportes de dados de sistema de informações] marque, desde que o suporte de dados permanecem na [atribuição: definido de organização controlada áreas].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 4.a** organização controla fisicamente e armazena de forma segura [atribuição: definido de organização tipos de suportes de dados digitais e/ou não digital] dentro [atribuição: definido de organização controlada áreas].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão 4.b** a organização protege o suporte de dados de sistema de informações até que o suporte de dados serão destruídos ou utilizar sanitized aprovados equipamento, técnicas e procedimentos.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 5.a** organização protege e controla [atribuição: definido de organização tipos de suportes de dados de sistema de informações] durante o transporte fora áreas controladas utilizando [atribuição: as proteções de segurança definido para organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão 5.b** organização mantém accountability para suporte de dados de sistema de informações durante o transporte fora áreas controladas.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão 5.c** organização documentos actividades associadas o transporte de suporte de dados de sistema de informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão 5.d** organização restringe as atividades associadas o transporte de suporte de dados de sistema de informações a empregados autorizados.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão-5 (4)** o sistema de informações implementa mecanismos criptográficos para proteger a confidencialidade e a integridade das informações armazenadas no suporte de dados digitais durante o transporte fora áreas controladas.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP 6.a** organização sanitizes [atribuição: suporte de dados de sistema de informações definidas pela organização] antes de disposal, versão fora do controlo organizacional ou para utilizar a reutilização de versão [atribuição: técnicas de sanitização definido de organização e procedimentos] em conformidade com as normas federais e organizacionais aplicáveis e as políticas.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão-6. b** a organização utiliza mecanismos de sanitização com a segurança e integridade proporcionais a categoria de segurança ou a classificação das informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão-6 (1)** organização revê, aprova, monitoriza, documentos e verifica as ações de sanitização e disposal de suporte de dados.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão-6 (2)** organização testa equipamento de sanitização e procedimentos [atribuição: frequência definida de organização] para verificar que o sanitização que se destinam a ser alcançada.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão-6 (3)** a organização aplica técnicas de sanitização nondestructive para dispositivos de armazenamento portátil antes de ligar esses dispositivos para o sistema de informações nas seguintes circunstâncias: [atribuição: definido de organização circunstâncias que requerem sanitização de dispositivos de armazenamento portátil].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP de 7** a organização [seleção: restringe; proíbe] a utilização de [atribuição: definido de organização tipos de suportes de dados de sistema de informações] em [atribuição: sistemas informações definidas pela organização ou componentes do sistema] utilizando [atribuição: proteções de segurança definido para organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **Pacote de gestão-7 (1)** organização proíbe a utilização de dispositivos de armazenamento portátil nos sistemas de informações organizacionais, quando esses dispositivos não têm não existe nenhum proprietário de identificação.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|

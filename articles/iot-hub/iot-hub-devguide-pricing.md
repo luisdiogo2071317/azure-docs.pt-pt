@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Obter informações sobre preços IoT Hub do Azure
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 04/03/2018
 | Mensagens da nuvem para dispositivo | As mensagens enviadas com êxito são-lhe cobradas em segmentos de 4 KB, por exemplo uma mensagem de 6 KB é cobrada 2 mensagens. |
 | Carregamentos de ficheiros | Transferência de ficheiros para o Storage do Azure não está limitada pelo IoT Hub. Mensagens de início e de conclusão de transferência do ficheiro são cobradas, tal como messaged medido em incrementos de 4 KB. Por exemplo, a transferência de um ficheiro de 10 MB é cobrada duas mensagens, para além do custo de armazenamento do Azure. |
 | Métodos diretos | Pedidos de método com êxito, são-lhe cobrados em segmentos de 4 KB, respostas com corpos de vazios são-lhe cobradas em segmentos de 4 KB como mensagens adicionais. Pedidos para dispositivos desligados são-lhe cobrados como mensagens de segmentos de 4 KB. Por exemplo, um método com um corpo de 6 KB que resulta numa resposta com nenhum corpo do dispositivo, é-lhe cobrados como duas mensagens. Um método com um corpo de 6 KB que resulta numa resposta 1 KB do dispositivo é cobrado como duas mensagens para o pedido plus outra mensagem de resposta. |
-| Leituras de dispositivo duplo | Dispositivo duplo lê a partir do dispositivo e a solução de back-end são-lhe cobrados como mensagens de segmentos de 512 bytes. Por exemplo, a leitura de um dispositivo de 6 KB duplo é cobrado como 12 mensagens. |
-| Atualizações ao dispositivo duplo (etiquetas e propriedades) | Atualizações ao dispositivo duplo do dispositivo e o solução de back-end são-lhe cobradas como mensagens de segmentos de 512 bytes. Por exemplo, a leitura de um dispositivo de 6 KB duplo é cobrado como 12 mensagens. |
-| Consultas do dispositivo duplo | As consultas são-lhe cobradas como mensagens, consoante o tamanho dos resultados em segmentos de 512 bytes. |
+| Leituras de dispositivo e o módulo duplo | Duplo lê a partir do dispositivo ou o módulo e a solução de back-end são-lhe cobrados como mensagens de segmentos de 512 bytes. Por exemplo, ler um duplo 6 KB é cobrado como 12 mensagens. |
+| Atualizações de duplo módulo e de dispositivos (etiquetas e propriedades) | As atualizações de duplo do dispositivo ou do módulo e o solução de back-end são-lhe cobradas como mensagens de segmentos de 512 bytes. Por exemplo, ler um duplo 6 KB é cobrado como 12 mensagens. |
+| Consultas de dispositivo e o módulo da duplo | As consultas são-lhe cobradas como mensagens, consoante o tamanho dos resultados em segmentos de 512 bytes. |
 | Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | Não é cobrado. |
-| Operações por dispositivo de tarefas | Operações de tarefas (tais como atualizações ao dispositivo duplo e métodos) são-lhe cobradas como normal. Por exemplo, uma tarefa, resultando em chamadas de método de 1000 com pedidos de 1 KB e respostas de corpo vazio é cobrada 1000 mensagens. |
+| Operações por dispositivo de tarefas | Operações de tarefas (tais como atualizações de duplo e métodos) são-lhe cobradas como normal. Por exemplo, uma tarefa, resultando em chamadas de método de 1000 com pedidos de 1 KB e respostas de corpo vazio é cobrada 1000 mensagens. |
 
 > [!NOTE]
 > Todos os tamanhos de são calculados considerar o tamanho do payload em bytes (pacotes de protocolo é ignorada). Para as mensagens que têm propriedades e corpo, o tamanho é calculado de forma desconhecidas do protocolo. Para obter mais informações, consulte [mensagens guia para programadores do IoT Hub][lnk-message-size].

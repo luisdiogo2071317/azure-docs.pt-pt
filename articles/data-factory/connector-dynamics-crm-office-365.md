@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar os dados de origem e de Dynamics 365 (serviço de dados comum) ou Dynamics CRM através da utilização do Azure Data Factory
 
@@ -276,7 +276,11 @@ Para copiar dados para o Dynamics, defina o tipo de sink na atividade de cópia 
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **verdadeiro** e **falso**.<br>- **Verdadeiro**: mantenha os dados no objeto de destino inalterados quando fizer uma operação upsert/atualização. Inserir um valor predefinido definido quando efetuar uma operação de inserção.<br/>- **FALSO**: atualizar os dados no objeto de destino como NULL quando fizer uma operação upsert/atualização. Inserir um valor nulo quando efetuar uma operação de inserção. | Não (a predefinição é false) |
 
 >[!NOTE]
->O valor predefinido de writeBatchSize o sink e a atividade de cópia [parallelCopies](copy-activity-performance.md#parallel-copy) para o sink de Dynamics são ambos os 10. Por conseguinte, 100 registos são submetidos Dynamics em simultâneo.
+>O valor predefinido do sink "**writeBatchSize**"e a atividade de cópia"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" para o sink de Dynamics são ambos os 10. Por conseguinte, 100 registos são submetidos Dynamics em simultâneo.
+
+Para o Dynamics 365 online, há um limite de [2 chamadas do batch em simultâneo por organização](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Se esse limite for excedido, um índice de falhas "Servidor ocupado" é emitida antes do primeiro pedido nunca é executado. Manter "writeBatchSize" inferior ou igual a 10 seria evitar esses limitação de chamadas em simultâneo.
+
+A combinação ideal de "**writeBatchSize**"e"**parallelCopies**" depende o esquema da entidade por exemplo, número de colunas, o tamanho de linha, o número de atividades de plug-ins/fluxos de trabalho/fluxo de trabalho estabelecer ligação com ele cópias de segurança para essas chamadas, etc. A predefinição de 10 writeBatchSize * 10 parallelCopies é a recomendação de acordo com o serviço de Dynamics, que funciona para a maior parte das entidades de Dynamics entanto não pode ser melhor desempenho. Pode otimizar o desempenho ao ajustar a combinação nas definições da atividade de cópia.
 
 **Exemplo:**
 
@@ -322,12 +326,13 @@ Configure o tipo de dados do Data Factory correspondente numa estrutura de conju
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Longo | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Booleano | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Duplo | ✓ | ✓ |
 | AttributeType.EntityName | Cadeia | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | |
+| AttributeType.Lookup | GUID | ✓ | ✓ |
 | AttributeType.ManagedProperty | Booleano | ✓ | |
 | AttributeType.Memo | Cadeia | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |

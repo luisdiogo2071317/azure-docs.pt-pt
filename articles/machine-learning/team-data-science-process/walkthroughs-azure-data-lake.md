@@ -1,24 +1,24 @@
 ---
-title: "Instruções de ciência de dados do Azure Data Lake utilizando U-SQL | Microsoft Docs"
-description: "Exemplos que guiá-lo através da utilização de U-SQL no Azure Data Lake para realizar a Análise Preditiva."
+title: Instruções de ciência de dados do Azure Data Lake utilizando U-SQL | Microsoft Docs
+description: Exemplos que guiá-lo através da utilização de U-SQL no Azure Data Lake para realizar a Análise Preditiva.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 100f75c5d21d5723bd7438b49e982ff116b75908
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: deguhath
+ms.openlocfilehash: c6d94f11134c582320269f60a148b02fe885e188
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Instruções de ciência de dados do Azure Data Lake utilizando U-SQL
 
@@ -32,7 +32,7 @@ Instruções de ciência de dados adicionais que executar o processo de ciência
 O [utilização do Azure Data Lake de ciência de dados](data-lake-walkthrough.md) instruções mostram como utilizar o Azure Data Lake para fazer a exploração de dados e tarefas de classificação binária de uma amostra do NYC taxi conjunto de dados para prever ou não uma sugestão é paga por um cliente. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para ver um debate os componentes chave que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 

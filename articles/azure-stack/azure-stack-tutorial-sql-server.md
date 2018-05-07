@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Disponibilizar bases de dados SQL para os utilizadores de pilha do Azure
 Como um administrador da nuvem de pilha do Azure, pode criar ofertas informar os utilizadores (inquilinos) criar bases de dados do SQL Server que podem utilizar com as respetivas aplicações de nuvem nativo, Web sites e cargas de trabalho. Ao fornecer estas bases de dados personalizados a pedido, baseado na nuvem aos seus utilizadores, pode guardá-los tempo e recursos. Para configurar esta opção, irá:
@@ -34,8 +34,8 @@ Como um administrador da nuvem de pilha do Azure, pode criar ofertas informar os
 
 O processo de implementação é descrito em detalhe no [bases de dados do SQL de utilização do artigo de pilha do Azure](azure-stack-sql-resource-provider-deploy.md)e é composto pelos seguintes passos principais:
 
-1. [Implementar o fornecedor de recursos do SQL Server]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Verificar a implementação]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Implementar o fornecedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md).
+2. [Verificar a implementação](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Fornecem capacidade ao ligar a um servidor SQL de alojamento.
 
 ## <a name="create-an-offer"></a>Criar uma oferta
@@ -68,7 +68,7 @@ Agora que implementou o fornecedor de recursos do SQL Server e criar uma oferta,
     - **Nome de base de dados**: SQLdb
     - **Tamanho máximo em MB**: 100
     - **Subscrição**: TestSQLOffer
-    - **Resource Group**: SQL-RG
+    - **Grupo de recursos**: RG do SQL Server
 3. Clique em **definições de início de sessão**, introduza as credenciais para a base de dados e, em seguida, clique em **OK**.
 4. Clique em **SKU** > selecione o SKU de SQL que criou para o servidor de alojamento do SQL Server > **OK**.
 5. Clique em **Criar**.

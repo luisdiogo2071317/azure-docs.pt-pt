@@ -5,4 +5,4 @@ MS. Service: MS. topic de política do azure: incluem MS. Date: 04/24/2018 Autho
 ---
 
 >[!Note] 
-> Este artigo fornece os passos sobre como eliminar os dados pessoais do dispositivo e pode ser utilizado para suportar as obrigações sob o GDPR. Se estiver à procura de informações gerais sobre GDPR, consulte o [secção GDPR do Centro de fidedignidade serviço](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+> Este artigo fornece os passos sobre como eliminar os dados pessoais do dispositivo e pode ser utilizado para suportar as obrigações sob o GDPR. Se estiver à procura de informações gerais sobre GDPR, consulte o [secção GDPR do portal do serviço de confiança](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

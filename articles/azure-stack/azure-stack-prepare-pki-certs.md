@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c195cc0bacd9eea7e75fa35cd155845f03dd21cf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 934585082e2832c41885874c82ab43d64a1fa361
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar os certificados PKI de pilha do Azure para a implementação
 Os ficheiros de certificado [obtido a partir da sua AC escolhidas](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes requisitos de certificado da pilha do Azure.
@@ -28,55 +28,58 @@ Os ficheiros de certificado [obtido a partir da sua AC escolhidas](azure-stack-g
 ## <a name="prepare-certificates-for-deployment"></a>Preparar os certificados para implementação
 Utilize estes passos para preparar e validar os certificados PKI de pilha do Azure: 
 
+### <a name="import-the-certificate"></a>Importe o certificado
+
 1.  Copiar as versões do certificado original [obtido a partir da sua AC escolhidas](azure-stack-get-pki-certs.md) para um diretório no anfitrião de implementação. 
   > [!WARNING]
   > Não copie os ficheiros que já foram importados, exportados ou alterados de qualquer forma dos ficheiros fornecidos diretamente pela AC.
 
-2.  Importe os certificados no arquivo de certificados de computador Local:
+2.  Faça duplo clique no certificado e selecione **instalar certificado** ou **Instalar PFX** consoante a forma como o certificado foi entregue da AC.
 
-    a.  Faça duplo clique no certificado e selecione **Instalar PFX**.
-
-    b.  No **Assistente Importar certificado**, selecione **máquina Local** como a localização de importação. Selecione **Seguinte**.
+3. No **Assistente Importar certificado**, selecione **máquina Local** como a localização de importação. Selecione **Seguinte**. No ecrã seguinte, clique em seguinte novamente.
 
     ![Localização de importação de máquina local](.\media\prepare-pki-certs\1.png)
 
-    c.  Selecione **seguinte** no **Escolher ficheiro a importar** página.
-
-    d.  No **proteção por chave privada** página, introduza a palavra-passe para os ficheiros de certificado e, em seguida, ative o **marcar esta chave como exportável. Isto permite-lhe criar cópias de segurança ou transporte das chaves posteriormente** opção. Selecione **Seguinte**.
-
-    ![Marcar chave como exportável](.\media\prepare-pki-certs\2.png)
-
-    e.  Escolha **local em todos os certificados no seguinte arquivo** e, em seguida, selecione **Enterprise confiar** como a localização. Clique em **OK** para fechar a caixa de diálogo de seleção de arquivo de certificados e, em seguida, **seguinte**.
+4.  Escolha **local em todos os certificados no seguinte arquivo** e, em seguida, selecione **Enterprise confiar** como a localização. Clique em **OK** para fechar a caixa de diálogo de seleção de arquivo de certificados e, em seguida, **seguinte**.
 
     ![Configurar o arquivo de certificados](.\media\prepare-pki-certs\3.png)
 
-  f.    Clique em **concluir** para concluir o Assistente de importação de certificados.
+    a. Se estiver a importar um PFX será apresentada uma caixa de diálogo adicionais. No **proteção por chave privada** página, introduza a palavra-passe para os ficheiros de certificado e, em seguida, ative o **marcar esta chave como exportável. Isto permite-lhe criar cópias de segurança ou transporte das chaves posteriormente** opção. Selecione **Seguinte**.
 
-  g.    Repetir o processo para todos os certificados que está a fornecer para a sua implementação.
+    ![Marcar chave como exportável](.\media\prepare-pki-certs\2.png)
 
-3. Exporte o certificado para o formato do ficheiro PFX com requisitos do Azure pilha:
+5. Clique em Concluir para concluir a importação.
 
-  a.    Abra a consola do MMC do Gestor de certificados e ligar ao arquivo de certificados de computador Local.
+### <a name="export-the-certificate"></a>Exportar o certificado
 
-  b.    Vá para o **Enterprise confiar** diretório.
+Abra a consola do MMC do Gestor de certificados e ligar ao arquivo de certificados de computador Local.
 
-  c.    Selecione um dos certificados que importou no passo 2 acima.
+1. Abra a consola de gestão da Microsoft, no Windows 10 com o botão direito no Menu Iniciar, clique em executar. Tipo **mmc** clique em ok.
 
-  d.    Na consola de Gestor de tarefas barra de certificado, selecione **ações** > **todas as tarefas** > **exportar**.
+2. Clique em ficheiro, adicionar/remover Snap-In, em seguida, selecionados de certificados, clique em Adicionar.
 
-  e.    Selecione **Seguinte**.
+    ![Adicionar Snap-in de certificados](.\media\prepare-pki-certs\mmc-2.png)
+ 
+3. Selecione a conta de computador, clique em seguinte, em seguida, selecione o computador Local, em seguida, concluir. Clique em ok para fechar a página Adicionar/Remover Snap-In.
 
-  f.    Selecione **Sim, exportar a chave privada**e, em seguida, clique em **seguinte**.
+    ![Adicionar Snap-in de certificados](.\media\prepare-pki-certs\mmc-3.png)
 
-  g.    Na secção de formato de ficheiro de exportação, selecione **exportar todas as propriedades expandidas** e, em seguida, clique em **seguinte**.
+4. Procurar certificados > Enterprise confiar > localização do certificado. Certifique-se de que vê o certificado à direita.
 
-  h.    Selecione **palavra-passe** e fornecer uma palavra-passe para os certificados. Memorize esta palavra-passe porque é utilizado como um parâmetro de implementação. Selecione **Seguinte**.
+5. Na consola de Gestor de tarefas barra de certificado, selecione **ações** > **todas as tarefas** > **exportar**. Selecione **Seguinte**.
 
-  i.    Escolha um nome de ficheiro e a localização do ficheiro pfx exportar. Selecione **Seguinte**.
+  > [!NOTE]
+  > Dependendo de quantos Azure pilha certificados que tem, poderão ter de concluir este processo mais do que uma vez.
 
-  j.    Selecione **Concluir**.
+4. Selecione **Sim, exportar a chave privada**e, em seguida, clique em **seguinte**.
 
-  k.    Repita este processo para todos os certificados importados para a sua implementação no passo 2 acima.
+5. Na secção de formato de ficheiro de exportação, selecione **exportar todas as propriedades expandidas** e, em seguida, clique em **seguinte**.
+
+6. Selecione **palavra-passe** e fornecer uma palavra-passe para os certificados. Memorize esta palavra-passe porque é utilizado como um parâmetro de implementação. Selecione **Seguinte**.
+
+7. Escolha um nome de ficheiro e a localização do ficheiro pfx exportar. Selecione **Seguinte**.
+
+8. Selecione **Concluir**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Validar os certificados PKI](azure-stack-validate-pki-certs.md)

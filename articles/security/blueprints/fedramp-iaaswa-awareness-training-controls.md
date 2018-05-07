@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sensibilização e formação"
-description: "Automatização de aplicações FedRAMP Web - sensibilização e formação"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - sensibilização e formação
+description: Automatização de aplicações FedRAMP Web - sensibilização e formação
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="awareness-and-training-at"></a>Deteção e formação (AT)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma deteção de segurança e a política de formação endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da deteção de segurança e política de formação e deteção de segurança associadas e controlos de formação; analisa e atualiza a deteção de segurança atual e a política de formação [atribuição: frequência definida de organização]; e deteção de segurança e procedimentos de formação [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.a** organização fornece formação de sensibilização básicos de segurança para os utilizadores do sistema de informações (incluindo gestores, sénior executivos e subcontratados) como parte de formação inicial para os novos utilizadores.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.b** organização fornece formação de sensibilização básicos de segurança para os utilizadores do sistema de informações (incluindo gestores, sénior executivos e subcontratados) quando exigido pela alterações de sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.c** organização fornece formação de sensibilização básicos de segurança para os utilizadores do sistema de informações (incluindo gestores, sénior executivos e subcontratados) [atribuição: frequência definida de organização] após essa data.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-2 (2)** organização inclui a deteção de segurança de preparação no reconhecer e relatórios potenciais indicadores de ameaça interno.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.a** organização fornece a formação de segurança baseada em funções ao pessoal com responsabilidades e funções de segurança atribuídas, antes de autorizar o acesso ao sistema de informações ou para executar atribuído deveres.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.b** organização fornece formação de segurança baseada em funções para o pessoal com responsabilidades quando exigido pela alterações de sistema de informações e funções de segurança atribuídas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.c** organização fornece formação de segurança baseada em funções para o pessoal com responsabilidades e funções de segurança atribuídas [atribuição: frequência definida de organização] após essa data.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-3 (3)** organização inclui exercícios práticos na formação de segurança que reforçar processo objetivos de formação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-3 (4)** organização fornece formação para o técnico [atribuição: definido de organização indicadores de código malicioso] para reconhecer comunicações suspeitas e comportamento anómalo nos sistemas de informações organizacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 4.a** as organização documentos e monitores individuais informações sistema formação atividades de segurança, incluindo formação de sensibilização básicos de segurança e formação de segurança do sistema de informações específicas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 4.b** organização mantém os registos de formação individuais para [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

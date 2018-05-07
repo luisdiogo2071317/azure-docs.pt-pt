@@ -53,6 +53,7 @@
 #### [E-mail de convite](active-directory-b2b-invitation-email.md)
 #### [Resgate de convite](active-directory-b2b-redemption-experience.md)
 #### [Adicionar utilizadores B2B sem convite](active-directory-b2b-add-user-without-invite.md)
+#### [Permitir ou bloquear convites](active-directory-b2b-allow-deny-list.md)
 #### [Acesso condicional para B2B](active-directory-b2b-mfa-instructions.md)
 #### [Políticas de partilha B2B](active-directory-b2b-delegate-invitations.md)
 #### [Adicionar um utilizador B2B a uma função](active-directory-b2b-add-guest-to-role.md)
@@ -273,6 +274,7 @@
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
 ### [Configurar durações de token](active-directory-configurable-token-lifetimes.md)
 ### [Gerir as contas administrativas de acesso de emergência](active-directory-admin-manage-emergency-access-accounts.md)
+### [A proteger as funções privilegiadas](admin-roles-best-practices.md)
 
 ## Revisões de acesso
 ### [Descrição geral da revisão de acesso](active-directory-azure-ad-controls-access-reviews-overview.md)
