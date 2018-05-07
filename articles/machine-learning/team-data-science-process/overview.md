@@ -3,7 +3,7 @@ title: O que é o Processo de Ciência de Dados de Equipa? | Microsoft Docs
 description: Fornece uma metodologia de ciência de dados para fornecer soluções de Análise Preditiva e aplicações inteligentes.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev
-ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 4a73b988863a27f872c695cf209d2c46c6bb5f89
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 
@@ -65,7 +65,7 @@ Os objetivos, tarefas e artefactos de documentação para cada fase do ciclo de 
 
 O diagrama seguinte fornece uma vista de grelha de tarefas (azul) e artefactos (em verde) associados em cada fase do ciclo de vida (no eixo horizontal) para estas funções (no eixo vertical). 
 
-![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)
+![TDSP-funções-e-tarefas](./media/overview/tdsp-tasks-by-roles.png)
 
 ## <a name="standardized-project-structure"></a>Estrutura do projeto normalizado
 
@@ -79,7 +79,7 @@ Podemos fornecer modelos de estrutura de pastas e documentos necessários em loc
 - métricas de desempenho de modelo como curvas ROC ou MSE
 
 
-![TDSP-directories](./media/overview/tdsp-dir-structure.png)
+![TDSP diretórios](./media/overview/tdsp-dir-structure.png)
 
 A estrutura do diretório pode ser clonada a partir do [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -96,7 +96,7 @@ A infraestrutura de armazenamento e de análise pode ser na nuvem ou no local. E
 
 Eis um exemplo de uma equipa partilha vários componentes de infraestrutura de análise de nuvem e de trabalhar em vários projetos.
 
-![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)
+![Infraestrutura de TDSP](./media/overview/tdsp-analytics-infra.png)
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Ferramentas e utilitários para execução do projeto

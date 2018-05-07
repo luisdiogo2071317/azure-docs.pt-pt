@@ -1,27 +1,27 @@
 ---
-title: "Criar um gateway de aplicação com a terminação de SSL - portal do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o portal do Azure."
+title: Criar um gateway de aplicação com a terminação de SSL - portal do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 10796000f913428e39a0ffbd0aa2cbe0c515eb7a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Criar um gateway de aplicação com a terminação de SSL com o portal do Azure
 
 Pode utilizar o portal do Azure para criar um [gateway de aplicação](application-gateway-introduction.md) com um certificado para a terminação de SSL, que utiliza máquinas virtuais para servidores back-end.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um certificado autoassinado
@@ -113,15 +113,15 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 3. Introduza estes valores para a máquina virtual:
 
     - *myVM* - para que o nome da máquina virtual.
-    - *azureuser* - para que o nome de utilizador administrador.
+    - *azureuser* - no nome de utilizador do administrador.
     - *Azure123456!* a palavra-passe.
     - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
 
 4. Clique em **OK**.
-5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
-7. Clique em **desativado** para desativar o diagnóstico de arranque.
-8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
+7. Clique em **Desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -161,11 +161,11 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 
     ![Registar o endereço IP público do application gateway](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
 
-2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Para aceitar o aviso de segurança se utilizou um certificado autoassinado, selecione os detalhes e, em seguida, avance para a página Web:
+2. Copie o endereço IP público e cole-o na barra de endereço do browser. Para aceitar o aviso de segurança se utilizou um certificado autoassinado, selecione os detalhes e, em seguida, avance para a página Web:
 
     ![Aviso seguro](./media/application-gateway-ssl-portal/application-gateway-secure.png)
 
-    O Web site do IIS protegido, em seguida, é apresentado como no exemplo seguinte:
+    O site IIS protegido é apresentado como no exemplo seguinte:
 
     ![URL de base de teste no gateway de aplicação](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 

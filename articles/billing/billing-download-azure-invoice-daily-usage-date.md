@@ -1,27 +1,27 @@
 ---
-title: "Transferir uma fatura e diariamente dados de utilização de faturação do Azure | Microsoft Docs"
-description: "Descreve como transferir ou visualizar o seu Azure faturação uma fatura e diariamente dados de utilização."
-keywords: "faturação da fatura, transferência fatura, fatura do azure, a utilização do azure"
-services: 
-documentationcenter: 
+title: Transferir uma fatura e diariamente dados de utilização de faturação do Azure | Microsoft Docs
+description: Descreve como transferir ou visualizar o seu Azure faturação uma fatura e diariamente dados de utilização.
+keywords: faturação da fatura, transferência fatura, fatura do azure, a utilização do azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 6fa9f9ae4ef2bd39f3c6d3ec7c6d757aa50b2fd1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou visualizar a fatura de faturação do Azure e a utilização de dados diária
 Pode transferir a fatura do [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou tiver enviado por correio eletrónico. Para transferir a sua utilização diária, vá para o [Centro de contas do Azure](https://account.azure.com/Subscriptions). Apenas determinadas funções tem permissão para obter a fatura de faturação e informações de utilização, como o administrador da conta. Para obter mais informações sobre como obter acesso a informações de faturação, consulte [gerir o acesso ao Azure através de funções de faturação](billing-manage-access.md).
@@ -90,7 +90,7 @@ Apenas o administrador da conta podem aceder Centro de contas do Azure. Outros a
 
 Para obter mais informações sobre a utilização diária, consulte [compreender a fatura do Microsoft Azure](billing-understand-your-bill.md). Para ajudar a gerir os custos, consulte [evitar custos inesperados com faturação do Azure e custos de gestão](billing-getting-started.md).
 
-## <a name="noinvoice"></a>Por que motivo não vejo uma fatura para o último período de faturação?
+## <a name="noinvoice"></a> Por que motivo não vejo uma fatura para o último período de faturação?
 
 Podem existir várias razões, se não vir uma fatura:
 

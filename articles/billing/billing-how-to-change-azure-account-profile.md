@@ -1,26 +1,26 @@
 ---
-title: "Alterar as informações do perfil de conta do Azure | Microsoft Docs"
-description: "Descreve como alterar o perfil da sua conta do Azure e responde as questões recorrentes, tais como, por que motivo não é possível alterar o país no Centro de contas do Azure"
-services: 
-documentationcenter: 
+title: Alterar as informações do perfil de conta do Azure | Microsoft Docs
+description: Descreve como alterar o perfil da sua conta do Azure e responde as questões recorrentes, tais como, por que motivo não é possível alterar o país no Centro de contas do Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22d64ba9c9bdceda108b1160aef32ff3d38e4b03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ec0caccafd7ed6eaf91be153014d2e3aaf5a30b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Alterar as informações do perfil de conta do Azure, tais como o correio eletrónico de contacto, endereço e número de telefone
 
@@ -31,7 +31,7 @@ O endereço de e-mail no perfil de administrador de conta é utilizado pela Micr
 1. Iniciar sessão para o [Centro de contas do Azure](https://account.azure.com/Profile).
 1. Selecione o **editar detalhes** botão e, em seguida, atualize o **perfil** informações.
 
-   ![Perfil](./media/billing-how-to-change-azure-account-profile/profile.png)
+   ![perfil](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

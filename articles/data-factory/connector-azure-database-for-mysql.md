@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f2b048d4fad1fae240904fef48842679accaa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 17e5ba3637b0ae36412e46166f7f178d4c82d179
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar os dados da base de dados do Azure para MySQL utilizando o Azure Data Factory
 
@@ -47,6 +47,13 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 | tipo | A propriedade de tipo tem de ser definida: **AzureMySql** | Sim |
 | connectionString | Especifique as informações necessárias para estabelecer ligação à base de dados do Azure para a instância de MySQL. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+
+Uma cadeia de ligação típico é `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Propriedades que pode ser definidas por seu incidente:
+
+| Propriedade | Descrição | Opções | Necessário |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Esta opção especifica se o controlador utiliza encriptação SSL e verificação ao ligar a MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / preferencial (1) **(predefinida)** / necessária (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
+| useSystemTrustStore | Esta opção especifica se pretende utilizar um certificado de AC do arquivo de confiança de sistema ou de um ficheiro PEM especificado. Por exemplo, `UseSystemTrustStore=<0/1>;`| (1) de ativado / desativado (0) **(predefinida)** | Não |
 
 **Exemplo:**
 

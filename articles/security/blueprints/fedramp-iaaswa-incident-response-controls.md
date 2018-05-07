@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - resposta a incidentes"
-description: "Automatização de aplicações FedRAMP Web - resposta a incidentes"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - resposta a incidentes
+description: Automatização de aplicações FedRAMP Web - resposta a incidentes
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="incident-response-ir"></a>Resposta a incidentes (IR)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de resposta a incidentes que endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de resposta a incidentes e controlos de resposta a incidentes associados; analisa e atualiza a política de resposta a incidentes atual [atribuição: frequência definida de organização]; e procedimentos de resposta a incidentes [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 2.a** organização fornece formação de resposta a incidentes para utilizadores do sistema de informações consistentes com atribuído funções e responsabilidades dentro [atribuição: organização definidos pelo período de tempo] do pressuposto de que uma função de resposta a incidentes ou responsabilidade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 2.b** organização fornece formação de resposta a incidentes para utilizadores do sistema de informações consistentes com atribuído funções e responsabilidades, quando necessário por alterações de sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 2.c** organização fornece formação de resposta a incidentes para utilizadores do sistema de informações consistentes com atribuído funções e responsabilidades [atribuição: frequência definida de organização] após essa data.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-2 (1)** organização incorpora eventos simulados formação para facilitar a resposta efetiva por parte do pessoal em situações de crisis de resposta a incidentes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-2 (2)** organização emprega automatizados mecanismos para fornecer um ambiente de formação de resposta a incidentes mais detalhado e realistas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 3** organização testa a capacidade de resposta a incidentes para o sistema de informações [atribuição: frequência definida de organização] utilizando [atribuição: testes definidos de organização] para determinar a eficácia de resposta a incidentes e os resultados de documentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-3 (2)** organização coordena a resposta a incidentes de teste com elementos organizacionais responsáveis por planos relacionados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 4.a** organização implementa um incidente capacidade para incidentes de segurança que inclua preparação, a deteção e análise, contenção, eradication e recuperação de processamento.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 4.b** organização coordena as atividades de processamento de incidentes com contingency planear atividades.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 4.c** organização incorpora lições aprendidas em atividades de processamento de incidentes em curso em procedimentos de resposta a incidentes, formação e testar, e implementa resultante é alterado em conformidade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-4 (1)** organização emprega automatizados mecanismos para suportar o processo de processamento de incidente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-4 (2)** organização inclui dinâmica reconfiguração da [atribuição: os componentes do sistema de informações definidas pela organização] como parte da capacidade de resposta a incidentes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-4 (3)** identifica a organização [atribuição: classes definidas de organização de incidentes] e [atribuição: definido de organização ações em resposta a classes de incidentes] para garantir a continuação do missions organizacionais e funções de negócio.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-4 (4)** organização está correlacionada com informações do incidente e respostas de incidentes individuais para obter uma perspetiva de toda a organização de deteção automática de incidente e resposta.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -242,7 +242,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-4 (6)** organização implementa a capacidade de processamento de incidentes para ameaças internas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -256,7 +256,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (8)** coordena a organização com [atribuição: organizações externas definido de organização] para correlacionar e partilhar [atribuição: definido de organização informações do incidente] para alcançar uma perspetiva de organização cruzada de incidente Deteção e respostas de incidentes mais eficientes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -270,7 +270,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 5** organização controla e documentos incidentes de segurança do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -284,7 +284,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-5 (1)** organização emprega automatizados mecanismos para ajudar no controlo de incidentes de segurança e a recolha e análise de informações do incidente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -298,7 +298,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 6.a** organização requer técnico suspeito incidentes de segurança para a capacidade de resposta a incidentes organizacional dentro de relatório [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -312,7 +312,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-6. b** organização informações de incidente de segurança para os relatórios [atribuição: autoridades definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -326,7 +326,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-6 (1)** organização emprega automatizados mecanismos para ajudá-lo de relatórios de incidentes de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -340,7 +340,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de resposta a incidentes** organização fornece um recurso de suporte de resposta a incidentes, integral para a capacidade de resposta a incidentes organizacional oferece conselhos e da assistência para utilizadores do sistema de informações para o tratamento e relatórios de segurança incidentes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -354,7 +354,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes de 7 (1)** organização emprega automatizados mecanismos para aumentar a disponibilidade das informações relacionadas com a resposta do incidente e suporte.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -362,13 +362,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800-53 Control IR-7 (2).a
+ ### <a name="nist-800-53-control-ir-7-2a"></a>Controlar o NIST 800-53 .a (2) 7 de resposta a incidentes
 
 #### <a name="incident-response-assistance--coordination-with-external-providers"></a>Resposta a incidentes assistência | Coordenação com fornecedores externos
 
 **Resposta a incidentes de 7 (2) .a** organização estabelece uma relação direta, cooperative entre a capacidade de resposta a incidentes e fornecedores externos de capacidade de proteção do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -382,7 +382,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes de 7 (2) .b** organização identifica os membros da equipa de resposta a incidentes organizacionais para os fornecedores externos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -396,7 +396,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 8.a** organização desenvolvidas pela organização um plano de resposta a incidentes, que fornece a organização com um plano para implementar a sua capacidade de resposta a incidentes; descreve a estrutura e a organização da capacidade de resposta a incidentes; fornece uma abordagem de alto nível sobre como a capacidade de resposta a incidentes ajusta à organização geral; cumpre os requisitos exclusivos da organização, quais se relacionam com a missão, tamanho, estrutura e funções; Define incidentes reportable; fornece métricas para medir a capacidade de resposta a incidentes dentro da organização; Define os recursos e suporte para gestão necessárias para manter e madura uma capacidade de resposta a incidentes; eficazmente é revistos e aprovados pelo [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -410,7 +410,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 8.b** organização distribui cópias do plano de resposta a incidentes para [atribuição: técnico de resposta a incidentes definido por organização (identificado pelo nome e/ou pela função) e os elementos organizacionais].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -424,7 +424,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 8.c** organização revê o plano de resposta a incidentes [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -438,7 +438,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 8.d** organização atualiza o plano de resposta a incidentes para abordar as alterações de sistema organizacional ou problemas encontrados durante a implementação do plano, execução ou de teste.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -452,7 +452,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-8.e** A organização comunica alterações de plano de resposta a incidentes [atribuição: técnico de resposta a incidentes definido por organização (identificado pelo nome e/ou pela função) e os elementos organizacionais].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -466,7 +466,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 8.f** a organização protege o plano de resposta a incidentes de divulgação não autorizada e modificação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -480,7 +480,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 9.a** organização responde às informações spills ao identificar as informações específicas envolvidos na contamination de sistema informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -494,7 +494,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.b** organização responde às informações spills por alertas [atribuição: técnico definido pela organização ou funções] as informações transbordam utilizando um método de comunicação não associado a transbordam.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -508,7 +508,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 9.c** organização responde às informações spills ao isolar o contaminated informações do sistema ou o componente de sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -522,7 +522,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes 9.d** organização responde às informações spills por eradicating as informações do sistema de informações contaminated ou componente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -536,7 +536,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9.e** A organização responde às informações spills, identificando outros sistemas de informação ou componentes do sistema que poderão ter sido subsequentemente contaminated.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -550,7 +550,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.f** organização responde às informações spills efetuando outros [atribuição: ações definidas por organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -564,7 +564,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-9 (1)** atribui a organização [atribuição: técnico definido pela organização ou funções] com responsabilidade para responder a informações spills.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -572,13 +572,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ir-9-2"></a>NIST 800-53 Control IR-9 (2)
+ ### <a name="nist-800-53-control-ir-9-2"></a>NIST 800-53 controlo IR-9 (2)
 
 #### <a name="information-spillage-response--training"></a>Resposta de Spillage informações | Formação
 
 **Resposta a incidentes-9 (2)** organização fornece formação de resposta de spillage informações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -592,7 +592,7 @@ ms.lasthandoff: 02/11/2018
 
 **Resposta a incidentes-9 (3)** implementa a organização [atribuição: procedimentos definidos para organização] para se certificar de que o técnico organizacional afetado por informações spills pode continuar a realizar tarefas atribuídas enquanto contaminated sistemas são sob ações corretivas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -606,7 +606,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (4)** organização emprega [atribuição: as proteções de segurança definido para organização] técnico expostos informações não dentro atribuída autorizações de acesso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

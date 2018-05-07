@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/23/2017
+ms.date: 04/30/2018
 ms.author: jroth
-ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2b398f59aed1610825f495a6089990d393531305
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em Virtual Machines do Azure (Gestor de recursos)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Clássico](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/29/2018
 ## <a name="overview"></a>Descrição geral
 Existem várias funcionalidades de encriptação do SQL Server, tais como [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [encriptação de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), e [encriptação de cópias de segurança](https://msdn.microsoft.com/library/dn449489.aspx). Estes formulários da encriptação tem de gerir e armazenar as chaves criptográficas que utiliza para a encriptação. O serviço Cofre de chaves do Azure (AKV) foi concebido para melhorar a segurança e gestão destas chaves numa localização segura e altamente disponível. O [conector do SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server para utilizar estas chaves a partir do Cofre de chaves do Azure.
 
-Se a execução do SQL Server no local máquinas, existe são [passos que pode seguir para aceder ao Cofre de chaves do Azure a partir do seu computador do SQL Server no local](https://msdn.microsoft.com/library/dn198405.aspx). Mas para o SQL Server em VMs do Azure, pode poupar tempo ao utilizar o *integração do Cofre de chaves do Azure* funcionalidade.
+Se estiver a executar o SQL Server com máquinas no local, existem [passos que pode seguir para aceder ao Cofre de chaves do Azure a partir do seu computador do SQL Server no local](https://msdn.microsoft.com/library/dn198405.aspx). Mas para o SQL Server em VMs do Azure, pode poupar tempo ao utilizar o *integração do Cofre de chaves do Azure* funcionalidade.
 
 Quando esta funcionalidade está ativada, instala o conector do SQL Server, configura automaticamente o fornecedor EKM para aceder ao Cofre de chaves do Azure e cria a credencial para que possa aceder ao seu cofre. Se tem em conta os passos na documentação do mencionadas anteriormente no local, pode ver que esta funcionalidade automatiza os passos 2 e 3. É a única coisa que ainda terá de efetuar manualmente a criação do Cofre de chaves e as chaves. A partir daí, a configuração completa da sua VM do SQL Server é um processo automatizada. Depois desta funcionalidade concluída esta configuração, pode executar as instruções T-SQL para começar a encriptar as cópias de segurança ou bases de dados, como faria normalmente.
 
@@ -39,7 +40,7 @@ Quando esta funcionalidade está ativada, instala o conector do SQL Server, conf
 Pode ativar a integração AKV durante o aprovisionamento ou configurá-la para VMs existentes.
 
 ### <a name="new-vms"></a>Novas VMs
-Se estiver a aprovisionar uma nova máquina de virtual do SQL Server com o Resource Manager, o portal do Azure fornece um passo para ativar a integração do Cofre de chaves do Azure. A funcionalidade do Cofre de chaves do Azure está disponível apenas para o Enterprise, Developer e edições de avaliação do SQL Server.
+Se estiver a aprovisionar uma nova máquina de virtual do SQL Server com o Resource Manager, o portal do Azure fornece uma forma de ativar a integração do Cofre de chaves do Azure. A funcionalidade do Cofre de chaves do Azure está disponível apenas para o Enterprise, Developer e edições de avaliação do SQL Server.
 
 ![Integração do Cofre de Chaves do SQL Azure](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 

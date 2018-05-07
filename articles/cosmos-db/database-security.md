@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a873aa9835ffab8b0d195d9fc9588167ea134128
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de base de dados do Cosmos BD do Azure
 
@@ -78,7 +78,7 @@ Vamos aprofundar para cada um em detalhe.
 |Responder a ataques|Depois de contactar o suporte do Azure para reportar um ataque potencial, um processo de resposta a incidentes passo 5 é arrancou. O objetivo do processo de passo 5 é restaurar mais rapidamente possível operações de segurança normal do serviço e depois é detetado um problema e é iniciada uma investigação.<br><br>Saiba mais em [na nuvem do Microsoft Azure Security Response](https://aka.ms/securityresponsepaper).|
 |Barreiras geográficas|BD do Azure do Cosmos garante a governação de dados e conformidade para regiões sovereign (por exemplo, na Alemanha, China, nos US).|
 |Instalações protegidas|Dados na base de dados do Azure Cosmos são armazenados em SSDs nos centros de dados protegidos do Azure.<br><br>Saiba mais em [os datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|Encriptação HTTPS/SSL/TLS|Todas as interações de base de dados do Azure Cosmos do serviço de cliente são SSL/TLS 1.2 imposta. Além disso, todos os intra datacenter e em vários centros de dados a replicação está SSL/TLS 1.2 imposta.|
+|Encriptação HTTPS/SSL/TLS|Todas as interações de base de dados do Azure Cosmos do serviço de cliente são compatíveis com o SSL/TLS 1.2. Além disso, todos os intra datacenter e em vários centros de dados a replicação está SSL/TLS 1.2 imposta.|
 |Encriptação inativa|Todos os dados armazenados na base de dados do Azure Cosmos são encriptados em pausa. Saiba mais em [encriptação de base de dados do Azure Cosmos Inativos](.\database-encryption-at-rest.md)|
 |Corrigido servidores|Como uma base de dados gerido, base de dados do Azure Cosmos elimina a necessidade de gerir e aplicar o patch servidores, que efetuou para si, automaticamente.|
 |Contas administrativas com palavras-passe fortes|É difícil de considerar precisamos, mesmo mencionar este requisito, mas, ao contrário de algumas das nossas concorrentes, não é possível ter uma conta de administrador com nenhuma palavra-passe do BD Azure Cosmos.<br><br> Segurança através de SSL e HMAC autenticação baseada em segredo está integrada por predefinição.|

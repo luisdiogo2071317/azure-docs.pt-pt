@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço Azure VM Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure VM Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -54,6 +54,9 @@ Sim. Pode cancelar a tarefa de cópia de segurança se estiver na fase "Criar in
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Posso ativar o bloqueio do grupo de recursos no meu disco gerido com cópia de segurança de VMs. As minhas cópias de segurança vão continuar a funcionar?
 Se o utilizador bloqueia o grupo de recursos, serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Devido a esta novas cópias de segurança começam a falhar, há um limite de pontos de restauro 18 máxima imposta de back-end. Se as cópias de segurança estão a falhar com um erro interno após o bloqueio RG, siga estes [passos para remover o restauro do ponto de coleção](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Política de cópia de segurança tenha Verão guardar Time(DST) em conta?
+Não. Lembre-se de que data e hora no seu computador local é apresentado na sua hora local e com o seu atual bias de hora de Verão. Por isso, a hora configurada para cópias de segurança agendadas pode ser diferente da sua hora local devido ao DST.
 
 ## <a name="restore"></a>Restauro
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Como posso decidir entre o restauro de discos e o restauro de VMs completo?

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ As seguintes propriedades são suportadas para o serviço de Cassandra ligada:
 
 Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por Cassandra conjunto de dados.
 
-Para copiar dados de Cassandra, defina a propriedade de tipo do conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados de Cassandra, defina a propriedade de tipo do conjunto de dados para **CassandraTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -177,7 +177,7 @@ Quando copiar dados de Cassandra, os seguintes mapeamentos são utilizados Cassa
 | VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
 | VALOR DE DUPLO |Duplo |
-| NÚMERO DE VÍRGULA FLUTUANTE |Solteiro |
+| NÚMERO DE VÍRGULA FLUTUANTE |Único |
 | INET |Cadeia |
 | INT |Int32 |
 | TEXTO |Cadeia |
@@ -226,7 +226,7 @@ A tabela base contém os mesmos dados que a tabela de base de dados original, ex
 
 As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a partir das lista, mapa e StringSet colunas. As colunas com nomes que terminem com "_index" ou "c_have" indicam a posição de dados dentro da lista original ou do mapa. As colunas com nomes que terminem com "_value" contêm os dados expandidos da coleção.
 
-**Table "ExampleTable_vt_List":**
+**Tabela "ExampleTable_vt_List":**
 
 | pk_int | List_index | List_value |
 | --- | --- | --- |
@@ -244,7 +244,7 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |t |
+| 3 |S1 |T |
 
 **Table "ExampleTable_vt_StringSet":**
 

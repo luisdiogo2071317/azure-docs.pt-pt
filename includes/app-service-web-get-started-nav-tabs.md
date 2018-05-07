@@ -3,7 +3,7 @@
 > * [PHP](../articles/app-service/app-service-web-get-started-php.md)
 > * [Node.js](../articles/app-service/app-service-web-get-started-nodejs.md)
 > * [Java](../articles/app-service/app-service-web-get-started-java.md)
-> * [python](../articles/app-service/app-service-web-get-started-python.md)
+> * [Python](../articles/app-service/app-service-web-get-started-python.md)
 > * [HTML](../articles/app-service/app-service-web-get-started-html.md)
 > 
 > 

@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>O Azure Active Directory B2C: Permitir aos utilizadores iniciar sessão para um fornecedor de identidade do multi-inquilino do Azure AD através de políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como ativar o início de sessão para utilizadores que utilizam o ponto final comum para o Azure Active Directory (Azure AD) através da utilização de [políticas personalizadas](active-directory-b2c-overview-custom.md).
+Este artigo mostra como ativar o início de sessão para utilizadores que utilizam o ponto final de multi-inquilino do Azure Active Directory (Azure AD) através da utilização de [políticas personalizadas](active-directory-b2c-overview-custom.md). Isto permite aos utilizadores a partir de múltiplos inquilinos do Azure AD para iniciar sessão no Azure AD B2C sem configurar um fornecedor técnico para cada inquilino. No entanto, convidado membros em qualquer um destes inquilinos **não** conseguir iniciar sessão. Para tal, terá [configurar individualmente cada inquilino](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > Utilizamos "contoso.com" para o organizacional inquilino do Azure AD e "fabrikamb2c.onmicrosoft.com" do inquilino do Azure AD B2C nas instruções seguintes.
@@ -36,25 +36,22 @@ Concluir os passos a [introdução às políticas personalizadas](active-directo
 Estes passos incluem:
      
 1. Criar um Azure Active Directory B2C inquilino (Azure AD B2C).
-2. Criar uma aplicação do Azure AD B2C.    
-3. Registar duas aplicações de motor de política.  
-4. Definição de segurança das chaves. 
-5. Configurar o pacote de arranque.
+1. Criar uma aplicação do Azure AD B2C.    
+1. Registar duas aplicações de motor de política.  
+1. Definição de segurança das chaves. 
+1. Configurar o pacote de arranque.
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>Passo 1. Criar uma aplicação multi-inquilino do Azure AD
 
-Para ativar o início de sessão para utilizadores que utilizam o multi-inquilino ponto final do Azure AD, tem de ter uma aplicação de multi-inquilino registada em nenhum dos seus inquilinos do Azure AD. Neste artigo, vamos mostrar como criar uma aplicação multi-inquilino do Azure AD no seu inquilino do Azure AD B2C. Em seguida, ative o início de sessão para utilizadores através da utilização que multi-inquilino de aplicação do Azure AD.
-
->[!NOTE]
-> Se pretender que os utilizadores do Azure AD **e os utilizadores com contas Microsoft** para iniciar sessão, ignore esta secção e, em vez disso, registar uma aplicação no [portal de programador do Microsoft](https://apps.dev.microsoft.com).
+Para ativar o início de sessão para utilizadores que utilizam o multi-inquilino ponto final do Azure AD, tem de ter uma aplicação de multi-inquilino registada dos seus inquilinos do Azure AD. Neste artigo, vamos mostrar como criar uma aplicação multi-inquilino do Azure AD no seu inquilino do Azure AD B2C. Em seguida, ative o início de sessão para utilizadores através da utilização que multi-inquilino de aplicação do Azure AD.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione a sua conta. Do **diretório** lista, escolha o inquilino do Azure AD B2C para registar a aplicação do Azure AD (fabrikamb2c.onmicrosoft.com).
-2. Selecione **mais serviços** no painel esquerdo e procure "Registos de aplicação".
-3. Selecione **Novo registo de aplicação**.
-4. Introduza um nome para a sua aplicação (por exemplo, `Azure AD B2C App`).
-5. Selecione **Aplicação/API Web** para o tipo de aplicação.
-6. Para **URL de início de sessão**, introduza o seguinte URL onde `yourtenant` é substituído pelo nome do seu inquilino do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Selecione **mais serviços** no painel esquerdo e procure "Registos de aplicação".
+1. Selecione **Novo registo de aplicação**.
+1. Introduza um nome para a sua aplicação (por exemplo, `Azure AD B2C App`).
+1. Selecione **Aplicação/API Web** para o tipo de aplicação.
+1. Para **URL de início de sessão**, introduza o seguinte URL onde `yourtenant` é substituído pelo nome do seu inquilino do Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >O valor para "yourtenant" deve ser todo em minúsculas no **URL de início de sessão**.
@@ -82,8 +79,8 @@ Tem de registar a chave de aplicação nas definições do Azure AD B2C. Para ef
    * Para **nome**, escolha um nome que corresponde ao nome do seu inquilino do Azure AD (por exemplo, `AADAppSecret`).  O prefixo `B2C_1A_` é adicionado automaticamente para o nome da sua chave.
    * Colar a chave de aplicação no **segredo** caixa.
    * Selecione **assinatura**.
-5. Selecione **Criar**.
-6. Confirme que criou a chave `B2C_1A_AADAppSecret`.
+1. Selecione **Criar**.
+1. Confirme que criou a chave `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>Passo 3. Adicionar um fornecedor de afirmações na política de base
 
@@ -114,11 +111,12 @@ Pode definir do Azure AD como um fornecedor de afirmações, adicionando o Azure
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +148,15 @@ Pode definir do Azure AD como um fornecedor de afirmações, adicionando o Azure
 1. Atualize o valor para `<Description>`.
 1. Definir `<Item Key="client_id">` para o ID da aplicação do registo de aplicação de mulity inquilino do Azure AD.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>Passo 3.1 [opcional] restringir acesso à lista específica de inquilinos do Azure AD
-Poderá querer atualizar a lista de emissores de token válidas e restringir o acesso à lista específica de inquilinos do Azure AD os utilizadores podem iniciar sessão. Para obter os valores, terá de observe os metadados para cada um dos especificada inquilinos do Azure AD que gostaria de a indicar aos utilizadores iniciar sessão a partir. O formato dos dados assemelha ao seguinte: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, onde `yourAzureADtenant` é o nome de inquilino do Azure AD (contoso.com ou qualquer outro inquilino do Azure AD).
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Passo 3.1 restringir o acesso a uma lista específica de inquilinos do Azure AD
+
+> [!NOTE]
+> Utilizar `https://sts.windows.net` como o valor de **ValidTokenIssuerPrefixes** irá permitir que todos os utilizadores do Azure AD iniciar sessão na sua aplicação.
+
+Terá de atualizar a lista de emissores de token válidas e restringir o acesso à lista específica de inquilinos do Azure AD os utilizadores podem iniciar sessão. Para obter os valores, terá de observe os metadados para cada um dos especificada inquilinos do Azure AD que gostaria de a indicar aos utilizadores iniciar sessão a partir. O formato dos dados assemelha ao seguinte: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, onde `yourAzureADtenant` é o nome de inquilino do Azure AD (contoso.com ou qualquer outro inquilino do Azure AD).
 1. Abra o browser e avance para o URL de metadados.
 1. No browser, procure o objeto 'emissor' e copie o valor. Deve ser semelhante ao seguinte: `https://sts.windows.net/{tenantId}/`.
 1. Colar o valor para o `ValidTokenIssuerPrefixes` chave. Pode adicionar várias, separando-as com uma vírgula. Um exemplo desta situação é comentado no exemplo acima de XML.
-
-> [!NOTE]
-> Utilizar `https://sts.windows.net` como um valor de prefixo irá permitir que todos os utilizadores do Azure AD iniciar sessão na sua aplicação.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>Passo 4. Registar o fornecedor de afirmações de conta do Azure AD
 
@@ -212,11 +211,11 @@ Agora tem de atualizar o ficheiro de terceiros (RP) entidade confiadora que inic
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Passo 6: Carregar a política para o seu inquilino
 
 1. No [portal do Azure](https://portal.azure.com), mude para o [contexto do seu inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)e, em seguida, selecione **do Azure AD B2C**.
-2. Selecione **identidade experiência Framework**.
-3. Selecione **todas as políticas**.
-4. Selecione **carregar política**.
-5. Selecione o **substituir a política se existir** caixa de verificação.
-6. Carregar o `TrustFrameworkExtensions.xml` ficheiro e o ficheiro RP (por exemplo, `SignUpOrSignInWithAAD.xml`) e certifique-se de que aprovado na validação.
+1. Selecione **identidade experiência Framework**.
+1. Selecione **todas as políticas**.
+1. Selecione **carregar política**.
+1. Selecione o **substituir a política se existir** caixa de verificação.
+1. Carregar o `TrustFrameworkExtensions.xml` ficheiro e o ficheiro RP (por exemplo, `SignUpOrSignInWithAAD.xml`) e certifique-se de que aprovado na validação.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Passo 7: Testar a política personalizada utilizando o executar agora
 

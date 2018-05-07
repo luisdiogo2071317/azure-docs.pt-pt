@@ -1,11 +1,11 @@
 ---
-title: "Criar, editar ou expandir JSON para a lógica de definições da aplicação - Azure Logic Apps | Microsoft Docs"
-description: "Criar e personalizar definições da aplicação lógica no JSON"
+title: Criar, editar ou expandir JSON para a lógica de definições da aplicação - Azure Logic Apps | Microsoft Docs
+description: Criar e personalizar definições da aplicação lógica no JSON
 author: ecfan
 manager: SyntaxC4
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f37f600d001b110775d8ca0e78950e3b8743df82
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Criar, editar ou personalizar JSON para definições da aplicação lógica
 
@@ -49,7 +49,7 @@ No Visual Studio, pode abrir as logic apps que foram criadas e implementados a d
 
 2. Localize e abra a definição da sua aplicação lógica, que, por predefinição, é apresentado num [modelo do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), denominado **LogicApp.json**. Pode utilizar e personalizar este modelo para implementação em ambientes diferentes.
 
-3. Abra o menu de atalho para a definição da aplicação lógica e os modelos. Selecione **aberta com o Designer de aplicação lógica**.
+3. Abra o menu de atalho para a definição da aplicação lógica e os modelos. Selecione **Abrir com o Estruturador da Aplicação Lógica**.
 
    ![Aplicação de lógica de abrir numa solução Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
@@ -81,7 +81,7 @@ No [primeira aplicação de lógica de exemplo](../logic-apps/quickstart-create-
 
 2. No `When_a_feed-item_is_published` ação, localizar o `queries` secção e substitua o valor de consulta com `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
-   **Before**
+   **Antes de**
    ``` json
    }
       "queries": {
@@ -119,7 +119,7 @@ Segue-se uma definição básica:
 
 ``` json
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "uri": {
@@ -170,7 +170,7 @@ As Logic Apps tem várias funções para trabalhar com cadeias. Por exemplo, sup
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {
@@ -231,7 +231,7 @@ Por exemplo, este fluxo de trabalho define algumas categorias como parâmetros e
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "specialCategories": {
@@ -321,7 +321,7 @@ Para formatar datas, pode utilizar ao mesmo tempo cadeia. Por exemplo, para obte
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {

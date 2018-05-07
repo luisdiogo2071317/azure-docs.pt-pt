@@ -1,27 +1,27 @@
 ---
-title: "Criar um gateway de aplicação com uma firewall de aplicação web - portal do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação com uma firewall de aplicação web utilizando o portal do Azure."
+title: Criar um gateway de aplicação com uma firewall de aplicação web - portal do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicação com uma firewall de aplicação web utilizando o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Criar um gateway de aplicação com uma firewall de aplicação web no portal do Azure
 
 Pode utilizar o portal do Azure para criar um [gateway de aplicação](application-gateway-introduction.md) com um [firewall de aplicações web](application-gateway-web-application-firewall-overview.md) (WAF). As utilizações WAF [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regras para proteger a sua aplicação. Estas regras incluem a proteção contra ataques, tais como a injeção de SQL, ataques de scripts entre sites e hijacks de sessão.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um gateway de aplicação com WAF ativada
@@ -83,15 +83,15 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 3. Introduza estes valores para a máquina virtual:
 
     - *myVM* - para que o nome da máquina virtual.
-    - *azureuser* - para que o nome de utilizador administrador.
+    - *azureuser* - no nome de utilizador do administrador.
     - *Azure123456!* a palavra-passe.
     - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
 
 4. Clique em **OK**.
-5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
-7. Clique em **desativado** para desativar o diagnóstico de arranque.
-8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
+7. Clique em **Desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -127,12 +127,12 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Criar uma conta de armazenamento e configurar o diagnóstico
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Neste tutorial, o gateway de aplicação utiliza uma conta do storage para armazenar dados para efeitos de deteção e prevenção. Também pode utilizar a análise de registos ou Hub de eventos para registar dados.
 
 1. Clique em **novo** encontrado no canto superior esquerdo do portal do Azure.
-2. Selecione **armazenamento**e, em seguida, selecione **conta de armazenamento - BLOBs, ficheiro, tabela, fila**.
+2. Selecione **Armazenamento** e selecione **Conta de Armazenamento - blob, ficheiro, tabela, fila**.
 3. Introduza o nome da conta de armazenamento, selecione **utilização existente** para o grupo de recursos e, em seguida, selecione **myResourceGroupAG**. Neste exemplo, o nome de conta de armazenamento é *myagstore1*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **criar**.
 
 ## <a name="configure-diagnostics"></a>Configurar o diagnóstico
@@ -155,7 +155,7 @@ Configure diagnósticos para registar dados para os registos ApplicationGatewayA
 
     ![Registar o endereço IP público do application gateway](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+2. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
     ![Gateway de aplicação de teste](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 

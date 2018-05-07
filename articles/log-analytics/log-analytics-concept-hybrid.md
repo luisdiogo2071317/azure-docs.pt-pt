@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
 
@@ -28,7 +28,7 @@ Análise de registos do Azure pode recolher e atuar sobre dados de computadores 
 * O Centro de dados como servidores físicos ou máquinas virtuais
 * Máquinas virtuais num serviço alojado na nuvem como Amazon Web Services (AWS)
 
-Computadores alojados no seu ambiente podem ser diretamente ligados à análise de registos ou se já estiver a monitorizar estes computadores com o System Center Operations Manager 2012 R2 ou 2016, pode integrar o grupo de gestão Operations gerir com a análise de registos e Continue a manter a sua estratégia e os processos de operações do serviço.  
+Computadores alojados no seu ambiente que podem ser ligados diretamente ao Log Analytics, ou se está já a monitorizar estes computadores com o System Center Operations Manager 2012 R2, 2016 ou versão 1801, pode integrar o seu grupo de gestão Operations gerir com Análise de registo e continuar a manter os seus processos de operações de serviço de TI.  
 
 ## <a name="overview"></a>Descrição geral
 
@@ -36,15 +36,11 @@ Computadores alojados no seu ambiente podem ser diretamente ligados à análise 
 
 Antes de analisar e a funcionar nos dados recolhidos, terá primeiro de instalar e ligar agentes para todos os computadores que pretende enviar dados para o serviço de análise de registos. Pode instalar agentes nos computadores no local utilizando a configuração, a linha de comandos, ou com pretendido Estado Configuration (DSC) na automatização do Azure. 
 
-O agente para Linux e Windows comunica saído com o serviço de análise de registos através da porta TCP 443 e se o computador liga ao servidor de firewall ou proxy para comunicar através da Internet, reveja [configurar o agente para utilização com um servidor proxy ou Gateway do OMS](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway) para compreender que configuração é alterado será tem de ser aplicadas. Se estiver a monitorizar o computador com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço de análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo [do Operations Manager ](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com a análise de registos não receber a configuração para origens de dados e os dados recolhidos reencaminhar através do grupo de gestão. O agente do Windows pode reportar até quatro áreas de trabalho, enquanto o agente Linux só suporta relatórios para uma única área de trabalho.  
+O agente para Linux e Windows comunica saído com o serviço de análise de registos através da porta TCP 443 e se o computador liga ao servidor de firewall ou proxy para comunicar através da Internet, reveja [a secção de pré-requisitos](#prerequisites) para compreenda a configuração de rede necessária.  Se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet, pode configurar um [OMS Gateway](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para estabelecer ligação através do gateway para análise de registos. O agente, em seguida, pode receber informações de configuração e enviar dados recolhidos, dependendo de que as regras de recolha de dados e soluções tiver ativado. 
 
-O agente para Linux e Windows não é apenas para estabelecer a ligação para análise de registos, também suporta a ligação com a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+Se estiver a monitorizar o computador com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço de análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo [do Operations Manager ](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com a análise de registos não receber a configuração para origens de dados e os dados recolhidos reencaminhar através do grupo de gestão. O agente do Windows pode reportar até quatro áreas de trabalho, enquanto o agente Linux só suporta relatórios para uma única área de trabalho.  
 
-Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à Internet, o agente pode ser configurado para ligar ao Gateway para receber as informações de configuração e enviar os dados recolhidos consoante a solução que tiver ativado o OMS. Para obter mais informações e os passos sobre como configurar o agente Linux ou do Windows para comunicar através de um Gateway do OMS para o serviço de análise de registos, consulte [ligar computadores ao OMS utilizando o Gateway do OMS](log-analytics-oms-gateway.md). 
-
-> [!NOTE]
-> O agente para o Windows só suporta Transport Layer Security (TLS) 1.0 e 1.1.  
-> 
+O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, reveja os detalhes seguintes para verificar que cumpre os requisitos mínimos do sistema.
@@ -54,6 +50,9 @@ As seguintes versões do sistema operativo Windows oficialmente são suportadas 
 
 * Windows Server 2008 Service Pack 1 (SP1) ou posterior
 * Windows 7 SP1 e posterior.
+
+> [!NOTE]
+> O agente para o Windows só suporta Transport Layer Security (TLS) 1.0 e 1.1.  
 
 #### <a name="network-configuration"></a>Configuração da rede
 As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente do Windows comunicar com a análise de registos. O tráfego é de saída da sua rede para o serviço de análise de registos. 

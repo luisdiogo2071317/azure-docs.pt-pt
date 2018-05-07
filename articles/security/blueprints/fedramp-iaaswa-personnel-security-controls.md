@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e a segurança do pessoal Blueprint - automatização de aplicações FedRAMP Web - conformidade"
-description: "Automatização de aplicações FedRAMP Web - a segurança do pessoal"
+title: Segurança do Azure e a segurança do pessoal Blueprint - automatização de aplicações FedRAMP Web - conformidade
+description: Automatização de aplicações FedRAMP Web - a segurança do pessoal
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="personnel-security-ps"></a>Segurança do pessoal (PS)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de segurança do pessoal endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de segurança do pessoal e controlos de segurança do pessoal associado; analisa e atualiza a política de segurança do pessoal atual [atribuição: frequência definida de organização]; e procedimentos de segurança do pessoal [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 2.a** organização atribui uma designação de risco para todas as posições organizacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 2.b** organização estabelece e filtragens critérios para as pessoas que preenchem essas posições.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 2.c** organização revê e atualiza a posição risco designações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 3.a** indivíduos antes de autorizar o acesso ao sistema de informações de filtragem de organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 3.b** organização rescreens indivíduos de acordo com [atribuição: condições definidas de organização exigir rescreening e, em que, por isso, é indicada rescreening, a frequência da mesma rescreening].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-3 (3) .a** organização garante que os indivíduos aceder a um sistema de informações de processamento, armazenamento ou transmitir informações exigir proteção especial autorizações válido de acesso que são demonstradas por atribuiu oficial deveres Government.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **.B PS-3 (3)** organização assegura que o indivíduos aceder a um processamento de informações do sistema, armazenar ou transmitir informando especial que exigem que satisfaçam [atribuição: técnicos adicionais definidas de organização filtragem critérios].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.a** a organização, após a terminação da sua admissão individuais desativa o acesso do sistema de informações na [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.b** a organização, após a terminação da sua admissão individuais termina/revoga quaisquer autenticadores/credenciais associadas com o indivíduo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.c** entrevistas de saída que incluem um debate do efetua a organização, após a terminação da sua admissão individuais [atribuição: tópicos de segurança de informações definidas pela organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.d** a organização, após a terminação da sua admissão individuais obtém todas as propriedade de relacionados com o sistema de relacionadas com segurança informações organizacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4.e** A organização, após a terminação da sua admissão individuais mantém o acesso a informações organizacionais e sistemas de informação anteriormente controlados pelo terminado individuais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.f** a organização, após a terminação da sua admissão individuais notifica [atribuição: técnico definido pela organização ou funções] dentro [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4 (2)** organização emprega mecanismos automatizados para o notificar [atribuição: técnico definido pela organização ou funções] após a terminação de uma pessoa.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.a** organização revê e confirma a necessidade de operacional em curso de autorizações de acesso lógico e físico atual informações sistemas/instalações quando indivíduos são reatribuídos ou ser transferidos para outras posições dentro do organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.b** inicia a organização [atribuição: ações de transferência ou reatribuição definido de organização] dentro [atribuição: organização definidos pelo período de tempo a seguir a ação de transferência formal].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.c** organização modifica a autorização de acesso conforme necessário para corresponder com todas as alterações no operacional precisa devido a reatribuição ou transferência.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 5.d** organização notifica [atribuição: técnico definido pela organização ou funções] dentro [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 6.a** contratos para sistemas de informações organizacionais de acesso a documentos e a organização desenvolvidas pela organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-6. b** organização revê e atualiza os contratos de acesso [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-6. c** organização assegura que os indivíduos que requerem acesso a informações organizacionais e sistemas de informação assinar contratos acesso adequado antes de ser concedido acesso; e voltar a assinar contratos de acesso para manter o acesso a sistemas de informações organizacionais quando tiverem sido atualizados contratos de acesso ou [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.a** organização estabelece requisitos de segurança do pessoal, incluindo funções de segurança e responsabilidades de fornecedores de terceiros.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de PS** a organização necessita de fornecedores de terceiros estar em conformidade com políticas de segurança do pessoal e procedimentos estabelecidos pela organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.c** organização documentos requisitos de segurança do pessoal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 7.d** a organização necessita de fornecedores de terceiros notificar [atribuição: técnico definido pela organização ou funções] de quaisquer transferências de técnicos ou terminations de técnicos de terceiros que tenha credenciais organizacionais de e/ou Destaques ou que tenham privilégios dentro do sistema de informações [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-7.e** A organização monitoriza a compatibilidade do fornecedor.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 8.a** a organização utiliza um processo formal sanctions para utilizadores autónomos que não estão em conformidade com as políticas de segurança estabelecida informações e procedimentos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 8.b** organização notifica [atribuição: técnico definido pela organização ou funções] dentro [atribuição: organização definidos pelo período de tempo] quando um empregado formal sanctions processo é iniciado, que identifica o indivíduo sancionado e o motivo para o aprovar.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

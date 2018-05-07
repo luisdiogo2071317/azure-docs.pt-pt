@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - física e ambiental proteção"
-description: "Automatização de aplicações FedRAMP Web - proteção física e ambiental"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - física e ambiental proteção
+description: Automatização de aplicações FedRAMP Web - proteção física e ambiental
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Proteção física e ambiental (PE)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de proteção física e ambiental objetivo, âmbito, funções, responsabilidades, gestão de endereços compromisso, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de proteção física e ambiental e controlos de proteção associados física e ambiental; analisa e atualiza a política de proteção física e ambiental atual [atribuição: frequência definida de organização]; e procedimentos de proteção física e ambiental [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.a** organização desenvolvidas pela organização, aprova e mantém uma lista de pessoas com acesso autorizado ao local de onde reside o sistema de informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.b** organização emite credenciais de autorização de acesso de instalações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.c** organização revê a lista de acesso com detalhes sobre instalações autorizados acesso pessoas [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.d** organização remove indivíduos da lista de acesso das instalações quando já não é necessário acesso.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.a** a organização impuser autorizações de acesso físico em [atribuição: entrada/saída definido de organização aponta para o local de onde reside o sistema de informações] verificando autorizações acesso individuais antes de conceder acesso a instalações; e controlar a entrada/saída para a instalação utilizando [seleção (um ou mais): [atribuição: controlo de acesso físico definido de organização sistemas/dispositivos]; guards].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.b** organização mantém os registos de auditoria de acesso físico para [atribuição: pontos de entrada/saída definido de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.c** organização fornece [atribuição: as proteções de segurança definido para organização] para controlar o acesso a áreas dentro do local de oficialmente designado como acessível publicamente.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.d** organização escorts visitantes e monitoriza as atividades de visitantes [atribuição: circunstâncias definido de organização exigir escorts de visitantes e monitorização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3.e** A organização protege as chaves, combinações e outros dispositivos de acesso físico.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.f** inventários de organização [atribuição: dispositivos de acesso físico definido de organização] cada [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.g** organização alterações combinações e chaves [atribuição: frequência definida de organização] e/ou quando as chaves são perdidas, combinações de são comprometidas, ou se a indivíduos são transferidos e foi terminados.  
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3 (1)** a organização impuser autorizações de acesso físico para o sistema de informações para além dos controlos de acesso físico para instalações em [atribuição: espaços físicos definido pela organização que contém um ou mais componentes do o sistema de informações].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 4** organização controla o acesso físico aos [atribuição: linhas de transmissão e a distribuição do sistema de informações definidas pela organização] dentro de instalações organizacionais utilizando [atribuição: as proteções de segurança definido para organização] .
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 5** organização controla o acesso físico aos dispositivos de saída do sistema de informações para impedir que pessoas não autorizadas obter a saída.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.a** organização monitoriza acesso físico ao local de onde reside o sistema de informações para detetar e responder a incidentes de segurança física.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6. b** organização revê registos de acesso físico [atribuição: frequência definida de organização] e após a ocorrência de [atribuição: os eventos definidos por organização ou potenciais indicações de eventos].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6. c** organização coordena os resultados de revisões e as investigações com a capacidade de resposta a incidentes organizacional. 
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (1)** organização monitoriza alarmes intrusões físico e de equipamento de vigilância.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (4)** organização monitoriza acesso físico para o sistema de informações para além de monitorização de acesso físico do local de como [atribuição: espaços físicos definido pela organização que contém um ou mais componentes das informações sistema].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 8.a** organização mantém os registos de acesso de visitantes ao local de onde reside o sistema de informações para [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 8.b** organização revê registos de acesso de visitantes [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-8 (1)** organização emprega automatizados mecanismos para facilitar a manutenção e revisão dos registos de acesso de visitantes.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 9** a organização protege equipamento de energia e cablagem para o sistema de informações de danos e destruição de energia.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 10.a** organização fornece a capacidade de encerrar desativar energia para o sistema de informações ou o sistema individuais componentes em situações de emergência.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 10.b** organização coloca comutadores de emergência shutoff ou dispositivos na [atribuição: localização definido de organização por informações do sistema ou componente de sistema] para facilitar o acesso fácil e seguro para técnico.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 10.c** a organização protege a capacidade de shutoff de energia emergência ativação não autorizado.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 11** organização fornece uma curto prazo de alimentação ininterrupta para facilitar a [seleção (um ou mais): um encerramento do sistema informações ordenado; transição do sistema informações a longo prazo potência alternativo] em caso de um perda de origem de energia principal.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-11 (1)** organização fornece uma longa duração alternativa fonte de alimentação para o sistema de informações que seja capaz de manutenção minimamente necessária capacidade operacional em caso de uma perda expandida da origem de energia principal.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-12** organização emprega e mantém iluminação da emergência automática para o sistema de informações que ativa na eventualidade de ocorrer uma falha de energia ou uma interrupção e que abrange emergência sai e rotas de evacuação dentro de instalações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 13** a organização utiliza e mantém fire supressão e deteção de dispositivos/sistemas para o sistema de informações que são suportados por uma fonte de energia independentes.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (1)** emprega de organização acionados deteção/sistemas de dispositivos para o sistema de informações que ativar automaticamente e notificar [atribuição: técnico definido pela organização ou funções] e [atribuição: emergência definido de organização dispositivos de resposta] em caso de um acionar.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (2)** emprega de organização acionados supressão/sistemas de dispositivos para o sistema de informações que fornecer notificação automática de qualquer ativação para [atribuição: técnico definido pela organização ou funções] e [atribuição: definido pelo organização emergência dispositivos de resposta].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (3)** a organização utiliza uma capacidade de supressão fire automática para o sistema de informações quando a instalação não é staffed numa base contínua.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 14.a** organização mantém os níveis relativos à temperatura e humidade dentro do local de onde reside o sistema de informações em [atribuição: aceitável definido de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 14.b** organização monitoriza os níveis relativos à temperatura e humidade [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-14 (2)** a organização utiliza temperatura e humidade monitorização que fornece uma notificação de alterações potencialmente prejudiciais ou alarme para técnicos ou equipamento do cliente.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-15** a organização protege o sistema de informações de danos resultantes de fugas de níveis máximos, fornecendo mestres valves shutoff ou isolamento são conhecidos e acessível a funcionar corretamente, ao pessoal de chave.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **15 de PE (1)** organização emprega automatizados mecanismos para detetar a presença de níveis máximos in the vicinity of o sistema de informações e alertas [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-16** organização autoriza, monitoriza e controla [atribuição: tipos definidos de organização dos componentes do sistema de informações] entrar e sair da instalação e mantém registos dos itens.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.a** organização emprega [atribuição: controlos de segurança definido para organização] em sites de trabalho alternativo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.b** organização avalia como exequível, controla a eficácia de segurança em sites de trabalho alternativo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.c** organização fornece um meio para empregados para comunicar com o técnico de segurança de informações em caso de incidentes de segurança ou problemas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-18** posições de organização de componentes do sistema informações dentro do local de para minimizar a potenciais danos de [atribuição: definido de organização físicos e ambientais riscos] e minimizam a oportunidade para não autorizado acesso.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|

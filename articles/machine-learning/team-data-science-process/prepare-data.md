@@ -1,9 +1,9 @@
 ---
 title: Limpar e preparar dados do Azure Machine Learning | Microsoft Docs
-description: "Pré-processar e limpar dados para o preparar para o machine learning."
+description: Pré-processar e limpar dados para o preparar para o machine learning.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 7f0c1f0f549e746cc99db3b47f6c90bb51145d5d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: f3d05030e293c53c958aa1ba501fe9a2ba7a11b5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para machine learning otimizado
 Pré-processadas e limpeza de dados são tarefas importantes que, normalmente, tem de ser a realização de um antes do conjunto de dados pode ser utilizado de forma eficaz para o machine learning. Dados não processados é frequentemente inúteis e pouco fiáveis e poderão estar em falta valores. Utilizar esses dados para a modelação pode produzir resultados enganosa. Estas tarefas fazem parte da equipa de dados de ciência processo (TDSP) e, normalmente, siga uma exploração inicial de um conjunto de dados utilizado para detetar e planear o pré-processamento de necessário. Para obter instruções sobre o processo TDSP mais detalhadas, consulte os passos descritos no [o processo de ciência de dados de equipa](overview.md).

@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cbc1efaee7404c3ffc82acea0846136c43eba2a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b65d0d88fd57dea59c79d2f72bab60967856e015
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificados de pilha do Azure, a geração de pedido de assinatura
 
-A ferramenta do Verificador de preparação de pilha do Azure descrita neste artigo está disponível [da galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta cria pedidos de assinatura de certificado (CSRs) adequado para uma implementação de pilha do Azure. Certificados devem ser solicitados, gerados e validados com tempo suficiente para testar antes da implementação. 
+A ferramenta do Verificador de preparação de pilha do Azure descrita neste artigo está disponível [da galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta cria pedidos de assinatura de certificado (CSRs) adequado para uma implementação de pilha do Azure. Certificados devem ser solicitados, gerados e validados com tempo suficiente para testar antes da implementação.
 
 A ferramenta do Verificador de preparação de pilha do Azure (AzsReadinessChecker) efetua os seguintes pedidos de certificado:
 
  - **Pedidos de certificado padrão**  
-    Pedido de acordo com [gerar os certificados PKI para a implementação de pilha do Azure](azure-stack-get-pki-certs.md). 
+    Pedido de acordo com [gerar os certificados PKI para a implementação de pilha do Azure](azure-stack-get-pki-certs.md).
  - **Tipo de pedido**  
-    Pedir vários carateres universais SAN, vários certificados de domínio, os pedidos de certificado de caráter universal único.
+    Especifica se pretende ou não a solicitação de assinatura de certificado será pedido único ou vários pedidos.
  - **Plataforma-como-um-serviço**  
     Pedido, opcionalmente, os nomes de (PaaS) de plataforma-como-um-serviço certificados conforme especificado no [requisitos de certificados de infraestrutura de chave pública do Azure pilha - certificados PaaS opcionais](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -44,6 +44,9 @@ O sistema deve cumprir os seguintes pré-requisitos antes de gerar CSR(s) para c
     - Nome de domínio completamente qualificado (FQDN) externo
     - Assunto
  - Windows 10 ou Windows Server 2016
+ 
+  > [!NOTE]
+  > Quando receber os certificados de fazer uma cópia da sua autoridade de certificação os passos em [certificados PKI de pilha de Azure preparar](azure-stack-prepare-pki-certs.md) terão de ser concluídos no mesmo sistema!
 
 ## <a name="generate-certificate-signing-requests"></a>Gerar pedidos de assinatura de certificado
 
@@ -68,10 +71,23 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
     ````PowerShell  
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
+4.  Declarar identificar sistema
 
-4. Declarar **nome de região** e um **FQDN externo** pretendido para a implementação de pilha do Azure.
+    Azure Active Directory
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "AAD"
+    ````
+
+    Serviços de Federação do Active Directory
+
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. Declarar **nome de região** e um **FQDN externo** pretendido para a implementação de pilha do Azure.
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
@@ -79,19 +95,23 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
     > [!note]  
     > `<regionName>.<externalFQDN>` compõe a base no qual todos os nomes DNS externos na pilha do Azure são criados, neste exemplo, o portal seria `portal.east.azurestack.contoso.com`.
 
-5. Para gerar um pedido de certificado único com vários nomes de alternativo do requerente, incluindo as necessárias para os serviços de PaaS:
+6. Para gerar um pedido de certificado único com vários nomes de alternativo do requerente:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-6. Para gerar pedidos para cada nome DNS sem PaaS serviços de assinatura de certificado individuais:
+    Para incluir serviços PaaS especificar o comutador ```-IncludePaaS```
+
+7. Para gerar pedidos para cada nome DNS de assinatura de certificado individuais:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. Reveja o resultado:
+    Para incluir serviços PaaS especificar o comutador ```-IncludePaaS```
+
+8. Reveja o resultado:
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -109,9 +129,8 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
     AzsReadinessChecker Completed
     ````
 
-8.  Submeter o **. REQ** ficheiro gerado a sua AC (interno ou público).  O diretório de saída do **início AzsReadinessChecker** contém CSR(s) necessários para submeter a uma autoridade de certificação.  Também contém um diretório de subordinados que contém os ficheiros INF utilizados durante a geração de pedido de certificado, como uma referência. Certifique-se de que a sua AC gera certificados utilizando o seu pedido gerado que cumprem os [requisitos do Azure pilha PKI](azure-stack-pki-certs.md).
+9.  Submeter o **. REQ** ficheiro gerado a sua AC (interno ou público).  O diretório de saída do **início AzsReadinessChecker** contém CSR(s) necessários para submeter a uma autoridade de certificação.  Também contém um diretório de subordinados que contém os ficheiros INF utilizados durante a geração de pedido de certificado, como uma referência. Certifique-se de que a sua AC gera certificados utilizando o seu pedido gerado que cumprem os [requisitos do Azure pilha PKI](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Preparar os certificados PKI de pilha do Azure](azure-stack-prepare-pki-certs.md)
-

@@ -1,22 +1,22 @@
 ---
-title: "Descrição geral do DNS inverso no Azure | Microsoft Docs"
+title: Descrição geral do DNS inverso no Azure | Microsoft Docs
 description: Saiba como inversa de DNS de funciona e como pode ser utilizado no Azure
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: kumud
+ms.openlocfilehash: 1ce14360d0f62a01172a8003e1d78a45885166f6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Descrição geral do DNS inversa e de suporte no Azure
 
@@ -86,7 +86,7 @@ Uma pesquisa inversa para consultas de '192.0.2.129' de endereço IP para um reg
 
 ### <a name="ipv6"></a>IPv6
 
-O nome de uma zona de pesquisa inversa IPv6 deve estar no seguinte formato:`<IPv6 network prefix in reverse order>.ip6.arpa`
+O nome de uma zona de pesquisa inversa IPv6 deve estar no seguinte formato: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
 Por exemplo. Se criar uma zona inversa para registos de anfitrião para anfitriões com IPs que estiverem no 2001:db8:1000:abdc:: / 64 prefixo, seria possível criar o nome da zona ao isolar o prefixo do endereço de rede (2001:db8:abdc::). Em seguida expanda o prefixo de rede IPv6 para remover [zero compressão](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), que foi utilizado para abreviar o prefixo do endereço IPv6 (2001:0db8:abdc:0000::). Inverter a ordem, com um período como delimitador entre cada número hexadecimal no prefixo, para criar o prefixo de rede invertidos (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e adicione o sufixo `.ip6.arpa`.
 

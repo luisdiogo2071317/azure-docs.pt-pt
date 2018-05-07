@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: ecee98e9b74613a4176d20d231b32e4cb99a721e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 117bf601383a2a1156f8f8dce721f45bd27f2f88
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores da subscrição do Azure
 
@@ -76,7 +76,7 @@ Apenas o administrador da conta pode alterar o administrador de serviço para um
 
 1. Certifique-se de que o seu cenário é suportado ao verificar o [limites para alterar os administradores de serviço](#limits).
 1. Inicie sessão no [Centro de contas](https://account.windowsazure.com/subscriptions) como o administrador da conta.
-1. Selecionar uma subscrição.
+1. Selecione uma subscrição.
 1. No lado direito, selecione **editar detalhes da subscrição**.
 
     ![Captura de ecrã que mostra o botão de subscrição de edição no Centro de contas](./media/billing-add-change-azure-subscription-administrator/editsub.png)

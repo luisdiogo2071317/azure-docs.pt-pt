@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 Desde inception a oferta Azure SQL da base de dados PaaS, Microsoft fez promessa aos seus clientes que o serviço está incorporada no elevada disponibilidade (ed) e os clientes não são necessários para funcionar, adicione lógica especial para ou tomar decisões em torno HA. A Microsoft tem controlo total sobre a configuração do sistema HA e a operação, oferecendo aos clientes um SLA. O SLA HA aplica-se a uma base de dados do SQL Server numa região e não proporciona proteção em caso de uma falha de região total é decorrentes de factores fora do controlo razoável da Microsoft (por exemplo, desastre natural war, atos terrorismo, riots, ação government, ou um rede falha ou de dispositivo externa aos datacenters da Microsoft, incluindo nos sites de cliente ou entre sites de cliente e o Centro de dados da Microsoft).
@@ -30,7 +30,7 @@ Os clientes são mais interessados na resiliência das suas próprias bases de d
 
 Para dados de base de dados do SQL Server utiliza o armazenamento local (LS) com base em direto de discos anexado/VHDs e o armazenamento remoto (RS) com base em blobs de páginas de Premium Storage do Azure. 
 - Armazenamento local é utilizado no Premium ou o missão bases de dados críticos de negócio (pré-visualização) e conjuntos elásticos, que foram concebidos para crítico OLTP aplicações com requisitos de IOPS elevados. 
-- Armazenamento remoto é utilizado para escalões de serviço básico e padrão, concebidas para cargas de trabalho do orçamento orientado para empresas que necessitam de armazenamento e computação de energia para dimensionamento independente. Utilizam um blob de página única para ficheiros de registo e base de dados e mecanismos de replicação e ativação pós-falha de armazenamento incorporadas.
+- Armazenamento remoto é utilizado na escalões de serviço básico, Standard e fins gerais, que foram concebidos para cargas de trabalho do orçamento orientado para empresas que necessitam de armazenamento e computação de energia para dimensionamento independente. Utilizam um blob de página única para ficheiros de registo e base de dados e mecanismos de replicação e ativação pós-falha de armazenamento incorporadas.
 
 Em ambos os casos, a replicação, a deteção de falha e mecanismos de ativação pós-falha da base de dados do SQL Server são totalmente automatizados operam sem qualquer intervenção humana. Esta arquitetura concebida para garantir que os dados consolidados nunca são perdidos e que durabilidade de dados tem precedência sobre todas as pessoa.
 
@@ -56,7 +56,7 @@ O [Service Fabric](../service-fabric/service-fabric-overview.md) sistema de ativ
 
 ## <a name="remote-storage-configuration"></a>Configuração de armazenamento remoto
 
-Para configurações de armazenamento remoto (escalões básico e padrão), é mantida exatamente uma cópia no armazenamento de BLOBs remoto, utilizando as capacidades de sistemas de armazenamento de durabilidade, redundância e deteção rot bits. 
+Para configurações de armazenamento remoto (escalões básico, Standard ou de objetivo geral), é mantida exatamente uma cópia no armazenamento de BLOBs remoto, utilizando as capacidades de sistemas de armazenamento de durabilidade, redundância e deteção rot bits. 
 
 A arquitetura de elevada disponibilidade é ilustrada diagrama a seguir:
  

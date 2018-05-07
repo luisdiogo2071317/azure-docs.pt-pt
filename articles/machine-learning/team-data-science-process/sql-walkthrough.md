@@ -1,9 +1,9 @@
 ---
 title: Criar e implementar um modelo de machine learning utilizar o SQL Server numa VM do Azure | Microsoft Docs
-description: "Processo de análise avançada e tecnologia em ação"
+description: Processo de análise avançada e tecnologia em ação
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, a guiá-lo durante o processo de criar e implementar um modelo de machine learning com o SQL Server e um conjunto de dados publicamente disponível – o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciências de dados padrão: ingestão e explorar os dados, engenheiro de funcionalidades para o facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -75,8 +75,8 @@ Para configurar o ambiente de ciência de dados do Azure:
    > [!NOTE]
    > Os scripts de exemplo e blocos de notas IPython serão transferidos para a máquina virtual de ciência de dados durante o processo de configuração. Quando o script de pós-instalação VM estiver concluída, os exemplos estarão disponíveis na biblioteca de documentos da VM:  
    > 
-   > * Scripts de exemplo:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Blocos de notas do exemplo IPython:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Scripts de exemplo: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Blocos de notas do exemplo IPython: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   onde `<user_name>` é o nome de início de sessão do Windows da VM. Iremos dar as pastas de exemplo como **Scripts de exemplo** e **blocos de notas do exemplo IPython**.
    > 
    > 
@@ -578,7 +578,7 @@ Neste exercício, vamos já explorou e foi desenvolvido os dados no SQL Server e
    
     ![Importar dados de aprendizagem do Azure][17]
 2. Selecione **SQL Database do Azure** como o **origem de dados** no **propriedades** painel.
-3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome de base de dados** no campo correspondente.
 5. Introduza o **nome de utilizador do SQL Server** no * * aqccount nome do servidor de utilizador e a palavra-passe a **palavra-passe de conta de utilizador do**.
 7. No **consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessárias (incluindo quaisquer campos calculados, tais como as etiquetas) e baixo amostras de dados para o tamanho da amostra pretendido.

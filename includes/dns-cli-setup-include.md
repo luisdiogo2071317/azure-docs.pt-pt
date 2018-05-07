@@ -31,7 +31,7 @@ Verifique as subscrições da conta.
 azure account list
 ```
 
-Escolha qual das suas subscrições do Azure utilizar.
+Escolha qual das subscrições do Azure utilizar.
 
 ```azurecli
 azure account set "subscription name"
@@ -39,7 +39,7 @@ azure account set "subscription name"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização. Isto é utilizado como a localização predefinida para recursos nesse grupo de recursos. No entanto, uma vez que todos os recursos DNS são globais, não regionais, a opção de localização do grupo de recursos não tem impacto no DNS do Azure.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma localização, Isto é utilizado como a localização predefinida para recursos nesse grupo de recursos. No entanto, uma vez que todos os recursos DNS são globais, não regionais, a opção de localização do grupo de recursos não tem impacto no DNS do Azure.
 
 Pode ignorar este passo se estiver a utilizar um grupo de recursos existente.
 

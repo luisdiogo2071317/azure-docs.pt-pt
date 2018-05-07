@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condições de acesso condicional do Azure Active Directory 
 
@@ -38,8 +38,10 @@ A combinação das suas condições com os controlos de acesso representa uma po
 
 ![Controlo](./media/active-directory-conditional-access-conditions/61.png)
 
-Este artigo fornece uma descrição geral das condições e como são utilizadas numa política de acesso condicional. 
 
+Condições que não tiver configurado uma política de acesso condicional não são aplicadas. Algumas condições forem [obrigatório](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) para aplicar uma política de acesso condicional para um ambiente. 
+
+Este artigo fornece uma descrição geral das condições e como são utilizadas numa política de acesso condicional. 
 
 ## <a name="users-and-groups"></a>Utilizadores e grupos
 
@@ -110,7 +112,7 @@ A plataforma do dispositivo é caracterizada pelo sistema operativo que está a 
 Para uma lista completa das plataformas de dispositivos suportados, consulte [condição de plataforma de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Caso de utilização de um comum para esta condição é uma política que restringe o acesso às suas aplicações em nuvem para [dispositivo fidedigno](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Para cenários mais, incluindo a condição de plataforma do dispositivo, consulte [acesso condicional de baseado em aplicações do Azure Active Directory](active-directory-conditional-access-mam.md).
+Caso de utilização de um comum para esta condição é uma política que restringe o acesso às suas aplicações em nuvem para [dispositivos geridos](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Para cenários mais, incluindo a condição de plataforma do dispositivo, consulte [acesso condicional de baseado em aplicações do Azure Active Directory](active-directory-conditional-access-mam.md).
 
 
 

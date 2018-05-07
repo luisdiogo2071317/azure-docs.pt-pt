@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 87396204933ca964634656f9eb84c6d245c0c6c0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instale a extensão de browser do painel de acesso
 
@@ -83,6 +83,12 @@ Também pode transferir a extensão para Chrome e limite diretamente a partir de
    3. Procurar uma aplicação que está disponível no portal do meu aplicações.
    4. Na lista de resultados de pesquisa, selecione a aplicação.  
        São apresentadas as últimas três aplicações que utilizou no **utilizados recentemente** lista de atalho.
+       
+* Para utilizar URLs internas da empresa ao remoto, efetue o seguinte:
+    1. [Configurar o Proxy de aplicações](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) no seu inquilino
+    2. [Publicar a aplicação](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e o URL através de Proxy de aplicações
+    3. Instale a extensão e inicie sessão na, selecionando o início de sessão para começar a utilizar
+    4. Agora pode navegar para o URL de internas da empresa, mesmo ao remoto
 
 > [!NOTE]
 > As opções anteriores estão disponíveis apenas para o limite, o Chrome e o Firefox.

@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Uma tarefa de Stream Analytics do Azure para aumentar o débito de escala
 Este artigo mostra como otimizar a uma consulta do Stream Analytics para aumentar o débito para as tarefas de análise de transmissão em fluxo. Pode utilizar o guia seguinte para dimensionar a sua tarefa para processar uma carga maior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, memória mais).
@@ -31,7 +31,8 @@ Se a sua consulta é totalmente inerentemente paralelizável em partições de e
         - Se o problema for devido à limitação de receptores, poderá ter de aumentar o número de partições de saída (e também entrada partições para manter a tarefa totalmente paralelizável) ou aumente a quantidade de recursos do sink (por exemplo o número de unidades de pedido para CosmosDB).
     - Diagrama de tarefa, há um por métrica de eventos de registo de segurança de partição para cada entrada. Se a métrica de eventos de registo de segurança mantém aumentar, também é um indicador de que o recurso do sistema é restringido (ou devido a limitação de sink de saída ou elevada da CPU).
 4.  Depois de ter determinado os limites do que uma tarefa SU 6 pode aceder, pode Utilize para tirar conclusões forma linear a capacidade de processamento da tarefa à medida que adiciona SUs mais, partindo do princípio de que não tem quaisquer dados desfasamento que torna a determinados partição "ativos".
->[!Note]
+
+> [!NOTE]
 > Escolha o número correto de unidades de transmissão em fluxo: porque o Stream Analytics cria um nó de processamento para cada SU 6 adicionadas, é preferível efectuar um divisor do número de partições de entrada, o número de nós para as partições podem ser distribuídas uniformemente em todos os nós.
 > Por exemplo, ter medido o 6 tarefa SU pode alcançar 4 MB/s de processamento velocidade e a contagem da partição de entrada é 4. Pode optar por executar a tarefa com 12 SU para alcançar a taxa de processamento de aproximadamente 8 MB/s ou SU 24 para alcançar a 16 MB/s. Em seguida, pode decidir quando aumentar o número SU para a tarefa para que valor, como uma função de taxa de entrada.
 

@@ -1,9 +1,9 @@
 ---
-title: "Uma descrição profunda como prever o estado de funcionamento vehicle e ocasionar hábitos - Azure | Microsoft Docs"
-description: "Utilizar as capacidades do Cortana Intelligence para obter informações acerca de preditiva e em tempo real em estado de funcionamento vehicle e ocasionar hábitos."
+title: Uma descrição profunda como prever o estado de funcionamento vehicle e ocasionar hábitos - Azure | Microsoft Docs
+description: Utilizar as capacidades do Cortana Intelligence para obter informações acerca de preditiva e em tempo real em estado de funcionamento vehicle e ocasionar hábitos.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: bradsev
-ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: deguhath
+ms.openlocfilehash: 10fe87757a6da8a64e4fbd7fb624fef3e666714c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Manual de comunicação social vehicle solução de análise de telemetria: avançada aprofundar a solução
 Hiperligações este menu a secções deste manual de comunicação social: 
@@ -58,7 +58,7 @@ Este conjunto de dados formatado em JSON contém o esquema seguinte.
 | Ignition_status |Indica se o veículo está em execução ou parado |TRUE ou False |
 | Windshield_wiper_status |Indica se o wiper windshield está ativada ou não |TRUE ou False |
 | ABS |Indica se ABS é parte ou não |TRUE ou False |
-| Carimbo de data/hora |O carimbo de hora quando o ponto de dados é criado |Data |
+| Carimbo de data/hora |O carimbo de hora quando o ponto de dados é criado |Date |
 | Cidade |A localização do veículo |Quatro cidades nesta solução: Bellevue, Redmond, Sammamish, Seattle |
 
 O conjunto de dados de referência de modelo vehicle mapeia VINs para modelos. 

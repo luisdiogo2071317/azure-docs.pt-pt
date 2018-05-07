@@ -1,11 +1,11 @@
 ---
-title: "Introdução à gestão de dispositivos no Azure Active Directory | Microsoft Docs"
-description: "Saiba como gestão de dispositivos pode ajudá-lo a obter o controlo sobre os dispositivos que estão a aceder a recursos no seu ambiente."
+title: Introdução à gestão de dispositivos no Azure Active Directory | Microsoft Docs
+description: Saiba como gestão de dispositivos pode ajudá-lo a obter o controlo sobre os dispositivos que estão a aceder a recursos no seu ambiente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução à gestão de dispositivos no Azure Active Directory
 
@@ -73,7 +73,7 @@ O objetivo de dispositivos do Azure AD associado é simplificar:
 
 
 Estes objetivos são conseguidos fornecendo os seus utilizadores com uma experiência self-service para inscrever os dispositivos pertencentes à empresa trabalho sob o controlo do Azure AD.  
-**A associação do Azure AD** foi concebida para organizações que estão na nuvem primeiro / apenas na nuvem. Normalmente, são dimensionados de pequenas e médias empresas que não tenham uma infraestrutura do Windows Server Active Directory no local. 
+**A associação do Azure AD** foi concebida para organizações que pretendidos ao nível ser primeiro de nuvem ou apenas na nuvem. Não há nenhuma restrição para o tamanho ou o tipo de organizações que pode implementar a associação do Azure AD. Azure AD associação funciona bem mesmo num ambiente híbrido e pode ativar o acesso no local as aplicações e recursos.
 
 Implementar dispositivos do Azure AD associado disponibiliza as seguintes vantagens:
 
@@ -81,11 +81,14 @@ Implementar dispositivos do Azure AD associado disponibiliza as seguintes vantag
 
 - **Empresarial compatível roaming** de definições de utilizador em todos os dispositivos associados a um. Os utilizadores não precisam de ligar a uma conta Microsoft (por exemplo, Hotmail) para ver as definições em dispositivos.
 
-- **Acesso à loja Windows para empresas** utilizando a conta do AD. Os utilizadores podem escolher entre um inventário das aplicações previamente selecionadas pela organização.
+- **Acesso à loja Windows para empresas** utilizando uma conta do Azure AD. Os utilizadores podem escolher entre um inventário das aplicações previamente selecionadas pela organização.
 
 - **Windows Hello** suporte para seguro e conveniente acesso aos recursos de trabalho.
 
 - **Restrição de acesso** para a apenas os dispositivos que cumprem a política de conformidade de aplicações.
+
+- **Acesso totalmente integrado aos recursos no local** quando o dispositivo tem de linha de visão para o controlador de domínio no local.
+
 
 Enquanto a associação do Azure AD destina-se principalmente nas organizações que não tenham uma infraestrutura do Windows Server Active Directory no local, pode certamente também utilizá-lo em cenários em que:
 
@@ -163,7 +166,7 @@ Como uma regra de um botão, deve utilizar:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral de como gerir dispositivos no portal do Azure, consulte [gerir dispositivos através do portal do Azure](device-management-azure-portal.md)
 

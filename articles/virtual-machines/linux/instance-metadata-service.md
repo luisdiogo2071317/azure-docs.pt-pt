@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8da7573d8790bae8c54d2055fd355372625eccf7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: af35bbeb203df90878408add030c47291cd94db9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -36,7 +36,7 @@ O serviço está disponível no geralmente disponíveis regiões do Azure. Nem t
 
 Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02, 2017-08-01, 2017-12-01
+[Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02,2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | Geralmente disponível | 2017-04-02,2017-08-01
 [Datacenters do Azure](https://azure.microsoft.com/overview/clouds/germany/)                    | Geralmente disponível | 2017-04-02,2017-08-01
@@ -286,8 +286,8 @@ Dados | Descrição | Versão introduzida
 localização | Região do Azure a VM está em execução no | 2017-04-02 
 nome | Nome da VM | 2017-04-02
 oferta | Disponibilizam informações para a imagem VM. Este valor só está presente para imagens implementadas a partir da Galeria de imagem do Azure. | 2017-04-02
-publisher | Publicador de imagem de VM | 2017-04-02
-sku | SKU específico para a imagem VM | 2017-04-02
+Fabricante | Publicador de imagem de VM | 2017-04-02
+SKU | SKU específico para a imagem VM | 2017-04-02
 versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou do Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução no | 2017-04-02
@@ -302,11 +302,12 @@ vmScaleSetName | [Nome da Máquina Virtual ScaleSet] (.. /.. / virtual-machine-s
 zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua máquina virtual | 2017-12-01 
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
-subnet/address | Endereço de sub-rede da VM | 2017-04-02 
-subnet/prefix | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
+endereço de sub-rede / | Endereço de sub-rede da VM | 2017-04-02 
+prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
 ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
-macAddress | Endereço mac VM | 2017-04-02 
+MacAddress | Endereço mac VM | 2017-04-02 
 scheduledevents | Consulte [agendada eventos](scheduled-events.md) | 2017-08-01
+identidade | (Pré-visualização) Identidade de serviço geridas. Consulte [adquirir um token de acesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 

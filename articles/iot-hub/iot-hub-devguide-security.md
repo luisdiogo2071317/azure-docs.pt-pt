@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: c5a9a56d444da232717b023cb7057b96c291c265
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -393,27 +393,27 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-authentication"></a>Autenticação do dispositivo personalizada
+## <a name="custom-device-and-module-authentication"></a>Autenticação de dispositivo e o módulo personalizado
 
-Pode utilizar o IoT Hub [registo de identidade] [ lnk-identity-registry] para configurar as credenciais de segurança por dispositivo e utilizar o controlo de acesso [tokens][lnk-sas-tokens]. Se uma solução de IoT já tem um esquema de registo e/ou a autenticação de identidade personalizada, considere criar um *token serviço* integrar esta infraestrutura com o IoT Hub. Desta forma, pode utilizar outras funcionalidades de IoT na sua solução.
+Pode utilizar o IoT Hub [registo de identidade] [ lnk-identity-registry] para configurar as credenciais de segurança por-dispositivo/module e utilizar o controlo de acesso [tokens] [ lnk-sas-tokens]. Se uma solução de IoT já tem um esquema de registo e/ou a autenticação de identidade personalizada, considere criar um *token serviço* integrar esta infraestrutura com o IoT Hub. Desta forma, pode utilizar outras funcionalidades de IoT na sua solução.
 
-Um serviço de tokens é um serviço em nuvem personalizado. Utiliza um IoT Hub *partilhado a política de acesso* com **DeviceConnect** permissões para criar *no âmbito do dispositivo* tokens. Estes tokens permitem que um dispositivo ligar ao seu IoT hub.
+Um serviço de tokens é um serviço em nuvem personalizado. Utiliza um IoT Hub *partilhado a política de acesso* com **DeviceConnect** ou **ModuleConnect** permissões para criar *no âmbito do dispositivo* ou *no âmbito do módulo* tokens. Estes tokens permitem um dispositivo e o módulo para ligar ao seu IoT hub.
 
 ![Passos do padrão de serviço de tokens][img-tokenservice]
 
 Eis os passos principais do padrão de serviço de token:
 
-1. Criar uma política de acesso partilhado do IoT Hub com **DeviceConnect** permissões para o seu IoT hub. Pode criar esta política no [portal do Azure] [ lnk-management-portal] ou através de programação. O serviço de token utiliza esta política para assinar os tokens cria.
-1. Quando um dispositivo tem de aceder ao seu IoT hub, solicita um token assinado entre o serviço de token. O dispositivo pode autenticar com o seu esquema de autenticação/registo de identidade personalizada para determinar a identidade de dispositivo que utiliza o serviço de tokens para criar o token.
-1. O serviço de token devolve um token. O token é criado utilizando `/devices/{deviceId}` como `resourceURI`, com `deviceId` como o dispositivo que está a ser autenticado. O serviço de token utiliza a política de acesso partilhado ao construir o token.
-1. O dispositivo utiliza o token diretamente com o IoT hub.
+1. Criar uma política de acesso partilhado do IoT Hub com **DeviceConnect** ou **ModuleConnect** permissões para o seu IoT hub. Pode criar esta política no [portal do Azure] [ lnk-management-portal] ou através de programação. O serviço de token utiliza esta política para assinar os tokens cria.
+1. Quando um módulo/dispositivo precisa de aceder ao seu IoT hub, solicita um token assinado entre o serviço de token. O dispositivo pode autenticar com o seu esquema de autenticação/registo de identidade personalizada para determinar a identidade de dispositivo/módulo que utiliza o serviço de tokens para criar o token.
+1. O serviço de token devolve um token. O token é criado utilizando `/devices/{deviceId}` ou `/devices/{deviceId}/module/{moduleId}` como `resourceURI`, com `deviceId` como o dispositivo que está a ser autenticado ou `moduleId` como o módulo que está a ser autenticado. O serviço de token utiliza a política de acesso partilhado ao construir o token.
+1. O módulo/dispositivo utiliza o token diretamente com o IoT hub.
 
 > [!NOTE]
 > Pode utilizar a classe de .NET [SharedAccessSignatureBuilder] [ lnk-dotnet-sas] ou a classe do Java [IotHubServiceSasToken] [ lnk-java-sas] para criar um token no seu serviço de token.
 
-O serviço de tokens pode definir a expiração do token conforme pretendido. Quando o token expira, o IoT hub servidores a ligação do dispositivo. Em seguida, o dispositivo tem de pedir um novo token do serviço de token. Uma hora de expiração curto aumenta a carga no dispositivo e o serviço de tokens.
+O serviço de tokens pode definir a expiração do token conforme pretendido. Quando o token expira, o IoT hub servidores a ligação de dispositivos/módulo. Em seguida, o dispositivo/módulo tem de pedir um novo token do serviço de token. Uma hora de expiração curto aumenta a carga no dispositivo e/ou módulo e o serviço de tokens.
 
-Para um dispositivo ligar ao seu hub, deve ainda adicioná-lo para o registo de identidade do IoT Hub — apesar do dispositivo está a utilizar um token e não uma chave de dispositivo para estabelecer a ligação. Por conseguinte, pode continuar a utilizar o controlo de acesso por dispositivo ativando ou desativando identidades de dispositivo no [registo de identidade][lnk-identity-registry]. Esta abordagem Mitigam os riscos de utilização de tokens com tempos de tempo de expiração.
+Para um dispositivo/módulo ligar ao seu hub, deve ainda adicioná-lo para o registo de identidade do IoT Hub — apesar do it está a utilizar um token e não uma chave para estabelecer a ligação. Por conseguinte, pode continuar a utilizar o controlo de acesso por-dispositivo/por-module ativando ou desativando as identidades de dispositivo/módulo no [registo de identidade][lnk-identity-registry]. Esta abordagem Mitigam os riscos de utilização de tokens com tempos de tempo de expiração.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparação com um gateway personalizado
 
@@ -431,7 +431,7 @@ A tabela seguinte lista as permissões que pode utilizar para controlar o acesso
 | --- | --- |
 | **RegistryRead** |Concede acesso de leitura ao registo de identidade. Para obter mais informações, consulte [registo de identidade][lnk-identity-registry]. <br/>Esta permissão é utilizada pelos serviços de nuvem de back-end. |
 | **RegistryReadWrite** |Concede de leitura e escrita ao registo de identidade. Para obter mais informações, consulte [registo de identidade][lnk-identity-registry]. <br/>Esta permissão é utilizada pelos serviços de nuvem de back-end. |
-| **ServiceConnect** |Concede acesso à nuvem orientado para o serviço de comunicação e os pontos finais de monitorização. <br/>Concede permissão para receber mensagens dispositivo-nuvem, enviar mensagens da nuvem para o dispositivo e obter o ' em que as confirmações correspondente do entrega. <br/>Concede permissão para obter as confirmações de entrega para o ficheiro carrega. <br/>Concede permissão para aceder a dispositivos duplos para atualizar as etiquetas e propriedades pretendidas, obter as propriedades comunicadas e executar consultas. <br/>Esta permissão é utilizada pelos serviços de nuvem de back-end. |
+| **ServiceConnect** |Concede acesso à nuvem orientado para o serviço de comunicação e os pontos finais de monitorização. <br/>Concede permissão para receber mensagens dispositivo-nuvem, enviar mensagens da nuvem para o dispositivo e obter o ' em que as confirmações correspondente do entrega. <br/>Concede permissão para obter as confirmações de entrega para o ficheiro carrega. <br/>Concede permissão para duplos de acesso para atualizar as etiquetas e propriedades pretendidas, obter as propriedades comunicadas e executar consultas. <br/>Esta permissão é utilizada pelos serviços de nuvem de back-end. |
 | **DeviceConnect** |Concede acesso a pontos finais de orientado para o dispositivo. <br/>Concede permissão para enviar mensagens do dispositivo para nuvem e receber mensagens da nuvem para o dispositivo. <br/>Concede permissão para efetuar o carregamento de ficheiros a partir de um dispositivo. <br/>Concede permissão para receber notificações de propriedade do dispositivo duplo pretendida e atualizar o dispositivo duplo comunicadas propriedades. <br/>Concede permissão para executar o ficheiro carrega. <br/>Esta permissão é utilizado pelos dispositivos. |
 
 ## <a name="additional-reference-material"></a>Material de referência adicionais
@@ -482,7 +482,7 @@ Se pretender experimentar alguns dos conceitos descritos neste artigo, consulte 
 [lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: iot-hub-devguide-security.md#supported-x509-certificates
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md

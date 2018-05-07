@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o escalão de IoT Hub à direita para a sua solução
 
@@ -48,7 +48,7 @@ Depois de criar o seu IoT hub pode atualizar a partir da camada básica para o e
 | [Serviço de aprovisionamento de dispositivos](../iot-dps/about-iot-dps.md) | Sim | Sim |
 | [Monitorização e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
 | [Mensagens da nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sim |
-| [Dispositivos duplos](iot-hub-devguide-device-twins.md) e [gestão de dispositivos](iot-hub-device-management-overview.md) |   | Sim |
+| [Dispositivos duplos](iot-hub-devguide-device-twins.md), [duplos módulo](iot-hub-devguide-module-twins.md) e [gestão de dispositivos](iot-hub-device-management-overview.md) |   | Sim |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sim |
 
 IoT Hub também oferece um escalão gratuito que destina-se para avaliação e teste. Tem todas as funcionalidades do escalão standard, mas allowances mensagens limitados. Não é possível atualizar do escalão gratuito para básico ou padrão. 
@@ -61,19 +61,26 @@ A diferença no capacidades suportadas entre os escalões básicos e padrão de 
 | --- | ---------- | ------------- |
 | [Eliminar o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Sim | Sim |
 | [Que o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Sim | Sim |
+| Eliminar o módulo | Sim | Sim |
+| Obter módulo | Sim | Sim |
 | [Obter estatísticas de registo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Sim | Sim |
 | [Obter estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Sim | Sim |
 | [Colocar o dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sim | Sim |
+| Coloque o módulo | Sim | Sim |
 | [Dispositivos de consulta](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sim | Sim |
+| Módulos de consulta | Sim | Sim |
 | [Criar o URI de SAS do carregamento de ficheiros](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Sim | Sim |
 | [Receber notificações de dispositivo vinculado](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Sim | Sim |
 | [Enviar o evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Sim | Sim |
+| Enviar eventos de módulo | Sim | Sim |
 | [Atualizar o estado de carregamento de ficheiros](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Sim | Sim |
 | [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Sim, exceto as capacidades de limite de IoT | Sim | 
 | [Remover da fila de comando](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Sim |
 | [Obter o dispositivo duplo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Sim |
+| Obter duplo de módulo |   | Sim |
 | [Invocar o método de dispositivo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Sim |
 | [Atualizar o dispositivo duplo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Sim | 
+| Atualizar duplo de módulo |   | Sim | 
 | [Abandonar o dispositivo vinculado notificação](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Sim |
 | [Dispositivo vinculado notificação](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Sim |
 | [Cancelar a tarefa](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Sim |
@@ -109,7 +116,7 @@ Para números de desempenho de rajada específicos, consulte [quotas do IoT Hub 
 ## <a name="sharding"></a>Fragmentação
 Embora um único IoT hub pode dimensionar para milhões de dispositivos, por vezes, a solução requer características de desempenho específica que não pode garantir que um único IoT hub. Nesse caso pode particionar os seus dispositivos entre vários os hubs IoT. Vários aos hubs IoT uniforme bursts de tráfego e obter o débito necessário ou taxas de operação que são necessárias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter informações adicionais sobre as capacidades do IoT Hub e detalhes de desempenho, consulte [IoT Hub preços] [preços ligação] ou [quotas do IoT Hub e limitações][IoT Hub quotas and throttles].
 * Para alterar o escalão de IoT Hub, siga os passos no [atualizar o seu IoT hub](iot-hub-upgrade.md).

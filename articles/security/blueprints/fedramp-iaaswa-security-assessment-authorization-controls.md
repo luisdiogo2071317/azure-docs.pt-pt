@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e de conformidade Blueprint - automatização de aplicações FedRAMP Web - avaliação de segurança e de autorização"
-description: "Automatização de aplicações FedRAMP Web - avaliação de segurança e autorização"
+title: Segurança do Azure e de conformidade Blueprint - automatização de aplicações FedRAMP Web - avaliação de segurança e de autorização
+description: Automatização de aplicações FedRAMP Web - avaliação de segurança e autorização
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Avaliação de segurança e de autorização (AC)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **1 AC** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de avaliação e de autorização de segurança objetivo, âmbito, funções, responsabilidades, gestão de endereços compromisso, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da política de avaliação e de autorização de segurança e controlos de avaliação e de autorização de segurança associadas; analisa e atualiza a política de avaliação e de autorização de segurança atual [atribuição: frequência definida de organização]; e os procedimentos de avaliação e de autorização de segurança [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.a** organização desenvolvidas pela organização um plano de avaliação de segurança que descreve o âmbito de avaliação, incluindo controlos de segurança e controlo melhoramentos na avaliação; procedimentos de avaliação para ser utilizado para determinar o controlo de segurança eficácia; e ambiente de avaliação, a equipa de avaliação e avaliação funções e responsabilidades.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.b** organização avalia os controlos de segurança no respetivo ambiente da operação e o sistema de informações [atribuição: frequência definida de organização] para determinar a extensão para o qual os controlos são implementados corretamente, a funcionar como pretendido e produção o resultado desejado no que respeita à reunião estabelecer requisitos de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.c** organização produz um relatório de avaliação de segurança que documentos os resultados da avaliação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.d** organização fornece os resultados da avaliação de controlo de segurança para [atribuição: indivíduos definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (1)** organização emprega assessors ou equipas de avaliação com [atribuição: nível definido de organização de independência] para realizar as avaliações de controlo de segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (2)** organização inclui como parte de avaliações de controlo de segurança, [atribuição: frequência definida de organização], [seleção: anunciados; unannounced], [seleção (um ou mais): a monitorização aprofundada; análise de vulnerabilidade; utilizador mal intencionado testar; avaliação de ameaças internas; / carga de desempenho testar; [Atribuição: organização definido pelo outras formas de avaliação de segurança]].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (3)** organização aceita os resultados da avaliação de [atribuição: sistema informações definidas pela organização] realizado [atribuição: definido de organização externa organização] quando a avaliação cumpre [atribuição: definido pelo organização requisitos].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 3.a** organização autoriza ligações a partir do sistema de informações para outros sistemas de informações através da utilização de Interconnection segurança contratos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 3.b** os documentos da organização, para cada interconnection, as características de interface, requisitos de segurança e da natureza das informações comunicadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 3.c** organização revê e atualiza Interconnection segurança contratos [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-3 (3)** organização proíbe a ligação direta de uma [atribuição: sistema de segurança não classificado, não national definido de organização] para uma rede externa sem a utilização de [atribuição; proteção de limite definido de organização dispositivo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-3 (5)** a organização utiliza [seleção: permitir todos os, negar por exceção; negar-all, permitir pelos exceção] política permitir [atribuição: sistemas informações definidas pela organização] para ligar a sistemas de informação externo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.a** organização desenvolvidas pela organização um plano de ação e toma ações para corrigir fragilidades ou falhas indicadas durante a avaliação dos controlos de segurança e a ser planeada a marcos ao sistema de informações para a organização de documentos reduzir ou eliminar de vulnerabilidades conhecidas no sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.b** plano existente de ação e marcos de atualizações de organização [atribuição: frequência definida de organização] com base no findings de avaliações de controlos de segurança, análises de impacto de segurança e atividades de monitorização contínuas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 6.a** organização atribui um nível sénior executivo ou manager como oficial authorizing para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6. b** organização garante que oficial authorizing autoriza o sistema de informações para o processamento antes de iniciar as operações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6. c** organização atualiza a autorização de segurança [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.a** organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui o estabelecimento de [atribuição: métricas definido de organização] para ser monitorizada.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de AC** organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui o estabelecimento de [atribuição: frequências definido de organização] para a monitorização e [atribuição: definido pelo organização frequências] para avaliações que suportam essas monitorização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.c** organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui as avaliações de controlo de segurança em curso de acordo com a estratégia de monitorização contínua organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.d** organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui a monitorização do Estado de segurança em curso de métricas definido de organização em conformidade com a organizacional estratégia de monitorização contínua.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.e** A organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui a correlação e análise de informações relacionadas com segurança geradas pelo avaliações e monitorização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.f** organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui as ações de resposta para resultados de endereço da análise de informações relacionadas com segurança.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.g** organização desenvolvidas pela organização uma estratégia de monitorização contínua e implementa um programa monitorização contínuo, que inclui o estado de segurança da organização e a informações do sistema de relatórios [atribuição: definido de organização técnico ou funções] [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de AC (1)** organização emprega assessors ou equipas de avaliação com [atribuição: nível definido de organização de independência] para monitorizar os controlos de segurança no sistema informações numa base contínua.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de AC (3)** organização emprega análises de tendência para determinar se a segurança controlar implementações, a frequência das atividades de monitorização contínuas, e/ou os tipos de atividades utilizados no processo de monitorização contínuo precisam de ser modificado com base nos dados empirical.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8** organização efetua a penetração testar [atribuição: frequência definida de organização] em [atribuição: sistemas informações definidas pela organização ou componentes do sistema].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) de AC-8** a organização utiliza um agente independente penetração ou equipa de penetração para efetuar a penetração teste no sistema de informações ou componentes do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 9.a** organização autoriza ligações internas de [atribuição: componentes do sistema de informações definidas pela organização ou classes de componentes] para o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 9.b** os documentos da organização, para cada ligação interna, as características de interface, requisitos de segurança e da natureza das informações comunicadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

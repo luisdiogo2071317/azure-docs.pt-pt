@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e manutenção de Blueprint - automatização de aplicações FedRAMP Web - conformidade"
-description: "Automatização de aplicações FedRAMP Web - manutenção"
+title: Segurança do Azure e manutenção de Blueprint - automatização de aplicações FedRAMP Web - conformidade
+description: Automatização de aplicações FedRAMP Web - manutenção
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="maintenance-ma"></a>Manutenção (MA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de manutenção do sistema que endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação do sistema de manutenção da política e controlos de manutenção do sistema associado; analisa e atualiza a política de manutenção do sistema atual [atribuição: frequência definida de organização]; e procedimentos de manutenção do sistema [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.a** organização agenda, efetua, documentos e revê registos de reparações nos componentes de sistema de informações em conformidade com as especificações de fabricante ou o fornecedor de e/ou requisitos organizacionais e de manutenção.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.b** organização aprova e monitoriza todas as atividades de manutenção, se executada no site ou remotamente e se o equipamento é reparado no site ou removido para outra localização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.c** organização exige que [atribuição: técnico definido pela organização ou funções] explicitamente aprovar a remoção do sistema de informações ou componentes do sistema de instalações organizacionais para fora das instalações manutenção ou reparações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.d** organização sanitizes equipamento para remover todas as informações de suporte de dados associada antes da remoção de instalações organizacionais para fora das instalações manutenção ou reparações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-2.e** A organização verifica todos os controlos de segurança potencialmente afetados para verificar que os controlos estão continuam a funcionar corretamente seguintes ações de manutenção ou reparação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.f** inclui a organização [atribuição: definido de organização informações relacionadas com a manutenção] nos registos de manutenção organizacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -123,13 +123,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800-53 Control MA-2 (2).a
+ ### <a name="nist-800-53-control-ma-2-2a"></a>.A do NIST 800-53 MA de controlo-2 (2)
 
 #### <a name="controlled-maintenance--automated-maintenance-activities"></a>Controlado manutenção | Atividades de manutenção automática
 
 **MA-2 (2) .a** organização emprega automatizados mecanismos para a agenda, conduta e manutenção do documento e reparações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-2 (2) .b** organização produz atualizadas, exata, e registos de conclusão de todas as ações de manutenção e reparação de pedido, agendada, no processo e concluída.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 3** organização aprova, controlos e monitoriza as ferramentas de manutenção do sistema de informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (1)** organização inspeciona as ferramentas de manutenção transportadas para uma instalação por técnico de manutenção para modificações incorrecto ou não autorizados.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (2)** verifica a organização suporte de dados que contém diagnóstico e de programas de teste para código malicioso antes do suporte de dados é utilizados no sistema de informações.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (3)** organização impede a remoção do equipamento de manutenção que contêm informações organizacionais verificar se está sem informações organizacionais contidos no equipamento; limpeza ou destroying não autorizada a equipamento; manter o equipamento dentro do local de; ou obtenção de uma exclusão de [atribuição: técnico definido pela organização ou funções] autorizar explicitamente a remoção do equipamento de instalação.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.a** aprova e monitoriza as atividades de diagnóstico e de manutenção nonlocal a organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.b** organização permite a utilização da manutenção nonlocal e ferramentas apenas como consistente com a política organizacional e documentados no plano de segurança para o sistema de informações de diagnóstico.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.c** organização emprega autenticadores seguras no estabelecimento de sessões de diagnóstico e de manutenção nonlocal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.d** organização mantém os registos para manutenção nonlocal e atividades de diagnóstico.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4.e** A organização termina as ligações de rede e de sessão quando é feita uma manutenção nonlocal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (2)** os documentos da organização no plano de segurança para o sistema de informações, as políticas e procedimentos para o estabelecimento e a utilização de ligações de diagnóstico e de manutenção nonlocal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (3)** organização exige que os serviços de diagnóstico e de manutenção nonlocal ser efetuada a partir de um sistema de informações que implementa uma capacidade de segurança comparável para a capacidade de implementado no sistema que está a ser reparado; ou remove o componente de serviço do sistema antes da manutenção nonlocal ou serviços de diagnóstico, informações sanitizes o componente (em relação a informações organizacionais) antes de remoção de instalações organizacionais e, depois do serviço efetuar, inspeciona e sanitizes o componente (em relação a software potencialmente malicioso) antes do componente do sistema de informações a restabelecer ligação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (6)** mecanismos criptográficos para proteger a integridade e confidencialidade de comunicações de diagnóstico e de manutenção nonlocal de implementa o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.a** organização estabelece um processo de autorização de técnico de manutenção e mantém uma lista de autorizados manutenção organizações ou pessoal.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.b** organização garante que não escorted técnico, efetuar a manutenção do sistema de informações ter necessita de autorizações de acesso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.c** organização designa organizacional pessoal com o acesso necessário autorizações e competence técnica para supervisionar as atividades de manutenção de técnicos de que possui as autorizações de acesso necessária.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-5 (1) .a** organização implementa procedimentos para a utilização de técnico de manutenção que falta clearances de segurança adequadas ou que não são citizens E.U.A., que incluem o técnico de manutenção de requisitos seguintes que não tenham necessária autorizações de acesso, clearances ou acesso formal aprovações são escorted e supervisionadas durante o desempenho de atividades no sistema de informações de diagnóstico e de manutenção por aprovados técnico organizacionais que está completamente desmarcados, ter adequado acesso autorizações e são tecnicamente qualificado; antes de iniciar manutenção ou atividades diagnóstico por parte do pessoal que não necessário ter acesso autorizações, clearances ou aprovações acesso formal, informações volátil todos os componentes de armazenamento no sistema informações são sanitized e todos os suporte de armazenamento não volátil é removidos ou fisicamente desligada do sistema e protegidos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-5 (1) .b** organização desenvolvidas pela organização e implementa alternativa as proteções de segurança em caso de um componente do sistema de informações não pode ser sanitized, removido ou desligado do sistema.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 6** organização obtém manutenção peças de suporte e/ou spare para [atribuição: os componentes do sistema de informações definidas pela organização] dentro [atribuição: organização definidos pelo período de tempo] da falha.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|

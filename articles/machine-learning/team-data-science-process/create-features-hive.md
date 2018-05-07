@@ -3,7 +3,7 @@ title: Criar as funcionalidades para dados de um cluster de Hadoop através de c
 description: Exemplos de consultas do Hive que geram funcionalidades em dados armazenados no cluster Azure HDInsight Hadoop.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
-ms.openlocfilehash: f49eeee2dd26d54674b4619e6c986952718caa47
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: a22ce30833102767c5652ddb29c8ea4b4ac83624
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar as funcionalidades de dados num cluster de Hadoop através de consultas do Hive
 Este documento mostra como criar funcionalidades para os dados armazenados num cluster do Azure HDInsight Hadoop através de consultas do Hive. Estas consultas do Hive utilizam incorporados Hive User-Defined funções (UDFs), os scripts que são fornecidos.

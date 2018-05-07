@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - planeamento"
-description: "Automatização de aplicações FedRAMP Web - planeamento"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - planeamento
+description: Automatização de aplicações FedRAMP Web - planeamento
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="planning-pl"></a>Planeamento (LP)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política que endereços objetivo, âmbito, funções, responsabilidades, compromisso de gestão, coordenação de problemas de planeamento da segurança entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação de segurança de planeamento de política e planeamento de controlos; de segurança associadas analisa e atualiza a política de planeamento de segurança atual [atribuição: frequência definida de organização]; e procedimentos de planeamento de segurança [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 2.a** organização desenvolvidas pela organização um plano de segurança para o sistema de informações que é consistente com a arquitetura de empresa da organização; explicitamente define o limite de autorização para o sistema; descreve contexto operacional do o sistema de informações em termos de missions e processos de negócio Fornece a categorização de segurança do sistema de informações, incluindo suporte a lógica por detrás; Descreve o ambiente operacional para o sistema de informações e relações com ou ligações para outros sistemas de informação; Fornece uma descrição geral dos requisitos de segurança para o sistema; Identifica quaisquer sobrepõe relevantes, se aplicável; Descreve os controlos de segurança no local ou planeada que cumprem esses requisitos, incluindo uma lógica por detrás de decisões tailoring; e é revistos e aprovados pelo oficial authorizing ou designado representante antes da implementação de plano.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 2.b** distribui cópias do plano de segurança e comunica alterações subsequentes para o plano para a organização [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 2.c** organização revê o plano de segurança para o sistema de informações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 2.d** organização atualizações do plano de alterações do endereço para o sistema/ambiente de informações da operação ou problemas identificados durante as avaliações de controlo de segurança ou de implementação do plano.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2.e** A organização protege o plano de segurança de divulgação não autorizada e modificação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2 (3)** organização planos e coordena as atividades relacionadas com segurança que afetam o sistema de informações com [atribuição: grupos ou indivíduos definido de organização] antes de realizar essas atividades para reduzir o impacto no outras entidades organizacionais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 4.a** organização estabelece e disponibiliza prontamente indivíduos que requerem acesso a informações de sistema, as regras que descrevem as responsabilidades e o comportamento esperado em relação a informações e do sistema de informações utilização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 4.b** a organização recebe uma confirmação assinada essas pessoas, que indicam que leu, compreender e aceitarem cumprir as regras de comportamento, antes de autorizar o acesso a informações e o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 4.c** organização revê e atualiza as regras de comportamento [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 4.d** indivíduos que tenham sessão iniciada uma versão anterior das regras de comportamento para ler e voltar a assinar quando as regras de comportamento são revisto/atualizar requer que a organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-4 (1)** organização inclui as regras de comportamento, explícitas restrições sobre a utilização dos sites de suporte de dados/redes sociais e publicação informações organizacionais em Web sites públicos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 8.a** organização desenvolvidas pela organização uma arquitetura de segurança de informações para o sistema de informações que descreve o geral philosophy, requisitos e abordagem para ser executada em relação a proteger a confidencialidade, integridade, e disponibilidade das informações organizacionais; Descreve como a arquitetura de segurança de informações é integrada e suporta a arquitetura de enterprise; e descreve quaisquer pressupostos de segurança de informações sobre e dependências no, serviços externos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 8.b** organização revê e atualiza a arquitetura de segurança de informações [atribuição: frequência definida de organização] para refletir as atualizações na arquitetura da empresa.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **LP 8.c** organização assegura que as alterações de arquitetura de segurança de informações planeada são refletidas no plano de segurança, o conceito de operações (CONOPS) de segurança e o organizacionais procurements/aquisições.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

@@ -1,21 +1,21 @@
 ---
-title: "Criar um Gateway de aplicação - Portal do Azure | Microsoft Docs"
-description: "Saiba como criar um Gateway de aplicação utilizando o portal do Azure."
+title: Criar um Gateway de aplicação - Portal do Azure | Microsoft Docs
+description: Saiba como criar um Gateway de aplicação utilizando o portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 0df71c445d2c5fc6827b69f708203a3b3e6e2b53
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Criar um gateway de aplicação no portal do Azure
 
@@ -75,15 +75,15 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 3. Introduza estes valores para a máquina virtual:
 
     - *myVM* - para que o nome da máquina virtual.
-    - *azureuser* - para que o nome de utilizador administrador.
+    - *azureuser* - no nome de utilizador do administrador.
     - *Azure123456!* a palavra-passe.
     - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
 
 4. Clique em **OK**.
-5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
-7. Clique em **desativado** para desativar o diagnóstico de arranque.
-8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
+7. Clique em **Desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -123,7 +123,7 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 
     ![Registar o endereço IP público do application gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+2. Copie o endereço IP público e cole-o na barra de endereço do browser.
 
     ![Gateway de aplicação de teste](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
@@ -134,4 +134,4 @@ Quando já não é necessário, elimine o grupo de recursos, o gateway de aplica
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de introdução, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, esses recursos que utilizou para criar um gateway de aplicação. Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Neste início rápido, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, esses recursos que utilizou para criar um gateway de aplicação. Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.

@@ -1,24 +1,24 @@
 ---
-title: "Instruções de ciência de dados de Hadoop do HDInsight utilizando o Hive no Azure | Microsoft Docs"
-description: "Exemplos do processo de ciência de dados de equipa percurso através da utilização de ramo de registo no Azure HDInsight Hadoop para Análise Preditiva."
+title: Instruções de ciência de dados de Hadoop do HDInsight utilizando o Hive no Azure | Microsoft Docs
+description: Exemplos do processo de ciência de dados de equipa percurso através da utilização de ramo de registo no Azure HDInsight Hadoop para Análise Preditiva.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: cef2dac8651933765c83410579eafb23460960f9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: deguhath
+ms.openlocfilehash: 00a7c197223dcdd45181afbba98f66178b944c46
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Instruções de ciência de dados de Hadoop do HDInsight utilizando o Hive no Azure 
 
@@ -41,7 +41,7 @@ O cenário é implementado utilizando o Hive com uma [cluster Azure HDInsight Ha
 O [utilização do Azure HDInsight Hadoop Clusters um conjunto de dados de 1 TB](hive-criteo-walkthrough.md) instruções utilizam um publicamente disponíveis [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) clique em conjunto de dados para prever se uma sugestão é pagas e o intervalo de quantidades esperado. O cenário é implementado utilizando o Hive com uma [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explore, engenheiro de funcionalidade e pendente dados de exemplo. Utiliza o Azure Machine Learning para criar, dar formação e Pontuar um modelo de classificação binária prever se um utilizador clica num anúncio. Conclui as instruções que mostra como publicar um destes modelos como um serviço Web.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para ver um debate os componentes chave que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 

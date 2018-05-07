@@ -1,19 +1,19 @@
 ---
-title: "Computação do Azure - extensão de diagnóstico do Linux | Microsoft Docs"
-description: "Como configurar o Azure Linux diagnóstico extensão (LAD) para recolher métricas e eventos de registo de VMs do Linux em execução no Azure."
+title: Computação do Azure - extensão de diagnóstico do Linux | Microsoft Docs
+description: Como configurar o Azure Linux diagnóstico extensão (LAD) para recolher métricas e eventos de registo de VMs do Linux em execução no Azure.
 services: virtual-machines-linux
-author: jasonzio
-manager: anandram
+author: abhijeetgaiha
+manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: jasonzio
-ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: agaiha
+ms.openlocfilehash: 84be206ef02cca9cc321e9764c016ca79816edf5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilizar a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -386,7 +386,7 @@ Esta secção opcional controla a execução de arbitrários [OMI](https://githu
 
 Elemento | Valor
 ------- | -----
-namespace | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for indicado, o valor predefinido é "raiz/scx", implementado pelo [fornecedores de plataforma do System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+Espaço de nomes | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for indicado, o valor predefinido é "raiz/scx", implementado pelo [fornecedores de plataforma do System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 consulta | A consulta OMI para ser executada.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta do storage designada (consulte [protegidos definições](#protected-settings)).
 frequência | (opcional) O número de segundos entre a execução da consulta. Valor predefinido é de 300 (5 minutos) valor mínimo é de 15 segundos.
@@ -423,7 +423,7 @@ O fornecedor de métrica de builtin é uma origem de métricas mais interessante
 * Processador
 * Memória
 * Rede
-* Filesystem
+* Sistema de ficheiros
 * Disco
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métricas de Builtin para a classe de processador

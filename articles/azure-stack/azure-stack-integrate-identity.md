@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do Centro de dados do Azure pilha - identidade
 Pode implementar a pilha do Azure utilizando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Tem de se a opção antes de implementar pilha do Azure. Implementação a utilizar o AD FS é também referida como implementar a pilha do Azure no modo desligado.
@@ -60,6 +60,8 @@ Requisitos:
 
 ## <a name="setting-up-graph-integration"></a>Configurar a integração do gráfico
 
+Gráfico só suporta a integração com uma única floresta do Active Directory. Se existirem várias florestas, será utilizada apenas da floresta especificada na configuração para obter os utilizadores e grupos.
+
 São necessárias como entradas para os parâmetros de automatização as seguintes informações:
 
 
@@ -95,12 +97,14 @@ Para este procedimento, utilize um computador na sua rede de centro de dados que
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Quando lhe for pedido, especifique as credenciais da conta de utilizador que pretende utilizar para o serviço do gráfico (por exemplo, graphservice).
+   Quando lhe for pedido, especifique as credenciais da conta de utilizador que pretende utilizar para o serviço do gráfico (por exemplo, graphservice). A entrada para o cmdlet Register-DirectoryService tem de ser o nome de floresta / raiz de domínio na floresta, em vez de qualquer outro domínio na floresta.
 
    > [!IMPORTANT]
    > Aguarde que as credenciais de pop-up (Get-Credential não é suportado no ponto final com privilégios) e introduza as credenciais da conta de serviço do gráfico.
 
 #### <a name="graph-protocols-and-ports"></a>Gráfico protocolos e portas
+
+Serviço de gráfico na pilha do Azure utiliza as seguintes portas e protocolos para comunicar com um gravável Catálogo Global servidor (GC) e a chave de centro de distribuição (KDC) que pode processar pedidos de início de sessão no destino da floresta do Active Directory.
 
 Serviço de gráfico na pilha do Azure utiliza as seguintes portas e protocolos para comunicar com o destino do Active Directory:
 

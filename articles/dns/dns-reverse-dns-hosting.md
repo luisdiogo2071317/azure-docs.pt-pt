@@ -3,20 +3,20 @@ title: Alojar zonas de pesquisa inversas DNS no DNS do Azure | Microsoft Docs
 description: Saiba como utilizar o DNS do Azure para alojar as zonas de pesquisa inversas do DNS para os intervalos de IP
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: d5dc152af6acb510e12cd42503b6128dc6492e89
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: kumud
+ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Anfitrião zonas DNS inversas pesquisa no DNS do Azure
 
@@ -52,7 +52,7 @@ O exemplo seguinte mostra como criar uma zona DNS inversa de classe C com o nome
 
  ![Painel "Criar a zona DNS", com caixas preenchidos](./media/dns-reverse-dns-hosting/figure2.png)
 
-**Localização do grupo de recursos** define a localização para o grupo de recursos. Este não tem impacto sobre a zona DNS. A localização de zona DNS é sempre "global" e não é apresentada.
+**Localização do grupo de recursos** define a localização para o grupo de recursos. Este não tem impacto sobre a zona DNS. A localização da zona DNS é sempre “global” e não está apresentada.
 
 Os exemplos seguintes mostram como concluir esta tarefa utilizando o Azure PowerShell e da CLI do Azure.
 
@@ -83,7 +83,7 @@ O exemplo seguinte mostra como criar uma IPv6 inversa zona de pesquisa DNS com o
 
  ![Painel "Criar a zona DNS", com caixas preenchidos](./media/dns-reverse-dns-hosting/figure3.png)
 
-**Localização do grupo de recursos** define a localização para o grupo de recursos. Este não tem impacto sobre a zona DNS. A localização de zona DNS é sempre "global" e não é apresentada.
+**Localização do grupo de recursos** define a localização para o grupo de recursos. Este não tem impacto sobre a zona DNS. A localização da zona DNS é sempre “global” e não está apresentada.
 
 Os exemplos seguintes mostram como concluir esta tarefa utilizando o Azure PowerShell e da CLI do Azure.
 

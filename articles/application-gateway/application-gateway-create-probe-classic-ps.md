@@ -1,11 +1,11 @@
 ---
-title: "Criar PowerShell clássico uma sonda personalizada - Gateway de aplicação do Azure - | Microsoft Docs"
-description: "Saiba como criar uma sonda personalizada para o Gateway de aplicação utilizando o PowerShell no modelo de implementação clássica"
+title: Criar PowerShell clássico uma sonda personalizada - Gateway de aplicação do Azure - | Microsoft Docs
+description: Saiba como criar uma sonda personalizada para o Gateway de aplicação utilizando o PowerShell no modelo de implementação clássica
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma sonda personalizada para o Gateway de aplicação do Azure (clássica) utilizando o PowerShell
 
@@ -151,7 +151,7 @@ Os parâmetros de configuração são:
 |---|---|
 |**Nome** |Nome de referência para a sonda personalizada. |
 * **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
-| **Anfitrião** e **caminho** | Caminho de URL completo que é invocado pelo gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver http://contoso.com/ um Web site, em seguida, a pesquisa personalizada pode ser configurada para "http://contoso.com/path/custompath.htm" para verificações de sonda para ter uma resposta HTTP com êxito.|
+| **Anfitrião** e **caminho** | Caminho de URL completo que é invocado pelo gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver um site http://contoso.com/, em seguida, a pesquisa personalizada pode ser configurada para "http://contoso.com/path/custompath.htm" para a sonda verifica ter uma resposta HTTP com êxito.|
 | **Intervalo** | Configura as verificações de intervalo de pesquisa em segundos.|
 | **Tempo limite** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas de HTTP falhados necessários para o sinalizador a instância de back-end como *mau estado de funcionamento*.|

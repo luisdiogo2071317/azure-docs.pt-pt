@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -83,8 +83,20 @@ Certifique-se de que os seguintes URLs são acessíveis a partir de computadores
 
 - https://device.login.microsoftonline.com
 
-Se o seu organizações requer acesso à Internet através de um proxy de saída, tem de implementar a deteção automática de Proxy Web (WPAD) para permitir que os computadores Windows 10 registar com o Azure AD.
+- STS da sua organização (federados domínios)
 
+Se não o tiver feito, STS da sua organização (para domínios federados) devem ser incluídas nas definições de local intranet do utilizador.
+
+Se a sua organização está a planear utilizar o SSO totalmente integrada, em seguida, os URLs seguintes têm de ser acessível a partir de computadores dentro da sua organização e também tem de ser adicionados à zona de local intranet do utilizador:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Além disso, a seguinte definição deve estar ativada na zona de intranet do utilizador: "Permitir atualizações à barra de estado através do script".
+
+
+Se a sua organização necessita de acesso à Internet através de um proxy de saída, tem de implementar a deteção automática de Proxy Web (WPAD) para permitir que os computadores Windows 10 registar com o Azure AD.
 
 ## <a name="configuration-steps"></a>Passos de configuração
 

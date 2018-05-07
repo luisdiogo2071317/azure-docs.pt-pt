@@ -1,30 +1,30 @@
 ---
-title: "Esquema de subscrição de evento grelha do Azure"
-description: "Descreve as propriedades de subscrição a um evento com grelha de eventos do Azure."
+title: Esquema de subscrição de evento grelha do Azure
+description: Descreve as propriedades de subscrição a um evento com grelha de eventos do Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 888196225ec5998405113842344469d02a2cf5c7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 406eb2c1974958eef5e83915e6b21e385cf7d2c7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrição de grelha de eventos
 
 Para criar uma subscrição de evento grelha, envie um pedido para a operação de subscrição de evento de criar. Utilize o seguinte formato:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
 Por exemplo criar uma subscrição de evento para uma conta de armazenamento com o nome `examplestorage` num grupo de recursos denominado `examplegroup`, utilize o seguinte formato:
 
-```
+```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
@@ -51,7 +51,7 @@ O artigo descreve as propriedades e o esquema para o corpo do pedido.
 | includedEventTypes | array | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata com um destes nomes de tipo de evento. Gera um erro ao nome do evento não corresponder os nomes de tipo de evento registado para a origem do evento. Predefinição corresponde a todos os tipos de eventos. |
 | subjectBeginsWith | string | Uma correspondência de prefixo filtrar no campo do requerente de eventos mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
 | subjectEndsWith | string | Uma correspondência de sufixo filtrar no campo do requerente de eventos mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
-| subjectIsCaseSensitive | string | Controlos de maiúsculas e minúsculas de correspondência de filtros. |
+| isSubjectCaseSensitive | string | Controlos de maiúsculas e minúsculas de correspondência de filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de subscrição de exemplo
@@ -69,7 +69,7 @@ O artigo descreve as propriedades e o esquema para o corpo do pedido.
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
-      "subjectIsCaseSensitive": "true"
+      "isSubjectCaseSensitive ": "true"
     }
   }
 }

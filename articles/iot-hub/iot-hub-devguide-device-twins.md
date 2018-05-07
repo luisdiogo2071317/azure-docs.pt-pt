@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
@@ -180,10 +180,10 @@ O solução de back-end funciona no dispositivo duplo utilizando as seguintes op
 
     | Nome | Valor |
     | --- | --- |
-    $content-type | application/json |
+    $content-tipo | application/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
-    $iothub-message-source | twinChangeEvents |
-    $content-encoding | utf-8 |
+    $iothub-mensagem-origem | twinChangeEvents |
+    $content-encoding | UTF-8 |
     deviceId | ID do dispositivo |
     hubName | Nome do IoT Hub |
     operationTimestamp | [ISO8601] timestamp da operação |
@@ -352,6 +352,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que tem aprendeu sobre dispositivos duplos, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 
+* [Compreender e utilizar duplos módulo no IoT Hub][lnk-module-twins]
 * [Invocar um método direto num dispositivo][lnk-methods]
 * [Agenda de tarefas em vários dispositivos][lnk-jobs]
 
@@ -385,5 +386,6 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte os segui
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

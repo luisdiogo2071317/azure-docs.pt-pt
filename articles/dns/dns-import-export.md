@@ -1,6 +1,6 @@
 ---
-title: "Importar e exportar um ficheiro de zona de domínio ao DNS do Azure utilizando a CLI do Azure 1.0 | Microsoft Docs"
-description: Saiba como importar e exportar um ficheiro de zona DNS ao DNS do Azure utilizando a CLI do Azure 1.0
+title: Importar e exportar um ficheiro de zona de domínio ao DNS do Azure a utilizar o Azure CLI 2.0 | Microsoft Docs
+description: Saiba como importar e exportar um ficheiro de zona DNS ao DNS do Azure utilizando o Azure CLI 2.0
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 04/30/2018
 ms.author: gwallace
-ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bb9b6de195eaea1f7c8591d2de47d360ccde488
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>Importar e exportar um ficheiro de zona DNS utilizando a CLI do Azure 1.0 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importar e exportar um ficheiro de zona DNS utilizando o 2.0 CLI do Azure 
 
-Este artigo explica como importar e exportar ficheiros de zona DNS para o DNS do Azure utilizando a CLI do Azure 1.0.
+Este artigo explica como importar e exportar ficheiros de zona DNS para o DNS do Azure utilizando o 2.0 CLI do Azure.
 
 ## <a name="introduction-to-dns-zone-migration"></a>Introdução à migração de zona DNS
 
@@ -29,11 +29,8 @@ Um ficheiro de zona DNS é um ficheiro de texto que contém os detalhes de cada 
 
 O DNS do Azure suporta a importar e exportar ficheiros de zona, utilizando a interface de linha de comandos do Azure (CLI). Importar de ficheiro de zona é **não** atualmente suportados através do Azure PowerShell ou o portal do Azure.
 
-A CLI do Azure 1.0 é uma ferramenta de linha de comandos de várias plataformas utilizada para gerir os serviços do Azure. Está disponível para as plataformas Windows, Mac e Linux do [página de transferências do Azure](https://azure.microsoft.com/downloads/). Suporte em várias plataformas é importante para importar e exportar ficheiros de zona, porque o software de servidor de nome mais comuns, [VINCULAR](https://www.isc.org/downloads/bind/), normalmente, é executado no Linux.
+O 2.0 CLI do Azure é uma ferramenta de linha de comandos de várias plataformas utilizada para gerir os serviços do Azure. Está disponível para as plataformas Windows, Mac e Linux do [página de transferências do Azure](https://azure.microsoft.com/downloads/). Suporte em várias plataformas é importante para importar e exportar ficheiros de zona, porque o software de servidor de nome mais comuns, [VINCULAR](https://www.isc.org/downloads/bind/), normalmente, é executado no Linux.
 
-> [!NOTE]
-> Não existem atualmente duas versões da CLI do Azure. CLI1.0 baseia-se no Node.js e tem de comandos a partir "azure".
-> CLI2.0 baseia-se no Python e tem de começar com "az" de comandos. Ao importar de ficheiro de zona é suportado em ambas as versões, recomendamos que utilize os comandos CLI1.0, conforme descrito nesta página.
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Obter o ficheiro de zona DNS existente
 
@@ -58,11 +55,10 @@ Importar um ficheiro de zona cria uma nova zona no DNS do Azure se ainda não ex
 ### <a name="merge-behavior"></a>Comportamento de intercalação
 
 * Por predefinição, os conjuntos de registos existentes e novos são intercalados. Os registos idênticos dentro de um conjunto de registo intercalado são anular duplicados.
-* Em alternativa, especificando o `--force` opção substitui o processo de importação de conjuntos de registos existente com novos conjuntos de registos. Conjuntos de registos existentes que não têm um registo correspondente definido no ficheiro de zona importados não são removidos.
-* Quando os conjuntos de registos são intercalados, será utilizada a hora para em direto (TTL) pré-existentes de conjuntos de registos. Quando `--force` é utilizado, é utilizado o valor de TTL do novo conjunto de registo.
-* Início de parâmetros de autoridade (SOA) (exceto `host`) sempre são obtidas a partir do ficheiro de zona importados, independentemente `--force` é utilizado. Da mesma forma, para o nome servidor conjunto de registos no vértice da zona, o valor de TTL sempre é retirado do ficheiro de zona importado.
-* Um registo CNAME importado não substituir um registo CNAME existente com o mesmo nome, a menos que o `--force` parâmetro for especificado.
-* Quando for um conflito entre um registo CNAME e outro registo do mesmo nome mas tipo diferente (independentemente de qual é existente ou nova), o registo existente é mantido. Isto é independente da utilização de `--force`.
+* Quando os conjuntos de registos são intercalados, será utilizada a hora para em direto (TTL) pré-existentes de conjuntos de registos.
+* Início de parâmetros de autoridade (SOA) (exceto `host`) sempre são obtidas a partir do ficheiro de zona importado. Da mesma forma, para o nome servidor conjunto de registos no vértice da zona, o valor de TTL sempre é retirado do ficheiro de zona importado.
+* Um registo CNAME importado não substituir um registo CNAME existente com o mesmo nome.  
+* Quando for um conflito entre um registo CNAME e outro registo do mesmo nome mas tipo diferente (independentemente de qual é existente ou nova), o registo existente é mantido. 
 
 ### <a name="additional-information-about-importing"></a>Informações adicionais sobre como importar
 
@@ -81,57 +77,32 @@ As seguintes notas fornecem detalhes técnicos adicionais sobre a zona importar 
 O formato do comando CLI do Azure para importar uma zona DNS é:
 
 ```azurecli
-azure network dns zone import [options] <resource group> <zone name> <zone file name>
+az network dns zone import -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Valores:
 
-* `<resource group>`é o nome do grupo de recursos para a zona no DNS do Azure.
-* `<zone name>`é o nome da zona.
-* `<zone file name>`é o caminho de nome de ficheiro de zona para ser importado.
+* `<resource group>` é o nome do grupo de recursos para a zona no DNS do Azure.
+* `<zone name>` é o nome da zona.
+* `<zone file name>` é o caminho de nome de ficheiro de zona para ser importado.
 
-Se não existir uma zona com este nome no grupo de recursos, é criado para si. Se a zona já existir, os conjuntos de registos importados são intercalados com os conjuntos de registos existentes. Para substituir os conjuntos de registos existentes, utilize o `--force` opção.
+Se não existir uma zona com este nome no grupo de recursos, é criado para si. Se a zona já existir, os conjuntos de registos importados são intercalados com os conjuntos de registos existentes. 
 
-Para verificar o formato de um ficheiro de zona sem realmente importá-lo, utilize o `--parse-only` opção.
 
 ### <a name="step-1-import-a-zone-file"></a>Passo 1. Importar um ficheiro de zona
 
 Para importar um ficheiro de zona para a zona **contoso.com**.
 
-1. Inicie sessão sua subscrição do Azure utilizando a CLI do Azure 1.0.
+1. Se ainda não tiver uma, terá de criar um grupo de recursos do Resource Manager.
 
     ```azurecli
-    azure login
+    az group create --group myresourcegroup -l westeurope
     ```
 
-2. Selecione a subscrição em que pretende criar a sua nova zona DNS.
+2. Para importar a zona **contoso.com** do ficheiro **contoso.com.txt** para uma nova zona DNS no grupo de recursos **myresourcegroup**, irá executar o comando `az network dns zone import` .<BR>Este comando carrega o ficheiro de zona e analisa-lo. O comando executa uma série de comandos no serviço DNS do Azure para criar a zona e define todos os registos na zona. O comando comunica o progresso na janela da consola, juntamente com quaisquer erros ou avisos. Porque os conjuntos de registos são criados em série, poderá demorar alguns minutos para importar um ficheiro de zona grandes.
 
     ```azurecli
-    azure account set <subscription name>
-    ```
-
-3. O DNS do Azure é um serviço de só de Gestor de recursos do Azure, para a CLI do Azure tem de ser mudada para o modo Resource Manager.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Antes de utilizar o serviço DNS do Azure, tem de registar a subscrição para utilizar o fornecedor de recursos Network. (Esta é uma operação única para cada subscrição.)
-
-    ```azurecli
-    azure provider register Microsoft.Network
-    ```
-
-5. Se ainda não tiver uma, também terá de criar um grupo de recursos do Resource Manager.
-
-    ```azurecli
-    azure group create myresourcegroup westeurope
-    ```
-
-6. Para importar a zona **contoso.com** do ficheiro **contoso.com.txt** para uma nova zona DNS no grupo de recursos **myresourcegroup**, execute o comando `azure network dns zone import`.<BR>Este comando carrega o ficheiro de zona e analisá-lo. O comando executa uma série de comandos no serviço DNS do Azure para criar a zona e define todos os registos na zona. O comando comunica o progresso na janela da consola, juntamente com quaisquer erros ou avisos. Porque os conjuntos de registos são criados em série, poderá demorar alguns minutos para importar um ficheiro de zona grandes.
-
-    ```azurecli
-    azure network dns zone import myresourcegroup contoso.com contoso.com.txt
+    az network dns zone import -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```
 
 ### <a name="step-2-verify-the-zone"></a>Passo 2. Certifique-se a zona
@@ -141,29 +112,41 @@ Para verificar a zona DNS depois de importar o ficheiro, pode utilizar qualquer 
 * Pode listar os registos ao utilizar o seguinte comando da CLI do Azure:
 
     ```azurecli
-    azure network dns record-set list myresourcegroup contoso.com
+    az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
 * Pode listar os registos, utilizando o cmdlet do PowerShell `Get-AzureRmDnsRecordSet`.
-* Pode utilizar `nslookup` para verificar a resolução de nomes para os registos. Porque a zona não delegada ainda, tem de especificar os servidores de nomes de DNS do Azure corretos explicitamente. O exemplo seguinte mostra como obter os nomes de servidor atribuídos à zona. IT também mostra como consultar os registos "www" utilizando `nslookup`.
+* Pode utilizar `nslookup` para verificar a resolução de nomes para os registos. Porque a zona não delegada ainda, tem de especificar os servidores de nomes de DNS do Azure corretos explicitamente. O exemplo seguinte mostra como obter os nomes de servidor atribuídos à zona. Isto também mostra como consultar os registos "www" utilizando `nslookup`.
+```
+C:\>az network dns record-set ns list -g myresourcegroup -z  --output json 
+  [
+   .......
+   "name": "@",
+    "nsRecords": [
+      {
+        "additionalProperties": {},
+        "nsdname": "ns1-03.azure-dns.com."
+      },
+      {
+        "additionalProperties": {},
+        "nsdname": "ns2-03.azure-dns.net."
+      },
+      {
+        "additionalProperties": {},
+        "nsdname": "ns3-03.azure-dns.org."
+      },
+      {
+        "additionalProperties": {},
+        "nsdname": "ns4-03.azure-dns.info."
+      }
+    ],
+    "resourceGroup": "myresourcegroup",
+    "ttl": 86400,
+    "type": "Microsoft.Network/dnszones/NS"
+  }
+]
 
-        C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
-        info:Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-        data:Id: /subscriptions/.../resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-        data:Name: @
-        data:Type: Microsoft.Network/dnszones/NS
-        data:Location: global
-        data:TTL : 3600
-        data:NS records
-        data:Name server domain name : ns1-01.azure-dns.com
-        data:Name server domain name : ns2-01.azure-dns.net
-        data:Name server domain name : ns3-01.azure-dns.org
-        data:Name server domain name : ns4-01.azure-dns.info
-        data:
-        info:network dns record-set show command OK
-
-        C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+        C:\> nslookup www.contoso.com ns1-03.azure-dns.com
 
         Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
@@ -171,6 +154,7 @@ Para verificar a zona DNS depois de importar o ficheiro, pode utilizar qualquer 
         Name:www.contoso.com
         Addresses:  134.170.185.46
         134.170.188.221
+```
 
 ### <a name="step-3-update-dns-delegation"></a>Passo 3. Atualizar delegação de DNS
 
@@ -181,39 +165,21 @@ Depois de ter verificado que a zona foi importada corretamente, terá de atualiz
 O formato do comando CLI do Azure para importar uma zona DNS é:
 
 ```azurecli
-azure network dns zone export [options] <resource group> <zone name> <zone file name>
+az network dns zone export -g <resource group> -z <zone name> -f <zone file name>
 ```
 
 Valores:
 
-* `<resource group>`é o nome do grupo de recursos para a zona no DNS do Azure.
-* `<zone name>`é o nome da zona.
-* `<zone file name>`é o caminho de nome de ficheiro de zona ser exportada.
+* `<resource group>` é o nome do grupo de recursos para a zona no DNS do Azure.
+* `<zone name>` é o nome da zona.
+* `<zone file name>` é o caminho de nome de ficheiro de zona ser exportada.
 
 Como com a importação de zona, é primeiro tem de iniciar sessão, escolha a sua subscrição e configurar a CLI do Azure para utilizar o modo Resource Manager.
 
 ### <a name="to-export-a-zone-file"></a>Para exportar um ficheiro de zona
 
-1. Inicie sessão sua subscrição do Azure utilizando a CLI do Azure.
+Para exportar a zona DNS do Azure existente **contoso.com** no grupo de recursos **myresourcegroup** para o ficheiro **contoso.com.txt** (na pasta atual), execute `azure network dns zone export`. Este comando activa o serviço de DNS do Azure para enumerar os conjuntos de registos na zona e exportar os resultados para um ficheiro de zona compatível com o ENLACE.
 
-    ```azurecli
-    azure login
     ```
-
-2. Selecione a subscrição em que pretende criar a sua zona DNS.
-
-    ```azurecli
-    azure account set <subscription name>
-    ```
-
-3. O DNS do Azure é um serviço de só de Gestor de recursos do Azure. A CLI do Azure tem de ser mudada para o modo Resource Manager.
-
-    ```azurecli
-    azure config mode arm
-    ```
-
-4. Para exportar a zona DNS do Azure existente **contoso.com** no grupo de recursos **myresourcegroup** para o ficheiro **contoso.com.txt** (na pasta atual), execute `azure network dns zone export`. Este comando activa o serviço de DNS do Azure para enumerar os conjuntos de registos na zona e exportar os resultados para um ficheiro de zona compatível com o ENLACE.
-
-    ```azurecli
-    azure network dns zone export myresourcegroup contoso.com contoso.com.txt
+    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
     ```

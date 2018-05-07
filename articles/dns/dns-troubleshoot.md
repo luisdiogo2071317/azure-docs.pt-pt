@@ -1,11 +1,11 @@
 ---
-title: "Guia de resolução de problemas de DNS do Azure | Microsoft Docs"
+title: Guia de resolução de problemas de DNS do Azure | Microsoft Docs
 description: Como resolver problemas comuns com o DNS do Azure
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
-editor: 
+author: chadmath
+manager: cshepard
+editor: ''
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
 ms.service: dns
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
-ms.author: jonatul
-ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 55db36f1312030cde8e820d9eca9b699ec8cdd4c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de resolução de problemas de DNS do Azure
 
@@ -94,12 +94,12 @@ Exemplos de nomes de registos SRV (“sip” do nome do serviço, “tcp” do p
 
 [Zonas e registos DNS](dns-zones-records.md)
 <br>
-[Criar registos e conjuntos de registos DNS ao utilizar o portal do Azure](dns-getstarted-create-recordset-portal.md)
+[Criar conjuntos de registos de DNS e registos ao utilizar o portal do Azure](dns-getstarted-create-recordset-portal.md)
 <br>
-[Tipo de registo SRV (Wikipédia)](https://en.wikipedia.org/wiki/SRV_record)
+[Tipo de registo de SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [zonas DNS do Azure e registos](dns-zones-records.md)
 * Para começar a utilizar o DNS do Azure, saiba como [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [criar registos DNS](dns-getstarted-create-recordset-portal.md).

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com QuickHelp | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e QuickHelp."
+title: 'Tutorial: Integração do Azure Active Directory com QuickHelp | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e QuickHelp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4a7bc895e2ee9b4a66bc59f309971c577be8019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb51a61ebe67f583b47ad516ddb40cd5b84b905
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Azure Active Directory com QuickHelp
 
@@ -110,12 +110,12 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://quickhelp.com/<instancename>/#/Login`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://quickhelp.com/<ROUTEURL>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.quickhelp.com`
+    b. No **identificador** caixa de texto, escreva um URL: `https://auth.quickhelp.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente QuickHelp](https://support.quickhelp.com/) para obter estes valores. 
+    > O valor do URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte o administrador da organização QuickHelp ou o Gestor de êxito de cliente BrainStorm para obter o valor.
  
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -152,10 +152,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     e. No **Apelido** caixa de texto, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. No **barra de ação**, clique em **guardar**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.

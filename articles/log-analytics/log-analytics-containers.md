@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -34,8 +34,9 @@ A solução mostra os contentores estão em execução, que imagem de contentor 
 - Service Fabric
 - Red Hat OpenShift
 
+Se estiver interessado na monitorização do desempenho das cargas de trabalho implementadas para ambientes de Kubernetes AKS alojado num (serviço de contentor do Azure), consulte [serviço de contentor do Azure de Monitor](../monitoring/monitoring-container-health.md).  A solução de monitorização do contentor não inclui suporte para monitorizar essa plataforma.  
 
-O diagrama seguinte mostra as relações entre vários anfitriões do contentor e os agentes com o OMS.
+O diagrama seguinte mostra as relações entre vários anfitriões do contentor e os agentes com a análise de registos.
 
 ![Diagrama de contentores](./media/log-analytics-containers/containers-diagram.png)
 
@@ -91,7 +92,7 @@ A tabela seguinte descreve a orquestração de Docker e o sistema operativo de s
 ## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-1. Adicionar a solução de monitorização do contentor à sua área de trabalho do OMS de [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
+1. Adicionar a solução de monitorização do contentor à sua área de trabalho de análise de registos de [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
 
 2. Instalar e utilizar o Docker com um agente do OMS. Com base no seu sistema operativo e Docker orchestrator, pode utilizar os métodos seguintes para configurar o agente.
   - Para anfitriões autónomos:
@@ -116,15 +117,15 @@ Reveja o [motor de Docker no Windows](https://docs.microsoft.com/virtualization/
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar os anfitriões de contentor do Linux
 
-Depois de instalar Docker, utilize as seguintes definições para o anfitrião de contentor para configurar o agente para utilização com o Docker. Primeiro terá do ID da área de trabalho OMS e a chave, o que pode encontrar no portal do Azure. Na área de trabalho, clique em **início rápido** > **computadores** para ver o **ID da área de trabalho** e **chave primária**.  Copie e cole ambos no seu editor favorito.
+Depois de instalar Docker, utilize as seguintes definições para o anfitrião de contentor para configurar o agente para utilização com o Docker. Primeiro terá do ID da área de trabalho de análise de registos e a chave, o que pode encontrar no portal do Azure. Na área de trabalho, clique em **início rápido** > **computadores** para ver o **ID da área de trabalho** e **chave primária**.  Copie e cole ambos no seu editor favorito.
 
 **Para todos os anfitriões de contentor de Linux, exceto CoreOS:**
 
-- Para obter mais informações e os passos sobre como instalar o agente do OMS para Linux, consulte [ligar os computadores com Linux para o Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- Para obter mais informações e os passos sobre como instalar o agente do OMS para Linux, consulte [ligar os computadores com Linux a análise de registos](log-analytics-concept-hybrid.md).
 
 **Para todos os Linux contentor anfitriões, incluindo CoreOS:**
 
-Inicie o contentor do OMS que pretende monitorizar. Modificar e utilize o seguinte exemplo:
+Inicie o contentor que pretende monitorizar. Modificar e utilize o seguinte exemplo:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **Para todos os Azure Government Linux contentor anfitriões, incluindo CoreOS:**
 
-Inicie o contentor do OMS que pretende monitorizar. Modificar e utilize o seguinte exemplo:
+Inicie o contentor que pretende monitorizar. Modificar e utilize o seguinte exemplo:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -144,7 +145,7 @@ Se utilizar o agente diretamente instalados anteriormente e pretende utilizar em
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configurar um agente do OMS para Docker Swarm
 
-Pode executar o agente do OMS como um serviço global no Docker Swarm. Utilize as seguintes informações para criar um serviço de agente do OMS. Tem de inserir o seu ID da área de trabalho OMS e a chave primária.
+Pode executar o agente do OMS como um serviço global no Docker Swarm. Utilize as seguintes informações para criar um serviço de agente do OMS. Tem de fornecer o ID de área de trabalho de análise do registo e a chave primária.
 
 - Execute o seguinte no nó principal.
 
@@ -190,8 +191,8 @@ Existem três maneiras de adicionar o agente do OMS para Red Hat OpenShift para 
 
 Nesta secção, iremos abrangem os passos necessários para instalar o agente do OMS como um conjunto de daemon OpenShift.  
 
-1. Início de sessão para o nó mestre OpenShift e copie o ficheiro yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) a partir do GitHub para o nó mestre e modifique o valor com o ID da área de trabalho OMS e com a chave primária.
-2. Execute os seguintes comandos para criar um projeto para OMS e definir a conta de utilizador.
+1. Início de sessão para o nó mestre OpenShift e copie o ficheiro yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) a partir do GitHub para o nó mestre e modifique o valor com o seu ID de área de trabalho de análise do registo e com a chave primária.
+2. Execute os seguintes comandos para criar um projeto para análise de registos e definir a conta de utilizador.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ Nesta secção, iremos abrangem os passos necessários para instalar o agente do
     No events.  
     ```
 
-Se pretender utilizar segredos para proteger o seu ID da área de trabalho OMS e a chave primária quando utilizar o ficheiro de conjunto de daemon yaml de agente do OMS, execute os seguintes passos.
+Se pretender utilizar segredos para proteger o seu ID de área de trabalho de análise do registo e a chave primária quando utilizar o ficheiro de conjunto de daemon yaml de agente do OMS, execute os seguintes passos.
 
-1. Início de sessão para o nó mestre OpenShift e copie o ficheiro yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e o segredo do script de gerar [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) a partir do GitHub.  Este script irá gerar o ficheiro de yaml segredos para o ID da área de trabalho OMS e a chave primária proteger a sua secrete informações.  
-2. Execute os seguintes comandos para criar um projeto para OMS e definir a conta de utilizador. O segredo gerar o script pede-lhe o ID da área de trabalho OMS <WSID> e a chave primária <KEY> e após a conclusão, cria o ficheiro ocp-secret.yaml.  
+1. Início de sessão para o nó mestre OpenShift e copie o ficheiro yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e o segredo do script de gerar [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) a partir do GitHub.  Este script irá gerar o ficheiro de yaml segredos para o ID de área de trabalho de análise do registo e a chave primária proteger a sua secrete informações.  
+2. Execute os seguintes comandos para criar um projeto para análise de registos e definir a conta de utilizador. O segredo gerar o script pede-lhe o ID de área de trabalho de análise do registo <WSID> e a chave primária <KEY> e após a conclusão, cria o ficheiro ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ Pode optar por criar omsagent DaemonSets com ou sem segredos.
     1. Copie o script e o ficheiro de modelo secreta e certifique-se de que estão no mesmo diretório.
         - segredo gerar script - gen.sh segredo
         - modelo secreto - template.yaml segredo
-    2. Execute o script, semelhante ao seguinte exemplo. O script pede-lhe o ID da área de trabalho OMS e a chave primária e depois de introduzi-los, o script cria um ficheiro de yaml secreta pelo pode executá-lo.   
+    2. Execute o script, semelhante ao seguinte exemplo. O script pede-lhe o ID de área de trabalho de análise do registo e a chave primária e depois de introduzi-los, o script cria um ficheiro de yaml secreta pelo pode executá-lo.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -551,17 +552,17 @@ A tabela seguinte mostra exemplos de registos recolhidos pela solução de monit
 | Inventário de contentor | `ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
 | Inventário de imagem do contentor | `ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parar, falha, SourceSystem, ImageID, TotalContainer |
 | Registo de contentor | `ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |
-| Registo do serviço de contentor | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Registo do serviço de contentor | `ContainerServiceLog`  | TimeGenerated, computador, TimeOfCommand, imagem, comando, SourceSystem, ID do contentor |
 | Inventário de nó do contentor | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Kubernetes inventário | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Processo de contentor | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, Computer, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, Message |
+| Processo de contentor | `ContainerProcess_CL` | TimeGenerated, computador, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, computador, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s SourceComponent_s, SourceSystem, mensagem |
 
 As etiquetas acrescentado ao *PodLabel* tipos de dados são as suas próprias etiquetas personalizadas. As etiquetas PodLabel anexadas mostradas na tabela são exemplos. Por isso, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` irá diferem no conjunto de dados do seu ambiente e genericamente assemelhar-se `PodLabel_yourlabel_s`.
 
 
 ## <a name="monitor-containers"></a>Contentores de monitor
-Depois de ter a solução ativada no portal do OMS, a **contentores** mosaico mostra informações de resumo sobre os anfitriões de contentor e os contentores em execução em anfitriões.
+Depois de ter a solução ativada no portal do Log Analytics, o **contentores** mosaico mostra informações de resumo sobre os anfitriões de contentor e os contentores em execução em anfitriões.
 
 ![Mosaico de contentores](./media/log-analytics-containers/containers-title.png)
 

@@ -8,7 +8,7 @@ Para criar uma máquina virtual quando criar uma aplicação web, siga estes pas
 2. No **novo projeto ASP.NET** , selecione o tipo de aplicação web que pretende e, na secção da caixa de diálogo (no canto inferior direito) do Azure, certifique-se de que o **anfitrião na nuvem** é a caixa de verificação selecionado (assinalada como esta caixa de verificação **criar recursos remotos** em algumas instalações).
    
     ![][0]
-3. Para este exemplo, na lista pendente no Microsoft Azure, escolha **Máquina Virtual (v1)**e, em seguida, clique em de **OK** botão.
+3. Para este exemplo, na lista pendente no Microsoft Azure, escolha **Máquina Virtual (v1)** e, em seguida, clique em de **OK** botão.
 4. Se lhe for pedida, inicie sessão no Azure. O **criar Máquina Virtual** é apresentada a caixa de diálogo.
    
     ![][2]
@@ -34,7 +34,7 @@ Para criar uma máquina virtual quando criar uma aplicação web, siga estes pas
     
     ![][5]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se pretender personalizar os scripts publicados que criou, leia mais informações aprofundadas em [utilizando Scripts do Windows PowerShell para publicar a ambientes de teste e desenvolvimento](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG

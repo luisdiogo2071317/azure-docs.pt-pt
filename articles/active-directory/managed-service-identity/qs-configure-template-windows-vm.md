@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 521c5a3c0ad55afa0b71628195be7782b0e43b67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 324a1e08e92a2c7ae76d7a6df56536540dc772a1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar uma identidade de serviço geridas da VM utilizando o modelo
 
@@ -34,7 +34,7 @@ Neste artigo, irá aprender a realizar as seguintes operações de identidade de
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-Como com o Azure portal e scripts, modelos Azure Resource Manager fornecem a capacidade de implementar recursos novos ou modificados definidos por um grupo de recursos do Azure. Várias opções estão disponíveis para edição do modelo e implementação, local e baseado no portal, incluindo:
+Tal como acontece com o Azure portal e scripts, [do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) modelos fornecem a capacidade de implementar recursos novos ou modificados definidos por um grupo de recursos do Azure. Várias opções estão disponíveis para edição do modelo e implementação, local e baseado no portal, incluindo:
 
    - Utilizar um [modelo personalizado no Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), que lhe permite criar um modelo a partir do zero ou baseá-num comuns existente ou [modelo de início rápido](https://azure.microsoft.com/documentation/templates/).
    - Efetuar a derivação de um grupo de recursos existente ao exportar um modelo a partir [a implementação original](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), ou a partir de [estado atual da implementação](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -112,59 +112,14 @@ Se tiver uma VM que já não tem uma identidade de serviço geridas:
 
 ## <a name="user-assigned-identity"></a>Utilizador atribuído identidade
 
-Nesta secção, vai criar uma identidade de utilizador e a VM do Azure com um modelo Azure Resource Manager.
+Nesta secção, pode designar uma identidade de utilizador atribuída a uma VM do Azure utilizando o modelo Azure Resource Manager.
 
- ### <a name="create-and-assign-a-user-assigned-identity-to-an-azure-vm"></a>Criar e atribuir um utilizador atribuído a identidade para uma VM do Azure
+> [!Note]
+> Para criar uma identidade de utilizador atribuído através de um modelo de Gestor de recursos do Azure, consulte [criar uma identidade de utilizador atribuída](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-1. Execute primeiro o passo da secção [ativar uma identidade de sistema atribuída durante a criação de uma VM do Azure ou numa VM existente](#enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm)
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Atribuir um utilizador atribuído a identidade para uma VM do Azure
 
-2.  Na secção de variáveis que contém as variáveis de configuração para a VM do Azure, adicione uma entrada para um nome de identidade atribuído utilizador semelhante ao seguinte.  Esta ação irá criar o utilizador atribuído identidade durante o processo de criação de VM do Azure:
-    
-    > [!IMPORTANT]
-    > Criar atribuído identidades com carateres especiais (ou seja, um caráter de sublinhado) no nome de utilizador não é atualmente suportado. Utilize apenas carateres alfanuméricos. Verifique novamente para as atualizações.  Para obter mais informações consulte [perguntas mais frequentes e problemas conhecidos](known-issues.md)
-
-    ```json
-    "variables": {
-        "vmName": "[parameters('vmName')]",
-        //other vm configuration variables...
-        "identityName": "[concat(variables('vmName'), 'id')]"
-    ```
-
-3. Sob o `resources` elemento, adicione a seguinte entrada para criar uma identidade de utilizador atribuída:
-
-    ```json
-    {
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-        "name": "[variables('identityName')]",
-        "apiVersion": "2015-08-31-PREVIEW",
-        "location": "[resourceGroup().location]"
-    },
-    ```
-
-4. Em seguida, sob o `resources` elemento adicione a seguinte entrada para atribuir as extensões de identidade gerido para a VM:
-
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
-        "apiVersion": "2015-05-01-preview",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-5. Em seguida, adicione a seguinte entrada para atribuir o utilizador atribuído identidade para a VM:
-
+1. Sob o `resources` elemento, adicione a seguinte entrada para atribuir uma identidade de utilizador atribuído à VM.  Não se esqueça de substituir `<USERASSIGNEDIDENTITY>` com o nome da identidade atribuída ao utilizador que criou.
     ```json
     {
         "apiVersion": "2017-12-01",
@@ -174,15 +129,36 @@ Nesta secção, vai criar uma identidade de utilizador e a VM do Azure com um mo
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('identityName'))]"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
             ]
         },
     ```
-6.  Quando tiver terminado, o modelo deve ter um aspeto semelhante ao seguinte:
-    > [!NOTE]
-    > O modelo não listar todas as variáveis necessárias para criar a VM.  `//other configuration variables...` é utilizado in the place of todas as variáveis de configuração necessárias com vista à, uma forma abreviada.
+    
+2. (Opcional) Em seguida, sob o `resources` elemento, adicione a seguinte entrada para atribuir a extensão de identidade geridos à VM. Este passo é opcional como pode utilizar o ponto de final para a identidade de serviço de metadados de instância do Azure (IMDS), obtenha tokens bem. Utilize a seguinte sintaxe:
+    ```json
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50342
+            }
+        }
+    }
+    ```
+    
+3.  Quando tiver terminado, o modelo deve ter um aspeto semelhante ao seguinte:
 
-      ![Captura de ecrã da identidade de utilizador atribuído](../media/msi-qs-configure-template-windows-vm/template-user-assigned-identity.png)
+      ![Captura de ecrã da identidade de utilizador atribuído](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>Conteúdo relacionado

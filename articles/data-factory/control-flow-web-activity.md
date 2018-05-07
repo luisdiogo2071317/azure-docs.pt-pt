@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/01/2018
 ms.author: shlo
-ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 58faed48f5031b26f1340f3766fdd8bdc6bd2ccb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade de Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
@@ -79,9 +79,19 @@ linkedServices | Lista de serviços ligados transmitido para o ponto final. | Ma
 > [!NOTE]
 > Pontos finais REST, que invoca a atividade de web tem de devolver uma resposta de tipo de JSON. A atividade será tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final.
 
+A tabela seguinte mostra os requisitos para o conteúdo JSON:
+
+| Tipo de valor | Corpo do pedido | Corpo da resposta |
+|---|---|---|
+|Objeto JSON | Suportadas | Suportadas |
+|Matriz JSON | Suportadas <br/>(Atualmente, matrizes JSON não funcionam em resultado de erros. Uma correção está em curso.) | Não suportado |
+| Valor JSON | Suportadas | Não suportado |
+| Tipo de JSON não | Não suportado | Não suportado |
+||||
+
 ## <a name="authentication"></a>Autenticação
 
-### <a name="none"></a>Nenhum
+### <a name="none"></a>Nenhuma
 Se não for necessária a autenticação, não inclua a propriedade de "autenticação".
 
 ### <a name="basic"></a>Básica

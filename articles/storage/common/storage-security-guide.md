@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -294,7 +294,7 @@ Apesar de poder utilizar a encriptação do lado do cliente para encriptar os da
 
 SSE está ativado para todas as contas de armazenamento e não pode ser desativado. SSE encripta automaticamente dados quando escrita ao Storage do Azure. Ao ler os dados do armazenamento do Azure, é desencriptado pelo armazenamento do Azure antes de a ser devolvido. SSE permite-lhe proteger os dados sem ter de modificar o código ou adicione o código para todas as aplicações.
 
-As chaves utilizadas para SSE são geridas pela Microsoft. A Microsoft gera as chaves originalmente e gere o respetivo armazenamento seguro, bem como as respetivas rotação regular, como definido pela política interna da Microsoft. As chaves gerida pelo cliente, eventualmente, ficarão disponíveis, juntamente com um caminho de migração de chaves gerida pela Microsoft para chaves gerida pelo cliente.
+Pode utilizar as chaves gerida pela Microsoft ou as suas próprias chaves personalizadas. A Microsoft gera chaves geridas e processa o respetivo armazenamento seguro, bem como as respetivas rotação regular, como definido pela política interna da Microsoft. Para obter mais informações sobre a utilização de chaves personalizadas, consulte [encriptação do serviço de armazenamento gerida pelo cliente chaves a utilizar no Cofre de chaves do Azure](storage-service-encryption-customer-managed-keys.md).
 
 O SSE encripta automaticamente dados em todos os escalões de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Clássico) e todos os serviços de Armazenamento do Azure (Blob, Fila, Tabela e Ficheiro). 
 

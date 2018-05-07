@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 10d7b5d3670bd7a5f289a6f9f2754ecc6aa18795
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa de Stream Analytics. Utilizar os dados de saída, pode fazê-lo ainda mais análise de negócio e dados do armazém de dados. 
@@ -290,10 +290,10 @@ A tabela seguinte resume o suporte de partição e o número de escritores de sa
 | Armazenamento de Blobs do Azure | Sim | Utilize {date} e {time} tokens. o padrão de caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Segue-se de que a entrada partições para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
 | Hub de eventos do Azure | Sim | Sim | Varia consoante o alinhamento de partição.</br> Quando o resultado da chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é o mesmo número de saída partições do Hub de eventos. Cada escritor utiliza do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada escritor utiliza EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. | 
-| Armazenamento de Tabelas do Azure | Sim | Nenhuma coluna de saída.  | Segue-se de que a entrada partições para [totalmente paralyzed consultas](stream-analytics-scale-jobs.md). | 
+| Armazenamento de Tabelas do Azure | Sim | Nenhuma coluna de saída.  | Segue-se de que a entrada partições para [totalmente paralelizada consultas](stream-analytics-scale-jobs.md). | 
 | Tópico de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual ao número de partições existentes no tópico de saída.  |
 | Fila de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual ao número de partições na fila de saída. |
-| Azure Cosmos DB | Sim | Utilize o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se a cláusula PARTITION BY na consulta. | Segue-se de que a entrada partições para [totalmente paralyzed consultas](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Sim | Utilize o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se a cláusula PARTITION BY na consulta. | Segue-se de que a entrada partições para [totalmente paralelizada consultas](stream-analytics-scale-jobs.md). |
 | Funções do Azure | Não | Nenhuma | Não aplicável. | 
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída

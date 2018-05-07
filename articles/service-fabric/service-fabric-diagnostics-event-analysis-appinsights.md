@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise de eventos e visualização com o Application Insights
 
@@ -32,7 +32,7 @@ O objetivo deste artigo é mostrar como obter informações e resolver problemas
 
 ## <a name="monitoring-in-app-insights"></a>Monitorização no App Insights
 
-O Application Insights tem um avançada Box com o Service Fabric. Na página Descrição geral, o AI fornece informações chave sobre o serviço como o tempo de resposta e o número de pedidos processados. Ao clicar no botão "Procurar" na parte superior, pode ver uma lista de pedidos recentes na sua aplicação. Além disso, será capaz de ver os pedidos falhados aqui e diagnosticar os erros podem ter ocorrido.
+O Application Insights tem um avançada fora a experiência de caixa ao utilizar o Service Fabric. Na página Descrição geral, o AI fornece informações chave sobre o serviço como o tempo de resposta e o número de pedidos processados. Ao clicar no botão "Procurar" na parte superior, pode ver uma lista de pedidos recentes na sua aplicação. Além disso, será capaz de ver os pedidos falhados aqui e diagnosticar os erros podem ter ocorrido.
 
 ![Descrição geral de AI](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

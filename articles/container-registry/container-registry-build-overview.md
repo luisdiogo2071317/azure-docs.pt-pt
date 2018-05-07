@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 0e10b415f3d1c7ca502cfd63ebd27a6adcb69635
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatizar SO e aplicação de patches framework com ACR de compilação
 
@@ -58,7 +58,7 @@ Porque dinamicamente ACR criar Deteta a imagem base dependências quando baseia-
 Saiba mais sobre o SO e aplicação de patches framework tutorial ACR criar terceiro, [Automate imagem baseia-se na atualização da imagem base com o registo de contentor do Azure compilação](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Enquanto ACR construir em pré-visualização, o acionador de atualizações de imagem base baseia-se apenas quando ambas as imagens de base e de aplicações residem no mesmo registo de contentor do Azure.
+> Para a pré-visualização inicial, acionador de atualizações de imagem base baseia-se apenas quando ambas as imagens de base e de aplicações de residir no mesmo registo de contentor do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

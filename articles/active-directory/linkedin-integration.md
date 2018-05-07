@@ -9,21 +9,24 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ab59033fd032cfccd2602a1a518e51a08e09581
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Ligações de conta LinkedIn para serviços e aplicações da Microsoft
 Neste artigo, pode saber como gerir LinkedIn ligações de conta para o seu inquilino no Centro de administração do Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
 > Funcionalidade de ligações do LinkedIn conta está atualmente a ser implementada para inquilinos do Azure AD. Quando é revertida para o seu inquilino, está ativada por predefinição. Não está disponível para clientes de governamentais dos Estados Unidos e organizações com o Exchange Online caixas de correio alojadas da Austrália, Canadá, China, França, Datacenters, Índia, Sul Coreia, Reino Unido, Japão e África do Sul. Suporte para estas localizações de caixa de correio está disponível em breve.  Para uma vista atualizada das informações de implementação, consulte o [plano do Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) página.
+
+## <a name="benefit-to-users"></a>Tirar partido para os utilizadores
+Depois dos utilizadores ligam a respetiva conta LinkedIn, informações de LinkedIn são utilizadas para mostrar informação personalizada e funcionalidades em vários serviços ou aplicações da Microsoft. Os utilizadores podem ver informações sobre as pessoas que utilizam no cartão de perfil Microsoft, mesmo que os que são as pessoas fora da sua organização. Ao longo do tempo, sua experiência de LinkedIn também ficará mais relevantes e personalizáveis com o respetivo trabalho. Por exemplo, LinkedIn pode sugerir novas ligações com base no que funcionam com utilizadores ou com base nas informações sobre as pessoas no respetivo calendário nesse dia.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Como o LinkedIn ligações de conta são apresentados ao utilizador
 Ligações de conta LinkedIn permitem aos utilizadores ver informações de perfil do LinkedIn públicas dentro de algumas das respetivas aplicações da Microsoft. Os utilizadores no seu inquilino podem optar por ligar o seu trabalho LinkedIn e Microsoft escolar ou profissional contas para ver informações de perfil do LinkedIn adicionais. Para obter mais informações, consulte [LinkedIn informações e funcionalidades nos serviços e aplicações da Microsoft](https://go.microsoft.com/fwlink/?linkid=850740).

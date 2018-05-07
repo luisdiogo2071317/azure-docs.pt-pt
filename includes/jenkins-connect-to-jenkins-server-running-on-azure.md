@@ -20,7 +20,7 @@
 
 1. Copie para a área de transferência a palavra-passe que é apresentada na janela de bash ou terminal.
 
-1. No seu browser, navegue para `http://localhost:8080`.
+1. No seu browser, navegue até `http://localhost:8080`.
 
 1. Cole a palavra-passe que obteve anteriormente para o **palavra-passe administrativa** campo e selecione **continuar**.
 

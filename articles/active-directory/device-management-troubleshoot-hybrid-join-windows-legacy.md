@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível baixo 
 
@@ -90,7 +90,7 @@ Se a associação do Azure AD híbrido não foi bem sucedida, a caixa de diálog
     
     - Autoworkplace.exe não consegue autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se um problemas de conectividade de rede out-vinculado aos URLs AD do Azure (Verifique os pré-requisitos). Também poderia ser que a autenticação multifator (MFA) é ativado/configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor de Federação (passos de configuração de verificação). Possibilidade de outra é nessa página do realm inicial (HRD) de deteção está a aguardar interação do utilizador, que impede que **autoworkplace.exe** obtenham silenciosamente um token.
     
-    - A organização utiliza o Azure AD totalmente integrada Single Sign-On, `https://autologon.microsoftazuread-sso.com` não está presente i/e as definições no dispositivo da intranet, e **permita que as atualizações na barra de estado através do script** não está ativada para a zona de Intranet.
+    - A organização utiliza o Azure AD totalmente integrada Single Sign-On, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estiverem presentes, i/e as definições o dispositivo da intranet, e **permita que as atualizações na barra de estado através do script** não está ativada para a zona de Intranet.
 
 - Foi atingida a quota de uma
 

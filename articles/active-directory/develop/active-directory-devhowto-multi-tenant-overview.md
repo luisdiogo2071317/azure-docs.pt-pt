@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 281f50a942a9396bf1163f5a20feb98bf450e6eb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como iniciar sessão em qualquer utilizador do Azure Active Directory através do padrão de aplicação multi-inquilino
 Se oferecer um Software como uma aplicação de serviço para muitas organizações, pode configurar a sua aplicação para aceitar inícios de sessão de qualquer inquilino do Azure Active Directory (AD). Esta configuração denomina-se tornar o multi-inquilino de aplicação. Os utilizadores em qualquer inquilino do Azure AD será possível iniciar sessão na sua aplicação após consenting para utilizar a respetiva conta com a sua aplicação.  
@@ -57,7 +57,8 @@ Quando o Azure AD recebe um pedido no /common ponto final, inicia o utilizador a
 
 A resposta de início de sessão para a aplicação, em seguida, contém um token que representa o utilizador. O valor de emissor de token de indica que o utilizador é a partir de inquilino de uma aplicação. Quando uma resposta devolve a partir de /common ponto final, o valor de emissor no token corresponde ao inquilino do utilizador. 
 
-> [! Ponto final IMPORTANTNT] o /common não é um inquilino e não é um emissor, é apenas um multiplexer. Quando utilizar /common, tem de ser atualizado para efetuar isto em consideração a lógica da sua aplicação para validar os tokens. 
+> [!IMPORTANT]
+> O/ponto final comum não é um inquilino e não é um emissor, é apenas um multiplexer. Quando utilizar /common, tem de ser atualizado para efetuar isto em consideração a lógica da sua aplicação para validar os tokens. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Atualizar o código para processar vários valores de emissor
 As aplicações Web e web APIs recebem e validar os tokens do Azure AD.  
@@ -156,9 +157,6 @@ Os administradores e utilizadores podem revogar a autorização da aplicação e
 * Os administradores de revogar o acesso a aplicações, removendo-os partir do Azure AD com o [aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) secção o [portal do Azure][AZURE-portal].
 
 Se um administrador permitir a uma aplicação para todos os utilizadores de um inquilino, os utilizadores não é possível revogar o acesso individualmente. Só o administrador pode revogar o acesso e apenas para toda a aplicação.
-
-### <a name="consent-and-protocol-support"></a>Suporte para consentimento e protocolo
-Consentimento é suportado no Azure AD através do OAuth, OpenID Connect, WS-Federation e protocolos SAML. Os protocolos SAML e WS-Federation não suportam o `prompt=admin_consent` parâmetro, por isso consentimento admin só é possível através de OAuth e o OpenID Connect.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Aplicações de multi-inquilinos e a colocação em cache de tokens de acesso
 Aplicações de multi-inquilinos também podem obter tokens de acesso para chamar as APIs que estão protegidas pelo Azure AD. Um erro comum ao utilizar o Active Directory Authentication Library (ADAL) com uma aplicação multi-inquilino é inicialmente pedir um token para um utilizador utilizando /common, recebeu uma resposta, em seguida, pedir um token subsequente para esse mesmo utilizador também utilizando /common. Porque a resposta do Azure AD é proveniente de um inquilino, não/comuns, ADAL coloca em cache o token como sendo de inquilino. Chamada subsequente /common a obter um token de acesso para o utilizador a entrada de cache de pedidos sem êxito e é pedido ao utilizador para iniciar sessão novamente. Para evitar em falta a cache, certificar-se de que são efetuadas chamadas subsequentes para um utilizador já com sessão iniciada para o ponto final do inquilino.

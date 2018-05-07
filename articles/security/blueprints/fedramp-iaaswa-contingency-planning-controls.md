@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - Contingency planeamento"
-description: "Automatização de aplicações FedRAMP Web - Contingency planeamento"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - Contingency planeamento
+description: Automatização de aplicações FedRAMP Web - Contingency planeamento
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="contingency-planning-cp"></a>Contingency planeamento (CP)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] plano de contingência política objetivo, âmbito, funções, responsabilidades, compromisso de gestão, os endereços de planeamento coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação de contingency planeamento de política e contingency associado planeamento de controlos; analisa e atualiza o contingency atual planeamento política [atribuição: frequência definida de organização]; e contingency planeamento procedimentos [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.a** organização desenvolvidas pela organização um plano contingency para o sistema de informações que identifica missions essenciais e funções de negócio e requisitos contingency associados; fornece objetivos de recuperação, prioridades de restauro, e métricas; endereços funções contingency, responsabilidades, atribuídas indivíduos com as informações de contacto; endereços mantendo missions essenciais e funções de negócio, não obstante uma interrupção do sistema de informações, o comprometimento ou a falha; aborda informações eventual, totais de restauro do sistema sem deterioração das proteções de segurança originalmente planeada e implementado; é revistos e aprovados pelo [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.b** organização distribui cópias do plano contingency para [atribuição: definido de organização chave contingency técnico (identificado pelo nome e/ou pela função) e os elementos organizacionais].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.c** organização coordena as atividades de planeamento contingency com o processamento de actividades do incidente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.d** organização revê o plano contingency para o sistema de informações [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.e** A organização atualizações do plano de contingency as alterações do endereço para a organização, o sistema de informações ou o ambiente da operação do e problemas encontrados durante a implementação de plano contingency, execução ou de teste.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.f** organização comunica alterações de plano contingency [atribuição: definido de organização chave contingency técnico (identificado pelo nome e/ou pela função) e os elementos organizacionais].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.g** a organização protege o plano contingency de divulgação não autorizada e modificação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (1)** organização coordena desenvolvimento contingency plano com elementos organizacionais responsáveis por planos relacionados.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (2)** organização efetua planeamento de capacidade para que a capacidade necessária para processamento de informações, telecomunicações e suporte ambiental existe durante as operações de contingency.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (3)** os planos de organização para o recomeço de missions essenciais e funções de negócio dentro [atribuição: organização definidos pelo período de tempo] da ativação do plano contingency.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (4)** os planos de organização para o recomeço de todas as funções de negócio dentro e missions [atribuição: organização definidos pelo período de tempo] da ativação do plano contingency.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (5)** organização planeia para o continuance de missions essenciais e funções de negócio com pouca ou nenhuma perda de continuidade operacional e suporta esse continuidade até que o restauro do sistema de informações completas no processamento principal e/ou sites de armazenamento.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (8)** organização identifica recursos de sistema de informações críticas suporte missions essenciais e funções de negócio.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 3.a** organização fornece contingency formação aos utilizadores de sistema de informações consistentes com atribuído funções e responsabilidades dentro [atribuição: organização definidos pelo período de tempo] do pressuposto de que uma função contingency ou responsabilidade.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 3.b** organização fornece contingency formação aos utilizadores de sistema de informações consistentes com atribuído funções e responsabilidades, quando necessário por alterações de sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 3.c** organização fornece contingency formação aos utilizadores de sistema de informações consistentes com atribuído funções e responsabilidades [atribuição: frequência definida de organização] após essa data.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3 (1)** organização incorpora eventos simulados de formação contingency para facilitar a resposta efetiva por parte do pessoal em situações de crisis.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 4.a** organização testa o plano contingency para o sistema de informações [atribuição: frequência definida de organização] utilizando [atribuição: testes definidos de organização] para determinar a eficácia do plano do organizacional preparação para executar o plano.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 4.b** organização revê os resultados do teste contingency plano.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 4.c** organização inicia ações corretivas, se necessário.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (1)** organização coordenadas contingency plano de teste com elementos organizacionais responsável por relacionadas com planos.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -333,13 +333,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 Control CP-4 (2).a
+ ### <a name="nist-800-53-control-cp-4-2a"></a>Controlar o NIST 800-53 .a (2) CP-4
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Teste de plano contingency | Site de processamento alternativo
 
 **CP-4 (2) .a** organização testa o plano contingency no site de processamento alternativo familiarizar-contingency técnico com as instalações e os recursos disponíveis.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (2) .b** organização testa o plano contingency no site de processamento alternativo para avaliar as funcionalidades do site de processamento alternativo para suportar operações contingency.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 6.a** organização estabelece a um site de armazenamento alternativo, incluindo contratos necessários para permitir o armazenamento e a obtenção de informações de cópia de segurança do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6. b** organização assegura que o site de armazenamento alternativo fornece informações as proteções de segurança equivalentes para que o site primário.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (1)** organização identifica um site de armazenamento alternativo que está separado do site primário de armazenamento para reduzir a possibilidade de ocorrência das mesmas ameaças.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (2)** organização configura o site de armazenamento alternativo para facilitar a operações de recuperação de acordo com a hora da recuperação e objetivos de ponto de recuperação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (3)** organização identifica potenciais problemas de acessibilidade para o site de armazenamento alternativo na eventualidade de ocorrer uma interrupção de toda a área ou desastre e descreve as ações de mitigação explícita.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 7.a** organização estabelece a um site de processamento alternativo, incluindo contratos necessários para permitir a transferência e recomeço de [atribuição: operações de informações definidas pela organização do sistema] para empresas/missions essenciais funciona dentro de [atribuição: organização definidos pelo período de tempo consistente com a hora da recuperação e objetivos de ponto de recuperação] quando as capacidades de processamento principal não estão disponíveis.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **7 de CP** organização garante que equipamento e fontes necessários para transferir e retomar as operações disponíveis no site de processamento alternativo ou contratos são para suportar a entrega para o site no período de tempo definido de organização período de transferência/recomeço.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 7.c** organização assegura que o site de processamento alternativo fornece informações as proteções de segurança equivalentes as do site primário.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (1)** organização identifica um site de processamento alternativo que está separado do site primário de processamento para reduzir a possibilidade de ocorrência das mesmas ameaças.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (2)** organização identifica potenciais problemas de acessibilidade para o site de processamento alternativo na eventualidade de ocorrer uma interrupção de toda a área ou desastre e descreve as ações de mitigação explícita.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (3)** organização desenvolvidas pela organização contratos de site de processamento alternativo que contêm Aprovisiona de prioridade do serviço de acordo com requisitos organizacionais disponibilidade (incluindo os objetivos de tempo de recuperação).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (4)** organização prepara o site de processamento alternativo para que o site está pronto para ser utilizado como o site operacional suporte missions essenciais e funções de negócio.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8** organização estabelece serviços telecomunicações alternativo, incluindo contratos necessários para permitir o recomeço de [atribuição: operações de informações definidas pela organização do sistema] para missions essenciais e de negócio funciona dentro de [atribuição: organização definidos pelo período de tempo] quando as capacidades de telecomunicações primário estão indisponíveis no processamento de principal ou alternativo ou sites de armazenamento.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (1) .a** organização desenvolvidas pela organização primário e telecomunicações alternativas serviço contratos que contêm Aprovisiona de prioridade do serviço de acordo com requisitos organizacionais disponibilidade (incluindo o tempo de recuperação objetivos).
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (1) .b** organização solicita telecomunicações prioridade do serviço para todos os serviços de telecomunicações utilizados para preparedness emergência segurança national se que os serviços de telecomunicações primário e/ou alternativas são forneceu uma operadora de comuns.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (2)** organização obtém serviços telecomunicações alternativo para reduzir a probabilidade de partilhar um ponto único de falha com os serviços de telecomunicações primário.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (3)** organização obtém serviços telecomunicações alternativo de fornecedores que são separados dos fornecedores de serviço principal para reduzir a possibilidade de ocorrência das mesmas ameaças.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4) .a** organização requer primário e fornecedores ter contingency planos de serviço do umts alternativos.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4) .b** organização revê planos contingency do fornecedor para se certificar de que os planos de satisfazem requisitos contingency organizacionais.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-8 (4) .c** organização obtém uma prova do contingency testar/formação pelos fornecedores [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.a** organização efetua cópias de segurança de informações de nível de utilizador contidos no sistema de informações [atribuição: frequência definida de organização consistente com a hora da recuperação e objetivos de ponto de recuperação].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.b** organização efetua cópias de segurança de informações de nível do sistema incluídas no sistema de informações [atribuição: frequência definida de organização consistente com a hora da recuperação e objetivos de ponto de recuperação].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.c** organização efetua cópias de segurança de documentação do sistema de informações, incluindo documentação relacionadas com segurança [atribuição: frequência definida de organização consistente com a hora da recuperação e objetivos de ponto de recuperação].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.d** a organização protege a confidencialidade, integridade e disponibilidade das informações de cópia de segurança em localizações de armazenamento.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (1)** organização testa informações de cópia de segurança [atribuição: frequência definida de organização] para verificar a integridade de fiabilidade e informações de suporte de dados.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (2)** a organização utiliza uma amostra de informações de cópia de segurança no restauro das funções do sistema selecionado informações como parte do plano contingency testar.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (3)** organização armazena cópias de segurança de [atribuição: software do sistema definida de organização das informações críticas e outras informações relacionadas com segurança] num local separado ou num contentor classificados de fire que não esteja colocalizado com o sistema operacional.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (5)** organização transfere informações de cópia de segurança do sistema de informações para o site de armazenamento alternativo [atribuição: o período de tempo definido pelo organização e a transferência de velocidade consistentes com a hora de recuperação e os objetivos de ponto de recuperação].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 10** fornece a organização para a recuperação e reconstitution do sistema de informações para um estado conhecido após uma interrupção, o comprometimento ou a falha.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **(2) de 10 CP** o sistema de informações implementa a recuperação de transações para sistemas baseados em transações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10 (4)** organização fornece a capacidade de restaurar os componentes do sistema de informações no [atribuição: períodos de tempo definido de organização restauro] das informações de configuração-controlado e protegida de integridade que representa um estado conhecido, operacional dos componentes.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

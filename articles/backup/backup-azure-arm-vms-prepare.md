@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -56,7 +56,7 @@ Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 * A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando existe a VM, a operação de restauro irá falhar.
 * Por várias regiões criar cópias de segurança e restauro não são suportadas.
 * Durante a configuração anterior cópias de segurança, certifique-se de que o **Firewalls e redes virtuais** as definições de conta de armazenamento permitem o acesso a partir de todas as redes.
-* Para redes selecionadas, depois de configurar as definições de rede virtual e de firewall para a sua conta de armazenamento, selecione **permitir fidedigna serviços da Microsoft para aceder a esta conta de armazenamento** como uma exceção para ativar o serviço de cópia de segurança do Azure aceder à conta de armazenamento de rede restringida.
+* Para redes selecionadas, depois de configurar as definições de rede virtual e de firewall para a sua conta de armazenamento, selecione **permitir fidedigna serviços da Microsoft para aceder a esta conta de armazenamento** como uma exceção para ativar o serviço de cópia de segurança do Azure aceder à conta de armazenamento de rede restringida. Recuperação ao nível do item não é suportada para contas de armazenamento de rede restringida.
 * Pode criar cópias de segurança máquinas virtuais em todas as regiões públicas do Azure. (Consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas.) Se a região que procura não é suportada atualmente, não serão apresentados na lista pendente durante a criação do cofre.
 * Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Para obter mais informações, consulte [restaurar um controlador de domínio do DC várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Máquinas virtuais que têm as seguintes configurações de rede especiais o restauro é suportado apenas através do PowerShell. VMs criadas através do fluxo de trabalho de restauro na IU não terá estas configurações de rede após a conclusão da operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -308,6 +308,6 @@ Se tiver dúvidas ou se houver alguma funcionalidade que pretende ver incluída,
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que tem de preparar o ambiente para fazer cópias de segurança a VM, o próximo passo lógico é criar uma cópia de segurança. O planeamento artigo fornece informações mais detalhadas sobre a cópia de segurança de VMs.
 
-* [Fazer uma cópia de segurança de máquinas virtuais](backup-azure-arm-vms.md)
+* [Fazer uma cópia de segurança das máquinas virtuais](backup-azure-arm-vms.md)
 * [Planear a infraestrutura de cópia de segurança de VM](backup-azure-vms-introduction.md)
 * [Gerir cópias de segurança da máquina virtual](backup-azure-manage-vms.md)

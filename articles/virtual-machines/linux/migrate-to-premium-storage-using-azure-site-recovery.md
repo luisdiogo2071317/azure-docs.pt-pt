@@ -1,12 +1,12 @@
 ---
 title: Migrar as suas VMs do Linux para o armazenamento Premium do Azure com o Azure Site Recovery | Microsoft Docs
-description: "Migre as máquinas virtuais existentes para o Premium Storage do Azure utilizando a recuperação de Site. Armazenamento Premium oferece suporte de disco de elevado desempenho, baixa latência para cargas de trabalho de I/O intensivo em execução em máquinas de virtuais do Azure."
+description: Migre as máquinas virtuais existentes para o Premium Storage do Azure utilizando a recuperação de Site. Armazenamento Premium oferece suporte de disco de elevado desempenho, baixa latência para cargas de trabalho de I/O intensivo em execução em máquinas de virtuais do Azure.
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Premium Storage, utilizando o Azure Site Recovery
 
@@ -202,7 +202,7 @@ Recuperação de sites irá criar uma instância VM cujo tipo é o mesmo como ou
    * Para uma VM criada através do modelo de implementação clássica: adicionar a VM para a conjunto de disponibilidade no portal do Azure. Para obter passos detalhados, aceda a [adicionar uma máquina virtual existente para um conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
    * Para uma VM criada através do modelo de implementação Resource Manager: guardar a configuração da VM e, em seguida, eliminar e voltar a criar as VMs no conjunto de disponibilidade. Para tal, utilize o script em [definir do Azure Resource Manager VM conjunto de disponibilidade](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar este script, verifique o respetivas limitações e planear os períodos de indisponibilidade.
 
-2. **Eliminar antigo VMs e discos**. Certifique-se de que os discos Premium são consistentes com discos de origem e que as VMs novas executem a mesma função que as VMs de origem. Elimine a VM e elimine os discos das suas contas de armazenamento de origem no portal do Azure. Se não existir um problema em que o disco não é eliminada, apesar de eliminar a VM, consulte [resolver erros ao eliminar os VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Eliminar antigo VMs e discos**. Certifique-se de que os discos Premium são consistentes com discos de origem e que as VMs novas executem a mesma função que as VMs de origem. Elimine a VM e elimine os discos das suas contas de armazenamento de origem no portal do Azure. Se não existir um problema em que o disco não é eliminada, apesar de eliminar a VM, consulte [resolver erros de eliminação de recursos de armazenamento](storage-resource-deletion-errors.md).
 
 3. **Limpar a infraestrutura do Azure Site Recovery**. Se a recuperação de sites já não for necessário, pode apagar a respetiva infraestrutura. Eliminar itens replicados, o servidor de configuração e a política de recuperação e, em seguida, elimine o cofre do Azure Site Recovery.
 

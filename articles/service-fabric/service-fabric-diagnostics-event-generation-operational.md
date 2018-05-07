@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 8426218cf8f0819f20c78d9d84e202541d025b60
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: d397dcb1ecdc25dbd66ab3d6f2f010bc29f87c6c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Service Fabric 
 
@@ -35,7 +35,7 @@ Aqui está disponível na plataforma, ordenada pela entidade que mapeiam para um
 
 | EventId | Nome | Origem (tarefas) | Nível | Versão |
 | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStartOperational | CM | Informativo | C1 |
+| 29627 | ClusterUpgradeStartOperational | CM | Informativo | 1 |
 | 29628 | ClusterUpgradeCompleteOperational | CM | Informativo | 1 |
 | 29629 | ClusterUpgradeRollbackStartOperational | CM | Informativo | 1 |
 | 29630 | ClusterUpgradeRollbackCompleteOperational | CM | Informativo | 1 |

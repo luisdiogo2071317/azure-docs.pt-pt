@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d61daede687da077549e4a3e58bb0e5213c6a69b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar a sua subscrição pay as you go do Azure para uma oferta diferentes
 
@@ -29,14 +29,14 @@ Como um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) client
 
 ## <a name="whats-supported"></a>O que é suportado:
 
-| De | a |
+| De | Para |
 | --- | --- |
-| "Pay-As-You-Go" |[Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) |
-| "Pay-As-You-Go" |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
-| "Pay-As-You-Go" |[Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/) |
-| "Pay-As-You-Go" |[Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/) |
-| "Pay-As-You-Go" |[Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |
-| "Pay-As-You-Go" |[Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
+| "Pay As You Go" |[Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) |
+| "Pay As You Go" |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
+| "Pay As You Go" |[Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/) |
+| "Pay As You Go" |[Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/) |
+| "Pay As You Go" |[Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |
+| "Pay As You Go" |[Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
 
 > [!NOTE]
 > Para outras alterações de oferta [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

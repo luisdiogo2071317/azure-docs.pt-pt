@@ -21,10 +21,10 @@ O Balanceador de Carga do Azure e o Gateway de Aplicação encaminham tráfego d
 | Tipo | Azure Load Balancer | Gateway de Aplicação |
 | --- | --- | --- |
 | Protocolos |UDP/TCP |HTTP, HTTPS e WebSockets |
-| Reserva de IP |Suportado |Não suportado |
+| Reserva de IP |Suportadas |Não suportado |
 | Modo de balanceamento de carga |5 cadeias de identificação (IP de origem, porta de origem, IP de destino, porta de destino, tipo de protocolo) |Round Robin<br>Encaminhamento com base no URL |
 | Modo de balanceamento de carga (IP de origem/sessões temporárias) |duas cadeias de identificação (IP de origem e destino IP),três cadeias de identificação (IP de origem, IP de destino e porta). Pode aumentar ou reduzir verticalmente, com base no número de máquinas virtuais |Afinidade com base no cookie<br>Encaminhamento com base no URL |
 | Sondas do estado de funcionamento |Predefinido: intervalo da sonda - 15 seg. Retiradas da rotação: duas falhas contínuas. Suporta sondas definidas pelo utilizador |Intervalo da sonda inativo 30 seg. Retirado depois de cinco falhas consecutivas de tráfego em direto ou uma falha de sonda única no modo inativo. Suporta sondas definidas pelo utilizador |
-| Descarga de SSL |Não suportado |Suportado |
-| Com base no URL de encaminhamento | Não suportado | Suportado|
-| Política SSL | Não suportado | Suportado|
+| Descarga de SSL |Não suportado |Suportadas |
+| Com base no URL de encaminhamento | Não suportado | Suportadas|
+| Política SSL | Não suportado | Suportadas|

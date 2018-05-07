@@ -1,11 +1,11 @@
 ---
-title: "Introdução às políticas de segurança do Centro de segurança do Azure | Microsoft Docs"
-description: "Saiba mais sobre as principais capacidades e políticas de segurança do Centro de segurança do Azure."
+title: Introdução às políticas de segurança do Centro de segurança do Azure | Microsoft Docs
+description: Saiba mais sobre as principais capacidades e políticas de segurança do Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-policies-overview"></a>Descrição geral das políticas de segurança
 Este artigo fornece uma descrição geral das políticas de segurança no Centro de segurança.
@@ -31,7 +31,7 @@ As políticas do Centro de Segurança contêm os componentes seguintes:
 - **Recolha de dados**: determina o agente de aprovisionamento e [recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) definições.
 - **Política de segurança**: determina que controla os monitores de centro de segurança e recomenda. Pode editar o [política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) no Centro de segurança. Também pode utilizar [política Azure](security-center-azure-policy.md) (em pré-visualização limitada) para criar novas definições, definir políticas adicionais e atribuir políticas em grupos de gestão.
 - **Notificações por correio eletrónico**: determina contactos de segurança, e [notificação de correio electrónico](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) definições.
-- **Escalão de preço**: define gratuita ou standard [preços seleção](https://docs.microsoft.com/azure/security-center/security-center-pricing). A camada que escolha determina as funcionalidades do Centro de segurança estão disponíveis para os recursos no âmbito. Pode especificar uma camada de subscrições, grupos de recursos e áreas de trabalho. 
+- **Escalão de preço**: define gratuita ou standard [preços seleção](https://docs.microsoft.com/azure/security-center/security-center-pricing). O escalão que escolhe determina as funcionalidades do Centro de Segurança que estão disponíveis para recursos no âmbito. Pode especificar uma camada de subscrições, grupos de recursos e áreas de trabalho. 
 
 
 ## <a name="who-can-edit-security-policies"></a>Quem pode editar as políticas de segurança?
@@ -41,7 +41,7 @@ Centro de segurança utiliza baseada em funções controlo de acesso (RBAC), que
 - **Administrador de segurança**: ter os mesmos direitos de vista como *leitor segurança*, e também pode atualizar a política de segurança e ignorar as recomendações e alertas.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu sobre as políticas de segurança no Centro de segurança do Azure. Para saber mais acerca do Centro de segurança do Azure, consulte os artigos seguintes:
 
 * [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md): Saiba como configurar políticas de segurança para as subscrições do Azure e os grupos de recursos.
@@ -50,7 +50,7 @@ Neste artigo, aprendeu sobre as políticas de segurança no Centro de segurança
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 - [Segurança de dados do Centro de segurança do Azure](security-center-data-security.md): Saiba como o Centro de segurança gere e salvaguarda dados.
-* [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure](security-center-faq.md): obtenha respostas às perguntas mais frequentes sobre como utilizar o serviço.
+* [Azure Security Center FAQ](security-center-faq.md) (FAQ do Centro de Segurança do Azure): obtenha respostas às perguntas mais frequentes sobre como utilizar o serviço.
 * [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obter as informações e mais recentes notícias de segurança do Azure.
 
 

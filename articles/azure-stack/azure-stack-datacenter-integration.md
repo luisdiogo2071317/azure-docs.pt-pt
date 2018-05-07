@@ -1,25 +1,25 @@
 ---
-title: "Considerações sobre a integração geral datacenter pilha do Azure integrado sistemas | Microsoft Docs"
-description: "Saiba o que pode fazer agora a planear e preparar a integração do Centro de dados com vários nós do Azure pilha."
+title: Considerações sobre a integração geral datacenter pilha do Azure integrado sistemas | Microsoft Docs
+description: Saiba o que pode fazer agora a planear e preparar a integração do Centro de dados com vários nós do Azure pilha.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerações de integração do Centro de dados para sistemas de pilha do Azure integrada
 Se estiver interessado num sistema pilha do Azure integrado, deve compreender algumas das principais considerações sobre planeamento em torno da implementação e como o sistema se enquadra no seu centro de dados. Este artigo fornece uma descrição geral de alto nível destas considerações para o ajudar a tomar decisões importantes infraestrutura para o seu sistema de vários nós de pilha do Azure. Uma compreensão destas considerações ajuda-o ao trabalhar com o fornecedor do hardware OEM à medida que implementam a pilha do Azure para o seu centro de dados.  
@@ -50,7 +50,9 @@ Quando um nível mais elevado de acesso necessária para a resolução de proble
 ## <a name="identity-considerations"></a>Considerações de identidade
 
 ### <a name="choose-identity-provider"></a>Escolha o fornecedor de identidade
-Terá de considerar o fornecedor de identidade que pretende utilizar para a implementação de pilha do Azure, Azure AD ou AD FS. Não é possível comutar a fornecedores de identidade após a implementação sem reimplementação completa do sistema.
+Terá de considerar o fornecedor de identidade que pretende utilizar para a implementação de pilha do Azure, Azure AD ou AD FS. Não é possível comutar a fornecedores de identidade após a implementação sem reimplementação completa do sistema. Se não é o proprietário da conta do Azure AD e estiver a utilizar uma conta que lhe são fornecida pelo seu fornecedor de serviços de nuvem e, se decidir mudar fornecedor e utilizar do Azure AD diferentes contas, neste momento, terá de contactar o seu fornecedor de solução para voltar a implementar a solução f ou o custo.
+
+
 
 A opção do fornecedor de identidade não tem efeito em máquinas virtuais de inquilino, o sistema de identidade e contas utilizarem, se possam juntar-se um domínio do Active Directory, etc. Este é separada.
 

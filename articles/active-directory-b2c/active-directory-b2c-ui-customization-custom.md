@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: f92629a3a5d20cce050aa7f124b140b1f4eb32d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>O Azure Active Directory B2C: Configurar a personalização de IU numa política personalizada
 
@@ -95,7 +95,7 @@ Para criar um contentor público no Blob storage, efetue o seguinte:
 11. Junto a **URL**, clique em **cópia**.
 12. Num browser, cole o URL copiado e, avance para o site. Se o site está inacessível, certifique-se o tipo de acesso do contentor é definido como **blob**.
 
-## <a name="configure-cors"></a>Configurar a CORS
+## <a name="configure-cors"></a>Configurar o CORS
 
 Configure o armazenamento de BLOBs para a partilha de recursos de várias origens efetuando o seguinte procedimento:
 

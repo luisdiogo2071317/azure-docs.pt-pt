@@ -1,10 +1,10 @@
 ---
 title: Gerir registos DNS no DNS do Azure utilizando o 2.0 CLI do Azure | Microsoft Docs
-description: "Gerir conjuntos de registos de DNS e registos DNS do Azure ao alojamento do seu domínio no DNS do Azure. Todos os comandos de CLI 2.0 para operações de conjuntos de registos e registos."
+description: Gerir conjuntos de registos de DNS e registos DNS do Azure ao alojamento do seu domínio no DNS do Azure. Todos os comandos de CLI 2.0 para operações de conjuntos de registos e registos.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: carmonm
+manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
-ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gerir registos DNS e recordsets no DNS do Azure utilizando o 2.0 CLI do Azure
 
@@ -223,7 +223,7 @@ Não é possível adicionar, remover ou modificar os registos no registo NS cria
 
 Ao contrário da maioria dos outros tipos de registos, um conjunto de registos CNAME só pode conter um único registo.  Por conseguinte, não é possível substituir o valor atual ao adicionar um novo registo e remover o registo existente, idêntica de outros tipos de registo.
 
-Em alternativa, para modificar um registo CNAME, utilize `az network dns record-set cname set-record`. Para obter ajuda, consulte`az network dns record-set cname set-record --help`
+Em alternativa, para modificar um registo CNAME, utilize `az network dns record-set cname set-record`. Para obter ajuda, consulte `az network dns record-set cname set-record --help`
 
 O exemplo modifica o conjunto de registos CNAME *www* na zona *contoso.com*, no grupo de recursos *MyResourceGroup*, para que apontem para www.fabrikam.net em vez do valor existente:
 

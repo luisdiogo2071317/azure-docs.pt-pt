@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e05b2d515b997e769306146a5390d4d44fd5cf50
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestão de aplicações com o Azure Active Directory
 Para além do fluxo de trabalho real ou conteúdo, as empresas têm dois requisitos básicos para todas as aplicações:
@@ -111,6 +111,6 @@ Com o Azure AD pode proteger as suas aplicações com políticas de acesso granu
 Para começar a integrar aplicações com o Azure AD, observe o [guia de introdução de integrar o Azure Active Directory com aplicações obter](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Consulte também
-[Artigo de índice para a gestão de aplicações no Azure Active Directory](active-directory-apps-index.md)
-[plano de implementação passo a passo para SSO para uma aplicação SaaS](http://aka.ms/ssodeploymentplan)
+* [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
+* [Plano de implementação passo a passo para SSO para uma aplicação SaaS](http://aka.ms/ssodeploymentplan)
 

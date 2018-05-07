@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 813b05c5be4378ea6e57cb0b14fd8110e2772998
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ebfbc53b751bc6669e2c4aee16deb09b463b0661
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -52,9 +52,10 @@ As versões de componente associadas as versões de cluster do HDInsight estão 
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | O Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | O Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0 (apenas Linux) |1.6.2 + 2.0 (apenas Linux) |1.6.0 (apenas Linux) |1.5.2 (Linux experimental compilação apenas) |1.3.1 (apenas Windows) |-|-|
-| Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
-| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (apenas Windows) |-|-|
+| Apache Livy |0.4 |0,3 |0,3 |0.2 |-|-|-|
+| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
@@ -78,7 +79,7 @@ As tabelas seguintes listam as versões do HDInsight. As versões HDP que corres
 
 A tabela seguinte lista as versões do HDInsight que estão disponíveis no Portal do Azure, bem como outros métodos de implementação, como o PowerShell e o .NET SDK.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data de lançamento | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
 | HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |31 de Maio de 2018 |Sim |Sim |
@@ -92,7 +93,7 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 
 A tabela seguinte lista as versões do HDInsight que são **não** disponíveis no Portal do Azure.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data de lançamento | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |
@@ -113,7 +114,7 @@ Segurança da empresa é um pacote opcional que pode adicionar no cluster do HDI
 
     No passado, só pode criar clusters do HDInsight com um utilizador de administrador local e um utilizador SSH local. O utilizador de administrador local pode aceder a todos os a ficheiros, pastas, tabelas e colunas.  Com o pacote de segurança da empresa, pode ativar o controlo de acesso baseado em funções, integrando clusters do HDInsight com os seus próprios Active Directory, que incluem no local do Active Directory, o Azure Active Directory Domain Services ou o Active Directory no IaaS máquina virtual. Administrador de domínio no cluster pode conceder os utilizadores utilizem os seus próprios nome de utilizador empresarial (domínio) e a palavra-passe para aceder ao cluster. 
 
-    Para obter mais informações, veja:
+    Para obter mais informações, consulte:
 
     - [Uma introdução ao Hadoop segurança com clusters do HDInsight associados a um domínio](./domain-joined/apache-domain-joined-introduction.md)
     - [Planear a clusters do Hadoop associados a um domínio do Azure no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -125,7 +126,7 @@ Segurança da empresa é um pacote opcional que pode adicionar no cluster do HDI
     - Integração com o Apache Ranger para autorização para o ramo de registo, o Spark SQL e o Yarn filas.
     - Pode definir o controlo de acesso em ficheiros e pastas.
 
-    Para obter mais informações, veja:
+    Para obter mais informações, consulte:
 
     - [Configurar políticas de Hive no HDInsight associados a um domínio](./domain-joined/apache-domain-joined-run-hive.md)
 
@@ -151,7 +152,7 @@ Microsoft Azure HDInsight versão 3.3 foi a última versão do HDInsight no Wind
 
 A partir do HDInsight versão 3.4, Microsoft lançou HDInsight apenas no SO Linux. Como resultado, alguns dos componentes de dentro do HDInsight estão disponíveis para Linux apenas. Estes incluem Apache Ranger, Kafka, consulta interativas, aplicações do HDInsight Spark e o Azure Data Lake Store, como o sistema de ficheiros primário. Em versões futuras do HDInsight só estão disponíveis no SO Linux. Não haverá nenhuma versões futuras do HDInsight no Windows. 
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>O que é a linha cronológica para extinguir o HDInsight no Windows?
 De 2018, 31 de Julho, é a data de retirada para o HDInsight no Windows. Se a data de retirada planeada é diferente para a região, será notificado separadamente. 

@@ -1,8 +1,8 @@
 ---
-title: "Autenticação do serviço de serviço: Data Lake Store com o Azure Active Directory | Microsoft Docs"
-description: "Aprenda a alcançar a autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory"
+title: 'Autenticação do serviço de serviço: Data Lake Store com o Azure Active Directory | Microsoft Docs'
+description: Aprenda a alcançar a autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -77,6 +77,9 @@ Quando programaticamente iniciar sessão, terá do ID para a sua aplicação. Se
 7. No **adicionar acesso de personalizado** painel, clique em **OK**. O grupo recentemente adicionado, com as permissões associadas, são apresentados no **acesso** painel.
    
     ![Atribuir permissões para agrupar](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "atribuir permissões de grupo")
+
+> [!NOTE]
+> Se pretender restringir a aplicação do Azure Active Directory para uma pasta específica, também terá da fornecer essa mesma aplicação de diretório Active Directory do Azure **executar** permisison para a raiz para ativar o acesso de criação de ficheiros através do. NET SDK.
 
 > [!NOTE]
 > Se pretender utilizar os SDKs para criar uma conta de Data Lake Store, tem de atribuir a aplicação web do Azure AD como uma função para o grupo de recursos no qual criou a conta de Data Lake Store.

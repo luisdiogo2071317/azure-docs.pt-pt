@@ -1,24 +1,24 @@
 ---
-title: "Compreender a utilização de instância reservados do Azure para Enterprise | Microsoft Docs"
-description: "Saiba como ler a sua utilização para compreender a aplicação de instância reservado para inscrição da sua empresa."
+title: Compreender a utilização de instância reservados do Azure para Enterprise | Microsoft Docs
+description: Saiba como ler a sua utilização para compreender a aplicação de instância reservado para inscrição da sua empresa.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de instância reservado para a inscrição Enterprise
 Compreender a utilização de instância reservado através de ReservationId de [página reserva](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) e o ficheiro de utilização do [EA portal.](https://ea.azure.com) Também pode ver a utilização de reserva na secção de resumo de utilização do [EA portal.](https://ea.azure.com)

@@ -1,9 +1,9 @@
 ---
-title: "Carregar dados para ambientes de armazenamento do Azure para a análise | Microsoft Docs"
+title: Carregar dados para ambientes de armazenamento do Azure para a análise | Microsoft Docs
 description: Mover dados de e para o Armazenamento de Blobs do Azure
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 7d7da4f6dfed03d470c5b5706aaf412c07096120
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 369b06ee22b30977affb3642f0d321e5d92e6c41
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carregar dados para ambientes de armazenamento para análise
 O processo de ciência de dados do agrupamento requer que dados ser ingeridos ou carregados uma variedade de ambientes de armazenamento diferentes para ser processada ou analisados da forma mais adequado em cada fase do processo. Os destinos de dados utilizados para processamento incluem o Blob Storage do Azure, bases de dados do SQL Azure, SQL Server numa VM do Azure, o HDInsight (Hadoop) e o Azure Machine Learning. 

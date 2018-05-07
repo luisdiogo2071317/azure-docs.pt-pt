@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com TrackVia | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e TrackVia."
+title: 'Tutorial: Integração do Azure Active Directory com TrackVia | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e TrackVia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integração do Azure Active Directory com TrackVia
 
@@ -108,13 +108,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio TrackVia e os URLs únicos de informações de início de sessão](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url.png)
 
-    No **identificador** caixa de texto, digite o valor:`TrackVia`
+    No **identificador** caixa de texto, digite o valor: `TrackVia`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio TrackVia e os URLs únicos de informações de início de sessão](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://companyname.trackvia.com`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://companyname.trackvia.com`
      
     > [!NOTE] 
     > Início de sessão do valor de URL não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente TrackVia](mailto:support@trackvia.com) para obter este valor.
@@ -126,11 +126,22 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 6. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Para configurar o início de sessão único em **TrackVia** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de TrackVia](mailto:support@trackvia.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. No **TrackVia configuração** secção, clique em **configurar TrackVia** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML** do **secção de referência rápida.**
+
+    ![Configuração de TrackVia](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. Na janela do browser diferente, inicie sessão site da sua empresa TrackVia como administrador.
+
+9. Clique em Trackvia **minha conta** definições e, em seguida, selecione **início de sessão único** separador, execute os seguintes passos:
+
+    ![Configuração de TrackVia](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. No **ID de entidade do fornecedor de identidade** caixa de texto, colar **ID de entidade de SAML** valor que copiou do portal do Azure.
+
+    b. Selecione o **Escolher ficheiro** para carregar o ficheiro de metadados que transferiu a partir do portal do Azure.
+
+    c. Clicar em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -212,8 +223,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +236,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

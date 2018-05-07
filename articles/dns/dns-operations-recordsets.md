@@ -1,9 +1,9 @@
 ---
 title: Gerir registos DNS no DNS do Azure com o Azure PowerShell | Microsoft Docs
-description: "Gerir conjuntos de registos de DNS e registos DNS do Azure ao alojamento do seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registos e registos."
+description: Gerir conjuntos de registos de DNS e registos DNS do Azure ao alojamento do seu domínio no DNS do Azure. Todos os comandos do PowerShell para operações em conjuntos de registos e registos.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: gwallace
-ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: 511af342727dc46369ae70d60a7e9a3171bf986d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerir registos DNS e recordsets no DNS do Azure com o Azure PowerShell
 
@@ -381,13 +381,13 @@ Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -Resourc
 
 ## <a name="confirmation-prompts"></a>Pedidos de confirmação
 
-O `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet`, e `Remove-AzureRmDnsRecordSet` todos os cmdlets suporta pedidos de confirmação.
+Todos os cmdlets `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet` e `Remove-AzureRmDnsRecordSet` suportam pedidos de confirmação.
 
 Cada cmdlet solicita a confirmação se o `$ConfirmPreference` variável de preferência de PowerShell tem um valor de `Medium` ou inferior. Dado que o valor predefinido para `$ConfirmPreference` é `High`, estas instruções não são fornecidas ao utilizar as predefinições do PowerShell.
 
-Pode substituir atual `$ConfirmPreference` definição a utilizar o `-Confirm` parâmetro. Se especificar `-Confirm` ou `-Confirm:$True` , o cmdlet irá pedir-lhe confirmação antes de é executado. Se especificar `-Confirm:$False` , o cmdlet não solicitar confirmação. 
+Pode substituir a definição `$ConfirmPreference` atual com o parâmetro `-Confirm`. Se especificar `-Confirm` ou `-Confirm:$True` , o cmdlet irá pedir-lhe a confirmação antes de ser executado. Se especificar `-Confirm:$False`, o cmdlet não solicita a confirmação. 
 
-Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, consulte [sobre variáveis de preferência](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+Para obter mais informações sobre `-Confirm` e `$ConfirmPreference`, veja [Sobre as Variáveis de Preferência](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

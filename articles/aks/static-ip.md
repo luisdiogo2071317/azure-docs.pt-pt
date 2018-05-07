@@ -1,6 +1,6 @@
 ---
-title: "Utilizar um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS)"
-description: "Utilize um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS)."
+title: Utilizar um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS)
+description: Utilize um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Utilizar um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS)
 
@@ -59,9 +59,11 @@ Tome nota do endereço IP.
 
  Se for necessário, o endereço pode ser obtido utilizando o [lista de ip público de rede az] [ az-network-public-ip-list] comando.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 Se o endereço IP estático não foi criado ou foi criado no grupo de recursos incorreto, a criação do serviço falha. Para resolver problemas, devolver eventos de criação de serviço com o [kubectl descrevem] [ kubectl-describe] comando.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>

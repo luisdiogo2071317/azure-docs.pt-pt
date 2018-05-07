@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/30/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 54faa5a50b3fe965bc7f95fc0da0fdda9388412f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="write-accelerator"></a>Escrever o acelerador
 Escreva que acelerador é uma capacidade de disco para a série M máquinas virtuais (VMs) no armazenamento Premium com discos gerida do Azure exclusivamente. Como o nome de Estados, o objetivo da funcionalidade é melhorar a latência de e/s de escritas contra o Premium Storage do Azure. Escreva que acelerador Idealmente é adequada em que as atualizações de ficheiro de registo são necessárias para manter o disco de uma forma de performant elevada disponibilidade para bases de dados modernas.
@@ -42,7 +42,7 @@ Quando utilizar escrever acelerador para um disco/VHD do Azure, estas restriçõ
 
 - O disco de Premium colocação em cache tem de ser definido como 'None' ou 'Read Only'. Todos os outros modos de colocação em cache não são suportados.
 - Instantâneo no disco acelerador de escrita ativado ainda não é suportado. Esta restrição bloqueia a capacidade do serviço de cópia de segurança do Azure para efetuar um instantâneo consistente da aplicação de todos os discos da máquina virtual.
-- Apenas os tamanhos de e/s mais pequenos são colocar o caminho na melhoria. Numa carga de trabalho situações em que está a obter em massa dados carregado ou onde memórias intermédias de registo de transação do DBMS diferente estão preenchidas para um maior grau antes de obter persistente para o armazenamento, de possibilidades são de que a e/s escritos no disco não está a ser o caminho na melhoria.
+- Apenas os tamanhos de e/s mais pequenos (< = 32KiB) estão a utilizar o caminho na melhoria. Numa carga de trabalho situações em que está a obter em massa dados carregado ou onde memórias intermédias de registo de transação do DBMS diferente estão preenchidas para um maior grau antes de obter persistente para o armazenamento, de possibilidades são de que a e/s escritos no disco não está a ser o caminho na melhoria.
 
 Existem limites de VHDs de armazenamento do Azure Premium por VM que pode ser suportado pelo escrever acelerador. Os limites atuais são:
 
@@ -105,7 +105,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Dois cenários principais podem ser convertidos em script conforme mostrado nas seguintes secções.
 
-#### <a name="adding--new-disk-supported-by-write-accelerator"></a>Adicionar novo disco suportado pelo escrever acelerador
+#### <a name="adding-a-new-disk-supported-by-write-accelerator"></a>Adicionar um novo disco suportado pelo escrever acelerador
 Pode utilizar este script para adicionar um novo disco à VM. O disco criado com este script vai utilizar escrever acelerador.
 
 ```
@@ -157,6 +157,13 @@ Terá de adaptar os nomes de VM, o disco e o grupo de recursos. O script acima a
 
 > [!Note]
 > Executar o script acima serão desanexar o disco especificado, ativar o acelerador escrita no disco e, em seguida, anexar o disco novo
+
+### <a name="enabling-through-azure-portal"></a>A ativação através do Portal do Azure
+
+Pode ativar a escrever o acelerador através do Portal onde especifica o definições de colocação em cache de disco: 
+
+![Escrever acelerador no Portal do Azure](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+
 
 ### <a name="enabling-through-rest-apis"></a>A ativação através de Rest APIs
 Para implementar através da API Rest do Azure, terá de instalar o armclient do Azure

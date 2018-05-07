@@ -94,8 +94,6 @@
       items:
         - name: Configurar fornecedores de identidades
           items:
-            - name: OpenID Connect personalizado
-              href: active-directory-b2c-setup-oidc-idp.md
             - name: Conta Microsoft
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -114,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (Inquilino Único)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: OpenID Connect personalizado
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Configurar a reposição personalizada de palavra-passe
           href: active-directory-b2c-reference-sspr.md
         - name: Personalizar a IU

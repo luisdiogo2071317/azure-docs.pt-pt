@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca do VPN gateway para a pilha do Azure
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
@@ -94,7 +94,7 @@ A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo
 |**SKU de elevado desempenho** | 200 Mbps    | 5 |
 ***(1)***  Débito do VPN não é um débito garantido para ligações em vários locais através da Internet. É a medida de débito mais alta possível.  
 ***(2)***  Número de túneis máx. é o total por implementação de pilha do Azure para todas as subscrições.  
-***(3)***  BGP não é suportado para o SKU básico.  
+***(3)***  BGP não é suportado para o SKU básico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [definições para gateways de VPN](azure-stack-vpn-gateway-settings.md) para pilha do Azure.

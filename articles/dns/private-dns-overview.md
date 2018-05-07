@@ -4,7 +4,7 @@ description: Descrição geral do DNS privada que aloja o serviço no Microsoft 
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Utilizar o DNS do Azure para domínios privados
 O sistema de nomes de domínio ou DNS, é responsável por traduzir (ou resolver) um nome de serviço para o endereço IP. O DNS do Azure é um serviço de alojamento de domínios DNS, fornecer a resolução do nome através da infraestrutura do Microsoft Azure.  Para além dos domínios DNS de acesso à internet, DNS do Azure também suporta agora privados domínios DNS como uma funcionalidade de pré-visualização.  
@@ -75,7 +75,7 @@ Zonas DNS privada é gratuitamente durante a pré-visualização pública. Duran
 
 Saiba como criar uma zona privada no DNS do Azure utilizando o [PowerShell](./private-dns-getstarted-powershell.md) ou [CLI](./private-dns-getstarted-cli.md).
 
-Ler sobre alguns cenários comuns [cenários de zona privada](./private-dns-scenarios.md) que podem ser realizados com privada zonas no DNS do Azure.
+Leia sobre alguns [Cenários de Zona Privada](./private-dns-scenarios.md) comuns que podem ser conseguidos com as Zonas Privadas no DNS do Azure.
 
 Ler sobre o [FAQ](./dns-faq.md#private-dns) para algumas comuns perguntas e respostas no privada zonas no DNS do Azure, incluindo um comportamento específico que pode esperar para determinados tipos de operações. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - identificação e autenticação"
-description: "Automatização de aplicações FedRAMP Web - identificação e autenticação"
+title: Segurança do Azure e conformidade Blueprint - automatização de aplicações FedRAMP Web - identificação e autenticação
+description: Automatização de aplicações FedRAMP Web - identificação e autenticação
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificação e autenticação (IA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-1** organização desenvolvidas pela organização, documentos e disseminates para [atribuição: técnico definido pela organização ou funções] uma política de autenticação e identificação objetivo, âmbito, funções, responsabilidades, gestão de endereços compromisso, coordenação entre entidades organizacionais e de conformidade; e procedimentos para facilitar a implementação da identificação e política de autenticação e identificação e controlos de autenticação analisa e atualiza a política de autenticação e identificação atual [atribuição: frequência definida de organização]; e procedimentos de identificação e autenticação [atribuição: frequência definida de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2** o sistema de informações identifica exclusivamente e autentica utilizadores organizacionais (ou processos agir em nome de utilizadores organizacionais).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (1)** o sistema de informações implementa a autenticação multifator para acesso à rede para contas com privilégios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (2)** o sistema de informações implementa a autenticação multifator para acesso à rede para contas sem privilégios.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (3)** o sistema de informações implementa a autenticação multifator para acesso local para contas com privilégios.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (4)** o sistema de informações implementa a autenticação multifator para acesso local ao contas sem privilégios.
 
-**Responsabilidades:**`Azure Only`
+**Responsabilidades:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (5)** organização requer indivíduos sejam autenticados com um autenticador individuais quando um autenticador de grupo é utilizado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (8)** mecanismos de autenticação de reproduzir a adulterações para acesso à rede para contas com privilégios de implementa o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (9)** mecanismos de autenticação de reproduzir a adulterações para acesso à rede para contas sem privilégios de implementa o sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (11)** o sistema de informações implementa a autenticação multifator para acesso remoto para com privilégios e sem privilégios contas de forma a que um dos fatores é fornecido por um dispositivo separado do sistema obtenham acesso e o dispositivo cumpra [ Atribuição: força definido de organização dos requisitos de mecanismo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (12)** o sistema de informações aceita e eletronicamente verifica as credenciais de verificação de identidade pessoal (PIV).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-3** o sistema de informações identifica exclusivamente e autentica [atribuição: específicas do organização e/ou os tipos de dispositivos] antes de estabelecer uma [seleção (um ou mais): local; remoto; rede] ligação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.a** organização Gere identificadores de sistema de informações através da receção de autorização de [atribuição: técnico definido pela organização ou funções] para atribuir um indivíduo, identificador de dispositivo, grupo ou função.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.b** organização Gere identificadores de sistema de informações, selecionando um identificador que identifica um indivíduo, dispositivo, grupo ou função.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.c** organização Gere identificadores de sistema de informações ao atribuir o identificador para o indivíduo pretendido, o grupo, a função ou o dispositivo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.d** organização Gere identificadores de sistema de informações por impedir a reutilização de identificadores para [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.e** A organização Gere identificadores de sistema de informações através da desativação de identificador após [atribuição: organização definidos pelo período de tempo de inatividade].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4 (4)** organização Gere identificadores individuais ao identificar exclusivamente cada indivíduo como [atribuição: característica definido pela organização que identifica o estado individual].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.a** organização gere autenticadores de sistema de informações através da verificação dos, como parte da distribuição de autenticação inicial, a identidade do indivíduo, grupo, função ou dispositivo receber a autenticação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.b** organização gere autenticadores de sistema de informações através do estabelecimento de conteúdo de autenticação inicial para autenticadores definidos pela organização.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.c** organização gere autenticadores de sistema de informações, garantindo que autenticadores tem suficiente força de mecanismo para utilização pretendida.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.d** organização gere autenticadores de sistema de informações pelo estabelecimento e implementar administrativos procedimentos para distribuição de autenticação inicial de autenticadores comprometido/perdido ou danificados e revogue autenticadores.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.e** A organização gere autenticadores de sistema de informações ao alterar o conteúdo predefinido dos autenticadores antes da instalação do sistema de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.f** organização gere autenticadores de sistema de informações através do estabelecimento de restrições de duração mínima e máxima e reutilizar as condições para autenticadores.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.g** organização gere autenticadores de sistema de informações atualizando a alteração/autenticadores [atribuição: organização definidos pelo período de tempo por tipo de autenticação].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.h** organização gere autenticadores de sistema de informações por proteger conteúdo de autenticação de divulgação não autorizada e modificação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.i** organização gere autenticadores de sistema de informações ao exigir que os indivíduos a tomar e ter dispositivos implementar, a salvaguarda de segurança específicas para proteger autenticadores.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.j** organização gere autenticadores de sistema de informações alterando autenticadores para contas de grupo/função quando associação às contas de alterações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .a** o sistema de informações, para autenticação baseada em palavra-passe impõe a complexidade de palavra-passe mínima de [atribuição: requisitos definidos por organização para sensibilidade maiúsculas e minúsculas, número de carateres, mistura de letras maiúsculas, minúsculas letras, números e carateres especiais, incluindo os requisitos mínimos para cada tipo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .b** o sistema de informações, para autenticação baseada em palavra-passe impõe a, pelo menos, o seguinte número de carateres alteradas quando forem criadas novas palavras-passe: [atribuição: número definido de organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .c** o sistema de informações, para autenticação baseada em palavra-passe armazena e transmite criptograficamente protegido apenas palavras-passe.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .d** o sistema de informações, para autenticação baseada em palavra-passe impõe mínimo da palavra-passe e restrições de duração máxima do [atribuição: números definido pela organização para a duração mínima, duração máxima].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -477,9 +477,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="authenticator-management--password-based-authentication"></a>Gestão de autenticador | Autenticação baseada em palavra-passe
 
-**IA-5 (1).e** O sistema de informações, para autenticação baseada em palavra-passe proíbe a reutilização de palavras-passe para [atribuição: número definido de organização] gerações.
+**.E IA-5 (1)** O sistema de informações, para autenticação baseada em palavra-passe proíbe a reutilização de palavras-passe para [atribuição: número definido de organização] gerações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .f** o sistema de informações, para autenticação baseada em palavra-passe permite a utilização de uma palavra-passe temporária para inícios de sessão do sistema com uma alteração imediata uma palavra-passe permanente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -501,13 +501,13 @@ ms.lasthandoff: 02/11/2018
 | **Fornecedor (Microsoft Azure)** | Não Aplicável |
 
 
- ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800-53 Control IA-5 (2).a
+ ### <a name="nist-800-53-control-ia-5-2a"></a>.A do NIST 800-53 controlo IA-5 (2)
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Gestão de autenticador | Autenticação baseada em PKI
 
 **IA-5 (2) .a** o sistema de informações, para autenticação baseada em PKI valida certificações através da criação e verificar um caminho de certificação para uma âncora de confiança aceite, incluindo a verificar as informações de estado do certificado.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .b** o sistema de informações, para autenticação baseada em PKI impõe acesso autorizado à chave privada correspondente.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .c** o sistema de informações, para autenticação baseada em PKI mapeia a identidade autenticada para a conta do indivíduo ou grupo.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .d** o sistema de informações, para autenticação baseada em PKI implementa uma cache de dados de revogação para suportar a deteção de caminho e a validação em caso de impossibilidade de aceder às informações de revogação através da rede local.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (3)** organização exige que o registo de processo para receber [atribuição: tipos definidos de organização de e/ou autenticadores específicos] realização de um [seleção: pessoalmente; por terceiros fidedigna] antes de [atribuição: autoridade de registo definida pelo organização] com a autorização por [atribuição: técnico definido pela organização ou funções].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (4)** organização emprega ferramentas automatizadas para determinar se autenticadores de palavra-passe são suficientemente seguras para satisfazer [atribuição: requisitos definidos por organização].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (6)** a organização protege autenticadores proporcionais a categoria de segurança das informações para o qual a utilização do autenticador permite o acesso.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (7)** organização garante que autenticadores estáticos não encriptadas não são incorporados em aplicações ou scripts de acesso ou armazenados em teclas de função.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (8)** implementa a organização [atribuição: as proteções de segurança definido para organização] para gerir o risco de compromisso devido a indivíduos com contas em vários sistemas de informações.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (11)** o sistema de informações, para autenticação baseada em tokens de hardware, emprega mecanismos que satisfaçam [atribuição: requisitos definidos por organização token qualidade].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (13)** o sistema de informações proíbe a utilização de autenticadores em cache após [atribuição: organização definidos pelo período de tempo].
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-6** o sistema de informações obscures comentários de informações de autenticação durante o processo de autenticação para proteger as informações de possíveis exploração por utilizar por pessoas não autorizadas.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-7** mecanismos de autenticação para um módulo criptográfico que cumprem os requisitos do federais e leis aplicáveis, as ordens executivo, diretivas, políticas, normas, normas, orientações para tal implementa o sistema de informações autenticação.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8** o sistema de informações identifica exclusivamente e autentica os utilizadores não organizacional (ou processos agir em nome dos utilizadores não organizacionais).
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (1)** o sistema de informações aceita e eletronicamente verifica as credenciais de verificação de identidade pessoal (PIV) de outras órgãos federais.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (2)** o sistema de informações aceita apenas aprovados FICAM credenciais de terceiros.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (3)** a organização utiliza apenas componentes do sistema aprovado FICAM informações no [atribuição: sistemas informações definidas pela organização] para aceitar as credenciais de terceiros.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (4)** está em conformidade com o sistema de informações aos perfis emitidos por FICAM.
 
-**Responsabilidades:**`Customer Only`
+**Responsabilidades:** `Customer Only`
 
 |||
 |---|---|

@@ -1,25 +1,25 @@
 ---
 title: Inscrever-se para o Office 365 com a conta do Azure | Microsoft Docs
-description: "Saiba como criar uma subscrição do Office 365, utilizando uma conta do Azure"
-services: 
-documentationcenter: 
+description: Saiba como criar uma subscrição do Office 365, utilizando uma conta do Azure
+services: ''
+documentationcenter: ''
 author: JiangChen79
 manager: adpick
-editor: 
+editor: ''
 tags: billing,top-support-issue
-ms.assetid: 
+ms.assetid: ''
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bce4b58d4197eee34be43a4dc852c6f43e0e18b4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se uma subscrição do Office 365 com a sua conta do Azure
 Se tiver de subscritor do Azure, pode utilizar a sua conta do Azure para se inscrever para uma subscrição do Office 365. Se a parte de uma organização que tenha uma subscrição do Azure, pode criar subscrições do Office 365 para os utilizadores no seu existente do Azure Active Directory (Azure AD). Inscrever-se ao Office 365, utilizando uma conta que tenha permissões de Administrador Global ou de administrador de faturação no seu inquilino do Azure Active Directory. Para obter mais informações, consulte [verificar as minhas permissões de conta no Azure AD](#RoleInAzureAD) e [atribuir funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).

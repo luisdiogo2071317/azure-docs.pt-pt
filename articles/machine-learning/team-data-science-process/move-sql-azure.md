@@ -2,8 +2,8 @@
 title: Mover dados para uma base de dados do SQL do Azure para o Azure Machine Learning | Microsoft Docs
 description: Criar tabela SQL e os dados de carga para a tabela de SQL
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
 Este tópico descreve as opções para mover dados de ficheiros simples (formatos de CSV ou TSV) ou a partir dos dados armazenados num local no SQL Server para uma base de dados SQL do Azure. Estas tarefas para mover dados para a nuvem fazem parte do processo de ciência de dados de equipa.
@@ -48,13 +48,13 @@ Os procedimentos descritos aqui requerem que tenha:
 
 Pode adaptar os procedimentos aqui descritos para um conjunto de dados da sua própria ou siga os passos, conforme descrito utilizando o conjunto de dados NYC Taxi. Para carregar o conjunto de dados NYC Taxi para a base de dados do SQL Server no local, siga o procedimento descrito no [em massa importar dados na base de dados do SQL Server](sql-walkthrough.md#dbload). Estas instruções se destinam a um SQL Server uma Máquina Virtual no Azure, mas o procedimento para carregar para o SQL Server no local é o mesmo.
 
-## <a name="file-to-azure-sql-database"></a>Mover dados de uma origem de ficheiro simples para uma base de dados SQL do Azure
+## <a name="file-to-azure-sql-database"></a> Mover dados de uma origem de ficheiro simples para uma base de dados SQL do Azure
 Dados em ficheiros simples (formato CSV ou TSV) podem ser movidos para uma base de dados SQL do Azure utilizando uma consulta de SQL de inserção em massa.
 
-### <a name="bulk-insert-sql-query"></a>Consulta SQL de inserção em massa
+### <a name="bulk-insert-sql-query"></a> Consulta SQL de inserção em massa
 Os passos para o procedimento utilizando a consulta de SQL de inserção em massa são semelhantes às abordadas nas secções para mover dados de uma origem de ficheiro simples para o SQL Server numa VM do Azure. Para obter mais informações, consulte [consulta de SQL de inserção em massa](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a>Mover dados do SQL Server no local para uma base de dados SQL do Azure
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Mover dados do SQL Server no local para uma base de dados SQL do Azure
 Se a origem de dados é armazenada num SQL Server no local, existem vários possibilidades para mover os dados para uma base de dados SQL do Azure:
 
 1. [Exportar para ficheiro simples](#export-flat-file)

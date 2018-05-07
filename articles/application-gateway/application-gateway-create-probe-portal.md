@@ -1,11 +1,11 @@
 ---
-title: "Criar uma sonda personalizada - Gateway de aplicação do Azure - Portal do Azure | Microsoft Docs"
-description: "Saiba como criar uma sonda personalizada para o Gateway de aplicação utilizando o portal"
+title: Criar uma sonda personalizada - Gateway de aplicação do Azure - Portal do Azure | Microsoft Docs
+description: Saiba como criar uma sonda personalizada para o Gateway de aplicação utilizando o portal
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma sonda personalizada para o Gateway de aplicação utilizando o portal
 
@@ -53,7 +53,7 @@ As pesquisas estão configuradas num processo de dois passos através do portal.
   |**Nome**|customProbe|Este valor é um nome amigável para a pesquisa que está acessível no portal.|
   |**Protocolo**|HTTP ou HTTPS | O protocolo que utiliza a sonda de estado de funcionamento.|
   |**Anfitrião**|revertidos contoso.com|Este valor é o nome de anfitrião que é utilizado para a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize '127.0.0.1'. Este valor é diferente do nome de anfitrião VM.|
-  |**Caminho**|/ ou outro caminho|O resto o url completo para a sonda personalizada. Um caminho válido começa por '/'. Para o caminho predefinido de http://contoso.com apenas utilizar '/' |
+  |**Caminho**|/ ou outro caminho|O resto o url completo para a sonda personalizada. Um caminho válido começa por '/'. Para o caminho predefinido de http://contoso.com apenas '/' |
   |**Intervalo (seg)**|30|Frequência de sonda é executada para verificar a existência de estado de funcionamento. Não é recomendado para definir o inferior a 30 segundos.|
   |**Limite de tempo (seg)**|30|A quantidade de tempo a sonda aguarda antes de exceder o tempo limite. O intervalo de tempo limite tem de ser suficientemente alto para que pode ser efetuada uma chamada http para garantir que a página de estado de funcionamento de back-end está disponível.|
   |**Limiar de mau estado de funcionamento**|3|Número de tentativas falhadas para ser considerado em mau estado de funcionamento. Limiar de 0 significa que o se uma verificação de estado de funcionamento falhar back-end é determinado mau estado de funcionamento imediatamente.|

@@ -1,11 +1,11 @@
 ---
-title: "Ligar a proteção de identidade do Azure Active Directory ao centro de segurança do Azure | Microsoft Docs"
-description: "Saiba como o Centro de segurança do Azure integra-se com o Azure Active Directory Identity Protection."
+title: Ligar a proteção de identidade do Azure Active Directory ao centro de segurança do Azure | Microsoft Docs
+description: Saiba como o Centro de segurança do Azure integra-se com o Azure Active Directory Identity Protection.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7562dd5e1c303a6cb97d25bda5aa080bb5643583
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: b15508acea92c165cba85e39ab907fa524088164
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Proteção de identidade do Azure Active Directory ao ligar ao centro de segurança do Azure
 Este documento ajuda-o a configurar a integração entre a proteção de identidade do Azure Active Directory (AD) e o Centro de segurança do Azure.
@@ -43,7 +43,7 @@ Se a sua organização já estiver a utilizar o Azure AD Identity Protection, si
 
 Depois de concluir esta configuração, a solução do Azure AD Identity Protection aparece no **soluções de segurança** página **ligado soluções**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu a ligar o Azure AD Identity Protection ao centro de segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 * [Ligar o Microsoft Advanced Threat Analytics ao Centro de Segurança do Azure](security-center-ata-integration.md)

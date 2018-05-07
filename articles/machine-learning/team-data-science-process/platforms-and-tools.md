@@ -2,7 +2,7 @@
 title: Ferramentas de ciência de dados e plataformas equipa projetos - Azure | Microsoft Docs
 description: Itemizes e descreve os recursos de dados e análise disponíveis para as empresas uniformizar do processo de ciência de dados de equipa.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos de equipa de ciência de dados
 
@@ -31,7 +31,7 @@ Os serviços de dados e análise disponíveis para as equipas de ciência de dad
 - Azure Data Lake
 - Clusters do Hive do HDInsight
 - Armazenamento de Ficheiros do Azure
-- SQL Server 2016 R Services
+- Serviços do SQL Server 2016 R
 
 Neste documento, iremos brevemente descrevem os recursos e fornecem ligações para os tutoriais e instruções as equipas TDSP tem publicado. Podem ajudar a saber como utilizá-los passo a passo e começar a utilizá-los para criar as suas aplicações inteligentes. Obter mais informações sobre estes recursos estão disponíveis no respetivas páginas de produto. 
 
@@ -39,7 +39,7 @@ Neste documento, iremos brevemente descrevem os recursos e fornecem ligações p
 
 As máquinas de ciência de dados disponibilizadas no Windows e Linux pela Microsoft, contém as ferramentas populares para atividades de desenvolvimento e modelação de ciência de dados. Inclui ferramentas, tais como:
 
-- Microsoft R Server Developer Edition 
+- Edição de programador do Microsoft R 
 - Distribuição do Python anaconda
 - Blocos de notas do Jupyter para Python e R 
 - Edição de Comunidade do Visual Studio com o Python e ferramentas de R no Windows / Eclipse no Linux
@@ -96,7 +96,7 @@ File Storage do Azure é um serviço que oferece partilhas de ficheiros na nuvem
 Especialmente útil para projetos de ciência de dados é a capacidade de criar um arquivo de ficheiros do Azure como o local para partilhar os dados do projeto com os membros da equipa de projeto. Em seguida, cada um deles tem acesso para a mesma cópia dos dados no file storage do Azure. Também podem utilizar este armazenamento de ficheiros para partilhar os conjuntos de funcionalidades gerados durante a execução do projeto. Se o projeto é o engagement um cliente, os clientes podem criar um file storage do Azure na sua própria subscrição do Azure para partilhar os dados de projeto e funcionalidades consigo. Desta forma, o cliente tem controlo total sobre os recursos de dados do projeto. Para obter mais informações sobre o File Storage do Azure, consulte [introdução ao File storage do Azure no Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) e [como utilizar o File Storage do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
+## <a name="sql-server-2016-r-services"></a>Serviços do SQL Server 2016 R
 
 Serviços de R (na base de dados) fornecem uma plataforma para desenvolver e implementar aplicações inteligentes, que podem desvendar informações de novo. Pode utilizar a linguagem de R avançada e poderosa, incluindo o número de pacotes fornecido pela Comunidade R, para criar modelos e gerar predições dos seus dados do SQL Server. Porque os serviços de R (na base de dados) integram o idioma de R com o SQL Server, análise é mantida próximo os dados, que elimina os custos e riscos de segurança associados a mover os dados.
 

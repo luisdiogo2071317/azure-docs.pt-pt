@@ -2,7 +2,7 @@
 title: Equipa dados ciência processo projeto levar tarefas - Azure | Microsoft Docs
 description: Uma descrição das tarefas para um projeto levar num projeto de equipa de ciência de dados.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 3cc938e7d573c146b688acabdcfcb8e674e185cf
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="project-lead-tasks"></a>Tarefas de oportunidades potenciais do projeto
 
@@ -100,8 +100,8 @@ Se precisar de personalizar o **DSProject1** repositório de projeto para satisf
 
 No seu computador local, crie um diretório:
 
-- *C:\GitRepos\MyTeamCommon* for Windows 
-- *$home/GitRepos/MyTeamCommon* for Linux
+- *C:\GitRepos\MyTeamCommon* para Windows 
+- *$home/GitRepos/MyTeamCommon* para Linux
 
 Alterar a esse diretório. Em seguida, execute o seguinte comando para clonar o repositório de modelo de projeto de equipa no seu computador local. 
 

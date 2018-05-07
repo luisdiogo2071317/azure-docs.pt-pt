@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0cc08ee595bda478adbb0e39dbebca8019ebbad4
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -233,15 +233,16 @@ Azure baseia-se num conjunto de APIs REST que suportam a IU do portal do Azure. 
 Para além das REST APIs, vários serviços do Azure também permitem-lhe gerir de forma programática recursos das suas aplicações ao utilizar SDKs de Azure específica da plataforma, incluindo SDKs para as seguintes plataformas de desenvolvimento:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](https://docs.microsoft.com/java/api/)
+-   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+-   [Go](https://docs.microsoft.com/go/azure)
 
 Serviços, tais como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) e [Media Services do Azure](../../media-services/media-services-dotnet-how-to-use.md) fornecer SDKs do lado do cliente para que os possa aceder aos serviços da web e aplicações de cliente para dispositivos móveis.
 
-### <a name="azure-resource-manager"></a>Gestor de Recursos do Azure 
+### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
 Executar a sua aplicação no Azure provável envolve a trabalhar com vários serviços do Azure, sendo todas siga o mesmo ciclo de vida e podem considerar como uma unidade lógica. Por exemplo, uma aplicação web poderá utilizar as aplicações Web, base de dados SQL, armazenamento, a Cache de Redis do Azure e os serviços de rede de entrega de conteúdos do Azure. [O Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos na sua aplicação como um grupo. Pode implementar, atualizar ou eliminar todos os recursos numa operação única e coordenada.
 
@@ -321,7 +322,7 @@ Embora é difícil para estimar os custos de antecedência, o Azure tem um [Calc
 
 >**Introdução ao**: consulte [descrição geral da utilização de faturação do Azure e RateCard APIs](../../billing-usage-rate-card-overview.md).
 
-#### <a name="set-up-billing-alerts"></a>Configurar alertas de faturação
+#### <a name="set-up-billing-alerts"></a>Set up billing alerts (Configurar alertas de faturação)
 
 Depois de implementar a aplicação ou solução no Azure, pode criar alertas que enviar por e-mail quando abordar os limites de gastos que estão definidos no alerta.
 

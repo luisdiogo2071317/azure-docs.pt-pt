@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 83ce49d9ac368404edcc2d68859493476e74869e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilizar o Cofre de chaves do Azure de uma aplicação Web
 
@@ -157,7 +157,7 @@ Para obter mais informações sobre como criar um certificado de teste, consulte
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associar o certificado com uma aplicação do Azure AD
 
-Agora que tem um certificado, tem de associar a uma aplicação do Azure AD. Atualmente, o portal do Azure não suporta este fluxo de trabalho; Isto pode ser efetuado através do PowerShell. Execute os seguintes comandos para assoicate o certificado com a aplicação do Azure AD:
+Agora que tem um certificado, tem de associar a uma aplicação do Azure AD. Atualmente, o portal do Azure não suporta este fluxo de trabalho; Isto pode ser efetuado através do PowerShell. Execute os seguintes comandos para associar o certificado com a aplicação do Azure AD:
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

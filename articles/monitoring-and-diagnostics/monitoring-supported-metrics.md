@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 34d115f36e64a34b4382ce4e11e93a0c06215c5d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
 Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure. Outras métricas poderão estar disponíveis no portal ou com APIs de legado. Esta lista abaixo inclui apenas as métricas disponíveis através do pipeline de métrico de Monitor do Azure consolidado. Para consultar e aceder a estas métricas utilize o [2018-01-01-versão de api](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -425,6 +425,16 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |---|---|---|---|---|---|
 |CpuUsage|Utilização da CPU|Contagem|Média|Utilização da CPU em todos os núcleos em millicores.|containerName|
 |MemoryUsage|Utilização da Memória|Bytes|Média|Utilização de memória total em bytes.|containerName|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Número total de núcleos de cpu disponíveis de um cluster gerido|Contagem|Total|Número total de núcleos de cpu disponíveis de um cluster gerido|Não foram dimensões|
+|kube_node_status_allocatable_memory_bytes|Quantidade total de memória disponível num cluster gerido|Bytes|Total|Quantidade total de memória disponível num cluster gerido|Não foram dimensões|
+|kube_pod_status_ready|Número de pods no estado pronto|Contagem|Total|Número de pods no estado pronto|espaço de nomes, pod|
+|kube_node_status_condition|Estados de várias condições de nó|Contagem|Total|Estados de várias condições de nó|condição, o estado, o nó|
+|kube_pod_status_phase|Número de pods por fase|Contagem|Total|Número de pods por fase|fase, o espaço de nomes, pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -1012,6 +1022,20 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |CPUXNS|Utilização da CPU por espaço de nomes|Percentagem|Máximo|Métrica de utilização do espaço de nomes da CPU do service bus premium|Não foram dimensões|
 |WSXNS|Utilização do tamanho da memória por espaço de nomes|Percentagem|Máximo|Métrica de utilização de memória do espaço de nomes do service bus premium|Não foram dimensões|
 
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|ConnectionCount|Contagem de ligação|Contagem|Máximo|A quantidade de ligação do utilizador.|Não foram dimensões|
+|ConnectionCountPerSecond|Contagem de ligação por segundo|CountPerSecond|Média|A contagem média de ligação por segundo.|Não foram dimensões|
+|MessageCount|Contagem de Mensagens|Contagem|Máximo|A quantidade total de mensagens no mês|Não foram dimensões|
+|MessageCountPerSecond|Contagem de mensagens por segundo|CountPerSecond|Média|A contagem média de mensagem|Não foram dimensões|
+|MessageUsed|Mensagem utilizada|Percentagem|Máximo|A percentagem de mensagens em fila foram utilizados no mês|Não foram dimensões|
+|ConnectionUsed|Ligação utilizada|Percentagem|Máximo|A percentagem de ligações já foram utilizados|Não foram dimensões|
+|UserErrors|Erros de utilizador|Percentagem|Máximo|A percentagem de erros de utilizador|Não foram dimensões|
+|SystemErrors|Erros de sistema|Percentagem|Máximo|A percentagem de erros de sistema|Não foram dimensões|
+|SystemLoad|Carga de sistema|Percentagem|Máximo|A percentagem de carga de sistema|Não foram dimensões|
+
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
@@ -1147,6 +1171,30 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |DeserializationError|Erros de Desserialização de entrada|Contagem|Total|Erros de Desserialização de entrada|Não foram dimensões|
 |EarlyInputEvents|Eventos cuja hora da aplicação é anterior à hora de chegada.|Contagem|Total|Eventos cuja hora da aplicação é anterior à hora de chegada.|Não foram dimensões|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Entrada recebidas mensagens|Contagem|Total|Número de mensagens de leitura do IoT hub ou hub de eventos do todos os origens de eventos|Não foram dimensões|
+|IngressReceivedInvalidMessages|Entrada recebidas mensagens inválidas|Contagem|Total|Número de mensagens inválidos de leitura do IoT hub ou hub de eventos do todos os origens de eventos|Não foram dimensões|
+|IngressReceivedBytes|Entrada recebidos Bytes|Bytes|Total|Contagem de bytes lidos de todas as origens de eventos|Não foram dimensões|
+|IngressStoredBytes|Entrada armazenados Bytes|Bytes|Total|Tamanho total dos eventos disponíveis para consulta e processados com êxito|Não foram dimensões|
+|IngressStoredEvents|Entrada armazenados eventos|Contagem|Total|Contagem de eventos simplificadas disponíveis para consulta e processados com êxito|Não foram dimensões|
+|IngressReceivedMessagesTimeLag|Intervalo de tempo de mensagens recebidas de entrada|Segundos|Máximo|Diferença entre a hora em que a mensagem é colocados em fila na origem de evento e o tempo que foi processado na entrada|Não foram dimensões|
+|IngressReceivedMessagesCountLag|Atraso de contagem de mensagens recebidas de entrada|Contagem|Média|Número de partição e a sequência de mensagem a ser processado na entrada de origem de diferença entre o número de sequência da última mensagem colocados em fila de eventos|Não foram dimensões|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Entrada recebidas mensagens|Contagem|Total|Contagem de mensagens de ler a partir da origem de evento|Não foram dimensões|
+|IngressReceivedInvalidMessages|Entrada recebidas mensagens inválidas|Contagem|Total|Número de mensagens inválidos ler a partir da origem de evento|Não foram dimensões|
+|IngressReceivedBytes|Entrada recebidos Bytes|Bytes|Total|Contagem de bytes lidos a partir da origem de evento|Não foram dimensões|
+|IngressStoredBytes|Entrada armazenados Bytes|Bytes|Total|Tamanho total dos eventos disponíveis para consulta e processados com êxito|Não foram dimensões|
+|IngressStoredEvents|Entrada armazenados eventos|Contagem|Total|Contagem de eventos simplificadas disponíveis para consulta e processados com êxito|Não foram dimensões|
+|IngressReceivedMessagesTimeLag|Intervalo de tempo de mensagens recebidas de entrada|Segundos|Máximo|Diferença entre a hora em que a mensagem é colocados em fila na origem de evento e o tempo que foi processado na entrada|Não foram dimensões|
+|IngressReceivedMessagesCountLag|Atraso de contagem de mensagens recebidas de entrada|Contagem|Média|Número de partição e a sequência de mensagem a ser processado na entrada de origem de diferença entre o número de sequência da última mensagem colocados em fila de eventos|Não foram dimensões|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
@@ -1181,6 +1229,19 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 |Identificadores|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Threads|Número de Threads|Contagem|Média|Número de Threads|Instância|
+|IoReadBytesPerSecond|Bytes de leitura e/s por segundo|BytesPerSecond|Total|Bytes de leitura e/s por segundo|Instância|
+|IoWriteBytesPerSecond|E/s de escrita de Bytes por segundo|BytesPerSecond|Total|E/s de escrita de Bytes por segundo|Instância|
+|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
+|IoReadOperationsPerSecond|Operações de leitura e/s por segundo|BytesPerSecond|Total|Operações de leitura e/s por segundo|Instância|
+|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
+|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
+|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
+|TotalAppDomains|Domínios de aplicação total|Contagem|Média|Domínios de aplicação total|Instância|
+|TotalAppDomainsUnloaded|Domínios de aplicação total descarregados|Contagem|Média|Domínios de aplicação total descarregados|Instância|
+|Gen0Collections|Coleções de libertação da memória da geração 0|Contagem|Total|Coleções de libertação da memória da geração 0|Instância|
+|Gen1Collections|Coleções de libertação da memória da geração 1|Contagem|Total|Coleções de libertação da memória da geração 1|Instância|
+|Gen2Collections|Coleções de libertação da memória de geração 2|Contagem|Total|Coleções de libertação da memória de geração 2|Instância|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
 
@@ -1193,6 +1254,19 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
 |FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Total|Unidades de Execução de Funções|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Total|Contagem de Execuções de Função|Instância|
+|IoReadBytesPerSecond|Bytes de leitura e/s por segundo|BytesPerSecond|Total|Bytes de leitura e/s por segundo|Instância|
+|IoWriteBytesPerSecond|E/s de escrita de Bytes por segundo|BytesPerSecond|Total|E/s de escrita de Bytes por segundo|Instância|
+|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
+|IoReadOperationsPerSecond|Operações de leitura e/s por segundo|BytesPerSecond|Total|Operações de leitura e/s por segundo|Instância|
+|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
+|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
+|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
+|TotalAppDomains|Domínios de aplicação total|Contagem|Média|Domínios de aplicação total|Instância|
+|TotalAppDomainsUnloaded|Domínios de aplicação total descarregados|Contagem|Média|Domínios de aplicação total descarregados|Instância|
+|Gen0Collections|Coleções de libertação da memória da geração 0|Contagem|Total|Coleções de libertação da memória da geração 0|Instância|
+|Gen1Collections|Coleções de libertação da memória da geração 1|Contagem|Total|Coleções de libertação da memória da geração 1|Instância|
+|Gen2Collections|Coleções de libertação da memória de geração 2|Contagem|Total|Coleções de libertação da memória de geração 2|Instância|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1219,6 +1293,19 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |AppConnections|Ligações|Contagem|Média|Ligações|Instância|
 |Identificadores|N.º de Identificadores|Contagem|Média|N.º de Identificadores|Instância|
 |Threads|Número de Threads|Contagem|Média|Número de Threads|Instância|
+|IoReadBytesPerSecond|Bytes de leitura e/s por segundo|BytesPerSecond|Total|Bytes de leitura e/s por segundo|Instância|
+|IoWriteBytesPerSecond|E/s de escrita de Bytes por segundo|BytesPerSecond|Total|E/s de escrita de Bytes por segundo|Instância|
+|IoOtherBytesPerSecond|E/s outros Bytes por segundo|BytesPerSecond|Total|E/s outros Bytes por segundo|Instância|
+|IoReadOperationsPerSecond|Operações de leitura e/s por segundo|BytesPerSecond|Total|Operações de leitura e/s por segundo|Instância|
+|IoWriteOperationsPerSecond|Operações por segundo de escrita de e/s|BytesPerSecond|Total|Operações por segundo de escrita de e/s|Instância|
+|IoOtherOperationsPerSecond|E/s outras operações por segundo|BytesPerSecond|Total|E/s outras operações por segundo|Instância|
+|RequestsInApplicationQueue|Pedidos na fila de aplicação|Contagem|Média|Pedidos na fila de aplicação|Instância|
+|CurrentAssemblies|Assemblagens Actuais|Contagem|Média|Assemblagens Actuais|Instância|
+|TotalAppDomains|Domínios de aplicação total|Contagem|Média|Domínios de aplicação total|Instância|
+|TotalAppDomainsUnloaded|Domínios de aplicação total descarregados|Contagem|Média|Domínios de aplicação total descarregados|Instância|
+|Gen0Collections|Coleções de libertação da memória da geração 0|Contagem|Total|Coleções de libertação da memória da geração 0|Instância|
+|Gen1Collections|Coleções de libertação da memória da geração 1|Contagem|Total|Coleções de libertação da memória da geração 1|Instância|
+|Gen2Collections|Coleções de libertação da memória de geração 2|Contagem|Total|Coleções de libertação da memória de geração 2|Instância|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 554618b055ce5afcc67f95afa0242d36e74fabc0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento utilizando o portal do Azure
 
 Pode utilizar o portal do Azure para configurar [regras de encaminhamento com base no caminho de URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end a utilizar máquinas virtuais. Em seguida, crie as regras de encaminhamento que certifique-se de que o tráfego web chega os servidores adequados nos agrupamentos de.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um gateway de aplicação
@@ -82,16 +82,16 @@ Neste exemplo, crie três máquinas virtuais a ser utilizada como servidores de 
 2. Clique em **computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em destaque.
 3. Introduza estes valores para a máquina virtual:
 
-    - *myVM1* - para que o nome da máquina virtual.
-    - *azureuser* - para que o nome de utilizador administrador.
+    - *myVM1* - no nome da máquina virtual.
+    - *azureuser* - no nome de utilizador do administrador.
     - *Azure123456!* a palavra-passe.
     - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
 
 4. Clique em **OK**.
-5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
-7. Clique em **desativado** para desativar o diagnóstico de arranque.
-8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
+7. Clique em **Desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -102,7 +102,7 @@ Neste exemplo, crie três máquinas virtuais a ser utilizada como servidores de 
 2. Execute o seguinte comando para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -153,7 +153,7 @@ Neste exemplo, crie três máquinas virtuais a ser utilizada como servidores de 
 
     ![Registar o endereço IP público do application gateway](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser. Tal como http://http://40.121.222.19.
+2. Copie o endereço IP público e cole-o na barra de endereço do browser. Tal como http://http://40.121.222.19.
 
     ![URL de base de teste no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

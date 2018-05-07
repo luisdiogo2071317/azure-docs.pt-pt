@@ -1,9 +1,9 @@
 ---
 title: Mover dados de ou para armazenamento de Blobs do Azure com conectores SSIS | Microsoft Docs
-description: "Mova dados de ou para a utilização de conectores SSIS de Blob Storage do Azure."
+description: Mova dados de ou para a utilização de conectores SSIS de Blob Storage do Azure.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 39feca23532264c1f4c17017f89b064af09e9c1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados de ou para armazenamento de Blobs do Azure com conectores SSIS
 O [SQL Server Integration Services Feature Pack para o Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para ligar ao Azure, a transferência de dados entre origens de dados do Azure e no local e o processamento de dados armazenados no Azure.
@@ -72,7 +72,7 @@ Os parâmetros que utiliza as tarefas são descritos aqui:
 | **BlobContainer** |Especifica o nome do contentor do blob que contêm os ficheiros carregados como blobs. |
 | **BlobDirectory** |Especifica o diretório de blob armazenar o ficheiro carregado como um blob de bloco. O diretório de blob é uma estrutura hierárquica virtual. Se já existir um blob, it ia substituído. |
 | **LocalDirectory** |Especifica o diretório local que contém os ficheiros para ser carregado. |
-| **Nome de ficheiro** |Especifica um nome de filtro para selecionar os ficheiros com o padrão de nome especificado. Por exemplo, MySheet\*xls\* inclui ficheiros como MySheet001.xls e MySheetABC.xlsx |
+| **FileName** |Especifica um nome de filtro para selecionar os ficheiros com o padrão de nome especificado. Por exemplo, MySheet\*xls\* inclui ficheiros como MySheet001.xls e MySheetABC.xlsx |
 | **TimeRangeFrom/TimeRangeTo** |Especifica um filtro de intervalo de tempo. Ficheiros modificados após *TimeRangeFrom* e antes de *TimeRangeTo* estão incluídos. |
 
 > [!NOTE]

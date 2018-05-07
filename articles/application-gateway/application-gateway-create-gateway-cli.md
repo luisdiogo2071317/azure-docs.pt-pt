@@ -1,22 +1,22 @@
 ---
-title: "Criar um gateway de aplicação - CLI do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação utilizando a CLI do Azure."
+title: Criar um gateway de aplicação - CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicação utilizando a CLI do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Criar um gateway de aplicação utilizando a CLI do Azure
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de introdução requer que execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este guia de introdução requer que execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -66,7 +66,7 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 
 ### <a name="create-two-virtual-machines"></a>Criar duas máquinas virtuais
 
-Pode utilizar um ficheiro de configuração de nuvem init para instalar NGINX e executar uma aplicação Node.js 'Olá, mundo' numa máquina virtual Linux. Na sua shell atual, crie um ficheiro denominado init.txt de nuvem e copie e cole a seguinte configuração o shell. Certifique-se que copie totalidade nuvem init ficheiro corretamente, especialmente a primeira linha:
+Pode utilizar o ficheiro de configuração cloud-init para instalar o NGINX e executar uma aplicação Node.js "Hello World" numa máquina virtual Linux. Na shell atual, crie um ficheiro com o nome cloud-init.txt e copie e cole a seguinte configuração na shell. Certifique-se de que copia o ficheiro cloud-init completo corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -110,7 +110,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Criar as interfaces de rede com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create). Criar as máquinas virtuais com [az vm criar](/cli/azure/vm#az_vm_create).
+Criar as interfaces de rede com [nic da rede az criar](/cli/azure/network/nic#az_network_nic_create). Crie as máquinas virtuais com [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -160,7 +160,7 @@ Pode demorar alguns minutos até o gateway de aplicação a ser criado. Depois d
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-Para obter o endereço IP público do gateway de aplicação, utilize [mostrar de ip público de rede az](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e, em seguida, cole-o a barra de endereço do seu browser.
+Para obter o endereço IP público do gateway de aplicação, utilize [mostrar de ip público de rede az](/cli/azure/network/public-ip#az_network_public_ip_show). Copie o endereço IP público e cole-o na barra de endereço do browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,5 +182,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de introdução, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, esses recursos que utilizou para criar um gateway de aplicação. Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
+Neste início rápido, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, esses recursos que utilizou para criar um gateway de aplicação. Para obter mais informações sobre gateways de aplicação e os recursos associados, avance para os artigos de procedimentos.
 

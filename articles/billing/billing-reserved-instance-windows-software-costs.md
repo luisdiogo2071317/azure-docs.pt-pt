@@ -1,24 +1,24 @@
 ---
-title: "Custos de software do Windows de instâncias de VM de reserva do Azure | Microsoft Docs"
-description: "Saiba quais medidores de software do Windows não estiverem incluídos nos custos de instância de Máquina Virtual reservada."
+title: Custos de software do Windows de instâncias de VM de reserva do Azure | Microsoft Docs
+description: Saiba quais medidores de software do Windows não estiverem incluídos nos custos de instância de Máquina Virtual reservada.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Custos de software do Windows não incluídos com instâncias reservado
 

@@ -1,6 +1,6 @@
 ---
 title: Compreender o idioma de consulta do IoT Hub do Azure | Microsoft Docs
-description: Guia para programadores - descrição do idioma de consulta de SQL Server como o IoT Hub utilizado para obter informações sobre dispositivos duplos e tarefas do seu IoT hub.
+description: Guia para programadores - descrição do IoT Hub como o SQL Server consultar linguagem utilizada para obter informações sobre duplos dispositivos/módulo e as tarefas do seu IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Idioma de consulta do IoT Hub para o módulo e dispositivos duplos, tarefas e o encaminhamento de mensagens
 
 IoT Hub fornece uma poderosa linguagem de como o SQL para obter informações sobre [dispositivos duplos] [ lnk-twins] e [tarefas][lnk-jobs]e [mensagem encaminhamento][lnk-devguide-messaging-routes]. Este artigo apresenta:
 
@@ -29,9 +29,9 @@ IoT Hub fornece uma poderosa linguagem de como o SQL para obter informações so
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>Consultas do dispositivo duplo
-[Dispositivos duplos] [ lnk-twins] pode conter objetos JSON arbitrários, como as etiquetas e propriedades. IoT Hub permite-lhe dispositivos duplos da consulta como um único documento JSON que contém todas as informações do dispositivo duplo.
-Por exemplo, suponha que os dispositivos duplos do IoT hub tem a seguinte estrutura:
+## <a name="device-and-module-twin-queries"></a>Consultas de dispositivo e o módulo da duplo
+[Dispositivos duplos] [ lnk-twins] e duplos módulo podem conter objetos JSON arbitrários como etiquetas e propriedades. IoT Hub permite-lhe para dispositivos duplos da consulta e duplos módulo como um único documento JSON que contém todas as informações de duplo.
+Partem do princípio, por exemplo, se os dispositivos duplos do IoT hub tem a seguinte estrutura (duplo módulo seriam semelhante apenas com um moduleId adicional):
 
 ```json
 {
@@ -82,6 +82,8 @@ Por exemplo, suponha que os dispositivos duplos do IoT hub tem a seguinte estrut
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Consultas do dispositivo duplo
 
 IoT Hub expõe dispositivos duplos como uma coleção de documentos chamada **dispositivos**.
 Por isso, a seguinte consulta obtém o conjunto completo de dispositivos duplos:
@@ -158,6 +160,26 @@ Consultas de projecção permitem aos programadores devolver apenas as proprieda
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Consultas do módulo duplo
+
+Consulta num duplos do módulo é semelhante à consulta de dispositivos duplos, mas com um coleção/espaço de nomes diferente, ou seja, em vez de "de dispositivos", pode consultar
+
+```sql
+SELECT * FROM devices.modules
+```
+
+Iremos não permitir a associação entre os dispositivos e devices.modules coleções. Se quiser duplos do módulo de consulta em todos os dispositivos, pode fazê-lo com base nas etiquetas. Esta consulta devolverá todos os duplos de módulo em todos os dispositivos com o estado de análise:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Esta consulta devolverá todos os duplos do módulo com o estado de análise, mas apenas o subconjunto especificado de dispositivos.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Exemplo do c#
@@ -548,13 +570,13 @@ Em condições de rotas, são suportadas as seguintes funções de bibliotecas:
 
 | Função | Descrição |
 | -------- | ----------- |
-| ABS(x) | Devolve o valor absoluto (positivo) da expressão numérica especificada. |
+| Abs(x) | Devolve o valor absoluto (positivo) da expressão numérica especificada. |
 | Exp(x) | Devolve o valor da expressão especificada numérico exponencial (i ^ x). |
 | Power(x,y) | Devolve o valor da expressão especificada para a potência especificada (x ^ y).|
 | SQUARE(x) | Devolve o quadrado do valor numérico especificado. |
 | CEILING(x) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
 | FLOOR(x) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
-| SIGN(x) | Devolve o positivo (+ 1), zero (0) ou negativo sessão (-1) da expressão numérica especificada.|
+| Sign(x) | Devolve o positivo (+ 1), zero (0) ou negativo sessão (-1) da expressão numérica especificada.|
 | SQRT(x) | Devolve a raiz quadrada do valor numérico especificado. |
 
 Em condições de rotas, são suportadas as funções de conversão e verificação de tipo seguintes:
@@ -585,7 +607,7 @@ Em condições de rotas, são suportadas as seguintes funções de cadeia:
 | ENDS_WITH (x, y) | Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo. |
 | CONTAINS(x,y) | Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como executar consultas nas suas aplicações utilizando [SDKs IoT do Azure][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

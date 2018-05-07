@@ -1,9 +1,9 @@
 ---
-title: "Mover dados para o SQL Server numa máquina virtual do Azure | Microsoft Docs"
+title: Mover dados para o SQL Server numa máquina virtual do Azure | Microsoft Docs
 description: Mova dados de ficheiros simples ou a partir de um servidor de SQL no local para o SQL Server numa VM do Azure.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 56a03347556f9ae3452548e85ce5d46f3961ed93
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 Este tópico descreve as opções para mover dados de ficheiros simples (formatos de CSV ou TSV) ou de um servidor de SQL no local para o SQL Server numa máquina virtual do Azure. Estas tarefas para mover dados para a nuvem fazem parte do processo de ciência de dados de equipa.
@@ -33,8 +33,8 @@ A tabela seguinte resume as opções para mover dados para o SQL Server numa má
 
 | <b>ORIGEM</b> | <b>DESTINO: SQL Server numa VM do Azure</b> |
 | --- | --- |
-| <b>Ficheiro simples</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia da linha de comandos em massa (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa</a><br> 3. <a href="#sql-builtin-utilities">Gráficos utilitários incorporados no SQL Server</a> |
-| <b>SQL Server no local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementar uma base de dados do SQL Server para um Assistente de VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportar para um ficheiro simples</a><br> 3. <a href="#sql-migration">Assistente de migração de base de dados do SQL Server</a> <br> 4. <a href="#sql-backup">Base de dados back cópias de segurança e restauro</a><br> |
+| <b>Ficheiro simples</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia da linha de comandos em massa (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa </a><br> 3. <a href="#sql-builtin-utilities">Gráficos utilitários incorporados no SQL Server</a> |
+| <b>SQL Server no local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementar uma base de dados do SQL Server para um Assistente de VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportar para um ficheiro simples </a><br> 3. <a href="#sql-migration">Assistente de migração de base de dados do SQL Server </a> <br> 4. <a href="#sql-backup">Base de dados back cópias de segurança e restauro </a><br> |
 
 Tenha em atenção que este documento parte do princípio de que os comandos SQL são executados do SQL Server Management Studio ou no Explorador de base de dados do Visual Studio.
 
@@ -51,11 +51,11 @@ Este tutorial parte do princípio de que tem:
 * Aprovisionado **do SQL Server numa VM do Azure**. Para obter instruções, consulte [configurar uma máquina virtual do servidor SQL do Azure como um servidor de bloco de notas IPython para análise avançada](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-## <a name="filesource_to_sqlonazurevm"></a>Mover dados a partir de uma origem de ficheiro simples para o SQL Server numa VM do Azure
+## <a name="filesource_to_sqlonazurevm"></a> Mover dados a partir de uma origem de ficheiro simples para o SQL Server numa VM do Azure
 Se os dados num ficheiro simples (disposto num formato de linha/coluna),-pode ser movido para a VM do SQL Server no Azure através de métodos seguintes:
 
 1. [Utilitário de cópia da linha de comandos em massa (BCP)](#insert-tables-bcp)
-2. [Consulta SQL de inserção em massa](#insert-tables-bulkquery)
+2. [Consulta SQL de inserção em massa ](#insert-tables-bulkquery)
 3. [Gráficos utilitários incorporados no SQL Server (importar/exportar, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Utilitário de cópia da linha de comandos em massa (BCP)

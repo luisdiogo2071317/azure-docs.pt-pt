@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +28,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [monitorizar e gerir pipelines do Data Factory na versão 2](../monitor-visually.md).
 
+Este artigo descreve como monitorizar, gerir e depurar pipelines com o portal do Azure e o PowerShell.
+
 > [!IMPORTANT]
 > A aplicação de monitorização e gestão fornece um melhor suporte para monitorizar e gerir os seus pipelines de dados e quaisquer problemas de resolução de problemas. Para obter mais informações sobre como utilizar a aplicação, consulte [monitorizar e gerir pipelines de fábrica de dados utilizando a aplicação de monitorização e gestão](data-factory-monitor-manage-app.md). 
 
-
-Este artigo descreve como monitorizar, gerir e depurar pipelines com o portal do Azure e o PowerShell.
+> [!IMPORTANT]
+> A versão do Azure Data Factory 1 agora utiliza o novo [infraestrutura de alerta de Monitor de Azure](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). A infraestrutura de alerta antiga foi preterida. Como resultado, os alertas existentes configuradas para a versão 1 dados fábricas deixará de funcionar. Os alertas existentes para v1 fábricas de dados não são migrados automaticamente. Tem de recriar estes alertas a nova infraestrutura de alerta. Inicie sessão no Azure portal e selecione **Monitor** para criar novos alertas nas métricas (por exemplo, executa falha ou é executado com êxito) para a sua versão fábricas de dados de 1.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Compreender os pipelines e Estados de atividade
 Ao utilizar o portal do Azure, pode:
@@ -45,7 +47,7 @@ Esta secção também descreve como um setor de conjunto de dados passa a partir
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue para a fábrica de dados
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **fábricas de dados** no menu à esquerda. Se não o vir, clique em **mais serviços >**e, em seguida, clique em **fábricas de dados** sob o **INTELLIGENCE + análise** categoria.
+2. Clique em **fábricas de dados** no menu à esquerda. Se não o vir, clique em **mais serviços >** e, em seguida, clique em **fábricas de dados** sob o **INTELLIGENCE + análise** categoria.
 
    ![Procurar Tudo > fábricas de dados](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. No **fábricas de dados** painel, selecione a fábrica de dados que está interessado em.
@@ -119,7 +121,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>O setor está a ser processado.</td>
 </tr>
 <tr>
-<td rowspan="4">Com Falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
+<td rowspan="4">Com Falhas</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>O setor foi cancelado pelo ação do utilizador.</td>
@@ -136,7 +138,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>Ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
 </tr>
 <tr>
-<td>Nenhum</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
+<td>Nenhuma</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
 </tr>
 </table>
 
@@ -196,7 +198,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Depurar pipelines
 O Azure Data Factory fornece capacidades avançadas de depuração e resolução de problemas de pipelines utilizando o portal do Azure e o Azure PowerShell.
 
-> [! Tenha em atenção} é mais fácil erros troubleshot com a aplicação de gestão e monitorização. Para obter mais informações sobre como utilizar a aplicação, consulte [monitorizar e gerir pipelines de fábrica de dados utilizando a aplicação de monitorização e gestão](data-factory-monitor-manage-app.md) artigo. 
+> [!NOTE] 
+> É muito mais fáceis de erros troubleshot com a aplicação de gestão e monitorização. Para obter mais informações sobre como utilizar a aplicação, consulte [monitorizar e gerir pipelines de fábrica de dados utilizando a aplicação de monitorização e gestão](data-factory-monitor-manage-app.md) artigo. 
 
 ### <a name="find-errors-in-a-pipeline"></a>Encontrar erros num pipeline
 Se falhar a execução de atividades num pipeline, o conjunto de dados é produzido pelo pipeline está em estado de erro devido à falha. Pode depurar e resolver erros no Azure Data Factory através dos seguintes métodos.
@@ -296,6 +299,35 @@ O exemplo a seguir define o estado de todos os setores para a tabela 'DAWikiAggr
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Criar alertas no portal do Azure
+
+1.  Inicie sessão no Azure portal e selecione **Monitor -> alertas** para abrir a página de alertas.
+
+    ![Abra a página de alertas.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Selecione **+ nova regra de alerta** para criar um novo alerta.
+
+    ![Criar um novo alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Definir o **condição do alerta**. (Certifique-se de que seleciona **fábricas de dados** no **filtrar por tipo de recurso** campo.) Também pode especificar valores para **dimensões**.
+
+    ![Definir a condição do alerta - destino selecione](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Definir a condição de alerta – adicionar critérios de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Definir a condição de alerta – Adicionar alerta lógica](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Definir o **detalhes do alerta**.
+
+    ![Definir os detalhes do alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Definir o **grupo ação**.
+
+    ![Definir o grupo de ação - criar um novo grupo de ação](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Definir o grupo de ação - defina as propriedades](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Definir o grupo de ação - criado novo grupo de ação](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Mover uma fábrica de dados para um grupo de recursos diferente ou uma subscrição
 Pode mover uma fábrica de dados para um grupo de recursos diferente ou uma subscrição diferente, utilizando o **mover** comando barra botão na home page da fábrica de dados.

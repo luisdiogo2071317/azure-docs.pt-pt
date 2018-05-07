@@ -1,26 +1,26 @@
 ---
-title: "Criar um gateway de aplicação com vários sites que aloja - portal do Azure | Microsoft Docs"
-description: "Saiba como criar um gateway de aplicação que aloja vários sites no portal do Azure."
+title: Criar um gateway de aplicação com vários sites que aloja - portal do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicação que aloja vários sites no portal do Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Criar um gateway de aplicação com vários sites que aloja a utilizar o portal do Azure
 
 Pode utilizar o portal do Azure para configurar [alojar vários web sites](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end utilizando conjuntos de dimensionamento de máquinas virtuais. Em seguida, configure os serviços de escuta e as regras com base em domínios que possui para se certificar de que o tráfego web chega os servidores adequados nos agrupamentos de. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos *www.contoso.com* e *www.fabrikam.com*.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um gateway de aplicação
@@ -83,15 +83,15 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 3. Introduza estes valores para a máquina virtual:
 
     - *contosoVM* - para que o nome da máquina virtual.
-    - *azureuser* - para que o nome de utilizador administrador.
+    - *azureuser* - no nome de utilizador do administrador.
     - *Azure123456!* a palavra-passe.
     - Selecione **utilizar existente**e, em seguida, selecione *myResourceGroupAG*.
 
 4. Clique em **OK**.
-5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **selecione**.
+5. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 6. Certifique-se de que **myVNet** está selecionado para a rede virtual e a sub-rede é **myBackendSubnet**. 
-7. Clique em **desativado** para desativar o diagnóstico de arranque.
-8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **criar**.
+7. Clique em **Desativado** para desativar o diagnóstico de arranque.
+8. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
 
 ### <a name="install-iis"></a>Instalar o IIS
 
@@ -102,7 +102,7 @@ Neste exemplo, crie duas máquinas virtuais a ser utilizada como servidores de b
 2. Execute o seguinte comando para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -166,7 +166,7 @@ Depois de criado o gateway de aplicação com o respetivo endereço IP público,
 
 ## <a name="test-the-application-gateway"></a>O gateway de aplicação de teste
 
-1. Introduza o nome de domínio na barra de endereço do seu browser. Por exemplo, http://www.contoso.com.
+1. Introduza o nome de domínio na barra de endereço do seu browser. Tal como http://www.contoso.com.
 
     ![Testar o site da contoso no gateway de aplicação](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

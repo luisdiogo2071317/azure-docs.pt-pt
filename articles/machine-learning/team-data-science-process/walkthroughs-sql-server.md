@@ -1,24 +1,24 @@
 ---
-title: "Instruções de ciência de dados do SQL Server utilizando R, Python e T-SQL | Microsoft Docs"
-description: "Exemplos que guiá-lo através da utilização R, Python e T-SQL no SQL Server para realizar a Análise Preditiva."
+title: Instruções de ciência de dados do SQL Server utilizando R, Python e T-SQL | Microsoft Docs
+description: Exemplos que guiá-lo através da utilização R, Python e T-SQL no SQL Server para realizar a Análise Preditiva.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: deguhath
+ms.openlocfilehash: 1de293885c691aa7112eb9288eaa48554d81bdb2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Instruções de ciência de dados do SQL Server utilizando R, Python e T-SQL
 
@@ -47,7 +47,7 @@ O [instruções de ciência de dados para o R e SQL Server](https://docs.microso
 O [Utilize T-SQL com o SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) explicação passo a passo fornece os programadores de SQL com a experiência de criação de um de machine learning solução no SQL Server. -Demonstra como incorporar Python uma aplicação através da adição de código do Python para procedimentos armazenados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para ver um debate os componentes chave que compõem o processo de ciência de dados de equipa, consulte [descrição geral do processo de ciência de dados de equipa](overview.md).
 

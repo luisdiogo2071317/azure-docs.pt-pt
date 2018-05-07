@@ -14,17 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
-Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.6 (pré-visualização), bem como as notas de versão para versões anteriores.
+Este artigo contém as notas de versão para versão do Explorador de armazenamento do Azure 1.0.0, bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
+
+## <a name="version-100"></a>Versão 1.0.0
+16/04/2018
+
+### <a name="download-azure-storage-explorer-100"></a>Transferir o Explorador de armazenamento do Azure 1.0.0
+- [Explorador de armazenamento do Azure 1.0.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.0.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.0.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+* Autenticação melhorada que permite o Explorador de armazenamento utilizar o mesmo arquivo de conta como 2017 do Visual Studio. Para utilizar esta funcionalidade, terá de re-início de sessão às suas contas e defina novamente as suas subscrições filtradas.
+* Para contas de Azure pilha por AAD, Explorador de armazenamento agora irá obter subscrições do Azure pilha quando 'Pilha do Azure de destino' está ativada. Já não precisam de criar um ambiente de início de sessão personalizada.
+* Foram adicionados várias atalhos para permitir a navegação mais rápida. Estes incluem ativando ou desativando vários painéis e mover entre editores. Consulte o menu Ver para obter mais detalhes.
+* Comentários do Explorador de armazenamento se encontra agora no GitHub. Pode aceder a nossa página de problemas ao clicar no botão de comentários na parte inferior esquerda ou acedendo a [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). Não hesite sugestões, comunicar problemas, colocar questões ou deixe a qualquer outra forma de comentários.
+* Se estiver a executar para problemas de certificado SSL e não é possível localizar o certificado inválido, agora pode iniciar o Explorador de armazenamento na linha de comandos com o `--ignore-certificate-errors` sinalizador. Quando é iniciada com este sinalizador, Explorador de armazenamento irão ignorar erros de certificado SSL.
+* Agora é uma opção de 'Transferência' no menu de contexto para itens de blob e o ficheiro.
+* Suporte de leitor de ecrã e acessibilidade melhorada. Se baseiam-se nas funcionalidades de acessibilidade, consulte a nossa [documentação de acessibilidade](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
+* Agora, o Explorador de armazenamento utiliza Electron 1.8.3
+
+### <a name="breaking-changes"></a>As alterações de última hora
+* Explorador de armazenamento tem de mudar para uma nova biblioteca de autenticação. Como parte do comutador para a biblioteca, precisa de re-início de sessão às suas contas e defina novamente as suas subscrições filtradas
+* O método utilizado para encriptar dados confidenciais foi alterada. Isto pode resultar em alguns dos seus itens de acesso rápido que necessita de ser adicionado novamente e/ou ligado alguns dos recursos que necessita de ser novamente ligado.
+
+### <a name="fixes"></a>Correções
+* Alguns utilizadores atrás proxies teria carregamentos de blob de grupo ou as transferências interrompidas por um 'não é possível resolver' mensagem de erro. Esta correção.
+* Se o início de sessão foi necessária ao utilizar uma ligação direta, clicando no início de sessão na linha de comandos da deverá aparecer uma caixa de diálogo em branco. Esta correção.
+* No Linux, caso não consiga iniciar devido a uma falha de processo GPU, Explorador de armazenamento será agora informado da falha, disse para utilizar o ' – desativar gpu' comutador e será Explorador de armazenamento, em seguida, reiniciar automaticamente com o comutador ativado.
+* Políticas de acesso inválido foram difícil de identidade na caixa de diálogo de políticas de acesso. Política de acesso inválido IDs agora descritos vermelho para obter mais visibilidade.
+* O registo de atividade, por vezes, teria grande áreas de espaço em branco entre as diferentes partes de uma atividade. Esta correção.
+* No editor de consultas de tabela, se deixado uma cláusula timestamp num estado inválido e, em seguida, tentou modificar outra cláusula, seria fixar o editor. O editor agora irá restaurar a cláusula timestamp último Estado válido quando é detetada uma alteração na cláusula de outra.
+* Se está em pausa ao escrever a consulta de pesquisa na vista de árvore, seria começar a pesquisa e deverá ser roubado foco da caixa de texto. Agora, tem explicitamente de iniciar a pesquisar ao premir a tecla 'Enter' ou clicando no botão de procura de início.
+* O comando 'Obter assinatura de acesso partilhado', por vezes, seria desativado quando o botão direito do rato ao clicar num ficheiro numa partilha de ficheiros. Esta correção.
+* Se o nó de árvore de recursos com o foco foi filtrado durante a pesquisa, não foi possível separador para a árvore de recursos e utilize as teclas de seta para a árvore de recursos de navegar. Agora, se o nó de árvore do recurso focados está oculta, o primeiro nó na árvore de recursos irão ser automaticamente concentra-se.
+* Um separador adicional, por vezes, seria visível na barra de ferramentas do editor. Esta correção.
+* A caixa de texto trilho, por vezes, seria overflow. Esta correção.
+* Os editores de Blob e partilha de ficheiros, por vezes, constantemente seriam atualizadas ao carregar muitos ficheiros de uma só vez. Esta correção.
+* A funcionalidade 'Pasta estatísticas' não tinha nenhum objetivo na vista de gestão de instantâneos de partilha de ficheiros. Agora foi desativada.
+* No Linux, o menu de ficheiro não apareceu. Esta correção.
+* Ao carregar uma pasta para uma partilha de ficheiros, por predefinição, apenas o conteúdo da pasta foram carregado. Agora, o comportamento predefinido é de carregar o conteúdo da pasta para uma pasta correspondente na partilha de ficheiros.
+* A ordenação dos botões no várias caixas de diálogo tinha sido anulada. Esta correção.
+* Segurança de vários relacionadas com as correções.
+
+### <a name="known-issues"></a>Problemas Conhecidos
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar todos os.
+* Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Isto acontece porque está a utilizar a solução de filtro de cancelar descrita aqui. 
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça de que decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor do blob cujo nome foi alterado) não preserva a instantâneos. Todas as outras propriedades e metadados para blobs, ficheiros e entidades são preservados durante uma mudança de nome.
+* Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
+* A shell de Electron utilizada pelo Explorador de armazenamento tem problemas com algumas aceleração de hardware da GPU (unidade de processamento de gráficos). Se o Explorador de armazenamento apresenta uma janela de principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento na linha de comandos e desativar a aceleração de GPU adicionando o `--disable-gpu` comutador:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para os utilizadores do Linux, terá de instalar [2.0 do .NET Core](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versão 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versão 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versão 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versão 0.9.6
 02/28/2018
@@ -66,30 +161,6 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 0.9.5](#version-095)
-* [Versão 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versão 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versão 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Versão 0.9.5
 02/06/2018

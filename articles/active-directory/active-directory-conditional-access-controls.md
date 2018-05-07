@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlos de acesso no acesso condicional do Azure Active Directory 
 
@@ -75,13 +75,13 @@ Utilizar multi-factor authentication ajuda a proteger os recursos de que está a
 
 ### <a name="compliant-device"></a>Dispositivo conforme
 
-Pode configurar políticas de acesso condicional baseado no dispositivo. O objetivo de uma política de acesso condicional baseado no dispositivo é conceder acesso aos recursos configurados apenas a partir de dispositivos fidedignos. A necessidade de um dispositivo com conformidade é uma opção tem de definir que um dispositivo fidedigno. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao seu Azure Active Directory e estão marcados como compatíveis através da sua solução de MDM.
+Pode configurar políticas de acesso condicional baseado no dispositivo. O objetivo de uma política de acesso condicional baseado no dispositivo é conceder acesso aos recursos configurados apenas a partir de [dispositivos geridos](active-directory-conditional-access-policy-connected-applications.md#managed-devices). A necessidade de um dispositivo com conformidade é uma opção tem de definir é que um dispositivo gerido. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão [registado](device-management-introduction.md) para o seu Azure Active Directory e estão marcados como estando em conformidade pela sua solução de MDM.
 
 Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Dispositivos associados a um domínio
+### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo associado ao Azure AD híbrido
 
-Tem necessidade de que um dispositivo associado ao domínio é outra opção Configurar políticas de acesso condicional baseado no dispositivo. Este requisito refere-se a computadores de secretária, portáteis e tablets empresarial que estão associados a um Active Directory no local do Windows. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao Active Directory no local e o Azure Active Directory.  
+Exigir uma híbrida com o dispositivo associado ao Azure AD é outra opção que tem de configurar as políticas de acesso condicional baseado no dispositivo. Este requisito refere-se a computadores de secretária, portáteis e tablets empresarial que estão associados a um Active Directory no local do Windows. Se esta opção for selecionada, a política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao Active Directory no local e o Azure Active Directory.  
 
 Para obter mais informações, consulte [configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 

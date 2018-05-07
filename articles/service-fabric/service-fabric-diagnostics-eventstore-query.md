@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: af97385981c61f32c4136921d3cf14a526fc6ddb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 698117f9f8f8ba955f5c182296af3fd32a4990ae
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>APIs de EventStore de consulta para eventos de cluster
 
@@ -139,35 +139,35 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 Seguem-se alguns exemplos sobre como pode chamar as APIs REST do arquivo de eventos para compreender o estado do cluster.
 
-1. Atualizações do cluster:
+*Atualizações do cluster:*
 
 Para ver a última vez que o cluster foi com êxito ou foi efetuada uma tentativa ser actualizado última semana, pode consultar as APIs para recentemente completadas atualizações para o cluster, consultando os eventos de "ClusterUpgradeComplete" no EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeComplete`
 
-1. Problemas de atualização de cluster:
+*Problemas de atualização de cluster:*
 
 Da mesma forma, se existirem problemas com uma atualização recente do cluster, poderia consultar todos os eventos para a entidade de cluster. Verá vários eventos, incluindo o início de atualizações e cada UD para os quais a atualização revertida através de com êxito. Também poderá ver eventos para o ponto em que a reversão iniciado e eventos de estado de funcionamento de correspondente. Segue-se a consulta que pretende utilizar para este: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Alterações de estado do nó:
+*Alterações de estado do nó:*
 
 Para ver que o estado do nó alterações ao longo do último alguns dias - quando nós correu ou reduzir verticalmente, foram ativados ou desativados (pela plataforma do, o serviço de chaos, ou de entrada do utilizador) - utilizam a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Eventos da aplicação:
+*Eventos da aplicação:*
 
 Também pode controlar o recente implementações de aplicações e atualizações. Utilize a seguinte consulta para ver todas as aplicações relacionadas com eventos do cluster: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Estado de funcionamento histórico para uma aplicação:
+*Estado de funcionamento histórico para uma aplicação:*
 
 Para além de ver apenas os eventos de ciclo de vida de aplicações, também poderá ver dados históricos sobre o estado de funcionamento de uma aplicação específica. Pode fazê-lo especificando o nome da aplicação para o qual pretende recolher os dados. Utilize esta consulta para obter todos os eventos de estado de funcionamento de aplicação: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. Se pretender incluir eventos de estado de funcionamento que podem ter expirado (removido transmitido o respectivo período para (TTL) em direto), adicionar `,ExpiredDeployedApplicationEvent` ao fim da consulta, para filtrar dois tipos de eventos.
 
-1. Estado de funcionamento histórico para todos os serviços no "myApp":
+*Estado de funcionamento histórico para todos os serviços no "myApp":*
 
 Atualmente, eventos de relatório de estado de funcionamento para serviços apresentados como `DeployedServiceHealthReportCreated` eventos sob a entidade correspondente da aplicação. Para ver como os serviços de tem sido fazer para "App1", utilize a seguinte consulta: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServiceHealthReportCreated`
 
-1. Reconfiguração da partição:
+*Reconfiguração da partição:*
 
 Para ver todos os movimentos de partição que tenham acontecido no seu cluster de consultar o `ReconfigurationCompleted` eventos. Isto pode ajudar a descobrir o que cargas de trabalho foi executado no nó que em alturas específicas, quando diagnosticar problemas no seu cluster. Segue-se uma consulta de exemplo que que: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.2-preview&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigurationCompleted`
 
-1. Serviço de Chaos:
+*Serviço de Chaos:*
 
 Não há um evento para quando o Chaos o serviço foi iniciado ou parado ou seja exposto ao nível do cluster. Para ver utilização recente do serviço Chaos, utilize a seguinte consulta: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

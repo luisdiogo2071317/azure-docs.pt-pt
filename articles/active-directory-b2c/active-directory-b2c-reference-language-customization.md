@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
-
->[!NOTE]
->Esta funcionalidade está em pré-visualização pública.
->
 
 Personalização de idioma no Azure Active Directory B2C (Azure AD B2C) permite a política acomodar idiomas diferentes, de acordo com as suas necessidades de cliente.  A Microsoft fornece traduções para [36 idiomas](#supported-languages), mas também pode fornecer as suas próprias traduções para nenhum idioma. Mesmo se a sua experiência é fornecida para apenas um único idioma, pode personalizar qualquer texto nas páginas.  
 
@@ -49,7 +45,7 @@ Quando ativar a personalização de idioma numa política, pode controlar o idio
 5. Ler as informações na caixa de diálogo e selecionar **Sim**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selecione os idiomas da sua viagem de utilizador estão ativados 
-Ativar um conjunto de idiomas da sua viagem de utilizador ser convertido em quando o `ui_locales` parâmetro não é indicado.
+Ativar um conjunto de idiomas da sua viagem de utilizador ser convertido em quando solicitado pelo browser sem o `ui_locales` parâmetro.
 1. Certifique-se de que a política tem ativada a partir de instruções anteriores de personalização de idioma.
 2. Do **Editar política** página, selecione **personalização de idioma**.
 3. Selecione um idioma que pretende suportar.
@@ -102,7 +98,7 @@ Substitua `<ExtensionAttribute>` com o nome do seu atributo de utilizador person
 Substitua `<ExtensionAttributeValue>` com a nova cadeia a apresentar.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Forneça uma lista de valores utilizando LocalizedCollections
-Se pretender fornecer uma lista de conjunto de valores de respostas, terá de criar um `LocalizedCollections` atributo.  `LocalizedCollections` é uma matriz de `Name` e `Value` pares. Para adicionar `LocalizedCollections`, utilize o seguinte formato:
+Se pretender fornecer uma lista de conjunto de valores de respostas, terá de criar um `LocalizedCollections` atributo.  `LocalizedCollections` é uma matriz de `Name` e `Value` pares. A ordem dos itens será ordem que são apresentadas.  Para adicionar `LocalizedCollections`, utilize o seguinte formato:
 
 ```JSON
 {
@@ -153,9 +149,9 @@ Pode carregar a página no `fr`. Quando a página solicita conteúdo HTML e CSS,
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Adicionar regiões personalizados
+## <a name="add-custom-languages"></a>Adicionar idiomas personalizados
 
-Também pode adicionar idiomas atualmente a Microsoft não cede traduções para. Terá de fornecer as traduções para todas as cadeias na política.
+Também pode adicionar idiomas atualmente a Microsoft não cede traduções para. Terá de fornecer as traduções para todas as cadeias na política.  Códigos de idioma e região estão limitados no padrão de 639 1 ISO. 
 
 1. Do **Editar política** página, selecione **personalização de idioma**.
 2. Selecione **Adicionar idioma personalizado** da parte superior da página.
@@ -165,6 +161,10 @@ Também pode adicionar idiomas atualmente a Microsoft não cede traduções para
 6. Selecione **ativar**, e a política agora pode mostrar neste idioma para os seus utilizadores.
 7. Guarde o idioma.
 
+>[!IMPORTANT]
+>Terá de ativar os idiomas personalizados ou carregar substituições para o mesmo para poder guardar.
+>
+
 ## <a name="additional-information"></a>Informações adicionais
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Etiquetas de personalização de página IU como substituições
@@ -172,7 +172,7 @@ Quando ativar a personalização de idioma, as edições que efectuou anterior p
 ### <a name="up-to-date-translations"></a>Traduções atualizadas
 A Microsoft está empenhada em fornecer as traduções mais atualizadas à sua para utilização. A Microsoft continuamente melhora traduções e mantém-nos em conformidade para si. Microsoft irá identificar erros e de alterações na terminologia global e disponibilizar atualizações de irão funcionar de forma totalmente integrada da sua viagem de utilizador.
 ### <a name="support-for-right-to-left-languages"></a>Suporte para idiomas de direita para a esquerda
-Microsoft atualmente não fornece suporte para idiomas de direita para a esquerda. Se precisar desta funcionalidade,. votá-lo em [Azure comentários](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft atualmente não fornece suporte para idiomas de direita para a esquerda. Isto é possível utilizando regiões personalizados e utilizar CSS para alterar a forma como as cadeias são apresentadas.  Se precisar desta funcionalidade,. votá-lo em [Azure comentários](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduções de fornecedor de identidade de redes sociais
 A Microsoft oferece o `ui_locales` parâmetro OIDC para inícios de sessão de redes sociais. Mas alguns fornecedores de identidade de redes sociais, incluindo o Facebook e Google, não respeite-los. 
 ### <a name="browser-behavior"></a>Comportamento de browser
@@ -192,7 +192,7 @@ Chrome e Firefox que ambos pedem para o idioma de conjunto. Se se tratar de um i
 | Finlandês               | fi            |
 | Francês                | fr            |
 | Guzarate              | gu            |
-| Hindi                 | hi            |
+| Hindi                 | Olá            |
 | Croata              | hr            |
 | Húngaro             | hu            |
 | Italiano               | it            |
@@ -204,7 +204,7 @@ Chrome e Firefox que ambos pedem para o idioma de conjunto. Se se tratar de um i
 | Malaio                 | ms            |
 | Norueguês Bokmal      | nb            |
 | Neerlandês                 | nl            |
-| Punjabi               | pa            |
+| Punjabi               | Pa            |
 | Polaco                | pl            |
 | Português - Brasil   | pt-br         |
 | Português - Portugal | pt-pt         |

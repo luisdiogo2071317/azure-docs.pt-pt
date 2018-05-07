@@ -3,7 +3,7 @@ title: Criar as tabelas do Hive e carregar dados do Blob Storage do Azure | Micr
 description: Criar as tabelas do Hive e carregar os dados no blob para tabelas de ramo de registo
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 7634a8bdc7492d674801a256a4d5bb73170311ee
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar as tabelas do Hive e carregar dados do Blob Storage do Azure
 Este tópico apresenta genéricas consultas do Hive que criar tabelas do Hive e carregar dados do blob storage do Azure. Algumas orientações também são fornecidas na criação de partições de tabelas do Hive e sobre como utilizar o otimizada linha Columnar (ORC) formatação para melhorar o desempenho de consulta.
@@ -143,7 +143,7 @@ Segue-se a consulta de Hive que cria uma tabela do Hive.
 Seguem-se as descrições dos campos que precisa de plug-in e outras configurações:
 
 * **<database name>**: o nome da base de dados que pretende criar. Se pretender utilizar a predefinição da base de dados, a consulta *criar base de dados...*  pode ser omitido.
-* **<table name>**: o nome da tabela que pretende criar na base de dados especificado. Se pretender utilizar a base de dados predefinido, a tabela pode ser diretamente referida pela  *<table name>*  sem <database name>.
+* **<table name>**: o nome da tabela que pretende criar na base de dados especificado. Se pretender utilizar a base de dados predefinido, a tabela pode ser diretamente referida pela *<table name>* sem <database name>.
 * **<field separator>**: o separador delimits campos no ficheiro de dados para ser carregado para a tabela do Hive.
 * **<line separator>**: o separador delimits linhas no ficheiro de dados.
 * **<storage location>**: a localização de armazenamento do Azure para guardar os dados de tabelas do Hive. Se não especificar *localização <storage location>* , a base de dados e tabelas são armazenadas no *hive/Armazém/* diretório no contentor predefinido do cluster do ramo de registo por predefinição. Se pretender especificar a localização de armazenamento, a localização de armazenamento tem de estar dentro do contentor predefinido para a base de dados e tabelas. Esta localização tem de ser referido como localização relativo para o contentor predefinido do cluster no formato de *' wasb: / / / < diretório 1 > /'* ou *' wasb: / / / < diretório 1 > / < diretório 2 > /'*, etc. Depois da consulta é executada, são criados os diretórios relativos no contentor predefinido.
@@ -154,7 +154,7 @@ Segue-se a consulta de Hive que carrega dados para uma tabela do Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Se o ficheiro de BLOBs para ser carregado para a tabela do Hive no contentor predefinido do cluster do HDInsight Hadoop, o  *<path to blob data>*  deve estar no formato *' wasb: / / /<directory in this container> / <blob file name>'*. O ficheiro de blob também pode ter um contentor adicional do cluster do HDInsight Hadoop. Neste caso,  *<path to blob data>*  deve estar no formato *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **<path to blob data>**: Se o ficheiro de BLOBs para ser carregado para a tabela do Hive no contentor predefinido do cluster do HDInsight Hadoop, o *<path to blob data>* deve estar no formato *' wasb: / / /<directory in this container> / <blob file name>'*. O ficheiro de blob também pode ter um contentor adicional do cluster do HDInsight Hadoop. Neste caso, *<path to blob data>* deve estar no formato *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > Os dados de BLOBs para ser carregado para a tabela do Hive tem de ser a predefinição ou contentor adicional da conta do storage para o cluster de Hadoop. Caso contrário, o *carga dados* consulta falha complaining que não pode aceder os dados.
@@ -230,7 +230,7 @@ Selecione os dados da tabela externa no passo 1 e inserir na tabela ORC
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-É seguro remover o  *<external textfile table name>*  quando utilizar a seguinte consulta depois de todos os dados foi inserida na  *<database name>.<ORC table name>* :
+É seguro remover o *<external textfile table name>* quando utilizar a seguinte consulta depois de todos os dados foi inserida na *<database name>.<ORC table name>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

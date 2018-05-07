@@ -128,6 +128,6 @@ Como configurar a máquina virtual e instalar software, é boa ideia regularment
 1. No Explorador de servidores, selecione a máquina virtual que pretende encerrar no **Virtual Machines do Azure** nós.
 2. No menu de atalho, escolha o **encerramento** comando ou escolha **configurar** para ver a página de configuração da máquina virtual e, em seguida, escolha o **encerramento** botão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar com uma Máquina Virtual a executar Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [criar uma máquina virtual com o Windows no portal de pré-visualização do Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

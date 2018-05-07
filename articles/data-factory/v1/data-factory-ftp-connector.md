@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7799eeb65a109a6ff517d50bb9603fe83f80ed14
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor de FTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,6 +75,9 @@ A tabela seguinte descreve os elementos JSON específicos para um serviço FTP l
 | porta |Especifique a porta em que o servidor FTP está a escutar. |Não |21 |
 | enableSsl |Especifique se pretende utilizar FTP através de um canal SSL/TLS. |Não |true |
 | enableServerCertificateValidation |Especifique se pretende ativar a validação do certificado SSL de servidor quando estiver a utilizar FTP através do canal SSL/TLS. |Não |true |
+
+>[!NOTE]
+>O conector FTP suporta o servidor de FTP ao aceder com sem encriptação ou a encriptação de SSL/TLS explícita; não suporta a encriptação de SSL/TLS implícita.
 
 ### <a name="use-anonymous-authentication"></a>Utilize a autenticação anónima
 

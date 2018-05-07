@@ -3,7 +3,7 @@ title: Exploração de dados e modelação com o Spark | Microsoft Docs
 description: Showcases as capacidades de exploração e modelação de dados do toolkit MLlib do Spark no Azure.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
-ms.openlocfilehash: c796cc5f19ac3a30d2cdf72b8fea2813a1586c1b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d505d432897eb7f4e792b45a95ec91ce1802eeb8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -635,9 +635,9 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de re
 
 **SAÍDA:** 
 
-Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
+Coefficients: [0.0082065285375-0.0223675576104,-0.0183812028036, - 3.48124578069e-05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921,-0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
 
-Intercept: -0.0111216486893
+Intercept:-0.0111216486893
 
 Tempo decorrido para executar acima célula: 14.43 segundos
 
@@ -691,15 +691,15 @@ Tempo decorrido para executar acima célula: 14.43 segundos
 
 Área em ELI = 0.985297691373
 
-Area under ROC = 0.983714670256
+Área em ROC = 0.983714670256
 
 Estatísticas de resumidas
 
 Precisão = 0.984304060189
 
-Recall = 0.984304060189
+Recuperar = 0.984304060189
 
-F1 Score = 0.984304060189
+F1 Pontuar = 0.984304060189
 
 Tempo decorrido para executar acima célula: 57.61 segundos
 
@@ -792,7 +792,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de fl
 
 **SAÍDA:**
 
-Area under ROC = 0.985297691373
+Área em ROC = 0.985297691373
 
 Tempo decorrido para executar acima célula: 31.09 segundos
 
@@ -838,7 +838,7 @@ O código nesta secção mostra como preparar, avaliar e guardar um modelo de á
 
 **SAÍDA:**
 
-Area under ROC = 0.985297691373
+Área em ROC = 0.985297691373
 
 Tempo decorrido para executar acima célula: 19.76 segundos
 
@@ -904,7 +904,7 @@ O código nesta secção mostra como utilizar funcionalidades dimensionadas para
 
 **SAÍDA:**
 
-Coefficients: [0.00457675809917, -0.0226314167349, -0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981, -0.000987181489428, -0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995, -0.00990211159703, -0.00637410344522, 0.545083566179, -0.536756072402, 0.0105762393099, -0.0130117577055, 0.0129304737772, -0.00171065945959]
+Coefficients: [0.00457675809917-0.0226314167349,-0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981,-0.000987181489428,-0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995,- 0.00990211159703-0.00637410344522, 0.545083566179,-0.536756072402, 0.0105762393099,-0.0130117577055, 0.0129304737772,-0.00171065945959]
 
 Intercetar: 0.853872718283
 

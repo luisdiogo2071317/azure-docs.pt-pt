@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/02/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2d9e0fc50bed4e8301a24a062407b490d688803d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de carga do Azure?
 
@@ -73,7 +73,11 @@ Balanceador de carga fornece as seguintes capacidades fundamentais para as aplic
 
 * **Aplicação agnóstico relativamente e transparente**
 
-    Balanceador de carga não interage diretamente com o TCP ou UDP ou camada da aplicação e quaisquer TCP ou UDP baseada em cenário pode ser suportado. Por exemplo, embora o Balanceador de carga não terminar TLS próprio, pode criar e aumentar horizontalmente aplicações TLS através da utilização de Balanceador de carga e, em seguida, termine a ligação de TLS na própria VM. Balanceador de carga não fecha um fluxo e handshakes protocolo ocorrerem sempre diretamente entre o cliente e a instância de conjunto de back-end selecionado de hash. Por exemplo, um handshake TCP sempre ocorre entre o cliente e a VM de back-end selecionada. Uma resposta a um pedido para um front-end é uma resposta que é gerada a partir da VM de back-end. Desempenho de rede de saída do Balanceador de carga só está limitado pelo SKU de VM que escolher e fluxos permanecem alive por períodos demorados se o tempo limite de inatividade nunca foi atingido.
+    Balanceador de carga não interage diretamente com o TCP ou UDP ou camada da aplicação e quaisquer TCP ou UDP baseada em cenário pode ser suportado.  Balanceador de carga não terminar ou provir fluxos, interagir com o payload de fluxo, não fornece nenhuma função de gateway da camada de aplicação e handshakes protocolo ocorrerem sempre diretamente entre o cliente e a instância de conjunto back-end.  Uma resposta a um fluxo de entrada é sempre uma resposta de uma máquina virtual.  Quando o fluxo chega na máquina virtual, o endereço IP de origem original também é preservado.  Alguns exemplos para ilustrar ainda mais a transparência:
+    - Um handshake TCP sempre ocorre entre o cliente e a VM de back-end selecionada. Uma resposta a um pedido para um front-end for uma resposta gerada pela VM de back-end. Deve utilizar o ping TCP para validar a conetividade para este cenário.  Utilize [psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) ou [nmap](https://nmap.org) para verificar se um handshake com uma máquina virtual bom estado de funcionamento for bem sucedida. Tenha em atenção o ICMP é um protocolo de endereço IP diferente a UDP ou TCP e não é suportado para esta finalidade.
+    - Payloads de aplicação são transparentes para o Balanceador de carga e qualquer UDP ou aplicação TCP com base pode ser suportada. Para cargas de trabalho que requerem pelo processamento de pedidos HTTP ou manipulação de payloads de camada de aplicação (por exemplo, análise de HTTP URLs), deve utilizar uma camada 7 carga balanceador como [Gateway de aplicação](https://azure.microsoft.com/en-us/services/application-gateway).
+    - Porque o Balanceador de carga é agnóstico relativamente ao payload TCP e descarga de TLS ("SSL") não for fornecido, pode criar cenários de encriptados ponto a ponto utilizando o Balanceador de carga e obter grande de ampliação para aplicações de TLS ao terminar a ligação de TLS a própria VM.  Por exemplo, a sua sessão TLS o rechaveamento da capacidade apenas é limitado pelo tipo e número de VMs que adiciona ao conjunto de back-end.  Se necessitar de "Descarga de SSL", o tratamento de camada de aplicação ou pretende delegar a gestão de certificados para o Azure, deve utilizar o Balanceador de carga do Azure camada 7 [Gateway de aplicação](https://azure.microsoft.com/en-us/services/application-gateway) em vez disso.
+        
 
 * **Reconfiguração automática**
 

@@ -1,24 +1,24 @@
 ---
-title: "Serviço para medir mapeamento gratuitamente conta - Azure | Microsoft Docs"
-description: "Compreenda o serviço para medir o mapeamento para os serviços incluídos em conta gratuita."
-services: 
-documentationcenter: 
+title: Serviço para medir mapeamento gratuitamente conta - Azure | Microsoft Docs
+description: Compreenda o serviço para medir o mapeamento para os serviços incluídos em conta gratuita.
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 9d7e355e755f2bac8929ab16f7f71aa3b0702658
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Compreender o serviço gratuito para o mapeamento do medidor
 
@@ -45,10 +45,10 @@ Todos os serviços do Azure emite utilização contra medidores, que o sistema d
 | Gerido disco *  | Disco gerido Standard/instantâneos (GB) - redundante localmente | Disco gerido Standard/instantâneos (GB) - gratuito | ad94c237-52a5-4804-ae65-38c5bf85ef42
 | Gerido disco *  | Operações de disco gerido Standard (em 10 000s) | Disco gerido Standard operações (em 10 000s) - gratuitas | 82cc6ea4-0abd-43ac-ACC0-ec34edf0f14c
 | Gerido disco *  | Armazenamento Premium - Blob de páginas/P6 (unidades) - redundante localmente | Armazenamento Premium - Blob de páginas/P6 (unidades) - gratuito | 2b98c168-27CA-4cc1-b509-e887dec87657
-| Base de Dados SQL | Dias de base de dados no padrão S0 - base de dados SQL | Dias de base de dados no padrão S0 - gratuitos | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
+| SQL Database | Dias de base de dados no padrão S0 - base de dados SQL | Dias de base de dados no padrão S0 - gratuitos | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | Partilhado - largura de banda * * | Transferências de Dados de Saída (GB) | Transferência de dados enviados (GB) - gratuito | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\*Se criar uma máquina virtual do Windows e escolha disco gerido, irá consumir medição de disco gerido como parte da máquina virtual.
+\* Se criar uma máquina virtual do Windows e escolha disco gerido, irá consumir medição de disco gerido como parte da máquina virtual.
 
 \** Podem ser consumidos medidores partilhados através de vários serviços. Por exemplo, máquinas virtuais e armazenamento emitir utilização contra Out(GB) de transferência de dados de medição.
 

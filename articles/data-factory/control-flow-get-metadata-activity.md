@@ -12,34 +12,73 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
-ms.openlocfilehash: e8e40b763f0c6f1f994535ab2ff335cfcbf02cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter os metadados atividade no Azure Data Factory
-A atividade Obter Metadados pode ser utilizada para obter os metadados de quaisquer dados no Azure Data Factory. Esta atividade é suportada apenas para fábricas de dados da versão 2. Podem ser utilizado nos seguintes cenários:
+GetMetadata atividade pode ser utilizada para obter **metadados** de quaisquer dados no Azure Data Factory. Esta atividade é suportada apenas para fábricas de dados da versão 2. Podem ser utilizado nos seguintes cenários:
 
 - Validar as informações de metadados de quaisquer dados
 - Acionar um pipeline, quando os dados pronto / disponíveis
 
 A seguinte funcionalidade está disponível no fluxo de controlo:
+
 - A saída da atividade de GetMetadata pode ser utilizada em expressões condicionais para efetuar a validação.
 - Um pipeline pode ser acionado quando a condição é satisfeita através de efetue-até ciclo
-
-A utiliza GetMetadata atividade um conjunto de dados como um necessária de entrada e saídas as informações de metadados disponível como saída. Atualmente, o conjunto de dados do blob do Azure só é suportado. Os campos de metadados suportados são tamanho, a estrutura e a hora de lastModified.  
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Capacidades suportadas
+
+A atividade de GetMetadata demora um conjunto de dados como uma entrada necessária e produz informações de metadados disponíveis como saída da atividade. Atualmente, os conectores com meatadata recuperável correspondente que se seguem são suportados:
+
+### <a name="supported-connectors"></a>Conectores suportados
+
+**Armazenamento de ficheiros:**
+
+| Conector/metadados | itemName<br>(ficheiro/pasta) | ItemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | LastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | existe<br>(ficheiro/pasta) |
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Blob do Azure | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Armazenamento de Ficheiros do Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| Sistema de Ficheiros | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+**Base de dados relacional:**
+
+| Conector/metadados | estrutura | columnCount | existe |
+|:--- |:--- |:--- |:--- |
+| Base de Dados SQL do Azure | √ | √ | √ |
+| Azure SQL Data Warehouse | √ | √ | √ |
+| SQL Server | √ | √ | √ |
+
+### <a name="metadata-options"></a>Opções de metadados
+
+Os seguintes tipos de metadados podem ser especificados na lista de campos de atividade GetMetadata obter:
+
+| Tipo de metadados | Descrição |
+|:--- |:--- |
+| itemName | Nome do ficheiro ou pasta. |
+| ItemType | Tipo de ficheiro ou pasta. O valor de saída é `File` ou `Folder`. |
+| tamanho | Tamanho do ficheiro em bytes. Aplicável apenas de ficheiros. |
+| criado | Criado datetime do ficheiro ou pasta. |
+| LastModified | Última modificação datetime do ficheiro ou pasta. |
+| childItems | Lista de subpastas e ficheiros nessa pasta especificada. Aplicável apenas a pasta. O valor de saída é uma lista de nome e tipo de cada item subordinado. |
+| contentMD5 | MD5 do ficheiro. Aplicável apenas de ficheiros. |
+| estrutura | Estrutura de dados dentro do ficheiro ou uma tabela de base de dados relacional. O valor de saída é uma lista de nomes de coluna e tipo de coluna. |
+| columnCount | Número de colunas dentro do ficheiro ou tabela relacional. |
+| existe| Se um ficheiro/pasta/tabela existe ou não. Tenha em atenção desde que "existe" é especificada na lista de campos GetaMetadata, que a atividade não falha, mesmo quando não existe o item (ficheiro/pasta/tabela); em vez disso, devolve `exists: false` na saída. |
 
 ## <a name="syntax"></a>Sintaxe
 
-### <a name="get-metadata-activity-definition"></a>Obter a definição de metadados de atividade:
-No exemplo seguinte, a atividade de GetMetadata devolve metadados sobre os dados representados pelo MyDataset. 
+**GetMetadata atividade:**
 
 ```json
 {
@@ -54,7 +93,8 @@ No exemplo seguinte, a atividade de GetMetadata devolve metadados sobre os dados
     }
 }
 ```
-### <a name="dataset-definition"></a>Definição do conjunto de dados:
+
+**Conjunto de dados:**
 
 ```json
 {
@@ -77,27 +117,65 @@ No exemplo seguinte, a atividade de GetMetadata devolve metadados sobre os dados
 }
 ```
 
-### <a name="output"></a>Saída
+## <a name="type-properties"></a>Propriedades do tipo
+
+Atualmente GetMetadata atividade pode obter os seguintes tipos de informações de metadados.
+
+Propriedade | Descrição | Necessário
+-------- | ----------- | --------
+fieldList | Lista os tipos de informações de metadados necessários. Consulte os detalhes na [opções de metadados](#metadata-options) secção nos metadados suportados. | Não 
+Conjunto de dados | O conjunto de dados de referência, cujo metadados da atividade é possível obter pela atividade GetMetadata. Consulte [capacidades suportadas](#supported-capabilities) secção no conectores suportados e consulte a tópico conector nos detalhes de sintaxe do conjunto de dados. | Sim
+
+## <a name="sample-output"></a>Resultado da amostra
+
+O resultado de GetMetadata é apresentado na saída da atividade. Seguem-se dois exemplos com opções de metadados exaustiva selecionados na lista de campos como referência:
+
+### <a name="get-a-files-metadata"></a>Obter os metadados de um ficheiro
+
 ```json
 {
-    "size": 1024,
-    "structure": [
-        {
-            "name": "id",
-            "type": "Int64"
-        }, 
-    ],
-    "lastModified": "2016-07-12T00:00:00Z"
+  "exists": true,
+  "itemName": "test.csv",
+  "itemType": "File",
+  "size": 104857600,
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "contentMD5": "cMauY+Kz5zDm3eWa9VpoyQ==",
+  "structure": [
+    {
+        "name": "id",
+        "type": "Int64"
+    },
+    {
+        "name": "name",
+        "type": "String"
+    }
+  ],
+  "columnCount": 2
 }
 ```
 
-## <a name="type-properties"></a>Propriedades do tipo
-Atualmente GetMetadata atividade pode obter os seguintes tipos de informações de metadados de um conjunto de dados do storage do Azure.
+### <a name="get-a-folders-metadata"></a>Obter os metadados de uma pasta
 
-Propriedade | Descrição | Valores Permitidos | Necessário
--------- | ----------- | -------------- | --------
-fieldList | Lista os tipos de informações de metadados necessários.  | <ul><li>tamanho</li><li>estrutura</li><li>lastModified</li></ul> |    Não<br/>Se estiver vazia, a atividade devolve todas as informações de metadados suportados 3. 
-Conjunto de dados | O conjunto de dados de referência, cujo metadados da atividade é possível obter pela atividade GetMetadata. <br/><br/>O tipo de conjunto de dados suportado atualmente é Blob do Azure. Duas propriedades sub são: <ul><li><b>referenceName</b>: referência a um conjunto de dados de Blobs do Azure existente</li><li><b>tipo</b>: uma vez que o conjunto de dados está a ser referenciado, é do tipo "DatasetReference"</li></ul> |    <ul><li>Cadeia</li><li>DatasetReference</li></ul> | Sim
+```json
+{
+  "exists": true,
+  "itemName": "testFolder",
+  "itemType": "Folder",
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "childItems": [
+    {
+      "name": "test.avro",
+      "type": "File"
+    },
+    {
+      "name": "folder hello",
+      "type": "Folder"
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 

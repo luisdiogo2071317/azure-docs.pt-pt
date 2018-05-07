@@ -3,7 +3,7 @@ title: Explore os dados num cluster de Hadoop e criar modelos no Azure Machine L
 description: Para um cenário ponto-a-ponto, a utilização de um cluster de Hadoop do HDInsight para criar e implementar um modelo a utilizar o processo de ciência de dados de equipa.
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
 Esta explicação passo a passo, utilizamos o [processo de ciência de dados de equipa (TDSP)](overview.md) num cenário de ponto a ponto. Utilizamos uma [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explore e os dados de funcionalidade engenheiro de publicamente disponível [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados e para os dados de exemplo para baixo. Para processar várias classes e binária classificação e tarefas preditiva de regressão, iremos criar modelos de dados com o Azure Machine Learning. 
@@ -137,7 +137,7 @@ Para preparar o cluster para análises exploratórias dados, transferir os fiche
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Estes dois comandos transferir todos os ficheiros de .hql necessários esta explicação passo a passo para o diretório local ***C:\temp &#92;*** no nó principal.
+Estes dois comandos transferir todos os ficheiros de .hql necessários esta explicação passo a passo para o diretório local ***C:\temp&#92;***  no nó principal.
 
 ## <a name="#hive-db-tables"></a>Criar base de dados do Hive e tabelas particionadas por mês
 > [!NOTE]
