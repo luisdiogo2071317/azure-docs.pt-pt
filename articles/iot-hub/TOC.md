@@ -71,6 +71,7 @@
 #### [Gerir identidades do dispositivo](iot-hub-devguide-identity-registry.md)
 #### [Controlar o acesso ao Hub IoT](iot-hub-devguide-security.md)
 #### [Compreender os dispositivos duplos](iot-hub-devguide-device-twins.md)
+#### [Compreender duplos de módulo](iot-hub-devguide-module-twins.md)
 #### [Invocar métodos diretos num dispositivo](iot-hub-devguide-direct-methods.md)
 #### [Programar tarefas em vários dispositivos](iot-hub-devguide-jobs.md)
 #### [Pontos finais do Hub IoT](iot-hub-devguide-endpoints.md)
@@ -78,6 +79,7 @@
 #### [Quotas e limitação](iot-hub-devguide-quotas-throttling.md)
 #### [Exemplos de preços](iot-hub-devguide-pricing.md)
 #### [SDKs de dispositivos e de serviços](iot-hub-devguide-sdks.md)
+#### [Desenvolver para dispositivos móveis](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [Suporte para MQTT](iot-hub-mqtt-support.md)
 #### [Glossário](iot-hub-devguide-glossary.md)
 ### [Utilizar o SDK do dispositivo IoT para C](iot-hub-device-sdk-c-intro.md)
@@ -105,6 +107,9 @@
 #### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Back-end de Java/Dispositivo Java](iot-hub-java-java-twin-getstarted.md)
 #### [Back-end em Python/dispositivo Python](iot-hub-python-twin-getstarted.md)
+### Introdução aos duplos de módulo
+#### [Dispositivo de back-end do Portal/.NET](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [Dispositivo de back-end .NET/.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Utilizar métodos diretos
 #### [Back-end de Node.js/Dispositivo Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end de .NET/Dispositivo Node.js](iot-hub-csharp-node-direct-methods.md)

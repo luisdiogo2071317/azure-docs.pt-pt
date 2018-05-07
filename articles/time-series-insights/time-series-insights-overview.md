@@ -21,7 +21,7 @@ ms.lasthandoff: 04/20/2018
 
 Informações de séries de tempo foi construída para armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo, tal como a gerado por dispositivos de IoT.  Se pretender armazenar, gerir, consultar ou visualizar dados de séries de tempo na nuvem, informações de séries de tempo é provável que direito para si.  
 
-! [Fluxograma Insights de séries de tempo] (media/overview/time-series-insights-flowchart.png)
+![Fluxograma Insights de séries de tempo] (media/overview/time-series-insights-flowchart.png)
 
 Informações de séries de tempo tem quatro tarefas principais:
 
@@ -68,7 +68,7 @@ Introdução demora menos de 5 minutos.
 4.  Ver os seus dados em minutos com o Explorador de informações de séries de tempo.
 
 ## <a name="time-series-insights-explorer"></a>Explorador do Time Series Insights
-Este diagrama mostra um exemplo de séries de tempo de dados do insights visualizados através do Explorador:! [Explorador de Insights de série de tempo] (media/time-series-insights-explorer/explorer4.png)
+Este diagrama mostra um exemplo de séries de tempo de dados do insights visualizados através do Explorador: ![Explorador de Insights de série de tempo] (media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
  - [Explorar a utilizar o Explorador de informações de séries de tempo num ambiente de demonstração](./time-series-quickstart.md)

@@ -33,7 +33,7 @@ Nesta secção, iremos irá guiá-lo através de regenerar as credenciais para o
 6. Localizar o **chave da conta de armazenamento** campo e cole a chave recentemente criada > clique **guardar**.    
 7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, pode vê-la a partir do separador notificações. Existem duas notificações para um corresponde ao guardar a atualização e outros corresponde a testar a ligação:  
    ![Notificações depois de editar a chave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Avance para [iniciar a tarefa a partir da última vez parada] secção (#start-your-job-from-the-last-stopped-time).
+8. Avance para [iniciar a tarefa a partir da última vez parada]  (#start-your-job-from-the-last-stopped-time) secção.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
