@@ -1,11 +1,11 @@
 ---
-title: "Relatórios de informações sobre Ameaças do Centro de Segurança do Azure| Microsoft Docs"
-description: "Este documento ajuda-o a utilizar os Relatórios de Informações Sobre Ameaças do Centro de Segurança do Azure durante uma investigação para obter mais informações sobre um alerta de segurança."
+title: Relatórios de informações sobre Ameaças do Centro de Segurança do Azure| Microsoft Docs
+description: Este documento ajuda-o a utilizar os Relatórios de Informações Sobre Ameaças do Centro de Segurança do Azure durante uma investigação para obter mais informações sobre um alerta de segurança.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540725147579f895cc17ed2dbf46471dab6b3747
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Informações Sobre Ameaças do Centro de Segurança do Azure
 Este documento explica como os Relatórios de Informações Sobre Ameaças do Centro de Segurança do Azure podem ajudá-lo a obter mais informações sobre uma ameaça que gerou um alerta de segurança.
@@ -65,7 +65,7 @@ Pode rever os alertas atuais ao observar o mosaico **Alertas de segurança**. Ab
 
 A partir daqui, pode transferir o PDF para este relatório e ler mais informações sobre o problema de segurança detetado e efetuar ações com base nas informações fornecidas.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Neste documento, aprendeu como os Relatórios de Informações Sobre Ameaças do Centro de Segurança do Azure podem ajudar durante uma investigação sobre alertas de segurança. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
