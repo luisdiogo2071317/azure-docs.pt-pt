@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -48,6 +50,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Melhoramentos de estabilidade.
+  * Correção para processamento de problema de cancelada tarefas que pode originar parado observadores em algumas partições.
 * Suporte para o ponto de verificação manual.
 * Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21 e superior.
 
@@ -70,7 +73,14 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="pre-release-builds"></a>Versão de pré-lançamento compilações
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Pequenas alterações de API:
+  * Remover ChangeFeedProcessorOptions.IsAutoCheckpointEnabled que foi marcado como obsoleto.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Melhoramentos de estabilidade:
+  * Melhor de processamento de inicialização do arquivo de concessão. Quando o arquivo de concessão está vazio, apenas uma instância de processador pode inicializá-lo, irão aguardar a outras pessoas.
+  * Versão/mais estável/eficiente concessão renovação. Renovar e lançar uma partição de uma concessão são independente de renovação de outros utilizadores. No v1 que foi efetuada sequencialmente para todas as partições.
 * Nova v2 API:
   * Padrão de construtor para construção flexível do processador: a classe de ChangeFeedProcessorBuilder.
     * Pode efetuar qualquer combinação de parâmetros.
@@ -83,6 +93,7 @@ ms.lasthandoff: 04/28/2018
     * IPartitionProcessor - alterações de processamento personalizadas numa partição.
 * Utiliza o registo - [LibLog](https://github.com/damianh/LibLog) biblioteca.
 * 100% compatível com versões anteriores com a API de v1.
+* Novo código base.
 * Compatível com [SQL .NET SDK](sql-api-sdk-dotnet.md) versões 1.21.1 e superior.
 
 ## <a name="release--retirement-dates"></a>Versão & extinção datas

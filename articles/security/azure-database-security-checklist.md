@@ -1,12 +1,12 @@
 ---
-title: "Lista de verificação de segurança de base de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece um conjunto de lista de verificação de segurança da base de dados do Azure."
+title: Lista de verificação de segurança de base de dados do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de lista de verificação de segurança da base de dados do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança de base de dados do Azure
 
@@ -32,7 +32,7 @@ Estas incluem:
 -   Conectividade segura à base de dados através de cadeias de ligação segura
 -   Utilize a gestão de acesso
 -   Encriptação de dados
--   Auditoria de base de dados SQL
+-   Auditoria da Base de Dados SQL
 -   Deteção de ameaças de base de dados SQL
 
 ## <a name="introduction"></a>Introdução
@@ -57,8 +57,8 @@ Recomendamos que leia o [melhores práticas de segurança do Azure da base de da
 ## <a name="conclusion"></a>Conclusão
 Base de dados do Azure é uma plataforma de base de dados robusta, com um conjunto completo de funcionalidades de segurança que cumprem os requisitos de conformidade de regulamentação e organizacional muitos. Pode facilmente proteger dados controlar o acesso físico aos seus dados e utilizando uma variedade de opções de segurança de dados no ficheiro-, -de coluna ou ao nível da linha com a encriptação transparente de dados, a encriptação de nível de células ou a segurança ao nível da linha. Sempre encriptado também permite operações contra os dados encriptados, simplificar o processo de atualizações da aplicação. Por sua vez, acesso a auditoria de registos de atividade de base de dados do SQL Server fornece-lhe as informações que necessárias, permitindo-lhe saber como e quando os dados são acedidos.
 
-## <a name="next-steps"></a>Passos seguintes
-Pode melhorar a proteção da base de dados contra utilizadores mal intencionados ou acesso não autorizado com apenas alguns passos simples. Neste tutorial que aprende a:
+## <a name="next-steps"></a>Passos Seguintes
+Pode melhorar a proteção da sua base de dados contra utilizadores mal intencionados ou o acesso não autorizado com apenas alguns passos simples. Neste tutorial, ficará a saber como:
 
 - Configurar [regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para o seu servidor e ou base de dados.
 - Proteger os seus dados com [encriptação](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).

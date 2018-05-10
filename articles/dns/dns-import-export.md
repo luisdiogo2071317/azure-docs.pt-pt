@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: gwallace
-ms.openlocfilehash: 6bb9b6de195eaea1f7c8591d2de47d360ccde488
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2bd833ab7eb8c7888228a556acdb8b2a24214cd9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importar e exportar um ficheiro de zona DNS utilizando o 2.0 CLI do Azure 
 
@@ -117,36 +117,43 @@ Para verificar a zona DNS depois de importar o ficheiro, pode utilizar qualquer 
 
 * Pode listar os registos, utilizando o cmdlet do PowerShell `Get-AzureRmDnsRecordSet`.
 * Pode utilizar `nslookup` para verificar a resolução de nomes para os registos. Porque a zona não delegada ainda, tem de especificar os servidores de nomes de DNS do Azure corretos explicitamente. O exemplo seguinte mostra como obter os nomes de servidor atribuídos à zona. Isto também mostra como consultar os registos "www" utilizando `nslookup`.
-```
-C:\>az network dns record-set ns list -g myresourcegroup -z  --output json 
-  [
-   .......
-   "name": "@",
-    "nsRecords": [
-      {
-        "additionalProperties": {},
-        "nsdname": "ns1-03.azure-dns.com."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns2-03.azure-dns.net."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns3-03.azure-dns.org."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns4-03.azure-dns.info."
-      }
-    ],
-    "resourceGroup": "myresourcegroup",
-    "ttl": 86400,
-    "type": "Microsoft.Network/dnszones/NS"
-  }
-]
 
-        C:\> nslookup www.contoso.com ns1-03.azure-dns.com
+    ```azurecli
+    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    ```
+
+    ```json
+    [
+      {
+       .......
+       "name": "@",
+        "nsRecords": [
+          {
+            "additionalProperties": {},
+            "nsdname": "ns1-03.azure-dns.com."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns2-03.azure-dns.net."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns3-03.azure-dns.org."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns4-03.azure-dns.info."
+          }
+        ],
+        "resourceGroup": "myresourcegroup",
+        "ttl": 86400,
+        "type": "Microsoft.Network/dnszones/NS"
+      }
+    ]
+    ```
+
+    ```cmd
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
         Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
@@ -154,7 +161,7 @@ C:\>az network dns record-set ns list -g myresourcegroup -z  --output json
         Name:www.contoso.com
         Addresses:  134.170.185.46
         134.170.188.221
-```
+    ```
 
 ### <a name="step-3-update-dns-delegation"></a>Passo 3. Atualizar delegação de DNS
 

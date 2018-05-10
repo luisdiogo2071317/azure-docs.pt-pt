@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -450,9 +450,9 @@ Se a definição de extensão de dimensionamento da máquina virtual é atualiza
 
 Se uma VM existente healed de serviço, é apresentada como reiniciar o computador e as extensões não são novamente. Se é recriada, é como substituir o disco de SO com a imagem de origem. Qualquer especialização do modelo mais recente, tais como as extensões, são executados.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Como aderir a um conjunto a um domínio do Azure AD de dimensionamento de máquina virtual?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Como aderir a um conjunto a um domínio do Active Directory de dimensionamento de máquina virtual?
 
-Para associar um conjunto a um domínio do Azure Active Directory (Azure AD) de dimensionamento de máquina virtual, pode definir uma extensão. 
+Para associar um conjunto a um domínio do Active Directory (AD) de dimensionamento de máquina virtual, pode definir uma extensão. 
 
 Para definir uma extensão, utilize a propriedade JsonADDomainExtension:
 

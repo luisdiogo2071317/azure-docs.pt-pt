@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 Otimização de memória oferta de tamanhos VM numa proporção de memória a CPU elevada que são ótimos para servidores de base de dados relacional, caches médias e grandes e análise de memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -26,9 +26,9 @@ Otimização de memória oferta de tamanhos VM numa proporção de memória a CP
 
 * O série Ev3 funcionalidades E5-2673 v4 2.3 GHz (Broadwell) processador numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de objetivo mais comum e colocar o Ev3 em alinhamento com o objetivo geral VMs da maioria das outras nuvens.  Memória foi expandida (a partir de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de disco e rede tem sido ajustados numa base por núcleo para alinhar com a mudança para Hyper-Threading.  O Ev3 é siga até os tamanhos VM de elevada da memória de famílias de D/Dv2.
 
-## <a name="esv3-series-sup1sup"></a>Série Esv3 <sup>1</sup>
+## <a name="esv3-series"></a>Série Esv3 
 
-ACU: 160-190
+ACU: 160-190 <sup>1</sup>
 
 As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) e podem chegar aos 3.5GHz com o Intel Turbo Boost Technology 2.0 e utilizar o armazenamento premium. As instâncias da série Ev3 são ideais para aplicações empresariais com utilização intensiva da memória.
 
@@ -51,9 +51,9 @@ As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5
 <sup>3</sup> instância está isolada para hardware dedicado a um único cliente.
 
 
-## <a name="ev3-series-sup1sup"></a>Série Ev3 <sup>1</sup>
+## <a name="ev3-series"></a>Série Ev3 
 
-ACU: 160 - 190 
+ACU: 160-190 <sup>1</sup>
 
 As instâncias da série Ev3 são baseadas no processador de 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) e pode chegar aos 3.5 GHz com o Intel Turbo Boost Technology 2.0. As instâncias da série Ev3 são ideais para aplicações empresariais com utilização intensiva da memória.
 
@@ -75,9 +75,9 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 <sup>2</sup> restrita tamanhos de núcleos disponíveis. 
 
 
-## <a name="m-series-sup1sup"></a>M-série <sup>1</sup>
+## <a name="m-series"></a>Série M 
 
-ACU: 160-180
+ACU: 160-180 <sup>1</sup>
 
 | Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +95,9 @@ ACU: 160-180
 <sup>4</sup> instância está isolada para hardware dedicado a um único cliente.
 <br>
 
-## <a name="gs-series-sup1sup"></a>Série GS <sup>1</sup>
+## <a name="gs-series"></a>Séries GS 
 
-ACU: 180 - 240
+ACU: 180-240 <sup>1</sup>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +131,9 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>Série dsv2 <sup>1</sup>
+## <a name="dsv2-series"></a>Série DSv2 
 
-ACU: 210 - 250
+ACU: 210-250 <sup>1</sup>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +174,9 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>-Série DS <sup>1</sup>
+## <a name="ds-series"></a>Série DS 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Débito máximo do disco não colocado em cache: IOPS/MBps | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

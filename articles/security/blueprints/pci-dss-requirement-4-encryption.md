@@ -1,9 +1,9 @@
 ---
-title: "Azure Blueprint de processamento de pagamento - requisitos de encriptação"
+title: Azure Blueprint de processamento de pagamento - requisitos de encriptação
 description: Requisito de PCI DSS 4
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Requisitos de encriptação para ambientes em conformidade de PCI DSS 
 ## <a name="pci-dss-requirement-4"></a>Requisito de PCI DSS 4
@@ -52,8 +52,8 @@ Informações confidenciais tem de ser encriptadas durante a transmissão atrav�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore é uma solução de PaaS que implementa criptografia segura para a implementação da seguinte forma:<br /><br />Para satisfazer os requisitos de dados em rest encriptados, [Storage do Azure](https://azure.microsoft.com/services/storage/) utiliza o seguinte:<br /><br /><ul><li>[Encriptação do serviço de armazenamento do Azure (SSE) para dados Inativos](/azure/storage/storage-service-encryption)</li><li>Base de dados do SQL Server: Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).</li><li>[Encriptação de disco do Azure (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Utilizar o Cofre de chaves do Azure está alinhada com o Azure Government, PCI DSS e requisitos de HIPAA.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore é uma solução de PaaS que implementa criptografia segura para a implementação da seguinte forma:<br /><br />Para satisfazer os requisitos de dados em rest encriptados, [Storage do Azure](https://azure.microsoft.com/services/storage/) utiliza o seguinte:<br /><br /><ul><li>[Encriptação do serviço de armazenamento do Azure (SSE) para dados Inativos](/azure/storage/storage-service-encryption)</li><li>Base de dados do SQL Server: Uma instância de base de dados de SQL de PaaS é utilizada para demonstramos medidas de segurança da base de dados. Para obter mais informações, consulte [orientações de PCI - SQL Database do Azure](payment-processing-blueprint.md#azure-sql-database).</li><li>[Encriptação de disco do Azure (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Utilizar o Cofre de chaves do Azure está alinhada com o Azure Government, PCI DSS e requisitos de HIPAA.|
 
 
 
@@ -65,8 +65,8 @@ Informações confidenciais tem de ser encriptadas durante a transmissão atrav�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Redes sem fios e SNMP não são implementados na solução.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Redes sem fios e SNMP não são implementados na solução.|
 
 
 
@@ -78,8 +78,8 @@ Informações confidenciais tem de ser encriptadas durante a transmissão atrav�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore não tem qualquer soluções mensagens implementadas, que podem enviar dados de número (PAN) desprotegida conta principal.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore não tem qualquer soluções mensagens implementadas, que podem enviar dados de número (PAN) desprotegida conta principal.|
 
 
 
@@ -91,8 +91,8 @@ Informações confidenciais tem de ser encriptadas durante a transmissão atrav�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis pela documentação e encriptar as transmissões que contêm dados cardholder.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis pela documentação e encriptar as transmissões que contêm dados cardholder.|
 
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>referência de Host.JSON para as funções do Azure
 
@@ -139,8 +139,48 @@ Controlos a [funcionalidade de amostragem do Application Insights](functions-mon
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|isEnabled|true|Ativa ou desativa a amostragem.| 
+|IsEnabled|true|Ativa ou desativa a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limiar em que a amostragem começa.| 
+
+## <a name="durabletask"></a>durableTask
+
+Definições de configuração para [funções durável](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Os nomes de hub de tarefas tem de começar com uma letra e incluir apenas letras e números. Se não for especificado, o nome de hub de tarefa de predefinido para uma aplicação de função é **DurableFunctionsHub**. Para obter mais informações, consulte [tarefas hubs](durable-functions-task-hubs.md).
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------|
+|hubName|DurableFunctionsHub|Alternativo [hub tarefas](durable-functions-task-hubs.md) nomes podem ser utilizados para isolar várias funções durável aplicações entre si, mesmo se estiverem a utilizar o mesmo back-end de armazenamento.|
+|ControlQueueBatchSize|32|O número de mensagens em fila para solicitar a partir da fila de controlo cada vez.|
+|PartitionCount |4|O número de partição para a fila de controlo. Pode ser um número inteiro positivo entre 1 e 16.|
+|ControlQueueVisibilityTimeout |5 minutos|O tempo limite de visibilidade de mensagens de fila de controlo removida.|
+|WorkItemQueueVisibilityTimeout |5 minutos|O tempo limite de visibilidade de mensagens de fila de item de trabalho removida.|
+|MaxConcurrentActivityFunctions |10 x o número de processadores da máquina atual|O número máximo de funções de atividade que podem ser processados em simultâneo numa instância de anfitrião único.|
+|MaxConcurrentOrchestratorFunctions |10 x o número de processadores da máquina atual|O número máximo de funções de atividade que podem ser processados em simultâneo numa instância de anfitrião único.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|O nome da definição de aplicação que tenha a cadeia de ligação de armazenamento do Azure utilizada para gerir os recursos de armazenamento do Azure subjacentes.|
+|TraceInputsAndOutputs |false|Um valor que indica se as entradas e saídas de chamadas de função de rastreio. É o comportamento predefinido quando o rastreio de eventos de execução de função para incluir o número de bytes na serializados entradas e saídas para chamadas de função. Esta opção fornece mínimas informações sobre as entradas e saídas aspeto sem bloating os registos ou exposição inadvertidamente informações confidenciais para os registos. A definição desta propriedade como verdadeira faz com que o registo de função predefinido para todo o conteúdo de função entradas e saídas de registo.|
+|EventGridTopicEndpoint ||O URL de um ponto final de tópico personalizada de grelha de eventos do Azure. Quando esta propriedade for definida, os eventos de notificação de ciclo de vida do orchestration são publicados para este ponto final.|
+|EventGridKeySettingName ||O nome da definição de aplicação que contém a chave utilizada para autenticar com o tópico personalizado da grelha de eventos do Azure em `EventGridTopicEndpoint`.
+
+Muitos destes são para otimizar o desempenho. Para obter mais informações, consulte [desempenho e dimensionamento](durable-functions-perf-and-scale.md).
 
 ## <a name="eventhub"></a>eventHub
 
@@ -150,7 +190,7 @@ Definições de configuração para [Hub de eventos de acionadores e enlaces](fu
 
 ## <a name="functions"></a>functions
 
-Uma lista de funções que o anfitrião de tarefa será executada.  Uma matriz vazia significa executar todas as funções.  Concebidos para utilização apenas quando [executar localmente](functions-run-local.md). Nas aplicações de função, utilize o *function.json* `disabled` propriedade em vez desta propriedade no *host.json*.
+Uma lista de funções que o anfitrião de tarefa será executada. Uma matriz vazia significa executar todas as funções. Concebidos para utilização apenas quando [executar localmente](functions-run-local.md). Nas aplicações de função, utilize o *function.json* `disabled` propriedade em vez desta propriedade no *host.json*.
 
 ```json
 {
@@ -299,21 +339,6 @@ Um conjunto de [partilhado diretórios do código](functions-reference-csharp.md
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[Hub de tarefa](durable-functions-task-hubs.md) nome para [funções durável](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Os nomes de hub de tarefas tem de começar com uma letra e incluir apenas letras e números. Se não for especificado, o nome de hub de tarefa de predefinido para uma aplicação de função é **DurableFunctionsHub**. Para obter mais informações, consulte [tarefas hubs](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

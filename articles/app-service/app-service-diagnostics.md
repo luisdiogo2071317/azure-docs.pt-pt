@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de diagnóstico do Azure App Service | Microsoft Docs"
-description: "Saiba como pode resolver problemas com a sua aplicação web com o diagnóstico de serviço de aplicações."
-keywords: "serviço de aplicações, serviço de aplicações do azure, diagnóstico, suporte, aplicação web, de resolução de problemas, ajuda autónoma"
+title: Descrição geral de diagnóstico do Azure App Service | Microsoft Docs
+description: Saiba como pode resolver problemas com a sua aplicação web com o diagnóstico de serviço de aplicações.
+keywords: serviço de aplicações, serviço de aplicações do azure, diagnóstico, suporte, aplicação web, de resolução de problemas, ajuda autónoma
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: jen7714
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Descrição geral de diagnóstico de serviço de aplicações do Azure 
 
@@ -26,11 +26,13 @@ Quando estiver a executar uma aplicação web, que pretende ser preparado para q
  
 Apesar desta experiência mais úteis quando está a ter problemas com a sua aplicação web nas últimas 24 horas, todos os gráficos diagnóstico estarão disponíveis para que possa analisar permanente. Ferramentas adicionais de resolução de problemas e ligações para documentação útil e fóruns estão localizadas na coluna direita.
 
+Diagnóstico de serviço de aplicações funciona para não só a aplicação no Windows, mas também as aplicações em [Linux/contentores](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [ambiente de serviço de aplicações](https://docs.microsoft.com/en-us/azure/app-service/environment/intro), e [das funções do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+
 ## <a name="open-app-service-diagnostics"></a>Abra diagnóstico de serviço de aplicações
 
-Para aceder ao diagnóstico do serviço de aplicações, navegue até à sua aplicação web do app Service no [portal do Azure](https://portal.azure.com). 
+Para aceder ao diagnóstico do serviço de aplicações, navegue até à sua aplicação de serviço de aplicações ou o ambiente de serviço de aplicações no [portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **diagnosticar e resolver problemas**. 
 
-No painel de navegação esquerdo, clique em **diagnosticar e resolver problemas**.
+Para as funções do Azure, navegue para a sua aplicação de função e, no painel de navegação superior, clique em **funcionalidades da plataforma** e selecione **diagnosticar e resolver problemas** do **monitorização**secção. 
 
 ![Home page](./media/app-service-diagnostics/Homepage1.png)
 
@@ -46,13 +48,22 @@ Se for detetado um problema com uma categoria de problema específico nas últim
 
 ## <a name="tile-shortcuts"></a>Atalhos de mosaico
 
-Se souber exatamente que tipo de procura de informações de resolução de problemas, os atalhos de mosaico leva-o diretamente para o relatório de diagnóstico completa da categoria de problema que está interessado em. Em comparação com a checkup de estado de funcionamento, os atalhos de mosaico são a mais direta, mas inferior orientado forma de aceder a métricas de diagnóstico.  
+Se souber exatamente que tipo de procura de informações de resolução de problemas, os atalhos de mosaico leva-o diretamente para o relatório de diagnóstico completa da categoria de problema que está interessado em. Em comparação com a checkup de estado de funcionamento, os atalhos de mosaico são a mais direta, mas inferior orientado forma de aceder a métricas de diagnóstico. Como parte de atalhos de mosaico, este é também onde encontrará **as ferramentas de diagnóstico** que mais avançado ferramentas que o irão ajudar a investigar problemas relacionados com problemas de código da aplicação, slowness, cadeias de ligação e muito mais. 
 
 ![Atalhos de mosaico](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## <a name="diagnostic-report"></a>Relatório de diagnóstico
 
-Se quiser obter mais informações, após a execução um [checkup de estado de funcionamento](#health-checkup) ou clicar do [mosaico atalhos](#tile-shortcuts), o relatório de diagnóstico completa irá mostrar-lhe relevantes métricas graphed das últimas 24 horas. Se a sua aplicação experiências qualquer período de inatividade, é representada por uma barra laranja sob a linha cronológica. Pode selecionar um dos tempos de inatividade para obter as observações analisadas sobre o tempo de inatividade e as soluções sugeridas. 
+Se quiser obter mais informações, após a execução um [checkup de estado de funcionamento](#health-checkup) ou clicar do [mosaico atalhos](#tile-shortcuts), o relatório de diagnóstico completa irá mostrar-lhe relevantes métricas graphed das últimas 24 horas. Se a sua aplicação experiências qualquer período de inatividade, é representada por uma barra laranja sob a linha cronológica. Pode selecionar uma das laranja barras para selecionar o período de indisponibilidade para ver as observações sobre esse período de inatividade e os passos de resolução de problemas sugeridos. 
 
 ![Relatório de diagnóstico](./media/app-service-diagnostics/DiagnosticReport5.png)
+
+
+## <a name="investigating-application-code-issues"></a>Investigar problemas de código da aplicação
+
+Porque muitos problemas de aplicação estão relacionadas com problemas no código da aplicação, diagnóstico de serviço de aplicações se integra com [Application Insights](https://azure.microsoft.com/services/application-insights/) para realçar as exceções e problemas de dependência para correlacionar com o período de indisponibilidade selecionado. Application Insights tem de ser ativada em separado. 
+
+Para ver as exceções do Application Insights e dependências, selecione o **Web App para baixo** ou **lenta de aplicação Web** mosaico atalhos. 
+
+![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
 

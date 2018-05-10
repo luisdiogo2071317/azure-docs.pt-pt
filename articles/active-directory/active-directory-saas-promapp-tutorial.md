@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Promapp | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Promapp."
+title: 'Tutorial: Integração do Azure Active Directory com Promapp | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Promapp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a0630bf015361833ed3a6949ea7b29450d53701
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b8a15143d38b7d835f85b8d196af5f33f5de18b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Azure Active Directory com Promapp
 
@@ -113,23 +113,22 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
     | |
     |--|
-    | `https://demo.promapp.com/TENANTNAME`|
-    | `https://go.promapp.com/TENANTNAME`|
-    | `https://demoau.promapp.com/TENANTNAME`|
-    | `https://au.promapp.com/TENANTNAME`|
-    | `https://demous.promapp.com/TENANTNAME`|
-    | `https://us.promapp.com/TENANTNAME`|
-    | `https://dev.promapp.com/TENANTNAME`|
-    | `https://test.promapp.com/TENANTNAME`|
-    | `https://staging.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME/`|
+    | `https://au.promapp.com/TENANTNAME/`|
+    | `https://us.promapp.com/TENANTNAME/`|
+    | `https://eu.promapp.com/TENANTNAME/`|
+    | `https://ca.promapp.com/TENANTNAME/`|
     
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
+    > [!NOTE] 
+    > Atualmente integração do Azure AD com Promapp só foi configurada para autenticação do serviço iniciada por exemplo, vai um URL de Promapp inicia o processo de autenticação. No entanto, o URL de resposta é um campo obrigatório.
+    
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente Promapp](https://www.promapp.com/about-us/contact-us/) para obter estes valores.
@@ -240,11 +239,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
     
 ### <a name="testing-single-sign-on"></a>Teste o início de sessão único
 
-O objetivo desta secção consiste em testar a configuração de SSO do Azure AD através do painel de acesso.
-
-Para testar a aplicação no **IDP** modo iniciado, quando clica no mosaico Promapp no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Promapp.
-
-Para testar a aplicação no **SP** iniciada modo, terá de iniciar a autenticação do seu site Promapp. Isto pode ser feito por deixar o campo de palavra-passe em branco quando iniciar sessão enfrenta **opcional** modo está ativado.
+Para testar a aplicação no **SP** iniciada modo, terá de iniciar a autenticação do seu site Promapp. Isto pode ser feito ao clicar no botão de 'Início de sessão com o início de sessão único' na sua página de início de sessão enfrenta **opcional** modo está ativado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

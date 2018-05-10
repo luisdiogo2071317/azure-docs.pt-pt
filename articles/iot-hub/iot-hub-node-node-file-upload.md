@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub
 
@@ -36,7 +36,7 @@ O [introdução ao IoT Hub](iot-hub-node-node-getstarted.md) tutorial demonstra 
 * Dados vibration amostragem alta frequência
 * Algum tipo de dados pré-processados.
 
-Estes ficheiros são, normalmente, batch processado na nuvem através de ferramentas, como [do Azure Data Factory](../data-factory/introduction.md) ou [Hadoop](../hdinsight/index.md) pilha. Quando for necessário upland ficheiros de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
+Estes ficheiros são, normalmente, batch processado na nuvem através de ferramentas, como [do Azure Data Factory](../data-factory/introduction.md) ou [Hadoop](../hdinsight/index.yml) pilha. Quando for necessário upland ficheiros de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
 
 No final deste tutorial, executar duas aplicações de consola do Node.js:
 

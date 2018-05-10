@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias nas funções durável (funções do Azure)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Para idiomas não .NET, a função de enlace de saída pode ser utilizado para iniciar, bem como novas instâncias. Neste caso, pode ser utilizado qualquer objeto serializável para o JSON que tem os parâmetros de três acima como campos. Por exemplo, considere a seguinte função Node.js:
+Para idiomas não .NET, a função de enlace de saída pode ser utilizado para iniciar, bem como novas instâncias. Neste caso, pode ser utilizado qualquer objeto serializável para o JSON que tem os parâmetros de três acima como campos. Por exemplo, considere a função de JavaScript seguinte:
 
 ```js
 module.exports = function (context, input) {
@@ -100,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Consulta de instância é atualmente suportado apenas para as funções do orchestrator c#.
-
 ## <a name="terminating-instances"></a>Instâncias de terminação
 
 Uma instância de orquestração em execução pode ser terminada utilizando o [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. Os dois parâmetros são um `instanceId` e um `reason` cadeia, que será escrita nos registos e o estado de instância. Uma instância terminada deixa de ser executado assim que chegar a próxima `await` ponto ou terminará imediatamente se já está ativada uma `await`. 
@@ -117,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Está atualmente a terminação de instância só são suportadas para funções de orchestrator c#.
 
 > [!NOTE]
 > Terminação de instância não propagar atualmente. Funções de atividade e orchestrations secundárias serão executada para conclusão independentemente se a instância de orquestração chamado-los foi terminada.
@@ -146,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Gerar eventos atualmente só é suportada para as funções do orchestrator c#.
 
 > [!WARNING]
 > Se não houver nenhuma instância de orquestração com especificado *ID de instância* ou se a instância não está à espera que o especificado na *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte o [problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

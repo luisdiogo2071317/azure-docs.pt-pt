@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: babanisa
-ms.openlocfilehash: a2612d2154ea5b991f549a0678374336e1a95c40
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: MT
+ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema de CloudEvents com grelha de eventos
 
@@ -89,6 +89,8 @@ Pode utilizar a grelha de eventos de entrada e saída de eventos no esquema Clou
 | Formato de grelha de eventos  | Formato de CloudEvents
 | Formato de CloudEvents | Formato de grelha de eventos
 | Formato de grelha de eventos  | Formato de grelha de eventos
+
+Para todos os esquemas de evento, eventos grelha necessita de validação ao publicar um tópico da grelha de eventos e ao criar uma subscrição de evento. Para obter mais informações, consulte [grelha de eventos de segurança e autenticação](security-authentication.md).
 
 ### <a name="input-schema"></a>Esquema de entrada
 

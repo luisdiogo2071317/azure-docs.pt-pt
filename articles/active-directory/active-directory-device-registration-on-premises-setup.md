@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local utilizando o registo de dispositivos do Azure Active Directory
 Quando necessitar que os utilizadores a associação à área de trabalho os seus dispositivos pessoais para o serviço de registo de dispositivos do Azure Active Directory (Azure AD), os respetivos dispositivos podem ser marcados como conhecida para a sua organização. Segue-se um guia passo a passo para ativar o acesso condicional para aplicações no local através da utilização de serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.
@@ -86,7 +86,7 @@ Siga os passos da lista de verificação para ativar e configurar o serviço de 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: Repetição de escrita ativar dispositivo no Azure AD
 | Tarefa | Referência |
 | --- | --- |
-| Concluir dois parte "Ativar dispositivos repetição de escrita no Azure AD Connect." Depois de terminar, regresse a este guia. |[Ativar a repetição de escrita do dispositivo no Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Concluir dois parte "Ativar dispositivos repetição de escrita no Azure AD Connect." Depois de terminar, regresse a este guia. |[Ativar a repetição de escrita do dispositivo no Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: Ativar multi-factor Authentication
 Recomendamos vivamente que configure uma das várias opções para o multi-factor Authentication. Se pretende exigir a autenticação Multifator, consulte o artigo [escolher a solução de segurança da multi-factor Authentication para](authentication/concept-mfa-whichversion.md). Inclui uma descrição de cada solução e ligações para o ajudar a configurar a solução à sua escolha.

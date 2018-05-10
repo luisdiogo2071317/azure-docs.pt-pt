@@ -1,9 +1,9 @@
 ---
-title: "Através da análise - a ferramenta poderosa pesquisa do Azure Application Insights | Microsoft Docs"
-description: "Através da análise, a ferramenta de pesquisa de diagnóstico de elevado desempenho do Application Insights. "
+title: Através da análise - a ferramenta poderosa pesquisa do Azure Application Insights | Microsoft Docs
+description: 'Através da análise, a ferramenta de pesquisa de diagnóstico de elevado desempenho do Application Insights. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Através da análise no Application Insights
 [Análise de](app-insights-analytics.md) é a funcionalidade de pesquisa poderoso de [Application Insights](app-insights-overview.md). Estas páginas descrevem o idioma de consulta de análise de registos.
@@ -109,7 +109,7 @@ Se considerar que não está a ver todos os resultados que o esperado, existem a
 
   * [primeiros 100 por timestamp](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
   * [tirar 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-  * [resumir](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [Resumir ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [onde timestamp > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Mais de 10 linhas de k que pretende? Considere a utilização de [exportação contínua](app-insights-export-telemetry.md) em vez disso. Análise de foi concebida para análise, em vez de ao obter dados não processados.)
@@ -143,7 +143,7 @@ Isto significa que, quando juntar um dashboard para o ajudar a monitorizar o des
 Pode afixar uma tabela para o dashboard, se tiver quatro ou menos colunas. São apresentadas apenas as linhas de sete superiores.
 
 ### <a name="dashboard-refresh"></a>Atualização do dashboard
-O gráfico afixado ao dashboard seja atualizado automaticamente executando novamente a consulta aproximadamente a cada horas. Também pode clicar no botão atualizar.
+O gráfico afixado ao dashboard seja atualizado automaticamente executando novamente a consulta aproximadamente a cada hora. Também pode clicar no botão atualizar.
 
 ### <a name="automatic-simplifications"></a>Simplifications automáticas
 
@@ -205,7 +205,7 @@ Por exemplo, se os utilizadores autenticados são identificados na sua telemetri
 ### <a name="define-your-data-schema"></a>Definir o esquema de dados
 
 1. Clique em **definições** (na parte superior esquerda) e, em seguida, **origens de dados**. 
-2. Adicione uma origem de dados, siga as instruções. É-lhe pedido para fornecer uma amostra de dados, o que devem incluir, pelo menos, dez linhas. Em seguida, corrija o esquema.
+2. Adicione uma origem de dados, siga as instruções. É-lhe pedido para fornecer uma amostra de dados, o que devem incluir pelo menos 10 linhas. Em seguida, corrija o esquema.
 
 Isto define uma origem de dados, em seguida, pode utilizar para importar as tabelas individuais.
 

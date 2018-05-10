@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 8bcc1b2c76ff1e312d1435997ef6d677656510d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Abanar, abanar para um Tweet – obter uma mensagem do Twitter com as funções do Azure!
 
@@ -188,6 +188,6 @@ Se tiver outros problemas, consulte [perguntas mais frequentes](https://microsof
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como ligar um dispositivo de DevKit para o Azure IoT Suite e obter um tweet, Eis os passos sugeridos:
+Agora que aprendeu como ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota do Azure IoT e obter um tweet, Eis os passos sugeridos:
 
-* [Descrição geral do Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Monitorização remota do IoT solução acelerador descrição geral do Azure](https://docs.microsoft.com/azure/iot-suite/)

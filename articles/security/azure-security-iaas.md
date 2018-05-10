@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 
@@ -85,7 +85,7 @@ Utilizar o Azure para os ambientes de desenvolvimento e laboratórios permite à
 
 O [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service utiliza [controlo de acesso em funções do Azure](../role-based-access-control/overview.md) (RBAC). Ao utilizar o RBAC, pode segregar funções na sua equipa em funções conceder apenas o nível de acesso necessário para os utilizadores para as respetivas tarefas. RBAC inclui funções predefinidas (proprietário, utilizador do laboratório e contribuinte). Mesmo pode utilizar estas funções para atribuir direitos para parceiros externos e simplificar significativamente a colaboração.
 
-Uma vez que DevTest Labs utiliza RBAC, é possível criar adicionais, [funções personalizadas](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs não só simplifica a gestão de permissões, simplifica o processo de obtenção ambientes aprovisionados. Também o ajuda a lidar com outros típicos desafios de equipas que estão a funcionar em ambientes de desenvolvimento e teste. É necessária alguma preparação, mas a longo prazo, irá facilitar as coisas para a sua equipa.
+Uma vez que DevTest Labs utiliza RBAC, é possível criar adicionais, [funções personalizadas](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs não só simplifica a gestão de permissões, simplifica o processo de obtenção ambientes aprovisionados. Também o ajuda a lidar com outros típicos desafios de equipas que estão a funcionar em ambientes de desenvolvimento e teste. É necessária alguma preparação, mas a longo prazo, irá facilitar as coisas para a sua equipa.
 
 Azure DevTest Labs funcionalidades incluem:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8ad73132839aaa77166c115feff9a70db864ba12
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -53,7 +53,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se o inquilino IDs para as subscrições de origem e de destino não forem iguais, utilize os seguintes métodos para reconciliar o IDs do inquilino: 
+  Se o inquilino IDs para as subscrições de origem e de destino não forem iguais, utilize os seguintes métodos para reconciliar o IDs do inquilino:
 
   * [Transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md)
   * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -166,7 +166,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Base de Dados do Azure para MySQL
 * Serviços BizTalk
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
-* Serviço de Contentor
+* Serviço de Kubernetes
 * DevTest Labs - vá para o novo grupo de recursos na mesma subscrição está ativada, mas mover subscrição cruzada não está ativada.
 * Dynamics LCS
 * ExpressRoute
@@ -203,13 +203,13 @@ Não é possível mover uma rede virtual para uma subscrição diferente se a re
 
 ## <a name="app-service-limitations"></a>Limitações do serviço de aplicações
 
-As limitações para mover os recursos do serviço de aplicações diferem com base em se estiver a mover os recursos numa subscrição ou para uma nova subscrição. 
+As limitações para mover os recursos do serviço de aplicações diferem com base em se estiver a mover os recursos numa subscrição ou para uma nova subscrição.
 
 As limitações descritas nestas secções aplicam-se aos certificados carregados, certificados de serviço de aplicações não. Pode mover os certificados de serviço de aplicações para um novo grupo de recursos ou subscrição, sem limitações. Se tiver várias aplicações web que utilizam o mesmo certificado de serviço de aplicações, mover primeiro todas as aplicações web, em seguida, mova o certificado.
 
 ### <a name="moving-within-the-same-subscription"></a>Mover dentro da mesma subscrição
 
-Quando move uma aplicação Web _dentro da mesma subscrição_, não é possível mover os certificados SSL carregados. No entanto, pode mover uma aplicação Web para o novo grupo de recursos sem mover o respetivo certificado SSL carregado e funcionalidade SSL da sua aplicação ainda funciona. 
+Quando move uma aplicação Web _dentro da mesma subscrição_, não é possível mover os certificados SSL carregados. No entanto, pode mover uma aplicação Web para o novo grupo de recursos sem mover o respetivo certificado SSL carregado e funcionalidade SSL da sua aplicação ainda funciona.
 
 Se pretender mover o certificado SSL com a aplicação Web, siga estes passos:
 
@@ -227,7 +227,7 @@ Quando move uma aplicação Web _entre subscrições_, aplicam as seguintes limi
     - Certificados SSL carregados ou importados
     - Ambientes do App Service
 - Todos os recursos do serviço de aplicações no grupo de recursos têm de ser movidos em conjunto.
-- Recursos do serviço de aplicações só podem ser afastados do grupo de recursos no qual foram originalmente criados. Se um recurso de serviço de aplicações já não consta no respetivo grupo de recursos original, têm de ser movido volta a esse grupo de recursos original pela primeira vez e, em seguida, pode ser movida entre subscrições. 
+- Recursos do serviço de aplicações só podem ser afastados do grupo de recursos no qual foram originalmente criados. Se um recurso de serviço de aplicações já não consta no respetivo grupo de recursos original, têm de ser movido volta a esse grupo de recursos original pela primeira vez e, em seguida, pode ser movida entre subscrições.
 
 ## <a name="classic-deployment-limitations"></a>Limitações de implementação clássica
 

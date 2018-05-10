@@ -1,9 +1,9 @@
 ---
-title: "Enviar IDs para ativar a utilização de contexto de utilizador experiências no Azure Application Insights | Microsoft Docs"
-description: "Controle a forma como os utilizadores passam através do seu serviço atribuindo uma cadeia de ID exclusiva, persistente no Application Insights para cada um deles."
+title: Enviar IDs para ativar a utilização de contexto de utilizador experiências no Azure Application Insights | Microsoft Docs
+description: Controle a forma como os utilizadores passam através do seu serviço atribuindo uma cadeia de ID exclusiva, persistente no Application Insights para cada um deles.
 services: application-insights
-documentationcenter: 
-author: abgreg
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: mbullwin
-ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin;abgreg
+ms.openlocfilehash: 196eeb7b5a817ff932f99c7db86ead5625b5f206
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar o contexto de utilizador IDs proporcionar experiências de utilização no Azure Application Insights
 
@@ -26,7 +26,7 @@ Application Insights permite-lhe monitorizar e controlar os seus utilizadores at
 * [Utilizadores, Sessões, Eventos](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 * [Funis](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 * [Retenção](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
-* Cohorts
+* Coortes
 * [Livros](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
 Para poder controlar que um utilizador faz ao longo do tempo, o Application Insights tem um ID para cada utilizador ou a sessão. Inclua os seguintes IDs em cada vista de página ou eventos personalizada.

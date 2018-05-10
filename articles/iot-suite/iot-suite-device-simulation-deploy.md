@@ -1,6 +1,6 @@
 ---
-title: "Implementar a solução de simulação de dispositivo - Azure | Microsoft Docs"
-description: "Este tutorial mostra como aprovisionar a solução de dispositivo de simulação de azureiotsuite.com."
+title: Implementar a solução de simulação de dispositivo - Azure | Microsoft Docs
+description: Este tutorial mostra como aprovisionar a solução de dispositivo de simulação de azureiotsuite.com.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Implementar a solução de simulação de dispositivos do IoT do Azure
 
@@ -39,7 +39,7 @@ Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns
 
 Antes de implementar a solução para a sua subscrição do Azure, tem de escolher algumas opções de configuração:
 
-1. Inicie sessão no [azureiotsuite.com](https://www.azureiotsuite.com) utilizando o Azure credenciais de contas e clique em  **+**  para criar uma nova solução:
+1. Inicie sessão no [azureiotsuite.com](https://www.azureiotsuite.com) utilizando o Azure credenciais de contas e clique em **+** para criar uma nova solução:
 
     ![Criar uma nova solução](media/iot-suite-device-simulation-deploy/createnewsolution.png)
 
@@ -47,7 +47,7 @@ Antes de implementar a solução para a sua subscrição do Azure, tem de escolh
 
     ![Escolha a simulação de dispositivo](media/iot-suite-device-simulation-deploy/select.png)
 
-1. No **solução de simulação de criar dispositivo** página, introduza um **nome da solução** para a sua solução de simulação de dispositivo.
+1. No **solução de simulação de dispositivo criar** página, introduza um **nome da solução** para a sua solução de simulação de dispositivo.
 
 1. Selecione a **Subscrição** e a **Região** que quer utilizar para aprovisionar a solução.
 

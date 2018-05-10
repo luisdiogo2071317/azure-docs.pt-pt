@@ -1,6 +1,6 @@
 ---
 title: Introdução às funções de sistema baseado em janelas do Azure Stream Analytics
-description: Este artigo descreve as três modos de janela funções (em cascata, hopping, a deslizante) que são utilizadas nas tarefas do Azure Stream Analytics.
+description: Este artigo descreve as quatro modos de janela funções (em cascata, hopping, a deslizante, sessão) que são utilizadas nas tarefas do Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,35 +8,48 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 05/07/2018
+ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="introduction-to-stream-analytics-window-functions"></a>Introdução às funções de janela do Stream Analytics
-Em tempo real muitos cenários de transmissão em fluxo, é necessário para efetuarem operações apenas nos dados contidos no windows temporais. Suporte nativo para funções de modos de janela é uma funcionalidade chave do Azure Stream Analytics que são transmitidos a agulha na produtividade do programador na criação as tarefas de processamento de fluxo complexas. Do Stream Analytics permite aos programadores utilizar [ **em cascata**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) e [ **deslizantes** ](https://msdn.microsoft.com/library/dn835051.aspx) windows para executar operações temporais nos dados de transmissão em fluxo. É importante salientar que, todos os [janela](https://msdn.microsoft.com/library/dn835019.aspx) operações saída resultados no **final** da janela. A saída da janela serão evento único com base na função de agregação utilizada. O evento tem o carimbo de hora de fim da janela e todas as funções de janela estão definidas com um comprimento fixo. Por último é importante ter em atenção que todas as funções de janela devem ser utilizadas num [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) cláusula.
+# <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de sistema baseado em janelas do Stream Analytics
+Em cenários de transmissão em fluxo tempo, executar operações nos dados contidos no windows temporais é um padrão comum. Do Stream Analytics tem suporte nativo para funções de sistema baseado em janelas, permitindo aos programadores para as tarefas de processamento de fluxo complexas de autor sem qualquer esforço.
 
-![Conceitos de funções de janela de análise de fluxo](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
+Existem quatro tipos de temporal windows à sua escolha: [ **em cascata**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [ **Hopping**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [  **A deslizante**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics), e [ **sessão** ](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) windows.  Utilize as funções de janela no [ **GROUP BY** ](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) cláusula da sintaxe de consulta nas suas tarefas do Stream Analytics.
+
+Todos os o [modos de janela](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) operações saída resultados no **final** da janela. A saída da janela serão evento único com base na função de agregação utilizada. O evento de saída serão o carimbo de hora de fim da janela e todas as funções de janela estão definidas com um comprimento fixo. 
+
+![Conceitos de funções de janela do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
 ## <a name="tumbling-window"></a>Janela em cascata
-Em cascata janela funções são utilizadas para segmentar um fluxo de dados em segmentos de tempo distintos e efetuar uma função contra eles, como o exemplo abaixo. As chaves differentiators de uma janela em cascata são que eles repetir, não se sobreponha e um evento não pode pertencer a mais do que uma janela em cascata.
+Em cascata janela funções são utilizadas para segmentar um fluxo de dados em segmentos de tempo distintos e efetuar uma função contra eles, como o exemplo abaixo. As chaves differentiators de uma janela em cascata são que eles repetir, não sobrepõem-se de um evento não é possível pertencem a mais do que uma janela em cascata.
 
-![Funções de janela de análise de fluxo em cascata introdução](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
+![Janela em cascata do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Janela de salto
-Salto salto de funções de janela reencaminhar na hora por um período fixo. Poderá ser mais fácil considerá-los como janelas em cascata podem sobrepor-se, pelo que os eventos podem pertencer a mais do que um conjunto de resultados de janela Hopping. Para tornar uma janela de Hopping o mesmo que um em cascata janela um simplesmente especifique o tamanho de salto deve ser o mesmo que o tamanho da janela. 
+Salto salto de funções de janela reencaminhar na hora por um período fixo. Poderá ser mais fácil considerá-los como janelas em cascata podem sobrepor-se, pelo que os eventos podem pertencer a mais do que um conjunto de resultados de janela Hopping. Para tornar uma janela de Hopping os mesmos como uma janela em cascata, especifique o tamanho de salto deve ser o mesmo que o tamanho da janela. 
 
-![Janela do Stream Analytics funciona salto de introdução](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
+![Janela de salto do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Numa janela deslizante
-Funções de janela deslizante, ao contrário do salto windows, ou em cascata produzem uma saída **apenas** quando ocorre um evento. Cada janela vai ter, pelo menos, um evento e a janela continuamente move reencaminhar por um € (epsilon). Como salto Windows, os eventos podem pertencer a mais do que uma janela a deslizante.
+Funções de janela deslizante, ao contrário do salto windows, ou em cascata produzem uma saída **apenas** quando ocorre um evento. Cada janela vai ter, pelo menos, um evento e a janela continuamente move reencaminhar por um € (epsilon). Como hopping windows, os eventos podem pertencer a mais do que uma janela deslizante.
 
-![Funções de Stream Analytics janela deslizante de introdução](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Janela deslizante do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="getting-help-with-window-functions"></a>Obter ajuda com as funções de janela
-Para mais assistência, tente ler o nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+## <a name="session-window-preview"></a>Janela de sessão (pré-visualização)
+As funções de janela de sessão agrupar os eventos que chegam vezes semelhantes, filtrar períodos de tempo em que não existem dados. Tem três parâmetros principais: tempo limite, duração máxima e a chave de criação de partições (opcional).
+
+![Janela de sessão do Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
+
+Uma janela de sessão começa quando o primeiro evento ocorre. Se outro evento ocorre dentro do tempo limite especificado a partir do último evento transmissões em, a janela expande para incluir o evento de novo. Caso contrário, se não há eventos ocorrem dentro do tempo limite, a janela ser fechada, o tempo limite.
+
+Se eventos mantém ocorrer dentro do tempo limite especificado, manter alargar a janela de sessão até que a duração máxima for atingida. Os intervalos da verificar se a duração máxima são definidos para ser o mesmo tamanho que a duração máxima especificada. Por exemplo, se a duração máxima é de 10, em seguida, as verificações de se a janela excedem o máximo duração irá acontecer em t = 0, 10, 20, 30, etc.
+
+Quando uma chave de partição é fornecida, os eventos são agrupados em conjunto pela chave e a janela de sessão é aplicada a cada grupo de forma independente. A criação de partições é útil nos casos em que precisa de windows de sessão diferente para diferentes utilizadores ou dispositivos.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

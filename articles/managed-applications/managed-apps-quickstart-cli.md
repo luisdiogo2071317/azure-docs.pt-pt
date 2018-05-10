@@ -1,6 +1,6 @@
 ---
-title: "Criar aplicações geridas do Azure com a CLI do Azure | Microsoft Docs"
-description: "Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização."
+title: Criar aplicações geridas do Azure com a CLI do Azure | Microsoft Docs
+description: Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Criar e implementar uma aplicação gerida do Azure com a CLI do Azure
 
@@ -75,7 +75,7 @@ Após a conclusão do comando, terá uma definição de aplicação gerida no se
 Alguns dos parâmetros utilizados no exemplo anterior são:
 
 * **resource-group**: O nome do grupo de recursos em que a definição da aplicação gerida é criada.
-* **lock-level**: O tipo de bloqueio imposto no grupo de recursos gerido. Impede o cliente de realizar operações não desejadas neste grupo. Atualmente, o único nível de bloqueio suportado é ReadOnly. Quando é especificado ReadOnly, o cliente só consegue ler os recursos presentes no grupo de recursos gerido.
+* **lock-level**: O tipo de bloqueio imposto no grupo de recursos gerido. Impede o cliente de realizar operações não desejadas neste grupo. Atualmente, o único nível de bloqueio suportado é ReadOnly. Quando é especificado ReadOnly, o cliente só consegue ler os recursos presentes no grupo de recursos gerido. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
 * **authorizations**: descreve o ID de principal e o ID da definição da função utilizados para conceder permissões ao grupo de recursos gerido. É especificado com formato `<principalId>:<roleDefinitionId>`. Também podem ser indicados vários valores para esta propriedade. Se forem necessários vários valores, devem ser especificados no formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Os vários valores são separados por espaço.
 * **package-file-uri**: a localização de um pacote .zip que contém os ficheiros necessários. No mínimo, o pacote contém os ficheiros **mainTemplate.json** e **createUiDefinition.json**. **mainTemplate.json** define os recursos do Azure que são aprovisionados como parte da aplicação gerida. O modelo é igual aos modelos normais do Resource Manager. **createUiDefinition.json** gera a interface de utilizador para os utilizadores que criem a aplicação gerida através do portal.
 

@@ -1,9 +1,9 @@
 ---
-title: "Smart deteção no Azure Application Insights | Microsoft Docs"
-description: "Application Insights faz uma análise detalhada automática da sua telemetria de aplicação e avisa-o de potenciais problemas."
+title: Smart deteção no Azure Application Insights | Microsoft Docs
+description: Application Insights faz uma análise detalhada automática da sua telemetria de aplicação e avisa-o de potenciais problemas.
 services: application-insights
 documentationcenter: windows
-author: rakefetj
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2eeb4a35-c7a1-49f7-9b68-4f4b860938b2
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: c15db8451cc1c5380bcf4a29c5e722d09c0a603b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 38a7c5be98440a717eb54092bf7ce0d412619017
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection-in-application-insights"></a>Deteção inteligente no Application Insights
  Deteção inteligente automaticamente avisa-o de potenciais problemas de desempenho na sua aplicação web. Efetua a análise proativa de telemetria que a aplicação envia a [Application Insights](app-insights-overview.md). Se existir um aumento súbito repentino no taxas de falha ou padrões anormais no desempenho do cliente ou servidor, receberá um alerta. Esta funcionalidade não necessita de nenhuma configuração. Funciona se a aplicação enviar telemetria suficiente.
@@ -51,7 +51,7 @@ Existem três tipos de Deteção:
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estas ferramentas de diagnóstico de ajudam a inspecionar a telemetria da sua aplicação:
 
 * [Explorador de métrica](app-insights-metrics-explorer.md)

@@ -1,18 +1,18 @@
 ---
-title: "Ativação pós-falha na recuperação de Site | Microsoft Docs"
-description: "O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou num datacenter secundário."
+title: Ativação pós-falha na recuperação de Site | Microsoft Docs
+description: O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou num datacenter secundário.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: ponatara
-ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 40f35cde2b55da0763f6ee65b065f5dd8a55b9c6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
 Este artigo descreve como a ativação pós-falha máquinas de virtuais e físicos servidores protegidos pela recuperação de sites.
@@ -59,7 +59,7 @@ Este procedimento descreve como executar uma ativação pós-falha para um [plan
     >
     >
 
-1. Pode seguir o progresso da ativação pós-falha na página **Tarefas**. Mesmo se ocorrerem erros durante uma ativação pós-falha não planeada, o plano de recuperação é executada até estar concluída.
+1. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**. Mesmo se ocorrerem erros durante uma ativação pós-falha não planeada, o plano de recuperação é executada até estar concluída.
 1. Após a ativação pós-falha, valide a máquina virtual, o registo no mesmo. Se pretender mudar para outro ponto de recuperação da máquina virtual, em seguida, pode utilizar **alterar o ponto de recuperação** opção.
 1. Quando estiver satisfeito com a ativação pós-falha da máquina virtual, pode **Consolidar** a ativação pós-falha. **Consolidação elimina todos os pontos de recuperação disponíveis com o serviço** e **alterar o ponto de recuperação** opção já não está disponível.
 

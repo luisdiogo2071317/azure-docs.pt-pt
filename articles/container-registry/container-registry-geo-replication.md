@@ -6,23 +6,17 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
-As empresas que pretendem uma presença local ou uma cópia de segurança frequente, optar por executar serviços a partir de várias regiões do Azure. Como melhor prática, colocar um registo de contentor em cada região onde as imagens são executadas permite operações de fecho de rede, permitindo rápido, as transferências de camada de imagem fiável.
-
-A georreplicação ativa um registo de contentor do Azure para funcionar como um único registo, que serve várias regiões com multi-mestre registos regionais.
-
-> [!IMPORTANT]
-> A funcionalidade de georreplicação do Azure Container Registry está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
->
+As empresas que pretendem uma presença local ou uma cópia de segurança frequente, optar por executar serviços a partir de várias regiões do Azure. Como melhor prática, colocar um registo de contentor em cada região onde as imagens são executadas permite operações de fecho de rede, permitindo rápido, as transferências de camada de imagem fiável. A georreplicação ativa um registo de contentor do Azure para funcionar como um único registo, que serve várias regiões com multi-mestre registos regionais.
 
 Um registo georreplicação fornece as seguintes vantagens:
 

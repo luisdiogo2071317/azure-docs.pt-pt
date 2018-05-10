@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09efd5cd54fbd05d85939b3ae08bfbb37e91058d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -49,7 +49,7 @@ Para obter mais informações sobre os parâmetros de definição, consulte [con
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opção 1: Através da SAS com pass-through para o blob storage do Azure CDN
 
-Esta opção é a mais simples e utiliza um único token SAS, o que é transmitido da CDN do Azure para o servidor de origem. É suportado pelo **CDN do Azure da Verizon** e **CDN do Azure da Akamai**. 
+Esta opção é a mais simples e utiliza um único token SAS, o que é transmitido da CDN do Azure para o servidor de origem. É suportado pelo **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai** perfis. 
  
 1. Selecione um ponto final, selecione **regras a colocação em cache**, em seguida, selecione **colocar em Cache todos os URLs únicos** do **colocação em cache de cadeia de consulta** lista.
 

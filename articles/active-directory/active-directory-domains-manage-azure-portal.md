@@ -1,25 +1,23 @@
 ---
-title: "Gerir nomes de domínio personalizados no Azure Active Directory | Microsoft Docs"
-description: "Conceitos de gestão e how-tos para gerir um nome de domínio no Azure Active Directory"
+title: Gerir nomes de domínio personalizados no Azure Active Directory | Microsoft Docs
+description: Conceitos de gestão e how-tos para gerir um nome de domínio no Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81c2371d5dbb17399071c80ff4e8b81813ed014c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no Azure Active Directory
 Um nome de domínio é uma parte importante do identificador de vários recursos de diretório: faz parte de um utilizador nome ou endereço de e-mail para um utilizador, parte do endereço de um grupo e podem fazer parte da aplicação do ID de URI para uma aplicação. Um recurso no Azure Active Directory (Azure AD) pode incluir um nome de domínio que já é verificado como pertencentes ao diretório que contém o recurso. Apenas um administrador global pode efetuar tarefas de gestão do domínio no Azure AD.
@@ -28,7 +26,7 @@ Um nome de domínio é uma parte importante do identificador de vários recursos
 Quando é criado o seu diretório, o nome de domínio inicial, tais como 'contoso.onmicrosoft.com,' também é o nome de domínio primário. O domínio primário é o nome de domínio predefinido para um novo utilizador quando criar um novo utilizador. Definir um nome de domínio primário simplifica o processo para um administrador criar novos utilizadores no portal. Para alterar o nome de domínio primário:
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Selecione **do Azure Active Directory**.
+2. Selecione **Azure Active Directory**.
 3. Selecione **nomes de domínio personalizado**.
      
    ![Gestão de utilizadores de abertura](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
@@ -65,6 +63,6 @@ Também pode ser concluída a maioria das tarefas de gestão para nomes de domí
 * [Utilizar o PowerShell para gerir nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Graph API a utilizar para gerir nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar nomes de domínio personalizados](add-custom-domain.md)
 

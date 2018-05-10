@@ -6,27 +6,27 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
 Grelha de eventos do Azure tem três tipos de autenticação:
 
 * Subscrições de eventos
-* Publicação de eventos
+* Publicação do evento
 * Entrega de eventos do WebHook
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos do WebHook
 
 Webhooks são uma das várias formas para receber eventos da grelha de eventos do Azure. Quando um novo evento estiver pronto, o Webhook de grelha de eventos envia um pedido HTTP para o ponto final de HTTP configurado com o evento no corpo.
 
-Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe um pedido POST com um código de validação simples para provar a propriedade de ponto final. A aplicação tem de responder ao echoing novamente o código de validação. Grelha de eventos não fornecer eventos aos pontos finais de WebHook que ainda não passaram a validação.
+Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe um pedido POST com um código de validação simples para provar a propriedade de ponto final. A aplicação tem de responder ao echoing novamente o código de validação. Grelha de eventos não fornecer eventos aos pontos finais de WebHook que ainda não passaram a validação. Se utilizar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir eco programaticamente o código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação que é enviado o evento de validação da subscrição. Copiar esse URL e enviar um pedido GET através de um cliente REST ou o seu browser.
 
 ### <a name="validation-details"></a>Detalhes de validação
 
@@ -34,6 +34,7 @@ Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe 
 * O evento contém um valor de cabeçalho "Tipo de evento Aeg: SubscriptionValidation".
 * O corpo de evento tem o mesmo esquema que outros eventos de grelha de eventos.
 * Os dados do evento incluem uma propriedade de "validationCode" com uma cadeia gerada aleatoriamente. Por exemplo, "validationCode: acb13...".
+* Os dados do evento incluem uma propriedade de "validationUrl" com um URL para validar manualmente a subscrição.
 * A matriz contém apenas o evento de validação. Outros eventos são enviados num pedido separado depois de volta eco o código de validação.
 
 Um exemplo SubscriptionValidationEvent é apresentado no exemplo seguinte:
@@ -44,7 +45,8 @@ Um exemplo SubscriptionValidationEvent é apresentado no exemplo seguinte:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -60,6 +62,9 @@ Para provar a propriedade de ponto final, escreverá novamente o código de vali
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Em alternativa, a subscrição de validação manualmente através do envio de um pedido GET para o URL de validação. A subscrição de evento permanece no estado pendente até validada.
+
 ### <a name="event-delivery-security"></a>Segurança de entrega de eventos
 
 Pode proteger o ponto final de webhook ao adicionar parâmetros de consulta para o URL do webhook quando criar uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que pode utilizar o webhook para reconhecer o evento é proveniente de grelha de eventos com permissões válidas. Grelha de eventos irá incluir estes parâmetros de consulta em cada entrega de eventos para o webhook.

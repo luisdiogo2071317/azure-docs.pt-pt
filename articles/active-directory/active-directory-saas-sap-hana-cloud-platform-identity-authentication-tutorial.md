@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com autenticação de identidade da plataforma de nuvem de SAP | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e autenticação de identidade da plataforma de nuvem de SAP."
+title: 'Tutorial: Integração do Azure Active Directory com autenticação de identidade da plataforma de nuvem de SAP | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e autenticação de identidade da plataforma de nuvem de SAP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 69a8eba2e099e9333d19d139fb5af503fd582dda
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do Azure Active Directory com autenticação de identidade da plataforma de nuvem de SAP
 
@@ -126,21 +126,25 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
  
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Se pretender configurar a aplicação no **IDP** iniciou modo, o **SAP nuvem plataforma de identidade de autenticação de domínio e os URLs** na secção de **identificador** caixa, Escreva um URL com o padrão seguinte: `https://<entity-id>.accounts.ondemand.com`.  
+3. Se pretender configurar a aplicação no **IDP** iniciou modo, o **SAP nuvem plataforma de identidade de autenticação de domínio e os URLs** secção, execute os seguintes passos:  
 
     ![SAP nuvem plataforma de identidade de autenticação de domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o identificador real. Contacte o [equipa de suporte de cliente de autenticação de identidade de plataforma de nuvem de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) para obter este valor. Se não compreender este valor, leia a documentação de autenticação de identidade da plataforma de nuvem de SAP sobre [inquilino SAML 2.0 configuração](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+    a. No **identificador** caixa, escreva um URL com o padrão do seguinte: `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. Se pretender configurar a aplicação no **SP** modo iniciado, selecione **Mostrar avançadas definições de URL**. 
+    b. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Estes valores não estiverem reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte o [equipa de suporte de cliente de autenticação de identidade de plataforma de nuvem de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) para obter estes valores. Se não compreender o valor do identificador, leia a documentação de autenticação de identidade da plataforma de nuvem de SAP sobre [inquilino SAML 2.0 configuração](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+
+4. Se pretender configurar a aplicação no **SP** modo iniciado, selecione **Mostrar avançadas definições de URL**.
 
     ![SAP nuvem plataforma de identidade de autenticação de domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    No **URL de início de sessão** caixa, escreva um URL com o padrão seguinte: `https://<entity-id>.accounts.ondemand.com/admin`.
+    No **URL de início de sessão** caixa, escreva um URL com o padrão seguinte: `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte o [equipa de suporte de cliente de autenticação de identidade de plataforma de nuvem de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) para obter este valor.
+    > [!NOTE]
+    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Utilize o seu negócio específico início de sessão no URL da aplicação. Contacte o [equipa de suporte de cliente de autenticação de identidade de plataforma de nuvem de SAP](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) se tiver qualquer dúvida.
 
 5. No **certificado de assinatura de SAML** secção, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -289,4 +293,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric melhores práticas de segurança | Microsoft Docs"
-description: "Este artigo fornece um conjunto de melhores práticas de segurança do Azure Service Fabric."
+title: Azure Service Fabric melhores práticas de segurança | Microsoft Docs
+description: Este artigo fornece um conjunto de melhores práticas de segurança do Azure Service Fabric.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric melhores práticas de segurança
 Implementar uma aplicação no Azure é rápido, fácil e económica. Antes de implementar a aplicação de nuvem em produção, consulte a nossa lista de essenciais e recomendadas melhores práticas para implementar clusters seguras na sua aplicação.
@@ -182,6 +182,6 @@ Depois de criar as aplicações para representar o cluster, atribuir os seus uti
 
 Recursos de infraestrutura de serviço do Azure suporta dois tipos de controlo de acesso para clientes que estão ligados a um [cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm): administrador e utilizador. O administrador do cluster pode utilizar o controlo de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de utilizadores. Controlo de acesso faz com que o cluster mais segura.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Configurar o Service Fabric [ambiente de desenvolvimento](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started).
 - Saiba mais sobre [as opções de suporte do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).

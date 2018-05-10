@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: v-deasim
-ms.openlocfilehash: 18704f2d2a553d7fafb16575ce81128ab47bf09c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 09705893c50e56cce5d888db097d7b810624b5d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controlo do Azure CDN colocação em cache comportamento com colocação em cache as regras
 
 > [!NOTE] 
-> Regras de colocação em cache só estão disponíveis para **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai**. Para **CDN do Azure Premium da Verizon**, pode utilizar o [motor de regras da CDN do Azure](cdn-rules-engine.md) no **gerir** portal para uma funcionalidade semelhante.
+> Regras de colocação em cache só estão disponíveis para **CDN do Azure Standard da Verizon** e **CDN do Azure Standard da Akamai** perfis. Para **CDN do Azure Premium da Verizon** perfis, tem de utilizar o [motor de regras da CDN do Azure](cdn-rules-engine.md) no **gerir** portal para uma funcionalidade semelhante.
  
 Azure entrega rede conteúdos (CDN) oferece duas formas de controlar a forma como os ficheiros são colocadas em cache: 
 

@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 8eada6b88c320396b30ecdeb96c95e4ec61679ce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="view-device-telemetry"></a>Ver a telemetria do dispositivo
 
 Pode ver a telemetria enviada do seu dispositivo **dispositivos** página na solução.
@@ -41,4 +57,4 @@ Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O artigo [personalizar a solução pré-configurada de monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) descreve algumas formas de personalizar a solução pré-configurada.
+O artigo [personalizar o acelerador de solução de monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) descreve algumas formas de personalizar o acelerador de solução.

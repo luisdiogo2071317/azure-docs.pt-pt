@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f474921acbd3a5082afea03dd982bcfa9c52dcda
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Use e rascunho com o serviço de contentor do Azure (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Use e rascunho com o serviço de Kubernetes (AKS) do Azure
 
 Rascunho é uma ferramenta open-source que ajuda a conter e implementar esses contentores num cluster Kubernetes, deixando-livre nos podermos concentrar no ciclo de desenvolvimento – "loop interna" do desenvolvimento concentrado. Rascunho funciona como o código que está a ser desenvolvido, mas antes de consolidar para o controlo de versão. Com o rascunho, pode rapidamente implementar novamente uma aplicação Kubernetes tal como as alterações de código. Para obter mais informações sobre rascunho, consulte o [rascunho documentação no Github][draft-documentation].
 
@@ -27,7 +27,7 @@ Os passos detalhados neste documento partem do princípio de que já criou um cl
 
 Também precisa de um registo de Docker privado no registo de contentor do Azure (ACR). Para obter instruções sobre como implementar uma instância ACR, consulte o [início rápido do registo de contentor do Azure][acr-quickstart].
 
-Helm também tem de estar instalado no seu cluster AKS. Para obter mais informações sobre como instalar helm, consulte [Helm de utilização com o serviço de contentor do Azure (AKS)][aks-helm].
+Helm também tem de estar instalado no seu cluster AKS. Para obter mais informações sobre como instalar helm, consulte [Helm de utilização com o serviço do Azure Kubernetes (AKS)][aks-helm].
 
 Por fim, tem de instalar [Docker](https://www.docker.com).
 

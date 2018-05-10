@@ -1,9 +1,9 @@
 ---
-title: "Modelo de dados de telemetria de informações de aplicação do Azure - pedido de telemetria | Microsoft Docs"
+title: Modelo de dados de telemetria de informações de aplicação do Azure - pedido de telemetria | Microsoft Docs
 description: Modelo de dados do Application Insights para telemetria de pedido
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0073f38097ffbebd669754eac5f2d48a620941bf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Pedido de telemetria: modelo de dados do Application Insights
 
@@ -78,7 +78,7 @@ Pode ler mais resultados de pedido no código e o código de estado no [blogue](
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Escrever telemetria personalizada do pedido](app-insights-api-custom-events-metrics.md#trackrequest)
 - Consulte [modelo de dados](application-insights-data-model.md) para o modelo de tipos e os dados do Application Insights.

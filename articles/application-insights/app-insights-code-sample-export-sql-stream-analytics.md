@@ -2,10 +2,9 @@
 title: Exportar para o SQL do Azure Application Insights | Microsoft Docs
 description: Continuamente exporte dados do Application Insights para o SQL Server utilizando o Stream Analytics.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
-editor: mrbullwinkle
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e410bb87d017a7659c3eaffbedef378aaf7f5716
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Instruções: Exportação para o SQL Server do Application Insights com o Stream Analytics
 Este artigo mostra como mover os dados de telemetria [Azure Application Insights] [ start] para uma base de dados SQL do Azure utilizando [exportação contínua] [ export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -32,7 +31,7 @@ Iremos começar com pressuposto de que já tenha a aplicação que pretende moni
 Neste exemplo, vamos utilizar os dados da vista de página, mas o mesmo padrão pode facilmente ser expandido para outros tipos de dados, tais como exceções e eventos personalizados. 
 
 ## <a name="add-application-insights-to-your-application"></a>Adicionar o Application Insights à sua aplicação
-Para começar a utilizar:
+Para começar:
 
 1. [Configurar o Application Insights para as suas páginas web](app-insights-javascript.md). 
    
@@ -171,10 +170,10 @@ O padrão de prefixo do caminho Especifica como o Stream Analytics localiza os f
 
 Neste exemplo:
 
-* `webapplication27`é o nome do recurso do Application Insights, **todo em minúsculas**. 
-* `1234...`é a chave de instrumentação do recurso Application Insights **com traços removidos**. 
-* `PageViews`é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro definido na exportação contínua. Examine os dados exportados, consulte os outros tipos disponíveis e ver o [exportar o modelo de dados](app-insights-export-data-model.md).
-* `/{date}/{time}`um padrão é escrito literalmente.
+* `webapplication27` é o nome do recurso do Application Insights, **todo em minúsculas**. 
+* `1234...` é a chave de instrumentação do recurso Application Insights **com traços removidos**. 
+* `PageViews` é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro definido na exportação contínua. Examine os dados exportados, consulte os outros tipos disponíveis e ver o [exportar o modelo de dados](app-insights-export-data-model.md).
+* `/{date}/{time}` um padrão é escrito literalmente.
 
 Para obter o nome e a iKey do recurso do Application Insights, abra Essentials na sua página de descrição geral ou abra definições.
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Soluções de gestão no Azure
 As soluções de gestão tirar partido dos serviços do Azure para fornecer informações adicionais sobre a operação de uma determinada aplicação ou serviço. Este artigo fornece uma breve descrição geral das soluções de gestão no Azure e detalhes sobre como utilizar e instalá-los.
 
 Soluções de gestão, normalmente, recolhem informações para análise de registos e fornecem pesquisas de registo e vistas para analisar os dados recolhidos. Estes podem também tirar partido de outros serviços, tais como a automatização do Azure para efetuar ações relacionadas com a aplicação ou serviço.
 
-Pode adicionar as soluções de gestão à sua subscrição do Azure para quaisquer aplicações e serviços que utiliza. São normalmente disponíveis em nenhum dado custo mas recolher que invocam a custos de utilização. Além das soluções fornecidas pela Microsoft, parceiros e os clientes podem [criar soluções de gestão](../operations-management-suite/operations-management-suite-solutions-creating.md) a ser utilizada no seu próprio ambiente ou disponibilizada para clientes através da Comunidade.
+Pode adicionar as soluções de gestão à sua subscrição do Azure para quaisquer aplicações e serviços que utiliza. São normalmente disponíveis em nenhum dado custo mas recolher que invocam a custos de utilização. Além das soluções fornecidas pela Microsoft, parceiros e os clientes podem [criar soluções de gestão](../monitoring/monitoring-solutions-creating.md) a ser utilizada no seu próprio ambiente ou disponibilizada para clientes através da Comunidade.
 
 ## <a name="using-management-solutions"></a>Soluções de gestão
 O **descrição geral** página para cada área de trabalho de análise de registos apresenta um mosaico para cada solução instalado na área de trabalho. Clique no mosaico para a solução abrir a vista que inclui uma análise mais detalhada dos dados recolhidos.

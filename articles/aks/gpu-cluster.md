@@ -1,6 +1,6 @@
 ---
-title: GPUs no serviço de contentor do Azure (AKS)
-description: Utilizar GPUs no serviço de contentor do Azure (AKS)
+title: GPUs no serviço Kubernetes do Azure (AKS)
+description: Utilizar GPUs no serviço Kubernetes do Azure (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-gpus-on-aks"></a>Utilizar GPUs no AKS
 
@@ -22,7 +22,7 @@ AKS suporta a criação de agrupamentos de nó GPU ativada. O Azure oferece atua
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 GPUs normalmente são necessários para cargas de trabalho de computação intensiva, como intensivas de gráficos e cargas de trabalho de visualização. Consulte o seguinte [documento](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) para determinar o tamanho VM adequado para a carga de trabalho.
-Recomendamos um tamanho mínimo de `Standard_NC6` para os nós do serviço de contentor do Azure (AKS).
+Recomendamos um tamanho mínimo de `Standard_NC6` para os nós do Azure Kubernetes serviço (AKS).
 
 > [!NOTE]
 > GPU ativada VMs conter hardware especializado que está sujeita a maior disponibilidade de preços e região. Para obter mais informações, consulte o [preços](https://azure.microsoft.com/pricing/) ferramenta e [disponibilidade de região](https://azure.microsoft.com/global-infrastructure/services/) site para obter mais informações.
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>Confirme que GPUs são schedulable
 
-Execute os seguintes comandos para confirmar que os GPUs estão schedulable através de Kubernetes. 
+Execute os seguintes comandos para confirmar que os GPUs estão schedulable através de Kubernetes.
 
 Obter a lista atual de nós.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Utilize o [kubectl criar] [ kubectl-create] comandos para executar a tarefa. Este comando analisa o ficheiro de manifesto e cria os objetos de Kubernetes definidos.

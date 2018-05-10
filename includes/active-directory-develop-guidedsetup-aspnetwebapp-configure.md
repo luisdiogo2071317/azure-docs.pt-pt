@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/04/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c1971e1eb3abc653ad8bdc6af772c699f8549019
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 7c052f30e564700b0a99b76342dc6c34ec5983b7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
+
 Para registar a sua aplicação e adicione as informações de registo de aplicação à sua solução, tem duas opções:
 
 ### <a name="option-1-express-mode"></a>Opção 1: Modo de Express
 
 Pode registar rapidamente a sua aplicação da seguinte forma:
+
 1. Registar a sua aplicação através do [Portal de registo de aplicações do Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
 2.  Introduza um nome para a aplicação e o seu correio eletrónico
 3.  Certifique-se que a opção para a configuração orientado está marcada
@@ -38,20 +40,21 @@ Para registar a sua aplicação e adicione as informações de registo de aplica
 
 1. Vá para o [Portal de registo de aplicações do Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registar uma aplicação
 2. Introduza um nome para a aplicação e o seu correio eletrónico 
-3.  Certifique-se que a opção para a configuração orientado está desmarcada
-4.  Clique em `Add Platform`, em seguida, selecione `Web`
-5.  Vá para o Visual Studio e, no Explorador de soluções, selecione o projeto e observe a janela de propriedades (se não for apresentada uma janela de propriedades, prima F4)
-6.  Alteração SSL ativado para `True`
-7.  Copie o URL de SSL e adicionar este URL à lista de URLs de redirecionamento na lista do Portal de registo de URLs de redirecionamento:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-8.  Adicione o seguinte no `web.config` localizado na pasta raiz na secção `configuration\appSettings`:
+3. Certifique-se que a opção para a configuração orientado está desmarcada
+4. Clique em `Add Platform`, em seguida, selecione `Web`
+5. Vá para o Visual Studio e, no Explorador de soluções, selecione o projeto e observe a janela de propriedades (se não for apresentada uma janela de propriedades, prima F4)
+6. Alteração SSL ativado para `True`
+7. Com o botão direito no projeto no Visual Studio, clique em escolher **propriedades**e o **Web** separador. No *servidores* secção alteração o *Url do projeto* para ser o URL de SSL
+8. Copie o URL de SSL e adicionar este URL à lista de URLs de redirecionamento na lista do Portal de registo de URLs de redirecionamento:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+9. Adicione o seguinte no `web.config` localizado na pasta raiz na secção `configuration\appSettings`:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="redirectUri" value="Enter_the_Redirect_URL_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" />
     ```
 
-9. Substitua `ClientId` com o ID de aplicação que acabou de ser registado
-10. Substitua `redirectUri` com o URL de SSL do seu projeto 
+10. Substitua `ClientId` com o ID de aplicação que acabou de ser registado
+11. Substitua `redirectUri` com o URL de SSL do seu projeto
 

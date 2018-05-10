@@ -1,11 +1,11 @@
 ---
 title: Otimizar o seu ambiente do SQL Server com o Log Analytics do Azure | Microsoft Docs
-description: "Análise de registos do Azure, pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular."
+description: Análise de registos do Azure, pode utilizar a solução de verificação de estado de funcionamento do SQL para avaliar o risco e o estado de funcionamento dos ambientes num intervalo regular.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do SQL Server com a solução de verificação de estado de funcionamento do SQL Server na análise de registos
 
@@ -54,7 +54,7 @@ Para efetuar a verificação de estado de funcionamento nos seus servidores do S
 
 1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
 2. Se é monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não estiver integrado com o serviço de análise de registos, o servidor pode ser multihomed com a análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo Operations Manager.  
-3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, tem de adicionar controladores de domínio para recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) depois de ativar a solução na sua área de trabalho.  
+3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, tem de adicionar controladores de domínio para recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de ativar a solução na sua área de trabalho.  
 
 O agente no seu servidor de SQL que relatórios para um grupo de gestão do Operations Manager, recolhe dados, encaminha para o respetivo servidor de gestão atribuído e, em seguida, é enviada diretamente a partir de um servidor de gestão para o serviço de análise de registos.  Os dados não são escritos para as bases de dados do Operations Manager.  
 

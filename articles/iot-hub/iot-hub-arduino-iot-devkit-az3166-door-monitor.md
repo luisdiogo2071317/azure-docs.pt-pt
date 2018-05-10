@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ed0718f2d9d5093442001005e43551e7e9749eef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="door-monitor"></a>Monitor de porta          
 
@@ -210,7 +210,7 @@ Se tiver problemas, consulte [perguntas mais frequentes](https://microsoft.githu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Aprendeu como ligar um dispositivo DevKit para o Azure IoT Suite e utilizar o serviço do SendGrid para enviar uma mensagem de e-mail. Eis os passos sugeridos:
+Aprendeu como ligar um dispositivo DevKit ao seu acelerador de solução de monitorização remota do Azure IoT e utilizar o serviço do SendGrid para enviar uma mensagem de e-mail. Eis os passos sugeridos:
 
-* [Descrição geral do Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Monitorização remota do IoT solução acelerador descrição geral do Azure](https://docs.microsoft.com/azure/iot-suite/)
 * [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

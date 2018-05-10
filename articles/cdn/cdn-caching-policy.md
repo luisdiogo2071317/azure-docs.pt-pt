@@ -1,11 +1,11 @@
 ---
-title: "Gerir a política de Media Services do Azure a colocação em cache a CDN do Azure | Microsoft Docs"
-description: "Saiba como gerir a política de Media Services do Azure a colocação em cache a CDN do Azure."
+title: Gerir a política de Media Services do Azure a colocação em cache a CDN do Azure | Microsoft Docs
+description: Saiba como gerir a política de Media Services do Azure a colocação em cache a CDN do Azure.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: be33aecc-6dbe-43d7-a056-10ba911e0e94
 ms.service: media-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: bcb5a6e118c779e7e13ba8472d5bba510cddeb12
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: dce8d588a78b028223776e3ade737d4abd26094b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerir a política de Media Services do Azure a colocação em cache a CDN do Azure
 Media Services do Azure fornece com base HTTP adaptável de transmissão em fluxo e transferência progressiva. HTTP com base em fluxo é altamente dimensionável com vantagens de colocação em cache no proxy e de camadas CDN, bem como a colocação em cache do lado do cliente. Pontos finais de transmissão em fluxo fornece capacidades de transmissão em fluxo gerais e também a configuração para os cabeçalhos de cache HTTP. Pontos finais de transmissão em fluxo define HTTP Cache-Control: idade máxima e cabeçalhos de expira. Pode obter mais informações para os cabeçalhos de cache HTTP de [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -30,14 +30,14 @@ Por predefinição pontos finais de transmissão em fluxo, aplicam-se os cabeça
 Media Services do Azure fornece [integrado CDN](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para pontos finais de transmissão em fluxo. Cabeçalhos cache-control aplica-se da mesma forma como pontos finais de transmissão em fluxo para CDN ativada pontos finais de transmissão em fluxo. Azure CDN utiliza ponto final de transmissão em fluxo configurado os valores de cache para definir o tempo de vida dos objetos internamente em cache e também utiliza este valor para definir a entrega cabeçalhos de cache. Quando utilizar a CDN ativada pontos finais de transmissão em fluxo não é recomendado para definir os valores de cache pequenas. Os valores de definição pequenos diminuir o desempenho e reduzir a vantagem da CDN. Não é permitido definir cabeçalhos de cache menor 600 segundos para o CDN ativada pontos finais de transmissão em fluxo.
 
 > [!IMPORTANT]
->Media Services do Azure tem uma integração completa com CDN do Azure. Com um único clique, pode integrar todas as os CDN do Azure fornecedores disponíveis (Akamai e da Verizon) para o ponto final de transmissão em fluxo, incluindo produtos CDN Standard e Premium. Para obter mais informações, consulte este [anúncio](https://azure.microsoft.com/blog/standardstreamingendpoint/).
+>Media Services do Azure tem uma integração completa com CDN do Azure. Com um único clique, pode integrar todos os fornecedores de CDN do Azure disponíveis para o ponto final de transmissão em fluxo, incluindo produtos standard e premium. Para obter mais informações, consulte este [anúncio](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
 > Custos de dados do ponto final de CDN de transmissão em fluxo apenas obtém desativada se estiver ativada a CDN através de ponto final de APIs de transmissão em fluxo ou utilizando a secção de ponto final de transmissão em fluxo do portal do Azure. Integração manual ou criar diretamente um ponto final da CDN através de APIs de CDN ou secção portal não desative os encargos de dados.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Configurar cabeçalhos de cache com Media Services do Azure
 Pode utilizar o portal do Azure ou APIs de serviços de suporte de dados do Azure para configurar os valores de cabeçalho de cache.
 
-1. Para configurar cabeçalhos de cache através do portal do Azure, consulte [como gerir pontos finais de transmissão em fluxo](../media-services/media-services-portal-manage-streaming-endpoints.md) secção Configurar o ponto final de transmissão em fluxo.
+1. Para configurar cabeçalhos de cache através do portal do Azure, consulte [como gerir pontos finais de transmissão em fluxo](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) secção Configurar o ponto final de transmissão em fluxo.
 2. API de REST de serviços de multimédia do Azure [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. .NET SDK, de serviços de multimédia do Azure [StreamingEndpointCacheControl propriedades](http://go.microsoft.com/fwlink/?LinkId=615302).
 

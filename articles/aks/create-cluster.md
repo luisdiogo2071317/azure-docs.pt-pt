@@ -1,5 +1,5 @@
 ---
-title: "Criar um cluster do serviço de contentor do Azure (AKS)"
+title: Criar um cluster do serviço de Kubernetes do Azure (AKS)
 description: Crie um cluster AKS com a CLI ou o portal do Azure.
 services: container-service
 author: neilpeterson
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.openlocfilehash: 46c2f718911f27ad8f51423589c6fdda100a68d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-an-azure-container-service-aks-cluster"></a>Criar um cluster do serviço de contentor do Azure (AKS)
+# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Criar um cluster do serviço de Kubernetes do Azure (AKS)
 
-Um cluster do serviço de contentor do Azure (AKS) pode ser criado com a CLI do Azure ou o portal do Azure.
+Um cluster do serviço de Kubernetes do Azure (AKS) pode ser criado com a CLI do Azure ou o portal do Azure.
 
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -32,9 +32,9 @@ As seguintes opções estão disponíveis com o `az aks create` comando.
 | Argumento | Descrição | Necessário |
 |---|---|:---:|
 | `--name` `-n` | Nome do recurso para o cluster gerido. | sim |
-| `--resource-group` `-g` | Nome do grupo de recursos do serviço de contentor do Azure. | sim |
+| `--resource-group` `-g` | Nome do grupo de recursos do Azure Kubernetes serviço. | sim |
 | `--admin-username` `-u` | Nome de utilizador para as máquinas de virtuais do Linux.  Predefinição: azureuser. | não |
-| ` --client-secret` | O segredo associado ao serviço principal. | não |
+| ` --client-secret` | O segredo associado ao principal de serviço. | não |
 | `--dns-name-prefix` `-p` | Prefixo DNS para o endereço de ip público de clusters. | não |
 | `--generate-ssh-keys` | Gere ficheiros de chaves públicos e privados SSH se estiverem em falta. | não |
 | `--kubernetes-version` `-k` | A versão do Kubernetes a utilizar para criar o cluster, tais como '1.7.9' ou '1.8.2'.  Predefinição: 1.7.7. | não |
@@ -48,7 +48,7 @@ As seguintes opções estão disponíveis com o `az aks create` comando.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Para instruções sobre como implementar um cluster AKS com o portal do Azure, consulte o serviço de contentor do Azure (AKS) [início rápido de portal do Azure][aks-portal-quickstart]. 
+Para instruções sobre como implementar um cluster AKS com o portal do Azure, consulte o serviço de Kubernetes do Azure (AKS) [início rápido de portal do Azure][aks-portal-quickstart].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create

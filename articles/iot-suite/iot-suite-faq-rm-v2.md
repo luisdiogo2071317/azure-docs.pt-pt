@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Suite FAQ de monitorização remota | Microsoft Docs
-description: Perguntas mais frequentes sobre a solução pré-configurada de monitorização remota do IoT Suite
+title: Remoto acelerador de solução de monitorização FAQ | Microsoft Docs
+description: Perguntas mais frequentes sobre acelerador de solução de monitorização remota
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1cc260710d025428a1ca77c41c104dc172447e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>Perguntas mais frequentes sobre a solução pré-configurada de monitorização remota do IoT Suite
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador de solução de monitorização remota
 
 Além disso, consulte geral [FAQ](iot-suite-faq.md).
 
 ### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Quanto-lo de custos para aprovisionar a solução de monitorização remota novo?
 
-A nova solução pré-configurada oferece duas opções de implementação:
+O acelerador solução nova oferece duas opções de implementação:
 
 * A *básico* opção concebida para programadores à procura de menor custo de desenvolvimento ou clientes pretende para compilar uma demonstração ou prova de conceito.
 * A *padrão* opção concebida para as empresas que pretenda implementar uma infraestrutura pronta para produção.
@@ -44,15 +44,11 @@ Cada opção de implementação responde às necessidades diferentes. A implemen
 
 Para obter mais informações, consulte [chave de mapa de atualização para ver os dispositivos num mapa dinâmico](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Quantas APIs para o Free Bing Maps é possível aprovisionar numa subscrição?
-
-Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para planos Enterprise numa subscrição do Azure. Por predefinição, a solução de monitorização remota é aprovisionada com o plano de Transações Internas de Nível 1. Como resultado, apenas pode aprovisionar até duas soluções de monitorização remota numa subscrição sem qualquer modificação.
-
 ### <a name="next-steps"></a>Passos Seguintes
 
-Também pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
+Também pode explorar algumas das outras funcionalidades e capacidades de Aceleradores de solução IoT:
 
-* [Explorar as funcionalidades da solução pré-configurada de monitorização remota](iot-suite-remote-monitoring-explore.md)
-* [Descrição geral de solução pré-configurada de manutenção preditiva](iot-suite-predictive-overview.md)
-* [Descrição geral da solução de fábrica ligado pré-configurada](iot-suite-connected-factory-overview.md)
+* [Explore as capacidades do acelerador de solução de monitorização remota](iot-suite-remote-monitoring-explore.md)
+* [Descrição geral da preditiva da acelerador solução do manutenção](iot-suite-predictive-overview.md)
+* [Descrição geral da ligados da acelerador solução do Factory](iot-suite-connected-factory-overview.md)
 * [Segurança de IoT a partir do zero](securing-iot-ground-up.md)

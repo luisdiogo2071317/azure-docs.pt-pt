@@ -1,13 +1,13 @@
 ---
-title: "Personalizar a solução de fábrica ligado - Azure | Microsoft Docs"
-description: "Uma descrição de como personalizar o comportamento da fábrica de ligado a solução pré-configurada."
-services: 
+title: Personalizar a solução de fábrica ligado - Azure | Microsoft Docs
+description: Uma descrição de como personalizar o comportamento do acelerador da solução de fábrica ligado.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: c#
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5d074a5cf0dd5191b5d94531068341ad1b953391
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar a forma como a solução de fábrica ligado apresenta dados dos seus servidores de OPC UA
 
-A solução de fábrica ligado agrega e apresenta os dados dos servidores de OPC UA ligados à solução. Pode procurar e enviar comandos para os servidores de OPC UA na sua solução. Para obter mais informações sobre OPC UA, veja as [FAQ sobre a fábrica ligada](iot-suite-faq-cf.md).
+A solução de fábrica ligado agrega e apresenta os dados dos servidores de OPC UA ligados à solução. Pode procurar e enviar comandos para os servidores de OPC UA na sua solução. Para mais informações sobre OPC UA, consulte o [ligado FAQ de fábrica](iot-suite-faq-cf.md).
 
 Exemplos de dados agregados na solução incluem a eficiência global de equipamento (OEE) e os indicadores de desempenho de chave (KPIs) que pode ver no dashboard de fábrica, linha e níveis de estação. A seguinte captura de ecrã mostra os valores OEE e KPI para a **assemblagem** estação no **produção linha 1**, no **Munich** factory:
 
@@ -65,27 +65,27 @@ Pode procurar os itens de dados que pode enviar um servidor de OPC UA ligado à 
 
 ## <a name="map-the-data"></a>Os dados do mapa
 
-A solução de fábrica ligado mapeia e agrega os itens de dados publicados do servidor de OPC UA para as várias vistas na solução. Implementa a solução de fábrica ligado à sua conta do Azure, quando Aprovisiona a solução. Um ficheiro JSON na solução de fábrica ligado do Visual Studio armazena estas informações de mapeamento. Pode ver e modificar este ficheiro de configuração JSON na fábrica de ligado solução do Visual Studio. Pode implementar a solução pode ser novamente depois de efetuar uma alteração.
+A solução de fábrica ligado mapeia e agrega os itens de dados publicados do servidor de OPC UA para as várias vistas na solução. Implementa a solução de fábrica ligados à sua conta do Azure, quando Aprovisiona a solução. Um ficheiro JSON na solução Visual Studio ligado fábrica armazena estas informações de mapeamento. Pode ver e modificar este ficheiro de configuração JSON na solução ligado fábrica Visual Studio. Pode implementar a solução pode ser novamente depois de efetuar uma alteração.
 
 Pode utilizar o ficheiro de configuração para:
 
 - Edite as fábricas de simulada existentes, linhas de produção e estações.
 - Mapear dados dos servidores de OPC UA reais que ligam à solução.
 
-Para obter mais informações sobre o mapeamento e agregar os dados para satisfazer os seus requisitos específicos, consulte [solução pré-configurada de como configurar a fábrica ligada ](iot-suite-connected-factory-configure.md).
+Para obter mais informações sobre o mapeamento e agregar os dados para satisfazer os seus requisitos específicos, consulte [como configurar o acelerador da solução de fábrica ligado ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Implementar as alterações
 
-Quando terminar de efetuar as alterações para o **ContosoTopologyDescription.json** ficheiro, é necessário voltar a implementar a solução de fábrica ligado à sua conta do Azure.
+Quando terminar de efetuar as alterações para o **ContosoTopologyDescription.json** ficheiro, é necessário voltar a implementar a solução de fábrica ligados à sua conta do Azure.
 
 O **do azure-iot-ligado-factory** repositório inclui um **build.ps1** script do PowerShell que pode utilizar para reconstruir e implementar a solução.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
-Saiba mais sobre a solução de fábrica ligado pré-configurada ao ler os artigos seguintes:
+Saiba mais sobre o acelerador da solução de fábrica ligado ao ler os artigos seguintes:
 
-* [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough] (Instruções da solução pré-configurada de fábrica de dados)
-* [Implementar um gateway para a fábrica ligado][lnk-connect-cf]
+* [Ligado fábrica acelerador instruções sobre a solução][lnk-rm-walkthrough]
+* [Implementar um gateway para a fábrica de ligado][lnk-connect-cf]
 * [Permissões no site azureiotsuite.com][lnk-permissions]
 * [FAQ de fábrica ligada](iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]

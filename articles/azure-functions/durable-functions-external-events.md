@@ -1,12 +1,12 @@
 ---
-title: "Processar eventos externos nas funções durável - Azure"
-description: "Saiba como processar eventos externos na extensão do durável funções para as funções do Azure."
+title: Processar eventos externos nas funções durável - Azure
+description: Saiba como processar eventos externos na extensão do durável funções para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 77087f04ea641c24a92edd2091432cbcb4329ecd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Processamento de eventos externos nas funções durável (funções do Azure)
 
@@ -27,6 +27,8 @@ As funções do Orchestrator têm a capacidade de espera e escutar eventos exter
 ## <a name="wait-for-events"></a>Aguarde eventos
 
 O [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) método permite que uma função do orchestrator no modo assíncrono, aguarde e escutar um evento externo. A função Serviço de escuta do orchestrator declara o *nome* do evento e o *forma dos dados* espera receber.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,9 +47,26 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const approved = yield context.df.waitForExternalEvent("Approval");
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
+});
+```
+
 O exemplo anterior escuta para um único evento específico e executa a ação quando é recebido.
 
 Pode oiça vários eventos em simultâneo, tal como no exemplo seguinte, que aguarda que um dos três notificações de eventos possíveis.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Select")]
@@ -74,7 +93,30 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const event1 = context.df.waitForExternalEvent("Event1");
+    const event2 = context.df.waitForExternalEvent("Event2");
+    const event3 = context.df.waitForExternalEvent("Event3");
+
+    const winner = yield context.df.Task.any([event1, event2, event3]);
+    if (winner === event1) {
+        // ...
+    } else if (winner === event2) {
+        // ...
+    } else if (winner === event3) {
+        // ...
+    }
+});
+```
+
 O exemplo anterior escuta *qualquer* de vários eventos. Também é possível aguardar *todos os* eventos.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -94,12 +136,31 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const applicationId = context.df.getInput();
+
+    const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
+    const gate2 = context.df.waitForExternalEvent("FireDeptApproval");
+    const gate3 = context.df.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    yield context.df.Task.all([gate1, gate2, gate3]);
+
+    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+});
+```
+
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) aguarda indefinidamente algumas entrada.  A aplicação de função pode estar em segurança descarregada ao aguardar a resposta. Se e quando é recebido um evento para esta instância de orquestração, é reativado automaticamente e imediatamente processa o evento.
 
 > [!NOTE]
 > Se a sua aplicação de função utiliza o plano de consumo, são cobradas taxas não enquanto uma função do orchestrator está a aguardar uma tarefa de `WaitForExternalEvent`, independentemente do período de tempo de espera.
 
-Se o payload do evento não é possível converter o tipo esperado `T`, é emitida uma exceção.
+No .NET, se o payload do evento não é possível converter o tipo esperado `T`, é emitida uma exceção.
 
 ## <a name="send-events"></a>Enviar eventos
 

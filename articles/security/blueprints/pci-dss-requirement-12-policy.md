@@ -1,9 +1,9 @@
 ---
-title: "Azure Blueprint de processamento de pagamento - requisitos da política"
+title: Azure Blueprint de processamento de pagamento - requisitos da política
 description: Requisito de PCI DSS 12
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Requisitos da política para ambientes de PCI DSS compatíveis  
 ## <a name="pci-dss-requirement-12"></a>Requisito de PCI DSS 12
@@ -38,8 +38,8 @@ Uma política de segurança forte define o sinal de segurança para a entidade c
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por estabelecer e manutenção de uma política de segurança de informações.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por estabelecer e manutenção de uma política de segurança de informações.|
 
 
 
@@ -51,8 +51,8 @@ Uma política de segurança forte define o sinal de segurança para a entidade c
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis para atualizar a respetiva política de segurança de informações anual, pelo menos, ou quando existem alterações ao seu respetivo ambiente de dados de cardholder (CDE).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis para atualizar a respetiva política de segurança de informações anual, pelo menos, ou quando existem alterações ao seu respetivo ambiente de dados de cardholder (CDE).|
 
 
 
@@ -68,8 +68,8 @@ Uma política de segurança forte define o sinal de segurança para a entidade c
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis pela implementação de um processo de avaliação de risco que abrange todas as ameaças listadas no 12.2 requisito.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis pela implementação de um processo de avaliação de risco que abrange todas as ameaças listadas no 12.2 requisito.|
 
 
 
@@ -85,8 +85,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -98,8 +98,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -111,8 +111,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -124,8 +124,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -137,8 +137,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -150,8 +150,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -163,8 +163,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por determinar as localizações de rede aceitável para as VMs de baseados na cloud, armazenamento e serviços de suporte.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por determinar as localizações de rede aceitável para as VMs de baseados na cloud, armazenamento e serviços de suporte.|
 
 
 
@@ -176,8 +176,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por determinar as localizações de rede aceitável para as VMs de baseados na cloud, armazenamento e serviços de suporte.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por determinar as localizações de rede aceitável para as VMs de baseados na cloud, armazenamento e serviços de suporte.|
 
 
 
@@ -189,8 +189,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza a funcionalidade de bloqueio do Microsoft AD empresarial sessão, que impõe outs de bloqueio de sessão após um período de inatividade. Ligações de rede estão terminadas após 30 minutos de inatividade. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure utiliza a funcionalidade de bloqueio do Microsoft AD empresarial sessão, que impõe outs de bloqueio de sessão após um período de inatividade. Ligações de rede estão terminadas após 30 minutos de inatividade. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -202,8 +202,8 @@ Certifique-se de que estas políticas de utilização requerem o seguinte.
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -216,8 +216,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por garantir que técnico aceder aos dados cardholder através de tecnologias de acesso remoto está proibidos de as copiar, mover e armazenar dados cardholder unidades de disco rígido locais e o suporte de dados Eletrónicos amovível, a menos que explicitamente autorizado para uma necessidade de negócio definido.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por garantir que técnico aceder aos dados cardholder através de tecnologias de acesso remoto está proibidos de as copiar, mover e armazenar dados cardholder unidades de disco rígido locais e o suporte de dados Eletrónicos amovível, a menos que explicitamente autorizado para uma necessidade de negócio definido.|
 
 
 
@@ -229,8 +229,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -247,8 +247,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes que estão a fornecedores de serviços são responsáveis por documentar as respetivas programa de conformidade de PCI.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes que estão a fornecedores de serviços são responsáveis por documentar as respetivas programa de conformidade de PCI.|
 
 
 
@@ -260,8 +260,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por definir e atribuir informações responsabilidades de segurança para os seus empregados.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por definir e atribuir informações responsabilidades de segurança para os seus empregados.|
 
 
 
@@ -273,8 +273,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por definir e atribuir informações responsabilidades de segurança para os seus empregados.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por definir e atribuir informações responsabilidades de segurança para os seus empregados.|
 
 
 
@@ -286,8 +286,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por definir e atribuir informações responsabilidades de segurança para os seus empregados.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por definir e atribuir informações responsabilidades de segurança para os seus empregados.|
 
 
 
@@ -299,8 +299,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -312,8 +312,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -325,8 +325,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas dictating utilização adequada, implementação e autenticação para tecnologias críticas dentro do respetivo CDE.|
 
 
 
@@ -338,8 +338,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas envolvente deteção de segurança para os funcionários com acesso para o CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação e manutenção das políticas envolvente deteção de segurança para os funcionários com acesso para o CDE.|
 
 
 
@@ -354,8 +354,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que os funcionários receber e confirmar a deteção de PCI-DSS anual, pelo menos, de preparação e de segurança de informações.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que os funcionários receber e confirmar a deteção de PCI-DSS anual, pelo menos, de preparação e de segurança de informações.|
 
 
 
@@ -367,8 +367,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que os funcionários receber e confirmar a deteção de PCI-DSS anual, pelo menos, de preparação e de segurança de informações.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que os funcionários receber e confirmar a deteção de PCI-DSS anual, pelo menos, de preparação e de segurança de informações.|
 
 
 
@@ -383,8 +383,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que os funcionários com acesso para o CDE sofrer verificações de detalhado em segundo plano.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que os funcionários com acesso para o CDE sofrer verificações de detalhado em segundo plano.|
 
 
 
@@ -396,8 +396,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por monitorizar a conformidade de PCI para os fornecedores de serviços com quem cardholder dados são partilhados ou pode afetar a segurança do CDE. Os clientes têm de manter uma lista de todos os serviço fornece utilizadas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por monitorizar a conformidade de PCI para os fornecedores de serviços com quem cardholder dados são partilhados ou pode afetar a segurança do CDE. Os clientes têm de manter uma lista de todos os serviço fornece utilizadas dentro do respetivo CDE.|
 
 
 
@@ -410,8 +410,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por monitorizar a conformidade de PCI para os fornecedores de serviços com quem cardholder dados são partilhados ou pode afetar a segurança do CDE. Os clientes têm de manter uma lista de todos os serviço fornece utilizadas dentro do respetivo CDE.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por monitorizar a conformidade de PCI para os fornecedores de serviços com quem cardholder dados são partilhados ou pode afetar a segurança do CDE. Os clientes têm de manter uma lista de todos os serviço fornece utilizadas dentro do respetivo CDE.|
 
 
 
@@ -426,8 +426,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis pela manutenção dos contratos escritos com fornecedores de serviços de confirmar a responsabilidade para manter a segurança dos dados cardholder.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis pela manutenção dos contratos escritos com fornecedores de serviços de confirmar a responsabilidade para manter a segurança dos dados cardholder.|
 
 
 
@@ -439,8 +439,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que não há um processo estabelecido para o envolvimento dos fornecedores de serviços, incluindo adequado devido antes de diligence para o engagement.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por assegurar que não há um processo estabelecido para o envolvimento dos fornecedores de serviços, incluindo adequado devido antes de diligence para o engagement.|
 
 
 
@@ -452,8 +452,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes é responsável pela manutenção um programa para monitorizar o estado de conformidade de PCI DSS de fornecedores de serviços, pelo menos, anual.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes é responsável pela manutenção um programa para monitorizar o estado de conformidade de PCI DSS de fornecedores de serviços, pelo menos, anual.|
 
 
 
@@ -465,8 +465,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por manter uma cópia do [matriz de resumo de responsabilidade](https://aka.ms/pciblueprintcrm32), que descreve os requisitos de PCI DSS são da responsabilidade do cliente e os que são da responsabilidade do Microsoft Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por manter uma cópia do [matriz de resumo de responsabilidade](https://aka.ms/pciblueprintcrm32), que descreve os requisitos de PCI DSS são da responsabilidade do cliente e os que são da responsabilidade do Microsoft Azure.|
 
 
 
@@ -481,8 +481,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes que são fornecedores de serviços são responsáveis por confirmar as responsabilidades para manter a conformidade de PCI. |
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes que são fornecedores de serviços são responsáveis por confirmar as responsabilidades para manter a conformidade de PCI. |
 
 
 
@@ -494,8 +494,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -514,8 +514,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -528,8 +528,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -541,8 +541,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -554,8 +554,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -567,8 +567,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -580,8 +580,8 @@ Em que exista uma necessidade de negócio autorizados, as políticas de utiliza�
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por planos de resposta a incidentes de desenvolvimento e testes que considera quaisquer controlos de cliente relacionadas com pontos de touch partilhado e quaisquer aplicações de cliente tirar partido da infraestrutura do Azure. É responsabilidade do cliente, para fornecer informações de contacto precisos para o Azure, no caso de um incidente tem de ser comunicadas aos mesmos, que poderá afetar os respetivos dados ou a aplicação.|
 
 
 
@@ -603,8 +603,8 @@ Revisões devem abranger os seguintes processos:
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes que estão a fornecedores de serviços são responsáveis por documentar as revisões de processos para confirmar o desempenho do controlo de conformidade de PCI.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes que estão a fornecedores de serviços são responsáveis por documentar as revisões de processos para confirmar o desempenho do controlo de conformidade de PCI.|
 
 
 
@@ -622,8 +622,8 @@ Revisões devem abranger os seguintes processos:
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes que estão a fornecedores de serviços são responsáveis por documentar as revisões de processos para confirmar o desempenho do controlo de conformidade de PCI.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes que estão a fornecedores de serviços são responsáveis por documentar as revisões de processos para confirmar o desempenho do controlo de conformidade de PCI.|
 
 
 

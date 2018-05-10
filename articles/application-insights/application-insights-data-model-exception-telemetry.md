@@ -1,9 +1,9 @@
 ---
-title: "Modelo de dados de telemetria de informações de aplicação do Azure - telemetria de exceção | Microsoft Docs"
-description: "Modelo de dados do Application Insights para telemetria de exceção"
+title: Modelo de dados de telemetria de informações de aplicação do Azure - telemetria de exceção | Microsoft Docs
+description: Modelo de dados do Application Insights para telemetria de exceção
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3c3c3a39c7986cc771fe4baf60ad9b316888f6ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 036670c46a0ff40dd7b20a03c90f10513395cd71
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria de exceção: modelo de dados do Application Insights
 
@@ -44,7 +44,7 @@ Nível de gravidade de rastreio. O valor pode ser `Verbose`, `Information`, `War
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte [modelo de dados](application-insights-data-model.md) para o modelo de tipos e os dados do Application Insights.
 - Saiba como [diagnosticar exceções nas suas aplicações web com o Application Insights](app-insights-asp-net-exceptions.md).

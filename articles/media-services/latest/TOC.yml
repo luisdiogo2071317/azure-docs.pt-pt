@@ -1,0 +1,73 @@
+- name: Documentação dos Serviços de Multimédia
+  href: ./index.yml
+- name: Descrição geral
+  items:
+    - name: Sobre os Serviços de Multimédia
+      href: media-services-overview.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Transmitir ficheiros vídeo com o .NET
+      href: stream-files-dotnet-quickstart.md
+- name: Tutoriais
+  items:
+    - name: 'Carregar, codificar e transmitir'
+      href: stream-files-tutorial-with-api.md
+    - name: Analisar o seu vídeo
+      href: analyze-videos-tutorial-with-api.md
+- name: Amostras
+  items:
+    - name: Exemplos de código do Azure
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: CLI do Azure
+      href: cli-samples.md
+- name: Conceitos
+  items:
+    - name: Elementos
+      href: assets-concept.md
+    - name: Degraus de bitrate adaptativo auto-generativo
+      href: autogen-bitrate-ladder.md
+    - name: Informações de multimédia
+      href: intelligence-concept.md
+    - name: Contas de armazenamento
+      href: storage-account-concept.md
+    - name: Transformações e tarefas
+      href: transform-concept.md
+    - name: Reagir a eventos
+      href: reacting-to-media-services-events.md
+- name: Guias de procedimentos
+  items:
+    - name: Criar uma conta - CLI
+      href: create-account-cli-how-to.md
+    - name: Aceder a APIs - CLI
+      href: access-api-cli-how-to.md
+    - name: Eventos de estado de tarefa - CLI
+      href: job-state-events-cli-how-to.md
+    - name: Carregar conteúdo - .NET
+      items:
+        - name: De HTTP(s)
+          href: job-input-from-http-how-to.md
+        - name: A partir de um ficheiro local
+          href: job-input-from-local-file-how-to.md
+- name: Referência
+  items:
+    - name: CLI 2.0 do Azure
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: Esquemas de eventos
+      href: media-services-event-schemas.md
+- name: Recursos
+  items:
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Notas de versão
+      href: release-notes.md
+    - name: Quotas e limitações
+      href: limits-quotas-constraints.md

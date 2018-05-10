@@ -1,24 +1,24 @@
 ---
-title: "Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para um Datacenter secundário com a recuperação de Site | Microsoft Docs"
-description: "Saiba como efetuar a ativação pós-falha de VMs de Hyper-V para o site secundário no local e que haja reativação para o site primário, com o Azure Site Recovery"
+title: Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V replicado para um Datacenter secundário com a recuperação de Site | Microsoft Docs
+description: Saiba como efetuar a ativação pós-falha de VMs de Hyper-V para o site secundário no local e que haja reativação para o site primário, com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 3740ec9917499f6a1e87905befe86598a18f68e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f4207b8def3a5cd240b7a3ecdffde34a27f2a833
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Ativação pós-falha e falhar fazer uma cópia de VMs de Hyper-V foram replicadas para o site secundário no local
 
 O [do Azure Site Recovery](site-recovery-overview.md) serviço gere e orquestra a replicação, ativação pós-falha e a reativação pós-falha de máquinas no local e máquinas de virtuais (VMs) do Azure.
 
-Este artigo descreve como efetuar a ativação pós-falha de uma VM de Hyper-V geridas numa nuvem System Center Virtual Machine Manager (VMM), para um site secundário do VMM. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste artigo, saiba como:
+Este artigo descreve como efetuar a ativação pós-falha de uma VM de Hyper-V geridas numa nuvem System Center Virtual Machine Manager (VMM), para um site secundário do VMM. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Ativação pós-falha numa VM de Hyper-V a partir de uma nuvem VMM principal a uma nuvem VMM secundária
@@ -57,7 +57,7 @@ Este procedimento descreve como executar uma ativação pós-falha regular.
     - **Processado mais recentemente**: esta opção faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
     - **Consistente com a aplicação mais recente**: esta opção faz a ativação pós-falha da VM para o último ponto de recuperação consistente com a aplicação processado pelo Site Recovery. 
 3. A chave de encriptação não é relevante neste cenário.
-4. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que a recuperação de sites para tentar efetuar um encerramento de VMs de origem antes de acionar a ativação pós-falha. Recuperação de site também irá tentar sincronizar os dados no local que ainda não foi enviados para o site secundário, antes de acionar a ativação pós-falha. Tenha em atenção que a ativação pós-falha continua, mesmo se falha de encerramento. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
+4. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que a recuperação de sites para tentar efetuar um encerramento de VMs de origem antes de acionar a ativação pós-falha. Recuperação de site também irá tentar sincronizar os dados no local que ainda não foi enviados para o site secundário, antes de acionar a ativação pós-falha. Tenha em atenção que a ativação pós-falha continua, mesmo se falha de encerramento. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
 5. Deve ser capaz de ver a VM na nuvem VMM secundária.
 6. Depois de verificar a VM, **consolidar** a ativação pós-falha. São eliminados todos os pontos de recuperação disponíveis.
 

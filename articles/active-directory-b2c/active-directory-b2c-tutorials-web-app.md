@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar uma aplicação Web para autenticar com as contas utilizando o Azure Active Directory B2C
 
@@ -142,7 +142,7 @@ Agora que tem uma aplicação Web registada e as políticas criadas, tem de conf
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-A aplicação Web ASP.NET de exemplo é uma aplicação de lista de tarefas simples para criar e atualizar uma lista de tarefas. A aplicação utiliza [componentes middleware do Microsoft OWIN](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) para permitir aos utilizadores inscreverem-se para utilizar a aplicação no inquilino do Azure AD B2C. Ao criar uma política do Azure AD B2C, os utilizadores podem utilizar uma conta de rede social ou criar uma conta para utilizar como identidade para acederem à aplicação. 
+A aplicação Web ASP.NET de exemplo é uma aplicação de lista de tarefas simples para criar e atualizar uma lista de tarefas. A aplicação utiliza [componentes middleware do Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) para permitir aos utilizadores inscreverem-se para utilizar a aplicação no inquilino do Azure AD B2C. Ao criar uma política do Azure AD B2C, os utilizadores podem utilizar uma conta de rede social ou criar uma conta para utilizar como identidade para acederem à aplicação. 
 
 Existem dois projetos na solução de exemplo:
 

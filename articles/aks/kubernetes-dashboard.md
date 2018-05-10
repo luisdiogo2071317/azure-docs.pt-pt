@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: MT
+ms.openlocfilehash: ab137c8397f747ba07475910cd4461d88951d6be
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Dashboard de Kubernetes com o serviço de contentor do Azure (AKS)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Dashboard de Kubernetes com o serviço do Azure Kubernetes (AKS)
 
 A CLI do Azure pode ser utilizada para iniciar o Kubernetes Dashboard. Este documento explica a partir do dashboard Kubernetes com a CLI do Azure e também explica algumas operações básicas do dashboard. Para obter mais informações, consulte o Kubernetes dashboard, [Kubernetes Web IU Dashboard][kubernetes-dashboard].
 

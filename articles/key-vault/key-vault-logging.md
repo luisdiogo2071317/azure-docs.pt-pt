@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Cofre de Chaves do Azure
 O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -235,32 +235,32 @@ A tabela seguinte lista o operationName e o comando API REST correspondente.
 | operationName | Comando API REST |
 | --- | --- |
 | Autenticação |Através do ponto final do Azure Active Directory |
-| VaultGet |[Obter informações sobre um cofre de chaves](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Criar ou atualizar um cofre de chaves](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Eliminar um cofre de chaves](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Obter informações sobre um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Criar ou atualizar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Eliminar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Atualizar um cofre de chaves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Lista todos os cofres de chaves num grupo de recursos](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Criar uma chave](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Obter informações sobre uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Importar uma chave para um cofre](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Fazer uma cópia de segurança de uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Eliminar uma chave](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Restaurar uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Assinar com uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Verificar com uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Moldar uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Desenrolar uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Encriptar com uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Desencriptar com uma chave](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Atualizar uma chave](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Lista as chaves num cofre](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Lista as versões de uma chave](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Criar um segredo](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Obter um segredo](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Atualizar um segredo](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Eliminar um segredo](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Lista os segredos num cofre](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Lista as versões de um segredo](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Lista todos os cofres de chaves num grupo de recursos](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Criar uma chave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Obter informações sobre uma chave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Importar uma chave para um cofre](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Fazer uma cópia de segurança de uma chave](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Eliminar uma chave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Restaurar uma chave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Assinar com uma chave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Verificar com uma chave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Moldar uma chave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Desenrolar uma chave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Encriptar com uma chave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Desencriptar com uma chave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Atualizar uma chave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[Lista as chaves num cofre](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[Lista as versões de uma chave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Criar um segredo](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Obter um segredo](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Atualizar um segredo](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Eliminar um segredo](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Lista os segredos num cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Lista as versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Utilizar o Log Analytics
 

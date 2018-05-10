@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: Base de dados sem servidor
         href: serverless-computing-database.md
+      - name: Descrição geral do BulkExecutor
+        href: bulk-executor-overview.md
       - name: Segurança
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: Proteger o acesso a dados
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Casos de utilização
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: Guias de Procedimentos
             items:
+              - name: BulkExecutor - .NET
+                href: bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: bulk-executor-java.md
               - name: Consulta
                 items:
                   - name: Executar consultas de SQL
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: BulkExecutor - .NET
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: BulkExecutor - Java
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: Fornecedor de Recursos REST
@@ -257,8 +265,6 @@ items:
             items:
               - name: Extensão do Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: Documento de indexação de esquema desconhecido
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: Recreio do SQL
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: Documentos da API do MongoDB
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: Suporte de firewall
         href: firewall-support.md
+      - name: Configurar ponto final do serviço de rede virtual
+        href: vnet-service-endpoint.md
       - name: Métricas
         href: use-metrics.md
       - name: SLA do monitor
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: Consistência dos dados explicada através do basebol
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Documentos técnicos
+        href: whitepapers.md

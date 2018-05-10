@@ -1,24 +1,24 @@
 # [Noções básicas do IoT do Azure](../iot-fundamentals/index.yml)
-# [Documentação do IoT Suite](index.md)
+# [Documentação dos aceleradores de soluções de IoT](index.md)
 
 # Descrição geral
 ## [Conceitos de arquitetura do IoT](iot-suite-what-is-azure-iot.md)
 ## [Comparar as opções de IoT do Azure](iot-suite-options.md)
-## [Descrição geral de soluções pré-configuradas](iot-suite-what-are-preconfigured-solutions.md)
+## [Descrição geral dos aceleradores de soluções](iot-suite-what-are-solution-accelerators.md)
 
 # Introdução
-## Monitorização remota
-### [Implementar a solução pré-configurada](iot-suite-remote-monitoring-deploy.md)
-### [Operar a solução pré-configurada](iot-suite-remote-monitoring-explore.md)
+## Monitorização Remota
+### [Implementar o acelerador de soluções](iot-suite-remote-monitoring-deploy.md)
+### [Operar o acelerador de soluções](iot-suite-remote-monitoring-explore.md)
 
-## Monitorização remota (versão anterior)
-### [O que são as soluções pré-configuradas?](iot-suite-v1-what-are-preconfigured-solutions.md)
+## Monitorização Remota (versão anterior)
+### [O que são os aceleradores de soluções?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [FAQ](iot-suite-v1-faq.md)
 
 ### Introdução
-#### [Introdução às soluções pré-configuradas](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Introdução aos aceleradores de soluções](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [Permissões em azureiotsuite.com](iot-suite-v1-permissions.md)
-#### [Descrição passo a passo da solução de monitorização remota](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Instruções da solução de Monitorização Remota](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Ligar o seu Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
 ##### Utilizar C
 ###### [Dados simulados](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
@@ -36,39 +36,42 @@
 ##### [C em Linux](iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](iot-suite-v1-connecting-devices-node.md)
 #### [Ligar uma Aplicação Lógica à solução de monitorização remota](iot-suite-v1-logic-apps-tutorial.md)
-#### [Personalizar uma solução pré-configurada](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Personalizar um acelerador de soluções](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
 #### [Utilizar a telemetria dinâmica com a solução de monitorização remota](iot-suite-v1-dynamic-telemetry.md)
 #### [Crie uma regra personalizada na solução de monitorização remota](iot-suite-v1-custom-rule.md)
 #### [Informação do dispositivo na solução de monitorização remota](iot-suite-v1-remote-monitoring-device-info.md)
 
 
+## Manutenção Preditiva
+### [Descrição geral do acelerador de soluções de Manutenção Preditiva](iot-suite-predictive-overview.md)
+### [Instruções do acelerador de soluções de Manutenção Preditiva](iot-suite-predictive-walkthrough.md)
 
+## Fábrica Ligada
+### [O que é a Fábrica Ligada?](iot-suite-connected-factory-features.md)
+### [Descrição geral da solução de Fábrica Ligada](iot-suite-connected-factory-overview.md)
+### [Instruções da solução de Fábrica Ligada](iot-suite-connected-factory-sample-walkthrough.md)
 
-## Manutenção preditiva
-### [Descrição geral da solução de manutenção preditiva](iot-suite-predictive-overview.md)
-### [Descrição passo a passo da solução de manutenção preditiva](iot-suite-predictive-walkthrough.md)
-
-## Fábrica ligada
-### [O que é a Fábrica ligada?](iot-suite-connected-factory-features.md)
-### [Descrição geral da solução de fábrica ligada](iot-suite-connected-factory-overview.md)
-### [Guia da solução de fábrica ligada](iot-suite-connected-factory-sample-walkthrough.md)
-
-## Simulação de dispositivo
-### [Implementar simulação do dispositivo](iot-suite-device-simulation-deploy.md)
-### [Explorar simulação do dispositivo](iot-suite-device-simulation-explore.md)
+## Simulação do Dispositivo
+### [Implementar a Simulação do Dispositivo](iot-suite-device-simulation-deploy.md)
+### [Explorar a Simulação do Dispositivo](iot-suite-device-simulation-explore.md)
 
 # Guias de procedimentos
-## Monitorização remota
+## Monitorização Remota
 ### [Realizar a monitorização avançada](iot-suite-remote-monitoring-monitor.md)
 ### [Utilize as regras para detetar problemas](iot-suite-remote-monitoring-automate.md)
+### [Integrar dados SIM](iot-suite-remote-monitoring-telefonica-sim.md)
 ### [Gerir os seus dispositivos](iot-suite-remote-monitoring-manage.md)
 ### [Resolver problemas do dispositivo](iot-suite-remote-monitoring-maintain.md)
 ### [Compreender o esquema do modelo de dispositivo](iot-suite-remote-monitoring-device-schema.md)
 ### [Compreender o comportamento do modelo de dispositivo](iot-suite-remote-monitoring-device-behavior.md)
 ### [Criar um novo dispositivo simulado](iot-suite-remote-monitoring-test.md)
-### [Personalizar a solução](iot-suite-remote-monitoring-customize.md)
+### [Visualizar com o Power BI](iot-suite-integrate-data-powerbi.md)
+### [Personalizar a IU da solução](iot-suite-remote-monitoring-customize.md)
+### [Personalizar e reimplementar um microsserviço](iot-suite-microservices-example.md)
 ### [Implementar com a CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Implementar localmente](iot-suite-remote-monitoring-deploy-local.md)
+### [Visualizar dados com o Time Series Insights](iot-suite-time-series-insights.md)
+### [Integrar com o Data Lake](iot-suite-integrate-data-lake.md)
 ### Ligar um dispositivo físico
 #### [C em Windows](iot-suite-connecting-devices.md)
 #### [C em Linux](iot-suite-connecting-devices-linux.md)
@@ -77,13 +80,14 @@
 #### [C no Raspberry Pi](iot-suite-connecting-pi-c.md)
 
 ### Conceitos
-#### [Arquitetura de monitorização remota](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Detalhes da implementação da Monitorização Remota](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Escolhas arquitetónicas da Monitorização Remota](iot-suite-remote-monitoring-architectural-choices.md)
 
-## Fábrica ligada
-### [Implementar um gateway para a fábrica ligada](iot-suite-connected-factory-gateway-deployment.md)
-### [Personalizar a fábrica ligada](iot-suite-connected-factory-customize.md)
-### [Utilizar o publicador de OPC para a fábrica ligada](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Configurar a fábrica ligada](iot-suite-connected-factory-configure.md)
+## Fábrica Ligada
+### [Implementar um gateway para a Fábrica Ligada](iot-suite-connected-factory-gateway-deployment.md)
+### [Personalizar a Fábrica Ligada](iot-suite-connected-factory-customize.md)
+### [Utilizar o publicador de OPC para a Fábrica Ligada](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
+### [Configurar a Fábrica Ligada](iot-suite-connected-factory-configure.md)
 ## [Permissões em azureiotsuite.com](iot-suite-permissions.md)
 
 # Referência
@@ -102,7 +106,7 @@
 ### [Hub IoT](/azure/iot-hub) 
 ### [Serviço de Aprovisionamento de Dispositivos no Hub IoT](/azure/iot-dps)
 ### [SDKs do Serviço de IoT](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
-### [Location Based Services](/azure/location-based-services) 
+### [Maps](/azure/azure-maps) 
 ### [Time Series Insights](/azure/time-series-insights) 
 ## Edge 
 ### [IoT Edge](/azure/iot-edge) 
@@ -114,7 +118,7 @@
 # Recursos
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/)
 ## [FAQ](iot-suite-faq.md)
-## [FAQ de monitorização remota](iot-suite-faq-rm-v2.md)
-## [FAQ de fábrica ligada](iot-suite-faq-cf.md)
+## [FAQ de Monitorização Remota](iot-suite-faq-rm-v2.md)
+## [FAQ de Fábrica Ligada](iot-suite-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
-## [Percurso de aprendizagem do IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Percurso de aprendizagem dos aceleradores de soluções de IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

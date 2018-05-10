@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6e7fdd4faa4213681813733aa8afe81d56835862
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 50e517e5719fb102fd91072abe59d3908176278e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funciona durável publicação à grelha de eventos do Azure (pré-visualização)
 
@@ -220,7 +220,7 @@ Consulte os registos da função que criou no portal do Azure.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 0
+        "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:19.6492068Z",
@@ -239,7 +239,7 @@ Consulte os registos da função que criou no portal do Azure.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 1
+        "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:36.5061317Z",
@@ -261,7 +261,7 @@ A lista seguinte explica o esquema de eventos de ciclo de vida:
     * **functionName**: nome de função do Orchestrator.
     * **instanceId**: instanceId funções durável.
     * **motivo**: dados adicionais associados com o evento de controlo. Para obter mais informações, consulte [diagnóstico nas funções durável (funções do Azure)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
-    * **o eventType**: Estado de Runtime de orquestração. 0: com 1: concluir, 2: ContinuedAsNew, 3: falha, 4: cancelada, 5: terminada, 6: pendente. 
+    * **runtimeStatus**: Estado de Runtime de orquestração. Em execução, concluída, falha, cancelada. 
 * **o eventType**: "orchestratorEvent"
 * **eventTime**: tempo do evento (UTC).
 * **dataVersion**: versão de esquema de eventos de ciclo de vida.

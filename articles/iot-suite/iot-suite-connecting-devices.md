@@ -1,12 +1,12 @@
 ---
-title: "Aprovisionar dispositivos do Windows para monitorização remota no C - do Azure | Microsoft Docs"
-description: "Descreve como ligar um dispositivo à solução de monitorização remota do Azure IoT Suite pré-configurada utilizando uma aplicação de escrita no C em execução no Windows."
-services: 
+title: Aprovisionar dispositivos do Windows para monitorização remota no C - do Azure | Microsoft Docs
+description: Descreve como ligar um dispositivo para o acelerador solução de monitorização remota, utilizando uma aplicação de escrita no C em execução no Windows.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4dafcb939aa59d163e7df7f49906979fb181587c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Ligar o seu dispositivo à solução pré-configurada monitorização remota (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Ligar o seu dispositivo para o acelerador de solução monitorização remota (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como ligar um dispositivo físico a solução pré-configurada de monitorização remota.
+Este tutorial mostra como ligar um dispositivo físico para o acelerador de solução de monitorização remota.
 
 ## <a name="create-a-c-client-solution-on-windows"></a>Criar uma solução de cliente do C no Windows
 
@@ -121,7 +121,7 @@ Adicionar código para invocar a **remoto\_monitorização\_executar** funcione,
 
 1. No **Explorador de soluções**, faça duplo clique o **RMDevice** do projeto, escolha **depurar**e, em seguida, escolha **iniciar nova instância** para executar o exemplo . A consola apresenta mensagens como:
 
-    * A aplicação envia a telemetria de exemplo para a solução pré-configurada.
+    * A aplicação envia a telemetria de exemplo para o acelerador de solução.
     * Recebe os valores de propriedade pretendido definidos no dashboard de solução.
     * Responde a métodos invocados a partir do dashboard de solução.
 

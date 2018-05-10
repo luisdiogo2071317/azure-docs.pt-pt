@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
 # <a name="secure-your-iot-deployment"></a>Proteger a sua implementação de IoT
 
 Este artigo fornece o próximo nível de detalhe para proteger a infraestrutura baseada no Azure IoT Internet das coisas (IoT). Contém ligações para detalhes de nível de implementação para configurar e implementar cada componente. Também fornece comparações e opções de entre vários métodos concorrentes.
@@ -12,7 +28,7 @@ Proteger a implementação do IoT do Azure pode ser dividida nas seguintes área
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Proteger o aprovisionamento de dispositivos e autenticação
 
-O Azure IoT Suite protege os dispositivos de IoT através dos seguintes dois métodos:
+Aceleradores de solução IoT proteger dispositivos IoT através dos seguintes dois métodos:
 
 * Ao fornecer uma chave de identidade exclusiva (tokens de segurança) para cada dispositivo, o que pode ser utilizado pelo dispositivo para comunicar com o IoT Hub.
 * Ao utilizar um dispositivo [certificado x. 509] [ lnk-x509] e a chave privada como um meio para autenticar o dispositivo ao IoT Hub. Este método de autenticação garante que a chave privada no dispositivo não é conhecida fora do dispositivo em qualquer altura, fornecer um nível mais elevado de segurança.

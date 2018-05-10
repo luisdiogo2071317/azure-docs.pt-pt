@@ -1,24 +1,24 @@
 ---
-title: "Introdução à solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este tutorial utiliza cenários simulados para apresentar a solução pré-configurada de monitorização remota. Estes cenários são criados quando implementar a solução pré-configurada de monitorização remota pela primeira vez."
-services: 
+title: Introdução à solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial utiliza cenários simulados para apresentar o acelerador de solução de monitorização remota. Estes cenários são criados quando implementar o acelerador de solução de monitorização remota pela primeira vez.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar as funcionalidades da solução pré-configurada de monitorização remota
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explore as capacidades do acelerador de solução de monitorização remota
 
 Este tutorial mostra as principais capacidades de solução de monitorização remota. Para apresentar estas capacidades, o tutorial showcases cenários comuns do cliente, utilizando uma aplicação de IoT simulada para uma empresa denominada Contoso.
 
@@ -28,7 +28,7 @@ Neste tutorial, ficará a saber como:
 
 >[!div class="checklist"]
 > * Visualizar e filtrar dispositivos no dashboard
-> * Responder a um alarme
+> * Responder a um alerta
 > * Atualizar o firmware nos seus dispositivos
 > * Organizar os elementos
 > * Parar e iniciar dispositivos simulados
@@ -41,14 +41,14 @@ O vídeo seguinte mostra as obter instruções sobre a solução de monitorizaç
 
 Para concluir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar a solução pré-configurada de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>A implementação de IoT de exemplo do Contoso
 
 Pode utilizar a implementação de IoT de exemplo de Contoso para compreender os cenários básicos remoto solução de monitorização fornece out of box. Estes cenários são baseados em implementações de IoT reais. Provavelmente, irá escolher Personalizar a solução de monitorização remota para satisfazer os seus requisitos específicos, mas o exemplo de Contoso ajuda-o a aprender as noções básicas.
 
 > [!NOTE]
-> Se utilizou a CLI para implementar a solução pré-configurada, o ficheiro `deployment-{your deployment name}-output.json` contém informações sobre a implementação, tais como o URL para aceder a amostra implementada.
+> Se utilizou a CLI para implementar o acelerador de solução, o ficheiro `deployment-{your deployment name}-output.json` contém informações sobre a implementação, tais como o URL para aceder a amostra implementada.
 
 O exemplo de Contoso aprovisiona um conjunto de dispositivos simulados e regras para agir nos mesmos. Assim que compreender os cenários básicos, pode continuar a explorar mais funcionalidades solução [executar avançada de monitorização de dispositivos com a solução de monitorização remota](iot-suite-remote-monitoring-monitor.md).
 
@@ -67,7 +67,7 @@ A tabela seguinte mostra um resumo dos tipos de dispositivo aprovisionada:
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller            | Pressão de temperatura, humidade,            | Tipo, versão de Firmware, de modelo               | Localização, piso, Campus | Reiniciar o computador, pressão de aumento de atualização, versão de emergência Valve, de Firmware                          |
 | Dispositivo de fazer o protótipo | Temperatura, pressão, geolocalização        | Tipo, versão de Firmware, de modelo               | Localização, modo          | Reiniciar o computador, atualização de Firmware, o dispositivo de movimentação, paragem dispositivo, versão de temperatura, aumento de temperatura |
-| Motor             | Tank fuel nível, Coolant sensor, Vibration | Tipo, versão de Firmware, de modelo               | Localização, piso, Campus | Reiniciar, atualização de Firmware, tank vazio, tank de preenchimento                                              |
+| Motor             | Tank fuel nível, Coolant sensor, Vibration | Tipo, versão de Firmware, de modelo               | Localização, piso, Campus | Atualização de firmware, tank vazio, tank de preenchimento                                              |
 | Camião              | Temperatura de carga de geolocalização, velocidade,     | Tipo, versão de Firmware, de modelo               | Localização de carga          | Inferior temperatura de carga, a temperatura do aumento de carga, a atualização de Firmware                         |
 | Abordagem           | Piso, Vibration, temperatura              | Tipo, versão de Firmware, o modelo, geolocalização | Localização, Campus        | Abordagem de parar, a abordagem de início, a atualização de Firmware                                               |
 
@@ -80,51 +80,43 @@ Operadores contoso sabe os limiares que determinam se um dispositivo está a fun
 
 | Nome da Regra | Descrição | Limiar | Gravidade | Dispositivos afetados |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Pressão chiller demasiado elevada | Alerta se chillers alcançar superior do que os níveis de pressão normal   |P>250 psi       | Crítico | Chillers            |
-| Temp de dispositivo de fazer o protótipo demasiado elevada  | Alerta se os dispositivos de fazer o protótipo alcancem superior do que os níveis de temperatura normal  |T>80&deg; F |Crítico | Dispositivos de fazer o protótipo |
+| Pressão chiller demasiado elevada | Alerta se chillers alcançar superior do que os níveis de pressão normal   |P > 250 psi       | Crítico | Chillers            |
+| Temp de dispositivo de fazer o protótipo demasiado elevada  | Alerta se os dispositivos de fazer o protótipo alcancem superior do que os níveis de temperatura normal  |T &GT; 80&deg; F |Crítico | Dispositivos de fazer o protótipo |
 | Tank motor vazio  | Alertas se o motor fuel tank ficar vazio                     | F < 5 gallons | Informações     | Motores             |
-| Superior a temperatura de carga normal | Alerta se a temperatura de carga do camião é superior à normal                 | T<45&deg; F |Aviso  | Trucks              |
+| Superior a temperatura de carga normal | Alerta se a temperatura de carga do camião é superior à normal                 | T &LT; 45&deg; F |Aviso  | Trucks              |
 | Vibration abordagem parado      | Alertas se abordagem parar completamente (com base no nível de vibration)                     | V < 0.1 mm |Aviso  | Elevators           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>Operar a implementação de exemplo do Contoso
 
-Constatou agora a configuração inicial do exemplo Contoso. As secções seguintes descrevem os três cenários de exemplo da Contoso que ilustram como um operador pode utilizar a solução pré-configurada.
+Constatou agora a configuração inicial do exemplo Contoso. As secções seguintes descrevem os três cenários de exemplo da Contoso que ilustram como um operador pode utilizar o acelerador de solução.
 
-## <a name="respond-to-a-pressure-alarm"></a>Responder a um alarme pressão
+## <a name="respond-to-a-pressure-alert"></a>Responder a um alerta de pressão
 
-Este cenário mostra como identificar e responder a um alarme que é acionado por um dispositivo chiller. O chiller está localizado em Redmond, na compilação 43, piso 2.
+Este cenário mostra como identificar e responder a um alerta que é acionado por um dispositivo chiller. O chiller está localizado em Redmond, na compilação 43, piso 2.
 
-Como um operador, vê no dashboard que há um alarme relacionadas com a pressão de um chiller. Pode efetuar um deslocamento panorâmico e zoom no mapa para ver mais detalhes.
+Como um operador, vê no dashboard que há um alerta relacionadas com a pressão de um chiller. Pode efetuar um deslocamento panorâmico e zoom no mapa para ver mais detalhes.
 
-1. No **Dashboard** na página a **sistema alarmes** grelha, pode ver o **pressão Chiller demasiado elevada** alarme. O chiller também é realçado no mapa:
+1. No **Dashboard** na página de **alertas** grelha, pode ver o **pressão Chiller demasiado elevada** alerta. O chiller também é realçado no mapa:
 
-    ![Dashboard mostra alarme pressão e dispositivos no mapa](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![Dashboard mostra alerta pressão e dispositivos no mapa](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. Para ver os detalhes do dispositivo e a telemetria, clique o chiller realçado no mapa. A telemetria mostra um pico de pedidos de pressão:
+1. Para navegar para o **manutenção** página, escolha **manutenção** no menu de navegação. No **manutenção** página, pode ver os detalhes da regra que acionou o alerta de pressão chiller.
 
-    ![Escolha o dispositivo no mapa para ver detalhes](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
+1. A lista de alertas mostra o número de vezes que o alerta foi acionado, em que as confirmações e alertas abertas e fechadas:
 
-1. Fechar **detalhes do dispositivo**.
+    ![Página de manutenção mostra a lista de alertas que tenham acionada](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Para navegar para o **manutenção** página, escolha **manutenção** no menu de navegação.
+1. O último alerta na lista é a mais recente. Clique em de **Chiller pressão demasiado elevada** alerta para ver a telemetria e de dispositivos associados. A telemetria mostra picos de pressão para o chiller:
 
-No **manutenção** página, pode ver os detalhes da regra que acionou o alarme de pressão chiller.
+    ![Página de manutenção mostra a telemetria para o alerta selecionado](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
-1. A lista de notificações mostra o número de vezes que o alarme foi acionada, em que as confirmações e alarmes abertos e fechados:
+Agora ter identificado o problema que acionou o alerta e o dispositivo associado. Como um operador, os passos seguintes são reconhecer o alerta e mitigar o problema.
 
-    ![Página de manutenção mostra a lista de alarmes ter acionado](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
+1. Para indicar que está a trabalhar agora num alerta, altere o **estado do alerta** para **confirmado**:
 
-1. O alarme primeiro na lista é a mais recente. Clique em de **Chiller pressão demasiado elevada** alarme para ver a telemetria e de dispositivos associados. A telemetria mostra picos de pressão para o chiller:
+    ![Selecione e confirmar o alerta](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-    ![Página de manutenção mostra a telemetria alarme selecionado](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
-
-Agora ter identificado o problema que acionou o alarme e o dispositivo associado. Como um operador, os passos seguintes são reconhecer o alarme e mitigar o problema.
-
-1. Para indicar que está a trabalhar agora no alarme, altere o **alarme estado** para **confirmado**:
-
-    ![Selecione e confirmar o alarme](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
-
-1. Para agir sobre o chiller, selecione-o e, em seguida, escolha **agenda**. Selecione **EmergencyValveRelease**, adicionar um nome de tarefa **ChillerPressureRelease**e escolha **aplicar**. Estas definições de criar uma tarefa que é executada imediatamente:
+1. Para agir sobre o chiller, selecione-o e, em seguida, escolha **tarefas**. Selecione **executar o método**, em seguida, **EmergencyValveRelease**, adicionar um nome de tarefa **ChillerPressureRelease**e escolha **aplicar**. Estas definições de criar uma tarefa que é executada imediatamente:
 
     ![Selecione o dispositivo e agendar uma ação](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -134,13 +126,13 @@ Agora ter identificado o problema que acionou o alarme e o dispositivo associado
 
 Por fim, confirme que os valores de telemetria do chiller são novamente para normal.
 
-1. Para ver a grelha de alarmes, navegue para o **Dashboard** página.
+1. Para ver a grelha de alertas, navegue para o **Dashboard** página.
 
-1. Para ver a telemetria do dispositivo, selecione o dispositivo para o alarme original no mapa e confirme que é a normal.
+1. Para ver a telemetria do dispositivo, selecione o dispositivo para o alerta original no mapa e confirme que é a normal.
 
-1. Para fechar o incidente, navegue para o **manutenção** página, selecione de alarme e definir o estado **fechado**:
+1. Para fechar o incidente, navegue para o **manutenção** página, selecione o alerta e definir o estado **fechado**:
 
-    ![Selecione e fechar o alarme](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![Selecione e fechar o alerta](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## <a name="update-device-firmware"></a>Atualizar o firmware do dispositivo
 
@@ -159,7 +151,7 @@ Para efetuar as tarefas de gestão de dispositivo necessários, utilize o **disp
 
     ![Selecione um dispositivo na página de dispositivos](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Clique em de **agenda** botão e, em seguida, escolha **atualização de Firmware**. Introduza os valores para **nome da tarefa**, **versão de Firmware**, e **URI de Firmware**. Escolha **aplicar** para agendar a tarefa para executar agora:
+1. Clique em de **tarefas** botão, escolha **executar o método**e, em seguida, escolha **atualização de Firmware**. Introduza os valores para **nome da tarefa**, **versão de Firmware**, e **URI de Firmware**. Escolha **aplicar** para agendar a tarefa para executar agora:
 
     ![Agendar a atualização de firmware no dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -176,17 +168,18 @@ Pode utilizar o **manutenção** página para controlar a tarefa que é executad
 
 1. Localize os eventos relacionados com a tarefa que criou. Certifique-se de que o processo de atualização de firmware foi iniciado corretamente.
 
-Pode criar um filtro para verificar a versão de firmware atualizada corretamente.
+<!-- 05/01 broken 
+You can create a filter to verify the firmware version updated correctly.
 
-1. Para criar um filtro, navegue para o **dispositivos** página e selecione **gerir filtros**:
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![Gerir filtros de dispositivo](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Crie um filtro que inclui apenas os dispositivos com a nova versão de firmware:
+1. Create a filter that includes only devices with the new firmware version:
 
-    ![Criar o filtro do dispositivo](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Volte à **dispositivos** Certifique-se de que o dispositivo tem a nova versão de firmware e da página.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## <a name="organize-your-assets"></a>Organizar os elementos
 
@@ -203,7 +196,7 @@ Pode criar os nomes de etiqueta para utilizar com dispositivos.
 
     ![Mostrar todos os dispositivos](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. Selecione o **Trucks** e **fazer o protótipo** dispositivos. Em seguida, escolha **Tag**:
+1. Selecione o **Trucks** e **fazer o protótipo** dispositivos. Em seguida, escolha **tarefas**:
 
     ![Selecione os dispositivos protótipo e camião](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -211,19 +204,19 @@ Pode criar os nomes de etiqueta para utilizar com dispositivos.
 
     ![Adicionar etiquetas a dispositivos protótipo e camião](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. Selecione o **Chiller**, **abordagem**, e **motor** dispositivos. Em seguida, escolha **Tag**:
+1. Selecione o **Chiller**, **abordagem**, e **motor** dispositivos. Em seguida, escolha **tarefas**:
 
     ![Selecione dispositivos chiller, motor e a abordagem](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Escolha **Tag** e, em seguida, crie uma nova etiqueta de texto chamada **FieldService** com um valor **SmartBuilding**. Escolha um nome para a tarefa. Em seguida, clique em **guardar**:
+1. Escolha **Tag** e, em seguida, crie uma nova etiqueta de texto chamada **FieldService** com um valor **SmartBuilding**. Escolha um nome para a tarefa. Em seguida, clique em **aplicar**:
 
     ![Adicionar etiquetas ao chiller, motor e a abordagem de dispositivos](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 Pode utilizar os valores de etiqueta para criar filtros.
 
-1. No **dispositivos** página, escolha **gerir filtros**:
+1. No **dispositivos** página, escolha **gerir grupos de dispositivos**:
 
-    ![Gerir filtros de dispositivo](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Gerir grupos de dispositivos](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Criar um novo filtro que utiliza o nome de etiqueta **FieldService** e valor **SmartBuilding**. Guardar o filtro como **Smart edifício**.
 
@@ -237,9 +230,17 @@ Pode utilizar o menu de definições para os dispositivos simulados. Isto ajuda 
 
 1. Escolha o **definições** ícone.
 
-1. Em seguida, ative **executar** ou desativar:
+1. Em seguida, ative **Flowing** ou desativar:
 
     ![Menu de definições](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="customize-the-ui"></a>Personalizar a IU
+
+No menu de definições, pode aplicar customisations básicas para o acelerador de solução de monitorização remota. Pode:
+
+- Alternar entre os temas claros e escuros.
+- Altere o nome da solução.
+- Carregar um logótipo personalizado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -247,7 +248,7 @@ Neste tutorial, aprendeu a:
 
 >[!div class="checklist"]
 > * Visualizar e filtrar dispositivos no dashboard
-> * Responder a um alarme
+> * Responder a um alerta
 > * Atualizar o firmware nos seus dispositivos
 > * Organizar os elementos
 > * Parar e iniciar dispositivos simulados

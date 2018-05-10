@@ -1,32 +1,30 @@
 ---
-title: "Azure Active Directory licenciamento cenários adicionais com base no grupo | Microsoft Docs"
-description: "Mais cenários para o Azure Active Directory baseadas em grupos de licenciamento"
+title: Azure Active Directory licenciamento cenários adicionais com base no grupo | Microsoft Docs
+description: Mais cenários para o Azure Active Directory baseadas em grupos de licenciamento
 services: active-directory
 keywords: Licenciamento do Azure AD
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: piotrci
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf18076c81ecf7471771674fe40d36dba3b9866d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb8bd727618eda2a887cc9e1b739889204eb87fa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
 
 Utilize as seguintes informações e exemplos para obter uma compreensão mais avançada do Azure Active Directory (Azure AD) com base no grupo de licenciamento.
 
-## <a name="usage-location"></a>Localização de utilização
+## <a name="usage-location"></a>Localização da utilização
 
 Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. No [portal do Azure](https://portal.azure.com), pode especificar no **utilizador** &gt; **perfil** &gt; **definições**.
 
@@ -139,7 +137,7 @@ Pode utilizar um script do PowerShell para verificar se os utilizadores possuem 
 
 1. Execute o `connect-msolservice` cmdlet para autenticar e ligar ao seu inquilino.
 
-2. `Get-MsolAccountSku`pode ser utilizado para detetar todas as licenças de produto aprovisionado no inquilino.
+2. `Get-MsolAccountSku` pode ser utilizado para detetar todas as licenças de produto aprovisionado no inquilino.
 
   ![Captura de ecrã do cmdlet Get-Msolaccountsku](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -230,7 +228,7 @@ Se utilizar o licenciamento de baseadas em grupos, é boa ideia para se familiar
 
 - Com base no grupo de licenciamento grava erros quando uma licença não foi possível atribuir a um utilizador devido a uma configuração de endereço proxy duplicado no Exchange Online; esses utilizadores são ignorados durante a atribuição de licença. Para obter mais informações sobre como identificar e resolver este problema, consulte [nesta secção](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre outros cenários para gestão de licenças através de com base no grupo de licenciamento, consulte:
 

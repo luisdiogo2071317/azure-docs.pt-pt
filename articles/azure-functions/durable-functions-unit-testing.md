@@ -1,12 +1,12 @@
 ---
-title: "Unidade de durável funções do Azure de teste"
-description: "Saiba como a unidade de teste funções durável."
+title: Unidade de durável funções do Azure de teste
+description: Saiba como a unidade de teste funções durável.
 services: functions
 author: kadimitr
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Unidade de funções durável teste
 
@@ -28,7 +28,7 @@ Unidade de teste é uma parte importante das práticas de desenvolvimento de sof
 
 Os exemplos neste artigo requerem conhecimentos dos conceitos e estruturas que se seguem: 
 
-* Unidade de teste
+* Teste de unidade
 
 * Funções Duráveis 
 
@@ -128,7 +128,7 @@ Depois de combinar todos os passos, o teste da unidade terá o seguinte código:
 
 ## <a name="unit-testing-orchestrator-functions"></a>Unidade testar as funções do orchestrator
 
-As funções do Orchestrator são ainda mais interessantes para a unidade, uma vez que têm, normalmente, muito mais lógica de negócio de teste. Atualmente, as funções do Orchestrator podem ser implementadas apenas em c#.
+As funções do Orchestrator são ainda mais interessantes para a unidade, uma vez que têm, normalmente, muito mais lógica de negócio de teste.
 
 Nesta secção a unidade testes irão validar o resultado a `E1_HelloSequence` função do Orchestrator:
 
@@ -179,7 +179,7 @@ E o teste da unidade irá verificar o formato de saída:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre xUnit](http://xunit.github.io/docs/getting-started-dotnet-core)

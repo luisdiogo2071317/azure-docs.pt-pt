@@ -1,11 +1,11 @@
 ---
 title: Carregar ficheiros de dispositivos para o IoT Hub do Azure com o .NET | Microsoft Docs
-description: "Como carregar ficheiros a partir de um dispositivo para a nuvem através de dispositivos IoT do Azure SDK para .NET. Ficheiros carregados são armazenados num contentor do blob storage do Azure."
+description: Como carregar ficheiros a partir de um dispositivo para a nuvem através de dispositivos IoT do Azure SDK para .NET. Ficheiros carregados são armazenados num contentor do blob storage do Azure.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 4362512121ca426fcae6716c74e1f8effa0986f1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub através do .NET
 
@@ -36,7 +36,7 @@ O [introdução ao IoT Hub](iot-hub-csharp-csharp-getstarted.md) e [enviar mensa
 * Dados vibration amostragem alta frequência
 * Algum tipo de dados pré-processados
 
-Estes ficheiros são, normalmente, batch processado na nuvem através de ferramentas, como [do Azure Data Factory](../data-factory/introduction.md) ou [Hadoop](../hdinsight/index.md) pilha. Quando precisar de carregar ficheiros a partir de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
+Estes ficheiros são, normalmente, batch processado na nuvem através de ferramentas, como [do Azure Data Factory](../data-factory/introduction.md) ou [Hadoop](../hdinsight/index.yml) pilha. Quando precisar de carregar ficheiros a partir de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
 
 No final deste tutorial, executar duas aplicações de consola .NET:
 

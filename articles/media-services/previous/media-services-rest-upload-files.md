@@ -1,11 +1,11 @@
 ---
 title: Carregar ficheiros para uma conta de Media Services do Azure utilizando REST | Microsoft Docs
-description: "Saiba como obter o conteúdo do suporte de dados para os serviços de suporte de dados através da criação e carregar recursos."
+description: Saiba como obter o conteúdo do suporte de dados para os serviços de suporte de dados através da criação e carregar recursos.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta de Media Services utilizando REST
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Aplicam as seguintes considerações ao utilizar a API de REST dos serviços de 
 * Ao aceder a entidades utilizando a API de REST dos serviços de suporte de dados, tem de definir campos de cabeçalho específicos e os valores no seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST de serviços de suporte de dados](media-services-rest-how-to-use.md). <br/>A coleção de Postman utilizada neste tutorial encarrega-se de definir os cabeçalhos necessários.
 * Os Media Services utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para os conteúdos de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por este motivo, por cento de codificação não é permitida. O valor da **nome** propriedade não pode ter qualquer um dos seguintes [por cento codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
 * O comprimento do nome não deve ser superior a 260 carateres.
-* Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos Serviços de Multimédia. Consulte [isto](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho de ficheiro.
+* Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos Serviços de Multimédia. Veja [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre as limitações relativas aos tamanhos de ficheiros.
 
 ## <a name="set-up-postman"></a>Configurar o Postman
 
@@ -184,7 +184,7 @@ Por exemplo, utilizamos Postman para carregar um ficheiro mp4 pequeno. Pode have
 O pedido de carregamento não é parte do **AzureMedia** coleção. 
 
 Criar e configurar um novo pedido:
-1. Prima  **+** , para criar um novo separador do pedido.
+1. Prima **+**, para criar um novo separador do pedido.
 2. Selecione **colocar** operação e colar **{{UploadURL}}** no URL.
 2. Deixe **autorização** separador, é (não definido-lo para o **tokens de portador**).
 3. No **cabeçalhos** separador, especifique: **chave**: "x-ms--tipo de blob" e **valor**: "BlockBlob".

@@ -1,26 +1,24 @@
 ---
-title: "Criar relatórios de instantâneo de Cloud App Discovery no Azure Active Directory | Microsoft Docs"
-description: "Fornece informações sobre como localizar e gerir aplicações com o Cloud App Discovery, quais são as vantagens e como funciona."
+title: Criar relatórios de instantâneo de Cloud App Discovery no Azure Active Directory | Microsoft Docs
+description: Fornece informações sobre como localizar e gerir aplicações com o Cloud App Discovery, quais são as vantagens e como funciona.
 services: active-directory
-keywords: "o cloud app discovery, gestão de aplicações"
-documentationcenter: 
+keywords: o cloud app discovery, gestão de aplicações
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
-ms.openlocfilehash: 69a633b39e68596c536700dbb2c7c8d35f3b44bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: ad4591223c72893a4488f5515d8ceb83e0d7f8cf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Criar relatórios de instantâneo de Cloud App Discovery
 
@@ -31,14 +29,14 @@ Antes de configurar o recoletor de registos automática, carregar manualmente um
 1. Recolha ficheiros de registo do seu servidor de firewall e proxy através do qual os utilizadores na sua organização acedem à Internet. Recolha registos fora das horas de pico de tráfego que sejam representativas da atividade de utilizador na sua organização.
 2. No [barra de menus do Cloud App Security](https://portal.cloudappsecurity.com), selecione **detetar**e, em seguida, **criar instantâneo relatório**.
   
-  ![Criar novo relatório de instantâneo](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-command.png)
+  ![Criar novo relatório instantâneo](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-command.png)
 3. Introduza um **o nome do relatório** e um **Descrição**.
     
   ![Novo relatório de instantâneo](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-form.png)
 4. Selecione o **origem de dados** partir da qual pretende carregar os ficheiros de registo.
 5. Verifique o formato de registo para se certificar de que está formatado corretamente, de acordo com o exemplo, que pode transferir. Clique em **vista e certifique-se** e, em seguida, clique em **registo de exemplo da transferência**. Em seguida, compare o registo com o exemplo fornecido para se certificar de que é compatível.
   
-  ![Verifique o formato do registo](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
+  ![Verificar o formato do registo](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
   >  [!NOTE]
   > O formato de exemplo FTP é suportado no instantâneos e automatizada carregamento enquanto syslog é suportado apenas o carregamento automático. Transferência de um registo de exemplo transfere um registo de FTP de exemplo.
 6. **Escolha os registos de tráfego** que pretende carregar. Pode carregar até 20 ficheiros ao mesmo tempo. Também são suportados ficheiros comprimidos e zipped.
@@ -49,7 +47,7 @@ Antes de configurar o recoletor de registos automática, carregar manualmente um
   
   ![Gestão de relatórios de instantâneo](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-manage.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Começar a utilizar a Cloud App Discovery no Azure AD](cloudappdiscovery-get-started.md)
 * [Configurar o carregamento de registos automática para relatórios contínua](https://docs.microsoft.com/cloud-app-security/discovery-docker)

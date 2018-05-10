@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 897b45782dee14099d5d7a7b12c49e2bfd60b309
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo utilizando o mapeamento de grupo de dependência
 
@@ -24,18 +24,18 @@ Este artigo descreve como refinar um grupo ao visualizar as dependências de tod
 # <a name="prepare-the-group-for-dependency-visualization"></a>Preparar o grupo para visualização de dependência
 Para ver as dependências de um grupo, tem de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
 
-### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes VM
+### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes da VM
 1. No **descrição geral**, clique em **gerir** > **grupos**, vá para o grupo necessário.
 2. Na lista de máquinas, no **agente de dependência** coluna, clique em **requer a instalação** para ver instruções sobre como transferir e instalar os agentes.
 3. No **dependências** página, transfira e instale o Microsoft Monitoring Agent (MMA) e o agente de dependência em cada VM que faz parte do grupo.
-4. Copie o ID da área de trabalho e a chave. Terá de estes quando instalar o MMA nas máquinas no local.
+4. Copie o ID e a chave da área de trabalho. Terá de estes quando instalar o MMA nas máquinas no local.
 
 ### <a name="install-the-mma"></a>Instalar o MMA
 
 Para instalar o agente num computador Windows:
 
-1. Faça duplo clique o agente transferido.
-2. Na página **Bem-vindo**, clique em **Seguinte**. No **termos de licenciamento** página, clique em **concordo** para aceitar a licença.
+1. Faça duplo clique no agente transferido.
+2. Na página **Bem-vindo**, clique em **Seguinte**. Na página **Termos de Licenciamento**, clique em **Concordo** para aceitar a licença.
 3. No **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **seguinte**. 
 4. No **opções de configuração do agente**, selecione **Log Analytics do Azure** > **seguinte**. 
 5. Clique em **adicionar** para adicionar uma nova área de trabalho de análise de registos. Colar o ID da área de trabalho e a chave que copiou do portal. Clique em **Seguinte**.
@@ -49,13 +49,13 @@ Para instalar o agente num computador Linux:
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
 
-### <a name="install-the-dependency-agent"></a>Instalar o agente de dependência
+### <a name="install-the-dependency-agent"></a>Instalar o agente de Dependência
 1. Para instalar o agente de dependência num computador Windows, clique duas vezes o ficheiro de configuração e siga o assistente.
 2. Para instalar o agente de dependência num computador Linux, instale como raiz utilizando o seguinte comando:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Saiba mais](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) sobre sistemas operativos suportados pelo agente de dependência. 
+[Saiba mais](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre sistemas operativos suportados pelo agente de dependência. 
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Otimizar o grupo com base na visualização de dependência
 Depois de instalar os agentes em todas as máquinas do grupo, pode visualizar as dependências do grupo e refiná-la seguindo os passos abaixo.
@@ -69,7 +69,7 @@ Depois de instalar os agentes em todas as máquinas do grupo, pode visualizar as
     - Processos em execução dentro da máquina, pode expandir cada caixa de máquina para ver os processos
     - Propriedades de nome de domínio completamente qualificado, o sistema operativo, etc. de endereços MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
 
-     ![Dependências do grupo de vista](./media/how-to-create-group-dependencies/view-group-dependencies.png)
+     ![Ver dependências de grupo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Para ver mais granulares dependências, clique em modificar o intervalo de tempo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo, ou especificar o início e fim datas e duração.
 4. Verifique se as máquinas dependentes, o processo em execução dentro de cada máquina e identificar as máquinas que devem ser adicionadas ou removidas do grupo.

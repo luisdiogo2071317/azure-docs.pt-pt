@@ -1,8 +1,8 @@
 ---
-title: "Configurar a localização de Recortador de suporte de dados do Azure | Microsoft Docs"
-description: "Saiba mais sobre o suporte de localização e idiomas Recortador de suporte de dados do Azure suportada"
+title: Configurar a localização de Recortador de suporte de dados do Azure | Microsoft Docs
+description: Saiba mais sobre o suporte de localização e idiomas Recortador de suporte de dados do Azure suportada
 services: media-services
-keywords: "Clip; subclip codificação; suporte de dados"
+keywords: Clip; subclip codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>Configurar a localização
 Recortador de suporte de dados do Azure está disponível em 18 idiomas. Para definir o idioma de widget, tem de definir o `language` parâmetro durante a inicialização. Passagem da cadeia de código de idioma pretendido na lista seguinte:
@@ -137,7 +137,7 @@ Por exemplo, o exemplo seguinte define as cadeias localizadas em inglês:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os passos seguintes para configurar o Recortador de suporte de dados do Azure:
 - [Carregar recursos para o Recortador de suporte de dados do Azure](media-services-azure-media-clipper-load-assets.md)
 - [Configurar os atalhos de teclado personalizado](media-services-azure-media-clipper-keyboard-shortcuts.md)

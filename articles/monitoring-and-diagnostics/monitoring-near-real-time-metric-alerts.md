@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6d440a49cb30210d3c0eed7d24e4811cc56925b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Alertas de métricas mais recentes para serviços do Azure no portal do Azure
 Monitor do Azure suporta agora um novo tipo de alerta métrico. Os alertas mais recentes é diferente do [clássicas alertas métricas](insights-alerts-portal.md) de algumas formas:
@@ -35,7 +35,7 @@ Para saber como criar um alerta de métrico mais recente no portal do Azure, con
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST suporte
-Atualmente, pode criar alertas métricas mais recentes apenas no portal do Azure, [REST API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template) ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes com o PowerShell e a interface de linha de comandos do Azure (Azure CLI 2.0) está disponível em breve.
+Atualmente, pode criar alertas métricas mais recentes apenas no portal do Azure, [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes com o PowerShell e a interface de linha de comandos do Azure (Azure CLI 2.0) está disponível em breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e dimensões suportadas
 Alertas de métricas mais recentes suportam alertas com base nas métricas que utilizam dimensões. Pode utilizar dimensões para a métrica para o nível adequado de filtro. Podem ser explorou e visualizadas a partir de todas as métricas suportadas juntamente com dimensões aplicáveis [Azure Monitor - Explorador de métricas (pré-visualização)](monitoring-metric-charts.md).

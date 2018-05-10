@@ -1,9 +1,9 @@
 ---
 title: Exportar para o Power BI do Azure Application Insights | Microsoft Docs
-description: "As consultas de análises podem ser apresentadas no Power BI."
+description: As consultas de análises podem ser apresentadas no Power BI.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de business, que o ajuda a analisar os dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análises de [Azure Application Insights](app-insights-overview.md).
@@ -121,8 +121,8 @@ Se reduzir o conjunto de dados provenientes da consulta de análise não cumpre 
 
 1. Criar um [chave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Atualize o script de Power BI M que exportou a partir da análise, substituindo o URL do Gestor de recursos do Azure com a API do Application Insights.
-   * Substitua **https://management.azure.com/subscriptions/...**
-   * com **https://api.applicationinsights.io/beta/apps/...**
+   * Substitua  **https://management.azure.com/subscriptions/...**
+   * com  **https://api.applicationinsights.io/beta/apps/...**
 3. Por fim, Atualize as credenciais para básico e utilizar a sua chave de API.
   
 
@@ -139,7 +139,7 @@ Se reduzir o conjunto de dados provenientes da consulta de análise não cumpre 
 Se a sua aplicação enviar uma grande quantidade de dados, pode querer utilizar a funcionalidade de amostragem adaptável, o que envia apenas uma percentagem da sua telemetria. O mesmo se aplica se tiver definido manualmente amostragem no SDK ou em ingestão. [Saiba mais sobre amostragem](app-insights-sampling.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Power BI - Saiba mais](http://www.powerbi.com/learning/)
 * [Tutorial de análise](app-insights-analytics-tour.md)
 

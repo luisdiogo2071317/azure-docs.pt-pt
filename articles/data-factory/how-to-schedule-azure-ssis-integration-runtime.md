@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: 2ccde1a4eaff391dccf1b5f624257479acb263cb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS 
 Com um tempo de execução de integração do Azure SSIS (SQL Server Integration Services) (IR) tem um custo associado ao mesmo. Por conseguinte, que pretende executar a resposta a incidentes apenas quando precisar de executar os pacotes SSIS no Azure e pare-o quando não precisar dele. Pode utilizar a IU da fábrica de dados ou o Azure PowerShell para [manualmente iniciar ou parar uma resposta a incidentes SSIS Azure](manage-azure-ssis-integration-runtime.md)). Este artigo descreve como agendar a iniciar e parar um tempo de execução de integração do Azure SSIS (IR) através da utilização da automatização do Azure e do Azure Data Factory. Eis os passos de alto nível descritos neste artigo:
@@ -69,7 +69,7 @@ Se não tiver uma conta de automatização do Azure, siga as instruções neste 
 
 ### <a name="import-data-factory-modules"></a>Importe os módulos de fábrica de dados
 
-1. Selecione **módulos** no **recursos PARTILHADOS** secção no menu da esquerda e verifique se tem **AzureRM.Profile** e **AzureRM.DataFactoryV2** na lista de módulos. Se não estiverem na lista, selecione **procurar galeria** na barra de ferramentas e continuar com os seguintes passos.
+1. Selecione **módulos** no **recursos PARTILHADOS** secção no menu da esquerda e verifique se tem **AzureRM.Profile** e **AzureRM.DataFactoryV2** na lista de módulos.
 
     > [!IMPORTANT]
     > O presente momento, só pode utilizar **AzureRM.DataFactoryV2 0.5.2** e **AzureRM.Profile 4.5.0** módulos.

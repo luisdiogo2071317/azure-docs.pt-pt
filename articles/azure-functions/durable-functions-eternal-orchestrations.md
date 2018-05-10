@@ -1,12 +1,12 @@
 ---
-title: "Orchestrations eternal nas funções durável - Azure"
-description: "Saiba como implementar eternal orchestrations utilizando a extensão de funções durável para as funções do Azure."
+title: Orchestrations eternal nas funções durável - Azure
+description: Saiba como implementar eternal orchestrations utilizando a extensão de funções durável para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations eternal nas funções durável (funções do Azure)
 
@@ -36,6 +36,9 @@ Quando `ContinueAsNew` denomina-se, a instância enqueues uma mensagem a própri
 
 > [!NOTE]
 > A estrutura de tarefas durável mantém o mesmo ID de instância, mas internamente cria uma nova *ID de execução* para a função do orchestrator que obtém repor por `ContinueAsNew`. Este ID de execução, geralmente, não está exposta externamente, mas poderá ser útil de saber sobre quando a depuração de execução de orquestração.
+
+> [!NOTE]
+> O `ContinueAsNew` método ainda não está disponível em JavaScript.
 
 ## <a name="periodic-work-example"></a>Exemplo de trabalho periódica
 

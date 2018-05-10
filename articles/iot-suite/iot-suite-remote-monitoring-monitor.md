@@ -1,7 +1,7 @@
 ---
 title: Avançadas de monitorização na solução de monitorização remota - Azure | Microsoft Docs
 description: Este tutorial mostra como monitorizar dispositivos com o dashboard de solução de monitorização remota.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Efetuar a monitorização avançada, utilizando a solução de monitorização remota
 
 Este tutorial mostra as funcionalidades do dashboard de monitorização remota. Para apresentar estas capacidades, o tutorial utiliza um cenário na aplicação Contoso IoT.
 
-Neste tutorial, utilize dois dispositivos de camião Contoso simulados para saber como monitorizar dos seus dispositivos no dashboard da solução pré-configurada. Como um operador de Contoso, terá de monitorizar a localização e o comportamento dos seus trucks no campo.
+Neste tutorial, utilize dois dispositivos de camião Contoso simulados para saber como monitorizar os seus dispositivos a partir do dashboard de acelerador solução. Como um operador de Contoso, terá de monitorizar a localização e o comportamento dos seus trucks no campo.
 
 Neste tutorial, ficará a saber como:
 
@@ -30,14 +30,14 @@ Neste tutorial, ficará a saber como:
 > * Filtrar os dispositivos no dashboard
 > * Ver telemetria em tempo real
 > * Ver detalhes do dispositivo
-> * Vista alarmes dos seus dispositivos
+> * Ver alertas dos seus dispositivos
 > * Ver o sistema KPIs
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar a solução pré-configurada de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## <a name="choose-the-devices-to-display"></a>Escolha os dispositivos para apresentar
 
@@ -57,7 +57,7 @@ Para criar, editar e eliminar os filtros, escolha **gerir filtros**.
 
 ## <a name="view-real-time-telemetry"></a>Ver telemetria em tempo real
 
-A solução pré-configurada rastreia dados de telemetria em tempo real de detalhado no gráfico no **Dashboard** página. O gráfico de telemetria mostra informações de telemetria para os dispositivos selecionados pelo filtro de atual:
+O acelerador solução rastreia dados de telemetria em tempo real de detalhado no gráfico no **Dashboard** página. O gráfico de telemetria mostra informações de telemetria para os dispositivos selecionados pelo filtro de atual:
 
 ![Desenho de telemetria camião](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,39 +65,41 @@ Para selecionar os valores de telemetria para ver, escolha o tipo de telemetria 
 
 ![Desenho de telemetria camião](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-Para colocar em pausa a apresentação de telemetria em direto, escolha **Flowing**. Para reativar a apresentação em direto, escolha **pausa**:
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![Colocar em pausa e reinicie a apresentação de telemetria](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>Utilize o mapa
 
-O mapa apresenta informações sobre os trucks simuladas selecionado pelo filtro de atual. Pode ampliem e desloquem o mapa para visualizar localizações detalhadamente mais ou menos. Os ícones de dispositivo no mapa indicam qualquer **alarmes** ou **avisos** que estão ativos para o dispositivo. Um resumo do número de **alarmes** e **avisos** apresenta à esquerda do mapa.
+O mapa apresenta informações sobre os trucks simuladas selecionado pelo filtro de atual. Pode ampliem e desloquem o mapa para visualizar localizações detalhadamente mais ou menos. Os ícones de dispositivo no mapa indicam qualquer **alertas** ou **avisos** que estão ativos para o dispositivo. Um resumo do número de **alertas** e **avisos** apresenta à esquerda do mapa.
 
-Para ver os detalhes do dispositivo, efetuar um deslocamento panorâmico e zoom o mapa para localizar os dispositivos e clique no dispositivo no mapa. Os detalhes incluem:
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* Valores de telemetria recentes
-* Métodos do que dispositivo suporta
-* Propriedades do dispositivo
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![Ver detalhes do dispositivo no dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>Vista alarmes dos seus dispositivos
+## <a name="view-alerts-from-your-devices"></a>Ver alertas dos seus dispositivos
 
-O mapa realça os dispositivos no filtro atual com **alarmes** e **avisos**. O **alarmes sistema** painel mostra informações detalhadas sobre os alarmes mais recentes dos seus dispositivos:
+O mapa realça os dispositivos no filtro atual com **alertas** e **avisos**. O **alertas** painel mostra informações detalhadas sobre os alertas mais recentes dos seus dispositivos:
 
-![Alarmes do sistema de vista no dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![Ver alertas do sistema no dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-Pode utilizar o **alarmes sistema** filtro para ajustar o intervalo de tempo de alarmes recentes. Por predefinição, o painel apresenta alarmes de última hora:
+Pode utilizar o **Dashboard** filtro para ajustar o intervalo de tempo para os alertas recentes. Por predefinição, o painel apresenta os alertas de última hora:
 
-![Filtrar os alarmes por hora](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![Filtrar os alertas por hora](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## <a name="view-the-system-kpis"></a>Ver o sistema KPIs
 
 O **Dashboard** página apresenta os KPIs de sistema:
 
-![Filtrar os alarmes por hora](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![KPIs de dashboard](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-Pode utilizar o **sistema KPI** filtro para ajustar o intervalo de tempo para a agregação de KPI. Por predefinição, o painel apresenta KPIs agregados ao longo de última hora.
+Pode utilizar o **Dashboard** filtro para ajustar o intervalo de tempo para a agregação de KPI. Por predefinição, o painel apresenta KPIs agregados ao longo de última hora.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -108,7 +110,7 @@ Este tutorial mostrou como utilizar o **Dashboard** página para filtrar e monit
 > * Filtrar os dispositivos no dashboard
 > * Ver telemetria em tempo real
 > * Ver detalhes do dispositivo
-> * Vista alarmes dos seus dispositivos
+> * Ver alertas dos seus dispositivos
 > * Ver o sistema KPIs
 
 Agora que aprendeu como monitorizar os seus dispositivos, os passos sugeridos são saber como:

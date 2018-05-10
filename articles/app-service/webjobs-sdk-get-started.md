@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 324b578a7736719eb953cab4eca4e9a3e9bfa35d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-the-webjobs-sdk"></a>Começar com o SDK de WebJobs
 
@@ -293,7 +293,7 @@ Nesta secção, criar e executar localmente o projeto e acionar a função atrav
 
 ## <a name="add-application-insights-logging"></a>Adicionar o registo do Application Insights
 
-Quando executa o projeto no Azure, não é possível monitorizar a execução de função visualizando o resultado da consola. A solução de monitorização que recomendamos é [Application Insights](../application-insights/app-insights-overview.md). Os procedimentos para a visualização de dados de telemetria são semelhantes às [monitorização nas funções do Azure](../azure-functions/functions-monitoring.md#view-telemetry-data).
+Quando executa o projeto no Azure, não é possível monitorizar a execução de função visualizando o resultado da consola. A solução de monitorização que recomendamos é [Application Insights](../application-insights/app-insights-overview.md). Para obter mais informações, consulte [das funções do Azure do Monitor](../azure-functions/functions-monitoring.md).
 
 Nesta secção, efetue as seguintes tarefas para configurar o Application Insights registo antes de implementar no Azure:
 

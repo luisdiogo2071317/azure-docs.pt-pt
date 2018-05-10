@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c0f5110fe73fb48cf6cf5307de08045bd843cb5a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ Azure AD Graph API fornece as seguintes funcionalidades:
 * **Protegidos por âmbitos de permissões**: AD Graph API do Azure expõe âmbitos de permissões que permitem acesso seguro a dados do Azure AD com OAuth 2.0. Suporta uma variedade de tipos de aplicação de cliente, incluindo:
   
   * interfaces de utilizador que recebem acesso delegado aos dados através de autorização do utilizador com sessão iniciada (delegado)
-  * controlam aplicações daemon do serviço que operação em segundo plano, sem um utilizador com sessão iniciada que está a ser presente e utiliza definido pela aplicação o acesso baseado em funções
+  * aplicações de serviço/daemon que funcionam em segundo plano, sem um utilizador com sessão iniciada estar presente e utilizam o controlo de acesso definidas pela aplicação de baseada em funções
     
     Ambos delegados e permissões de aplicações representam um privilégio exposto pelo Azure AD Graph API e podem ser pedidas por aplicações de cliente através de funcionalidades de permissões de registo de aplicação no [portal do Azure](https://portal.azure.com). [Azure AD Graph API permissão âmbitos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) fornece informações sobre o que está disponível para utilização pela sua aplicação de cliente.
 

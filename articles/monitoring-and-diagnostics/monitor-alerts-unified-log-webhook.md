@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta é criado no Azure ](monitor-alerts-unified-usage.md), tem a opção de [configuração utilizar grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -55,8 +55,8 @@ Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados 
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": VERDADEIRO|Registos devolvidos pela consulta como uma tabela de JSON, limitado para os primeiro 1000 registos; Se "IncludeSearchResults": true foi adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
 | WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
-| ID da Aplicação |#applicationid |ID do Application Insight aplicação. |
-| ID de Subscrição |#subscriptionid |ID de subscrição do Azure utilizados com o Application Insights. 
+| ID da aplicação |#applicationid |ID do Application Insight aplicação. |
+| ID da subscrição |#subscriptionid |ID de subscrição do Azure utilizados com o Application Insights. 
 
 
 Por exemplo, poderá especificar o payload personalizado seguinte, que inclui um único parâmetro chamado *texto*.  O serviço que chama o webhook seria possível esperar este parâmetro.
@@ -161,9 +161,6 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
     }
 }
 ```
-
-> [!NOTE]
-> Alerta de registo para o Application Insights, está a ser público pré-visualize - a funcionalidade e a experiência de utilizador está sujeita a alterações.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alerta de registo com o Payload JSON personalizado
 Por exemplo, para criar um payload personalizado que inclua apenas o nome do alerta e os resultados da pesquisa, pode utilizar o seguinte: 

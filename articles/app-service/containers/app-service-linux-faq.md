@@ -1,13 +1,13 @@
 ---
 title: App Service do Azure no Linux FAQ | Microsoft Docs
 description: App Service do Azure no Linux FAQ.
-keywords: "serviço de aplicações do Azure, aplicação web, faq, linux, oss"
+keywords: serviço de aplicações do Azure, aplicação web, faq, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>App Service do Azure no Linux FAQ
 
@@ -46,6 +46,10 @@ Esta ação é o mesmo que um reinício de Docker.
 **Pode utilizar Secure Shell (SSH) para ligar à máquina virtual de contentor aplicação (VM)?**
 
 Sim, pode fazê-lo através do site de gestão (SCM) do controlo de origem.
+
+> [!NOTE] 
+> Também pode ligar para o contentor de aplicações diretamente a partir do seu computador de desenvolvimento local através de SSH, SFTP ou Visual Studio Code (para aplicações Node.js depuração em direto). Para obter mais informações, consulte [depuração remota e SSH no App Service no Linux](https://aka.ms/linux-debug).
+>
 
 **Como posso criar um plano de serviço de aplicações do Linux através de um SDK ou um modelo Azure Resource Manager?**
 
@@ -155,8 +159,8 @@ Pode utilizar apenas letras (A-Z, a-z), números (0-9) e caráter de sublinhado 
 
 Pode submeter a ideia no [fórum de comentários do Web Apps](https://aka.ms/webapps-uservoice). Adicione "[Linux]" para o título da sua ideia.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é o serviço de aplicações do Azure no Linux?](app-service-linux-intro.md)
-* [Configurar ambientes no App Service do Azure de teste](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implementação contínua com a aplicação Web para contentores](./app-service-linux-ci-cd.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-em funções durável - exemplo de cópia de segurança de nuvem
 
@@ -57,7 +57,13 @@ O `E2_BackupSiteContent` função utiliza a norma *function.json* para funções
 
 Eis o código que implementa a função do orchestrator:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
 Esta função do orchestrator, essencialmente, faz o seguinte:
 
@@ -67,9 +73,11 @@ Esta função do orchestrator, essencialmente, faz o seguinte:
 4. Aguarda para todos os carregamentos concluir.
 5. Devolve a soma total de bytes que foram carregados para o Blob Storage do Azure.
 
-Tenha em atenção o `await Task.WhenAll(tasks);` linha. Todas as chamadas para o `E2_CopyFileToBlob` função foram *não* aguardado. Isto é intencional para permitir que sejam executadas em paralelo. Quando é passar esta matriz de tarefas para `Task.WhenAll`, vamos voltar a uma tarefa que não concluir *até que concluíram todas as operações de cópia*. Se estiver familiarizado com a tarefa paralela biblioteca (TPL) no .NET, em seguida, este não é novidade para si. A diferença é que estas tarefas poderão estar em execução em várias VMs em simultâneo, e a extensão de funções durável garante que a execução de ponto a ponto seja resistente a Reciclagem de processo.
+Tenha em atenção o `await Task.WhenAll(tasks);` (c#) e `yield context.df.Task.all(tasks);` linha (JS). Todas as chamadas para o `E2_CopyFileToBlob` função foram *não* aguardado. Isto é intencional para permitir que sejam executadas em paralelo. Quando é passar esta matriz de tarefas para `Task.WhenAll`, vamos voltar a uma tarefa que não concluir *até que concluíram todas as operações de cópia*. Se estiver familiarizado com a tarefa paralela biblioteca (TPL) no .NET, em seguida, este não é novidade para si. A diferença é que estas tarefas poderão estar em execução em várias VMs em simultâneo, e a extensão de funções durável garante que a execução de ponto a ponto seja resistente a Reciclagem de processo.
 
-Depois de aguardar de `Task.WhenAll`, sabemos que todas as chamadas de função concluíram e de tem devolvido fazer uma cópia de valores para nós. Cada chamada para `E2_CopyFileToBlob` devolve o número de bytes carregado, pelo que a calcular a contagem de total de bytes de soma um fim de adição de todos os os valores de retorno em conjunto.
+As tarefas são muito semelhantes ao conceito de JavaScript de promises. No entanto, `Promise.all` tem algumas diferenças de `Task.WhenAll`. O conceito de `Task.WhenAll` tem foram convertidos serem sobre como parte do `durable-functions` módulo JavaScript e é exclusivo para a mesma.
+
+Depois de aguardar de `Task.WhenAll` (ou gerar resultados de `context.df.Task.all`), sabemos que todas as chamadas de função concluíram e de tem devolvido fazer uma cópia de valores para nós. Cada chamada para `E2_CopyFileToBlob` devolve o número de bytes carregado, pelo que a calcular a contagem de total de bytes de soma um fim de adição de todos os os valores de retorno em conjunto.
 
 ## <a name="helper-activity-functions"></a>Funções de atividade de programa auxiliar
 
@@ -79,7 +87,15 @@ As funções de atividade de programa auxiliar, tal como acontece com outros exe
 
 E Eis a implementação:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+A implementação JavaScript de `E2_GetFileList` utiliza o `readdirp` módulo recursivamente ler a estrutura de diretórios.
 
 > [!NOTE]
 > Poderá estar a pensar por que motivo apenas não foi possível colocar este código diretamente para a função do orchestrator. Foi, mas isto iria interromper as regras fundamentais de funções do orchestrator, que é que nunca deve fazer e/s, incluindo acesso de sistema de ficheiros local.
@@ -88,9 +104,17 @@ O *function.json* de ficheiros para `E2_CopyFileToBlob` é da mesma forma simple
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-A implementação também é pretty simples. Ocorre utilizar algumas funcionalidades de enlaces de funções do Azure de avançadas (ou seja, a utilização do `Binder` parâmetro), mas não precisa de preocupar com os detalhes para fins destas instruções.
+A implementação do c# também é pretty simples. Ocorre utilizar algumas funcionalidades de enlaces de funções do Azure de avançadas (ou seja, a utilização do `Binder` parâmetro), mas não precisa de preocupar com os detalhes para fins destas instruções.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+A implementação de JavaScript não tem acesso para o `Binder` funcionalidade das funções do Azure, por isso, o [SDK de armazenamento do Azure para o nó](https://github.com/Azure/azure-storage-node) demora seu lugar. Tenha em atenção que o SDK requer um `AZURE_STORAGE_CONNECTION_STRING` definição de aplicação.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 A implementação carrega o ficheiro de disco e no modo assíncrono as sequências de conteúdo para um blob com o mesmo nome no contentor "cópias de segurança". O valor de retorno é o número de bytes copiadas para o armazenamento, o que é utilizado pela função do orchestrator para a soma de agregação de computação.
 

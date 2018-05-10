@@ -1,12 +1,12 @@
 ---
-title: "Implementar o gateway de fábrica ligado - Azure | Microsoft Docs"
-description: "Como implementar um gateway no Windows ou Linux para ativar a conetividade à fábrica de ligado a solução pré-configurada."
-services: 
+title: Implementar o gateway de fábrica ligado - Azure | Microsoft Docs
+description: Como implementar um gateway no Windows ou Linux para ativar a conetividade para o acelerador da solução de fábrica ligado.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Implementar um gateway do limite para a solução de fábrica ligado pré-configurada no Windows ou Linux
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementar um gateway do limite para o acelerador da solução de fábrica ligado no Windows ou Linux
 
-Tem dois componentes de software para implementar um gateway do limite para o *fábrica ligada* solução pré-configurada:
+Tem dois componentes de software para implementar um gateway do limite para o *ligado fábrica* acelerador solução:
 
-- O *OPC Proxy* estabelece uma ligação a uma fábrica ligada. O Proxy de OPC, em seguida, aguarda para mensagens de comando e controlo de Browser OPC integrada que é executado no portal de solução de fábrica ligado.
+- O *OPC Proxy* estabelece uma ligação a uma fábrica ligado. O Proxy de OPC, em seguida, aguarda para mensagens de comando e controlo de Browser OPC integrada que é executado no portal de solução de fábrica ligado.
 
-- O *OPC publicador* estabelece ligação a servidores OPC UA no local existentes e reencaminha as mensagens de telemetria dos mesmos à fábrica ligada. Pode ligar um dispositivo clássico OPC a utilizar o [adaptador clássico OPC OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- O *OPC publicador* estabelece ligação a servidores OPC UA no local existentes e reencaminha as mensagens de telemetria dos mesmos à fábrica ligado. Pode ligar um dispositivo clássico OPC a utilizar o [adaptador clássico OPC OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Ambos os componentes são open source e estão disponíveis como origem no GitHub e como contentores de Docker no DockerHub:
 
@@ -37,7 +37,7 @@ Ambos os componentes são open source e estão disponíveis como origem no GitHu
 
 Não é necessário um endereço IP destinado ao público ou portas de entrada abertas na firewall do gateway para o componente. Os componentes de OPC Proxy e OPC publicador utilizam apenas a porta 443 de saída.
 
-Os passos neste artigo mostram como implementar um gateway de limite utilizando o Docker no Windows ou Linux. O gateway permite a conectividade com a solução de fábrica ligado pré-configurada. Também pode utilizar os componentes sem fábrica ligada.
+Os passos neste artigo mostram como implementar um gateway de limite utilizando o Docker no Windows ou Linux. O gateway permite a conectividade para o acelerador da solução de fábrica ligado. Também pode utilizar os componentes sem fábrica ligado.
 
 > [!NOTE]
 > Ambos os componentes podem ser utilizados como módulos no [Azure IoT Edge](https://github.com/Azure/iot-edge).
@@ -143,7 +143,7 @@ Proxy de OPC guarda a cadeia de ligação durante a instalação. No execuções
 
 ## <a name="enable-your-gateway"></a>Ativar o gateway
 
-Conclua os seguintes passos para ativar o gateway na solução de fábrica ligado pré-configurada:
+Conclua os seguintes passos para ativar o gateway no acelerador da solução de fábrica ligada:
 
 1. Quando ambos os componentes estão em execução, navegue para o **ligar o seu próprio servidor de UA OPC** página no portal de solução de fábrica ligado. Esta página apenas está disponível para administradores na solução. Introduza o URL de ponto final do fabricante (opc.tcp://publisher: 62222) e clique em **Connect**.
 
@@ -153,23 +153,23 @@ Agora pode ligar ao gateway de nuvem e está pronto para adicionar servidores de
 
 ## <a name="add-your-own-opc-ua-servers"></a>Adicionar os seus próprios servidores OPC UA
 
-Para adicionar os seus próprios servidores OPC UA à fábrica de ligado solução pré-configurada:
+Para adicionar os seus próprios servidores OPC UA para o acelerador da solução de fábrica ligada:
 
 1. Navegue para o **ligar o seu próprio servidor OPC UA** página no portal de solução de fábrica ligado.
 
     1. Inicie o servidor de OPC UA que pretende ligar. Certifique-se de que o servidor de OPC UA pode ser contactado de OPC publicador e o Proxy de OPC no contentor (consulte os comentários sobre a resolução de nome anteriores).
     1. Introduza o URL de ponto final do seu servidor de OPC UA (`opc.tcp://<host>:<port>`) e clique em **Connect**.
-    1. Como parte da configuração de ligação, é estabelecida uma relação de confiança entre o portal de fábrica ligado (cliente OPC UA) e o servidor de OPC UA que está a tentar ligar. No dashboard do factory ligado obter um **não é possível verificar o certificado do servidor que pretende ligar** aviso. Quando vir um aviso de certificado, clique em **continuar**.
+    1. Como parte da configuração de ligação, é estabelecida uma relação de confiança entre o portal de fábrica ligado (cliente OPC UA) e o servidor de OPC UA que está a tentar ligar. No dashboard do Factory ligado obter um **não é possível verificar o certificado do servidor que pretende ligar** aviso. Quando vir um aviso de certificado, clique em **continuar**.
     1. Mais difícil de configuração é a configuração do certificado do servidor que está a tentar ligar ao OPC UA. Para servidores de OPC UA baseados no PC, apenas poderá receber uma caixa de diálogo de aviso no dashboard que pode confirmar. Para sistemas de servidor de OPC UA incorporados, consulte a documentação do seu servidor de OPC UA procurar como esta tarefa é efetuada. Para concluir esta tarefa, poderá ter o certificado de cliente de OPC UA o portal de fábrica ligado. Um administrador pode transferir este certificado no **ligar o seu próprio servidor OPC UA** página:
 
         ![Portal de solução](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. Procurar a árvore de nós de OPC UA do seu servidor de OPC UA, faça duplo clique nós OPC que pretende enviar valores à fábrica ligada e selecione **publicar**.
+1. Procurar a árvore de nós de OPC UA do seu servidor de OPC UA, faça duplo clique nós OPC que pretende enviar valores à fábrica ligado e selecione **publicar**.
 
 1. Agora flui de telemetria do dispositivo de gateway. Pode ver a telemetria no **fábrica localizações** vista do portal fábrica ligados em **nova fábrica**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a arquitetura da solução fábrica ligado pré-configuradas, consulte [instruções sobre a solução pré-configurada de fábrica ligada](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Para saber mais sobre a arquitetura o acelerador da solução de fábrica ligado, consulte [ligado fábrica solução acelerador instruções](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
 Saiba mais sobre o [implementação de referência do publicador OPC](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

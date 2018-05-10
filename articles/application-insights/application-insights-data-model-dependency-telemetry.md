@@ -1,9 +1,9 @@
 ---
-title: "Modelo de dados de telemetria de informações de aplicação do Azure - telemetria de dependência | Microsoft Docs"
-description: "Modelo de dados do Application Insights para telemetria de dependência"
+title: Modelo de dados de telemetria de informações de aplicação do Azure - telemetria de dependência | Microsoft Docs
+description: Modelo de dados do Application Insights para telemetria de dependência
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: aa305c30dc358997420be6802d43fa69e45f4a5f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependência: modelo de dados do Application Insights
 
@@ -38,7 +38,7 @@ Comandos iniciados por esta chamada de dependência. Os exemplos são instruçã
 
 Nome do tipo de dependência. Valor de cardinalidade baixa para agrupamento lógico das dependências e interpretação dos outros campos como commandName e resultCode. Os exemplos são SQL, tabela do Azure e HTTP.
 
-## <a name="target"></a>destino
+## <a name="target"></a>Destino
 
 Site de destino de uma chamada de dependência. Os exemplos são o nome de servidor, o endereço do anfitrião. Para obter mais informações, consulte [correlação](application-insights-correlation.md) página.
 
@@ -63,7 +63,7 @@ Indicação de chamada com êxito ou sem êxito.
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Configurar a dependência de controlo para [.NET](app-insights-asp-net-dependencies.md).
 - Configurar a dependência de controlo para [Java](app-insights-java-agent.md).

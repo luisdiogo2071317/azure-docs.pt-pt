@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -30,6 +30,10 @@ Serviço de aplicações no Linux fornece suporte SSH para o contentor de aplica
 ![Pilhas de tempo de execução](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
 Também pode utilizar o SSH com as imagens de Docker personalizadas, incluindo o servidor SSH como parte da imagem e configurá-lo, tal como descrito neste artigo.
+
+> [!NOTE] 
+> Também pode ligar para o contentor de aplicações diretamente a partir do seu computador de desenvolvimento local através de SSH, SFTP ou Visual Studio Code (para aplicações Node.js depuração em direto). Para obter mais informações, consulte [depuração remota e SSH no App Service no Linux](https://aka.ms/linux-debug).
+>
 
 ## <a name="making-a-client-connection"></a>Efetuar uma ligação de cliente
 

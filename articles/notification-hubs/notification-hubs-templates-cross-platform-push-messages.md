@@ -3,22 +3,22 @@ title: Modelos
 description: Este tópico explica os modelos para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Modelos
 ## <a name="overview"></a>Descrição geral
@@ -52,7 +52,7 @@ Este requisito força o back-end da aplicação para produzir payloads diferente
 
 A funcionalidade de modelo de Hubs de notificação permite que uma aplicação de cliente criar registos especiais, denominados registos de modelo, que incluem, além do conjunto de etiquetas, um modelo. A funcionalidade de modelo de Hubs de notificação permite que uma aplicação de cliente associar os dispositivos com modelos se estiver a trabalhar com instalações (preferidas) ou registos. Tendo em conta os exemplos de payload anterior, as informações de independentes da plataforma apenas se a mensagem de alerta real (Olá!). Um modelo é um conjunto de instruções para o Hub de notificação sobre a formatar uma mensagem de independentes da plataforma para o registo da aplicação desse cliente específico. No exemplo anterior, a mensagem independentes da plataforma é uma propriedade de único: **mensagem = Olá!**.
 
-A imagem seguinte ilustra o processo de acima:
+A imagem seguinte ilustra o processo de:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ Tenha em atenção que a mensagem real é substituída pelos $ a expressão (men
 
 Se estiver a trabalhar com o modelo de instalação, a chave de "modelos" de instalação contém um JSON de vários modelos. Se estiver a trabalhar com o modelo de registo, a aplicação cliente pode criar vários registos para utilizar vários modelos; Por exemplo, um modelo para mensagens de alerta e um modelo para atualizações de mosaico. Aplicações de cliente também podem combinar registos nativos (registos com nenhum modelo) e registos de modelo.
 
-O Hub de notificação envia uma notificação para cada modelo sem considerar se pertencem à mesma aplicação de cliente. Este comportamento pode ser utilizado para traduzir notificações independentes da plataforma em mais de notificações. Por exemplo, a mesma mensagem independentes plataforma para o Hub de notificação possa ser totalmente integrada convertida num alerta de alerta e uma atualização de mosaico, sem necessidade de back-end a ter em consideração-lo. Tenha em atenção que algumas plataformas (por exemplo, iOS) poderão fechar várias notificações ao mesmo dispositivo se serem enviados num curto período de tempo.
+O Hub de notificação envia uma notificação para cada modelo sem considerar se pertencem à mesma aplicação de cliente. Este comportamento pode ser utilizado para traduzir notificações independentes da plataforma em mais de notificações. Por exemplo, a mesma mensagem independentes da plataforma para o Hub de notificação possa ser totalmente integrada convertida num alerta de alerta e uma atualização de mosaico, sem necessidade de back-end a ter em consideração-lo. Algumas plataformas (por exemplo, iOS) poderão fechar várias notificações ao mesmo dispositivo, se a serem enviados num curto período de tempo.
 
 ## <a name="using-templates-for-personalization"></a>Utilizar modelos para personalização
 Outra vantagem em utilizar modelos é a capacidade de utilizar os Notification Hubs para efetuar a personalização por registo de notificações. Por exemplo, considere uma aplicação de Meteorologia que apresenta um mosaico com as condições de Meteorologia numa localização específica. Um utilizador pode escolher entre graus Celsius ou Fahrenheit e uma previsão única ou de cinco dias. Utilizar modelos, pode registar cada instalação da aplicação de cliente para o formato necessário (1 dia Celsius, de 1 dia Fahrenheit, 5 dias Celsius, 5 dias Fahrenheit), e tem de enviar um único que contém todas as informações necessárias para preencher esses modelos de back-end (por exemplo, um previsão com graus Celsius e Fahrenheit de cinco dias).
@@ -128,7 +128,7 @@ As expressões podem ser qualquer uma dos formulários anteriores.
 
 Quando utilizar concatenação, a expressão completa tem de ser rodeado com {}. Por exemplo, {$(prop) + '-' + $(prop2)}. |
 
-Por exemplo, o seguinte não é um modelo XML válido:
+Por exemplo, o modelo seguinte não é um modelo XML válido:
 
     <tile>
       <visual>
@@ -139,7 +139,7 @@ Por exemplo, o seguinte não é um modelo XML válido:
     </tile>
 
 
-Como explicado anteriormente, quando utilizar concatenação, expressões devem ser moldadas numa chavetas. Por exemplo:
+Conforme explicado anteriormente, quando utilizar concatenação, expressões têm de ser moldadas numa chavetas. Por exemplo:
 
     <tile>
       <visual>

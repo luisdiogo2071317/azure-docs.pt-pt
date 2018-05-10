@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Suporte HTTP/2 na CDN do Azure
 
@@ -29,7 +29,7 @@ Os benefícios de HTTP/2 incluem:
 
 *   **Multiplexação e simultaneidade**
 
-    Utilizar HTTP 1.1, vários tornar vários pedidos de recursos requer várias ligações TCP e cada ligação tem uma tolerância de desempenho associada ao mesmo. HTTP/2 permite vários recursos de pedido numa única ligação TCP.
+    Utilizar HTTP 1.1, tornar vários pedidos de recursos requer várias ligações TCP e cada ligação tem uma tolerância de desempenho associada ao mesmo. HTTP/2 permite vários recursos de pedido numa única ligação TCP.
 
 *   **Compressão de cabeçalho**
 
@@ -42,7 +42,7 @@ Os benefícios de HTTP/2 incluem:
 
 ## <a name="http2-browser-support"></a>Suporte de browsers HTTP/2
 
-Todos os browsers principais tem implementada HTTP/2 suporte das respetivas versões atuais. Irá de browsers suportados não automaticamente contingência para HTTP/1.1.
+Todos os browsers principais tem implementada HTTP/2 suporte das respetivas versões atuais. Não suportado browsers automaticamente contingência para HTTP/1.1.
 
 |Browser|Versão mínima|
 |-------------|------------|
@@ -54,7 +54,7 @@ Todos os browsers principais tem implementada HTTP/2 suporte das respetivas vers
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Ativar o suporte HTTP/2 na CDN do Azure
 
-Atualmente está ativo para o suporte HTTP/2 **CDN do Azure da Akamai** e **CDN do Azure da Verizon** perfis. Nenhuma ação adicional é necessária de clientes.
+Atualmente, o suporte HTTP/2 está ativo para todos os perfis da CDN do Azure. Nenhuma ação adicional é necessária de clientes.
 
 ## <a name="next-steps"></a>Próximos Passos
 

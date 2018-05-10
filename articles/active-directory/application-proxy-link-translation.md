@@ -1,25 +1,25 @@
 ---
-title: "Traduzir ligações e URLs do Proxy de aplicação do Azure AD | Microsoft Docs"
-description: "Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD."
+title: Traduzir ligações e URLs do Proxy de aplicação do Azure AD | Microsoft Docs
+description: Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: daveba
+ms.date: 05/04/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: MT
+ms.openlocfilehash: 5009266dc2cbea360ef9c5dfa69fc2c13225d8cd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar codificado ligações para aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -27,12 +27,43 @@ Proxy de aplicações do Azure AD disponibiliza as suas aplicações no local pa
 
 É a melhor forma para se certificar de que as ligações funcionam da mesma dentro e fora da rede empresarial para configurar os URLs externos das suas aplicações para ser o mesmo que os URLs internos. Utilize [domínios personalizados](active-directory-application-proxy-custom-domains.md) para configurar os URLs externos para ter o seu nome de domínio empresarial em vez do domínio de proxy de aplicações predefinido.
 
-Se não conseguir utilizar domínios personalizados no seu inquilino, a funcionalidade de tradução de ligação de Proxy de aplicações mantém as ligações, independentemente de onde os utilizadores estão a funcionar. Quando tiver aplicações que vá diretamente a pontos finais internos ou portas, pode mapear estes URLs internos para os URLs de Proxy de aplicações externas publicada. Quando o tradução de ligação está ativada e o Proxy de aplicações procura através de HTML e CSS publicadas ligações internas, o serviço de Proxy de aplicações traduz-los para que os utilizadores obtêm uma experiência ininterrupta.
 
->[!NOTE]
->A funcionalidade de tradução de ligação é para os inquilinos que, para que pelo motivo, não é possível utilizar domínios personalizados com os mesmos URLs internos e externos para as suas aplicações. Antes de ativar esta funcionalidade, consulte o artigo se [domínios personalizados no Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md) pode resolver o problema.
->
->Ou, se a aplicação tem de configurar com ligação tradução é SharePoint, consulte [configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para outra abordagem para ligações de mapeamento.
+Se não conseguir utilizar domínios personalizados no seu inquilino, existem várias outras opções para fornecer esta funcionalidade. Todos estes também são compatíveis com domínios personalizados e outros, pelo que pode configurar domínios personalizados e outras soluções se for necessário. 
+
+**Opção 1: Utilizar o Browser gerido** – esta solução só é aplicável se planeia recomendável ou exigir que os utilizadores aceder à aplicação através do Browser gerido do Intune. Este irá processar todos os URLs publicados. 
+
+**Opção 2: Utilizar a extensão de MyApps** – esta solução requer que os utilizadores instalem uma extensão de browser do lado do cliente, mas irá processar publicados todos os URLs e funciona com os browsers mais populares. 
+
+**Opção 3: Utilizar a definição de tradução de ligação** – esta é uma definição de lado de admin é invisível para os utilizadores. No entanto, só irá processar os URLs em HTML e CSS. URLs internos hard-coded gerados através de Javascript (por exemplo) não funcionará.  
+
+Estas três funcionalidades manter as ligações, independentemente de onde os utilizadores estão a funcionar. Quando tiver aplicações que vá diretamente a pontos finais internos ou portas, pode mapear estes URLs internos para os URLs de Proxy de aplicações externas publicada. 
+
+ 
+> [!NOTE]
+> A última opção é apenas para inquilinos que, para que pelo motivo, não é possível utilizar domínios personalizados com os mesmos URLs internos e externos para as suas aplicações. Antes de ativar esta funcionalidade, consulte o artigo se [domínios personalizados no Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md) pode resolver o problema. 
+
+>Ou, se a aplicação tem de configurar com ligação tradução é SharePoint, consulte [configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para outra abordagem para ligações de mapeamento. 
+
+ 
+### <a name="option-1-intune-managed-browser-integration"></a>Opção 1: Integração de Browser gerido do Intune 
+
+Pode utilizar o Intune Managed Browser para proteger ainda mais a sua aplicação e o conteúdo. Para utilizar esta solução, terá de exigir/Recomendamos os utilizadores acedam a aplicação através do Browser gerido do Intune. Todos os URLs internos publicados com o Proxy de aplicações serão reconhecidos pelo Browser gerido e redirecionados para o URL externo correspondente. Isto garante que todos os hard-coded internos URLs trabalham e, se um utilizador passa para o browser e tipos diretamente o URL interno, funciona mesmo se o utilizador for remoto.  
+
+Para obter mais informações, incluindo como configurar esta opção, consulte o [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) documentação.  
+
+### <a name="option-2-myapps-browser-extension"></a>Opção 2: Extensão de MyApps Browser 
+
+Com a extensão de Browser MyApps, todos os URLs internos publicados com o Proxy da aplicação são reconhecidos pela extensão e redirecionados para o URL externo correspondente. Isto garante que todos os hard-coded internos URLs trabalham e, se um utilizador vai para a barra de endereço do browser e tipos diretamente o URL interno, funciona mesmo se o utilizador for remoto.  
+
+Para utilizar esta funcionalidade, o utilizador tem de transferir a extensão e de ter sessão iniciada. Não há nenhuma outra configuração necessária para administradores ou pelos utilizadores. 
+
+ 
+
+### <a name="option-3-link-translation-setting"></a>Opção 3: Definição de tradução de ligação 
+
+Quando a tradução de ligação está ativada, o serviço de Proxy de aplicações procura através de HTML e CSS publicadas ligações internas e converte-los para que os utilizadores obtêm uma experiência ininterrupta. 
+
+
 
 ## <a name="how-link-translation-works"></a>Como funciona a tradução de ligação
 

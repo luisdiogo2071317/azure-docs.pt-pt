@@ -1,25 +1,25 @@
 ---
 title: 'Notification Hubs do Azure: Perguntas mais frequentes (FAQ) | Microsoft Docs'
-description: "Perguntas mais frequentes na conceção/implementação de soluções de Hubs de notificação"
+description: Perguntas mais frequentes na conceção/implementação de soluções de Hubs de notificação
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
-keywords: "notificação push, notificações push, notificações push de iOS, notificações android push, ios push, android push"
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
+keywords: notificação push, notificações push, notificações push de iOS, notificações android push, ios push, android push
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
-ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push notificações com Notification Hubs do Azure: Perguntas mais frequentes
 ## <a name="general"></a>Geral
@@ -82,7 +82,7 @@ Se tiver uma existente aplicação móvel de volta fim e pretender adicionar ape
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Quantos dispositivos posso suportar se enviar notificações push através dos Notification Hubs?
 Consulte o [preços de Hubs de notificação] página para obter detalhes sobre o número de dispositivos suportados.
 
-Se necessitar de suporte para mais de 10 milhões de dispositivos registados, [contacte-nos](https://azure.microsoft.com/overview/contact-us/) diretamente e iremos ajudar a dimensionar a sua solução.
+Se necessitar de suporte para mais de 10 milhões de dispositivos registados, [contacte-nos](https://azure.microsoft.com/overview/contact-us/) diretamente e o podemos ajudar a dimensionar a sua solução.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>O número de notificações push pode enviar?
 Consoante a camada selecionada, Notification Hubs do Azure automaticamente ajusta-se com base no número de notificações que fluem através do sistema.

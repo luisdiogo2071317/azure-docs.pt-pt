@@ -1,11 +1,11 @@
 ---
-title: "Implementar a aplicação no serviço de aplicações do Azure através de FTP/S | Microsoft Docs"
-description: "Saiba como implementar a aplicação no serviço de aplicações do Azure através de FTP ou FTPS."
+title: Implementar a aplicação no serviço de aplicações do Azure através de FTP/S | Microsoft Docs
+description: Saiba como implementar a aplicação no serviço de aplicações do Azure através de FTP ou FTPS.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin;dariac
-ms.openlocfilehash: fcd079306a8968505349bb3f4a805f203a5c9999
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure através de FTP/S
 
@@ -36,13 +36,13 @@ Para definir ou repor as credenciais de implementação, consulte o artigo [cred
 ## <a name="step-2-get-ftp-connection-information"></a>Passo 2: Obter informações de ligação de FTP
 
 1. No [portal do Azure](https://portal.azure.com), abra a aplicação [página recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Selecione **descrição geral** no menu à esquerda, em seguida, anote os valores para **utilizador FTP/implementação**, **nome de anfitrião do FTP**, e **nome de anfitrião FTPS**. 
+2. Selecione **descrição geral** no painel de navegação esquerdo, em seguida, anote os valores para **utilizador FTP/implementação**, **nome de anfitrião do FTP**, e **nome de anfitrião FTPS**. 
 
     ![Informações de ligação de FTP](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
     > Para fornecer contexto adequado para o servidor FTP, a **utilizador FTP/implementação** valor apresentado pelo portal do Azure inclui o nome da aplicação.
-    > Pode encontrar as informações do mesmas quando selecionar **propriedades** no menu esquerdo. 
+    > Pode encontrar as informações do mesmas quando selecionar **propriedades** no painel de navegação esquerdo. 
     >
     > Além disso, a palavra-passe de implementação nunca é apresentada. Se se esquecer da sua palavra-passe de implementação, volte atrás para [passo 1](#step1) e repor a palavra-passe de implementação.
     >
@@ -64,6 +64,42 @@ Para definir ou repor as credenciais de implementação, consulte o artigo [cred
 > Gerar estes ficheiros necessários manualmente no seu computador local e, em seguida, implementá-las em conjunto com a sua aplicação.
 >
 >
+
+## <a name="enforce-ftps"></a>Impor FTPS
+
+Para maior segurança, deve permitir FTP por SSL apenas. Também pode desativar FTP e FTPS se não utilizar a implementação de FTP.
+
+Na página de recursos da sua aplicação no [portal do Azure](https://portal.azure.com), selecione **as definições de aplicação** no painel de navegação esquerdo.
+
+Para desativar o FTP não encriptada, selecione **FTPS apenas**. Para desativar completamente o FTP e FTPS, selecione **desativar**. Quando terminar, clique em **guardar**.
+
+![Desativar FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
+
+## <a name="troubleshoot-ftp-deployment"></a>Resolver problemas de implementação de FTP
+
+- [Como posso resolver problemas de implementação de FTP?](#how-can-i-troubleshoot-ftp-deployment)
+- [Posso não estou capaz de FTP e publicar o meu código. Como posso resolver o problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Como ligar para FTP no App Service do Azure através de modo passivo?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+
+### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Como posso resolver problemas de implementação de FTP?
+
+O primeiro passo para resolução de problemas de implementação de FTP é isolar um problema de implementação de um problema de aplicação de tempo de execução.
+
+Um problema de implementação normalmente resulta em nenhum ficheiros ou ficheiros errados implementados para a sua aplicação. Podem ser resolvido por investigar a implementação de FTP ou selecionar um caminho de implementação alternativos (por exemplo, o controlo de origem).
+
+Um problema de aplicação de tempo de execução normalmente resulta no conjunto correto de ficheiros implementado a sua aplicação mas o comportamento da aplicação incorreto. Pode ser resolvido ao concentrar-se no comportamento de código em tempo de execução e investigar caminhos falha específica.
+
+Para determinar um problema de implementação ou o tempo de execução, consulte [implementação vs. problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
+
+ 
+### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Posso não estou capaz de FTP e publicar o meu código. Como posso resolver o problema?
+Verifique se introduziu o nome de anfitrião correto e [credenciais](#step-1--set-deployment-credentials). Verifique também se as seguintes portas FTP no seu computador não são bloqueadas por uma firewall:
+
+- Porta de ligação de controlo de FTP: 21
+- Porta de ligação de dados FTP: 989, 10001 10300
+ 
+### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Como ligar para FTP no App Service do Azure através de modo passivo?
+App Service do Azure suporta a ligação ocorra através de modo ativo e passivo. Modo passivo é preferencial porque as máquinas de implementação são, normalmente, protegidos por uma firewall (no sistema operativo ou como parte de uma casa ou de rede de negócio). Consulte uma [exemplo na documentação do WinSCP](https://winscp.net/docs/ui_login_connection). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,12 +1,12 @@
 ---
-title: "Pontos de verificação e repetição nas funções durável - Azure"
-description: "Saiba como pontos de verificação e resposta funciona na extensão do durável funções para as funções do Azure."
+title: Pontos de verificação e repetição nas funções durável - Azure
+description: Saiba como pontos de verificação e resposta funciona na extensão do durável funções para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e repetição nas funções durável (funções do Azure)
 
@@ -28,7 +28,9 @@ Mantenha apesar dos, funções durável garante uma execução fiável dos orche
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
-Suponha que tem a seguinte função do orchestrator.
+Suponha que tem a seguinte função do orchestrator:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Em cada `await` declaração, os pontos de verificação de estrutura de tarefas durável o estado de execução da função para o armazenamento de tabela. Este estado é o que é referido como o *histórico de orquestração*.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+Em cada `await` (c#) ou `yield` instrução (JavaScript), os pontos de verificação de estrutura de tarefas durável o estado de execução da função para o armazenamento de tabela. Este estado é o que é referido como o *histórico de orquestração*.
 
 ## <a name="history-table"></a>Tabela de histórico
 
@@ -66,7 +83,7 @@ Após a conclusão, o histórico da função apresentada anteriormente procura a
 | PartitionKey (InstanceId)                     | EventType             | Carimbo de data/hora               | Input | Nome             | Resultado                                                    | Estado | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Valor nulo  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -79,7 +96,7 @@ Após a conclusão, o histórico da função apresentada anteriormente procura a
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Olá Londres!" ""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Olá, Tóquio!" ",""Olá Coimbra!" ",""Olá Londres!" "]" | Concluído           | 
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Olá, Tóquio!" ",""Olá Coimbra!" ",""Olá Londres!" "]" | Concluída           | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 Algumas notas sobre os valores da coluna:
@@ -141,7 +158,7 @@ O comportamento de execução descrito aqui deve ajudar a compreender por que mo
 
 Se quiser obter mais informações sobre como o Framework de tarefa durável executa funções do orchestrator, a melhor coisa a fazer é consultar o [código de origem de tarefas durável no GitHub](https://github.com/Azure/durabletask). Em particular, consulte [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) e [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre a gestão de instância](durable-functions-instance-management.md)

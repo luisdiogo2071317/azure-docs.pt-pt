@@ -1,25 +1,25 @@
 ---
 title: Como criar imagens de VM do Linux do Azure com Packer | Microsoft Docs
-description: "Saiba como utilizar Packer criar imagens de máquinas virtuais do Linux no Azure"
+description: Saiba como utilizar Packer criar imagens de máquinas virtuais do Linux no Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como utilizar Packer para criar imagens da máquina virtual com Linux no Azure
 Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição de Linux e versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. O Azure Marketplace fornece várias imagens primeira e de terceiros para distribuições mais comuns e ambientes de aplicação, ou pode criar as suas próprias imagens personalizadas e adaptadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -211,9 +211,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
+Se pretender criar VMs num grupo de recursos diferente ou região que a imagem de Packer, especifique o ID de imagem em vez de um nome de imagem. Pode obter o ID de imagem com [mostrar de imagem az](/cli/azure/image#az-image-show).
+
 Demora alguns minutos para criar a VM. Quando tiver sido criada a VM, tome nota do `publicIpAddress` apresentado pela CLI do Azure. Este endereço é utilizado para aceder ao site NGINX através de um browser web.
 
-Para permitir o tráfego da web alcançar a VM, abra a porta 80 da Internet com [az vm open-porta](/cli/azure/vm#open-port):
+Para permitir que o tráfego da Web aceda à VM, abra a porta 80 a partir da Internet com [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli
 az vm open-port \
@@ -223,7 +225,7 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Testar a VM e NGINX
-Agora pode abrir um browser e introduza `http://publicIpAddress` na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. É apresentada a página predefinida de NGINX como no exemplo seguinte:
+Agora, pode abrir um browser e introduzir `http://publicIpAddress` na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. É apresentada a página predefinida de NGINX como no exemplo seguinte:
 
 ![Site predefinido do NGINX](./media/build-image-with-packer/nginx.png) 
 

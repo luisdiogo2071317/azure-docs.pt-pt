@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: b80ad9837939af5406989d08e18f6f3d9fe3064f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async SDK Java para API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do SQL Server, fornecendo as operações assíncronas com suporte do [biblioteca Netty](http://netty.io/). O pré-existente [SQL API Java SDK](sql-api-sdk-java.md) não suporta operações assíncronas. 
 
@@ -63,7 +63,7 @@ O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do 
 * Corrigir evitar a transmitir o token da sessão quando ao ler os recursos principais.
 * Adicionar mais exemplos.
 * Adicionar mais benchmarking cenários.
-* Ficheiros de cabeçalho de Java fixos para a geração de javadoc adequado.
+* Ficheiros de cabeçalho de Java fixos para a geração de documentação do java adequado.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK GA com suporte de ponto a ponto para a utilização de e/s não bloquear o [biblioteca Netty](http://netty.io/) no modo de gateway. 
@@ -71,7 +71,7 @@ O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
 A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
 
-Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomendamos que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível.
+Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual. Por isso, recomenda-se que sempre atualizar para a versão mais recente do SDK antecipadamente quanto possível.
 
 Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo serviço.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -53,6 +53,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Automatização](#automation-limits)
 * [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Mapas do Azure](#azure-maps-limits)
 * [Cache de Redis do Azure](#azure-redis-cache-limits)
 * [Cópia de segurança](#backup-limits)
 * [Batch](#batch-limits)
@@ -61,7 +62,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Serviços Cloud](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Serviço de contentor (AKS)](#container-service-aks-limits)
+* [Serviço de Kubernetes](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -69,7 +70,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [DNS](#dns-limits)
 * [Hubs de Eventos](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
-* [Serviço de aprovisionamento de dispositivos do IoT Hub](#iot-hub-device-provisioning-service-limits)
+* [Serviço de Aprovisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Cofre de Chaves](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
 * [Serviços de Multimédia](#media-services-limits)
@@ -129,7 +130,7 @@ A tabela seguinte fornece detalhes sobre as funcionalidades e limites do básica
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### <a name="container-service-aks-limits"></a>Limites de serviço de contentor (AKS)
+### <a name="kubernetes-service-limits"></a>Limites de serviço Kubernetes
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Limites de rede
@@ -280,6 +281,9 @@ Para obter mais informações sobre limites de um nível mais granular, tais com
 
 ### <a name="azure-event-grid-limits"></a>Limites de grelha de eventos do Azure
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### <a name="azure-maps-limits"></a>Limites de mapas do Azure
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Limites de sistema do StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

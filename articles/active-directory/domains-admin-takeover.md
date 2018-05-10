@@ -6,31 +6,29 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerido como administrador no Azure Active Directory
-Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório no Azure Active Directory (Azure AD) não gerido. Quando um utilizador self-service se inscreve num serviço em nuvem que utiliza o Azure AD, são adicionadas a um Azure não gerido diretório AD com base no respetivo domínio de correio eletrónico. Para mais informações sobre o Self-Service ou inscrever "viral" para um serviço, consulte [que é a inscrição self-service do Azure Active Directory?]()
+Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório no Azure Active Directory (Azure AD) não gerido. Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou inscrever "viral" para um serviço, consulte [que é a inscrição self-service do Azure Active Directory?]()
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decida como pretende assumir um diretório de não gerido
-Durante o processo de aquisições de administração, pode provar propriedade conforme descrito em [adicionar um nome de domínio personalizado ao Azure AD](add-custom-domain.md). As secções seguintes explicam a experiência da administração mais detalhadamente, mas Eis um resumo:
+Durante o processo de obtenção do controlo administrativo, pode provar a propriedade, conforme descrito em [Add a custom domain name to Azure AD](add-custom-domain.md) (Adicionar um nome de domínio personalizado ao Azure AD). As secções seguintes explicam a experiência de administração mais detalhadamente, mas pode ver este resumo:
 
-* Quando efetuar uma ["interno" admin aquisições](#internal-admin-takeover) de um diretório do Azure não gerido, são adicionados como administrador global do diretório não gerido. Não existem utilizadores, domínios ou planos de serviço são migrados para qualquer outro diretório que administrar.
+* Quando faz uma [obtenção do controlo administrativo “interna”](#internal-admin-takeover) de um diretório do Azure não gerido, é adicionado como o administrador global desse diretório. Nenhum utilizador, domínio ou plano de serviço é migrado para outro diretório que seja administrado por si.
 
-* Quando efetuar uma ["external" admin aquisições](#external-admin-takeover) de um diretório do Azure não gerido, adicione o nome de domínio DNS do diretório não gerido para o seu diretório do Azure gerido. Quando adiciona o nome de domínio, um mapeamento de utilizadores aos recursos é criado no seu diretório do Azure gerido para que os utilizadores podem continuar a aceder aos serviços sem interrupção. 
+* Quando faz uma [obtenção do controlo administrativo “externo”](#external-admin-takeover) de um diretório do Azure não gerido, adiciona o nome de domínio DNS desse diretório ao seu diretório do Azure gerido. Quando adiciona o nome de domínio, é criado um mapeamento dos utilizadores para os recursos no diretório do Azure gerido, para que os utilizadores possam continuar a aceder a serviços sem interrupções. 
 
 ## <a name="internal-admin-takeover"></a>Aquisições admin interno
 

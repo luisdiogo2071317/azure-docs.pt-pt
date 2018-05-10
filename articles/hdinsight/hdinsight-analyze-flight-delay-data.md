@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso do voo utilizando o Hive no HDInsight
 Ramo de registo fornece um meio de tarefas em execução Hadoop MapReduce através de uma linguagem de scripts semelhante a SQL denominada  *[HiveQL][hadoop-hiveql]*, que podem ser aplicadas para resumir, consultar e analisar grandes volumes de dados.
@@ -259,7 +259,8 @@ Carregar o ficheiro de dados e os ficheiros de script de HiveQL (consulte [apên
     <tr><td>Período de filtro</td><td>Janeiro</td></tr>
     <tr><td>Campos</td><td>*Ano*, *FlightDate*, *UniqueCarrier*, *operadora*, *FlightNum*, *OriginAirportID*, *Origem*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (limpar todos os outros campos)</td></tr>
     </table>
-3. Clique em **transferir**.
+
+3. Clique em **Transferir**.
 4. Deszipe o ficheiro para o **C:\Tutorials\FlightDelay\2013Data** pasta. Cada ficheiro é um ficheiro CSV e tem, aproximadamente, 60GB.
 5. Mudar o nome de ficheiro para o nome do mês que contém dados para. Por exemplo, o ficheiro que contém os dados de Janeiro deverá ser chamado *January.csv*.
 6. Repita os passos 2 e 5 para transferir um ficheiro para cada 12 meses em 2013. Será necessário um mínimo de um ficheiro para executar o tutorial.
@@ -273,6 +274,7 @@ Carregar o ficheiro de dados e os ficheiros de script de HiveQL (consulte [apên
     <tr><td>$storageAccountName</td><td>A conta de armazenamento do Azure onde pretende carregar os dados.</td></tr>
     <tr><td>$blobContainerName</td><td>O contentor de Blob onde pretende carregar os dados.</td></tr>
     </table>
+    
 2. Abra o ISE do PowerShell do Azure.
 3. Cole o seguinte script no painel de script:
 

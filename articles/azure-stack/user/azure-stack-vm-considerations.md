@@ -1,24 +1,24 @@
 ---
-title: "Diferenças e as considerações para máquinas virtuais na pilha do Azure | Microsoft Docs"
-description: "Saiba mais sobre as diferenças e as considerações ao trabalhar com máquinas virtuais na pilha do Azure."
+title: Diferenças e as considerações para máquinas virtuais na pilha do Azure | Microsoft Docs
+description: Saiba mais sobre as diferenças e as considerações ao trabalhar com máquinas virtuais na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerações para máquinas virtuais na pilha do Azure
 
@@ -61,7 +61,7 @@ A tabela seguinte lista as VMs que são suportadas na pilha do Azure, juntamente
 |Com otimização de memória|Série Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Com otimização de memória|Série de série DSv2-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Tamanhos de máquina virtual e as quantidades de recursos associados são consistentes entre pilha do Azure e o Azure. Por exemplo, este consistência inclui a quantidade de memória, número de núcleos de e/tamanho do número de discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende as características subjacentes de um determinado ambiente de pilha do Azure.
+Tamanhos de máquina virtual e as quantidades de recursos associados são consistentes entre pilha do Azure e o Azure. Este consistência inclui a quantidade de memória, número de núcleos de e/tamanho do número de discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende as características subjacentes de um determinado ambiente de pilha do Azure.
 
 ## <a name="virtual-machine-extensions"></a>Extensões da máquina virtual
 
@@ -93,6 +93,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 A lista de tipos de recurso suportados e versões de API pode variar devido às se o operador da nuvem atualiza o seu ambiente de pilha do Azure para uma versão mais recente.
+
+## <a name="windows-activation"></a>Ativação do Windows
+
+Produtos do Windows tem de ser utilizados em conformidade com os termos de licenciamento da Microsoft e os direitos de utilização do produto. Pilha do Azure utiliza [ativação automática de VM](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) para ativar as máquinas de virtuais (VMs) do Windows Server. 
+ - Porque o anfitrião de pilha do Azure ativa com chaves AVMA para o Windows Server 2016, todas as VMs que executam o Windows Server 2012 ou posterior são automaticamente ativados.
+ - As VMs que execute Windows Server 2008 R2 não são automaticamente ativados e tem de ser ativado utilizando [ativação MAK](https://technet.microsoft.com/library/ff793438.aspx). 
+
+Microsoft Azure utiliza a ativação do KMS para ativar VMs do Windows. Se mover de uma VM a partir do Azure pilha do Azure e encontrar ativar problemas, consulte [problemas de ativação de máquina virtual do Azure Windows resolver](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informações adicionais que podem ser encontradas no [falhas de ativação do Windows de resolução de problemas em VMs do Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) mensagem de blogue de equipa de suporte do Azure.
+
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: Criar zona e registo DNS - CLI
       href: dns-getstarted-cli.md
-- name: Amostras
-  items:
-    - name: CLI do Azure
-      href: cli-samples.md
 - name: Tutoriais
   items:
     - name: Criar zona e um registo DNS privados
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Criar registos DNS personalizados para uma aplicação web
       href: dns-web-sites-custom-domain.md
+- name: Amostras
+  items:
+    - name: CLI do Azure
+      href: cli-samples.md
 - name: Conceitos
   items:
     - name: Zonas e registos DNS

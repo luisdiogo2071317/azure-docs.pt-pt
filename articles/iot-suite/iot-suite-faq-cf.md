@@ -1,13 +1,13 @@
 ---
-title: "Ligado a solução de fábrica FAQ – Azure | Microsoft Docs"
-description: "Perguntas mais frequentes para a fábrica de ligação do IoT Suite"
-services: 
+title: Ligado a solução de fábrica FAQ – Azure | Microsoft Docs
+description: Perguntas mais frequentes sobre o acelerador da solução de fábrica ligado
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Perguntas mais frequentes para a fábrica de ligação do IoT Suite solução pré-configurada
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador da solução de fábrica ligado
 
-Além disso, consulte geral [FAQ](iot-suite-faq.md) IoT Suite.
+Além disso, consulte geral [FAQ](iot-suite-faq.md) para Aceleradores de solução IoT.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>Onde posso encontrar o código de origem para a solução pré-configurada?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Onde posso encontrar o código de origem para o acelerador solução?
 
 O código de origem é armazenado no repositório de GitHub seguinte:
 
-* [Solução de fábrica ligado pré-configurada](https://github.com/Azure/azure-iot-connected-factory)
+* [Ligado acelerador de solução de fábrica](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>O que é OPC UA?
 
@@ -40,7 +40,7 @@ OPC Unified arquitetura (UA), lançada em 2008, é uma interoperabilidade indepe
 * Tecnologia
 * Processos
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Por que motivo Microsoft escolher OPC UA para a solução de fábrica ligado pré-configurada?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Por que motivo Microsoft escolher OPC UA para o acelerador de solução ligado fábrica?
 
 Microsoft escolheu OPC UA porque é uma norma da plataforma aberta e não-proprietários, independentes, reconhecido por da indústria e comprovado. É um requisito para soluções de arquitetura de referência de Industrie 4.0 (RAMI4.0) garantindo a interoperabilidade entre um conjunto amplo de processos de produção e de equipamento. Microsoft vê a pedido do que os seus clientes para criar soluções de Industrie 4.0. Suporte para OPC UA ajuda a reduzir a barreira para os clientes atingir os seus objetivos e fornece o valor de negócio imediata aos mesmos.
 
@@ -74,7 +74,7 @@ Se implementou a solução de www.azureiotsuite.com, não pode iniciar sessão p
 1. É o nome de utilizador a utilizar: `docker`.
 1. A palavra-passe a utilizar depende a versão utilizada para implementar:
     * Para soluções implementadas utilizando o script de build.ps1 antes de 1 de Junho de 2017, é a palavra-passe: `Passw0rd`.
-    * Para soluções implementadas utilizando o script de build.ps1 após 1 de Junho de 2017, pode encontrar a palavra-passe a `<name of your deployment>.config.user` ficheiro. A palavra-passe é armazenada no **VmAdminPassword** definição. A palavra-passe for gerada aleatoriamente no momento da implementação, a menos que especifique-la utilizando o `build.ps1` parâmetro do script`-VmAdminPassword`
+    * Para soluções implementadas utilizando o script de build.ps1 após 1 de Junho de 2017, pode encontrar a palavra-passe a `<name of your deployment>.config.user` ficheiro. A palavra-passe é armazenada no **VmAdminPassword** definição. A palavra-passe for gerada aleatoriamente no momento da implementação, a menos que especifique-la utilizando o `build.ps1` parâmetro do script `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Como parar e iniciar a todos os processos de docker na simulação VM?
 
@@ -100,7 +100,7 @@ Se tiver implementado a sua solução com o `build.ps1` script no [repositório]
 
 Também pode encontrar a cadeia de ligação no portal do Azure. No recurso do IoT Hub no grupo de recursos da sua implementação, localize as definições de cadeia de ligação.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Os dispositivos do IoT Hub utiliza a simulação de fábrica ligado?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Os dispositivos do IoT Hub utilizar simulação ligado fábrica?
 
 A simulação Self-regista os seguintes dispositivos:
 
@@ -148,9 +148,9 @@ Se vir sem dados enviados ao IoT Hub, não há um problema com a simulação. Co
 
 Para ativar um mapa interativo na sua solução de fábrica ligado, tem de ter um existente API para Bing Maps plano empresarial.
 
-Ao implementar a partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implementação verifica que a sua subscrição tem um ativado API para Bing Maps plano empresarial e implementa automaticamente um mapa interativo na fábrica ligada. Se não for este o caso, pode ainda ativar um mapa interativo na sua implementação da seguinte forma:
+Ao implementar a partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implementação verifica que a sua subscrição tem um ativado API para Bing Maps plano empresarial e implementa automaticamente um mapa interativo na fábrica ligado. Se não for este o caso, pode ainda ativar um mapa interativo na sua implementação da seguinte forma:
 
-Ao implementar utilizando o `build.ps1` script na fábrica de ligado repositório do GitHub e ter um API para Bing Maps para o plano de Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é ativado automaticamente.
+Ao implementar utilizando o `build.ps1` script no GitHub de fábrica ligado repositório e ter um API para Bing Maps para o plano de Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é ativado automaticamente.
 
 Se não tiver uma API para Bing Maps para o plano de Enterprise, implementar a solução de fábrica ligados de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou utilizando o `build.ps1` script. Em seguida, adicione um API para Bing Maps para plano empresarial à sua subscrição, conforme explicado no [como criar uma API para Bing Maps para conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Procurar a chave de consulta desta conta, conforme explicado no [como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e guarde esta chave. Navegue para o portal do Azure e aceder ao recurso de serviço de aplicações na sua implementação de fábrica ligado. Navegue para **definições da aplicação**, onde encontrar uma secção **as definições de aplicação**. Definir o **MapApiQueryKey** para a chave de consulta que obteve. Guardar as definições e, em seguida, navegue para **descrição geral** e reinicie o serviço de aplicações.
 
@@ -162,7 +162,7 @@ Pode obter um livre *interno transações de nível 1 Bing Maps para Enterprise*
 
 ### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Como obter a API do Bing Maps para Enterprise QueryKey a
 
-Assim que tiver criado a sua API para Bing Maps para o plano de Enterprise, adicione um Bing Maps para o recurso da empresa para o grupo de recursos da sua solução de fábrica ligado no portal do Azure.
+Assim que tiver criado a sua API para Bing Maps para o plano de Enterprise, adicione um Bing Maps para o recurso da empresa para o grupo de recursos da sua solução ligado Factory no portal do Azure.
 
 1. No portal do Azure, navegue para o grupo de recursos que contém a API do Bing Maps para o plano de empresa.
 
@@ -188,7 +188,7 @@ Para enviar os dados telemétricos do não OPC UA dispositivos à fábrica ligad
 
 1. [Configurar uma estação nova na topologia de fábrica ligado](iot-suite-connected-factory-configure.md) no `ContosoTopologyDescription.json` ficheiro.
 
-1. Incorporar os dados de telemetria no formato JSON compatível do factory ligada:
+1. Incorporar os dados de telemetria no formato JSON compatível do Factory ligada:
 
     ```json
     [
@@ -204,14 +204,14 @@ Para enviar os dados telemétricos do não OPC UA dispositivos à fábrica ligad
     ]
     ```
 
-1. O formato do `<timestamp>` é:`2017-12-08T19:24:51.886753Z`
+1. O formato do `<timestamp>` é: `2017-12-08T19:24:51.886753Z`
 
-1. Reinicie a fábrica de ligação do serviço de aplicações.
+1. Reinicie o serviço de aplicações de fábrica ligada.
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-Também pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
+Também pode explorar algumas das outras funcionalidades e capacidades de Aceleradores de solução IoT:
 
-* [Descrição geral de solução pré-configurada de manutenção preditiva](iot-suite-predictive-overview.md)
-* [Descrição geral da solução de fábrica ligado pré-configurada](iot-suite-connected-factory-overview.md)
+* [Descrição geral da preditiva da acelerador solução do manutenção](iot-suite-predictive-overview.md)
+* [Descrição geral da ligados da acelerador solução do Factory](iot-suite-connected-factory-overview.md)
 * [Segurança de IoT a partir do zero](securing-iot-ground-up.md)

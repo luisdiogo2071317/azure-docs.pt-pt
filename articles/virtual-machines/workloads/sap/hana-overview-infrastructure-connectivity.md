@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura de SAP HANA (instâncias de grandes dimensões) e a conectividade no Azure 
 
 Algumas definições de antemão antes de ler este guia. No [descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) introduzimos duas classes diferentes de unidades de instância grande HANA com:
 
 - S72, S72m, S144, S144m, S192 e S192m, que denominamos 'Type posso de classe' de SKUs.
-- S384, S384m, S384xm, S576, S768 e S960, que denominamos 'class II de tipo' de SKUs.
+- S384, S384m, S384xm, S576m, S768m e S960m, que denominamos 'class II de tipo' de SKUs.
 
 Os especificadores de classe que vão ser utilizados em toda a documentação de instância grande HANA eventualmente referir-se a funcionalidades diferentes e requisitos com base nas HANA grande SKUs de instância.
 
@@ -213,7 +213,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Neste exemplo, o SKU de gateway HighPerformance foi utilizado. As opções são HighPerformance ou UltraPerformance como o gateway só SKUs que são suportados para SAP HANA no Azure (instâncias de grande).
 
 > [!IMPORTANT]
-> Para tipos de instâncias de grande HANA do SKU S384, S384m, S384xm, S576, S768 e S960 (SKUs de classe de tipo II), a utilização do SKU de Gateway UltraPerformance é obrigatória.
+> Para tipos de instâncias de grande HANA do SKU S384, S384m, S384xm, S576m, S768m e S960m (SKUs de classe de tipo II), a utilização do SKU de Gateway UltraPerformance é obrigatória.
 
 ### <a name="linking-vnets"></a>Ligar VNets
 

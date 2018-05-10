@@ -1,7 +1,7 @@
 ---
-title: "Esquema de dispositivos na solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitorização remota."
-services: 
+title: Esquema de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+description: Este artigo descreve o esquema JSON que define um dispositivo simulado na solução de monitorização remota.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 364698a529623958695f93a245bab28a89f6bd4c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 24aeb9c3f73d04a3d05f09ebd2ba0859a38e7ad8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema do modelo de dispositivo
 
@@ -29,7 +29,7 @@ Os artigos seguintes estão relacionadas com o artigo atual:
 * [Implementar o comportamento de modelo do dispositivo](iot-suite-remote-monitoring-device-behavior.md) descreve os ficheiros de JavaScript que utilizar para implementar o comportamento de um dispositivo simulado.
 * [Criar um novo dispositivo simulado](iot-suite-remote-monitoring-test.md) coloca-o em todos os conjunto e mostra-lhe como implementar um novo tipo de dispositivo simulado à sua solução.
 
-Neste artigo, saiba como:
+Neste artigo, vai aprender a:
 
 >[!div class="checklist"]
 > * Utilizar um ficheiro JSON para definir um modelo de dispositivo simulada
@@ -85,8 +85,8 @@ No `Simulation` secção, é possível definir o estado interno do dispositivo s
 
 A definição do Estado do dispositivo tem dois elementos:
 
-* `InitialState`Define valores iniciais para todas as propriedades do objeto de estado do dispositivo.
-* `Script`identifica um ficheiro de JavaScript é executado numa agenda, para atualizar o estado do dispositivo. Pode utilizar este ficheiro de script para utilize uma ordem aleatória os valores de telemetria enviados pelo dispositivo.
+* `InitialState` Define valores iniciais para todas as propriedades do objeto de estado do dispositivo.
+* `Script` identifica um ficheiro de JavaScript é executado numa agenda, para atualizar o estado do dispositivo. Pode utilizar este ficheiro de script para utilize uma ordem aleatória os valores de telemetria enviados pelo dispositivo.
 
 Para saber mais sobre o ficheiro de JavaScript que atualiza o objeto de estado do dispositivo, consulte [compreender o comportamento de modelo do dispositivo](iot-suite-remote-monitoring-device-behavior.md).
 
@@ -104,10 +104,10 @@ O exemplo seguinte mostra a definição do objeto de estado do dispositivo para 
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -155,9 +155,9 @@ O exemplo seguinte envia uma mensagem de telemetria JSON cada 10 segundos com `f
 ]
 ```
 
-`MessageTemplate`Define a estrutura da mensagem JSON enviada pelo dispositivo simulado. Os marcadores de posição no `MessageTemplate` utilize a sintaxe `${NAME}` onde `NAME` é uma chave do [objeto de estado do dispositivo](#simulation). Devem estar entre aspas cadeias, números não devem.
+`MessageTemplate` Define a estrutura da mensagem JSON enviada pelo dispositivo simulado. Os marcadores de posição no `MessageTemplate` utilize a sintaxe `${NAME}` onde `NAME` é uma chave do [objeto de estado do dispositivo](#simulation). Devem estar entre aspas cadeias, números não devem.
 
-`MessageSchema`Define o esquema da mensagem enviada pelo dispositivo simulado. O esquema de mensagem também é publicado ao IoT Hub para ativar as aplicações de back-end reutilizar as informações para interpretar a telemetria de entrada.
+`MessageSchema` Define o esquema da mensagem enviada pelo dispositivo simulado. O esquema de mensagem também é publicado ao IoT Hub para ativar as aplicações de back-end reutilizar as informações para interpretar a telemetria de entrada.
 
 Atualmente, só pode utilizar esquemas de mensagem JSON. Os campos indicados no esquema podem ser dos seguintes tipos:
 

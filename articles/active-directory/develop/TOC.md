@@ -8,7 +8,6 @@
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
 ### [.NET (Ambiente de Trabalho do Windows)](active-directory-devquickstarts-dotnet.md)
-### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
 ### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -16,7 +15,7 @@
 ### [Descrição geral](active-directory-authentication-scenarios.md#web-browser-to-web-application)
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [Núcleo do ASP.NET](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
-### [Java](active-directory-devquickstarts-webapp-java.md)
+### [Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect)
 ### [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -102,11 +101,14 @@
 #### [Plataforma Universal do Windows](guidedsetups/active-directory-uwp-v2.md)
 ### Web Apps
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+#### [Núcleo do ASP.NET](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2)
+#### [NodeJS](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs)
+### APIs da Web
+#### [ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+#### [Núcleo do ASP.NET](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-native-aspnetcore-v2)
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
 ### Aplicações de página única
 #### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
-### APIs da Web
-#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
 ### Serviço a serviço
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guias

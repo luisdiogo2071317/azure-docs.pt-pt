@@ -1,9 +1,9 @@
 ---
-title: "Notas de versão do Visual Studio extensão do Developer Analytics"
-description: "As atualizações mais recentes para o Visual Studio tools para análise de programador."
+title: Notas de versão do Visual Studio extensão do Developer Analytics
+description: As atualizações mais recentes para o Visual Studio tools para análise de programador.
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de Versão das Ferramentas de Análise de Programador
 
@@ -167,7 +167,7 @@ Quando estiver ligado, verá o formulário de carregamento na caixa de diálogo.
 
 ![Carregar a caixa de diálogo para aplicações do Universal Windows](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-Selecione o conteúdo a carregar (um ficheiro. appxbundle ou. AppX) e, em seguida, escolha as opções de versão no assistente. Opcionalmente, pode adicionar notas de versão na página seguinte. Escolha **concluir** para iniciar o carregamento.
+Selecione o conteúdo para carregar (um ficheiro. appxbundle ou. AppX) e, em seguida, escolha as opções de versão no assistente. Opcionalmente, pode adicionar notas de versão na página seguinte. Escolha **concluir** para iniciar o carregamento.
 
 Quando o carregamento estiver concluído, é apresentada uma notificação de HockeyApp com a confirmação e uma hiperligação para a aplicação no portal do HockeyApp.
 
@@ -210,7 +210,7 @@ Se tiver uma aplicação ASP.NET com o Application Insights SDK, siga os passos 
 3. Se ainda não inscrito com o Application Insights, a janela pesquisa será aberto em modo de telemetria de sessão de depuração.
 4. Clique em de **pesquisa** ícone para ver a telemetria local.
 
-![Carregar concluída](./media/app-insights-release-notes-vsix/LocalSearch.png)
+![Carregamento concluído](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
 ## <a name="version-42"></a>Versão 4.2
 Nesta versão, adicionámos as funcionalidades para tornar a procurar dados mais fácil no contexto de eventos, com a capacidade de ir para o código de mais de dados de eventos e uma experiência fácil para enviar os dados de registo para o Application Insights. Esta extensão é atualizada mensalmente. Se tiver comentários ou pedidos funcionalidades, envia-as para aidevtools@microsoft.com.
@@ -247,7 +247,7 @@ Adicionámos um novo separador, com consultas do predefinidas para todos os dado
 ### <a name="forward-and-back-history-in-search"></a>Reencaminhar e fazer uma cópia do histórico na pesquisa
 Agora pode voltar atrás e estabelecido entre os resultados da pesquisa.
 
-![Voltar atrás](./media/app-insights-release-notes-vsix/GoBAck.png)
+![Voltar](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ## <a name="version-41"></a>Versão 4.1
 Esta versão inclui um número de novas funcionalidades e atualizações. Tem de ter 1 atualização instalada para instalar esta versão.
@@ -289,8 +289,3 @@ Já não necessitar de iniciar sessão no Azure para adicionar pacotes de Applic
 
 ![Caixa de diálogo Nova projeto](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Suporte de dispositivos
-Em *Connect();* 2015, iremos [anunciada](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que a nossa experiência de programação móvel para dispositivos é HockeyApp. HockeyApp ajuda a distribuir compilações de beta para sua testers, recolher e analisar todas as falhas da sua aplicação e recolher comentários diretamente a partir dos seus clientes.
-HockeyApp suporta a sua aplicação em qualquer plataforma escolha compilá-la, se de que ser iOS, Android, ou Windows ou uma solução de plataforma como Xamarin, Cordova ou Unity.
-
-Nas futuras versões da extensão do Application Insights, irá introduzirmos uma experiência mais integrada entre HockeyApp e o Visual Studio. Por agora, pode iniciar com o HockeyApp ao adicionar simplesmente a referência do NuGet. Consulte o [documentação](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para obter mais informações.

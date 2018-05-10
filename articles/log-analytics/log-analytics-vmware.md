@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização do VMware (pré-visualização) na análise de registos
 
@@ -37,7 +37,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 * Adicionar a solução de monitorização do VMware a sua subscrição com o processo descrito no [adicionar uma solução de gestão](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Anfitriões do VMware ESXi suportados
-vSphere ESXi 5.5 de anfitrião e 6.0
+vSphere anfitrião ESXi 5.5, 6.0 e 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparar um servidor Linux
 Crie um VM receba todos os dados de syslog dos anfitriões ESXi do sistema de operativo de Linux. O [agente Linux do OMS](log-analytics-linux-agents.md) é o ponto de coleção para todos os dados de syslog do anfitrião ESXi. Pode utilizar vários anfitriões ESXi para reencaminhar os registos para um único servidor Linux, como no exemplo seguinte.  
@@ -45,7 +45,7 @@ Crie um VM receba todos os dados de syslog dos anfitriões ESXi do sistema de op
    ![fluxo de syslog](./media/log-analytics-vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Configurar a recolha do syslog
-1. Configure o reencaminhamento de syslog para VSphere. Para obter informações detalhadas para o ajudar a configurar o reencaminhamento de syslog, consulte [configurar syslog no ESXi 5. x e 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Aceda a **configuração de anfitrião ESXi** > **Software** > **definições avançadas** > **Syslog**.
+1. Configure o reencaminhamento de syslog para VSphere. Para obter informações detalhadas para o ajudar a configurar o reencaminhamento de syslog, consulte [configurar syslog ESXi 5.0 e superior (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Aceda a **configuração de anfitrião ESXi** > **Software** > **definições avançadas** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. No *Syslog.global.logHost* campo, adicione o servidor Linux e o número da porta *1514*. Por exemplo, `tcp://hostname:1514` ou `tcp://123.456.789.101:1514`
 3. Abra a firewall do anfitrião ESXi para syslog. **Configuração do anfitrião ESXi** > **Software** > **perfil de segurança** > **Firewall** e abra **Propriedades**.  
@@ -154,7 +154,7 @@ A solução inclui outras consultas útil que podem ajudar a gerir os seus anfit
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-![Consultas](./media/log-analytics-vmware/queries.png)
+![consultas de ](./media/log-analytics-vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Guardar consultas

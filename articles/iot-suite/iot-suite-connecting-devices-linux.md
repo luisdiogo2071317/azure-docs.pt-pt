@@ -1,12 +1,12 @@
 ---
-title: "Aprovisionar dispositivos Linux para monitorização remota no C - do Azure | Microsoft Docs"
-description: "Descreve como ligar um dispositivo à solução de monitorização remota do Azure IoT Suite pré-configurada utilizando uma aplicação de escrita no C em execução no Linux."
-services: 
+title: Aprovisionar dispositivos Linux para monitorização remota no C - do Azure | Microsoft Docs
+description: Descreve como ligar um dispositivo para o acelerador solução de monitorização remota, utilizando uma aplicação de escrita no C em execução no Linux.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 2c6b245e938b44891314c3e752c064ff152f2c9a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ccf2b185c5aa67b41aab650989ad0326aba0215
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Ligar o seu dispositivo à solução pré-configurada monitorização remota (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Ligar o seu dispositivo para o acelerador de solução monitorização remota (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como ligar um dispositivo físico a solução pré-configurada de monitorização remota.
+Este tutorial mostra como ligar um dispositivo físico para o acelerador de solução de monitorização remota.
 
 ## <a name="create-a-c-client-project-on-linux"></a>Criar um projeto de cliente do C no Linux
 

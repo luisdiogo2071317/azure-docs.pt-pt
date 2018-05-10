@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorizar a base de dados do SQL do Azure através da análise do SQL do Azure (pré-visualização) no Log Analytics
 
@@ -118,7 +118,7 @@ Cada perspetiva fornece resumos na subscrição, o servidor, o conjunto elástic
 
 Base de dados SQL do Azure [Insights inteligente](../sql-database/sql-database-intelligent-insights.md) permite-lhe determinar o que acontece com o desempenho de base de dados. Todas as informações inteligente recolhidos podem ser visualizadas e acedidas através de perspetiva Insights.
 
-![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+![Informações de análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
 ### <a name="elastic-pool-and-database-reports"></a>Relatórios de conjunto elástico e base de dados
 
@@ -132,11 +132,12 @@ Conjuntos elásticos e bases de dados têm os seus próprios relatórios especí
 
 Através da duração de consulta e a consulta aguarda perspetivas, pode correlacionar o desempenho de qualquer consulta através do relatório de consulta. Este relatório compara o desempenho de consulta em bases de dados diferentes e torna mais fácil identificar bases de dados que executar a consulta selecionada bem versus aqueles que são lenta.
 
-![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
+![Consultas de análises SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-Pode facilmente criar alertas com os dados provenientes de recursos de SQL Database do Azure. Seguem-se algumas útil [pesquisa registo](log-analytics-log-searches.md) consultas que pode utilizar para alertas:
+Pode facilmente [criam alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) com os dados provenientes de recursos de SQL Database do Azure. Seguem-se algumas útil [pesquisa registo](log-analytics-log-searches.md) utilizam consultas que pode utilizar com um alerta de registo:
+
 
 
 *DTU elevado na base de dados SQL do Azure*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Pode utilizar estas consultas baseadas no alerta para o alertar limiares específicos para a SQL Database do Azure e conjuntos elásticos. Para configurar um alerta para a sua área de trabalho de análise de registos:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Para configurar um alerta para a sua área de trabalho
-
-1. Vá para o [portal do OMS](http://mms.microsoft.com/) e iniciar sessão.
-2. Abra a área de trabalho que tiver configurado para a solução.
-3. Na página Descrição geral, clique o **análise de SQL do Azure (pré-visualização)** mosaico.
-4. Execute uma das consultas de exemplo.
-5. No registo de pesquisa, clique em **alerta**.  
-![criar o alerta na pesquisa](./media/log-analytics-azure-sql/create-alert01.png)
-6. No **Adicionar regra de alerta** página, configure as propriedades adequadas e os limiares específicos que pretende e, em seguida, clique em **guardar**. 
-![Adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

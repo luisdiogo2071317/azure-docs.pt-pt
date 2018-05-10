@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Tarefas de agendamento e de difusão (Java)
 
@@ -64,7 +64,7 @@ Para concluir este tutorial, precisa de:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Se preferir para criar a identidade do dispositivo através de programação, leia a secção correspondente do [ligar o seu dispositivo ao seu IoT hub utilizando Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artigo. Também pode utilizar o [extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) ferramenta para adicionar um dispositivo ao seu IoT hub.
+Também pode utilizar o [extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) ferramenta para adicionar um dispositivo ao seu IoT hub.
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
 
@@ -479,7 +479,7 @@ Agora está pronto para executar as aplicações de consola.
 
     ![O cliente do dispositivo responde às alterações](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Criar uma aplicação de back-end para executar tarefas de dois. A primeira tarefa definir valores de propriedade pretendida e a segunda tarefa chamou um método direto.
 

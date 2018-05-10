@@ -1,26 +1,24 @@
 ---
 title: Utilizar grupos para gerir o acesso aos recursos no Azure Active Directory | Microsoft Docs
-description: "Como utilizar grupos no Azure Active Directory para gerir o acesso de utilizador no local e de aplicações em nuvem e de recursos."
+description: Como utilizar grupos no Azure Active Directory para gerir o acesso de utilizador no local e de aplicações em nuvem e de recursos.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 714120d0-cdf9-465d-afee-39bef591c6b3
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: aaccc501526d313a572692ff8f2f5c9da38849d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef218abb1bef4a51880187fb5764cebfb40afadd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Gerir o acesso a recursos com grupos do Active Directory do Azure
 Azure Active Directory (Azure AD) é uma solução de gestão identidades e acessos abrangente que fornece um conjunto robusto de funcionalidades para gerir o acesso a recursos, incluindo os serviços online da Microsoft como o Office 365 e aplicações em nuvem e no local e um mundo de aplicações SaaS não Microsoft. Este artigo fornece uma descrição geral, mas se pretender começar a utilizar o Azure AD grupos neste momento, siga as instruções em [gerir grupos de segurança no Azure AD](active-directory-groups-create-azure-portal.md). Se quiser ver como pode utilizar o PowerShell para gerir grupos no Azure Active directory pode ler mais em [cmdlets do Azure Active Directory para gestão de grupo](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
@@ -72,7 +70,7 @@ Pronto para começar? Deve tentar terminar algumas das tarefas básicas que pode
 * [A sincronizar a um grupo no local para o Azure com o Azure AD Connect](active-directory-aadconnect.md)
 * [Gerir proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que tem compreendido as noções básicas de gestão de acesso, aqui estão algumas funcionalidades avançadas adicionais disponíveis no Azure Active Directory para gerir o acesso aos seus recursos e aplicações.
 
 * [Utilizar atributos para criar regras avançadas](active-directory-groups-dynamic-membership-azure-portal.md)

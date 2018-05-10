@@ -3,7 +3,7 @@ title: Transmissão de velocidade de métricas com métricas personalizadas e di
 description: Monitorizar a aplicação web em tempo real com métricas personalizadas e diagnosticar problemas com um feed de falhas, rastreios e eventos em direto.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: 49b343fca94e853a29807521f4213a5a85725f52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Métricas em fluxo em direto: Monitor de & Diagnostique com uma latência de 1 segundo 
 

@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 2c6f5cf2d89da0c2418ac58ca5d47a8aa05e732f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das coisas
 
 Proteger uma infraestrutura de Internet das coisas (IoT) requer uma estratégia de segurança-na profundidade rigorosas. Esta estratégia requer a proteger os dados na nuvem, proteger a integridade dos dados em trânsito através da internet pública e em segurança aprovisionar dispositivos. Cada camada baseia-se a garantia de segurança superior na infraestrutura global.
@@ -7,7 +23,7 @@ Proteger uma infraestrutura de Internet das coisas (IoT) requer uma estratégia 
 Esta estratégia de segurança-na profundidade pode ser desenvolvida e executada com o Active Directory participação de vários jogadores envolvidos no fabrico, desenvolvimento e implementação de infraestrutura e de dispositivos de IoT. Segue-se uma descrição de alto nível destes jogadores.
 
 * **Fabricante de hardware de IoT/integrador**: normalmente, estes jogadores são fabricantes de hardware de IoT que está a ser implementado, integradores reuni hardware a partir de vários fabricantes ou fornecedores de hardware a fornecer para uma implementação de IoT fabricado ou integrado por outros fornecedores.
-* **Para programadores de solução IoT**: O desenvolvimento de uma solução de IoT é geralmente feito por um programador de solução. Este programador pode faz parte de uma equipa interna ou integrador de sistema (TAMA) especificar melhor nesta atividade. O Programador de solução IoT pode desenvolver vários componentes da solução IoT a partir do zero, integrar vários componentes off-the-shelf ou open source ou adotar soluções pré-configuradas com adaptation secundária.
+* **Para programadores de solução IoT**: O desenvolvimento de uma solução de IoT é geralmente feito por um programador de solução. Este programador pode faz parte de uma equipa interna ou integrador de sistema (TAMA) especificar melhor nesta atividade. O Programador de solução IoT pode desenvolver vários componentes da solução IoT a partir do zero, integrar vários componentes off-the-shelf ou open source ou adotar Aceleradores de solução com adaptation secundária.
 * **Implementador de solução IoT**: depois de um IoT solução for desenvolvida, tem de ser implementado no campo. Este processo envolve a implementação de hardware, interconnection de dispositivos e a implementação de soluções em dispositivos de hardware ou a nuvem.
 * **Operador de solução IoT**: depois de IoT solução for implementada, necessita de operações de longa duração, monitorização, atualizações e manutenção. Estas tarefas podem ser realizadas por uma equipa interna que compreende especialistas de tecnologia de informação, operações de hardware e as equipas de manutenção e especialistas de domínio que monitorizar o comportamento correto de infraestrutura geral do IoT.
 

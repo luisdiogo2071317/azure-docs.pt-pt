@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados
 
@@ -433,7 +433,7 @@ Para importar a uma única coleção, introduza o nome da coleção para a qual 
 Depois dos nomes de colecção foram especificados, escolhe o débito pretendido o collection(s) (400 RUs para 250 000 RUs). Para melhor desempenho de importação, escolha um maior débito. Para obter mais informações sobre os níveis de desempenho, consulte [níveis de desempenho na base de dados do Azure Cosmos](performance-levels.md). Qualquer importar coleções com débito > 10 000 RUs requerem uma chave de partição. Se optar por ter mais de 250 000 RUs, terá de um pedido de ficheiros no portal a sua conta aumentada.
 
 > [!NOTE]
-> A definição de débito só se aplica à criação de coleção. Se a coleção especificada já existe, o débito não será modificado.
+> A definição de débito só se aplica a coleção ou a criação da base de dados. Se a coleção especificada já existe, o débito não será modificado.
 > 
 > 
 

@@ -1,35 +1,35 @@
 ---
-title: "Solução do Office 365 no Operations Management Suite (OMS) | Microsoft Docs"
-description: "Este artigo fornece detalhes sobre a configuração e a utilização da solução do Office 365 no OMS.  Inclui uma descrição detalhada dos registos do Office 365 criados na análise de registos."
+title: Solução de gestão do Office 365 no Azure | Microsoft Docs
+description: Este artigo fornece detalhes sobre a configuração e a utilização da solução do Office 365 no Azure.  Inclui uma descrição detalhada dos registos do Office 365 criados na análise de registos.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Solução do Office 365 no Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
 ![Logótipo do Office 365](media/oms-solution-office-365/icon.png)
 
-A solução do Office 365 para o Operations Management Suite (OMS) permite-lhe monitorizar o seu ambiente do Office 365 na análise de registos.  
+A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do Office 365 na análise de registos.
 
 - Monitorizar as atividades dos utilizadores em contas do Office 365 para analisar padrões de utilização, bem como para identificar tendências comportamentais. Por exemplo, pode extrair os cenários de utilização específicos, tais como ficheiros que são partilhados fora da sua organização ou sites do SharePoint mais populares.
 - Monitorizar atividades de administrador para controlar as alterações de configuração ou operações de privilégio elevado.
 - Detetar e investigue o comportamento de utilizador indesejável, que pode ser personalizado para as suas necessidades organizacionais.
 - Demonstrar a auditoria e de conformidade. Por exemplo, pode monitorizar operações de acesso do ficheiro em ficheiros confidenciais que podem ajudá-lo com o processo de auditoria e de conformidade.
-- Efetue a resolução de problemas operacionais utilizando a pesquisa do OMS por cima de dados de atividade do Office 365 da sua organização.
+- Efetuar a resolução de problemas operacionais utilizando [pesquisas de registo](../log-analytics/log-analytics-log-search.md) por cima de dados de atividade do Office 365 da sua organização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 É necessário o seguinte antes desta solução que está a ser instalado e configurado.
@@ -47,7 +47,7 @@ Esta solução não instala quaisquer pacotes de gestão em grupos de gestão li
 ## <a name="configuration"></a>Configuração
 Uma vez que [adicionar a solução Office 365 à sua subscrição](../log-analytics/log-analytics-add-solutions.md), tem de estabelecer a ligação à sua subscrição do Office 365.
 
-1. Adicionar a solução de gestão de alertas a sua área de trabalho do OMS utilizando o processo descrito no [adicionar soluções](../log-analytics/log-analytics-add-solutions.md).
+1. Adicionar a solução de gestão de alertas a sua área de trabalho de análise de registos com o processo descrito no [adicionar soluções](../log-analytics/log-analytics-add-solutions.md).
 2. Aceda a **definições** no portal do OMS.
 3. Em **origens ligadas**, selecione **do Office 365**.
 4. Clique em **ligar o Office 365**.<br>![Connnect Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +63,7 @@ A solução Office 365 não obter dados a partir de qualquer o [agentes OMS](../
 Office 365 envia um [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para análise de registos sempre que é criado um registo.
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-Quando adiciona a solução Office 365 a sua área de trabalho do OMS, a **do Office 365** mosaico será adicionado ao seu dashboard do OMS. Este mosaico apresenta uma contagem e uma representação gráfica do número de computadores no seu ambiente e a respetiva conformidade de atualização.<br><br>
+Quando adiciona a solução Office 365 a sua área de trabalho de análise de registos, o **do Office 365** mosaico será adicionado ao dashboard. Este mosaico apresenta uma contagem e uma representação gráfica do número de computadores no seu ambiente e a respetiva conformidade de atualização.<br><br>
 ![Mosaico de resumo do Office 365](media/oms-solution-office-365/tile.png)  
 
 Clique em de **do Office 365** mosaico para abrir o **do Office 365** dashboard.
@@ -100,7 +100,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Os valores possíveis são bem sucedida, PartiallySucceded ou falha. Para a atividade de administrador do Exchange, o valor é o verdadeiro ou FALSO. |
 | ID de utilizador | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultaram num registo que está a ser registado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos para a atividade realizada por contas de sistema (tais como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade de ID de utilizador.  Por exemplo, esta propriedade é preenchida com o passport ID exclusivo (PUID) eventos realizadas por utilizadores no SharePoint, no OneDrive para empresas e no Exchange. Esta propriedade também pode especificar o mesmo valor como a propriedade de ID de utilizador para eventos que ocorrem noutros serviços e eventos realizados de contas do sistema|
-| UserType | O tipo de utilizador que executar a operação.<br><br>Admin<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executar a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory
@@ -280,9 +280,9 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 | Consulta | Descrição |
 | --- | --- |
-|Contagem de todas as operações na sua subscrição do Office 365 |Tipo = OfficeActivity &#124; medida existente pela operação |
-|Utilização de sites do SharePoint|Tipo = OfficeActivity OfficeWorkload = sharepoint &#124; medir existente como contagem por SiteUrl &#124; Ordenar asc contagem|
-|Operações de acesso de ficheiros por tipo de utilizador|Tipo = OfficeActivity OfficeWorkload = sharepoint operação = FileAccessed &#124; medida existente pelo UserType|
+|Contagem de todas as operações na sua subscrição do Office 365 |Tipo = OfficeActivity &#124; medir existente pela operação |
+|Utilização de sites do SharePoint|Tipo = OfficeActivity OfficeWorkload = sharepoint &#124; medir existente como contagem por SiteUrl &#124; asc de contagem de ordenação|
+|Operações de acesso de ficheiros por tipo de utilizador|Tipo = OfficeActivity OfficeWorkload = sharepoint operação = FileAccessed &#124; medir existente pelo UserType|
 |Procurar com uma palavra-chave específica|Tipo = OfficeActivity OfficeWorkload = azureactivedirectory "MyTest"|
 |Monitor ações externas no Exchange|Tipo = OfficeActivity OfficeWorkload = exchange ExternalAccess = true|
 
@@ -294,13 +294,13 @@ Se a sua solução do Office 365 não está a recolher dados conforme esperado, 
 
 | Estado | Descrição |
 |:--|:--|
-| Ativa | A subscrição do Office 365 está ativa e a carga de trabalho é ligada com êxito à sua área de trabalho do OMS. |
-| Pendente | A subscrição do Office 365 estiver ativa, mas a carga de trabalho ainda não está ligada à sua área de trabalho do OMS com êxito. Na primeira vez que o se ligar a subscrição do Office 365, todas as cargas de trabalho estará neste estado até ligados com êxito. Aguarde 24 horas para todas as cargas de trabalho mudar para o Active Directory. |
-| Inativos | A subscrição do Office 365 está num estado inativo. Verifique a sua página de administração do Office 365 para obter mais detalhes. Depois de ativar a subscrição do Office 365, desassociá-lo a partir da sua área de trabalho do OMS e ligá-lo novamente para começar a receber dados. |
+| Ativa | A subscrição do Office 365 está ativa e a carga de trabalho é ligada com êxito à sua área de trabalho de análise de registos. |
+| Pendente | A subscrição do Office 365 estiver ativa, mas a carga de trabalho ainda não está ligada à sua área de trabalho de análise de registos com êxito. Na primeira vez que o se ligar a subscrição do Office 365, todas as cargas de trabalho estará neste estado até ligados com êxito. Aguarde 24 horas para todas as cargas de trabalho mudar para o Active Directory. |
+| Inativa | A subscrição do Office 365 está num estado inativo. Verifique a sua página de administração do Office 365 para obter mais detalhes. Depois de ativar a subscrição do Office 365, desassociá-lo a partir da sua área de trabalho de análise de registos e ligá-lo novamente para começar a receber dados. |
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilizar as Pesquisas de Registos no [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de atualizações detalhados.
 * [Criar os seus próprios dashboards](../log-analytics/log-analytics-dashboards.md) para apresentar consultas de pesquisa do Office 365 favoritas.
 * [Criar alertas](../log-analytics/log-analytics-alerts.md) proativamente seja notificado das atividades importantes do Office 365.  

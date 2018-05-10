@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d9378a084d8ff421539a445986a5a18d073f3ce6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais de IoT Hub
 
@@ -88,7 +88,7 @@ IoT Hub apenas suporta a escrita de dados para contentores de armazenamento do A
 * O batch atinge um determinado tamanho.
 * Ou uma determinada quantidade de tempo decorrido.
 
-IoT Hub irá does escrita um blob vazio se não houver nenhum dado para escrita.
+IoT Hub irá escrever um blob vazio se não houver nenhum dado para escrita.
 
 Predefinições para a seguinte convenção de nomenclatura de ficheiro do IoT Hub:
 

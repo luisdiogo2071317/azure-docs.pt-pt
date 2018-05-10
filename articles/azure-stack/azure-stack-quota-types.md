@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 52d469236d607a145430134c24c4237346dafb4c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de quota na pilha do Azure
 
@@ -44,9 +44,9 @@ ms.lasthandoff: 04/23/2018
 | Número total de contas de armazenamento |20 |O número máximo de contas do storage que pode criar uma subscrição nesta localização. |
 
 > [!NOTE]  
-> Pode demorar até duas horas antes de é aplicada uma quota de armazenamento nova. 
+> Pode demorar até duas horas antes de é aplicada uma quota de armazenamento. 
 > 
-> 
+
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |

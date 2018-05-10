@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: rli; v-deasim
-ms.openlocfilehash: 3f475c5cc9b766ea9aa5bd39d4a378e8deed5e35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 61fbe6e29df787048a9694138d3c9095f5cba76b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analisar padrões de utilização da CDN do Azure
 
@@ -26,7 +26,7 @@ Depois de ativar a CDN para a sua aplicação, pode monitorizar a utilização d
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Análise de núcleo através de registos de diagnóstico do Azure
 
-Análise de núcleo está disponível para todos os pontos finais da CDN que pertencem da Verizon (Standard e Premium) e perfis da CDN (Standard) Akamai. Registos de diagnóstico do Azure permitem a análise de núcleo ser exportados para o armazenamento do Azure, os event hubs ou análise de registos. Análise de registos oferece uma solução com gráficos configurável pelo utilizador e personalizáveis. Para obter mais informações, consulte [registos de diagnóstico do Azure](cdn-azure-diagnostic-logs.md).
+Análise de núcleo está disponível para pontos finais da CDN para todos os escalões de preços. Registos de diagnóstico do Azure permitem a análise de núcleo ser exportados para o armazenamento do Azure, os event hubs ou Log Analytics do Azure. Análise de registos do Azure oferece uma solução com gráficos configurável pelo utilizador e personalizáveis. Para mais informações sobre os registos de diagnóstico do Azure, consulte [registos de diagnóstico do Azure](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Relatórios de núcleos da Verizon
 
@@ -36,7 +36,7 @@ Como um utilizador CDN do Azure com um **CDN do Azure Standard da Verizon** ou *
 
 Como um utilizador CDN do Azure com um **CDN do Azure Standard da Verizon** ou **CDN do Azure Premium da Verizon** perfil, pode ver relatórios personalizados da Verizon no portal suplementar da Verizon. Relatórios personalizados da Verizon está acessível através de **gerir** opção do portal do Azure. A página de relatórios personalizados da Verizon mostra o número de pedidos ou dados transferido para cada contorno CName que pertencem a um perfil de CDN do Azure. Os dados podem ser agrupados por Estado de cache ou de código de resposta HTTP durante qualquer período de tempo. Para obter mais informações, consulte [relatórios personalizados da Verizon](cdn-verizon-custom-reports.md).
 
-## <a name="verizon-premium-reports"></a>Relatórios de premium da Verizon
+## <a name="azure-cdn-premium-from-verizon-reports"></a>Os relatórios do Azure CDN Premium da Verizon
 
 Com **CDN do Azure Premium da Verizon**, também pode aceder os relatórios seguintes:
    * [Relatórios HTTP avançados](cdn-advanced-http-reports.md)

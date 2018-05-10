@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção na análise de registos
 Análise de registos está concebido para escala e a recolha de suporte, a indexação e armazenar as quantidades enormes de dados por dia de uma origem na sua empresa ou implementado no Azure.  Apesar de este número pode ser um controlador primário para a sua organização, eficiência de custos é basicamente o controlador subjacente. Para esse fim importante compreender que o custo de uma área de trabalho do registo Analytisc não se encontra apenas com base no volume dos dados recolhidos, também está dependente do plano selecionado e o período de tempo que escolheu armazenar dados gerados a partir de origens de ligado.  
@@ -33,14 +33,15 @@ O custo dos dados pode ser considerável consoante os seguintes fatores:
 - Os dados períodos são mantidos na área de trabalho  
 - Número de soluções de gestão ativado, a origem de dados e a frequência de recolha 
 
-Consulte a documentação de cada solução como fornece uma estimativa da quantidade de dados recolhe.   
+> [!NOTE]
+> Consulte a documentação de cada solução como fornece uma estimativa da quantidade de dados recolhe.   
 
-Se no escalão de preço "livre", dados estão limitados a retenção de 7 dias. Camadas de "Por nó (OMS)" ou "Por GB (autónomo)", estão disponíveis dados recolhidos nos últimos 31 dias e retenção pode ser aumentada cópias de segurança para 2 anos. Se selecionar um período de retenção mais são aplicáveis encargos. O plano gratuito tem o limite de ingestão diário de 500 MB e, se achar que exceder consistentemente as quantidades permitidas volume, pode alterar a área de trabalho por GB ou camadas por nó para recolher dados além este limite. Pode alterar o tipo de plano em qualquer altura e para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Se tiver o *livres* plano, dados estão limitados a retenção de 7 dias. Para o *autónomo* ou *Paid* camada, os dados recolhidos estão disponíveis nos últimos 31 dias. O *livres* plano tem o limite de ingestão diário de 500 MB e se achar que exceder consistentemente as quantidades permitidas volume, pode alterar a sua área de trabalho para um plano pago para recolher dados além este limite. 
 
 > [!NOTE]
-> Em Abril de 2018, iremos [introduzida](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para monitorização do Azure. Este modelo adopts um modelo simples "pay as you go" entre o portefólio completado de monitorização de serviços. Saiba mais sobre o [novo modelo de preços](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), como a [avaliar o impacto de mover para este modelo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) com base nos seus padrões de utilização, e [como optar ativamente por participar no modelo de nova](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> Se optar por selecionar um período de retenção mais longo para a camada paga são aplicáveis encargos. Pode alterar o tipo de plano em qualquer altura e para obter mais informações sobre preços, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Independentemente do preço modelo ou camada, gerir o volume de dados é fundmental para controlar os custos. Para além da opção e a configuração de solução específica, dentro de análise de registos, existem duas formas em que o volume de dados pode ser limitada e ajudar a controlam o custo, estes são diária retenção de dados e de extremidade.  
+Existem duas formas em que o volume de dados pode ser limitada e ajudar a controlam o custo, estes são diária retenção de dados e de extremidade.  
 
 ## <a name="review-estimated-cost"></a>Reveja o custo estimado
 Torna de análise do registo facilitam a compreender o que são provável que os custos com base nos padrões de utilização recente.  Para tal, execute os seguintes passos.  
@@ -54,9 +55,9 @@ Aqui pode rever o volume de dados para o mês. Isto inclui todos os dados recebi
 Os encargos de análise do registo são adicionados à fatura do Azure. Pode ver os detalhes do seu Azure cobrar na secção de faturação do portal do Azure ou no [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Limite diário
-Quando criar uma área de trabalho de análise de registos no portal do Azure e escolha o *livres* plano, está definido para um 500 MB por limite de dia. Não há nenhum limite para os planos de preços. Pode configurar um limite diário e limitar a ingestão de diariamente para a sua área de trabalho, mas utilizar cuidado, como o seu objetivo não deve ser para atingiu o limite diário.  Caso contrário nessa altura, perderá os dados para o resto do dia e a capacidade de observar as condições de estado de funcionamento de recursos que suportam serviços de TI é afetada.  A extremidade diária destina-se a ser utilizado como uma forma de gerir o aumento inesperado no volume de dados dos seus recursos geridos e permanecer dentro do seu limite ou quando pretender limitar simplesmente encargos não planeados para a sua área de trabalho.  
+Quando criar uma área de trabalho de análise de registos no portal do Azure e escolha o *livres* plano, está definido para um 500 MB por limite de dia. Não há nenhum limite para os planos de preços. Pode configurar um limite diário e limitar a ingestão de diariamente para a sua área de trabalho, mas utilizar cuidado, como o seu objetivo não deve ser para atingiu o limite diário.  Caso contrário, perderá os dados para o resto do dia, o que pode afetar outros serviços do Azure e soluções cuja funcionalidade pode depender de dados atualizados estejam disponíveis na área de trabalho.  Como resultado, a capacidade de observar e receber alertas quando as condições de estado de funcionamento de recursos que suportam serviços de TI são afetadas.  A extremidade diária destina-se a ser utilizado como uma forma de gerir o aumento inesperado no volume de dados dos seus recursos geridos e permanecer dentro do seu limite ou quando pretender limitar simplesmente encargos não planeados para a sua área de trabalho.  
 
-Quando for atingido o limite diário, interrompe a coleção de tipos de dados sujeito a faturação para o resto do dia.  É apresentada uma faixa de aviso na parte superior da página para a área de trabalho de análise de registos selecionada e um evento de operação é enviado para o *operação* tabela em **LogManagement** categoria. Retoma a recolha de dados depois do tempo de reposição definidos em *limite diário será definido em*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para enviar notificações quando for alcançado o limite diário de dados. 
+Quando for atingido o limite diário, interrompe a coleção de tipos de dados sujeito a faturação para o resto do dia. É apresentada uma faixa de aviso na parte superior da página para a área de trabalho de análise de registos selecionada e um evento de operação é enviado para o *operação* tabela em **LogManagement** categoria. Retoma a recolha de dados depois do tempo de reposição definidos em *limite diário será definido em*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para enviar notificações quando for alcançado o limite diário de dados. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diárias para definir 
 Reveja [utilização de análise do registo e os custos estimados](log-analytics-usage.md) para compreender a tendência de ingestão de dados e o que é a extremidade de volume diária para definir. Devem ser considerada com cuidado, dado que não conseguirá monitorizar os recursos após ter sido atingido o limite. 

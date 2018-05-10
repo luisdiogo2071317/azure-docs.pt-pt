@@ -1,22 +1,22 @@
 ---
-title: "Diagnóstico de transação de informações de aplicação do Azure | Microsoft Docs"
-description: "Diagnóstico de transação ponto-a-ponto do Application Insights"
+title: Diagnóstico de transação de informações de aplicação do Azure | Microsoft Docs
+description: Diagnóstico de transação ponto-a-ponto do Application Insights
 services: application-insights
 documentationcenter: .net
-author: SoubhagyaDash
-manager: victormu
+author: mrbullwinkle
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: sdash
-ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: mbullwin;sdash
+ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de unificada de entre componentes de transação
 
@@ -80,9 +80,9 @@ Este painel mostra os detalhes dos itens selecionados de qualquer uma das duas s
 
 [O gerador de perfis do Application Insights](app-insights-profiler.md) ou [depurador de instantâneo](app-insights-snapshot-debugger.md) ajudar com o nível de código de diagnóstico de problemas de desempenho e falha. Com esta experiência, pode ver os rastreios de gerador de perfis ou instantâneos de qualquer componente com um único clique.
 
-Se não foi possível obter o gerador de perfis a funcionar, contacte**serviceprofilerhelp@microsoft.com**
+Se não foi possível obter o gerador de perfis a funcionar, contacte **serviceprofilerhelp@microsoft.com**
 
-Se não foi possível obter o depurador de instantâneo a funcionar, contacte**snapshothelp@microsoft.com**
+Se não foi possível obter o depurador de instantâneo a funcionar, contacte **snapshothelp@microsoft.com**
 
 ![Integração do depurador](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

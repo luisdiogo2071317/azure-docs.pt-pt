@@ -1,9 +1,9 @@
 ---
 title: Exportar a utilizar o Stream Analytics do Azure Application Insights | Microsoft Docs
-description: "Do Stream Analytics continuamente pode transformar, filtrar e encaminhar os dados de que exportação do Application Insights."
+description: Do Stream Analytics continuamente pode transformar, filtrar e encaminhar os dados de que exportação do Application Insights.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c898e43cb1334bf7fb1836554fb92708033d3f7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilizar o Stream Analytics para processar dados exportados do Application Insights
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processamento de dados [exportados a partir do Application Insights](app-insights-export-telemetry.md). Do Stream Analytics pode solicitar dados a partir de uma variedade de origens. Pode transformar e filtre os dados e, em seguida, encaminhar para uma variedade de sinks.
@@ -106,10 +106,10 @@ O padrão de prefixo do caminho Especifica onde o Stream Analytics localiza os f
 
 Neste exemplo:
 
-* `webapplication27`é o nome do recurso Application Insights **todas as minúsculas**.
-* `1234...`é a chave de instrumentação do recurso Application Insights, **omitindo traços**. 
-* `PageViews`é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro definido na exportação contínua. Examine os dados exportados, consulte os outros tipos disponíveis e ver o [exportar o modelo de dados](app-insights-export-data-model.md).
-* `/{date}/{time}`um padrão é escrito literalmente.
+* `webapplication27` é o nome do recurso Application Insights **todas as minúsculas**.
+* `1234...` é a chave de instrumentação do recurso Application Insights, **omitindo traços**. 
+* `PageViews` é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro definido na exportação contínua. Examine os dados exportados, consulte os outros tipos disponíveis e ver o [exportar o modelo de dados](app-insights-export-data-model.md).
+* `/{date}/{time}` um padrão é escrito literalmente.
 
 > [!NOTE]
 > Inspecione o armazenamento para se certificar de que a obter o caminho correto.

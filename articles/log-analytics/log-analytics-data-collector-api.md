@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 167c36d2fa9bc182b6e37c0f47f838fde1ba01df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização pública)
 Este artigo mostra como utilizar a API de Recoletor de dados de HTTP para enviar dados para análise de registos de um cliente de REST API.  Descreve como formatou os dados recolhidos pelo seu script ou aplicação, inclua-o num pedido e tem esse pedido autorizado através da análise de registos.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -57,7 +57,7 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 | Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura de autorização. O artigo, pode ler sobre como criar um cabeçalho de HMAC SHA256. |
-| Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Atualmente, o tipo de registo suporta apenas carateres alfanuméricos. Não suporta números ou carateres especiais. |
+| Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Atualmente, o tipo de registo suporta apenas carateres alfanuméricos. Não suporta números ou carateres especiais. O limite de tamanho para este parâmetro é 100 carateres. |
 | x-ms-date |A data em que o pedido foi processado, no formato RFC 1123. |
 | campo Hora gerado |O nome de um campo de dados que contém o timestamp do item de dados. Se especificar um campo, em seguida, o respetivo conteúdo é utilizado para **TimeGenerated**. Se este campo não está especificado, a predefinição para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo mensagem deve seguir o formato ISO 8601 aaaa-MM-Aaaathh. |
 

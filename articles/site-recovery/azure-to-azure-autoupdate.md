@@ -8,15 +8,15 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: rajanaki
-ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Atualização automática da extensão do serviço de mobilidade na replicação do Azure para o Azure
 
-O Azure Site Recovery tem uma cadência de versão mensal onde melhoramentos a funcionalidades existentes ou novas são adicionadas e problemas conhecidos se qualquer sejam corrigidos. Isto seria significa que permaneça atual com o serviço, terá de planear a implementação destas patches de uma cadência mensal. Para evitar no cabeçalho de ativação pós-falha associado com a atualização, os utilizadores em vez disso, podem optar por permitir a recuperação de sites gerir atualizações dos componentes. Como detalhadas no [referência de arquitetura](azure-to-azure-architecture.md) para recuperação de desastre do Azure para o Azure, o serviço de mobilidade obtém instalado em todas as máquinas virtuais do Azure para o qual a replicação está ativada ao replicar máquinas virtuais do um Azure região para outro. Este documento fornece detalhes sobre o seguinte:
+O Azure Site Recovery tem uma cadência de versão mensal onde melhoramentos a funcionalidades existentes ou novas são adicionadas e problemas conhecidos se qualquer sejam corrigidos. Isto seria significa que permaneça atual com o serviço, terá de planear a implementação destas correções de erros, mensalmente. Para evitar no cabeçalho de ativação pós-falha associado com a atualização, os utilizadores em vez disso, podem optar por permitir a recuperação de sites gerir atualizações dos componentes. Como detalhadas no [referência de arquitetura](azure-to-azure-architecture.md) para recuperação de desastre do Azure para o Azure, o serviço de mobilidade obtém instalado em todas as máquinas virtuais do Azure para o qual a replicação está ativada ao replicar máquinas virtuais do um Azure região para outro. Depois de ativar a atualização automática, a extensão de serviço de mobilidade obtém atualizada com cada nova versão. Este documento fornece detalhes sobre o seguinte:
 
 - Como funciona a atualização automática?
 - Ativar as atualizações automáticas
@@ -25,6 +25,9 @@ O Azure Site Recovery tem uma cadência de versão mensal onde melhoramentos a f
 ## <a name="how-does-automatic-update-work"></a>Como funciona a atualização automática
 
 Uma vez que permite que a recuperação de sites gerir as atualizações, um runbook global (que é utilizado pelos serviços do Azure) é implementado através de uma conta de automatização, que é criada na mesma subscrição do cofre. Uma conta de automatização é utilizada para um cofre específico. O runbook verifica cada VM num cofre para a qual automaticamente atualizações estão ativadas e inicia uma atualização da extensão do serviço de mobilidade esteja disponível uma versão mais recente. A agenda predefinida de recurrs o runbook diariamente, às 12:00:00 de acordo com o fuso horário do georreplicação a máquina virtual replicada. O agendamento do runbook pode também ser modificado através da conta de automatização pelo utilizador, se necessário. 
+
+> [!NOTE]
+> Ativar atualizações automáticas não requer um reinício do suas VMs do Azure e não afeta a replicação em curso.
 
 ## <a name="enable-automatic-updates"></a>Ativar as atualizações automáticas
 

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens de grelha de eventos e tente novamente 
 
@@ -35,7 +35,7 @@ Os códigos de resposta HTTP seguintes indicam que um evento tem foi entregue co
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os códigos de resposta HTTP seguintes indicam que falhou uma tentativa de entrega de eventos. Grelha de eventos tentará novamente enviar o evento. 
+Os códigos de resposta HTTP seguintes indicam que falhou uma tentativa de entrega de eventos. 
 
 - Pedido de 400 incorreta
 - 401 não autorizado
@@ -46,9 +46,9 @@ Os códigos de resposta HTTP seguintes indicam que falhou uma tentativa de entre
 - 503 Serviço Indisponível
 - 504 Tempo Limite do Gateway
 
-Qualquer código de resposta ou falta de uma resposta indica uma falha. Grelha de evento repete as tentativas de entrega. 
+Se a grelha de evento recebe um erro que indica que o ponto final não está disponível, este tenta novamente enviar o evento. 
 
-## <a name="retry-intervals"></a>Repita intervalos
+## <a name="retry-intervals-and-duration"></a>Repetir intervalos e duração
 
 Grelha de evento utiliza uma política de repetição de término exponencial para entrega de eventos. Se o webhook não responde ou devolve um código de falha, o evento grelha repete entrega na agenda seguinte:
 
@@ -62,9 +62,7 @@ Grelha de evento utiliza uma política de repetição de término exponencial pa
 
 Grelha de eventos adiciona uma pequena aleatoriedade para todos os intervalos de repetição. Depois de uma hora, a entrega de eventos é repetida uma vez a uma hora.
 
-## <a name="retry-duration"></a>Repita a duração
-
-Grelha de eventos do Azure expira todos os eventos que não foram fornecidos dentro de 24 horas.
+Por predefinição, o evento grelha expira todos os eventos que não foram fornecidos dentro de 24 horas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

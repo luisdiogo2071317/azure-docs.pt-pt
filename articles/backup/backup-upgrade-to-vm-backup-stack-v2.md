@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 224cd365e6b3ca4fd963b530dbaa289b763d53ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Atualizar para o modelo de implementação Azure Resource Manager para a pilha de cópia de segurança de VM do Azure
 O modelo de implementação Resource Manager para a atualização para a pilha de cópia de segurança de máquina virtual (VM) fornece as seguintes melhorias de funcionalidade:
@@ -45,8 +45,6 @@ Por predefinição, os instantâneos são mantidos durante sete dias. Esta funci
 
 ## <a name="considerations-before-upgrade"></a>Considerações sobre antes da atualização
 * A atualização da pilha de cópia de segurança de VM é um direcional. Por isso, todas cópias de segurança enviadas para este fluxo. Porque se encontra ativada ao nível da subscrição, todas as VMs entrar neste fluxo. Todas as novas adições funcionalidade baseiam-se a mesma pilha. Capacidade para controlar que este nível de política futuras nas futuras versões.
-
-* Para VMs com discos premium, durante e até que a primeira cópia de segurança é concluída, certifique-se de que existe suficiente espaço de armazenamento na conta de armazenamento. Deve ser igual ao tamanho da VM.
 
 * Instantâneos são armazenados localmente para melhorar a criação do ponto de recuperação e também para acelerar o restauro. Por conseguinte, pode ver os custos de armazenamento que correspondem aos instantâneos durante o período de sete dias.
 

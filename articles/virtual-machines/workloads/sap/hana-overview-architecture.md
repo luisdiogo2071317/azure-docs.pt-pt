@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure
 
@@ -68,7 +68,7 @@ Várias definições comuns em grande escala são utilizadas na arquitetura e o 
 - **Inquilino**: um cliente implementado no stamp instância grande HANA obtém isolado para um *inquilino.* Um inquilino esteja isolado na rede, armazenamento e camada de computação de outros inquilinos. Unidades de armazenamento e computação atribuídas aos inquilinos diferentes não é possível ver entre si ou comunicam entre si no nível de carimbo de data / instância grande HANA. Um cliente pode optar por implementações em diferentes inquilinos. Mesmo assim, não há nenhuma comunicação entre inquilinos no nível de carimbo de data / instância grande HANA.
 - **Categoria SKU**: para HANA grande instância, as seguintes duas categorias de SKUs-lhe oferecidas:
     - **Tipo de classe posso**: S72, S72m, S144, S144m, S192 e S192m
-    - **Tipo de classe II**: S384, S384m, S384xm, S576, S768 e S960
+    - **Tipo de classe II**: S384, S384m, S384xm, S576m, S768m e S960m
 
 
 Uma variedade de recursos adicionais estão disponíveis como implementar uma carga de trabalho do SAP na nuvem. Se pretender executar uma implementação de SAP HANA no Azure, tem de ser experiente com e em consideração os princípios de IaaS do Azure e a implementação de cargas de trabalho SAP no IaaS do Azure. Antes de continuar, consulte [soluções de utilização SAP em máquinas virtuais do Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações. 
@@ -144,9 +144,9 @@ A partir de Julho de 2017, SAP HANA no Azure (instâncias de grande) está dispo
 |---| SAP HANA no S192m do Azure<br /> – 4 x processador Intel Xeon de®® E7 8890 v4<br /> 96 núcleos de CPU e 192 threads de CPU  |  4.0 TB |  16 TB | Disponível |
 |---| SAP HANA no S384m do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6.0 TB |  18 TB | Disponível |
 |---| SAP HANA no S384xm do Azure<br /> – 8 x processador Intel Xeon de®® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8.0 TB |  22 TB |  Disponível |
-|---| SAP HANA no S576 do Azure<br /> – 12 x processador Intel Xeon de®® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 TB | Disponível |
-|---| SAP HANA no S768 do Azure<br /> – 16 x processador Intel Xeon de®® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Disponível |
-|---| SAP HANA no S960 do Azure<br /> – 20 x processador Intel Xeon de®® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Disponível |
+|---| SAP HANA no S576m do Azure<br /> – 12 x processador Intel Xeon de®® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 TB | Disponível |
+|---| SAP HANA no S768m do Azure<br /> – 16 x processador Intel Xeon de®® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Disponível |
+|---| SAP HANA no S960m do Azure<br /> – 20 x processador Intel Xeon de®® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Disponível |
 
 - Núcleos de CPU = soma de núcleos de CPU não-com hyper-threading da soma de processadores da unidade do servidor.
 - Threads de CPU = soma de threads de computação fornecidos pelo núcleos de CPU com hyper-threading da soma de processadores da unidade do servidor. Todas as unidades estão configuradas por predefinição para utilizar a tecnologia Hyper-Threading.
@@ -157,7 +157,7 @@ As configurações específicas escolhidas são dependentes de carga de trabalho
 O base para todas as ofertas de hardware são certificadas para SAP HANA TDI. Duas classes diferentes de hardware dividem os SKUs para:
 
 - S72, S72m, S144, S144m, S192 e S192m, que são referidas como o "tipo de classe posso" de SKUs.
-- S384, S384m, S384xm, S576, S768 e S960, que são referidas como o "Tipo de classe II" de SKUs.
+- S384, S384m, S384xm, S576m, S768m e S960m, que são referidas como o "Tipo de classe II" de SKUs.
 
 Um carimbo de instância grande HANA concluído exclusivamente não está atribuído a um único cliente&#39;s utilização. Este facto aplica-se a bastidores dos recursos de computação e armazenamento ligados através de uma infraestrutura de rede implementada no Azure, bem como. Infraestrutura de instância grande HANA, como o Azure, implementa o cliente diferentes &quot;inquilinos&quot; que estão isoladas umas nas seguintes três níveis:
 
@@ -187,7 +187,7 @@ Alguns exemplos de executar várias instâncias de SAP HANA poderão ter o segui
 
 | SKU | Tamanho da memória | Tamanho de armazenamento | Tamanhos com várias bases de dados |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1x768 GB HANA instance<br /> ou instância de 1 x 512 GB + 1 x 256 GB instância<br /> ou instâncias de 3 x 256 GB | 
+| S72 | 768 GB | 3 TB | instância HANA 1 x 768 GB<br /> ou instância de 1 x 512 GB + 1 x 256 GB instância<br /> ou instâncias de 3 x 256 GB | 
 | S72m | 1,5 TB | 6 TB | instâncias HANA 3x512GB<br />ou instância de 1 x 512 GB + instância 1 1 TB<br />ou instâncias de 6 x 256 GB<br />ou instância de 1x1.5 TB | 
 | S192m | 4 TB | 16 TB | instâncias de 8 x 512 GB<br />ou instâncias de 4 1 TB<br />ou instâncias de 4 x 512 GB + instâncias de 2 1 TB<br />ou instâncias de 4 x 768 GB + instâncias de 2 x 512 GB<br />a instância de 1 4 TB ou |
 | S384xm | 8 TB | 22 TB | instâncias de 4 x 2 TB<br />ou instâncias de 2 4 TB<br />ou instâncias de 2, 3 TB + instâncias 1 x 2 TB<br />ou instâncias de 2x2.5 TB + instâncias 1 x 3 TB<br />a instância de 1 x 8 TB ou |
@@ -344,9 +344,9 @@ Consulte a tabela seguinte em termos de alocação de armazenamento. A tabela in
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12.000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
 | S384xm | 16,000 GB | 2,050 GB | 2,050 GB | 2,040 GB |
-| S576 | 20.000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S768 | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
-| S960 | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S576m | 20.000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S768m | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
+| S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
 
 
 Volumes implementados reais poderão variar com base na implementação e a ferramenta que é utilizada para mostrar os tamanhos de volume.

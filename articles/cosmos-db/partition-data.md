@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 35636543ac4cbd260e9db2f6ca5d1548a7329858
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1976ab5ab0bd0037163b2ad8048fcee10b204ea2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -32,9 +32,9 @@ Divisão em partições e chaves de partição são debatidas neste vídeo:
 ## <a name="partitioning-in-azure-cosmos-db"></a>A criação de partições no Azure Cosmos DB
 BD do Cosmos do Azure, pode armazenar e consultar dados sem esquema com uma latência de milissegundo único dígito em qualquer escala. BD do Azure do Cosmos fornece contentores para armazenar dados denominado *coleções* (para documentos), *gráficos*, ou *tabelas*. 
 
-Contentores são recursos lógicos e podem abranger uma ou mais partições físicas ou servidores. O número de partições é determinado pelo Azure Cosmos DB com base no tamanho de armazenamento e aprovisionar débito do contentor. 
+Contentores são recursos lógicos e podem abranger uma ou mais partições físicas ou servidores. O número de partições é determinado pela base de dados do Cosmos do Azure com base no tamanho de armazenamento e débito aprovisionado para um contentor ou um conjunto de contentores. 
 
-A *físico* partição é uma quantidade fixa de armazenamento de cópia de SSD reservada. Cada partição física é replicada para elevada disponibilidade. Uma ou mais partições físicas constituem um contentor. Gestão de partição física é completamente geridos pela base de dados do Azure Cosmos e não tem de escrever código complexo ou gerir as partições. Contentores do Cosmos BD do Azure são ilimitados em termos de armazenamento e débito. 
+A *físico* partição é uma quantidade fixa de armazenamento SSD segurança reservada combinada com variável quantidade de recursos de computação (CPU e memória). Cada partição física é replicada para elevada disponibilidade. Cada conjunto de contentores pode partilhar uma ou mais partições físicas. Gestão de partição física é completamente geridos pela base de dados do Azure Cosmos e não tem de escrever código complexo ou gerir as partições. Contentores do Cosmos BD do Azure são ilimitados em termos de armazenamento e débito. 
 
 A *lógica* é uma partição dentro de uma partição física que armazena todos os dados associados a um valor de chave de partição única. Várias partições lógicas podem ficar na mesma partição física. O diagrama a seguir, um único contentor tem três partições lógicas. Cada partição lógica armazena os dados para uma chave de partição, LAX, AMS e MEL respetivamente. Cada uma das partições lógicas LAX, AMS e MEL não é possível crescer além do limite a partição lógica máximo de 10 GB. 
 
@@ -48,22 +48,22 @@ Como funciona a criação de partições? Cada item tem de ter um *chave de part
 
 No brief, eis como criação de partições funciona do BD Azure Cosmos:
 
-* Aprovisionar um contentor de base de dados do Azure Cosmos com **T** débito RU/s (pedidos por segundo).
-* Atrás cena, base de dados do Azure Cosmos Aprovisiona partições necessárias para servir **T** pedidos por segundo. Se **T** é superior ao débito máximo por partição **t**, em seguida, a base de dados do Azure Cosmos Aprovisiona **N = T/t** partições. O valor de débito máximo por partition(t) é configurado pelo Azure Cosmos DB, este valor está atribuído com base no débito aprovisionado total e a configuração de hardware utilizada. 
-* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a **N** partições. Deste modo, anfitriões cada partição (partição física) **1/N** (partições lógicas) de valores de chave de partição.
-* Quando uma partição física **p** atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide **p** em duas novas partições **p1** e **p2** . Distribui-lo valores que correspondem a aproximadamente metade das chaves para cada uma das partições de novo. Esta operação de divisão é completamente invisível para a aplicação. Se uma partição física atinge o limite de armazenamento e todos os dados na partição física pertence a mesma chave de partição lógica, a operação de divisão não ocorrer. Isto acontece porque todos os dados para uma chave de partição lógica única tem de residir na mesma partição física. Neste caso, deve ser utilizada uma estratégia de chave de partição diferentes.
-* Quando aprovisionar o débito superior **t * N**, base de dados do Azure Cosmos divide uma ou mais das suas partições para suportar um maior débito.
+* Aprovisionar um conjunto de contentores de base de dados do Azure Cosmos com **T** débito RU/s (pedidos por segundo).
+* Nos bastidores, a base de dados do Azure Cosmos Aprovisiona partições físicas necessárias para servir **T** pedidos por segundo. Se **T** é superior ao débito máximo por partição física **t**, em seguida, a base de dados do Azure Cosmos Aprovisiona **N = T/t** partições físicas. O valor de débito máximo por partition(t) é configurado pelo Azure Cosmos DB, este valor está atribuído com base no débito aprovisionado total e a configuração de hardware utilizada. 
+* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a **N** partições físicas. Assim, cada físico anfitriões de partição **1/N** (partições lógicas) de valores de chave de partição.
+* Quando uma partição física **p** atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide **p** em duas partições físicas novo, **p1** e **p2**. Distribui-lo valores que correspondem a aproximadamente metade das chaves para cada uma das partições físicas novo. Esta operação de divisão é completamente invisível para a aplicação. Se uma partição física atinge o limite de armazenamento e todos os dados na partição física pertence a mesma chave de partição lógica, a operação de divisão não ocorrer. Isto acontece porque todos os dados para uma chave de partição lógica única tem de residir na mesma partição física. Neste caso, deve ser utilizada uma estratégia de chave de partição diferentes.
+* Quando aprovisionar o débito superior **t * N**, base de dados do Azure Cosmos divide uma ou mais das suas partições físicas para suportar um maior débito.
 
 A semântica para as chaves de partição é ligeiramente diferente para corresponder a semântica de cada API, conforme mostrado na seguinte tabela:
 
 | API | Chave de partição | Chave da fila |
 | --- | --- | --- |
 | SQL | caminho da chave de partição personalizado | `id` corrigido | 
-| MongoDB | Chave partilhada personalizada  | `_id` corrigido | 
+| MongoDB | chave de partição horizontal personalizado  | `_id` corrigido | 
 | Gremlin | propriedade de chave de partição personalizado | `id` corrigido | 
 | Tabela | `PartitionKey` corrigido | `RowKey` corrigido | 
 
-BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Tem de escolher um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso. Se uma partição física atinge o limite de armazenamento e os dados na partição com a mesma chave de partição, base de dados do Azure Cosmos devolve o *"chave de partição atingido o tamanho máximo de 10 GB"* mensagem e a partição não é dividida. Escolher uma chave de partição é uma decisão muito importante.
+BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Escolha um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso. Se uma partição física atinge o limite de armazenamento e os dados na partição com a mesma chave de partição, base de dados do Azure Cosmos devolve o *"chave de partição atingido o tamanho máximo de 10 GB"* mensagem e a partição não é dividida. Escolher uma chave de partição é uma decisão muito importante.
 
 > [!NOTE]
 > É uma melhor prática de ter uma chave de partição com um grande número de valores distintos (por exemplo, centenas ou milhares). Permite-lhe distribuir a carga de trabalho uniformemente em todos estes valores. Uma chave de partição ideal é aquele que aparece frequentemente como um filtro em consultas e tem cardinalidade suficiente para garantir a sua solução escalável.
@@ -71,7 +71,9 @@ BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quand
 
 Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados* no portal do Azure. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor como ilimitado, tem de especificar uma chave de partição e um débito mínimo de 1.000 RU/s. 
 
-É uma boa ideia confirmar a forma como os seus dados são distribuídos em partições. Para verificar isto no portal, aceda à sua conta de base de dados do Azure Cosmos e clique em **métricas** no **monitorização** secção e, em seguida, clique em **armazenamento** separador para ver como os seus dados são particionado em partições físicas diferentes.
+Contentores do Cosmos BD do Azure também podem ser configurados para partilhar débito entre um conjunto de contentores, em que cada contentor deve specificy uma partição de chave e pode crescer ilimitado.
+
+É uma boa ideia confirmar a forma como os seus dados são distribuídos em partições. Para verificar a distribuição de dados no portal, aceda à sua conta de base de dados do Azure Cosmos e clique em **métricas** no **monitorização** secção e, em seguida, clique em **armazenamento** separador para ver como o dados estão particionados em partições físicas diferentes.
 
 ![A criação de partições de recursos](./media/partition-data/partitionkey-example.png)
 
@@ -80,17 +82,19 @@ A imagem à esquerda acima mostra o resultado de uma chave de partição inváli
 <a name="prerequisites"></a>
 ## <a name="prerequisites-for-partitioning"></a>Pré-requisitos para a criação de partições
 
-Para partições físicas a divisão de automático para **p1** e **p2** conforme descrito em [como funciona o trabalho de criação de partições](#how-does-partitioning-work), o contentor tem de ser criado com um débito de 1.000 RU/s ou mais , e uma chave de partição tem de ser fornecida. Ao criar um contentor (por exemplo, uma coleção, um gráfico ou uma tabela) no portal do Azure, selecione o **ilimitada** opção de capacidade de armazenamento para tirar partido do dimensionamento ilimitado. 
+Para partições físicas a divisão de automático para **p1** e **p2** conforme descrito em [como funciona o trabalho de criação de partições](#how-does-partitioning-work), o contentor tem de ser criado com um débito de 1.000 RU/s ou mais (ou partilha de débito por um conjunto de contentores), e uma chave de partição tem de ser fornecida. Ao criar um contentor (por exemplo, uma coleção, um gráfico ou uma tabela) no portal do Azure, selecione o **ilimitada** opção de capacidade de armazenamento para tirar partido do dimensionamento ilimitado. 
 
 Se criou um contentor no portal do Azure ou através de programação e o débito inicial foi 1.000 RU/s ou mais e forneceu uma chave de partição, pode tirar partido de dimensionamento ilimitado sem alterações para o contentor. Isto inclui **Fixed** contentores, por isso, desde o contentor inicial foi criado com, pelo menos, 1000 RU/s de débito e uma chave de partição não está especificada.
 
-Se tiver criado uma **Fixed** contentor com nenhuma chave de partição ou débito com menos de 1000 RU/s, o contentor serão não dimensionamento automático, tal como descrito neste artigo. Para migrar os dados a partir do contentor de como esta para um contentor ilimitado (um com, pelo menos, 1000 RU/s e uma chave de partição), tem de utilizar o [ferramenta de migração de dados](import-data.md) ou [biblioteca de Feeds de alteração](change-feed.md). 
+Todos os contentores configurados para partilhar o débito como parte de um conjunto de contentores são tratados como **ilimitada** contentores.
+
+Se tiver criado uma **Fixed** contentor com nenhuma chave de partição ou débito com menos de 1000 RU/s, o contentor serão não dimensionamento automático, tal como descrito neste artigo. Para migrar os dados a partir de um contentor fixo para um contentor ilimitado (por exemplo, um com, pelo menos, 1000 RU/s e uma chave de partição), tem de utilizar o [ferramenta de migração de dados](import-data.md) ou [biblioteca de Feeds de alteração](change-feed.md). 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Débito aprovisionado e criação de partições
-BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor, reservar o débito em termos de  *[unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido faz com que um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para as necessidades da sua aplicação. 
+BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor ou um conjunto de contentores, reservar o débito em termos de  *[unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido faz com que um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para as necessidades da sua aplicação. 
 
 > [!NOTE]
-> Para utilizar totalmente débito aprovisionado de um contentor, tem de escolher uma chave de partição permite-lhe distribuir uniformemente pedidos entre todos os valores de chave de partição distintos.
+> Para utilizar totalmente débito aprovisionado para um contentor ou um conjunto de contentores, tem de escolher uma chave de partição permite-lhe distribuir uniformemente pedidos entre todos os valores de chave de partição distintos.
 > 
 > 
 
@@ -170,7 +174,7 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 Para obter mais informações, consulte [desenvolver com a API de tabela](tutorial-develop-table-dotnet.md).
 
-### <a name="gremlin-api"></a>Gremlin API
+### <a name="gremlin-api"></a>API do Gremlin
 
 Com a API de Gremlin, pode utilizar o portal do Azure ou a CLI do Azure para criar um contentor que representa um gráfico. Em alternativa, como base de dados do Azure Cosmos é múltiplos modelo, pode utilizar uma das outros APIs para criar e dimensionar o contentor do gráfico.
 
@@ -209,7 +213,7 @@ Um dos casos de utilização comuns do BD Azure Cosmos é o registo de telemetri
 
 * Se o caso de utilização envolve uma taxa pequena de gravações que acumular durante muito tempo e tem de consultar por intervalos de carimbos com outros filtros, utilize um rollup do carimbo. Por exemplo, uma boa abordagem é utilizar o data como uma chave de partição. Com esta abordagem, pode consultar ao longo de todos os dados para uma determinada data a partir de uma única partição. 
 * Se a carga de trabalho é escrita extremamente encriptados, que é muito comum neste cenário, utilize uma chave de partição não é baseada no carimbo. Como tal, base de dados do Azure Cosmos pode distribuir e aumentar uniformemente escritas em várias partições. Aqui um *hostname*, *processar o ID de*, *ID da atividade*, ou outra propriedade com cardinalidade elevada é uma boa opção. 
-* Outra abordagem é uma abordagem de híbrida, onde tem vários contentores, um para cada dia/mês, e a chave de partição é uma propriedade mais granular como *hostname*. Esta abordagem tem a vantagem que pode definir débito diferente para cada contentor com base na janela de tempo e as necessidades de dimensionamento e desempenho. Por exemplo, um contentor para o mês atual pode ser aprovisionado com um débito mais elevado, porque desempenha leituras e escritas. Meses anteriores podem ser aprovisionados com um débito inferior, porque apenas servem leituras.
+* Outra abordagem é uma abordagem de híbrida, onde tem vários contentores, um para cada dia/mês, e a chave de partição é uma propriedade mais granular como *hostname*. Esta abordagem tem a vantagem que pode definir débito diferente para cada contentor ou um conjunto de contentores com base na janela de tempo e as necessidades de dimensionamento e desempenho. Por exemplo, um contentor para o mês atual pode ser aprovisionado com um débito mais elevado, porque desempenha leituras e escritas. Meses anteriores podem ser aprovisionados com um débito inferior, porque apenas servem leituras.
 
 ### <a name="partitioning-and-multitenancy"></a>Criação de partições e arquitetura "multitenancy"
 Se estiver a implementar uma aplicação multi-inquilino através da base de dados do Azure Cosmos, existem dois estruturas populares a ter em consideração: *chave de uma partição por inquilino* e *um contentor por inquilino*. Seguem-se a profissionais e contras para cada:

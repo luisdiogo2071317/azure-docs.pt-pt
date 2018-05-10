@@ -3,7 +3,7 @@ title: Segurança do Azure e de conformidade Blueprint - ambientes de processame
 description: Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Segurança do Azure e de conformidade Blueprint - ambientes de processamento de pagamento em conformidade de PCI DSS
 
@@ -43,7 +43,7 @@ A arquitetura dos inclui os seguintes componentes:
 - **Modelos de implementação**. Nesta implementação, [modelos Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) são utilizados para implementar automaticamente os componentes da arquitetura no Microsoft Azure, especificando os parâmetros de configuração durante a configuração.
 - **Scripts de implementação de automatizada**. Estes scripts ajudam a implementar a solução ponto-a-ponto. Os scripts consistem em:
     - Uma instalação do módulo e [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) script de configuração é utilizada para instalar e certifique-se de que funções de administrador global e de módulos do PowerShell necessários estão configuradas corretamente.
-    - Uma instalação de script do PowerShell é utilizada para implementar a solução ponto-a-ponto, fornecida através de um ficheiro. zip e um ficheiro de bacpac que contêm uma aplicação web de demonstração pré-criadas com [exemplo de base de dados do SQL Server](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código de origem para esta solução está disponível para revisão [ repositório de código Blueprint][code-repo]. 
+    - Uma instalação de script do PowerShell é utilizada para implementar a solução ponto-a-ponto, fornecida através de um ficheiro. zip e um ficheiro de bacpac que contêm uma aplicação web de demonstração pré-criadas com [exemplo de base de dados do SQL Server](https://github.com/Microsoft/azure-sql-security-sample). conteúdo. O código de origem para esta solução está disponível para revisão [repositório de código Blueprint] [repositório de código]. 
 
 ## <a name="architectural-diagram"></a>Diagrama da arquitetura
 
@@ -299,7 +299,7 @@ Destina-se a implementação predefinida para fornecer uma linha de base das rec
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
-Os componentes para implementar esta solução estão disponíveis no [repositório de código de PCI Blueprint][code-repo]. A implementação da arquitetura dos requer vários passos executados através do Microsoft PowerShell v5. Para ligar ao Web site, tem de fornecer um nome de domínio personalizado (tal como contoso.com). Isto for especificado utilizando o `-customHostName` comutador no passo 2. Para obter mais informações, consulte [comprar um nome de domínio personalizado para Web Apps do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implementar e executar a solução com êxito, mas não será possível ligar ao Web site para fins de demonstração.
+Os componentes para implementar esta solução estão disponíveis no [repositório de código PCI Blueprint] [repositório de código]. A implementação da arquitetura dos requer vários passos executados através do Microsoft PowerShell v5. Para ligar ao Web site, tem de fornecer um nome de domínio personalizado (tal como contoso.com). Isto for especificado utilizando o `-customHostName` comutador no passo 2. Para obter mais informações, consulte [comprar um nome de domínio personalizado para Web Apps do Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Um nome de domínio personalizado não é necessário para implementar e executar a solução com êxito, mas não será possível ligar ao Web site para fins de demonstração.
 
 Os scripts de adicionar utilizadores de domínio para o inquilino do Azure AD que especificar. Recomendamos que crie um novo inquilino do Azure AD para utilizar como um teste.
 
@@ -384,11 +384,3 @@ A solução foi revista pela Coalfire sistemas, Inc. (PCI-DSS qualificado segura
 - Todos os nomes de cliente, os registos de transações e quaisquer dados relacionados nesta página são fictícios, criado com esta arquitetura fundamentais sobre o objetivo e fornecido para fins de ilustração apenas. Nenhuma associação ou ligação destina-se e deve ser inferido nenhum.  
 - Esta solução foi desenvolvida jointly pela Microsoft e consultadoria Avyan e está disponível na [licença MIT](https://opensource.org/licenses/MIT).
 - Esta solução tem foram revista por Coalfire, auditor de PCI-DSS da Microsoft. O [Reveja de conformidade de PCI](https://aka.ms/pciblueprintcrm32) fornece uma revisão independente, independente da solução e componentes que precisam de ser corrigidos. 
-
-### <a name="document-authors"></a>Autores de documentos
-
-- *O Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (consultadoria Avyan)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositório de código"

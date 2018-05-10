@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/04/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8ea85a0906071d6b30f176de7509e5f346b513
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 442bfa7081865b2549c07a9436296ba2385a0b66
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -81,6 +81,7 @@ Para iniciar sessão baseada em palavra-passe de início de sessão, tem de util
 - Pode iniciar sessão numa aplicação diretamente utilizando a aplicação **URL de início de sessão**. Quando utiliza o URL da aplicação, a extensão Deteta a ação e dá-lhe a opção de iniciar sessão a partir de extensão.
 - Pode iniciar qualquer das suas aplicações a partir do painel de acesso utilizando o *pesquisa rápida* funcionalidade da extensão. 
 - A extensão mostra as últimas três aplicações que foi iniciado no **utilizados recentemente** secção.
+- Pode utilizar URLs internas da empresa ao remoto através de [Proxy de aplicações](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Funcionalidades adicionais estão disponíveis apenas para o limite, o Chrome e o Firefox.

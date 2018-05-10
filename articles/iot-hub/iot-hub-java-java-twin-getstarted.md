@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao duplos de dispositivos do IoT Hub do Azure (Java) | Microsoft Docs"
-description: "Como utilizar dispositivos duplos do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilizar o dispositivo IoT do Azure SDK para Java para implementar a aplicação de dispositivo e o serviço de IoT do Azure SDK para Java para implementar uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub."
+title: Introdução ao duplos de dispositivos do IoT Hub do Azure (Java) | Microsoft Docs
+description: Como utilizar dispositivos duplos do IoT Hub do Azure para adicionar etiquetas e, em seguida, utilizar uma consulta do IoT Hub. Utilizar o dispositivo IoT do Azure SDK para Java para implementar a aplicação de dispositivo e o serviço de IoT do Azure SDK para Java para implementar uma aplicação de serviço que adiciona as etiquetas e executa a consulta do IoT Hub.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 6d306d4742a53789d8e69c80d7fbdfc4e1ade4bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar a utilizar dispositivos duplos (Java)
 
@@ -40,8 +40,6 @@ Para concluir este tutorial, precisa de:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
-Se preferir para criar a identidade do dispositivo através de programação, leia a secção correspondente do [ligar o seu dispositivo ao seu IoT hub utilizando Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artigo.
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
 
@@ -349,7 +347,7 @@ Agora está pronto para executar as aplicações de consola.
 
     Agora o seu dispositivo enviou o **connectivityType** propriedade ao IoT Hub, a segundo consulta devolve o seu dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionar metadados do dispositivo como etiquetas a partir de uma aplicação de back-end e escreveu uma aplicação de dispositivo para informações de conectividade do dispositivo de relatório no dispositivo duplo. Também aprendeu como consultar as informações do dispositivo duplo utilizando a linguagem de consulta do SQL Server como o IoT Hub.
 

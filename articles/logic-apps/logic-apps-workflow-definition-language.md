@@ -3,7 +3,7 @@ title: Esquema de linguagem de definição de fluxo de trabalho - Azure Logic Ap
 description: Escrever as definições de fluxo de trabalho personalizado para o Azure Logic Apps com a linguagem de definição de fluxo de trabalho
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -12,13 +12,13 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 7c253fd83bcc1f1dde93ac6ef0c26da1fa1a9a4b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definições de fluxo de trabalho de aplicações lógicas com o esquema de linguagem de definição de fluxo de trabalho
 
@@ -54,7 +54,7 @@ Segue-se a estrutura de alto nível para uma definição de fluxo de trabalho:
 
 ## <a name="parameters"></a>Parâmetros
 
-No `parameters` secção, defina os parâmetros que aceitam entradas para o fluxo de trabalho em tempo de execução. Antes de poder utilizar estes parâmetros noutras secções de fluxo de trabalho, certifique-se de que todos os parâmetros nestas secções, declarar.
+No `parameters` secção, definir todos os parâmetros de fluxo de trabalho que utiliza a sua aplicação lógica na implementação para aceitar as entradas. Declarações de parâmetros e valores de parâmetros são necessários na implementação. Antes de poder utilizar estes parâmetros noutras secções de fluxo de trabalho, certifique-se de que todos os parâmetros nestas secções, declarar. 
 
 Segue-se a estrutura geral de uma definição do parâmetro:  
 
@@ -80,7 +80,7 @@ Segue-se a estrutura geral de uma definição do parâmetro:
 | allowedValues | Não | Igual a `type` | Uma matriz com valores que pode aceitar o parâmetro |  
 | do IdP | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, por exemplo, o nome ou uma descrição para a sua aplicação lógica ou tempo de criação de dados utilizadas pelo Visual Studio ou outras ferramentas legível |  
 ||||
-  
+
 ## <a name="triggers-and-actions"></a>Acionadores e ações  
 
 Na definição de fluxo de trabalho, o `triggers` e `actions` secções definem as chamadas que ocorrem durante a execução do fluxo de trabalho. Para obter mais informações sobre estas secções e a sintaxe, consulte [acionadores de fluxo de trabalho e ações](../logic-apps/logic-apps-workflow-actions-triggers.md).
@@ -88,6 +88,9 @@ Na definição de fluxo de trabalho, o `triggers` e `actions` secções definem 
 ## <a name="outputs"></a>Saídas 
 
 No `outputs` secção, definir os dados que o fluxo de trabalho pode devolver quando terminar em execução. Por exemplo, para controlar um estado específico ou um valor de cada ser executada, especificar que a saída de fluxo de trabalho devolve os dados. 
+
+> [!NOTE]
+> Ao responder a pedidos recebidos a partir da API REST do serviço, não utilize `outputs`. Em alternativa, utilize o `Response` tipo de ação. Para obter mais informações, consulte [acionadores de fluxo de trabalho e ações](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 Segue-se a estrutura geral de uma definição de saída: 
 
@@ -108,9 +111,6 @@ Segue-se a estrutura geral de uma definição de saída:
 ||||| 
 
 Para obter o resultado de um fluxo de trabalho a executar, reveja o histórico de execução da aplicação lógica e os detalhes no portal do Azure ou utilize o [API de REST do fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Também pode passar o resultado para sistemas externos, por exemplo, o Power BI para que pode criar dashboards. 
-
-> [!NOTE]
-> Ao responder a pedidos recebidos a partir da API REST do serviço, não utilize `outputs`. Em alternativa, utilize o `Response` tipo de ação. Para obter mais informações, consulte [acionadores de fluxo de trabalho e ações](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
 
@@ -219,7 +219,8 @@ No [expressões](#expressions) e [funções](#functions), operadores realizam ta
 
 ## <a name="functions"></a>Funções
 
-Alguns expressões obter os valores de ações de tempo de execução que não possam ainda existir quando uma aplicação lógica começa a ser executada. Referência ou trabalhar com estes valores em expressões, pode utilizar *funções*. Por exemplo, pode utilizar funções de bibliotecas para cálculos, tais como o [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) função, que devolve a soma de números inteiros ou floats. 
+Alguns expressões obter os valores de ações de tempo de execução que não possam ainda existir quando uma aplicação lógica começa a ser executada. Referência ou trabalhar com estes valores em expressões, pode utilizar [ *funções*](../logic-apps/workflow-definition-language-functions-reference.md). Por exemplo, pode utilizar funções de bibliotecas para cálculos, tais como o [Add ()](../logic-apps/workflow-definition-language-functions-reference.md#add) função, que devolve a soma de números inteiros ou floats. Para obter informações detalhadas sobre cada função, consulte o [artigo de referência alfabética](../logic-apps/workflow-definition-language-functions-reference.md).
+Em alternativa, saber mais sobre as funções e os respetivos fins gerais.
 
 Seguem-se apenas algumas tarefas de exemplo que pode realizar com as funções: 
 

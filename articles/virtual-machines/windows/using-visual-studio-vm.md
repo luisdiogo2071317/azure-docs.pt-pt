@@ -1,6 +1,6 @@
 ---
-title: "Com o Visual Studio numa máquina virtual do Azure | Microsoft Docs"
-description: "Com o Visual Studio numa máquina virtual do Azure."
+title: Com o Visual Studio numa máquina virtual do Azure | Microsoft Docs
+description: Com o Visual Studio numa máquina virtual do Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: PhilLee-MSFT
@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: e5b289b2be982653461c4f5b933e1ec444fa9716
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio as imagens no Azure
 Com o Visual Studio numa pré-configurada do Azure máquina virtual (VM) é uma forma rápida e fácil fazer a partir nada para um ambiente de desenvolvimento de segurança e executar. Imagens de sistema com configurações diferentes do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -29,12 +29,13 @@ Novo no Azure? [Crie uma conta gratuita](https://azure.microsoft.com/free).
 ## <a name="what-configurations-and-versions-are-available"></a>Que configurações e versões estão disponíveis?
 As imagens para as versões mais recentes principais para Visual Studio 2017 e Visual Studio 2015, podem ser encontradas no Azure Marketplace. Para cada versão principal, consulte a versão de (RTW) originalmente lançamento e as versões atualizadas mais recente. Cada um destas versões oferece o Visual Studio Enterprise e as edições do Visual Studio Community. Estas imagens são atualizadas, pelo menos, todos os meses para incluir as atualizações mais recentes do Visual Studio e o Windows. Enquanto os nomes das imagens permanecerem o mesmo, a descrição de cada imagem inclui a versão de produto instalado e "a partir de" data da imagem.
 
-| Versão de lançamento              | Edições            | Versão do produto     |
-|:-----------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: Mais recente (versão 15.5) |    Enterprise, da Comunidade     |      Versão 15.6.0     |
-|         Visual Studio 2017: RTW           |    Enterprise, da Comunidade     |      Versão 15.0.10    |
-|   Visual Studio 2015: Mais recente (atualização 3)   |    Enterprise, da Comunidade     |  Versão 14.0.25431.01  |
-|         Visual Studio 2015: RTW           |              Nenhum            | (Expirou para a manutenção) |
+| Versão de lançamento                                              | Edições                     |     Versão do produto     |
+|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017: Mais recente (versão 15.7)                    |    Enterprise, da Comunidade     |      Versão 15.7.0     |
+| Visual Studio 2017: De pré-visualização mais recente (versão 15.8, 1 de pré-visualização) |    Enterprise, da Comunidade     |      Versão 15.8.1     |
+|         Visual Studio 2017: RTW                              |    Enterprise, da Comunidade     |      Versão 15.0.13    |
+|   Visual Studio 2015: Mais recente (atualização 3)                      |    Enterprise, da Comunidade     |  Versão 14.0.25431.01  |
+|         Visual Studio 2015: RTW                              |             Nenhuma             | (Expirou para a manutenção) |
 
 > [!NOTE]
 > Em conformidade com a Microsoft a política de manutenção, a versão de (RTW) originalmente lançamento do Visual Studio 2015 expirou para a manutenção. Visual Studio 2015 Update 3 é a única versão restante é fornecida para a linha de produto do Visual Studio 2015.
@@ -46,7 +47,7 @@ Cada imagem contém a funcionalidade recomendada definido para que essa edição
 
 * Todas as cargas de trabalho disponíveis, incluindo cada carga de trabalho recomendado componentes opcionais
 * .NET 4.6.2 e .NET 4.7 SDKs, os pacotes de filtragem e ferramentas de programador
-* Visual F#
+* O F # Visual
 * Extensão de GitHub para Visual Studio
 * LINQ para as ferramentas do SQL Server
 

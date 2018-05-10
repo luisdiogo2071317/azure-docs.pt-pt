@@ -1,23 +1,23 @@
 ---
-title: "Autenticação baseada em tokens (HTTP/2) para APNS no Notification Hubs do Azure | Microsoft Docs"
-description: "Este tópico explica como tirar partido da autenticação de token novo para APNS"
+title: Autenticação baseada em tokens (HTTP/2) para APNS no Notification Hubs do Azure | Microsoft Docs
+description: Este tópico explica como tirar partido da autenticação de token novo para APNS
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: kapiteir
-ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: ca86130e9c184576fc44119190d6224a363c6561
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em tokens (HTTP/2) para APNS
 ## <a name="overview"></a>Descrição geral
@@ -42,7 +42,7 @@ Tenha em atenção que se tiver migrado com as credenciais de certificado do APN
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Obter informações de autenticação da Apple
 Para ativar a autenticação baseada em tokens, terá as seguintes propriedades da sua conta de programador da Apple:
-### <a name="key-identifier"></a>Identificador da chave
+### <a name="key-identifier"></a>Identificador de Chave
 O identificador da chave pode ser obtido a partir da página "Chaves" na sua conta de programador da Apple
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
@@ -75,8 +75,8 @@ Há uma nova propriedade – *modo de autenticação*. Selecionar Token permite-
 Pode utilizar o nosso [APIs de gestão](https://msdn.microsoft.com/library/azure/dn495827.aspx) para atualizar o hub de notificação para utilizar a autenticação baseada em tokens.
 Dependendo se a aplicação que estiver a configurar é uma aplicação de Sandbox ou de produção (especificada na sua conta de programador Apple), utilize um dos pontos finais correspondentes:
 
-- Ponto final de sandbox: [3/https://api.development.push.apple.com:443/dispositivo](https://api.development.push.apple.com:443/3/device)
-- Ponto final de produção: [3/https://api.push.apple.com:443/dispositivo](https://api.push.apple.com:443/3/device)
+- Ponto final de sandbox: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+- Ponto final de produção: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]
 > Autenticação baseada em tokens requer uma versão de API do: **2017-04 ou posterior**.

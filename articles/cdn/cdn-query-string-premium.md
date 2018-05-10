@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 9d92602ef5071579e0c741dd24a4e3e9f7b2c747
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controlo do Azure CDN comportamento com cadeias de consulta - escalão premium a colocação em cache
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>Descrição geral
-Com a cache de cadeia de consulta, o Azure rede de entrega de conteúdos (CDN) controla como os ficheiros são colocadas em cache para um pedido web que contém uma cadeia de consulta. Um pedido web com uma cadeia de consulta, a cadeia de consulta é que parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor de chave, em que o nome do campo e o respetivo valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo, http:\//www.contoso.com/content.mov?field1=value1 & field2 = value2. Se existir mais do que um par chave-valor de uma cadeia de consulta de um pedido, não importa a sua ordem. 
+Com o Azure entrega rede conteúdos (CDN), pode controlar a forma como os ficheiros são colocadas em cache para um pedido web que contém uma cadeia de consulta. Um pedido web com uma cadeia de consulta, a cadeia de consulta é que parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor de chave, em que o nome do campo e o respetivo valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo, http:\//www.contoso.com/content.mov?field1=value1 & field2 = value2. Se existir mais do que um par chave-valor de uma cadeia de consulta de um pedido, não importa a sua ordem. 
 
-> [!NOTE]
-> A CDN do Azure standard e produtos de premium fornecem a mesma cadeia de consulta funcionalidade a colocação em cache, mas a interface de utilizador é diferente.  Este artigo descreve a interface para **CDN do Azure Premium da Verizon**. Para a cache de cadeia de consulta com **CDN do Azure Standard da Akamai** e **CDN do Azure Standard da Verizon**, consulte [CDN do Azure de controlo de colocação em cache comportamento com cadeias de consulta - escalão standard](cdn-query-string.md).
+> [!IMPORTANT]
+> Os produtos da CDN standard e premium fornecem a mesma cadeia de consulta funcionalidade a colocação em cache, mas a interface de utilizador é diferente. Este artigo descreve a interface para **CDN do Azure Premium da Verizon**. Para a cadeia de consulta de colocação em cache com produtos de padrão da CDN do Azure, consulte o artigo [CDN do Azure de controlo de colocação em cache comportamento com cadeias de consulta - escalão standard](cdn-query-string.md).
 >
 
 

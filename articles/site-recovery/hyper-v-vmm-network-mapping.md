@@ -1,18 +1,18 @@
 ---
-title: "Sobre o mapeamento da rede para a replicação de VM de Hyper-V (com o VMM) para o Azure com a recuperação de Site | Microsoft Docs"
-description: "Descreve como configurar o mapeamento de rede para a replicação de VMs de Hyper-V geridas em nuvens VMM, com o Azure Site Recovery."
+title: Sobre o mapeamento da rede para a replicação de VM de Hyper-V (com o VMM) para o Azure com a recuperação de Site | Microsoft Docs
+description: Descreve como configurar o mapeamento de rede para a replicação de VMs de Hyper-V geridas em nuvens VMM, com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f7c6e3eeb8db75a3857e687fecc9ee2748e92696
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparar o mapeamento de rede para replicação da VM de Hyper-V para o Azure
 
@@ -57,7 +57,7 @@ Eis um exemplo para ilustrar este mecanismo. Vamos organização com duas locali
 ---|---|---|---
 Nova Iorque | VMM-NewYork| VMNetwork1-NewYork | Mapeado para VMNetwork1 Chicago
  |  | VMNetwork2-NewYork | Não mapeados
-Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1 NewYork
+Chicago | O VMM Chicago| VMNetwork1-Chicago | Mapeado para VMNetwork1 NewYork
  | | VMNetwork1-Chicago | Não mapeados
 
 Neste exemplo:
@@ -111,7 +111,7 @@ VM2 (réplica do VM1) | VMNetwork1-Chicago
 
 Com estas definições, vamos rever o que acontece em alguns cenários possíveis.
 
-Cenário | **Outcome**
+**Cenário** | **Resultado**
 ---|---
 Nenhuma alteração nas propriedades de rede de VM-2 após a ativação pós-falha. | VM 1 continua a ser ligado à rede de origem.
 Propriedades da rede de VM-2 foram alterados após a ativação pós-falha e está desligado. | VM-1 é desligado.

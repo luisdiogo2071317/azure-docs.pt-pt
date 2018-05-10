@@ -1,9 +1,9 @@
 ---
 title: Funções de linguagem de definição de fluxo de trabalho - Azure Logic Apps | Microsoft Docs
-description: Saiba mais sobre as funções que pode utilizar definições de fluxo de trabalho de aplicação lógica
+description: Saiba mais sobre as funções para criar logic apps com a linguagem de definição de fluxo de trabalho
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Referência das funções de linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
-Este artigo descreve as funções que pode utilizar durante a criação de fluxos de trabalho com [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para mais informações sobre definições da aplicação lógica, consulte [linguagem de definição de fluxo de trabalho para o Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
+Este artigo descreve as funções que pode utilizar durante a criação de fluxos de trabalho com [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para saber mais acerca das funções nas definições da aplicação lógica, consulte [linguagem de definição de fluxo de trabalho para o Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > A sintaxe para definições de parâmetros, um ponto de interrogação (?) que aparece depois de um parâmetro significa que o parâmetro é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
@@ -365,14 +365,14 @@ addProperty(<object>, '<property>', <value>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sim | Objeto | O objeto JSON em que pretende adicionar uma propriedade | 
+| <*objeto*> | Sim | Object | O objeto JSON em que pretende adicionar uma propriedade | 
 | <*Propriedade*> | Sim | Cadeia | O nome da propriedade adicionar | 
 | <*Valor*> | Sim | Qualquer | O valor da propriedade |
 ||||| 
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*objeto atualizado*> | Objeto | O objeto JSON atualizado com a propriedade especificada | 
+| <*objeto atualizado*> | Object | O objeto JSON atualizado com a propriedade especificada | 
 |||| 
 
 *Exemplo*
@@ -537,7 +537,7 @@ array('<value>')
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*valor*>] | Matriz | Uma matriz que contenha a entrada especificada único | 
+| [<*valor*>] | Array | Uma matriz que contenha a entrada especificada único | 
 |||| 
 
 *Exemplo*
@@ -1007,7 +1007,7 @@ createArray('<object1>', '<object2>', ...)
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*objeto1*>, <*object2*>,...] | Matriz | A matriz de criada a partir de todos os itens de entrada | 
+| [<*objeto1*>, <*object2*>,...] | Array | A matriz de criada a partir de todos os itens de entrada | 
 |||| 
 
 *Exemplo*
@@ -1586,7 +1586,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*matriz com chave valores*>] | Matriz | Uma matriz com todos os valores que correspondem a chave especificada | 
+| [<*matriz com chave valores*>] | Array | Uma matriz com todos os valores que correspondem a chave especificada | 
 |||| 
 
 *Exemplo* 
@@ -2077,7 +2077,7 @@ join([<collection>], '<delimiter>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Matriz | A matriz de que tem os itens de associação |  
+| <*Coleção*> | Sim | Array | A matriz de que tem os itens de associação |  
 | <*Delimitador*> | Sim | Cadeia | O separador que aparece entre cada caráter na cadeia resultante | 
 ||||| 
 
@@ -2625,7 +2625,7 @@ range(<startIndex>, <count>)
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*intervalo resultado*>] | Matriz | A matriz com números inteiros a partir do índice especificado |  
+| [<*intervalo resultado*>] | Array | A matriz com números inteiros a partir do índice especificado |  
 |||| 
 
 *Exemplo*
@@ -2682,13 +2682,13 @@ removeProperty(<object>, '<property>')
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sim | Objeto | O objeto JSON na qual pretende remover uma propriedade | 
+| <*objeto*> | Sim | Object | O objeto JSON na qual pretende remover uma propriedade | 
 | <*Propriedade*> | Sim | Cadeia | O nome da propriedade remover | 
 ||||| 
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*objeto atualizado*> | Objeto | O objeto JSON atualizado sem a propriedade especificada | 
+| <*objeto atualizado*> | Object | O objeto JSON atualizado sem a propriedade especificada | 
 |||| 
 
 *Exemplo*
@@ -2711,14 +2711,14 @@ setProperty(<object>, '<property>', <value>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sim | Objeto | O objeto JSON cuja propriedade pretende definir | 
+| <*objeto*> | Sim | Object | O objeto JSON cuja propriedade pretende definir | 
 | <*Propriedade*> | Sim | Cadeia | O nome para a propriedade nova ou existente definir | 
 | <*Valor*> | Sim | Qualquer | O valor definido para a propriedade especificada |
 ||||| 
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*objeto atualizado*> | Objeto | O objeto JSON cuja propriedade definir atualizado | 
+| <*objeto atualizado*> | Object | O objeto JSON cuja propriedade definir atualizado | 
 |||| 
 
 *Exemplo*
@@ -2741,13 +2741,13 @@ skip([<collection>], <count>)
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Coleção*> | Sim | Matriz | A coleção cujos itens que pretende remover | 
+| <*Coleção*> | Sim | Array | A coleção cujos itens que pretende remover | 
 | <*Contagem*> | Sim | Número inteiro | Um número inteiro positivo para o número de itens a remover em início | 
 ||||| 
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*coleção atualizados*>] | Matriz | A coleção atualizada depois de remover os itens especificados | 
+| [<*coleção atualizados*>] | Array | A coleção atualizada depois de remover os itens especificados | 
 |||| 
 
 *Exemplo*
@@ -2778,7 +2778,7 @@ split('<text>', '<separator>')
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separador*><*char2*><*separador*>...] | Matriz | A matriz resultante criada a partir de todos os itens a cadeia especificada |
+| [<*char1*><*separador*><*char2*><*separador*>...] | Array | A matriz resultante criada a partir de todos os itens a cadeia especificada |
 |||| 
 
 *Exemplo* 
@@ -3240,7 +3240,7 @@ triggerFormDataMultiValues('<key>')
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| [<*matriz com chave valores*>] | Matriz | Uma matriz com todos os valores que correspondem a chave especificada | 
+| [<*matriz com chave valores*>] | Array | Uma matriz com todos os valores que correspondem a chave especificada | 
 |||| 
 
 *Exemplo* 
@@ -3765,7 +3765,7 @@ xml('<value>')
 
 | Valor devolvido | Tipo | Descrição | 
 | ------------ | ---- | ----------- | 
-| <*versão de XML*> | Objeto | O XML para a cadeia especificada ou o objeto JSON codificado | 
+| <*versão de XML*> | Object | O XML para a cadeia especificada ou o objeto JSON codificado | 
 |||| 
 
 *Exemplo 1*
@@ -3826,7 +3826,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- | 
 | <*nó XML*> | XML | Um nó XML quando apenas um único nó corresponde a expressão XPath especificada | 
 | <*Valor*> | Qualquer | O valor de um nó XML quando apenas um valor único corresponde a expressão XPath especificada | 
-| [<*xml Nó1*>, <*xml Nó2*>,...] </br>-ou- </br>[<*value1*>, <*value2*>,...] | Matriz | Uma matriz connosco XML ou os valores que correspondem a expressão XPath especificada | 
+| [<*xml Nó1*>, <*xml Nó2*>,...] </br>-ou- </br>[<*value1*>, <*value2*>,...] | Array | Uma matriz connosco XML ou os valores que correspondem a expressão XPath especificada | 
 |||| 
 
 *Exemplo 1*

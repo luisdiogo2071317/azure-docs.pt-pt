@@ -1,8 +1,8 @@
 ---
-title: "Introdução ao Recortador de suporte de dados do Azure | Microsoft Docs"
-description: "Introdução ao Azure Recortador de suporte de dados, uma ferramenta para criar aplicações de clips de vídeos de recursos de AMS"
+title: Introdução ao Recortador de suporte de dados do Azure | Microsoft Docs
+description: Introdução ao Azure Recortador de suporte de dados, uma ferramenta para criar aplicações de clips de vídeos de recursos de AMS
 services: media-services
-keywords: "Clip; subclip codificação; suporte de dados"
+keywords: Clip; subclip codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar aplicações de clips com Recortador de suporte de dados do Azure
 Esta secção mostra-lhe os passos básicos de introdução ao Azure Recortador de suporte de dados. Secções que se seguem fornecem as informações específicas sobre como configurar o Recortador de suporte de dados do Azure.
@@ -87,24 +87,24 @@ var subclipper = new subclipper({
 ```
 
 Os parâmetros para a chamada de método de inicialização são:
-- `selector`{NECESSÁRIO, cadeia}: Seletor CSS do elemento HTML correspondente onde deve ser composto o widget.
-- `restVersion`{NECESSÁRIO, cadeia}: versão a API de REST do serviços de suporte de dados do Azure de destino. A versão REST define o formato de saída gerado pelo widget. Atualmente, apenas 2.0 é suportada.
-- `submitSubclipCallback`{Promessa necessário} A função de chamada de retorno invocada quando o botão "Submeter" o widget é clicado. A função de chamada de retorno deve esperar que o resultado gerado pelo widget (uma configuração de tarefa de composição ou uma definição de filtro). Para obter mais informações, consulte a chamada de retorno de subclip de envio.
-- `logLevel`{OPCIONAL, {'' informações' ', 'Aviso', 'error'}}: O nível de registo que será apresentado na consola do browser. Valor predefinido: erro
-- `minimumMarkerGap`{OPCIONAL, int}: O tamanho mínimo de um subclip (em segundos). Nota: o valor deve ser maior ou igual a 6, que também é a predefinição.
-- `singleBitrateMp4Profile`{OPCIONAL, um objeto JSON} O perfil de mp4 de velocidade de transmissão única a utilizar para a configuração de tarefa de composição gerada pelo widget. Se não for indicado, utiliza o [predefinido perfil MP4 de velocidade de transmissão única](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
-- `multiBitrateMp4Profile`{OPCIONAL, um objeto JSON} O perfil de mp4 de velocidade de transmissão múltipla a utilizar para compor a configuração de tarefas gerada pelo widget. Se não for indicado, utiliza o [predefinido perfil MP4 de velocidade de transmissão múltipla](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
-- `keymap`{OPCIONAL, um objeto json} Permite personalizar os atalhos de teclado o widget. Para obter mais informações, consulte [atalhos de teclado personalizável](media-services-azure-media-clipper-keyboard-shortcuts.md).
-- `assetsPanelLoaderCallback`{Promessa opcional} A função de chamada de retorno invocada para carregar (no modo assíncrono) uma nova página de recursos para o painel de recursos sempre que o utilizador desloca para baixo para a parte inferior do painel. Para obter mais informações, consulte a chamada de retorno do recurso painel carregador.
-- `height`{OPCIONAL, number} A altura total o widget (altura mínima é 600 px sem painel de recursos e 850 px com o painel de recursos).
-- `subclippingMode`(Opcional, {'all', 'compor', "filtro"}): O mode(s) subclipping permitido. O valor predefinido é tudo.
-- `filterAssetsTypes`(Opcional, bool): filterAssetsTypes permitem-lhe mostrar/ocultar a lista pendente de filtros do painel de recursos. O valor predefinido é verdadeiro.
-- `speedLevels`(Opcional, matriz): speedLevels permite definir níveis diferentes de velocidade para o leitor de vídeo, consulte [documentação do Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) para obter mais informações.
-- `resetOnJobDone`(Opcional, bool): resetOnJobDone permite Recortador para repor o subclipper para um Estado inicial quando um trabalho for submetido com êxito.
-- `autoplayVideo`(Opcional, bool): autoplayVideo permite Recortador a reprodução automática ROM o vídeo em carga. O valor predefinido é verdadeiro.
-- `language`{OPCIONAL, cadeia}: linguagem define o idioma o widget. Se não for especificado, a miniaplicação tenta localizar as mensagens com base no idioma do browser. Não se for detetado nenhum idioma no browser, será assumida a miniaplicação inglês. Para obter mais informações, consulte o [configurar localização](media-services-azure-media-clipper-localization.md) secção.
-- `languages`{OPCIONAL, JSON}: o parâmetro de idiomas substitui o dicionário predefinido de idiomas com um dicionário personalizado definido pelo utilizador. Para obter mais informações, consulte o [configurar localização](media-services-azure-media-clipper-localization.md) secção.
-- `extraLanguages`(Opcional, JSON): o parâmetro extraLanaguages adiciona novos idiomas ao dicionário predefinido. Para obter mais informações, consulte o [configurar localização](media-services-azure-media-clipper-localization.md) secção.
+- `selector` {NECESSÁRIO, cadeia}: Seletor CSS do elemento HTML correspondente onde deve ser composto o widget.
+- `restVersion` {NECESSÁRIO, cadeia}: versão a API de REST do serviços de suporte de dados do Azure de destino. A versão REST define o formato de saída gerado pelo widget. Atualmente, apenas 2.0 é suportada.
+- `submitSubclipCallback` {Promessa necessário} A função de chamada de retorno invocada quando o botão "Submeter" o widget é clicado. A função de chamada de retorno deve esperar que o resultado gerado pelo widget (uma configuração de tarefa de composição ou uma definição de filtro). Para obter mais informações, consulte a chamada de retorno de subclip de envio.
+- `logLevel` {OPCIONAL, {'' informações' ', 'Aviso', 'error'}}: O nível de registo que será apresentado na consola do browser. Valor predefinido: erro
+- `minimumMarkerGap` {OPCIONAL, int}: O tamanho mínimo de um subclip (em segundos). Nota: o valor deve ser maior ou igual a 6, que também é a predefinição.
+- `singleBitrateMp4Profile` {OPCIONAL, um objeto JSON} O perfil de mp4 de velocidade de transmissão única a utilizar para a configuração de tarefa de composição gerada pelo widget. Se não for indicado, utiliza o [predefinido perfil MP4 de velocidade de transmissão única](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
+- `multiBitrateMp4Profile` {OPCIONAL, um objeto JSON} O perfil de mp4 de velocidade de transmissão múltipla a utilizar para compor a configuração de tarefas gerada pelo widget. Se não for indicado, utiliza o [predefinido perfil MP4 de velocidade de transmissão múltipla](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
+- `keymap` {OPCIONAL, um objeto json} Permite personalizar os atalhos de teclado o widget. Para obter mais informações, consulte [atalhos de teclado personalizável](media-services-azure-media-clipper-keyboard-shortcuts.md).
+- `assetsPanelLoaderCallback` {Promessa opcional} A função de chamada de retorno invocada para carregar (no modo assíncrono) uma nova página de recursos para o painel de recursos sempre que o utilizador desloca para baixo para a parte inferior do painel. Para obter mais informações, consulte a chamada de retorno do recurso painel carregador.
+- `height` {OPCIONAL, number} A altura total o widget (altura mínima é 600 px sem painel de recursos e 850 px com o painel de recursos).
+- `subclippingMode` (Opcional, {'all', 'compor', "filtro"}): O mode(s) subclipping permitido. O valor predefinido é tudo.
+- `filterAssetsTypes` (Opcional, bool): filterAssetsTypes permitem-lhe mostrar/ocultar a lista pendente de filtros do painel de recursos. O valor predefinido é verdadeiro.
+- `speedLevels` (Opcional, matriz): speedLevels permite definir níveis diferentes de velocidade para o leitor de vídeo, consulte [documentação do Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) para obter mais informações.
+- `resetOnJobDone` (Opcional, bool): resetOnJobDone permite Recortador para repor o subclipper para um Estado inicial quando um trabalho for submetido com êxito.
+- `autoplayVideo` (Opcional, bool): autoplayVideo permite Recortador a reprodução automática ROM o vídeo em carga. O valor predefinido é verdadeiro.
+- `language` {OPCIONAL, cadeia}: linguagem define o idioma o widget. Se não for especificado, a miniaplicação tenta localizar as mensagens com base no idioma do browser. Não se for detetado nenhum idioma no browser, será assumida a miniaplicação inglês. Para obter mais informações, consulte o [configurar localização](media-services-azure-media-clipper-localization.md) secção.
+- `languages` {OPCIONAL, JSON}: o parâmetro de idiomas substitui o dicionário predefinido de idiomas com um dicionário personalizado definido pelo utilizador. Para obter mais informações, consulte o [configurar localização](media-services-azure-media-clipper-localization.md) secção.
+- `extraLanguages` (Opcional, JSON): o parâmetro extraLanaguages adiciona novos idiomas ao dicionário predefinido. Para obter mais informações, consulte o [configurar localização](media-services-azure-media-clipper-localization.md) secção.
 
 ## <a name="typescript-definition"></a>Definição de typeScript
 A [TypeScript](https://www.typescriptlang.org/) é possível encontrar o ficheiro de definição para o Recortador [aqui](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
@@ -118,7 +118,7 @@ Esta secção documenta a superfície de API fornecida pelo Recortador.
 - `setHeight(height)`: define a altura total o widget em pixels (altura mínima é 600 px sem painel de recursos e 850 px com o painel de recursos).
 - `version`: obtém a versão de widget.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os passos seguintes para configurar o Recortador de suporte de dados do Azure:
 - [Carregar recursos para o Recortador de suporte de dados do Azure](media-services-azure-media-clipper-load-assets.md)
 - [Configurar os atalhos de teclado personalizado](media-services-azure-media-clipper-keyboard-shortcuts.md)

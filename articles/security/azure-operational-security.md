@@ -1,12 +1,12 @@
 ---
-title: "Segurança operacional do Azure | Microsoft Docs"
-description: "Saiba mais sobre o Microsoft Operations Management Suite (OMS), os respetivos serviços e como funciona."
+title: Segurança operacional do Azure | Microsoft Docs
+description: Saiba mais sobre o Microsoft Operations Management Suite (OMS), os respetivos serviços e como funciona.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -148,7 +148,7 @@ Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Se
 
 -   **Segregação de dados**: os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
 
--   **Acesso a dados**: para fornecer recomendações de segurança e investigar potenciais ameaças de segurança, técnico da Microsoft pode aceder a informações recolhidas ou analisados pelo serviços do Azure, incluindo ficheiros de informação de falha, processar eventos de criação, instantâneos de disco da VM e artefactos, que podem incluir, involuntariamente, dados de cliente ou dados pessoais das suas máquinas virtuais. Respeitamos a [declaração de privacidade e termos de licenciamento Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), o estado de que a Microsoft não é utiliza dados de cliente ou derivará informações dos mesmos para quaisquer fins comerciais fim de publicidade ou semelhantes.
+-   **Acesso a dados**: para fornecer recomendações de segurança e investigar potenciais ameaças de segurança, técnico da Microsoft pode aceder a informações recolhidas ou analisados pelo serviços do Azure, incluindo ficheiros de informação de falha, a processar eventos de criação, disco VM instantâneos e artefactos, que podem incluir, involuntariamente, dados de cliente ou dados pessoais das suas máquinas virtuais. Respeitamos a [declaração de privacidade e termos de licenciamento Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), o estado de que a Microsoft não é utiliza dados de cliente ou derivará informações dos mesmos para quaisquer fins comerciais fim de publicidade ou semelhantes.
 
 -   **Utilização de dados**: a Microsoft utiliza os padrões e as informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção. Fazemo-lo em conformidade com os compromissos de privacidade descritos na nossa [Declaração de Privacidade](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
@@ -193,7 +193,7 @@ Estes registos são emitidos por um recurso e fornecerem dados avançados, frequ
 
 Por exemplo, registos de sistema de eventos do Windows são uma categoria de registo de diagnóstico para VMs e blob, tabela e fila registos são categorias de registos de diagnóstico para contas de armazenamento.
 
-Registos de diagnóstico é diferente do [registo de atividade (anteriormente conhecido como registo de auditoria ou registo operacional)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). O registo de atividade fornece informações sobre as operações que foram executadas no recursos na sua subscrição. Registos de diagnóstico fornecem informações aprofundadas operations que o seu recurso efetuadas em si.
+Registos de diagnóstico é diferente do [registo de atividade (anteriormente conhecido como registo de auditoria ou registo operacional)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). O registo de atividade fornece informações sobre as operações que foram executadas no recursos na sua subscrição. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
 
 ### <a name="metrics"></a>Métricas
 
@@ -328,7 +328,7 @@ Este artigo explica
 </ul>
 </ul>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Conceção e segurança operacional](https://www.microsoft.com/trustcenter/security/designopsecurity)
 

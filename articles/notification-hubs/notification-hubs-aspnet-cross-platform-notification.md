@@ -1,24 +1,24 @@
 ---
-title: "Enviar notificações de plataforma para os utilizadores com os Hubs de notificação do Azure (ASP.NET)"
-description: "Saiba como utilizar modelos de Notification Hubs para enviar num pedido único, uma notificação de plataforma agnóstico que tenha como destino de todas as plataformas."
+title: Enviar notificações de plataforma para os utilizadores com os Hubs de notificação do Azure (ASP.NET)
+description: Saiba como utilizar modelos de Notification Hubs para enviar num pedido único, uma notificação de plataforma agnóstico que tenha como destino de todas as plataformas.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3c6dde338cb154f0cbe02642e4ff0f81d070aa25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Enviar notificações de plataforma para os utilizadores com os Notification Hubs
 Um tutorial anterior, [notificar os utilizadores com os Notification Hubs], aprendeu como notificações push para todos os dispositivos que estão registados para um utilizador autenticado específico. Este tutorial, era necessário vários pedidos para enviar uma notificação para cada plataforma de cliente suportada. Os Hubs de notificação do Azure suporta modelos, com o qual pode especificar a forma como pretende receber notificações de um dispositivo específico. Este método simplifica o envio de notificações de várias plataformas. 
@@ -81,16 +81,16 @@ Para enviar notificações de plataforma utilizando os modelos, efetue o seguint
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    Este código envia uma notificação para todas as plataformas em simultâneo, sem ter de especificar um payload nativo. Notification Hubs baseia-se e entrega o payload correto para todos os dispositivos com o fornecido *tag* valor, conforme especificado nos modelos registados.
+    Este código envia uma notificação para todas as plataformas em simultâneo, sem que está a ter que especificar um payload nativo. Notification Hubs baseia-se e entrega o payload correto para todos os dispositivos com o fornecido *tag* valor, conforme especificado nos modelos registados.
 
-4. Publica novamente o projeto de back-end end WebApi.
+4. Voltar a publicar o projeto de back-end end WebApi.
 
 5. Volte a executar a aplicação de cliente e, em seguida, certifique-se de que o registo foi bem sucedida.
 
 6. (Opcional) Implementar a aplicação de cliente para um segundo dispositivo e, em seguida, execute a aplicação.
-    Tenha em atenção que é apresentada uma notificação em cada dispositivo.
+    É apresentada uma notificação em cada dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que concluiu este tutorial, saber mais sobre os Notification Hubs e modelos nos seguintes tópicos:
 
 * [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.

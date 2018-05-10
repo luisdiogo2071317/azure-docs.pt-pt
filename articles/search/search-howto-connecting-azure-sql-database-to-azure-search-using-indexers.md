@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa24c3197af28101b2f3a0acda6d0ae81b9e96d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligação SQL Database do Azure para a Azure Search utilizando indexadores
 
@@ -50,7 +50,7 @@ Dependendo de vários fatores relacionados com os dados, a utilização do index
 |----------|---------|
 | Origem de dados de uma única tabela ou vista | Se os dados é dispersos por em várias tabelas, pode criar uma vista única dos dados. No entanto, se utilizar uma vista, não poderá utilizar a deteção de alterações integrado do SQL Server para atualizar um índice com as alterações incrementais. Para obter mais informações, consulte [capturar alterar e eliminar linhas](#CaptureChangedRows) abaixo. |
 | Tipos de dados são compatíveis | A maioria das mas não todos os tipos de SQL Server são suportados num índice da Azure Search. Para obter uma lista, consulte [mapeamento de tipos de dados](#TypeMapping). |
-| Não é necessária a sincronização de dados em tempo real | Um indexador novamente pode indexar a tabela no máximo a cada cinco minutos. Se precisam de frequentemente as alterações de dados e as alterações sejam refletidas no índice em segundos ou minutos únicos, recomendamos que utilize o [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou [.NET SDK](search-import-data-dotnet.md) para emitir linhas atualizadas diretamente. |
+| Não é necessária a sincronização de dados em tempo real | Um indexador pode reindexar a tabela no máximo a cada cinco minutos. Se precisam de frequentemente as alterações de dados e as alterações sejam refletidas no índice em segundos ou minutos únicos, recomendamos que utilize o [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou [.NET SDK](search-import-data-dotnet.md) para emitir linhas atualizadas diretamente. |
 | A indexação incremental é possível | Se tiver um grande conjunto de dados e o plano para executar o indexador com base numa agenda, pesquisa do Azure tem de ser capaz de forma eficiente identificar linhas novas, alteradas ou eliminadas. A indexação não incremental só é permitida se estiver a indexação a pedido (não numa agenda) ou indexação menos de 100 000 linhas. Para obter mais informações, consulte [capturar alterar e eliminar linhas](#CaptureChangedRows) abaixo. |
 
 > [!NOTE] 
@@ -178,7 +178,7 @@ Pode adicionar, alterar ou eliminar uma agenda para um indexador existente utili
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Captura de nova, alteração e eliminação de linhas
 
-Utiliza a Azure Search **indexação incremental** para evitar a necessidade de nova indexação toda a tabela ou vista sempre que um indexador é executado. A pesquisa do Azure fornece que dois alterar as políticas de deteção para suportar a indexação incremental. 
+Utiliza a Azure Search **indexação incremental** para evitar que reindexar toda a tabela ou vista sempre que um indexador é executado. A pesquisa do Azure fornece que dois alterar as políticas de deteção para suportar a indexação incremental. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Política de controlo de alterações integrado do SQL
 Se a base de dados do SQL Server suporta [alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), recomendamos que utilize **SQL integrada Alterar controlo política**. Esta é a política mais eficiente. Além disso, permite identificar linhas eliminadas sem ter de adicionar uma coluna de "eliminação de forma recuperável" explícito para a tabela da pesquisa do Azure.

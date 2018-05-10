@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar os dados de ou para SQL Database do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -96,11 +96,11 @@ Para utilizar o serviço principal autenticação com base em AAD aplicação to
 
 1. **[Criar uma aplicação do Azure Active Directory a partir do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Anote o nome da aplicação e os valores seguintes que utilizar para definir o serviço ligado:
 
-    - ID da Aplicação
+    - ID da aplicação
     - Chave da aplicação
-    - ID do Inquilino
+    - ID do inquilino
 
-2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD tem de ser um utilizador do AAD ou grupo AAD, mas não pode ser um principal de serviço. Este passo é realizado para que, num passo subsequente, pode utilizar uma identidade do AAD para criar um utilizador de base de dados contida para o serviço principal.
+2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD tem de ser um utilizador do AAD ou grupo AAD, mas não pode ser um principal de serviço. Este passo é realizado para que, num passo subsequente, pode utilizar uma identidade do AAD para criar um utilizador de base de dados contida para o serviço principal.
 
 3. **Criar um utilizador de base de dados contida para o principal de serviço**, estabelecendo ligação à base de dados de/para a qual pretende copiar os dados utilizando ferramentas como o SSMS, com um AAD identidade ter, pelo menos, ALTER qualquer permissão de utilizador e a executar o seguinte T-SQL. Saiba mais no utilizador de uma base de dados contida [aqui](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -111,7 +111,7 @@ Para utilizar o serviço principal autenticação com base em AAD aplicação to
 4. **Conceder as permissões necessárias do principal de serviço** forma que normalmente para os utilizadores do SQL Server, por exemplo, executando abaixo:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. ADF, configure um serviço ligado de SQL Database do Azure.
@@ -160,7 +160,7 @@ Para utilizar MSI baseado em autenticação de token do AAD aplicação, siga es
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD pode ser um utilizador do AAD ou grupo AAD. Se conceder o grupo com MSI uma função de administrador, ignore o passo 3 e 4 abaixo, o administrador iria têm acesso total à BD.
+2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o servidor de SQL do Azure no portal do Azure se ainda não o feito. O administrador AAD pode ser um utilizador do AAD ou grupo AAD. Se conceder o grupo com MSI uma função de administrador, ignore o passo 3 e 4 abaixo, o administrador iria têm acesso total à BD.
 
 3. **Criar um utilizador de base de dados contida para o grupo AAD**, estabelecendo ligação à base de dados de/para a qual pretende copiar os dados utilizando ferramentas como o SSMS, com um AAD identidade ter, pelo menos, ALTER qualquer permissão de utilizador e a executar o seguinte T-SQL. Saiba mais no utilizador de uma base de dados contida [aqui](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -171,7 +171,7 @@ Para utilizar MSI baseado em autenticação de token do AAD aplicação, siga es
 4. **Conceder as permissões necessárias do grupo AAD** forma que normalmente para os utilizadores do SQL Server, por exemplo, executando abaixo:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. ADF, configure um serviço ligado de SQL Database do Azure.
@@ -594,7 +594,7 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
 | Texto |Cadeia, Char [] |
-| tempo |TimeSpan |
+| hora |TimeSpan |
 | carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |

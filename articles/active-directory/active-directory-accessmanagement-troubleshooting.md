@@ -1,26 +1,24 @@
 ---
-title: "A filiação dinâmica para grupos de resolução de problemas | Microsoft Docs"
-description: "Sugestões de resolução de problemas para a filiação dinâmica para grupos no Azure AD."
+title: A filiação dinâmica para grupos de resolução de problemas | Microsoft Docs
+description: Sugestões de resolução de problemas para a filiação dinâmica para grupos no Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4c294cc6a4e1c9c2f1ad405c539854b6bcf5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8d04273e9f29b2634c8b77b0268f3c7b77b1e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Resolver problemas de associações dinâmicas a grupos
 **Posso configurar uma regra num grupo, mas não associações for atualizadas no grupo**<br/>Verifique os valores para os atributos de utilizador na regra: existem utilizadores que satisfazem a regra? Se tudo procura boa, aguarde algum tempo para preencher o grupo. Dependendo do tamanho do seu inquilino, o grupo pode demorar até 24 horas a ser preenchido pela primeira vez, ou após uma alteração de regra.
@@ -29,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 **Não consigo ver associação mudar instantly quando adicionar ou alterar uma regra, por que motivo não?**<br/>Avaliação da associação dedicada é feita periodicamente num processo em segundo plano assíncronas. Tempo de demora o processo é determinado pelo número de utilizadores no seu diretório e o tamanho do grupo criado no seguimento da regra. Normalmente, os diretórios com pequeno número de utilizadores verão as alterações de associação de grupo em menos de alguns minutos. Diretórios com um grande número de utilizadores podem demorar de 30 minutos ou mais para preencher.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](active-directory-manage-groups.md)

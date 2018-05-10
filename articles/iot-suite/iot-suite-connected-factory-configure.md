@@ -1,12 +1,12 @@
 ---
-title: "Configurar a topologia de fábrica ligado | Microsoft Docs"
-description: "Como configurar a topologia de uma fábrica ligada a solução pré-configurada."
-services: 
+title: Configurar a topologia de fábrica ligado | Microsoft Docs
+description: Como configurar a topologia de um acelerador da solução de fábrica ligado.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>Configurar a solução de fábrica ligado pré-configurada
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução de fábrica ligado
 
-A solução de fábrica ligado pré-configurada mostra um dashboard simulado para uma empresa fictícias Contoso. Esta empresa tem quaisquer fábricas em várias localizações global global.
+O acelerador da solução de fábrica ligado mostra um dashboard simulado para uma empresa fictícias Contoso. Esta empresa tem quaisquer fábricas em várias localizações global global.
 
 Este artigo utiliza Contoso como um exemplo para descrever como configurar a topologia de uma solução de fábrica ligado.
 
@@ -34,7 +34,7 @@ Cada fábrica Contoso tem linhas de produção que consiste em três estações.
 * Estação de teste
 * Estação de empacotamento
 
-Estes servidores de OPC UA tem nós de OPC UA e [OPC publicador](https://github.com/Azure/iot-edge-opc-publisher) envia os valores destes nós à fábrica ligada. Isto inclui:
+Estes servidores de OPC UA tem nós de OPC UA e [OPC publicador](https://github.com/Azure/iot-edge-opc-publisher) envia os valores destes nós à fábrica ligado. Isto inclui:
 
 * Estado operacional atual, tais como o consumo de energia atual.
 * Informações de produção, tais como o número de produtos produzidos.
@@ -46,7 +46,7 @@ Pode utilizar o dashboard para explorar a topologia de fábrica Contoso a partir
 * A agregação de figuras OEE e KPI do nível da estação a nível global.
 * A visualização de alertas e acções a executar se valores de limiares específicos do alcance.
 
-## <a name="connected-factory-topology"></a>Topologia de fábrica ligado
+## <a name="connected-factory-topology"></a>Topologia de fábrica ligada
 
 A topologia de factories, linhas de produção e estações é hierárquica:
 
@@ -114,13 +114,13 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
 
   Identifica exclusivamente o nó de topologia.
 
-`<factory_configuration>`tem uma propriedade:
+`<factory_configuration>` tem uma propriedade:
 
 * **Localização** (tipo `<location_definition>`)
 
   Especifica onde está localizada a fábrica.
 
-`<station_configuration>`tem propriedades:
+`<station_configuration>` tem propriedades:
 
 * **OpcUri** (tipo de cadeia)
 
@@ -129,7 +129,7 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
 
 * **OpcNodes**, que são uma matriz de nós de OPC UA (tipo `<opc_node_description>`)
 
-`<location_definition>`tem propriedades:
+`<location_definition>` tem propriedades:
 
 * **Cidade** (tipo de cadeia)
 
@@ -147,7 +147,7 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
 
   Longitude da localização
 
-`<performance_definition>`tem propriedades:
+`<performance_definition>` tem propriedades:
 
 * **Mínimo** (tipo aspas)
 
@@ -193,7 +193,7 @@ O `<factory_configuration>` e `<production_line_configuration>` itens tem uma pr
   * **CallOpcMethod**: as informações de nós e os parâmetros do método OPC UA para chamar o formato "NodeId de nó principal, NodeId de método para chamar o URI do servidor OPC UA."
   * **OpenWebPage**: o URL para mostrar na janela do browser.
 
-`<opc_node_description>`contém informações sobre nós de OPC UA uma estação (servidor OPC UA). Nós que representam sem nós de OPC UA existentes, mas que são utilizadas como armazenamento na lógica de cálculo do factory ligado também são válidas. Tem as seguintes propriedades:
+`<opc_node_description>` contém informações sobre nós de OPC UA uma estação (servidor OPC UA). Nós que representam sem nós de OPC UA existentes, mas que são utilizadas como armazenamento na lógica de cálculo do Factory ligado também são válidas. Tem as seguintes propriedades:
 
 * **NodeId** (tipo de cadeia)
 
@@ -302,23 +302,23 @@ Ligado fábrica suporta um mecanismo de simples mínimo/máximo baseadas em limi
 
 ## <a name="correlating-to-telemetry-data"></a>Correlacionar dados de telemetria
 
-Para determinados operações, como visualizar o último valor ou a criação de consultas de conhecimentos aprofundados de séries de tempo, a WebApp necessita de um esquema de endereçamento para os dados de telemetria transmissões em. A telemetria enviada à fábrica ligada também tem de ser armazenados em estruturas de dados interno. As duas propriedades ativar estas operações são estação (servidor OPC UA) e o nível de nó de OPC UA:
+Para determinados operações, como visualizar o último valor ou a criação de consultas de conhecimentos aprofundados de séries de tempo, a WebApp necessita de um esquema de endereçamento para os dados de telemetria transmissões em. A telemetria enviada à fábrica ligado também tem de ser armazenados em estruturas de dados interno. As duas propriedades ativar estas operações são estação (servidor OPC UA) e o nível de nó de OPC UA:
 
 * **OpcUri**
 
   Identifica (exclusivos) que o servidor de OPC UA a telemetria provém do. Nas mensagens transmissões em, esta propriedade é enviada como **ApplicationUri**.
 
-* **NodeId**
+* **nodeId**
 
   Identifica o valor do nó no servidor de OPC UA. O formato da propriedade tem de ser conforme especificado na especificação OPC UA. Nas mensagens transmissões em, esta propriedade é enviada como **NodeId**.
 
-Verifique [isto](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria é ingeridos a fábrica ligada com o publicador OPC.
+Verifique [isto](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria é ingeridos à fábrica ligado com o publicador OPC.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como KPI1 é calculado
 
 A configuração no `ContosoTopologyDescription.json` ficheiro controla como figuras OEE/KPI são calculadas. O exemplo seguinte mostra como propriedades neste ficheiro controlam o cálculo de KPI1.
 
-No ligado fábrica que kpi1 é utilizado para medir o número de com êxito fabricado produtos na última hora. Cada estação (servidor OPC UA) na simulação fábrica ligado fornece um nó de OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para este KPI de computação.
+Ligado KPI1 de fábrica é utilizado para medir o número de produtos fabricados com êxito na última hora. Cada estação (servidor OPC UA) na simulação ligado Factory fornece um nó de OPC UA (`NodeId: "ns=2;i=385"`), que fornece a telemetria para este KPI de computação.
 
 A configuração deste nó OPC UA aparente ser o seguinte fragmento:
 
@@ -339,10 +339,10 @@ Esta configuração permite consultar dos valores de telemetria deste nó utiliz
 * A média de todos os valores.
 * A soma de todos os valores para todos os exclusivo **OpcUri** (**ApplicationUri**), **NodeId** pares no timespan indicado.
 
-Uma característica do **NumberOfManufactureredProducts** o valor do nó é que apenas aumenta. Para calcular o número de produtos fabricado no timespan, ligado fábrica utiliza o **OpCode** **SubMaxMin**. O cálculo obtém o valor mínimo no início do período de tempo e o valor máximo no final de timespan.
+Uma característica do **NumberOfManufactureredProducts** o valor do nó é que apenas aumenta. Para calcular o número de produtos fabricado no período de tempo, ligado fábrica utiliza o **OpCode** **SubMaxMin**. O cálculo obtém o valor mínimo no início do período de tempo e o valor máximo no final de timespan.
 
 O **OpCode** na configuração configura a lógica de cálculo para calcular o resultado da diferença do valor mínimo e máximo. Esses resultados, em seguida, são acumuladas inferior até o nível (global) de raiz e apresentadas no dashboard.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Sugestões de um passo seguinte é saber como [implementar um gateway no Windows ou Linux para a solução de fábrica ligado pré-configurada](iot-suite-connected-factory-gateway-deployment.md).
+Sugestões de um passo seguinte é saber como [implementar um gateway no Windows ou Linux para o acelerador da solução de fábrica ligado](iot-suite-connected-factory-gateway-deployment.md).

@@ -1,18 +1,18 @@
 ---
-title: "Integração de grelha de evento e do Event Hubs do Azure"
+title: Integração de grelha de evento e do Event Hubs do Azure
 description: Descreve como utilizar a grelha de eventos do Azure e do Event Hubs para migrar dados para um SQL Data Warehouse
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Macrodados fluxo para um armazém de dados
 
@@ -118,71 +118,45 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Abra o [projeto de exemplo EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) no Visual Studio 2017 (15.3.2 ou superior).
 
-2. No Explorador de soluções, faça duplo clique **FunctionDWDumper**e selecione **publicar**.
+1. No Explorador de soluções, faça duplo clique **FunctionEGDWDumper**e selecione **publicar**.
 
    ![Publicar a aplicação de função](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Selecione **aplicação de função do Azure** e **selecionar existente**. Selecione **OK**.
+1. Selecione **aplicação de função do Azure** e **selecionar existente**. Selecione **publicar**.
 
    ![Aplicação de função do destino](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Selecione a aplicação de função que tenha implementado através do modelo. Selecione **OK**.
+1. Selecione a aplicação de função que tenha implementado através do modelo. Selecione **OK**.
 
    ![Selecione a aplicação de função](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. Quando o Visual Studio tiver configurado o perfil, selecione **publicar**.
+1. Quando o Visual Studio tiver configurado o perfil, selecione **publicar**.
 
    ![Selecione publicar](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. Depois de publicar a função, vá para o [portal do Azure](https://portal.azure.com/). Selecione a aplicação de grupo e a função de recursos.
-
-   ![Aplicação de função de vista](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Selecione a função.
-
-   ![Selecione a função](media/event-grid-event-hubs-integration/select-function.png)
-
-8. Obter o URL para a função. Terá este URL ao criar a subscrição de evento.
-
-   ![Obter URL de função](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. Copie o valor.
-
-   ![Copie o URL](media/event-grid-event-hubs-integration/copy-url.png)
+Depois de publicar a função, está pronto para subscrever o evento.
 
 ## <a name="subscribe-to-the-event"></a>Subscrever o evento
 
-Pode utilizar a CLI do Azure ou o portal para subscrever o evento. Este artigo mostra ambas as abordagens.
+1. Aceda ao [Portal do Azure](https://portal.azure.com/). Selecione a aplicação de grupo e a função de recursos.
 
-### <a name="portal"></a>Portal
+   ![Aplicação de função de vista](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. A partir do espaço de nomes dos Event Hubs, selecione **eventos grelha** à esquerda.
+1. Selecione a função.
 
-   ![Selecione a grelha de eventos](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Selecione a função](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Adicione uma subscrição de evento.
+1. Selecione **subscrição de adicionar o evento grelha**.
 
-   ![Adicionar subscrição de evento](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Adicionar subscrição](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Fornece valores para a subscrição de evento. Utilize o URL de funções do Azure que copiou. Selecione **Criar**.
+9. Dê um nome de subscrição de grelha do evento. Utilize **espaços de nomes de Hubs de eventos** como o tipo de evento. Indique os valores para selecionar a instância do espaço de nomes de Event Hubs. Deixe o ponto final do subscritor com o valor fornecido. Selecione **Criar**.
 
-   ![Indique os valores de subscrição](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>CLI do Azure
-
-Para subscrever o evento, execute os seguintes comandos (que requer a versão 2.0.24 ou posterior da CLI do Azure):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Criar subscrição](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Executar a aplicação para gerar dados
 
-Terminar de configurar o seu hub de eventos, o SQL data warehouse, aplicação de função do Azure e de subscrição de evento. A solução está pronta para migrar os dados do hub de eventos do armazém de dados. Antes de executar uma aplicação que gera dados para o hub de eventos, terá de configurar alguns valores.
+Acabou de configurar o seu hub de eventos, o SQL data warehouse, aplicação de função do Azure e de subscrição de evento. A solução está pronta para migrar os dados do hub de eventos do armazém de dados. Antes de executar uma aplicação que gera dados para o hub de eventos, terá de configurar alguns valores.
 
 1. No portal, selecione o seu espaço de nomes do hub de eventos. Selecione **cadeias de ligação**.
 
@@ -198,10 +172,10 @@ Terminar de configurar o seu hub de eventos, o SQL data warehouse, aplicação d
 
 4. Volte ao seu projeto de Visual Studio. No projeto WindTurbineDataGenerator, abra **program.cs**.
 
-5. Substitua os dois valores constantes. Utilize o valor copiado para **EventHubConnectionString**. Utilize o nome de hub de eventos para **EventHubName**.
+5. Substitua os dois valores constantes. Utilize o valor copiado para **EventHubConnectionString**. Utilize **hubdatamigration** o nome de hub de eventos.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 

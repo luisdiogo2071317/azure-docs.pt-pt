@@ -1,25 +1,24 @@
 ---
-title: "Personalizar a página de início de sessão para o seu inquilino do Azure Active Directory | Microsoft Docs"
-description: "Saiba como adicionar uma imagem corporativa para a página de início de sessão do Azure"
+title: Personalizar a página de início de sessão para o seu inquilino do Azure Active Directory | Microsoft Docs
+description: Saiba como adicionar uma imagem corporativa para a página de início de sessão do Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Guia de introdução: Adicionar imagem corporativa à sua página de início de sessão no Azure AD
 Para evitar confusões, muitas empresas pretendem aplicar um aspeto e funcionalidade consistentes em todos os Web sites e serviços que gerem. Azure Active Directory (Azure AD) fornece esta capacidade ao permitir-lhe personalizar o aspeto da página de início de sessão com o logótipo da empresa e esquemas de cores personalizados. É apresentada a página de início de sessão quando iniciar sessão para aplicações baseadas na web, como o Office 365 que utilizam o Azure AD como o fornecedor de identidade. Interagir com esta página para introduzir as suas credenciais.
@@ -33,7 +32,7 @@ Para evitar confusões, muitas empresas pretendem aplicar um aspeto e funcionali
 
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
-Empresa personalizações de imagem corporativa apresentado na página de início de sessão do Azure AD quando os utilizadores acedem um URL de inquilino específico como [ *https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+Empresa personalizações de imagem corporativa apresentado na página de início de sessão do Azure AD quando os utilizadores acedem um URL de inquilino específico como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com).
 
 Por exemplo, quando os utilizadores visitam www.office.com, a página de início de sessão não mostra as personalizações de imagem corporativa porque o utilizador ainda não introduziu as credenciais da empresa. Depois de um utilizador introduz o seu ID de utilizador ou seleciona um mosaico de utilizador, apresenta a imagem corporativa da empresa.
 

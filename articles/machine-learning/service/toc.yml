@@ -4,17 +4,17 @@
   expanded: true
   items:
     - name: Sobre o Azure Machine Learning
-      href: ../desktop-workbench/overview-what-is-azure-ml.md
+      href: overview-what-is-azure-ml.md
     - name: Descrição geral da Gestão de Modelos
       href: ../desktop-workbench/model-management-overview.md
     - name: Outros produtos de ML
-      href: ../desktop-workbench/overview-more-machine-learning.md
+      href: overview-more-machine-learning.md
     - name: Novidades
       href: ../desktop-workbench/azure-machine-learning-release-notes.md
 - name: Inícios rápidos
   items:
     - name: Instalar e iniciar
-      href: ../desktop-workbench/quickstart-installation.md
+      href: quickstart-installation.md
 - name: Tutoriais
   items:
     - name: '1: Preparar os dados'
@@ -29,6 +29,8 @@
   items:
     - name: Conceitos-chave
       href: ../desktop-workbench/overview-general-concepts.md
+    - name: Acelerações FPGA
+      href: concept-accelerate-with-fpgas.md
 - name: Guias de procedimentos
   items:
     - name: Tarefas de CLI principais
@@ -92,8 +94,10 @@
           href: ../desktop-workbench/how-to-read-write-files.md
         - name: Utilizar a biblioteca de MMLSpark
           href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: Operacionalizar modelos
+    - name: Implementar e consumir modelos
       items:
+        - name: Implementar modelos para FPGAs
+          href: how-to-deploy-fpga-web-service.md
         - name: Configurar a Gestão de Modelos
           href: ../desktop-workbench/deployment-setup-configuration.md
         - name: Dimensionar clusters e serviços
@@ -142,6 +146,31 @@
           href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Referência
   items:
+    - name: Pacotes de Python
+      href: reference-python-package-overview.md
+      items:
+        - name: Imagem digitalizada
+          items:
+            - name: Descrição geral e instalação do pacote
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
+            - name: Criar e implementar os modelos de classificação de imagens
+              href: how-to-build-deploy-image-classification-models.md
+            - name: Precisão do modelo
+              href: how-to-improve-accuracy-for-computer-vision-models.md
+        - name: Previsão
+          items:
+            - name: Descrição geral e instalação
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview'
+            - name: Criar e implementar modelos de previsão
+              href: how-to-build-deploy-forecast-models.md
+        - name: Aceleração de FPGA
+          href: reference-fpga-package-overview.md
+        - name: Análise de texto
+          items:
+            - name: Descrição geral e instalação
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics'
+            - name: Criar e implementar os modelos de classificação de texto
+              href: how-to-build-deploy-text-classification-models.md
     - name: Preparação de dados
       items:
         - name: Extensões de Python para preparação de dados
@@ -191,13 +220,13 @@
     - name: Perguntas mais frequentes
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas e resolução de problemas
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+      href: known-issues-and-troubleshooting-guide.md
     - name: Assistência e formação
-      href: ../desktop-workbench/support-for-aml-services.md
+      href: support-for-aml-services.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços
-      href: ../desktop-workbench/aml-pricing.md
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Disponibilidade de região
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Processo de Ciência de Dados de Equipa

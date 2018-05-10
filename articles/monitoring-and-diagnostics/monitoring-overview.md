@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitorização de aplicações do Azure e de recursos
 
@@ -60,7 +60,7 @@ Monitorização principal fornece fundamentais, necessário monitorização atra
 
 Métricas estão disponíveis que fornecer estatísticas de desempenho de recursos diferentes e mesmo sistema operativo no interior de uma máquina virtual. Pode ver estes dados com um dos exploradores no portal do Azure e criar alertas com base nestas métricas. Monitor do Azure fornece que as métricas mais rápidas pipeline (5 minutos para baixo para 1 minuto), pelo que deve utilizá-lo para notificações e alertas críticos de tempo.
 
-Também pode enviar estas métricas e registos de análise de registos do Azure para análise de tendências e detalhada ou criar regras de alerta adicionais para proativamente notificá-lo de problemas críticos como resultado que Analysis Services.  
+Também pode enviar estas métricas e registos ao Log Analytics do Azure para análise de tendências e detalhada ou criar regras de alerta adicionais para proativamente notificá-lo de problemas críticos como resultado que Analysis Services.  
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais para análise de registos através de definições de diagnóstico não é suportada. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.

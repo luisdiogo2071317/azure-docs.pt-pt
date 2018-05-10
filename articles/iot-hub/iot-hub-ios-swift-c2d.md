@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens da nuvem para o dispositivo com o IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -47,8 +47,8 @@ Para concluir este tutorial, precisa do seguinte:
 - Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 - Um hub IoT Active Directory no Azure. 
 - O exemplo de código do [exemplos do Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) .
-- A versão mais recente do [XCode](https://developer.apple.com/xcode/), executar a versão mais recente do SDK do iOS. Este guia de introdução foi testado com XCode 9.3 e iOS 11.3.
-- A versão mais recente do [o CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+- A versão mais recente do [XCode](https://developer.apple.com/xcode/), com a última versão do SDK do iOS. Este início rápido foi testado com XCode 9.3 e o iOS 11.3.
+- A versão mais recente do [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 
 
 ## <a name="simulate-an-iot-device"></a>Simular um dispositivo IoT
@@ -56,23 +56,23 @@ Nesta secção, simular um dispositivo iOS com uma aplicação Swift para recebe
 
 Este é o dispositivo de exemplo de exemplo que criar no artigo [enviar telemetria a partir de um dispositivo a um IoT hub]. Se já tiver que em execução, pode ignorar esta secção.
 
-### <a name="install-cocoapods"></a>Instalar o CocoaPods
+### <a name="install-cocoapods"></a>Instalar CocoaPods
 
-O CocoaPods Gerir dependências para projetos de iOS que utilizam bibliotecas de terceiros.
+O CocoaPods gere dependências para projetos de iOS que utilizam bibliotecas de terceiros.
 
-Numa janela de terminal, navegue para a pasta do Azure-IoT-amostras-iOS que transferiu nos pré-requisitos. Em seguida, navegue para o projeto de exemplo:
+Numa janela de terminal, navegue para a pasta Azure-IoT-Samples-iOS que transferiu nos pré-requisitos. Depois, navegue para o projeto de exemplo:
 
 ```sh
 cd quickstart/sample-device
 ```
 
-Certifique-se de que o XCode está fechado, em seguida, execute o seguinte comando para instalar o CocoaPods declarados no **podfile** ficheiro:
+Confirme que XCode está fechado e execute o seguinte comando para instalar os CocoaPods que são declarados no ficheiro **podfile**:
 
 ```sh
 pod install
 ```
 
-Juntamente com a instalação pods necessários para o seu projeto, o comando de instalação também criado um ficheiro de área de trabalho XCode que já está configurado para utilizar os pods de dependências. 
+Para além de instalar os pods necessários para o projeto, o comando de instalação também criou um ficheiro de área de trabalho do XCode, que já está configurado para utilizar os pods para dependências. 
 
 ### <a name="run-the-sample-device-application"></a>Executar a aplicação de dispositivo de exemplo 
 
@@ -89,10 +89,10 @@ Juntamente com a instalação pods necessários para o seu projeto, o comando de
    ```
 
 2. Expanda o **MQTT cliente exemplo** projeto e, em seguida, a pasta com o mesmo nome.  
-3. Abra **viewcontroller. SWIFT** para edição no XCode. 
+3. Abra **ViewController.swift** para edição no XCode. 
 4. Procure o **connectionString** variável e atualize o valor com a ligação do dispositivo de cadeia que é copiado no primeiro passo.
 5. Guarde as alterações. 
-6. Executar o projeto no emulador do dispositivo com o **compilar e executar** botão ou a combinação de chave **comando + r**. 
+6. Execute o projeto no emulador do dispositivo com o botão **Build and run** (Compilar e executar) ou a combinação de teclas **comando + r**. 
 
    ![Executar o projeto](media/quickstart-send-telemetry-ios/run-sample.png)
 
@@ -101,9 +101,9 @@ Juntamente com a instalação pods necessários para o seu projeto, o comando de
 
 Nesta secção, simular um segundo dispositivo iOS com uma aplicação Swift que envia mensagens da nuvem para o dispositivo através do hub IoT. Esta configuração é útil para cenários de IoT onde existe um iPhone ou iPad a funcionar como um controlador para outros dispositivos iOS ligados a um IoT hub. 
 
-### <a name="install-cocoapods"></a>Instalar o CocoaPods
+### <a name="install-cocoapods"></a>Instalar CocoaPods
 
-O CocoaPods Gerir dependências para projetos de iOS que utilizam bibliotecas de terceiros.
+O CocoaPods gere dependências para projetos de iOS que utilizam bibliotecas de terceiros.
 
 Navegue para a pasta de amostras de iOS de IoT do Azure que transferiu nos pré-requisitos. Em seguida, navegue para o projeto de serviço de exemplo:
 
@@ -111,13 +111,13 @@ Navegue para a pasta de amostras de iOS de IoT do Azure que transferiu nos pré-
 cd quickstart/sample-service
 ```
 
-Certifique-se de que o XCode está fechado, em seguida, execute o seguinte comando para instalar o CocoaPods declarados no **podfile** ficheiro:
+Confirme que XCode está fechado e execute o seguinte comando para instalar os CocoaPods que são declarados no ficheiro **podfile**:
 
 ```sh
 pod install
 ```
 
-Juntamente com a instalação pods necessários para o seu projeto, o comando de instalação também criado um ficheiro de área de trabalho XCode que já está configurado para utilizar os pods de dependências.
+Para além de instalar os pods necessários para o projeto, o comando de instalação também criou um ficheiro de área de trabalho do XCode, que já está configurado para utilizar os pods para dependências.
 
 ### <a name="run-the-sample-service-application"></a>Executar a aplicação de serviço de exemplo
 
@@ -134,7 +134,7 @@ Juntamente com a instalação pods necessários para o seu projeto, o comando de
    ```
 
 3. Expanda o **AzureIoTServiceSample** projeto e, em seguida, expanda a pasta com o mesmo nome.  
-4. Abra **viewcontroller. SWIFT** para edição no XCode. 
+4. Abra **ViewController.swift** para edição no XCode. 
 5. Procure o **connectionString** variável e atualize o valor com a cadeia de ligação de serviço que copiou anteriormente.
 6. Guarde as alterações. 
 7. No Xcode, altere as definições do emulador num dispositivo iOS diferentes que utilizou para executar o dispositivo IoT. XCode não é possível executar vários emuladores do mesmo tipo. 
@@ -166,7 +166,7 @@ A saída deverá ter um aspeto semelhante ao seguinte exemplo:
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a enviar e receber mensagens da nuvem para o dispositivo. 
 
-Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [Azure IoT Suite].
+Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [acelerador de solução de monitorização remota do Azure IoT].
 
 Para obter mais informações sobre como desenvolver soluções de IoT hub, consulte o [guia para programadores do IoT Hub].
 
@@ -185,4 +185,4 @@ Para obter mais informações sobre como desenvolver soluções de IoT hub, cons
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[acelerador de solução de monitorização remota do Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

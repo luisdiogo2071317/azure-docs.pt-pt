@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: c835b5594676edc39b85a1b10cc04afc7486731d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Especificar o comportamento do dispositivo IoT
 
 A biblioteca de clientes do serializador do Hub IoT utiliza um modelo para especificar o formato das mensagens que o dispositivo troca com o Hub IoT.
@@ -78,7 +94,7 @@ A biblioteca de clientes do serializador do Hub IoT utiliza um modelo para espec
 
 Agora, adicione código que implementa o comportamento definido no modelo.
 
-1. Adicione o seguinte processador de chamada de retorno que é executado quando o dispositivo envia novos valores de propriedades comunicadas para a solução pré-configurada:
+1. Adicione o processador de chamada de retorno seguintes, que é executada quando o dispositivo foi enviado novos valores de propriedade reportado para o acelerador solução:
 
     ```c
     /* Callback after sending reported properties */
@@ -221,7 +237,7 @@ Agora, adicione código que implementa o comportamento definido no modelo.
     }
     ```
 
-1. Adicione a seguinte função que envia uma mensagem com propriedades para a solução pré-configurada:
+1. Adicione a seguinte função que envia uma mensagem com propriedades para o acelerador solução:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +276,7 @@ Agora, adicione código que implementa o comportamento definido no modelo.
     }
     ```
 
-1. Adicione a seguinte função para ligar o seu dispositivo à solução pré-configurada na cloud e trocar dados. Esta função executa os seguintes passos:
+1. Adicione a seguinte função para ligar o seu dispositivo para o acelerador solução na nuvem e dados do exchange. Esta função executa os seguintes passos:
 
     - Inicializa a plataforma.
     - Regista o espaço de nomes Contoso na biblioteca de serialização.
@@ -396,7 +412,7 @@ Agora, adicione código que implementa o comportamento definido no modelo.
     }
     ```
 
-    Para sua referência, eis um exemplo de mensagem de **Telemetria** enviada para a solução pré-configurada:
+    Para referência, eis um exemplo **telemetria** mensagem enviada para o acelerador solução:
 
     ```
     Device: [myCDevice],

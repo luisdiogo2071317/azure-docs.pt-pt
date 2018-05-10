@@ -2,7 +2,7 @@
 title: Saiba mais sobre codificadores recomendadas pelo Media Services do Azure | Microsoft Docs
 description: Saiba mais sobre codificadores recomendados pelos media services
 services: media-services
-keywords: "codificação codificadores; suporte de dados"
+keywords: codificação codificadores; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: d0c5536d2339470eac058250cc14e1f250b86d90
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="recommended-on-premises-encoders"></a>Recomendada codificadores no local
 Quando em direto de transmissão em fluxo com Media Services do Azure, pode especificar como pretende que o canal para receber o fluxo de entrada. Se optar por utilizar um codificador no local com um canal de codificação em direto, o codificador deve efetuar push de um fluxo de alta qualidade velocidade de transmissão única como saída. Se optar por utilizar um codificador no local com um pass-through canal, o codificador deve efetuar push de um fluxo de transmissão múltipla como saída com todos os qualities de saída pretendidas. Para obter mais informações, consulte [em direto com codificadores no local transmissão em fluxo](media-services-live-streaming-with-onprem-encoders.md).

@@ -1,12 +1,12 @@
 ---
-title: "Descrição geral de segurança da base de dados do Azure | Microsoft Docs"
-description: "Este artigo fornece uma descrição geral da base de dados do Azure funcionalidades de segurança."
+title: Descrição geral de segurança da base de dados do Azure | Microsoft Docs
+description: Este artigo fornece uma descrição geral da base de dados do Azure funcionalidades de segurança.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b5e9e412fddf727237b008e37238fa2c547694de
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral de segurança da base de dados do Azure
 
@@ -99,7 +99,7 @@ Além disso, sempre encriptados faz encriptação transparente para as aplicaç�
 ## <a name="access-control"></a>Controlo de acesso
 Para fornecer segurança, a Base de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP, mecanismos de autenticação que exigem que os utilizadores provem a sua identidade e mecanismos de autorização que limitam os utilizadores a ações e dados específicos.
 
-### <a name="database-access"></a>Acesso de base de dados
+### <a name="database-access"></a>Acesso à Base de Dados
 
 Proteção de dados começa com a controlar o acesso aos seus dados. O datacenter que aloja os dados gere o acesso físico, embora possa configurar uma firewall para gerir a segurança na camada de rede. Também pode controla o acesso ao configurar os inícios de sessão para autenticação e definir permissões para funções de servidor e base de dados.
 
@@ -211,7 +211,7 @@ O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/serv
 O Azure Marketplace é um mercado online de aplicações e serviços que permite às empresas recém-criadas e aos fabricantes independentes de software (ISV) oferecerem as suas soluções aos clientes Azure de todo o mundo.
 O Azure Marketplace combina o ecossistema de parceiros do Microsoft Azure numa plataforma unificada que proporciona uma experiência otimizada aos nossos clientes e parceiros. Clique em [aqui](https://azuremarketplace.microsoft.com/marketplace/apps?search=Database%20Security&page=1) para produtos de segurança de base de dados de relance disponíveis no Azure Marketplace.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [proteger a base de dados do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
 - Saiba mais sobre [serviço Centro de segurança do Azure e SQL Database do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-database).

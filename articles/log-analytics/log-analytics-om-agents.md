@@ -1,6 +1,6 @@
 ---
 title: Estabelecer a ligação do Operations Manager ao Log Analytics | Microsoft Docs
-description: Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho do OMS.
+description: Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,44 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 84eabef06b4d2ad71e6d9a947a77589f9159e030
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Estabelecer a ligação do Operations Manager ao Log Analytics
-Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho do OMS.  Isto permite que tirar partido as oportunidades de OMS ao continuar a utilizar o Operations Manager para:
+Para manter o investimento existente no System Center Operations Manager e utilizar as capacidades de expandida com a análise de registos, pode integrar o Operations Manager com a sua área de trabalho de análise de registos.  Isto permite que tirar partido as oportunidades de análise de registos ao continuar a utilizar o Operations Manager para:
 
-* Continuar a monitorizar o estado de funcionamento dos seus serviços de TI com o Operations Manager
+* Monitor de estado de funcionamento dos seus serviços de TI com o Operations Manager
 * Manter a integração com as suas soluções ITSM suportar gestão de incidente e problema
 * Gerir o ciclo de vida dos agentes implementados no local e nuvem pública IaaS as máquinas virtuais que monitorizar com o Operations Manager
 
-Integração com o System Center Operations Manager acrescenta valor à sua estratégia de operações do serviço utilizando a velocidade e a eficiência do OMS no recolher, armazenar e analisar dados do Operations Manager.  OMS ajuda correlacionar e de trabalho para identificar as falhas de problemas e analisar recurrences para suportar o processo de gestão de problema existente.   A flexibilidade do motor de busca para examinar os dados de desempenho, eventos e alertas, com dashboards avançados e capacidades de relatórios para expor estes dados de formas significativas, demonstra a força que OMS proporciona na complimenting do Operations Manager.
+Integração com o System Center Operations Manager acrescenta valor à sua estratégia de operações do serviço utilizando a velocidade e a eficiência da análise de registos no recolher, armazenar e analisar dados do Operations Manager.  Correlacione de ajuda de análise do registo e de trabalho para identificar as falhas de problemas e analisar recurrences para suportar o processo de gestão de problema existente.  A flexibilidade do motor de busca para examinar o desempenho, eventos e alerta de dados, com dashboards avançados e capacidades de relatórios para expor estes dados de formas significativas, demonstra a análise de registos de segurança proporciona na complimenting do Operations Manager.
 
-Os agentes de relatórios para o grupo de gestão do Operations Manager recolhe dados de servidores com base no origens de dados de análise de registos e soluções que tiver ativado na sua subscrição do OMS.  Consoante a solução que tiver ativado, dados a partir destas soluções são um enviada diretamente a partir de um servidor de gestão do Operations Manager para o serviço web do OMS, ou devido ao volume de dados recolhidos no sistema geridos por agente, são enviados diretamente a partir do agente ao serviço web do OMS. O servidor de gestão reencaminha os dados OMS diretamente para o serviço web do OMS; Se nunca é escrito na base de dados OperationsManager ou OperationsManagerDW.  Quando um servidor de gestão perde a conectividade com o serviço web do OMS,-coloca em cache os dados localmente até que a comunicação é restabelecida com o OMS.  Se o servidor de gestão estiver offline devido a manutenção planeada ou falha não planeada, o outro servidor de gestão no grupo de gestão retoma conectividade com o OMS.  
+Os agentes de relatórios para o grupo de gestão do Operations Manager recolhe dados de servidores com base no origens de dados de análise de registos e soluções que tiver ativado na sua área de trabalho.  Consoante as soluções ativadas, os seus dados são ou enviado diretamente a partir de um servidor de gestão do Operations Manager para o serviço, ou devido ao volume de dados recolhidos no sistema geridos por agente, são enviados diretamente a partir do agente à análise de registos. O servidor de gestão reencaminha os dados diretamente para o serviço; Se nunca é escrito na base de dados do armazém de dados ou operacional.  Quando um servidor de gestão perde a conectividade com a análise de registos,-coloca em cache os dados localmente até que a comunicação é restabelecida com a análise de registos.  Se o servidor de gestão estiver offline devido a manutenção planeada ou falha não planeada, o outro servidor de gestão no grupo de gestão retoma conectividade com a análise de registos.  
 
-O diagrama seguinte ilustra a ligação entre servidores de gestão e os agentes num grupo de gestão do System Center Operations Manager e o OMS, incluindo as portas e direção.   
+O diagrama seguinte mostra a ligação entre servidores de gestão e agentes num grupo de gestão do System Center Operations Manager e análise de registos, incluindo as portas e direção.   
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à Internet, os servidores de gestão podem ser configurados para ligar ao Gateway para receber as informações de configuração e enviar os dados recolhidos consoante a solução que tiver ativado o OMS.  Para obter mais informações e os passos sobre como configurar o grupo de gestão do Operations Manager para comunicar através de um Gateway do OMS para o serviço do OMS, consulte [ligar computadores ao OMS utilizando o Gateway do OMS](log-analytics-oms-gateway.md).  
+Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à Internet, os servidores de gestão podem ser configurados para ligar ao Gateway OMS para receber as informações de configuração e enviar os dados recolhidos, consoante as soluções ativadas.  Para obter mais informações e os passos sobre como configurar o grupo de gestão do Operations Manager para comunicar através de um Gateway do OMS para o serviço de análise de registos, consulte [ligar computadores ao OMS utilizando o Gateway do OMS](log-analytics-oms-gateway.md).  
 
 ## <a name="system-requirements"></a>Requisitos de sistema
 Antes de começar, reveja os detalhes seguintes para verificar que cumpre os pré-requisitos.
 
-* OMS só suporta o Operations Manager 2016, UR6 do Operations Manager 2012 SP1 e posterior e UR2 do Operations Manager 2012 R2 e superior.  Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
+* Análise de registos só suporta 1801 no Gestor de operações System Center, Operations Manager 2016, Operations Manager 2012 SP1 UR6 e superior e UR2 do Operations Manager 2012 R2 e superior.  Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
 * Todos os agentes do Operations Manager têm de cumprir os requisitos de suporte mínimo. Certifique-se de que os agentes estão em atualização mínima, caso contrário, o tráfego de agente do Windows poderão falhar e muitos erros podem preencher o registo de eventos do Operations Manager.
-* Uma subscrição do OMS.  Para obter mais informações, consulte [introdução à análise de registos](log-analytics-get-started.md).
+* Uma área de trabalho de análise de registos.  Para obter mais informações, consulte [introdução à análise de registos](log-analytics-get-started.md).
 
 ### <a name="network"></a>Rede
-As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente do Operations Manager, servidores de gestão e consola de operações comunicar com o OMS.  Tráfego de cada componente é de saída da sua rede para o serviço do OMS.     
+As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente do Operations Manager, servidores de gestão e consola de operações comunicar com a análise de registos.  Tráfego de cada componente é de saída da sua rede para o serviço de análise de registos.     
 
 |Recurso | Número de porta| Ignorar a inspeção de HTTP|  
 |---------|------|-----------------------|  
-|**Agent**|||  
+|**Agente**|||  
 |\*.ods.opinsights.azure.com| 443 |Sim|  
 |\*.oms.opinsights.azure.com| 443|Sim|  
 |\*.blob.core.windows.net| 443|Sim|  
@@ -67,36 +67,49 @@ As informações abaixo lista as informações de configuração de proxy e de f
 |\*.microsoftonline.com| 80 e 443||  
 |\*.mms.microsoft.com| 80 e 443||  
 |login.windows.net| 80 e 443||  
+|portal.loganalytics.io| 80 e 443||
+|api.loganalytics.io| 80 e 443||
+|docs.loganalytics.io| 80 e 443||  
 
+## <a name="connecting-operations-manager-to-log-analytics"></a>Ligar o Operations Manager ao Log Analytics
+Execute a seguinte série de passos para configurar o grupo de gestão do Operations Manager para ligar a uma das suas áreas de trabalho de análise de registos.
 
-## <a name="connecting-operations-manager-to-oms"></a>Ligar o Operations Manager para OMS
-Execute a seguinte série de passos para configurar o grupo de gestão do Operations Manager para ligar a uma das áreas de trabalho das OMS.
+Se esta for a primeira vez que o seu grupo de gestão do Operations Manager está a registar com uma área de trabalho de análise de registos e os servidores de gestão tem de comunicar com o serviço através de um proxy ou o servidor de Gateway do OMS, a opção de especificar a configuração de proxy para o grupo de gestão não está disponível na consola de operações.  O grupo de gestão tem de ser registado com êxito com o serviço antes desta opção está disponível.  Tem de atualizar a configuração de proxy do sistema utilizando Netsh no sistema a executar a consola de operações do, para configurar a integração e todos os servidores de gestão no grupo de gestão.  
+
+1. Abra uma linha de comandos elevada.
+   a. Aceda a **iniciar** e tipo **cmd**.
+   b. Clique com botão direito **linha de comandos** e selecionar executar como administrador * *.
+2. Introduza o seguinte comando e prima **Enter**:
+
+    `netsh winhttp set proxy <proxy>:<port>`
+
+Depois de concluir os seguintes passos para integrar com a análise de registos, pode remover a configuração executando `netsh winhttp reset proxy` e, em seguida, utilizar o **configurar o servidor de proxy** opção na consola de operações para especificar o proxy ou do OMS Servidor de gateway. 
 
 1. Na consola do Operations Manager, selecione o **administração** área de trabalho.
 2. Expanda o nó de Operations Management Suite e clique em **ligação**.
 3. Clique em de **registar no Operations Management Suite** ligação.
 4. No **Assistente de integração do Operations Management Suite: autenticação** página, introduza o endereço de e-mail ou número de telefone e a palavra-passe da conta de administrador que está associada a sua subscrição do OMS e clique em  **Inicie sessão no**.
-5. Depois que serem autenticadas com êxito, no **Assistente de integração do Operations Management Suite: selecionar área de trabalho** página lhe for pedido para selecionar a sua área de trabalho do OMS.  Se tiver mais de uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager da lista pendente e, em seguida, clique em **seguinte**.
+5. Depois que serem autenticadas com êxito, no **Assistente de integração do Operations Management Suite: selecionar área de trabalho** página lhe for pedido para selecionar a sua área de trabalho de análise de registos.  Se tiver mais de uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager da lista pendente e, em seguida, clique em **seguinte**.
    
    > [!NOTE]
-   > O Operations Manager só suporta uma área de trabalho do OMS cada vez. A ligação e os computadores que foram registados para OMS com a área de trabalho anterior são removidos do OMS.
+   > O Operations Manager só suporta uma área de trabalho de análise de registos simultaneamente. A ligação e os computadores que foram registados para análise de registos com a área de trabalho anterior são removidos da análise de registos.
    > 
    > 
 6. No **Assistente de integração do Operations Management Suite: resumo** página, confirme as suas definições e se estiverem corretas, clique em **criar**.
 7. No **Assistente de integração do Operations Management Suite: concluir** página, clique em **fechar**.
 
 ### <a name="add-agent-managed-computers"></a>Adicionar computadores geridos por agente
-Após configurar a integração com a sua área de trabalho do OMS, isto só estabelece uma ligação com o OMS, sem dados são recolhidos a partir dos agentes que reportam ao seu grupo de gestão. Tal não acontecer até depois de configurar os computadores geridos por agente específicos recolhe dados para análise de registos. Pode selecionar os objetos de computador individualmente ou pode selecionar um grupo que contenha objetos de computador do Windows. Não é possível selecionar um grupo que contenha as instâncias de outra classe, tais como discos lógicos ou bases de dados SQL.
+Após configurar a integração com a sua área de trabalho de análise de registos, isto só estabelece uma ligação com o serviço, não existem dados são recolhidos a partir dos agentes que reportam ao seu grupo de gestão. Tal não acontecer até depois de configurar os computadores geridos por agente específicos recolhe dados para análise de registos. Pode selecionar os objetos de computador individualmente ou pode selecionar um grupo que contenha objetos de computador do Windows. Não é possível selecionar um grupo que contenha as instâncias de outra classe, tais como discos lógicos ou bases de dados SQL.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 2. Expanda o nó de Operations Management Suite e clique em **ligação**.
 3. Clique no **adicionar um computador/grupo** ligação sob as ações de cabeçalho no lado direito do painel.
-4. No **computador pesquisa** caixa de diálogo, pode procurar computadores ou grupos monitorizados pelo Operations Manager. Selecionar computadores ou grupos para ser integrado no OMS, clique em **adicionar**e, em seguida, clique em **OK**.
+4. No **computador pesquisa** caixa de diálogo, pode procurar computadores ou grupos monitorizados pelo Operations Manager. Selecionar computadores ou grupos para carregar a análise de registos, clique em **adicionar**e, em seguida, clique em **OK**.
 
 Pode ver computadores e grupos configurados para recolher dados a partir do nó computadores geridos no Operations Management Suite no **administração** área de trabalho da consola de operações.  Aqui, pode adicionar ou remover computadores e grupos conforme necessário.
 
-### <a name="configure-oms-proxy-settings-in-the-operations-console"></a>Configurar definições de proxy do OMS na consola de operações
-Se for um servidor proxy interno entre o grupo de gestão e o serviço web do OMS, execute os seguintes passos.  Estas definições são geridas do grupo de gestão e distribuídas a sistemas geridos por agente que estão incluídos no âmbito para recolher dados para OMS centralmente.  Este é vantajoso para quando determinadas soluções ignorar o servidor de gestão e enviar dados diretamente para o serviço web do OMS.
+### <a name="configure-proxy-settings-in-the-operations-console"></a>Configurar definições de proxy na consola de operações
+Execute os seguintes passos, se for um servidor proxy interno entre o grupo de gestão e o serviço de registo as.  Estas definições são geridas do grupo de gestão e distribuídas a sistemas geridos por agente que estão incluídos no âmbito para recolher dados para análise de registos centralmente.  Este é vantajoso para quando determinadas soluções ignorar o servidor de gestão e enviar dados diretamente para o serviço.
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 2. Expanda o Operations Management Suite e, em seguida, clique em **ligações**.
@@ -114,57 +127,58 @@ Se o servidor proxy requer autenticação, execute os seguintes passos para conf
 7. Clique em **OK** para fechar o **adicionar uma conta Run As** caixa.
 8. Clique em **guardar** para concluir o assistente e guarde as alterações.
 
-Depois de criar a ligação e configurar os agentes irão recolher e comunicar dados OMS, é aplicada a seguinte configuração no grupo de gestão, não necessariamente por ordem:
+Depois de criar a ligação e configurar os agentes irão recolher e comunicar dados para análise de registos, é aplicada a seguinte configuração no grupo de gestão, não necessariamente por ordem:
 
 * A conta Run As **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** é criado.  É associada ao perfil Run As **Microsoft System Center Advisor executar como perfil Blob** e está direcionado para duas classes - **servidor recolha** e **grupo de gestão do Operations Manager** .
-* São criados dois conectores.  O primeiro nome **Microsoft.SystemCenter.Advisor.DataConnector** e é automaticamente configurado com uma subscrição que reencaminha todos os alertas gerados a partir de instâncias de todas as classes no grupo de gestão para análise de registos do OMS. O conector do segundo **Advisor Connector**, que é responsável por comunicar com o serviço web do OMS e partilha de dados.
+* São criados dois conectores.  O primeiro nome **Microsoft.SystemCenter.Advisor.DataConnector** e é automaticamente configurado com uma subscrição que reencaminha todos os alertas gerados a partir de instâncias de todas as classes no grupo de gestão para análise de registos. O conector do segundo **Advisor Connector**, que é responsável por comunicar com o serviço web do OMS e partilha de dados.
 * Os agentes e grupos que selecionou para recolher dados no grupo de gestão é adicionado ao **grupo do servidor de monitorização do Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Atualizações de pacotes de gestão
-Depois de concluir a configuração, o grupo de gestão do Operations Manager estabelece uma ligação com o serviço do OMS.  O servidor de gestão sincroniza com o serviço web e receber informações de configuração atualizada sob a forma de pacotes de gestão para as soluções tiver ativado o que se integram com o Operations Manager.   O Operations Manager verifica a existência de atualizações destes pacotes de gestão e automaticamente transferir e importa-las quando estiverem disponíveis.  Existem duas regras em particular controlar qual este comportamento:
+Depois de concluir a configuração, o grupo de gestão do Operations Manager estabelece uma ligação com o serviço de análise de registos.  O servidor de gestão sincroniza com o serviço web e receber informações de configuração atualizada sob a forma de pacotes de gestão para as soluções tiver ativado o que se integram com o Operations Manager.   O Operations Manager verifica a existência de atualizações destes pacotes de gestão e automaticamente transferir e importa-las quando estiverem disponíveis.  Existem duas regras em particular controlar qual este comportamento:
 
-* **Microsoft.SystemCenter.Advisor.MPUpdate** -atualizações de pacotes de gestão base do OMS. Por predefinição, é executada a cada 12 horas.
+* **Microsoft.SystemCenter.Advisor.MPUpdate** -atualiza os pacotes de gestão de análise de registos base. Por predefinição, é executada a cada 12 horas.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** -atualizações de pacotes de gestão de solução ativados na sua área de trabalho. Por predefinição, é executada a cada cinco (5) minutos.
 
 Pode substituir estas duas regras para impedir a transferência automática, desativando-los, ou modificar a frequência com que frequência o servidor de gestão sincroniza com o OMS para determinar se um novo pacote de gestão está disponível e deve ser transferido.  Siga os passos [como substituir um Monitor ou regra](https://technet.microsoft.com/library/hh212869.aspx) para modificar o **frequência** parâmetro com um valor em segundos, para alterar a agenda de sincronização ou modificar o **ativado**parâmetro para desativar as regras.  As substituições para todos os objetos da classe de grupo de gestão do Operations Manager de destino.
 
-Se pretender continue a seguir o processo de controlo de alterações existente para controlar as versões do pacote de gestão no grupo de gestão de produção, pode desativar as regras e ativá-los durante a horas específicas quando as atualizações são permitidas. Se tiver um desenvolvimento ou grupo de gestão de pergunta e resposta no seu ambiente e tem conetividade à Internet, pode configurar esse grupo de gestão com uma área de trabalho do OMS para suportar este cenário.  Isto permite-lhe rever e avaliar as versões dos pacotes de gestão de OMS iterativas antes libertá-los para o grupo de gestão de produção.
+Se pretender continue a seguir o processo de controlo de alterações existente para controlar as versões do pacote de gestão no grupo de gestão de produção, pode desativar as regras e ativá-los durante a horas específicas quando as atualizações são permitidas. Se tiver um desenvolvimento ou grupo de gestão de pergunta e resposta no seu ambiente e tem conetividade à Internet, pode configurar esse grupo de gestão com uma área de trabalho de análise de registos para suportar este cenário.  Isto permite-lhe rever e avaliar as versões dos pacotes de gestão de análise de registos iterativas antes libertá-los para o grupo de gestão de produção.
 
-## <a name="switch-an-operations-manager-group-to-a-new-oms-workspace"></a>Mudar de um grupo do Operations Manager para uma nova área de trabalho do OMS
-1. Inicie sessão na sua subscrição do OMS e criar uma área de trabalho [Microsoft Operations Management Suite](http://oms.microsoft.com/).
-2. Abra a consola do Operations Manager com uma conta que seja um membro da função administradores do Operations Manager e selecione o **administração** área de trabalho.
-3. Expanda o Operations Management Suite e selecione **ligações**.
-4. Selecione o **reconfigure operação Management Suite** ligação no lado do meio do painel.
-5. Siga o **Assistente de integração do Operations Management Suite** e introduza o e-mail endereço ou número de telefone e a palavra-passe da conta de administrador que está associada a sua nova área de trabalho do OMS.
+## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Mudar de um grupo do Operations Manager para uma nova área de trabalho de análise de registo
+1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics** e, em seguida, crie uma área de trabalho.  
+3. Abra a consola do Operations Manager com uma conta que seja um membro da função administradores do Operations Manager e selecione o **administração** área de trabalho.
+4. Expanda o Operations Management Suite e selecione **ligações**.
+5. Selecione o **reconfigure operação Management Suite** ligação no lado do meio do painel.
+6. Siga o **Assistente de integração do Operations Management Suite** e introduza o e-mail endereço ou número de telefone e a palavra-passe da conta de administrador que está associada a sua área de trabalho de análise de registos nova.
    
    > [!NOTE]
    > O **Assistente de integração do Operations Management Suite: selecionar área de trabalho** página apresenta a área de trabalho existente que está a ser utilizado.
    > 
    > 
 
-## <a name="validate-operations-manager-integration-with-oms"></a>Validar a integração do Operations Manager com o OMS
-Existem algumas formas diferentes pode verificar que o OMS para integração do Operations Manager foi concluída com êxito.
+## <a name="validate-operations-manager-integration-with-log-analytics"></a>Validar a integração do Operations Manager com a análise de registos
+Existem algumas formas diferentes pode verificar que a análise de registos para a integração do Operations Manager é efetuada com êxito.
 
-### <a name="to-confirm-integration-from-the-oms-portal"></a>Para confirmar a integração do portal do OMS
-1. No portal do OMS, clique em de **definições** mosaico
-2. Selecione **ligado origens**.
-3. Na tabela na secção System Center Operations Manager, deverá ver o nome do grupo de gestão listado com o número de agentes e o estado quando os dados foram recebidos pela última vez.
+### <a name="to-confirm-integration-from-the-azure-portal"></a>Para confirmar a integração do portal do Azure
+1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada.
+2. Na lista de áreas de trabalho de análise de registos, selecione a área de trabalho aplicável.  
+3. Selecione **definições avançadas**, selecione **origens ligadas**e, em seguida, selecione **System Center**. 
+4. Na tabela na secção System Center Operations Manager, deverá ver o nome do grupo de gestão listado com o número de agentes e o estado quando os dados foram recebidos pela última vez.
    
    ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
-4. Tenha em atenção o **ID da área de trabalho** valor sob o lado esquerdo da página de definições.  Validá-lo contra o grupo de gestão do Operations Manager, abaixo.  
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração da consola de operações
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 2. Selecione **pacotes de gestão** e no **procure:** tipo caixa de texto **Advisor** ou **Intelligence**.
 3. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondentes, listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução de gestão de alertas, o pacote de gestão Gestão alertas do Microsoft System Center Advisor está na lista.
-4. Do **monitorização** ver, navegue para o **operações de gestão Suite\Health estado** vista.  Selecione um servidor de gestão no **estado do servidor de gestão** painel e, no **vista de detalhes** painel confirmar o valor da propriedade **URI do serviço de autenticação** corresponde o ID da área de trabalho OMS.
+4. Do **monitorização** ver, navegue para o **operações de gestão Suite\Health estado** vista.  Selecione um servidor de gestão no **estado do servidor de gestão** painel e, no **vista de detalhes** painel confirmar o valor da propriedade **URI do serviço de autenticação** corresponde o ID de área de trabalho de análise do registo.
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
-## <a name="remove-integration-with-oms"></a>Remova a integração com o OMS
-Quando já não necessitar de integração entre o grupo de gestão do Operations Manager e a área de trabalho do OMS, existem vários passos necessários para remover corretamente a ligação e a configuração do grupo de gestão. O procedimento seguinte tiver que atualizar a sua área de trabalho do OMS, eliminando a referência do seu grupo de gestão, elimine os conectores do OMS e, em seguida, elimine os pacotes de gestão que suportam OMS.   
+## <a name="remove-integration-with-log-analytics"></a>Remova a integração com a análise de registos
+Quando já não necessita de integração entre o grupo de gestão do Operations Manager e a área de trabalho de análise de registos, existem vários passos necessários para remover corretamente a ligação e a configuração do grupo de gestão. O procedimento seguinte tiver que atualizar a sua área de trabalho de análise de registos, eliminando a referência do seu grupo de gestão, elimine os conectores de análise de registos e, em seguida, elimine os pacotes de gestão que suporta a integração com o serviço.   
 
-Pacotes de gestão para as soluções tiver ativado a que se integram com o Operations Manager e os pacotes de gestão necessários para suportar a integração com o serviço do OMS não podem ser facilmente eliminados do grupo de gestão.  Isto acontece porque alguns dos pacotes de gestão de OMS terem dependências de outros pacotes de gestão relacionados.  Para eliminar pacotes de gestão, tendo uma dependência de outros pacotes de gestão, transferir o script [remover um pacote de gestão com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do Centro de scripts do TechNet.  
+Pacotes de gestão para as soluções tiver ativado a que se integram com o Operations Manager e os pacotes de gestão necessários para suportar a integração com o serviço de análise de registos não podem ser facilmente eliminados do grupo de gestão.  Isto acontece porque alguns dos pacotes de gestão de análise de registos terem dependências de outros pacotes de gestão relacionados.  Para eliminar pacotes de gestão, tendo uma dependência de outros pacotes de gestão, transferir o script [remover um pacote de gestão com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do Centro de scripts do TechNet.  
 
 1. Abra a Shell de comandos do Operations Manager com uma conta que seja membro da função administradores do Operations Manager.
    
@@ -293,7 +307,10 @@ Para eliminar os dois conectores - Microsoft.SystemCenter.Advisor.DataConnector 
     Remove-Connector $connectorName
 ```
 
-No futuro se planear no seu grupo de gestão para uma área de trabalho do OMS restabelecer a ligação, terá de voltar a importar o `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` ficheiro de pacote de gestão do update rollup mais recente aplicado ao seu grupo de gestão.  Pode encontrar este ficheiro no `%ProgramFiles%\Microsoft System Center 2012` ou `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` pasta.
+No futuro se planear no seu grupo de gestão para uma área de trabalho de análise de registos a restabelecer ligação, terá de voltar a importar o `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` ficheiro do pacote de gestão.  Dependendo da versão do System Center Operations Manager implementada no seu ambiente, pode encontrar este ficheiro na seguinte localização:
+
+* No suporte de dados de origem sob o `\ManagementPacks` pasta para o System Center 2016 - Operations Manager e planos superiores.
+* O mais recente do update rollup aplicada ao seu grupo de gestão.  Para o Operations Manager 2012, a pasta de origem é` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e para o 2012 R2, este ficará localizado no `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para adicionar a funcionalidade e recolher dados, consulte [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).

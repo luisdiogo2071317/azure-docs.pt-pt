@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes no App Service do Azure de teste
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Ao implementar a aplicação web, a aplicação web no Linux, back-end móvel e 
 * Implementar uma aplicação para uma ranhura pela primeira vez e trocar-o em produção assegura que todas as instâncias da ranhura são preparadas antes de a ser alternados em produção. Isto elimina o período de indisponibilidade quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado e não existem pedidos são ignorados devido a operações de comutação. Este fluxo de trabalho completo pode ser automatizado configurando [automática comutação](#Auto-Swap) quando a validação de pré-troca de não é necessária.
 * Depois de uma troca a ranhura de aplicação previamente testada tem agora a aplicação de produção anterior. Se as alterações alternadas para a ranhura de produção não tem o aspeto esperado, pode efetuar a troca mesma imediatamente para obter o seu "último boa site conhecido" novamente.
 
-Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
-
-* Quando a aplicação tiver várias ranhuras, não é possível alterar a camada.
-* Dimensionamento não está disponível para ranhuras de não produção.
-* Gestão de recursos ligado não é suportada para as ranhuras de não produção. No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) apenas, pode evitar esta potencial impacto na ranhura de produção, movendo temporariamente a ranhura de produção não para um escalão do plano de serviço de aplicações diferentes. Tenha em atenção que a ranhura de produção não tem novamente partilha da mesma camada com a ranhura de produção antes de pode trocar entre os dois blocos.
+Cada escalão do plano de serviço de aplicações suporta um número diferente de ranhuras de implementação. Para saber o número de ranhuras de suporte de camada da sua aplicação, consulte [limites de serviço de aplicações](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Ao dimensionar a sua aplicação a uma camada diferente, a camada de destino tem de suportar o número de ranhuras que já utiliza a sua aplicação. Por exemplo, se a aplicação tiver mais de 5 ranhuras, não pode dimensionar para baixo para **padrão** camada, porque **padrão** camada só suporta 5 ranhuras de implementação.
 
 <a name="Add"></a>
 

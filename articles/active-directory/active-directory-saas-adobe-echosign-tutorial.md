@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff059b27dc2bdcbfa8cecad1e46e9c2f268ef8c7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory com início de sessão do Adobe
 
@@ -103,7 +103,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     ![Configurar o início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
- 
+
     ![Configurar o início de sessão único](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. No **URLs e de domínio de início de sessão do Adobe** secção, execute os seguintes passos:
@@ -115,8 +115,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) para obter estes valores. 
- 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) para obter estes valores.
+
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![Configurar o início de sessão único](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -127,15 +127,34 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **configuração de sessão do Adobe** secção, clique em **configurar início de sessão do Adobe** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![Configurar o início de sessão único](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Adobe sessão como administrador.
+7. Para que a configuração tem de contactar [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) lista branca seu domínio no início de sessão Adobe. Siga os passos abaixo para adicionar o domínio:
 
-8. No menu de SAML, clique em **as definições da conta**e, em seguida, clique em **SAML definições**.
+    a. [Equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) enviará um token gerado aleatoriamente. Para o seu domínio, o token irá ser como: **verificação do início de sessão do adobe = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+
+    b. Terá de publicar o token de verificação num registo de texto DNS e notificar [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html).
+    
+    > [!NOTE]
+    > Pode esperar que este processo poderá demorar alguns dias ou talvez já. Tenha em atenção que os atrasos de propagação de DNS, significa que um valor publicado no DNS não pode ser visível para uma hora ou mais. Esperamos que o administrador de TI deve ser knowledgeable sobre como publicar este token num registo de texto DNS.
+    
+    c. Uma vez que notifique [equipa de suporte de cliente de início de sessão do Adobe](https://helpx.adobe.com/in/contact/support.html) através do pedido de suporte, depois do token é publicado, irão validar o domínio e adicioná-lo à sua conta.
+    
+    d. Passos gerais que pode tomar para publicar o token de um registo DNS-
+
+    * Inicie sessão na sua conta de domínio
+    * Localize a página para atualizar o registo DNS. Pode ser chamada para esta página Gestão de DNS, nome do servidor de gestão ou definições avançadas.
+    * Localize os registos TXT para o seu domínio.
+    * Adicionar um registo TXT com o valor completa token fornecido pelo Adobe
+    * Guarde as alterações.
+
+8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Adobe sessão como administrador.
+
+9. No menu de SAML, clique em **as definições da conta**e, em seguida, clique em **SAML definições**.
    
     ![Conta](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "conta")
 
-9. No **SAML definições** secção, execute os seguintes passos:
+10. No **SAML definições** secção, execute os seguintes passos:
   
     ![Definições de SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML definições")
    
@@ -265,4 +284,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

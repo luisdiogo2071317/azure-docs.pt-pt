@@ -14,18 +14,20 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Criar um Balanceador de Carga Standard - CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
+- name: Tutoriais
+  items:
+    - name: Balancear carga de tráfego interno para VMs
+      href: tutorial-load-balancer-basic-internal-portal.md
+    - name: Balancear carga de VMs por zonas de disponibilidade
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
+      href: tutorial-load-balancer-standard-public-zonal-portal.md
 - name: Amostras
   items:
     - name: CLI do Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-- name: Tutoriais
-  items:
-    - name: Balancear carga de VMs por zonas de disponibilidade
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
-    - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
-      href: tutorial-load-balancer-standard-public-zonal-portal.md
 - name: Conceitos
   items:
     - name: O que é o Balanceador de Carga Standard?

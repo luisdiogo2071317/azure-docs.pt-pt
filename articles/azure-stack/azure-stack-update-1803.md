@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-stack-1803-update"></a>Atualização de pilha 1803 do Azure
 
@@ -40,8 +40,18 @@ Este artigo descreve os melhoramentos e corrige no pacote de atualização de 18
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- Instalar a pilha de Azure [1802 atualizar](azure-stack-update-1802.md) antes de aplicar a atualização 1803 de pilha do Azure.    
+- Instalar a pilha de Azure [1802 atualizar](azure-stack-update-1802.md) antes de aplicar a atualização 1803 de pilha do Azure.   
 
+- Instalar **AzS correção – 1.0.180312.1-criar 20180222.2** antes de aplicar a atualização 1803 de pilha do Azure. Esta correção atualiza o Windows Defender e está disponível quando transferir atualizações para a pilha do Azure.
+
+  Para instalar a correção, siga os procedimentos normais para [instalar atualizações para o Azure pilha](azure-stack-apply-updates.md). O nome da atualização é apresentado como **AzS correção – 1.0.180312.1**e inclui os seguintes ficheiros: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  Depois de carregar estes ficheiros para uma conta de armazenamento e um contentor, execute a instalação a partir do mosaico de atualização no portal de administração. 
+  
+  Ao contrário das atualizações à pilha do Azure, instalar esta atualização não se altera a versão da pilha do Azure. Para confirmar esta atualização é instalada, ver a lista de **atualizações instaladas**.
 
 ### <a name="post-update-steps"></a>Passos pós-atualização
 - Após a instalação de 1803, instale as correções aplicáveis. Para mais informações, veja os seguintes artigos da base de dados de conhecimento, bem como a nossa [manutenção política](azure-stack-servicing-policy.md).

@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8ca8156d98932e0e7313375cadc1ace2a3088881
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 Atualize o Azure SQL Data Warehouse para geração mais recente da arquitetura de hardware e de armazenamento do Azure.
@@ -68,7 +68,13 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    
    O segundo passo do processo de atualização é a migração de dados ("Atualizar - Online"). Migração de dados é um processo de em segundo plano online trickle, que lentamente move os dados columnar de arquitetura de armazenamento antigo para a nova arquitetura de armazenamento tirar partido de uma cache SSD local. Durante este período, o armazém de dados será online para consultar e carregar. Todos os seus dados serão disponíveis para consulta independentemente se esta tiver sido migrada ou não. A migração de dados ocorre uma taxa variando consoante o tamanho dos dados, o nível de desempenho e o número de segmentos sua columnstore. 
 
-5. **Recomendação opcional:** a fim de acelerar o processo de em segundo plano de migração de dados, é recomendado para forçar imediatamente o movimento de dados através da execução [reconstrução Alter Index](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore numa maior SLO e recursos classe. Esta operação está offline em comparação com o processo de fundo trickle; No entanto, a migração de dados será muito mais rápida onde, em seguida, pode tirar partido da nova arquitetura do armazenamento avançado uma vez concluída com rowgroups de alta qualidade. 
+5. **Localizar o seu armazém de dados Gen2** utilizando o painel de navegação da base de dados SQL. 
+
+> [!NOTE]
+> Não há atualmente um problema onde os dados de Gen2 armazéns não irão aparecer no SQL data warehouse procurar painel. Utilize o painel de navegação da base de dados SQL para localizar o seu armazém de dados Gen2 recentemente atualizado. Estamos ativamente Esta correção.
+> 
+
+6. **Recomendação opcional:** a fim de acelerar o processo de em segundo plano de migração de dados, é recomendado para forçar imediatamente o movimento de dados através da execução [reconstrução Alter Index](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas columnstore numa maior SLO e recursos classe. Esta operação está offline em comparação com o processo de fundo trickle; No entanto, a migração de dados será muito mais rápida onde, em seguida, pode tirar partido da nova arquitetura do armazenamento avançado uma vez concluída com rowgroups de alta qualidade. 
 
 Esta consulta seguinte gera os comandos necessários Alter Index Rebuild a fim de acelerar o processo de migração de dados:
 

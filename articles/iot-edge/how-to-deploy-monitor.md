@@ -1,25 +1,25 @@
 ---
-title: "Implementar, monitorizar módulos do Azure IoT Edge | Microsoft Docs"
-description: "Gerir os módulos que são executadas em dispositivos de limite"
+title: Implementar, monitorizar módulos do Azure IoT Edge | Microsoft Docs
+description: Gerir os módulos que são executadas em dispositivos de limite
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementar e monitorizar os módulos de limite de IoT à escala - pré-visualização
 
 Limite de IoT do Azure permite-lhe mover analytics para o limite e fornece uma interface de nuvem, para que possa gerir e monitorizar os dispositivos de IoT Edge sem ter de aceder fisicamente cada um deles. A capacidade para gerir remotamente os dispositivos é cada vez mais importante como soluções de Internet das coisas estão a crescer maiores e mais complexas. Limite de IoT do Azure foi concebido para suportar os objetivos de negócio, independentemente do quantos dispositivos a adicionar.
 
-Pode gerir os dispositivos individuais e implementá-las módulos um de cada vez. No entanto, se pretender efetuar alterações nos dispositivos em grande escala, pode criar um **implementação IoT Edge**. As implementações são dinâmicos processos que permitem-lhe implementar vários módulos em vários dispositivos de uma só vez, controlar o estado e estado de funcionamento dos módulos e efetuar alterações quando for necessário. 
+Pode gerir os dispositivos individuais e implementá-las módulos um de cada vez. No entanto, se pretender efetuar alterações nos dispositivos em grande escala, pode criar um **implementação automática de limite de IoT**, que faz parte automática da gestão de dispositivos do IoT Hub. As implementações são dinâmicos processos que permitem-lhe implementar vários módulos em vários dispositivos de uma só vez, controlar o estado e estado de funcionamento dos módulos e efetuar alterações quando for necessário. 
 
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos utilizando as etiquetas
 
@@ -67,7 +67,7 @@ Para adicionar um módulo do Azure Stream Analytics, siga estes passos:
 1. Selecione **guardar** para adicionar o módulo para a implementação. 
 
 Para adicionar código personalizado como um módulo ou adicionar manualmente um módulo de serviço do Azure, siga estes passos:
-1. Selecione **módulo de limite de IoT adicionar**.
+1. Selecione **Adicionar módulo do IoT Edge**.
 1. Atribua o módulo de um **nome**.
 1. Para o **URI de imagem** campo, introduza a imagem de contentor do Docker para o módulo. 
 1. Especificar qualquer **contentor criar opções** que deve ser transmitido ao contentor. Para obter mais informações, consulte [docker criar][lnk-docker-create].
@@ -166,7 +166,7 @@ Quando elimina uma implementação, todos os dispositivos de colocar as suas imp
 1. Selecione **Eliminar**.
 1. Uma linha de comandos informar que esta ação irá eliminar esta implementação e reverter o estado anterior para todos os dispositivos.  Isto significa que uma implementação com uma prioridade mais baixa será aplicada.  Não se for aplicada nenhuma outra implementação, sem módulos serão removidos. Se os clientes pretenderem efetuar este procedimento, tem de criar uma implementação com zero módulos e implementá-la nos dispositivos. Selecione **Sim** se pretender continuar. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [implementar módulos para dispositivos de limite][lnk-deployments].
 

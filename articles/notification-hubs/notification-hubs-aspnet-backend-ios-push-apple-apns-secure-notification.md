@@ -1,10 +1,10 @@
 ---
 title: Notification Hubs do Azure segurados Push
-description: "Saiba como enviar notificações push segura para uma aplicação iOS a partir do Azure. Exemplos de código escrito em Objective-C e c#."
+description: Saiba como enviar notificações push segura para uma aplicação iOS a partir do Azure. Exemplos de código escrito em Objective-C e c#.
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notification Hubs do Azure segurados Push
 > [!div class="op_single_selector"]
@@ -54,11 +54,11 @@ Este tutorial de Secure Push mostra como enviar uma notificação push de forma 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>Modificar o projeto iOS
-Agora que alterou o seu back-end da aplicação para enviar apenas o *id* de uma notificação, tem de alterar a sua aplicação iOS para processar essa notificação e chamar novamente o back-end para obter a mensagem segura que será apresentado.
+Agora que alterou o seu back-end da aplicação para enviar apenas o *ID* de uma notificação, tem de alterar a sua aplicação iOS para processar essa notificação e chamar novamente o back-end para obter a mensagem segura que será apresentado.
 
 Para atingir este objetivo, temos de escrever a lógica para obter o conteúdo seguro do back-end da aplicação.
 
-1. No **Appdelegate**, certifique-se a aplicação se regista notificações silenciosa, de modo que processa o id de notificação enviado a partir do back-end. Adicionar o **UIRemoteNotificationTypeNewsstandContentAvailability** opção na didFinishLaunchingWithOptions:
+1. No **Appdelegate**, certifique-se os registos de aplicação para notificações silenciosa, pelo que processa o ID de notificação enviado a partir do back-end. Adicionar o **UIRemoteNotificationTypeNewsstandContentAvailability** opção na didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 2. No seu **Appdelegate** adicionar uma secção de implementação na parte superior com a seguinte declaração:
@@ -144,7 +144,7 @@ Para atingir este objetivo, temos de escrever a lógica para obter o conteúdo s
    
         }
    
-    Tenha em atenção que é preferível para processar de acordo com os casos de propriedade de cabeçalho de autenticação em falta ou rejeição back-end. O processamento específico nestes casos dependem principalmente na sua experiência de utilizador de destino. É uma opção apresentar uma notificação com uma linha de comandos genérica para o utilizador autenticar para obter a notificação real.
+    Tenha em atenção que é preferível para processar de acordo com os casos de propriedade de cabeçalho de autenticação em falta ou rejeição back-end. O processamento específico nestes casos depende principalmente da sua experiência de utilizador de destino. É uma opção apresentar uma notificação com uma linha de comandos genérica para o utilizador autenticar para obter a notificação real.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 Para executar a aplicação, efetue o seguinte:

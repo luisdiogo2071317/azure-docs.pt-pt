@@ -25,7 +25,7 @@
       href: quickstart-docker-go.md
 - name: Tutoriais
   items:
-    - name: 1 - Aplicação com BD
+    - name: Aplicação com BD
       items:
         - name: .NET Core com BD SQL
           href: tutorial-dotnetcore-sqldb-app.md
@@ -37,14 +37,16 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Contentor personalizado do Python com PostgreSQL
           href: tutorial-docker-python-postgresql-app.md
-    - name: 1 - Personalizar imagem do Docker
+    - name: Imagem Personalizada do Docker
       href: tutorial-custom-docker-image.md
-    - name: 2 - Mapear Domínio Personalizado
+    - name: Mapear um Domínio Personalizado
       href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 3 - Vincular Certificado SSL
+    - name: Vincular o Certificado SSL
       href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 4 - Adicionar a CDN
+    - name: Adicionar a CDN
       href: ../app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Autenticar utilizadores
+      href: tutorial-auth-aad.md
 - name: Amostras
   items:
     - name: CLI do Azure
@@ -65,6 +67,8 @@
       href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Escolher o tipo de implementação
       href: choose-deployment-type.md
+    - name: Diagnóstico
+      href: ../app-service-diagnostics.md
 - name: Guias de Procedimentos
   items:
     - name: Configurar aplicação
@@ -113,6 +117,8 @@
               href: ../app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
             - name: Autenticar com o Twitter
               href: ../app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Personalizar autenticação
+          href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Configurar a autenticação mútua de TLS
           href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Dimensionar aplicação

@@ -1,10 +1,26 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Segurança da Internet das coisas partir do zero
 
 A Internet das coisas (IoT) pode representar um únicos desafios de segurança, privacidade e conformidade para as empresas em todo o mundo. Ao contrário de tecnologia de informático tradicional onde estes problemas está centrada no software e como é implementado, o IoT seja relativo o que acontece quando o informático e os universos físicos convergir. Proteger soluções de IoT requer garantir segura de aprovisionamento de dispositivos, conectividade segura entre estes dispositivos e a nuvem e de proteção de proteger os dados na nuvem durante o processamento e armazenamento. Trabalhar com essas funcionalidades, no entanto, são dispositivos restrita de recursos, distribuição geográfica dos implementações e um grande número de dispositivos dentro de uma solução.
 
-Este artigo explicar como o Microsoft Azure IoT Suite fornece uma solução de nuvem de Internet das coisas segura e privada. O Azure IoT Suite oferece uma solução completa de ponto a ponto, com segurança incorporada em cada fase, a partir do zero. Na Microsoft, desenvolvimento de software segura é parte a prática de engenharia do software, root no decades da Microsoft longa experiência de desenvolvimento de software segura. Para garantir esta, o Security Development Lifecycle (SDL) é a metodologia de desenvolvimento básico, conjugada com um anfitrião dos serviços de segurança de nível de infraestrutura, como garantia de segurança operacional (OSA) e a unidade de Crimes digitais Microsoft, Microsoft O Centro de resposta de segurança e Microsoft Malware Protection Center.
+Este artigo explicar como aceleradores de solução IoT fornecem uma solução de nuvem de Internet das coisas segura e privada. Os Aceleradores solução fornecem uma solução completa de ponto a ponto, com segurança incorporada em cada fase, a partir do zero. Na Microsoft, desenvolvimento de software segura é parte a prática de engenharia do software, root no decades da Microsoft longa experiência de desenvolvimento de software segura. Para garantir esta, o Security Development Lifecycle (SDL) é a metodologia de desenvolvimento básico, conjugada com um anfitrião dos serviços de segurança de nível de infraestrutura, como garantia de segurança operacional (OSA) e a unidade de Crimes digitais Microsoft, Microsoft O Centro de resposta de segurança e Microsoft Malware Protection Center.
 
-O Azure IoT Suite oferece funcionalidades exclusivas esse tipo de aprovisionamento de disponibilizar, ligar a e armazenar dados de dispositivos de IoT simples e transparentes e, mais de tudo, proteger. Este artigo examina as funcionalidades de segurança do Azure IoT Suite e as estratégias de implementação para garantir a segurança, privacidade e desafios de conformidade são resolvidas.
+Aceleradores a solução oferecem funcionalidades exclusivas esse tipo de aprovisionamento de disponibilizar, ligar a e armazenar dados de dispositivos de IoT simples e transparentes e segura de maioria de tudo. Este artigo examina as funcionalidades de segurança de Aceleradores de solução IoT do Azure e estratégias de implementação para garantir a segurança, privacidade e desafios de conformidade são resolvidas.
 
 ## <a name="introduction"></a>Introdução
 
@@ -26,17 +42,17 @@ Microsoft Azure oferece uma solução completa de nuvem, que combina uma crescen
 
 Sistemas da Microsoft fornecem deteção de intrusão contínua e prevenção, prevenção de ataques de serviço, teste penetração regular e análises forenses ferramentas que ajudam a identificar e mitigar ameaças. [Autenticação multifator](../articles/active-directory/authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para os utilizadores finais acedam à rede. E para a aplicação e o fornecedor de anfitrião, a Microsoft oferece o controlo de acesso, monitorização, antimalware, análise de vulnerabilidade, patches e gestão de configuração.
 
-O Microsoft Azure IoT Suite tira partido da segurança e privacidade construída a plataforma do Azure, juntamente com os SDL e OSA processos de desenvolvimento seguro e a operação de todo o software Microsoft. Estes procedimentos fornecem proteção de infraestrutura, a proteção de rede e a identidade e gestão de funcionalidades fundamentais para a segurança de qualquer solução.
+Os Aceleradores solução tirar partido da segurança e privacidade construída a plataforma do Azure, juntamente com os SDL e OSA processos de desenvolvimento seguro e a operação de todo o software Microsoft. Estes procedimentos fornecem proteção de infraestrutura, a proteção de rede e a identidade e gestão de funcionalidades fundamentais para a segurança de qualquer solução.
 
-O [IoT Hub do Azure](../articles/iot-hub/iot-hub-what-is-iot-hub.md) dentro de [IoT Suite](../articles/iot-suite/iot-suite-what-is-azure-iot.md) oferece um serviço completamente gerido que permite fiável e segura comunicação bidirecional entre os dispositivos de IoT e serviços do Azure, tal como [ O Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) e [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) utilizando as credenciais de segurança por dispositivo e controlo de acesso.
+O [IoT Hub do Azure](../articles/iot-hub/iot-hub-what-is-iot-hub.md) dentro de [Aceleradores de solução IoT](../articles/iot-suite/iot-suite-what-is-azure-iot.md) oferece um serviço completamente gerido que permite fiável e segura comunicação bidirecional entre os dispositivos de IoT e serviços do Azure, tal como [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) e [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) utilizando as credenciais de segurança por dispositivo e controlo de acesso.
 
-Para comunicar melhor segurança e funcionalidades de privacidade incorporadas no Azure IoT Suite, este artigo divide suite nas três áreas principais de segurança.
+Para comunicar melhor segurança e funcionalidades de privacidade construídas Aceleradores de solução IoT do Azure, este artigo divide suite nas três áreas principais de segurança.
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Aceleradores de soluções do Azure IoT](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Proteger o aprovisionamento de dispositivos e autenticação
 
-Protege os dispositivos do Azure IoT Suite enquanto estiverem saída no campo ao fornecer uma chave de identidade exclusiva para cada dispositivo, o que pode ser utilizado pela infraestrutura IoT para comunicar com o dispositivo enquanto está na operação. O processo é rápido e fácil de configurar. A chave gerada com um ID de dispositivo do utilizador selecionado compõe a base de um token utilizado em toda a comunicação entre o dispositivo e de IoT Hub do Azure.
+Os Aceleradores solução proteger os dispositivos enquanto estiverem saída no campo ao fornecer uma chave de identidade exclusiva para cada dispositivo, o que pode ser utilizado pela infraestrutura IoT para comunicar com o dispositivo enquanto está na operação. O processo é rápido e fácil de configurar. A chave gerada com um ID de dispositivo do utilizador selecionado compõe a base de um token utilizado em toda a comunicação entre o dispositivo e de IoT Hub do Azure.
 
 Os IDs do dispositivo podem ser associados com um dispositivo durante fabrico (que é, atualizado de um módulo de confiança de hardware) ou podem utilizar existente fixo identidade como um proxy (por exemplo números de série de CPU). Uma vez que estas informações de identificação no dispositivo a alteração não simple, é importante apresentar os IDs de dispositivo lógico no caso das alterações de hardware do dispositivo subjacente, mas o dispositivo lógico permanece igual. Em alguns casos, a associação de uma identidade de dispositivo pode acontecer no momento da implementação de dispositivo (por exemplo, um engenheiro de campo autenticado fisicamente configura um novo dispositivo ao comunicar com o back-end da solução). O [registo de identidade do IoT Hub do Azure](../articles/iot-hub/iot-hub-devguide.md) fornece armazenamento seguro de identidades de dispositivo e as chaves de segurança para uma solução. Individuais ou grupos de identidades de dispositivo podem ser adicionados a uma lista de permissões ou uma lista de bloqueios, ativar o controlo total sobre o acesso ao dispositivo.
 
@@ -64,9 +80,9 @@ Funcionalidades de segurança de ligação adicionais incluem:
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Proteger o processamento e armazenamento na nuvem
 
-Comunicações encriptadas para processar os dados na nuvem, o Azure IoT Suite ajuda a manter os dados seguros. Fornece flexibilidade para implementar a gestão de chaves de segurança e de encriptação adicionais.
+Comunicações encriptadas para processar os dados na nuvem, os Aceleradores solução ajudam a manter os dados seguros. Fornece flexibilidade para implementar a gestão de chaves de segurança e de encriptação adicionais.
 
-Utilizar o Azure Active Directory (AAD) para autenticação de utilizador e a autorização, Azure IoT Suite pode fornecer um modelo de autorização baseada em política para os dados na nuvem, ativar a gestão de acesso fácil que pode ser auditada e rever. Este modelo permite também que quase instantâneas revogação do acesso a dados na nuvem e de dispositivos ligados para o Azure IoT Suite.
+Utilizar o Azure Active Directory (AAD) para autenticação de utilizador e a autorização, aceleradores de solução IoT do Azure podem fornecer um modelo de autorização baseada em política para os dados na nuvem, ativar a gestão de acesso fácil que pode ser auditada e rever. Este modelo permite também que quase instantâneas revogação do acesso a dados na nuvem e de dispositivos ligados ao Aceleradores de solução IoT do Azure.
 
 Depois de dados na nuvem, pode processar e armazenar em qualquer fluxo de trabalho definido pelo utilizador. Acesso para cada parte dos dados é controlado com o Azure Active Directory, consoante o serviço de armazenamento utilizado.
 
@@ -76,11 +92,11 @@ Todas as chaves utilizadas pela infraestrutura de IoT são armazenadas na nuvem 
 
 A Internet das coisas começa com as coisas — a tudo o que é mais relevante para as empresas. IoT possa fornecer valor incrível para uma empresa ao reduzir os custos, aumentar as receitas e transformar o negócio. Foi efetuada com êxito esta transformação depende em grande medida escolher o fornecedor de software e o serviço de IoT à direita. Isto significa que localizar um fornecedor que não só catalyzes esta transformação pelos requisitos e compreender as necessidades de negócio, mas também fornece serviços e software criadas com segurança, privacidade, transparência e conformidade como as considerações de design principais. A Microsoft tem experiência com a desenvolver e implementar os serviços e de software segura e continua a ter um leader este novo idade da Internet das coisas.
 
-O Microsoft Azure IoT Suite baseia-se nas medidas de segurança por predefinição, ativar a monitorização segura de recursos para melhorar a resulta numa eficiência, desempenho operacional de unidade para ativar inovação e recorrer a análise avançada de dados para transformar empresas. Com a abordagem em camadas para a segurança, várias funcionalidades de segurança e padrões de conceção, Azure IoT Suite ajuda a implementar uma infraestrutura que pode ser fidedigna para transformar qualquer empresariais.
+Criar os Aceleradores de solução em medidas de segurança por predefinição, ativar a monitorização segura de recursos para melhorar a resulta numa, eficiência de desempenho operacional de unidade para ativar inovação e recorrer a análise avançada de dados para transformar empresas. Com a abordagem em camadas para a segurança, várias funcionalidades de segurança e padrões de conceção, Aceleradores a solução ajudam a implementar uma infraestrutura que pode ser fidedigna para transformar qualquer empresariais.
 
 ## <a name="additional-information"></a>Informações adicionais
 
-Cada solução pré-configurada do Azure IoT Suite cria instâncias de serviços do Azure, tais como:
+Cada acelerador solução cria instâncias de serviços do Azure, tais como:
 
 * [**IoT Hub do Azure**](https://azure.microsoft.com/services/iot-hub/): O gateway que se liga a nuvem para dispositivos. Pode dimensionar para milhões de ligações por hub e processar grandes volumes de dados com o suporte de autenticação por dispositivo ajudando-o a proteger a sua solução.
 * [**BD do Azure do Cosmos**](https://azure.microsoft.com/services/cosmos-db/): um serviço de base de dados dimensionável e totalmente indexado para dados semiestruturados que gere os metadados para os dispositivos aprovisionar, como atributos, configuração e propriedades de segurança. BD do Azure do Cosmos oferece processamento elevado desempenho e débito elevado, o esquema agnóstico a indexação de dados e uma interface de consulta avançada do SQL Server.

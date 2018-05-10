@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0ce01b62fde690934d97fdefb7720e1be5512f4a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ddb72f267fc46d7980007d41c5d512f50eaf47e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro
 
@@ -319,7 +319,7 @@ Para alcançar [Service Fabric Explorer](service-fabric-visualizing-your-cluster
 
 O URL completo também está disponível no painel de essentials de cluster do portal do Azure.
 
-Para ligar a um cluster seguro no Windows ou OS X, utilizando um browser, pode importar o certificado de cliente e o browser irá pedir o certificado a utilizar para ligar ao cluster.  Em máquinas Linux, o certificado tem de ser importado utilizando as definições do browser avançado (cada browser tem diferentes mecanismos) e apontar para a localização do certificado tehe no disco.
+Para ligar a um cluster seguro no Windows ou OS X, utilizando um browser, pode importar o certificado de cliente e o browser irá pedir o certificado a utilizar para ligar ao cluster.  Em máquinas Linux, o certificado tem de ser importado utilizando as definições do browser avançado (cada browser tem diferentes mecanismos) e aponte-o para a localização do certificado no disco.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Ligar a um cluster seguro com o Azure Active Directory
 

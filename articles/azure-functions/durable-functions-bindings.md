@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f3952ce87394270051bd37fae271162abc04a675
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -36,17 +36,12 @@ Quando escrever funções do orchestrator no linguagens de scripts (por exemplo,
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` é o nome da orquestração. Este é o valor que os clientes devem utilizar quando pretendem inicie novas instâncias desta função do orchestrator. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
-* `version` é uma etiqueta de versão da orquestração. Clientes que iniciar uma nova instância de uma orquestração tem de incluir a etiqueta da versão correspondente. Esta propriedade é opcional. Se não for especificado, é utilizada a cadeia vazia. Para obter mais informações sobre o controlo de versões, consulte [Versioning](durable-functions-versioning.md).
-
-> [!NOTE]
-> Definir valores para `orchestration` ou `version` propriedades não é recomendado neste momento.
 
 Internamente este enlace de Acionador consulta uma série de filas na conta de armazenamento predefinido para a aplicação de função. Estas filas são detalhes de implementação interno da extensão, sendo o motivo não estão explicitamente configurados nas propriedades do enlace.
 
@@ -69,12 +64,11 @@ O acionador de orquestração enlace suporta entradas e saídas. Seguem-se algun
 * **entradas** -as funções de orquestração suportam apenas [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. A anulação da serialização de entradas diretamente na assinatura da função não é suportada. Código tem de utilizar o [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) método de obtenção do orchestrator entradas de função. Estas entradas tem de ser tipos serializáveis JSON.
 * **produz** -os accionadores de orquestração suportam valores de saída, bem como entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializáveis JSON. Se uma função devolve `Task` ou `void`, um `null` valor será guardado como saída.
 
-> [!NOTE]
-> Acionadores de orquestração só são suportados em c# neste momento.
-
 ### <a name="trigger-sample"></a>Exemplo de Acionador
 
-Segue-se um exemplo de que a função de orchestrator "Olá mundo" c# mais simples pode ter o seguinte aspeto:
+Segue-se um exemplo de que a função de orchestrator "Olá mundo" mais simples pode ter o seguinte aspeto:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,7 +79,23 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> Devem utilizar JavaScript orchestrators `return`. O `durable-functions` biblioteca encarrega-se de chamar o `context.done` método.
+
 A maioria das funções do orchestrator chamar funções de atividade, pelo que este é um exemplo de "Olá mundo" que demonstra como chamar uma função de atividade:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -96,6 +106,18 @@ public static async Task<string> Run(
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Acionadores de atividade
@@ -110,17 +132,12 @@ Se estiver a utilizar o portal do Azure para desenvolvimento, o acionador de ati
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` é o nome da atividade. Este é o valor que as funções do orchestrator utilizarem para invocar esta função de atividade. Esta propriedade é opcional. Se não for especificado, o nome da função é utilizado.
-* `version` é uma etiqueta de versão da atividade. As funções do Orchestrator que invocam a atividade tem de incluir a etiqueta da versão correspondente. Esta propriedade é opcional. Se não for especificado, é utilizada a cadeia vazia. Para obter mais informações, consulte [Versioning](durable-functions-versioning.md).
-
-> [!NOTE]
-> Definir valores para `activity` ou `version` propriedades não é recomendado neste momento.
 
 Internamente este enlace de Acionador consulta uma fila na conta de armazenamento predefinido para a aplicação de função. Esta fila é um detalhe de implementação interno da extensão, que é a razão não for explicitamente configurado nas propriedades do enlace.
 
@@ -144,12 +161,11 @@ O acionador de atividade enlace suporta entradas e saídas, tal como o acionador
 * **produz** -as funções de atividade suportam valores de saída, bem como entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializáveis JSON. Se uma função devolve `Task` ou `void`, um `null` valor será guardado como saída.
 * **Metadados** -as funções de atividade podem vincular a um `string instanceId` parâmetro para obter o ID de instância da orquestração do principal.
 
-> [!NOTE]
-> Acionadores de Atividades não são atualmente suportadas funções do Node.js.
-
 ### <a name="trigger-sample"></a>Exemplo de Acionador
 
-Segue-se um exemplo de uma função de atividade simple "Olá mundo" c# poderá aspeto:
+Segue-se um exemplo de uma função de atividade "Olá mundo" simple poderá aspeto:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,7 +176,17 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 O tipo de parâmetro predefinidos para o `ActivityTriggerAttribute` enlace é `DurableActivityContext`. No entanto, os acionadores de atividade também tipos de suporte do enlace diretamente para o JSON serializeable (incluindo tipos primitivos), para que a mesma função pode ser simplificada como segue:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -168,6 +194,14 @@ public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas no funções v2)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
 ```
 
 ### <a name="passing-multiple-parameters"></a>Vários parâmetros a transmitir 
@@ -302,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Exemplo de node.js
+#### <a name="javascript-sample"></a>Exemplo de JavaScript
 
-O exemplo seguinte mostra como utilizar o cliente de orquestração durável enlace para iniciar uma nova instância de função a partir de uma função Node.js:
+O exemplo seguinte mostra como utilizar o cliente de durável orchestration para iniciar uma nova instância de função a partir de uma função de JavaScript de enlace:
 
 ```js
 module.exports = function (context, input) {

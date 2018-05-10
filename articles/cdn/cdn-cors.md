@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilizar a CDN do Azure com a CORS
 ## <a name="what-is-cors"></a>O que é CORS?
@@ -57,7 +57,7 @@ Um pedido complexo é um pedido CORS onde o browser é necessária para enviar u
 ## <a name="wildcard-or-single-origin-scenarios"></a>Carateres universais ou cenários de origem única
 CORS na CDN do Azure irá funcionar automaticamente sem qualquer configuração adicional quando a **acesso controlo-permitir-origem** cabeçalho está definido como caráter universal (*) ou uma única origem.  A CDN serão colocados em cache a primeira resposta e pedidos subsequentes utilizarão o cabeçalho do mesmo.
 
-Se já tiverem sido efetuados pedidos para a CDN antes de CORS a ser definidos na sua origem, terá de remover o conteúdo no seu conteúdo de ponto final para recarregar o conteúdo com o **acesso controlo-permitir-origem** cabeçalho.
+Se já tiverem sido efetuados pedidos para a CDN antes de definir a sua origem CORS, terá de remover o conteúdo no seu conteúdo de ponto final para recarregar o conteúdo com o **acesso controlo-permitir-origem** cabeçalho.
 
 ## <a name="multiple-origin-scenarios"></a>Vários cenários de origem
 Se precisar de permitir que uma lista específica de origens a permissão para CORS, coisas obtêm um pouco mais complicadas. O problema ocorre quando o CDN coloca em cache o **acesso controlo-permitir-origem** cabeçalho para a origem CORS primeiro.  Quando uma origem CORS diferentes faz um pedido subsequente, a CDN irá servir o em cache **acesso controlo-permitir-origem** cabeçalho, que não corresponde.  Existem várias formas para corrigir isto.
@@ -65,9 +65,9 @@ Se precisar de permitir que uma lista específica de origens a permissão para C
 ### <a name="azure-cdn-premium-from-verizon"></a>CDN Premium do Azure da Verizon
 A melhor forma de ativar esta opção é utilizar **CDN do Azure Premium da Verizon**, que expõe algumas avançada funcionalidade. 
 
-Terá [criar uma regra](cdn-rules-engine.md) para verificar o **origem** cabeçalho no pedido.  Se se tratar de uma origem válida, a regra irá definir o **acesso controlo-permitir-origem** cabeçalho com a origem fornecido no pedido.  Se a origem especificada no **origem** cabeçalho não é permitido, a regra deve omitir o **acesso controlo-permitir-origem** cabeçalho que fará com que o browser rejeitar o pedido. 
+Terá [criar uma regra](cdn-rules-engine.md) para verificar o **origem** cabeçalho no pedido.  Se se tratar de uma origem válida, a regra irá definir o **acesso controlo-permitir-origem** cabeçalho com a origem fornecido no pedido.  Se a origem especificada no **origem** cabeçalho não é permitido, a regra deve omitir o **acesso controlo-permitir-origem** cabeçalho, o que fará com que o browser rejeitar o pedido. 
 
-Existem duas formas de fazê-lo com o motor de regras.  Em ambos os casos, o **acesso controlo-permitir-origem** cabeçalho do servidor de origem do ficheiro é ignorado completamente, o motor de regras a CDN completamente gere as origens CORS permitidas.
+Existem duas formas de fazê-lo com o motor de regras. Em ambos os casos, o **acesso controlo-permitir-origem** cabeçalho do servidor de origem do ficheiro é ignorado e o motor de regras a CDN completamente gere as origens CORS permitidas.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Uma expressão regular com todas as origens válidas
 Neste caso, irá criar uma expressão regular que inclui todas as origens que pretende permitir: 
@@ -75,7 +75,7 @@ Neste caso, irá criar uma expressão regular que inclui todas as origens que pr
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **CDN do Azure da Verizon** utiliza [Perl compatível, expressões regulares](http://pcre.org/) como o motor de expressões regulares.  Pode utilizar uma ferramenta como o [101 de expressões regulares](https://regex101.com/) para validar a expressão regular.  Tenha em atenção que o caráter "/" é válido em expressões regulares e não tem de ser caráter de escape correto, no entanto, escape esse caráter é considerada uma melhor prática e é esperada pelo algumas validações regex.
+> **O Azure CDN Premium da Verizon** utiliza [Perl compatível, expressões regulares](http://pcre.org/) como o motor de expressões regulares.  Pode utilizar uma ferramenta como o [101 de expressões regulares](https://regex101.com/) para validar a expressão regular.  Tenha em atenção que o caráter "/" é válido em expressões regulares e não tem de ser caráter de escape correto, no entanto, escape esse caráter é considerada uma melhor prática e é esperada pelo algumas validações regex.
 > 
 > 
 
@@ -93,6 +93,6 @@ Em vez de expressões regulares, em vez disso, pode criar uma regra separada par
 > 
 > 
 
-### <a name="azure-cdn-standard"></a>Standard da CDN do Azure
-Nos perfis de CDN do Azure Standard, o mecanismo de apenas para permitir a várias origens sem a utilização da origem de caráter universal é utilizar [colocação em cache de cadeia de consulta](cdn-query-string.md).  Terá de ativar a definição da cadeia de consulta para o ponto final CDN e, em seguida, utilizar uma cadeia de consulta exclusivo para pedidos de cada domínio permitido. Efetuar este procedimento resultará na CDN um objeto separado para cada cadeia de consulta exclusivo a colocação em cache. Esta abordagem não é ideal, no entanto, pois irá resultar em várias cópias do mesmo ficheiro colocadas em cache no CDN.  
+### <a name="azure-cdn-standard-profiles"></a>Perfis de padrão da CDN do Azure
+Nos perfis de padrão da CDN do Azure (**CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Akamai**, e **CDN do Azure Standard da Verizon**), o mecanismo de apenas permitir para várias origens, sem a utilização da origem de caráter universal é utilizar [colocação em cache de cadeia de consulta](cdn-query-string.md). Ativar a definição de cadeia de consulta para o ponto final CDN e, em seguida, utilize uma cadeia de consulta exclusivo para pedidos de cada domínio permitido. Se o fizer, irá resultar na CDN um objeto separado para cada cadeia de consulta exclusivo a colocação em cache. Esta abordagem não é ideal, no entanto, pois irá resultar em várias cópias do mesmo ficheiro colocadas em cache no CDN.  
 

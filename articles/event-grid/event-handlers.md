@@ -1,0 +1,79 @@
+---
+title: Processadores de eventos de grelha de eventos do Azure
+description: Descreve os processadores de eventos suportados para a grelha de eventos do Azure
+services: event-grid
+author: tfitzmac
+manager: timlt
+ms.service: event-grid
+ms.topic: article
+ms.date: 05/04/2018
+ms.author: tomfitz
+ms.openlocfilehash: 01a49ec47b406b7b916ecad5ef9ccc3af295fac1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/08/2018
+---
+# <a name="event-handlers-in-azure-event-grid"></a>Processadores de eventos na grelha de eventos do Azure
+
+Um processador de eventos é o local onde o evento é enviado. O processador demora algumas medidas adicionais para processar o evento. Vários serviços do Azure são automaticamente configurados para processar eventos. Também pode utilizar quaisquer webhook para processar eventos. O webhook não precisa de ser alojado no Azure para processar eventos.
+
+Este artigo fornece ligações para conteúdo para o processador de eventos.
+
+## <a name="azure-automation"></a>Automatização do Azure
+
+Utilize a automatização do Azure para processar eventos com runbooks automatizados.
+
+|Cargo  |Descrição  |
+|---------|---------|
+|[Integração da automatização do Azure com grelha de eventos e equipas da Microsoft](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, o que envia um evento. O evento é acionado um runbook de automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal Teams da Microsoft. |
+
+## <a name="azure-functions"></a>Funções do Azure
+
+Utilize as funções do Azure para resposta sem servidor eventos.
+
+|Cargo  |Descrição  |
+|---------|---------|
+| [Acionador de grelha de eventos para as funções do Azure](../azure-functions/functions-bindings-event-grid.md) | Descrição geral de utilizar o acionador de grelha de evento nas funções. |
+| [Utilizar o Event Grid para automatizar o redimensionamento de imagens carregadas](resize-images-on-storage-blob-upload-event.md) | Utilizadores carregar imagens através da aplicação web para a conta de armazenamento. Quando é criado um blob de armazenamento, o evento grelha enviará um evento para a aplicação de função, redimensiona a imagem carregada. |
+| [Transmitir macrodados em fluxo para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Event Hubs cria um ficheiro de captura, o evento grelha enviará um evento para uma aplicação de função. A aplicação obtém o ficheiro de captura e migra dados para um armazém de dados. |
+| [Service Bus do Azure para exemplos de integração da grelha de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens do tópico de barramento de serviço para a função de aplicação e aplicação lógica. |
+
+## <a name="hybrid-connections"></a>Ligações Híbridas
+
+Utilize as ligações de híbridas de reencaminhamento do Azure para enviar eventos para aplicações que estão dentro de uma rede empresarial e não tem um ponto final acessível publicamente.
+
+|Cargo  |Descrição  |
+|---------|---------|
+| [Enviar eventos da ligação híbrida](custom-event-to-hybrid-connection.md) | Envia um evento personalizado para uma ligação híbrida existente para processar uma aplicação de serviço de escuta. |
+
+## <a name="logic-apps"></a>Aplicações Lógicas
+
+Utilize as Logic Apps para automatizar os processos de negócio para responder a eventos.
+
+|Cargo  |Descrição  |
+|---------|---------|
+| [Monitorizar alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza as alterações a uma máquina virtual e envia mensagens de correio eletrónico sobre essas alterações. |
+| [Enviar notificações por e-mail sobre eventos de IoT Hub do Azure utilizando as Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação, sempre que um dispositivo é adicionado ao seu IoT hub. |
+| [Service Bus do Azure para exemplos de integração da grelha de eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens do tópico de barramento de serviço para a função de aplicação e aplicação lógica. |
+
+## <a name="queue-storage"></a>Armazenamento de filas
+
+Utilize o armazenamento de filas para receber eventos que têm de ser solicitados.
+
+|Cargo  |Descrição  |
+|---------|---------|
+| [Eventos personalizados de rota para o armazenamento de filas do Azure com a CLI do Azure e a grelha de eventos](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de filas. |
+
+## <a name="webhooks"></a>WebHooks
+
+Utilize webhooks para pontos finais personalizáveis que respondem a eventos.
+
+|Cargo  |Descrição  |
+|---------|---------|
+| [Receber eventos para um ponto final HTTP](receive-events.md) | Descreve como validar um ponto final de HTTP para receber eventos a partir de uma subscrição de evento e receber e anular a serialização de eventos. |
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
+* Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).

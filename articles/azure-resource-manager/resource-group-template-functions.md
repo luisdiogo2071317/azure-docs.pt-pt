@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 834488e259caf60ae96450fcf7c8188c5ffb0bc5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e21a8251cc4a85232b92faa05d01d0f73410e496
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções de modelo do Azure Resource Manager
 Este artigo descreve todas as funções que pode utilizar um modelo Azure Resource Manager.
@@ -28,6 +28,8 @@ Adicione funções nos seus modelos por envolvente-los entre parênteses Retos: 
 Uma expressão de modelo não pode exceder 24,576 carateres.
 
 Funções de modelo e os respetivos parâmetros são sensível. Por exemplo, o Gestor de recursos é resolvido **variables('var1')** e **VARIABLES('VAR1')** como o mesmo. Quando avaliada, a menos que a função expressamente modifica caso (como toUpper ou toLower), a função preserva as maiúsculas e minúsculas. Determinados tipos de recurso podem ter requisitos de cenários independentemente da forma como são avaliadas as funções.
+
+Para criar as suas próprias funções, consulte [funções definidas pelo utilizador](resource-group-authoring-templates.md#functions).
 
 <a id="array" />
 <a id="coalesce" />

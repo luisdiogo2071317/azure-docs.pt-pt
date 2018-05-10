@@ -14,11 +14,11 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar as credenciais da conta com a aplicação Microsoft Authenticator
 **Aplica-se a:**
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 A aplicação Microsoft Authenticator efetua a cópia de segurança de credenciais da conta e definições de aplicação relacionados, tais como a ordem das suas contas, para a nuvem. Após a cópia de segurança, também pode utilizar a aplicação para recuperar as informações num dispositivo novo, evitando potencialmente obter bloqueado fora ou ter de recriar as contas.
 
 >[!IMPORTANT]
-> Precisará de uma conta Microsoft pessoal e uma conta do iCloud para cada localização de armazenamento de cópia de segurança. Mas dentro dessa localização de armazenamento, pode criar cópias de segurança várias contas. Por exemplo, pode ter uma conta pessoal, uma conta profissional e uma conta de terceiros, como o Facebook, Google e assim sucessivamente.<br><br>Só as credenciais da conta são armazenadas, que inclui o nome de utilizador e o código de verificação de conta de 8-dígitos necessárias para provar a sua identidade com a aplicação Microsoft Authenticator. Não armazenamos como outras informações associadas com as suas contas, incluindo ficheiros ou mensagens de correio eletrónico. Podemos também não associar ou partilhar as contas de qualquer forma ou com qualquer produto ou serviço. E por fim, o administrador de TI não irá obter as informações sobre qualquer uma destas contas.
+> Precisará de uma conta Microsoft pessoal e uma conta do iCloud para cada localização de armazenamento de cópia de segurança. Mas dentro dessa localização de armazenamento, pode criar cópias de segurança várias contas. Por exemplo, pode ter uma conta pessoal, uma conta profissional e uma conta de terceiros, como o Facebook, Google e assim sucessivamente.<br><br>Só as credenciais da conta pessoal e de terceiros 3rd são armazenadas, que inclui o nome de utilizador e o código de verificação de conta necessárias para provar a sua identidade. Não armazenamos como outras informações associadas com as suas contas, incluindo ficheiros ou mensagens de correio eletrónico. Podemos também não associar ou partilhar as contas de qualquer forma ou com qualquer produto ou serviço. E por fim, o administrador de TI não irá obter as informações sobre qualquer uma destas contas.
 
 ## <a name="back-up-your-account-credentials"></a>Criar cópias de segurança as credenciais da conta
 Antes de fazer uma cópia de segurança as suas credenciais, tem de ter ambos:

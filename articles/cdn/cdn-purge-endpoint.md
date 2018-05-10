@@ -1,11 +1,11 @@
 ---
 title: Remover um ponto final de CDN do Azure | Microsoft Docs
-description: "Saiba como remover todos os conteúdos em cache a partir de um ponto final de CDN do Azure."
+description: Saiba como remover todos os conteúdos em cache a partir de um ponto final de CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Remover um ponto final de CDN do Azure
 ## <a name="overview"></a>Descrição geral
@@ -51,14 +51,14 @@ Este tutorial orienta-o através da remoção de recursos de todos os nós de li
    > 
    > 
 4. Selecione os recursos que pretende remover a partir de nós edge.  Se pretende limpar todos os recursos, clique em de **remover** caixa de verificação.  Caso contrário, escreva o caminho de cada recurso que pretende remover no **caminho** caixa de texto. Abaixo formatos são suportadas no caminho.
-    1. **Remoção de URL único**: remover recurso individual, especificando o URL completo, com ou sem a extensão de ficheiro, por exemplo,`/pictures/strasbourg.png`;`/pictures/strasbourg`
+    1. **Remoção de URL único**: remover recurso individual, especificando o URL completo, com ou sem a extensão de ficheiro, por exemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
     2. **Remoção de carateres universais**: asterisco (\*) pode ser utilizado como um caráter universal. Remover todas as pastas, subpastas e ficheiros de um ponto final com `/*` no caminho ou remoção de todas as subpastas e ficheiros na pasta específica, especificando a pasta seguido `/*`, por exemplo,`/pictures/*`.  Tenha em atenção que remoção de carateres universais não é suportada pelo Azure CDN da Akamai atualmente. 
     3. **Remoção de domínio de raiz**: remover a raiz do ponto final com "/" no caminho.
    
    > [!TIP]
    > Os caminhos tem de ser especificados para remoção e tem de ser um URL relativo, que se adequam às seguintes [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx). **Remover todos os** e **remoção de carateres universais** não suportados pela **CDN do Azure da Akamai** atualmente.
-   > > Remoção de URL único`@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Cadeia de consulta`@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   > > Remoção de URL único `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   > > Cadeia de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Remoção de carateres universais `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
    > Mais **caminho** caixas de texto serão apresentada depois de introduzir texto para permitir-lhe criar uma lista de vários recursos.  Pode eliminar os recursos na lista ao clicar no botão de reticências (…).
@@ -68,11 +68,11 @@ Este tutorial orienta-o através da remoção de recursos de todos os nós de li
     ![Remover botão](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Pedidos de remoção demorar cerca de 2 a 3 minutos para processar com **CDN do Azure da Verizon** (Standard e Premium) e aproximadamente 7 minutos com **CDN do Azure da Akamai**.  CDN do Azure tem um limite de 50 simultâneas remover pedidos em qualquer momento ao nível do perfil. 
+> Pedidos de remoção demorar cerca de 2 a 3 minutos para processar com **CDN do Azure da Verizon** (standard e premium) e aproximadamente 7 minutos com **CDN do Azure da Akamai**.  CDN do Azure tem um limite de 50 simultâneas remover pedidos em qualquer momento ao nível do perfil. 
 > 
 > 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Pré-carregar recursos num ponto final da CDN do Azure](cdn-preload-endpoint.md)
 * [Referência da API de REST de CDN do Azure - remover ou carregar previamente um ponto final](https://msdn.microsoft.com/library/mt634451.aspx)
 

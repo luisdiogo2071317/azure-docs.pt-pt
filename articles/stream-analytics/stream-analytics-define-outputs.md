@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 05/07/2018
+ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa de Stream Analytics. Utilizar os dados de saída, pode fazê-lo ainda mais análise de negócio e dados do armazém de dados. 
@@ -48,7 +48,7 @@ Suporta análise de sequência [Azure Data Lake Store](https://azure.microsoft.c
 | Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD |
 |Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
 | Formato de serialização de eventos | Formato de serialização para dados de saída. JSON, CSV e Avro são suportados.| 
-| Encoding | Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento.|
+| Codificação | Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento.|
 | Delimitador | Só é aplicável a serialização de CSV. Stream Analytics suporta um número de delimitadores comuns para serializar os dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical.|
 | Formato | Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para.|
 
@@ -86,22 +86,24 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Conta de Armazenamento | O nome da conta do storage onde está a enviar o resultado. |
 | Chave da Conta de Armazenamento | A chave secreta associada à conta de armazenamento. |
 | Contentor de armazenamento | Contentores fornecem um agrupamento lógico blobs armazenados no Microsoft serviço Blob do Azure. Quando carregar um blob para o serviço Blob, tem de especificar um contentor para esse blob. |
-| Padrão do caminho | Opcional. O padrão do caminho de ficheiro utilizado para escrever os blobs no contentor especificado. </br> O padrão de caminho, pode optar por utilizar uma ou mais instâncias das 2 variáveis seguintes para especificar a frequência com que os blobs são escritos: </br> {date}, {time} </br> Exemplo 1: cluster1/logs / {date} / {time} </br> Exemplo 2: cluster1/logs / {date} <BR> <BR> Atribuição de nome de ficheiro, segue-se a seguinte convenção: </br> {Caminho prefixo Pattern}/schemaHashcode_Guid_Number.extension </br></br> Ficheiros de saída de exemplo: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Padrão do caminho | Opcional. O padrão do caminho de ficheiro utilizado para escrever os blobs no contentor especificado. </br></br> O padrão de caminho, pode optar por utilizar uma ou mais instâncias das variáveis do tempo de data para especificar a frequência com que os blobs são escritos: </br> {date}, {time} </br> </br>Também pode especificar um nome de campo {coluna} dos seus dados para blobs da partição por onde o nome do campo seja alfanumérico e pode incluir espaços, hífenes e carateres de sublinhado. Restrições em campos personalizados incluem o seguinte: <ul><li>Caso insensitivity (não é possível diferente entre a coluna "ID" e coluna "id")</li><li>Campos aninhados não são permitidos (em vez disso, utilize um alias de consulta da tarefa para "aplanar" o campo)</li><li>As expressões não podem ser utilizadas como um nome de campo</li></ul>Exemplos: <ul><li>Exemplo 1: cluster1/logs / {date} / {time}</li><li>Exemplo 2: cluster1/logs / {date}</li><li>Exemplo 3: cluster1 / {client_id} / {date} / {time}</li><li>Exemplo 4: cluster1 / {myField} em que a consulta é: data.myField SELECIONE como myField de entrada;</li></ul><BR> Atribuição de nome de ficheiro, segue-se a seguinte convenção: </br> {Caminho prefixo Pattern}/schemaHashcode_Guid_Number.extension </br></br> Ficheiros de saída de exemplo: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD |
 | Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
 | Formato de serialização de eventos | Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados.
-| Encoding | Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
+| Codificação | Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador | Só é aplicável a serialização de CSV. Stream Analytics suporta um número de delimitadores comuns para serializar os dados CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato | Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para. |
 
 Ao utilizar o armazenamento de BLOBs como resultado, é criado um novo ficheiro no blob nos seguintes casos:
 
-* Se o ficheiro excede o número máximo de blocos permitidos. O número máximo permitido de blocos pode aceder sem atingir o tamanho máximo de blob permitidos. Por exemplo, se a taxa de saída é elevada, pode ver bytes mais por blocos e o tamanho do ficheiro é maior. Se a taxa de saída é baixa, cada bloco tem menos de dados e o tamanho do ficheiro é mais pequeno.
+* Se o ficheiro excede o número máximo de blocos permitidos (atualmente 50 000). O número máximo permitido de blocos pode aceder sem atingir o tamanho máximo de blob permitidos. Por exemplo, se a taxa de saída é elevada, pode ver bytes mais por blocos e o tamanho do ficheiro é maior. Se a taxa de saída é baixa, cada bloco tem menos de dados e o tamanho do ficheiro é mais pequeno.
 * Se existir uma alteração de esquema no resultado, e o formato de saída requer o esquema fixo (CSV e Avro).  
-* Se uma tarefa for reiniciada uma externamente ou a reinicialização interna de uma tarefa.  
+* Se uma tarefa for reiniciada, externamente por um utilizador pará-lo e ao iniciá-los, ou internamente para a recuperação de manutenção ou erro de sistema.  
 * Se a consulta completamente estar particionada, é criado novo ficheiro para cada partição de saída.  
 * Se um ficheiro ou de um contentor da conta de armazenamento é eliminado pelo utilizador.  
 * Se o resultado é tempo particionado com o padrão de prefixo do caminho, um novo blob é utilizado quando a consulta é movido para a hora seguinte.
+* Se a saída particionada um campo personalizado, um novo blob é criado por uma chave de partição se não existir.
+*   Se a saída particionada um campo personalizado onde a cardinalidade de chave de partição excede 8000, um novo blob pode ser criado por uma chave de partição.
 
 ## <a name="event-hub"></a>Hub de Eventos
 O [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/) serviço é altamente dimensionável de publicação-subscrição ingestor de eventos. -Pode recolher milhões de eventos por segundo. Uma utilização de um Hub de eventos como saída é quando o resultado de uma tarefa de Stream Analytics torna-se a entrada de outra tarefa de transmissão em fluxo.
@@ -117,7 +119,7 @@ Existem alguns parâmetros que são necessários para configurar os fluxos de da
 | Chave da política do Hub de Eventos | A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de Hub de eventos. |
 | Coluna de chave de partição [opcional] | Esta coluna contém a chave de partição do Hub de eventos de saída. |
 | Formato de serialização de eventos | Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
-| Encoding | Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
+| Codificação | Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador | Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato | Só é aplicável a serialização do JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Esta matriz está fechada apenas quando o deixa de tarefa do Stream Analytics tem mover ou para a próxima janela de tempo. Em geral, é preferível a utilizar a linha de valores separados por JSON, uma vez que não requer qualquer processamento especial enquanto ainda está a ser escrito no ficheiro de saída para. |
 
@@ -218,7 +220,7 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Nome da política da fila |Quando cria uma fila, também pode criar políticas de acesso partilhado no separador de configuração. Cada política de acesso partilhado tem um nome, as permissões que define e chaves de acesso. |
 | Chave da política da fila |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
 | Formato de serialização de eventos |Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
-| Encoding |Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento |
+| Codificação |Para o CSV e JSON, UTF-8 é o único formato de codificação suportado neste momento |
 | Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato |Só é aplicável para o tipo JSON. Separadas por linhas Especifica que o resultado é formatado, fazendo com que cada objeto JSON separado por uma nova linha. A matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. |
 
@@ -237,7 +239,7 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Nome da política do tópico |Quando cria um tópico, também pode criar políticas de acesso partilhado no separador de configuração. Cada política de acesso partilhado tem o nome, as permissões que definir e chaves de acesso |
 | Chave da política do tópico |A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes de barramento de serviço |
 | Formato de serialização de eventos |Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados. |
-| Encoding |Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento |
+| Codificação |Se utilizar formato CSV ou JSON, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento |
 | Delimitador |Só é aplicável a serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 
 O número de partições é [com base no SKU de barramento de serviço e tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.

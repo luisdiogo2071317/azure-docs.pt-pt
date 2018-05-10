@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8a3eedb5a3d96eedd1a64d85afdb58f8961df272
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de carga do Azure?
 
@@ -73,9 +73,9 @@ Balanceador de carga fornece as seguintes capacidades fundamentais para as aplic
 
 * **Aplicação agnóstico relativamente e transparente**
 
-    Balanceador de carga não interage diretamente com o TCP ou UDP ou camada da aplicação e quaisquer TCP ou UDP baseada em cenário pode ser suportado.  Balanceador de carga não terminar ou provir fluxos, interagir com o payload de fluxo, não fornece nenhuma função de gateway da camada de aplicação e handshakes protocolo ocorrerem sempre diretamente entre o cliente e a instância de conjunto back-end.  Uma resposta a um fluxo de entrada é sempre uma resposta de uma máquina virtual.  Quando o fluxo chega na máquina virtual, o endereço IP de origem original também é preservado.  Alguns exemplos para ilustrar ainda mais a transparência:
-    - Um handshake TCP sempre ocorre entre o cliente e a VM de back-end selecionada. Uma resposta a um pedido para um front-end for uma resposta gerada pela VM de back-end. Deve utilizar o ping TCP para validar a conetividade para este cenário.  Utilize [psping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) ou [nmap](https://nmap.org) para verificar se um handshake com uma máquina virtual bom estado de funcionamento for bem sucedida. Tenha em atenção o ICMP é um protocolo de endereço IP diferente a UDP ou TCP e não é suportado para esta finalidade.
-    - Payloads de aplicação são transparentes para o Balanceador de carga e qualquer UDP ou aplicação TCP com base pode ser suportada. Para cargas de trabalho que requerem pelo processamento de pedidos HTTP ou manipulação de payloads de camada de aplicação (por exemplo, análise de HTTP URLs), deve utilizar uma camada 7 carga balanceador como [Gateway de aplicação](https://azure.microsoft.com/en-us/services/application-gateway).
+    Balanceador de carga não interage diretamente com o TCP ou UDP ou camada da aplicação e quaisquer TCP ou UDP cenário de aplicação pode ser suportado.  Balanceador de carga não terminar ou provir fluxos, interagir com o payload de fluxo, não fornece nenhuma função de gateway da camada de aplicação e handshakes protocolo ocorrerem sempre diretamente entre o cliente e a instância de conjunto back-end.  Uma resposta a um fluxo de entrada é sempre uma resposta de uma máquina virtual.  Quando o fluxo chega na máquina virtual, o endereço IP de origem original também é preservado.  Alguns exemplos para ilustrar ainda mais a transparência:
+    - Cada ponto final só está a ser respondida por uma VM.  Por exemplo, um handshake TCP sempre ocorre entre o cliente e a VM de back-end selecionada.  Uma resposta a um pedido para um front-end for uma resposta gerada pela VM de back-end. Ao validar a conectividade a um front-end com êxito, são a validar a conetividade ponto a ponto pelo menos uma máquina virtual de back-end.
+    - Payloads de aplicação são transparentes para o Balanceador de carga e qualquer UDP ou TCP de aplicações pode ser suportada. Para cargas de trabalho que requerem pelo processamento de pedidos HTTP ou manipulação de payloads de camada de aplicação (por exemplo, análise de HTTP URLs), deve utilizar um balanceador de carga de camada 7 como [Gateway de aplicação](https://azure.microsoft.com/en-us/services/application-gateway).
     - Porque o Balanceador de carga é agnóstico relativamente ao payload TCP e descarga de TLS ("SSL") não for fornecido, pode criar cenários de encriptados ponto a ponto utilizando o Balanceador de carga e obter grande de ampliação para aplicações de TLS ao terminar a ligação de TLS a própria VM.  Por exemplo, a sua sessão TLS o rechaveamento da capacidade apenas é limitado pelo tipo e número de VMs que adiciona ao conjunto de back-end.  Se necessitar de "Descarga de SSL", o tratamento de camada de aplicação ou pretende delegar a gestão de certificados para o Azure, deve utilizar o Balanceador de carga do Azure camada 7 [Gateway de aplicação](https://azure.microsoft.com/en-us/services/application-gateway) em vez disso.
         
 
@@ -93,14 +93,14 @@ Balanceador de carga fornece as seguintes capacidades fundamentais para as aplic
 
     - **Sonda personalizada TCP**: esta pesquisa depende de estabelecer uma sessão TCP com êxito para uma porta de pesquisa definidos. Desde que o serviço de escuta especificado na VM existe, esta pesquisa é concluída com êxito. Se a ligação é recusada, falha de pesquisa. Esta pesquisa substitui a sonda de agente de convidados predefinida.
 
-    - **Pesquisa de agente do convidado (na plataforma como um VMs de serviço [PaaS] apenas)**: O balanceador de carga, também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta de HTTP 200 OK apenas quando a instância está no estado pronto. Se o agente não conseguir responder com um HTTP 200 OK, o Balanceador de carga marca a instância como responder e deixa de envio de tráfego para essa instância. O Balanceador de carga continua a tentar aceder a instância. Se o agente convidado responde com uma HTTP 200, o Balanceador de carga envia tráfego a essa instância novamente. As pesquisas de agente do convidado são último recurso e não devem ser utilizadas quando o HTTP ou TCP configurações de sonda personalizada são possíveis. 
+    - **Pesquisa de agente do convidado (na plataforma como um VMs de serviço [PaaS] apenas)**: O balanceador de carga, também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta de HTTP 200 OK apenas quando a instância está no estado pronto. Se o agente não conseguir responder com um HTTP 200 OK, o Balanceador de carga marca a instância como responder e deixa de envio de tráfego para essa instância. O Balanceador de carga continua a tentar aceder a instância. Se o agente convidado responde com uma HTTP 200, o Balanceador de carga envia tráfego a essa instância novamente. As pesquisas de agente do convidado são último recurso e não recomendado quando HTTP ou TCP configurações de sonda personalizada são possíveis. 
     
-* **Ligações de saída (origem NAT)**
+* **Ligações de saída (realizar o SNAT)**
 
-    Todos os fluxos de saída de endereços IP privados dentro da sua rede virtual para endereços IP públicos na internet podem ser convertidos para um endereço IP Front-end de Balanceador de carga. Quando um front-end público está associado a uma VM de back-end através de uma regra de balanceamento de carga, o Azure programas ligações de saída para ser automaticamente convertido no endereço IP público front-end. Isto também é denominado origem NAT (realizar o SNAT). Realizar o SNAT proporciona vantagens importantes:
+    Todos os fluxos de saída de endereços IP privados dentro da sua rede virtual para endereços IP públicos na internet podem ser convertidos para um endereço IP Front-end de Balanceador de carga. Quando um front-end público está associado a uma VM de back-end através de uma regra de balanceamento de carga, o Azure programas ligações de saída para ser automaticamente convertido no endereço IP público front-end.
 
-    * Permite que uma atualização simples e recuperação após desastre de serviços, porque o front-end pode ser atribuído dinamicamente a outra instância do serviço.
-    * -Facilita a gestão de lista (ACL) de controlo de acesso. As ACLs expressadas em termos de IPs front-end não alteram como escala de serviços ou reduzir verticalmente ou obterem implementada novamente.
+    * Ative uma atualização simples e recuperação após desastre de serviços, porque o front-end pode ser atribuído dinamicamente a outra instância do serviço.
+    * Mais fácil acesso (ACL) de lista gestão de controlo para. As ACLs expressadas em termos de IPs front-end não alteram como escala de serviços ou reduzir verticalmente ou obterem implementada novamente.  Traduzir ligações de saída para um número mais pequeno de endereços IP que máquinas podem reduzir a carga de adicionar à lista branca.
 
     Para obter mais informações, consulte [ligações de saída](load-balancer-outbound-connections.md).
 
@@ -115,7 +115,7 @@ No entanto, consoante o SKU que escolher, a configuração do cenário completo 
 >[!NOTE]
 > Se estiver a utilizar um cenário de conceção mais recente, considere utilizar o padrão de Balanceador de carga. 
 
-VMs de autónomo, conjuntos de disponibilidade e conjuntos de dimensionamento VM podem ser ligados a apenas um SKU, nunca ambos. Quando utilizá-los com os endereços IP públicos, Balanceador de carga e o endereço IP público SKU tem de corresponder. Balanceador de carga e SKUs de IP público não são mutável.
+VMs de autónomo, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual podem ser ligados a apenas um SKU, nunca ambos. Quando utilizá-los com os endereços IP públicos, Balanceador de carga e o endereço IP público SKU tem de corresponder. Balanceador de carga e SKUs de IP público não são mutável.
 
 _É uma melhor prática para especificar os SKUs explicitamente, apesar de ainda não é obrigatório._  Neste momento, as alterações necessárias estão a ser mantidas num mínimo. Se não for especificado um SKU, ela é interpretada como uma intenção para utilizar a versão de API de 2017-08-01 do SKU básico.
 
@@ -125,7 +125,7 @@ _É uma melhor prática para especificar os SKUs explicitamente, apesar de ainda
 | | [Standard SKU](load-balancer-standard-overview.md) | SKU Básico |
 | --- | --- | --- |
 | Tamanho do conjunto de back-end | Mais de 1000 instâncias. | Até 100 instâncias. |
-| Pontos finais de conjunto back-end | Qualquer VM com uma única rede virtual, incluindo um blend de VMs, conjuntos de disponibilidade e conjuntos de dimensionamento VM. | VMs num conjunto de disponibilidade único ou conjunto de dimensionamento VM. |
+| Pontos finais de conjunto back-end | Qualquer VM com uma única rede virtual, incluindo um blend de VMs, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual. | Conjunto de VMs na disponibilidade de uma único ou conjunto de dimensionamento da máquina virtual. |
 | Zonas de Disponibilidade do Azure | Com redundância de zona e zonal extremidades front-para a entrada e mapeamentos de fluxo de saída, saída continuam a vigorar após falha de zona, cross-zona balanceamento de carga. | / |
 | Diagnóstico | Monitor do Azure, métricas multidimensionais, incluindo byte e contadores de pacotes, estado de funcionamento da sonda de estado, as tentativas de ligação (SIN de TCP), estado de funcionamento da ligação de saída (realizar o SNAT com êxito ou falhados fluxos), medidas plane de dados do Active Directory. | Análise de registos do Azure para público carregar balanceador apenas, o alerta de esgotamento de realizar o SNAT, contagem de estado de funcionamento do conjunto back-end. |
 | HA portas | Balanceador de carga interno. | / |
@@ -177,6 +177,11 @@ Balanceador de carga básico é oferecido, sem encargos.
 ## <a name="sla"></a>SLA
 
 Para obter informações sobre o SLA de Balanceador de carga padrão, vá para o [SLA do Balanceador de carga](https://aka.ms/lbsla) página. 
+
+## <a name="limitations"></a>Limitações
+
+- Balanceador de carga é um produto TCP ou UDP para balanceamento de carga e reencaminhamento de porta para estes protocolos IP específicos.  Regras de balanceamento de carga e regras NAT de entrada são suportadas para TCP e UDP e não suportadas para outros protocolos IP, incluindo ICMP. Balanceador de carga não terminar, responder ou, caso contrário, interagir com a carga de um fluxo UDP ou TCP. Não se trata de um proxy. Validação com êxito de conectividade para um front-end tem de colocar em banda do local com o mesmo protocolo utilizado uma balanceamento ou entrada regra NAT de carga (TCP ou UDP) _e_ pelo menos uma das suas máquinas virtuais tem de gerar uma resposta para um cliente Para ver uma resposta de um front-end.  Não receber uma resposta em banda do front-end de Balanceador de carga indica que nenhuma máquina virtual foram podem responder.  Não é possível interagir com um balanceador de carga front-end sem uma máquina virtual podem responder.  Isto também se aplica a ligações de saída onde [representação porta realizar o SNAT](load-balancer-outbound-connections.md#snat) é apenas suportado para TCP e UDP; quaisquer outros protocolos IP, incluindo ICMP também irão falhar.  Atribua um endereço de IP público de nível de instância de correção para atenuar.
+- Ao contrário dos balanceadores de carga público, que fornecem [ligações de saída](load-balancer-outbound-connections.md) quando transição de endereços IP privados dentro da rede virtual para endereços IP públicos, balanceadores de carga interno não traduzir saída teve origem as ligações para o front-end de um balanceador de carga interno como ambos estão no espaço de endereços IP privados.  Isto evita a possibilidade de esgotamento de realizar o SNAT dentro único espaço de endereços IP interno onde a tradução não é necessária.  O efeito é que, se um fluxo de saída de uma VM no conjunto de back-end tenta um fluxo de front-end de Balanceador de carga interno no qual agrupamento onde reside, está a _e_ está mapeada para si próprio, ambos os legs do fluxo não correspondem e o fluxo irá falhar .  Se o fluxo não mapeado para a mesma VM no conjunto de back-end que tiver criado o fluxo para o front-end, o fluxo será bem sucedida.   Quando o fluxo mapeia para si próprio o fluxo de saída parece provenientes da VM para o front-end e o fluxo de entrada correspondente parece provenientes da VM para si próprio. Ponto de vista o SO convidado das partes de entrada e saídas do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não irá reconhece estes meios do mesmo fluxo como parte do mesmo fluxo como origem e de destino não correspondem.  Quando o fluxo está mapeado para qualquer outra VM no conjunto de back-end, corresponderá meios do fluxo e a VM pode responder com êxito para o fluxo.  Sintoma para este cenário é tempos limite de ligação intermitente. Existem várias soluções comuns para alcançar fiável neste cenário (originadas fluxos a partir de um conjunto de back-end para o back-end conjuntos de Balanceador de carga interno respetivos front-end) que incluem a inserção de um proxy de terceiros por trás de carga interno Balanceador ou [utilizando regras de estilo DSR](load-balancer-multivip-overview.md).  Enquanto pode utilizar um balanceador de carga público para mitigar, o cenário resultante é suscetível a [esgotamento de realizar o SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitada, a menos que cuidadosamente geridos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos de IoT Hub
 Este artigo apresenta uma lista alguns dos termos comuns utilizados nos artigos IoT Hub.
 
 ## <a name="advanced-message-queueing-protocol"></a>Protocolo de colocação de mensagens avançadas
 [Avançadas de protocolo de colocação de mensagens (AMQP)](https://www.amqp.org/) é uma da mensagens protocolos que [IoT Hub](#iot-hub) suporta para comunicar com os dispositivos. Para obter mais informações sobre os protocolos de mensagens que suporta o IoT Hub, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="automatic-device-management"></a>Gestão de dispositivos automática
+Gestão de dispositivos automática no IoT Hub do Azure automatiza muitas das tarefas repetitivas e complexas de gerir dispositivos grande fleets através da totalidade da respetiva ciclos de vida. Gestão de dispositivos automática, pode um conjunto de dispositivos com base nas respetivas propriedades de destino, definir uma configuração desejada e permitem atualizar sempre que entram em âmbito os dispositivos do IoT Hub.  Consiste em [configurações de dispositivos automático](iot-hub-auto-device-config.md) e [implementações automáticas IoT Edge](../iot-edge/how-to-deploy-monitor.md).
+
+## <a name="automatic-device-configuration"></a>Configuração de dispositivos automática
+Pode utilizar a sua solução de back-end [configurações de dispositivos automático](iot-hub-auto-device-config.md) atribuir propriedades pretendidas para um conjunto de [dispositivos duplos](#device-twin) e o estado de relatório utilizando métricas de sistema e métricas personalizadas. 
 
 ## <a name="azure-cli"></a>CLI do Azure
 O [CLI do Azure](../cli-install-nodejs.md) é uma ferramenta de plataforma, open source, baseada na shell de comandos para criar e gerir recursos no Microsoft Azure. Esta versão do CLI está implementado com o Node.js.
@@ -65,6 +71,9 @@ Um gateway de nuvem ativa a conectividade para dispositivos que não é possíve
 
 ## <a name="cloud-to-device"></a>Nuvem para dispositivo
 Refere-se às mensagens enviadas a partir de um hub IoT para um dispositivo ligado. Muitas vezes, estas mensagens são comandos que instrui o dispositivo execute uma ação. Para obter mais informações, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="configuration"></a>Configuração
+No contexto de [configuração de dispositivos automático](iot-hub-auto-device-config.md), uma configuração dentro do IoT Hub define a configuração pretendida para um conjunto de dispositivos duplos e fornece um conjunto de métricas para comunicar o estado e progresso.
 
 ## <a name="connection-string"></a>Cadeia de ligação
 Utilize as cadeias de ligação no código da aplicação para encapsular as informações necessárias para ligar a um ponto final. Uma cadeia de ligação, incluem normalmente o endereço do ponto final e informações de segurança, mas a cadeia de ligação formatos variem em todos os serviços. Existem dois tipos de cadeia de ligação associado ao serviço IoT Hub:
@@ -181,8 +190,8 @@ O [idioma de consulta do IoT Hub](iot-hub-devguide-query-language.md) é uma lin
 ## <a name="iot-hub-resource-provider-rest-api"></a>Fornecedor de recursos do IoT Hub REST API
 Pode utilizar o [API de REST do fornecedor de recursos do IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) para gerir os hubs IoT no seu [subscrição do Azure](#subscription) efetuar operações como criar, atualizar e eliminar hubs.
 
-## <a name="iot-suite"></a>Suite IoT
-Azure IoT Suite reúne vários serviços do Azure com soluções pré-configuradas. Estas soluções pré-configuradas permitem-lhe começar a trabalhar rapidamente com implementações ponto-a-ponto dos cenários comuns do IoT. Para obter mais informações, consulte [que é o Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>Aceleradores de solução IoT
+Aceleradores de solução IoT do Azure em conjunto pacote vários serviços do Azure para soluções. Estas soluções permitem-lhe começar a trabalhar rapidamente com implementações ponto-a-ponto dos cenários comuns do IoT. Para obter mais informações, consulte [quais são Aceleradores de solução IoT do Azure?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>A extensão de IoT para Azure CLI 2.0
 [A extensão de IoT para Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comandos, de plataforma. A ferramenta permite-lhe gerir os seus dispositivos no [registo de identidade](#identity-registry), enviar e receber mensagens e os ficheiros dos seus dispositivos e monitorizar as operações de hub IoT.

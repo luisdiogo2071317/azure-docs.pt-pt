@@ -5,22 +5,20 @@ services: active-directory
 documentationcenter: na
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.component: users-groups-roles
 ms.workload: identity
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 6e856ed740849a072f183d1e566d46d6132f5ffc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 26bf0bcaf2b5da938bcbed0336b742908d13474a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-get-support-for-azure-active-directory"></a>Como obter suporte do Azure Active Directory
 
@@ -90,7 +88,7 @@ Se não for possível encontrar respostas através da utilização de recursos d
 
 Consulte o [contacte a Microsoft para obter suporte](https://portal.office.com/Support/ContactUs.aspx) página obter números de telefone de suporte.
 
-##  <a name="next-steps"></a>Passos seguintes
+##  <a name="next-steps"></a>Passos Seguintes
 
 * [Comunidade técnico da Microsoft](https://techcommunity.microsoft.com/)
 

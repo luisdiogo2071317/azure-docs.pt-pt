@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 13b1c5b9ae05a6c2d11420812efc1af17912aa28
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 073ac7cf2d8d8d5dac6a5a4f9b9d4e3d1af6f095
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
@@ -93,5 +93,5 @@ Se tiver problemas, consulte [perguntas mais frequentes](https://microsoft.githu
 
 Agora que aprendeu como configurar o seu DevKit de Iot MXChip como um cliente MQTT e utilizar a biblioteca de clientes de MQTT para enviar mensagens para um mediador MQTT, Eis os passos sugeridos:
 
-* [Descrição geral do Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Monitorização remota do IoT solução acelerador descrição geral do Azure](https://docs.microsoft.com/azure/iot-suite/)
 * [Ligue um dispositivo de MXChip IoT DevKit para a aplicação Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

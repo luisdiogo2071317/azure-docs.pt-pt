@@ -3,22 +3,22 @@ title: Gestão de registo
 description: Este tópico explica como registar dispositivos com os hubs de notificação para receber notificações push.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7f9052da066fcc0021151bf3b547484859cf216d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="registration-management"></a>Gestão de registos
 ## <a name="overview"></a>Descrição geral
@@ -31,13 +31,13 @@ Registo de dispositivos com um Hub de notificação é realizado através de um 
 Um registo associa o identificador do serviço de notificação de plataforma (PNS) para um dispositivo com as etiquetas e possivelmente um modelo. O identificador PNS pode ser um ChannelURI, o token do dispositivo ou o id de registo do GCM. As etiquetas são utilizadas para encaminhar as notificações para o conjunto correto de identificadores do dispositivo. Para obter mais informações, consulte [de encaminhamento e expressões de etiqueta](notification-hubs-tags-segment-push-message.md). Os modelos são utilizados para implementar transformação por registo. Para obter mais informações, consulte [modelos](notification-hubs-templates-cross-platform-push-messages.md).
 
 #### <a name="installations"></a>Instalações
-Uma instalação é um avançada as propriedades relacionadas com registo que inclui uma matriz de push. É a abordagem melhor e mais recente para registar os seus dispositivos. No entanto, não é suportado pelo .NET SDK do lado do cliente ([SDK dos Notification Hub para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) chegou.  Isto significa que se está a registar do próprio dispositivo cliente, terá de utilizar o [API REST dos Notification Hubs](https://msdn.microsoft.com/library/mt621153.aspx) abordagem para suportar instalações. Se estiver a utilizar um serviço de back-end, deverá conseguir utilizar [SDK dos Notification Hub para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Uma instalação é um avançada as propriedades relacionadas com registo que inclui uma matriz de push. É a abordagem melhor e mais recente para registar os seus dispositivos. No entanto, não é suportado pelo SDK do .NET do lado do cliente ([SDK dos Notification Hub para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) chegou.  Isto significa que se está a registar do próprio dispositivo cliente, terá de utilizar o [API REST dos Notification Hubs](https://msdn.microsoft.com/library/mt621153.aspx) abordagem para suportar instalações. Se estiver a utilizar um serviço de back-end, deverá conseguir utilizar [SDK dos Notification Hub para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Seguem-se algumas vantagens fundamentais para a utilização de instalações:
 
 * Criar ou atualizar uma instalação totalmente é idempotent. Por isso, pode repetir sem as preocupações registos duplicados.
 * O modelo de instalação torna mais fácil fazer individuais pushes - direcionada para dispositivos específicos. Uma tag de sistema **"$InstallationId: [installationId]"** é adicionado automaticamente com cada registo de instalação com base. Por isso, pode ligar a uma atividade send para esta etiqueta para um dispositivo específico de destino sem ser necessária codificação adicionais.
-* Utilizar as instalações também permite atualizações do registo parcial. A atualização parcial de uma instalação é solicitada com um método de PATCH utilizando o [padrão de Patch de JSON](https://tools.ietf.org/html/rfc6902). Isto é particularmente útil quando pretende atualizar as etiquetas no registo. Não tem de importar o registo de todo e, em seguida, novamente a reenvie todas as etiquetas anteriores.
+* Utilizar as instalações também permite atualizações do registo parcial. A atualização parcial de uma instalação é solicitada com um método de PATCH utilizando o [padrão de Patch de JSON](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não tem de importar o registo de todo e, em seguida, novamente a reenvie todas as etiquetas anteriores.
 
 Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa das propriedades de instalação, consulte [criar ou substituir uma instalação com a REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [as propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
@@ -82,23 +82,23 @@ Uma instalação pode conter as seguintes propriedades. Para obter uma lista com
 As instalações e registos tem de conter um identificador PNS válido para cada dispositivo/canal. Porque apenas podem ser obtidos identificadores PNS numa aplicação cliente no dispositivo, um padrão, é registado diretamente no que o dispositivo com a aplicação de cliente. Por outro lado, as considerações de segurança e a lógica de negócio relacionadas com as etiquetas podem implicar a gerir o registo de dispositivos na aplicação back-end. 
 
 #### <a name="templates"></a>Modelos
-Se pretender utilizar [modelos](notification-hubs-templates-cross-platform-push-messages.md), a instalação do dispositivo também conter todos os modelos associados com que o dispositivo num JSON formatar (consulte exemplo acima). Nomes dos modelos ajudam a modelos diferentes de destino para o mesmo dispositivo.
+Se pretender utilizar [modelos](notification-hubs-templates-cross-platform-push-messages.md), a instalação do dispositivo também contém todos os modelos associados com que o dispositivo num JSON formatar (consulte exemplo acima). Nomes dos modelos ajudam a modelos diferentes de destino para o mesmo dispositivo.
 
-Tenha em atenção que cada nome de modelo mapeia para um corpo do modelo e um conjunto opcional de etiquetas. Além disso, cada plataforma pode ter propriedades do modelo adicionais. Para a loja Windows (WNS utilizando) e Windows Phone 8 (utilizando MPNS), um conjunto de cabeçalhos adicionais pode ser parte do modelo. No caso do APNs, pode definir uma propriedade de expiração para uma constante ou para uma expressão de modelo. Para uma lista completa de Consulte de propriedades de instalação, [criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) tópico.
+Cada nome de modelo mapeia para um corpo do modelo e um conjunto opcional de etiquetas. Além disso, cada plataforma pode ter propriedades do modelo adicionais. Para a loja Windows (WNS utilizando) e Windows Phone 8 (utilizando MPNS), um conjunto de cabeçalhos adicionais pode ser parte do modelo. No caso do APNs, pode definir uma propriedade de expiração para uma constante ou para uma expressão de modelo. Para uma lista completa de Consulte de propriedades de instalação, [criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) tópico.
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Secundários mosaicos para aplicações da loja Windows
-Para aplicações de cliente da loja Windows, enviar notificações para mosaicos secundários é igual a enviar para um primário. Isto também é suportado em instalações. Tenha em atenção que os mosaicos secundários tem um ChannelUri diferentes, o que o SDK na sua aplicação de cliente processa de forma transparente.
+Para aplicações de cliente da loja Windows, enviar notificações para mosaicos secundários é igual a enviar para um primário. Isto também é suportado em instalações. Mosaicos secundários tem um ChannelUri diferentes, o que o SDK na sua aplicação de cliente processa transparente.
 
 O dicionário de SecondaryTiles utiliza o mesmo TileId que é utilizado para criar o objeto de SecondaryTiles na sua aplicação da loja Windows.
 Tal como acontece com ChannelUri primário, pode alterar ChannelUris de mosaicos secundários em qualquer momento. Para manter as instalações no hub de notificação atualizado, o dispositivo deve atualizá-los com o ChannelUris atual dos mosaicos secundários.
 
 ## <a name="registration-management-from-the-device"></a>Gestão de registo do dispositivo
-Quando a gerir o registo de dispositivos de aplicações de cliente, o back-end só é responsável pelo envio de notificações. As aplicações cliente mantêm identificadores PNS atualizados e registe as etiquetas. A imagem seguinte ilustra este padrão.
+Quando a gerir o registo de dispositivos de aplicações de cliente, o back-end só é responsável pelo envio de notificações. As aplicações cliente par identificadores PNS e registe as etiquetas. A imagem seguinte ilustra este padrão.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 O dispositivo primeiro obtém o identificador PNS do PNS, em seguida, regista diretamente com o notification hub. Após o registo for bem sucedido, o back-end de aplicação pode enviar uma notificação de filtragem desse registo. Para obter mais informações sobre como enviar notificações, consulte [de encaminhamento e expressões de etiqueta](notification-hubs-tags-segment-push-message.md).
-Tenha em atenção que neste caso, irá utilizar apenas escutar direitos de acesso os hubs de notificação do dispositivo. Para obter mais informações, consulte [segurança](notification-hubs-push-notification-security.md).
+Neste caso, utilize direitos de escutar apenas para os hubs de notificação de acesso do dispositivo. Para obter mais informações, consulte [segurança](notification-hubs-push-notification-security.md).
 
 Registo do dispositivo é o método mais simples, mas tem algumas desvantagens.
 A primeiro desvantagem é que as respetivas etiquetas só pode atualizar uma aplicação de cliente quando a aplicação está ativa. Por exemplo, se um utilizador tiver dois dispositivos registar etiquetas relacionados com a equipas de uma porta, quando o primeiro dispositivo regista uma tag adicional (por exemplo, Seahawks), o segundo dispositivo não irá receber as notificações sobre o Seahawks até que a aplicação no dispositivo segundo é executada uma segunda vez. Mais geralmente, quando as etiquetas são afetadas por vários dispositivos, gerir etiquetas de back-end é uma opção de desejados.
@@ -292,7 +292,7 @@ Também pode utilizar o método de PATCH utilizando o [padrão de Patch de JSON]
     }
 
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Código de exemplo para registar um hub de notificação de um dispositivo utilizando um id de registo
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Código de exemplo para registar um hub de notificação de um dispositivo utilizando um ID de registo
 Do seu back-end da aplicação, pode executar operações básicas de CRUDS registarem. Por exemplo:
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

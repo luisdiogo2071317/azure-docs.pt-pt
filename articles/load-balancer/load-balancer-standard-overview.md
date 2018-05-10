@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
@@ -59,7 +59,7 @@ Reveja a tabela abaixo para obter uma descrição geral das diferenças entre pa
 | HA portas | Balanceador de carga interno | / |
 | Seguro por predefinição | predefinição fechada para pontos finais públicos de Balanceador de carga e de IP e um grupo de segurança de rede deve ser utilizado para explicitamente lista branca para o tráfego flua | predefinição aberto, grupo de segurança opcional |
 | Ligações de saída | Vários frontends com por regra ativamente. Um cenário de saída _tem_ explicitamente criado para a máquina virtual para conseguir utilizar a conectividade de saída.  [Pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acedidos sem conectividade de saída e não contam para processamento de dados.  Todos os endereços IP públicos, incluindo serviços do Azure PaaS não está disponíveis como pontos finais do serviço de VNet, devem ser atingidos através de conectividade de saída e a contagem para processamento de dados. Quando uma máquina virtual está a funcionar apenas um balanceador de carga interno, ligações de saída através de predefinição realizar o SNAT não estão disponíveis. Programação de realizar o SNAT saída é o protocolo de transporte específicos com base no protocolo de entrada de balanceamento de carga regra. | Único front-end, selecionado aleatória, quando várias frontends estão presentes.  Quando apenas Balanceador de carga interno está a servir uma máquina virtual, é utilizada a predefinição realizar o SNAT. |
-| Vários frontends | Entrada e saída | Apenas de entrada |
+| Vários front-ends | Entrada e saída | Apenas de entrada |
 | Operações de gestão | A maioria dos segundos de < 30 de operações | 60-90 segundos típica |
 | SLA | 99,99% de caminho de dados com duas máquinas virtuais em bom estado | Implícita no SLA de VM | 
 | Preços | -Lhe cobrados com base no número de regras, processados de dados de entrada ou saída associados a recursos  | Sem qualquer encargo |
@@ -137,7 +137,7 @@ Estas são as chaves tenets lembrar-se ao trabalhar com o padrão de Balanceador
 - cenários de saída são explícitos e conectividade de saída não existir até que foi especificado.
 - regras de balanceamento de carga inferir como realizar o SNAT está programado. Regras de balanceamento de carga são específico do protocolo. Realizar o SNAT é específico do protocolo e a configuração deve refletir isto em vez de criar um efeito.
 
-#### <a name="multiple-frontends"></a>Vários frontends
+#### <a name="multiple-frontends"></a>Vários front-ends
 Se pretender mais portas de realizar o SNAT porque está à espera ou são já estão a ocorrer um excesso para ligações de saída, também pode adicionar inventário de porta de realizar o SNAT incremental configurando frontends adicionais, regras e conjuntos de back-end para a mesma máquina virtual recursos.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Controlo que front-end é utilizada para a saída
@@ -218,11 +218,12 @@ Padrão de Balanceador de carga é um produto cobrado com base no número de reg
 
 ## <a name="limitations"></a>Limitações
 
-- Não não possível localizar instâncias de back-end de Balanceador de carga em redes virtuais em modo de peering, neste momento. Todas as instâncias de back-end tem de ser na mesma região.
 - SKUs não são mutável. Não pode alterar o SKU de um recurso existente.
 - Conjunto de disponibilidade de um recurso de máquina virtual autónoma, recurso ou recurso de conjunto de dimensionamento de máquina virtual pode referenciar um SKU nunca ambos.
-- [Alertas de monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) não são suportados neste momento.
+- Uma regra de Balanceador de carga não pode abranger duas redes virtuais.  Frontends e as respetivas instâncias de back-end relacionados tem de estar localizadas na mesma rede virtual.  
+- Frontends de Balanceador de carga não estão acessíveis através de peering de rede virtual global.
 - [Move operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos padrão LB de SKU e PIP.
+- As funções de trabalho Web sem uma VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando é utilizado apenas um padrão Balanceador de carga interno devido a um efeito de como os serviços de pre-VNet e outra plataforma dos serviços de função. Não precisará da tal como o respetivo serviço próprio ou subjacentes plataforma pode alterações sem aviso prévio. Têm de assumir sempre tem de criar [conectividade de saída](load-balancer-outbound-connections.md) explicitamente se assim o desejar quando utiliza um padrão Balanceador de carga interno apenas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

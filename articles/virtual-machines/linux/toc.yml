@@ -199,6 +199,8 @@
           href: use-remote-desktop.md
         - name: Associar uma VM ao Azure Active Directory
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+        - name: Iniciar sessão com credenciais do Azure Active Directory
+          href: login-using-aad.md
         - name: Atualizações e correções de erros
           items:
             - name: Infraestrutura de Atualização do Red Hat

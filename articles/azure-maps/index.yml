@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure Maps
+metadata:
+  document_id: 
+  title: Documentação do Azure Maps | Microsoft Docs
+  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
+  services: azure-maps
+  author: philmea
+  manager: timlt
+  ms.service: azure-maps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: philmea
+  ms.openlocfilehash: 5561f4720a396a90dbffe08e420d3b9ee66ec206
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: O Azure Maps fornece aos programadores de todas as indústrias poderosas capacidades geoespaciais que incluem dados de mapeamento recentes, necessários para fornecer contexto geográfico para aplicações móveis e Web. Este serviço é um conjunto de APIs REST que estão em conformidade com a API Azure One, o qual ainda inclui um controlo de JavaScript baseado na Web para que o desenvolvimento seja fácil, flexível e portátil em vários suportes.
+sections:
+- title: Inícios rápidos de 5 minutos
+  items:
+  - type: paragraph
+    text: Iniciar uma aplicação de pesquisa em mapa com o Azure Maps.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: Iniciar demonstração da aplicação de mapa
+      href: /azure/azure-maps/quick-demo-map-app
+- title: Tutoriais passo-a-passo
+  items:
+  - type: paragraph
+    text: Crie uma aplicação Web geoespacial para procurar pontos de interesse e encaminhar para localizações através do Azure Maps.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-maps/tutorial-search-location">Procurar pontos de interesse</a>
+    - html: <a href="/azure/azure-maps/tutorial-route-location">Encaminhar para um ponto de interesse</a>
+    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Encaminhamento pelo modo de viagem</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: Linguagens
+      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">API de Controlo de Mapas - Javascript</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/">API Funcional - REST</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">API de Gestão - REST</a></p>

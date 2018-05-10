@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -47,9 +47,9 @@ O Service Bus envia atualmente eventos para dois cenários:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Além disso, utiliza a segurança padrão do Event Grid e [mecanismos de autenticação](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Além disso, utiliza a segurança padrão do Event Grid e [mecanismos de autenticação](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
-Para obter mais informações, veja [Esquemas de eventos do Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
+Para obter mais informações, veja [Esquemas de eventos do Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Evento Disponível de Mensagens Ativas
 
@@ -138,7 +138,7 @@ Para criar uma nova subscrição do Event Grid, efetue o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Transfira o instalador](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Primeiro, certifique-se de que tem a versão 2.0 da CLI do Azure ou posterior instalada. [Transfira o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 Execute o seguinte código:
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Confirme que instalou o Azure PowerShell. [Transfira o instalador](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Confirme que instalou o Azure PowerShell. [Transfira o instalador](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ A partir de aqui, pode explorar as outras opções de configuração ou [testar 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha [exemplos](service-bus-to-event-grid-integration-example.md) do Service Bus e Event Grid.
-* Saiba mais sobre o [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Saiba mais sobre o [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Saiba mais sobre o [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Saiba mais sobre o [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre o [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+* Saiba mais sobre o [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

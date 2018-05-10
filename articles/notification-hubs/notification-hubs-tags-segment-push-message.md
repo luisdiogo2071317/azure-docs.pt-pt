@@ -3,22 +3,22 @@ title: Encaminhamento e expressões de etiqueta
 description: Este tópico explica as expressões de encaminhamento e a etiqueta de notification hubs do Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: c3266698a6077e85806286fadf1f48b7194a4d88
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: e08fca0b6b57d654f2b2ff7b935f38d8c517487b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de encaminhamento e etiqueta
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +33,7 @@ Back-end da aplicação pode escolher os registos de destino com uma notificaç�
 3. **Etiqueta expressão**: todos os registos cujo conjunto de etiquetas corresponde a expressão especificada ao recebem a notificação.
 
 ## <a name="tags"></a>Etiquetas
-Uma etiqueta pode ser qualquer cadeia, até 120 carateres, alfanuméricos e os seguintes carateres não alfanuméricos: '_', ' @', '#', '. ',':', '-'. O exemplo seguinte mostra uma aplicação a partir da qual pode receber notificações de alerta sobre os grupos de leitores de música específico. Neste cenário, uma forma simples de notificações de rota é registos de etiqueta com etiquetas que representam as bandas diferentes, como a imagem seguinte.
+Uma etiqueta pode ser qualquer cadeia, até 120 carateres, alfanuméricos e os seguintes carateres não alfanuméricos: '_', ' @', '#', '. ',':', '-'. O exemplo seguinte mostra uma aplicação a partir da qual pode receber notificações de alerta sobre os grupos de leitores de música específico. Neste cenário, uma forma simples de notificações de rota é registos de etiqueta com etiquetas que representam as bandas diferentes, como a imagem seguinte:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
@@ -69,11 +69,11 @@ Enquanto pode codificar múltiplas preocupações em etiquetas (por exemplo, "ba
 Para um tutorial completa passo a passo sobre como utilizar etiquetas para enviar para grupos de interesses, consulte [notícias de última hora](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
 ## <a name="using-tags-to-target-users"></a>Utilizar etiquetas para utilizadores de destino
-Outra forma, a utilização de etiquetas é identificar todos os dispositivos que um utilizador específico. Registos podem ser etiquetados com uma tag que contém um id de utilizador, como a imagem seguinte:
+Outra forma, a utilização de etiquetas é identificar todos os dispositivos que um utilizador específico. Registos podem ser etiquetados com uma tag que contém um ID de utilizador, como a imagem seguinte:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-Esta imagem, a mensagem etiquetada uid:Alice atingir todos os registos marcado uid:Alice; Por conseguinte, todos os dispositivos de Alice.
+Esta imagem, a mensagem etiquetados uid: Alice atinge todos os registos marcado uid:Alice; Por conseguinte, todos os dispositivos de Alice.
 
 ## <a name="tag-expressions"></a>Expressões de etiqueta
 Existem casos em que uma notificação tem um conjunto de registos, que é identificado não por uma única tag, mas por uma expressão booleana em tags de destino.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/22/2018
+ms.date: 05/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 82069b31ee51e0dd60691edca490b1a60384288a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token. 
@@ -164,6 +164,8 @@ Atualizar tokens podem invalidados ou revogados em qualquer altura, por diversos
 
 > [!NOTE]
 >Se um método de palavra-passe de autenticação era utilizado (Windows Hello, a aplicação de autenticação, a biometria como um rosto ou impressão digital) para obter um token, a alteração de palavra-passe do utilizador não irá forçar o utilizador novamente autenticado (mas irá forçar a respetiva aplicação de autenticador Para voltar autenticar).  Isto acontece porque a autenticação escolhida de entrada (uma letra, por exemplo) não foi alterado e pode ser utilizado, por conseguinte, novamente para autenticar novamente.
+>
+> Os clientes confidenciais não são afetados por revocations de alteração de palavra-passe.  Um cliente confidencial com um token de atualização emitido antes de uma alteração de palavra-passe irá continuem a estar abl para utilizar esse token de atualização para obter os tokens mais. 
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 

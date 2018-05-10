@@ -3,21 +3,24 @@ title: Runbooks subordinados na automatização do Azure
 description: Descreve os diferentes métodos para iniciar um runbook na automatização do Azure a partir de outro runbook e partilhar informações entre eles.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 05/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 587a6badd57aad839b4b03ca9da1b62d97b38f82
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a32212f3ba7f1bb96d69e837177ef828f26a69b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
+
 É uma boa prática na automatização do Azure para escrever runbooks modulares, reutilizáveis com uma função discreta que pode ser utilizada por outros runbooks. Um runbook principal chamará, frequentemente, um ou mais runbooks subordinados para executar a funcionalidade necessária. Existem duas formas de chamar runbooks subordinados e cada uma delas apresenta diferenças distintas que deverá compreender para que possa determinar qual é a mais adequada aos seus diferentes cenários.
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Invocar um runbook subordinado com a execução inline
+
 Para invocar um runbook inline a partir de outro runbook, utilize o nome do runbook e forneça valores para os respetivos parâmetros, exatamente da mesma forma que utilizaria uma atividade ou um cmdlet.  Todos os runbooks na mesma conta de automatização estão disponíveis para todos os outros sejam utilizados desta forma. O runbook principal espera que o runbook subordinado seja concluído antes de mover para a linha seguinte e qualquer resultado é devolvido diretamente ao principal.
 
 Quando invoca um runbook inline, é executado na mesma tarefa que o runbook principal. Não haverá nenhuma indicação no histórico da tarefa do runbook subordinado que a executou. Quaisquer exceções e qualquer fluxo de saída do runbook subordinado serão associadas ao principal. Isto resulta em menos tarefas e facilita-las para controlar e resolver problemas, uma vez que eventuais exceções geradas pelo runbook subordinado e qualquer uma das suas saídas de fluxo são associadas a tarefa principal.
@@ -27,6 +30,7 @@ Quando um runbook for publicado, todos os runbooks subordinados que aquele invoq
 Os parâmetros de um runbook subordinado invocado inline podem ser qualquer tipo de dados, incluindo objetos complexos e não existe nenhum [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) que estejam quando iniciar o runbook utilizando o portal do Azure ou com o Cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbooks
+
 Que tipos podem chamar entre si:
 
 * A [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) pode chamar cada outro inline (ambos são PowerShell com base em).
@@ -40,30 +44,41 @@ Quando publicar a fim de ordem:
 Quando chamar um runbook subordinado gráfico ou fluxo de trabalho do PowerShell com a execução inline, basta utilizar o nome do runbook.  Quando chamar um runbook subordinado do PowerShell, tem de precedido respetivo nome com *.\\*  para especificar que o script está localizado no diretório local. 
 
 ### <a name="example"></a>Exemplo
+
 O exemplo seguinte invoca um runbook subordinado de teste que aceita três parâmetros, um objeto complexo, um número inteiro e um booleano. O resultado do runbook subordinado é atribuído a uma variável.  Neste caso, o runbook subordinado é um runbook de fluxo de trabalho do PowerShell
 
-    $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
-    $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+```azurepowershell-interactive
+$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+```
 
 Segue-se mesmo exemplo utilizando um runbook do PowerShell do menor.
 
-    $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
-    $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
-
+```azurepowershell-interactive
+$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+```
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>Iniciar um runbook subordinado com o cmdlet
+
 Pode utilizar o [início AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) cmdlet para iniciar um runbook, conforme descrito em [para iniciar um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Existem dois modos de utilização para que este cmdlet.  Um modo, o cmdlet devolve o id da tarefa, assim que a tarefa subordinada é criada para o runbook subordinado.  No outro modo, que permitem ao especificar o **-aguarde** parâmetro, o cmdlet irá aguardar até o subordinado tarefa estiver concluída e devolve o resultado do runbook subordinado.
 
 A tarefa de um runbook subordinado iniciado com um cmdlet será executada à parte da tarefa do runbook principal. Isto resulta em mais tarefas do que invocar o runbook inline e torna-os mais difíceis de controlar. O principal pode iniciar vários runbooks subordinados no modo assíncrono, sem aguardar por cada concluir. Para esse mesmo tipo de execução paralela de invocar os runbooks subordinados inline, o runbook principal têm de utilizar o [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
+A saída dos runbooks subordinados não são devolvidos para o runbook principal fiável devido a temporização. Também determinadas variáveis como $VerbosePreference, $WarningPreference, e outros não podem ser propagados para os runbooks subordinados. Para evitar estes problemas, pode invocar runbooks subordinados como separadas tarefas de automatização utilizando o `Start-AzureRmAutomationRunbook` cmdlet com o `-Wait` mudar. Isto impede o runbook principal até que o runbook subordinado seja concluído.
+
+Se não pretender que o runbook principal ser bloqueado em espera, pode invocar o runbook subordinado com `Start-AzureRmAutomationRunbook` cmdlet sem o `-Wait` mudar. Em seguida, terá de utilizar `Get-AzureRmAutomationJob` para aguardar a conclusão da tarefa, e `Get-AzureRmAutomationJobOutput` e `Get-AzureRmAutomationJobOutputRecord` para obter os resultados.
+
 São fornecidos parâmetros para um runbook subordinado iniciado com um cmdlet como uma tabela hash, conforme descrito em [parâmetros do Runbook](automation-starting-a-runbook.md#runbook-parameters). Apenas os tipos de dados simples podem ser utilizados. Se o runbook tem um parâmetro com um tipo de dados complexas, em seguida, tem de ser chamado inline.
 
 ### <a name="example"></a>Exemplo
+
 O exemplo seguinte inicia um runbook subordinado com parâmetros e, em seguida, aguarda pela respetiva conclusão utilizando o AzureRmAutomationRunbook Start-espera o parâmetro. Depois de concluído, o resultado é recolhido do runbook subordinado.
 
-    $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-    $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
-
+```azurepowershell-interactive
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparação de métodos para chamar um runbook subordinado
 A tabela seguinte resume as diferenças entre os dois métodos para chamar um runbook a partir de outro runbook.
@@ -78,6 +93,6 @@ A tabela seguinte resume as diferenças entre os dois métodos para chamar um ru
 | Publicação |O runbook subordinado tem de ser publicado antes de o runbook principal. |Runbook subordinado tem de ser publicado em qualquer altura antes do runbook principal ser iniciado. |
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md)
 * [Resultados de Runbook e mensagens na automatização do Azure](automation-runbook-output-and-messages.md)
-

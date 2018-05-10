@@ -1,6 +1,6 @@
 ---
 title: Localizações de POP do CDN do Azure por região | Microsoft Docs
-description: Este artigo apresenta uma lista de localizações de POP do CDN do Azure, ordenadas por região, para a CDN do Azure da Verizon e CDN do Azure da Akamai.
+description: Este artigo apresenta uma lista de localizações de POP do CDN do Azure, ordenadas por região, para produtos da CDN do Azure.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -12,42 +12,41 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
-ms.author: mazha
-ms.openlocfilehash: a1c1408438ca2b74c63a77041849b9dc86f3b70b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.date: 05/07/2018
+ms.author: v-deasim
+ms.openlocfilehash: 8be750c309ed5a33dd658e5f1b41b0626e4f2357
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-cdn-pop-locations-by-region"></a>Localizações de POP do CDN do Azure por região
 > [!div class="op_single_selector"]
-> * [Localizações de POP-por região](cdn-pop-locations.md)
-> * [Localizações de POP-por abreviatura](cdn-pop-abbreviations.md)
+> * [Localizações POP-por região](cdn-pop-locations.md)
+> * [Localizações POP-por abreviatura](cdn-pop-abbreviations.md)
 > 
 
 
-Este artigo apresenta uma lista de localizações de ponto de presença (POP) atual, ordenadas por região, para **CDN do Azure da Verizon** e **CDN do Azure da Akamai**.
+Este artigo apresenta uma lista de ponto de presença (POP) das localizações atuais, ordenadas por região, para produtos de Azure rede de entrega conteúdos (CDN).
 
 > [!IMPORTANT]
 > As localizações de POP-cidade para **CDN do Azure da Akamai** individualmente não são das divulgados.  
 > 
-> Uma vez ambos os fornecedores têm diferentes formas de criação das respetivas infraestruturas CDN, é recomendável contra a utilização de localizações de POP para decidir qual produto da CDN do Azure a utilizar. Em vez disso, considere as respetivas funções e o desempenho do utilizador final. Teste o desempenho com ambos os fornecedores para escolher o produto da CDN do Azure à direita para os seus utilizadores. 
+> Uma vez cada produto da CDN do Azure tem uma forma distinta da criação do respetivas infraestruturas CDN, a Microsoft recomenda-se contra a utilização de localizações de POP para decidir qual produto da CDN do Azure a utilizar. Em vez disso, considere a funcionalidades e o desempenho do utilizador final. Teste o desempenho com cada produto da CDN do Azure para escolher o produto à direita para os seus utilizadores. 
 > 
 
-| Região | Verizon | Akamai |
-| --- | --- | --- |
-| América do Norte | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />Nova Iorque, NY<br />Philadelphia, PA<br />Blogue de SAN, AC<br />Seattle, WA<br />Washington, DC<br />Puebla, México<br />Querétaro, México | Canadá<br />México<br />Estados Unidos |
-| América do Sul | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />Dobra Paulo, Brasil<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brasil<br />Peru |
-| Europa do Norte e leste | Copenhaga, Dinamarca<br />Helsínquia, Finlândia<br />Riga, Letónia<br />Varsóvia, Polónia<br />Estocolmo, Suécia | Dinamarca<br />Polónia<br />Suécia<br /> |
-| Europa ocidental | Viena, Áustria<br />Paris, França<br />Frankfurt, Alemanha<br />Amesterdão, Países Baixos<br />Londres, RU | Áustria<br />França<br />Alemanha<br />Irlanda<br />Países Baixos<br />Suíça<br />Reino Unido |
-| Europa Austrais | Milão, Itália<br />Madrid, Espanha | Itália<br />Espanha |
-| África | Joanesburgo, África do Sul | |
-| Médio Oriente | Mascate, Omã<br />Fujirah, Dirham | Catar |
-| Ásia | RAE de Hong Kong<br />Bengaluru (Bangalore), Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tóquio, Japão<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Índia<br />Indonésia<br />Japão<br />Malásia<br />Filipinas<br />Singapura<br />Taiwan<br />Tailândia<br />Vietname |
-| Austrália e Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |
+| Região | Microsoft | Verizon | Akamai |
+| --- | --- | --- | --- |
+| América do Norte | Toronto, Canadá<br />Querétaro, México<br />San Juan, Porto Rico<br />Ashburn, VA, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />AC, Los Angeles, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />O Phoenix, AZ, EUA<br />Quincy, WA, EUA<br />San Antonio, TX, EUA<br />Santa Clara, AC, EUA<br />| Puebla, México<br />Querétaro, México<br />Atlanta, DG, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />AC, Los Angeles, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Philadelphia, PA, EUA<br />Blogue de SAN, AC, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA | Canadá<br />México<br />EUA |
+| América do Sul | Campinas, Brasil<br />Brasil, rio Alemanha Janeiro<br />Santiago, subordinado | Buenos Aires, Argentina<br />Brasil, rio Alemanha Janeiro<br />Dobra Paulo, Brasil<br />Valparaíso, subordinado<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brasil<br />Peru |
+| Europa | Viena, Áustria<br />Bruxelas, Bélgica<br />Praga, República Checa<br />Copenhaga, Dinamarca<br /> Helsínquia, Finlândia<br />Marseilles, França<br />Paris, França<br />Frankfurt, Alemanha<br />Atenas, Grécia<br />Dublin, Irlanda<br />Milão, Itália<br />Amesterdão, Países Baixos<br />Madrid, Espanha<br />Estocolmo, Suécia<br />Zurique, Suíça<br />DURHAM, RU<br />Londres, RU<br />Manchester, RU | Viena, Áustria<br />Copenhaga, Dinamarca<br />Helsínquia, Finlândia<br />Paris, França<br />Frankfurt, Alemanha<br />Milão, Itália<br />Riga, Letónia<br />Amesterdão, Países Baixos<br />Varsóvia, Polónia<br />Madrid, Espanha<br />Estocolmo, Suécia<br />Londres, RU | Áustria<br />Dinamarca<br />França<br />Alemanha<br />Irlanda<br />Itália<br />Países Baixos<br />Polónia<br />Espanha<br />Suécia<br />Suíça<br />Reino Unido |
+| África | Cidade do Cabo, África do Sul<br />Joanesburgo, África do Sul | Joanesburgo, África do Sul | |
+| Médio Oriente | | Mascate, Omã<br />Fujirah, Dirham | Catar |
+| Índia | Chennai, Índia<br />Mumbai, Índia | Bengaluru (Bangalore), Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br /> | Índia |
+| Ásia | RAE de Hong Kong<br />Osaka, Japão<br />Tóquio, Japão<br />Busan, Coreia<br />Kuala Lumpur, Malaysia<br />Manila, Filipinas<br />Singapura<br />Seoul, Sul da Coreia<br />Taipé, Taiwan<br />Banguecoque, Tailândia | RAE de Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japão<br />Tóquio, Japão<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Indonésia<br />Japão<br />Malásia<br />Filipinas<br />Singapura<br />Taiwan<br />Tailândia<br />Vietname |
+| Austrália e Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |
 
 
-## <a name="see-also"></a>Consultar Também
-* [API de nós do CDN limite do Azure para obter mais recentes endereços IP para adicionar à lista branca](https://docs.microsoft.com/rest/api/cdn/edgenodes)
+## <a name="next-steps"></a>Passos Seguintes
+* Para obter os endereços IP mais recentes para adicionar à lista branca, consulte o [API do Azure CDN Edge nós](https://docs.microsoft.com/rest/api/cdn/edgenodes).
 

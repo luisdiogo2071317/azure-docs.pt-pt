@@ -1,25 +1,23 @@
 ---
-title: "Como gerir as definições de ativação de função | Microsoft Docs"
-description: "Saiba como alterar as predefinições para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management."
+title: Como gerir as definições de ativação de função | Microsoft Docs
+description: Saiba como alterar as predefinições para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 2cf361dc879915c316e7ee907b5c70b5907459c2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 972fd1e322e578516073307d01548132473bc52c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Como gerir as definições de ativação de função no Azure AD Privileged Identity Management
 Um administrador com função privilegiada pode personalizar o Azure AD Privileged Identity Management (PIM) na sua organização, incluindo a alterar a experiência de para um utilizador que está a ativar uma atribuição de função elegível.
@@ -42,10 +40,10 @@ Na página de definições para cada função, existem várias definições que 
 * Utilizadores com contas Microsoft para os respetivos endereços de e-mail (normalmente @outlook.com, mas nem sempre) não é possível efetuar o registo do MFA do Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve tornar administradores permanentes ou desative a MFA para essa função.
 * Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e o Office 365. Esta é uma funcionalidade de segurança porque estas funções devem ser cuidadosamente protegidas:  
   
-  * Administrador da aplicação
+  * Administrador de aplicações
   * Administrador do servidor de Proxy de aplicações
   * Administrador de faturação  
-  * Administrador de compatibilidade  
+  * Administrador de Conformidade  
   * Administrador de serviço do CRM
   * Aprovador de acesso de LockBox de cliente
   * Escritor de diretório  
@@ -53,12 +51,12 @@ Na página de definições para cada função, existem várias definições que 
   * Administrador global
   * Administrador de serviço do Intune
   * Administrador de caixa de correio  
-  * Suporte de tier1 parceiro  
-  * Suporte de tier2 parceiro  
-  * Administrador com função privilegiada   
+  * Suporte para parceiros do escalão 1  
+  * Suporte para parceiros do escalão 2  
+  * Administrador com Função Privilegiada   
   * Administrador de segurança  
   * Administrador do SharePoint  
-  * Skype para o administrador da empresa  
+  * Administrador do Skype para Empresas  
   * Administrador de conta de utilizador  
 
 Para obter mais informações sobre como utilizar a MFA com PIM consulte [como requerer MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
@@ -66,6 +64,6 @@ Para obter mais informações sobre como utilizar a MFA com PIM consulte [como r
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

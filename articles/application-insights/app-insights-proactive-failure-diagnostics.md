@@ -1,9 +1,9 @@
 ---
-title: "Smart - deteção de anomalias de falha, no Application Insights | Microsoft Docs"
-description: "Alerta-o para alterações invulgares na taxa de pedidos falhados à sua aplicação web e fornece uma análise de diagnóstico. É necessária nenhuma configuração."
+title: Smart - deteção de anomalias de falha, no Application Insights | Microsoft Docs
+description: Alerta-o para alterações invulgares na taxa de pedidos falhados à sua aplicação web e fornece uma análise de diagnóstico. É necessária nenhuma configuração.
 services: application-insights
-documentationcenter: 
-author: yorac
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mbullwin
-ms.openlocfilehash: ca484f4d11cf8ab18db2d0c6152f369a90311f10
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; yossiy
+ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção inteligente - anomalias de falha
 [Application Insights](app-insights-overview.md) automaticamente notifica-o em tempo real se a aplicação web sofre um aumento anormal da taxa de pedidos falhados. Deteta um aumento súbito invulgar na taxa de pedidos de HTTP ou chamadas de dependência são comunicadas como falha. Para pedidos, pedidos falhados são normalmente os códigos de resposta de 400 ou superior. Para ajudar a Triar e diagnosticar o problema, uma análise das características das falhas e telemetrias relacionadas é fornecida na notificação. Também existem ligações para o portal do Application Insights para obter diagnósticos adicionais. A funcionalidade não precisa de nenhuma configuração nem a configuração, como o utiliza algoritmos do machine learning para prever a taxa de falhas normais.
@@ -140,7 +140,7 @@ Inteligente deteção de anomalias de falha complementa outros semelhantes funci
 
 * Temos a supressão de alerta no nosso registo de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estas ferramentas de diagnóstico de ajudam a inspecionar a telemetria da sua aplicação:
 
 * [Explorador de métrica](app-insights-metrics-explorer.md)

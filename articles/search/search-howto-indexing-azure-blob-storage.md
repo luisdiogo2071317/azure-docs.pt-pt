@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no Blob Storage do Azure com a pesquisa do Azure
 Este artigo mostra como utilizar a pesquisa do Azure para documentos do índice (tais como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no Blob storage do Azure. Em primeiro lugar, explica as noções básicas de definir e configurar um indexador de blob. Em seguida, oferece uma exploração mais aprofundada de comportamentos e cenários que é provável que encontrar.
@@ -279,7 +279,7 @@ Também pode continuar a indexação se ocorrem erros em qualquer ponto de proce
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Deteção de indexação e eliminação incremental
-Quando configurar um indexador de BLOBs para executar com base numa agenda, indexa novamente apenas alteradas blobs, conforme determinado pelo blob `LastModified` timestamp.
+Quando configurar um indexador de BLOBs para executar com base numa agenda, reindexes-apenas os blobs alterados, conforme determinado pelo blob `LastModified` timestamp.
 
 > [!NOTE]
 > Não tem de especificar uma política de deteção de alteração – indexação incremental é automaticamente ativado para si.

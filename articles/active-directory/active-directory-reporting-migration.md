@@ -1,25 +1,23 @@
 ---
-title: "Localizar os relatórios de atividade de utilizador do Azure Active Directory no portal do Azure | Microsoft Docs"
-description: "Saiba onde os relatórios de atividade de utilizador do Azure Active Directory estão no portal do Azure."
+title: Localizar os relatórios de atividade de utilizador do Azure Active Directory no portal do Azure | Microsoft Docs
+description: Saiba onde os relatórios de atividade de utilizador do Azure Active Directory estão no portal do Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
+editor: ''
 ms.service: active-directory
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: 
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar os relatórios de atividade no portal do Azure
 
@@ -95,7 +93,7 @@ A seguinte tabela apresenta o Azure AD atividade anómala segurança os relatór
 
 | Relatório de atividade anómala do Azure AD |  Tipo de evento de risco de proteção de identidade|
 | :--- | :--- |
-| Utilizadores com fuga de credenciais | Credenciais obtidas ilicitamente |
+| Utilizadores com fuga de credenciais | Fuga de credenciais |
 | Atividades irregulares de início de sessão | Deslocação impossível para localizações atípicas |
 | Inícios de sessão de dispositivos possivelmente infetados | Inícios de sessão de dispositivos infetados|
 | Inícios de sessão de fontes desconhecidas | Inícios de sessão de endereços IP anónimos |
@@ -151,6 +149,6 @@ Para ver o **utilização da aplicação** no relatório o **do Azure Active Dir
 
 ![Relatório de inícios de sessão do aplicações empresariais](./media/active-directory-reporting-migration/199.png "relatório Enterprise aplicações inícios de sessão")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma descrição geral dos relatórios, veja [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md).

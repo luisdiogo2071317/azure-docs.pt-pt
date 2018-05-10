@@ -1,12 +1,12 @@
 ---
-title: "Lista de verificação de segurança de recursos de infraestrutura de serviço do Azure | Microsoft Docs"
-description: "Este artigo fornece um conjunto de lista de verificação de segurança de segurança de recursos de infraestrutura do Azure."
+title: Lista de verificação de segurança de recursos de infraestrutura de serviço do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de lista de verificação de segurança de segurança de recursos de infraestrutura do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 526f10bab30b7d0fae796e47f5a27a58428b9a3b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Lista de verificação de segurança do Azure Service Fabric
 Este artigo fornece uma lista de verificação de fácil utilização que irão ajudar a proteger o seu ambiente do Azure Service Fabric.
@@ -37,7 +37,7 @@ Utilize a lista de verificação seguinte para ajudar a certificar-se de que ain
 |[Segurança do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>Os cenários de segurança do cluster incluem a segurança do nó para o nó, segurança de nó de cliente, [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).</li></ul>|
 |[Autenticação do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>Autentica [comunicação de nó de nó](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-security.md) para Federação de cluster. </li></ul>|
 |[Autenticação de servidor](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>Autentica o [pontos finais de gestão de cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal) para um cliente de gestão.</li></ul>|
-|[Segurança da aplicação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)| <ul><li>A encriptação e desencriptação de valores de configuração de aplicação.</li><li>   Encriptação dos dados em nós durante a replicação.</li></ul>|
+|[Segurança de aplicações](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)| <ul><li>A encriptação e desencriptação de valores de configuração de aplicação.</li><li>   Encriptação dos dados em nós durante a replicação.</li></ul>|
 |[Certificado de cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) | <ul><li>Este certificado é necessário para proteger a comunicação entre os nós num cluster.</li><li>    Defina o thumbprint do certificado principal na secção de Thumbprint e que o elemento secundário nas variáveis de ThumbprintSecondary.</li></ul>|
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>Este certificado é apresentado para o cliente ao tentar ligar a este cluster. Pode utilizar dois certificados de servidor diferente, um servidor principal e secundária para a atualização.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>Este é um conjunto de certificados que pretende instalar nos clientes autenticados. </li></ul>|
@@ -46,7 +46,7 @@ Utilize a lista de verificação seguinte para ajudar a certificar-se de que ain
 |Cofre de Chaves| <ul><li>Utilizado para gerir os certificados para clusters de Service Fabric no Azure.  </li></ul>|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Processo de atualização de Cluster do Service Fabric e as expectativas do utilizador](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Gerir as aplicações de Service Fabric no Visual Studio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Introdução de modelo de estado de funcionamento do serviço Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction).

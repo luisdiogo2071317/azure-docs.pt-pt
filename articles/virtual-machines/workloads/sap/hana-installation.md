@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (instâncias de grande) no Azure
 
 Seguem-se algumas definições importantes saber antes de ler este guia. No [descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) introduzimos duas classes diferentes de unidades de instância grande HANA com:
 
 - S72, S72m, S144, S144m, S192 e S192m, que denominamos 'Type posso de classe' de SKUs.
-- S384, S384m, S384xm, S576, S768 e S960, que denominamos 'class II de tipo' de SKUs.
+- S384, S384m, S384xm, S576m, S768m e S960m, que denominamos 'class II de tipo' de SKUs.
 
 O especificador de classe vai ser utilizado em toda a documentação de instância grande HANA para, eventualmente, consulte funcionalidades diferentes e requisitos com base nas HANA grande SKUs de instância.
 
@@ -56,7 +56,7 @@ No específicos, verifique os parâmetros seguintes e, eventualmente, tendo em c
 - net.core.rmem_default = 16777216
 - net.core.wmem_default = 16777216
 - net.core.optmem_max = 16777216
-- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- NET.IPv4.tcp_rmem = 65536 16777216 16777216
 - net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 A partir de com SLES12 SP1 e RHEL 7.2, estes parâmetros tem de ser definidos num ficheiro de configuração no diretório /etc/sysctl.d. Por exemplo, um ficheiro de configuração com o nome 91-NetApp-HANA.conf tem de ser criado. Para versões mais antigas SLES e RHEL estes parâmetros têm de ser in/etc/sysctl.conf conjunto.
@@ -100,9 +100,9 @@ As convenções de nomenclatura dos volumes de armazenamento estão listadas na 
 
 | Utilização do armazenamento | Nome de montagem | Nome do volume | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| Dados HANA | /Hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
 | Registo HANA | /Hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
-| Cópia de segurança de registo HANA | /Hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
+| Cópia de segurança de registo HANA | /Hana/log/backups | Armazenamento de IP: / hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA partilhado | /Hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 

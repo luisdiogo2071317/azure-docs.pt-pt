@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: c80b47dcf2477fda5406c2e6efe3ee87ad1188d6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -147,6 +147,7 @@ Pontos finais de serviço de rede Virtual do Azure<br/><br/> (Firewalls de armaz
 Anfitrião NFS | Sim para VMware<br/><br/> Não para servidores físicos
 SAN (ISCSI) no anfitrião | Sim
 Multipath de anfitrião (MPIO) | Sim, testada com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
+Volumes de anfitriões virtuais (VVols) | Sim para VMware<br/><br/> N/d para servidores físicos
 Convidados/servidor VMDK | Sim
 Convidados/servidor EFI/UEFI| Parcial (migração do Azure para o Windows Server 2012 e posteriores em máquinas virtuais VMware apenas) </br></br> Consulte a nota no fim da tabela
 Disco de cluster partilhado convidado/servidor | Não

@@ -3,7 +3,7 @@ title: Utilize o mongoimport e mongorestore com a API de BD do Cosmos do Azure p
 description: Saiba como utilizar mongoimport e mongorestore para importar dados a uma API para a conta do MongoDB
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Do Azure Cosmos DB: Dados de MongoDB de importação 
 
@@ -28,7 +28,7 @@ Para migrar dados do MongoDB para uma conta de base de dados do Azure Cosmos DB 
 * Transferir o *mongoimport.exe* ou *mongorestore.exe* do [Centro de transferências do MongoDB](https://www.mongodb.com/download-center).
 * Obtenha a sua [API de cadeia de ligação do MongoDB](connect-mongodb-account.md).
 
-Se estiver a importar dados de MongoDB e planeie a utilizá-la com a base de dados do Cosmos do Azure, deve utilizar o [ferramenta de migração de dados](import-data.md) para importar dados.
+Se estiver a importar dados de MongoDB e planeie a utilizá-lo com a API de SQL do Azure Cosmos DB, deve utilizar o [ferramenta de migração de dados](import-data.md) para importar dados.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -39,7 +39,7 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Aumentar o débito: durante a migração de dados depende da quantidade de débito que configurou para as suas coleções. Lembre-se de que aumentar o débito para migrações de dados maior. Após concluir a migração, reduzir o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no [portal do Azure](https://portal.azure.com), consulte [níveis de desempenho e escalões de preço do BD Azure Cosmos](performance-levels.md).
+* Aumentar o débito: durante a migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Lembre-se de que aumentar o débito para migrações de dados maior. Após concluir a migração, reduzir o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no [portal do Azure](https://portal.azure.com), consulte [níveis de desempenho e escalões de preço do BD Azure Cosmos](performance-levels.md).
 
 * Ativar SSL: BD do Azure do Cosmos tem requisitos de segurança estritos e normas. Lembre-se de que ativar SSL quando se interage com a sua conta. Os procedimentos no resto do artigo incluem como ativar SSL para mongoimport e mongorestore.
 
@@ -47,10 +47,11 @@ Este tutorial abrange as seguintes tarefas:
 
 1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique em de **Azure Cosmos DB** entrada.
 2. No **subscrições** painel, selecione o nome da sua conta.
-3. No **cadeia de ligação** painel, clique em **cadeia de ligação**.  
-Painel direito contém todas as informações que precisa de ligar com êxito à sua conta.
+3. No **cadeia de ligação** painel, clique em **cadeia de ligação**.
 
-    ![Painel de cadeia de ligação](./media/mongodb-migrate/ConnectionStringBlade.png)
+   Painel direito contém todas as informações que precisa de ligar com êxito à sua conta.
+
+   ![Painel de cadeia de ligação](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Importar dados para a API para o MongoDB utilizando mongoimport
 
@@ -80,9 +81,27 @@ Exemplo:
 
 1. Pré-criar e dimensionar as coleções:
         
-    * Por predefinição, a base de dados do Azure Cosmos Aprovisiona uma nova coleção de MongoDB com 1000 unidades de pedido (RUs). Antes de começar a migração utilizando mongoimport, mongorestore ou mongomirror, todas as suas coleções de pré-criar o [portal do Azure](https://portal.azure.com) ou a partir de ferramentas e controladores de MongoDB. Se a coleção é superior a 10 GB, certifique-se criar um [coleção em partição horizontal/particionada](partition-data.md) com uma chave de partição horizontal adequado.
+    * Por predefinição, a base de dados do Azure Cosmos Aprovisiona uma nova coleção de MongoDB com 1000 unidades de pedido (RUs/seg). Antes de começar a migração utilizando mongoimport, mongorestore ou mongomirror, todas as suas coleções de pré-criar o [portal do Azure](https://portal.azure.com) ou a partir de ferramentas e controladores de MongoDB. Se a coleção é superior a 10 GB, certifique-se criar um [coleção em partição horizontal/particionada](partition-data.md) com uma chave de partição horizontal adequado.
 
-    * Do [portal do Azure](https://portal.azure.com), aumentar o débito das coleções de 1.000 RUs para uma coleção de partições únicas e 2500 RUs para uma coleção a apenas para a migração. Com o débito mais elevado, pode evitar limitação e migrar em menos tempo. Com a hora a hora de faturação do BD Azure Cosmos, pode reduzir o débito imediatamente após a migração para reduzir os custos.
+    * Do [portal do Azure](https://portal.azure.com), aumentar o débito das coleções de 1.000 RUs/seg para uma coleção de partições únicas e 2500 RUs/seg para uma coleção a apenas para a migração. Com o débito mais elevado, pode evitar limitação e migrar em menos tempo. Com a hora a hora de faturação do BD Azure Cosmos, pode reduzir o débito imediatamente após a migração para reduzir os custos.
+
+    * Para além de aprovisionamento RUs/seg ao nível da coleção, também pode aprovisionar RU/seg para um conjunto de coleções no nível de base de dados principal. Isto requer a pré-criar a base de dados e coleções, bem como definir uma chave de partição horizontal para cada coleção.
+
+    * Pode criar coleções em partição horizontal através da sua ferramenta favorita, controlador ou SDK. Neste exemplo, utilizamos a Shell do Mongo para criar uma coleção a:
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Resultados:
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. Calcular a taxa RU aproximada escrita um único documento:
 
@@ -92,7 +111,7 @@ Exemplo:
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Executar ```db.runCommand({getLastRequestStatistics: 1})``` e receberá uma resposta como esta:
+    c. Executar ```db.runCommand({getLastRequestStatistics: 1})``` e receberá uma resposta semelhante ao seguinte:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -111,7 +130,7 @@ Exemplo:
     
     a. Ative o registo verboso da Shell do MongoDB utilizando este comando: ```setVerboseShell(true)```
     
-    b. Executar uma consulta simple na base de dados: ```db.coll.find().limit(1)```. Irá receber uma resposta como esta:
+    b. Executar uma consulta simple na base de dados: ```db.coll.find().limit(1)```. Irá receber uma resposta como o seguinte:
 
         ```
         Fetched 1 record(s) in 100(ms)

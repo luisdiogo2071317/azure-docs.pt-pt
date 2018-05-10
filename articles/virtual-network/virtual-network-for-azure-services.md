@@ -1,13 +1,13 @@
 ---
-title: "Rede virtual para serviços do Azure | Microsoft Docs"
-description: "Saiba mais sobre as vantagens de implementar recursos numa rede virtual. Recursos na redes virtuais podem comunicar entre si e recursos no local, sem o tráfego que atravessa a Internet."
+title: Rede virtual para serviços do Azure | Microsoft Docs
+description: Saiba mais sobre as vantagens de implementar recursos numa rede virtual. Recursos na redes virtuais podem comunicar entre si e recursos no local, sem o tráfego que atravessa a Internet.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
@@ -56,7 +56,8 @@ Cada serviço implementado diretamente numa rede virtual tem requisitos específ
 - [Gestão de API](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Gateway de aplicação (interno)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Motor do serviço de contentor do Azure](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): O serviço de contentor do Azure cria uma rede virtual predefinido. Pode criar uma rede virtual personalizada para utilizar com o [motor do serviço de contentor do Azure](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
+- [Serviço de Kubernetes (AKS) do Azure](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Motor do serviço de contentor do Azure](https://github.com/Azure/acs-engine) com o CNI de rede Virtual do Azure [Plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
 - [Os serviços de domínio do Active Directory do Azure](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): (Virtual network clássica) apenas
 - [O Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Serviços em nuvem](https://msdn.microsoft.com/library/azure/jj156091): (Virtual network clássica) apenas

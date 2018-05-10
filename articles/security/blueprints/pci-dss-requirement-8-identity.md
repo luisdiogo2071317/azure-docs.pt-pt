@@ -3,7 +3,7 @@ title: Azure Blueprint de processamento de pagamento - requisitos de identidade
 description: Requisito de PCI DSS 8
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>Requisitos de identidades para ambientes em conformidade de PCI DSS 
 ## <a name="pci-dss-requirement-8"></a>Requisito de PCI DSS 8
@@ -42,8 +42,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore fornece um caso de utilização e uma descrição para a utilização correta de administradores para a implementação de exemplo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore fornece um caso de utilização e uma descrição para a utilização correta de administradores para a implementação de exemplo.|
 
 
 
@@ -55,8 +55,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore implementa o Azure Active Directory e controlo de acesso Azure Active Directory Role-Based (RBAC) para garantir que todos os utilizadores têm um ID exclusivo. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore implementa o Azure Active Directory e controlo de acesso Azure Active Directory Role-Based (RBAC) para garantir que todos os utilizadores têm um ID exclusivo. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -68,8 +68,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore implementa o Azure Active Directory e controlo de acesso Azure Active Directory Role-Based (RBAC) para garantir que todos os utilizadores têm um ID exclusivo. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore implementa o Azure Active Directory e controlo de acesso Azure Active Directory Role-Based (RBAC) para garantir que todos os utilizadores têm um ID exclusivo. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -81,8 +81,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure Active Directory para gestão de utilizadores. Revogação de utilizadores pode ser feita no Active Directory.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure Active Directory para gestão de utilizadores. Revogação de utilizadores pode ser feita no Active Directory.|
 
 
 
@@ -94,8 +94,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure Active Directory para gestão de utilizadores. O `-enableADDomainPasswordPolicy` opção pode ser definida para garantir que as palavras-passe expirarem dentro de 90 dias.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure Active Directory para gestão de utilizadores. O `-enableADDomainPasswordPolicy` opção pode ser definida para garantir que as palavras-passe expirarem dentro de 90 dias.|
 
 
 
@@ -109,8 +109,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ADOTOU políticas de segurança empresarial e organizacional aplicável, incluindo uma política de segurança de informações. As políticas tenham sido aprovadas, publicadas e comunicadas ao Microsoft Azure. A política de segurança de informações requer que o acesso aos recursos do Microsoft Azure para ser concedida com base no justificação de negócio, com autorização do proprietário do ativo e limitada com base no princípios "necessidade-para-saber" e "menor privilégio". Além disso, a política também aborda os requisitos de ciclo de vida do gestão de acesso, incluindo aprovisionamento de acesso, autenticação, autorização de acesso, revisões de acesso de remoção de direitos de acesso e periódica. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Demonstração de Contoso Webstore tiver implementado o Azure Active Directory e o controlo de acesso de Azure Active Directory Role-Based para gerir o acesso de utilizador para a instalação. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ADOTOU políticas de segurança empresarial e organizacional aplicável, incluindo uma política de segurança de informações. As políticas tenham sido aprovadas, publicadas e comunicadas ao Microsoft Azure. A política de segurança de informações requer que o acesso aos recursos do Microsoft Azure para ser concedida com base no justificação de negócio, com autorização do proprietário do ativo e limitada com base no princípios "necessidade-para-saber" e "menor privilégio". Além disso, a política também aborda os requisitos de ciclo de vida do gestão de acesso, incluindo aprovisionamento de acesso, autenticação, autorização de acesso, revisões de acesso de remoção de direitos de acesso e periódica. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Demonstração de Contoso Webstore tiver implementado o Azure Active Directory e o controlo de acesso de Azure Active Directory Role-Based para gerir o acesso de utilizador para a instalação. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -122,8 +122,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Contoso Webstore tiver implementado clara separação de deveres (SOD) para todos os utilizadores de demonstração de. Para obter mais informações, consulte ""Do Azure Active Directory Identity Protection"em [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore tiver implementado clara separação de deveres (SOD) para todos os utilizadores de demonstração de. Para obter mais informações, consulte ""Do Azure Active Directory Identity Protection"em [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -135,8 +135,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação, imposição e uma política de palavra-passe em conformidade com os requisitos de PCI DSS de monitorização.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação, imposição e uma política de palavra-passe em conformidade com os requisitos de PCI DSS de monitorização.|
 
 
 
@@ -148,8 +148,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação, imposição e uma política de palavra-passe em conformidade com os requisitos de PCI DSS de monitorização.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes serão responsáveis pela criação, imposição e uma política de palavra-passe em conformidade com os requisitos de PCI DSS de monitorização.|
 
 
 
@@ -164,8 +164,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A implementação de Contoso Webstore para autenticação multifator foi desativada para fornecer a facilidade de utilização para a demonstração. Autenticação multifator pode ser implementada utilizando [Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A implementação de Contoso Webstore para autenticação multifator foi desativada para fornecer a facilidade de utilização para a demonstração. Autenticação multifator pode ser implementada utilizando [Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -177,8 +177,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos de gestão de chaves para gerir as chaves criptográficas ao longo do respetivo ciclo de vida (por exemplo, geração, distribuição, revogação). Microsoft Azure utiliza a infraestrutura PKI empresarial da Microsoft. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos de gestão de chaves para gerir as chaves criptográficas ao longo do respetivo ciclo de vida (por exemplo, geração, distribuição, revogação). Microsoft Azure utiliza a infraestrutura PKI empresarial da Microsoft. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -191,8 +191,8 @@ A eficácia de uma palavra-passe em grande medida é determinada pela estrutura 
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos de gestão de chaves para gerir as chaves criptográficas ao longo do respetivo ciclo de vida (por exemplo, geração, distribuição, revogação). Microsoft Azure utiliza a infraestrutura PKI empresarial da Microsoft. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure estabelecida procedimentos de gestão de chaves para gerir as chaves criptográficas ao longo do respetivo ciclo de vida (por exemplo, geração, distribuição, revogação). Microsoft Azure utiliza a infraestrutura PKI empresarial da Microsoft. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -207,8 +207,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação.|
 
 
 
@@ -220,8 +220,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure Active Directory para gestão de utilizadores. O `-enableADDomainPasswordPolicy` opção pode ser definida para garantir que as palavras-passe expirarem, pelo menos, uma vez a cada 90 dias.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | O Contoso Webstore utiliza o Azure Active Directory para gestão de utilizadores. O `-enableADDomainPasswordPolicy` opção pode ser definida para garantir que as palavras-passe expirarem, pelo menos, uma vez a cada 90 dias.|
 
 
 
@@ -233,8 +233,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -246,8 +246,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore impõe palavras-passe fortes, documentadas no guia de implementação. Para obter mais informações, consulte [orientações de PCI - gestão de identidades](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -263,8 +263,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Os administradores do Azure são necessários para utilizar a autenticação multifator para aceder ao efetuar a manutenção e administração para sistemas do Azure e servidores. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Os administradores do Azure são necessários para utilizar a autenticação multifator para aceder ao efetuar a manutenção e administração para sistemas do Azure e servidores. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -279,8 +279,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Os administradores do Azure são necessários para utilizar a autenticação multifator para aceder ao efetuar a manutenção e administração para sistemas do Azure e servidores. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Os administradores do Azure são necessários para utilizar a autenticação multifator para aceder ao efetuar a manutenção e administração para sistemas do Azure e servidores. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -293,8 +293,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Os administradores do Azure são necessários para utilizar a autenticação multifator para aceder ao efetuar a manutenção e administração para sistemas do Azure e servidores. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Os administradores do Azure são necessários para utilizar a autenticação multifator para aceder ao efetuar a manutenção e administração para sistemas do Azure e servidores. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -310,8 +310,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por seguintes orientações e documentar e comunicar procedimentos de autenticação e políticas a todos os utilizadores.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por seguintes orientações e documentar e comunicar procedimentos de autenticação e políticas a todos os utilizadores.|
 
 
 
@@ -326,8 +326,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração.|
 
 
 
@@ -342,8 +342,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não é aplicável para clientes do Microsoft Azure. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Não é aplicável para clientes do Microsoft Azure.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não é aplicável para clientes do Microsoft Azure. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Não é aplicável para clientes do Microsoft Azure.|
 
 
 
@@ -357,8 +357,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração. Todo o acesso é gerido através de [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/), que ajuda a salvaguardar as chaves criptográficas e segredos utilizados pelas aplicações em nuvem e de serviços. |
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore cria três contas durante a implementação: administrador, sqladmin e edna (o utilizador predefinido registado para a aplicação web durante a execução de demonstração). Autenticação multifator não está implementada para a demonstração. Todo o acesso é gerido através de [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/), que ajuda a salvaguardar as chaves criptográficas e segredos utilizados pelas aplicações em nuvem e de serviços. |
 
 
 
@@ -373,8 +373,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | A Contoso Webstore protege todos os dados de cardholder com o Cofre de chaves do Azure e encriptação dos registos é descrita na documentação de implementação. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore protege todos os dados de cardholder com o Cofre de chaves do Azure e encriptação dos registos é descrita na documentação de implementação. Para obter mais informações, consulte [orientações de PCI - encriptação](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -386,8 +386,8 @@ Em alternativa, as palavras-passe/frases de acesso tem de ter a complexidade e f
 
 |||
 |---|---|
-| **Fornecedor<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
-| **Cliente<br />(PCI &#8209; DSS&nbsp;Blueprint)** | Os clientes são responsáveis por garantir que as políticas de segurança e de procedimentos operacionais para identificação e autenticação estão documentados em utilização e conhecidos para todas as partes afetadas.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Não aplicável. |
+| **Cliente<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Os clientes são responsáveis por garantir que as políticas de segurança e de procedimentos operacionais para identificação e autenticação estão documentados em utilização e conhecidos para todas as partes afetadas.|
 
 
 

@@ -1,11 +1,11 @@
 ---
-title: "Ligar a solução de dados no Log Analytics | Microsoft Docs"
-description: "Durante a transmissão de dados são consolidados dados de rede e o desempenho dos computadores com agentes do OMS, incluindo do Operations Manager e agentes Windows ligados. Dados de rede são combinados com os seus dados de registo para o ajudar a correlacionar dados."
+title: Ligar a solução de dados no Log Analytics | Microsoft Docs
+description: Durante a transmissão de dados são consolidados dados de rede e o desempenho dos computadores com agentes do OMS, incluindo do Operations Manager e agentes Windows ligados. Dados de rede são combinados com os seus dados de registo para o ajudar a correlacionar dados.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Durante a transmissão 2.0 de dados (pré-visualização) solução na análise de registos
 
@@ -58,8 +58,8 @@ Dados por fio obtém os dados do agente de dependência do Microsoft. O agente d
 
 | **Origem ligada** | **Suportado** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Windows. <br><br> Para além de [agente do OMS](log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Linux.<br><br> Para além de [agente do OMS](log-analytics-quick-collect-linux-computer.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Windows. <br><br> Para além de [agente do OMS](log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Linux.<br><br> Para além de [agente do OMS](log-analytics-quick-collect-linux-computer.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | Dados por fio analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](log-analytics-om-agents.md). <br><br> Não é necessária uma ligação direta do computador de agente do System Center Operations Manager para análise de registos. Dados seja reencaminhados do grupo de gestão para análise de registos. |
 | Conta de armazenamento do Azure | Não | Dados por fio recolhe dados de computadores de agente, pelo que não existem dados a partir do mesmo para recolher do armazenamento do Azure. |
 
@@ -115,7 +115,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -124,7 +124,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -138,7 +138,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -149,7 +149,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -159,7 +159,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -170,7 +170,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -180,7 +180,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
-| Versão do SO | Versão de kernel |
+| **Versão do SO** | **Versão de kernel** |
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
@@ -217,9 +217,9 @@ Utilize os seguintes passos para instalar o agente de dependência em cada compu
 
 Utilize as opções da tabela seguinte para instalar a partir de uma linha de comandos. Para ver uma lista dos sinalizadores de instalação, execute o instalador utilizando o /? Sinalizador da seguinte forma.
 
-InstallDependencyAgent-Windows.exe /?
+InstallDependencyAgent Windows.exe /?
 
-| **Flag** | **Descrição** |
+| **Sinalizador** | **Descrição** |
 | --- | --- |
 | <code>/?</code> | Obter uma lista das opções da linha de comandos. |
 | <code>/S</code> | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -244,7 +244,7 @@ Para ver uma lista dos sinalizadores de instalação, execute o programa de inst
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flag** | **Descrição** |
+| **Sinalizador** | **Descrição** |
 | --- | --- |
 | <code>-help</code> | Obter uma lista das opções da linha de comandos. |
 | <code>-s</code> | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -252,7 +252,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 Os ficheiros para o agente de dependência são colocados nas seguintes diretórios:
 
-| Ficheiros | **Localização** |
+| **Ficheiros** | **Localização** |
 | --- | --- |
 | Ficheiros de núcleo | /opt/microsoft/dependency-agent |
 | Ficheiros de registo | /var/opt/microsoft/dependency-agent/log |
@@ -364,7 +364,7 @@ O pacote de gestão é denominado Microsoft.IntelligencePacks.ApplicationDepende
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
-Instalar e configurar a solução
+**Instalar e configurar a solução**
 
 Utilize as seguintes informações para instalar e configurar a solução.
 
@@ -381,7 +381,7 @@ Depois de instalar agentes e instalar a solução, o mosaico 2.0 de dados durant
 
 No portal do OMS, clique em de **durante a transmissão dados 2.0** mosaico para abrir o dashboard de dados por fio. O dashboard inclui os painéis na seguinte tabela. Cada painel lista até 10 itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos clicando **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
-| **Blade** | **Descrição** |
+| **Painel** | **Descrição** |
 | --- | --- |
 | Agentes que capturam tráfego de rede | Mostra o número de agentes que está a capturar o tráfego de rede e apresenta uma lista de principais 10 computadores que estão a capturar o tráfego. Clique no número para executar uma pesquisa de registo para <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Clique num computador na lista para executar uma pesquisa de registo devolver o número total de bytes capturadas. |
 | Sub-redes locais | Mostra o número de sub-redes locais que tenham detetados agentes.  Clique no número para executar uma pesquisa de registo para <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> que apresenta uma lista de todas as sub-redes com o número de bytes enviados através de cada um deles. Clique uma sub-rede na lista para executar uma pesquisa de registo devolver o número total de bytes enviados através de sub-rede. |
@@ -423,7 +423,7 @@ Um registo com um tipo de _WireData_ é criada para cada tipo de dados de entrad
 | TimeGenerated | Tempo do registo |
 | LocalIP | Endereço IP do computador local |
 | SessionState | Ligado ou desligado |
-| ReceivedBytes | Quantidade de bytes recebidos |
+| receivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede utilizado |
 | IPVersion | Versão do IP |
 | Direção | Entrada ou de saída |
@@ -439,7 +439,7 @@ Um registo com um tipo de _WireData_ é criada para cada tipo de dados de entrad
 | RemoteIP | Endereço IP remoto utilizado pelo computador remoto |
 | RemotePortNumber | Número de porta utilizado pelo endereço IP remoto |
 | SessionID | Um valor exclusivo que identifica a sessão de comunicações entre dois endereços IP |
-| SentBytes | Número de bytes enviados |
+| sentBytes | Número de bytes enviados |
 | TotalBytes | Número total de bytes enviados durante a sessão |
 | ApplicationProtocol | Tipo de protocolo de rede utilizado   |
 | ID do processo | ID de processo do Windows |

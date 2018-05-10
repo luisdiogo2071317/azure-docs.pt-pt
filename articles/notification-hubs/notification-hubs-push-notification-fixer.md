@@ -1,45 +1,45 @@
 ---
-title: "Os Hubs de notificação do Azure ignorados diagnóstico de notificação"
-description: "Saiba como diagnosticar problemas comuns notificações ignorados nos Notification Hubs do Azure."
+title: Os Hubs de notificação do Azure ignorados diagnóstico de notificação
+description: Saiba como diagnosticar problemas comuns notificações ignorados nos Notification Hubs do Azure.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnosticar ignoradas as notificações de Hubs de notificação
 
 Uma das perguntas mais comuns de clientes de Notification Hubs do Azure é como resolver problemas quando as notificações que são enviadas a partir de uma aplicação não são apresentadas nos dispositivos cliente. Pretende saber onde e por que razão as notificações foram removidas e saber como corrigir o problema. Este artigo identifica a razão pela qual as notificações podem obter removidas ou não ser recebidas pelas dispositivos. Saiba como analisar e determinar a causa raiz. 
 
-É fundamental compreender primeiro como Notification Hubs pushes notificações para um dispositivo.
+É fundamental compreender primeiro como o serviço de Notification Hubs pushes notificações para um dispositivo.
 
 ![Arquitetura de Hubs de notificação][0]
 
 Um fluxo de notificação envio típica, a mensagem é enviada do *back-end da aplicação* para os Notification Hubs. Os Notification Hubs efetua algumas processamento em todos os registos. O processamento tem em consideração as etiquetas configuradas e expressões de etiqueta para determinar o "destino". Destinos são todos os registos que necessitam para receber a notificação push. Estes registos podem abranger quaisquer ou todas as nossas plataformas suportadas: iOS, Google, Windows, Windows Phone, Kindle e Baidu para China Android.
 
-Com os destinos estabelecidos, os Notification Hubs pushes notificações para o *push do serviço de notificação* para a plataforma do dispositivo. Os exemplos incluem o serviço Apple Push Notification (APNs) para a Apple e o Firebase Cloud Messaging (FCM) para o Google. Notificações de pushes de Hubs de notificação dividir por lotes de vários de registos. Os Notification Hubs autentica com o serviço de notificação push correspondentes com base nas credenciais que definiu no portal do Azure, em **configurar o Notification Hub**. A notificação push do serviço, em seguida, forwards as notificações para o respetivo *dispositivos cliente*. 
+Com os destinos estabelecidos, o serviço de Notification Hubs pushes notificações para o *push do serviço de notificação* para a plataforma do dispositivo. Os exemplos incluem o serviço Apple Push Notification (APNs) para a Apple e o Firebase Cloud Messaging (FCM) para o Google. Notificações de pushes de Hubs de notificação dividir por lotes de vários de registos. Os Notification Hubs autentica com o serviço de notificação push correspondentes com base nas credenciais que definiu no portal do Azure, em **configurar o Notification Hub**. A notificação push do serviço, em seguida, forwards as notificações para o respetivo *dispositivos cliente*. 
 
-Tenha em atenção que a fase final da entrega de notificações ocorre entre o serviço de notificações de push de plataforma e o dispositivo. Qualquer um dos quatro componentes principais do processo de notificação push (cliente, back-end da aplicação, os Hubs de notificação e o serviço de notificação push plataforma) pode fazer com que as notificações ser removido. Para obter mais informações sobre a arquitetura de Notification Hubs, consulte [descrição geral dos Notification Hubs].
+A fase final da entrega de notificações ocorre entre o serviço de notificações de push de plataforma e o dispositivo. Qualquer um dos quatro componentes principais do processo de notificação push (cliente, back-end da aplicação, os Hubs de notificação e o serviço de notificação push plataforma) pode fazer com que as notificações ser removido. Para obter mais informações sobre a arquitetura de Notification Hubs, consulte [descrição geral dos Notification Hubs].
 
 Falha entregar notificações poderão ocorrer durante o inicial/testes fase. Notificações ignoradas nesta fase, poderão indicar um problema de configuração. Se ocorrer uma falha para a entrega de notificações em produção, algumas ou todas as notificações podem ser removidas. Neste caso, é indicada uma aplicação mais aprofundada ou problema de padrão de mensagens. 
 
 A secção seguinte analisa cenários em que poderão ser removidas notificações, entre comuns mais raro.
 
 ## <a name="notification-hubs-misconfiguration"></a>Configuração incorreta de Hubs de notificação
-Com êxito enviar notificações para o serviço de notificação push respetivos, os Notification Hubs necessita para se autenticar no contexto da aplicação do programador. Para esta situação ocorrer, o programador cria uma conta de programador com a respetiva plataforma (Google, Apple, Windows e assim sucessivamente). Em seguida, o programador regista as respetivas aplicações com a plataforma de onde obter credenciais. 
+Com êxito enviar notificações para o serviço de notificação push correspondentes, o serviço de Notification Hubs necessita para se autenticar no contexto da aplicação do programador. Para esta situação ocorrer, o programador cria uma conta de programador com a respetiva plataforma (Google, Apple, Windows e assim sucessivamente). Em seguida, o programador regista as respetivas aplicações com a plataforma de onde obter credenciais. 
 
 Tem de adicionar as credenciais de plataforma para o portal do Azure. Se não existem notificações são alcançar o dispositivo, deve ser o primeiro passo para se certificar de que as credenciais corretas são configuradas no Notification Hubs. As credenciais têm de corresponder a aplicação que é criada com uma conta de programador específicos da plataforma. 
 
@@ -88,7 +88,7 @@ Seguem-se algumas configurações incorretas comuns para procurar:
 
 * **Registos inválidos**
 
-    Se o hub de notificação foi configurado corretamente e se as etiquetas expressões de etiqueta foram utilizadas ou corretamente, encontram-se destinos válidos. As notificações devem ser enviadas para nestes destinos. Os Notification Hubs, em seguida, é desencadeado desativar várias de processamento de lotes em paralelo. Cada lote envia mensagens para um conjunto de registos. 
+    Se o hub de notificação foi configurado corretamente e se as etiquetas expressões de etiqueta foram utilizadas ou corretamente, encontram-se destinos válidos. As notificações devem ser enviadas para nestes destinos. O serviço de Notification Hubs, em seguida, é desencadeado desativar várias de processamento de lotes em paralelo. Cada lote envia mensagens para um conjunto de registos. 
 
     > [!NOTE]
     > Porque o processamento é executado em paralelo, a ordem pela qual as notificações são entregues não é garantida. 
@@ -102,7 +102,7 @@ Seguem-se algumas configurações incorretas comuns para procurar:
     Para obter mais informações de erro sobre a tentativa falhada de entrega em relação a um registo, pode utilizar as APIs REST do Notification Hubs [por mensagem de telemetria: obter telemetria de mensagem de notificação](https://msdn.microsoft.com/library/azure/mt608135.aspx) e [comentários PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para o código de exemplo, consulte o [exemplo enviar REST](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Problemas de notificação do serviço de push
-Depois da mensagem de notificação foi recebida pelo serviço de notificação push de plataforma, é da responsabilidade do serviço de notificações push para fornecer a notificação para o dispositivo. Neste momento, os Hubs de notificação está fora da imagem e não tem nenhum controlo sobre quando ou se a notificação é enviada para o dispositivo. 
+Depois da mensagem de notificação foi recebida pelo serviço de notificação push de plataforma, é da responsabilidade do serviço de notificações push para fornecer a notificação para o dispositivo. Neste momento, o serviço de Hubs de notificação está fora da imagem e não tem nenhum controlo sobre quando ou se a notificação é enviada para o dispositivo. 
 
 Uma vez que os serviços de notificação de plataforma são robustos, notificações têm tendência para chegarem aos dispositivos do serviço de notificação push dentro de alguns segundos. Se o serviço de notificação push é a limitação, os Notification Hubs aplica-se uma estratégia de término exponencial. Se o serviço de notificação push permanece inacessível durante 30 minutos, temos uma política no local para expirar e remover permanentemente as mensagens. 
 
@@ -226,7 +226,7 @@ Esta mensagem indica que a credenciais inválidas estão configuradas nos Notifi
    
         ![Dashboard de descrição geral de Hubs de notificação][5]
    
-    2. No **Monitor** separador, pode adicionar várias outras métricas específicas da plataforma para ver mais aprofundado. Pode observar especificamente quaisquer erros relacionados com o serviço de notificação push que são devolvidos quando tenta Notification Hubs enviar a notificação para o serviço de notificação push. 
+    2. No **Monitor** separador, pode adicionar várias outras métricas específicas da plataforma para ver mais aprofundado. Pode observar especificamente quaisquer erros relacionados com o serviço de notificação push que são devolvidos quando tenta o serviço de Notification Hubs enviar a notificação para o serviço de notificação push. 
    
         ![Registo de atividade de portal do Azure][6]
    

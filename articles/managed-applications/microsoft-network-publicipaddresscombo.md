@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bced85abaf24beb0997ec906a68e5947f0e67cca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c308b6626f9c37b3928107c4c03e9e0a5da12e6f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI element
 Um grupo de controlos para selecionar um endereço IP público novo ou existente.
@@ -54,7 +54,8 @@ Um grupo de controlos para selecionar um endereço IP público novo ou existente
   "options": {
     "hideNone": false,
     "hideDomainNameLabel": false,
-    "hideExisting": false
+    "hideExisting": false,
+    "zone": 3
   },
   "visible": true
 }
@@ -65,6 +66,7 @@ Um grupo de controlos para selecionar um endereço IP público novo ou existente
 - Se `options.hideNone` está definido como **verdadeiro**, em seguida, a opção para selecionar **nenhum** para o IP público endereço está oculto. O valor predefinido é **falso**.
 - Se `options.hideDomainNameLabel` está definido como **verdadeiro**, em seguida, a caixa de texto etiqueta de nome de domínio está oculto. O valor predefinido é **falso**.
 - Se `options.hideExisting` for VERDADEIRO, o utilizador não é possível escolher um endereço IP público existente. O valor predefinido é **falso**.
+- Para `zone`, endereços de IP público apenas para a zona especificada ou zona resilientes os endereços IP públicos estão disponíveis.
 
 ## <a name="sample-output"></a>Resultado da amostra
 Se o utilizador não seleciona nenhum endereço IP público, é esperado o seguinte resultado:
@@ -87,6 +89,6 @@ Se o utilizador seleciona um endereço IP novo ou existente, é esperado o segui
 - Quando `options.hideNone` está especificado como **verdadeiro**, `newOrExistingOrNone` apenas terá um valor de **novo** ou **existente**.
 - Quando `options.hideDomainNameLabel` está especificado como **verdadeiro**, `domainNameLabel` é não declarado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

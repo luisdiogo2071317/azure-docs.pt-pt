@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Desempenho e dimensionamento de teste com base de dados do Azure Cosmos
 
@@ -96,7 +96,7 @@ A forma mais rápida para começar a utilizar é compilar e executar o exemplo d
     Press any key to exit...
 
 
-**Passo 4 (se necessário):** o débito comunicado (RU/s) da ferramenta deve ser igual ou superior ao débito aprovisionado da coleção. Se não for, aumentar o DegreeOfParallelism pequenos incrementos poderá ajudá-lo atingirá o limite. Se o débito da sua aplicação de cliente plateaus, comece por várias instâncias da aplicação em máquinas de cliente adicionais. Se precisar de ajuda com este passo, e-mail askcosmosdb@microsoft.com ou um pedido de suporte a partir do ficheiro a [portal do Azure](https://portal.azure.com).
+**Passo 4 (se necessário):** o débito comunicado (RU/s) da ferramenta deve ser igual ou superior ao débito aprovisionado da coleção ou um conjunto de coleções. Se não for, aumentar o DegreeOfParallelism pequenos incrementos poderá ajudá-lo atingirá o limite. Se o débito da sua aplicação de cliente plateaus, comece por várias instâncias da aplicação em máquinas de cliente adicionais. Se precisar de ajuda com este passo, e-mail askcosmosdb@microsoft.com ou um pedido de suporte a partir do ficheiro a [portal do Azure](https://portal.azure.com).
 
 Depois de ter a aplicação em execução, pode experimentar diferentes [indexação políticas](indexing-policies.md) e [níveis de consistência](consistency-levels.md) para compreender o impacto na débito e latência. Também pode rever o código de origem e implementar configurações semelhantes para as suas próprias aplicações de produção ou conjuntos de teste.
 

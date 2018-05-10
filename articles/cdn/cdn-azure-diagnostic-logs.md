@@ -3,8 +3,8 @@ title: Os registos de diagnóstico do Azure | Microsoft Docs
 description: Cliente pode ativar a análise de registos para a CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -28,7 +28,7 @@ Com os registos de diagnóstico do Azure, pode ver a análise de núcleo e guard
  - Azure Event Hubs
  - [Área de trabalho de análise de registo](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Esta funcionalidade está disponível para todos os pontos finais da CDN que pertencem da Verizon (Standard e Premium) e perfis da CDN Akamai (Standard). 
+Esta funcionalidade está disponível nos pontos finais da CDN para todos os escalões de preços. 
 
 Registos de diagnóstico do Azure permitem-lhe exportar métricas de utilização básica do ponto final de CDN para uma variedade de origens de modo a que pode aceder aos mesmos de forma personalizada. Por exemplo, pode efetuar os seguintes tipos de exportação de dados:
 
@@ -156,10 +156,10 @@ Antes de poder aceder os dados de análise de núcleo da conta do Storage do Azu
 
 **Descrição de campos:**
 
-|valor|descrição|
+|Valor|Descrição|
 |-------|---------|
 |ID da subscrição    |ID de subscrição do Azure no formato Guid.|
-|Recurso |Nome do nome de grupo do grupo de recursos aos quais pertencem os recursos da CDN.|
+|Nome do grupo de recursos |Nome do grupo de recursos aos quais pertencem os recursos da CDN.|
 |Nome do perfil |Nome do perfil CDN|
 |Nome do ponto final |Nome do ponto final de CDN|
 |Ano|  representação de 4 dígitos do ano, por exemplo, 2017|
@@ -276,47 +276,49 @@ Pode arrastar e largar os tipos de gráficos e preencha os detalhes de dados que
     
 ## <a name="log-data-delays"></a>Atrasos de dados de registo
 
-Atrasos de dados de registo da Verizon | Atrasos de dados de registo Akamai
---- | ---
-Dados de registo da Verizon estão atrasados 1 hora em demorar até 2 horas para iniciar a apresentação após a conclusão da propagação de ponto final. | Dados de registo da Akamai estão atrasados por 24 horas; Se foi criada há mais de 24 horas, que demora até 2 horas para iniciar a apresentação. Se tiver sido recentemente criado, pode demorar até 25 horas para os registos para iniciar a apresentação.
+A tabela seguinte mostra registo atrasos de dados para **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Akamai**, e **CDN do Azure Standard/Premium da Verizon**.
+
+Atrasos de dados de registo do Microsoft | Atrasos de dados de registo da Verizon | Atrasos de dados de registo Akamai
+--- | --- | ---
+Atrasada pelo 1 hora. | Um atraso por 1 hora e pode demorar até 2 horas para iniciar a apresentação após a conclusão da propagação de ponto final. | Um atraso por 24 horas; Se foi criada há mais de 24 horas, que demora até 2 horas para iniciar a apresentação. Se tiver sido recentemente criado, pode demorar até 25 horas para os registos para iniciar a apresentação.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Tipos de registo de diagnóstico para análise de núcleo CDN
 
 Estamos atualmente oferecem apenas core registos de análise, que contêm as métricas que mostra as estatísticas de resposta HTTP e estatísticas de saída visto da CDN POPs/margens.
 
 ### <a name="core-analytics-metrics-details"></a>Detalhes de métricas de análise de núcleo
-A tabela seguinte mostra uma lista de haver métricas disponíveis nos registos de análise de núcleo. Nem todas as métricas estão disponíveis de todos os fornecedores, apesar destas diferenças são mínimas. A tabela seguinte mostra também se uma métrica indicada está disponível a partir de um fornecedor. Tenha em atenção que as métricas estão disponíveis para apenas esses pontos finais da CDN que tenham tráfego nos mesmos.
+A tabela seguinte mostra uma lista das métricas disponíveis nas principais registos de análise para **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Akamai**, e **Azure CDN padrão/Premium da Verizon**. Nem todas as métricas estão disponíveis de todos os fornecedores, apesar destas diferenças são mínimas. A tabela apresenta também se uma métrica fornecida está disponível a partir de um fornecedor. Tenha em atenção que as métricas estão disponíveis para apenas esses pontos finais da CDN que tenham tráfego nos mesmos.
 
 
-|Métrica                     | Descrição   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Número total de pedidos de pedido durante este período| Sim  |Sim   |
-| RequestCountHttpStatus2xx |Contagem de todos os pedidos que resultaram num código de HTTP 2xx (por exemplo, 200, 202)              | Sim  |Sim   |
-| RequestCountHttpStatus3xx | Contagem de todos os pedidos que resultaram num código de HTTP 3xx (por exemplo, 300, 302)              | Sim  |Sim   |
-| RequestCountHttpStatus4xx |Contagem de todos os pedidos que resultaram num código de HTTP 4xx (por exemplo, 400, 404)               | Sim   |Sim   |
-| RequestCountHttpStatus5xx | Contagem de todos os pedidos que resultaram num código de HTTP 5xx (por exemplo, 500, 504)              | Sim  |Sim   |
-| RequestCountHttpStatusOthers |  Contagem de todos os outros códigos HTTP (fora 2xx-5xx) | Sim  |Sim   |
-| RequestCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 200              |Não   |Sim   |
-| RequestCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta código 206 HTTP              |Não   |Sim   |
-| RequestCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 302              |Não   |Sim   |
-| RequestCountHttpStatus304 |  Contagem de todos os pedidos que resultaram numa resposta código 304 HTTP             |Não   |Sim   |
-| RequestCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 404              |Não   |Sim   |
-| RequestCountCacheHit |Contagem de todos os pedidos que resultaram num de acertos na Cache. O recurso tiver sido servido diretamente a partir do POP ao cliente.               | Sim  |Não   |
-| RequestCountCacheMiss | Contagem de todos os pedidos que resultaram numa Cache de falha de acerto na. Isto significa que o elemento não foi encontrado no POP mais próximo para o cliente e, por conseguinte, foi obtido da origem.              |Sim   | Não  |
-| RequestCountCacheNoCache | Contagem de todos os pedidos para um recurso que impedido de ser colocadas em cache devido a uma configuração de utilizador na extremidade.              |Sim   | Não  |
-| RequestCountCacheUncacheable | Contagem de todos os pedidos ativos que são impedidos de ser colocadas em cache, o elemento Cache-Control e cabeçalhos de expira, que indicam que este deve não ser colocadas em cache num POP ou pelo cliente HTTP                |Sim   |Não   |
-| RequestCountCacheOthers | Contagem de todos os pedidos com o estado de cache não abrangido por acima.              |Sim   | Não  |
-| EgressTotal | Transferência de dados de saída em GB              |Sim   |Sim   |
-| EgressHttpStatus2xx | Dados de saída transferência * para respostas com códigos de estado HTTP 2xx em GB            |Sim   |Não   |
-| EgressHttpStatus3xx | Transferência de dados de saída para as respostas com códigos de estado HTTP 3xx em GB              |Sim   |Não   |
-| EgressHttpStatus4xx | Transferência de dados de saída para as respostas com códigos de estado HTTP 4xx em GB               |Sim   | Não  |
-| EgressHttpStatus5xx | Transferência de dados de saída para as respostas com códigos de estado HTTP 5xx em GB               |Sim   |  Não |
-| EgressHttpStatusOthers | Transferência de dados de saída para as respostas com outros códigos de estado HTTP em GB                |Sim   |Não   |
-| EgressCacheHit |  Transferência de dados de saída para as respostas que foram fornecidas diretamente a partir da cache do CDN na CDN POPs/margens  |Sim   |  Não |
-| EgressCacheMiss | Transferência de dados de saída para as respostas que não foram encontrado no servidor mais próximo POP e obtidas a partir do servidor de origem              |Sim   |  Não |
-| EgressCacheNoCache | Transferem de dados de saída para recursos que são impedidos de ser colocadas em cache devido a uma configuração de utilizador na extremidade.                |Sim   |Não   |
-| EgressCacheUncacheable | Transferem de dados de saída para recursos que são impedidos de ser colocadas em cache por Cache-Control e/ou cabeçalhos expira o elemento. Indica que este deve não ser colocadas em cache num POP ou pelo cliente HTTP.                   |Sim   | Não  |
-| EgressCacheOthers |  Transferências de dados de saída para obter outros cenários de cache.             |Sim   | Não  |
+|Métrica                     | Descrição | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Número total de pedidos de pedido durante este período. | Sim | Sim |Sim |
+| RequestCountHttpStatus2xx | Contagem de todos os pedidos que resultaram num código de HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |
+| RequestCountHttpStatus3xx | Contagem de todos os pedidos que resultaram num código de HTTP 3xx (por exemplo, 300, 302). | Sim | Sim |Sim |
+| RequestCountHttpStatus4xx | Contagem de todos os pedidos que resultaram num código de HTTP 4xx (por exemplo, 400, 404). | Sim | Sim |Sim |
+| RequestCountHttpStatus5xx | Contagem de todos os pedidos que resultaram num código de HTTP 5xx (por exemplo, 500, 504). | Sim | Sim |Sim |
+| RequestCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora 2xx-5xx). | Sim | Sim |Sim |
+| RequestCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 200. | Sim | Não  |Sim |
+| RequestCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta código 206 HTTP. | Sim | Não  |Sim |
+| RequestCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 302. | Sim | Não  |Sim |
+| RequestCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta código 304 HTTP. | Sim | Não  |Sim |
+| RequestCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 404. | Sim | Não  |Sim |
+| RequestCountCacheHit | Contagem de todos os pedidos que resultaram num de acertos na Cache. O recurso tiver sido servido diretamente a partir do POP ao cliente. | Sim | Sim | Não  |
+| RequestCountCacheMiss | Contagem de todos os pedidos que resultaram numa Cache de falha de acerto na. Isto significa que o elemento não foi encontrado no POP mais próximo para o cliente e, por conseguinte, foi obtido da origem. | Sim | Sim | Não |
+| RequestCountCacheNoCache | Contagem de todos os pedidos para um recurso que impedido de ser colocadas em cache devido a uma configuração de utilizador na extremidade. | Sim | Sim | Não |
+| RequestCountCacheUncacheable | Contagem de todos os pedidos ativos que são impedidos de ser colocadas em cache, o elemento Cache-Control e cabeçalhos de expira, que indicam que este deve não ser colocadas em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| RequestCountCacheOthers | Contagem de todos os pedidos com o estado de cache não abrangido por acima. | Não | Sim | Não  |
+| EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
+| EgressHttpStatus2xx | Dados de saída transferência * para respostas com códigos de estado HTTP 2xx em GB. | Sim | Sim | Não  |
+| EgressHttpStatus3xx | Transferem de dados de saída para as respostas com códigos de estado HTTP 3xx em GB. | Sim | Sim | Não  |
+| EgressHttpStatus4xx | Transferem de dados de saída para as respostas com códigos de estado HTTP 4xx em GB. | Sim | Sim | Não  |
+| EgressHttpStatus5xx | Transferem de dados de saída para as respostas com códigos de estado HTTP 5xx em GB. | Sim | Sim | Não |
+| EgressHttpStatusOthers | Transferem de dados de saída para as respostas com outros códigos de estado HTTP em GB. | Sim | Sim | Não  |
+| EgressCacheHit | Saída transferência de dados para as respostas que foram fornecidas diretamente a partir da cache do CDN na CDN POPs/margens. | Sim | Sim | Não |
+| EgressCacheMiss. | Transferem de dados de saída para as respostas que não foram encontradas no servidor mais próximo POP e obtidas a partir do servidor de origem. | Sim | Sim | Não |
+| EgressCacheNoCache | Transferem de dados de saída para recursos que são impedidos de ser colocadas em cache devido a uma configuração de utilizador na extremidade. | Sim | Sim | Não |
+| EgressCacheUncacheable | Transferem de dados de saída para recursos que são impedidos de ser colocadas em cache por Cache-Control e/ou cabeçalhos expira o elemento. Indica que este deve não ser colocadas em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
+| EgressCacheOthers | Transferências de dados de saída para obter outros cenários de cache. | Não | Sim | Não |
 
 * Transferência de dados saída refere-se ao tráfego entregue dos servidores POP do CDN ao cliente.
 
@@ -368,7 +370,7 @@ Todos os registos são armazenados no formato JSON e cada entrada tem campos de 
 }
 ```
 
-Em que a hora representa a hora de início do limite de hora para o qual as estatísticas é comunicada. Quando uma métrica não é suportada por um fornecedor CDN, em vez de um valor de duplo ou número inteiro, há um valor nulo. Este valor nulo indica a ausência de uma métrica e é diferente do que um valor de 0. Não há um conjunto destas métricas por domínio configurado no ponto final.
+Onde *tempo* representa a hora de início do limite de hora para o qual as estatísticas é comunicada. Quando uma métrica não é suportada por um fornecedor CDN, em vez de um valor de duplo ou número inteiro, há um valor nulo. Este valor nulo indica a ausência de uma métrica e é diferente do que um valor de 0. Não há um conjunto destas métricas por domínio configurado no ponto final.
 
 Propriedades de exemplo:
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 
@@ -32,9 +32,9 @@ Para fornecer um desempenho previsível, terá de reservar débito em unidades d
 Depois de ler este artigo, poderá responder às seguintes questões:  
 
 * Quais são unidades de pedido e custos de pedido na base de dados do Azure Cosmos?
-* Como posso especificar a capacidade da unidade de pedido de um contentor do BD Azure Cosmos?
+* Como posso especificar a capacidade da unidade de pedido de um contentor ou um conjunto de contentores do BD Azure Cosmos?
 * Como estimar que tem de unidade de pedido da minha aplicação?
-* O que acontece se posso exceder a capacidade de unidade de pedido para um contentor do BD Azure Cosmos?
+* O que acontece se posso exceder a capacidade de unidade de pedido para um contentor ou um conjunto de contentores do BD Azure Cosmos?
 
 BD do Cosmos do Azure é uma base de dados com múltiplos modelo; é importante ter em atenção que este artigo é aplicável a todos os modelos de dados e APIs do BD Azure Cosmos. Este artigo utiliza termos genéricos como *contentor* e um *item* referir-se genericamente a uma coleção, gráfico, ou uma tabela e um documento, um nó ou uma entidade, respetivamente.
 
@@ -50,14 +50,19 @@ Recomendamos que comece por ver o vídeo seguinte, onde o Azure Gestor de progra
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificar a capacidade de unidade de pedido na base de dados do Azure Cosmos
-Ao iniciar um novo contentor, especifique o número de unidades de pedido por segundo (RU por segundo) que pretende reservado. Com base no débito aprovisionado, base de dados do Azure Cosmos atribui partições físicas para alojar o contentor e divisões/rebalances dados em partições à medida que o que aumenta.
 
-Podem ser criadas Azure contentores de BD do Cosmos como fixo ou ilimitado. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/contentor/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
+Pode especificar o número de unidades de pedido por segundo (RU por segundo) que pretende reservado para um contentor individuais ou de um conjunto de contentores. Com base no débito aprovisionado, BD do Cosmos Azure irá alocar partições físicas para alojar os dados de contentores e divisões/rebalances em partições que cresce-lo.
+
+Ao atribuir RU/seg ao nível do contentor individuais, os contentores podem ser criados como *fixo* ou *ilimitados*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/contentor/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
+
+Ao atribuir RU/seg através de um conjunto de contentores, os contentores que pertencem a este conjunto são tratados como *ilimitados* contentores e tem de especificar uma chave de partição.
+
+![Unidades de pedido de contentores individuais e o conjunto de contentores de aprovisionamento][6]
 
 > [!NOTE]
 > Uma chave de partição é um limite de lógico e não um físico. Por conseguinte, não é necessário limitar o número de valores de chave de partição distintos. Na realidade é melhor ter distintos mais valores de chaves de partição que inferior, como base de dados do Azure Cosmos tem mais opções de balanceamento de carga.
 
-Eis um fragmento de código para criar um contentor com 3,000 unidades de pedido por segundo, utilizando o SDK .NET:
+Eis um fragmento de código para criar um contentor com 3,000 unidades de pedido por segundo para um contentor individuais utilizando o SDK do .NET a API SQL Server:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -70,12 +75,41 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-BD do Azure do Cosmos funciona um modelo de reserva para um débito. Ou seja, é-lhe faturado para a quantidade de débito *reservado*, independentemente da quantidade de débito de que está ativamente *utilizado*. Como a aplicação da alteração de padrões de carga, dados e a utilização, pode dimensionar facilmente para cima e baixo a quantidade de reservado RUs através de SDKs ou utilizando o [Portal do Azure](https://portal.azure.com).
+Eis um fragmento de código para aprovisionamento 100 000 unidades por segundo de pedido através de um conjunto de contentores com o SDK do .NET a API SQL Server:
 
-Cada contentor está mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-la com o novo valor de débito. Eis um fragmento de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK .NET:
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+
+BD do Azure do Cosmos funciona um modelo de reserva para um débito. Ou seja, é-lhe faturado para a quantidade de débito *reservado*, independentemente da quantidade de débito de que está ativamente *utilizado*. Como a aplicação da alteração de padrões de carga, dados e a utilização, pode dimensionar facilmente para cima e baixo o número de reservado RUs através de SDKs ou utilizando o [Portal do Azure](https://portal.azure.com).
+
+Cada contentor, ou um conjunto de contentores, está mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-la com o novo valor de débito. Eis um fragmento de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK .NET:
 
 ```csharp
 // Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
@@ -88,28 +122,28 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Não há nenhum impacto sobre a disponibilidade do seu contentor quando altera o débito. Normalmente, o débito reservado nova é eficaz dentro de segundos na aplicação de débito de novo.
+Não há nenhum impacto sobre a disponibilidade do seu contentor ou conjunto de contentores, quando altera o débito. Normalmente, o débito reservado nova é eficaz dentro de segundos na aplicação de débito de novo.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento de débito nas bases de dados globalmente distribuídas
 
-Quando ter replicado a base de dados para mais de uma região, base de dados do Azure Cosmos fornece isolamento de débito para se certificar de que a utilização de RU na região de um não afeta utilização RU noutra região. Por exemplo, se escrever dados para uma região e ler os dados do noutra região, os RUs utilizado para efetuar a operação de escrita na região *A* não entram na direção oposta ao RUs utilizados para a operação de leitura na região *B*. RUs não estão divididos em regiões no qual implementou. Cada região na qual a base de dados é replicado possui a quantidade total de RUs aprovisionado. Para obter mais informações sobre a replicação global, consulte [como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
+Quando ter replicado a base de dados para mais de uma região, base de dados do Azure Cosmos fornece isolamento de débito para se certificar de que a utilização de RU na região de um não afeta utilização RU noutra região. Por exemplo, se escrever dados para uma região e ler os dados do noutra região, os RUs utilizado para efetuar a operação de escrita na região *A* não entram na direção oposta ao RUs utilizados para a operação de leitura na região *B*. RUs não estão divididos em regiões no qual implementou. Cada região na qual a base de dados é replicado tem o número total de RUs aprovisionado. Para obter mais informações sobre a replicação global, consulte [como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considerações de unidade de pedido
-Quando a estimar o número de unidades de pedido para aprovisionar para o contentor do Azure Cosmos DB, é importante considerar as seguintes variáveis em consideração:
+Quando a estimar o número de unidades de pedido para aprovisionar, é importante considerar as seguintes variáveis em consideração:
 
 * **Tamanho do item**. À medida que aumenta de tamanho do número de unidades de pedido utilizadas para ler ou escrever os dados também aumenta.
 * **Contagem de propriedade do item**. Partindo do princípio de indexação predefinido de todas as propriedades, as unidades consumidas para escrever um aumento de nó/documento/entidade à medida que aumenta de contagem de propriedade.
 * **Consistência dos dados**. Quando utilizar modelos de consistência de dados, tais como forte ou tem um vínculo vinculada, unidades de pedido adicionais são consumidas ler itens.
-* **Indexada propriedades**. Uma política de índice em cada contentor determina as propriedades que são indexadas por predefinição. Pode reduzir o consumo de unidade de pedido ao limitar o número de propriedades indexadas ou ao ativar a indexação lento.
+* **Indexada propriedades**. Uma política de índice em cada contentor determina as propriedades que são indexadas por predefinição. Pode reduzir o consumo de unidade de pedido para operações de escrita ao limitar o número de propriedades indexadas ou ao ativar a indexação lento.
 * **A indexação de documento**. Por predefinição a cada item é automaticamente indexado. Consumir unidades de pedido de menos se optar por não indexar alguns dos seus itens.
-* **Padrões de consulta**. A complexidade de uma consulta afeta o número de unidades de pedido são consumidas para uma operação. O número de predicados, natureza os predicados, projeções, número de UDFs e o tamanho dos dados de origem - todos os influenciar o custo das operações de consulta.
+* **Padrões de consulta**. A complexidade de uma consulta afeta o número de unidades de pedido são consumidas para uma operação. O número de resultados da consulta, número de predicados, natureza os predicados, projeções, número de UDFs e o tamanho dos dados de origem - todos os influenciar o custo das operações de consulta.
 * **Utilização do script**.  Tal como acontece com consultas, acionadores e procedimentos armazenados consumam unidades de pedido com base na complexidade das operações que está a ser executadas. Como desenvolver a sua aplicação, Inspecione o cabeçalho de encargos de pedido para compreender melhor a forma como cada operação está a consumir capacidade de unidade de pedido.
 
 ## <a name="estimating-throughput-needs"></a>A estimar necessidades de débito
 Uma unidade de pedido é uma medida de custo de processamento de pedidos normalizada. Uma unidade de pedido único representa a capacidade de processamento necessária para ler (através da ligação automática ou id) de um único 1 KB por item de 10 valores de propriedade exclusivo (excluindo as propriedades do sistema). Um pedido para criar (insert), substituir ou eliminar o item mesmo irá consumir mais processamento do serviço e, deste modo, mais unidades de pedido.   
 
 > [!NOTE]
-> A linha de base da unidade de pedido de 1 para um 1 KB item corresponde a uma ação obter simple através da ligação automática ou id do item.
+> A linha de base da unidade de pedido de 1 para um item de 1 KB corresponde a uma ação obter simple através da ligação automática ou id do item.
 > 
 > 
 
@@ -177,8 +211,8 @@ Utilizar a ferramenta é simple:
 1. Carregar um ou mais itens representativos (por exemplo, um documento JSON de exemplo).
    
     ![Carregar itens para a Calculadora de unidade de pedido][2]
-2. Para estimar os requisitos de armazenamento de dados, introduza o número total de itens (por exemplo, documentos, tabelas ou gráficos) pretende armazenar.
-3. Introduza o número de criação, leitura, atualização e operações delete que precisa (numa base por segundo). Para estimar os encargos de unidade de pedido de operações de atualização do item, carregue uma cópia do item de exemplo do passo 1 acima, que inclui atualizações de campo típica.  Por exemplo, se o item atualizações normalmente modificar duas propriedades com o nome *lastLogin* e *userVisits*, em seguida, basta copiar um item de exemplo, atualize os valores para as duas propriedades e carregar o item copiado.
+2. Para estimar os requisitos de armazenamento de dados, introduza o número total de itens (por exemplo, documentos, linhas ou vértices) pretende armazenar.
+3. Introduza o número de criação, leitura, atualização e operações delete que precisa (numa base por segundo). Para estimar os encargos de unidade de pedido de operações de atualização do item, carregue uma cópia do item de exemplo do passo 1 acima, que inclui atualizações de campo típica.  Por exemplo, se o item atualizações normalmente modificar duas propriedades com o nome *lastLogin* e *userVisits*, em seguida, copiar um item de exemplo, atualize os valores para as duas propriedades e carregar o item copiado.
    
     ![Introduza os requisitos de débito na Calculadora de unidade de pedido][3]
 4. Clique em calcular e examine os resultados.
@@ -299,7 +333,7 @@ Com estas informações, pode estimar os requisitos de RU para esta aplicação 
 | Selecione pelo grupo prato |10 |700 |
 | Selecione 10 principais |15 |Total de 150 |
 
-Neste caso, o que esperava um requisito de débito médio de 1,275 RU/s.  Arredondamento até 100 mais próximo, teria de aprovisionar 1.300 RU/s para o contentor desta aplicação.
+Neste caso, o que esperava um requisito de débito médio de 1,275 RU/s.  Arredondamento até 100 mais próximo, teria de aprovisionar 1.300 RU/s para o contentor desta aplicação (ou conjunto de contentores).
 
 ## <a id="RequestRateTooLarge"></a> Exceder os limites de débito reservado do BD Azure Cosmos
 Recuperar-se de que o consumo de unidade de pedido é avaliado uma taxa por segundo. Para aplicações que excedem a taxa de unidade de pedido de aprovisionamento, os pedidos serão taxa limitado até que a taxa de ignora abaixo do nível de débito aprovisionado. Quando um pedido obtém taxa limitada, o servidor preventivamente termina o pedido com `RequestRateTooLargeException` (código de estado HTTP 429) e devolve o `x-ms-retry-after-ms` cabeçalho que indica a quantidade de tempo, em milissegundos, que o utilizador terá de aguardar antes de repetir o pedido.
@@ -310,7 +344,7 @@ Recuperar-se de que o consumo de unidade de pedido é avaliado uma taxa por segu
 
 Se estiver a utilizar os SDK de cliente .NET e LINQ consultas, em seguida, na maioria das nunca tem de lidar com esta exceção, como a versão atual do SDK de cliente .NET implicitamente intercete esta resposta, respeita o servidor especificado depois de repetir cabeçalho e repete as tentativas de o pedido automaticamente. A menos que a sua conta está a ser acedida em simultâneo por vários clientes, a tentativa seguinte ocorrerá será bem sucedida.
 
-Se tiver mais do que um cliente cumulativamente e a funcionar acima a taxa de pedidos, o comportamento de repetição predefinido não poderá suffice e o cliente irá gerar um `DocumentClientException` com o estado de código 429 à aplicação. Em casos como esta, poderá considerar a processar o comportamento de repetição e a lógica na rotinas de processamento de erros da aplicação ou aumentar o débito aprovisionado para o contentor.
+Se tiver mais do que um cliente cumulativamente e a funcionar acima a taxa de pedidos, o comportamento de repetição predefinido não poderá suffice e o cliente irá gerar um `DocumentClientException` com o estado de código 429 à aplicação. Em casos como esta, poderá considerar a processar o comportamento de repetição e a lógica na rotinas de processamento de erros da aplicação ou aumentar o débito aprovisionado para o contentor (ou o conjunto de contentores).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre débito reservado com bases de dados do Azure Cosmos DB, explore estes recursos:
@@ -326,3 +360,4 @@ Para começar com dimensionamento e desempenho de teste com base de dados do Azu
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+[6]: ./media/request-units/provisioning_set_containers.png

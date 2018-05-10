@@ -2,7 +2,7 @@
 title: Submeter tarefas de recorte Recortador de suporte de dados do Azure | Microsoft Docs
 description: Passos para submeter tarefas de recorte de Recortador de suporte de dados do Azure
 services: media-services
-keywords: "Clip; subclip codificação; suporte de dados"
+keywords: Clip; subclip codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Submeter tarefas de recorte de Recortador de suporte de dados do Azure
 Recortador de suporte de dados do Azure requer um **submitSubclipCallback** método para ser implementada para processar a submissão da tarefa de recorte. Esta função é para implementar um POST de HTTP de saída Recortador a um serviço web. Este serviço web é onde pode submeter a tarefa de codificação. O resultado do Recortador é a um codificador de multimédia Standard codificação predefinição para as tarefas compostas ou o payload de REST API para chamadas de filtro de manifesto dinâmico. Este modelo pass-through é necessário porque as credenciais de conta de serviços de suporte de dados não são seguras no browser do cliente.

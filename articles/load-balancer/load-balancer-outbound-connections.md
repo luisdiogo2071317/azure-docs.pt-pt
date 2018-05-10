@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -40,11 +40,11 @@ Existem vários [cenários saídos](#scenarios). Pode combinar estes cenários, 
 
 Balanceador de carga do Azure e os recursos relacionados são explicitamente definidos quando estiver a utilizar [do Azure Resource Manager](#arm).  O Azure oferece atualmente três métodos diferentes para atingir a conectividade de saída para os recursos do Azure Resource Manager. 
 
-| Cenário | Método | Descrição |
-| --- | --- | --- |
-| [1. VM com um endereço IP público de nível de instância (com ou sem Balanceador de carga)](#ilpip) | Realizar o SNAT, porta masquerading não utilizado |Azure utiliza o IP público atribuído à configuração de IP da NIC de. a instância A instância tem todas as portas efémeras disponíveis. |
-| [2. Balanceador de carga público associado uma VM (nenhum endereço IP público de nível de instância na instância)](#lb) | Realizar o SNAT com porta masquerading (PAT) utilizando o frontends de Balanceador de carga |Azure partilha o endereço IP público de frontends de Balanceador de carga público com vários endereços IP privados. Azure utiliza portas efémeras dos frontends a TERESA. |
-| [3. VM autónoma (nenhum Balanceador de carga, nenhum endereço IP público de nível de instância)](#defaultsnat) | Realizar o SNAT com porta masquerading (PAT) | Azure automaticamente designa um endereço IP público para realizar o SNAT, partilhe este endereço IP público com vários endereços IP privados do conjunto de disponibilidade e utiliza portas efémeras deste endereço IP público. Este é um cenário de contingência para os cenários anteriores. Não recomendamos-lo se precisar de visibilidade e controlo. |
+| Cenário | Método | Protocolos IP | Descrição |
+| --- | --- | --- | --- |
+| [1. VM com um endereço IP público de nível de instância (com ou sem Balanceador de carga)](#ilpip) | Realizar o SNAT, porta masquerading não utilizado | TCP, UDP, ICMP, ESP | Azure utiliza o IP público atribuído à configuração de IP da NIC de. a instância A instância tem todas as portas efémeras disponíveis. |
+| [2. Balanceador de carga público associado uma VM (nenhum endereço IP público de nível de instância na instância)](#lb) | Realizar o SNAT com porta masquerading (PAT) utilizando o frontends de Balanceador de carga | TCP, UDP |Azure partilha o endereço IP público de frontends de Balanceador de carga público com vários endereços IP privados. Azure utiliza portas efémeras dos frontends a TERESA. |
+| [3. VM autónoma (nenhum Balanceador de carga, nenhum endereço IP público de nível de instância)](#defaultsnat) | Realizar o SNAT com porta masquerading (PAT) | TCP, UDP | Azure automaticamente designa um endereço IP público para realizar o SNAT, partilhe este endereço IP público com vários endereços IP privados do conjunto de disponibilidade e utiliza portas efémeras deste endereço IP público. Este é um cenário de contingência para os cenários anteriores. Não recomendamos-lo se precisar de visibilidade e controlo. |
 
 Se não pretender que uma VM para comunicar com pontos finais fora do Azure no espaço de endereços IP públicos, pode utilizar grupos de segurança de rede (NSGs) para bloquear o acesso conforme necessário. A secção [impedir a conectividade de saída](#preventoutbound) aborda os NSGs em mais detalhe. Orientações sobre a conceber, implementar e gerir uma rede virtual sem acesso de saída estão fora do âmbito deste artigo.
 
@@ -243,7 +243,7 @@ Se um NSG bloquear pedidos de sonda de estado de funcionamento da etiqueta prede
 
 ## <a name="limitations"></a>Limitações
 - DisableOutboundSnat não está disponível como uma opção quando configurar uma regra no portal de balanceamento de carga.  Utilize as ferramentas REST, modelo ou cliente em vez disso.
-- As funções de trabalho Web fora de uma VNet pode estar acessíveis quando é utilizado apenas um padrão Balanceador de carga interno devido a um efeito de como função de serviços de pre-VNet. Não precisará neste como o respetivo serviço próprio ou subjacentes plataforma podem ser alteradas sem aviso prévio. Têm de assumir sempre que tem de criar explicitamente conectividade de saída, se assim o desejar quando utiliza um padrão Balanceador de carga interno apenas. 
+- As funções de trabalho Web sem uma VNet e outros serviços da plataforma Microsoft podem ser acessíveis quando é utilizado apenas um padrão Balanceador de carga interno devido a um efeito de como os serviços de pre-VNet e outra plataforma dos serviços de função. Não precisará deste efeito que o respetivo serviço próprio ou subjacentes plataforma podem ser alteradas sem aviso prévio. Têm de assumir sempre que tem de criar explicitamente conectividade de saída, se assim o desejar quando utiliza um padrão Balanceador de carga interno apenas. O [predefinido realizar o SNAT](#defaultsnat) cenário 3 descrito neste artigo não está disponível.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento nas funções durável - exemplo de sequência de Olá de função
 
@@ -35,9 +35,13 @@ Este artigo explica as seguintes funções na aplicação de exemplo:
 * `E1_HelloSequence`: Uma função do orchestrator que chama `E1_SayHello` várias vezes numa sequência. Armazena as saídas do `E1_SayHello` chama e regista os resultados.
 * `E1_SayHello`: Uma função de atividade que prepends uma cadeia com "Olá".
 
-As secções seguintes explicam a configuração e o código que são utilizados para c# scripting. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
- 
-## <a name="functionjson-file"></a>ficheiro Function.JSON
+As secções seguintes explicam o código que são utilizadas para c# scripting e JavaScript e configuração. O código para o desenvolvimento de Visual Studio é apresentado no final do artigo.
+
+> [!NOTE]
+> Duráveis funções está disponível em JavaScript apenas o runtime de funções de v2.
+
+## <a name="e1hellosequence"></a>E1_HelloSequence
+### <a name="functionjson-file"></a>ficheiro Function.JSON
 
 Se utilizar o Visual Studio Code ou o portal do Azure para desenvolvimento, eis o conteúdo a *function.json* ficheiro para a função do orchestrator. A maioria das orchestrator *function.json* ficheiros quase exatamente este aspeto.
 
@@ -48,7 +52,7 @@ O mais importante é o `orchestrationTrigger` tipo de enlace. Todas as funções
 > [!WARNING]
 > Para cumprir a regra "nenhum e/s" das funções do orchestrator, não utilize qualquer entrada ou saída enlaces ao utilizar o `orchestrationTrigger` acionar o enlace.  Se outras de entrada ou saída enlaces são necessários, estes em vez disso, devem ser utilizadas no contexto de `activityTrigger` funções, que são chamadas do orchestrator.
 
-## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script do c# (código de exemplo portal Visual Studio Code e o Azure) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script do c# (código de exemplo portal Visual Studio Code e o Azure) 
 
 Eis o código de origem:
 
@@ -57,6 +61,23 @@ Eis o código de origem:
 Todas as funções de orquestração da c# tem de ter um parâmetro do tipo `DurableOrchestrationContext`, qual existe a `Microsoft.Azure.WebJobs.Extensions.DurableTask` assemblagem. Se estiver a utilizar o script do c#, a assemblagem pode ser referenciada através de `#r` notação. Este objeto de contexto permite-lhe chamar outros *atividade* funções e transmita os parâmetros de entrada com o respetivo [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) método.
 
 As chamadas de código `E1_SayHello` três vezes numa sequência com valores de parâmetro diferentes. O valor de cada chamada de retorno é adicionado ao `outputs` lista, que é devolvida no final da função.
+
+### <a name="javascript"></a>Javascript
+
+Eis o código de origem:
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
+
+Todas as funções de orquestração do JavaScript tem de incluir o `durable-functions` módulo. Esta é uma biblioteca de JavaScript traduz ações a função de orquestração em protocolo de execução do durável para os idiomas de out-of-proc. Existem três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
+
+1. A função é um [função gerador de dimensões.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+2. A função é moldada numa chamada para o `durable-functions` módulo (aqui `df`).
+3. A função termina chamando `return`, não `context.done`.
+
+O `context` objeto contém uma `df` objeto permite-lhe chamar outros *atividade* funções e transmita os parâmetros de entrada com o respetivo `callActivityAsync` método. As chamadas de código `E1_SayHello` três vezes numa sequência com valores de parâmetro diferentes, utilizando `yield` para indicar a execução deve aguardar nas chamadas de função de atividade assíncronos devem ser devolvidos. O valor de cada chamada de retorno é adicionado ao `outputs` lista, que é devolvida no final da função.
+
+## <a name="e1sayhello"></a>E1_SayHello
+### <a name="functionjson-file"></a>ficheiro Function.JSON
 
 O *function.json* ficheiro para a função de atividade `E1_SayHello` é semelhante de `E1_HelloSequence` exceto que utiliza um `activityTrigger` enlace de tipo em vez de um `orchestrationTrigger` tipo de enlace.
 
@@ -67,9 +88,17 @@ O *function.json* ficheiro para a função de atividade `E1_SayHello` é semelha
 
 A implementação de `E1_SayHello` é uma cadeia relativamente trivial formatação a operação.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
 Esta função tem um parâmetro do tipo [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), que utiliza para obter a entrada que foi transmitida para o mesmo por chamada da função do orchestrator para [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+
+### <a name="javascript"></a>JavaScript
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
+
+Ao contrário de uma função de orquestração do JavaScript, uma função de atividade de JavaScript não precisa de nenhuma configuração especial. A entrada transmitida ao mesmo pela função do orchestrator estiver localizada no `context.bindings` objeto sob o nome do `activitytrigger` enlace - neste caso, `context.bindings.name`. O nome do enlace pode ser definido como um parâmetro da função exportado e acedidos diretamente, que é o que faz o código de exemplo.
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 

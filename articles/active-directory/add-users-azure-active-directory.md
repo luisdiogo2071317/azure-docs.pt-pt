@@ -2,24 +2,22 @@
 title: Adicionar ou eliminar os utilizadores no Azure Active Directory | Microsoft Docs
 description: Explica como adicionar novos utilizadores ou eliminar os utilizadores existentes no Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3e8b7061e57c1baf222e5f565a5b7efc6b997507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Guia de introdução: Adicionar novos utilizadores ao Azure Active Directory
 Este artigo explica como eliminar ou adicionar utilizadores na sua organização para o inquilino do Azure Active Directory (Azure AD) sua orgnization no portal do Azure ou ao sincronizar os dados da conta de utilizador do Windows Server AD no local. 

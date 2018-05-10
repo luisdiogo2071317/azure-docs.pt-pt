@@ -1,11 +1,11 @@
 ---
 title: Encaminhamento de mensagens com o IoT Hub do Azure (Java) | Microsoft Docs
-description: "Como processar mensagens de dispositivo para a nuvem do IoT Hub do Azure utilizando regras de encaminhamento e os pontos finais personalizados para emitir mensagens a outros serviços de back-end."
+description: Como processar mensagens de dispositivo para a nuvem do IoT Hub do Azure utilizando regras de encaminhamento e os pontos finais personalizados para emitir mensagens a outros serviços de back-end.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ff45e9d717b93f89eb8f751294788f08a2fd4592
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Encaminhamento de mensagens com o IoT Hub (Java)
 
@@ -208,7 +208,7 @@ Neste tutorial, aprendeu a fiável emitir mensagens do dispositivo para nuvem ut
 
 O [como enviar mensagens da nuvem para o dispositivo com o IoT Hub] [ lnk-c2d] mostra como enviar mensagens para os dispositivos da sua solução de back-end.
 
-Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [Azure IoT Suite][lnk-suite].
+Para ver os exemplos de soluções ponto-a-ponto completas que utilizam o IoT Hub, consulte [acelerador de solução de monitorização remota do Azure IoT][lnk-suite].
 
 Para obter mais informações sobre como desenvolver soluções de IoT hub, consulte o [guia para programadores do IoT Hub].
 

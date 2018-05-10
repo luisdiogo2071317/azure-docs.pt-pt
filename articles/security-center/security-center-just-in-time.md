@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 8c2a7e723d21f79f21e92da31fbc4fd49d64fd37
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4f0afe48c37c6cb5dc8c1658f0a7beed4f0e6140
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo
 
@@ -41,7 +41,7 @@ Uma forma para reduzir a exposição a um ataque de força bruta é para limitar
 
 Quando o just in time estiver ativado, o Centro de Segurança bloqueia o tráfego de entrada para as suas VMs do Azure através da criação de uma regra NSG. Selecione as portas na VM para o qual vai ser bloqueado a tráfego de entrada. Estas portas são controladas mediante a apenas na solução de tempo.
 
-Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se têm permissões de escrita, o pedido é aprovado e o Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir tráfego de entrada para as portas de gestão para a quantidade de tempo especificado. Depois do tempo expirou, o Centro de segurança restaura os NSGs para os respetivos Estados de anteriores.
+Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica se o utilizador tem [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md) permissões que fornecem acesso de escrita para a VM. Se têm permissões de escrita, o pedido é aprovado e o Centro de segurança configura automaticamente os grupos de segurança de rede (NSGs) para permitir tráfego de entrada para as portas selecionados para a quantidade de tempo especificado. Depois do tempo expirou, o Centro de segurança restaura os NSGs para os respetivos Estados de anteriores.
 
 > [!NOTE]
 > Centro de segurança apenas do acesso VM de tempo atualmente suporta apenas as VMs implementadas através do Azure Resource Manager. Para obter mais informações sobre clássica e modelos de implementação do Resource Manager, consulte [vs. de implementação clássica do Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).

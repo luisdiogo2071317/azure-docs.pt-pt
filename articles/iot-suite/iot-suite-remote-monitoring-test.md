@@ -1,7 +1,7 @@
 ---
-title: "Simulação de dispositivos na solução de monitorização remota - Azure | Microsoft Docs"
-description: "Este tutorial mostra como utilizar o simulador de dispositivo com a solução pré-configurada de monitorização remota."
-services: 
+title: Simulação de dispositivos na solução de monitorização remota - Azure | Microsoft Docs
+description: Este tutorial mostra como utilizar o simulador de dispositivo com o acelerador de solução de monitorização remota.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
-Este tutorial mostra como personalizar o microsserviço do simulador de dispositivo numa solução pré-configurada de monitorização remota. Para mostrar as capacidades do simulador de dispositivo, que este tutorial utiliza dois cenários na aplicação Contoso IoT.
+Este tutorial mostra como personalizar o microsserviço do simulador de dispositivo no acelerador de solução de monitorização remota. Para mostrar as capacidades do simulador de dispositivo, que este tutorial utiliza dois cenários na aplicação Contoso IoT.
+
+O vídeo seguinte apresenta uma descrição geral das opções para personalizar o microsserviço simulador de dispositivo:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 O primeiro cenário, a Contoso pretende testar um novo dispositivo lightbulb inteligente. Para executar os testes, crie um novo dispositivo simulado com as seguintes características:
 
@@ -32,13 +36,13 @@ O primeiro cenário, a Contoso pretende testar um novo dispositivo lightbulb int
 | Brightness               | 0 e 100                    |
 | Estimado vida restantes | Contagem decrescente de 10 000 horas |
 
-*Telemetry*
+*Telemetria*
 
 A tabela seguinte mostra os dados que a lightbulb relatórios para a nuvem como um fluxo de dados:
 
 | Nome   | Valores      |
 | ------ | ----------- |
-| Estado | "on", "off" |
+| Estado | 'em", 'off' |
 | Temperatura | Graus F |
 | online | TRUE, false |
 
@@ -68,7 +72,7 @@ A tabela seguinte mostra o estado inicial do dispositivo:
 
 O segundo cenário, adicione um novo tipo de telemetria para Contoso do existente **Chiller** dispositivo.
 
-Este tutorial mostra como utilizar o simulador de dispositivo com a solução pré-configurada de monitorização remota:
+Este tutorial mostra como utilizar o simulador de dispositivo com o acelerador de solução de monitorização remota:
 
 Neste tutorial, ficará a saber como:
 
@@ -86,7 +90,7 @@ O vídeo seguinte mostra uma explicação passo a passo de ligar os dispositivos
 
 Para seguir este tutorial, tem de:
 
-* Uma instância implementada da solução de monitorização remota na sua subscrição do Azure. Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar a solução pré-configurada de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+* Uma instância implementada da solução de monitorização remota na sua subscrição do Azure. Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 * O Visual Studio 2017. Se não tiver o Visual Studio 2017, instalado, pode transferir o livre [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edição.
 
@@ -221,7 +225,7 @@ Neste tutorial, trabalhar com o **simulação de dispositivo** e **adaptador de 
 1. Para clonar a versão do .NET do **adaptador de armazenamento** repositório, execute o seguinte comando:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     O serviço de simulação de dispositivo utiliza o serviço de adaptador de armazenamento para ligar ao serviço de base de dados do Cosmos no Azure. A solução de monitorização remota armazena os dados de configuração do dispositivo simulado numa base de dados de base de dados do Cosmos.
@@ -262,7 +266,7 @@ Tem agora tudo no local e estiver pronto para começar a adicionar um novo tipo 
     | --------------------------- | ----------------------------- |
     | chiller-01.json             | lightbulb-01.json             |
     | scripts/chiller-01-state.js | scripts/lightbulb-01-state.js |
-    | scripts/reboot-method.js    | scripts/SwitchOn-method.js    |
+    | reiniciar o computador/scripts-method.js    | scripts/SwitchOn-method.js    |
 
 ### <a name="define-the-characteristics-of-the-new-device-type"></a>Definir as características do novo tipo de dispositivo
 
@@ -289,10 +293,10 @@ O **lightbulb 01.json** ficheiro define as características do tipo, tais como a
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -474,7 +478,7 @@ Agora está pronto para testar o novo tipo de lightbulb simulada, executando o p
 
     ![Número de dispositivos ligados](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. No seu browser, navegue para o **Dashboard** para a sua solução de monitorização remota. No painel de telemetria sobre o **Dashboard**, selecione **temperatura**. Apresenta a temperatura para os seus dispositivos simulados duas no gráfico:
+1. No seu browser, navegue para o **Dashboard** para a sua solução de monitorização remota. No painel de telemetria sobre o **Dashboard**, selecione **temperatura**. Apresenta a temperatura para todos os seus dispositivos simulados no gráfico:
 
     ![Telemetria de temperatura](media/iot-suite-remote-monitoring-test/telemetry.png)
 
@@ -532,7 +536,7 @@ Os seguintes passos assumem que tem um repositório denominado **lightbulb** na 
     publish.cmd
     ```
 
-1. Para verificar o carregamento, navegue até à [https://hub.docker.com/](https://hub.docker.com/). Localize o **lightbulb** repositório e escolha **detalhes**. Em seguida, escolha **etiquetas**:
+1. Para verificar o carregamento, navegue até à [ https://hub.docker.com/ ](https://hub.docker.com/). Localize o **lightbulb** repositório e escolha **detalhes**. Em seguida, escolha **etiquetas**:
 
     ![Hub de docker](media/iot-suite-remote-monitoring-test/dockerhub.png)
 

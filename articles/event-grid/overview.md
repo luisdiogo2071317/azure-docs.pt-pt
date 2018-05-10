@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à grelha de eventos do Azure
 
@@ -24,11 +24,15 @@ Atualmente, o evento grelha suporta as seguintes regiões:
 
 * Sudeste da Ásia
 * Leste da Ásia
+* Leste da Austrália
+* Sudeste da Austrália
 * EUA Central
 *   EUA Leste
 *   EUA Leste 2
 * Europa Ocidental
 * Norte da Europa
+* Leste do Japão
+* Oeste do Japão
 *   EUA Centro-Oeste
 *   EUA Oeste
 *   EUA Oeste 2
@@ -45,10 +49,13 @@ Atualmente, os seguintes serviços do Azure suportam enviar eventos à grelha de
 * Tópicos personalizados
 * Event Hubs
 * IoT Hub
+* Serviços de Multimédia
 * Grupos de recursos (operações de gestão)
 * Service Bus
 * Blob de armazenamento
 * V2 para fins gerais de armazenamento (GPv2)
+
+Para obter hiperligações para artigos que mostram como utilizar cada origem de evento, consulte [origens de eventos na grelha de eventos do Azure](event-sources.md).
 
 ## <a name="event-handlers"></a>Processadores de eventos
 
@@ -57,11 +64,15 @@ Atualmente, os seguintes serviços do Azure suportam eventos de processamento da
 * Automatização do Azure
 * Funções do Azure
 * Event Hubs
+* Ligações Híbridas
 * Aplicações Lógicas
 * Microsoft Flow
+* Armazenamento de filas
 * WebHooks
 
 Ao utilizar as funções do Azure como o processador, utilize o acionador de grelha de evento genéricos HTTP acionadores instead. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
+
+Para obter hiperligações para artigos que mostram como utilizar cada processador de eventos, consulte [processadores de eventos na grelha de eventos do Azure](event-handlers.md).
 
 ## <a name="concepts"></a>Conceitos
 

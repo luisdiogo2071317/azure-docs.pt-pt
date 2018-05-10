@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d1eb3229f22b2da3a356562250fedb3c35c4816
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programaticamente criar subscrições Azure Enterprise (pré-visualização)
 
@@ -49,7 +49,7 @@ Depois da adicionado para uma inscrição EA do Azure como um proprietário da c
 - Tiver uma ou mais subscrições EA ou EA Dev/teste, que significa que já passou pelo manual inscrição, pelo menos, uma vez
 - Tem sessão iniciada para o proprietário da conta *diretório raiz*, que é o diretório de subscrições são criadas por predefinição
 
-Se forem satisfeitas as duas condições acima, uma `enrollmentAccount` recurso é devolvido e pode começar a criar subscrições com essa conta. Todas as subscrições criadas sob a conta são cobradas para a inscrição de EA que a conta está no.
+Se forem satisfeitas as condições de três acima, uma `enrollmentAccount` recurso é devolvido e pode começar a criar subscrições com essa conta. Todas as subscrições criadas sob a conta são cobradas para a inscrição de EA que a conta está no.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 

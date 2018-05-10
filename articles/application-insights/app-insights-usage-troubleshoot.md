@@ -1,9 +1,9 @@
 ---
-title: "Resolver problemas de análise de utilização no Azure Application Insights"
-description: "Guia de resolução de problemas - análise da utilização de sites e aplicações com o Application Insights."
+title: Resolver problemas de análise de utilização no Azure Application Insights
+description: Guia de resolução de problemas - análise da utilização de sites e aplicações com o Application Insights.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Resolver problemas de análise de utilização no Application Insights
 Tem perguntas sobre o [as ferramentas de análise de utilização no Application Insights](app-insights-usage-overview.md): [eventos de utilizadores, sessões,](app-insights-usage-segmentation.md), [Funnels](usage-funnels.md), [utilizador flui](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Cohorts? Seguem-se algumas respostas.
@@ -37,7 +37,7 @@ As ferramentas de análise de utilização não suportam atualmente contagem de 
 ## <a name="naming-events"></a>Eventos de nomenclatura
 **A minha aplicação tem milhares de vista de página diferente e os nomes do evento personalizado. É difícil de distingui-los e as ferramentas de análise de utilização, muitas vezes, deixar de responder. Como posso corrigir estes problemas de nomenclatura?**
 
-Vista de página e os nomes de evento personalizado são utilizados em toda as ferramentas de análise de utilização. Eventos de nomenclatura bem é fundamental para obter o valor destas ferramentas. O objetivo é um equilíbrio entre ter nomes de poucos, demasiado genéricos ("botão clicado") e ter nomes demasiados, excessivamente específicos ("botão Editar clicou http://www.contoso.com/index").
+Vista de página e os nomes de evento personalizado são utilizados em toda as ferramentas de análise de utilização. Eventos de nomenclatura bem é fundamental para obter o valor destas ferramentas. O objetivo é um equilíbrio entre ter nomes de poucos, demasiado genéricos ("botão clicado") e ter nomes demasiados, excessivamente específicos ("clica no botão Editar no http://www.contoso.com/index").
 
 Para efetuar quaisquer alterações para a vista de página e a aplicação está a enviar de nomes de evento personalizado, terá de alterar o código de origem e volte a implementar a aplicação. **Telemetria de todos os dados no Application Insights são armazenados nos últimos 90 dias e não podem ser eliminados**, por isso, as alterações efetuadas aos nomes do evento irão demorar 90 dias ao manifesto completamente. 90 dias depois de efetuar as alterações do nome, ambos os nomes de antigos e novos eventos serão apresentada na sua telemetria, por isso, ajuste consultas e comunicou dentro do seu equipas, em conformidade.
 

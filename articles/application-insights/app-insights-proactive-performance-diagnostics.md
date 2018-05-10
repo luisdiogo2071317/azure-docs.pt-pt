@@ -1,9 +1,9 @@
 ---
-title: "Smart - deteção de anomalias de desempenho | Microsoft Docs"
-description: "Application Insights faz uma análise inteligente da sua telemetria de aplicação e avisa-o de potenciais problemas. Esta funcionalidade não necessita de nenhuma configuração."
+title: Smart - deteção de anomalias de desempenho | Microsoft Docs
+description: Application Insights faz uma análise inteligente da sua telemetria de aplicação e avisa-o de potenciais problemas. Esta funcionalidade não necessita de nenhuma configuração.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção inteligente - anomalias de desempenho
 
@@ -42,7 +42,7 @@ Não, uma notificação não significa que a aplicação sem dúvida tiver um pr
 
 ## <a name="how-do-i-fix-it"></a>Como corrigi-lo?
 
-As notificações incluem informações de diagnóstico. Eis um exemplo:
+As notificações incluem informações de diagnóstico. Segue-se um exemplo:
 
 
 ![Eis um exemplo de deteção de degradação de tempo de resposta do servidor](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
@@ -87,7 +87,7 @@ Mensagens de correio eletrónico sobre anomalias de desempenho de deteções int
   * Não.  Iremos não consolidar para detetar cada comportamento que pode considerar anormal.
 
 
-* *Se não efetuar nenhuma ação na resposta para uma notificação, irá receber um lembrete?*
+* *Se não fazer nada em resposta a uma notificação, irá receber um lembrete?*
   * Não, receberá uma mensagem sobre cada problema apenas uma vez. Se o problema persistir será atualizado na deteção inteligente feed painel.
 * *Perdeu a mensagem de correio eletrónico. Onde posso encontrar as notificações no portal?*
   * Na descrição geral Application Insights da sua aplicação, clique em de **deteção inteligente** mosaico. Não existe, poderá encontrar todas as notificações de segurança anterior de 90 dias.
@@ -132,7 +132,7 @@ A notificação de degradação de tempo de resposta indica:
 * Ligações para o ajudar a diagnosticar o problema.
   * Os rastreios de gerador de perfis para o ajudar a ver em que é despendida a hora da operação (a ligação está disponível se exemplos de rastreio do gerador de perfis foram recolhidos para esta operação durante o período de deteção). 
   * Relatórios de desempenho no Explorador de métrica, onde pode segmentação e decomposição de tempo/filtros de intervalo para esta operação.
-  * Procure este chamadas ver as propriedades de chamadas específico.
+  * Pesquisa para esta chamada ver as propriedades de chamada específico.
   * Falha de relatórios - se a contagem de > 1 significa que ocorreram falhas nesta operação que poderá têm contribuído para degradação do desempenho.
 
 ## <a name="dependency-duration-degradation"></a>Degradação de duração da dependência
@@ -152,7 +152,7 @@ Tenha em atenção que o informa sobre:
 * Ligações para o ajudar a diagnosticar o problema
   * Relatórios de desempenho no Explorador de métrica para esta dependência
   * Procure esta dependência de chamadas para ver as propriedades de chamadas
-  * Falha de relatórios - se a contagem de > 1 esta média que ocorreram falhou chamadas de dependência durante o período de deteção que poderão têm contribuído para degradação de duração. 
+  * Relatórios de falhas - se a contagem > 1 significa que ocorreram falhas de dependência chamadas durante o período de deteção que poderão têm contribuído para degradação de duração. 
   * Abra a análise com consultas que calcular esta duração da dependência e contagem  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Deteção inteligente de padrões de execução lentas 

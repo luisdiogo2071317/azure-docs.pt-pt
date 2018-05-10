@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido parallelization de consulta no Azure Stream Analytics
 Este artigo mostra como tirar partido das parallelization do Azure Stream Analytics. Saiba como dimensionar as tarefas do Stream Analytics, deve configurar partições de entrada e otimizar a definição de consulta de análise.
@@ -35,7 +35,15 @@ Todas as entradas de Azure Stream Analytics podem tirar partido da criação de 
 
 ### <a name="outputs"></a>Saídas
 
-Quando trabalha com o Stream Analytics, pode tirar partido da criação de partições para a maioria das sinks de saída. Obter mais informações sobre a criação de partições de saída estão disponíveis na [secção da página de saída de criação de partições](stream-analytics-define-outputs.md#partitioning).
+Quando trabalha com o Stream Analytics, pode tirar partido as saídas de criação de partições:
+-   Armazenamento do Azure Data Lake
+-   Funções do Azure
+-   Tabela do Azure
+-   Armazenamento de BLOBs (pode definir a chave de partição explicitamente)
+-   CosmosDB (é necessário definir explicitamente a chave de partição)
+-   EventHub (é necessário definir explicitamente a chave de partição)
+-   IoT Hub (é necessário definir explicitamente a chave de partição)
+-   Service Bus
 
 Saídas de Power BI, o SQL e o armazém de dados do SQL Server não suportam a criação de partições. No entanto, pode ainda de partição a entrada conforme descrito em [nesta secção](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ Um *constrangedoramente paralelas* tarefa é o cenário mais dimensionável temo
 
 3. Na maioria das nossa saída pode tirar partido da criação de partições, no entanto, se utilizar um tipo de saída que não suporta a criação de partições, a tarefa não será totalmente paralela. Consulte o [saída secção](#outputs) para obter mais detalhes.
 
-4. O número de partições de entrada tem de ser igual o número de partições de saída. Saída de armazenamento de blob atualmente não suporta partições. Mas que okay, vez que herda o esquema de partições da consulta a montante. Seguem-se exemplos de valores de partição que permitem que uma tarefa totalmente paralela:  
+4. O número de partições de entrada tem de ser igual o número de partições de saída. Saída de armazenamento de blob pode suportar partições e herda o esquema de partições da consulta a montante. Quando uma chave de partição para o Blob storage for especificado, dados de está particionada por partição de entrada, por conseguinte, o resultado é ainda completamente paralelo. Seguem-se exemplos de valores de partição que permitem que uma tarefa totalmente paralela:
 
    * as partições de saída de 8 partições entrada para o event hub e o hub de eventos 8
-   * 8 event hub entrada as partições e de saída de armazenamento de BLOBs  
-   * 8 partições entradas para o Iot hub e 8 partições de saída de hub de eventos
-   * 8 blob entrada as partições de armazenamento e de saída de armazenamento de BLOBs  
-   * 8 blob partições de entrada de armazenamento e 8 partições de saída de hub de eventos  
+   * 8 event hub entrada as partições e de saída de armazenamento de BLOBs
+   * 8 partições de entrada de hub de eventos e de saída de armazenamento de BLOBs particionada por um campo personalizado com cardinalidade arbitrária
+   * 8 blob entrada as partições de armazenamento e de saída de armazenamento de BLOBs
+   * 8 blob partições de entrada de armazenamento e 8 partições de saída de hub de eventos
 
 As secções seguintes abordam alguns cenários de exemplo que são constrangedoramente paralelos.
 

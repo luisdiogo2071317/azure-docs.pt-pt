@@ -1,6 +1,6 @@
 ---
 title: Implementar recursos com a REST API e modelo | Microsoft Docs
-description: "Utilize o Azure Resource Manager e a API de REST do Resource Manager para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager."
+description: Utilize o Azure Resource Manager e a API de REST do Resource Manager para implementar um recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,22 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b46b36805c2f33b1e066bbee2d0333113a26922a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf2fc2aeb094a828fa1efe6904b897f3a4ab46d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [CLI do Azure](resource-group-template-deploy-cli.md)
-> * [Portal](resource-group-template-deploy-portal.md)
-> * [API REST](resource-group-template-deploy-rest.md)
-> 
-> 
 
 Este artigo explica como utilizar a API de REST do Gestor de recursos com modelos do Resource Manager para implementar os recursos no Azure.  
 
@@ -44,47 +37,79 @@ O modelo pode ser um ficheiro local ou um ficheiro externo que está disponível
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 ## <a name="deploy-with-the-rest-api"></a>Implementar com a API REST
-1. Definir [cabeçalhos e os parâmetros comuns](https://docs.microsoft.com/rest/api/index), incluindo os tokens de autenticação.
-2. Se não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o ID de subscrição, o nome do novo grupo de recursos e localização que precisa para a sua solução. Para obter mais informações, consulte [criar um grupo de recursos](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate).
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
-          <common headers>
-          {
-            "location": "West US",
-            "tags": {
-               "tagname1": "tagvalue1"
-            }
-          }
-3. Validar a sua implementação antes de executá-lo executando o [validar uma implementação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate) operação. Quando a implementação de teste, fornece os parâmetros exatamente tal como faria ao executar a implementação (mostrada no próximo passo).
+1. Definir [cabeçalhos e os parâmetros comuns](/rest/api/azure/), incluindo os tokens de autenticação.
+
+2. Se não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o ID de subscrição, o nome do novo grupo de recursos e localização que precisa para a sua solução. Para obter mais informações, consulte [criar um grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  {
+    "location": "West US",
+    "tags": {
+      "tagname1": "tagvalue1"
+    }
+  }
+  ```
+
+3. Validar a sua implementação antes de executá-lo executando o [validar uma implementação de modelo](/rest/api/resources/deployments/validate) operação. Quando a implementação de teste, fornece os parâmetros exatamente tal como faria ao executar a implementação (mostrada no próximo passo).
+
 4. Crie uma implementação. Forneça o ID de subscrição, o nome do grupo de recursos, o nome da implementação e uma hiperligação para o seu modelo. Para obter informações sobre o ficheiro de modelo, consulte [ficheiro de parâmetros](#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [criar uma implementação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Tenha em atenção o **modo** está definido como **Incremental**. Para executar uma implementação completa, defina **modo** para **concluída**. Seja cuidadoso ao utilizar o modo de conclusão inadvertidamente pode eliminar os recursos que não estão no seu modelo.
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-          <common headers>
-          {
-            "properties": {
-              "templateLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-                "contentVersion": "1.0.0.0"
-              },
-              "mode": "Incremental",
-              "parametersLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-                "contentVersion": "1.0.0.0"
-              }
-            }
-          }
-   
-      Se pretender iniciar o conteúdo da resposta, o conteúdo do pedido ou ambos, incluir **debugSetting** no pedido.
-   
-        "debugSetting": {
-          "detailLevel": "requestContent, responseContent"
-        }
-   
-      Pode configurar a sua conta de armazenamento para utilizar um token de assinatura (SAS) de acesso partilhado. Para obter mais informações, consulte [delegar o acesso com uma assinatura de acesso partilhado](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
-5. Obter o estado da implementação do modelo. Para obter mais informações, consulte [obter informações sobre uma implementação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
-   
-          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-           <common headers>
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
+    }
+  }
+  ```
+
+    Se pretender iniciar o conteúdo da resposta, o conteúdo do pedido ou ambos, incluir **debugSetting** no pedido.
+
+  ```HTTP
+  "debugSetting": {
+    "detailLevel": "requestContent, responseContent"
+  }
+  ```
+
+    Pode configurar a sua conta de armazenamento para utilizar um token de assinatura (SAS) de acesso partilhado. Para obter mais informações, consulte [delegar o acesso com uma assinatura de acesso partilhado](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+
+5. Obter o estado da implementação do modelo. Para obter mais informações, consulte [obter informações sobre uma implementação de modelo](/rest/api/resources/deployments/get).
+
+  ```HTTP
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  ```
+
+## <a name="redeploy-when-deployment-fails"></a>Reimplementar quando ocorre uma falha de implementação
+
+Para implementações falharam, pode especificar que uma implementação anterior do seu histórico de implementação é automaticamente implementada novamente. Para utilizar esta opção, as implementações tem de ter nomes exclusivos para que pode ser identificados no histórico. Se não tiver nomes exclusivos, a implementação atual poderá substituir a implementação anteriormente com êxito no histórico. Só pode utilizar esta opção com implementações de nível de raiz. As implementações de um modelo aninhado não estão disponíveis para reimplementação.
+
+Para voltar a última implementação bem sucedida se a implementação atual falhar, a utilizar:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "LastSuccessful",
+},
+```
+
+Reimplementar uma implementação específica se a implementação atual falhar, utilize:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "SpecificDeployment",
+  "deploymentName": "<deploymentname>"
+}
+```
+
+A implementação especificada tem de ter foi concluída com êxito.
 
 ## <a name="parameter-file"></a>Ficheiro de parâmetros
 

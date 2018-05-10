@@ -1,25 +1,23 @@
 ---
-title: "Como concluir uma revisão do acesso | Microsoft Docs"
-description: "Depois de iniciar uma revisão do acesso no Azure AD Privileged Identity Management, saiba como concluí-la e ver os resultados"
+title: Como concluir uma revisão do acesso | Microsoft Docs
+description: Depois de iniciar uma revisão do acesso no Azure AD Privileged Identity Management, saiba como concluí-la e ver os resultados
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: abc2d3dd-afd5-42cf-8a17-6c11f5674c35
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: kgremban
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 3866438de8fba7a6c42777bbb57746eadf1158eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1314724d8094f171e4c8468d854a9d4ae0c85d7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como concluir uma revisão do acesso no Azure AD Privileged Identity Management
 Os administradores de com função privilegiada podem rever uma vez acesso privilegiado um [revisão de segurança tiver sido iniciado](active-directory-privileged-identity-management-how-to-start-security-review.md). O Azure AD Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o respetivo acesso. Se um utilizador não foi possível obter um e-mail, pode enviar-lhes as instruções [como executar uma revisão de segurança](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -41,7 +39,7 @@ Se uma revisão do acesso está configurado para que os utilizadores rever, o **
 ### <a name="stop"></a>Parar
 Uma data de fim de ter todas as revisões de acesso, mas pode utilizar o **parar** botão para terminar numa fase inicial. Se os utilizadores ainda não foram revistos neste momento, não seria capazes de depois de interromper a revisão. Não é possível reiniciar uma revisão depois-é foi parado.
 
-### <a name="apply"></a>Registe-se
+### <a name="apply"></a>Aplicar
 Uma revisão do acesso esteja concluída, ou porque foi atingido a data de fim ou parado-lo manualmente, o **aplicar** botão implementa o resultado a revisão. Se acesso um utilizador foi negado de revisão, este é o passo que irá remover a atribuição de função.  
 
 ### <a name="export"></a>Exportar
@@ -53,7 +51,7 @@ Se não estiver interessado em mais de revisão, elimine-o. O **eliminar** botã
 > [!IMPORTANT]
 > Não irá receber um aviso antes de ocorre a eliminação, por isso, lembre-se de que pretende eliminar esse revisão. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

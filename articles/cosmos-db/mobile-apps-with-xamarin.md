@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: d81343ed894185cb60340f3eccdf2bff2d7ca1e2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03a66dbfc1df33ba8a91ba133a732dbf38f59262
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos
 
@@ -32,7 +32,7 @@ BD do Azure do Cosmos fornece as seguintes capacidades de chaves para os program
 
 * Consultas de avançada em dados sem esquemas. BD do Cosmos do Azure armazena os dados como sem esquemas documentos JSON heterogéneos coleções. Oferece [consultas avançadas e rápidas](sql-api-sql-query.md) sem a necessidade de se preocupar com esquemas ou índices.
 * Débito rápido. Demora apenas alguns milissegundos para ler e escrever documentos com base de dados do Azure Cosmos. Os programadores podem especificar o débito que necessitam, e base de dados do Azure Cosmos o honra com SLA de 99,99% de disponibilidade para todas as contas de única região e todas as contas de multirregião com consistência simples e 99.999% de disponibilidade em todas as contas de multirregião base de dados de leitura .
-* Ilimitada escala. As coleções de base de dados do Azure Cosmos [aumentar conforme a sua aplicação cresce](partition-data.md). Pode começar com o tamanho de dados de pequena e débito de centenas de pedidos por segundo. As coleções podem aumentar a petabytes de dados e débito arbitrariamente grande com centenas de milhões de pedidos por segundo.
+* Ilimitada escala. As coleções de base de dados do Azure Cosmos [aumentar conforme a sua aplicação cresce](partition-data.md). Pode começar com o tamanho de dados de pequena e débito de centenas de pedidos por segundo. As coleções ou bases de dados podem aumentar de petabytes de dados e débito arbitrariamente grande com centenas de milhões de pedidos por segundo.
 * Globalmente distribuído. Utilizadores de aplicações móveis são em viagem, muitas vezes por todo o mundo. BD do Cosmos do Azure é um [base de dados globalmente distribuída](distribute-data-globally.md). Clique no mapa para tornar os seus dados acessível aos seus utilizadores.
 * Autorização avançada incorporado. Com base de dados do Azure Cosmos, pode facilmente implementar padrões populares, como [dados por utilizador](https://aka.ms/documentdb-xamarin-todouser) ou multiuser partilhados dados, sem o código de autorização personalizada complexas.
 * Consultas de Geoespacial. Muitas aplicações móveis oferecem experiências georreplicação contextuais hoje. Com suporte de primeira classe para [geoespacial tipos](geospatial.md), os faz com que a base de dados do Azure Cosmos criar estes experiências fácil realizar.

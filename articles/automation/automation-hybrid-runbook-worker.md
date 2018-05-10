@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7065ec97e1e02dfb4ee873993caac584f6a63ba6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 2cf4eecbc45e6d842b5a548c8f25ac49aa8fb216
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizar recursos no seu centro de dados ou a nuvem com o Runbook Worker híbrido
 
@@ -147,7 +147,20 @@ Pode remover uma ou mais os Runbook Workers híbridos de um grupo ou pode remove
 
 1. No portal do Azure, navegue até à sua conta de automatização.
 2. Do **definições** painel, selecione **chaves** e anote os valores de campo **URL** e **chave de acesso primária**. Estas informações são necessárias para o passo seguinte.
-3. Abra uma sessão do PowerShell no modo de administrador e execute o seguinte comando - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Utilize o **-Verbose** mudar para um registo detalhado do processo de remoção.
+
+### <a name="windows"></a>Windows
+
+Abra uma sessão do PowerShell no modo de administrador e execute o seguinte comando. Utilize o **-Verbose** mudar para um registo detalhado do processo de remoção.
+
+```powershell
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
+```
+
+### <a name="linux"></a>Linux
+
+```bash
+sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
+```
 
 Para remover obsoletas máquinas do seu grupo de trabalho híbrida, utilize a opção `machineName` parâmetro.
 

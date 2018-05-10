@@ -1,27 +1,23 @@
 ---
 title: Saiba mais sobre a verificação de dois passos na MFA do Azure | Microsoft Docs
-description: 'O que é o Azure multi-factor Authentication, porquê utilizar o MFA, obter mais informações sobre o cliente de multi-factor Authentication e os diferentes métodos e as versões disponíveis. '
-keywords: Introdução à MFA, descrição geral de mfa, o que é o mfa
+description: O que é o Azure multi-factor Authentication, porquê utilizar o MFA e os diferentes métodos e as versões disponíveis.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 74441b5053a9c7c25d94406293828fe92f210bee
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>O que é a Multi-Factor Authentication do Azure?
+
 Verificação de dois passos é um método de autenticação que requer mais do que um método de verificação e adiciona uma segunda camada crítica de segurança aos inícios de sessão de utilizador e de transações. Funciona exigindo quaisquer dois ou mais dos seguintes métodos de verificação:
 
 * Algo sabe (normalmente uma palavra-passe)

@@ -1,11 +1,11 @@
 ---
-title: "Resolução de problemas de compressão do ficheiro na CDN do Azure | Microsoft Docs"
-description: "Resolva problemas com a compressão do ficheiro de CDN do Azure."
+title: Resolução de problemas de compressão do ficheiro na CDN do Azure | Microsoft Docs
+description: Resolva problemas com a compressão do ficheiro de CDN do Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Resolver problemas de compressão de ficheiros CDN
 Este artigo ajuda-o a resolver problemas com [compressão do ficheiro CDN](cdn-improve-performance.md).
@@ -61,9 +61,9 @@ Em primeiro lugar, iremos deve efetuar uma verificação rápida sanity no pedid
 
 ![Cabeçalhos de pedido CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Verifique as definições de compressão (perfil de Standard CDN)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Verifique as definições de compressão (perfis da CDN padrão)
 > [!NOTE]
-> Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure Standard da Verizon** ou **CDN do Azure Standard da Akamai** perfil. 
+> Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Verizon**, ou **CDN do Azure Standard da Akamai** perfil. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Navegue para o ponto final no [portal do Azure](https://portal.azure.com) e cliq
 
 ![Definições de compressão de CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Verifique as definições de compressão (perfil de Premium CDN)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Verifique as definições de compressão (perfis da CDN de Premium)
 > [!NOTE]
 > Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure Premium da Verizon** perfil.
 > 
@@ -88,9 +88,9 @@ Navegue para o ponto final no [portal do Azure](https://portal.azure.com) e cliq
 
 ![Definições de compressão CDN premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Certifique-se de que o conteúdo é colocado em cache
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Verifique os conteúdos em cache (perfis da CDN da Verizon)
 > [!NOTE]
-> Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure da Verizon** perfil (Standard ou Premium).
+> Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure Standard da Verizon** ou **CDN do Azure Premium da Verizon** perfil.
 > 
 > 
 
@@ -101,9 +101,9 @@ Utilizar ferramentas de programador do seu browser, certifique-se os cabeçalhos
 
 ![Cabeçalhos de resposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Certifique-se de que o ficheiro cumpre os requisitos de tamanho
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Certifique-se de que o ficheiro cumpre os requisitos de tamanho (perfis da CDN da Verizon)
 > [!NOTE]
-> Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure da Verizon** perfil (Standard ou Premium).
+> Este passo aplica-se apenas se o perfil de CDN é uma **CDN do Azure Standard da Verizon** ou **CDN do Azure Premium da Verizon** perfil.
 > 
 > 
 

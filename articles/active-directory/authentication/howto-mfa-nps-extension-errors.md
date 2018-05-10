@@ -1,25 +1,20 @@
 ---
 title: Resolver códigos de erro para a extensão de NPS de MFA do Azure | Microsoft Docs
-description: Obter ajuda a resolver problemas com a extensão NPS para o Azure multi-factor Authentication com específicas resoluções para mensagens de erro comuns
+description: Obter ajuda a resolver problemas com a extensão NPS para o multi-factor Authentication do Azure
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão do NPS para o multi-factor Authentication do Azure
 
@@ -85,7 +80,7 @@ Se encontrar um destes erros, recomendamos que lhe [contacte o suporte](#contact
 | Código de erro | Mensagem de erro |
 | ---------- | ------------- |
 | **InvalidParameter** | Pedido não pode ser nulo |
-| **InvalidParameter** | ObjectId não pode ser nula nem vazia para ReplicationScope: {0} |
+| **InvalidParameter** | ObjectId não pode ser nulo nem estar vazio para ReplicationScope:{0} |
 | **InvalidParameter** | O comprimento de CompanyName \{0} \ é maior do que o comprimento máximo permitido {1} |
 | **InvalidParameter** | UserPrincipalName não pode ser nulo nem estar vazio |
 | **InvalidParameter** | O TenantId fornecido não se encontra no formato correto |

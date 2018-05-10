@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver dados analíticos métricas em todos os recursos de aplicação Web do Azure
 
@@ -57,7 +57,7 @@ Ao contrário da maioria dos outros soluções de análise de registos, os dados
 Execute os seguintes passos para configurar a solução de análise de aplicações Web do Azure para as áreas de trabalho.
 
 1. Ativar a solução de análise de aplicações Web do Azure de [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) ou utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
-2. [Ativar o registo de métricas de recurso do Azure para OMS através do PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Ativar o registo de métricas de recurso do Azure para análise de registos com o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 A solução de análise de aplicações Web do Azure recolhe dois conjuntos de métricas do Azure:
 
@@ -77,10 +77,6 @@ A solução de análise de aplicações Web do Azure recolhe dois conjuntos de m
   - Percentagem de Memória
 
 Métricas de plano do App Service apenas são recolhidas se estiver a utilizar um plano de serviço dedicada. Isto não se aplica a planos de serviço de aplicações gratuitos ou partilhados.
-
-Se adicionar a solução através do portal do OMS, verá o mosaico seguinte. Terá de [ativar o registo de métricas de recurso do Azure para OMS através do PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Efetuar a notificação de avaliação](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 Depois de configurar a solução, dados devem começar a fluir a sua área de trabalho em 15 minutos.
 

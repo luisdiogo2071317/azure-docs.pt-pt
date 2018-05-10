@@ -1,6 +1,6 @@
 ---
-title: Utilizar um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS)
-description: Utilize um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS).
+title: Utilizar um endereço IP estático com o Balanceador de carga do serviço de Kubernetes do Azure (AKS)
+description: Utilize um endereço IP estático com o Balanceador de carga do serviço de Kubernetes do Azure (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.openlocfilehash: da1fc4cd31a4b4f13da5b527e2a62e147799bfef
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Utilizar um endereço IP estático com o Balanceador de carga do serviço de contentor do Azure (AKS)
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilizar um endereço IP estático com o Balanceador de carga do serviço de Kubernetes do Azure (AKS)
 
-Em alguns casos, tal como quando o serviço de contentor do Azure (AKS) carregar balanceador é recriado ou Kubernetes serviços com um tipo de LoadBalancer são recriados, pode alterar o endereço IP público do serviço Kubernetes. Este configurar um endereço IP estático para os serviços de Kubernetes detalhes de documento.
+Em alguns casos, tal como quando o serviço de Kubernetes do Azure (AKS) carregar balanceador é recriado ou Kubernetes serviços com um tipo de LoadBalancer são recriados, pode alterar o endereço IP público do serviço Kubernetes. Este configurar um endereço IP estático para os serviços de Kubernetes detalhes de documento.
 
 ## <a name="create-static-ip-address"></a>Criar endereço IP estático
 
@@ -116,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

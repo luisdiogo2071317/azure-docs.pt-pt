@@ -1,0 +1,204 @@
+---
+title: Skill de pesquisa cognitivos OCR (Azure Search) | Microsoft Docs
+description: Extraia o texto a partir dos ficheiros de imagem no pipeline de sem causa pesquisa do Azure.
+services: search
+manager: pablocas
+author: luiscabrer
+documentationcenter: ''
+ms.assetid: ''
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.date: 05/01/2018
+ms.author: luisca
+ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
+# <a name="ocr-cognitive-skill"></a>Skill cognitivos OCR
+
+O **OCR** skill extrai o texto de ficheiros de imagem. Formatos de ficheiro suportados incluem:
+
++ . JPEG
++ . JPG
++ . PNG
++ . BMP
++ . GIF
+
+
+## <a name="skill-parameters"></a>Parâmetros de skill
+
+Os parâmetros são maiúsculas e minúsculas.
+
+| Nome do parâmetro     | Descrição |
+|--------------------|-------------|
+| detectOrientation | Permite autodetection de orientação de imagem. <br/> Os valores válidos: Verdadeiro / Falso.|
+|defaultLanguageCode |  Código de idioma texto de entrada. Idiomas suportados incluem: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Se o código de idioma não especificado ou é nulo, o idioma é autodetected.|
+| textExtractionAlgorithm | "impressas" ou "handwritten". O algoritmo de OCR de reconhecimento de texto "handwritten" está atualmente em pré-visualização e só é suportado em inglês. |
+
+## <a name="skill-inputs"></a>Entradas de skill
+
+| Nome de entrada      | Descrição                                          |
+|---------------|------------------------------------------------------|
+| Imagem         | Tipo complexo. Atualmente, apenas funciona com o campo de "documento/normalized_images", produzido pelo indexador de Blob do Azure quando ```imageAction``` está definido como ```generateNormalizedImages```. Consulte o [exemplo](#sample-output) para obter mais informações.|
+
+
+## <a name="skill-outputs"></a>Saídas skill
+| Nome de saída     | Descrição                   |
+|---------------|-------------------------------|
+| Texto          | Texto simples extraído a partir da imagem.   |
+| layoutText    | Tipo de complexo que descreve o texto extraído, bem como a localização onde o texto foi encontrado.|
+
+
+## <a name="sample-definition"></a>Definição de exemplo
+
+```json
+{
+    "skills": [
+      {
+        "description": "Extracts text (plain and structured) from image."
+        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+        "context": "/document/normalized_images/*",
+        "defaultLanguageCode": null,
+        "detectOrientation": true,
+        "inputs": [
+          {
+            "name": "image",
+            "source": "/document/normalized_images/*"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "text",
+            "targetName": "myText"
+          },
+          {
+            "name": "layoutText",
+            "targetName": "myLayoutText"
+          }
+        ]
+      }
+    ]
+ }
+```
+<a name="sample-output"></a>
+
+## <a name="sample-text-and-layouttext-output"></a>Saída de texto e layoutText de exemplo
+
+```json
+{
+  "text": "Hello World. -John",
+  "layoutText":
+  {
+    "language" : "en",
+    "text" : "Hello World. -John",
+    "lines" : [
+      {
+        "boundingBox":
+        [ {"x":10, "y":10}, {"x":50, "y":10}, {"x":50, "y":30},{"x":10, "y":30}],
+        "text":"Hello World."
+      },
+      {
+        "boundingBox": [ {"x":110, "y":10}, {"x":150, "y":10}, {"x":150, "y":30},{"x":110, "y":30}],
+        "text":"-John"
+      }
+    ],
+    "words": [
+      {
+        "boundingBox": [ {"x":110, "y":10}, {"x":150, "y":10}, {"x":150, "y":30},{"x":110, "y":30}],
+        "text":"Hello"
+      },
+      {
+        "boundingBox": [ {"x":110, "y":10}, {"x":150, "y":10}, {"x":150, "y":30},{"x":110, "y":30}],
+        "text":"World."
+      },
+      {
+        "boundingBox": [ {"x":110, "y":10}, {"x":150, "y":10}, {"x":150, "y":30},{"x":110, "y":30}],
+        "text":"-John"
+      }
+    ]
+  }
+}
+```
+
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exemplo: Intercalação extraído de imagens incorporadas com o conteúdo do documento de texto.
+
+Um caso de utilização comuns para texto fusão é a capacidade para intercalar a representação textual de imagens (texto de um skill OCR ou a legenda de uma imagem) para o campo de conteúdo de um documento. 
+
+Skillset de exemplo seguinte cria um *merged_text* campo para conter o conteúdo textual do seu documento, bem como o texto de OCRed de cada uma das imagens incorporado esse documento. 
+
+#### <a name="request-body-syntax"></a>Sintaxe de corpo do pedido
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+        "name": "OCR skill",
+        "description": "Extract text (plain and structured) from image.",
+        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+        "context": "/document/normalized_images/*",
+        "defaultLanguageCode": "en",
+        "detectOrientation": true,
+        "inputs": [
+          {
+            "name": "image",
+            "source": "/document/normalized_images/*"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "text"
+          }
+        ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
+      "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
+      "context": "/document",
+      "insertPreTag": " ",
+      "insertPostTag": " ",
+      "inputs": [
+        {
+          "name":"text", "source": "/document/content"
+        },
+        {
+          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+        },
+        {
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mergedText", "targetname" : "merged_text"
+        }
+      ]
+    }
+  ]
+}
+```
+O exemplo de skillset acima assume que existe um campo de imagens normalizado. Para gerar este campo, defina o *imageAction* configuração na sua definição de indexador *generateNormalizedImages* conforme mostrado abaixo:
+
+```json
+{
+  //...rest of your indexer definition goes here ...
+  "parameters":
+  {
+    "configuration": 
+    {
+        "dataToExtract": "contentAndMetadata",
+        "imageAction": "generateNormalizedImages"
+        }
+  }
+}
+```
+
+## <a name="see-also"></a>Consulte também
++ [Competências predefinidas](cognitive-search-predefined-skills.md)
++ [TextMerger skill](cognitive-search-skill-textmerger.md)
++ [Como definir um skillset](cognitive-search-defining-skillset.md)

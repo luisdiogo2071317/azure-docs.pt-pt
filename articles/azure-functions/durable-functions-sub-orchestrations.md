@@ -1,12 +1,12 @@
 ---
-title: "Orchestrations secundárias para funções duráveis - Azure"
-description: "Como chamar orchestrations de orchestrations na extensão do durável funções para as funções do Azure."
+title: Orchestrations secundárias para funções duráveis - Azure
+description: Como chamar orchestrations de orchestrations na extensão do durável funções para as funções do Azure.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Secundárias orchestrations nas funções duráveis (funções do Azure)
 
@@ -27,6 +27,9 @@ Para chamar as funções de atividade, além de funções do orchestrator podem 
 Uma função do orchestrator pode chamar outra função do orchestrator, chamando o [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) ou [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) método. O [erro processamento & compensação](durable-functions-error-handling.md#automatic-retry-on-failure) artigo tem mais informações sobre a repetição automática.
 
 As funções do orchestrator secundárias comportam-se, tal como as funções de atividade da perspetiva da função invocadora. Estes podem devolver um valor, acionar uma excepção e pode ser aguardado pela função principal do orchestrator.
+
+> [!NOTE]
+> O `CallSubOrchestratorAsync` e `CallSubOrchestratorWithRetryAsync` métodos ainda não estão disponíveis em JavaScript.
 
 ## <a name="example"></a>Exemplo
 
@@ -76,7 +79,7 @@ public static async Task ProvisionNewDevices(
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba quais são os hubs de tarefas e como configurá-las](durable-functions-task-hubs.md)

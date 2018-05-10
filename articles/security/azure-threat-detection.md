@@ -1,12 +1,12 @@
 ---
-title: "A deteção de ameaças de avançadas do Azure | Microsoft Docs"
-description: "Saiba mais sobre proteção de identidade e as respetivas capacidades."
+title: A deteção de ameaças de avançadas do Azure | Microsoft Docs
+description: Saiba mais sobre proteção de identidade e as respetivas capacidades.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançadas do Azure
 ## <a name="introduction"></a>Introdução
@@ -56,7 +56,7 @@ Este documento técnico centra-se na tecnologia de plataforma do Azure e control
 
 [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) é uma funcionalidade do [do Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edição que fornece uma descrição geral dos eventos de risco e potenciais vulnerabilidades que afetam as identidades da organização. Microsoft tem sido proteger identidades baseado na nuvem para através de um decade e com o Azure AD Identity Protection, Microsoft está efetuar estes sistemas de proteção mesmo disponíveis para os clientes empresariais. A proteção de identidade utiliza as capacidades de deteção de anomalias existente do Azure AD estão disponíveis através de [relatórios de atividade anómala do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)e apresenta novos tipos de eventos de risco que consegue de detetar anomalias em tempo real.
 
-Proteção de identidade utiliza algoritmos de aprendizagem adaptável e heurística para detetar anomalias e o risco de eventos que podem indicar que uma identidade foi comprometida. Utilizando estes dados, Identity Protection gera relatórios e alertas que permitem-lhe investigar estes eventos de risco e efetuar remediação adequada ou a ação de mitigação.
+O Identity Protection utiliza algoritmos de machine learning adaptáveis e heurística para detetar anomalias e eventos de risco que podem indicar que uma identidade foi comprometida. Utilizando estes dados, Identity Protection gera relatórios e alertas que permitem-lhe investigar estes eventos de risco e efetuar remediação adequada ou a ação de mitigação.
 
 Mas o Azure Active Directory Identity Protection é maior do que uma ferramenta de monitorização e relatórios. Com base em eventos de risco, Identity Protection calcula um nível de risco de utilizador para cada utilizador, permitindo-lhe configurar as políticas baseadas em risco para proteger automaticamente as identidades da sua organização.
 
@@ -116,7 +116,7 @@ O dashboard de Segurança e Auditoria do OMS está organizado em quatro categori
 
 ![Dashboard de Segurança e Auditoria do OMS](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
--   **Domínios de segurança:** nesta área, conseguirá explorar ainda mais os registos de segurança ao longo do tempo, aceder a avaliação de malware, atualizar a avaliação, segurança de rede, informações de identidade e acesso, os computadores com eventos de segurança e tivessem acesso rápido ao dashboard do Centro de segurança do Azure.
+-   **Domínios de segurança:** nesta área, conseguirá explorar ainda mais os registos de segurança ao longo do tempo, aceder a avaliação de malware, atualizar a avaliação, segurança de rede, informações de identidade e acesso, os computadores com eventos de segurança e tivessem aceder ao dashboard do Centro de segurança do Azure.
 
 -   **Problemas relevantes:** esta opção permite-lhe identificar rapidamente o número de problemas de Active Directory e a gravidade destes problemas.
 
@@ -213,7 +213,7 @@ Alguns exemplos incluem:
 
 -   **Ataques de saída:** os atacantes frequentemente nos recursos da nuvem com o objetivo de utilizar os mesmos para preparar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, poderá ser utilizadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar SPAM ou analisar portas abertas e outros dispositivos na Internet. Ao aplicar o machine learning ao tráfego de rede, o Centro de Segurança pode detetar quando as comunicações da rede de saída excedem o normal. Quando lhe enviar SPAM, o Centro de segurança correlaciona também o tráfego de e-mail invulgar com informações do Office 365 para determinar se o correio é provável que possui conteúdo nefasto ou o resultado de uma campanha de correio eletrónico legítimo.
 
-### <a name="anomaly-detection"></a>Deteção de anomalias
+### <a name="anomaly-detection"></a>Deteção de Anomalias
 
 O Centro de Segurança do Azure utiliza também a deteção de anomalias para identificar ameaças. Contrariamente à análise comportamental (que depende de padrões conhecidos derivados de grandes conjuntos de dados), a deteção de anomalias é mais “personalizada” e concentra-se nas linhas de base específicas das suas implementações. O machine Learning é utilizado para determinar a atividade normal das suas implementações e, em seguida, são geradas regras para definir condições de valores atípicos que podem representar um evento de segurança. Segue-se um exemplo:
 
@@ -255,7 +255,7 @@ Estes esforços combinados culminam em novas e melhoradas deteções das quais p
 
 -   **Atualizações de plataforma de antimalware –** atualiza automaticamente a plataforma de Antimalware da Microsoft.
 
--   **A proteção ativa -** relatórios metadados de telemetria sobre ameaças detetadas e os recursos suspeitos ao Microsoft Azure para garantir que a resposta rápida para a evolução das ameaças e ativar a entrega de assinatura síncrono em tempo real através do Microsoft Active Protection System (MAPS).
+-   **A proteção ativa -** relatórios metadados de telemetria sobre ameaças detetadas e os recursos suspeitos ao Microsoft Azure para garantir que a resposta rápida para a evolução das ameaças e ativar a entrega de assinatura síncrono em tempo real através do Sistema de proteção ativa Microsoft (MAPS).
 
 -   **Amostras de relatórios -** fornece e relatórios de exemplos para o serviço de Antimalware da Microsoft para ajudar a otimizar o serviço e ative a resolução de problemas.
 
@@ -288,7 +288,7 @@ Detetores de ameaças de base de dados do SQL Server utilize um dos metodologias
 
 ### <a name="application-gateway-web-application-firewall"></a>Firewall de aplicação de Web de Gateway de aplicação
 
-[Firewall de aplicação Web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é uma funcionalidade do [Gateway de aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que fornece proteção para aplicações web que utilizam o gateway de aplicação para standard [controlo de entrega de aplicação](https://kemptechnologies.com/in/application-delivery-controllers) funções. Firewall de aplicações Web efetua este procedimento, protegendo-os em relação a maioria do [OWASP principais 10 vulnerabilidades web comuns](https://www.owasp.org/index.php/Top_10_2010-Main)
+[Firewall de aplicação Web](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) é uma funcionalidade do [Gateway de aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que fornece proteção para aplicações web que utilizam o gateway de aplicação para standard [controlo de entrega de aplicação](https://kemptechnologies.com/in/application-delivery-controllers)funções. Firewall de aplicações Web efetua este procedimento, protegendo-os em relação a maioria do [OWASP principais 10 vulnerabilidades web comuns](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Aplicação de Web de Gateway de aplicação Firewally](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
@@ -324,7 +324,7 @@ O [API de deteção de anomalias](https://docs.microsoft.com/azure/machine-learn
 
 -   **Picos e Dips:** por exemplo, ao monitorizar o número de falhas de início de sessão para um serviço ou o número de checkouts um site de comércio eletrónico, picos invulgares dips foi indicar ataques de segurança ou interrupções de serviço.
 
--   **As tendências positivos e negativos:** ao monitorizar a utilização de memória em informática, por exemplo, reduzir o tamanho de memória livre é indicativa de uma potencial fuga de memória; ao monitorizar o comprimento da fila de serviço, uma tendência ascendente persistente pode indicar um problema de software subjacente.
+-   **As tendências positivos e negativos:** ao monitorizar a utilização de memória em informática, por exemplo, reduzir o tamanho de memória livre é indicativa de uma potencial fuga de memória; ao monitorizar o comprimento da fila de serviço, uma tendência ascendente persistente pode indicar um subjacente problema de software.
 
 -   **Nível de alterações e alterações no intervalo dinâmico de valores:** por exemplo, alterações a nível na latências de um serviço depois de um serviço de atualização ou níveis de exceções de menor após a atualização pode ser interessante para monitorizar.
 
@@ -421,7 +421,7 @@ Exemplo de firewalls de aplicação Web disponíveis no Azure Marketplace seguem
 
 [Firewall de aplicações Web barracuda, Firewall de aplicação de Web Virtual do Brocade (Brocade vWAF), Imperva SecureSphere e a Firewall do IP ThreatSTOP.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Capacidades de deteção do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities)
 

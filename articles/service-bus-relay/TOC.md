@@ -8,8 +8,10 @@
 ## [Criar um espaço de nomes](relay-create-namespace-portal.md)
 ## [Criar uma aplicação híbrida no local/cloud](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Ligações Híbridas
-### [.NET](relay-hybrid-connections-dotnet-get-started.md)
-### [Node](relay-hybrid-connections-node-get-started.md)
+### [Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)
+### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+### [Websockets Node](relay-hybrid-connections-node-get-started.md)
+### [HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
 ## [Reencaminhamento do WCF](relay-wcf-dotnet-get-started.md)
 ## [Tutorial do Reencaminhamento do WCF](service-bus-relay-tutorial.md)
 ## [Tutorial REST do Reencaminhamento WCF](service-bus-relay-rest-tutorial.md)

@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 05/07/2018
 ms.author: sngun
-ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Definir e obter o débito de base de dados do Azure Cosmos contentores
 
-Pode definir o débito para os contentores de BD do Cosmos do Azure no portal do Azure ou ao utilizar o SDKs do cliente. 
+Pode definir o débito para os contentores de base de dados do Azure Cosmos ou um conjunto de contentores no portal do Azure ou ao utilizar o SDKs do cliente. 
 
 A tabela seguinte lista o débito disponível para contentores:
 
@@ -31,15 +31,18 @@ A tabela seguinte lista o débito disponível para contentores:
             <td valign="top"><p></p></td>
             <td valign="top"><p><strong>Contentor de partições únicas</strong></p></td>
             <td valign="top"><p><strong>Contentor particionada</strong></p></td>
+            <td valign="top"><p><strong>Conjunto de contentores</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débito mínimo</p></td>
             <td valign="top"><p>400 unidades de pedido por segundo</p></td>
-            <td valign="top"><p>unidades de pedido de 1000 por segundo</p></td>
+            <td valign="top"><p>1000 unidades de pedido por segundo</p></td>
+            <td valign="top"><p>50 000 unidades de pedido por segundo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débito máximo</p></td>
             <td valign="top"><p>10 000 unidades de pedido por segundo</p></td>
+            <td valign="top"><p>Ilimitado</p></td>
             <td valign="top"><p>Ilimitado</p></td>
         </tr>
     </tbody>
@@ -62,6 +65,7 @@ O fragmento de código seguinte obtém o débito atual e altera-lo para 500 RU/s
 
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
+// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -82,6 +86,7 @@ O fragmento de código seguinte obtém o débito atual e altera-lo para 500 RU/s
 
 ```Java
 // find offer associated with this collection
+// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
 Iterator < Offer > it = client.queryOffers(
     String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
 assertThat(it.hasNext(), equalTo(true));
@@ -131,7 +136,7 @@ A forma mais simples para obter uma boa estimativa do pedido de encargos de unid
 ![Métricas de portais de API do MongoDB][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de débito reservado na MongoDB API
-As aplicações que excedem o débito aprovisionado para um contentor será limitado taxa até que a taxa de consumo descerem abaixo a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end preventivamente vai terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB tenta automaticamente Repetir até 10 vezes antes de o devolver um `Too Many Requests` código de erro. Se está a receber muitas `Too Many Requests` códigos de erro, poderá considerar a adição de uma lógica de repetição no rotinas de processamento de erros da aplicação ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
+As aplicações que excedem o débito aprovisionado para um contentor ou um conjunto de contentores será limitado taxa até que a taxa de consumo descerem abaixo a taxa de débito aprovisionado. Quando ocorre uma limitação de taxa, o back-end preventivamente vai terminar o pedido com um `16500` código de erro - `Too Many Requests`. Por predefinição, a API do MongoDB tenta automaticamente Repetir até 10 vezes antes de o devolver um `Too Many Requests` código de erro. Se está a receber muitas `Too Many Requests` códigos de erro, poderá considerar a adição de uma lógica de repetição no rotinas de processamento de erros da aplicação ou [aumentar o débito aprovisionado para o contentor](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Débito FAQ
 
@@ -139,7 +144,7 @@ As aplicações que excedem o débito aprovisionado para um contentor será limi
 
 400 RU/s é o débito mínimo disponível nos contentores do Cosmos DB única partição (1000 RU/s é o mínimo para contentores particionadas). O pedido unidades estão definidas em 100 intervalos de RU/s, mas o débito não é possível definir 100 RU/s ou qualquer valor inferior a 400 RU/s. Se estiver à procura de um método económico desenvolver e testar Cosmos DB, pode utilizar o livre [emulador de BD do Azure Cosmos](local-emulator.md), que pode implementar localmente, sem qualquer custo. 
 
-**Como definir o througput utilizando a API do MongoDB**
+**Como definir o débito utilizando a API do MongoDB**
 
 Não há nenhuma extensão de API do MongoDB para definir o débito. A recomendação é utilizar a API do SQL Server, conforme mostrado no [para definir o débito, utilizando a API de SQL para .NET](#set-throughput-sdk).
 

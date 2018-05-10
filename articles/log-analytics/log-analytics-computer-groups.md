@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registo de grupos de computadores na análise de registos
 
@@ -56,14 +56,6 @@ Utilize o procedimento seguinte para criar um grupo de computadores a partir de 
 2. Abra **pesquisa registo** e, em seguida, clique em **pesquisas guardadas** na parte superior do ecrã.
 3. Clique em **adicionar** e forneça valores para cada propriedade para o grupo de computadores.
 4. Selecione **guardar esta consulta como um grupo de computadores** e clique em **OK**.
-
-
-Utilize o procedimento seguinte para criar um grupo de computadores a partir de uma pesquisa de registo no portal do OMS.
-
-1. Abra **pesquisa registo** e criar a pesquisa de registo para o grupo de computadores.  
-2. Clique em de **guardar** botão na parte superior do ecrã.
-3. Selecione **Sim** para **guardar esta consulta como um grupo de computadores**.
-5. Fornece valores para cada propriedade para o grupo de computadores. 
 
 
 

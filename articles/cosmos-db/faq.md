@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -190,7 +190,7 @@ Para além de códigos de erro comuns do MongoDB, a API do MongoDB tem os seus p
 
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | O número total de unidades de pedido consumido excedeu a taxa de aprovisionamento de unidade de pedido para a coleção e foi limitado. | Considere aumentar o débito da coleção do portal do Azure ou tentar novamente. |
+| TooManyRequests     | 16500 | O número total de unidades de pedido consumido excedeu a taxa de aprovisionamento de unidade de pedido para a coleção e foi limitado. | Considere aumentar o débito atribuído a um contentor ou um conjunto de contentores do Azure portal ou tentar novamente. |
 | ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {nome: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {idade: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Desenvolver com a tabela de API
@@ -386,7 +386,7 @@ A API de tabela fornece a mesma funcionalidade de consulta que o Table storage d
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando posso alterar TableThroughput para a API de tabela?
 Deve alterar TableThroughput quando qualquer uma das seguintes condições aplicam-se:
 * Se estiver a efetuar uma extração, transformação e carregamento (ETL) de dados ou que pretende carregar uma grande quantidade de dados num curto período de tempo. 
-* Precisa de mais débito do contentor no back-end. Por exemplo, verá que o débito utilizado mais do que o débito aprovisionado e pode obter limitadas. Para obter mais informações, consulte [débito de conjunto para contentores de base de dados do Azure Cosmos](set-throughput.md).
+* Precisa de mais débito do contentor ou de um conjunto de contentores no back-end. Por exemplo, verá que o débito utilizado mais do que o débito aprovisionado e pode obter limitadas. Para obter mais informações, consulte [débito de conjunto para contentores de base de dados do Azure Cosmos](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Pode aumentar verticalmente ou reduzir verticalmente o débito da minha tabela de API de tabela? 
 Sim, pode utilizar o painel de escala do portal do Azure Cosmos DB para aumentar o débito. Para obter mais informações, consulte [conjunto débito](set-throughput.md).
@@ -401,7 +401,7 @@ Nenhum. Não há nenhuma alteração no preço para clientes de armazenamento de
 O preço depende o TableThroughput alocado. 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Como processar qualquer limitação em tabelas oferta de API de tabela? 
-Se a velocidade do pedido excede a capacidade de débito aprovisionado para o contentor subjacente, receberá um erro e o SDK repete a chamada por aplicar a política de repetição.
+Se a velocidade do pedido excede a capacidade do débito aprovisionado para o contentor subjacente ou um conjunto de contentores, receberá um erro e o SDK repete a chamada por aplicar a política de repetição.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Por que motivo é necessário escolher um débito para além dos PartitionKey e RowKey para tirar partido da oferta de API de tabela da base de dados do Azure Cosmos?
 BD do Azure do Cosmos define um débito predefinido para o contentor se não fornecer uma no ficheiro App. config ou através do portal. 

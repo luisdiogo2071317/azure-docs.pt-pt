@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Suite e Azure Active Directory | Microsoft Docs
-description: "Descreve como o Azure IoT Suite utiliza o Azure Active Directory para gerir permissões."
-services: 
+title: Aceleradores de solução IoT do Azure e o Azure Active Directory | Microsoft Docs
+description: Descreve como aceleradores de solução IoT do Azure utiliza o Azure Active Directory para gerir as permissões.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -29,35 +29,35 @@ Na primeira vez que iniciar sessão em [azureiotsuite.com][lnk-azureiotsuite], o
 
 1. Em primeiro lugar, para preencher a lista de inquilinos junto ao seu nome de utilizador, o site localiza a partir do Azure que os inquilinos do AAD pertence. Atualmente, o site apenas pode obter os tokens de utilizador para um inquilino cada vez. Por conseguinte, quando os inquilinos através da lista pendente no canto superior direito, o site iniciar a sua sessão nesse inquilino para obter os tokens para esse inquilino.
 
-2. Em seguida, através do Azure, o site localiza as subscrições às quais o inquilino selecionado está associado. Pode ver as subscrições disponíveis quando cria uma nova solução pré-configurada.
+2. Em seguida, através do Azure, o site localiza as subscrições às quais o inquilino selecionado está associado. Pode ver as subscrições disponíveis quando cria um novo acelerador de solução.
 
-3. Por último, o site obtém todos os recursos nas subscrições e nos grupos de recursos marcados como soluções pré-configuradas e preenche os mosaicos na home page.
+3. Por fim, o site obtém todos os recursos nas subscrições e grupos de recursos marcados como aceleradores de solução e preenche os mosaicos na home page.
 
-As secções seguintes descrevem as funções que controlam o acesso às soluções pré-configuradas.
+As secções seguintes descrevem as funções que controlam o acesso ao Aceleradores a solução.
 
 ## <a name="aad-roles"></a>Funções do AAD
 
-As funções do AAD controlam a capacidade de aprovisionar soluções pré-configuradas e gerir utilizadores numa solução pré-configurada.
+As funções do AAD Aceleradores de solução de aprovisionar a capacidade de controlar e gerem utilizadores num acelerador de solução.
 
-Pode encontrar mais informações sobre funções de administrador no AAD em [atribuir funções de administrador no Azure AD][lnk-aad-admin]. O atual artigo incida no **Administrador Global** e **utilizador** funções de diretório, conforme utilizadas pelas soluções pré-configuradas.
+Pode encontrar mais informações sobre funções de administrador no AAD em [atribuir funções de administrador no Azure AD][lnk-aad-admin]. O atual artigo incida no **Administrador Global** e **utilizador** funções de diretório como utilizado por aceleradores a solução.
 
 ### <a name="global-administrator"></a>Administrador global
 
 Podem existir vários administradores globais por inquilino do AAD:
 
 * Quando cria um inquilino do AAD, por predefinição, é o administrador global desse inquilino.
-* O administrador global pode aprovisionar um soluções pré-configuradas básico e padrão.
+* O administrador global pode aprovisionar um Aceleradores solução básico e padrão.
 
 ### <a name="domain-user"></a>Utilizador de domínio
 
 Podem existir vários utilizadores de domínio por inquilino do AAD:
 
-* Um utilizador de domínio pode aprovisionar uma solução pré-configurada básica através de [azureiotsuite.com] [ lnk-azureiotsuite] site.
-* Um utilizador de domínio pode criar uma solução pré-configurada básica utilizando a CLI.
+* Um utilizador de domínio pode aprovisionar um acelerador solução básica através de [azureiotsuite.com] [ lnk-azureiotsuite] site.
+* Um utilizador de domínio pode criar um acelerador solução básica utilizando a CLI.
 
 ### <a name="guest-user"></a>Utilizador convidado
 
-Podem existir vários utilizadores convidados por inquilino do AAD. Os utilizadores convidados têm um conjunto limitado de direitos no inquilino do AAD. Como resultado, os utilizadores convidados não podem aprovisionar uma solução pré-configurada no inquilino do AAD.
+Podem existir vários utilizadores convidados por inquilino do AAD. Os utilizadores convidados têm um conjunto limitado de direitos no inquilino do AAD. Como resultado, os utilizadores convidados não é possível aprovisionar um acelerador de solução no inquilino do AAD.
 
 Para obter mais informações sobre utilizadores e funções no AAD, consulte os seguintes recursos:
 
@@ -94,7 +94,7 @@ Observe o diagrama seguinte para obter orientações sobre:
 Se tem a certeza de que tem uma subscrição do Azure, valide o mapeamento do inquilino da sua subscrição e certifique-se de que o inquilino correto está selecionado na lista pendente. Se confirmou o inquilino pretendido está correto, siga o diagrama anterior e valide o mapeamento da sua subscrição e este inquilino do AAD.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o IoT Suite, veja como pode [personalizar uma solução pré-configurada][lnk-customize].
+Para saber mais sobre Aceleradores de solução IoT, veja como pode [personalizar um acelerador solução][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

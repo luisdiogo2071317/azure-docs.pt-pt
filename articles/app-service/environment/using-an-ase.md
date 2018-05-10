@@ -1,6 +1,6 @@
 ---
 title: Utilizar um ambiente do App Service do Azure
-description: "Como criar, publicar e dimensionar as aplicações de um ambiente do App Service do Azure"
+description: Como criar, publicar e dimensionar as aplicações de um ambiente do App Service do Azure
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -58,19 +58,28 @@ Para criar uma aplicação web está num ASE:
 
 4. Introduza um nome para um novo grupo de recursos ou selecione **utilizar existente** e selecione um na lista pendente.
 
+5. Selecione o seu SO. 
+
+    * Alojar uma aplicação de Linux está num ASE é uma nova funcionalidade de pré-visualização, pelo que sugerimos que adiciona aplicações Linux num ASE que está atualmente a executar cargas de trabalho de produção. 
+    * Adicionar uma aplicação do Linux num ASE significa que o ASE também será em modo de pré-visualização. 
+
 5. Selecione um plano de serviço aplicacional existente na sua ASE ou crie um novo, seguindo estes passos:
 
     a. Selecione **criar novos**.
 
     b. Introduza o nome para o seu plano de serviço de aplicações.
 
-    c. Selecione o seu ASE no **localização** na lista pendente.
+    c. Selecione o seu ASE no **localização** na lista pendente. Alojar uma aplicação de Linux está num ASE só está ativado em 6 regiões, de momento: **EUA oeste, EUA leste, Europa Ocidental, Europa do Norte, leste da Austrália, Sudeste asiático.** 
 
     d. Selecione um **Isolated** escalão de preço. Selecione **selecione**.
 
     e. Selecione **OK**.
     
     ![Escalões de preços isolados][2]
+
+    > [!NOTE]
+    > Linux web apps e aplicações web do Windows não podem estar no mesmo plano do App Service, mas podem estar no mesmo ambiente de serviço de aplicações. 
+    >
 
 6. Selecione **Criar**.
 

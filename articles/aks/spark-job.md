@@ -1,6 +1,6 @@
 ---
-title: Executar uma tarefa do Apache Spark com o serviço de contentor do Azure (AKS)
-description: Utilizar o serviço de contentor do Azure (AKS) para executar uma tarefa do Apache Spark
+title: Executar uma tarefa do Apache Spark com o serviço do Azure Kubernetes (AKS)
+description: Utilização do Azure Kubernetes serviço (AKS) para executar uma tarefa do Apache Spark
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 627cb80a055fb4b66fcc428a1de87d754af6991e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: fbeddb60ce968ff0d32e2ddb6a4f62d2036d80aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Tarefas do Apache Spark em execução no AKS
 
-[Apache Spark] [ apache-spark] é um motor rápido para processamento de dados em grande escala. Como do [versão Spark 2.3.0][spark-latest-release], o Apache Spark suporta a integração nativa com Kubernetes clusters. Serviço de contentor do Azure (AKS) é um ambiente Kubernetes gerido em execução no Azure. Este documento fornece detalhes sobre a preparação e executar tarefas do Apache Spark num cluster do serviço de contentor do Azure (AKS).
+[Apache Spark] [ apache-spark] é um motor rápido para processamento de dados em grande escala. Como do [versão Spark 2.3.0][spark-latest-release], o Apache Spark suporta a integração nativa com Kubernetes clusters. Serviço de Kubernetes do Azure (AKS) é um ambiente Kubernetes gerido em execução no Azure. Este documento fornece detalhes sobre a preparação e executar tarefas do Apache Spark num cluster do serviço de Kubernetes do Azure (AKS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Para concluir os passos neste artigo, precisa do seguinte.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-Spark é utilizado para o processamento de dados em grande escala e requer que nós Kubernetes estão a ser dimensionados de forma a cumprir os requisitos de recursos do Spark. Recomendamos um tamanho mínimo de `Standard_D3_v2` para os nós do serviço de contentor do Azure (AKS).
+Spark é utilizado para o processamento de dados em grande escala e requer que nós Kubernetes estão a ser dimensionados de forma a cumprir os requisitos de recursos do Spark. Recomendamos um tamanho mínimo de `Standard_D3_v2` para os nós do Azure Kubernetes serviço (AKS).
 
 Se precisar de um cluster AKS que cumpre esta recomendação mínima, execute os seguintes comandos.
 

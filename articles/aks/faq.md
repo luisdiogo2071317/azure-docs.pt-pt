@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes sobre o serviço de contentor do Azure
-description: Fornece respostas a algumas das perguntas comuns sobre o serviço de contentor do Azure.
+title: Perguntas mais frequentes sobre serviço Kubernetes do Azure
+description: Fornece respostas a algumas das perguntas comuns sobre o serviço de Kubernetes do Azure.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -8,29 +8,29 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Perguntas mais frequentes sobre o serviço de contentor do Azure (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o serviço do Azure Kubernetes (AKS)
 
-Endereços este artigo induzirem frequentes perguntas sobre o serviço de contentor do Azure (AKS).
+Endereços este artigo induzirem frequentes perguntas sobre o serviço do Azure Kubernetes (AKS).
 
 > [!IMPORTANT]
-> O Azure Container Service (AKS) está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Serviço de Kubernetes do Azure (AKS) está atualmente no **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Em que regiões do Azure fornecem o serviço de contentor do Azure (AKS) de hoje em dia?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Em que regiões do Azure fornecem o serviço de Kubernetes do Azure (AKS) de hoje em dia?
 
 - Canadá Central
-- Canada Este
-- E.U.A. Central
-- E.U.A. Leste
+- Leste do Canadá
+- EUA Central
+- EUA Leste
 - Sudeste Asiático
 - Europa Ocidental
-- E.U.A. Oeste 2
+- EUA Oeste 2
 
 ## <a name="when-will-additional-regions-be-added"></a>Quando serão adicionadas mais regiões?
 

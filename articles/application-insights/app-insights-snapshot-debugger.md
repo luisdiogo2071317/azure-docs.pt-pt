@@ -3,7 +3,7 @@ title: Depurador de instantâneos de Azure Application Insights para aplicaçõe
 description: Depurar instantâneos são recolhidos automaticamente quando as exceções forem emitidas nas aplicações de .NET de produção
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.author: mbullwin; pharring
+ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -55,7 +55,7 @@ São suportados os seguintes ambientes:
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -146,8 +146,8 @@ São suportados os seguintes ambientes:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
@@ -213,7 +213,7 @@ Na vista de instantâneo de depuração, verá uma pilha de chamadas e um painel
 
 ![Vista de depuração instantâneo no portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Instantâneos poderão conter informações confidenciais e, por predefinição não estão visíveis. Para ver os instantâneos, tem de ter o `Application Insights Snapshot Debugger` função atribuída.
+Instantâneos podem incluir informações confidenciais e, por predefinição não estão visíveis. Para ver os instantâneos, tem de ter o `Application Insights Snapshot Debugger` função atribuída.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Depurar instantâneos com o Visual Studio Enterprise de 2017
 1. Clique em de **transferir instantâneo** botão para transferir um `.diagsession` ficheiro, que pode ser aberto por Visual Studio Enterprise de 2017.
@@ -224,11 +224,26 @@ Instantâneos poderão conter informações confidenciais e, por predefinição 
 
     ![Instantâneo de depuração de vista no Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-O instantâneo transferido contém os ficheiros de símbolo que foram encontrados no seu servidor de aplicação web. Estes ficheiros de símbolo são necessárias para associar dados de instantâneo com o código de origem. Para aplicações de serviço de aplicações, certifique-se ativar a implementação de símbolo quando publica as suas aplicações web.
+O instantâneo transferido inclui todos os ficheiros de símbolo que foram encontrados no seu servidor de aplicação web. Estes ficheiros de símbolo são necessárias para associar dados de instantâneo com o código de origem. Para aplicações de serviço de aplicações, certifique-se ativar a implementação de símbolo quando publica as suas aplicações web.
 
 ## <a name="how-snapshots-work"></a>Como funcionam os instantâneos
 
-Quando inicia a sua aplicação, é criado um processo de /carregador instantâneo separado que monitoriza a sua aplicação para pedidos de instantâneo. Quando é pedido um instantâneo, é efetuada uma cópia sombra do processo em execução em cerca de 10 a 20 milissegundos. O processo de sombra de volumes, em seguida, é analisado e é criado um instantâneo, enquanto o processo principal continua a executar e enviam tráfego para os utilizadores. O instantâneo, em seguida, é enviado para o Application Insights, juntamente com quaisquer ficheiros de símbolo relevantes (.pdb) que são necessárias para ver o instantâneo.
+O Recoletor de instantâneo é implementado como um [processador de telemetria do Application Insights](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Quando a aplicação é executada, o processador de telemetria do Recoletor de instantâneo é adicionado ao pipeline de telemetria da sua aplicação.
+Cada vez que as chamadas de aplicação [TrackException](app-insights-asp-net-exceptions.md#exceptions), o Recoletor de instantâneo calcula um ID de problema a partir do tipo de exceção que está a ser iniciada e o método throwing.
+Sempre que a aplicação chama TrackException, um contador é incrementado para o ID do problema adequado. Quando o contador atinge o `ThresholdForSnapshotting` valor, o ID do problema é adicionado a um plano de recolha.
+
+O Recoletor de instantâneo monitoriza também exceções como estes forem emitidas ao subscrever o [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) eventos. Quando esse evento é acionado, o ID do problema da exceção é calculado e comparado com os IDs de problema no plano de coleção.
+Se existir uma correspondência, em seguida, é criado um instantâneo do processo em execução. O instantâneo é atribuído um identificador exclusivo e a exceção está marcada com esse identificador. Depois do processador de FirstChanceException devolve, a exceção iniciada é processada como normal. Eventualmente, a exceção atinge novamente o método de TrackException onde, juntamente com o identificador de instantâneos, é reportado para o Application Insights.
+
+O processo principal continua a executar e a servir o tráfego para os utilizadores com pouca interrupção. Entretanto, o instantâneo é entregues para o processo de instantâneo /carregador. O instantâneo /carregador cria uma mini-cópia de segurança e carrega-o para o Application Insights, juntamente com quaisquer ficheiros de símbolo relevantes (.pdb).
+
+> [!TIP]
+> - Um instantâneo de processo é um clone suspenso do processo em execução.
+> - Criar o instantâneo demora cerca de 10 a 20 milissegundos.
+> - O valor predefinido para `ThresholdForSnapshotting` é 1. Isto também se o valor mínimo. Por conseguinte, a aplicação tiver que acionar a mesma exceção **duas vezes** antes de é criado um instantâneo.
+> - Definir `IsEnabledInDeveloperMode` como verdadeira se pretender gerar instantâneos durante a depuração no Visual Studio.
+> - A taxa de criação de instantâneo é limitada pelo `SnapshotsPerTenMinutesLimit` definição. Por predefinição, o limite é um instantâneo, cada dez minutos.
+> - Podem ser carregados mais do que 50 instantâneos por dia.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
@@ -242,22 +257,42 @@ O depurador de instantâneo necessita que os ficheiros de símbolo no servidor d
 Para computação do Azure e outros tipos, certifique-se de que os ficheiros de símbolo estão na mesma pasta do ficheiro. dll de aplicação principal (normalmente, `wwwroot/bin`) ou estão disponíveis no caminho atual.
 
 ### <a name="optimized-builds"></a>Compilações otimizadas
-Em alguns casos, variáveis locais não podem ser visualizadas na versão compilações devido a otimizações que são aplicadas durante o processo de compilação.
+Em alguns casos, variáveis locais não podem ser visualizadas na versão compilações devido a otimizações que são aplicadas pelo compilador JIT.
+No entanto, nos serviços de aplicações do Azure, o Recoletor de instantâneos pode deoptimize métodos argumentoutofrangeexception que fazem parte do seu plano de coleção.
+
+> [!TIP]
+> Instale a extensão de Site do Application Insights no seu serviço de aplicação para obter suporte deoptimization.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Estas sugestões ajudam a resolver problemas relacionados com o depurador de instantâneo.
 
+## <a name="use-the-snapshot-health-check"></a>Utilize a verificação de estado de funcionamento de instantâneo
+Se não vir instantâneo disponível para uma exceção específica, pode ser causado por vários motivos, incluindo versões de recoletor de instantâneo outdate, acessos de limiar diariamente, o instantâneo apenas está a demorar tempo para ser carregado e assim sucessivamente. Para ajudar a diagnosticar tais problemas, criámos um serviço de verificação do Estado de funcionamento de instantâneo para resolver de forma inteligente analisar motivo que não há nenhum instantâneo.
+
+Se não vir instantâneos associados uma exceção, será uma ligação no painel do Visualizador de rastreio do ponto-a-ponto para introduzir a verificação de estado de funcionamento do instantâneo.
+
+![Introduza a verificação de estado de funcionamento de instantâneo](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+Em seguida, verá um bot chat interativa como sessão executar verificação de estado de funcionamento em vários aspeto do seu serviço e advices da oferta.
+
+![Verificação de estado de funcionamento](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+Também existem alguns passos manuais, pode fazê-lo para diagnosticar o estado de funcionamento do seu serviço de instantâneo. Consulte as secções abaixo:
+
 ### <a name="verify-the-instrumentation-key"></a>Certifique-se a chave de instrumentação
 
 Certifique-se de que está a utilizar a chave de instrumentação correto na sua aplicação publicada. Normalmente, o Application Insights lê a chave de instrumentação do ficheiro Applicationinsights. Certifique-se de que o valor é igual a chave de instrumentação para o recurso do Application Insights que vir no portal.
 
+### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Atualizar para a versão mais recente do pacote NuGet
+
+Utilize o Gestor de pacotes de NuGet do Visual Studio para se certificar de que está a utilizar a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector. Notas de versão podem ser encontradas em https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+
 ### <a name="check-the-uploader-logs"></a>Verifique os registos de /carregador
 
-Depois de criar um instantâneo, é criado um ficheiro de mini-cópia de segurança (. dmp) no disco. Um processo separado /carregador assume que ficheiros de mini-cópia de segurança e carrega, juntamente com quaisquer PDBs associados, para o armazenamento de depurador de instantâneo do Application Insights. Depois de mini-cópia de segurança foi carregado com êxito, é eliminado do disco. Os ficheiros de registo para o processo de /carregador são mantidos no disco. Num ambiente de serviço de aplicações, pode encontrar estes registos no `D:\Home\LogFiles`. Utilize o site de gestão do Kudu para o App Service para localizar estes ficheiros de registo.
+Depois de criar um instantâneo, é criado um ficheiro de mini-cópia de segurança (. dmp) no disco. Um processo separado /carregador cria que ficheiros de mini-cópia de segurança e carrega, juntamente com quaisquer PDBs associados, para o armazenamento de depurador de instantâneo do Application Insights. Depois de mini-cópia de segurança foi carregado com êxito, é eliminado do disco. Os ficheiros de registo para o processo de /carregador são mantidos no disco. Num ambiente de serviço de aplicações, pode encontrar estes registos no `D:\Home\LogFiles`. Utilize o site de gestão do Kudu para o App Service para localizar estes ficheiros de registo.
 
 1. Abra a aplicação do serviço de aplicação no portal do Azure.
-
 2. Selecione o **ferramentas avançadas** painel ou procure **Kudu**.
 3. Clique em **aceda**.
 4. No **consola de depuração** caixa de lista pendente, selecione **CMD**.
@@ -292,7 +327,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> O exemplo acima é da versão 1.2.0 do pacote Microsoft.ApplicationInsights.SnapshotCollector Nuget. Nas versões anteriores, o processo de /carregador é denominado `MinidumpUploader.exe` e o registo é menos detalhado.
+> O exemplo acima é da versão 1.2.0 do pacote Microsoft.ApplicationInsights.SnapshotCollector NuGet. Nas versões anteriores, o processo de /carregador é denominado `MinidumpUploader.exe` e o registo é menos detalhado.
 
 No exemplo anterior, é a chave de instrumentação `c12a605e73c44346a984e00000000000`. Este valor deve corresponder a chave de instrumentação para a sua aplicação.
 A mini-cópia de segurança está associada um instantâneo com o ID `139e411a23934dc0b9ea08a626db16c5`. Pode utilizar este ID mais tarde para localizar a telemetria de exceção associada no Application Insights Analytics.
@@ -316,7 +351,7 @@ Para aplicações que são _não_ alojada no App Service, os registos de /carreg
 Para funções nos serviços em nuvem, a pasta temporária predefinida poderá ser demasiado pequena para conter os ficheiros de mini-cópia de segurança, originando instantâneos perdidos.
 O espaço necessário depende o conjunto de trabalho total da sua aplicação e o número de instantâneos em simultâneo.
 O conjunto de trabalho de uma função de web ASP.NET de 32 bits é, geralmente, entre 200 MB e 500 MB.
-Deve permitir para, pelo menos, dois instantâneos em simultâneo.
+Permitir a, pelo menos, dois instantâneos em simultâneo.
 Por exemplo, se a sua aplicação utilizar 1 GB do conjunto de trabalho total, deve certificar-se de que há, pelo menos, 2 GB de espaço em disco para armazenar os instantâneos.
 Siga estes passos para configurar a sua função de serviço em nuvem com um recurso local dedicado para instantâneos.
 
@@ -366,7 +401,7 @@ Siga estes passos para configurar a sua função de serviço em nuvem com um rec
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Utilize Application Insights procura para localizar exceções com instantâneos
 
-Quando é criado um instantâneo, a exceção throwing é marcada com um ID de instantâneo. Quando é reportada a telemetria de exceção para o Application Insights, que o ID de instantâneo é incluído como uma propriedade personalizada. Utilizando o painel de pesquisa do Application Insights, pode encontrar toda a telemetria com o `ai.snapshot.id` propriedade personalizada.
+Quando é criado um instantâneo, a exceção throwing é marcada com um ID de instantâneo. Este ID de instantâneo é incluído como uma propriedade personalizada quando é reportada a telemetria de exceção para o Application Insights. Utilizando o painel de pesquisa do Application Insights, pode encontrar toda a telemetria com o `ai.snapshot.id` propriedade personalizada.
 
 1. Navegue para o recurso do Application Insights no portal do Azure.
 2. Clique em **pesquisa**.
@@ -383,6 +418,10 @@ Para procurar um ID de instantâneo específico dos registos de /carregador, esc
 2. Utilizar timestamp do registo de /carregador, ajuste o filtro de intervalo de tempo da pesquisa para cobrir esse intervalo de tempo.
 
 Se ainda não vir uma exceção com esse ID de instantâneo, não foi reportada a telemetria de exceção para o Application Insights. Esta situação pode acontecer se a sua aplicação falhou após demorou o instantâneo, mas antes da telemetria de exceção foi declarada. Neste caso, verifique os registos do serviço de aplicações em `Diagnose and solve problems` para ver se ocorreram reinicialização inesperada ou não processada exceções.
+
+### <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de firewall ou proxy de rede
+
+Se a aplicação ligar à Internet através de um proxy ou de uma firewall, se pretender editar as regras para permitir a sua aplicação para comunicar com o serviço de depurador de instantâneo. Eis [uma lista de endereços IP e portas utilizadas pelo depurador de instantâneo](app-insights-ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

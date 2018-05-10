@@ -4,14 +4,14 @@ description: Fornece uma descrição geral do dispositivo de Recoletor e como co
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="collector-appliance"></a>Aplicação de recoletor
 
@@ -89,7 +89,7 @@ O Recoletor deve ser sincronizado com o servidor de tempo de internet para garan
 
 O serviço do Recoletor de migrar Azure deve estar em execução na máquina. Este serviço é iniciado automaticamente quando o computador arranca. Se o serviço de mensagens em fila não está em execução, pode iniciar o *Azure migrar Recoletor* serviço através do painel de controlo. O serviço do Recoletor é da responsabilidade ligar ao servidor vCenter, recolher os dados de metadados e o desempenho da máquina e enviá-lo para o serviço.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 O módulo do powershell VMware PowerCLI tem de ser instalado para que o Recoletor possa comunicar com o servidor vCenter e a consulta para os detalhes da máquina e os respetivos dados de desempenho. O módulo do powershell automaticamente é transferido e instalado como parte da verificação de pré-requisitos. Transferência automática requer alguns URLs na lista de permissões, que precisam de fornecer está a falhar aceder, adicionar à lista branca-los, ou instalar manualmente o módulo.
 
@@ -103,7 +103,7 @@ Instale o módulo manualmente utilizando os seguintes passos:
 
 O Recoletor deve ligar ao vCenter Server e ser capaz de consultar as máquinas virtuais, os respetivos metadados e os respetivos contadores de desempenho. Estes dados são utilizados pelo projeto para calcular a avaliação.
 
-1. Para ligar ao vCenter Server, uma conta de só de leitura com permissões como indicado na tabela seguinte pode ser utilizada para executar a deteção. 
+1. Para ligar ao vCenter Server, uma conta de só de leitura com permissões como indicado na tabela seguinte pode ser utilizada para executar a deteção.
 
     |Tarefa  |Necessária/conta da função  |Permissões  |
     |---------|---------|---------|
@@ -118,13 +118,13 @@ O Recoletor deve ligar ao vCenter Server e ser capaz de consultar as máquinas v
 > Apenas vCenter Server versões 5.5, 6.0 e 6.5 oficialmente são suportadas.
 
 > [!IMPORTANT]
-> Recomendamos que defina o nível mais elevado do comuns (3) para o nível de estatísticas para que todos os contadores de são recolhidos corretamente. Se tiver vCenter definido num nível inferior, apenas alguns contadores podem ser recolhidos completamente, com o resto definido como 0. A avaliação, em seguida, poderá mostrar dados incompletos. 
+> Recomendamos que defina o nível mais elevado do comuns (3) para o nível de estatísticas para que todos os contadores de são recolhidos corretamente. Se tiver vCenter definido num nível inferior, apenas alguns contadores podem ser recolhidos completamente, com o resto definido como 0. A avaliação, em seguida, poderá mostrar dados incompletos.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Selecionar o âmbito de deteção
 
 Assim que estiver ligado ao vCenter, pode selecionar um âmbito de deteção. Selecionar um âmbito Deteta todas as máquinas virtuais a partir do caminho de inventário vCenter especificado.
 
-1. O âmbito pode ser um centro de dados, uma pasta ou um anfitrião ESXi. 
+1. O âmbito pode ser um centro de dados, uma pasta ou um anfitrião ESXi.
 2. Pode selecionar apenas um âmbito de cada vez. Para selecionar mais máquinas virtuais, pode concluir uma deteção e reinicie o processo de deteção com um novo âmbito.
 3. Pode selecionar apenas um âmbito que tenha *menor 1500 máquinas de virtuais*.
 
@@ -141,14 +141,15 @@ Assim que for iniciada a deteção, as máquinas virtuais do vCenter são deteta
 
 ### <a name="what-data-is-collected"></a>Que dados são recolhidos?
 
-A tarefa de recolha Deteta os metadados estático seguintes sobre as máquinas virtuais selecionadas. 
+A tarefa de recolha Deteta os metadados estático seguintes sobre as máquinas virtuais selecionadas.
 
 1. Nome a apresentar da VM (no vCenter)
 2. Caminho de inventário da VM (anfitrião/pasta no vCenter)
 3. Endereço IP
 4. Endereço MAC
+5. Sistema operativo
 5. Número de núcleos, discos, NICs
-6. RAM, tamanhos de disco
+6. Tamanho da memória, tamanhos de disco
 7. E os contadores de desempenho da VM, disco e rede, tal como indicado na tabela abaixo.
 
 A tabela seguinte lista os contadores de desempenho que são recolhidos e também apresenta os resultados de avaliação são afetados se um determinado contador não é recolhido.
@@ -156,12 +157,12 @@ A tabela seguinte lista os contadores de desempenho que são recolhidos e també
 |Contador                                  |Nível    |Nível de por dispositivo  |Impacto de avaliação                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
 |cpu.usage.average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
-|mem.usage.average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
+|Mem.Usage.Average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
 |virtualDisk.read.average                 | 2       |2                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.write.average                | 2       |2                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
-|net.received.average                     | 2       |3                 |Custo de tamanho e a rede VM                        |
+|NET.Received.Average                     | 2       |3                 |Custo de tamanho e a rede VM                        |
 |net.transmitted.average                  | 2       |3                 |Custo de tamanho e a rede VM                        |
 
 > [!WARNING]
@@ -190,7 +191,7 @@ Pode atualizar o Recoletor para a versão mais recente sem a transferir o OVA no
 2. Certifique-se de que a correção transferida é segura, abra a janela de comandos de administrador e execute o seguinte comando para gerar o hash de ficheiro ZIP. O hash gerado deve corresponder com hash mencionado em relação a versão específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (exemplo de utilização c:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Copie o ficheiro zip para a Azure migração recoletor da máquina virtual (aplicação recoletor).
 4. Clique com o botão direito no ficheiro zip e selecione extrair todas.

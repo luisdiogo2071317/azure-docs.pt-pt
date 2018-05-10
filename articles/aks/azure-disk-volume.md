@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 33d9a01f063ee8ad531a3f7e01dcfbf1c4ba8901
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes de discos do Azure
 
-Aplicações baseadas no contentor muitas vezes necessitam de acesso e manter os dados de um volume de dados externas. Discos do Azure podem ser utilizados como este arquivo de dados externas. Este detalhes de artigo utilizando um disco do Azure como um volume Kubernetes de um cluster do serviço de contentor do Azure (AKS).
+Aplicações baseadas no contentor muitas vezes necessitam de acesso e manter os dados de um volume de dados externas. Discos do Azure podem ser utilizados como este arquivo de dados externas. Este detalhes de artigo utilizando um disco do Azure como um volume Kubernetes num cluster do Azure Kubernetes serviço (AKS).
 
 Para obter mais informações sobre Kubernetes volumes, consulte [Kubernetes volumes][kubernetes-volumes].
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Utilize o [criar disco de az] [ az-disk-create] comando para criar o disco do Azure. 
+Utilize o [criar disco de az] [ az-disk-create] comando para criar o disco do Azure.
 
 Utilizar este exemplo, atualizar `--resource-group` com o nome do grupo de recursos, e `--name` para um nome à sua escolha.
 
@@ -58,7 +58,7 @@ Depois de criar o disco, deverá ver um resultado semelhante ao seguinte. Este v
 
 ## <a name="mount-disk-as-volume"></a>Montar o disco como volume
 
-Monte o disco do Azure na sua pod configurando o volume na especificação do contentor. 
+Monte o disco do Azure na sua pod configurando o volume na especificação do contentor.
 
 Criar um novo ficheiro designado `azure-disk-pod.yaml` com o seguinte conteúdo. Atualização `diskName` com o nome do disco recém-criado e `diskURI` com o ID de disco. Além disso, tome nota do `mountPath`, este é o caminho no qual o disco do Azure está montado no pod.
 

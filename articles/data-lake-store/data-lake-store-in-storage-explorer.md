@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Gerir recursos do Azure Data Lake Store com o Explorador de Armazenamento
 
-O [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. Pode obter acesso aos dados a partir de qualquer lugar através de HTTP ou HTTPS. O Data Lake Store no Explorador de Armazenamento do Azure permite aceder e gerir os dados e recursos do Data Lake Store, juntamente com outras entidades do Azure, como os blobs e as filas. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local.
+O [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários. Pode obter acesso aos dados a partir de qualquer lugar através de HTTP ou HTTPS. O Data Lake Store no Explorador de Armazenamento do Azure permite aceder e gerir os dados e recursos do Data Lake Store, juntamente com outras entidades do Azure, como os blobs e as filas. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local.
 
 Outra vantagem é que não precisa de ter permissão de subscrição para gerir dados do Data Lake Store. No Explorador de Armazenamento, pode anexar o caminho do Data Lake Store ao nó **Local e Ligado**, desde que alguém conceda a permissão.
 
@@ -32,7 +32,7 @@ Outra vantagem é que não precisa de ter permissão de subscrição para gerir 
 Para executar os passos descritos neste artigo, os seguintes requisitos são necessários:
 
 *   Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Uma conta do Azure Data Lake Store. Para obter instruções sobre como criar uma, veja [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Uma conta do Azure Data Lake Store. Para obter instruções sobre como criar uma, veja [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Instalar o Explorador de Armazenamento
 
@@ -197,7 +197,7 @@ Se tiver um URL, pode introduzir o URL no caminho de endereço do Explorador de 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](http://www.storageexplorer.com).
-* Saiba como [gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Introdução ao Explorador de Armazenamento](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Saiba como [gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Introdução ao Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Introdução ao Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Veja um [vídeo do YouTube sobre como utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

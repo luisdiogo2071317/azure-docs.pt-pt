@@ -1,11 +1,11 @@
 ---
-title: "Configurar o codificador de Haivision KB para enviar uma transmissão em fluxo em direto para o Azure | Microsoft Docs"
-description: "Este tópico mostra como configurar o codificador em direto Haivision KB para enviar uma transmissão em fluxo para canais de AMS que estão ativados para live encoding."
+title: Configurar o codificador de Haivision KB para enviar uma transmissão em fluxo em direto para o Azure | Microsoft Docs
+description: Este tópico mostra como configurar o codificador em direto Haivision KB para enviar uma transmissão em fluxo para canais de AMS que estão ativados para live encoding.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador em direto Haivision KB para enviar uma transmissão em fluxo em direto
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/01/2018
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [wirecast](media-services-configure-wirecast-live-encoder.md)
 
 Este tópico mostra como configurar o [codificador em direto Havision KB](https://www.haivision.com/products/kb-series/) codificador para enviar uma transmissão em fluxo para AMS canais de consumo que está ativado para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -58,7 +58,7 @@ Este tutorial mostra como gerir os serviços de suporte de dados do Azure (AMS) 
 Neste tutorial, são utilizadas as seguintes definições de saída. As restantes desta secção descreve os passos de configuração mais detalhadamente.
 
 Vídeo:
--   Codec: H.264
+-   Codec: 264
 -   Perfil: Alta (nível 4.0)
 -   Velocidade de transmissão: kbps 5000
 -   Keyframe: 2 segundos (60 segundos)

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar a BD do Cosmos Azure Search utilizando indexadores
 
@@ -271,7 +271,7 @@ Se estiver a utilizar uma consulta personalizada, certifique-se de que o `_ts` p
 
 <a name="IncrementalProgress"></a>
 ### <a name="incremental-progress-and-custom-queries"></a>Progresso de incremental e consultas personalizadas
-Progresso incremental durante a indexação garante que se a execução do indexador for interrompida por falhas transitórias ou o limite de tempo de execução, o indexador pode recolher onde foi deixada próxima vez que é executado, em vez de ter a nova indexação o conjunto completo de zero. Isto é especialmente importante quando indexação coleções de grandes dimensões. 
+Progresso incremental durante a indexação garante que se a execução do indexador for interrompida por falhas transitórias ou o limite de tempo de execução, o indexador pode recolher onde foi deixada próxima vez que é executado, em vez de ter a reindexar o conjunto completo de zero. Isto é especialmente importante quando indexação coleções de grandes dimensões. 
 
 Para ativar o progresso incremental quando utiliza uma consulta personalizada, certifique-se de que a sua consulta ordena os resultados pelo `_ts` coluna. Isto permite periódica verificação apontando que utiliza a Azure Search para fornecer incremental progresso na presença de falhas.   
 

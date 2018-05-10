@@ -1,12 +1,12 @@
 ---
-title: "Aprovisionar Raspberry Pi para monitorização remota, utilizando C - do Azure | Microsoft Docs"
-description: "Descreve como ligar um dispositivo Raspberry Pi pré-configuradas do Azure IoT Suite solução de monitorização remota utilizando uma aplicação de escrita no C."
+title: Aprovisionar Raspberry Pi para monitorização remota, utilizando C - do Azure | Microsoft Docs
+description: Descreve como ligar um dispositivo Raspberry Pi para o acelerador solução de monitorização remota, utilizando uma aplicação de escrita no C.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 79a97dda31308cdd0ffeb1196a8a11e0f431803e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Ligar o seu dispositivo Raspberry Pi à solução pré-configurada monitorização remota (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Ligar o seu dispositivo Raspberry Pi para o acelerador de solução monitorização (C) remoto
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Este tutorial mostra como ligar um dispositivo físico a solução pré-configurada de monitorização remota. Tal como acontece com as aplicações mais incorporadas que são executadas em dispositivos restrita, o código de cliente para a aplicação de dispositivo Raspberry Pi é escrito em C. Neste tutorial, criar a aplicação num Raspberry Pi o SO Raspbian em execução.
+Este tutorial mostra como ligar um dispositivo físico para o acelerador de solução de monitorização remota. Tal como acontece com as aplicações mais incorporadas que são executadas em dispositivos restrita, o código de cliente para a aplicação de dispositivo Raspberry Pi é escrito em C. Neste tutorial, criar a aplicação num Raspberry Pi o SO Raspbian em execução.
 
 ### <a name="required-hardware"></a>Hardware necessário
 
@@ -49,7 +49,7 @@ Terá de cliente SSH no seu computador de secretária que lhe permite aceder rem
 
 Este artigo pressupõe que instalou a versão mais recente do [SO de Raspbian no seu Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-Os passos seguintes mostram como preparar o seu Raspberry Pi para criar uma aplicação de C que estabelece ligação com a solução pré-configurada:
+Os passos seguintes mostram como preparar o seu Raspberry Pi para a criação de uma aplicação de C que liga o acelerador solução:
 
 1. Ligar à sua utilização Raspberry Pi **ssh**. Para obter mais informações, consulte [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) no [site Raspberry Pi](https://www.raspberrypi.org/).
 

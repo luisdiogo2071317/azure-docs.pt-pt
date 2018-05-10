@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/05/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 Pode utilizar a atividade de pesquisa para ler ou procure um registo, o nome da tabela ou o valor de uma origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes. 
@@ -31,22 +31,7 @@ Atividade de pesquisa é útil quando pretender dinamicamente obter uma lista de
 
 As seguintes origens de dados são atualmente suportadas para a pesquisa:
 
-- Amazon Redshift
-- Armazenamento de Blobs do Azure
-- Azure Cosmos DB
-- Azure Data Lake Store
-- File storage do Azure
-- Base de Dados SQL do Azure
-- Azure SQL Data Warehouse
-- Armazenamento de Tabelas do Azure
-- Dynamics 365
-- Dynamics CRM
-- Sistema de Ficheiros
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 O número máximo de linhas devolvidas pela atividade de pesquisa é **5000**e até **10Mb** de tamanho.
 
@@ -74,7 +59,7 @@ O número máximo de linhas devolvidas pela atividade de pesquisa é **5000**e a
 Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
 Conjunto de dados | Fornece a referência de conjunto de dados para a pesquisa. Obter os detalhes da secção "Propriedades do Dataset" cada artigo conector correspondente. | Par chave/valor | Sim
-origem | Contém propriedades específicas do conjunto de dados de origem, o mesmo que a origem de atividade de cópia. Obter os detalhes da secção "Copiar propriedades da atividade" cada artigo conector correspondente. | Par chave/valor | Sim
+source | Contém propriedades específicas do conjunto de dados de origem, o mesmo que a origem de atividade de cópia. Obter os detalhes da secção "Copiar propriedades da atividade" cada artigo conector correspondente. | Par chave/valor | Sim
 firstRowOnly | Indica se deve devolver a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
 
 Tenha em atenção os seguintes pontos:

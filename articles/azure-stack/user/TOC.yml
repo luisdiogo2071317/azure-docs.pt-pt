@@ -91,6 +91,10 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: Aplicação de exemplo do Key Vault
               href: azure-stack-kv-sample-app.md
+            - name: Modelos de solução
+              items:
+                - name: Implementar um cluster do Service Fabric
+                  href: azure-stack-solution-template-service-fabric-cluster.md
     - name: Criar aplicações
       items:
         - name: Desenvolver para o Azure Stack

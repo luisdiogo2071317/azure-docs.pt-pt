@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
 Saiba como criar, alterar as definições e eliminar uma interface de rede. Uma interface de rede permite que uma Máquina Virtual do Azure para comunicar com a internet, do Azure e recursos no local. Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma interface de rede com as predefinições para si. Em vez disso, pode optar por criar interfaces de rede com definições personalizadas e adicione uma ou mais interfaces de rede a uma máquina virtual quando a criar. Também poderá pretender alterar as definições de interface de rede predefinido para uma interface de rede existente. Este artigo explica como criar uma interface de rede com definições personalizadas, alterar definições existentes, tais como a atribuição de (grupo de segurança de rede) do filtro de rede, atribuição de sub-rede, definições do servidor DNS e reencaminhamento IP e eliminar uma interface de rede.
 
 Se necessário para adicionar, alterar ou remover os endereços IP para uma interface de rede, consulte [endereços IP gerir](virtual-network-network-interface-addresses.md). Se precisar de adicionar as interfaces de rede para ou remova as interfaces de rede de máquinas virtuais, consulte [interfaces de rede de adicionar ou remover](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -35,9 +34,9 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.4.1 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.28 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
-A conta, inicie sessão no Azure com deve ser atribuída a um permissões mínimas, para a função de contribuinte de rede para a sua subscrição. Para saber mais sobre a atribuição de funções e permissões a contas, consulte o artigo [funções incorporadas para controlo de acesso baseado em funções do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+A conta iniciar sessão ou ligar ao Azure, tem de ser atribuída para a [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações adequadas listadas na [permissões ](#permissions).
 
 ## <a name="create-a-network-interface"></a>Criar uma interface de rede
 
@@ -88,7 +87,7 @@ Pode ver e alterar a maioria das definições para uma interface de rede depois 
     - **Propriedades:** apresenta definições sobre a interface de rede, incluindo o seu endereço de MAC (em branco se estiver a interface de rede não está ligada a uma máquina virtual) e a subscrição que existe da chave.
     - **Regras de segurança eficaz:** regras de segurança estão listadas se a interface de rede está ligada a uma máquina virtual em execução e um NSG é associado à interface de rede, a sub-rede está atribuído à ou ambos. Para saber mais sobre o que é apresentado, consulte o artigo [ver regras de segurança eficaz](#view-effective-security-rules). Para saber mais sobre NSGs, consulte [grupos de segurança de rede](security-overview.md).
     - **Rotas efetivas:** rotas listadas se a interface de rede está ligada a uma máquina virtual em execução. As rotas são uma combinação das rotas predefinidas do Azure, as rotas definidas pelo utilizador e as rotas BGP que possam existir para a sub-rede que a interface de rede está atribuída a. Para saber mais sobre o que é apresentado, consulte o artigo [ver rotas efetivas](#view-effective-routes). Para saber mais sobre as rotas predefinidas do Azure e as rotas definidas pelo utilizador, consulte [descrição geral de encaminhamento](virtual-networks-udr-overview.md).
-    - **Definições comuns de Gestor de recursos do Azure:** para saber mais sobre definições comuns de Azure Resource Manager, consulte o artigo [registo de atividade](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [(IAM) do controlo de acesso](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiquetas](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Bloqueia](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), e [scripts de automatização](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Definições comuns de Gestor de recursos do Azure:** para saber mais sobre definições comuns de Azure Resource Manager, consulte o artigo [registo de atividade](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [(IAM) do controlo de acesso](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Bloqueia](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), e [scripts de automatização](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -204,7 +203,7 @@ Quando elimina uma interface de rede, são lançados a qualquer endereços MAC o
 
 ## <a name="resolve-connectivity-issues"></a>Resolver problemas de conectividade
 
-Se não conseguir comunicar para ou a partir de uma máquina virtual, regras de segurança do grupo de segurança de rede ou rotas eficaz para uma interface de rede poderão estar a causar o problema. Tem as seguintes opções para ajudar a resolver o problema:
+Se não for possível comunicar para ou a partir de uma máquina virtual, regras de segurança de grupo de segurança de rede ou rotas eficaz para uma interface de rede, poderá estar a causar o problema. Tem as seguintes opções para ajudar a resolver o problema:
 
 ### <a name="view-effective-security-rules"></a>Regras de segurança eficaz de vista
 
@@ -240,11 +239,30 @@ A funcionalidade de salto seguinte do observador de rede do Azure também pode a
 - CLI do Azure: [az nic Mostrar-eficaz--a tabela de rotas de rede](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Passos Seguintes
-Para criar uma máquina virtual com várias interfaces de rede ou endereços IP, consulte os artigos seguintes:
+## <a name="permissions"></a>Permissões
 
-|Tarefa|Ferramenta|
-|---|---|
-|Criar uma VM com vários NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Criar uma VM de NIC único com vários endereços de IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Criar uma VM de NIC único com um endereço IPv6 privado (atrás de um balanceador de carga do Azure)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [modelo Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Para executar tarefas em interfaces de rede, deve ser atribuída à conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função atribuída as permissões adequadas listadas na seguinte tabela:
+
+| Ação                                                                     | Nome                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Obter a interface de rede                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Criar ou atualizar a interface de rede                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Anexe uma interface de rede a uma máquina virtual           |
+| Microsoft.Network/networkInterfaces/delete                                 | Eliminar a interface de rede                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Aderir a um recurso a uma interface de rede através de uma secundária do servi...     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Obter tabela de rotas efetivas de interface de rede               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Obter grupos de segurança eficaz de interface de rede           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Obter balanceadores de carga da interface de rede                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Obtenha a associação de serviço                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Criar ou atualizar uma associação de serviço                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Eliminar a associação de serviço                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Validar a associação de serviço                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Obter a configuração de IP da interface de rede                    |
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- Criar uma VM com vários NICs com a [CLI do Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Criar um único NIC VM com IPv4 vários endereços utilizando o [CLI do Azure](virtual-network-multiple-ip-addresses-cli.md) ou [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+- Criar uma VM de NIC único com um privada IPv6 endereço (atrás de um balanceador de carga do Azure), utilizando o [CLI do Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou [modelo Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Criar uma interface de rede utilizando [PowerShell](powershell-samples.md) ou [CLI do Azure](cli-samples.md) scripts ou utilizar o Azure de exemplo [modelos do Resource Manager](template-samples.md)
+- Criar e aplicar [política do Azure](policy-samples.md) para redes virtuais

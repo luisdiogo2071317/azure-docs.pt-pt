@@ -15,24 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 00b0635d894ff8a41c810345cfa94363029e78e8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
-Saiba como adicionar, alterar ou eliminar uma sub-rede de rede virtual. Se não estiver familiarizado com redes virtuais, antes de adicionar, alterar ou eliminar uma sub-rede, recomendamos que leia [descrição geral da rede Virtual do Azure](virtual-networks-overview.md) e [criar, alterar ou eliminar uma rede virtual](manage-virtual-network.md). Todos os recursos do Azure implementados numa rede virtual são implementados para uma sub-rede dentro de uma rede virtual.
- 
+Saiba como adicionar, alterar ou eliminar uma sub-rede de rede virtual. Todos os recursos do Azure implementados numa rede virtual são implementados para uma sub-rede dentro de uma rede virtual. Se estiver familiarizado com redes virtuais, pode saber mais sobre os mesmos no [descrição geral de rede Virtual](virtual-networks-overview.md) ou concluindo um [tutorial](quick-create-portal.md). Para criar, alterar, ou eliminar uma rede virtual, consulte [gerir uma rede virtual](manage-virtual-network.md).
+
 ## <a name="before-you-begin"></a>Antes de começar
 
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
-- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.26 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
+
+A conta iniciar sessão ou ligar ao Azure, tem de ser atribuída para a [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações adequadas listadas na [permissões ](#permissions).
 
 ## <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
@@ -45,7 +47,11 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
     - **Intervalo de endereços**: O intervalo deve ser exclusivo num espaço de endereços da rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede na rede virtual. O espaço de endereços tem de ser especificado utilizando a notação de Classless entre domínios encaminhamento CIDR (). Por exemplo, numa rede virtual com endereço espaço 10.0.0.0/16, poderá definir um espaço de endereços da sub-rede do 10.0.0.0/24. O intervalo mais pequeno, que pode especificar é /29, que fornece oito endereços IP da sub-rede. O primeiro e último endereço em cada sub-rede para a conformidade de protocolo de reservas de Azure. Três endereços adicionais estão reservados para utilização do serviço do Azure. Como resultado, que define uma sub-rede com/29 resultados de intervalo três utilizáveis endereços de IP na sub-rede de endereços. Se planear ligar uma rede virtual para um gateway de VPN, tem de criar uma sub-rede de gateway. Saiba mais sobre [considerações de intervalo de endereço específico para sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Pode alterar o intervalo de endereços depois da sub-rede é adicionada, sob condições específicas. Para saber como alterar um intervalo de endereços da sub-rede, consulte [alterar definições da sub-rede](#change-subnet-settings).
     - **Grupo de segurança de rede**: pode associar zero ou uma rede grupo de segurança existente para uma sub-rede para filtrar o tráfego de rede de entrada e saída para a sub-rede. O grupo de segurança de rede tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [como criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).
     - **Tabela de rotas**: pode associar zero ou uma existente tabela de rotas para uma sub-rede para controlar o encaminhamento de tráfego de rede a outras redes. A tabela de rota tem de existir na mesma subscrição e localização da rede virtual. Saiba mais sobre [encaminhamento Azure](virtual-networks-udr-overview.md) e [como criar uma tabela de rota](tutorial-create-route-table-portal.md)
-    - **Pontos finais de serviço:** uma sub-rede pode ter zero ou vários pontos finais de serviço ativados para o mesmo. Para ativar um ponto final de serviço para um serviço, selecione o serviço ou serviços que pretende ativar pontos finais de serviço para a partir de **serviços** lista. Para remover um ponto final de serviço, anule a seleção de serviço que pretende remover o ponto final de serviço para. Para obter mais informações sobre pontos finais de serviço, consulte o artigo [descrição geral de pontos finais de serviço de rede Virtual](virtual-network-service-endpoints-overview.md). Depois de ativar um ponto final de serviço para um serviço, tem também de ativar o acesso de rede para a sub-rede para um recurso que criou com o serviço. Por exemplo, se ativar o ponto final de serviço para *Microsoft*, tem também de ativar acesso à rede para todas as contas de armazenamento do Azure que pretende conceder acesso à rede. Para obter detalhes sobre como ativar o acesso de rede para sub-redes ativado para um ponto final de serviço, consulte a documentação para o serviço individuais ativou o ponto final do serviço para.
+    - **Pontos finais de serviço:** uma sub-rede pode ter zero ou vários pontos finais de serviço ativados para o mesmo. Para ativar um ponto final de serviço para um serviço, selecione o serviço ou serviços que pretende ativar pontos finais de serviço para a partir de **serviços** lista. A localização é automaticamente configurada para um ponto final. Por predefinição, os pontos finais de serviço estão configurados para região a rede virtual. Para o armazenamento do Azure, para suportar cenários de ativação pós-falha, os pontos finais são automaticamente configurados para [Azure emparelhado regiões](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+
+    Para remover um ponto final de serviço, anule a seleção de serviço que pretende remover o ponto final de serviço para. Para saber mais sobre os pontos finais de serviço e os serviços podem ser ativadas para, consulte [descrição geral de pontos finais de serviço de rede Virtual](virtual-network-service-endpoints-overview.md). Depois de ativar um ponto final de serviço para um serviço, tem também de ativar o acesso de rede para a sub-rede para um recurso que criou com o serviço. Por exemplo, se ativar o ponto final de serviço para *Microsoft*, tem também de ativar acesso à rede para todas as contas de armazenamento do Azure que pretende conceder acesso à rede. Para obter detalhes sobre como ativar o acesso de rede para sub-redes ativado para um ponto final de serviço, consulte a documentação para o serviço individuais ativou o ponto final do serviço para.
+
+    Para validar que um ponto final de serviço está ativado para uma sub-rede, ver o [rotas efetivas](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) qualquer interface de rede na sub-rede. Quando um ponto final está configurado, verá um *predefinido* rota com os prefixos de endereço do serviço e um nextHopType de **VirtualNetworkServiceEndpoint**. Para saber mais sobre o encaminhamento, consulte [descrição geral de encaminhamento](virtual-networks-udr-overview.md).
 6. Para adicionar a sub-rede à rede virtual que selecionou, selecione **OK**.
 
 **Comandos**
@@ -62,7 +68,8 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
     - **Intervalo de endereços:** se não existem recursos são implementados dentro da sub-rede, pode alterar o intervalo de endereços. Se existirem quaisquer recursos na sub-rede, deve mover os recursos para outra sub-rede ou eliminá-los primeiro da sub-rede. Os passos que efetuar para mover ou eliminar um recurso variam consoante o recurso. Para saber como mover ou eliminar os recursos que estão em sub-redes, leia a documentação para cada tipo de recurso que pretende mover ou eliminar. Consulte as restrições de **intervalo de endereços** no passo 5 [adicionar uma sub-rede](#add-a-subnet).
     - **Os utilizadores**: pode controlar o acesso à sub-rede através da utilização de funções incorporadas ou as suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e os utilizadores acedam a sub-rede, consulte o artigo [utilizar atribuição de função para gerir o acesso aos seus recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
-    - Para obter informações sobre como alterar **grupo de segurança de rede**, **tabela de rotas**, **utilizadores**, e **pontos finais de serviço**, consulte o passo 5 no [ Adicionar uma sub-rede](#add-a-subnet).
+    - **Grupo de segurança de rede** e **tabela de rotas**: consulte passo 5 do [adicionar uma sub-rede](#add-a-subnet).
+    - **Pontos finais de serviço**: consulte pontos finais de serviço no passo 5 [adicionar uma sub-rede](#add-a-subnet). Quando ativar um ponto final de serviço para uma sub-rede existente, certifique-se de que não existem tarefas críticas estão em execução em qualquer recurso na sub-rede. Pontos finais de serviço comutador rotas em cada interface de rede na sub-rede da utilização da rota predefinida com o *0.0.0.0/0* prefixo e o tipo de próximo salto de endereços *Internet*, utilizando uma nova rota com o endereço prefixos do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*. Durante o comutador, poderão ser terminadas quaisquer ligações TCP abertas. O ponto final de serviço não está ativado até que os fluxos de tráfego para o serviço para todas as interfaces de rede são atualizados com a rota de novo. Para saber mais sobre o encaminhamento, consulte [descrição geral de encaminhamento](virtual-networks-udr-overview.md).
 5. Selecione **Guardar**.
 
 **Comandos**
@@ -87,13 +94,18 @@ Pode eliminar uma sub-rede apenas se existem não existem recursos na sub-rede. 
 
 ## <a name="permissions"></a>Permissões
 
-Para executar tarefas em sub-redes, deve ser atribuída à conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função atribuída as permissões adequadas listadas na seguinte tabela:
+Para executar tarefas em sub-redes, deve ser atribuída à conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função atribuída as ações adequadas listadas na seguinte tabela:
 
-|Operação                                                                |   Nome da operação                               |
-|-----------------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/virtualNetworks/subnets/read                           |   Obter a sub-rede da rede Virtual                   |
-|Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou atualizar a sub-rede da rede Virtual      |
-|Microsoft.Network/virtualNetworks/subnets/delete                         |   Eliminar a sub-rede de rede Virtual                |
-|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Associar a rede Virtual                         |
-|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Aderir ao serviço a uma sub-rede                     |
-|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Obter máquinas de virtuais de sub-rede de rede Virtual  |
+|Ação                                                                   |   Nome                                       |
+|-----------------------------------------------------------------------  |   -----------------------------------------  |
+|Microsoft.Network/virtualNetworks/subnets/read                           |   Ler uma sub-rede de rede virtual              |
+|Microsoft.Network/virtualNetworks/subnets/write                          |   Criar ou atualizar uma sub-rede de rede virtual  |
+|Microsoft.Network/virtualNetworks/subnets/delete                         |   Eliminar uma sub-rede de rede virtual            |
+|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Associar uma rede virtual                     |
+|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Ativar um ponto final de serviço para uma sub-rede     |
+|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Obter as máquinas virtuais numa sub-rede       |
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- Criar uma rede virtual e as sub-redes utilizando [PowerShell](powershell-samples.md) ou [CLI do Azure](cli-samples.md) scripts ou utilizar o Azure de exemplo [modelos do Resource Manager](template-samples.md)
+- Criar e aplicar [política do Azure](policy-samples.md) para redes virtuais

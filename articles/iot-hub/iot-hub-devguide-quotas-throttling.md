@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - quotas do IoT Hub e a limitação
 
@@ -49,6 +49,8 @@ A tabela seguinte mostra as limitações impostas. Consulte os valores para um h
 | Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
 | As tarefas operações<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
 | Débito de operação de por dispositivo tarefas<sup>1</sup> | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
+| Configurações e implementações de limite<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 0.33/SEC/Unit (min/20/unidade) | 0.33/SEC/Unit (min/20/unidade) | 0.33/SEC/Unit (min/20/unidade) |
+
 
 <sup>1</sup>esta funcionalidade não está disponível na camada básica do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub direita](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB.
 
@@ -76,6 +78,9 @@ IoT Hub impõe outros limites operacionais:
 | Mensagens do dispositivo-nuvem | 256 KB de tamanho da mensagem máxima |
 | Mensagens da nuvem para dispositivo<sup>1</sup> | 64 KB de tamanho da mensagem máxima. Máximo de mensagens para a entrega pendentes é 50. |
 | Método direto<sup>1</sup> | Tamanho do payload de método direto máximo é 128 KB. |
+| Configurações | 20 configurações por hub. |
+| Implementações de limite | 20 implementações por hub. 20 módulos por implementação. |
+| Duplos | Tamanho máximo por secção duplo (etiquetas, propriedades pretendidas, propriedades comunicadas) é de 8 KB |
 
 <sup>1</sup>esta funcionalidade não está disponível na camada básica do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub direita](iot-hub-scaling.md).
 

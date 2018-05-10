@@ -1,6 +1,6 @@
 ---
-title: Dimensionar um cluster do Azure Container Service (AKS)
-description: Dimensionar um cluster do Azure Container Service (AKS).
+title: Dimensionar um cluster do serviço de Kubernetes do Azure (AKS)
+description: Dimensione um cluster do serviço de Kubernetes do Azure (AKS).
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 37f949e1e043e62b8bd8f73a2b40d0549f77adc3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Dimensionar um cluster do Azure Container Service (AKS)
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Dimensionar um cluster do serviço de Kubernetes do Azure (AKS)
 
 É fácil dimensionar um cluster do AKS para um número diferente de nós.  Selecione o número de nós pretendido e execute o comando `az aks scale`.  Quando o dimensionamento para baixo, nós será cuidadosamente [cordoned e drained] [ kubernetes-drain] para minimizar perturbações para as aplicações em execução.  Ao aumentar verticalmente, o comando `az` aguarda até que os nós estejam marcados `Ready` pelo cluster do Kubernetes.
 
