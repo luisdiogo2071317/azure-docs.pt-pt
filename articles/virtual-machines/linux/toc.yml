@@ -208,7 +208,7 @@
         - name: Agente da VM do Azure
           items:
             - name: Descrição geral
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: Atualização do agente
               href: update-agent.md
         - name: Manutenção planeada
@@ -434,7 +434,7 @@
         - name: Extensão VMAccess
           href: using-vmaccess-extension.md
         - name: Restringir a instalação de extensões
-          href: extensions-rmpolicy-howto-cli.md
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: Migrar VMs
       items:
         - name: Migrar VMs AWS e VMs no local

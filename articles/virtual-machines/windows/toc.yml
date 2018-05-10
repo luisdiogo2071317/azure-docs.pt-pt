@@ -105,7 +105,11 @@
         - name: Como ativar o acelerador de escrita
           href: how-to-enable-write-accelerator.md
         - name: Resolver problemas dos VHD ligados
-          href: troubleshoot-vhds.md
+          items:
+            - name: Erros de eliminação de recursos de armazenamento
+              href: storage-resource-deletion-errors.md
+            - name: Reinícios inesperados de VMs com VHDs ligadas
+              href: unexpected-reboots-attached-vhds.md
     - name: Redes
       href: network-overview.md
     - name: Aplicações de dimensionamento automático
@@ -202,7 +206,7 @@
         - name: Transferir modelo
           href: download-template.md
         - name: Agente da VM do Azure
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: Manutenção planeada
           href: maintenance-notifications.md
         - name: Mitigar a execução especulativa
@@ -365,7 +369,7 @@
         - name: Agente do Observador de Rede
           href: extensions-nwa.md
         - name: Restringir a instalação de extensões
-          href: extensions-rmpolicy-howto-ps.md
+          href: ../extensions/extensions-rmpolicy-howto-ps.md
     - name: Migrar VMs
       items:
         - name: Migrar VMs AWS e VMs no local
