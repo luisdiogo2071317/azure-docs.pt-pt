@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 91ef3f9f15797c8c0c599e8c01070369e1af0b58
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter os metadados atividade no Azure Data Factory
 GetMetadata atividade pode ser utilizada para obter **metadados** de quaisquer dados no Azure Data Factory. Esta atividade é suportada apenas para fábricas de dados da versão 2. Podem ser utilizado nos seguintes cenários:
@@ -74,7 +74,10 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
 | contentMD5 | MD5 do ficheiro. Aplicável apenas de ficheiros. |
 | estrutura | Estrutura de dados dentro do ficheiro ou uma tabela de base de dados relacional. O valor de saída é uma lista de nomes de coluna e tipo de coluna. |
 | columnCount | Número de colunas dentro do ficheiro ou tabela relacional. |
-| existe| Se um ficheiro/pasta/tabela existe ou não. Tenha em atenção desde que "existe" é especificada na lista de campos GetaMetadata, que a atividade não falha, mesmo quando não existe o item (ficheiro/pasta/tabela); em vez disso, devolve `exists: false` na saída. |
+| existe| Se um ficheiro/pasta/tabela existe ou não. Tenha em atenção que "existe" seja especificado na lista de campos de GetaMetadata, a atividade não irá falhar, mesmo quando o item (ficheiro/pasta/tabela) não existe; em vez disso, devolve `exists: false` na saída. |
+
+>[!TIP]
+>Especificar quando pretende validar se um ficheiro/pasta/tabela existe ou não, `exists` na lista de campos de atividade GetMetadata, em seguida, pode verificar o `exists: true/false` resultar da saída da atividade. Se `exists` não está configurada na lista de campos, GetMetadata atividade irão falhar quando o objeto não foi encontrado.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -107,10 +110,9 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
         },
         "typeProperties": {
             "folderPath":"container/folder",
-            "Filename": "file.json",
+            "filename": "file.json",
             "format":{
                 "type":"JsonFormat"
-                "nestedSeperator": ","
             }
         }
     }
@@ -123,12 +125,12 @@ Atualmente GetMetadata atividade pode obter os seguintes tipos de informações 
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-fieldList | Lista os tipos de informações de metadados necessários. Consulte os detalhes na [opções de metadados](#metadata-options) secção nos metadados suportados. | Não 
+fieldList | Lista os tipos de informações de metadados necessários. Consulte os detalhes na [opções de metadados](#metadata-options) secção nos metadados suportados. | Sim 
 Conjunto de dados | O conjunto de dados de referência, cujo metadados da atividade é possível obter pela atividade GetMetadata. Consulte [capacidades suportadas](#supported-capabilities) secção no conectores suportados e consulte a tópico conector nos detalhes de sintaxe do conjunto de dados. | Sim
 
 ## <a name="sample-output"></a>Resultado da amostra
 
-O resultado de GetMetadata é apresentado na saída da atividade. Seguem-se dois exemplos com opções de metadados exaustiva selecionados na lista de campos como referência:
+O resultado de GetMetadata é apresentado na saída da atividade. Seguem-se dois exemplos com opções de metadados exaustiva selecionados na lista de campos como referência. Para utilizar o resultado na atividade subsequente, utilize o padrão de `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### <a name="get-a-files-metadata"></a>Obter os metadados de um ficheiro
 

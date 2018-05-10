@@ -2,25 +2,19 @@
 title: Comparar a colaboração B2B e B2C no Azure Active Directory | Microsoft Docs
 description: O que é a diferença entre a colaboração B2B do Active Directory do Azure e o Azure AD B2C?
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e8781fcf2710b00ba352bff29a370cbb73e0648
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparar a colaboração B2B e B2C no Azure Active Directory
 
@@ -41,16 +35,6 @@ Obter mais informações: [blogue](https://blogs.technet.microsoft.com/enterpris
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
+- [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Propriedades de utilizador de colaboração B2B](active-directory-b2b-user-properties.md)
 
-* [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propriedades de utilizador de colaboração B2B](active-directory-b2b-user-properties.md)
-* [A adição de um utilizador de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
-* [Delegar convites para colaboração do B2B](active-directory-b2b-delegate-invitations.md)
-* [Grupos dinâmicos e de colaboração B2B](active-directory-b2b-dynamic-groups.md)
-* [Configurar aplicações SaaS colaboração B2B](active-directory-b2b-configure-saas-apps.md)
-* [Tokens de utilizador de colaboração B2B](active-directory-b2b-user-token.md)
-* [Afirmações de utilizador de colaboração B2B mapeamento](active-directory-b2b-claims-mapping.md)
-* [Partilha externa do Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitações atuais de colaboração B2B](active-directory-b2b-current-limitations.md)
-* [Obter o suporte para colaboração B2B](active-directory-b2b-support.md)

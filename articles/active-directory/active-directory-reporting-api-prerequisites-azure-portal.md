@@ -12,37 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 72372a37c4ddcc6135fc7477807e4ff94ae90c77
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Azure Active Directory API do relatório
 
 O [do Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fornecer-lhe acesso programático para os dados através de um conjunto de APIs baseado em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
 
-A Reporting Services utiliza API [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso a web APIs. 
+A Reporting Services utiliza API [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso a web APIs.
+
+Para preparar o seu acesso à API do Reporting Services, tem de:
+
+1. Atribuir funções
+2. Registar uma aplicação
+3. Conceder permissões
+4. Recolher as definições de configuração
+
+
+
+## <a name="assign-roles"></a>Atribuir funções
 
 Para obter acesso aos dados de relatórios através da API, terá de ter uma das seguintes funções atribuídas:
 
 - Leitor de Segurança
+
 - Administrador de Segurança
+
 - Administrador global
 
 
-Para preparar o acesso à API do Reporting Services, tem de:
 
-1. Registar uma aplicação 
-2. Conceder permissões 
-3. Recolher as definições de configuração 
 
-Para perguntas, questões ou comentários, [um pedido de suporte de ficheiros](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## <a name="register-an-azure-active-directory-application"></a>Registar uma aplicação do Azure Active Directory
+## <a name="register-an-application"></a>Registar uma aplicação
 
 Tem de registar uma aplicação, mesmo que está a aceder a API de relatórios através de um script. Isto dá-lhe um **ID da aplicação**, que é necessário para uma chamada de autorização e permite que o código receber tokens.
 
@@ -145,11 +152,12 @@ A secção seguinte apresenta os passos para ambas as APIs. Se não quiser acede
 
 
 ## <a name="gather-configuration-settings"></a>Recolher as definições de configuração 
+
 Esta secção mostra como obter as seguintes definições do diretório:
 
-* Nome de domínio
-* ID do Cliente
-* Segredo do cliente
+- Nome de domínio
+- ID do Cliente
+- Segredo do cliente
 
 Necessitar destes valores quando configurar chamadas à API do Reporting Services. 
 
@@ -219,6 +227,10 @@ Para obter o segredo do cliente da sua aplicação, terá de criar uma nova chav
 
 
 ## <a name="next-steps"></a>Próximos Passos
-* Gostaria de aceder aos dados do Azure AD API do relatório de forma programática? Veja [começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md).
-* Se quiser saber mais sobre os relatórios do Azure Active Directory, consulte o [do Azure Active Directory guia de relatórios](active-directory-reporting-guide.md).  
+
+- [Obter dados com o Azure Active Directory API do relatório com certificados](active-directory-reporting-api-with-certificates.md).
+
+- [Obter uma primeira impressão das APIs Reporting Services](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Crie a sua própria solução](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

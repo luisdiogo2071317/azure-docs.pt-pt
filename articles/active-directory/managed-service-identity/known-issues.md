@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Perguntas mais frequentes e problemas conhecidos com geridos serviço de identidade (MSI) para o Azure Active Directory
 
@@ -87,7 +88,7 @@ Quando estiver ativada uma identidade de serviço gerida numa VM, o erro seguint
 
 A extensão de VM de identidade de serviço geridas não suporta atualmente a capacidade para exportar a esquema para um modelo de grupo de recursos. Como resultado, o modelo gerado não mostra os parâmetros de configuração para ativar a identidade de serviço geridas no recurso. Estas secções podem ser adicionadas manualmente, ao seguir os exemplos [configurar uma identidade de serviço geridas da VM utilizando um modelo](qs-configure-template-windows-vm.md).
 
-Quando a funcionalidade de exportação de esquema fica disponível para a extensão de VM de MSI, estas serão listadas no [exportar os grupos de recursos que contêm as extensões de VM](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Quando a funcionalidade de exportação de esquema fica disponível para a extensão de VM de MSI, estas serão listadas no [exportar os grupos de recursos que contêm as extensões de VM](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Painel de configuração não é apresentada no portal do Azure
 
@@ -119,15 +120,15 @@ Depois da VM é iniciada, a etiqueta pode ser removida utilizando os seguintes c
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-preview"></a>Os problemas conhecidos com o utilizador atribuído MSI *(pré-visualização)*
+## <a name="known-issues-with-user-assigned-identities"></a>Problemas conhecidos com identidades atribuídas do utilizador
 
-- A única forma de remover todos os utilizadores atribuídos MSIs ao ativar o sistema atribuída MSI. 
+- As atribuições de atribuído identidade de utilizador estão apenas disponíveis para a VM e VMSS. Importante: Atribuições de identidade do utilizador atribuído serão alterado nos meses futuros.
+- Duplicados utilizador identidades atribuído na mesma VM/VMSS, fará com que a VM VMSS falhar. Isto inclui identidades, que são adicionadas com maiúsculas e minúsculas diferentes. Por exemplo, MyUserAssignedIdentity e myuserassignedidentity. 
 - O aprovisionamento da extensão VM a uma VM pode falhar devido a falhas de pesquisa DNS. Reiniciar a VM e tente novamente. 
-- Adicionar um MSI 'inexistente' fará com que a VM falhar. *Nota: A correção falhar atribuir-identity se MSI não existir, está a ser revertidas Escalamento*
-- Tutorial de armazenamento do Azure só está disponível no Central nos EUAP neste momento. 
-- Criar um utilizador atribuído MSI com carateres especiais (ou seja, um caráter de sublinhado) no nome, não é suportada.
-- Quando adicionar um segundo utilizador atribuído a identidade, o clientID poderão não estar disponível para tokens de pedidos para o mesmo. Como uma mitigação, reinicie a extensão de VM de MSI com os seguintes comandos de dois bash:
+- Adicionar uma identidade de utilizador de 'inexistente' atribuído fará com que a VM falhar. 
+- Criar um utilizador atribuído a identidade com os carateres especiais (ou seja, um caráter de sublinhado) no nome, não é suportada.
+- Atribuir nomes de identidade do utilizador estão limitadas a 24 carateres para o cenário de ponto a ponto. Utilizador atribuído identidades com mais de 24 carateres de nomes irão falhar a ser atribuída.  
+- Quando adicionar um segundo utilizador atribuído a identidade, o clientID poderão não estar disponível para tokens de pedidos para a extensão da VM. Como uma mitigação, reinicie a extensão de VM de MSI com os seguintes comandos de dois bash:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- VMAgent no Windows não suporta atualmente utilizador atribuído MSI. 
-- Quando uma VM tem um utilizador atribuído MSI, mas nenhum sistema atribuída MSI, o portal de IU irá mostrar MSI como ativada. Para ativar o sistema atribuído MSI, utilize um modelo Azure Resource Manager, um CLI do Azure ou um SDK.
+- Quando uma VM tem um utilizador atribuído a identidade, mas não atribuído a identidade de sistema, o portal de IU irá mostrar MSI como desativados. Para ativar o sistema atribuído de identidade, utilize um modelo Azure Resource Manager, um CLI do Azure ou um SDK.

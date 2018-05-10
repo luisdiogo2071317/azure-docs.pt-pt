@@ -7,17 +7,18 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 0f167fef2303ff3b552b9924db3eae9a07c1cb69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 44d1dabdb6a9e5f4b405b876f37daa9097c6e7f8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Configure a identidade de serviço geridas (MSI) na VM do Azure utilizando a CLI do Azure
 
@@ -113,10 +114,11 @@ Esta secção explica a criação de uma VM com a atribuição de um utilizador 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Criar um utilizador atribuído através de identidade [identidade az criar](/cli/azure/identity#az_identity_create).  O `-g` parâmetro especifica o grupo de recursos onde será criado a identidade de atribuída ao utilizador, e o `-n` parâmetro especifica o respetivo nome.
+2. Criar um utilizador atribuído através de identidade [identidade az criar](/cli/azure/identity#az_identity_create).  O `-g` parâmetro especifica o grupo de recursos onde será criado a identidade de atribuída ao utilizador, e o `-n` parâmetro especifica o respetivo nome.    
     
     > [!IMPORTANT]
-    > Criar atribuído identidades com carateres especiais (ou seja, um caráter de sublinhado) no nome de utilizador não é atualmente suportado. Utilize apenas carateres alfanuméricos. Verifique novamente para as atualizações.  Para obter mais informações consulte [perguntas mais frequentes e problemas conhecidos](known-issues.md)
+    > Criar identidades de utilizador atribuída só suporta alfanuméricos e hífenes (0-9 ou a-z ou A-Z ou -) carateres. Além disso, o nome deve ser limitado a 24 carateres para a atribuição a VM/VMSS funcione corretamente. Verifique novamente para as atualizações. Para obter mais informações consulte [perguntas mais frequentes e problemas conhecidos](known-issues.md)
+
 
     ```azurecli-interactive
     az identity create -g myResourceGroup -n myUserAssignedIdentity

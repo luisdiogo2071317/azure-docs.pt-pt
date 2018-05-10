@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 4d88004f37b40fa92e617545e1a94656744a7db0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos para um ponto final HTTP
 
@@ -48,6 +48,8 @@ Clique na ligação "Ver ficheiros" na sua função do Azure (painel direito a m
 ## <a name="endpoint-validation"></a>Validação de ponto final
 
 A primeira coisa que pretende efetuar está a processar `Microsoft.EventGrid.SubscriptionValidationEvent` eventos. Sempre que alguém subscreve um evento, o evento grelha envia um evento de validação para o ponto final com um `validationCode` no payload de dados. O ponto final não é necessário para eco neste novamente no corpo da resposta ao [provar o ponto final é válido e de propriedade por si](security-authentication.md#webhook-event-delivery). Se estiver a utilizar um [acionador da grelha de evento](../azure-functions/functions-bindings-event-grid.md) em vez de um WebHook acionado função, validação de ponto final é tratada por si. Se utilizar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir eco programaticamente o código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação que é enviado o evento de validação da subscrição. Copiar esse URL no `validationUrl` propriedade e envia uma obter pedido através de um cliente REST ou o seu browser.
+
+Validação manual está em pré-visualização. Para utilizá-lo, tem de instalar o [extensão da grelha de evento](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Pode instalá-lo com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, certifique-se de que está a utilizar `api-version=2018-05-01-preview`.
 
 Para o código de validação de eco programaticamente, utilize o seguinte código:
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -84,6 +84,8 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 - **Melhoramentos de controlo de acesso (RBAC) baseada em funções** -agora pode utilizar o RBAC para delegar permissões para grupos de utilizadores Universal quando pilha do Azure é implementada com o AD FS. Para saber mais sobre o RBAC, veja [gerir RBAC](azure-stack-manage-permissions.md).
 
 - **É adicionado suporte para múltiplos domínios de falhas**.  Para obter mais informações, consulte [elevada disponibilidade para o Azure pilha](azure-stack-key-features.md#high-availability-for-azure-stack).
+
+- **Suporte para atualizações de memória física** -agora pode expandir a capacidade da memória do sistema de pilha do Azure integrado após a implementação inicial. Para obter mais informações, consulte [gerir a capacidade de memória física para a pilha de Azure](azure-stack-manage-storage-physical-memory-capacity.md).
 
 - **Várias correções** para desempenho, estabilidade, segurança e o sistema operativo que é utilizado pela pilha de Azure.
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de uma VM com Linux do Azure que falhe, erros de saída, ou é recusada ligações SSH
 Existem várias razões se encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusou-se ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a localizar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -80,7 +80,7 @@ Utilizar o observador de rede [próximo salto](../../network-watcher/network-wat
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
 Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login).
 
-Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.
+Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../extensions/agent-windows.md) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.
 
 ### <a name="reset-ssh-configuration"></a>Repor configuração SSH
 Pode inicialmente tente repor a configuração SSH para os valores predefinidos e reinício do servidor SSH na VM. Tenha em atenção que isto não alterar o nome de conta de utilizador, palavra-passe ou chaves SSH.
@@ -155,7 +155,7 @@ Se ainda não o fez, [instalar a CLI do Azure 1.0 e ligar à sua subscrição do
 azure config mode arm
 ```
 
-Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.
+Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../extensions/agent-windows.md) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.
 
 ### <a name="reset-ssh-configuration"></a>Repor configuração SSH
 A configuração de SSHD próprio pode estar configurado incorretamente ou o serviço encontrou um erro. Só pode repor SSHD para se certificar de que a configuração de SSH em si é válida. Repor SSHD deve ser o primeiro passo de resolução de problemas que tomar.

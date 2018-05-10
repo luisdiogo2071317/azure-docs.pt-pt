@@ -8,17 +8,17 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3bd3c4f6501000f2490bc26cf7c6ff0345d3e7cc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5c76114484d10873eeb2d7a4516d4196b1d8aaf6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
 A solução de gestão de atualizações na automatização do Azure permite-lhe gerir atualizações do sistema operativo para os computadores Windows e Linux implementados no Azure, ambientes no local ou outros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
-Pode ativar a Gestão de atualizações de máquinas virtuais diretamente a partir da sua conta de [Automatização do Azure](automation-offering-get-started.md).
+Pode ativar a gestão de atualização para máquinas virtuais diretamente a partir da sua conta de automatização do Azure.
 Para saber como ativar a gestão de atualizações das máquinas virtuais da sua Conta de automatização, veja [Manage updates for multiple virtual machines (Gerir atualizações de várias máquinas virtuais)](manage-update-multi.md). Também pode ativar a gestão de atualização para uma única máquina virtual da página de máquina virtual no portal do Azure. Este cenário está disponível tanto [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) máquinas virtuais.
 
 ## <a name="solution-overview"></a>Descrição geral da solução
@@ -37,6 +37,9 @@ O diagrama seguinte mostra uma vista concetual do comportamento e ligados de flu
 Depois de um computador efetua uma análise de compatibilidade de atualização, o agente reencaminha as informações em massa à análise de registos. Em computadores Windows, a análise de conformidade é realizada de 12 em 12 horas, por predefinição. Para além do agendamento da análise, a análise da compatibilidade da atualização é iniciada em 15 minutos, se o Microsoft Monitoring Agent (MMA) for reiniciado, antes da instalação da atualização e, após a instalação da atualização. Em computadores Linux, a análise de conformidade é realizada de três em três horas por predefinição e são iniciadas ao fim de 15 minutos após o agente MMA ser reiniciado.
 
 A solução reporta até que ponto o computador está atualizado com base na origem com a qual está configurado para sincronizar. Se o computador Windows estiver configurado para reportar para o WSUS, dependendo da última vez que o WSUS se sincronizou com o Microsoft Update, os resultados poderão ser diferentes face àquilo que o Microsoft Update mostra. Este é o mesmo para computadores com Linux que estão configurados para o relatório para um repositório local versus um repositório público.
+
+> [!NOTE]
+> Gestão de atualizações requer determinadas portas e URLs esteja ativado para comunicar corretamente ao serviço, consulte [rede planear híbridos](automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre estes requisitos.
 
 Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *Opcionais* não estão incluídas no âmbito da implementação para computadores Windows, apenas as atualizações obrigatórias. A implementação planeada define os computadores de destino recebem as atualizações aplicáveis, explicitamente a especificação de computadores ou selecionar um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que baseia-se remotas pesquisas de registo de um conjunto específico de computadores. Também pode especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações estão autorizadas a ser instaladas. As atualizações são instaladas por runbooks na Automatização do Azure. Não pode ver estes runbooks, que não requerem nenhuma configuração. Quando é criada uma Implementação de Atualização, é criada uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. Este runbook principal inicia um runbook subordinado em cada agente que efetua a instalação das atualizações obrigatórias.
 
@@ -192,8 +195,8 @@ Criar uma nova implementação de atualização clicando a **implementação de 
 |Sistema Operativo| Linux ou do Windows|
 | Máquinas de atualização |Selecionar uma pesquisa guardada ou escolher máquina a partir da lista pendente e selecione máquinas individuais |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
-|Atualizações para excluir|Introduza todos os KBs para excluir sem o prefixo 'KB'|
-|Definições de agendamento|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
+|Atualizações a excluir|Introduza todos os KBs para excluir sem o prefixo 'KB'|
+|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
 | Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
 
 ## <a name="update-classifications"></a>Classificações de atualizações
@@ -220,11 +223,22 @@ As tabelas seguintes fornecem uma lista das classificações de atualização na
 |Atualizações críticas e de segurança     | Atualizações para um problema específico ou um problema específico do produto, relacionadas com segurança.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas em atualizações de segurança ou de natureza.        |
 
+## <a name="ports"></a>Portas
+
+Os seguintes endereços são necessários especificamente para a gestão de atualização. Comunicação para estes endereços é feita através da porta 443.
+
+* *.ods.opinsights.azure.com
+* *.oms.opinsights.azure.com
+* ods.systemcenteradvisor.com
+* *.blob.core.windows.net
+
+Para obter informações adicionais sobre as portas que requer que o Runbook Worker híbrido, [portas de função de Worker híbrido](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+
 ## <a name="search-logs"></a>Registos de pesquisa
 
 Além dos detalhes que são fornecidos no portal, as pesquisas podem ser feitas contra os registos. Com o **alterações** clique aberto, da página **Log Analytics**, esta ação abre o **pesquisa de registo** página
 
-### <a name="sample-queries"></a>Consultas de exemplo
+### <a name="sample-queries"></a>Amostras de consultas
 
 A tabela seguinte fornece pesquisas de registo de exemplo para registos de atualização recolhidos por esta solução:
 
@@ -273,9 +287,9 @@ Se ocorrerem problemas ao tentar integrar a solução ou uma máquina virtual, c
 | Mensagem | Razão | Solução |
 |----------|----------|----------|
 | Não É Possível Registar a Máquina para Gestão de Patches,</br>O Registo Falhou com a Exceção</br>System.InvalidOperationException: {"Message":"a máquina já está</br>registada numa conta diferente. "} | A máquina já está integrada noutra área de trabalho para Gestão de Atualizações | Efetue uma limpeza dos artefactos antigos ao [eliminar o grupo de runbooks híbridos](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Não é possível registar a máquina para a gestão de Patch, registo falhou com a exceção</br>System.Net.Http.HttpRequestException: Ocorreu um erro ao enviar o pedido. ---></br>System.Net.WebException: A ligação subjacente</br>foi fechada: Ocorreu um erro inesperado</br>ao receber. ---> System.ComponentModel.Win32Exception:</br>O cliente e o servidor não conseguem comunicar,</br>porque não possuem um algoritmo comum | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|
-| Não É Possível Registar a Máquina para Gestão de Patches,</br>O Registo Falhou com a Exceção</br>Newtonsoft.Json.JsonReaderException: Erro ao analisar o valor infinito positivo. | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|
-| O certificado apresentado pelo serviço \<wsid\>. oms.opinsights.azure.com</br>não foi emitido por uma autoridade de certificação</br>utilizada para os Serviços Microsoft. Contacto</br>o administrador da rede para ver se estão a executar um proxy que intercepte</br>a comunicação TLS/SSL. |Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-offering-get-started.md#network-planning)|
+| Não é possível registar a máquina para a gestão de Patch, registo falhou com a exceção</br>System.Net.Http.HttpRequestException: Ocorreu um erro ao enviar o pedido. ---></br>System.Net.WebException: A ligação subjacente</br>foi fechada: Ocorreu um erro inesperado</br>ao receber. ---> System.ComponentModel.Win32Exception:</br>O cliente e o servidor não conseguem comunicar,</br>porque não possuem um algoritmo comum | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-hybrid-runbook-worker.md#network-planning)|
+| Não É Possível Registar a Máquina para Gestão de Patches,</br>O Registo Falhou com a Exceção</br>Newtonsoft.Json.JsonReaderException: Erro ao analisar o valor infinito positivo. | Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-hybrid-runbook-worker.md#network-planning)|
+| O certificado apresentado pelo serviço \<wsid\>. oms.opinsights.azure.com</br>não foi emitido por uma autoridade de certificação</br>utilizada para os Serviços Microsoft. Contacto</br>o administrador da rede para ver se estão a executar um proxy que intercepte</br>a comunicação TLS/SSL. |Proxy/Gateway/Firewall a bloquear a comunicação | [Rever os requisitos de rede](automation-hybrid-runbook-worker.md#network-planning)|
 | Não É Possível Registar a Máquina para Gestão de Patches,</br>O Registo Falhou com a Exceção</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Falha ao criar um certificado autoassinado. ---></br>System. unauthorizedaccessexception: O acesso é negado. | Falha de geração do certificado autoassinado | Verifique se a conta do sistema tem</br>acesso de leitura à pasta:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Passos Seguintes

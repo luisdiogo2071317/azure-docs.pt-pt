@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1a7a711c9b255aabdae76d28908d81f349aebe4a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>VMs de início/paragem durante a solução de off-hours (pré-visualização) na automatização do Azure
 
@@ -26,7 +26,7 @@ Esta solução oferece uma opção de automatização descentralizada para os ut
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Os runbooks funcionam com uma [conta Run As do Azure](automation-offering-get-started.md#authentication-methods). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação de certificado em vez de uma palavra-passe que poderá expirar ou alterado frequentemente.
+* Os runbooks funcionam com uma [conta Run As do Azure](automation-create-runas-account.md). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação de certificado em vez de uma palavra-passe que poderá expirar ou alterado frequentemente.
 * Esta solução gere apenas as VMs que estão na mesma subscrição, como a sua conta de automatização do Azure.
 * Esta solução é implementada apenas para as seguintes regiões do Azure: Sudeste da Austrália, Canadá Central, Índia Central, EUA leste, leste do Japão, Sudeste asiático, sul do RU e Europa Ocidental.
 
@@ -80,8 +80,8 @@ Execute os seguintes passos para adicionar as VMs de início/paragem durante a s
    * Selecione um **agenda**. Este é um periódica data e hora para iniciar e parar as VMs nos grupos de recurso de destino. Por predefinição, a agenda está configurada para o fuso horário UTC. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedule).
    * Para receber **notificações por correio eletrónico** do SendGrid, aceite o valor predefinido de **Sim** e forneça um endereço de correio eletrónico válido. Se selecionar **não** mas decidir numa data posterior que pretende receber notificações por e-mail, pode atualizar o **External_EmailToAddress** variável com endereços de correio eletrónico válidos separados por vírgulas e, em seguida, modificar a variável **External_IsSendEmail** com o valor **Sim**.
 
-> [!IMPORTANT]
-> O valor predefinido para **nomes ResourceGroup de destino** é um **&ast;**. Isto destina-se todas as VMs numa subscrição. Se não pretender que a solução para todas as VMs na sua subscrição, que este valor tem de ser atualizado para uma lista de nomes de grupo de recursos antes de ativar as agendas de destino.
+    > [!IMPORTANT]
+    > O valor predefinido para **nomes ResourceGroup de destino** é um **&ast;**. Isto destina-se todas as VMs numa subscrição. Se não pretender que a solução para todas as VMs na sua subscrição, que este valor tem de ser atualizado para uma lista de nomes de grupo de recursos antes de ativar as agendas de destino.
 
 1. Depois de ter configurado as definições iniciais necessárias para a solução, clique em **OK** para fechar o **parâmetros** página e selecione **criar**. Depois de todas as definições serem validadas, a solução for implementada para a sua subscrição. Este processo pode demorar vários segundos a concluir e pode controlar o progresso em **notificações** no menu.
 
@@ -218,7 +218,7 @@ Em todos os cenários, o **External_Start_ResourceGroupNames**, **External_Stop_
 
 ### <a name="schedules"></a>Agendas
 
-A tabela seguinte lista cada as agendas predefinidas criadas na sua conta de automatização.  Pode modificá-las ou criar os seus próprios agendamentos personalizados. Por predefinição, cada um destes estão desativadas, exceto para **Scheduled_StartVM** e **Scheduled_StopVM**.
+A tabela seguinte lista cada as agendas predefinidas criadas na sua conta de automatização. Pode modificá-las ou criar os seus próprios agendamentos personalizados. Por predefinição, cada um destes estão desativadas, exceto para **Scheduled_StartVM** e **Scheduled_StopVM**.
 
 Não deve ativar todas as agendas, porque pode criar ações de agenda sobrepostos. É melhor determinar quais as otimizações de que pretende executar e modificar em conformidade. Ver os cenários de exemplo na secção Descrição geral para obter explicações mais.
 
@@ -226,7 +226,7 @@ Não deve ativar todas as agendas, porque pode criar ações de agenda sobrepost
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Cada 8 horas | Executa o runbook de AutoStop_CreateAlert_Parent a cada 8 horas, por sua vez interrompe baseados em VM valores existentes na External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Em alternativa, pode especificar uma lista separada por vírgulas de VMs utilizando o parâmetro VMList.|
 |Scheduled_StopVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *parar* diariamente à hora especificada. Para automaticamente todas as VMs que cumpram as regras definidas pelo variáveis de recurso. Deve ativar o agendamento relacionado, **agendada-StartVM**.|
-|Scheduled_StartVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *iniciar* diariamente à hora especificada.  Inicia automaticamente todas as VMs que cumpram as regras definidas pelas variáveis adequadas. Deve ativar o agendamento relacionado, **agendada StopVM**.|
+|Scheduled_StartVM | Utilizador definido, diariamente | Executa o runbook Scheduled_Parent com um parâmetro de *iniciar* diariamente à hora especificada. Inicia automaticamente todas as VMs que cumpram as regras definidas pelas variáveis adequadas. Deve ativar o agendamento relacionado, **agendada StopVM**.|
 |StopVM sequenciado | 1:00:00 (UTC), cada sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de *parar* cada sexta-feira no momento especificado. Sequencialmente (ascendente) deixa de todas as VMs com uma etiqueta de **SequenceStop** definidos pelas variáveis adequadas. Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta. Deve ativar o agendamento relacionado, **Sequenced-StartVM**.|
 |Sequenciado-StartVM | 1:00 PM (UTC), cada segunda-feira | Executa o runbook Sequenced_Parent com um parâmetro de *iniciar* cada segunda-feira no momento especificado. Sequencialmente (descendente) inicia todas as VMs com uma etiqueta de **SequenceStart** definidos pelas variáveis adequadas. Consulte a secção de Runbooks para obter mais detalhes sobre as variáveis de recurso e valores de etiqueta. Deve ativar o agendamento relacionado, **Sequenced StopVM**.|
 

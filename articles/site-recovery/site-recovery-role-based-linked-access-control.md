@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: d02ecc3293d0607dd3e19ade3c1d9087b544703b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4618d449410656f742cff40cf3cc190a0ce9c5e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Utilizar o controlo de acesso baseado em funções para gerir implementações do Azure Site Recovery
 
@@ -27,7 +27,7 @@ O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão po
 O Azure Site Recovery fornece 3 funções incorporadas para controlar as operações de gestão do Site Recovery. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
 * [Contribuinte do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - esta função tem todas as permissões necessárias para gerir as operações do Azure Site Recovery num cofre dos Serviços de Recuperação. No entanto, um utilizador com esta função não consegue criar nem eliminar um cofre dos Serviços de Recuperação, nem atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para os administradores de recuperação de desastres que podem ativar e gerir a recuperação após desastre para aplicações ou organizações completos, como o caso may seja.
-* [Operador do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-operator) - esta função tem permissões para executar e gerir operações de Ativação Pós-falha e a Reativação Pós-falha. Um utilizador com esta função não é possível ativar ou desativar a replicação, criar ou eliminar cofres, registar a nova infraestrutura ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação de desastre quem pode máquinas virtuais de ativação pós-falha ou as aplicações quando indicado pelos proprietários da aplicação e os administradores de TI uma situação real ou simulado desastre como uma DR desagregar. Post resolução de desastre, o operador de DR pode voltar a proteger e a reativação pós-falha as máquinas virtuais.
+* [Operador de recuperação de sites](../role-based-access-control/built-in-roles.md#site-recovery-operator) -esta função tem permissões para executar e gerir as operações de ativação pós-falha e a reativação pós-falha. Um utilizador com esta função não é possível ativar ou desativar a replicação, criar ou eliminar cofres, registar a nova infraestrutura ou atribuir direitos de acesso a outros utilizadores. Esta função é mais adequada para um operador de recuperação de desastre quem pode máquinas virtuais de ativação pós-falha ou as aplicações quando indicado pelos proprietários da aplicação e os administradores de TI uma situação real ou simulado desastre como uma DR desagregar. Post resolução de desastre, o operador de DR pode voltar a proteger e a reativação pós-falha as máquinas virtuais.
 * [Leitor do Site Recovery](../role-based-access-control/built-in-roles.md#site-recovery-reader) - esta função tem permissões para ver todas as operações de gestão do Site Recovery. Esta função é mais adequada para um executivo de monitorização de IT que pode monitorizar o estado atual da proteção e emitir pedidos de suporte, se necessário.
 
 Se estiver à procura para definir as suas próprias funções para o controlo ainda mais, consulte como [criar funções personalizadas](../role-based-access-control/custom-roles.md) no Azure.

@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Mestre multi à escala global com o Azure Cosmos DB 
  
@@ -22,6 +22,25 @@ Desenvolver globalmente distribuídas aplicações respondem com latências loca
 ![Arquitetura multi-mestre](./media/multi-region-writers/multi-master-architecture.png)
 
 Com suporte multi-mestre de BD do Cosmos do Azure, pode efetuar operações de escrita em contentores de dados (por exemplo, coleções, gráficos, tabelas) distribuídos em qualquer lugar do mundo. Pode atualizar os dados em qualquer região que está associado a sua conta de base de dados. Estas atualizações de dados podem propagar-se no modo assíncrono. Além de fornecer acesso rápido e latência escrita aos seus dados, o mestre multi também fornece uma solução de prática para ativação pós-falha e balanceamento de carga de problemas. Em resumo, com base de dados do Azure Cosmos depara-se a latência de escrita de < 10 ms, o percentil 99th em qualquer local no mundo, 99.999% escrita e leitura disponibilidade em qualquer parte do mundo e a capacidade de dimensionar ambos escrevem e leem débito em qualquer lugar em todo o mundo.   
+
+> [!IMPORTANT]
+> Suporte multi-mestre está em pré-visualização privada, para utilizar a versão de pré-visualização, [inscrever](#sign-up-for-multi-master-support) agora.
+
+## <a name="sign-up-for-multi-master-support"></a>Inscrever-se para obter suporte multi-mestre
+
+Se já tiver uma subscrição do Azure, pode inscrever-se para aderir ao programa de pré-visualização multi-mestre no portal do Azure. Se estiver familiarizado com o Azure, inscreva-se um [avaliação gratuita](https://azure.microsoft.com/free) onde pode obter de acesso gratuito a base de dados do Azure Cosmos de 12 meses. Conclua os seguintes passos para pedir acesso para o programa de pré-visualização multi-mestre.
+
+1. No [portal do Azure](https://portal.azure.com), clique em **crie um recurso** > **bases de dados** > **Azure Cosmos DB**.  
+
+2. Na página de nova conta, forneça um nome para a sua conta de base de dados do Azure Cosmos, escolha a API, subscrição, grupo de recursos e localização.  
+
+3. Em seguida selecione **inscrever-se na pré-visualização hoje mesmo** sob o campo de várias Mater pré-visualização.  
+
+   ![Inscreva-se multi-mestre pré-visualização](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. No **inscrever-se na pré-visualização hoje mesmo** painel, clique em **OK**. Depois de submeter o pedido, o estado é alterado para **com aprovação pendente** no painel de criação de conta.  
+
+Depois de submeter o pedido, receberá uma notificação por e-mail que o seu pedido tiver sido aprovado. Devido ao elevado volume de pedidos, deverá receber a notificação dentro de uma semana. Não é necessário criar um pedido de suporte para concluir o pedido. Pedidos serão analisados pela ordem em que foram recebidos.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Publicação de um exemplo simples multi-mestre – conteúdo  
 

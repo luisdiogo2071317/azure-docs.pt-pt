@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 475ee794d2b67639b447a1ca66b12d3d589425cb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Exemplos de início rápido do Azure do Monitor CLI 2.0
 Este artigo mostra-lhe exemplo comandos de interface de linha de comandos (CLI) para o ajudar a aceder às funcionalidades de monitorização do Azure. Monitor do Azure permite-lhe para serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web e enviar notificações de alerta ou chamar URLs web com base nos valores de dados de telemetria configurado.
@@ -206,7 +206,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>Configurar as definições de auotoscale
+### <a name="set-autoscale-settings"></a>Configurar as definições de dimensionamento automático
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

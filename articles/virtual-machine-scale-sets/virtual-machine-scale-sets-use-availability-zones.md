@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cc91366bda4dd443392c78cd61e5cc0ddb261fe2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquina virtual que utiliza as zonas de disponibilidade
 
@@ -194,7 +194,7 @@ O exemplo seguinte cria um conjunto nomeado de dimensionamento do única zona Li
 }
 ```
 
-Para obter um exemplo completo da escala de uma única zona definido e recursos de rede, consulte [este modelo de Gestor de recursos de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
+Para obter um exemplo completo da escala de uma única zona definido e recursos de rede, consulte [este modelo de Gestor de recursos de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de dimensionamento com redundância de zona
 
@@ -216,7 +216,7 @@ Para criar um conjunto de dimensionamento com redundância de zona, especificar 
 
 Se criar um endereço IP público ou um balanceador de carga, especifique o *"sku": {"name": "Padrão"} "* propriedade para criar recursos de rede com redundância de zona. Também terá de criar um grupo de segurança de rede e as regras para permitir qualquer tráfego. Para obter mais informações, consulte [descrição geral do Balanceador de carga do Azure Standard](../load-balancer/load-balancer-standard-overview.md).
 
-Para obter um exemplo completo de uma escala com redundância de zona definido e recursos de rede, consulte [este modelo de Gestor de recursos de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
+Para obter um exemplo completo de uma escala com redundância de zona definido e recursos de rede, consulte [este modelo de Gestor de recursos de exemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

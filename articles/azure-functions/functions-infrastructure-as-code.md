@@ -1,13 +1,13 @@
 ---
-title: "Automatizar a implementação de recursos para uma aplicação de função das funções do Azure | Microsoft Docs"
-description: "Saiba como criar um modelo Azure Resource Manager que implementa a aplicação de função."
+title: Automatizar a implementação de recursos para uma aplicação de função das funções do Azure | Microsoft Docs
+description: Saiba como criar um modelo Azure Resource Manager que implementa a aplicação de função.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure funções, funções, arquitetura sem servidor, infraestrutura como o Gestor de recursos de código, do azure"
+editor: ''
+tags: ''
+keywords: Azure funções, funções, arquitetura sem servidor, infraestrutura como o Gestor de recursos de código, do azure
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de função das funções do Azure
 
@@ -56,7 +56,9 @@ Uma conta de armazenamento do Azure é necessária para uma aplicação de funç
 }
 ```
 
-Além disso, as propriedades `AzureWebJobsStorage` e `AzureWebJobsDashboard` tem de ser especificado como definições de aplicação na configuração do site. O tempo de execução das funções do Azure utiliza o `AzureWebJobsStorage` cadeia de ligação para criar filas internas. A cadeia de ligação `AzureWebJobsDashboard` é utilizado para iniciar sessão Table storage do Azure e a desativação de **Monitor** separador no portal.
+Além disso, a propriedade `AzureWebJobsStorage` devem ser especificadas como uma definição de aplicação na configuração do site. Se a aplicação de função não utiliza o Application Insights para monitorização, deve também especificar `AzureWebJobsDashboard` como uma definição de aplicação.
+
+O tempo de execução das funções do Azure utiliza o `AzureWebJobsStorage` cadeia de ligação para criar filas internas.  Quando o Application Insights não está ativado, utiliza o tempo de execução a `AzureWebJobsDashboard` cadeia de ligação para iniciar sessão Table storage do Azure e a desativação a **Monitor** separador no portal.
 
 Estas propriedades são especificadas no `appSettings` coleção no `siteConfig` objeto:
 

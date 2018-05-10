@@ -1,11 +1,11 @@
 ---
-title: "Obter ajuda para aceder e utilizar o portal de aplicações My no Azure Active Directory | Microsoft Docs"
-description: "Obter ajuda com a iniciar sessão e executar tarefas comuns no painel de acesso."
+title: Obter ajuda para aceder e utilizar o portal de aplicações My no Azure Active Directory | Microsoft Docs
+description: Obter ajuda com a iniciar sessão e executar tarefas comuns no painel de acesso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Resolver problemas com a aceder e utilizar o portal de aplicações My
 
@@ -29,7 +29,7 @@ Se estiver a ter problemas com a iniciar sessão ou utilizar o portal de aplica�
 
 Experimente estas sugestões gerais:
 
-- Primeiro, de verificação para ver se estão a utilizar o URL correto, [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- Primeiro, de verificação para ver se estão a utilizar o URL correto, [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 - Tente adicionar o URL para sites fidedignos do browser.
 - Certifique-se de que a palavra-passe está correta e não expirou. Para obter mais informações, consulte [repor a palavra-passe de conta escolar ou profissional](active-directory-passwords-update-your-own-password.md).
 - Certifique-se certifique-se de que as informações de contacto de autenticação até Data e não a bloquear o acesso. Para obter mais informações, consulte [que Azure multi-factor Authentication significa para mim?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
@@ -55,7 +55,7 @@ Verifique para se certificar de que está a cumprir os seguintes requisitos do b
 - **Limite**: aniversário da edição do Windows 10 ou posterior.
 - **Chrome**: no Windows 7 ou posterior e no Mac OS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
-- **Internet Explorer 8, 9, 10, 11**: no Windows 7 ou posterior (suporte limitado).
+- **O Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
 
 Também pode transferir a extensão para Chrome e limite diretamente a partir de sites seguintes:
 

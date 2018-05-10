@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: c817964ebab358f8e31e7435b7067fc60e9516fa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ Azure AD Graph API fornece as seguintes funcionalidades:
 * **Autenticação com o Azure AD**: todos os pedidos para o Azure AD Graph API tem de ser autenticado, acrescentando um Token Web JSON (JWT) no cabeçalho de autorização do pedido. Este token é adquirida ao efetuar um pedido para ponto final de token do Azure AD e fornecer credenciais válidas. Pode utilizar o fluxo de credenciais de cliente OAuth 2.0 ou o código de autorização conceder fluxo adquirir um token para chamar o gráfico. Para obter mais informações, [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * **Autorização baseada em funções (RBAC)**: grupos de segurança são utilizados para efetuar o RBAC no AD Graph API do Azure. Por exemplo, se pretende determinar se um utilizador tem acesso a um recurso específico, a aplicação pode chamar o [Verifique a associação de grupo (transitiva)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) operação, que devolve true ou false.
 * **Consulta diferencial**: consulta diferencial permite-lhe controlar as alterações de diretório entre dois períodos de tempo sem ter de efetuar consultas frequentes AD Graph API do Azure. Este tipo de pedido irá devolver apenas as alterações efetuadas entre o pedido de consulta diferencial anterior e o pedido atual. Para obter mais informações, consulte [do Azure AD Graph API diferencial consulta](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Extensões de diretórios**: UO, pode adicionar propriedades personalizadas para objetos de diretório sem necessidade de um arquivo de dados externas. Por exemplo, se a sua aplicação precisar de uma propriedade de ID de Skype para cada utilizador, pode registar a nova propriedade no diretório e estarão disponível para utilização em todos os objetos de utilizador. Para obter mais informações, consulte [extensões do Azure AD Graph API do esquema](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **Extensões de diretórios**: pode adicionar propriedades personalizadas para objetos de diretório sem necessidade de um arquivo de dados externas. Por exemplo, se a sua aplicação precisar de uma propriedade de ID de Skype para cada utilizador, pode registar a nova propriedade no diretório e estarão disponível para utilização em todos os objetos de utilizador. Para obter mais informações, consulte [extensões do Azure AD Graph API do esquema](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **Protegidos por âmbitos de permissões**: AD Graph API do Azure expõe âmbitos de permissões que permitem acesso seguro a dados do Azure AD com OAuth 2.0. Suporta uma variedade de tipos de aplicação de cliente, incluindo:
   
   * interfaces de utilizador que recebem acesso delegado aos dados através de autorização do utilizador com sessão iniciada (delegado)

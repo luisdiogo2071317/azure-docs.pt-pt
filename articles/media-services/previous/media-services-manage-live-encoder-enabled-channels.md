@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>Descrição geral
 Nos serviços de suporte de dados do Azure (AMS), um **canal** representa um pipeline de processamento de conteúdos de transmissão em fluxo em direto. A **canal** recebe fluxos de entrada em direto de uma das seguintes formas:
 
-* Um codificador em direto no local envia uma transmissão fluxo de velocidade única para o Canal ativado para realizar live encoding com os Media Services num dos seguintes formatos: RTP (MPEG-TS), RTMP ou Transmissão em Fluxo Uniforme (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 * Um codificador em direto no local envia uma múltipla **RTMP** ou **transmissão em fluxo uniforme** (MP4 fragmentado) para o canal não está ativado para realizar live encoding com AMS. As transmissões em fluxo pass-through **canal**s sem qualquer processamento adicional. Este método é denominado **pass-through**. Pode utilizar os seguintes codificadores em direto com velocidade de múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine comunicações, Envivio, Cisco e elementar. Os seguintes codificadores em direto de saída RTMP: codificadores Adobe Flash suporte de dados em direto codificador (FMLE), Telestream Wirecast, Haivision, Teradek e Transcodificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
   
   > [!NOTE]
@@ -79,7 +79,7 @@ Começando com 25 de Janeiro de 2016, os Media Services implementado uma atualiz
 O limiar para um período de não utilizado é nominally 12 horas, mas está sujeita a alterações.
 
 ## <a name="live-encoding-workflow"></a>Fluxo de trabalho de codificação em direto
-O diagrama seguinte representa um fluxo de trabalho de transmissão em fluxo em direto onde um canal recebe uma transmissão em fluxo dos seguintes protocolos: RTMP, transmissão em fluxo uniforme ou RTP (MPEG-TS); -lo, em seguida, codifica o fluxo de um fluxo de transmissão múltipla. 
+O diagrama seguinte representa um fluxo de trabalho de transmissão em fluxo em direto onde um canal recebe uma transmissão em fluxo dos seguintes protocolos: RTMP ou transmissão em fluxo uniforme; -lo, em seguida, codifica o fluxo de um fluxo de transmissão múltipla. 
 
 ![Fluxo de trabalho em direto][live-overview]
 
@@ -91,7 +91,7 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 > 
 > 
 
-1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador em direto no local que pode apresentar um **único** transmissão em fluxo dos seguintes protocolos: RTMP, transmissão em fluxo uniforme ou RTP (MPEG-TS). 
+1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador em direto no local que pode apresentar um **único** transmissão em fluxo dos seguintes protocolos: RTMP ou transmissão em fluxo uniforme. 
    
     Este passo também pode ser realizado depois de criar o Canal.
 2. Crie e inicie um Canal. 
@@ -125,48 +125,8 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 ### <a id="Ingest_Protocols"></a>Transmissão em fluxo de protocolo de inserção
 Se o **tipo de codificador** está definido como **padrão**, as opções válidas são:
 
-* **RTP** (MPEG-TS): o fluxo de transporte de MPEG-2 sobre RTP.  
 * Velocidade de transmissão única **RTMP**
 * Velocidade de transmissão única **MP4 fragmentado** (transmissão em fluxo uniforme)
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) - sequência de transporte de MPEG-2 sobre RTP.
-Caso de utilização típica: 
-
-Professional broadcasters normalmente trabalham com codificadores em direto de ponta no local dos fornecedores, como as tecnologias Elemental, Ericsson, Ateme, Imagine ou Envivio para enviar uma transmissão em fluxo. Muitas vezes, é utilizado em conjunto com um departamento de TI e redes privadas.
-
-Considerações:
-
-* Recomenda-se vivamente a utilização de um fluxo de transporte de programa único (SPTS) de entrada. 
-* Pode introduzir até 8 fluxos de áudio utilizando TS MPEG-2 sobre RTP. 
-* O fluxo de vídeo deve ter uma velocidade de transmissão média abaixo 15 Mbps
-* A velocidade de transmissão média agregada dos fluxos de áudio deve ser inferior a 1 Mbps
-* Seguem-se codecs suportados:
-  
-  * MPEG-2 / H.262 vídeo 
-    
-    * Perfil principal (4:2:0)
-    * Perfil de alta (4:2:0, 4:2:2)
-    * Perfil 422 (4:2:0, 4:2:2)
-  * AVC MPEG-4 / 264 vídeo  
-    
-    * Linha de base, principal, perfil de alta (4 de 8 bits: 2:0)
-    * Perfil de 10 elevada (10 bits 4:2:0)
-    * Perfil 422 elevada (10 bits 4:2:2)
-  * Áudio MPEG-2 AAC-LC 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-    * Empacotamento ADTS de estilo de MPEG-2
-  * Áudio do Dolby Digital (AC-3) 
-    
-    * Mono, Stereo, Surround (5.1, 7.1)
-  * Áudio MPEG (camada II e III) 
-    
-    * Mono, Stereo
-* Difusão recomendada codificadores incluem:
-  
-  * Imagine comunicações Selenio ENC 1
-  * Imagine comunicações Selenio ENC 2
-  * Elementar em direto
 
 #### <a id="single_bitrate_RTMP"></a>RTMP de velocidade de transmissão única
 Considerações:
@@ -232,36 +192,21 @@ Pode definir os endereços IP que estão autorizados a ligar ao ponto final de p
 Esta secção descreve a forma como as definições para o codificador em direto no canal podem ser ajustadas, quando o **tipo de codificação** de um canal está definido como **padrão**.
 
 > [!NOTE]
-> Quando inputting vários idiomas controla e fazer live encoding com o Azure, RTP só é suportada para a entrada multilingues. Pode definir até 8 fluxos de áudio utilizando TS MPEG-2 sobre RTP. Ingestão relacionadas vários controla áudio com RTMP ou transmissão em fluxo uniforme não é atualmente suportada. Ao fazer live encoding com [em direto no local codifica](media-services-live-streaming-with-onprem-encoders.md), não há nenhum desse limitação porque que é enviado para AMS passa através de um canal sem qualquer processamento adicional.
+> O feed de contribuição só pode conter um único registo de áudio – ingestão relacionadas de vários controla de áudio não é atualmente suportada. Ao fazer live encoding com [em direto no local codifica](media-services-live-streaming-with-onprem-encoders.md), pode enviar uma contribuição do feed no protocolo de transmissão em fluxo uniforme que contém vários controla áudio.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Origem de marcador do AD
 Pode especificar a origem dos sinais de marcadores ad. Valor predefinido é **Api**, que indica que o codificador em direto no canal deve escutar para um assíncrona **API de marcador do Ad**.
 
-A opção de válido **Scte35** (permitido apenas se o protocolo de transmissão em fluxo de inserção estiver definido como RTP (MPEG-TS). Quando Scte35 for especificado, o codificador em direto irá analisar SCTE 35 sinais de fluxo de entrada RTP (MPEG-TS).
-
 ### <a name="cea-708-closed-captions"></a>CEA 708 fechado legendas
 Um sinalizador opcional que indica o codificador em direto para ignorar quaisquer dados de legendas CEA 708 incorporado as vídeo de entrada. Quando o sinalizador está definido como false (predefinição), o codificador irá detetar e reintroduza CEA 708 dados para os fluxos de vídeo de saída.
-
-### <a name="video-stream"></a>Fluxo de vídeo
-Opcional. Descreve o fluxo de vídeo de entrada. Se este campo não for especificado, é utilizado o valor predefinido. Esta definição só é permitida se o protocolo de transmissão em fluxo de entrada é definida como RTP (MPEG-TS).
-
-#### <a name="index"></a>Índice
-Um índice baseado em zero que especifica que o fluxo de vídeo entrada deve ser processado pelo codificador em direto no canal. Esta definição só se aplica se ingestão de protocolo de transmissão em fluxo é RTP (MPEG-TS).
-
-Valor predefinido é zero. Recomenda-se para enviar uma sequência de transporte de programa único (SPTS). Se o fluxo de entrada contém vários programas, o codificador em direto analisa a tabela de mapa do programa (PMT) na entrada, identifica as entradas que tem um nome de tipo de fluxo de vídeo de MPEG-2 ou 264 e dispõe os mesmos na ordem especificada no PMT. O índice baseado em zero, em seguida, é utilizado para recolher a entrada de n-ésimo nesse disposição.
-
-### <a name="audio-stream"></a>Sequência de áudio
-Opcional. Descreve os fluxos de áudio entrados. Se este campo não for especificado, aplicam-se os valores predefinidos especificados. Esta definição só é permitida se o protocolo de transmissão em fluxo de entrada é definida como RTP (MPEG-TS).
 
 #### <a name="index"></a>Índice
 Recomenda-se para enviar uma sequência de transporte de programa único (SPTS). Se o fluxo de entrada contém vários programas, o codificador em direto no canal analisa a tabela de mapa do programa (PMT) na entrada, identifica as entradas que tem um nome de tipo de fluxo de MPEG-2 AAC ADTS ou um sistema de AC a 3 ou AC-3. o sistema-B ou PES privada MPEG-2 ou MPEG-1 Áudio ou áudio MPEG-2 e dispõe os mesmos na ordem especificada no PMT. O índice baseado em zero, em seguida, é utilizado para recolher a entrada de n-ésimo nesse disposição.
 
 #### <a name="language"></a>Idioma
 O identificador de linguagem do fluxo de áudio, cumprindo ISO 639-2, tais como ENG. Se não estiver presente, a predefinição é UND (indefinido).
-
-Podem existir até 8 conjuntos de sequência de áudio especificado se a entrada para o canal é TS MPEG-2 sobre RTP. No entanto, não pode ser nenhum duas entradas com o mesmo valor de índice.
 
 ### <a id="preset"></a>Predefinição de sistema
 Especifica a predefinição para ser utilizado pelo codificador em direto dentro deste canal. Atualmente, é o único valor permitido **Default720p** (predefinição).
@@ -387,13 +332,11 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * É faturado apenas quando o canal está a ser o **executar** estado. Para obter mais informações, consulte [isto](media-services-manage-live-encoder-enabled-channels.md#states) secção.
 * Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amslived@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Certifique-se de que tem o partir do qual pretende transmitir o conteúdo no ponto final de transmissão em fluxo a **executar** estado.
-* Quando inputting vários idiomas controla e fazer live encoding com o Azure, RTP só é suportada para a entrada multilingues. Pode definir até 8 fluxos de áudio utilizando TS MPEG-2 sobre RTP. Ingestão relacionadas vários controla áudio com RTMP ou transmissão em fluxo uniforme não é atualmente suportada. Ao fazer live encoding com [em direto no local codifica](media-services-live-streaming-with-onprem-encoders.md), não há nenhum desse limitação porque que é enviado para AMS passa através de um canal sem qualquer processamento adicional.
 * A predefinição de codificação utiliza a noção de "taxa de intervalo máximo" da 30 fps. Por isso, caso a entrada é 60fps 59.97i, as frames Jumbo entradas são ignoradas/de-interlaced para 30/29.97 fps. Se a entrada é 50fps/50i, as frames Jumbo entradas são ignorados/de-interlaced para 25 fps. Se a entrada é 25 fps, saída permanece no 25 fps.
 * Não se esqueça de parar sua canais quando terminar. Se não o fizer, irá continuar a faturação.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 * No tempo de arranque de canal foi melhorado para uma média de 2 minutos, mas por vezes de crescente procura foi ainda demorar até 20 + minutos.
-* Suporte RTP é catered para broadcasters profissionais. Reveja as notas sobre RTP no [isto](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogue.
 * Imagens de ardósia devem estar em conformidade restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se tentar criar um canal com uma ardósia predefinido que é maior do que 1920 x 1080, o pedido será erro.
 * Uma vez novamente... não se esqueça de parar sua canais quando terminar de transmissão em fluxo. Se não o fizer, irá continuar a faturação.
 

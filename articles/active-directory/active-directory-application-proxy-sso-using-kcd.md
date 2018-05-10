@@ -1,25 +1,25 @@
 ---
-title: "Início de sessão único com o Proxy de aplicações | Microsoft Docs"
-description: "Aborda como fornecer início de sessão com o Proxy de aplicações do Azure AD."
+title: Início de sessão único com o Proxy de aplicações | Microsoft Docs
+description: Aborda como fornecer início de sessão com o Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d6f6894d495170221ad8334bc32ef141fb4e62b4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aee1c1ad44cada857ca0fc8fc42565448b5bfa46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para o início de sessão único às suas aplicações com o Proxy da aplicação
 
@@ -98,7 +98,7 @@ Esta capacidade permite muitas organizações que tenham diferentes no local e i
 * Tem vários domínios internamente (joe@us.contoso.com, joe@eu.contoso.com) e um único domínio na nuvem (joe@contoso.com).
 * Possui internamente o nome de domínio não encaminháveis internos (joe@contoso.usa) e um tipo legal na nuvem.
 * Não utilize nomes de domínio internamente (joe)
-* Utilize aliases diferentes no local e na nuvem. Por exemplo, joe-johns@contoso.com vs.joej@contoso.com  
+* Utilize aliases diferentes no local e na nuvem. Por exemplo, joe-johns@contoso.com vs. joej@contoso.com  
 
 Com o Proxy de aplicações, pode selecionar qual identidade a utilizar para obter a permissão de Kerberos. Esta definição é por aplicação. Algumas destas opções são adequadas para os sistemas que não aceite o formato do endereço de correio eletrónico, outros são concebidos para início de sessão alternativo.
 

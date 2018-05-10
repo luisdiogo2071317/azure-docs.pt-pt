@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -29,6 +29,10 @@ ms.lasthandoff: 04/16/2018
 Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestor de tráfego funciona ao nível do DNS. Envia as respostas DNS para direcionar clientes para o ponto final de serviço apropriado. Os clientes, em seguida, ligam ao ponto final do serviço diretamente, não através do Gestor de tráfego.
 
 Por conseguinte, o Gestor de tráfego não fornece um ponto final ou o endereço IP para os clientes se liguem a. Se pretender que o endereço IP estático para o seu serviço, o que deve ser configurado no serviço, não no Traffic Manager.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Que tipos de tráfego podem ser encaminhada através do Gestor de tráfego?
+Conforme explicado no [como Gestor de tráfego funciona](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), um ponto final do Gestor de tráfego pode ser qualquer internet com o serviço alojado dentro ou fora do Azure. Por conseguinte, o Gestor de tráfego pode encaminhar tráfego que tem origem na internet pública para um conjunto de pontos finais que está também com acesso à internet. Se tiver pontos finais que estão dentro de uma rede privada (por exemplo, uma versão interna do [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm utilizadores DNS efetuar pedidos dessas redes internas, não é possível utilizar o Gestor de tráfego para esses tráfego.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestor de tráfego suporta sessões 'temporária'?
 
@@ -121,7 +125,7 @@ Uma região pode ser atribuída a apenas um ponto final dentro de um perfil, se 
 
 Sim, apenas a versão da API de 2017-03-01 e a mais recente suporta o encaminhamento geográfica tipo. Todas as antigas versões API não podem ser utilizado para criar perfis do tipo de encaminhamento geográfico ou atribuir regiões geográficas para pontos finais. Se uma versão de API antiga é utilizada para obter perfis a partir de uma subscrição do Azure, qualquer perfil do tipo de encaminhamento geográfico não é devolvido. Além disso, quando utilizar versões anteriores de API, qualquer perfil devolveu que tem pontos finais com uma atribuição de região geográfica, não tem a sua atribuição de região geográfica mostrada.
 
-## <a name="real-user-measurements"></a>Medidas de Utilizadores Reais
+## <a name="real-user-measurements"></a>Medidas Reais de Utilizadores
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são as vantagens da utilização Real medidas de utilizador?
 Quando utiliza o método de encaminhamento de desempenho, Traffic Manager seleciona a melhor região do Azure para o utilizador final ligar a inspecionar o IP de origem e a sub-rede de cliente EDNS (se transmitido) e a verificá-lo contra o intelligence de latência de rede do serviço mantém. Medidas de utilizador reais melhora isto para os seus utilizadores finais base, fazendo com que a sua experiência contribuir para esta tabela de latência, além de garantir que esta tabela tem abrange as redes de utilizador final a partir de onde os utilizadores finais ligar ao Azure. Isto leva a uma precisão maior no encaminhamento dos utilizadores finais.

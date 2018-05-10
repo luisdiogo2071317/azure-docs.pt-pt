@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -513,7 +513,7 @@ A seguinte política tem de ser definida **todos os**: **os utilizadores podem r
 
 ### <a name="configure-on-premises-federation-service"></a>Configurar o serviço de Federação no local 
 
-O serviço de Federação no local tem de suportar a emitir o **authenticationmehod** e **wiaormultiauthn** afirmações quando recebe um pedido de autenticação para o Azure AD entidade confiadora que contém um parâmetro de resouce_params com um valor de codificação, como mostrado abaixo:
+O serviço de Federação no local tem de suportar a emitir o **authenticationmethod** e **wiaormultiauthn** afirmações quando recebe um pedido de autenticação para o Azure AD entidade confiadora que contém um resouce_params parâmetro com um valor de codificação como mostrado abaixo:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-classic"></a>Ligações de saída (clássica)
 
@@ -37,11 +37,11 @@ Existem vários [cenários saídos](#scenarios). Pode combinar estes cenários, 
 
 O Azure oferece três métodos diferentes para atingir implementações clássicas de conectividade de saída.  Nem todas as implementações clássicas têm todos os três cenários disponíveis:
 
-| Cenário | Método | Descrição | Função de trabalho Web | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. VM com um endereço IP público de nível de instância](#ilpip) | Realizar o SNAT, porta masquerading não utilizado |Azure utiliza o IP público atribuído a Máquina Virtual. A instância tem todas as portas efémeras disponíveis. | Não | Sim |
-| [2. ponto final com balanceamento de carga público](#publiclbendpoint) | Realizar o SNAT com porta masquerading (PAT) para o ponto final público |Azure partilha o IP endereço público ponto final público com vários pontos finais privados. Azure utiliza portas efémeras do ponto final público para TERESA. | Sim | Sim |
-| [3. VM autónoma ](#defaultsnat) | Realizar o SNAT com porta masquerading (PAT) | Azure automaticamente designa um endereço IP público para realizar o SNAT, partilhe este endereço IP público com a implementação de toda e utiliza portas efémeras do endereço IP do ponto final público para TERESA. Este é um cenário de contingência para os cenários anteriores. Não recomendamos-lo se precisar de visibilidade e controlo. | Sim | Sim|
+| Cenário | Método | Protocolos IP | Descrição | Função de trabalho Web | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. VM com um endereço IP público de nível de instância](#ilpip) | Realizar o SNAT, porta masquerading não utilizado | TCP, UDP, ICMP, ESP | Azure utiliza o IP público atribuído a Máquina Virtual. A instância tem todas as portas efémeras disponíveis. | Não | Sim |
+| [2. ponto final com balanceamento de carga público](#publiclbendpoint) | Realizar o SNAT com porta masquerading (PAT) para o ponto final público | TCP, UDP | Azure partilha o IP endereço público ponto final público com vários pontos finais privados. Azure utiliza portas efémeras do ponto final público para TERESA. | Sim | Sim |
+| [3. VM autónoma ](#defaultsnat) | Realizar o SNAT com porta masquerading (PAT) | TCP, UDP | Azure automaticamente designa um endereço IP público para realizar o SNAT, partilhe este endereço IP público com a implementação de toda e utiliza portas efémeras do endereço IP do ponto final público para TERESA. Este é um cenário de contingência para os cenários anteriores. Não recomendamos-lo se precisar de visibilidade e controlo. | Sim | Sim |
 
 Este é um subconjunto da funcionalidade de ligação de saída disponível para implementações do Resource Manager no Azure.  
 

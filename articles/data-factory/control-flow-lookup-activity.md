@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
-Pode utilizar a atividade de pesquisa para ler ou procure um registo, o nome da tabela ou o valor de uma origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes. 
 
-Atividade de pesquisa é útil quando pretender dinamicamente obter uma lista de ficheiros, registos ou tabelas a partir de um ficheiro de configuração ou de uma origem de dados. A saída da atividade pode ser mais utilizada por outras atividades para efetuar específicas de processamento apenas esses itens.
+Atividade de pesquisa pode ser utilizada para obter um conjunto de dados a partir de qualquer origem de dados suportados de ADF.  Podem ser utilizada no seguinte cenário:
+- Dinamicamente determinar quais os objetos (ficheiros, tabelas, etc.) a funcionar numa atividade subsequente, em vez de pré-programar o nome do objeto
+
+Atividade de pesquisa pode ler e devolver o conteúdo de um ficheiro de configuração, uma tabela de configuração ou o resultado da execução de uma consulta ou o procedimento armazenado.  A saída da atividade de pesquisa pode ser utilizada uma atividade de transformação ou de cópia subsequente, se for um valor de singleton ou utilizada numa atividade ForEach se se tratar de uma matriz de atributos.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Azure Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
@@ -33,7 +35,7 @@ As seguintes origens de dados são atualmente suportadas para a pesquisa:
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
-O número máximo de linhas devolvidas pela atividade de pesquisa é **5000**e até **10Mb** de tamanho.
+O número máximo de linhas devolvidas pela atividade de pesquisa é **5000**e até **2MB** de tamanho.
 
 ## <a name="syntax"></a>Sintaxe
 

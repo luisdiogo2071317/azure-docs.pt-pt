@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -392,7 +392,7 @@ Configure esta funcionalidade, definindo ambas as opções seguintes:
 Opção|Descrição
 --|--
 Caminho original| Defina o caminho relativo para os tipos de pedidos cuja chave de cache é foi reescrita. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular.
-Novo caminho|Defina o caminho relativo para a nova chave de cache. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular. Este caminho relativo que pode ser construído dinamicamente através da utilização de variáveis HTTP
+Novo caminho|Defina o caminho relativo para a nova chave de cache. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular. Este caminho relativo que pode ser construído dinamicamente através da utilização de [variáveis HTTP](cdn-http-variables.md).
 **Comportamento predefinido:** -chave um pedido da cache é determinado pelo URI do pedido.
 
 [Voltar ao início](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ Uma das seguintes ações pode ser efetuada num cabeçalho de pedido:
 
 Opção|Descrição|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de pedido existente.|**O valor do cabeçalho (cliente) do pedido:** Value1 <br/> **O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value1Value2
-Substituir|O valor do cabeçalho de pedido será definido para o valor especificado.|**O valor do cabeçalho (cliente) do pedido:** Value1 <br/>**O valor do cabeçalho (motor de regras de HTTP) do pedido:** Value2 <br/>**Novo valor de cabeçalho de pedido:** Value2 <br/>
-Eliminar|Elimina o cabeçalho de pedido especificado.|**O valor do cabeçalho (cliente) do pedido:** Value1 <br/> **Modificar configuração de cabeçalho de pedido de cliente:** eliminar o cabeçalho do pedido em questão. <br/>**Resultado:** o cabeçalho de pedido especificado não será reencaminhado para o servidor de origem.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de pedido existente.|**Valor de cabeçalho de pedido (cliente):**<br/>Value1<br/>**Valor de cabeçalho de pedido (motor de regras):**<br/>Value2 <br/>**Novo valor de cabeçalho de pedido:** <br/>Value1Value2
+Substituir|O valor do cabeçalho de pedido será definido para o valor especificado.|**Valor de cabeçalho de pedido (cliente):**<br/>Value1<br/>**Valor de cabeçalho de pedido (motor de regras):**<br/>Value2<br/>**Novo valor de cabeçalho de pedido:**<br/> Value2 <br/>
+Eliminar|Elimina o cabeçalho de pedido especificado.|**Valor de cabeçalho de pedido (cliente):**<br/>Value1<br/>**Modificar configuração de cabeçalho de pedido de cliente:**<br/>Elimine o cabeçalho do pedido em questão.<br/>**Resultado:**<br/>O cabeçalho de pedido especificado não será reencaminhado para o servidor de origem.
 
 Informações da chave:
 
@@ -922,9 +922,9 @@ Uma das seguintes ações pode ser efetuada num cabeçalho de resposta:
 
 Opção|Descrição|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/> **O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
-Substituir|O valor do cabeçalho de resposta será definido para o valor especificado.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/>**O valor de cabeçalho de resposta (motor de regras de HTTP):** Value2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
-Eliminar|Elimina o cabeçalho de resposta especificado.|**O valor de cabeçalho de resposta (cliente):** Value1 <br/> **Modificar configuração de cabeçalho de resposta do cliente:** eliminar o cabeçalho de resposta em questão. <br/>**Resultado:** o cabeçalho de resposta especificado não será reencaminhado para o autor do pedido.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**Valor de cabeçalho de resposta (cliente):**<br />Value1<br/>**Valor de cabeçalho de resposta (motor de regras):**<br/>Value2<br/>**Novo valor de cabeçalho de resposta:**<br/>Value1Value2
+Substituir|O valor do cabeçalho de resposta será definido para o valor especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Value1<br/>**Valor de cabeçalho de resposta (motor de regras):**<br/>Value2 <br/>**Novo valor de cabeçalho de resposta:**<br/>Value2 <br/>
+Eliminar|Elimina o cabeçalho de resposta especificado.|**Valor de cabeçalho de resposta (cliente):**<br/>Value1<br/>**Modificar configuração de cabeçalho de resposta do cliente:**<br/>Elimine o cabeçalho de resposta em questão.<br/>**Resultado:**<br/>O cabeçalho de resposta especificado não será reencaminhado para o autor do pedido.
 
 Informações da chave:
 
@@ -998,7 +998,7 @@ Informações da chave:
 - Para impedir que um cabeçalho de pedido específicos CDN reencaminhados, remova-o na lista de valores separados por espaço no campo de lista de cabeçalho.
 
 Os seguintes cabeçalhos HTTP estão incluídos na lista de predefinidos:
-- através do
+- Através de
 - X-reencaminhados-para
 - Proto X reencaminhados
 - X-anfitrião
@@ -1234,8 +1234,8 @@ A configuração desta funcionalidade precisa de definir as opções seguintes:
 Opção|Descrição
 -|-
 Código|Selecione o código de resposta que vai ser devolvido ao autor do pedido.
-Origem & padrão| Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser redirecionados. Serão redirecionados apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e o nome do ponto final. <br/> **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> -Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com quaisquer condições de correspondência definidas para esta funcionalidade. <br/> -Especifique um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas.
-Destino| Defina o URL ao qual serão redirecionados os pedidos acima. <br/> Dinamicamente construir este URL a utilizar: <br/> -Um padrão de expressão regular <br/>-Variáveis HTTP <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. <br/> 
+Origem & padrão| Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser redirecionados. Serão redirecionados apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/> <br/> **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e o nome do ponto final. <br/><br/> **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> -Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com quaisquer condições de correspondência definidas para esta funcionalidade. <br/> -Especifique um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas.
+Destino| Defina o URL ao qual serão redirecionados os pedidos acima. <br/><br/> Dinamicamente construir este URL a utilizar: <br/> -Um padrão de expressão regular <br/>- [Variáveis HTTP](cdn-http-variables.md) <br/><br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. <br/> 
 Recomenda-se vivamente a utilização de um URL absoluto. A utilização de um URL relativo pode redirecionar os URLs da CDN para um caminho inválido.
 
 **Cenário de exemplo**
@@ -1276,8 +1276,8 @@ Informações da chave:
 
 Opção|Descrição
 -|-
- Origem & padrão | Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser foi reescrita. Irão ser foi reescritos apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/>     - **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e o nome do ponto final. <br/> - **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com qualquer uma das condições definidas para esta funcionalidade correspondência. Especificar um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas. 
- Destino  |Defina o URL relativo ao qual os pedidos acima irão ser foi reescritos por: <br/>    1. Selecionar um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definir a utilizar um caminho relativo: <br/>        -Um padrão de expressão regular <br/>        -Variáveis HTTP <br/> <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. 
+ Origem & padrão | Estas definições, defina um padrão URI do pedido que identifica o tipo de pedidos que podem ser foi reescrita. Irão ser foi reescritos apenas pedidos cujo URL satisfaça ambos os seguintes critérios: <br/><br/>  - **Origem (ou ponto de acesso ao conteúdo):** selecione um caminho relativo que identifica um servidor de origem. Este caminho é o _/XXXX/_ secção e o nome do ponto final. <br/><br/> - **Origem (padrão):** um padrão que identifica pedidos pelo caminho relativo tem de ser definido. Neste padrão de expressão regular tem de definir um caminho que inicia diretamente após o acesso ao conteúdo anteriormente selecionado ponto (consultar acima). <br/> Certifique-se de que o pedido URI critérios (ou seja, origem & padrão) definidos anteriormente não entra em conflito com qualquer uma das condições definidas para esta funcionalidade correspondência. Especificar um padrão; Se utilizar um valor em branco como o padrão, todas as cadeias são correspondidas. 
+ Destino  |Defina o URL relativo ao qual os pedidos acima irão ser foi reescritos por: <br/>    1. Selecionar um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definir a utilizar um caminho relativo: <br/>        -Um padrão de expressão regular <br/>        - [Variáveis HTTP](cdn-http-variables.md) <br/> <br/> Substitua os valores capturados o padrão de origem para o padrão de destino utilizando $_n_ onde _n_ identifica um valor pela ordem em que foi capturada. Por exemplo, $1 representa o primeiro valor capturado o padrão de origem, enquanto $2 representa o segundo valor. 
  Esta funcionalidade permite que os POPs de reescrever o URL sem efetuar um redirecionamento tradicional. Ou seja, o autor do pedido recebe o mesmo código de resposta, como se o URL de conversão tinha sido pedido.
 
 **Cenário de exemplo 1**

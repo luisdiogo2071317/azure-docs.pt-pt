@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84581de2819ec062a537d4a302f242085a4b3c2c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema de CloudEvents com grelha de eventos
 
@@ -23,6 +23,8 @@ CloudEvents simplifica a interoperabilidade, fornecendo um esquema de eventos co
 CloudEvents está a ser compilação por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo Microsoft, através de [nuvem nativo computação Foundation](https://www.cncf.io/). Está atualmente disponível como versão 0.1.
 
 Este artigo descreve como utilizar o esquema de CloudEvents com eventos de grelha.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="cloudevent-schema"></a>Esquema de CloudEvent
 
@@ -73,12 +75,6 @@ Para obter mais informações, consulte o [CloudEvents spec](https://github.com/
 ## <a name="configure-event-grid-for-cloudevents"></a>Configurar a grelha de eventos para CloudEvents
 
 Atualmente, a grelha de eventos do Azure tem pré-visualização do suporte para CloudEvents JSON formato entrada e saída no **Central EUA oeste**, **EUA Central**, e **Europa do Norte**.
-
-Para utilizar CloudEvent, tem de ativar uma extensão para a CLI do Azure:
-
-```azurecli
-az extension add –-name eventgrid
-```
 
 Pode utilizar a grelha de eventos de entrada e saída de eventos no esquema CloudEvents. Pode utilizar CloudEvents para eventos de sistema, como eventos do Blob Storage e eventos de IoT Hub e eventos personalizados. Também se pode transformar esses eventos na linha anterior e descritos.
 

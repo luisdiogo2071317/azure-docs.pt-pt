@@ -3,23 +3,23 @@ title: Única de gestão de início de sessão para aplicações da empresa no A
 description: Gerir definições de início de sessão único para aplicações da empresa dentro da sua organização a partir da Galeria de aplicações do Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ee8f30bc81d3c3bd0bf4659359a6ca3a9280f734
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão para aplicações da empresa
 
@@ -58,12 +58,12 @@ Este é onde todos os detalhes sobre o domínio e os URLs da aplicação são ad
 * **URL de resposta** -o URL de resposta é onde a aplicação de espera receber o token SAML. Este é também referido como o URL do serviço de consumidor da asserção (ACS). Depois de estes serem introduzidas, clique em seguinte para avançar para o ecrã seguinte. Este ecrã fornece informações sobre o que tem de ser configurado no lado de aplicação para ativá-la aceitar um token SAML do Azure AD.
 * **Estado de reencaminhamento** -o estado de reencaminhamento é um parâmetro opcional que pode ajudar a informar a aplicação onde redirecionar o utilizador depois de concluída a autenticação. Normalmente, o valor é um URL válido, a aplicação, no entanto, algumas aplicações usam este campo de forma diferente (consulte único início de sessão documentação a aplicação para obter detalhes). A capacidade de definir o estado de reencaminhamento é uma funcionalidade que é exclusiva para o novo portal do Azure.
 
-### <a name="user-attributes"></a>Atributos do Utilizador
+### <a name="user-attributes"></a>Atributos de utilizador
 Este é onde os administradores podem visualizar e editar os atributos que são enviados no token SAML que o Azure AD emite à aplicação cada sessão de utilizadores.
 
 O atributo só editável suportado é o **identificador de utilizador** atributo. O valor deste atributo é o campo no Azure AD que identifica exclusivamente cada utilizador na aplicação. Por exemplo, se a aplicação foi implementada utilizando o "endereço de E-Mail" como o nome de utilizador e o identificador exclusivo, em seguida, o valor seria definido para o campo "user.mail" no Azure AD.
 
-### <a name="saml-signing-certificate"></a>Certificado de Assinatura de SAML
+### <a name="saml-signing-certificate"></a>Certificado de assinatura de SAML
 Esta secção apresenta os detalhes do certificado utilizado pelo Azure AD para assinar os tokens SAML que são emitidos para a aplicação sempre que o utilizador é autenticado. Permite que as propriedades do certificado atual possível inspecioná-los, incluindo a data de expiração.
 
 ### <a name="application-configuration"></a>Configuração da aplicação

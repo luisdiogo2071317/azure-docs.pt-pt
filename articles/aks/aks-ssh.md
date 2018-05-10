@@ -3,21 +3,35 @@ title: SSH para nós de cluster do serviço de Kubernetes do Azure (AKS)
 description: Criar uma ligação SSH com um cluster do serviço de Kubernetes do Azure (AKS) nós
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH para nós de cluster do serviço de Kubernetes do Azure (AKS)
 
 Ocasionalmente, poderá ter de aceder a um nó de Azure Kubernetes serviço (AKS) para manutenção, recolha de registos ou outras operações de resolução de problemas. Nós Kubernetes. o serviço (AKS) do Azure não são expostos à internet. Utilize os passos detalhados neste documento para criar uma ligação SSH com um nó AKS.
+
+## <a name="reset-ssh-keys"></a>Repor chaves SSH
+
+Se tiver implementado um AKS sem chaves SSH, ou não tem acesso às chaves SSH adequadas, estes podem ser repostos utilizando o portal do Azure.
+
+Navegue para o cluster AKS, selecione um nó AKS (máquina virtual) e selecione **Repor palavra-passe** para repor a chave pública SSH.
+
+![AKS VM com o botão do reposição de palavra-passe](media/aks-ssh/reset-password.png)
+
+Selecione **repor chave pública SSH**, introduza o AKS cluster nome de utilizador, que é **azueruser** por predefinição e a cópia de uma chave pública SSH. Selecione **atualização** quando concluir.
+
+![Portal AKS VM com o botão do reposição de palavra-passe](media/aks-ssh/reset-password-2.png)
+
+Assim que a chave SSH foi reposta, pode criar uma ligação de SSH utilizando a chave privada correspondente.
 
 ## <a name="get-aks-node-address"></a>Obter o endereço do nó AKS
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Copie a chave SSH para a pod, substitua o nome de pod com o valor adequado.
+Copie a chave SSH privada para o pod, substitua o nome de pod com o valor adequado.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

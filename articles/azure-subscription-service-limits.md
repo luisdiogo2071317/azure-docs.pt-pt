@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -27,7 +27,7 @@ Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft 
 Visite [descrição geral de preços do Azure](https://azure.microsoft.com/pricing/) para obter mais informações sobre preços do Azure. Aqui, pode estimar os custos com o [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) ou, visitando a página de detalhes de preços para um serviço (por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Para sugestões ajudar a gerir os custos, consulte [evitar custos inesperados com faturação do Azure e custos de gestão](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Se pretende aumentar o limite ou acima da quota de **limite predefinido**, [abrir um pedido de suporte online do cliente, sem encargos](azure-supportability/resource-manager-core-quotas-request.md). Não podem ser gerados os limites acima o **limite máximo** valor mostrado nas seguintes tabelas. Se não houver nenhuma **limite máximo** coluna, em seguida, o recurso não têm limites ajustável.
+> Se pretende aumentar o limite ou acima da quota de **limite predefinido**, [abrir um pedido de suporte online do cliente, sem encargos](azure-resource-manager/resource-manager-quota-errors.md). Não podem ser gerados os limites acima o **limite máximo** valor mostrado nas seguintes tabelas. Se não houver nenhuma **limite máximo** coluna, em seguida, o recurso não têm limites ajustável.
 >
 > [Liberte subscrições de avaliação](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumenta de limite ou de quota. Se tiver um [subscrição de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), pode atualizar para um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscrição. Para obter mais informações, consulte [atualizar avaliação gratuita do Azure para pay as you go](billing/billing-upgrade-azure-subscription.md) e [FAQ de subscrição de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
 >
@@ -53,7 +53,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Automatização](#automation-limits)
 * [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
-* [Mapas do Azure](#azure-maps-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Cache de Redis do Azure](#azure-redis-cache-limits)
 * [Cópia de segurança](#backup-limits)
 * [Batch](#batch-limits)

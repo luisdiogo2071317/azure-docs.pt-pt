@@ -1,25 +1,25 @@
 ---
 title: Firewall de pilha Azure planeamento de pilha do Azure integrado sistemas | Microsoft Docs
-description: "Descreve as considerações de firewall de pilha do Azure implementações de vários nós ligado do Azure de pilha do Azure."
+description: Descreve as considerações de firewall de pilha do Azure implementações de vários nós ligado do Azure de pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração de firewall de pilha do Azure
 É recomendado que utilize um dispositivo de firewall para o ajudar a proteger pilha do Azure. Embora as firewalls podem ajudar com coisas como distribuídas denial of service (DDoS distribuídos), deteção de intrusão e e ataques inspeção de conteúdo, pode também ficarem um estrangulamento do débito para serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -44,7 +44,7 @@ Algumas das downsides da utilização de NAT para o VIP público são:
 Recomenda-se atualmente para desativar a desencriptação de SSL em todo o tráfego de pilha do Azure. Caso seja suportado nas atualizações futuras, será fornecida orientação sobre como ativar a desencriptação de SSL para a pilha do Azure.
 
 ## <a name="edge-firewall-scenario"></a>Cenário de firewall de limite
-Uma implementação de limite, pilha do Azure é implementada diretamente atrás da firewall ou o router de limite. Nestes cenários, é suportada para a firewall para estar acima do limite ou a agir como o dispositivo de limite se suporta igual custo várias caminho (ECMP) com o BGP ou encaminhamento estático.
+Uma implementação de limite, pilha do Azure é implementada diretamente atrás da firewall ou o router de limite. Nestes cenários, é suportada para a firewall para estar acima do limite (cenário 1) em que suporta configurações de firewall de ativo-ativo e ativa-passiva ou agir como o dispositivo de limite (cenário 2), onde apenas suporta firewall ativo-ativo configuração de entidade confiadora no igual custo várias caminho (ECMP) com o BGP ou encaminhamento estático para a ativação pós-falha.
 
 Normalmente, os endereços IP encaminháveis públicos especificados para o conjunto VIP público da rede externa no momento da implementação. Num cenário de limite, não se recomenda utilizar IPs encaminháveis públicos em qualquer outra rede por motivos de segurança. Este cenário permite que um utilizador experimentar a experiência de nuvem automática controlada completa como uma nuvem pública, como o Azure.  
 

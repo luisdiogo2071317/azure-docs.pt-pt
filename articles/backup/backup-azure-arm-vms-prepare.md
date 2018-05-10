@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -172,7 +172,7 @@ Depois de ativar a cópia de segurança com êxito, a política de cópia de seg
 Se tiver problemas ao registar a máquina virtual, consulte as seguintes informações sobre como instalar o agente da VM e conectividade de rede. Provavelmente, não terá as seguintes informações se estiver a proteger máquinas virtuais criadas no Azure. Mas, se tiver migrado máquinas virtuais no Azure, não se esqueça de que instalou corretamente o agente da VM e que a máquina virtual pode comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o agente da VM na máquina virtual
-Para a extensão de cópia de segurança funcione, o Azure [agente da VM](../virtual-machines/windows/agent-user-guide.md) tem de estar instalado na máquina virtual do Azure. Se a VM foi criada no Azure Marketplace, o agente da VM já se encontra presente na máquina virtual. 
+Para a extensão de cópia de segurança funcione, o Azure [agente da VM](../virtual-machines/extensions/agent-windows.md) tem de estar instalado na máquina virtual do Azure. Se a VM foi criada no Azure Marketplace, o agente da VM já se encontra presente na máquina virtual. 
 
 As seguintes informações são fornecidas para situações em que são *não* através de uma VM criada no Azure Marketplace. Por exemplo, migrou uma VM a partir de um datacenter no local. Nesse caso, o agente da VM tem de ser instalado para poder proteger a máquina virtual.
 
@@ -180,9 +180,9 @@ Se tiver problemas a cópia de segurança a VM do Azure, utilize a tabela seguin
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalar o agente da VM |Transfira e instale o [MSI do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de administrador para concluir a instalação. |Instalar a versão mais recente [agente Linux](../virtual-machines/linux/agent-user-guide.md). Necessita de privilégios de administrador para concluir a instalação. Recomendamos que instale o agente do seu repositório de distribuição. Iremos *não é recomendada a* instalar o agente de VM com Linux diretamente a partir do GitHub.  |
-| Atualizar o agente da VM |Atualizar o agente da VM é tão simple como reinstalar o [binários do agente VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |Siga as instruções para [atualizar o agente da VM com Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Recomendamos a atualizar o agente do seu repositório de distribuição. Iremos *não é recomendada a* atualizar o agente da VM com Linux diretamente a partir do GitHub.<br><br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |
-| Validar a instalação do agente VM |1. Procure a pasta de C:\WindowsAzure\Packages na VM do Azure. <br><br>2. Encontrar o ficheiro WaAppAgent.exe. <br><br>3. Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O **versão do produto** campo deve ser 2.6.1198.718 ou superior. |N/A |
+| Instalar o Agente da VM |Transfira e instale o [MSI do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de Administrador para concluir o processo de instalação. |<li> Instalar a versão mais recente [agente Linux](../virtual-machines/extensions/agent-linux.md). Necessita de privilégios de Administrador para concluir o processo de instalação. Recomendamos que instale o agente do seu repositório de distribuição. Iremos **não é recomendada a** instalar agente de VM com Linux diretamente a partir do github.  |
+| Atualizar o Agente da VM |A atualização do Agente da VM é tão simples como reinstalar os [binários do Agente da VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |Siga as instruções para [atualizar o Agente da VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Recomendamos a atualizar o agente do seu repositório de distribuição. Iremos **não é recomendada a** atualizar agente de VM com Linux diretamente a partir do github.<br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o Agente da VM está a ser atualizado. |
+| A validar a instalação do Agente da VM |<li>Navegue até à pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Deve encontrar o ficheiro WaAppAgent.exe presente.<li> Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O campo da Versão do Produto deve ser 2.6.1198.718 ou superior. |N/A |
 
 ### <a name="backup-extension"></a>Extensão da cópia de segurança
 Depois do agente VM está instalado na máquina virtual, o serviço de cópia de segurança do Azure instala a extensão de cópia de segurança para o agente da VM. O serviço de cópia de segurança atualiza de forma totalmente integrada e patches a extensão de cópia de segurança.

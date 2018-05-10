@@ -1,32 +1,36 @@
 ---
-title: "Auditoria de Active Directory do Azure referência da API | Microsoft Docs"
-description: "Como começar com a API de auditoria do Azure Active Directory"
+title: Auditoria de Active Directory do Azure referência da API | Microsoft Docs
+description: Como começar com a API de auditoria do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 1bf86a9190039cdf0fe8dc435bdee4308b28cf29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Auditoria de Active Directory referência da API do Azure
-Este tópico faz parte de uma coleção de tópicos sobre o Azure Active Directory API do relatório.  
-Relatórios do Azure AD fornecem-lhe uma API que permite-lhe aceder a dados de auditoria utilizando código ou ferramentas relacionadas.
-É o âmbito deste tópico para lhe fornecer informações de referência sobre o **API de auditoria**.
 
-Consulte:
+> [!TIP] 
+> Conheça a nova Microsoft Graph API para [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), que irá substituir eventualmente esta API. 
+
+
+Este artigo é parte de uma coleção de artigos sobre o Azure Active Directory (Azure AD), API do relatório. Relatórios do Azure AD fornecem-lhe uma API que permite-lhe aceder a dados de auditoria utilizando código ou ferramentas relacionadas.
+O âmbito deste artigo é para lhe fornecer informações de referência sobre o **API de auditoria**.
+
+Veja:
 
 * [Registos de auditoria](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações concetuais
 
@@ -35,15 +39,15 @@ Consulte:
 
 Para:
 
-- Perguntas mais frequentes, leia a nossa [FAQ](active-directory-reporting-faq.md) 
+- Perguntas mais frequentes, leia o [FAQ](active-directory-reporting-faq.md) 
 
-- Problemas,. [um pedido de suporte de ficheiros](active-directory-troubleshooting-support-howto.md) 
+- Problemas, [um pedido de suporte de ficheiros](active-directory-troubleshooting-support-howto.md) 
 
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 * Utilizadores na função de Administrador de Segurança ou de Leitor de Segurança
 * Administradores Globais
-* Qualquer aplicação que tenha autorização para aceder à API do (autorização da aplicação pode ser o programa de configuração apenas com base nas permissões de Administrador Global)
+* Qualquer aplicação que tenha autorização para aceder à API do (autorização da aplicação pode ser configurada apenas com base nas permissões de Administrador Global)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para aceder a este relatório através da API de relatórios, tem de ter:
@@ -52,20 +56,19 @@ Para aceder a este relatório através da API de relatórios, tem de ter:
 * Concluída a [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Aceder à API
-Se pode aceder a esta API através de [gráfico Explorer](https://graphexplorer2.cloudapp.net) ou através de programação utilizando, por exemplo, do PowerShell. Ordem de PowerShell para interpretar corretamente a sintaxe de filtro de OData utilizada nas chamadas REST de gráfico do AAD, tem de utilizar o backtick (aka: grave acentos) caráter para "" $ como caráter de escape. O caráter de backtick serve como [caráter de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell para fazer uma interpretação literal do caráter $ e evitar confusa-lo como um nome de variável do PowerShell (ie: $filter).
+Se pode aceder a esta API através de [gráfico Explorer](https://graphexplorer2.cloudapp.net) ou através de programação utilizando, por exemplo, do PowerShell. Utilize o backtick (aka: grave acentos) caráter para "" $ como caráter de escape para se certificar de que o PowerShell pode interpretar a sintaxe de filtro de OData utilizada nas chamadas REST de gráfico do AAD. O caráter de backtick serve como [caráter de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell para fazer uma interpretação literal do caráter $ e evitar confusa-lo como um nome de variável do PowerShell (por exemplo, $filter).
 
-O foco deste tópico é o Explorador do gráfico. Para obter um exemplo do PowerShell, consulte este [script do PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
+O foco deste artigo é o Explorador do gráfico. Para obter um exemplo do PowerShell, consulte este [script do PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Ponto final de API
+
 Pode aceder a esta API utilizando o URI seguinte:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-Não há nenhum limite no número de registos devolvidos pela API de auditoria do Azure AD (utilizando a paginação de OData).
-Para limites de retenção de dados de relatórios, veja [relatórios de políticas de retenção](active-directory-reporting-retention.md).
+Não há nenhum limite para o número de registos que são devolvidos pela API de auditoria do Azure AD (utilizando a paginação de OData). Para os limites de retenção de dados de relatórios, consulte [relatórios de políticas de retenção](active-directory-reporting-retention.md).
 
-Esta chamada devolve os dados em lotes. Cada lote tem um máximo de 1000 registos.  
-Para obter o lote seguinte de registos, utilize a seguinte ligação. Obter as informações de skiptoken do primeiro conjunto de registos devolvidos. O token skip será no final do resultado definido.  
+A chamada devolve os dados em lotes. Cada lote tem um máximo de 1000 registos. Para obter o lote seguinte de registos, utilize o **seguinte** ligação. Obter as informações de token skip do primeiro conjunto de registos devolvidos. O token skip será no final do resultado definido.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,14 +76,15 @@ Para obter o lote seguinte de registos, utilize a seguinte ligação. Obter as i
 
 
 ## <a name="supported-filters"></a>Filtros suportados
-Pode reduzir o número de registos que são devolvidos por uma API chamada em forma de um filtro.  
-Início de sessão da API de dados, relacionados com os seguintes filtros são suportados:
 
-* **$top =\<número de registos devem ser devolvidos\>**  - para limitar o número de registos devolvidos. Esta é uma operação dispendiosa. Não deve utilizar este filtro, se pretender regressar a milhares de objetos.     
+Pode reduzir o número de registos que são devolvidos por uma chamada de API com um filtro.  
+Para início de sessão relacionadas com a API dados, são suportados os seguintes filtros:
+
+* **$top =\<número de registos devem ser devolvidos\>**  - para limitar o número de registos devolvidos. Esta é uma operação dispendiosa. Não utilize este filtro, se pretender regressar a milhares de objetos.     
 * **$filter =\<sua declaração de filtro\>**  - especificar, on the basis of campos de filtro suportado, o tipo de registos que mais lhe interessam
 
 ## <a name="supported-filter-fields-and-operators"></a>Operadores e campos de filtro suportado
-Para especificar o tipo de registos que mais lhe interessam, pode criar uma instrução de filtro que pode conter um ou uma combinação dos seguintes campos de filtro:
+Para especificar o tipo de registos que mais lhe interessam, pode criar uma instrução de filtro com um ou uma combinação dos seguintes campos de filtro:
 
 * [activityDate](#activitydate) -define uma data ou um intervalo de datas
 * [categoria](#category) -define a categoria que pretende filtrar.
@@ -155,7 +159,7 @@ DateTime deve estar no formato UTC
 
 **Notas**:
 
-case-sensitive
+maiúsculas e minúsculas
 
 - - -
 ### <a name="activity"></a>atividade
@@ -167,7 +171,7 @@ case-sensitive
 
 **Notas**:
 
-case-sensitive
+maiúsculas e minúsculas
 
 - - -
 ### <a name="actorname"></a>nome do actor /
@@ -179,10 +183,10 @@ case-sensitive
 
 **Notas**:
 
-case-insensitive
+Sensível
 
 - - -
-### <a name="actorobjectid"></a>actor/objectId
+### <a name="actorobjectid"></a>ator/objectId
 **Suportado operadores**: eq
 
 **Exemplo**:
@@ -200,10 +204,10 @@ case-insensitive
 
 **Notas**:
 
-Case-insensitive
+Sensível
 
 - - -
-### <a name="targetupn"></a>target/upn
+### <a name="targetupn"></a>destino/upn
 **Suportado operadores**: eq, startsWith
 
 **Exemplo**:
@@ -212,8 +216,8 @@ Case-insensitive
 
 **Notas**:
 
-* Case-insensitive
-* Tem de adicionar o espaço de nomes completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
+* Sensível
+* Adicione o espaço de nomes completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
 ### <a name="targetobjectid"></a>target/objectId
@@ -224,7 +228,7 @@ Case-insensitive
     $filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')    
 
 - - -
-### <a name="actorupn"></a>actor/upn
+### <a name="actorupn"></a>ator/upn
 **Suportado operadores**: eq, startsWith
 
 **Exemplo**:
@@ -233,11 +237,13 @@ Case-insensitive
 
 **Notas**:
 
-* Case-insensitive 
-* Tem de adicionar o espaço de nomes completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
+* Sensível 
+* Adicione o espaço de nomes completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -
 ## <a name="next-steps"></a>Próximos Passos
-* Pretende ver exemplos para atividades de sistema filtrado? Veja o [amostras de API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-samples.md).
-* Pretende saber mais sobre o Azure AD API do relatório? Consulte [começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md).
+
+- Pretende ver exemplos para atividades de sistema filtrado? Veja o [amostras de API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-samples.md).
+
+- Pretende saber mais sobre o Azure AD API do relatório? Consulte [começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md).
 

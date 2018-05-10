@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Procore SSO | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Procore SSO."
+title: 'Tutorial: Integração do Azure Active Directory com o Procore SSO | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Procore SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: c6bae8e24f252a535571308467b428832b542e48
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4cba8aa046b84fe63b17a662990824b1823c1572
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Active Directory com o Procore SSO
 
@@ -30,14 +30,6 @@ Integrar o Procore SSO com o Azure AD fornece as seguintes vantagens:
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with Procore SSO, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Procore SSO.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -212,7 +204,7 @@ Siga os passos abaixo para criar um utilizador de teste Procore no seu lado.
 
     b. No **Apelido** caixa de texto, apelido do utilizador do tipo como **Simon**.
 
-    c. No **endereço de correio eletrónico** como endereço de correio eletrónico do utilizador do tipo de caixa de texto,  **BrittaSimon@contoso.com** .
+    c. No **endereço de correio eletrónico** como endereço de correio eletrónico do utilizador do tipo de caixa de texto, **BrittaSimon@contoso.com**.
 
     d. Selecione **permissão modelo** como **aplicar o modelo de permissão mais tarde**.
 

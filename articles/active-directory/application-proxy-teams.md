@@ -1,25 +1,25 @@
 ---
-title: "Aceder a aplicações de Proxy de aplicações do Azure AD no equipas | Microsoft Docs"
-description: "Utilize o Proxy de aplicações do Azure AD para aceder a sua aplicação no local através de Teams da Microsoft."
+title: Aceder a aplicações de Proxy de aplicações do Azure AD no equipas | Microsoft Docs
+description: Utilize o Proxy de aplicações do Azure AD para aceder a sua aplicação no local através de Teams da Microsoft.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 66fdc03d2945b84615ee39dcbcc9bc71ddb06711
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Aceder as aplicações no local através de Teams da Microsoft
 
@@ -38,7 +38,7 @@ Se já tiver as aplicações publicadas, mas não se lembra da respetiva URLs ex
 
 Depois de publicar a aplicação através do Proxy de aplicações, informar os utilizadores que pode adicioná-lo como um separador diretamente os canais de equipas e, em seguida, a aplicação está disponível para todos os membros da equipa a utilizar. Este que seguir estes três passos:
 
-1. Navegue para o canal de equipas para adicionar esta aplicação e selecione onde pretende  **+**  para adicionar um separador.
+1. Navegue para o canal de equipas para adicionar esta aplicação e selecione onde pretende **+** para adicionar um separador.
 
    ![Selecionar adicionar um separador](./media/application-proxy-teams/add-tab.png)
 

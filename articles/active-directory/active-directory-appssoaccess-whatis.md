@@ -3,22 +3,22 @@ title: O que é o acesso a aplicações e início de sessão no Azure Active Dir
 description: Utilize o Azure Active Directory para ativar o início de sessão para todas as aplicações web e de SaaS que precisa para empresas.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: users-groups-roles
+ms.workload: identity
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 29aaf28e1565a5972671df4fc48ca5618e43ea83
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 19eb9bb593b349d88d8235dc2f1eca448e7646f5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão no Azure Active Directory?
 O início de sessão único significa que está a ser capazes de aceder a todas as aplicações e recursos que precisa para fins comerciais, ao iniciar sessão apenas depois de utilizar uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todas as aplicações que precisar, sem ser necessário para autenticação (por exemplo, escreva uma palavra-passe) uma segunda vez.

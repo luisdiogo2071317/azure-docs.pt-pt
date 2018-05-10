@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 006d04efb0a6bebc424cb005bf63af2b3cd7a42e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f38054eaf2829149a496f840366b6f2f9e03e12b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como reconstruir um índice da Azure Search
 
@@ -35,8 +35,8 @@ Planeia frequentes, completa Reconstrói durante o desenvolvimento de Active Dir
 | Modificação | Estado de reconstrução|
 |--------------|---------------|
 | Alterar um nome de campo, o tipo de dados, ou o respetivo [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Alterar uma definição de campo normalmente implica uma reconstrução penalidade, à exceção estes [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index): recuperável, SearchAnalyzer, SynonymMaps. Pode adicionar os atributos recuperável, SearchAnalyzer e SynonymMaps a um campo existente sem ter de reconstruir o índice.|
-| Adicionar um campo | Sem requisito de strict no reconstrução. Documentos indexados existentes recebem um valor nulo para o novo campo. Num reindex futura, valores de dados de origem são adicionados a documentos. |
-| Eliminar um campo | Sem requisito de strict no reconstrução. Não é utilizado um campo eliminado, mas fisicamente a definição de campo e os conteúdos permanecem no índice até que a reconstrução seguinte. |
+| Adicionar um campo | Sem requisito de strict no reconstrução. Documentos indexados existentes recebem um valor nulo para o novo campo. Num reindex futura, os valores de dados de origem substituem nulos adicionados através da Azure Search. |
+| Eliminar um campo | Não é possível eliminar diretamente um campo de um índice da Azure Search. Em vez disso, deve ter a aplicação ignorar o campo "eliminado" para evitar a utilizá-la. Fisicamente, a definição de campo e os conteúdos permanecem no índice até à próxima vez que reconstruir o índice utilizando um esquema que omite o campo em questão.|
 
 > [!Note]
 > Uma reconstrução também é necessária se mudar camadas. Se a determinada altura que opte por utilizar mais capacidade, não há nenhuma atualização no local. Tem de ser criado um novo serviço no ponto de nova capacidade e índices tem de ser criados a partir do zero no novo serviço. 

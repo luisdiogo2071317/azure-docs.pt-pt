@@ -14,11 +14,11 @@ ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: fc7a67c644894606b09ed3ad594ff9f87b29f307
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -41,7 +41,7 @@ Estão disponíveis as seguintes funções de administrador:
   > [!NOTE]
   > Para implementar a política de acesso condicional do Exchange ActiveSync no Azure, o utilizador também tem de ser Administrador Global.
   
-* **Administrador de serviço do CRM**: os utilizadores com esta função têm permissões global no Microsoft CRM Online, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar estado de funcionamento do serviço. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Administrador de serviços de Dynamics 365**: os utilizadores com esta função têm permissões global no Microsoft CRM Online, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar estado de funcionamento do serviço. Obter mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Administradores de dispositivos**: os utilizadores com esta função tornar-se os administradores do computador local em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory.
 
@@ -126,25 +126,25 @@ Estão disponíveis as seguintes funções de administrador:
 | --- | --- |
 | <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Alterar as palavras-passe para os utilizadores e de outros administradores de suporte técnico apenas</p>|<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver relatórios</p>|
 
-### <a name="information-protection-administrator"></a>Administrador de proteção de informações
-No | Pode fazê-lo
+### <a name="information-protection-administrator"></a>Administrador do Information Protection
+Em | Pode fazê-lo
 -------- | ---------
 Azure Information Protection | <li>Configurar as definições e de etiquetas nas políticas de âmbito e global<li>Configurar e gerir modelos de proteção<li>Ativar ou desativar proteção-
  
-### <a name="reports-reader"></a>Leitor de relatórios 
+### <a name="reports-reader"></a>Leitor de Relatórios 
 Pode fazê-lo | Não é possível efetuar
 ------ | ----------
 Vista do Azure AD início de sessão relatórios e registos de auditoria<br>Ver informações de utilizador e da empresa<br>Dashboard de utilização do acesso do Office 365 | Criar e gerir vistas de utilizador<br>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador<br>Delegar funções administrativas a outras pessoas<br>Gerir as informações da empresa
 
 ### <a name="security-reader"></a>Leitor de Segurança
-| No | Pode fazê-lo |
+| Em | Pode fazê-lo |
 | --- | --- |
 | Identity Protection Center |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
 | Privileged Identity Management |<p>Tem acesso só de leitura para todas as informações anexados no Azure AD PIM: as políticas e relatórios para atribuições de funções do Azure AD, segurança analisa e acesso aos dados de política e relatórios para cenários para além de atribuição de função do Azure AD de leitura no futuro.<p>**Não é possível** inscrever-se no Azure AD PIM ou efetue as alterações. No portal do PIM ou através do PowerShell, alguém que esta função pode ativar funções adicionais (por exemplo, Administrador Global ou com privilégios de função de administrador), se o utilizador é uma candidata para os mesmos. |
 | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Segurança do Office 365 e o Centro de conformidade</p> |<ul><li>Ler e gerir alertas<li>Políticas de segurança de leitura<li>Ler informações sobre ameaças, o Cloud App Discovery e colocam em quarentena na procura e investigar<li>Ler todos os relatórios |
 
 ### <a name="security-administrator"></a>Administrador de Segurança
-| No | Pode fazê-lo |
+| Em | Pode fazê-lo |
 | --- | --- |
 | Identity Protection Center |<ul><li>Todas as permissões da função de leitor de segurança.<li>Além disso, a capacidade de efetuar todas as operações de IPC exceto repor palavras-passe. |
 | Privileged Identity Management |<ul><li>Todas as permissões da função de leitor de segurança.<li>**Não é possível** gerir as subscrições de funções do Azure AD ou as definições. |

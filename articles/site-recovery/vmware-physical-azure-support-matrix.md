@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -22,7 +22,7 @@ Este artigo resume componentes suportados e as definições de recuperação ap�
 
 **Cenário** | **Detalhes**
 --- | ---
-VMs VMware | Replicação de VMs de VMware no local para o Azure. Pode implementar este cenário no portal do Azure ou através do PowerShell.
+VMs VMware | Replicação de VMs de VMware no local para o Azure. Pode implementar este cenário no portal do Azure ou através da utilização de [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Servidores físicos | Replicação de serversto físico de Windows/Linux no local do Azure. Pode implementar este cenário no portal do Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
@@ -101,7 +101,6 @@ Debian 8 | 9.14, 9.15 | 3.16.0-4-AMD64 para 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 
 --- | ---
 sistemas de ficheiros | ext3 ext4, XFS
 Gestor de volumes | LVM2.
-Software MultiPath | Mapeador de dispositivo.
 Dispositivos de armazenamento Paravirtualized | Os dispositivos exportados por controladores paravirtualizados não são suportados.
 Dispositivos de e/s de fila multi bloco | Não suportado.
 Servidores físicos com o controlador de armazenamento HP CCISS | Não suportado.
@@ -162,7 +161,7 @@ Volume de convidado/servidor com o disco repartido > 4 TB <br><br/>Gestão de vo
 Convidados/servidor - os espaços de armazenamento | Não
 Disco de acesso frequente adição/remoção de convidado/servidor | Não
 Convidados/servidor - disco de exclusão | Sim
-Multipath de convidado/servidor (MPIO) | N/A
+Multipath de convidado/servidor (MPIO) | Não
 
 > [!NOTE]
 > UEFI arrancar em máquinas virtuais VMware com o Windows Server 2012 ou posterior podem ser migrados para o Azure. As seguintes restrições aplicam-se:

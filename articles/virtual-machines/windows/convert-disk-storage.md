@@ -1,13 +1,13 @@
 ---
 title: Converter Azure geridas armazenamento de discos de norma para premium e vice versa | Microsoft Docs
-description: "Como converter Azure discos geridos do padrão para premium e vice versa, utilizando o Azure PowerShell."
+description: Como converter Azure discos geridos do padrão para premium e vice versa, utilizando o Azure PowerShell.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: ramankum
 manager: kavithag
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 407cfe7d9eee4e226938f383c04bb359a17290fc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ac3f1368fb6d3f31b75b581d56e07fe11c3722b3
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter Azure geridas armazenamento de discos de norma para premium e vice versa
 
@@ -31,6 +31,7 @@ Este artigo mostra como converter discos geridos de padrão para premium e vice 
 
 * A conversão necessita de um reinício da VM, por isso, agende a migração do seu armazenamento de discos durante uma janela de manutenção já existente. 
 * Se estiver a utilizar discos não geridos, primeiro [converter discos geridos](convert-unmanaged-to-managed-disks.md) para utilizar este artigo para alternar entre as duas opções de armazenamento. 
+* Este artigo requer o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Também tem de executar `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Converter os discos geridos de uma VM de padrão para premium e vice versa
@@ -44,8 +45,8 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+# Choose between Standard_LRS and Premium_LRS based on your scenario
+$storageType = 'Premium_LRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -86,8 +87,8 @@ Para sua carga de trabalho de programador/teste, poderá ter mistura de discos p
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
-# Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+# Choose between Standard_LRS and Premium_LRS based on your scenario
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 

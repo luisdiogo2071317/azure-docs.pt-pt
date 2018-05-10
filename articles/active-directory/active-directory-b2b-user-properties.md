@@ -1,26 +1,20 @@
 ---
-title: "Propriedades de um utilizador de colaboração do Azure Active Directory B2B | Microsoft Docs"
-description: "Propriedades de utilizador de colaboração B2B do Active Directory do Azure são configuráveis"
+title: Propriedades de um utilizador de colaboração do Azure Active Directory B2B | Microsoft Docs
+description: Propriedades de utilizador de colaboração B2B do Active Directory do Azure são configuráveis
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/25/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e1eb709124262d55fc4c6a5bfd8c1ccb33fa8bb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 401c001f897a926de1b7d68403b6945164f3333b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração do Azure Active Directory B2B
 
@@ -93,16 +87,6 @@ Pode haver casos em que pretende conceder aos seus utilizadores de convidado pri
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
-
 * [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [A adição de um utilizador de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
-* [Delegar convites para colaboração do B2B](active-directory-b2b-delegate-invitations.md)
-* [Utilizador de colaboração do B2B auditoria e de relatórios](active-directory-b2b-auditing-and-reporting.md)
-* [Grupos dinâmicos e de colaboração B2B](active-directory-b2b-dynamic-groups.md)
-* [Código de colaboração do B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
-* [Configurar aplicações SaaS colaboração B2B](active-directory-b2b-configure-saas-apps.md)
 * [Tokens de utilizador de colaboração B2B](active-directory-b2b-user-token.md)
 * [Afirmações de utilizador de colaboração B2B mapeamento](active-directory-b2b-claims-mapping.md)
-* [Partilha externa do Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitações atuais de colaboração B2B](active-directory-b2b-current-limitations.md)

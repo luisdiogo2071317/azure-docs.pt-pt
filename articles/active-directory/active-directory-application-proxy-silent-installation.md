@@ -1,12 +1,12 @@
 ---
-title: "Conector do Proxy de aplicações do Azure AD de instalação silenciosa | Microsoft Docs"
-description: "Aborda como executar uma instalação autónoma do Azure AD de conector de Proxy de aplicações para fornecer acesso remoto seguro às suas aplicações no local."
+title: Conector do Proxy de aplicações do Azure AD de instalação silenciosa | Microsoft Docs
+description: Aborda como executar uma instalação autónoma do Azure AD de conector de Proxy de aplicações para fornecer acesso remoto seguro às suas aplicações no local.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbda2448c5bf2b6998d120a082e036d7e0125a1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33719ea36af3b3b554fc1d32878d7d72e11b7886
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação automática para o conector do Proxy de aplicações do Azure AD
 
@@ -51,7 +51,7 @@ Existem dois métodos que pode utilizar para registar o conector:
 * Registar o conector utilizando um token criado offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registar o conector através de um objeto de credencial do Windows PowerShell
-1. Criar um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de utilizador administrativo e a palavra-passe para o seu diretório. Execute o seguinte comando, substituindo  *\<username\>*  e  *\<palavra-passe\>*:
+1. Criar um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de utilizador administrativo e a palavra-passe para o seu diretório. Execute o seguinte comando, substituindo *\<username\>* e  *\<palavra-passe\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

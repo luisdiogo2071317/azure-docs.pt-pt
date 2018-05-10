@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Carga de balanceamento em várias configurações de IP utilizando o portal do Azure
 
@@ -120,7 +120,7 @@ Para cada Web site (contoso.com e fabrikam.com), configure o conjunto IP Front-e
 
 4. Selecione o Balanceador de carga (**mylb**) que pretende adicionar o conjunto IP Front-end para.
 
-5. Em **definições**, selecione **conjuntos de front-end**. No painel seguinte, perto da parte superior, selecione **adicionar**.
+5. Em **definições**, selecione **configuração de IP de front-end**. No painel seguinte, perto da parte superior, selecione **adicionar**.
 
 6. Escreva um nome para o seu endereço IP Front-end (por exemplo, **contosofe** ou **fabrikamfe**).
 
@@ -128,7 +128,7 @@ Para cada Web site (contoso.com e fabrikam.com), configure o conjunto IP Front-e
 
 8. Criar o segundo endereço IP de front-end, repetindo <a href="#step3-3">passo 3</a> através de <a href="#step3-7">passo 7</a> nesta secção.
 
-Depois do conjunto de front-end estiver configurado, os endereços IP são apresentados em seu Balanceador de carga **conjunto de IP de front-end** definições. 
+Depois do conjunto de front-end estiver configurado, os endereços IP são apresentados em seu Balanceador de carga **configuração de IP de front-end** definições. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Passo 4: Configurar o conjunto de back-end
 

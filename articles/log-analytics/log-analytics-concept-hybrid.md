@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recolher dados de computadores no seu ambiente com a análise de registos
 
@@ -40,7 +40,7 @@ O agente para Linux e Windows comunica saído com o serviço de análise de regi
 
 Se estiver a monitorizar o computador com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2, pode ser multihomed com o serviço de análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo [do Operations Manager ](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com a análise de registos não receber a configuração para origens de dados e os dados recolhidos reencaminhar através do grupo de gestão. O agente do Windows pode reportar até quatro áreas de trabalho, enquanto o agente Linux só suporta relatórios para uma única área de trabalho.  
 
-O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+O agente para Linux e Windows não é apenas para ligar ao Log Analytics, também suporta a automatização do Azure para a função de trabalho de Runbook híbrida do anfitrião e soluções de gestão, tais como controlo de alterações e gestão de atualizações.  Para obter mais informações sobre a função Runbook Worker híbrido, consulte [trabalho de Runbook híbrida de automatização do Azure](../automation/automation-hybrid-runbook-worker.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, reveja os detalhes seguintes para verificar que cumpre os requisitos mínimos do sistema.

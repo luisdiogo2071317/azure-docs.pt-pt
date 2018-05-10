@@ -9,11 +9,11 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Criar e implementar modelos de classificação de texto com o Azure Machine Learning
 
@@ -137,7 +137,7 @@ df_test.head()
     <tr style="text-align: right;">
       <th></th>
       <th>Etiqueta</th>
-      <th>Texto</th>
+      <th>texto</th>
     </tr>
   </thead>
   <tbody>
@@ -420,13 +420,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Examine e definir os parâmetros dos passos pipeline diferente
 
-Embora o ajuste de um scikit-saiba modelo pré-processamentos está a ser efetuada antes do ajuste através de um pipeline no pré-processador e passos de featurizer (transformação). Por conseguinte, a referência a um "pipeline" de formação. Durante a avaliação, o pipeline completo, incluindo pré-processamentos e scikit-saber de predição de modelos, é aplicada a um conjunto de dados de teste.
+Durante a formação, tem de ter colunas de texto e a etiqueta. Embora, apenas a coluna de texto é necessária para as predições. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Examine e definir os parâmetros dos passos pipeline diferente
+    
+Normalmente, defina os parâmetros antes de ajustar um modelo. 
 
 ***Exemplo apresentado com text_word_ngrams*** 
-
-Normalmente, defina os parâmetros antes de ajustar um modelo. 
 
 Os exemplos de código seguintes mostram como preparar o modelo utilizando os parâmetros de pipeline e o modelo predefinido. 
 
@@ -573,7 +574,7 @@ Aplicar o classificador de texto treinado o conjunto de dados de teste para gera
     <tr style="text-align: right;">
       <th></th>
       <th>Etiqueta</th>
-      <th>Texto</th>
+      <th>texto</th>
       <th>probabilidades</th>
       <th>Predição</th>
     </tr>

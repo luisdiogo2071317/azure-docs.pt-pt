@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Aumentar a sua empresa com AppSource
 Azure Marketplace e AppSource são pontos de iniciar conjunta mercado aceda atividades com a Microsoft e um flywheel crescimento de negócio. Utilizando a promoção de iniciação, geração a pedido e conjunta venda e marketing, a oferta do marketplace pode ser centerpiece do motor de negócio a nuvem. Não existem não existem taxas para participar. Os clientes da Microsoft visitam a nossa marketplaces de nuvem todos os dias para localizar os direita aplicações e serviços para ajudar a melhorar a sua empresa. O nosso objetivo é ligar organizações com os serviços da Microsoft e os nosso ecossistema de parceiro e soluções. 
@@ -88,7 +88,7 @@ As tabelas seguintes cada passo da preencher a listagem de oferta de detalhe.
 **Detalhes storefront - artefactos de Marketing**
 | Definições storefront       | Melhores práticas          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Oferta logótipo (formato PNG, 58 x 48)**    | O logótipo deve ser concebido e otimizado para uma média digital.<br>Carregar o logótipo no formato PNG para a página de pesquisa a oferta. |
+| **Oferta logótipo (formato PNG, 48 x 48)**    | O logótipo deve ser concebido e otimizado para uma média digital.<br>Carregar o logótipo no formato PNG para a página de pesquisa a oferta. |
 | **Logótipo de oferta (PNG. 216 x 216)**     | O logótipo deve ser concebido e otimizado para uma média digital. <br>Carregar o logótipo no formato PNG detalhes da aplicação a oferta listagem página. |
 | **Saiba mais**   | Incluem suporte de vendas e marketing recursos em "Mais informações,", por exemplo, documentos técnicos, brochures, listas de verificação, PowerPoints e assim sucessivamente. Todos os ficheiros devem estar no formato PDF. Não propor, informe o prospect. <br>Adicionar a ligação à sua página de destino da aplicação para todos os seus documentos e adicionar parâmetros de URL para o ajudar a controlar os visitantes e avaliações. |
 | **Vídeos**       | Carregar, pelo menos, um vídeo, até quatro vídeos são permitidos. O vídeo deve comunicar o valor da oferta. Certifique-se a prospect heroína de bloco, não da sua empresa. O vídeo deve enunciar para o principal desafios e objetivos da sua pessoa de maker de decisão principais. <br>Recomendado comprimento: 60 90 segundos. Pode incorpore palavras de pesquisa de chave no nome das vídeos.<br>Considere adicionar vídeos adicionais, tais como um vídeo procedimentos; uma introdução vídeo ou um vídeo testimonial do cliente. |
@@ -98,7 +98,7 @@ As tabelas seguintes cada passo da preencher a listagem de oferta de detalhe.
 
 Quando a sua oferta está listada no AppSource, tiver resultantes o direito para apresentar o destaque de "Disponível no AppSource" no seu Web site. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource destaque](./media/marketplace-appsource/appsourcebadge.png)
     
 Adicionar este destaque para o seu site promove que a oferta no AppSource e pode ligar os potenciais clientes diretamente para a página de listagem. O destaque AppSource está disponível em três tamanhos. Pode transferir o destaque, bem como orientações sobre a utilizá-lo no [promover a disponibilidade da sua aplicação Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

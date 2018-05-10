@@ -14,47 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 524a2dc7a1a5ae4f0747af03d1b9e69d512f0f00
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="logic-apps-limits-and-configuration"></a>Configuração e os limites de aplicações lógicas
+# <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
-Este artigo descreve os limites atuais e detalhes de configuração para o Azure Logic Apps.
+Este artigo descreve os limites e os detalhes de configuração para criar e executar fluxos de trabalho automatizados com Azure Logic Apps. Flow da Microsoft, consulte [limites e configuração no Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config).
 
-## <a name="limits"></a>Limites
+<a name="definition-limits"></a>
 
-### <a name="http-request-limits"></a>Limites de pedidos HTTP
+## <a name="definition-limits"></a>Limites de definição
 
-Seguem-se os limites para um único pedido HTTP ou uma chamada de conector:
-
-#### <a name="timeout"></a>Tempo Limite (excedido)
+Seguem-se os limites para uma definição de aplicação lógica única:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Tempo limite do pedido | 120 Segundos | Um [padrão assíncrono](../logic-apps/logic-apps-create-api-app.md) ou [até ciclo](logic-apps-control-flow-loops.md) pode compensar conforme necessário | 
-|||| 
+| Ações por fluxo de trabalho | 500 | Para expandir este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
+| A profundidade de aninhamento para ações de permissão | 8 | Para expandir este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. | 
+| Fluxos de trabalho por região por subscrição | 1,000 | | 
+| Acionadores por fluxo de trabalho | 10 | Ao trabalhar na vista de código, não o designer | 
+| Limite de casos de âmbito do comutador | 25 | | 
+| Variáveis por fluxo de trabalho | 250 | | 
+| Carateres por expressão | 8,192 | | 
+| Tamanho máximo de `trackedProperties` | 16,000 carateres | 
+| Nome para `action` ou `trigger` | 80 carateres | | 
+| Comprimento do `description` | 256 carateres | | 
+| Máximo `parameters` | 50 | | 
+| Máximo `outputs` | 10 | | 
+||||  
 
-#### <a name="message-size"></a>Tamanho da mensagem
+<a name="run-duration-retention-limits"></a>
 
-| Nome | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Tamanho da mensagem | 100 MB | Algumas APIs e conectores não suportem 100 MB. | 
-| Limite de avaliação da expressão | 131,072 carateres | `@concat()`, `@base64()`, `string` não pode ser superior a este limite. | 
-|||| 
-
-#### <a name="retry-policy"></a>Política de repetição
-
-| Nome | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Tentativas de repetição | 90 | A predefinição é 4. Pode configurar com a [Repita parâmetro política](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
-| Intervalo máximo de repetição | 1 dia | Pode configurar com a [Repita parâmetro política](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
-| Mín. intervalo de repetição | seg 5 | Pode configurar com a [Repita parâmetro política](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-|||| 
-
-### <a name="run-duration-and-retention"></a>Duração de execução e retenção
+## <a name="run-duration-and-retention-limits"></a>Execute os limites de duração e a retenção
 
 Seguem-se os limites para uma aplicação de lógica única executar:
 
@@ -62,88 +56,99 @@ Seguem-se os limites para uma aplicação de lógica única executar:
 | ---- | ----- | 
 | Duração de execução | 90 dias | 
 | Retenção de armazenamento | hora de início de 90 dias da execução | 
-| Intervalo de periodicidade mín. | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos | 
+| Intervalo de periodicidade mínima | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos | 
 | Intervalo de periodicidade máximo | dias de 500 | 
 ||| 
 
 Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
-### <a name="looping-and-debatching-limits"></a>Criar ciclos e debatching limites
+<a name="looping-debatching-limits"></a>
+
+## <a name="looping-and-debatching-limits"></a>Criar ciclos e debatching limites
 
 Seguem-se os limites para uma aplicação de lógica única executar:
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| ForEach itens | 100,000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maior, conforme necessário. | 
 | Até iterações | 5.000 | | 
-| Itens de SplitOn | 100,000 | | 
+| ForEach itens | 100,000 | Pode utilizar o [ação de consulta](../connectors/connectors-native-query.md) para filtrar matrizes maior, conforme necessário. | 
 | ForEach paralelismo | 50 | A predefinição é 20. <p>Para definir um nível específico de paralelismo num ciclo ForEach, defina o `runtimeConfiguration` propriedade no `foreach` ação. <p>Para executar sequencialmente um ciclo de ForEach, defina o `operationOptions` propriedade como "Sequencial" no `foreach` ação. | 
+| Itens de SplitOn | 100,000 | | 
 |||| 
 
-### <a name="throughput-limits"></a>Limites de débito
+<a name="throughput-limits"></a>
 
-Seguem-se os limites de uma instância de aplicação lógica única:
+## <a name="throughput-limits"></a>Limites de débito
+
+Seguem-se os limites para uma aplicação de lógica única executar:
 
 | Nome | Limite | Notas | 
 | ----- | ----- | ----- | 
 | Execuções de ações por 5 minutos | 100,000 | Para aumentar o limite para 300,000, pode executar uma aplicação lógica `High Throughput` modo. Para configurar o modo de débito elevado, sob o `runtimeConfiguration` de recurso do fluxo de trabalho, defina o `operationOptions` propriedade para `OptimizedForHighThroughput`. <p>**Tenha em atenção**: modo débito elevado está em pré-visualização. Além disso, pode distribuir uma carga de trabalho por várias aplicações conforme necessário. | 
 | Chamadas de saída em simultâneo de ações | ~2,500 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
-| Ponto final de Runtime: entradas de chamadas em simultâneo |~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
+| Ponto final de Runtime: entradas de chamadas em simultâneo | ~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
 | Ponto final de Runtime: ler chamadas por 5 minutos  | 60,000 | Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 | Ponto final de Runtime: invocar chamadas por 5 minutos| 45,000 |Pode distribuir a carga de trabalho por várias aplicações conforme necessário. | 
 |||| 
 
 Exceda estes limites de processamento normal ou teste de carga de execução que poderão exceder estes limites [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
-### <a name="logic-app-definition-limits"></a>Limites de definição de aplicação lógica
+<a name="request-limits"></a>
 
-Seguem-se os limites para uma definição de aplicação lógica única:
+## <a name="http-request-limits"></a>Limites de pedidos de HTTP
+
+Seguem-se os limites para um único pedido HTTP ou chamada síncrona conector:
+
+#### <a name="timeout"></a>Tempo Limite (excedido)
+
+Algumas operações de conector efetuar chamadas assíncronas ou escutam para pedidos de webhook, pelo que o tempo limite para estas operações pode ser maior do que estes limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [acionadores de fluxo de trabalho e ações](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Ações por fluxo de trabalho | 500 | Para expandir este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
-| Profundidade de aninhamento de ação de permissão | 8 | Para expandir este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. | 
-| Fluxos de trabalho por região por subscrição | 1000 | | 
-| Acionadores por fluxo de trabalho | 10 | | 
-| Limite de casos de âmbito do comutador | 25 | | 
-| Número de variáveis por fluxo de trabalho | 250 | | 
-| Carateres máx. por expressão | 8,192 | | 
-| Máx. `trackedProperties` tamanho em carateres | 16,000 | 
-| `action`/`trigger` limite de nome | 80 | | 
-| `description` limite de comprimento | 256 | | 
-| `parameters` Limite | 50 | | 
-| `outputs` Limite | 10 | | 
+| Pedido de envio | 120 Segundos | Para mais operações em execução, utilize um [consulta assíncrona padrão](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [até ciclo](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
+| Resposta síncrona | 120 Segundos | Para obter a resposta o pedido original, todos os passos na resposta devem ser concluído dentro do limite, exceto se chamar outra aplicação de lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [chamar, acionador, ou aninhar as logic apps](../logic-apps/logic-apps-http-endpoint.md). | 
+|||| 
+
+#### <a name="message-size"></a>Tamanho da mensagem
+
+| Nome | Limite | Notas | 
+| ---- | ----- | ----- | 
+| Tamanho da mensagem | 100 MB | Algumas APIs e conectores não suportem 100 MB. | 
+| Limite de avaliação da expressão | 131,072 carateres | O `@concat()`, `@base64()`, `@string()` expressões não podem ser superior a este limite. | 
+|||| 
+
+#### <a name="retry-policy"></a>Política de repetição
+
+| Nome | Limite | Notas | 
+| ---- | ----- | ----- | 
+| Tentativas de repetição | 90 | A predefinição é 4. Para alterar a predefinição, utilize o [Repita parâmetro política](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Intervalo máximo de repetição | 1 dia | Para alterar a predefinição, utilize o [Repita parâmetro política](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Mín. intervalo de repetição | 5 segundos | Para alterar a predefinição, utilize o [Repita parâmetro política](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 |||| 
 
 <a name="custom-connector-limits"></a>
 
-### <a name="custom-connector-limits"></a>Limites de conetor personalizado
+## <a name="custom-connector-limits"></a>Limites de conetor personalizado
 
-Aplicam estes limites conectores personalizado que pode criar a partir de web APIs.
+Seguem-se os limites para os conectores personalizados que pode criar a partir de web APIs.
 
 | Nome | Limite | 
 | ---- | ----- | 
-| Número de conectores que pode criar | 1000 por subscrição do Azure | 
-| Número de pedidos por minuto para cada ligação criada por um conector personalizado | 500 pedidos para cada ligação criada pelo conector |
-||| 
-
-### <a name="integration-account-limits"></a>Limites de conta de integração
-
-Seguem-se os limites para os artefactos que pode adicionar a uma conta de integração.
-
-| Nome | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Esquema | 8 MB | Pode utilizar [URI de blob](../logic-apps/logic-apps-enterprise-integration-schemas.md) para carregar ficheiros maiores do que 2 MB. | 
-| Mapa (ficheiro XSLT) | 2 MB | | 
-| Ponto final de Runtime: ler chamadas por 5 minutos | 60,000 | Pode distribuir a carga de trabalho em várias contas, conforme necessário. | 
-| Ponto final de Runtime: invocar chamadas por 5 minutos | 45,000 | Pode distribuir a carga de trabalho em várias contas, conforme necessário. | 
-| Ponto final de Runtime: controlo de chamadas por 5 minutos | 45,000 | Pode distribuir a carga de trabalho em várias contas, conforme necessário. | 
-| Ponto final de Runtime: bloquear chamadas simultâneas | ~1,000 | Reduzir o número de pedidos simultâneos ou reduzir a duração, conforme necessário. | 
+| Vários conectores personalizados | 1000 por subscrição do Azure | 
+| Número de pedidos por minuto para cada ligação criada por um conector personalizado | 500 pedidos por ligação |
 |||| 
 
-Estes limites aplicam-se ao número de artefactos que pode adicionar a uma conta de integração.
+<a name="integration-account-limits"></a>
 
-#### <a name="free-pricing-tier"></a>Escalão de preço livres
+## <a name="integration-account-limits"></a>Limites de conta de integração
+
+<a name="artifact-number-limits"></a>
+
+### <a name="artifact-limits-per-integration-account"></a>Limites de artefacto por conta de integração
+
+Seguem-se os limites no número de artefactos para cada conta de integração.
+
+*Escalão de preço livres*
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
@@ -151,14 +156,30 @@ Estes limites aplicam-se ao número de artefactos que pode adicionar a uma conta
 | Outros tipos de artefactos | 25 | Os tipos de artefacto incluem parceiros, esquemas, certificados e mapas. Cada tipo pode ter cópias de segurança para o número máximo de artefactos. | 
 |||| 
 
-#### <a name="standard-pricing-tier"></a>Escalão de preço padrão
+*Escalão de preço padrão*
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
 | Qualquer tipo de artefactos | 500 | Os tipos de artefacto incluem contratos, parceiros, esquemas, certificados e mapas. Cada tipo pode ter cópias de segurança para o número máximo de artefactos. | 
 |||| 
 
-### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Tamanho da mensagem de protocolos de B2B (AS2, X12, EDIFACT)
+<a name="artifact-capacity-limits"></a>
+
+### <a name="artifact-capacity-limits"></a>Limites de capacidade de artefactos
+
+| Nome | Limite | Notas | 
+| ---- | ----- | ----- | 
+| Esquema | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize o [URI de blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Mapa (ficheiro XSLT) | 2 MB | | 
+| Ponto final de Runtime: ler chamadas por 5 minutos | 60,000 | Pode distribuir a carga de trabalho em várias contas conforme necessário. | 
+| Ponto final de Runtime: invocar chamadas por 5 minutos | 45,000 | Pode distribuir a carga de trabalho em várias contas conforme necessário. | 
+| Ponto final de Runtime: controlo de chamadas por 5 minutos | 45,000 | Pode distribuir a carga de trabalho em várias contas conforme necessário. | 
+| Ponto final de Runtime: bloquear chamadas simultâneas | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração conforme necessário. | 
+||||  
+
+<a name="b2b-protocol-limits"></a>
+
+### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Tamanho da mensagem de protocolo de B2B (AS2, X12, EDIFACT)
 
 Seguem-se os limites que se aplicam a protocolos B2B:
 
@@ -173,66 +194,95 @@ Seguem-se os limites que se aplicam a protocolos B2B:
 
 ## <a name="configuration-ip-addresses"></a>Configuração: Endereços IP
 
-### <a name="logic-apps-service"></a>Serviço de aplicações lógicas
+### <a name="azure-logic-apps-service"></a>Serviço de aplicações lógicas do Azure
 
-As chamadas de uma aplicação lógica diretamente que faz com que, ou seja, através de [HTTP](../connectors/connectors-native-http.md) ou [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) ou outros pedidos HTTP, provenientes de endereços IP nesta lista.
+Todas as aplicações lógicas numa região, utilize o mesmo intervalo de endereços IP.
+As chamadas de que as logic apps diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) ou outros pedidos HTTP, provenientes de endereços IP nesta lista. 
 
-|Região do Logic Apps|IP de saída|
-|-----------------|-----------|
-|Leste da Austrália|13.75.149.4, 104.210.91.55, 104.210.90.241|
-|Sudeste da Austrália|13.73.114.207, 13.77.3.139, 13.70.159.205|
-|Sul do Brasil|191.235.82.221, 191.235.91.7, 191.234.182.26|
-|Canadá Central|52.233.29.92, 52.228.39.241, 52.228.39.244|
-|Leste do Canadá|52.232.128.155, 52.229.120.45, 52.229.126.25|
-|Índia Central|52.172.154.168, 52.172.186.159, 52.172.185.79|
-|EUA Central|13.67.236.125, 104.208.25.27, 40.122.170.198|
-|Ásia Oriental|13.75.94.173, 40.83.127.19, 52.175.33.254|
-|EUA Leste|13.92.98.111, 40.121.91.41, 40.114.82.191|
-|EUA Leste 2|40.84.30.147, 104.208.155.200, 104.208.158.174|
-|Leste do Japão|13.71.158.3, 13.73.4.207, 13.71.158.120|
-|Oeste do Japão|40.74.140.4, 104.214.137.243, 138.91.26.45|
-|EUA Centro-Norte|168.62.248.37, 157.55.210.61, 157.55.212.238|
-|Europa do Norte|40.113.12.95, 52.178.165.215, 52.178.166.21|
-|EUA Centro-Sul|104.210.144.48, 13.65.82.17, 13.66.52.232|
-|Sudeste Asiático|13.76.133.155, 52.163.228.93, 52.163.230.166|
-|Sul da Índia|52.172.50.24, 52.172.55.231, 52.172.52.0|
-|EUA Centro-Oeste|52.161.27.190, 52.161.18.218, 52.161.9.108|
-|Europa Ocidental|40.68.222.65, 40.68.209.23, 13.95.147.65|
-|Índia Ocidental|104.211.164.80, 104.211.162.205, 104.211.164.136|
-|EUA Oeste|52.160.92.112, 40.118.244.241, 40.118.241.243|
-|EUA Oeste 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
-|Reino Unido Sul|51.140.74.14, 51.140.73.85, 51.140.78.44|
-|Reino Unido Oeste|51.141.54.185, 51.141.45.238, 51.141.47.136|
+| Região do Logic Apps | IP de saída |
+|-------------------|-------------|
+| Austrália | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
+| Leste da Austrália | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
+| Sul do Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
+| Canadá Central | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
+| Leste do Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25 |
+| Índia Central | 52.172.154.168, 52.172.186.159, 52.172.185.79 |
+| EUA Central | 13.67.236.125, 104.208.25.27, 40.122.170.198 |
+| Ásia Oriental | 13.75.94.173, 40.83.127.19, 52.175.33.254 |
+| EUA Leste | 13.92.98.111, 40.121.91.41, 40.114.82.191 |
+| EUA Leste 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174 |
+| Leste do Japão | 13.71.158.3, 13.73.4.207, 13.71.158.120 |
+| Oeste do Japão | 40.74.140.4, 104.214.137.243, 138.91.26.45 |
+| EUA Centro-Norte | 168.62.248.37, 157.55.210.61, 157.55.212.238 |
+| Europa do Norte | 40.113.12.95, 52.178.165.215, 52.178.166.21 |
+| EUA Centro-Sul | 104.210.144.48, 13.65.82.17, 13.66.52.232 |
+| Sul da Índia | 52.172.50.24, 52.172.55.231, 52.172.52.0 |
+| Sudeste Asiático | 13.76.133.155, 52.163.228.93, 52.163.230.166 |
+| EUA Centro-Oeste | 52.161.27.190, 52.161.18.218, 52.161.9.108 |
+| Europa Ocidental | 40.68.222.65, 40.68.209.23, 13.95.147.65 |
+| Índia Ocidental | 104.211.164.80, 104.211.162.205, 104.211.164.136 |
+| EUA Oeste | 52.160.92.112, 40.118.244.241, 40.118.241.243 |
+| EUA Oeste 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132 |
+| Reino Unido Sul | 51.140.74.14, 51.140.73.85, 51.140.78.44 |
+| Reino Unido Oeste | 51.141.54.185, 51.141.45.238, 51.141.47.136 |
+| | |
+
+| Região do Logic Apps | IP de entrada |
+|-------------------|-------------|
+| Leste da Austrália | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
+| Sudeste da Austrália | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
+| Sul do Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
+| Canadá Central | 13.88.249.209, 52.233.30.218, 52.233.29.79 |
+| Leste do Canadá | 52.232.129.143, 52.229.125.57, 52.232.133.109 |
+| Índia Central | 52.172.157.194, 52.172.184.192, 52.172.191.194 |
+| EUA Central | 13.67.236.76, 40.77.111.254, 40.77.31.87 |
+| Ásia Oriental | 168.63.200.173, 13.75.89.159, 23.97.68.172 |
+| EUA Leste | 137.135.106.54, 40.117.99.79, 40.117.100.228 |
+| EUA Leste 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136 |
+| Leste do Japão | 13.71.146.140, 13.78.84.187, 13.78.62.130 |
+| Oeste do Japão | 40.74.140.173, 40.74.81.13, 40.74.85.215 |
+| EUA Centro-Norte | 168.62.249.81, 157.56.12.202, 65.52.211.164 |
+| Europa do Norte | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
+| EUA Centro-Sul | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| Sul da Índia | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| Sudeste Asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
+| EUA Centro-Oeste | 52.161.26.172, 52.161.8.128, 52.161.19.82 |
+| Europa Ocidental | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
+| Índia Ocidental | 104.211.164.112, 104.211.165.81, 104.211.164.25 |
+| EUA Oeste | 52.160.90.237, 138.91.188.137, 13.91.252.184 |
+| EUA Oeste 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67 |
+| Reino Unido Sul | 51.140.79.109, 51.140.78.71, 51.140.84.39 |
+| Reino Unido Oeste | 51.141.48.98, 51.141.51.145, 51.141.53.164 |
 | | |
 
 ### <a name="connectors"></a>Conectores
 
 As chamadas que [conectores](../connectors/apis-list.md) tornar provenientes de endereços IP nesta lista.
 
-|Região do Logic Apps|IP de saída|
-|-----------------|-----------|
-|Leste da Austrália|40.126.251.213|
-|Sudeste da Austrália|40.127.80.34|
-|Sul do Brasil|191.232.38.129|
-|Canadá Central|52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13|
-|Leste do Canadá|52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52|
-|Índia Central|104.211.98.164|
-|EUA Central|40.122.49.51|
-|Ásia Oriental|23.99.116.181|
-|EUA Leste|191.237.41.52|
-|EUA Leste 2|104.208.233.100|
-|Leste do Japão|40.115.186.96|
-|Oeste do Japão|40.74.130.77|
-|EUA Centro-Norte|65.52.218.230|
-|Europa do Norte|104.45.93.9|
-|EUA Centro-Sul|104.214.70.191|
-|Sudeste Asiático|13.76.231.68|
-|Sul da Índia|104.211.227.225|
-|Europa Ocidental|40.115.50.13|
-|Índia Ocidental|104.211.161.203|
-|EUA Oeste|104.40.51.248|
-|Reino Unido Sul|51.140.80.51|
-|Reino Unido Oeste|51.141.47.105|
+| Região do Logic Apps | IP de saída |
+|-------------------|-------------|
+| Leste da Austrália | 40.126.251.213 |
+| Sudeste da Austrália | 40.127.80.34 |
+| Sul do Brasil | 191.232.38.129 |
+| Canadá Central | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
+| Leste do Canadá | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
+| Índia Central | 104.211.98.164 |
+| EUA Central | 40.122.49.51 |
+| Ásia Oriental | 23.99.116.181 |
+| EUA Leste | 191.237.41.52 |
+| EUA Leste 2 | 104.208.233.100 |
+| Leste do Japão | 40.115.186.96 |
+| Oeste do Japão | 40.74.130.77 |
+| EUA Centro-Norte | 65.52.218.230 |
+| Europa do Norte | 104.45.93.9 |
+| EUA Centro-Sul | 104.214.70.191 |
+| Sul da Índia | 104.211.227.225 |
+| Sudeste Asiático | 13.76.231.68 |
+| Europa Ocidental | 40.115.50.13 |
+| Índia Ocidental | 104.211.161.203 |
+| EUA Oeste | 104.40.51.248 |
+| Reino Unido Sul | 51.140.80.51 |
+| Reino Unido Oeste | 51.141.47.105 |
 | | | 
 
 ## <a name="next-steps"></a>Passos Seguintes  

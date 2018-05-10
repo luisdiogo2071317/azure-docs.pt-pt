@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 9fa87f8dc0c94ec93e049e35be727c031b4b06ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou o VHD
 
@@ -45,7 +45,7 @@ Para uma versão simplificada neste tópico, para fins de teste, avaliar ou a sa
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Passo 1: Retirar o aprovisionamento de VM
-Desaprovisionar a VM, com o agente da VM do Azure, para eliminar dados e ficheiros específicos do computador. Utilize o `waagent` comando com o *-deprovision + utilizador* parâmetro na sua origem de VM com Linux. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../windows/agent-user-guide.md).
+Desaprovisionar a VM, com o agente da VM do Azure, para eliminar dados e ficheiros específicos do computador. Utilize o `waagent` comando com o *-deprovision + utilizador* parâmetro na sua origem de VM com Linux. Para obter mais informações, veja o [Guia de utilizador do Agente Linux do Azure](../extensions/agent-linux.md).
 
 1. Ligar à VM com Linux utilizando um cliente de SSH.
 2. Na janela do SSH, escreva o seguinte comando:

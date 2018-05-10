@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de base de dados de SaaS multi-inquilino
 
@@ -88,7 +88,7 @@ Base de dados SQL do Azure fornece as ferramentas necessárias para configurar, 
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Dimensionamento de operações para a base de dados por inquilino
 
-A plataforma de SQL Database do Azure tem muitas funcionalidades de gestão foi concebidas para uma grande quantidade de gestão de bases de dados à escala, como também mais de 100 000 bases de dados.  Estas funcionalidades tornam o padrão de base de dados por inquilino plausible.
+A plataforma de SQL Database do Azure tem muitas funcionalidades de gestão foi concebidas para gerir um grande número de bases de dados à escala, como também mais de 100 000 bases de dados.  Estas funcionalidades tornam o padrão de base de dados por inquilino plausible.
 
 Por exemplo, suponha que um sistema tem uma base de dados do inquilino de 1000 como respetivo apenas uma base de dados.  A base de dados poderá ter 20 índices.  Se o sistema converte-se ao facto de bases de dados de inquilino único de 1000, aumenta a quantidade de índices para 20 000.  Base de dados do SQL como parte da [otimização automática][docu-sql-db-automatic-tuning-771a], as funcionalidades de indexação automáticas estão ativadas por predefinição.  A indexação automática gere de automaticamente todos os 20.000 índices e os respetivos otimizações de criação e drop em curso.  Estas ações automatizadas ocorrerem dentro de uma base de dados individuais e não são coordenados ou restringidas pelas ações semelhantes noutras bases de dados.  A indexação automática trata índices de forma diferente numa base de dados ocupado que numa base de dados menos ocupado.  Este tipo de personalização de gestão de índice seria impractical a escala de base de dados por inquilino se esta tarefa de gestão enorme que tiveram de ser efetuadas manualmente.
 
@@ -176,7 +176,7 @@ A tabela seguinte resume as diferenças entre os modelos de inquilinos principal
 | Custo de base de dados por inquilino | Elevado; é um tamanho adequado para picos. | Baixa; agrupamentos utilizados. | Mais baixo, para inquilinos pequenos no MT DBs. |
 | Gestão e monitorização de desempenho | Por-inquilinos apenas | Agregado + por inquilino | Agregar; Embora é por inquilino apenas para singletons. |
 | Complexidade de desenvolvimento | Baixa | Baixa | Média; devido à fragmentação. |
-| Complexidade operacional | Baixa-alta. Individualmente simples e complexos à escala. | Low-Medium. Complexidade de endereço de padrões à escala. | Baixa-alta. Gestão de inquilino individual é complexa. |
+| Complexidade operacional | Baixa-alta. Individualmente simples e complexos à escala. | Médio baixo. Complexidade de endereço de padrões à escala. | Baixa-alta. Gestão de inquilino individual é complexa. |
 | &nbsp; ||||
 
 ## <a name="next-steps"></a>Passos Seguintes

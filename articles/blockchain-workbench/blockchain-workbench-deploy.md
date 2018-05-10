@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 01f396b4a2b8851ce1433a297981d30328c113b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
 
@@ -79,27 +79,6 @@ Em seguida, terá de modificar o manifesto da aplicação para utilizar funçõe
 
 4.  Clique em **guardar** para guardar as alterações de manifesto de aplicação.
 
-### <a name="add-graph-api-key-to-application"></a>Adicionar chave de API de gráfico à aplicação
-
-Blockchain Workbench utiliza o Azure AD como o sistema de gestão de identidade principal para os utilizadores interajam com blockchain aplicações. Para o Blockchain Workbench para aceder ao Azure AD e obter informações de utilizador, tais como nomes e os e-mails, é necessário adicionar uma chave de acesso. Blockchain Workbench utiliza a chave para autenticar com o Azure AD.
-
-1. Para a aplicação, registado, selecione **definições** no painel de detalhes de aplicação registada.
-2. Selecione **Chaves**.
-3. Adicionar uma nova chave, especificando uma chave **Descrição** e escolher **expira** um valor de duração. 
-
-    ![Criar chave](media/blockchain-workbench-deploy/app-key-create.png)
-
-    |Definição  | Valor  |
-    |---------|---------|
-    | Descrição | `Service` |
-    | Expira em | Escolha uma duração de expiração |
-
-4. Selecione **Guardar**. 
-5. Copie o valor da chave e guarde-o para utilizar mais tarde. É necessário para a implementação.
-
-    > [!IMPORTANT]
-    >  Se não guarde a chave para a implementação, terá de gerar uma nova chave. Não é possível obter o valor da chave do portal mais tarde.
-
 ### <a name="add-graph-api-required-permissions"></a>Adicionar permissões da Graph API necessárias
 
 A aplicação de API tem de solicitar permissão ao utilizador para aceder ao diretório. Defina a permissão necessária seguinte para a aplicação de API:
@@ -121,6 +100,27 @@ A aplicação de API tem de solicitar permissão ao utilizador para aceder ao di
    ![Conceder permissões](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
 
    Conceder permissão permite Blockchain Workbench aceder aos utilizadores no diretório. É necessária a permissão de leitura para procurar e adicionar membros a Blockchain Workbench.
+
+### <a name="add-graph-api-key-to-application"></a>Adicionar chave de API de gráfico à aplicação
+
+Blockchain Workbench utiliza o Azure AD como o sistema de gestão de identidade principal para os utilizadores interajam com blockchain aplicações. Para o Blockchain Workbench para aceder ao Azure AD e obter informações de utilizador, tais como nomes e os e-mails, é necessário adicionar uma chave de acesso. Blockchain Workbench utiliza a chave para autenticar com o Azure AD.
+
+1. Para a aplicação, registado, selecione **definições** no painel de detalhes de aplicação registada.
+2. Selecione **Chaves**.
+3. Adicionar uma nova chave, especificando uma chave **Descrição** e escolher **expira** um valor de duração. 
+
+    ![Criar chave](media/blockchain-workbench-deploy/app-key-create.png)
+
+    |Definição  | Valor  |
+    |---------|---------|
+    | Descrição | `Service` |
+    | Expira em | Escolha uma duração de expiração |
+
+4. Selecione **Guardar**. 
+5. Copie o valor da chave e guarde-o para utilizar mais tarde. É necessário para a implementação.
+
+    > [!IMPORTANT]
+    >  Se não guarde a chave para a implementação, terá de gerar uma nova chave. Não é possível obter o valor da chave do portal mais tarde.
 
 ### <a name="get-application-id"></a>Obter ID da aplicação
 
@@ -170,6 +170,7 @@ Depois dos passos de pré-requisitos foram concluídos, está pronto para implem
     | Palavra-passe | A palavra-passe é utilizada para ligar a VMs. |
     | SSH | Utilizar uma chave pública RSA no início do formato de linha única com **ssh-rsa** ou utilize o formato PEM com várias linha. Pode gerar chaves SSH utilizando `ssh-keygen` no Linux e OS X ou PuTTYGen no Windows. Obter mais informações sobre chaves SSH, consulte [das chaves de como utilizar o SSH com o Windows no Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Base de dados de palavra-passe / Confirmar palavra-passe de base de dados | Especifique a palavra-passe Utilize para aceder à base de dados criada como parte da implementação. |
+    | Região de implementação | Especifique onde pretende implementar recursos Blockchain Workbench. Para a disponibilidade a melhor, isto deve corresponder a **localização** definição. |
     | Subscrição | Especifique a subscrição do Azure que pretende utilizar para a sua implementação. |
     | Grupos de recursos | Criar um novo grupo de recurso selecionando **criar nova** e especifique um nome de grupo de recursos exclusiva. |
     | Localização | Especificar a região que pretende implementar a estrutura. |
@@ -199,7 +200,7 @@ Depois dos passos de pré-requisitos foram concluídos, está pronto para implem
     | Desempenho de armazenamento | Escolha o desempenho de armazenamento VM preferido para a sua rede blockchain. |
     | Tamanho da máquina virtual | Escolha o tamanho da VM preferido para a sua rede blockchain. |
 
-10. Clique em **OK** para concluir a secção de tamanho e o desempenho de rede.
+10. Selecione **OK** para concluir a secção de tamanho e o desempenho de rede.
 
 11. Concluir o **Azure Monitor** definições.
 
@@ -207,9 +208,8 @@ Depois dos passos de pré-requisitos foram concluídos, está pronto para implem
 
     | Definição | Descrição  |
     |---------|--------------|
-    | Monitorização | Escolha se pretende que o Monitor do Azure para ser utilizado para monitorizar a rede blockchain |
-    | Ligar à instância existente do OMS | Escolha se pretende utilizar uma instância existente do Operations Management Suite ou crie um novo |
-    | Localização de área de trabalho do OMS | Escolha uma região para a área de trabalho do OMS. Isto deve corresponder da região para a localização do Blockchain Workbench |
+    | Monitorização | Escolha se pretende ativar a monitorização do Azure monitorizar a rede blockchain |
+    | Ligar à instância de análise de registos existente | Escolha se pretende utilizar um existente análise de registos de instância ou crie um novo. Se utilizar uma instância existente, introduza o seu ID da área de trabalho e a chave primária. |
 
 12. Clique em **OK** para concluir a secção de Monitor do Azure.
 

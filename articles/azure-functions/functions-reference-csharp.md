@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (.csx)
 
@@ -335,7 +335,7 @@ As assemblagens seguintes podem ser referenciadas pelo nome simples (por exemplo
 ## <a name="referencing-custom-assemblies"></a>Referência a assemblagens personalizadas
 
 Para fazer referência a uma assemblagem personalizada, pode utilizar tanto um *partilhado* assemblagem ou um *privada* assemblagem:
-- As assemblagens partilhadas são partilhadas entre todas as funções dentro de uma aplicação de função. Para fazer referência a uma assemblagem personalizada, carregar a assemblagem para a sua aplicação de função, tal como num `bin` pasta na raiz da aplicação de função. 
+- As assemblagens partilhadas são partilhadas entre todas as funções dentro de uma aplicação de função. Para fazer referência a uma assemblagem personalizada, carregar a assemblagem para uma pasta denominada `bin` no seu [pasta de raiz da aplicação de função](functions-reference.md#folder-structure) (wwwroot). 
 - Assemblagens privadas fazem parte do contexto de uma função especificada e suportam sideloading das versões diferentes. As assemblagens privadas devem ser carregadas um `bin` pasta no diretório de função. Referência as assemblagens com o nome de ficheiro, tal como `#r "MyAssembly.dll"`. 
 
 Para obter informações sobre como carregar ficheiros para a pasta de função, consulte a secção sobre [pacote de gestão](#using-nuget-packages).

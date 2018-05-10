@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
 editor: ''
-ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19a1ae7ae7acc6fe09a529dd174363735343027e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilizar o sistema para a gestão de identidade entre domínios para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações
 
@@ -35,7 +35,7 @@ Esta capacidade pode ser utilizada em conjunto com a capacidade de "traga a sua 
 Existem dois casos de utilização para utilizar o SCIM no Azure Active Directory:
 
 * **Aprovisionamento de utilizadores e grupos para aplicações que suportam o SCIM** aplicações que suportem o SCIM 2.0 e utilizam tokens de portador do OAuth para a autenticação funciona com o Azure AD sem configuração.
-* **Criar a sua própria solução de aprovisionamento de aplicações que suportem outros aprovisionamento baseado na API** para aplicações não SCIM, pode criar um ponto final de SCIM traduzir entre o ponto final do Azure AD SCIM e qualquer API suporta a aplicação para utilizador o aprovisionamento. Para ajudar a desenvolver um ponto final SCIM, fornecemos bibliotecas de infraestrutura de idioma comum (CLI) juntamente com os exemplos de código que mostram como para fornecer um ponto final SCIM e traduzir mensagens SCIM.  
+* **Criar a sua própria solução de aprovisionamento para aplicações que suportam a outros aprovisionamento baseado na API** para aplicações não SCIM, pode criar um ponto final de SCIM traduzir entre o ponto final do Azure AD SCIM e qualquer API suporta a aplicação para Aprovisionamento de utilizadores. Para ajudar a desenvolver um ponto final SCIM, existem bibliotecas de infraestrutura de idioma comum (CLI) juntamente com os exemplos de código que mostram como para fornecer um ponto final SCIM e traduzir mensagens SCIM.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Aprovisionamento de utilizadores e grupos para aplicações que suportam o SCIM
 Azure AD pode ser configurado para automaticamente a aprovisionar atribuída utilizadores e grupos para aplicações que implementa um [sistema entre domínios para gestão de identidades 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) serviço web e aceitar tokens de portador do OAuth para autenticação. Na especificação SCIM 2.0, as aplicações têm de cumprir estes requisitos:
@@ -56,7 +56,7 @@ Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas 
 **Para ligar uma aplicação que suporta o SCIM:**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Navegue para * * do Azure Active Directory > aplicações da empresa e selecione **nova aplicação > todos os > aplicação de Galeria não**.
+2. Navegue até à **do Azure Active Directory > aplicações da empresa**e selecione **nova aplicação > todos os > aplicação de Galeria não**.
 3. Introduza um nome para a sua aplicação e clique em **adicionar** ícone para criar um objeto de aplicação.
     
   ![][1]
@@ -131,12 +131,12 @@ Para efetuar este processo mais fácil, um conjunto de [exemplos de código](htt
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
 8. No Windows sob **definições do Windows > redes e definições da Internet**, selecione o **Firewall do Windows > Definições Avançadas**e criar um **regras de entrada** que permite o acesso de entrada para a porta 9000.
-9. Se o computador do Windows estiver atrás de um router, o router tem de ser configurado para efetuar a conversão de acesso de rede entre a respetiva porta 9000 que é exposto à internet e da porta 9000 no computador Windows. Isto é necessário para o Azure AD poder aceder a este ponto final na nuvem.
+9. Se o computador do Windows estiver atrás de um router, o router tem de ser configurado para efetuar a conversão de acesso de rede entre a respetiva porta 9000 que é exposto à internet e da porta 9000 no computador Windows. Esta configuração é necessária para o Azure AD poder aceder a este ponto final na nuvem.
 
 **Para registar o ponto final SCIM de exemplo no Azure AD:**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Navegue para * * do Azure Active Directory > aplicações da empresa e selecione **nova aplicação > todos os > aplicação de Galeria não**.
+2. Navegue até à **do Azure Active Directory > aplicações da empresa**e selecione **nova aplicação > todos os > aplicação de Galeria não**.
 3. Introduza um nome para a sua aplicação e clique em **adicionar** ícone para criar um objeto de aplicação. O objeto de aplicação criado destina-se para representar a aplicação de destino, teria de ser aprovisionamento e implementação-início de sessão único para e não apenas o ponto final SCIM.
 4. No ecrã de resultante, selecione o **aprovisionamento** separador na coluna esquerda.
 5. No **modo de aprovisionamento** menu, selecione **automática**.
@@ -144,7 +144,7 @@ Para efetuar este processo mais fácil, um conjunto de [exemplos de código](htt
   ![][2]
   *Figura 4: Configurar o aprovisionamento no portal do Azure*
     
-6. No **URL de inquilino** campo, introduza o URL e a porta do seu ponto final SCIM expostos a internet. Isto seria algo semelhante ao seguinte http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, onde < endereço ip > é internet expostos endereço IP.  
+6. No **URL de inquilino** campo, introduza o URL e a porta do seu ponto final SCIM expostos a internet. A entrada é semelhante ao seguinte http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, onde < endereço ip > é internet expostos endereço IP.  
 7. Se o ponto final SCIM requer um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para a opção **segredo Token** campo. Se este campo for deixado em branco, o Azure AD irá incluir um token de portador do OAuth emitido a partir do Azure AD com cada pedido. Aplicações que utilizam o Azure AD como um fornecedor de identidade pode validar do Azure AD-emitido token.
 8. Clique em de **Testar ligação** botão com o Azure Active Directory tentam estabelecer ligação ao ponto final do SCIM. Se as tentativas de falharem, são apresentadas informações de erro.  
 9. Se as tentativas para ligar com êxito a aplicação, em seguida, clique em **guardar** para guardar as credenciais de administrador.
@@ -239,7 +239,7 @@ Utilizar as bibliotecas do CLI, os programadores utilizando essas bibliotecas po
     }
     }
 
-Este serviço tem de ter um HTTP endereço e o servidor de certificado de autenticação do que a autoridade de certificação de raiz é um dos seguintes: 
+Este serviço tem de ter um HTTP endereço e o servidor de certificado de autenticação do que a autoridade de certificação de raiz é um dos nomes seguintes: 
 
 * CNNIC
 * Comodo
@@ -347,12 +347,12 @@ Os programadores através das bibliotecas CLA fornecidas pela Microsoft para a c
 ## <a name="user-and-group-schema"></a>Esquema de utilizador e grupo
 Azure Active Directory pode aprovisionar dois tipos de recursos para os serviços web SCIM.  Os tipos de recursos são utilizadores e grupos.  
 
-Recursos de utilizador são identificados pelo identificador de esquema, urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento predefinido de atributos de utilizadores no Azure Active Directory para os atributos de recursos de urn: ietf:params:scim:schemas:extension:enterprise:2.0:User é fornecido na tabela 1, abaixo.  
+Recursos de utilizador são identificados pelo identificador de esquema, "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User", que está incluído nesta especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento predefinido de atributos de utilizadores no Azure Active Directory para os atributos de recursos "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" é fornecido na tabela 1, abaixo.  
 
 Grupo de recursos é identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos do http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group recursos.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>1 de tabela: Mapeamento de atributos de utilizador de predefinido
-| Utilizador do Active Directory do Azure | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Utilizador do Active Directory do Azure | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |ativo |
 | displayName |displayName |
@@ -534,7 +534,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  O valor do parâmetro de consulta atributos id, significa que não existir um objeto de utilizador que satisfaça a expressão fornecida como o valor do parâmetro de consulta de filtro, em seguida, o serviço é esperado para responder com um urn: ietf:params:scim:schemas:core:2.0:User ou recurso de urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, incluindo apenas o valor do atributo de id esse recurso.  O valor da **id** atributo é conhecido para o requerente. Está incluído no valor do parâmetro de consulta filtro; o objetivo pedir para o mesmo é, na verdade pedir uma representação mínima de um recurso que que satisfaçam a expressão de filtro como uma indicação de se pretende ou não existe qualquer esse objeto.   
+  O valor do parâmetro de consulta atributos, "id", significa que não existir um objeto de utilizador que satisfaça a expressão fornecida como o valor do parâmetro de consulta de filtro, em seguida, o serviço é esperado para responder com uma "urn: ietf:params:scim:schemas:core:2.0: Recurso de utilizador"ou"urn: ietf:params:scim:schemas:extension:enterprise:2.0:User", incluindo apenas o valor do atributo de"id"esse recurso.  O valor da **id** atributo é conhecido para o requerente. Está incluído no valor do parâmetro de consulta filtro; o objetivo pedir para o mesmo é, na verdade pedir uma representação mínima de um recurso que que satisfaçam a expressão de filtro como uma indicação de se pretende ou não existe qualquer esse objeto.   
 
   Se o serviço foi criado com as bibliotecas de infraestrutura de idioma comum fornecidas pela Microsoft para implementar serviços SCIM, em seguida, o pedido é convertido uma chamada para o método de consulta do fornecedor do serviço. O valor das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
   

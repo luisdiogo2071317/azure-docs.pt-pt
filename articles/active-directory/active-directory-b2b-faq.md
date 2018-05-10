@@ -2,25 +2,19 @@
 title: Colaboração B2B do Active Directory Azure perguntas mais frequentes | Microsoft Docs
 description: Obtenha respostas às perguntas mais frequentes sobre a colaboração B2B do Azure Active Directory do.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6160e3e6f23bf4eabb33295fa19323c71c7ed18d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração B2B do Active Directory Azure perguntas mais frequentes
 
@@ -129,16 +123,5 @@ Para obter informações sobre o que licenças as necessidades da organização 
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
+- [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Como é que os administradores do Azure AD adicionar utilizadores de colaboração do B2B?](active-directory-b2b-admin-add-users.md)
-* [Como é que os infotrabalhadores adicionar utilizadores de colaboração do B2B?](active-directory-b2b-iw-add-users.md)
-* [Os elementos do e-mail de convite de colaboração B2B](active-directory-b2b-invitation-email.md)
-* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
-* [Licenciamento e colaboração do Azure AD B2B](active-directory-b2b-licensing.md)
-* [Resolução de problemas de colaboração B2B do Azure AD](active-directory-b2b-troubleshooting.md)
-* [Azure AD B2B colaboração API e personalização](active-directory-b2b-api.md)
-* [Autenticação multifator para os utilizadores da colaboração B2B](active-directory-b2b-mfa-instructions.md)
-* [Adicionar utilizadores de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
-* [Índice de artigos da gestão de aplicações no Azure AD](active-directory-apps-index.md)

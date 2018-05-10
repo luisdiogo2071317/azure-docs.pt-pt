@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dce0114c19f6153d2cba789cdc00920d42834b2d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade no seu IoT hub
 
@@ -193,7 +193,7 @@ Identidades de dispositivo são representadas como documentos JSON com as seguin
 | ETag |obrigatório só de leitura |Uma cadeia representando o num ETag fraco para a identidade de dispositivo, como por [RFC7232][lnk-rfc7232]. |
 | autenticação |opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
 | auth.symkey |opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenados em formato base64. |
-| status |Necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado**, o dispositivo tem permissão para estabelecer a ligação. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto final orientado para o dispositivo. |
+| status |obrigatório |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado**, o dispositivo tem permissão para estabelecer a ligação. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto final orientado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de carateres longa 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os carateres UTF-8 são permitidos. |
 | statusUpdateTime |Só de leitura |Um indicador temporal, que mostra a data e hora da última atualização do Estado. |
 | connectionState |Só de leitura |Um campo com a indicação de estado da ligação: o **ligado** ou **desligado**. Este campo representa a vista do Iothub do Estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado da ligação é atualizado apenas para dispositivos com o MQTT ou AMQP. Além disso, se baseia no nível de protocolo pings (MQTT pings ou AMQP pings) e pode ter um atraso máximo de apenas 5 minutos. Por esta razão, podem existir falsos positivos, tais como dispositivos comunicados como ligado, mas que estão desligados. |
@@ -205,7 +205,7 @@ Identidades de dispositivo são representadas como documentos JSON com as seguin
 
 ## <a name="module-identity-properties"></a>Propriedades de identidade do módulo
 
-Identidades de dispositivo são representadas como documentos JSON com as seguintes propriedades:
+Identidades de módulo são representadas como documentos JSON com as seguintes propriedades:
 
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ Identidades de dispositivo são representadas como documentos JSON com as seguin
 | ETag |obrigatório só de leitura |Uma cadeia representando o num ETag fraco para a identidade de dispositivo, como por [RFC7232][lnk-rfc7232]. |
 | autenticação |opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
 | auth.symkey |opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenados em formato base64. |
-| status |Necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado**, o dispositivo tem permissão para estabelecer a ligação. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto final orientado para o dispositivo. |
+| status |obrigatório |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado**, o dispositivo tem permissão para estabelecer a ligação. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto final orientado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de carateres longa 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os carateres UTF-8 são permitidos. |
 | statusUpdateTime |Só de leitura |Um indicador temporal, que mostra a data e hora da última atualização do Estado. |
 | connectionState |Só de leitura |Um campo com a indicação de estado da ligação: o **ligado** ou **desligado**. Este campo representa a vista do Iothub do Estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado da ligação é atualizado apenas para dispositivos com o MQTT ou AMQP. Além disso, se baseia no nível de protocolo pings (MQTT pings ou AMQP pings) e pode ter um atraso máximo de apenas 5 minutos. Por esta razão, podem existir falsos positivos, tais como dispositivos comunicados como ligado, mas que estão desligados. |

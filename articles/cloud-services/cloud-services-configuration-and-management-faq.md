@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/08/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd817750d6c6d43ae6973eb38b866b76921f33b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -34,6 +34,7 @@ Este artigo inclui perguntas mais frequentes sobre problemas de configuração e
 - [Como gerar um certificado de assinatura do pedido (CSR) sem "RDP utilize" para a instância?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [O meu certificado de gestão do serviço de nuvem está prestes a expirar. Como renová-lo?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Como automatizar a instalação do principal devendo SSL e certificate(.p7b) intermédio?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [O que é o objetivo do certificado "Microsoft Azure Service gestão para MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitorização e o registo**
 
@@ -104,6 +105,10 @@ O **Get-AzurePublishSettingsFile** irá criar um novo certificado de gestão no 
 
 Pode automatizar esta tarefa utilizando um script de arranque (cmd/batch/PowerShell) e registar esse script de arranque no ficheiro de definição de serviço. Adicione o script de arranque e de certificado (. p7b ficheiro) na pasta do projeto do mesmo diretório de script de arranque.
 
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>O que é o objetivo do certificado "Microsoft Azure Service gestão para MachineKey"?
+
+Este certificado é utilizado para encriptar as chaves de computador funções da Web do Azure. Para obter mais informações, veja este advisory [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+
 Para obter mais informações, veja os artigos seguintes:
 - [Como configurar e executar tarefas de arranque para um serviço em nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
 - [Tarefas comuns de arranque do serviço em nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
@@ -133,7 +138,7 @@ Para obter mais informações, consulte os seguintes documentos:
 * [Armazenar e ver dados de diagnósticos no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 * [Parar de registos de IIS escrever num serviço em nuvem](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-## <a name="network-configuration"></a>Configuração de rede
+## <a name="network-configuration"></a>Configuração da rede
 
 ### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Como se definir o tempo limite de inatividade para o Balanceador de carga do Azure?
 Pode especificar o tempo limite no ficheiro de definição (. csdef) do serviço como esta:
@@ -180,7 +185,7 @@ Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do cliente
 5. Reinicie o servidor.
 6. Aceda ao seu **Web Site predefinido** e, em **enlaces**, crie um novo enlace de TLS com o certificado autoassinado que acabou de criar. 
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: Browser, aplicações e o servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)

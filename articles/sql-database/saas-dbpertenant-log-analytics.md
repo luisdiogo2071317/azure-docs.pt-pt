@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar a análise de registos com uma aplicação SaaS de base de dados do SQL Server multi-inquilino
 
@@ -65,7 +65,7 @@ O código fonte da aplicação e scripts de base de dados multi-inquilino Wingti
 
 Análise de registos é um serviço separado que deve ser configurado. Análise de registos recolhe dados de registo, telemetria e métricas numa área de trabalho de análise de registos. Tal como outros recursos no Azure, tem de ser criada uma área de trabalho de análise de registos. A área de trabalho não tem de ser criada no mesmo grupo de recursos, como as aplicações que monitoriza. Se o fizer, por isso, muitas vezes, mais adequado apesar. Para a aplicação de bilhetes Wingtip, utilize um grupo de recursos única para se certificar de que a área de trabalho é eliminada com a aplicação.
 
-1. No ISE do PowerShell, abra *..\\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\**LogAnalytics.ps1*** de demonstração.
+1. No ISE do PowerShell, abra *... \\Mestre de MultiTenantDb WingtipTicketsSaaS\\Learning módulos\\monitorização de desempenho e gestão\\Iniciar análise\\demonstração LogAnalytics.ps1*.
 2. Para executar o script, prima F5.
 
 Agora pode abrir a análise de registos no portal do Azure ou no portal do Operations Management Suite. Demora alguns minutos para recolher a telemetria na área de trabalho de análise de registos e torná-lo visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico, a experiência é mais interessante. 

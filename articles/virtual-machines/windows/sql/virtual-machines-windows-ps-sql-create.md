@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2f0d9c42e32f2dd1181eac8d74c324b5ff2b0c53
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Como aprovisionar as máquinas de virtuais do SQL Server com o Azure PowerShell
 
@@ -128,7 +128,7 @@ Execute o cmdlet seguinte para criar o novo grupo de recursos.
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 A máquina virtual necessita de recursos de armazenamento para o disco do sistema operativo e para os ficheiros de dados e de registo do SQL Server. De simplicidade, criamos um único disco para ambos. Pode anexar mais discos posteriormente utilizando o [Azure adicionar disco](/powershell/module/azure/add-azuredisk) cmdlet para colocar os dados do SQL Server e o registo de ficheiros em discos dedicados. Utilize o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet para criar uma conta de armazenamento standard no seu novo grupo de recursos e com o nome da conta de armazenamento, o nome do Sku de armazenamento e a localização definidos utilizando as variáveis que anteriormente inicializado .
 
 Execute o cmdlet seguinte para criar a sua nova conta de armazenamento.
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Definir as propriedades do sistema operativo da máquina virtual
-Agora, está prontos para definir as propriedades do sistema operativo da máquina virtual com [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) necessitam de cmdlet para definir o tipo do sistema operativo como Windows, o [agente da máquina virtual](../agent-user-guide.md) para ser instalada, especifique que o cmdlet permite a atualização automática e defina o nome de máquina virtual, o nome do computador e a credencial utilizando as variáveis que anteriormente inicializado.
+Agora, está prontos para definir as propriedades do sistema operativo da máquina virtual com [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) necessitam de cmdlet para definir o tipo do sistema operativo como Windows, o [agente da máquina virtual](../../extensions/agent-windows.md) para ser instalada, especifique que o cmdlet permite a atualização automática e defina o nome de máquina virtual, o nome do computador e a credencial utilizando as variáveis que anteriormente inicializado.
 
 Execute o cmdlet seguinte para definir as propriedades do sistema operativo para a máquina virtual.
 

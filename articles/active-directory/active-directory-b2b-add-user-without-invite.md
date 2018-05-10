@@ -1,26 +1,21 @@
 ---
-title: "Adicionar utilizadores de colaboração B2B do Azure Active Directory sem um convite | Microsoft Docs"
-description: "Pode permitir que um utilizador convidado adicionar outros utilizadores convidados ao seu Azure AD sem resgatar um convite na colaboração B2B do Azure Active Directory do."
+title: Adicionar utilizadores de colaboração B2B do Azure Active Directory sem um convite | Microsoft Docs
+description: Pode permitir que um utilizador convidado adicionar outros utilizadores convidados ao seu Azure AD sem resgatar um convite na colaboração B2B do Azure Active Directory do.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+documentationcenter: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 68d828b8fb23f7074be5fe691a4250d0fa653ab7
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 656651d067e5685aead65fdd647a0ea500ae7de9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Adicionar utilizadores de convidado de colaboração B2B sem um convite
 
@@ -34,16 +29,8 @@ Conceda estes privilégios quando:
 
 ### <a name="next-steps"></a>Passos Seguintes
 
-Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
+- [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Como é que os infotrabalhadores adicionar utilizadores de colaboração do B2B?](active-directory-b2b-iw-add-users.md)
+- [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
+- [Delegar convites para colaboração B2B do Azure Active Directory do](active-directory-b2b-delegate-invitations.md)
 
-* [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Como é que os administradores de Azure Active Directory adicionar utilizadores de colaboração do B2B?](active-directory-b2b-admin-add-users.md)
-* [Como é que os infotrabalhadores adicionar utilizadores de colaboração do B2B?](active-directory-b2b-iw-add-users.md)
-* [Os elementos do e-mail de convite de colaboração B2B](active-directory-b2b-invitation-email.md)
-* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
-* [Licenciamento e colaboração do Azure AD B2B](active-directory-b2b-licensing.md)
-* [Resolução de problemas de colaboração B2B do Azure Active Directory do](active-directory-b2b-troubleshooting.md)
-* [Colaboração do Azure Active Directory B2B perguntas mais frequentes (FAQ)](active-directory-b2b-faq.md)
-* [Colaboração B2B do Active Directory Azure API e personalização](active-directory-b2b-api.md)
-* [Autenticação multifator para os utilizadores da colaboração B2B](active-directory-b2b-mfa-instructions.md)
-* [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)

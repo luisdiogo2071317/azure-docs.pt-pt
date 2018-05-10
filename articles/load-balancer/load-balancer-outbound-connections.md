@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -119,7 +119,7 @@ Quando utilizar [padrão Balanceador de carga com disponibilidade zonas](load-ba
 
 ### <a name="pat"></a>Porta masquerading realizar o SNAT (TERESA)
 
-Quando um recurso de Balanceador de carga público está associado com instâncias VM, cada origem de ligação de saída é foi reescrita. A origem é rescrita do espaço de endereços IP privado da rede virtual para o endereço IP público do load balancer de front-end. No espaço de endereço IP público, 5-cadeias de identificação do fluxo (endereço IP de origem, porta de origem, o protocolo de transporte IP, endereço IP de destino, porta de destino) tem de ser exclusivo.  
+Quando um recurso de Balanceador de carga público está associado com instâncias VM, cada origem de ligação de saída é foi reescrita. A origem é rescrita do espaço de endereços IP privado da rede virtual para o endereço IP público do load balancer de front-end. No espaço de endereço IP público, 5-cadeias de identificação do fluxo (endereço IP de origem, porta de origem, o protocolo de transporte IP, endereço IP de destino, porta de destino) tem de ser exclusivo.  Realizar o SNAT masquerading porta pode ser utilizado com protocolos TCP ou UDP IP.
 
 Portas efémeras (portas de realizar o SNAT) são utilizadas para atingir esse objetivo após a conversão de endereço IP de origem privada, porque vários fluxos provenientes de um único endereço IP público. 
 

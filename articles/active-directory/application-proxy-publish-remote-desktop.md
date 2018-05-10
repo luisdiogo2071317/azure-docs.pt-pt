@@ -1,25 +1,25 @@
 ---
-title: "Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD | Microsoft Docs"
-description: "Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD."
+title: Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD | Microsoft Docs
+description: Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -75,14 +75,14 @@ Ligar para a implementação de RDS como administrador e altere o nome do servid
 1. Ligar ao servidor RDS a executar a função de Mediador de ligações de RD.
 2. Iniciar **Gestor de servidor**.
 3. Selecione **dos serviços de ambiente de trabalho remoto** a partir do painel à esquerda.
-4. Selecione **descrição geral**.
+4. Selecione **Descrição geral**.
 5. Na secção Descrição geral da implementação, selecione o menu pendente e escolha **editar propriedades de implementação**.
 6. No separador de Gateway de RD, altere o **nome do servidor** campo para o URL externo que definiu para o ponto de final de anfitrião de RD no Proxy de aplicações.
 7. Alterar o **método de início de sessão** campo para **autenticação de palavra-passe**.
 
   ![Ecrã de propriedades de implementação no RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Execute este comando para cada coleção. Substitua  *\<yourcollectionname\>*  e  *\<proxyfrontendurl\>*  pelas suas informações. Este comando activa início de sessão único entre Web de RD e Gateway de RD e otimiza o desempenho:
+8. Execute este comando para cada coleção. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* pelas suas informações. Este comando activa início de sessão único entre Web de RD e Gateway de RD e otimiza o desempenho:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

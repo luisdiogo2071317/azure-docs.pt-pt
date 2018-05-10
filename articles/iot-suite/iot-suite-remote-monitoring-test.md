@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -33,7 +33,7 @@ O primeiro cenário, a Contoso pretende testar um novo dispositivo lightbulb int
 | Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Cor                    | Em branco, vermelho, azul            |
-| Brightness               | 0 e 100                    |
+| Brightness               | 0 a 100                    |
 | Estimado vida restantes | Contagem decrescente de 10 000 horas |
 
 *Telemetria*
@@ -258,7 +258,11 @@ Tem agora tudo no local e estiver pronto para começar a adicionar um novo tipo 
 
 1. No **variáveis de ambiente** secção, edite o valor da **PCS\_IOTHUB\_CONNSTRING** variável para ser a cadeia de ligação do IoT Hub que anotou anteriormente. Em seguida, guarde as alterações.
 
-1. No Explorador de soluções, clique com botão direito do **simulação de dispositivo** soluções e escolha **definir projetos de arranque**. Escolha **projeto de arranque único** e selecione **SimulationAgent**. Em seguida, clique em **OK**.
+1. No Explorador de soluções, clique com botão direito do **WebService** do projeto, escolha **propriedades**e, em seguida, escolha **depurar**.
+
+1. No **variáveis de ambiente** secção, edite o valor da **PCS\_IOTHUB\_CONNSTRING** variável para ser a cadeia de ligação do IoT Hub que anotou anteriormente. Em seguida, guarde as alterações.
+
+1. No Explorador de soluções, clique com botão direito do **simulação de dispositivo** soluções e escolha **definir projetos de arranque**. Escolha **projeto de arranque único** e selecione **WebService**. Em seguida, clique em **OK**.
 
 1. Cada tipo de dispositivo tem um ficheiro de modelo JSON e scripts associados no **dados/Services/devicemodels** pasta. No Explorador de soluções, copie o **Chiller** ficheiros para criar o **Lightbulb** ficheiros conforme mostrado na seguinte tabela:
 
@@ -294,10 +298,12 @@ O **lightbulb 01.json** ficheiro define as características do tipo, tais como a
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ Para limitar o número de dispositivos simulados que se ligam a solução durant
 
 Agora está pronto para testar o novo tipo de lightbulb simulada, executando o projeto de simulação de dispositivo localmente.
 
-1. No Explorador de soluções, faça duplo clique **SimulationAgent**, escolha **depurar** e, em seguida, escolha **iniciar nova instância**.
+1. No Explorador de soluções, faça duplo clique **WebService**, escolha **depurar** e, em seguida, escolha **iniciar nova instância**.
 
 1. Para verificar se os dois dispositivos simulados estão ligados ao seu IoT Hub, abra o portal do Azure no seu browser.
 

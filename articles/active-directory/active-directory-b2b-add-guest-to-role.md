@@ -1,27 +1,20 @@
 ---
-title: "Adicionar um utilizador de colaboração do Azure Active Directory B2B a uma função | Microsoft Docs"
-description: "Adicionar um utilizador convidado para uma função no Azure Active Directory"
+title: Adicionar um utilizador de colaboração do Azure Active Directory B2B a uma função | Microsoft Docs
+description: Adicionar um utilizador convidado para uma função no Azure Active Directory
 services: active-directory
-documentationcenter: 
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/08/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/15/2017
-ms.author: twooley
 ms.reviewer: sasubram
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b788b003299ff11bcbdcb11a2c7a21ac5081d634
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d9889a15bd4e09863640e8c8e7ea03220d23bb23
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceder permissões aos utilizadores de organizações de parceiros no seu inquilino do Azure Active Directory
 
@@ -41,15 +34,5 @@ Utilizadores de colaboração B2B do Active Directory (Azure AD) do Azure são a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
-
-* [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propriedades de utilizador de colaboração B2B](active-directory-b2b-user-properties.md)
-* [Delegar B2bB convites de colaboração](active-directory-b2b-delegate-invitations.md)
-* [Grupos dinâmicos e de colaboração B2B](active-directory-b2b-dynamic-groups.md)
-* [Código de colaboração do B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
-* [Configurar aplicações SaaS colaboração B2B](active-directory-b2b-configure-saas-apps.md)
-* [Tokens de utilizador de colaboração B2B](active-directory-b2b-user-token.md)
-* [Afirmações de utilizador de colaboração B2B mapeamento](active-directory-b2b-claims-mapping.md)
-* [Partilha externa do Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitações atuais de colaboração B2B](active-directory-b2b-current-limitations.md)
+- [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Propriedades de utilizador de colaboração B2B](active-directory-b2b-user-properties.md)

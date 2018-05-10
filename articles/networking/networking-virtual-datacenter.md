@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Datacenter Virtual do Microsoft Azure: Uma perspetiva de rede
 **Microsoft Azure**: agilizar, poupar dinheiro, integrar aplicações no local e dados
@@ -192,7 +192,7 @@ Componentes de infraestrutura contenham as seguintes funcionalidades:
 -   [**UDR**][UDR]. O tráfego numa rede Virtual é encaminhado por predefinição com base na tabela de encaminhamento do sistema. Uma rota definir utilizador é uma tabela de encaminhamento personalizada que os administradores de rede pode associar a um ou mais sub-redes para substituir o comportamento da tabela de encaminhamento do sistema e a definir um caminho de comunicação dentro de uma rede virtual. A presença de UDRs garante que esse tráfego de saída do trânsito spoke através de VMs personalizadas específicas e/ou os dispositivos de rede Virtual e Balanceadores de carga presente no hub e no spokes a realizar.
 -   [**NSG**][NSG]. Um grupo de segurança de rede é uma lista de regras de segurança que atuam como tráfego de filtragem de portas de origens de IP, IP de destino, protocolos, portas de origem de IP e IP de destino. O NSG pode ser aplicado a uma sub-rede, um cartão de Virtual NIC associado uma VM do Azure, ou ambos. Os NSGs são essenciais para implementar um controlo de fluxo correto no hub e no spokes a realizar. O nível de segurança proporcionada pelo NSG é uma função de que portas o abrir e para que fim. Os clientes devem aplicar filtros adicionais-VM com firewalls baseada no anfitrião, tais como IPtables ou a Firewall do Windows.
 -   [**DNS**][DNS]. A resolução do nome de recursos em VNets de um vDC é fornecida através de DNS. O Azure oferece serviços DNS para ambos [pública][DNS] e [privada] [ PrivateDNS] resolução de nomes. Zonas privadas fornecem a resolução do nome dentro de uma rede virtual e em redes virtuais. Pode ter zonas privadas span não apenas em redes virtuais na mesma região, mas também em regiões e subscrições. Para a resolução do pública, o DNS do Azure fornece um serviço de alojamento para domínios DNS, fornecer a resolução do nome utilizando a infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
--   [* * Subscrição] [ SubMgmt] e [gestão de grupo de recursos][RGMgmt]* *. Uma subscrição define um limite de natural para criar vários grupos de recursos no Azure. Recursos numa subscrição são assembled em conjunto nos contentores lógicos com o nome de grupos de recursos. O grupo de recurso representa um grupo lógico para organizar os recursos de um vDC.
+-   [**Subscrição** ] [ SubMgmt] e [ **gestão de grupo de recursos**][RGMgmt]. Uma subscrição define um limite de natural para criar vários grupos de recursos no Azure. Recursos numa subscrição são assembled em conjunto nos contentores lógicos com o nome de grupos de recursos. O grupo de recurso representa um grupo lógico para organizar os recursos de um vDC.
 -   [**RBAC**][RBAC]. Através do RBAC, é possível papel organizacional do mapa, juntamente com direitos de acesso a recursos específicos do Azure, permitindo-lhe restringir os utilizadores apenas para um determinado subconjunto de ações. Utilizar o RBAC, pode conceder acesso ao atribuir a função adequada para os utilizadores, grupos e aplicações no âmbito relevante. O âmbito de uma atribuição de função pode ser uma subscrição do Azure, um grupo de recursos ou um único recurso. RBAC permite a herança de permissões. Uma função atribuída a um âmbito principal também concede acesso a subordinados contidos. Utilizar o RBAC, pode segregar funções e conceder apenas a quantidade de acesso aos utilizadores que precisam para desempenhar as suas funções. Por exemplo, utilize o RBAC para permitir que um empregado gerir máquinas virtuais numa subscrição, enquanto outro pode gerir bds SQL dentro da mesma subscrição.
 -   [**O VNet Peering**][VNetPeering]. A funcionalidade fundamental utilizada para criar a infraestrutura de uma vDC é o VNet Peering, um mecanismo que liga as duas redes virtuais (VNets) na mesma região através da rede de centro de dados do Azure ou utilizar o principal em todo o mundo do Azure em regiões.
 

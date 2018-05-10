@@ -3,23 +3,23 @@ title: Perguntas mais frequentes sobre serviço Kubernetes do Azure
 description: Fornece respostas a algumas das perguntas comuns sobre o serviço de Kubernetes do Azure.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 55006a3f0193c96849c52f87ab01dc13ac0c7a16
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: d03f906f0cf4d22772388a589424877d8bb2f8ce
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o serviço do Azure Kubernetes (AKS)
 
 Endereços este artigo induzirem frequentes perguntas sobre o serviço do Azure Kubernetes (AKS).
 
 > [!IMPORTANT]
-> Serviço de Kubernetes do Azure (AKS) está atualmente no **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> O Azure Kubernetes Service (AKS) está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 >
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Em que regiões do Azure fornecem o serviço de Kubernetes do Azure (AKS) de hoje em dia?
@@ -28,9 +28,7 @@ Endereços este artigo induzirem frequentes perguntas sobre o serviço do Azure 
 - Leste do Canadá
 - EUA Central
 - EUA Leste
-- Sudeste Asiático
 - Europa Ocidental
-- EUA Oeste 2
 
 ## <a name="when-will-additional-regions-be-added"></a>Quando serão adicionadas mais regiões?
 

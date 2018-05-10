@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d71f9fc2b69e1a99b518c2317cccde712ab40fec
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Descrição geral em direto de transmissão em fluxo utilizando os Media Services do Azure
 
@@ -54,7 +54,7 @@ Um **Canal** representa um pipeline de processamento de conteúdos de transmiss�
   > A utilização de um método pass-through é a forma mais económica de realizar uma transmissão em fluxo em direto quando estiver a realizar vários eventos durante um longo período de tempo e já investiu em codificadores no local. Consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentados). RTP (MPEG-TS) também é suportada, fornecida tem uma ligação dedicada ao centro de dados do Azure. Os seguintes codificadores em direto com saída RTMP são conhecidos para trabalhar com canais deste tipo: Telestream Wirecast, FMLE. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentados). Os seguintes codificadores em direto com saída RTMP são conhecidos para trabalhar com canais deste tipo: Telestream Wirecast, FMLE. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
 A partir da versão 2.10 de serviços de suporte de dados, quando criar um canal, pode especificar de que forma pretende que para o canal receber o fluxo de entrada e se pretende ou não quiser para o canal realizar live encoding da sua transmissão em fluxo. Tem duas opções:
 
@@ -68,7 +68,7 @@ A tabela seguinte fornece um guia para comparar os dois tipos de canal suportado
 | --- | --- | --- |
 | Entrada de velocidade de transmissão única é codificada em múltiplos de forma na nuvem |Não |Sim |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60 + fps |720p, 6 camadas, 30 fps |
-| Protocolos de entrada |RTMP, transmissão em fluxo de uniforme |RTMP, transmissão em fluxo uniforme e RTP |
+| Protocolos de entrada |RTMP, transmissão em fluxo de uniforme |RTMP, transmissão em fluxo de uniforme |
 | Preço |Consulte o [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Vídeo em direto" |Consulte o [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo de execução máximo |24x7 |8 horas |
 | Suporte para inserir slates |Não |Sim |

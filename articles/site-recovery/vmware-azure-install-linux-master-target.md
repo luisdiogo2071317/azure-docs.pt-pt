@@ -1,19 +1,19 @@
 ---
-title: "Instalar um servidor de destino principal do Linux para ativação pós-falha do Azure no local | Microsoft Docs"
-description: "Antes de trocar uma máquina virtual Linux, precisa de um servidor de destino principal do Linux. Saiba como instalar um."
+title: Instalar um servidor de destino principal do Linux para ativação pós-falha do Azure no local | Microsoft Docs
+description: Antes de trocar uma máquina virtual Linux, precisa de um servidor de destino principal do Linux. Saiba como instalar um.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar um servidor de destino principal do Linux
 Após a ativação pós-falha de máquinas virtuais no Azure, pode efetuar a cópia as máquinas virtuais para o site no local. Para falhar novamente, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino principal no local para receber o tráfego. 
@@ -50,9 +50,9 @@ As seguintes kernels Ubuntu suportados são suportados.
 
 |Série de kernel  |Suporta até  |
 |---------|---------|
-|4.4      |4.4.0-81-generic         |
+|4.4      |4.4.0-81-Generic         |
 |4.8      |4.8.0-56-Generic         |
-|4.10     |4.10.0-24-generic        |
+|4.10     |4.10.0-24-Generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Implementar o servidor de destino mestre
@@ -240,18 +240,13 @@ Utilize os seguintes passos para criar um disco de retenção:
 
 1. Anexe um novo disco de 1 TB à máquina virtual de destino principal do Linux e, em seguida, iniciar a máquina.
 
-2. Utilize o **multipath -odas** comando para obter o ID de multipath do disco de retenção.
-    
-     `multipath -ll`
+2. Utilize o **multipath -odas** comando para obter o ID do disco de retenção multipath: **multipath -odas**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![ID de Multipath](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Formatar o disco e, em seguida, crie um sistema de ficheiros na unidade de novo.
-
+3. Formatar o disco e, em seguida, crie um sistema de ficheiros na unidade de novo: **mkfs.ext4 /dev mapeador/< id de multipath do disco de retenção >**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Criar um sistema de ficheiros na unidade](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Sistema de ficheiros](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Depois de criar o sistema de ficheiros, Monte o disco de retenção.
 
@@ -266,7 +261,7 @@ Utilize os seguintes passos para criar um disco de retenção:
     
     Selecione **inserir** para começar a editar o ficheiro. Criar uma nova linha e, em seguida, insira o seguinte texto. Edite o multipath um ID de disco com base no ID do multipath realçado do comando anterior.
 
-     **/Dev/mapeador/ <Retention disks multipath id> /mnt/retenção ext4 RW novos 0 0**
+    **/Dev/mapeador/ <Retention disks multipath id> /mnt/retenção ext4 RW novos 0 0**
 
     Selecione **Esc**e, em seguida, escreva **: wq** (escrever e sair) para fechar a janela do editor.
 
@@ -356,7 +351,7 @@ Verá que o **versão** campo indica o número de versão de destino principal.
 
 * Devido a algumas configurações de NIC personalizadas, a interface de rede estiver desativada durante o arranque e não é possível inicializar o agente de destino principal. Certifique-se de que as seguintes propriedades estão corretamente definidas. Verifique estas propriedades de Ethernet de cartão /etc/sysconfig/network-scripts/ifcfg do ficheiro-eth *.
     * BOOTPROTO=dhcp
-    * ONBOOT=yes
+    * ONBOOT = yes
 
 
 ## <a name="next-steps"></a>Passos Seguintes

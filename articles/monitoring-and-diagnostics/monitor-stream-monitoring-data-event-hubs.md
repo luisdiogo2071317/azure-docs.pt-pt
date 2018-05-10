@@ -1,9 +1,9 @@
 ---
-title: "Transmitir dados para os Hubs de eventos de monitorização do Azure | Microsoft Docs"
-description: "Saiba como fluxo todos os seus dados de monitorização do Azure para um hub de eventos para obter os dados para um parceiro SIEM ou a ferramenta de análise."
+title: Transmitir dados para os Hubs de eventos de monitorização do Azure | Microsoft Docs
+description: Saiba como fluxo todos os seus dados de monitorização do Azure para um hub de eventos para obter os dados para um parceiro SIEM ou a ferramenta de análise.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure de fluxo monitorização dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -79,7 +79,7 @@ Terá de instalar um agente para enviar dados de monitorização de SO de convid
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Transmitir dados de Linux para um hub de eventos
 
-O [agente Linux do Azure diagnóstico](../virtual-machines/linux/diagnostic-extension.md) pode ser utilizado para enviar dados a partir de uma máquina de Linux para um hub de eventos de monitorização. Fazê-lo ao adicionar o hub de eventos como um sink no seu LAD definições de ficheiros protegidos de configuração JSON. [Consulte este artigo para obter mais informações sobre como adicionar o sink de hub de eventos para o agente Linux do Azure diagnóstico](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+O [agente Linux do Azure diagnóstico](../virtual-machines/extensions/diagnostics-linux.md) pode ser utilizado para enviar dados a partir de uma máquina de Linux para um hub de eventos de monitorização. Fazê-lo ao adicionar o hub de eventos como um sink no seu LAD definições de ficheiros protegidos de configuração JSON. [Consulte este artigo para obter mais informações sobre como adicionar o sink de hub de eventos para o agente Linux do Azure diagnóstico](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Não é possível configurar a transmissão em fluxo de dados de monitorização de SO de convidado para um hub de eventos no portal. Em vez disso, tem de editar manualmente o ficheiro de configuração.

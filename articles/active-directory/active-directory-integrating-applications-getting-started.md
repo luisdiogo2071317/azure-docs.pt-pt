@@ -3,23 +3,23 @@ title: Começar a integração do Azure AD com aplicações | Microsoft Docs
 description: Este artigo é um guia de introdução para integrar o Azure Active Directory (AD) com aplicações no local e aplicações em nuvem.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b8b17e731757c2b17f312fa86208254de7ab104c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integrar o Azure Active Directory com aplicações de introdução
 ## <a name="overview"></a>Descrição geral
@@ -90,6 +90,6 @@ Se estiver a escrever uma nova aplicação e pretender para ajudar os programado
 
 Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicações do Azure, consulte o artigo ["Traga a sua própria aplicação" com a configuração SAML do Self-Service do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 

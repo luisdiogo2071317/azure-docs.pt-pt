@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="1.14.4"/>1.14.4</a>
+* documentação de npm for corrigida.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Suporte adicionado para repetições de predefinição em problemas de ligação.
+* Suporte adicionado para ler as alterações de coleção do feed.
+* Erros de consistência de sessão fixo que causou ligados intermitentemente "leitura sessão não está disponível".
+* Adicionado suporte para as métricas de consulta.
+* Alterar o número máximo do http do agente de ligações.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Documentação atualizada a referência de base de dados do Azure Cosmos em vez do Azure DocumentDB.
@@ -193,6 +203,8 @@ Qualquer pedido de BD do Cosmos utilizando que um SDK extinto é rejeitadas pelo
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |03 de Maio de 2018 |--- |
+| [1.14.3](#1.14.3) |03 de Maio de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de Dezembro de 2017 |--- |
 | [1.14.1](#1.14.1) |10 de Novembro de 2017 |--- |
 | [1.14.0](#1.14.0) |9 de Novembro de 2017 |--- |

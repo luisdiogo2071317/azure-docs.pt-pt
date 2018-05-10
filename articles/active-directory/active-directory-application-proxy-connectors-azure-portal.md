@@ -1,25 +1,25 @@
 ---
-title: "Publicação de aplicações em redes separadas e localizações de utilização de grupos do conector no Proxy de aplicações do Azure AD | Microsoft Docs"
-description: "Aborda como criar e gerir grupos de conectores no Proxy de aplicações do Azure AD."
+title: Publicação de aplicações em redes separadas e localizações de utilização de grupos do conector no Proxy de aplicações do Azure AD | Microsoft Docs
+description: Aborda como criar e gerir grupos de conectores no Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações utilizar grupos de conector
 
@@ -78,7 +78,7 @@ Utilizar como um exemplo de uma organização que tem várias máquinas virtuais
   
 Com os grupos de conector do Proxy de aplicações do Azure AD, pode ativar a um serviço comuns proteger o acesso a todas as aplicações sem criar dependência adicional na sua rede empresarial:
 
-![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
+![Fornecedores de nuvem de Iaas vários AzureAD](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Várias florestas – grupos de conetor diferente para cada floresta
 

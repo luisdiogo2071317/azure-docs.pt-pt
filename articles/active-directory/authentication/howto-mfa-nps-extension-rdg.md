@@ -10,13 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 839b248fb6410fd36a1741beb1ae3598fe93b0a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: fbca491e845ad96ecafc6afb5f40d46b99c047bf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto utilizando a extensão de servidor de políticas de rede (NPS) e o Azure AD
+# <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto utilizando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
 Este artigo fornece detalhes para integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto com o Azure multi-factor Authentication (MFA) com a extensão de servidor de políticas de rede (NPS) para o Microsoft Azure. 
 
@@ -144,8 +144,8 @@ Se pretender utilizar os seus próprios certificados, tem de associar a chave p�
 Para utilizar o script, forneça a extensão com as credenciais de administrador do Azure AD e o ID de inquilino do Azure AD que copiou anteriormente. Execute o script em cada servidor NPS onde instalou a extensão NPS. Em seguida, faça o seguinte:
 
 1. Abra uma linha de comandos do Windows PowerShell administrativa.
-2. Na linha de comandos do PowerShell, escreva **cd 'c:\Programas\Microsoft Files\Microsoft\AzureMfa\Config'** e prima **ENTER**.
-3. Tipo _.\AzureMfsNpsExtnConfigSetup.ps1_e prima **ENTER**. O script verifica se o módulo Azure Active Directory PowerShell está instalado. Se não instalado, o script instala o módulo para si.
+2. Na linha de comandos do PowerShell, escreva `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`e prima **ENTER**.
+3. Tipo `.\AzureMfsNpsExtnConfigSetup.ps1`e prima **ENTER**. O script verifica se o módulo Azure Active Directory PowerShell está instalado. Se não instalado, o script instala o módulo para si.
 
   ![O Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
@@ -176,7 +176,7 @@ Políticas de autorização de ligações de ambiente de trabalho remoto (CAPs d
 
 3. Do Configuration Manager Gateway de RD, faça duplo clique  **\[nome do servidor\] (Local)** e clique em **propriedades**.
 
-  ![Nome do servidor](./media/howto-mfa-nps-extension-rdg/image9.png)
+  ![Nome do Servidor](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 4. Na caixa de diálogo Propriedades, selecione o **arquivo de CAPs de RD** separador.
 5. No separador arquivo de CAPs de RD, selecione **servidor Central com NPS**. 

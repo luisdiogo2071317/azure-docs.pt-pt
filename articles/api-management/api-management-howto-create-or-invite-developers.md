@@ -2,10 +2,10 @@
 title: Como gerir contas de utilizador na API Management do Azure | Microsoft Docs
 description: Saiba como criar ou convidar os utilizadores na API Management do Azure
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 501210c3fab2659deb9594e1bbd9aa51912187e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 53ed914a3890aab1dd49536856feeb8975986e00
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na API Management do Azure
 Na API Management, os programadores são os utilizadores com as APIs que expõe a utilizar a API Management. Este guia mostra a como criar e convidar programadores para utilizar as APIs e os produtos que disponibiliza aos mesmos com a instância de API Management. Para informações sobre como gerir contas de utilizador através de programação, consulte o [entidade utilizador](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentação o [API REST de gestão](https://msdn.microsoft.com/library/azure/dn776326.aspx) referência.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure AD
 
@@ -46,7 +46,7 @@ O **estado** coluna são as informações mais importantes e mostra o problema m
 | Estado | Comentário |
 | --- | --- |
 | parado-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto não está disponível e não pode ser contactado. |
-| stopped-error-limit |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
+| parado-erro-limite |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
 | concluída -\*-erros |A execução foi concluída, mas existem erros (menos de 5000) que devem ser investigados. |
 | concluída -\*-avisos |A execução foi concluída, mas alguns dados não está no estado esperado. Se tiver de erros, em seguida, esta mensagem é, normalmente, apenas um sintoma. Até ter resolvidas erros, não deve investigar avisos. |
 | exito |Não existem problemas. |
@@ -139,7 +139,7 @@ Deve ter um conector para:
 - Cada floresta do Active Directory do utilizador é representada na. Este representação pode incluir foreignSecurityPrincipals e objetos de contacto.
 - Um conetor no Azure AD.
 
-Se estão em falta o conector para o Azure AD, em seguida, lidos [atributos de MV](#MV-attributes) para verificar os critérios de que está a ser aprovisionado para o Azure AD.
+Se estão em falta o conector para o Azure AD, em seguida, lidos [atributos de MV](#mv-attributes) para verificar os critérios de que está a ser aprovisionado para o Azure AD.
 
 Este separador também permite-lhe navegar para o [objeto de espaço de conector](#connector-space-object-properties). Selecionar uma linha e clique em **propriedades**.
 

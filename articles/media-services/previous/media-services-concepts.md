@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Media Services do Azure
 Este tópico fornece uma descrição geral dos conceitos de Media Services mais importantes.
@@ -108,7 +108,7 @@ Para obter informações sobre codificadores suportados, consulte [codificadores
 Nos Media Services do Azure, um canal representa um pipeline de processamento de conteúdos de transmissão em fluxo em direto. Um canal recebe fluxos de entrada em direto de uma das seguintes formas:
 
 * Um codificador em direto no local envia-múltipla RTMP ou transmissão em fluxo uniforme (MP4 fragmentado) para o canal. Pode utilizar os seguintes codificadores em direto com velocidade de múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine comunicações, Envivio, Cisco e elementar. Os seguintes codificadores em direto de saída RTMP: codificadores Adobe Flash codificador em direto, Telestream Wirecast, Teradek, Haivision e Transcodificadores. Transmita as transmissões em fluxo através dos canais sem codificação e transcodificação mais. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-* Um fluxo de velocidade de transmissão única (dos seguintes formatos: RTP (MPEG-TS)), RTMP ou transmissão em fluxo uniforme (MP4 fragmentado)) é enviada para o canal ativado para realizar live encoding com Media Services. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um fluxo de velocidade de transmissão única (dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentado)) é enviada para o canal ativado para realizar live encoding com Media Services. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
 ### <a name="channel"></a>Canal
 Nos Media Services, [canal](https://docs.microsoft.com/rest/api/media/operations/channel)s são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um canal fornece um ponto final de entrada (URL de inserção) que, em seguida, forneça a um transcoder em direto. O canal recebe fluxos de entrada em direto do transcoder em direto e torna a mesma disponível para transmissão em fluxo através de um ou mais lidam. Canais também fornecem um ponto final de pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão em fluxo antes do processamento adicional e entrega.

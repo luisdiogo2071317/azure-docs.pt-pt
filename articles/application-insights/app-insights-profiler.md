@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Perfil live aplicações web do Azure com o Application Insights
 
-*Esta funcionalidade do Azure Application Insights está normalmente disponível para a funcionalidade Web Apps do App Service do Azure e está em pré-visualização para os recursos de computação do Azure.*
+*Esta funcionalidade do Azure Application Insights está normalmente disponível para a funcionalidade Web Apps do App Service do Azure e está em pré-visualização para os recursos de computação do Azure. Para obter informações sobre [no local a utilização do gerador de perfis](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 Este artigo aborda a quantidade de tempo é gasto cada método de aplicação web em direto quando utilizar [Application Insights](app-insights-overview.md). A ferramenta de gerador de perfis do Application Insights apresenta perfis de detalhado de pedidos em direto que foram processados pela sua aplicação. O gerador de perfis realça o *caminho frequente* que utiliza mais tempo. Pedidos com vários tempos de resposta são profiled numa base de amostragem. Ao utilizar uma variedade de técnicas, pode minimizar os custos gerais de tem associados à aplicação.
 
@@ -138,7 +138,7 @@ O gerador de perfis aleatoriamente executa dois minutos a cada hora em cada máq
 
 Os mais servidores que estão disponíveis para alojar a aplicação, tem do gerador de perfis o menor impacto no desempenho da aplicação global. Isto acontece porque o algoritmo de amostragem resulta no gerador de perfis em apenas 5 por cento dos servidores a executar em qualquer altura. Estão disponíveis para servir pedidos web e a sobrecarga de servidor causada executando o gerador de perfis de deslocamento mais servidores.
 
-## <a name="disable-profiler"></a>Desativar o gerador de perfis
+## <a name="disable-profiler"></a>Desativar Profiler
 Para interromper ou reiniciar o gerador de perfis para uma instância de aplicações web individuais, em **trabalhos Web**, vá para o recurso de aplicações Web. Para eliminar o gerador de perfis, aceda a **extensões**.
 
 ![Desativar o gerador de perfis de um trabalho web][disable-profiler-webjob]

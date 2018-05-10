@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestrutura de chaves públicas de pilha do Azure
 
@@ -35,7 +35,7 @@ Pilha do Azure tem uma rede de infraestrutura público com externamente acessív
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 A lista seguinte descreve os requisitos de certificados que são necessários para implementar a pilha do Azure: 
 - Certificados tem de ser emitidos a partir de uma autoridade de certificação interna ou uma autoridade de certificação pública. Se for utilizada uma autoridade de certificação pública, tem de ser incluído na imagem base do sistema operativo como parte do programa autoridade de raiz fidedigna Microsoft. Pode encontrar a lista completa aqui: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- A infraestrutura de pilha do Azure tem de ter acesso de rede para a autoridade de certificado utilizado para assinar os certificados
+- A infraestrutura de pilha do Azure tem de ter acesso à rede para localização de lista de revogação de certificados (CRL) da autoridade de certificação publicada no certificado. Esta CRL tem de ser um ponto final de http
 - Quando a rotação dos certificados, os certificados devem estar a emitido na mesma autoridade de certificado interno utilizado para assinar certificados fornecidos na implementação ou qualquer autoridade de certificação pública de acima
 - A utilização de certificados autoassinados não são suportados
 - O certificado pode ser um certificado de caráter universal único que abrangem a todos os espaços de nomes no campo do nome de alternativo do requerente (SAN). Em alternativa, pode utilizar certificados individuais, tais como a utilizar os carateres universais para pontos finais **acs** e Cofre de chaves, onde são necessárias. 
@@ -45,6 +45,7 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - Os ficheiros pfx do certificado tem de ter valores "Autenticação de servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Utilização de chave avançada".
 - O certificado "emitido para:" campo não tem de ser igual ao respetivo "emitido por:" campo.
 - As palavras-passe para todos os ficheiros pfx de certificado devem ser o mesmo no momento da implementação
+- Palavra-passe para o pfx de certificado tem de ser uma palavra-passe complexa.
 - Certifique-se de que o se os nomes de requerente e do requerente alternativo nomes de todos os certificados coincidem com as especificações descritas neste artigo para evitar a implementação falhou.
 
 > [!NOTE]
@@ -67,12 +68,12 @@ Para a sua implementação, a [Região] [externalfqdn] valores tem de coincidir 
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | Portal público | portal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
 | Portal de administração | adminportal.&lt;region>.&lt;fqdn> | Portais | &lt;region>.&lt;fqdn> |
-| Público de Gestor de recursos do Azure | gestão. &lt;região >. &lt;fqdn > | Gestor de Recursos do Azure | &lt;region>.&lt;fqdn> |
-| Administrador do Gestor de recursos do Azure | adminmanagement. &lt;região >. &lt;fqdn > | Gestor de Recursos do Azure | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Blobs | blob.&lt;region>.&lt;fqdn> |
+| Público de Gestor de recursos do Azure | gestão. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Administrador do Gestor de recursos do Azure | adminmanagement. &lt;região >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Tabelas | tabela. &lt;região >. &lt;fqdn > |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de Filas | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Key Vault | cofre. &lt;região >. &lt;fqdn > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Armazenamento de filas | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) | Cofre de Chaves | cofre. &lt;região >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificado de SSL de caráter universal) |  Keyvault interno |  adminvault. &lt;região >. &lt;fqdn > |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Para o ambiente de pilha do Azure em versões de pré-1803
@@ -81,10 +82,10 @@ Para a sua implementação, a [Região] [externalfqdn] valores tem de coincidir 
 |-----|-----|-----|-----|
 |Portal público|portal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
 |Portal de administração|adminportal.*&lt;region>.&lt;fqdn>*|Portais|*&lt;region>.&lt;fqdn>*|
-|Público de Gestor de recursos do Azure|gestão.  *&lt;região >.&lt; FQDN >*|Gestor de Recursos do Azure|*&lt;region>.&lt;fqdn>*|
-|Administrador do Gestor de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Gestor de Recursos do Azure|*&lt;region>.&lt;fqdn>*|
+|Público de Gestor de recursos do Azure|gestão.  *&lt;região >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
+|Administrador do Gestor de recursos do Azure|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|Um certificado de caráter universal de várias subdomínio com nomes alternativos do requerente para:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Armazenamento|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
+|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Cofre de Chaves|vault.*&lt;region>.&lt;fqdn>*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Certificado de SSL de caráter universal)|Keyvault interno|adminvault.*&lt;region>.&lt;fqdn>*|
 |
 <sup>1</sup> certificados de ACS o requer três SANs de caráter universal num certificado único. Caráter universal vários SANs num único certificado poderá não ser suportado por todas as autoridades de certificação pública. 
@@ -118,9 +119,9 @@ A tabela seguinte descreve os pontos finais e certificados necessários para os 
 
 <sup>1</sup> requer um certificado com vários nomes alternativos para o caráter universal do requerente. Caráter universal vários SANs num único certificado poderá não ser suportado por todas as autoridades de certificação pública 
 
-<sup>2</sup> A &#42;.appservice. *&lt;região >. &lt;fqdn >* certificado de caráter universal não pode ser utilizado em vez destas três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >*e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicações requer explicitamente a utilização de certificados separados para estes pontos finais. 
+<sup>2</sup> A &#42;.appservice. *&lt;região >. &lt;fqdn >* certificado de caráter universal não pode ser utilizado em vez destas três certificados (api.appservice. *&lt;região >. &lt;fqdn >*, ftp.appservice. *&lt;região >. &lt;fqdn >* e sso.appservice. *&lt;região >. &lt;fqdn >*. Serviço de aplicações requer explicitamente a utilização de certificados separados para estes pontos finais. 
 
-## <a name="learn-more"></a>Obter mais informações
+## <a name="learn-more"></a>Saiba mais
 Saiba como [gerar os certificados PKI para a implementação da pilha de Azure](azure-stack-get-pki-certs.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes

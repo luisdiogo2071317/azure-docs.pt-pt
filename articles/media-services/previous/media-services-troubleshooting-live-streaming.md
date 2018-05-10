@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 7e2fe84c51f93bdeb6cd99e23624d1796aff6c1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de resolução de problemas de transmissão em fluxo em direto
-Este tópico fornece sugestões sobre como resolver alguns problemas de transmissão em fluxo em direto.
+Este artigo fornece sugestões sobre como resolver alguns problemas de transmissão em fluxo em direto.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Problemas relacionados com codificadores no local
 Esta secção fornece sugestões sobre como resolver problemas relacionados com codificadores no local que estão configurados para enviar uma transmissão em fluxo para canais de AMS que estão ativados para live encoding.
@@ -44,23 +44,10 @@ Esta secção fornece sugestões sobre como resolver problemas relacionados com 
     **Passos de resolução de problemas**: Certifique-se o codificador já não é enviar para AMS, pare e repor o canal. Depois de executar de novo, tente ligar o codificador com as novas definições. Se esta ainda não corrigir o problema, tente criar um novo canal completamente, por vezes canais podem tornar-se danificada após várias tentativas falhadas.  
 * **Potencial problema**: tamanho de GOP a ou as definições de fotograma chave não são otimizadas uma vez. 
   
-    **Passos de resolução de problemas**: intervalo de tamanho ou keyframe GOP recomendada é 2 segundos. Alguns codificadores calcular esta definição no número de fotogramas, ao utilizam outros segundos. Por exemplo: quando exportar 30fps, o tamanho de GOP seria 60 frames, que é equivalente a 2 segundos.  
+    **Passos de resolução de problemas**: intervalo de tamanho ou keyframe GOP recomendado é dois segundos. Alguns codificadores calcular esta definição no número de fotogramas, ao utilizam outros segundos. Por exemplo: quando exportar 30 fps, o tamanho de GOP seria 60 frames, que é equivalente a 2 segundos.  
 * **Potencial problema**: portas fechadas estão a bloquear o fluxo. 
   
-    **Passos de resolução de problemas**: quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou de proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. Quando utilizar RTP de transmissão em fluxo, confirme que a porta de saída 2010 está aberta. 
-
-### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>Problema: Quando configurar o codificador de fluxo com o protocolo RTP, não há nenhuma local para introduzir um nome de anfitrião.
-* **Potencial problema**: codificadores RTP muitos não permitem para nomes de anfitrião e um endereço IP, terá de ser adquiridas.  
-  
-    **Passos de resolução de problemas**: para localizar o endereço IP, abra uma linha de comandos em qualquer computador. Para fazê-lo no Windows, abra o iniciador de execução (WIN + R) e escreva "cmd" para abrir.  
-  
-    Depois de abrir a linha de comandos, escreva "Ping [nome do anfitrião do AMS]". 
-  
-    O nome de anfitrião pode ser derivado omitindo o número da porta do URL do Azure de inserção, conforme realçado no exemplo seguinte: 
-  
-    RTP://TEST2-amstest009.RTP.Channel.mediaservices.Windows.NET:2010 / 
-  
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    **Passos de resolução de problemas**: quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou de proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. 
 
 > [!NOTE]
 > Se depois de seguir os passos de resolução de problemas que ainda não é possível com êxito de fluxo, submeta um pedido de suporte no portal do Azure.

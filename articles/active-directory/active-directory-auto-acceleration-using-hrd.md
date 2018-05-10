@@ -1,22 +1,23 @@
 ---
-title: "Configurar o início de sessão automático-aceleração para uma aplicação através de uma política de deteção de Realm Inicial | Microsoft Docs"
-description: "Explica que um inquilino do Azure AD é e como gerir o Azure através do Azure Active Directory."
+title: Configurar o início de sessão automático-aceleração para uma aplicação através de uma política de deteção de Realm Inicial | Microsoft Docs
+description: Explica que um inquilino do Azure AD é e como gerir o Azure através do Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
-ms.author: billmath
-ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.openlocfilehash: 5df12f905595c9b3e8caa8f372b9ba7b54672f81
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão automático-aceleração para uma aplicação utilizando uma política de deteção de Realm Inicial
 
@@ -158,7 +159,7 @@ Neste exemplo, criar uma política que auto-acelera utilizadores para um ecrã d
 
 #### <a name="step-1-create-an-hrd-policy"></a>Passo 1: Criar uma política HRD
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Se tiver um único domínio federado, que autentica utilizadores para aplicações, terá de criar apenas uma política HRD.  

@@ -1,29 +1,29 @@
 ---
-title: "Domínios personalizados no Proxy de aplicações do Azure AD | Microsoft Docs"
-description: "Gerir domínios personalizados no Proxy de aplicações do Azure AD para que o URL para a aplicação é o mesmo, independentemente de onde os utilizadores aceder ao mesmo."
+title: Domínios personalizados no Proxy de aplicações do Azure AD | Microsoft Docs
+description: Gerir domínios personalizados no Proxy de aplicações do Azure AD para que o URL para a aplicação é o mesmo, independentemente de onde os utilizadores aceder ao mesmo.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b198c6aba4227e33eae4af49c019bc4012086a51
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 91cb67bb7a8ebcf0b06561a4c647098c577a473a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Trabalhar com domínios personalizados no Proxy de aplicações do Azure AD
 
-Quando publica uma aplicação através do Proxy de aplicações do Azure Active Directory, criar um URL externo para os seus utilizadores Ir para quando estiver a trabalhar remotamente. Este URL obtém o domínio predefinido *yourtenant.msappproxy.net*. Por exemplo, se publicou uma aplicação com o nome de despesas e o inquilino é denominado Contoso, em seguida, o URL externo seria https://expenses-contoso.msappproxy.net. Se pretender utilizar o seu próprio nome de domínio, configure um domínio personalizado para a sua aplicação. 
+Quando publica uma aplicação através do Proxy de aplicações do Azure Active Directory, criar um URL externo para os seus utilizadores Ir para quando estiver a trabalhar remotamente. Este URL obtém o domínio predefinido *yourtenant.msappproxy.net*. Por exemplo, se publicou uma aplicação com o nome despesas e o inquilino com o nome Contoso, em seguida, o URL externo seria https://expenses-contoso.msappproxy.net. Se pretender utilizar o seu próprio nome de domínio, configure um domínio personalizado para a sua aplicação. 
 
 Recomendamos que configure domínios personalizados para as suas aplicações sempre que possível. Algumas das vantagens de domínios personalizados incluem:
 

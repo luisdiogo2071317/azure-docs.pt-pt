@@ -1,8 +1,8 @@
 ---
-title: "Autenticação de utilizador final: Data Lake Store com o Azure Active Directory | Microsoft Docs"
-description: "Aprenda a alcançar a autenticação de utilizador final com o Data Lake Store utilizando o Azure Active Directory"
+title: 'Autenticação de utilizador final: Data Lake Store com o Azure Active Directory | Microsoft Docs'
+description: Aprenda a alcançar a autenticação de utilizador final com o Data Lake Store utilizando o Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 39ee32ec8b1d005aac12cb88262d7e2f37898721
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação de utilizador final com o Data Lake Store utilizando o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Ao seguir as instruções na ligação, certifique-se de que seleciona **nativo*
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Passo 2: Obter o ID da aplicação e URI de redirecionamento
 
-Consulte [obter o ID de aplicação](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para obter o ID da aplicação (também denominado o ID de cliente no portal clássico do Azure) da aplicação nativa do Azure AD.
+Consulte [obter o ID de aplicação](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para obter o ID da aplicação.
 
 Para obter o URI de redirecionamento, efetue os seguintes passos.
 

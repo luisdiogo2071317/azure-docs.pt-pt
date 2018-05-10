@@ -1,25 +1,25 @@
 ---
-title: "Resolver problemas de Proxy de aplicações | Microsoft Docs"
-description: "Aborda como resolver erros no Proxy de aplicações do Azure AD."
+title: Resolver problemas de Proxy de aplicações | Microsoft Docs
+description: Aborda como resolver erros no Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54e0ebe60981ef429fdfc97cee1b460b03261a9f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas de Proxy de aplicações e as mensagens de erro
 Se ocorrerem erros ao aceder a uma aplicação publicada ou numa publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -34,7 +34,7 @@ Para obter mais informações sobre a ferramenta de resolução de problemas de 
 ## <a name="the-page-is-not-rendered-correctly"></a>A página não é composta corretamente
 Poderá ter problemas com a sua aplicação de composição ou está a funcionar incorretamente sem receber mensagens de erro específicas. Isto pode ocorrer se publicou o caminho do artigo, mas a aplicação requer o conteúdo que existe fora nesse caminho.
 
-Por exemplo, se publicar o https://yourapp/app caminho, mas a aplicação chama imagens em https://yourapp/media, podem não ser compostos. Certifique-se de que pode publicar a aplicação utilizando o caminho de nível mais elevado, que terá de incluir todo o conteúdo relevante. Neste exemplo, seria possível http://yourapp/.
+Por exemplo, se publicar o caminho https://yourapp/app , mas a aplicação chama imagens https://yourapp/media, não irá compor. Certifique-se de que pode publicar a aplicação utilizando o caminho de nível mais elevado, que terá de incluir todo o conteúdo relevante. Neste exemplo, seria possível http://yourapp/.
 
 Se alterar o caminho para incluir conteúdo referenciado, mas ainda tem dos utilizadores apresentado numa ligação mais profunda no caminho, consulte a mensagem de blogue [definição na hiperligação adequada para aceder a aplicações de Proxy de aplicações no Azure AD painel e iniciador da aplicação do Office 365](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 
@@ -78,9 +78,9 @@ Esta lista inclui os erros que os utilizadores finais podem surgir quando tentar
 | ----- | ----------------- |
 | O Web site não é possível apresentar a página. | O utilizador pode obter este erro quando tentar aceder à aplicação publicada se a aplicação é uma aplicação IWA. O SPN definido para esta aplicação pode estar incorreto. Para aplicações IWA, certifique-se de que o SPN configurado para esta aplicação está correto. |
 | O Web site não é possível apresentar a página. | O utilizador pode obter este erro quando tentar aceder à aplicação publicada se a aplicação é uma aplicação do OWA. Isto pode ser causado por um dos seguintes:<br><li>O SPN definido para esta aplicação está incorreto. Certifique-se de que o SPN configurado para esta aplicação está correto.</li><li>O utilizador tentou aceder à aplicação está a utilizar uma conta Microsoft em vez da conta empresarial correta para iniciar sessão ou o utilizador é um utilizador convidado. Certifique-se de que o utilizador inicia sessão utilizando a respetiva conta empresarial, que corresponde ao domínio da aplicação publicada. Os utilizadores da Microsoft Account e de convidado não é possível aceder a aplicações de IWA.</li><li>O utilizador tentou aceder à aplicação não está corretamente definido para esta aplicação no lado no local. Certifique-se de que este utilizador tem as permissões adequadas, tal como definido para esta aplicação de back-end na máquina no local. |
-| Não é possível aceder esta aplicação empresarial. Não está autorizado a aceder a esta aplicação. Falha de autorização. Certifique-se atribuir o utilizador com acesso a esta aplicação. | Os utilizadores poderão obter este erro quando tentar aceder à aplicação publicada se utilizarem contas Microsoft em vez da respetiva conta empresarial para iniciar sessão. Os utilizadores convidados também poderão obter este erro. Os utilizadores da Microsoft Account e nos convidados não podem aceder a aplicações IWA. Certifique-se de que o utilizador inicia sessão utilizando a respetiva conta empresarial, que corresponde ao domínio da aplicação publicada.<br><br>Poderá não ter atribuída ao utilizador para esta aplicação. Vá para o **aplicação** separador e, em **utilizadores e grupos**, atribua este utilizador ou grupo de utilizadores para esta aplicação. |
+| Não é possível aceder esta aplicação empresarial. Não está autorizado a aceder a esta aplicação. Falha na autorização. Certifique-se atribuir o utilizador com acesso a esta aplicação. | Os utilizadores poderão obter este erro quando tentar aceder à aplicação publicada se utilizarem contas Microsoft em vez da respetiva conta empresarial para iniciar sessão. Os utilizadores convidados também poderão obter este erro. Os utilizadores da Microsoft Account e nos convidados não podem aceder a aplicações IWA. Certifique-se de que o utilizador inicia sessão utilizando a respetiva conta empresarial, que corresponde ao domínio da aplicação publicada.<br><br>Poderá não ter atribuída ao utilizador para esta aplicação. Vá para o **aplicação** separador e, em **utilizadores e grupos**, atribua este utilizador ou grupo de utilizadores para esta aplicação. |
 | Esta aplicação empresarial não pode ser acedida neste momento. Tente novamente mais tarde... O conector foi excedido. | Os utilizadores poderão obter este erro quando tentar aceder à aplicação publicada se não estão corretamente definidos para esta aplicação no lado no local. Certifique-se de que os utilizadores têm as permissões adequadas, conforme definido para esta aplicação de back-end na máquina no local. |
-| Não é possível aceder esta aplicação empresarial. Não está autorizado a aceder a esta aplicação. Falha de autorização. Certifique-se de que o utilizador tem uma licença para o Azure Active Directory Premium ou Basic. | Os utilizadores poderão obter este erro quando tentar aceder à aplicação publicada se não foram atribuídos explicitamente com uma licença de Premium/básica pelo administrador do subscritor. Vá para Active Directory o subscritor **licenças** separador e certifique-se de que este utilizador ou grupo de utilizadores é atribuído uma licença Premium ou Basic. |
+| Não é possível aceder esta aplicação empresarial. Não está autorizado a aceder a esta aplicação. Falha na autorização. Certifique-se de que o utilizador tem uma licença para o Azure Active Directory Premium ou Basic. | Os utilizadores poderão obter este erro quando tentar aceder à aplicação publicada se não foram atribuídos explicitamente com uma licença de Premium/básica pelo administrador do subscritor. Vá para Active Directory o subscritor **licenças** separador e certifique-se de que este utilizador ou grupo de utilizadores é atribuído uma licença Premium ou Basic. |
 
 ## <a name="my-error-wasnt-listed-here"></a>A minha erro não listado aqui
 

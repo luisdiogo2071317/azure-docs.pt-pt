@@ -1,22 +1,23 @@
 ---
-title: "Resolver problemas de gestão de aplicações do Azure Active Directory | Microsoft Docs"
-description: "Resolver os problemas mais comuns relacionados com a Gestão de Aplicações do Azure Active Directory"
+title: Resolver problemas de gestão de aplicações do Azure Active Directory | Microsoft Docs
+description: Resolver os problemas mais comuns relacionados com a Gestão de Aplicações do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8ac801a467aeb8d055a878838ffea21c2819b53b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e35ebe73c1d00063904cb35029a066b3e3a084c0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Resolver problemas de gestão de aplicações do Azure Active Directory
 As ligações seguintes irão direcioná-lo para um mapa de conteúdos que irá ajudá-lo a resolver muitos dos problemas mais comuns encontrados ao gerir **Aplicações Empresariais** no Azure Active Directory.

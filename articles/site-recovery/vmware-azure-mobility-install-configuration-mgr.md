@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do serviço de mobilidade com o System Center Configuration Manager
 
@@ -49,7 +49,7 @@ Em alternativa, pode automatizar a instalação do serviço de mobilidade com [A
 4. Copiar o **MobSvc.passphrase** de ficheiros para o **MobSvcWindows** pasta na partilha de rede.
 5. Navegue para o repositório de instalador no servidor de configuração executando o seguinte comando:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copiar o **Microsoft ASR\_UA\_*versão*\_Windows\_GA\_*data*\_Release.exe**  para o **MobSvcWindows** pasta na partilha de rede.
 7. Copie o seguinte código e guarde-o como **install.bat** para o **MobSvcWindows** pasta.
@@ -230,7 +230,7 @@ Pode monitorizar o progresso da implementação através da consola do Configura
 4. Copiar o **MobSvc.passphrase** de ficheiros para o **MobSvcLinux** pasta na partilha de rede.
 5. Navegue para o repositório de instalador no servidor de configuração ao executar o comando:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copie os seguintes ficheiros para o **MobSvcLinux** pasta na partilha de rede:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
@@ -399,7 +399,7 @@ cd /tmp
     | **Parameter name** (Nome do parâmetro) | **Valor** |
   |--|--|
   | Nome | Instalar o serviço de mobilidade Microsoft Azure (Linux) |
-  | Linha de comandos | ./install_linux.sh |
+  | Linha de comandos | ./install_linux.SH |
   | Programa pode ser executado | Se pretende ou não um utilizador tenha iniciado sessão |
 
   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)

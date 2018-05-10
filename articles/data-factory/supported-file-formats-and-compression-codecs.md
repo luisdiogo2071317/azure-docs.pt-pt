@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e compressão codecs no Azure Data Factory
 
@@ -457,8 +457,8 @@ Tenha em atenção os seguintes pontos:
 | UInt32 | Longo |
 | Int64 | Longo |
 | UInt64 | Cadeia |
-| Solteiro | Número de vírgula flutuante |
-| Duplo | Duplo |
+| Único | Flutuante |
+| duplo | duplo |
 | Decimal | Decimal |
 | Cadeia | Cadeia |
 | DateTime | Carimbo de data/hora |
@@ -486,14 +486,14 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 Tenha em atenção os seguintes pontos:
 
 * Os tipos de dados complexos não são suportados (MAPA, LISTA)
-* O ficheiro Parquet tem as seguintes opções relacionadas com a compressão: NENHUM, SNAPPY, GZIP e LZO. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
+* O ficheiro Parquet tem as seguintes opções relacionadas com a compressão: NENHUM, SNAPPY, GZIP e LZO. Fábrica de dados suporta a leitura de dados a partir do ficheiro de Parquet em qualquer um destes formatos comprimidos. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro Parquet, o Data Factory escolhe a opção SNAPPY, que é a predefinição para o formato Parquet. De momento, não existem opções para contornar este comportamento.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento de ficheiros de Parquet
 
 | Tipo de dados intermédio de fábrica de dados | Tipo primitivo parquet | Parquet tipo Original (anular a serialização) | Parquet tipo Original (serializar) |
 |:--- |:--- |:--- |:--- |
 | Booleano | Booleano | N/A | N/A |
-| SByte | Int32 | Int8 | Int8 |
+| SByte | Int32 | int8 | int8 |
 | Bytes | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
@@ -501,8 +501,8 @@ Tenha em atenção os seguintes pontos:
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/binário | UInt64 | Decimal |
-| Solteiro | Número de vírgula flutuante | N/A | N/A |
-| Duplo | Duplo | N/A | N/A |
+| Único | Flutuante | N/A | N/A |
+| duplo | duplo | N/A | N/A |
 | Decimal | Binário | Decimal | Decimal |
 | Cadeia | Binário | Utf8 | Utf8 |
 | DateTime | Int96 | N/A | N/A |

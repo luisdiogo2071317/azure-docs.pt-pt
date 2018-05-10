@@ -1,25 +1,25 @@
 ---
-title: "Definir uma página inicial personalizada para as aplicações publicadas através do Proxy de aplicações do Azure AD | Microsoft Docs"
-description: "Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD"
+title: Definir uma página inicial personalizada para as aplicações publicadas através do Proxy de aplicações do Azure AD | Microsoft Docs
+description: Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d31100015a11bc57d488f1d6af93db8526e38968
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1627f3590bd92f2460368cffab48d43c5a82d3c4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma página inicial personalizada para as aplicações publicadas através do Proxy de aplicações do Azure AD
 
@@ -119,7 +119,7 @@ Crie o URL da página inicial e atualizar a sua aplicação com esse valor. Cont
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Defina o URL da página inicial para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da página inicial do *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os utilizadores da aplicação aceda diretamente à home page personalizada .
+3. Defina o URL da página inicial para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da página inicial do *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os utilizadores da aplicação aceda diretamente à home page personalizada.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”

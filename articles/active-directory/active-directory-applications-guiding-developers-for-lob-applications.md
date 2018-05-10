@@ -1,13 +1,13 @@
 ---
-title: "Registar a sua aplicação para utilizar o Azure Active Directory | Microsoft Docs"
-description: "Escrito para profissionais de TI, este artigo fornece diretrizes para a integração de aplicações do Azure com o Active Directory."
+title: Registar a sua aplicação para utilizar o Azure Active Directory | Microsoft Docs
+description: Escrito para profissionais de TI, este artigo fornece diretrizes para a integração de aplicações do Azure com o Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
-ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 804c135afae97ffc8b2cf78c31fd8c3653e9911d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicações de linha de negócio para o Azure Active Directory
 Este guia fornece uma descrição geral do desenvolvimento de aplicações do linha de negócio (LoB) para o Azure Active Directory (AD). O público-alvo é administradores globais do Active Directory/Office 365.
@@ -76,7 +76,7 @@ Para aplicações que considera fidedignos, pode simplificar a experiência de u
 
 Para obter mais informações sobre o consentimento do utilizador e o consentimento experiência no Azure, consulte [integrar aplicações com o Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>Artigos Relacionados
+## <a name="related-articles"></a>Artigos relacionados
 * [Ativar o acesso remoto seguro a aplicações no local com o Proxy de aplicações do Azure AD](active-directory-application-proxy-get-started.md)
 * [Pré-visualização do acesso condicional do Azure para aplicações SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Gerir o acesso a aplicações com o Azure AD](active-directory-managing-access-to-apps.md)

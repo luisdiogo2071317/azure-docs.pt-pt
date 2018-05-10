@@ -3,23 +3,24 @@ title: Ocultar uma aplicação da experiência do utilizador no Azure Active Dir
 description: Como ocultar uma aplicação da experiência do utilizador no painel de acesso do Azure Active Directory ou Office 365 launchers.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 7da8c60feed7cbb630e5b48653c657cc8fed9e99
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 564b724ab3971e0566fb2b1dc3a75c2eeac3d391
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ocultar uma aplicação da experiência do utilizador no Azure Active Directory
 
@@ -40,13 +41,13 @@ Utilize os seguintes passos para ocultar uma aplicação a partir do painel de a
 1.  Iniciar sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2.  Selecione **todos os serviços**, introduza **do Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
 3.  No **Azure Active Directory - *directoryname***  ecrã (ou seja, o Azure AD ecrã para o diretório que está a gerir), selecione **aplicações empresariais**.
-![Aplicações da empresa](media/active-directory-coreapps-hide-third-party-app/app1.png)
+![Aplicações empresariais](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  No **aplicações empresariais** ecrã, selecione **todas as aplicações**. É apresentada uma lista das aplicações que pode gerir.
 5.  No **aplicações da empresa - todas as aplicações** ecrã, selecione uma aplicação.</br>
-![Aplicações da empresa](media/active-directory-coreapps-hide-third-party-app/app2.png)
+![Aplicações empresariais](media/active-directory-coreapps-hide-third-party-app/app2.png)
 6.  No ***appname*** ecrã (ou seja, ecrã de com o nome da aplicação selecionada no título), selecione propriedades.
 7.  No  ***appname* -propriedades** ecrã, selecione **Sim** para **Visible aos utilizadores?**.
-![Aplicações da empresa](media/active-directory-coreapps-hide-third-party-app/app3.png)
+![Aplicações empresariais](media/active-directory-coreapps-hide-third-party-app/app3.png)
 8.  Selecione o **guardar** comando.
 
 ### <a name="how-do-i-hide-office-365-applications-from-users-access-panel"></a>Como posso ocultar aplicações do Office 365 do painel de acesso do utilizador?

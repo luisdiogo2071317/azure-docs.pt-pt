@@ -1,11 +1,9 @@
 ---
-title: "Como ativar a SSO em várias aplicações no iOS com o ADAL | Microsoft Docs"
-description: "Como utilizar as funcionalidades do SDK da ADAL para permitir início de sessão único em aplicações. "
+title: Como ativar a SSO em várias aplicações no iOS com o ADAL | Microsoft Docs
+description: 'Como utilizar as funcionalidades do SDK da ADAL para permitir início de sessão único em aplicações. '
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: xerners
 manager: mtillman
-editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +13,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c477e7e6fb9ef9a93ceab53c1427b974bab99b37
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como ativar a SSO em várias aplicações no iOS utilizam a ADAL
 Fornecer único Sign-On (SSO) para que os utilizadores só têm de introduzir as respetivas credenciais de uma vez e ter essas credenciais automaticamente funciona entre aplicações agora é esperado pelos clientes. Dificuldade em introduzindo o nome de utilizador e palavra-passe um ecrã pequeno, muitas vezes, vezes combinados com um fator adicional (2FA) como uma chamada telefónica ou um código diante, resulta em insatisfação rápida se um utilizador tem de fazer mais do que uma vez para o produto.
@@ -160,11 +158,11 @@ Por ordem para a plataforma do Microsoft Identity saber que tem permissão para 
 
 -Pode estar a pensar como irá identificar diferentes aplicações para o serviço do Microsoft Identity se utiliza o mesmo ID de aplicação A resposta é com o **redirecionar URIs**. Cada aplicação pode ter vários URIs redirecionar registado no portal de integração. Cada aplicação no seu conjunto tem um URI de redirecionamento diferentes. Abaixo é um exemplo do aspeto:
 
-URI de redirecionamento de App1:`x-msauth-mytestiosapp://com.myapp.mytestapp`
+URI de redirecionamento de App1: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-URI de redirecionamento App2:`x-msauth-mytestiosapp://com.myapp.mytestapp2`
+URI de redirecionamento App2: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
-URI de redirecionamento App3:`x-msauth-mytestiosapp://com.myapp.mytestapp3`
+URI de redirecionamento App3: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 

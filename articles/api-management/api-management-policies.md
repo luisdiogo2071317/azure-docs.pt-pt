@@ -3,7 +3,7 @@ title: Políticas de API Management do Azure | Microsoft Docs
 description: Saiba mais sobre as políticas disponíveis para utilização na API Management do Azure.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7304ade9c47034b6cb76eb87126f09fb5af65c8b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f617abc164761b4839b188822585eaa4eb0aacd6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  

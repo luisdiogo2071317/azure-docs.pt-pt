@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copiar dados de Netezza utilizando o Azure Data Factory (Beta)
 
@@ -50,6 +50,13 @@ As seguintes propriedades são suportadas para o serviço de Netezza ligada:
 | tipo | A propriedade de tipo tem de ser definida: **Netezza** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para ligar ao Netezza. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+
+Uma cadeia de ligação típico é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Propriedades que pode ser definidas por seu incidente:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | O nível de segurança (SSL/TLS) que utiliza o controlador para a ligação ao arquivo de dados. Por exemplo, `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>-Apenas protegida (**onlyUnSecured**): O controlador não utilizar SSL.<br/>- **Preferencial Unsecured (preferredUnSecured) (predefinição)**: se o servidor fornece uma escolha, o controlador não utilizar SSL. <br/>- **Preferencial segura (preferredSecured)**: se o servidor fornece uma escolha, o controlador utiliza o protocolo SSL. <br/>- **Apenas segura (onlySecured)**: O controlador não estabelecer ligação, a menos que esteja disponível uma ligação de SSL | Não |
+| CaCertFile | O caminho completo para o certificado SSL que é utilizado pelo servidor. Por exemplo, `UseSystemTrustStore=<cert path>;`| Sim, se o SSL esteja ativado |
 
 **Exemplo:**
 

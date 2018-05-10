@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparar uma imagem de VM do Linux do Azure existente para utilização com init de nuvem
 Este artigo mostra como colocar uma máquina virtual do Azure existente e prepará-la reimplementado e pronto a utilizar a cloud init. A imagem resultante pode ser utilizada para implementar uma nova máquina virtual ou conjuntos de dimensionamento de máquina virtual - o de que foi, em seguida, ser personalizado por nuvem init no momento da implementação.  Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure. Para obter mais informações sobre como nuvem init nativamente funciona no Azure e os distros suportados do Linux, consulte [nuvem init descrição-geral](using-cloud-init.md)
@@ -136,7 +136,7 @@ Todas as imagens de plataforma do Azure têm o agente Linux do Azure instalado, 
 sudo waagent -deprovision+user -force
 ```
 
-Para obter mais informações sobre os comandos de desaprovisionamento agente Linux do Azure, consulte o [agente Linux do Azure](agent-user-guide.md) para obter mais detalhes.
+Para obter mais informações sobre os comandos de desaprovisionamento agente Linux do Azure, consulte o [agente Linux do Azure](../extensions/agent-linux.md) para obter mais detalhes.
 
 Sair da sessão SSH e, em seguida, na shell de deteção, execute os seguintes comandos de AzureCLI desalocar, generalize e criar uma nova imagem de VM do Azure.  Substitua `myResourceGroup` e `sourceVmName` com as informações adequadas ao refletir o seu sourceVM.
 

@@ -1,11 +1,11 @@
 ---
 title: Modelos de API na API Management do Azure | Microsoft Docs
-description: "Saiba como personalizar o conteúdo das páginas de API no portal do programador na API Management do Azure."
+description: Saiba como personalizar o conteúdo das páginas de API no portal do programador na API Management do Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 9abbdda2300fd8d51bec372624f0349455cf2b01
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na API Management do Azure
 Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos que configurar o respetivo conteúdo. Utilizando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto de fornecido localizado [recursos de cadeia](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar utilizando estes modelos.  
@@ -34,13 +34,13 @@ Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas d
     -   [JavaScript](#JavaScript)  
     -   [Objetivo C](#ObjectiveC)  
     -   [PHP](#PHP)  
-    -   [python](#Python)  
+    -   [Python](#Python)  
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
 >  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitos a alterações devido a melhoramentos contínuos. Pode ver os modelos predefinidos em direto no portal do programador, navegando para os modelos de individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="APIList"></a>Lista de API  
+##  <a name="APIList"></a> Lista de API  
  O **lista API** modelo permite-lhe personalizar o corpo da página de lista de API no portal do programador.  
   
  ![Lista de API de Portal de programador](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "lista de API de modelos de Portal de programador APIM")  
@@ -108,7 +108,7 @@ Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas d
 }  
 ```  
   
-##  <a name="Product"></a>Operação  
+##  <a name="Product"></a> operação  
  O **operação** modelo permite-lhe personalizar o corpo da página operação no portal do programador.  
   
  ![Página de operação de Portal de programador](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "página do Portal do programador APIM modelos operação")  
@@ -341,15 +341,15 @@ Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas d
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ApiId|Cadeia|O id da API atual.|  
-|apiName|Cadeia|O nome da API.|  
-|apiDescription|Cadeia|Uma descrição da API.|  
+|apiId|cadeia|O id da API atual.|  
+|apiName|cadeia|O nome da API.|  
+|apiDescription|cadeia|Uma descrição da API.|  
 |api|[Resumo da API](api-management-template-data-model-reference.md#APISummary) entidade.|A API atual.|  
 |operação|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente apresentada.|  
-|sampleUrl|Cadeia|O URL para a operação atual.|  
+|sampleUrl|cadeia|O URL para a operação atual.|  
 |operationMenu|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
 |consoleUrl|URI|O URI para o **experimente** botão.|  
-|Amostras|Coleção de [exemplo de código](api-management-template-data-model-reference.md#Sample) entidades.|Os exemplos de código para a operação atual...|  
+|amostras|Coleção de [exemplo de código](api-management-template-data-model-reference.md#Sample) entidades.|Os exemplos de código para a operação atual...|  
   
 ### <a name="sample-template-data"></a>Dados de exemplo do modelo  
   
@@ -638,7 +638,7 @@ Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas d
 }  
 ```  
   
-##  <a name="CodeSamples"></a>Exemplos de código  
+##  <a name="CodeSamples"></a> Exemplos de código  
  Os seguintes modelos permitem-lhe personalizar o corpo dos exemplos de código individuais na página de operação.  
   
  ![Exemplos de código de modelos do Portal de programador](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "exemplos de código de modelos de Portal de programador APIM")  
@@ -655,11 +655,11 @@ Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas d
   
 -   [PHP](#PHP)  
   
--   [python](#Python)  
+-   [Python](#Python)  
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a>Curl  
+###  <a name="Curl"></a> Curl  
  O **DocumentationSamplesCurl** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -712,7 +712,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a>C#  
+###  <a name="CSharp"></a> C#  
  O **DocumentationSamplesCsharp** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -891,7 +891,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a>Java  
+###  <a name="Stub"></a> Java  
  O **DocumentationSamplesJava** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -987,7 +987,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a>JavaScript  
+###  <a name="JavaScript"></a> JavaScript  
  O **DocumentationSamplesJs** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -1076,7 +1076,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a>Objetivo C  
+###  <a name="ObjectiveC"></a> Objetivo C  
  O **DocumentationSamplesObjc** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -1188,7 +1188,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a>PHP  
+###  <a name="PHP"></a> PHP  
  O **DocumentationSamplesPhp** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -1278,7 +1278,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a>Python  
+###  <a name="Python"></a> Python  
  O **DocumentationSamplesPython** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -1396,7 +1396,7 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a>Ruby  
+###  <a name="Ruby"></a> Ruby  
  O **DocumentationSamplesRuby** modelo permite-lhe personalizar a esse código de exemplo na secção de exemplos de código da página de operação.  
   
 #### <a name="default-template"></a>Modelo predefinido  
@@ -1467,5 +1467,5 @@ puts response.body
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).

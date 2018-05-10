@@ -1,13 +1,14 @@
 ---
-title: "Opções no token SAML para aplicações previamente integradas no Azure Active Directory de assinatura de certificado avançado | Microsoft Docs"
-description: "Saiba como utilizar as opções no token SAML para aplicações previamente integradas no Azure Active Directory de assinatura de certificado avançado"
+title: Opções no token SAML para aplicações previamente integradas no Azure Active Directory de assinatura de certificado avançado | Microsoft Docs
+description: Saiba como utilizar as opções no token SAML para aplicações previamente integradas no Azure Active Directory de assinatura de certificado avançado
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9c035dcb55af451d0dae71d7a0f5548a6ba3c0ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 05eb175e3d8306308998780ac230d4f44e611294
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avançadas Opções no token SAML para aplicações da galeria no Azure Active Directory de assinatura de certificado
 Hoje o Azure Active Directory (Azure AD) suporta milhares de aplicações previamente integradas na Galeria de aplicações do Azure Active Directory. Este número inclui mais de 500 aplicações que suportam o início de sessão único através do protocolo SAML 2.0. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD utilizando SAML, o Azure AD envia um token para a aplicação (através de um HTTP POST). Em seguida, a aplicação valida e utiliza o token para o utilizador em vez de pedir um nome de utilizador e palavra-passe de início de sessão. Estes tokens SAML são assinados com o certificado exclusivo que é gerado no Azure AD e pelos algoritmos de padrão específicos.
@@ -56,7 +57,7 @@ AD do Azure suporta dois algoritmos de assinatura para assinar a resposta SAML:
 
     ![Algoritmo de assinatura de certificado de SHA-1][2]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Índice de artigos da gestão de aplicações no Azure Active Directory](active-directory-apps-index.md)
 * [Configurar início de sessão único para aplicações que não estejam na Galeria de aplicações do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Resolver problemas com base no SAML-início de sessão único](develop/active-directory-saml-debugging.md)

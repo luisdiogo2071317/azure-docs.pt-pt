@@ -1,11 +1,11 @@
 ---
-title: "Configurar notificações e modelos de e-mail na API Management do Azure | Microsoft Docs"
-description: "Saiba como configurar notificações e modelos de e-mail na API Management do Azure."
+title: Configurar notificações e modelos de e-mail na API Management do Azure | Microsoft Docs
+description: Saiba como configurar notificações e modelos de e-mail na API Management do Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 60788f76dac58ead10e43e892d587a86bdd3fcad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de e-mail na API Management do Azure
 API Management fornece a capacidade para configurar notificações para eventos específicos e para configurar os modelos de e-mail que são utilizados para comunicar com os administradores e programadores de uma instância de API Management. Este artigo mostra como configurar notificações para os eventos disponíveis e fornece uma descrição geral de configuração de modelos de e-mail utilizados estes eventos.
@@ -26,7 +26,7 @@ API Management fornece a capacidade para configurar notificações para eventos 
 
 Se não tiver uma instância de serviço de API Management, concluir o guia de introdução seguinte: [criar uma instância de API Management do Azure](get-started-create-service-instance.md).
 
-## <a name="publisher-notifications"></a>Configurar notificações
+## <a name="publisher-notifications"> </a>Configurar notificações
 
 1. Selecione o **API MANAGEMENT** instância.
 2. Clique em **notificações** para ver as notificações disponíveis.
@@ -50,7 +50,7 @@ Se não tiver uma instância de serviço de API Management, concluir o guia de i
     ![Destinatários das notificações][api-management-email-addresses]
 4. Prima **Adicionar**.
 
-## <a name="email-templates"></a>Configurar modelos de notificação
+## <a name="email-templates"> </a>Configurar modelos de notificação
 API Management fornece modelos de notificação para as mensagens de e-mail que são enviadas MBS administrar e utilizar o serviço. Os modelos de e-mail seguintes são fornecidos.
 
 * Submissão de Galeria de aplicações aprovada

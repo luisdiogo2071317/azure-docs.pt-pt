@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0307b26741a6bbbf29626e670467cdd72697646
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migrar manualmente uma VM clássica para ARM geridos disco VM nova do VHD 
 
@@ -92,6 +92,8 @@ Prepare a sua aplicação para o período de indisponibilidade. Para efetuar uma
 
 Prepare a sua aplicação para o período de indisponibilidade. Para efetuar uma migração limpa, terá de parar todas as o processamento no sistema atual. Apenas, em seguida, pode obtê-lo para o estado consistente que pode migrar para a plataforma de novo. Duração do período de indisponibilidade depende da quantidade de dados nos discos para migrar.
 
+Esta parte requer o Azure PowerShell versão do módulo 6.0.0 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Também tem de executar `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+
 
 1.  Em primeiro lugar, defina os parâmetros comuns:
 
@@ -121,11 +123,11 @@ Prepare a sua aplicação para o período de indisponibilidade. Para efetuar uma
 
 2.  Crie um disco de SO gerido com o VHD da VM clássico.
 
-    Certifique-se de que forneceu o URI do VHD SO para o parâmetro $osVhdUri concluído. Além disso, introduza **- AccountType** como **PremiumLRS** ou **StandardLRS** com base no tipo de discos (Premium ou Standard) estiver a migrar para.
+    Certifique-se de que forneceu o URI do VHD SO para o parâmetro $osVhdUri concluído. Além disso, introduza **- AccountType** como **Premium_LRS** ou **Standard_LRS** com base no tipo de discos (Premium ou Standard) estiver a migrar para.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
     -ResourceGroupName $resourceGroupName
     ```
 
@@ -134,14 +136,14 @@ Prepare a sua aplicação para o período de indisponibilidade. Para efetuar uma
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  Criar um disco de dados geridos a partir do ficheiro VHD de dados e adicione-o para a nova VM.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -AccountType Premium_LRS -Location $location -CreationDataCreateOption Import '
     -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
     
     $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '

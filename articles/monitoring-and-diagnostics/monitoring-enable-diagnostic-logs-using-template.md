@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 76021642073c7463254f51e84efd9af459af2244
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo mostramos como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo os registos de diagnóstico e métricas para os Event Hubs, arquivá-los numa conta de armazenamento ou enviando-as à análise de registos quando um recurso é criado.
@@ -259,7 +259,7 @@ Para ativar o diagnóstico num recurso de computação, por exemplo um cluster d
 3. Adicione o conteúdo do ficheiro XML de WADCfg para a propriedade de XMLCfg escape todos os carateres XML corretamente.
 
 > [!WARNING]
-> Neste último passo pode ser tricky obter à direita. [Consulte este artigo](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o esquema de configuração de diagnósticos para variáveis de escape e formatadas corretamente.
+> Neste último passo pode ser tricky obter à direita. [Consulte este artigo](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o esquema de configuração de diagnósticos para variáveis de escape e formatadas corretamente.
 > 
 > 
 

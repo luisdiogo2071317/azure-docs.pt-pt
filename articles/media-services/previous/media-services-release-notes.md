@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: b36c9150ef251939c9c484da93bc8a086b869676
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão para Media Services do Azure resumem as alterações de versões anteriores e problemas conhecidos.
@@ -44,6 +44,10 @@ Estas notas de versão para Media Services do Azure resumem as alterações de v
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico da versão de REST API
 Para obter informações sobre o histórico da versão de API de REST dos serviços de suporte de dados, consulte o [referência da API de REST de serviços de suporte de dados do Azure].
+
+## <a name="may-2018"></a>De 2018 Maio 
+
+A partir de canais em direto 12 de pode de 2018, será já não suporte a sequência de transporte MPEG/RTP-2 protocolo de inserção. Efetue a migração de RTP/MPEG-2 para RTMP ou MP4 fragmentados (transmissão em fluxo uniforme) protocolos de inserção.
 
 ## <a name="october-2017-release"></a>Versão de Outubro de 2017
 > [!IMPORTANT] 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: antonfr;mbullwin
-ms.openlocfilehash: c847052134b1d83cd606e0e2b51b63b580f7917c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Alertas com limiares dinâmicas no Monitor do Azure (limitado pré-visualização pública)
 
@@ -85,7 +85,7 @@ Alertas com limiares dinâmicas podem ser configuradas através de alertas no Mo
 
    Para reduzir o ruído de alertas gerado pelo picos transitórios, recomendamos que utilize as definições "Número de violações para acionar o alerta". Esta funcionalidade permite-lhe obter um alerta apenas se o limiar foi violado X vezes consecutivas ou Y vezes sem períodos de Z último. Por exemplo:
 
-    Para acionar um alerta quando o problema contínuo para 15 minutos, 3 vezes consecutivas num determinado período de 5 minutos, utilize as seguintes definições:
+    Para acionar um alerta quando o problema é contínuo para 15 minutos, 3 vezes consecutivas num determinado período de 5 minutos, utilize as seguintes definições:
 
    ![Avaliada com base em](./media/monitoring-alerts-dynamic-thresholds/0008.png)
 

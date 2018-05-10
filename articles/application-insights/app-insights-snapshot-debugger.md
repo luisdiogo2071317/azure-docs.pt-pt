@@ -10,13 +10,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 05/08/2018
 ms.author: mbullwin; pharring
-ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 0721fa42a8d770b82a4b18865b513569bcc8807f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -193,11 +193,12 @@ Os proprietários da subscrição do Azure podem inspecionar instantâneos. Outr
 
 Para conceder permissão, atribua o `Application Insights Snapshot Debugger` função para utilizadores que irá inspecionar instantâneos. Esta função pode ser atribuída a utilizadores individuais ou grupos por proprietários de subscrição para o recurso do Application Insights de destino ou o grupo de recursos ou subscrição.
 
-1. Abra o painel de controlo de acesso (IAM).
-1. Clique o botão + Adicionar.
-1. Selecione o depurador de instantâneo do Application Insights na lista pendente de funções.
+1. Navegue para o recurso do Application Insights no portal do Azure.
+1. Clique em **(IAM) do controlo de acesso**.
+1. Clique em de **+ adicionar** botão.
+1. Selecione **depurador do Application Insights instantâneo** do **funções** na lista pendente.
 1. Procure e introduza um nome para o utilizador adicione.
-1. Clique no botão Guardar para adicionar o utilizador à função.
+1. Clique em de **guardar** botão para adicionar o utilizador à função.
 
 
 > [!IMPORTANT]
@@ -267,22 +268,22 @@ No entanto, nos serviços de aplicações do Azure, o Recoletor de instantâneos
 
 Estas sugestões ajudam a resolver problemas relacionados com o depurador de instantâneo.
 
-## <a name="use-the-snapshot-health-check"></a>Utilize a verificação de estado de funcionamento de instantâneo
-Se não vir instantâneo disponível para uma exceção específica, pode ser causado por vários motivos, incluindo versões de recoletor de instantâneo outdate, acessos de limiar diariamente, o instantâneo apenas está a demorar tempo para ser carregado e assim sucessivamente. Para ajudar a diagnosticar tais problemas, criámos um serviço de verificação do Estado de funcionamento de instantâneo para resolver de forma inteligente analisar motivo que não há nenhum instantâneo.
+### <a name="use-the-snapshot-health-check"></a>Utilize a verificação de estado de funcionamento de instantâneo
+Alguns problemas comuns resultam num instantâneo depurar aberto não ser apresentado. Utilizar um desatualizada instantâneo Recoletor, por exemplo, atingir o limite de carregamento diário; ou, talvez o instantâneo está apenas a demorar muito tempo a carregar. Para resolver problemas comuns de utilizar a verificação de estado de funcionamento de instantâneo.
 
-Se não vir instantâneos associados uma exceção, será uma ligação no painel do Visualizador de rastreio do ponto-a-ponto para introduzir a verificação de estado de funcionamento do instantâneo.
+Há uma ligação no painel de exceção da vista de rastreio de ponto-a-ponto que leva-o para a verificação de estado de funcionamento de instantâneo.
 
 ![Introduza a verificação de estado de funcionamento de instantâneo](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
 
-Em seguida, verá um bot chat interativa como sessão executar verificação de estado de funcionamento em vários aspeto do seu serviço e advices da oferta.
+A interface interativa, como o chat procura problemas comuns e orienta-o para o corrigir.
 
 ![Verificação de estado de funcionamento](./media/app-insights-snapshot-debugger/healthcheck.png)
 
-Também existem alguns passos manuais, pode fazê-lo para diagnosticar o estado de funcionamento do seu serviço de instantâneo. Consulte as secções abaixo:
+Se que não resolverem o problema, consulte o manual de seguinte passos de resolução de problemas.
 
 ### <a name="verify-the-instrumentation-key"></a>Certifique-se a chave de instrumentação
 
-Certifique-se de que está a utilizar a chave de instrumentação correto na sua aplicação publicada. Normalmente, o Application Insights lê a chave de instrumentação do ficheiro Applicationinsights. Certifique-se de que o valor é igual a chave de instrumentação para o recurso do Application Insights que vir no portal.
+Certifique-se de que está a utilizar a chave de instrumentação correto na sua aplicação publicada. Normalmente, a chave de instrumentação é lida do ficheiro Applicationinsights. Certifique-se de que o valor é igual a chave de instrumentação para o recurso do Application Insights que vir no portal.
 
 ### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Atualizar para a versão mais recente do pacote NuGet
 
@@ -293,7 +294,7 @@ Utilize o Gestor de pacotes de NuGet do Visual Studio para se certificar de que 
 Depois de criar um instantâneo, é criado um ficheiro de mini-cópia de segurança (. dmp) no disco. Um processo separado /carregador cria que ficheiros de mini-cópia de segurança e carrega, juntamente com quaisquer PDBs associados, para o armazenamento de depurador de instantâneo do Application Insights. Depois de mini-cópia de segurança foi carregado com êxito, é eliminado do disco. Os ficheiros de registo para o processo de /carregador são mantidos no disco. Num ambiente de serviço de aplicações, pode encontrar estes registos no `D:\Home\LogFiles`. Utilize o site de gestão do Kudu para o App Service para localizar estes ficheiros de registo.
 
 1. Abra a aplicação do serviço de aplicação no portal do Azure.
-2. Selecione o **ferramentas avançadas** painel ou procure **Kudu**.
+2. Clique em **ferramentas avançadas**, ou procure **Kudu**.
 3. Clique em **aceda**.
 4. No **consola de depuração** caixa de lista pendente, selecione **CMD**.
 5. Clique em **LogFiles**.
@@ -401,7 +402,7 @@ Siga estes passos para configurar a sua função de serviço em nuvem com um rec
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Utilize Application Insights procura para localizar exceções com instantâneos
 
-Quando é criado um instantâneo, a exceção throwing é marcada com um ID de instantâneo. Este ID de instantâneo é incluído como uma propriedade personalizada quando é reportada a telemetria de exceção para o Application Insights. Utilizando o painel de pesquisa do Application Insights, pode encontrar toda a telemetria com o `ai.snapshot.id` propriedade personalizada.
+Quando é criado um instantâneo, a exceção throwing é marcada com um ID de instantâneo. Este ID de instantâneo é incluído como uma propriedade personalizada quando é reportada a telemetria de exceção para o Application Insights. Utilizar **pesquisa** no Application Insights, pode encontrar toda a telemetria com o `ai.snapshot.id` propriedade personalizada.
 
 1. Navegue para o recurso do Application Insights no portal do Azure.
 2. Clique em **pesquisa**.

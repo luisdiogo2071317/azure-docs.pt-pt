@@ -1,32 +1,35 @@
 ---
-title: "Relatório de atividade de início de sessão do Azure Active Directory referência da API | Microsoft Docs"
-description: "Referência da API de relatório de atividade de início de sessão do Azure Active Directory"
+title: Relatório de atividade de início de sessão do Azure Active Directory referência da API | Microsoft Docs
+description: Referência da API de relatório de atividade de início de sessão do Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dbb95b5910def55437f05837986e850824fbe741
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Relatório de atividade de início de sessão do Azure Active Directory referência da API
-Este tópico faz parte de uma coleção de tópicos sobre o Azure Active Directory API do relatório.  
-Relatórios do Azure AD fornecem-lhe uma API que permite-lhe aceder a dados de relatório de atividade de início de sessão utilizando código ou ferramentas relacionadas.
-É o âmbito deste tópico para lhe fornecer informações de referência sobre o **início de sessão API do relatório de atividade**.
 
-Consulte:
+> [!TIP] 
+> Conheça a nova Microsoft Graph API para [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), que irá substituir eventualmente esta API. 
+
+Este artigo é parte de uma coleção de artigos sobre o Azure Active Directory (Azure AD), API do relatório. Relatórios do Azure AD fornecem-lhe uma API que permite-lhe aceder a dados de auditoria utilizando código ou ferramentas relacionadas.
+O âmbito deste artigo é para lhe fornecer informações de referência sobre o **API de auditoria**.
+
+Veja:
 
 * [As atividades de início de sessão](active-directory-reporting-azure-portal.md#activity-reports) para obter mais informações concetuais
 * [Começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md) para obter mais informações sobre a API de relatórios.
@@ -35,9 +38,9 @@ Consulte:
 ## <a name="who-can-access-the-api-data"></a>Quem pode aceder os dados de API?
 * Os utilizadores e de principais de serviço na função de administrador de segurança ou de leitor de segurança
 * Administradores Globais
-* Qualquer aplicação que tenha autorização para aceder à API do (autorização da aplicação pode ser o programa de configuração apenas com base nas permissões de Administrador Global)
+* Qualquer aplicação que tenha autorização para aceder à API do (autorização da aplicação pode ser configurada apenas com base nas permissões de Administrador Global)
 
-Para configurar o acesso a uma aplicação aceder à segurança APIs, tais como eventos de início de sessão, utilize o PowerShell seguinte para adicionar o Principal de serviço de aplicações para a função de leitor de segurança
+Para configurar o acesso a uma aplicação aceder à segurança APIs, tais como os eventos de início de sessão, utilize o PowerShell seguinte para adicionar as Principal de serviço de aplicações para a função de leitor de segurança
 
 ```PowerShell
 Connect-MsolService
@@ -53,7 +56,7 @@ Para aceder a este relatório através da API de relatórios, tem de ter:
 * Concluída a [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Aceder à API
-Se pode aceder a esta API através de [gráfico Explorer](https://graphexplorer2.cloudapp.net) ou através de programação utilizando, por exemplo, do PowerShell. Ordem de PowerShell para interpretar corretamente a sintaxe de filtro de OData utilizada nas chamadas REST de gráfico do AAD, tem de utilizar o backtick (aka: grave acentos) caráter para "" $ como caráter de escape. O caráter de backtick serve como [caráter de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell para fazer uma interpretação literal do caráter $ e evitar confusa-lo como um nome de variável do PowerShell (ie: $filter).
+Se pode aceder a esta API através de [gráfico Explorer](https://graphexplorer2.cloudapp.net) ou através de programação utilizando, por exemplo, do PowerShell. Utilize o backtick (aka: grave acentos) caráter para "" $ como caráter de escape para se certificar de que o PowerShell pode interpretar a sintaxe de filtro de OData utilizada nas chamadas REST de gráfico do AAD. O caráter de backtick serve como [caráter de escape do PowerShell](https://technet.microsoft.com/library/hh847755.aspx), permitindo que o PowerShell para fazer uma interpretação literal do caráter $ e evitar confusa-lo como um nome de variável do PowerShell (por exemplo, $filter).
 
 O foco deste tópico é o Explorador do gráfico. Para obter um exemplo do PowerShell, consulte este [script do PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -64,19 +67,18 @@ Pode aceder a esta API utilizando o URI base seguinte:
 
 
 
-Devido ao volume de dados, esta API tem um limite de um milhão devolvido registos. 
+Devido ao volume de dados, esta API tem um limite de 1.000.000 registos devolvidos. 
 
-Esta chamada devolve os dados em lotes. Cada lote tem um máximo de 1000 registos.  
-Para obter o lote seguinte de registos, utilize a seguinte ligação. Obter o [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) informações a partir do primeiro conjunto de registos devolvidos. O token skip será no final do resultado definido.  
+Esta chamada devolve os dados em lotes. Cada lote tem um máximo de 1000 registos. Para obter o lote seguinte de registos, utilize a seguinte ligação. Obter o [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) informações a partir do primeiro conjunto de registos devolvidos. O token skip será no final do resultado definido.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Filtros suportados
 Pode reduzir o número de registos que são devolvidos por uma API chamada em forma de um filtro.  
-Início de sessão da API de dados, relacionados com os seguintes filtros são suportados:
+Para início de sessão relacionadas com a API dados, são suportados os seguintes filtros:
 
-* **$top =\<número de registos devem ser devolvidos\>**  - para limitar o número de registos devolvidos. Esta é uma operação dispendiosa. Não deve utilizar este filtro, se pretender regressar a milhares de objetos.  
+* **$top =\<número de registos devem ser devolvidos\>**  - para limitar o número de registos devolvidos. Esta é uma operação dispendiosa. Não utilize este filtro, se pretender regressar a milhares de objetos.  
 * **$filter =\<sua declaração de filtro\>**  - especificar, on the basis of campos de filtro suportado, o tipo de registos que mais lhe interessam
 
 ## <a name="supported-filter-fields-and-operators"></a>Operadores e campos de filtro suportado
@@ -94,7 +96,7 @@ Para especificar o tipo de registos que mais lhe interessam, pode criar uma inst
 > 
 > 
 
-Para restringir o âmbito dos dados devolvidos, pode criar combinações dos filtros suportados e campos de filtro. Por exemplo, a seguinte instrução devolve os registos de 10 principais entre 1 de Julho de 2016 e 6th de Julho de 2016:
+Para restringir o âmbito dos dados devolvidos, pode criar combinações dos filtros suportados e campos de filtro. Por exemplo, a seguinte instrução devolve os registos de 10 principais entre 1 de Julho de 2016 e 6 de Julho de 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 
@@ -146,7 +148,7 @@ O valor do ID de utilizador é um valor de cadeia
 O valor de userPrincipalName é um valor de cadeia
 
 - - -
-### <a name="appid"></a>appId
+### <a name="appid"></a>AppId
 **Suportado operadores**: eq
 
 **Exemplo**:

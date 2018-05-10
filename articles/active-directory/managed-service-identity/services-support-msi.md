@@ -7,12 +7,13 @@ ms.author: daveba
 ms.date: 03/28/2018
 ms.topic: reference
 ms.service: active-directory
+ms.component: msi
 manager: mtillman
-ms.openlocfilehash: c78ba7b6c48ffddd44ef35340e9eb69a3ed32f40
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff56928748f536ffe1cfc30891585565e962d9fe
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="services-that-support-managed-service-identity"></a>Serviços que suportam a identidade de serviço geridas 
 
@@ -22,7 +23,7 @@ Identidade de serviço geridas fornece serviços do Azure com uma identidade ger
 
 Os seguintes serviços do Azure suportam uma identidade de serviço geridas.
 
-| Serviço | Estado | Data | Configurar | Obter um token |
+| Serviço | Estado | Date | Configurar | Obter um token |
 | ------- | ------ | ---- | --------- | ----------- |
 | Máquinas Virtuais do Azure | Pré-visualização | Setembro de 2017 | [Portal do Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[CLI do Azure](qs-configure-cli-windows-vm.md)<br>[Modelos Azure Resource Manager](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Serviço de Aplicações do Azure | Pré-visualização | Setembro de 2017 | [Portal do Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modelo do Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
@@ -33,7 +34,7 @@ Os seguintes serviços do Azure suportam uma identidade de serviço geridas.
 
 Os seguintes serviços de suportam a autenticação do Azure AD e foi testados com serviços de cliente que utilizam a identidade de serviço geridas.
 
-| Serviço | ID do Recurso | Estado | Data | Atribuir acesso |
+| Serviço | ID do Recurso | Estado | Date | Atribuir acesso |
 | ------- | ----------- | ------ | ---- | ------------- |
 | Azure Resource Manager | https://management.azure.com | Disponível | Setembro de 2017 | [Portal do Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI do Azure](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Disponível | Setembro de 2017 | |

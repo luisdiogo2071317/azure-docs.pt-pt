@@ -1,11 +1,11 @@
 ---
-title: "Controlos de página de API Management do Azure | Microsoft Docs"
-description: "Saiba mais sobre os controlos de página disponíveis para utilização em modelos de portal do programador na API Management do Azure."
+title: Controlos de página de API Management do Azure | Microsoft Docs
+description: Saiba mais sobre os controlos de página disponíveis para utilização em modelos de portal do programador na API Management do Azure.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-api-management-page-controls"></a>Controlos de página de API Management do Azure
 Gestão de API do Azure fornece os seguintes controlos para utilização no programador modelos portais.  
@@ -43,10 +43,10 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 -   [botão subscrever](#subscribe-button)  
 -   [Cancelar subscrição](#subscription-cancel)  
   
-##  <a name="app-actions"></a>ações de aplicações  
+##  <a name="app-actions"></a> ações de aplicações  
  O `app-actions` controlo fornece uma interface de utilizador para interagir com aplicações na página de perfil do utilizador no portal do programador.  
   
- ![aplicação &#45; controlo ações](./media/api-management-page-controls/APIM-app-actions-control.png "controlo de aplicação ações APIM")  
+ ![aplicação&#45;controlo ações](./media/api-management-page-controls/APIM-app-actions-control.png "controlo de aplicação ações APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -65,10 +65,10 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
   
 -   [Aplicações](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a>início de sessão básica  
+##  <a name="basic-signin"></a> início de sessão básica  
  O `basic-signin` controlo fornece um controlo para recolher informações de início de sessão do utilizador a página de início de sessão no portal do programador.  
   
- ![Basic &#45; o controlo de início de sessão](./media/api-management-page-controls/APIM-basic-signin-control.png "controlo de início de sessão básica APIM")  
+ ![básico&#45;controlo de início de sessão](./media/api-management-page-controls/APIM-basic-signin-control.png "controlo de início de sessão básica APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -77,14 +77,14 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 ```  
   
 ### <a name="parameters"></a>Parâmetros  
- nenhum.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `basic-signin` controlo pode ser utilizado em modelos de portal de programador seguintes:  
   
 -   [A iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a>controlo de paginação  
+##  <a name="paging-control"></a> controlo de paginação  
  O `paging-control` fornece a funcionalidade de paginação no programador as páginas do portal que apresentam uma lista de itens.  
   
  ![controlo de paginação](./media/api-management-page-controls/APIM-paging-control.png "controlo de paginação APIM")  
@@ -96,7 +96,7 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 ```  
   
 ### <a name="parameters"></a>Parâmetros  
- nenhum.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `paging-control` controlo pode ser utilizado em modelos de portal de programador seguintes:  
@@ -107,7 +107,7 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
   
 -   [Lista de produto](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a>fornecedores  
+##  <a name="providers"></a> fornecedores  
  O `providers` controlo fornece um controlo de seleção de fornecedores de autenticação na página de início de sessão no portal do programador.  
   
  ![controlo de fornecedores](./media/api-management-page-controls/APIM-providers-control.png "controlo de fornecedores APIM")  
@@ -119,14 +119,14 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 ```  
   
 ### <a name="parameters"></a>Parâmetros  
- nenhum.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `providers` controlo pode ser utilizado em modelos de portal de programador seguintes:  
   
 -   [A iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a>controlo de procura  
+##  <a name="search-control"></a> controlo de procura  
  O `search-control` fornece funcionalidade de pesquisa no programador as páginas do portal que apresentam uma lista de itens.  
   
  ![Procurar controlo](./media/api-management-page-controls/APIM-search-control.png "controlo de procura APIM")  
@@ -138,7 +138,7 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 ```  
   
 ### <a name="parameters"></a>Parâmetros  
- nenhum.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `search-control` controlo pode ser utilizado em modelos de portal de programador seguintes:  
@@ -147,10 +147,10 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
   
 -   [Lista de produto](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a>inscrição  
+##  <a name="sign-up"></a> inscrição  
  O `sign-up` controlo fornece um controlo para recolher informações de perfil de utilizador na página de inscrição no portal do programador.  
   
- ![início de sessão &#45; até o controlo](./media/api-management-page-controls/APIM-sign-up-control.png "controlo APIM de inscrição")  
+ ![início de sessão&#45;até controlo](./media/api-management-page-controls/APIM-sign-up-control.png "controlo APIM de inscrição")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -159,17 +159,17 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 ```  
   
 ### <a name="parameters"></a>Parâmetros  
- nenhum.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `sign-up` controlo pode ser utilizado em modelos de portal de programador seguintes:  
   
 -   [Inscrever-se](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a>botão subscrever  
+##  <a name="subscribe-button"></a> botão subscrever  
  O `subscribe-button` fornece um controlo para subscrever um utilizador para um produto.  
   
- ![subscrever &#45; o controlo de botão](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM subscrever-controlo de botão")  
+ ![Subscrever&#45;botão controlo](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM subscrever-controlo de botão")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -178,17 +178,17 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
 ```  
   
 ### <a name="parameters"></a>Parâmetros  
- nenhum.  
+ Nenhum.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `subscribe-button` controlo pode ser utilizado em modelos de portal de programador seguintes:  
   
 -   [Produto](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a>Cancelar subscrição  
+##  <a name="subscription-cancel"></a> Cancelar subscrição  
  O `subscription-cancel` controlo fornece um controlo para cancelar uma subscrição de um produto na página de perfil de utilizador no portal do programador.  
   
- ![subscrição &#45; Cancelar controlo](./media/api-management-page-controls/APIM-subscription-cancel-control.png "controlo de subscrição cancelar APIM")  
+ ![subscrição&#45;Cancelar controlo](./media/api-management-page-controls/APIM-subscription-cancel-control.png "controlo de subscrição cancelar APIM")  
   
 ### <a name="usage"></a>Utilização  
   
@@ -210,5 +210,5 @@ Para utilizar um controlo, coloque-o na localização pretendida no modelo de po
   
 -   [Produto](api-management-product-templates.md#Product)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).

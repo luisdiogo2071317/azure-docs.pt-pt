@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: d539475d376e2c3e38c2cbd38de0a10645fcabe4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança de grelha de eventos e autenticação 
 
@@ -27,6 +27,8 @@ Grelha de eventos do Azure tem três tipos de autenticação:
 Webhooks são uma das várias formas para receber eventos da grelha de eventos do Azure. Quando um novo evento estiver pronto, o Webhook de grelha de eventos envia um pedido HTTP para o ponto final de HTTP configurado com o evento no corpo.
 
 Quando registar o próprio ponto final de WebHook a grelha de evento, envia-lhe um pedido POST com um código de validação simples para provar a propriedade de ponto final. A aplicação tem de responder ao echoing novamente o código de validação. Grelha de eventos não fornecer eventos aos pontos finais de WebHook que ainda não passaram a validação. Se utilizar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir eco programaticamente o código de validação. Para esses serviços, pode validar manualmente a subscrição utilizando um URL de validação que é enviado o evento de validação da subscrição. Copiar esse URL e enviar um pedido GET através de um cliente REST ou o seu browser.
+
+Validação manual está em pré-visualização. Para utilizá-lo, tem de instalar o [extensão da grelha de evento](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Pode instalá-lo com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, certifique-se de que está a utilizar `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalhes de validação
 

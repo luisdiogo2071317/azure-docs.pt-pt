@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Utilize as ferramentas do Azure Stream Analytics para o Visual Studio
 Ferramentas de Stream Analytics do Azure para Visual Studio agora são geralmente disponíveis. Estas ferramentas ativar uma experiência mais rica para os utilizadores de Stream Analytics resolver problemas, bem como escrever consultas complexas e até mesmo escrever consultas localmente. Também pode exportar uma tarefa de Stream Analytics para um projeto do Visual Studio.
@@ -28,6 +28,20 @@ Depois de concluir este tutorial, será capaz de:
 * Teste a sua tarefa localmente com dados de exemplo local.
 * Utilize a monitorização para resolver problemas.
 * Exporte as tarefas existentes para projetos.
+
+>[!IMPORTANT]
+>
+>Durante a preparação para a nova geral dados proteção Regulamento (GDPR) entrem em vigor no 25 de Maio de 2018, recomenda-se que os utilizadores do Azure Stream Analytics Tools para Visual Studio Atualize para versão 2.3.3000.5 ou posterior. Esta versão inclui alterações com base nos requisitos de proteção de dados mais recentes. Tenha em atenção que as versões anteriores não estão disponíveis para transferir e foram preteridos. 
+>
+>**O que é necessário fazer?**
+>
+>1. Verifique se estiver a utilizar uma versão anterior ao 2.3.3000.5 do Azure Stream Analytics Tools para Visual Studio. 
+>   
+>   ![Versão da ferramenta de verificação](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. Se a versão é uma versão anterior do 2.3.3000.5, Atualize as ferramentas do Azure Data Lake para Visual Studio, visitando o Centro de transferências: 
+>    - [Para o Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Para o Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Terá dos seguintes pré-requisitos para concluir este tutorial:
@@ -131,13 +145,13 @@ Para obter mais detalhes, leia sobre [tempo gestão](https://msdn.microsoft.com/
 
 Agora que tem de escrever a primeira consulta do Stream Analytics, testá-lo através da utilização de ficheiros de dados de exemplo localizados na pasta TollApp no seguinte caminho:
 
-**..\TollApp\TollApp\Data**
+**.. \TollApp\TollApp\Data**
 
 Esta pasta contém os seguintes ficheiros:
 
 * Entry.json
 * Exit.json
-* Registration.json
+* Registration.JSON
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Pergunta: Número de veículos introduzir um booth de utilização
 No projeto, faça duplo clique em **Script.asaql** para abrir o script no editor. Cole o script na secção anterior do editor. O editor de consultas suporta IntelliSense, cores da sintaxe e um marcador de erro.
