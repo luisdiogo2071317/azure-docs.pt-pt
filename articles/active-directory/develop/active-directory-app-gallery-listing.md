@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 05/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5140d25119729a391b21735ab9110c216afda669
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -49,9 +49,27 @@ Para listar uma aplicação na Galeria de aplicações do Azure AD, primeiro ter
 
 *   **OpenID Connect**: criar a aplicação multi-inquilino no Azure AD e implementar o [framework de consentimento do Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) para a sua aplicação. Envie o pedido de início de sessão para um ponto final comum, para que qualquer cliente pode fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador com base no ID de inquilino e de UPN do utilizador foi recebido no token. Para integrar a aplicação com o Azure AD, siga o [instruções de programadores](active-directory-authentication-scenarios.md).
 
+    ![Linha cronológica de listagem aplicação OpenID Connect para a Galeria](./media/active-directory-app-gallery-listing/openid.png)
+
+    * Se pretender adicionar a sua aplicação para lista na galeria com OpenID Connect, selecione **OpenID Connect e OAuth 2.0** como acima.
+
+    * Se tiver quaisquer problemas relativos ao acesso, contacte o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** ou **WS-Fed**: A aplicação tem de ter a capacidade para efetuar a integração de SAML/WS-Fed SSO no modo SP ou IDP. Se a sua aplicação suporta SAML 2.0, pode integrá-lo diretamente com um inquilino do Azure AD utilizando o [instruções para adicionar uma aplicação personalizada](../active-directory-saas-custom-apps.md).
 
+    ![Linha cronológica de listagem SAML 2.0 ou WS-Fed a aplicação na Galeria](./media/active-directory-app-gallery-listing/saml.png)
+
+    * Se pretende adicionar a aplicação à lista na galeria com **SAML 2.0** ou **WS-Fed**, selecione **SAMl 2.0/WS-Fed** como acima.
+
+    * Se tiver quaisquer problemas relativos ao acesso, contacte o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **Palavra-passe SSO**: criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseada em palavra-passe de início de sessão](../active-directory-appssoaccess-whatis.md). Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais.
+
+    ![Linha cronológica de listagem aplicação de SSO de palavra-passe para a Galeria](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * Se pretender adicionar a sua aplicação para lista na galeria do utilizando palavras-passe SSO, selecione **SSO de palavra-passe** como acima.
+
+    * Se tiver quaisquer problemas relativos ao acesso, contacte o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Atualizar/remover listagem existente
 
@@ -60,7 +78,7 @@ Para atualizar ou remover uma aplicação existente na Galeria de aplicações d
 * Selecione a opção adequada da abaixo da imagem
 
     ![Linha cronológica de listagem aplicação saml para a Galeria](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * Se pretender atualizar uma aplicação existente, selecione **atualizar a lista de aplicações existentes**.
 
     * Se pretender remover uma aplicação existente a partir da galeria do Azure AD, selecione **remover listagem de aplicação existente**
@@ -86,6 +104,10 @@ A linha cronológica para o processo de listagem um SAML 2.0 ou a aplicação de
 A linha cronológica para o processo de uma aplicação OpenID Connect na Galeria de listagem é 2 a 5 dias úteis.
 
    ![Linha cronológica de listagem aplicação saml para a Galeria](./media/active-directory-app-gallery-listing/timeline2.png)
+
+A linha cronológica para o processo de listagem aplicação na galeria com suporte de aprovisionamento de utilizadores é dias úteis de 40 45.
+
+   ![Linha cronológica de listagem aplicação saml para a Galeria](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalamentos de clientes
 

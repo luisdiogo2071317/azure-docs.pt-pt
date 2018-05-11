@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novidades na gestão de aplicações da empresa no Azure Active Directory 
 
@@ -34,11 +34,11 @@ Seguem-se alguns dos melhoramentos para o Azure AD no [portal do Azure](https://
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Melhorias na Galeria de aplicações do Azure Active Directory
 
-Adicionar as suas aplicações favoritas, quer sejam do [Galeria de aplicações](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), está a expandir para a nuvem de aplicações personalizadas ou novas aplicações estiver a desenvolver.  Pode começar a utilizar com esta nova experiência, clicando em **adicionar** no **aplicações empresariais** descrição geral ou **todas as aplicações** painéis.
+Adicionar as suas aplicações favoritas, quer sejam do [Galeria de aplicações](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), está a expandir para a nuvem de aplicações personalizadas ou novas aplicações estiver a desenvolver.  Pode começar a utilizar com esta nova experiência, clicando em **adicionar** em **aplicações empresariais** ou **todas as aplicações**.
  
   ![Adicionar uma aplicação](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-Uma vez na galeria, irá ver todas as nossas aplicações em destaque que suportam o aprovisionamento de utilizadores apresentados frente e center.  Pode procurar todos os tipos de diferentes categorias para explorar as aplicações que mais lhe interessam ou pode utilizar a experiência de pesquisa para localizar rapidamente as aplicações que pretende integrar.
+Uma vez na galeria, irá ver todas as aplicações em destaque que suportam o aprovisionamento de utilizadores apresentados frente e center. Pode procurar todos os tipos de diferentes categorias para explorar as aplicações que mais lhe interessam ou pode utilizar a experiência de pesquisa para localizar rapidamente as aplicações que pretende integrar.
 
   ![A Galeria de aplicações](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -51,7 +51,7 @@ Para além de adicionar aplicações previamente integradas da galeria do, todas
  
 **Para começar a adicionar a sua própria aplicação**:
 
-1. Clique em de **adicionar a sua própria ligação** no topo da Galeria de aplicações. 
+1. Clique em **adicionar a sua própria ligação** no topo da Galeria de aplicações. 
 2. Verá duas opções à frente do: **implementar uma aplicação existente** ou **desenvolver uma nova aplicação**. Continue a ler para saber a diferença entre as duas opções e como utilizá-los.
 
 ### <a name="deploying-existing-applications"></a>Implementar as aplicações existentes
@@ -64,9 +64,9 @@ Para além de adicionar aplicações previamente integradas da galeria do, todas
 ### <a name="developing-new-applications"></a>Desenvolver novas aplicações
 
 1. Se estiver a desenvolver uma nova aplicação, é uma forma fácil de obter ao registo de aplicação correta da galeria do:
-2. Clique em de **adicionar os seus próprios** opção da Galeria de aplicações, selecione o **desenvolver uma aplicação existente** escolha, verá uma ligação rápida à direita para a experiência de adicionar aplicações.
+2. Clique em de **adicionar os seus próprios** opção da Galeria de aplicações, selecione **desenvolver uma aplicação existente**, e verá uma ligação rápida à direita para a experiência de adicionar aplicações.
 
-  ![Adicionar uma aplicação desenvolvida recentemente em apenas alguns cliques](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
+  ![Adicionar uma aplicação recentemente programada em apenas alguns cliques](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
 >[!NOTE]
@@ -75,11 +75,11 @@ Para além de adicionar aplicações previamente integradas da galeria do, todas
   ![Gerir o acesso à sua nova aplicação em aplicações da empresa](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Início rápido: começar com a sua nova aplicação imediato 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>Início rápido: Começar com a sua nova aplicação imediato 
 
 Depois de adicionar uma aplicação, se ser previamente integradas ou a própria aplicação, criámos uma experiência de início rápido personalizáveis para ajudá-lo grounded na nova experiência de aplicações, o mais rapidamente. Se seguir cada opção sistematicamente, vamos guiá-lo através da IU e mostrar-lhe como começar com um piloto da sua aplicação nova mais rapidamente possível. 
  
-  ![Experiência de início de novas aplicações rápidas](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
+  ![A nova experiência de início rápido de aplicações](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
  Pode visitar esta nova experiência de início rápido em qualquer altura e para qualquer aplicação, ao clicar no **início rápido** no menu de navegação esquerdo de aplicação.
 
@@ -87,13 +87,13 @@ Depois de adicionar uma aplicação, se ser previamente integradas ou a própria
 ## <a name="updated-application-proxy-configuration"></a>Configuração de proxy da aplicação atualizado
 Agora, vamos indiquem uma das novas aplicações que adicionou está em execução no seu ambiente no local e pretende integrá-lo com o Azure AD.  Uma das ações que novo frio sobre a nova experiência de configuração de aplicação no Azure AD novo portal é que dividindo início de sessão no modo a aplicação da sua configuração de proxy de aplicação, pode agora facilmente expor palavra-passe SSO ou aplicações federadas que está a executar no seu direito da rede empresarial na nuvem, sem ter de criar várias instâncias da aplicação.
 
-Além disto, agora pode também configurar qualquer uma das novas aplicações que adicionou para utilização com o direito de Proxy de aplicações do Azure AD no portal novo, incluindo as aplicações que suportam nativas experiências de autenticação do Windows.
+Também pode configurar qualquer uma das novas aplicações que adicionou para utilização com o direito de Proxy de aplicações do Azure AD no portal novo, incluindo as aplicações que suportam nativas experiências de autenticação do Windows.
 
   ![Configuração de uma aplicação para utilizar a opção de início de sessão na autenticação integrada do Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 Para começar a configurar uma aplicação de autenticação nativa do Windows com o Proxy de aplicações:
-1. Clique no item de navegação de início de sessão único e escolha **autenticação integrada do Windows** do painel de definições de início de sessão e configurar as definições para o seu liking.
+1. Clique no item de navegação de início de sessão único e escolha **autenticação integrada do Windows** com as definições de início de sessão e configurar as definições para o seu liking.
 2. Sobre o suporte para estes modos de autenticação de novo, também agora pode carregar certificados a partir de domínios personalizados para suportar aplicações em execução em pontos finais segurados na sua organização.  
  
    ![Carregar um certificado para ser utilizado com o Proxy de aplicações](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +102,28 @@ Para começar a configurar uma aplicação de autenticação nativa do Windows c
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configuração avançada de federado único início de sessão
 
-Para das estiver a utilizar atualmente a aplicações federadas, existem muitas funcionalidades novas no painel de configuração baseados em SAML início de sessão. Para começar, agora pode totalmente personalizar, adicionar, remover e os atributos de utilizador existente emitidos como afirmações no SAML do mapa.
+Para das estiver a utilizar atualmente a aplicações federadas, existem muitas funcionalidades novas baseados em SAML início de sessão na configuração. Para começar, agora pode totalmente personalizar, adicionar, remover e os atributos de utilizador existente emitidos como afirmações no SAML do mapa.
  
   ![Personalizar os atributos de utilizador token SAML passado para uma aplicação federada](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 Para verificar que limite a nova configuração de SSO federado:
-1. Abrir uma aplicação federada **de sessão único-** painel a partir do menu de navegação esquerdo e certifique-se a '*baseados em SAML início de sessão** modo está seleccionado. 
+1. Abrir uma aplicação federada **de sessão único-** do menu de navegação esquerdo e certifique-se a '*baseados em SAML início de sessão** modo está seleccionado. 
 2. Uma vez, ativar a caixa de verificação sob o **atributos de utilizador** cabeçalho para modificar todos os atributos incluídos no SAML token transmitido para essa aplicação.
 
 Pode também criar, rollover e gerir certificados utilizados para federado-início de sessão único, bem como editar que obtém notificado quando o certificado está prestes a expirar. Irá ver estas novas opções sob o **certificados** cabeçalho no mesmo único início de sessão no painel.
  
   ![Criar um novo certificado, personalizar o e-mail de notificação de expiração e as opções de assinatura de certificado](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>Paramenter de estado de reencaminhamento
-Por último, iremos também tiver expandido o conjunto de parâmetros de URL de SAML suportamos para incluir o **parâmetro State de reencaminhamento**, que é a página os seus utilizadores serão apresentado no dentro de uma aplicação federada depois do início de sessão está concluído. Isto é muito útil definição para configurar se pretende enviar os seus utilizadores para um local específico na aplicação para começá-las rapidamente.
+### <a name="relay-state-parameter"></a>Parâmetro de estado de reencaminhamento
+Por último, iremos também tiver expandido o conjunto de parâmetros de URL de SAML suportamos para incluir o **parâmetro State de reencaminhamento**, que é a página os seus utilizadores serão apresentado no dentro de uma aplicação federada depois do início de sessão está concluído. Esta é uma definição útil para configurar se pretende enviar os seus utilizadores para um local específico na aplicação para começá-las rapidamente.
 
   ![Definir o parâmetro de estado de reencaminhamento de SAML](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **Para definir o parâmetro de estado de reencaminhamento**:
 
 1. Ativar o **Mostrar avançadas definições de URL** caixa de verificação no **domínios e URLs** cabeçalho no início de sessão único no painel de configuração. 
-2. Depois de fazê-lo, irá ver que um conjunto novo URL de entrada caixas aparecem que irá permitir-lhe definir esta e outras definições de URL de SAML.
+2. Um conjunto novo URL de entrada caixas aparecem que permitem definir este parâmetro e outras definições de URL de SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Traga a sua própria palavra-passe de aplicações de SSO
 
@@ -133,7 +133,8 @@ Sabemos que nem todas as aplicações suporta a Federação direito a box. Por e
 
 **Verificar a funcionalidade 'Colocar as suas próprias aplicações'**:
 
-1. Depois de definir o modo único início de sessão para uma nova aplicação personalizada que adicionou ao **baseada em palavra-passe de início de sessão**, introduza o URL onde a aplicação compõe o ecrã de início de sessão e clique em **guardar**.  
+1. Depois de definir o modo único início de sessão para uma nova aplicação personalizada que adicionou ao **baseada em palavra-passe de início de sessão**, introduza o URL onde a aplicação compõe o ecrã de início de sessão e 
+2. Clique em **Guardar**.  
 2. Depois, fazê-lo, iremos irá scrape automaticamente esse URL para um nome de utilizador e palavra-passe caixa de entrada e permite a utilização do Azure AD de forma segura transmitir palavras-passe para essa aplicação utilizando a extensão de browser do painel de acesso.
 
 ## <a name="configure-self-service-application-access"></a>Configurar o acesso de aplicação personalizada
@@ -153,7 +154,7 @@ Esperamos, como a utilização a melhor experiência do Azure AD. Manter os come
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais detalhes, consulte [gerir aplicações com o Azure Active Directory](active-directory-enable-sso-scenario.md).
+Para obter mais detalhes, consulte [gerir aplicações com o Azure Active Directory](manage-apps/what-is-application-management.md).
 
 
 

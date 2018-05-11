@@ -3,16 +3,17 @@ title: Máquinas de integração de gestão do Automation DSC do Azure
 description: Como máquinas de configuração para gestão com o Automation DSC do Azure
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1090751db4df54e36e5263c4036d447c95d7b50
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração de gestão do Automation DSC do Azure
 
@@ -62,6 +63,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -111,6 +113,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> Nomes de configuração de nó de DSC são sensíveis às maiúsculas e no portal. Se as maiúsculas e minúsculas não correspondentes o nó não irão aparecer em nós de DSC.
 
 ## <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
@@ -205,6 +210,9 @@ Para carregar genericamente qualquer computador no DSC da automatização do Azu
 1. Abra o ISE do PowerShell como administrador num computador do ambiente local. A máquina tem de ter a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) instalado.
 2. Copie o seguinte script localmente. Este script contém uma configuração de DSC do PowerShell para criar metaconfigurations e um comando para iniciar a criação de configuração meta.
 
+> [!NOTE]
+> Nomes de configuração de nó de DSC são sensíveis às maiúsculas e no portal. Se as maiúsculas e minúsculas não correspondentes o nó não irão aparecer em nós de DSC.
+
     ```powershell
     # The DSC configuration that will generate metaconfigurations
     [DscLocalConfigurationManager()]
@@ -296,6 +304,7 @@ Para carregar genericamente qualquer computador no DSC da automatização do Azu
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';
@@ -383,7 +392,7 @@ Depois de registar uma máquina como um nó de DSC no Automation DSC do Azure, e
 
 O novo registo pode ser executado da mesma forma que registou o nó inicialmente, utilizando qualquer um dos métodos de integração descritos neste documento. Não é necessário anular o registo de um nó do DSC da automatização do Azure antes de ao registar novamente-lo.
 
-## <a name="related-articles"></a>Artigos Relacionados
+## <a name="related-articles"></a>Artigos relacionados
 
 * [Descrição geral do DSC da automatização do Azure](automation-dsc-overview.md)
 * [Cmdlets do DSC da automatização do Azure](/powershell/module/azurerm.automation/#automation)

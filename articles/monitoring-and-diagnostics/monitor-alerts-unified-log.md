@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 3a4277d2106078136cee09dfe6aefc87a73c4e08
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Registo de alertas no Monitor do Azure - alertas 
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas suportados no novo [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem plataforma de análise do Azure como base para alertas... Para obter detalhes de alertas de métrica utilizando os registos, consulte [quase em Tempo Real métrica alertas](monitoring-near-real-time-metric-alerts.md)
@@ -92,7 +92,7 @@ Considere um cenário em que pretendia um alerta se a qualquer computador excede
 - **Período de tempo:** 30 minutos<br>
 - **Frequência de alerta:** cinco minutos<br>
 - **Valor de agregação:** excelente a 90<br>
-- **Alerta de Acionador com base na:** Total de falhas maior 5<br>
+- **Alerta de Acionador com base na:** Total de falhas maior que 2<br>
 
 A consulta criaria um valor médio para cada computador em intervalos de 5 minutos.  Esta consulta iria ser executada a cada 5 minutos para os dados recolhidos através de 30 minutos anteriores.  Dados de exemplo são mostrados abaixo para três computadores.
 

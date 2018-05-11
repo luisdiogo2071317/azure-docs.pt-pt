@@ -1,11 +1,11 @@
 ---
-title: "Criar e implementar uma aplicação Node.js Express Cloud Services do Azure"
-description: "Criar e implementar uma aplicação de Express.js no Node.js Cloud Services do Azure"
+title: Criar e implementar uma aplicação Node.js Express Cloud Services do Azure
+description: Criar e implementar uma aplicação de Express.js no Node.js Cloud Services do Azure
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar e implementar uma aplicação de web do Node.js utilizando rápida em serviços de Cloud do Azure
 
@@ -97,7 +97,7 @@ Agora a modificar a vista para apresentar a mensagem "Bem-vindo ao rápidas no A
    
    ![O conteúdo do ficheiro Index. jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade é o motor de vista de predefinido utilizado por aplicações rápida. Para obter mais informações sobre o motor de vista Jade, consulte [http://jade-lang.com][http://jade-lang.com].
+   Jade é o motor de vista de predefinido utilizado por aplicações rápida. Para obter mais informações sobre o motor de vista Jade, consulte [ http://jade-lang.com ] [ http://jade-lang.com].
 2. Modificar a última linha de texto, acrescentando **no Azure**.
    
    ![O ficheiro Index. jade, a última linha lê: p bem-vindo ao \#{title} no Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -117,7 +117,7 @@ Uma vez concluída a operação de implementação, o seu browser abrir e aprese
 
 ![Um browser a apresentar a página de rápida. O URL indica que agora está a ser alojado no Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte o [Centro para Programadores do Node.js](/develop/nodejs/).
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/

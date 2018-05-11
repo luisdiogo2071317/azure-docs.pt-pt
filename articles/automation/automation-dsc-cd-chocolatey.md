@@ -3,16 +3,17 @@ title: Implementação contínua do DSC de automatização do Azure com Chocolat
 description: Implementação contínua de DevOps com Automation DSC do Azure e o Gestor de pacote Chocolatey.  Exemplo com o modelo JSON ARM completo e de origem do PowerShell.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9c3cb5a00433a76e8cc444cc48c648cb2749a2ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais utilizando o DSC de automatização e Chocolatey
 Um universo de DevOps existem diversas ferramentas para ajudá-lo com vários pontos no pipeline de integração contínua.  Configuração de estado de Desired de automatização do Azure (DSC) é uma adição de nova boas-vindas para as opções que podem utilizar agrupamentos de DevOps.  Este artigo demonstra definição cópia contínua implementação (CD) para um computador Windows.  Pode expandir facilmente técnica para incluir tantos computadores Windows, conforme necessário na função (um web site, por exemplo) e a partir daí, bem como funções adicionais.
@@ -166,7 +167,7 @@ Obviamente, quando atualizar um pacote de uma VM que estiver em produção, ter�
 
 Origem completo para este exemplo de utilização está a ser [este projeto do Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) no GitHub.
 
-## <a name="related-articles"></a>Artigos Relacionados
+## <a name="related-articles"></a>Artigos relacionados
 * [Descrição geral do DSC da automatização do Azure](automation-dsc-overview.md)
 * [Cmdlets do DSC da automatização do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Máquinas de integração de gestão do Automation DSC do Azure](automation-dsc-onboarding.md)

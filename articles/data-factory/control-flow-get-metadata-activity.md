@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 91ef3f9f15797c8c0c599e8c01070369e1af0b58
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4698f2e4c75456de7387ee7fe3bfa9b2ab4dd406
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -37,6 +37,9 @@ A seguinte funcionalidade está disponível no fluxo de controlo:
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 A atividade de GetMetadata demora um conjunto de dados como uma entrada necessária e produz informações de metadados disponíveis como saída da atividade. Atualmente, os conectores com meatadata recuperável correspondente que se seguem são suportados:
+
+>[!NOTE]
+>Se executar a atividade de GetMetadata num tempo de execução de integração Self-hosted, a capacidade mais recente é suportada na versão 3.6 ou superior. 
 
 ### <a name="supported-connectors"></a>Conectores suportados
 

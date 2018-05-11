@@ -3,8 +3,8 @@ title: Compreender a aplicação de desconto reservado instâncias de Máquina V
 description: Saiba como desconto reservado instância de VM do Azure é aplicado para VMs em execução.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikdesai
+author: yashesvi
+manager: yashar
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
-ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: yashar
+ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado
 Depois de comprar uma instância de VM reservado, o desconto de reserva é aplicado automaticamente a máquinas virtuais, os atributos e a quantidade da reserva de correspondência. Uma reserva abrange os custos de infraestrutura das suas máquinas virtuais. A tabela seguinte ilustra os custos para a máquina virtual depois de comprar uma reserva. Em todos os casos, são-lhe cobrados para armazenamento e redes nas taxas normais.
 
 | Tipo de máquina virtual  | Custos de reserva |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |VMs do Linux sem software adicional | Reserva abrange os custos de infraestrutura VM.|
 |VMs com Linux com custos de software (por exemplo, Red Hat) | Reserva abrange os custos de infraestrutura. São-lhe cobrados para o software adicional.|
 |VMs do Windows sem software adicional |Reserva abrange os custos de infraestrutura. São-lhe cobrados de software do Windows.|
@@ -53,7 +53,9 @@ Para mais informações sobre as instâncias de Máquina Virtual reservado, cons
 - [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Compreender a utilização de instância reservado para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
+
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

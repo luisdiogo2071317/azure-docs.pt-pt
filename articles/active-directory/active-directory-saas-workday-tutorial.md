@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Azure Active Directory com Workday
 
@@ -174,19 +174,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Fornecedores de identidade SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "fornecedores de identidade SAML")
    
-    c. Selecione **ativar idp iniciada a fim de sessão**.
-   
-    d. No portal do Azure, no **configurar início de sessão** janela, copie o **Sign-Out URL** valor e, em seguida, cole-o para o **URL de resposta de fim de sessão** caixa de texto.
+    c. No portal do Azure, no **configurar início de sessão** janela, copie o **Sign-Out URL** valor e, em seguida, cole-o para o **URL de resposta de fim de sessão** caixa de texto.
 
-    e. No portal do Azure, no **configurar início de sessão** janela, copie o **único início de sessão no URL do serviço SAML** valor e, em seguida, cole-o para o **URL do serviço do IdP SSO** caixa de texto.
+    d. No portal do Azure, no **configurar início de sessão** janela, copie o **único início de sessão no URL do serviço SAML** valor e, em seguida, cole-o para o **URL do serviço do IdP SSO** caixa de texto.
 
-    f. No **utilizada para ambientes** caixa de texto, selecione o nome do ambiente.
+    e. No **utilizada para ambientes** caixa de texto, selecione o nome do ambiente.
 
-    g. Clique em **certificado de chave pública fornecedor de identidade**e, em seguida, clique em **criar**. 
+    f. Clique em **certificado de chave pública fornecedor de identidade**e, em seguida, clique em **criar**. 
 
     ![Criar](./media/active-directory-saas-workday-tutorial/IC782928.png "criar")
 
-    h. Clique em **criar x509 chave pública**. 
+    g. Clique em **criar x509 chave pública**. 
 
     ![Criar](./media/active-directory-saas-workday-tutorial/IC782929.png "criar")
 
@@ -293,7 +291,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 

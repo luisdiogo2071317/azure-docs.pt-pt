@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: d663756c52a23096888b9ee568fea23163d33aa9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3d9f9cd835056b61ee72ddde5add285f47665ac1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit do Azure para o IntelliJ para criar Spark aplicações para um cluster do HDInsight
 
@@ -86,7 +86,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador do Ambari gerida, t
    > ![Explorador de armazenamento no IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
 
    
-3. Pode ver um cluster de ligado no **HDInsight** nós se as informações de entrada estão corretas. Agora pode submeter uma aplicação para este cluster ligado.
+3. Pode ver um cluster de ligado no **HDInsight** nós se as informações de entrada são mais adequadas. Agora pode submeter uma aplicação para este cluster ligado.
 
    ![cluster ligado](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -283,11 +283,15 @@ Estes erros acontecer porque o tamanho da área dinâmica para dados não é suf
 ![A adição de opções para a caixa de "Opções de VM" IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>FAQ
-Para submeter uma aplicação no Azure Data Lake Store, escolha **interativo** modo durante o processo de início de sessão do Azure. Se selecionar **automatizada** modo, pode obter um erro.
+Quando ligar um cluster, posso seria sugerimos que forneça credenciais do armazenamento.
 
-![interative de início de sessão](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Ligue o cluster, forneça a credencial de armazenamento](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Agora, iremos resolve. Pode escolher um Cluster do Azure Data Lake ao submeter a sua aplicação com qualquer método de início de sessão.
+Existem dois modos para submeter as tarefas. Se a credencial de armazenamento é fornecida, modo batch será utilizado para submeter a tarefa. Caso contrário, será utilizado o modo interativo. Se o cluster está ocupado, poderá obter o erro abaixo.
+
+![Erro de obtenção de Intellij quando cluster ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Erro de obtenção de Intellij quando cluster ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>Comentários e problemas conhecidos
 Atualmente, a visualização saídas de Spark diretamente não é suportada.

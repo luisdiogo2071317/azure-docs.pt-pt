@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: f427035f413dde304c2270006c6665120cb3e1e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c60b7df4d766ddf321ce2c807994f3b83046f1ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Pergunta frequentes sobre máquinas virtuais do Windows
 Este artigo aborda algumas perguntas comuns sobre máquinas virtuais do Windows criadas no Azure utilizando o modelo de implementação Resource Manager. Para a versão do Linux deste tópico, consulte [perguntas mais frequentes pergunta sobre máquinas virtuais do Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -88,27 +88,27 @@ Nomes de utilizador pode ter um máximo de 20 carateres de comprimento e não po
 Não são permitidos nomes de utilizador seguintes:
 <table>
     <tr>
-        <td style="text-align:center">Administrador </td><td style="text-align:center"> admin </td><td style="text-align:center"> Utilizador </td><td style="text-align:center"> User1</td>
+        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">A</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">teste </td><td style="text-align:center"> Utilizador2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">ADM</td><td style="text-align:center">Admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+    </tr>   <tr>
+        <td style="text-align:center">Administrador</td><td style="text-align:center">aspnet</td><td style="text-align:center">cópia de segurança</td><td style="text-align:center">consola</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> ADM </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">David </td><td style="text-align:center">convidado</td><td style="text-align:center">João</td><td style="text-align:center">proprietário</td>
     </tr>
     <tr>
-        <td style="text-align:center">cópia de segurança </td><td style="text-align:center"> consola </td><td style="text-align:center"> David </td><td style="text-align:center"> convidado</td>
+        <td style="text-align:center">raiz</td><td style="text-align:center">servidor</td><td style="text-align:center">sql</td><td style="text-align:center">suporte</td>
     </tr>
     <tr>
-        <td style="text-align:center">john </td><td style="text-align:center"> proprietário </td><td style="text-align:center"> raiz </td><td style="text-align:center"> servidor</td>
+        <td style="text-align:center">support_388945a0</td><td style="text-align:center">SYS</td><td style="text-align:center">teste</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> suporte </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> SYS</td>
+        <td style="text-align:center">TEST2</td><td style="text-align:center">test3</td><td style="text-align:center">Utilizador</td><td style="text-align:center">User1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">Utilizador2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -124,17 +124,17 @@ As palavras-passe seguintes não são permitidas:
 
 <table>
     <tr>
-        <td>abc@123 </td>
-        <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
-        <td>Word do Pa$ $ </td>
+        <td>abc@123</td>
+        <td>ILOVEYOU!</td>
+        <td>P@$$w0rd</td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
-        <td>Palavra-passe! </td>
-        <td>Password1 </td>
-        <td>Password22 </td>
-        <td>ILOVEYOU! </td>
+        <td>Word do Pa$ $</td>
+        <td>pass@word1</td>
+        <td>Palavra-passe!</td>
+        <td>Password1</td>
+        <td>Password22</td>
     </tr>
 </table>

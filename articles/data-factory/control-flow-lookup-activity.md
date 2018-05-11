@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -31,11 +31,9 @@ Atividade de pesquisa pode ler e devolver o conteúdo de um ficheiro de configur
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-As seguintes origens de dados são atualmente suportadas para a pesquisa:
+São suportadas as seguintes origens de dados para a pesquisa. O número máximo de linhas que pode ser devolvido pela pesquisa atividade é **5000**e até **2MB** de tamanho. E atualmente a duração máxima para a atividade de pesquisa antes de tempo limite é uma hora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
-
-O número máximo de linhas devolvidas pela atividade de pesquisa é **5000**e até **2MB** de tamanho.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -64,10 +62,11 @@ Conjunto de dados | Fornece a referência de conjunto de dados para a pesquisa. 
 source | Contém propriedades específicas do conjunto de dados de origem, o mesmo que a origem de atividade de cópia. Obter os detalhes da secção "Copiar propriedades da atividade" cada artigo conector correspondente. | Par chave/valor | Sim
 firstRowOnly | Indica se deve devolver a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
 
-Tenha em atenção os seguintes pontos:
+**Tenha em atenção os seguintes pontos:**
 
 1. Coluna de origem com o tipo de ByteArray não é suportada.
 2. Estrutura não é suportada na definição do conjunto de dados. Para ficheiros de formato de texto especificamente, pode utilizar a linha de cabeçalho para fornecer o nome da coluna.
+3. Se a origem de pesquisa é um ficheiro JSON, o `jsonPathDefinition` definição para formação novamente o objeto JSON não é suportada, todo o objetos será obtido.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Utilizar o resultado de atividade de pesquisa numa atividade subsequente
 

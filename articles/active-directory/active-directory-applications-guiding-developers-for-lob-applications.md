@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 804c135afae97ffc8b2cf78c31fd8c3653e9911d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66102836b954bf4fafc4379cf573658d89e0d409
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicações de linha de negócio para o Azure Active Directory
 Este guia fornece uma descrição geral do desenvolvimento de aplicações do linha de negócio (LoB) para o Azure Active Directory (AD). O público-alvo é administradores globais do Active Directory/Office 365.
@@ -77,7 +77,7 @@ Para aplicações que considera fidedignos, pode simplificar a experiência de u
 Para obter mais informações sobre o consentimento do utilizador e o consentimento experiência no Azure, consulte [integrar aplicações com o Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Ativar o acesso remoto seguro a aplicações no local com o Proxy de aplicações do Azure AD](active-directory-application-proxy-get-started.md)
+* [Ativar o acesso remoto seguro a aplicações no local com o Proxy de aplicações do Azure AD](manage-apps/application-proxy.md)
 * [Pré-visualização do acesso condicional do Azure para aplicações SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Gerir o acesso a aplicações com o Azure AD](active-directory-managing-access-to-apps.md)
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)

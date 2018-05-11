@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure (pré-visualização)
 
@@ -292,7 +292,7 @@ Sim, a eliminação de forma recuperável é configurável existentes e novas co
 
 **Se eliminar uma conta de toda ou contentor com eliminação de forma recuperável ativada, todos os blobs associados guardar?**
 
-Não, se eliminar uma conta de toda ou contentor, todos os blobs associados serão eliminados permanentemente. Para saber como proteger uma conta de armazenamento de eliminações acidentais, consulte o artigo do Azure Resource Manager [recursos de bloqueio para impedir alterações inesperado](/azure-resource-manager/resource-group-lock-resources.md).
+Não, se eliminar uma conta de toda ou contentor, todos os blobs associados serão eliminados permanentemente. Para saber como proteger uma conta de armazenamento de eliminações acidentais, consulte o artigo do Azure Resource Manager [recursos de bloqueio para impedir alterações inesperado](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Pode ver as métricas de capacidade para os dados eliminados?**
 
@@ -318,7 +318,7 @@ Eliminação de forma recuperável está disponível para os discos premium e pa
 
 É possível tirar partido da eliminação de forma recuperável independentemente da versão de API que está a utilizar. No entanto, para listar e recuperar blobs eliminados de forma recuperável e instantâneos do blob, terá de utilizar a versão de 2017-07-29 do [API de REST dos serviços de armazenamento](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. Em geral, recomendamos sempre a utilizar a versão mais recente, independentemente se estão a utilizar esta funcionalidade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 

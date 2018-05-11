@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Integrar soluções de gestão de atualizações, controlo de alterações e inventário de uma Máquina Virtual do Azure
 
@@ -38,11 +38,17 @@ Navegue para as outras soluções e clique em **ativar**, a análise de registos
 > [!NOTE]
 > **Registo de alterações** e **inventário** utilizar a mesma solução, quando um está ativado o outro está ativado, bem como.
 
-## <a name="scope-configuration"></a>Configuração de âmbito
+## <a name="scope-configuration"></a>Configuração de Âmbito
 
 Cada solução utiliza uma configuração de âmbito na área de trabalho para os computadores que obter a solução de destino. A configuração do âmbito é um grupo de um ou mais pesquisas guardadas, o que é utilizado para limitar o âmbito da solução para computadores específicos. Para aceder às configurações de âmbito, na sua conta de automatização em **recursos relacionados**, selecione **área de trabalho** , em seguida, na área de trabalho em **ORIGENS de dados da área de trabalho**, Selecione **configurações de âmbito**.
 
-As configurações de dois âmbito criadas por predefinição são **MicrosoftDefaultScopeConfig ChangeTracking** e **MicrosoftDefaultScopeConfig atualizações**.
+Se a área de trabalho selecionada não tem as soluções de gestão de atualizações ou alterações ainda, são criadas as seguintes configurações de âmbito:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **Atualizações de MicrosoftDefaultScopeConfig**
+
+Se a área de trabalho selecionada já tem a solução. A solução não seja novamente implementada e a configuração do âmbito não é adicionada ao mesmo.
 
 Clique nas reticências (…) em qualquer um das configurações e selecione **editar**. No **Editar configuração de âmbito** página, selecione **selecionar grupos de computador** para abrir o **grupos de computadores** página. Esta página mostra as pesquisas guardadas que são utilizadas para criar a configuração do âmbito.
 

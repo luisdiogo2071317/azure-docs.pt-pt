@@ -1,6 +1,6 @@
 ---
-title: "Dependência de controlo no Azure Application Insights | Microsoft Docs"
-description: "Analise a utilização, a disponibilidade e o desempenho da aplicação Web no local ou do Microsoft Azure com o Application Insights."
+title: Dependência de controlo no Azure Application Insights | Microsoft Docs
+description: Analise a utilização, a disponibilidade e o desempenho da aplicação Web no local ou do Microsoft Azure com o Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
 A *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado utilizando HTTP, ou uma base de dados ou um sistema de ficheiros. [Application Insights](app-insights-overview.md) mede o tempo durante o qual a aplicação aguarda dependências e frequência uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -83,7 +83,7 @@ Clique nos gráficos de resumo ou os itens de tabela para procurar ocorrências 
 ## <a name="ajax-calls"></a>Chamadas AJAX
 O painel Browsers mostra a taxa de falha e duração de chamadas AJAX de [JavaScript nas suas páginas web](app-insights-javascript.md). Estas são apresentadas como dependências.
 
-## <a name="diagnosis"></a>Diagnosticar pedidos lenta
+## <a name="diagnosis"></a> Diagnosticar pedidos lenta
 Cada evento do pedido está associado com as chamadas de dependência, exceções e outros eventos que são controlados enquanto a aplicação está a processar o pedido. Por isso, se algumas pedidos estão a funcionar incorretamente, pode descobrir se é devido a respostas lentas do que uma dependência.
 
 Vamos guiá-lo através de um exemplo desse.
@@ -200,9 +200,12 @@ Se pretender desactivar o módulo de registo de dependência padrão, remova a r
 
 *Consulta SQL não mostrada no completo.*
 
-* Atualizar para a versão mais recente do SDK. Se o .NET versão seja a 4.6 inferior a:
-  * Anfitrião do IIS: instalar [Application Insights agente](app-insights-monitor-performance-live-website-now.md) nos servidores de anfitrião.
-  * Aplicação web do Azure: abrir o Application Insights separador no painel de controlo de aplicação web em instale o Application Insights.
+* Atualizar para a última versão estável do Application Insights SDK.
+
+ Se o .NET versão seja a 4.6 inferior a:
+
+* Anfitrião do IIS: instalar [Application Insights agente](app-insights-monitor-performance-live-website-now.md) nos servidores de anfitrião.
+* Aplicação web do Azure: abrir o Application Insights separador no painel de controlo de aplicação web em instale o Application Insights.
 
 ## <a name="video"></a>Vídeo
 

@@ -15,7 +15,7 @@
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
 #### <a name="mobility-service-installer-command-line-arguments"></a>Argumentos da linha de comandos de instalador do serviço de mobilidade
@@ -27,7 +27,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 | Parâmetro|Tipo|Descrição|Valores possíveis|
 |-|-|-|-|
-|/Role|Obrigatório|Especifica se deve ser instalado o serviço de mobilidade (MS) ou MasterTarget (MT) deve ser instalado.|MS </br> MT|
+|/ Função|Obrigatório|Especifica se deve ser instalado o serviço de mobilidade (MS) ou MasterTarget (MT) deve ser instalado.|MS </br> MT|
 |/InstallLocation|Opcional|Localização onde o serviço de mobilidade está instalado.|Qualquer pasta no computador|
 |/ Plataforma|Obrigatório|Especifica a plataforma em que o serviço de mobilidade está instalado. </br> </br>- **VMware**: Utilize este valor se instalar o serviço de mobilidade numa VM em execução no *anfitriões do VMware vSphere ESXi*, *anfitriões Hyper-V*, e *servidores físicos*. </br> - **Azure**: Utilize este valor se instalar um agente numa VM do IaaS do Azure. | VMware </br> Azure|
 |/ Automática|Opcional|Especifica a executar o programa de instalação no modo silencioso.| N/A|

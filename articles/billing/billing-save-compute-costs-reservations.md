@@ -3,8 +3,8 @@ title: Poupar dinheiro pelo previamente pagar para máquinas virtuais do Azure -
 description: Saiba mais sobre o Azure instância de Máquina Virtual reservada para guardar os custos de máquinas virtuais.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: yashar
+ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado 
 Instâncias de Máquina Virtual reservada permitem-lhe pagar previamente para um ano ou três anos de capacidade de cálculo para obter um desconto nas máquinas virtuais que utiliza. Esta reduz significativamente os custos de máquina virtual — até 72 por cento num preços pay as you go – com o compromisso de compromisso de um ano ou três anos. Instâncias de Máquina Virtual reservada um desconto de faturação e não afeta o estado do tempo de execução de máquinas virtuais.
@@ -35,6 +35,7 @@ Clientes do Azure com estes tipos de subscrições podem comprar uma instância 
 -   Enterprise agreement oferta tipo de subscrição (MS-AZR - 0017P).
 -   [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) o tipo de oferta de subscrição (MS-AZR - 003 P).
 Tem de ser a função de "Proprietário" na subscrição comprar uma instância reservado. Para a compra de reservas de uma inscrição enterprise, o administrador de empresa tem de ativar compras de reserva no portal do EA, por predefinição, que a definição está ativada.
+-   Parceiros de fornecedor de solução (CSP) da nuvem, podem utilizar o Portal de gestão do Azure ou [Centro de parceiros](https://docs.microsoft.com/partner-center/azure-reservations) comprar reservas.
 
 ## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>Como é faturada uma compra de instâncias de Máquina Virtual reservada?
 A compra de reserva é cobrada para o método de pagamento associado à subscrição. Se tiver uma subscrição do Enterprise, o custo de reserva é deducted da sua saldo de compromisso monetário. Se o saldo de compromisso monetário não abrange o custo da reserva, será cobrado o excedido.
@@ -69,5 +70,7 @@ Para mais informações sobre as instâncias de Máquina Virtual reservado, cons
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com instâncias reservado](billing-reserved-instance-windows-software-costs.md)
+- [Instâncias reservadas no programa de parceiro Center solução fornecedor Cloud (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

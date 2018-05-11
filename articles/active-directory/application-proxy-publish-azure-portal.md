@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 22ef129830941ee7001dd5e0be1501bf9d755eb7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicações com o Proxy da Aplicação do Azure AD
 
@@ -27,7 +27,7 @@ Proxy de aplicações do Azure Active Directory (AD) ajuda-o suporte a funcioná
 
 Este artigo explica os passos para publicar uma aplicação no local com o Proxy da aplicação. Depois de concluir este artigo, os seus utilizadores irão conseguir aceder remotamente a sua aplicação. E estará pronto para configurar funcionalidades adicionais para a aplicação, como o início de sessão único, informação personalizada e requisitos de segurança.
 
-Se estiver familiarizado com o Proxy de aplicações, saiba mais sobre esta funcionalidade com o artigo [como fornecer acesso remoto seguro a aplicações no local](active-directory-application-proxy-get-started.md).
+Se estiver familiarizado com o Proxy de aplicações, saiba mais sobre esta funcionalidade com o artigo [como fornecer acesso remoto seguro a aplicações no local](manage-apps/application-proxy.md).
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publicar aplicações no local para acesso remoto

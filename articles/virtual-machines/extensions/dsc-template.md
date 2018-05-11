@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 7657f27e25af62f13371a9216596f142dc2491dd
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -394,6 +394,6 @@ Siga o formato fornecido no exemplo anterior. Procurar aspas, vírgulas e chavet
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [define a utilização de dimensionamento da máquina virtual com a extensão de DSC do Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- Obter mais informações sobre [a gestão de credenciais seguras do DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Obter um [introdução para o processador de extensão de DSC do Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Obter mais informações sobre [a gestão de credenciais seguras do DSC](dsc-credentials.md).
+- Obter um [introdução para o processador de extensão de DSC do Azure](dsc-overview.md).
 - Para obter mais informações sobre o PowerShell DSC, vá para o [Centro de documentação do PowerShell](/powershell/dsc/overview).

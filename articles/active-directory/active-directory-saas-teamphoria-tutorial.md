@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Teamphoria | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Teamphoria."
+title: 'Tutorial: Integração do Azure Active Directory com Teamphoria | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 260c85b14032e17def01ded4a461e6337d66239b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 724d1624a3ba86aba3665169a14115b2a90e0069
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integração do Azure Active Directory com Teamphoria
 
@@ -30,14 +30,6 @@ Integrar Teamphoria com o Azure AD fornece as seguintes vantagens:
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with Teamphoria, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Teamphoria.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-teamphoria-tutorial/tutorial_teamphoria_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL a utilizar o padrão do seguinte:`https://<sub-domain>.teamphoria.com/login`    
+    a. No **URL de início de sessão** caixa de texto, escreva o URL a utilizar o padrão do seguinte: `https://<sub-domain>.teamphoria.com/login`    
 
     > [!NOTE] 
     > Tenha em atenção que estas não são os valores reais. Tem de atualizar estes valores com o URL de início de sessão real. Contacte [equipa de suporte de cliente Teamphoria](https://www.teamphoria.com/) para obter o URL de início de sessão. 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador iniciar sessão
 Ligar do Azure Active Directory (Azure AD) permite aos utilizadores iniciar sessão recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade para o ajudar a escolher a identidade que pretende utilizar para iniciar sessão com o Azure AD.
@@ -28,6 +28,7 @@ Se já estiver familiarizado com o modelo de identidade do Azure AD e pretender 
 * [Sincronização de hash de palavra-passe](#password-hash-synchronization) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
 * [A autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
 * [SSO Federado (com serviços de Federação do Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Federação com PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > É importante lembrar-se de que ao configurar a Federação para o Azure AD, estabelecer fidedignidade entre os domínios federados e de inquilino do Azure AD. Com este domínio Federado de confiança, os utilizadores terão acesso a recursos de nuvem do Azure AD dentro do inquilino.  
@@ -88,6 +89,13 @@ Se estiver a implementar um novo farm ou utilizar um farm existente, precisa de:
 * O computador que execute o assistente em para conseguirem estabelecer ligação a quaisquer outras máquinas que pretende instalar o AD FS ou o Proxy de aplicações Web em utilizando a gestão remota do Windows.
 
 Para obter mais informações, consulte [configurar o SSO com o AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>Federação com o PingFederate
+Com o início de sessão federado, os seus utilizadores podem iniciar sessão serviços do Azure baseada no AD com as respetivas palavras-passe no local. Enquanto estiverem na rede empresarial, mesmo não tem de introduzir as palavras-passe.
+
+Para obter mais informações sobre como configurar PingFederate para utilização com o Azure Active Directory, consulte [PingFederate integração com o Azure Active Directory e do Office 365](https://www.pingidentity.com/AzureADConnect)
+
+Para obter informações sobre como configurar o Azure AD Connect com PingFederate, consulte [instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Inicie sessão com uma versão anterior do AD FS ou uma solução de terceiros
 Se já tiver configurado nuvem início de sessão utilizando uma versão anterior do AD FS (por exemplo, o AD FS 2.0) ou um fornecedor de Federação de terceiros, pode optar por ignorar a configuração de sessão do utilizador através do Azure AD Connect. Isto permitirá ao obter a sincronização mais recente e outras funcionalidades do Azure AD Connect ao ainda utilizar a solução existente para início de sessão.

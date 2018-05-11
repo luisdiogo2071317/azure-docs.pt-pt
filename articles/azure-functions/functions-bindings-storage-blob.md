@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -31,23 +31,42 @@ Este artigo explica como trabalhar com enlaces de armazenamento de Blobs do Azur
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> [As contas de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts) não são suportadas para acionadores de blob. Acionadores de armazenamento de BLOBs precisam de uma conta de armazenamento para fins gerais. Para enlaces de entrada e de saída pode utilizar contas de armazenamento apenas de Blobs.
-
 ## <a name="packages"></a>Pacotes
 
 Os enlaces de armazenamento de BLOBs são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Utilize o acionador de grelha de evento em vez do acionador de armazenamento de BLOBs para contas de armazenamento apenas de BLOBs, de grande escala, ou para evitar atrasos frio início. Para obter mais informações, consulte o seguinte **acionador** secção. 
+
 ## <a name="trigger"></a>Acionador
 
-Utilize um acionador de armazenamento de BLOBs para iniciar uma função quando é detetado um blob novo ou atualizado. Os conteúdos do blob são fornecidos como entrada para a função.
+O acionador de armazenamento de BLOBs inicia uma função quando é detetado um blob novo ou atualizado. Os conteúdos do blob são fornecidos como entrada para a função.
 
-> [!NOTE]
-> Quando estiver a utilizar um acionador de blob um plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, depois de uma aplicação de função tornou-se inativo. Depois da aplicação de função está em execução, blobs são processados imediatamente. Para evitar este atraso inicial, considere uma das seguintes opções:
-> - Utilize um plano de serviço de aplicações com Always On ativado.
-> - Utilize outro mecanismo para acionar o blob processar, tais como uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [exemplo de enlaces de entrada do blob neste artigo](#input---example).
+O [acionador de grelha de evento](functions-bindings-event-grid.md) têm suporte incorporado para [blob eventos](../storage/blobs/storage-blob-event-overview.md) e também pode ser utilizado para iniciar uma função quando é detetado um blob novo ou atualizado. Por exemplo, consulte o [redimensionar imagem com o evento grelha](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
+
+Utilize a grelha de evento em vez do acionador de armazenamento de BLOBs para os seguintes cenários:
+
+* Contas de armazenamento apenas de BLOBs
+* Escala elevada
+* Atraso de início frio
+
+### <a name="blob-only-storage-accounts"></a>Contas de armazenamento apenas de BLOBs
+
+[As contas de armazenamento apenas de BLOBs](../storage/common/storage-create-storage-account.md#blob-storage-accounts) são suportadas para o blob de entrada e saída enlaces, mas não para acionadores de blob. Acionadores de armazenamento de BLOBs precisam de uma conta de armazenamento para fins gerais.
+
+### <a name="high-scale"></a>Escala elevada
+
+Escala elevada pode ser aproximadamente ligado definida como contentores que tenham mais de 100 000 blobs nos mesmos ou contas de armazenamento que tem mais do que 100 atualizações de blob por segundo.
+
+### <a name="cold-start-delay"></a>Atraso de início frio
+
+Se a aplicação de função no plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, se uma aplicação de função tornou-se inativo. Para evitar este atraso de início frio, pode mudar para um plano de serviço de aplicações com Always On ativado, ou utilize um tipo diferente de Acionador.
+
+### <a name="queue-storage-trigger"></a>Acionador de armazenamento de filas
+
+Para além da grelha de evento, outra alternativa para processar os blobs é o acionador de armazenamento de filas, mas tem sem suporte incorporado para eventos de blob. Terá de criar a fila de mensagens quando criar ou atualizar os blobs. Para obter um exemplo que assume tiver feito, consulte o [exemplo de enlace de entrada do blob neste artigo](#input---example).
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 
@@ -283,7 +302,7 @@ Para procurar chavetas em nomes de ficheiros, como as chavetas utilizando dois c
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se o blob com o nome *{20140101}-soundfile.mp3*, a `name` valor da variável no código da função é *soundfile.mp3*. 
+Se o blob com o nome  *{20140101}-soundfile.mp3*, a `name` valor da variável no código da função é *soundfile.mp3*. 
 
 ## <a name="trigger---metadata"></a>Acionador - metadados
 
@@ -769,7 +788,7 @@ Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name from fu
 | BLOB, tabela, fila |  [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um guia de introdução que utiliza um acionador de armazenamento de BLOBs](functions-create-storage-blob-triggered-function.md)

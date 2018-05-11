@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: sujayt
-ms.openlocfilehash: 215874020395faebd70b6dd15a29f1bf23638a84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outro
 
@@ -175,7 +175,7 @@ GRS | Suportadas |
 RA-GRS | Suportadas |
 ZRS | Não suportado |  
 Armazenamento de acesso frequente e esporádico | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso frequente e esporádico
-Virtual rede pontos finais de serviço (firewalls de armazenamento do Azure e redes virtuais)  | Não | Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
+Firewalls de armazenamento do Azure para redes virtuais  | Não | Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
 Contas de armazenamento de V2 para fins gerais (camada ambos frequente e esporádico) | Não | Aumentar os custos de transação substancialmente em comparação com para fins gerais V1 contas de armazenamento
 
 >[!IMPORTANT]
@@ -200,6 +200,8 @@ Proxy não autenticados | Suportadas | Consulte [documento de orientação na re
 Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenticado para conectividade de saída, não é possível replicar utilizando o Azure Site Recovery.    
 VPN de site a Site no local (com ou sem ExpressRoute)| Suportadas | Certifique-se de que o UDRs e NSGs estão configurados de forma a que o tráfego de recuperação do Site não for encaminhado para o local. Consulte [documento de orientação na rede.](site-recovery-azure-to-azure-networking-guidance.md)  
 Ligação VNET a VNET | Suportadas | Consulte [documento de orientação na rede.](site-recovery-azure-to-azure-networking-guidance.md)  
+Pontos Finais de Serviço de Rede Virtual | Suportadas | Firewalls de armazenamento do Azure para as redes virtuais não são suportadas. Permitir o acesso específicos redes virtuais do Azure em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
+Redes Aceleradas | Não suportado | Pode ser replicada uma VM com acelerados rede ativada, mas a ativação pós-falha de VM não terão acelerados de rede ativada. Serão também desativadas na melhoria de redes de VM de origem na reativação pós-falha.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

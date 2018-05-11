@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-deasim
-ms.openlocfilehash: 3538b80b8acc239eee518db482ab14bb6f559d12
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b3138c2c3136b4bfa6c1c96e5f278bbadef6a73d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -39,7 +39,7 @@ Este artigo apresenta uma lista de ponto de presença (POP) das localizações a
 | --- | --- | --- | --- |
 | América do Norte | Toronto, Canadá<br />Querétaro, México<br />San Juan, Porto Rico<br />Ashburn, VA, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />AC, Los Angeles, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />O Phoenix, AZ, EUA<br />Quincy, WA, EUA<br />San Antonio, TX, EUA<br />Santa Clara, AC, EUA<br />| Cidade do México, México<br />Puebla, México<br />Querétaro, México<br />Atlanta, DG, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />AC, Los Angeles, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Philadelphia, PA, EUA<br />Blogue de SAN, AC, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA | Canadá<br />México<br />EUA |
 | América do Sul | Campinas, Brasil<br />Brasil, rio Alemanha Janeiro<br />Santiago, subordinado | Buenos Aires, Argentina<br />Brasil, rio Alemanha Janeiro<br />Dobra Paulo, Brasil<br />Valparaíso, subordinado<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Brasil<br />Peru |
-| Europa | Viena, Áustria<br />Bruxelas, Bélgica<br />Praga, República Checa<br />Copenhaga, Dinamarca<br /> Helsínquia, Finlândia<br />Marseille, França<br />Paris, França<br />Frankfurt, Alemanha<br />Athens, Grécia<br />Dublin, Irlanda<br />Milão, Itália<br />Amesterdão, Países Baixos<br />Madrid, Espanha<br />Estocolmo, Suécia<br />Zurique, Suíça<br />DURHAM, RU<br />Londres, RU<br />Manchester, RU | Viena, Áustria<br />Copenhaga, Dinamarca<br />Helsínquia, Finlândia<br />Marseille, França<br />Paris, França<br />Frankfurt, Alemanha<br />Milão, Itália<br />Riga, Letónia<br />Amesterdão, Países Baixos<br />Varsóvia, Polónia<br />Madrid, Espanha<br />Bromma, Suécia<br />Estocolmo, Suécia<br />Londres, RU | Áustria<br />Dinamarca<br />França<br />Alemanha<br />Irlanda<br />Itália<br />Países Baixos<br />Polónia<br />Espanha<br />Suécia<br />Suíça<br />Reino Unido |
+| Europa | Viena, Áustria<br />Bruxelas, Bélgica<br />Praga, República Checa<br />Copenhaga, Dinamarca<br /> Helsínquia, Finlândia<br />Marseille, França<br />Paris, França<br />Frankfurt, Alemanha<br />Athens, Grécia<br />Dublin, Irlanda<br />Milão, Itália<br />Amesterdão, Países Baixos<br />Madrid, Espanha<br />Estocolmo, Suécia<br />Zurique, Suíça<br />DURHAM, RU<br />Londres, RU<br />Manchester, RU | Viena, Áustria<br />Copenhaga, Dinamarca<br />Helsínquia, Finlândia<br />Marseille, França<br />Paris, França<br />Frankfurt, Alemanha<br />Milão, Itália<br />Riga, Letónia<br />Amesterdão, Países Baixos<br />Varsóvia, Polónia<br />Madrid, Espanha<br />Estocolmo, Suécia<br />Londres, RU | Áustria<br />Dinamarca<br />França<br />Alemanha<br />Irlanda<br />Itália<br />Países Baixos<br />Polónia<br />Espanha<br />Suécia<br />Suíça<br />Reino Unido |
 | África | Cidade do Cabo, África do Sul<br />Joanesburgo, África do Sul | Joanesburgo, África do Sul | |
 | Médio Oriente | | Mascate, Omã<br />Fujirah, Dirham | Catar |
 | Índia | Chennai, Índia<br />Mumbai, Índia | Bengaluru (Bangalore), Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia<br /> | Índia |

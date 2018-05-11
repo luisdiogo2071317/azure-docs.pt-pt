@@ -9,11 +9,11 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdd0ef182e0d18409ca608a645ff4011f00f9fa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -41,11 +41,17 @@ Selecione **gestão de atualizações** em **gestão de ATUALIZAÇÕES**. A áre
 
 ![Solução de atualização carregar](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Configuração de âmbito
+## <a name="scope-configuration"></a>Configuração de Âmbito
 
 Cada solução utiliza uma configuração de âmbito na área de trabalho para os computadores que obter a solução de destino. A configuração do âmbito é um grupo de um ou mais pesquisas guardadas, o que é utilizado para limitar o âmbito da solução para computadores específicos. Para aceder às configurações de âmbito, na sua conta de automatização em **recursos relacionados**, selecione **área de trabalho**. Em seguida, na área de trabalho em **ORIGENS de dados da área de trabalho**, selecione **configurações de âmbito**.
 
-As duas configurações de âmbito criada por predefinição **MicrosoftDefaultScopeConfig ChangeTracking** e **MicrosoftDefaultScopeConfig atualizações**.
+Se a área de trabalho selecionada não tem as soluções de gestão de atualizações ou alterações ainda, são criadas as seguintes configurações de âmbito:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **Atualizações de MicrosoftDefaultScopeConfig**
+
+Se a área de trabalho selecionada já tem a solução. A solução não seja novamente implementada e a configuração do âmbito não é adicionada ao mesmo.
 
 ## <a name="saved-searches"></a>Pesquisas guardadas
 
@@ -68,7 +74,7 @@ Da sua automatização conta Selecione **inventário** ou **alterações** em **
 
 Clique em **+ adicionar a VM do Azure**, selecione uma VM a partir da lista. No **gestão de atualizações** página, clique em **ativar**. Esta ação adiciona a VM atual para o grupo de computadores guardado pesquisa para a solução.
 
-## <a name="onboard-a-non-azure-machine"></a>Carregar uma máquina não do Azure
+## <a name="onboard-a-non-azure-machine"></a>Carregar uma máquina não Azure
 
 Da sua automatização conta Selecione **inventário** ou **alterações** em **gestão de configuração**, ou **gestão de atualizações** em **gestão de ATUALIZAÇÕES**.
 

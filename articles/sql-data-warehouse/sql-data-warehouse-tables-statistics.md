@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criar, atualizar as estatísticas em tabelas no armazém de dados SQL do Azure
 As recomendações e os exemplos para criar e atualizar as estatísticas de Otimização da consulta em tabelas no armazém de dados SQL do Azure.
@@ -22,24 +22,46 @@ As recomendações e os exemplos para criar e atualizar as estatísticas de Otim
 ## <a name="why-use-statistics"></a>Estatísticas de utilização por que motivo?
 Mais Azure SQL Data Warehouse conhece os dados, quanto mais depressa pode executar consultas nele. Recolher estatísticas nos seus dados e, em seguida, carregá-lo para o SQL Data Warehouse são uma das ações que mais importante, pode fazê-lo a otimizar as suas consultas. Isto acontece porque o otimizador de consultas do SQL Data Warehouse é um otimizador baseada no custo. Compara o custo de vários planos de consulta e, em seguida, escolhe o plano com o menor custo, que é, na maioria dos casos, o plano que executa o mais rápido. Por exemplo, se o otimizador estimativas de que a data que está a filtrar na sua consulta irá devolver uma linha, este pode escolher um plano diferente que o se que calcula a data selecionada devolverá 1 milhões de linhas.
 
-O processo de criação e a atualizar as estatísticas atualmente é um processo manual, mas é simple para o fazer.  Em breve poderá criar e atualizar a estatística na único colunas e índices automaticamente.  Ao utilizar as seguintes informações, pode automatizar bastante a gestão das estatísticas nos seus dados. 
+## <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
+Quando criar o automático opção estatísticas no AUTO_CREATE_STATISTICS, o SQL Data Warehouse analisa entrada consultas de utilizador onde as estatísticas de coluna única são criadas em colunas que estão em falta estatísticas. O otimizador de consultas cria estatísticas em colunas individuais na condição de predicado ou uma associação de consulta para melhorar a cardinalidade estimativas para o plano de consulta. Criação automática de estatísticas está atualmente ativada por predefinição.
 
-## <a name="scenarios"></a>Cenários
-Criar estatísticas amostras em cada coluna é uma forma fácil para começar a utilizar. Estatísticas Desatualizadas levar para o desempenho da consulta inferior ao ideal. No entanto, a atualizar as estatísticas em todas as colunas à medida que aumenta os dados pode consumir memória. 
+Pode verificar se o seu armazém de dados tem esta configuração, executando o seguinte comando:
 
-Seguem-se recomendações para diferentes cenários:
-| **Cenário** | Recomendação |
-|:--- |:--- |
-| **Introdução** | Atualizar todas as colunas depois de migrar para o SQL Data Warehouse |
-| **Coluna mais importante para estatísticas** | Tecla de distribuição do hash |
-| **Segundo mais importante coluna para estatísticas** | Chave de partição |
-| **Outras colunas importantes para estatísticas** | Associações de data, frequente, GROUP BY, HAVING e onde |
-| **Frequência de atualizações de estatísticas**  | Conservador: diária <br></br> Depois de carregar ou transformar os seus dados |
-| **Amostragem** |  Inferior a mil milhões de 1 de linhas, utilize amostragem predefinido (20 por cento) <br></br> Com mais de mil milhões de 1 de linhas, é boa estatísticas de um intervalo de percentagem de 2 |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+Se o armazém de dados não tiver AUTO_CREATE_STATISTICS configurado, recomendamos que ativar esta propriedade executando o seguinte comando:
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+As seguintes declarações acionará a criação automática de estatísticas: SELECIONE INSERT SELECT, CTAS, UPDATE, DELETE e EXPLICAR quando contém uma associação ou a presença de um predicado é detetada. 
+
+> [!NOTE]
+> Criação automática de estatísticas não são criados em tabelas temporárias ou externas.
+> 
+
+Criação automática de estatísticas é gerada de forma síncrona pelo que pode implicar de desempenho de consulta degradada ligeiras se as colunas ainda não tiver estatísticas criadas para os mesmos. Criar estatísticas pode demorar alguns segundos numa única coluna, consoante o tamanho da tabela. Para evitar a medir a degradação do desempenho, especialmente em direcionamento de caminhos de desempenho, deve certificar-se de estatísticas foram criadas pela primeira vez ao executar a carga de trabalho do benchmark antes do sistema de criação de perfis.
+
+> [!NOTE]
+> A criação de estatísticas também será registada no [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) num contexto de utilizador diferente.
+> 
+
+Quando são criadas estatísticas automáticas, irão assumir a forma: _WA_Sys_< id de coluna dígito 8 em Hex > _ < id de tabela 8 dígito em Hex >. Pode ver estatísticas que já foram criadas, executando o seguinte comando:
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>A atualizar as estatísticas
 
 Um procedimento recomendado é atualizar estatísticas de colunas de data por dia datas novas são adicionadas. Cada novas linhas de tempo são carregados para o armazém de dados, datas de carga novo ou datas de transação são adicionadas. Estes alterar a distribuição de dados e tome as estatísticas desatualizada. Por outro lado, as estatísticas de uma coluna de país de uma tabela de cliente nunca poderão ter de ser atualizado, porque a distribuição dos valores, geralmente, não irá alterar. Partindo do princípio que de distribuição é constante entre os clientes, adicionar novas linhas para a variação de tabela não se encontra vai alterar a distribuição de dados. No entanto, se o armazém de dados contém apenas um país e colocar dados de um novo país, resultando em dados a partir de vários países que está a ser armazenados, em seguida, terá de atualizar as estatísticas da coluna de país.
+
+Seguem-se a atualizar as estatísticas de recomendações:
+
+| **Frequência de atualizações de estatísticas** | Conservador: diária <br></br> Depois de carregar ou transformar os dados | | **Amostragem** |  Inferior a mil milhões de 1 de linhas, utilize amostragem predefinido (20 por cento) <br></br> Com mais de mil milhões de 1 de linhas, é boa estatísticas de um intervalo de percentagem de 2 |
 
 Uma das primeiras questões colocadas pedir ao está a resolução de problemas de uma consulta é, **"São as estatísticas atualizadas?"**
 

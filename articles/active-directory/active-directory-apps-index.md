@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2180c0da4dc77e854a9b73eb31472feae7c7c3ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista completa de todos os documentos escritas sobre as várias funcionalidades relacionadas com a aplicação no Azure Active Directory (Azure AD).
@@ -30,9 +30,9 @@ Os artigos abaixo são bons pontos de partida para quem pretende simplesmente um
 
 | Guia do artigo |  |
 |:---:| --- |
-| Uma introdução para os problemas de gestão de aplicações que resolve o Azure AD |[Gestão de aplicações com o Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
+| Uma introdução para os problemas de gestão de aplicações que resolve o Azure AD |[Gestão de aplicações com o Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | Uma descrição geral das várias funcionalidades no Azure AD relacionadas com a ativação de início de sessão, definir a quem tem acesso a aplicações e a forma como os utilizadores iniciarem aplicações |[Acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| Veja os diferentes passos envolvidos quando integrar aplicações com o seu Azure AD |[Integração do Azure Active Directory com aplicações](active-directory-integrating-applications-getting-started.md)<br /><br />[Ativar o início de sessão para aplicações SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gerir o acesso a aplicações](active-directory-managing-access-to-apps.md) |
+| Veja os diferentes passos envolvidos quando integrar aplicações com o seu Azure AD |[Integração do Azure Active Directory com aplicações](manage-apps/plan-an-application-integration.md)<br /><br />[Ativar o início de sessão para aplicações SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gerir o acesso a aplicações](active-directory-managing-access-to-apps.md) |
 | Uma técnica explicação de como as aplicações são representadas no Azure AD |[Como e por que razão são adicionadas aplicações para o Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Artigos de resolução de problemas
@@ -78,8 +78,8 @@ Se tiver aplicações na sua rede privada que precisam de ser acedido por utiliz
 
 | Guia do artigo |  |
 |:---:| --- |
-| Descrição geral do Proxy de aplicações do Azure AD e como funciona |[Fornecer acesso remoto seguro a aplicações no local](active-directory-application-proxy-get-started.md) |
-| Tutoriais sobre como configurar o Proxy de aplicações e como publicar a sua primeira aplicação |[Como configurar o Proxy de aplicações do Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector do Proxy de aplicações](active-directory-application-proxy-silent-installation.md)<br /><br />[Como publicar aplicações através do Proxy de aplicação](active-directory-application-proxy-publish.md)<br /><br />[Como utilizar o seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md) |
+| Descrição geral do Proxy de aplicações do Azure AD e como funciona |[Fornecer acesso remoto seguro a aplicações no local](manage-apps/application-proxy.md) |
+| Tutoriais sobre como configurar o Proxy de aplicações e como publicar a sua primeira aplicação |[Como configurar o Proxy de aplicações do Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector do Proxy de aplicações](active-directory-application-proxy-silent-installation.md)<br /><br />[Como publicar aplicações através do Proxy de aplicação](application-proxy-publish-azure-portal.md)<br /><br />[Como utilizar o seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md) |
 | Como ativar o acesso de início de sessão e condicional único para aplicações publicadas com o Proxy da aplicação |[Single-sign-on com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Acesso condicional e Proxy de aplicações](application-proxy-enable-remote-access-sharepoint.md) |
 | Documentação de orientação sobre como utilizar o Proxy de aplicações para os seguintes cenários |[Como suportar aplicações de cliente nativo](active-directory-application-proxy-native-client.md)<br /><br />[Como suportar aplicações com suporte para afirmações](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Como suportar as aplicações publicadas em redes separadas e localizações](active-directory-application-proxy-connectors-azure-portal.md) |
 | Guia de resolução de problemas do Proxy de aplicações |[Guia de resolução de problemas de Proxy de aplicações](active-directory-application-proxy-troubleshoot.md) |
@@ -121,7 +121,7 @@ Cloud App Discovery ajudem os departamentos de TI saber que aplicações SaaS es
 
 | Guia do artigo |  |
 |:---:| --- |
-| Uma descrição geral de como funciona |[Localizar não sancionadas aplicações em nuvem com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
+| Uma descrição geral de como funciona |[Localizar não sancionadas aplicações em nuvem com o Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
 | Uma descrição mais aprofundada como funciona, com as respostas a perguntas sobre privacidade |[Considerações de privacidade e segurança](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | Perguntas Mais Frequentes |[FAQ sobre o Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | Tutoriais para implementar o Cloud App Discovery |[Guia de implementação de política de grupo](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Guia de implementação do System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[A instalar nos servidores de Proxy com portas personalizadas](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |

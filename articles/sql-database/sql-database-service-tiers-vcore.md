@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: be5ecfdd4465d721dee49c4963cb2267b2b0a40a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>modelo de compra baseado em vCore para a SQL Database do Azure (pré-visualização)
 
@@ -58,7 +58,7 @@ Na com base em vCore compra modelo (pré-visualização) aos clientes pay para:
 
 ## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Escolher o escalão de serviço, computação, memória, armazenamento e de recursos de e/s
 
-Converter para o modelo de compra baseado em vCore (pré-visualização) permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço. Se a base de dados ou o conjunto elástico consome mais do que 300 DTU conversão para vCore pode reduzir o custo. Pode converter a utilizar a API escolhidas ou no portal do Azure, sem período de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU cumprir os seus requisitos de negócio e desempenho, deve continuar a utilizá-la. Se optar por converter do modelo de DTU vCore modelo, deve selecionar o nível de desempenho utilizando a seguinte regra prática: pelo menos 1 vCore requer que cada 100 DTU no escalão Standard e cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore.
+Converter para o modelo de compra baseado em vCore (pré-visualização) permite-lhe dimensionar recursos de armazenamento e computação independentemente, corresponde ao desempenho no local e otimizar o preço. Se a base de dados ou o conjunto elástico consome mais do que 300 DTU conversão para vCore pode reduzir o custo. Pode converter a utilizar a API escolhidas ou no portal do Azure, sem período de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU cumprir os seus requisitos de negócio e desempenho, deve continuar a utilizá-la. Se optar por converter do modelo de DTU vCore modelo, deve selecionar o nível de desempenho utilizando a seguinte regra prática: pelo menos 1 vCore na camada fins gerais; requer que cada 100 DTU no escalão Standard cada DTU 125 no escalão Premium requer, pelo menos, 1 vCore na camada de negócio crítico.
 
 A tabela seguinte ajuda-o a compreender as diferenças entre estas duas camadas:
 

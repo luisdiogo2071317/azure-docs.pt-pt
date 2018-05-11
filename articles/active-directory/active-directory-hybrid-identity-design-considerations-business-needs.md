@@ -1,11 +1,11 @@
 ---
-title: "Estrutura de identidade do Azure na nuvem dos requisitos de identidade híbrida | Microsoft Docs"
-description: "Identifica necessidades de negócio da empresa que irão originar a definir os requisitos para a estrutura de identidade híbrida."
-documentationcenter: 
+title: Estrutura de identidade do Azure na nuvem dos requisitos de identidade híbrida | Microsoft Docs
+description: Identifica necessidades de negócio da empresa que irão originar a definir os requisitos para a estrutura de identidade híbrida.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de identidade para a sua solução de identidade híbrida
 O primeiro passo para conceber uma solução de identidade híbrido consiste em determinar os requisitos da organização de negócio que irá tirar partido desta solução.  Identidade híbrida é iniciada como uma função de suporte (suporta todas as outras soluções de nuvem, fornecer autenticação) e entra para fornecer capacidades novas e interessantes que desbloquear novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que pretende que adotar para os seus utilizadores vai ditar os requisitos para a estrutura de identidade híbrida.  Estes serviços e cargas de trabalho necessário tirar partido de identidade híbrida no local e na nuvem.  
 
 Tem de rever estes aspetos-chave do negócio para compreender o que é um requisito agora e que a empresa planeia para o futuro. Se não tiver a visibilidade da estratégia a longo prazo para o design da identidade híbrida, possibilidades são de que a solução não será dimensionável à medida que as empresas e necessidades mudam.   T ele diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão a ser desbloqueadas para os utilizadores. Esta é apenas um exemplo de todas as possibilidades de novos que podem ser desbloqueadas e entregue com uma estratégia de identidade híbrida sólida. 
 
-Alguns componentes que fazem parte da arquitetura de identidade híbrida![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+Alguns componentes que fazem parte da arquitetura de identidade híbrida ![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Determinar as necessidades de negócio
 Cada empresa tem requisitos diferentes, mesmo que essas empresas façam parte da mesma indústria, os requisitos podem variar reais de empresas. Ainda pode tirar partido das melhores práticas da indústria, mas, em última análise é necessidades comerciais da empresa que irão originar a definir os requisitos para a estrutura de identidade híbrida. 
@@ -56,7 +56,7 @@ Terá também de ter em consideração os serviços em nuvem que poderão ter a 
 * É esta integração atualmente na produção ou é um piloto?
 
 > [!NOTE]
-> Se não tiver um mapeamento exata de todas as suas aplicações e serviços em nuvem, pode utilizar a ferramenta de Cloud App Discovery. Esta ferramenta pode fornecer o seu departamento de TI com visibilidade para empresa todos os seus da sua e aplicações em nuvem de consumidor. É assim mais simples do que nunca descobrir a sombra de TI na sua empresa, incluindo detalhes sobre padrões de utilização e quaisquer utilizadores que acedam às suas aplicações na cloud. Para obter consulte [o Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
+> Se não tiver um mapeamento exata de todas as suas aplicações e serviços em nuvem, pode utilizar a ferramenta de Cloud App Discovery. Esta ferramenta pode fornecer o seu departamento de TI com visibilidade para empresa todos os seus da sua e aplicações em nuvem de consumidor. É assim mais simples do que nunca descobrir a sombra de TI na sua empresa, incluindo detalhes sobre padrões de utilização e quaisquer utilizadores que acedam às suas aplicações na cloud. Para obter consulte [o Cloud app discovery](manage-apps/cloud-app-discovery.md).
 > 
 > 
 

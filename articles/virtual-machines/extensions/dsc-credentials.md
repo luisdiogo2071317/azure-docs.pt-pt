@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: a6cd67e4f3c3ab58b83d2ebadbe1856dd61b0f18
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 666253d16ac51dcc21174211f71794f8b0ede07d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -87,7 +87,7 @@ Este processo é diferente do [utilizar configurações seguras sem o processado
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Obter um [introdução ao processador de extensão de DSC do Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Examine o [modelo Azure Resource Manager para a extensão de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Obter um [introdução ao processador de extensão de DSC do Azure](dsc-overview.md).
+- Examine o [modelo Azure Resource Manager para a extensão de DSC](dsc-template.md).
 - Para obter mais informações sobre o PowerShell DSC, vá para o [Centro de documentação do PowerShell](/powershell/dsc/overview).
 - Para obter mais funcionalidades que pode gerir utilizando o PowerShell DSC e mais recursos de DSC, procure o [galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

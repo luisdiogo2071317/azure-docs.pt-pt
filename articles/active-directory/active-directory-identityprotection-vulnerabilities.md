@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection
 Vulnerabilidades são fragilidades no seu ambiente que podem ser forem exploradas por um atacante. Recomendamos que resolver estas vulnerabilidades para melhorar a postura de segurança da sua organização e impedir que os atacantes a explorá-los.
@@ -47,7 +47,7 @@ As empresas modernas, departamentos de TI são frequentemente não tem conhecime
 
 Recomendamos que a sua organização implementar Cloud App Discovery para detetar aplicações na nuvem não geridos e para gerir estas aplicações com o Azure Active Directory.
 
-Para obter mais detalhes, consulte [localizar aplicações da nuvem não geridos com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+Para obter mais detalhes, consulte [localizar aplicações da nuvem não geridos com o Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de Segurança do Privileged Identity Management
 Este vulnerabilidade ajuda a detetar e resolver alertas sobre as identidades privilegiadas na sua organização.  

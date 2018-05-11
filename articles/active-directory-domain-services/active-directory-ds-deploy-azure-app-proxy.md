@@ -1,8 +1,8 @@
 ---
-title: "Serviços de domínio do Azure Active Directory: Implementar o Proxy de aplicações do Azure Active Directory | Microsoft Docs"
-description: "Utilizar o Proxy de aplicações do Azure AD nos domínios geridos de serviços de domínio do Active Directory do Azure"
+title: 'Serviços de domínio do Azure Active Directory: Implementar o Proxy de aplicações do Azure Active Directory | Microsoft Docs'
+description: Utilizar o Proxy de aplicações do Azure AD nos domínios geridos de serviços de domínio do Active Directory do Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 13141549b5b1b77f45dd6fa1c7560b9f9d0e9b72
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementar o Proxy de aplicações do Azure AD num domínio gerido dos serviços de domínio do Azure AD
 Proxy de aplicações do Azure Active Directory (AD) ajuda-o suporte a funcionários remotos através da publicação de aplicações no local para ser acedido através da internet. Com os serviços de domínio do Azure AD, pode aplicações legadas de comparação de precisão e shift agora em execução no local para serviços de infraestrutura do Azure. Em seguida, pode publicar estas aplicações através do Proxy da aplicação AD do Azure, para fornecer acesso remoto seguro aos utilizadores na sua organização.
 
-Se estiver familiarizado com o Proxy de aplicações do Azure AD, saiba mais sobre esta funcionalidade com o seguinte artigo: [como fornecer acesso remoto seguro a aplicações no local](../active-directory/active-directory-application-proxy-get-started.md).
+Se estiver familiarizado com o Proxy de aplicações do Azure AD, saiba mais sobre esta funcionalidade com o seguinte artigo: [como fornecer acesso remoto seguro a aplicações no local](../active-directory/manage-apps/application-proxy.md).
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -90,7 +90,7 @@ Anteriormente, pode aprovisionar uma máquina virtual do Windows e associados a 
 >
 >
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Tem de configurar o Proxy de aplicações do Azure AD e integrado-lo no seu domínio gerido dos serviços de domínio do Azure AD.
 
 * **Migrar as suas aplicações para máquinas virtuais do Azure:** pode comparação de precisão-e-shift as suas aplicações de servidores no local para máquinas virtuais do Azure associadas ao seu domínio gerido. Se o fizer, ajuda-o a remover os custos de infraestrutura da execução de servidores no local.

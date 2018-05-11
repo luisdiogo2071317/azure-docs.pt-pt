@@ -4,19 +4,17 @@ description: Este documento fornece uma descrição geral e alguns exemplos de d
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensões de Python preparativos de dados
 Como uma forma de preencher os intervalos de funcionalidade entre funções incorporadas, o Azure Machine Learning dados preparativos inclui extensibilidade em vários níveis. Neste documento, vamos descrevem a extensibilidade através do script do Python. 
@@ -24,14 +22,10 @@ Como uma forma de preencher os intervalos de funcionalidade entre funções inco
 ## <a name="custom-code-steps"></a>Passos de código personalizado 
 Dados preparativos tem os seguintes passos personalizados onde os utilizadores podem escrever código:
 
-* Leitor de ficheiro *
-* Escritor *
 * Adicionar a coluna
 * Filtro Avançado
 * Transformar o fluxo de dados
 * Partição de transformação
-
-* Estes passos não são atualmente suportados na execução de Spark.
 
 ## <a name="code-block-types"></a>Tipos de bloco de código 
 Para cada um destes passos, suportamos dois tipos de bloco de código. Em primeiro lugar, suportamos uma expressão de Python bare, que é executado como está. Segundo, suportamos um módulo de Python onde chamamos a uma função específica com uma assinatura conhecida no código que fornece.
@@ -158,74 +152,6 @@ Exemplos
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>Leitor de ficheiro 
-### <a name="purpose"></a>Objetivo 
-O ponto de extensão de ficheiro leitor permite-lhe completamente o processo de leitura de um ficheiro para um fluxo de dados de controlo. O sistema chama o seu código e transmite na lista de ficheiros que deve processar. O código tem de criar e devolver um dataframe Pandas. 
-
->[!NOTE]
->Este ponto de extensão não funciona no Spark. 
-
-
-### <a name="how-to-use"></a>Como utilizar 
-Aceder a este ponto de extensão do **Open Source de dados** assistente. Escolha **ficheiro** na primeira página e, em seguida, escolha a localização do ficheiro. No **Escolher ficheiro parâmetros** na página de **tipo de ficheiro** pendente lista, escolha **ficheiros personalizada (Script)**. 
-
-O código é dado um dataframe Pandas com o nome "df" que contém informações sobre os ficheiros que têm de ler. Se optar por abrir um diretório que contém vários ficheiros, o dataframe contém mais de uma linha.  
-
-Este dataframe tem as seguintes colunas:
-
-- Caminho: O ficheiro ser lido.
-- PathHint: Indica onde o ficheiro está localizado. Valores: Local, AzureBlobStorage e AzureDataLakeStorage.
-- AuthenticationType: O tipo de autenticação utilizado para aceder ao ficheiro. Valores: None, SasToken e OAuthToken.
-- AuthenticationValue: Contém None ou o token para ser utilizado.
-
-### <a name="syntax"></a>Sintaxe 
-Expressão 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Módulo  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Escritor 
-### <a name="purpose"></a>Objetivo 
-O ponto de extensão de escritor permite-lhe completamente o processo de escrita de dados de um fluxo de dados de controlo. O sistema chama o seu código e passa num dataframe. O código pode utilizar o dataframe para escrever dados no entanto, o que pretende. 
-
->[!NOTE]
->O ponto de extensão do escritor não funciona no Spark.
-
-
-### <a name="how-to-use"></a>Como utilizar 
-Pode adicionar este ponto de extensão utilizando o bloco de escrever o fluxo de dados (Script). Está disponível de nível superior **transformações** menu.
-
-### <a name="syntax"></a>Sintaxe 
-Expressão
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Módulo
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Este bloco de escrita personalizado pode existir no meio de uma lista dos passos. Se utilizar um módulo, a função de escrita tem de devolver dataframe que é a entrada para o passo seguinte. 
 
 ## <a name="add-column"></a>Adicionar a coluna 
 ### <a name="purpose"></a>Objetivo

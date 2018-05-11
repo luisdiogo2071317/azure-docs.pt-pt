@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Citrix ShareFile | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Citrix ShareFile."
+title: 'Tutorial: Integração do Azure Active Directory com Citrix ShareFile | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Citrix ShareFile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f633206c03a9639a375535ed7c8f5c84aa334ebf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Active Directory com Citrix ShareFile
 
@@ -108,14 +108,33 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Citrix ShareFile domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<tenant-name>.sharefile.com/saml/login`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenant-name>.sharefile.com/saml/login`
 
-    > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente do Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html) para obter este valor. 
+    b. No **identificador (ID de entidade)** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com`|
+    | `https://<tenant-name>.sharefile.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.eu/saml/info`|
+    | `https://<tenant-name>.sharefile.eu/saml/info`|
+    | |
+    
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com/saml/acs`|
+    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    | |
+
+    > [!NOTE]
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente do Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html) para obter estes valores.
 
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. Clique em **guardar** botão.
 
@@ -123,7 +142,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **configuração da Citrix ShareFile** secção, clique em **configurar ShareFile de Citrix** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configuração da Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+    ![Configuração da Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. Numa janela do browser web diferente, inicie sessão no seu **Citrix ShareFile** site da empresa como administrador.
 
@@ -148,10 +167,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     e. No **URL de fim de sessão** caixa de texto, cole o valor de **Sign-Out URL** que copiou do portal do Azure.
 
 11. Clique em **guardar** no portal de gestão do Citrix ShareFile.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -201,7 +216,7 @@ Para permitir que os utilizadores do Azure AD sessão Citrix ShareFile, têm de 
    
    ![Informações básicas](./media/active-directory-saas-sharefile-tutorial/IC799951.png "informações básicas")
    
-   a. No **endereço de correio eletrónico** caixa de texto, escreva o endereço de e-mail do Britta Simon como  **brittasimon@contoso.com** .
+   a. No **endereço de correio eletrónico** caixa de texto, escreva o endereço de e-mail do Britta Simon como **brittasimon@contoso.com**.
    
    b. No **nome próprio** caixa de texto, tipo **nome próprio** do utilizador como **Britta**.
    
@@ -242,7 +257,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -253,8 +268,6 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
@@ -269,4 +282,3 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

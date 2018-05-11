@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 98d285bf8ec92e7b6baf709d4796ce2f4420c4f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd8130ac12f9c7c2095f9329dc4ce8a34187cf62
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Utilize perfis de versão de API com Ruby na pilha do Azure
 
@@ -36,7 +36,7 @@ Um perfil de API é uma combinação de fornecedores de recursos e as versões d
  - Para utilizar a api-version mais recente de um serviço, utilize o **mais recente** perfil a gem específica. Por exemplo, se gostaria de utilizar a última versão de api do serviço de computação por si só, utilize o **mais recente** perfil o **computação** gem.
  - Para utilizar a versão de api específica para um serviço, utilize as versões de API específicas definidas no interior da gem.
 
-> [!note] 
+> [!Note]   
 > Pode combinar todas as opções na mesma aplicação.
 
 ## <a name="install-the-azure-ruby-sdk"></a>Instale o Azure SDK Ruby
@@ -96,7 +96,8 @@ Para utilizar o SDK do Azure Ruby com pilha do Azure, tem de indicar os valores 
 O Microsoft Azure Resource Manager é uma arquitetura de gestão que permite aos administradores implementar, gerir e monitorizar os recursos do Azure. O Azure Resource Manager pode processar estas tarefas, como um grupo, em vez de individualmente, numa única operação.
 
 Pode obter as informações de metadados do ponto final do Gestor de recursos. O ponto final devolve um ficheiro JSON com as informações necessárias para executar o código.
-  > [!note]  
+
+  > [!Note]  
   > O **ResourceManagerUrl** no Azure pilha Development Kit (ASDK) é: `https://management.local.azurestack.external/`  
   > O **ResourceManagerUrl** nos sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -208,7 +209,7 @@ Pode utilizar os exemplos seguintes encontrado no GitHub repositoreis como uma r
 
 Para executar o exemplo, certifique-se de que tem instalado Ruby. Se estiver a utilizar o Visual Studio Code, transferi o SDK de Ruby como uma extensão bem. 
 
-> [!note]  
+> [!Note]  
 > Pode obter o repositório para o exemplo em "[recursos de gerir o Azure e os grupos de recursos com Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)".
 
 1. Clone o repositório.
@@ -243,7 +244,7 @@ Para executar o exemplo, certifique-se de que tem instalado Ruby. Se estiver a u
   - Exportar AZURE_SUBSCRIPTION_ID = {o id de subscrição}
   - Exportar ARM_ENDPOINT = {o url do Gestor de recursos de AzureStack}
 
-  > [!note]  
+  > [!Note]  
   > No Windows, utilize o conjunto em vez de exportar.
 
 4. Certifique-se de que a variável de localização é definida para a localização de AzureStack. Por exemplo LOCAL = "local"

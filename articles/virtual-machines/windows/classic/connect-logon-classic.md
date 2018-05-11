@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ecc65d2d4802ae826f3260b66b26e0bbe414e6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Iniciar sessão numa máquina virtual do Windows através do portal do Azure
 No portal do Azure, utilize o **Connect** botão para iniciar uma sessão de ambiente de trabalho remoto e inicie sessão numa VM do Windows.
@@ -40,30 +40,32 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 1. Inicie sessão no Portal do Azure.
 2. Clique na máquina virtual que pretende aceder. O nome está listado no **todos os recursos** painel.
 
-    ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
+    ![Localizações de máquina virtual](./media/connect-logon/azureportaldashboard.png)
 
-3. Clique em **Connect** na barra de comando visível o dashboard de máquina virtual.
-
-    ![Ligar o ícone para a máquina virtual](./media/connect-logon/virtualmachine_dashboard_connect.png)
-
-<!-- Don't know if this still applies
-     I think we can zap this.
-> [!TIP]
-> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
->
->
--->
-
-## <a name="log-on-to-the-virtual-machine"></a>Iniciar sessão na máquina virtual
-[!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
+1. Clique em de **Connect** botão na página de propriedades da máquina virtual. 
+2. No **ligar à máquina virtual** página, mantenha Selecione as opções adequadas e clique em **ficheiro RDP transferir**.
+2. Abra o ficheiro RDP transferido e clique em **Connect** quando lhe for pedido. 
+2. Recebe um aviso a informar que o ficheiro `.rdp` é de um publicador desconhecido. É uma situação normal. Na janela Ambiente de Trabalho Remoto, clique em **Ligar** para continuar.
+   
+    ![Captura de ecrã de um aviso sobre um publicador desconhecido.](./media/connect-logon/rdp-warn.png)
+3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Escreva as credenciais para uma conta da máquina virtual e clique em **OK**.
+   
+     **Conta local** – trata-se normalmente do nome de utilizador e da palavra-passe da conta local que especificou quando criou a máquina virtual. Neste caso, o domínio é o nome da máquina virtual e é introduzido como *nomedavm*&#92;*nomedeutilizador*.  
+   
+    **VM associada ao domínio** – se a VM pertence a um domínio, introduza o nome de utilizador no formato *Domínio*&#92;*Nomedeutilizador*. A conta também tem de estar no grupo Administradores ou terem sido concedidos privilégios de acesso remoto à VM.
+   
+    **Controlador de domínio** – se a VM for um controlador de domínio, escreva o nome de utilizador e a palavra-passe de uma conta de administrador para esse domínio.
+4. Clique em **Sim** para confirmar a identidade da máquina virtual e concluir o início de sessão.
+   
+   ![Captura de ecrã que mostra uma mensagem sobre a confirmação da identidade da VM.](./media/connect-logon/cert-warning.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Se o **Connect** botão está inativo ou tenha outros problemas com a ligação de ambiente de trabalho remoto, tente a repor a configuração. Clique em **reponha o acesso remoto** partir do dashboard de máquina virtual.
 
-    ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+    ![Reposição-remota-acesso](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
 * Para problemas com a palavra-passe, tente repor. Clique em **Repor palavra-passe** ao longo do limite esquerdo do virtual machine dashboard, em **suporte + resolução de problemas**.
 
-    ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
+    ![Reposição de palavra-passe](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 Se estas sugestões não funcionam ou não são o que precisa de, consulte [ligações de resolução de problemas de ambiente de trabalho remoto para uma baseado no Windows Azure Máquina Virtual](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este artigo orienta-o ao longo do diagnóstico e da resolução de problemas comuns.

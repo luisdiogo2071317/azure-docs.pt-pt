@@ -11,12 +11,15 @@ No início inicial, Shell da nuvem pede-lhe para associar uma partilha de fichei
 
 Quando utilizar definições básicas e selecione apenas uma subscrição, Shell da nuvem cria três recursos em seu nome na região suportada que seja nearest to:
 * Grupo de recursos: `cloud-shell-storage-<region>`
-* Conta de armazenamento:`cs<uniqueGuid>`
-* Partilha de ficheiros:`cs-<user>-<domain>-com-<uniqueGuid>`
+* Conta de armazenamento: `cs<uniqueGuid>`
+* Partilha de ficheiros: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![A definição de subscrição](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
 Monta a partilha de ficheiros como `clouddrive` no seu `$Home` diretório. Esta é uma ação única e a partilha de ficheiros automaticamente monta nas sessões subsequentes. 
+
+> [!NOTE]
+> Para segurança, cada utilizador deve aprovisionar os seus próprios armazenamento.  Para o controlo de acesso baseado em funções (RBAC), os utilizadores devem ter acesso de contribuinte ou superior.
 
 Bash, a partilha de ficheiros também contém uma imagem de 5 GB é criada para si que automaticamente mantém os dados no seu `$Home` diretório. 
 
@@ -37,7 +40,7 @@ Associadas têm de residir na mesma região que a máquina de Shell de nuvem que
 Para localizar a sua região atribuído, que o utilizador pode:
 * Veja a nota da caixa de diálogo "definições de armazenamento avançada"
 * Consulte o nome da conta de armazenamento criado por si (ex: `cloud-shell-storage-westus`)
-* Executar `env` e localize a variável`ACC_LOCATION`
+* Executar `env` e localize a variável `ACC_LOCATION`
 
 Máquina de Shell de nuvem existe nas seguintes regiões:
 |Área|Região|

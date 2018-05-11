@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
 Este tópico descreve as opções para mover dados de ficheiros simples (formatos de CSV ou TSV) ou a partir dos dados armazenados num local no SQL Server para uma base de dados SQL do Azure. Estas tarefas para mover dados para a nuvem fazem parte do processo de ciência de dados de equipa.
@@ -33,8 +33,8 @@ A tabela seguinte resume as opções para mover dados para uma base de dados do 
 
 | <b>ORIGEM</b> | <b>DESTINO: Base de dados SQL do Azure</b> |
 | --- | --- |
-| <b>Ficheiro simples (TSV formatado ou CSV)</b> |<a href="#bulk-insert-sql-query">Consulta SQL de inserção em massa |
-| <b>SQL Server no local</b> |1. <a href="#export-flat-file">Exportar para ficheiro simples<br> 2. <a href="#insert-tables-bcp">Assistente de migração de base de dados do SQL Server<br> 3. <a href="#db-migration">Base de dados back cópias de segurança e restauro<br> 4. <a href="#adf">Fábrica de dados do Azure |
+| <b>Ficheiro simples (TSV formatado ou CSV)</b> |[Consulta SQL de inserção em massa](#bulk-insert-sql-query) |
+| <b>SQL Server no local</b> |1.[exportar para ficheiro simples](#export-flat-file)<br> 2. [Assistente de migração de base de dados do SQL Server](#insert-tables-bcp)<br> 3. [Base de dados back cópias de segurança e restauro](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Pré-requisitos
 Os procedimentos descritos aqui requerem que tenha:

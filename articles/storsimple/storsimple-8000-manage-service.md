@@ -1,24 +1,24 @@
 ---
-title: "Implementar o serviço do Gestor de dispositivos do StorSimple no Azure | Microsoft Docs"
-description: "Explica como criar e eliminar o dispositivo do serviço StorSimple Manager no portal do Azure e descreve como gerir a chave de registo do serviço."
+title: Implementar o serviço do Gestor de dispositivos do StorSimple no Azure | Microsoft Docs
+description: Explica como criar e eliminar o dispositivo do serviço StorSimple Manager no portal do Azure e descreve como gerir a chave de registo do serviço.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar o serviço do Gestor de dispositivos do StorSimple para os dispositivos de série 8000 do StorSimple
 
@@ -29,7 +29,9 @@ O serviço do Gestor de dispositivos do StorSimple é executado no Microsoft Azu
 Este tutorial descreve os passos necessários para a criação, eliminação, a migração do serviço e a gestão da chave de registo do serviço. As informações contidas neste artigo são aplicáveis apenas a dispositivos de série 8000 do StorSimple. Para obter mais informações sobre matrizes Virtual StorSimple, aceda a [implementar um serviço StorSimple Manager de dispositivo para a matriz de Virtual StorSimple](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Todos os gestores de dispositivo StorSimple clássicos automaticamente foram movidos para o novo portal do Azure. Se tiver alguma questão, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md). Os cmdlets do PowerShell de gestão de serviço do Azure (ASM) não são suportados após a mudança para o novo portal do Azure. Atualizar os scripts para gerir os seus dispositivos e, em seguida, avance para o [baseada na utilização do Azure Resource Manager SDK scripts para gerir dispositivos StorSimple](storsimple-8000-automation-azurerm-scripts.md) para obter mais informações. O novo portal do Azure suporta dispositivos com a atualização 5.0 ou posterior. Se o dispositivo não estiver atualizado, instale imediatamente a atualização 5. Para obter mais informações, aceda a [instalar Update 5](storsimple-8000-install-update-5.md). Se estiver a utilizar uma aplicação de nuvem do StorSimple (8010/8020), não é possível atualizar uma aplicação de nuvem. Utilize a versão mais recente do software para criar um novo dispositivo de nuvem com atualização 5.0 e, em seguida, efetuar a ativação pós-falha para o novo dispositivo de nuvem criado. Todos os dispositivos a executar a atualização anterior ou 4.0 verificará [reduzido a funcionalidade de gestão](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  O portal do Azure suporta dispositivos com a atualização 5.0 ou posterior. Se o dispositivo não estiver atualizado, instale imediatamente a atualização 5. Para obter mais informações, aceda a [instalar Update 5](storsimple-8000-install-update-5.md). 
+> - Se estiver a utilizar uma aplicação de nuvem do StorSimple (8010/8020), não é possível atualizar uma aplicação de nuvem. Utilize a versão mais recente do software para criar um novo dispositivo de nuvem com atualização 5.0 e, em seguida, efetuar a ativação pós-falha para o novo dispositivo de nuvem criado. 
+> - Todos os dispositivos a executar a atualização anterior ou 4.0 verificará [reduzido a funcionalidade de gestão](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Criar um serviço
 Para criar um serviço do Gestor de dispositivos do StorSimple, terá de ter:
@@ -38,11 +40,7 @@ Para criar um serviço do Gestor de dispositivos do StorSimple, terá de ter:
 * Uma conta de armazenamento do Microsoft Azure Active Directory
 * As informações de faturação que são utilizadas para gestão de acesso
 
-Apenas as subscrições com um Enterprise Agreement são permitidas. Subscrições do Microsoft Sponsorship que foram permitidas no portal clássico do Azure não são suportadas no portal do Azure. Verá a mensagem seguinte quando utilizar uma subscrição não suportada:
-
-![Não é válida de subscrição](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-Também pode optar por gerar uma conta do storage predefinida quando criar o serviço.
+Apenas as subscrições com um Enterprise Agreement são permitidas. Também pode optar por gerar uma conta do storage predefinida quando criar o serviço.
 
 Um único serviço pode gerir vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço funcione com diferentes subscrições, as organizações ou até mesmo as localizações de implementação. 
 
@@ -78,7 +76,7 @@ Execute os seguintes passos para eliminar um serviço.
 
 2. Isto leva-o para o painel de serviço do Gestor de dispositivos do StorSimple. Clique em **Eliminar**.
 
-    ![Eliminar o serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
+    ![Eliminar serviço](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
 3. Clique em **Sim** na notificação de confirmação. Pode demorar alguns minutos para que o serviço será eliminado.
 
@@ -149,8 +147,7 @@ Este passo é executado no Windows PowerShell para StorSimple interface no dispo
 
 > [!NOTE]
 > Não existem operações podem ser efetuadas no portal do Azure do seu serviço StorSimple Manager até que o rollover da chave esteja concluída.
-> 
-> 
+
 
 Se estiver a utilizar a consola de série do dispositivo para ligar a interface do Windows PowerShell, execute os seguintes passos.
 
@@ -177,12 +174,12 @@ Execute os seguintes passos para atualizar a encriptação de dados do serviço 
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Para atualizar a chave de encriptação de dados do serviço em dispositivos físicos
 1. Utilize o Windows PowerShell para StorSimple para ligar à consola do. Selecione a opção 1 para iniciar sessão com acesso total.
-2. Na linha de comandos, escreva:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. Na linha de comandos, escreva:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Forneça a chave de encriptação de dados de serviço que obteve no [passo 2: Utilize o Windows PowerShell para StorSimple iniciar a alteração de chave de encriptação de dados serviço](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Para atualizar a chave de encriptação de dados do serviço em todas as aplicações de nuvem 8010/8020
 1. Transferir e configurar [atualização CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) script do PowerShell. 
-2. Abra o PowerShell e a linha de comandos, escreva:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+2. Abra o PowerShell e a linha de comandos, escreva:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Este script irá garantir que essa chave de encriptação de dados do serviço está definido em todos os dispositivos 8010/8020 nuvem sob o Gestor de dispositivos.
 

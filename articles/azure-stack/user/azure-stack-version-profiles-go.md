@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilize perfis de versão de API com aceda na pilha do Azure
 
@@ -61,7 +61,8 @@ O SDK ACEDA depende os módulos do Azure aceda-AutoRest para enviar pedidos REST
 Para executar um exemplo de código aceda na pilha do Azure:
   1. Instale o Azure SDK para aceda e as respetivas dependências. Para instruções, consulte a secção anterior, [instalar o Azure SDK para ir](#install-azure-sdk-for-go).
   2. Obter as informações de metadados do ponto final do Gestor de recursos. O ponto final devolve um ficheiro JSON com as informações necessárias para executar o código de ir.
-  > [!note]  
+
+  > [!Note]  
   > O **ResourceManagerUrl** no Azure pilha Development Kit (ASDK) é: `https://management.local.azurestack.external/`  
   > O **ResourceManagerUrl** nos sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ Esta secção apresenta uma forma comum para obter os tokens de authorizer na pi
 ## <a name="example"></a>Exemplo
 
 Esta secção mostra um exemplo de código de ir para criar rede virtual na pilha do Azure. Para exemplos completos do SDK aceda consulte [repositório de exemplos do Azure aceda SDk](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Exemplos de pilha do Azure estão disponíveis em híbrida / caminho dentro de pastas de serviço do repositório.
-> [!note]  
+
+> [!Note]  
 > Para executar o código neste exemplo, certifique-se de que a subscrição utilizada tem **rede** fornecedor de recursos listado como **registada**. A verificar, procure a subscrição no portal do Azure pilha e clique em **fornecedores de recursos.**
 
 1. Importe pacotes necessários no seu código. Deve utilizar o perfil disponível mais recente na pilha do Azure para importar o módulo de rede. 
@@ -194,7 +196,7 @@ Esta secção mostra um exemplo de código de ir para criar rede virtual na pilh
   )
   ````
 
-2. Defina as variáveis de ambiente. Tenha em atenção que para criar uma rede virtual tem de ter um grupo de recursos. 
+2. Defina as variáveis de ambiente. Para criar uma rede virtual tem de ter um grupo de recursos. 
 
   ````go
   var (

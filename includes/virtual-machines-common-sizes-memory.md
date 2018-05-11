@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 Otimização de memória oferta de tamanhos VM numa proporção de memória a CPU elevada que são ótimos para servidores de base de dados relacional, caches médias e grandes e análise de memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -25,6 +25,8 @@ Otimização de memória oferta de tamanhos VM numa proporção de memória a CP
 * A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Se baseia na geração de mais recente 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) ou processadores do E5-2673 v4 2.3 GHz (Broadwell) e com o Intel Turbo intensificação tecnologia 2.0, pode ir até GHz 3.1. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
 * O série Ev3 funcionalidades E5-2673 v4 2.3 GHz (Broadwell) processador numa configuração com hyper-threading, fornecendo uma proposta de valor melhor para cargas de trabalho de objetivo mais comum e colocar o Ev3 em alinhamento com o objetivo geral VMs da maioria das outras nuvens.  Memória foi expandida (a partir de 7 GiB/vCPU para 8 GiB/vCPU) enquanto os limites de disco e rede tem sido ajustados numa base por núcleo para alinhar com a mudança para Hyper-Threading.  O Ev3 é siga até os tamanhos VM de elevada da memória de famílias de D/Dv2.
+
+* Computação do Azure oferece tamanhos de máquina virtual que tem Isolated para um tipo de hardware específico e dedicado a um único cliente.  Estes tamanhos de máquina virtual são mais adequados para cargas de trabalho que requerem um elevado grau de isolamento de outros clientes para que envolvem elementos como requisitos regulamentares de conformidade e de cargas de trabalho.  Os clientes também podem optar por subdividir ainda mais os recursos destas máquinas virtuais isoladas utilizando [suporte do Azure para máquinas de virtuais aninhadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Consulte as tabelas das famílias de máquina virtual abaixo para as opções de VM isoladas.
 
 ## <a name="esv3-series"></a>Série Esv3 
 

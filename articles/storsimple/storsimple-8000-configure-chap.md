@@ -1,24 +1,24 @@
 ---
-title: "Configurar o CHAP para o dispositivo de série 8000 do StorSimple | Microsoft Docs"
-description: "Descreve como configurar o protocolo de autenticação de Handshake de desafio (CHAP) num dispositivo StorSimple."
+title: Configurar o CHAP para o dispositivo de série 8000 do StorSimple | Microsoft Docs
+description: Descreve como configurar o protocolo de autenticação de Handshake de desafio (CHAP) num dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurar o CHAP para o dispositivo StorSimple
 
@@ -77,8 +77,8 @@ Na autenticação unidirecional, o destino autentica o iniciador. Esta autentica
 4. No **definições avançadas** caixa de diálogo:
    
    1. Selecione o **ativar CHAP iniciar sessão** caixa de verificação.
-   2. No **nome** campo, forneça o nome de utilizador que especificou para o Iniciador do CHAP no portal clássico.
-   3. No **segredo de destino** campo, forneça a palavra-passe que especificou para o Iniciador do CHAP no portal clássico.
+   2. No **nome** campo, forneça o nome de utilizador que especificou para o Iniciador do CHAP no portal do Azure.
+   3. No **segredo de destino** campo, forneça a palavra-passe que especificou para o Iniciador do CHAP no portal do Azure.
    4. Clique em **OK**.
       
        ![Definições avançadas gerais](./media/storsimple-configure-chap/IC740946.png)
@@ -131,8 +131,8 @@ Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o
 8. No **propriedades avançadas** caixa de diálogo:
    
    1. Selecione o **ativar CHAP iniciar sessão** caixa de verificação.
-   2. No **nome** campo, forneça o nome de utilizador que especificou para o Iniciador do CHAP no portal clássico.
-   3. No **segredo de destino** campo, forneça a palavra-passe que especificou para o Iniciador do CHAP no portal clássico.
+   2. No **nome** campo, forneça o nome de utilizador que especificou para o Iniciador do CHAP no portal do Azure.
+   3. No **segredo de destino** campo, forneça a palavra-passe que especificou para o Iniciador do CHAP no portal do Azure.
    4. Selecione o **efetue a autenticação mútua** caixa de verificação.
       
        ![Autenticação mútua definições avançadas](./media/storsimple-configure-chap/IC740950.png)
@@ -166,7 +166,7 @@ Pode verificar que o CHAP está a ser utilizado, efetuando os seguintes passos.
    
     ![Detalhes de destino favorito](./media/storsimple-configure-chap/IC740952.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre [utilizando o serviço do Gestor de dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

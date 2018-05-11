@@ -4,7 +4,7 @@ description: Funcionalidades do motor de regras de documentação de referência
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,10 +12,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -1240,25 +1240,25 @@ Recomenda-se vivamente a utilização de um URL absoluto. A utilização de um U
 
 **Cenário de exemplo**
 
-Este exemplo demonstra como redirecionar um limite de URL de CNAME que resolve para este URL CDN base: http://marketing.azureedge.net/brochures
+Este exemplo demonstra como redirecionar o URL de CNAME que resolve para este URL base do CDN contorno: http:\//marketing.azureedge.net/brochures
 
-Elegíveis pedidos serão redirecionado para este limite base CNAME URL: http://cdn.mydomain.com/resources
+Elegíveis pedidos serão redirecionado para este limite de base de URL de CNAME: http:\//cdn.mydomain.com/resources
 
-Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Redirecionamento este URL pode ser conseguido através a seguinte configuração: ![redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Pontos de chave:**
 
 - A funcionalidade redirecionar URL define o pedido de URL que será redirecionado. Como resultado, as condições de correspondência adicionais não são necessárias. Embora a condição de correspondência foi definida como "Sempre", serão redirecionados apenas os pedidos que apontam para a pasta "brochures" na origem de cliente "marketing". 
 - Todos os pedidos correspondentes serão redirecionados para o limite definido do URL de CNAME na opção de destino. 
     - Cenário de exemplo #1: 
-        - Exemplo de pedido (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - O URL de pedido (após o redirecionamento): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Exemplo de pedido (CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - O URL de pedido (após o redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Cenário de exemplo #2: 
-        - Exemplo de pedido (Edge CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - O URL de pedido (após o redirecionamento): http://cdn.mydomain.com/resources/widgets.pdf cenário de exemplo
+        - Exemplo de pedido (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - O URL de pedido (após o redirecionamento): http:\//cdn.mydomain.com/resources/widgets.pdf cenário de exemplo
     - Cenário de exemplo #3: 
-        - Exemplo de pedido (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - O URL de pedido (após o redirecionamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Exemplo de pedido (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - O URL de pedido (após o redirecionamento): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - A variável de esquema de pedido (% {esquema}) é utilizada na opção de destino, que garante que permanece inalterada esquema o pedido após o redirecionamento.
 - Os segmentos de URL que foram capturados do pedido são acrescentados para o novo URL através de "$1."
 
@@ -1282,17 +1282,17 @@ Opção|Descrição
 
 **Cenário de exemplo 1**
 
-Este exemplo demonstra como redirecionar um limite de URL de CNAME que resolve para este URL CDN base: http://marketing.azureedge.net/brochures/
+Este exemplo demonstra como redirecionar o URL de CNAME que resolve para este URL base do CDN contorno: http:\//marketing.azureedge.net/brochures/
 
-Elegíveis pedidos serão redirecionado para este limite base CNAME URL: http://MyOrigin.azureedge.net/resources/
+Elegíveis pedidos serão redirecionado para este limite de base de URL de CNAME: http:\//MyOrigin.azureedge.net/resources/
 
-Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Redirecionamento este URL pode ser conseguido através a seguinte configuração: ![redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Cenário de exemplo 2**
 
 Este exemplo demonstra como redirecionar um limite de URL de CNAME de UPPERCASE para minúsculas utilizando expressões regulares.
 
-Redirecionamento este URL pode ser conseguido através da configuração seguinte: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Redirecionamento este URL pode ser conseguido através a seguinte configuração: ![redirecionamento de URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Pontos de chave:**

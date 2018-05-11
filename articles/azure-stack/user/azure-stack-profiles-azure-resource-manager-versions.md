@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versões do fornecedor da API de recurso suportadas pelos perfis na pilha do Azure
 
@@ -30,7 +30,7 @@ O perfil de API utiliza três convenções de nomenclatura:
 
 Para obter uma explicação sobre perfis de API e cadência de lançamento da versão para a pilha do Azure, consulte [perfis de versão de API gerir no Azure pilha](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > O **mais recente** perfil API contém a versão mais recente da versão de API do fornecedor de recursos e não está listado neste artigo.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Descrição geral do 2018 – 03-01-híbrida
@@ -96,7 +96,7 @@ Utilize o controlo de acesso baseado em funções para gerir as ações de utili
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
-| Tipo de Recurso | Versão de API |
+| Tipo de Recurso | Versão da API |
 |----------------------------------|----------------------|
 | Subscrições de delegado do fornecedor | 2015-06-01 - pré-visualize |
 | Utilização de delegados agregados | 2015-06-01 - pré-visualize |
@@ -109,7 +109,7 @@ Utilize o controlo de acesso baseado em funções para gerir as ações de utili
 
 As APIs de computação do Azure dão-lhe acesso programático para máquinas virtuais e os respetivos recursos de suporte. Para obter mais informações, consulte [computação do Azure](https://docs.microsoft.com/rest/api/compute/).
 
-| Tipo de Recurso | Versão de API |
+| Tipo de Recurso | Versão da API |
 |---------------------------------------------------------------|-------------|
 | Conjuntos de Disponibilidade | 2016-03-30 |
 | Localizações | 2016-03-30 |
@@ -128,7 +128,7 @@ As APIs de computação do Azure dão-lhe acesso programático para máquinas vi
 
 ### <a name="microsoftgallery"></a>Microsoft.Gallery
 
-| Tipo de Recurso | Versão de API |
+| Tipo de Recurso | Versão da API |
 |------------------|-------------|
 | Organização | 2015-04-01 |
 | Conteúdo de Organização | 2015-04-01 |
@@ -244,7 +244,7 @@ O fornecedor de recursos de armazenamento (SRP) permite-lhe gerir a sua conta de
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-| Tipo de Recurso | Versão de API |
+| Tipo de Recurso | Versão da API |
 |---------------------------------------------------------------|-------------|
 | Conjuntos de Disponibilidade | 2016-03-30 |
 | Localizações | 2016-03-30 |

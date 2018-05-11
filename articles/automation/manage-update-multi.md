@@ -3,16 +3,17 @@ title: Gerir atualizações para várias máquinas virtuais do Azure
 description: Este tópico descreve como gerir atualizações para as máquinas virtuais do Azure.
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ce3d0501900cf8b60daee9aff6eeeaf62fa29409
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ae5d2e38f11abfabda067e9affbf81159002cb99
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 

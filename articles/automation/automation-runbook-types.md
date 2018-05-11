@@ -1,18 +1,19 @@
 ---
-title: "Tipos de Runbook da automatização do Azure"
-description: "Descreve os diferentes tipos de runbooks que pode utilizar na automatização do Azure e as considerações que deve ter em consideração ao determinar qual o tipo a utilizar. "
+title: Tipos de Runbook da automatização do Azure
+description: 'Descreve os diferentes tipos de runbooks que pode utilizar na automatização do Azure e as considerações que deve ter em consideração ao determinar qual o tipo a utilizar. '
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f3a6b15891a4a1564073d149a198f6789b407342
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 800380c68e1bb1314021ab60f92ccd3b392dbe32
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da automatização do Azure
 A automatização do Azure suporta vários tipos de runbooks que por breves instantes são descritos na seguinte tabela.  As seções abaixo fornecem informações adicionais sobre cada tipo, incluindo considerações sobre quando utilizar cada uma.
@@ -54,11 +55,11 @@ Os runbooks do PowerShell são baseados no Windows PowerShell.  Editar diretamen
 * Não é possível utilizar [pontos de verificação](automation-powershell-workflow.md#checkpoints) retomar runbook em caso de erro.
 * Os runbooks do fluxo de trabalho do PowerShell e runbooks gráficos só pode ser incluídos como runbooks subordinados utilizando o cmdlet Start-AzureAutomationRunbook que cria uma tarefa de novo.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 Seguem-se atuais problemas conhecidos com runbooks do PowerShell.
 
 * Os runbooks do PowerShell não é possível obter um não encriptada [recurso de variável](automation-variables.md) com um valor nulo.
-* Os runbooks do PowerShell não é possível obter um [recurso de variável](automation-variables.md) com  *~*  no nome.
+* Os runbooks do PowerShell não é possível obter um [recurso de variável](automation-variables.md) com *~* no nome.
 * Get-Process num ciclo num PowerShell runbook pode falhar após cerca de 80 iterações. 
 * Um runbook de PowerShell poderá falhar se o mesmo tenta a escrever uma grande quantidade de dados no fluxo de saída de uma só vez.   Normalmente, pode contornar este problema, exportar apenas as informações que necessárias ao trabalhar com objetos grandes.  Por exemplo, em vez de exportar algo semelhante ao seguinte *Get-Process*, o utilizador pode apresentar apenas os campos obrigatórios com *Get-Process | Selecione ProcessName, CPU*.
 
@@ -87,7 +88,7 @@ Os runbooks do Python compilar em Python 2.  Pode editar diretamente o código d
 * Tem de estar familiarizado com o processamento de scripts do Python.
 * Apenas Python 2 é suportado neste momento, que significa que funções específicas do Python 3 irão falhar.
 
-### <a name="known-issues"></a>Problemas Conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 Seguem-se atuais problemas conhecidos com runbooks do Python.
 
 * Para poder utilizar as bibliotecas de terceiros, o runbook tem de ser executado [Runbook Worker híbrido Windows](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) ou [Runbook Worker híbrido Linux](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) com bibliotecas já instaladas no computador antes do o runbook é iniciado.

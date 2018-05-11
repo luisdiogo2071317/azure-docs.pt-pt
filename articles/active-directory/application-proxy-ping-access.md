@@ -15,15 +15,15 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb341c5700f573e61cdbbe992aa0b0eb99389b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f480553e6a8ca09872cd638537bc6fb98e793d8b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada no cabeçalho para início de sessão com o Proxy de aplicações e PingAccess
 
-Azure Active Directory para o Proxy de aplicações e PingAccess ter parcerias em conjunto para fornecer aos clientes do Azure Active Directory acesso ao mesmo mais aplicações. PingAccess expande o [ofertas de Proxy de aplicações existentes](active-directory-application-proxy-get-started.md) para incluir o acesso de início de sessão único para aplicações que utilizam os cabeçalhos de autenticação.
+Azure Active Directory para o Proxy de aplicações e PingAccess ter parcerias em conjunto para fornecer aos clientes do Azure Active Directory acesso ao mesmo mais aplicações. PingAccess expande o [ofertas de Proxy de aplicações existentes](manage-apps/application-proxy.md) para incluir o acesso de início de sessão único para aplicações que utilizam os cabeçalhos de autenticação.
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para Azure AD?
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 356356288823c86c77e46fdfba2cf81a7ef11e0d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -59,7 +59,7 @@ Instalar o WMF requer um reinício. Depois de reiniciar, a extensão transfere o
 
 ### <a name="default-configuration-script"></a>Script de configuração predefinida
 
-A extensão de DSC do Azure inclui um script de configuração predefinidas que tem se destina a ser utilizado quando a carregar uma VM para o serviço do Automation DSC do Azure. Os parâmetros do script estão alinhados com as propriedades configuráveis de [Gestor de configuração locais](/powershell/dsc/metaconfig). Para os parâmetros do script, consulte [predefinida de script de configuração](extensions-dsc-template.md#default-configuration-script) no [extensão de configuração de estado pretendido com modelos Azure Resource Manager](extensions-dsc-template.md). Para o script completo, consulte o [modelo de início rápido do Azure no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+A extensão de DSC do Azure inclui um script de configuração predefinidas que tem se destina a ser utilizado quando a carregar uma VM para o serviço do Automation DSC do Azure. Os parâmetros do script estão alinhados com as propriedades configuráveis de [Gestor de configuração locais](/powershell/dsc/metaconfig). Para os parâmetros do script, consulte [predefinida de script de configuração](dsc-template.md#default-configuration-script) no [extensão de configuração de estado pretendido com modelos Azure Resource Manager](dsc-template.md). Para o script completo, consulte o [modelo de início rápido do Azure no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão de DSC nos modelos do Resource Manager
 
@@ -155,6 +155,6 @@ Os registos para a extensão são armazenados na seguinte localização: `C:\Win
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais informações sobre o PowerShell DSC, vá para o [Centro de documentação do PowerShell](/powershell/dsc/overview).
-- Examine o [modelo do Resource Manager para a extensão de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Examine o [modelo do Resource Manager para a extensão de DSC](dsc-template.md).
 - Para obter mais funcionalidades que pode gerir utilizando o PowerShell DSC e mais recursos de DSC, procure o [galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Para obter detalhes sobre a transmitir parâmetros confidenciais para as configurações, consulte [gerir credenciais de forma segura com o processador de extensão de DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Para obter detalhes sobre a transmitir parâmetros confidenciais para as configurações, consulte [gerir credenciais de forma segura com o processador de extensão de DSC](dsc-credentials.md).

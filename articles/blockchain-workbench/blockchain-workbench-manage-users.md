@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a426f7f424bc1941890c80a83997d8e08b368884
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerir utilizadores no Azure Blockchain Workbench
 
@@ -68,20 +68,18 @@ Para adicionar os utilizadores a **administradores** grupo no diretório do Azur
 
 Utilize a aplicação do Blockchain Workbench para gerir utilizadores e organizações que fazem parte do seu consortium. Pode adicionar ou remover utilizadores de aplicações e funções.
 
-[Abrir o Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) no seu browser e inicie sessão como administrador.
+1. [Abrir o Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) no seu browser e inicie sessão como administrador.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>Gerir membros de aplicações
+    Os membros são adicionados a cada aplicação. Os membros podem ter uma ou mais funções de aplicação para iniciar contratos ou executar ações.
 
-Os membros são adicionados a cada aplicação. Os membros podem ter uma ou mais funções de aplicação para iniciar contratos ou executar ações.
+2. Para gerir os membros de uma aplicação, selecione um mosaico de aplicação no **aplicações** painel.
 
-Para adicionar membros a uma aplicação, selecione um mosaico de aplicação no **aplicações** painel.
+    O número de membros associados à aplicação selecionada é refletido no mosaico de membros.
 
-![Selecionar aplicação](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Selecionar aplicação](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> O número de membros associados à aplicação selecionada é refletido no mosaico de membros.
 
 #### <a name="add-member-to-application"></a>Adicionar membro a aplicação
 

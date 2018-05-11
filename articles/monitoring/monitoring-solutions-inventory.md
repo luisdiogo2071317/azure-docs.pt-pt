@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/09/2018
 ms.author: bwren
-ms.openlocfilehash: cab92187c6c36dc4670e202b15b35db8ad510239
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ab07a11883b3462c4b9d0f9adab6c55e4fe49d78
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
 Este artigo inclui uma lista de [soluções de gestão](monitoring-solutions.md) disponíveis da Microsoft com ligações para a respetiva documentação detalhada.  Também fornece informações de método e frequência de recolha de dados para análise de registos.  Pode utilizar as informações neste artigo para identificar as diferentes soluções disponíveis e para compreender os requisitos de ligação e de fluxo de dados para soluções de gestão diferente. 
@@ -54,7 +54,7 @@ Uma explicação das colunas é os seguintes:
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **O Operations Manager necessárias?** | **Dados de agente do Operations Manager enviados através do grupo de gestão** | **Frequência de recolha** |
 | [Análise de grupo de segurança de rede do Azure](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
 | [Análise de SQL do Azure (pré-visualização)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minuto |
-| [Cópia de segurança](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | n/d |
+| [Cópia de segurança](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | na notificação |
 | [Capacidade e o desempenho (pré-visualização)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |sobre chegada |
 | [Monitorização de Alterações](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hora a hora |
 | [Monitorização de Alterações](../log-analytics/log-analytics-change-tracking.md) |Linux |&#8226; | | | | |hora a hora |

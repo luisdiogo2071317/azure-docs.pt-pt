@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher a campos específicos para uma aplicação desenvolvida personalizada
 
-Este artigo dão-lhe uma breve descrição de todos os campos disponíveis no formulário de registo de aplicação no [portal do Azure](https://portal.azure.com).
+Este artigo fornece uma breve descrição de todos os campos disponíveis no formulário de registo de aplicação no [portal do Azure](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Registar uma nova aplicação
 
@@ -43,7 +43,7 @@ Este artigo dão-lhe uma breve descrição de todos os campos disponíveis no fo
 | |**Nativo**: uma aplicação que pode ser instalada num computador ou dispositivo do utilizador           |
 | URL de início de sessão      | O URL onde os utilizadores podem iniciar sessão e utilizar a aplicação                                  |
 
-Assim que tiver preencher os campos acima, a aplicação ser registado no portal do Azure e ser redirecionado para a página da aplicação. O **definições** botão no painel aplicação abre a página de definições, que tem mais campos para personalizar a sua aplicação. A tabela abaixo descreve todos os campos na página Definições. tenha em atenção que apenas conseguiria obter um subconjunto destes campos, dependendo se criou uma aplicação web ou uma aplicação nativa.
+Assim que tiver preencher os campos acima, a aplicação está registada no portal do Azure e são redirecionados para a página da aplicação. O **definições** botão no painel aplicação abre a página de definições, que tem mais campos para personalizar a sua aplicação. A tabela abaixo descreve todos os campos na página Definições. tenha em atenção que apenas conseguiria obter um subconjunto destes campos, dependendo se criou uma aplicação web ou uma aplicação nativa.
 
 | Campo           | Descrição                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,9 +53,9 @@ Assim que tiver preencher os campos acima, a aplicação ser registado no portal
 | URL da home page   | Este é o URL de início de sessão especificado durante o registo de aplicação.                                                                                                                                                                                                                                              |
 | URL de fim de sessão      | Este URL de fim de sessão de início de sessão único. Azure AD envia um pedido de fim de sessão para este URL quando o utilizador. limpa a sessão com o Azure AD com qualquer outra aplicação registada.                                                                                                                                       |
 | Com Múltiplos Inquilinos  | Este parâmetro especifica se a aplicação pode ser utilizada por vários inquilinos. Normalmente, isto significa que organizações externas podem utilizar a aplicação, registando-o no seu inquilino e conceder acesso a dados da sua organização.                                                                   |
-| URLs de Resposta      | A resposta URLs são os pontos finais onde do Azure AD devolver qualquer tokens que solicita a sua aplicação.                                                                                                                                                                                                          |
-| URIs de Redirecionamento   | Para aplicações nativas, o que é onde o utilizador ser enviado para o seguinte autorização com êxito. Verificação do AD do Azure que forneça o URI da aplicação de redirecionamento do pedido de OAuth 2.0 corresponde a um dos valores registados no portal.                                                            |
+| URLs de Resposta      | A resposta URLs são os pontos finais onde do Azure AD devolve qualquer tokens que solicita a sua aplicação.                                                                                                                                                                                                          |
+| URIs de Redirecionamento   | Para aplicações nativas, o que é onde o utilizador é enviado depois da autorização com êxito. Verificação do AD do Azure que forneça o URI da aplicação de redirecionamento do pedido de OAuth 2.0 corresponde a um dos valores registados no portal.                                                            |
 | Chaves            | Pode criar chaves para programaticamente acesso APIs web protegidas pelo Azure AD sem qualquer interação do utilizador. Do \* \*chaves\* \* página, introduza uma descrição de chave e a data de expiração e guardar para gerar a chave. Certifique-se para guardá-lo algures segura, como não conseguirá aceder ao mesmo mais tarde.             |
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md) (Gerir Aplicações com o Azure Active Directory)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md) (Gerir Aplicações com o Azure Active Directory)

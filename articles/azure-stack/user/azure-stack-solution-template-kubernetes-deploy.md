@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71d920ea1c143ed65510b77e1804e9c5e38cc180
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/10/2018
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-> [!note]  
+> [!Note]  
 > O Kubernetes de serviços de contentor do Azure (ACS) na pilha do Azure está em pré-visualização privada. O operador de pilha do Azure terá de pedir acesso para o item do Kubernetes Marketplace necessário para desempenhar as instruções neste artigo.
 
 O seguinte artigo observa através de um modelo de solução do Azure Resource Manager para implementar e aprovisionar os recursos para Kubernetes numa operação única e coordenada. Irá precisar para recolher as informações necessárias sobre a instalação de pilha do Azure, gerar o modelo e, em seguida, implementar a sua nuvem.
@@ -121,7 +121,7 @@ Conceda o acesso de principal de serviço à sua subscrição para que o princip
 
 6. Introduza o **prefixo DNS principal perfil** que seja exclusivo para a região. Tem de ser um nome exclusivo para a região, tal como `k8s-12345`. Tentar escolhido, mesmo que o grupo de recursos nome como melhor prática.
 
-    > [!note]  
+    > [!Note]  
     > Para cada cluster, utilize um prefixo de DNS novos e únicos perfil principal.
 
 7. Introduza o número de agentes no cluster. Este valor é referido como o **contagem de perfil de agrupamento de agentes**. Podem existir entre 1 a 32

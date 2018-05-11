@@ -1,11 +1,11 @@
 ---
-title: "Problemas em iniciar sessão a uma aplicação no local com o proxy de aplicações do Azure AD | Microsoft Docs"
-description: "Resolução de problemas comuns deparam quando não é possível iniciar sessão a uma aplicação no local integrado com o Azure AD através do Proxy de aplicações do Azure AD"
+title: Problemas em iniciar sessão a uma aplicação no local com o proxy de aplicações do Azure AD | Microsoft Docs
+description: Resolução de problemas comuns deparam quando não é possível iniciar sessão a uma aplicação no local integrado com o Azure AD através do Proxy de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e3db08e5615385cbbbc77972f3cc560e9de9957b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: afd5460ef3e286cd3d8b550e7d7e54b3e09f2990
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas em iniciar sessão a uma aplicação no local com o proxy de aplicações do Azure AD
 
@@ -55,5 +55,5 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
   * [Estou a ter problemas ao instalar o Conector do Agente do Proxy de Aplicações](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
 
-## <a name="next-steps"></a>Passos seguintes
-[Como fornecer acesso remoto seguro a aplicações no local](active-directory-application-proxy-get-started.md)
+## <a name="next-steps"></a>Passos Seguintes
+[Como fornecer acesso remoto seguro a aplicações no local](manage-apps/application-proxy.md)

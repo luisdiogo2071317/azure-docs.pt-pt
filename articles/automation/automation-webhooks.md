@@ -3,16 +3,17 @@ title: Iniciar um runbook de automatização do Azure com um webhook
 description: Webhook que permite que um cliente iniciar um runbook na automatização do Azure a partir de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 4ea7366a02dd95fac5c1a7307e6156a0481fa16d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: bb64d0c5d94bb198b6ece2ea50a7fc248b93c7dd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de automatização do Azure com um webhook
 A *webhook* permite-lhe iniciar um determinado runbook na automatização do Azure através de um único pedido HTTP. Isto permite que os serviços externos, como o Visual Studio Team Services, o GitHub, Log Analytics do Azure ou aplicações personalizadas para iniciar runbooks sem a implementar uma solução completa utilizando a API de automatização do Azure.  
@@ -61,7 +62,7 @@ Para o runbook acima, se tem as seguintes propriedades para o parâmetro Webhook
 
 Em seguida, deverá passar o seguinte valor JSON na IU para o parâmetro WebhookData:  
 
-* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"[\"VM1\",\"VM2\"]"}
+* {"WebhookName": "MyWebhook", "RequestHeader": {"De": "Utilizador de teste"}, "RequestBody": "[\"VM1\",\"VM2\"]"}
 
 ![Parâmetro de WebhookData de início da IU](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
@@ -85,7 +86,7 @@ Utilize o procedimento seguinte para criar um novo webhook ligado a um runbook n
 3. Clique em **criar novo webhook** para abrir o **página de criação de webhook**.
 4. Especifique um **nome**, **data de expiração** para o webhook e se deve ser ativada. Consulte [detalhes de um webhook](#details-of-a-webhook) para obter mais informações estas propriedades.
 5. Clique no ícone de cópia e prima Ctrl + C para copiar o URL do webhook.  Em seguida, registe-o num local seguro.  **Depois de criar o webhook, não é possível obter o URL novamente.** <br>
-   ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
+   ![URL do Webhook](media/automation-webhooks/copy-webhook-url.png)
 6. Clique em **parâmetros** para fornecer valores para os parâmetros do runbook.  Se o runbook tiver parâmetros obrigatórios, em seguida, não será possível criar o webhook, a menos que os valores são fornecidos.
 7. Clique em **criar** para criar o webhook.
 
@@ -101,7 +102,7 @@ O cliente irá receber um dos códigos de retorno seguintes no pedido de POST.
 | 202 |Aceite |O pedido foi aceite e o runbook com êxito foi colocado em fila. |
 | 400 |Pedido Incorreto |O pedido não foi aceite para uma das seguintes razões. <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
 | 404 |Não Encontrado |O pedido não foi aceite para uma das seguintes razões. <ul> <li>Não foi encontrado o webhook.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro interno do servidor |O URL era válido, mas ocorreu um erro.  Volte a submeter o pedido. |
+| 500 |Erro Interno do Servidor |O URL era válido, mas ocorreu um erro.  Volte a submeter o pedido. |
 
 Pressupondo que o pedido for bem sucedido, a resposta do webhook contém o id da tarefa no formato JSON da seguinte forma. Irá conter um id de tarefa única, mas permite que o formato JSON para potenciais melhoramentos futuros.
 

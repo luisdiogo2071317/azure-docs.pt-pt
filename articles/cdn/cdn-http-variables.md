@@ -12,10 +12,10 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea7469b1d1c3d1c20beca9b1fb3bef0d4dac9492
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -61,8 +61,8 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 | Esquema de pedido | % {esquema} | Indica o esquema de pedido. |http |
 | Pedido de URI (caminho relativo) | % {request_uri} | Indica o caminho relativo, incluindo a cadeia de consulta, definida no URI do pedido. | /marketing/foo.js?loggedin=TRUE |
 | Pedido de URI (relativo sem cadeia de consulta) | % {uri} | Indica o caminho relativo para o conteúdo pedido. <br /><br/>Informações da chave:<br />-Este caminho relativo exclui a cadeia de consulta.<br />-Este caminho relativo reflete reescritas de URL. Um URL irá ser foi reescrito sob as seguintes condições:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Funcionalidade de reescrever URL: Esta funcionalidade reescreve o caminho relativo definido no URI do pedido.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL de CNAME limite: Este tipo de pedido é rescrito para o URL de CDN correspondente. |/800001/corigin/rewrittendir/foo.js |
-| URI de pedido | % {pedido} | Descreve o pedido. <br />Sintaxe: `HTTPMethod RelativePath Protocol` | OBTER /marketing/foo.js?loggedin=true HTTP/1.1 |
-| Valor de cabeçalho de resposta | % {resp_&lt;ResponseHeader&gt;} | Devolve o valor correspondente para o cabeçalho de resposta identificado pelo &lt;ResponseHeader&rt; termo. <br /><br />Se o nome do cabeçalho de resposta contiver um traço (por exemplo,-agente de utilizador), substitua-o por um caráter de sublinhado (por exemplo, User_Agent). | Utilização de exemplo: % {resp_Content_Length}<br /><br />Valor de exemplo: 100 |
+| URI de pedido | % {pedido} | Descreve o pedido. <br />Sintaxe: &lt;método HTTP&gt; &lt;caminho relativo&gt; &lt;protocolo HTTP&gt; | OBTER /marketing/foo.js?loggedin=true HTTP/1.1 |
+| Valor de cabeçalho de resposta | % {resp_&lt;ResponseHeader&gt;} | Devolve o valor correspondente para o cabeçalho de resposta identificado pelo &lt;ResponseHeader&gt; termo. <br /><br />Se o nome do cabeçalho de resposta contiver um traço (por exemplo,-agente de utilizador), substitua-o por um caráter de sublinhado (por exemplo, User_Agent). | Utilização de exemplo: % {resp_Content_Length}<br /><br />Valor de exemplo: 100 |
 
 ## <a name="usage"></a>Utilização
 A tabela seguinte descreve a sintaxe adequada para especificar uma variável HTTP.
@@ -155,19 +155,19 @@ Informações da chave:
      - Positivo: Determina o comprimento da subcadeia do caráter de partida para a direita.
      - Negativo: Determina o comprimento da subcadeia do caráter de partida para a esquerda.
 
-#### <a name="examples"></a>Exemplos:
+#### <a name="example"></a>Exemplo:
 
 O exemplo seguinte baseia-se no URL do pedido de exemplo seguinte:
 
-`https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
+https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 A cadeia seguinte demonstra vários métodos para manipular variáveis:
 
-`https://www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm`
+https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
 Com base no URL do pedido de exemplo, a manipulação de variável acima irá produzir o seguinte valor:
 
-`https://www.mydomain.com/mobile/marketing/proposal.htm`
+https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Remoção de padrão
@@ -180,7 +180,7 @@ Texto que corresponda a um padrão específico pode ser removido do início ou f
 
 #### <a name="example"></a>Exemplo:
 
-Neste cenário de exemplo, a variável de request_uri está definida como:
+Neste cenário de exemplo, o *request_uri* variável é definida como:
 
 `/800001/myorigin/marketing/product.html?language=en-US`
 

@@ -15,11 +15,11 @@ ms.date: 05/02/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c79689ae7527a715266bad62ec50fddaab90129d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cd27bab470b7037087421fac1e9eeabe10957831
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy de aplicações do Azure Active Directory e o Tableau 
 
@@ -92,5 +92,5 @@ A aplicação está agora pronta para testar. O URL externo que utilizou para pu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para mais informações sobre o Proxy de aplicações do Azure AD, consulte [como fornecer acesso remoto seguro a aplicações no local](active-directory-application-proxy-get-started.md).
+Para mais informações sobre o Proxy de aplicações do Azure AD, consulte [como fornecer acesso remoto seguro a aplicações no local](manage-apps/application-proxy.md).
 

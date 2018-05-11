@@ -6,13 +6,13 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/08/2016
+ms.date: 05/10/2016
 ms.author: sethm
-ms.openlocfilehash: 0759decec9d80f1f836110a8907049213ca1eed6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 387801d971a349562c8a6aefc2f8d615edfd2f3a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -21,7 +21,7 @@ Service Bus do Azure emprega vários mediadores de mensagens para processar mens
 Para obter informações sobre as características de Service Bus, consulte o [arquitetura do Service Bus] [ Service Bus architecture] artigo.
 
 > [!NOTE]
-> Criação de partições está disponível durante a criação de entidade para todas as filas e tópicos básico ou padrão SKUs. Não está disponível para o Premium SKU de mensagens, mas qualquer entidades particionadas existentes nas Premium irão funcionar conforme esperado.
+> Criação de partições está disponível durante a criação de entidade para todas as filas e tópicos básico ou padrão SKUs. Não está disponível para o Premium SKU de mensagens, mas qualquer entidades particionadas anteriormente existentes em espaços de nomes Premium irão funcionar conforme esperado.
  
 Não é possível alterar a opção de criação de partições em qualquer fila existente ou um tópico; só é possível definir a opção ao criar a entidade.
 
@@ -43,9 +43,7 @@ O escalão padrão de mensagens, pode criar filas do Service Bus e tópicos 1, 2
 
 ### <a name="premium"></a>Premium
 
-Um espaço de nomes de escalão Premium, pode criar filas do Service Bus e tópicos 1, 2, 3, 4, 5, 10, 20, 40 ou tamanhos de 80 GB (a predefinição é de 1 GB). Com a criação de partições ativada por predefinição, o Service Bus cria duas partições por entidade. Pode ver o tamanho máximo da fila particionada ou tópico observando a entrada [portal do Azure][Azure portal], no **descrição geral** painel para essa entidade.
-
-Para obter mais informações sobre a criação de partições da camada de serviço de mensagens Premium, consulte [Premium do Service Bus e escalões de mensagens Standard](service-bus-premium-messaging.md). 
+Um espaço de nomes de escalão Premium, a criação de partições não é suportada. No entanto, pode criar tópicos e filas do Service Bus em 1, 2, 3, 4, 5, 10, 20, 40 ou tamanhos de 80 GB (a predefinição é de 1 GB). Pode ver o tamanho da sua fila ou um tópico observando a entrada [portal do Azure][Azure portal], no **descrição geral** painel para essa entidade.
 
 ### <a name="create-a-partitioned-entity"></a>Criar uma entidade particionada
 
@@ -59,7 +57,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Em alternativa, pode criar uma fila particionada ou um tópico a [portal do Azure] [ Azure portal] ou no Visual Studio. Quando cria uma fila ou um tópico no portal, o **ativar a criação de partições** opção na fila ou tópico **criar** caixa de diálogo está selecionada por predefinição. Só pode desativar esta opção na entidade de escalão Standard; o escalão Premium criação de partições está sempre ativada. No Visual Studio, clique o **ativar partições** caixa de verificação no **nova fila** ou **novo tópico** caixa de diálogo.
+Em alternativa, pode criar uma fila particionada ou um tópico a [portal do Azure][Azure portal]. Quando cria uma fila ou um tópico no portal, o **ativar a criação de partições** opção na fila ou tópico **criar** caixa de diálogo está selecionada por predefinição. Só pode desativar esta opção na entidade de escalão Standard; no escalão Premium criação de partições não é suportada e a caixa de verificação não tem qualquer efeito. 
 
 ## <a name="use-of-partition-keys"></a>Utilização de chaves de partição
 Quando uma mensagem é colocados em fila para uma fila particionada ou um tópico, o barramento de serviço verifica a presença de uma chave de partição. Se localizar alguma, seleciona o fragmento com base nessa chave. Se encontrar uma chave de partição, seleciona o fragmento com base no algoritmo interno.

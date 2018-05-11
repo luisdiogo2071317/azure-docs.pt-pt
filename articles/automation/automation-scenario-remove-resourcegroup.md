@@ -3,16 +3,17 @@ title: Automatizar a remoção de grupos de recursos com a automatização do Az
 description: Versão do Fluxo de Trabalho do PowerShell de um cenário da Automatização do Azure, incluindo runbooks, para remover todos os grupos de recursos da sua subscrição.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 1d54e03c1b5518dece4e11d76593b12fe83dc8c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c8fcb7abbc28aef06c43b6ece89eb7bd6916694e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Cenário da Automatização do Azure – remoção automática de grupos de recursos
 Muitos clientes criam mais do que um grupo de recursos. Alguns podem ser utilizados para gerir aplicações de produção, ao passo que outros podem ser utilizados como ambientes de desenvolvimento e de teste. Automatizar a implementação destes recursos é uma coisa, mas conseguir desativar um grupo de recursos com o clique de um botão é outra. Pode simplificar esta tarefa de gestão comum através da Automatização do Azure. Isto é útil se estiver a trabalhar com uma subscrição do Azure que tenha um limite de gastos através de uma oferta de membro, como o MSDN ou o programa Microsoft Partner Network Cloud Essentials.

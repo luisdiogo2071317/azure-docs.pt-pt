@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatizar SO e aplicação de patches framework com ACR de compilação
 
@@ -20,8 +20,7 @@ Contentores fornecem novos níveis de virtualização, isolando os programadores
 
 **Criar ACR**, um conjunto de funcionalidades no registo de contentor do Azure, fornece não apenas contentor nativo compilação capacidade de imagem, mas também automatiza [SO e aplicação de patches do framework](#automate-os-and-framework-patching) para os contentores de Docker.
 
-> [!IMPORTANT]
-> Criar ACR está a ser atualmente em pré-visualização e só é suportada pelos registos do contentor do Azure no **EUA Leste** e **Europa Ocidental** regiões. Pré-visualizações ficam disponíveis para si condition que está a concordar com o [termos de utilização suplementares][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="what-is-acr-build"></a>O que é ACR criar?
 
@@ -73,7 +72,6 @@ Quando estiver pronto para automatizar o SO e a arquitetura de aplicação de pa
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

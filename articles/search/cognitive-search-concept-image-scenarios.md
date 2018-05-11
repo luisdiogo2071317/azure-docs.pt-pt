@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: cefb5b7157f2fc8672ed419961cd3a90314b95e0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações a partir de imagens em cenários de pesquisa cognitivos
 
@@ -36,6 +36,8 @@ Não é possível desativar a normalização de imagem. Competências iterar ima
 |  normalizedImageMaxWidth | A largura máxima (em pixéis) para imagens normalizadas gerado. A predefinição é 2000.|
 |  normalizedImageMaxHeight | A altura máxima (em pixéis) para imagens normalizadas gerado. A predefinição é 2000.|
 
+> [!NOTE]
+> Se definir o *imageAction* propriedade para qualquer coisa que não seja "none", não será possível definir o *parsingMode* propriedade para qualquer coisa que não seja "default".  Só pode definir uma destas duas propriedades para um valor não predefinido na sua configuração de indexador.
 
 A predefinição de 2000 pixels para a altura e largura máxima de imagens normalizado baseia-se nos tamanhos máximos suportados pelo [OCR skill](cognitive-search-skill-ocr.md) e [imagem analysis skill](cognitive-search-skill-image-analysis.md). Se aumentar os limites máximos, processamento poderá falhar nas imagens de maior.
 

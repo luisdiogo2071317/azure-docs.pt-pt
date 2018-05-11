@@ -3,17 +3,18 @@ title: Controlar as alterações com a automatização do Azure
 description: A solução de controlo de alterações ajuda-o a identificar o software e as alterações de serviço do Windows que ocorrem no seu ambiente.
 services: automation
 ms.service: automation
+ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
@@ -98,7 +99,7 @@ A solução de controlo de alterações não suporta atualmente os seguintes ite
 * Os carateres universais para o ficheiro de controlo do Windows
 * Variáveis de caminho
 * Sistemas de ficheiros de rede
-* Conteúdo do ficheiro
+* Conteúdo do Ficheiro
 
 Outras limitações:
 
@@ -107,7 +108,7 @@ Outras limitações:
 * Quando o tráfego de rede é elevado, registos de alteração poderão demorar até seis horas para apresentar.
 * Se modificar a configuração enquanto um computador é encerrado, o computador poderá publicar as alterações que pertenciam a configuração anterior.
 
-## <a name="known-issues"></a>Problemas Conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 A solução de controlo de alterações atualmente estão a ocorrer os seguintes problemas:
 
@@ -185,7 +186,7 @@ Clicar de alterar ou eventos apresenta as informações detalhadas sobre essa al
 
 Além dos detalhes que são fornecidos no portal, as pesquisas podem ser feitas contra os registos. Com o **alterações** clique aberto, da página **Log Analytics**, esta ação abre o **pesquisa de registo** página.
 
-### <a name="sample-queries"></a>Consultas de exemplo
+### <a name="sample-queries"></a>Amostras de consultas
 
 A tabela seguinte fornece pesquisas de registo de exemplo para alterar registos recolhidos por esta solução:
 

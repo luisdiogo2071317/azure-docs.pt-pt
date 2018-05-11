@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para monitorizar máquinas virtuais
 Proteger os seus dados, efetuando os instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e que está a ser armazenadas numa cofres dos serviços de recuperação. Se for necessário reparar ou reconstrua uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:
@@ -90,12 +90,12 @@ Restaurar uma VM ou todos os discos de VM a cópia de segurança envolve dois pa
 
     O **restaurar** painel mostra que o ponto de restauro está definido.
 
-9. Se ainda não existe, está a passar para o **restaurar** painel. Certifique-se de que um [é selecionado o ponto de restauro](#select-restore-point-for-restore)e selecione **restauro configuração**. O **restauro configuração** abre o painel.
+9. Se ainda não existe, está a passar para o **restaurar** painel. Certifique-se de que um [é selecionado o ponto de restauro](#select-a-restore-point-for-restore)e selecione **restauro configuração**. O **restauro configuração** abre o painel.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Escolha uma configuração de restauro de VM
 Depois de selecionar o ponto de restauro, escolha uma configuração de restauro de VM. Para configurar a VM restaurada, pode utilizar o portal do Azure ou o PowerShell.
 
-1. Se ainda não existe, está a passar para o **restaurar** painel. Certifique-se de que um [é selecionado o ponto de restauro](#select-restore-point-for-restore)e selecione **restauro configuração**. O **restauro configuração** abre o painel.
+1. Se ainda não existe, está a passar para o **restaurar** painel. Certifique-se de que um [é selecionado o ponto de restauro](#select-a-restore-point-for-restore)e selecione **restauro configuração**. O **restauro configuração** abre o painel.
 
     ![Restaurar o Assistente de configuração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. No **restauro configuração** painel, tem duas opções:

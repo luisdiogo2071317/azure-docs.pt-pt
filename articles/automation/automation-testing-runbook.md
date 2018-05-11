@@ -3,16 +3,17 @@ title: Testar um runbook na automatização do Azure
 description: Antes de publicar um runbook na automatização do Azure, pode testar para garantir que funciona conforme esperado.  Este artigo descreve como testar um runbook e ver o resultado.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 531fffe1ed24016d47708a729a3ee7642a1db64a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 780d197943737c3b821cbcec3afeeb60846ddf39
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testar um runbook na automatização do Azure
 Quando testa um runbook, o [versão de rascunho](automation-creating-importing-runbook.md#publishing-a-runbook) é executado e todas as ações que executar são concluídas. Nenhum histórico da tarefa é criado, mas o [saída](automation-runbook-output-and-messages.md#output-stream) e [avisos e erros](automation-runbook-output-and-messages.md#message-streams) fluxos são apresentados no teste de saída do painel. As mensagens para o [fluxo verboso](automation-runbook-output-and-messages.md#message-streams) são apresentados do painel de resultados apenas se for o [$VerbosePreference variável](automation-runbook-output-and-messages.md#preference-variables) está definido para continuar.

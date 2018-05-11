@@ -1,8 +1,8 @@
 ---
-title: "Resolver problemas de sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs"
-description: "Resolva problemas comuns com sincronização de ficheiros do Azure."
+title: Resolver problemas de sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs
+description: Resolva problemas comuns com sincronização de ficheiros do Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -28,12 +28,20 @@ Este artigo foi concebido para ajudar a resolver problemas que podem surgir com 
 1. A secção de comentários deste artigo.
 2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
+4. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
 
 ## <a name="storage-sync-service-object-management"></a>Gestão de objeto de serviço de sincronização de armazenamento
 Se fizer uma movimentação de recurso de uma subscrição a outra subscrição, recursos de sincronização (serviço de sincronização de armazenamento) de ficheiro serão impedidos de que está a ser movido. 
 
 ## <a name="agent-installation-and-server-registration"></a>Registo de servidor e a instalação do agente
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Durante o registo de servidor, obterá o erro "o termo 'Localizar AzureRMResource' não é reconhecido como o nome de..."
+O problema é que o cmdlet localizar-AzureRMResource foi alterada no AzureRM v6.  A próxima versão do agente de sincronização irá ser corrigida para suportar AzureRM v6.  Até lá, pode contornar este problema por:
+1. Parar o ServerRegistration.exe atual através de taskmgr
+2. Abra uma linha de comandos do PowerShell como administrador
+3. PS C:\> AzureRM módulo desinstalar
+4. PS C:\> install-module-name AzureRM - RequiredVersion 5.7.0
+5. Inicie c:\Programas\Microsoft Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Resolver problemas de falhas de instalação do agente**  
 Se falhar a instalação do agente de sincronização de ficheiros do Azure, numa linha de comandos elevada, execute o seguinte comando para ativar o registo durante a instalação do agente:
 

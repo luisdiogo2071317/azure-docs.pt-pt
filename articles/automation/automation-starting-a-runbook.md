@@ -1,23 +1,24 @@
 ---
-title: "Iniciar um runbook na automatização do Azure"
-description: "Resume os diferentes métodos que podem ser utilizados para iniciar um runbook na automatização do Azure e fornece detalhes sobre como utilizar o portal do Azure e o Windows PowerShell."
+title: Iniciar um runbook na automatização do Azure
+description: Resume os diferentes métodos que podem ser utilizados para iniciar um runbook na automatização do Azure e fornece detalhes sobre como utilizar o portal do Azure e o Windows PowerShell.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 064ba5f73b53681a824b1416243d10ab0e565c44
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 45ac19ad5011ae67e95281d1c9928c1db4bc7043
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Iniciar um runbook na automatização do Azure
 A tabela seguinte ajuda-o a determinar o método para iniciar um runbook na automatização do Azure que é mais adequado para o cenário em particular. Este artigo inclui detalhes sobre a iniciar um runbook com o portal do Azure e com o Windows PowerShell. Detalhes sobre os outros métodos são fornecidos na outra documentação que podem aceder a partir das ligações abaixo.
 
-| **METHOD** | **CHARACTERISTICS** |
+| **MÉTODO** | **CARACTERÍSTICAS** |
 | --- | --- |
 | [Portal do Azure](#starting-a-runbook-with-the-azure-portal) |<li>Método mais simples com a interface de utilizador interativa.<br> <li>Formulário para fornecer valores de parâmetros simples.<br> <li>Controle facilmente o estado da tarefa.<br> <li>Acesso autenticado com início de sessão do Azure. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Chamada a partir da linha de comandos com cmdlets do Windows PowerShell.<br> <li>Pode ser incluído numa solução automatizada com vários passos.<br> <li>Pedido é autenticado com o certificado ou o utilizador de OAuth principal / serviço principal.<br> <li>Indique os valores de parâmetro simples e complexos.<br> <li>Controlar o estado da tarefa.<br> <li>Cliente necessário para suportar os cmdlets do PowerShell. |

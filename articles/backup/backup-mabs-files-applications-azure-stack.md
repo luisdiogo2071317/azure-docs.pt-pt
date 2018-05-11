@@ -13,16 +13,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 5/9/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 905f6b13928d11243202059af0ad255971102da8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a907335ace1f6ea9ec427327d28ca9be5ce02fcc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer cópias de segurança de ficheiros e aplicações na pilha do Azure
 Pode utilizar o Backup do Azure para proteger (ou cópia de segurança) ficheiros e aplicações na pilha do Azure. Para fazer uma cópia de segurança de ficheiros e aplicações, instale o servidor de cópia de segurança do Microsoft Azure como uma máquina virtual em execução na pilha do Azure. Uma vez que instalou o servidor de cópia de segurança do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para dados de cópia de segurança de curta duração. Servidor de cópia de segurança do Azure utiliza o armazenamento do Azure para a retenção de longo prazo.
+
+> [!NOTE]
+> Apesar do servidor de cópia de segurança do Azure e o System Center Data Protection Manager (DPM) são semelhantes, o DPM não é suportado para utilização com a pilha do Azure.
+>
+
 
 ## <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
 Servidor de cópia de segurança do Azure protege as seguintes cargas de trabalho de máquina virtual de pilha do Azure.
@@ -49,7 +54,7 @@ Para instalar o servidor de cópia de segurança do Azure numa máquina virtual 
 Para executar o servidor de cópia de segurança do Azure numa máquina virtual do Azure pilha, utilize tamanho A2 ou superior. Para obter ajuda na escolha de um tamanho de máquina virtual, transfira o [Calculadora do tamanho da VM do Azure pilha](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Redes virtuais em máquinas virtuais de pilha do Azure
-Todas as máquinas virtuais utilizadas numa carga de trabalho de pilha do Azure têm de pertencer à mesma rede virtual do Azure e subscrição do Azure. 
+Todas as máquinas virtuais utilizadas numa carga de trabalho de pilha do Azure têm de pertencer à mesma rede virtual do Azure e subscrição do Azure.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenar dados de cópia de segurança no disco local e no Azure
 Servidor do Backup do Azure armazena os dados de cópia de segurança nos discos Azure ligados à máquina virtual, para recuperação operacional. Assim que o espaço de armazenamento e discos estão anexados à máquina virtual, o servidor de cópia de segurança do Azure gere o armazenamento para si. A quantidade de armazenamento de dados de cópia de segurança depende do número e tamanho dos discos anexados a cada [máquina virtual de pilha do Azure](../azure-stack/user/azure-stack-storage-overview.md). Cada tamanho da VM de pilha do Azure tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é quatro discos. A3 é oito discos. A4 é 16 discos. Novamente, o tamanho e número de discos determina o agrupamento de armazenamento de cópia de segurança total.
@@ -82,9 +87,9 @@ Se pretender dimensionar a sua implantação, tem as seguintes opções:
 
 ## <a name="bare-metal-recovery-for-azure-stack-vm"></a>Recuperação bare-Metal para pilha VM do Azure
 
-Uma cópia de segurança de recuperação bare-metal (BMR) protege os ficheiros do sistema operativo e todos os dados de volume crítico, exceto os dados de utilizador. Uma cópia de segurança de BMR inclui uma cópia de segurança do Estado do sistema. Os procedimentos seguintes explicam como restaurar os dados da BMR. 
+Uma cópia de segurança de recuperação bare-metal (BMR) protege os ficheiros do sistema operativo e todos os dados de volume crítico, exceto os dados de utilizador. Uma cópia de segurança de BMR inclui uma cópia de segurança do Estado do sistema. Os procedimentos seguintes explicam como restaurar os dados da BMR.
 
-### <a name="run-recovery-on-the-azure-backup-server"></a>Executar recuperação no servidor de cópia de segurança do Azure 
+### <a name="run-recovery-on-the-azure-backup-server"></a>Executar recuperação no servidor de cópia de segurança do Azure
 
 Abra a consola do servidor de cópia de segurança do Azure.
 
@@ -102,9 +107,9 @@ Na consola do servidor de cópia de segurança do Azure:
 
 ### <a name="restore-the-machine"></a>Restaurar a máquina
 
-1. Na máquina virtual em que pretende restaurar BMR, abra uma linha de comandos elevada e escreva os seguintes comandos. **/bootore** Especifica que Windows RE inicia automaticamente da próxima vez que o início do sistema.
+1. Na máquina virtual em que pretende restaurar BMR, abra uma linha de comandos elevada e escreva os seguintes comandos. **/boottore** Especifica que Windows RE inicia automaticamente da próxima vez que o início do sistema.
 ```
-Reagent /boottore
+Reagentc /boottore
 shutdown /r /t 0
 ```
 

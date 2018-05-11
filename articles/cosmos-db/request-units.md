@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 
@@ -48,81 +48,6 @@ Recomendamos que comece por ver o vídeo seguinte, onde o Azure Gestor de progra
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
-
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificar a capacidade de unidade de pedido na base de dados do Azure Cosmos
-
-Pode especificar o número de unidades de pedido por segundo (RU por segundo) que pretende reservado para um contentor individuais ou de um conjunto de contentores. Com base no débito aprovisionado, BD do Cosmos Azure irá alocar partições físicas para alojar os dados de contentores e divisões/rebalances em partições que cresce-lo.
-
-Ao atribuir RU/seg ao nível do contentor individuais, os contentores podem ser criados como *fixo* ou *ilimitados*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e débito de 10 000 de RU/s. Para criar um contentor ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/contentor/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
-
-Ao atribuir RU/seg através de um conjunto de contentores, os contentores que pertencem a este conjunto são tratados como *ilimitados* contentores e tem de especificar uma chave de partição.
-
-![Unidades de pedido de contentores individuais e o conjunto de contentores de aprovisionamento][6]
-
-> [!NOTE]
-> Uma chave de partição é um limite de lógico e não um físico. Por conseguinte, não é necessário limitar o número de valores de chave de partição distintos. Na realidade é melhor ter distintos mais valores de chaves de partição que inferior, como base de dados do Azure Cosmos tem mais opções de balanceamento de carga.
-
-Eis um fragmento de código para criar um contentor com 3,000 unidades de pedido por segundo para um contentor individuais utilizando o SDK do .NET a API SQL Server:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Eis um fragmento de código para aprovisionamento 100 000 unidades por segundo de pedido através de um conjunto de contentores com o SDK do .NET a API SQL Server:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-
-BD do Azure do Cosmos funciona um modelo de reserva para um débito. Ou seja, é-lhe faturado para a quantidade de débito *reservado*, independentemente da quantidade de débito de que está ativamente *utilizado*. Como a aplicação da alteração de padrões de carga, dados e a utilização, pode dimensionar facilmente para cima e baixo o número de reservado RUs através de SDKs ou utilizando o [Portal do Azure](https://portal.azure.com).
-
-Cada contentor, ou um conjunto de contentores, está mapeado para um `Offer` recursos no Azure Cosmos DB, que tem metadados sobre o débito aprovisionado. Pode alterar o débito alocado ao procurar o recurso de oferta correspondente para um contentor, em seguida, atualizá-la com o novo valor de débito. Eis um fragmento de código para alterar o débito de um contentor para 5000 unidades de pedido por segundo, utilizando o SDK .NET:
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Não há nenhum impacto sobre a disponibilidade do seu contentor ou conjunto de contentores, quando altera o débito. Normalmente, o débito reservado nova é eficaz dentro de segundos na aplicação de débito de novo.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento de débito nas bases de dados globalmente distribuídas
 
@@ -347,6 +272,11 @@ Se estiver a utilizar os SDK de cliente .NET e LINQ consultas, em seguida, na ma
 Se tiver mais do que um cliente cumulativamente e a funcionar acima a taxa de pedidos, o comportamento de repetição predefinido não poderá suffice e o cliente irá gerar um `DocumentClientException` com o estado de código 429 à aplicação. Em casos como esta, poderá considerar a processar o comportamento de repetição e a lógica na rotinas de processamento de erros da aplicação ou aumentar o débito aprovisionado para o contentor (ou o conjunto de contentores).
 
 ## <a name="next-steps"></a>Passos Seguintes
+ 
+Para saber mais sobre como definir e obter débito utilizando o portal do Azure e o SDK do, consulte:
+
+* [Definir e obter débito do BD Azure Cosmos](set-throughput.md)
+
 Para saber mais sobre débito reservado com bases de dados do Azure Cosmos DB, explore estes recursos:
 
 * [Preços de base de dados do Cosmos do Azure](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -360,4 +290,4 @@ Para começar com dimensionamento e desempenho de teste com base de dados do Azu
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/provisioning_set_containers.png
+

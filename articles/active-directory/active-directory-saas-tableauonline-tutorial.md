@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Tableau Online | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Tableau Online."
+title: 'Tutorial: Integração do Azure Active Directory com o Tableau Online | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Tableau Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae9dbde509726065da7eaee2c7aec491389f45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e7de7946769eb2aeeac1c8b21448efa142728bb
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory com o Tableau Online
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. No **URL de início de sessão** caixa de texto, escreva o URL:`https://sso.online.tableau.com`
+    a. No **URL de início de sessão** caixa de texto, escreva o URL: `https://sso.online.tableau.com`
 
-    b. No **identificador** caixa de texto, escreva o URL:`https://sso.online.tableau.com/public/sp/<instancename>`
+    b. No **identificador** caixa de texto, escreva o URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -161,10 +161,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
    ![Configurar o início de sessão único](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
@@ -203,7 +199,7 @@ Nesta secção, vai criar um utilizador chamado Britta Simon Tableau online.
 1. No **Tableau Online**, clique em **definições** e, em seguida, **autenticação** secção. Desloque para baixo até **selecionar utilizadores** secção. Clique em **adicionar utilizadores** e, em seguida, **introduza os endereços de correio eletrónico**.
    
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_15.png)
-2. Selecione **adicionar utilizadores para a autenticação de início de sessão único (SSO)**. No **Introduza endereços de correio eletrónico** adicionar caixa de textobritta.simon@contoso.com
+2. Selecione **adicionar utilizadores para a autenticação de início de sessão único (SSO)**. No **Introduza endereços de correio eletrónico** adicionar caixa de texto britta.simon@contoso.com
    
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_11.png)
 3. Clique em **Criar**.
@@ -262,4 +258,3 @@ Quando clica no mosaico Tableau Online no painel de acesso, deve obter automatic
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-

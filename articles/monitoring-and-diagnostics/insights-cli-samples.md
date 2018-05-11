@@ -2,7 +2,7 @@
 title: Exemplos de início rápido do Azure do Monitor CLI 2.0. | Microsoft Docs
 description: Comandos de exemplo CLI 2.0 para funcionalidades de monitorização do Azure. Monitor do Azure é um serviço Microsoft Azure permite-lhe enviar notificações de alerta, chamar URLs web com base nos valores de dados de telemetria configurado e serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web.
 author: kamathashwin
-manager: orenr
+manager: ''
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
-ms.openlocfilehash: 475ee794d2b67639b447a1ca66b12d3d589425cb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -89,18 +89,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>Trabalhar com alertas
+## <a name="work-with-alerts"></a>Trabalhar com alertas 
+[!NOTE] Apenas alertas (clássica) é suportada na CLI neste momento. 
 
-Pode utilizar as informações na secção para trabalhar com alertas.
-
-### <a name="get-alert-rules-in-a-resource-group"></a>Obter as regras de alerta num grupo de recursos
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Obter as regras de alertas (clássica) num grupo de recursos
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>Criar uma regra de alerta métrica
+### <a name="create-a-metric-alert-classic-rule"></a>Criar uma métrica (clássica) regra do alerta do
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -110,7 +109,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>Eliminar uma regra de alerta
+### <a name="delete-an-alert-classic-rule"></a>Eliminar uma regra de alerta (clássica)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>

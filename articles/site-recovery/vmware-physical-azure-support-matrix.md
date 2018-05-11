@@ -8,8 +8,8 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -29,7 +29,7 @@ Servidores físicos | Replicação de serversto físico de Windows/Linux no loca
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-VMware | o vCenter Server 6.5, 6.0, ou 5.5 ou vSphere 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.<br/><br/> Recomendamos que o vSphere anfitriões e servidores vcenter Server estão localizados na mesma rede que o servidor de processos. Por predefinição os componentes de servidor de processo executa no servidor de configuração, pelo que esta será a rede na qual configurou o servidor de configuração, a menos que configurar um servidor de processos dedicados. 
+VMware | o vCenter Server 6.5, 6.0, ou 5.5 ou vSphere 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.<br/><br/> Recomendamos que o vSphere anfitriões e servidores vcenter Server estão localizados na mesma rede que o servidor de processos. Por predefinição os componentes de servidor de processo executa no servidor de configuração, pelo que esta será a rede na qual configurou o servidor de configuração, a menos que configurar um servidor de processos dedicados.
 Físico | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Servidor de configuração de recuperação de site
@@ -38,19 +38,19 @@ O servidor de configuração é uma máquina no local que executa os componentes
 
 **Componente** | **Requisitos**
 --- |---
-Núcleos de CPU | 8 
+Núcleos de CPU | 8
 RAM | 12 GB
 Número de discos | 3 discos<br/><br/> Discos incluem o disco de SO, disco de cache do servidor de processo e unidade de retenção para reativação pós-falha.
 Espaço livre em disco | 600 GB de espaço necessário para a cache do servidor de processo.
 Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
-Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 | 
-Região do sistema operativo | Inglês (en-us) 
+Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 |
+Região do sistema operativo | Inglês (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") deve ser instalado.
 Funções do Windows Server | Não ative o: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V |
 Políticas de grupo| Não ative o: <br> -Impedi o acesso à linha de comandos. <br> -Impedi o acesso ao registo ferramentas de edição. <br> -Confia lógica para anexos de ficheiros. <br> -Ative a execução do Script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Certifique-se de que:<br/><br/> -Não tem um Web site predefinido do pré-existentes <br> -Ativar [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição  <br> -Não tiverem pré-existentes Web site/aplicação à escuta na porta 443<br>
-Tipo NIC | VMXNET3 (quando implementado como uma VM de VMware) 
-Tipo de endereço IP | Estático 
+Tipo NIC | VMXNET3 (quando implementado como uma VM de VMware)
+Tipo de endereço IP | Estático
 Portas | 443 utilizado de orquestração de canal de controlo)<br>9443 utilizado para o transporte de dados
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
@@ -138,7 +138,8 @@ Vários NICs | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
 Manter o endereço IP de origem | Sim
-Pontos finais de serviço de rede Virtual do Azure<br/><br/> (Firewalls de armazenamento do azure e redes virtuais) | Não
+Pontos finais de serviço de rede Virtual do Azure<br/> (sem firewalls de armazenamento do Azure) | Sim
+Redes Aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Suportado**
@@ -184,7 +185,7 @@ Blobs de bloco | Não
 Encriptação de Inativos (encriptação do serviço de armazenamento)| Sim
 Armazenamento Premium | Sim
 Serviço de importação/exportação | Não
-Pontos finais de serviço de rede virtuais<br/><br/> Firewalls de armazenamento e redes virtuais configuradas na conta de armazenamento de cache/armazenamento de destino (utilizada para armazenar dados de replicação) | Não
+Firewalls de armazenamento do Azure para as redes virtuais configuradas na conta de armazenamento de cache/armazenamento de destino (utilizada para armazenar dados de replicação) | Não
 Contas de armazenamento de v2 para fins gerais (camadas de acesso frequente e esporádico) | Não
 
 ## <a name="azure-compute"></a>Computação do Azure
@@ -201,16 +202,16 @@ VMs no local que replicam para o Azure tem de cumprir os requisitos de VM do Azu
 
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Sistema operativo convidado | Certifique-se [sistemas operativos suportados](#replicated machines). | Falha na verificação se não suportado. 
-Arquitetura do sistema operativo convidado | 64 bits. | Falha na verificação se não suportado. 
-Tamanho do disco do sistema operativo | Até 2.048 GB. | Falha na verificação se não suportado. 
+Sistema operativo convidado | Certifique-se [sistemas operativos suportados](#replicated machines). | Falha na verificação se não suportado.
+Arquitetura do sistema operativo convidado | 64 bits. | Falha na verificação se não suportado.
+Tamanho do disco do sistema operativo | Até 2.048 GB. | Falha na verificação se não suportado.
 Contagem de discos do sistema operativo | 1 | Falha na verificação se não suportado.  
 Contagem de discos de dados | 64 ou menos. | Falha na verificação se não suportado.  
-Tamanho do disco de dados | 4,095 GB | Falha na verificação se não suportado. 
-Placas de rede | São suportados vários adaptadores. | 
-VHD partilhado | Não suportado. | Falha na verificação se não suportado. 
-Disco FC | Não suportado. | Falha na verificação se não suportado. 
-BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. | 
+Tamanho do disco de dados | 4,095 GB | Falha na verificação se não suportado.
+Placas de rede | São suportados vários adaptadores. |
+VHD partilhado | Não suportado. | Falha na verificação se não suportado.
+Disco FC | Não suportado. | Falha na verificação se não suportado.
+BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. |
 o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador tem de começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
 
 

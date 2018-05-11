@@ -9,11 +9,11 @@ ms.service: event-hubs
 ms.workload: na
 ms.date: 05/07/2018
 ms.author: darosa
-ms.openlocfilehash: 72a8dc074cbc0b1e34cbce91c14085124716b44b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 40805c27e7e2eaef1932c967af2d291f67b4192d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-for-kafka-ecosystems"></a>Hubs de eventos de ecossistemas Kafka
 
@@ -65,8 +65,8 @@ Para a pré-visualização pública dos Event Hubs, para a integração de ecoss
 
 Este artigo fornecer uma introdução ao Event Hubs Kafka ecossistemas. Para obter mais informações, consulte as seguintes ligações:
 
-* [Como criar Kafka ativada Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Fluxo para os Event Hubs das suas aplicações Kafka](event-hubs-what-is-event-hubs.md)
+* [Como criar Kafka ativada Event Hubs](event-hubs-create-kafka-enabled.md)
+* [Fluxo para os Event Hubs das suas aplicações Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * Introdução a um [Tutorial dos Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 

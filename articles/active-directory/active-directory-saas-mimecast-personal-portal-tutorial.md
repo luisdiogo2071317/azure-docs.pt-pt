@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Portal pessoais Mimecast | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Portal pessoais Mimecast."
+title: 'Tutorial: Integração do Azure Active Directory com o Portal pessoais Mimecast | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Portal pessoais Mimecast.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Azure Active Directory com o Portal pessoais Mimecast
 
@@ -80,8 +80,6 @@ Nesta secção, configure e teste do Azure AD-início de sessão único com o Po
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Portal pessoais Mimecast é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Portal pessoais Mimecast tem de ser estabelecida.
 
-No Portal de pessoais Mimecast, atribua o valor do **nome de utilizador** no Azure AD como o valor de **Username** para estabelecer a relação de ligação.
-
 Para configurar e testar o Azure AD-início de sessão único com o Portal pessoais Mimecast, tem de concluir os blocos modulares seguintes:
 
 1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
@@ -127,6 +125,16 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | África do Sul    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Austrália       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. No **URL de resposta** caixa de texto, escreva um URL: 
+
+    | Região  |  Valor | 
+    | --------------- | --------------- | 
+    | Europa          | `https://eu-api.mimecast.com/login/saml`|
+    | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|
+    | África do Sul    | `https://za-api.mimecast.com/login/saml`|
+    | Austrália       | `https://au-api.mimecast.com/login/saml`|
+    | Offshore        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > O valor do identificador não é real. Atualize o valor com o identificador real. Contacte [equipa de suporte de cliente de Portal pessoais Mimecast](http://www.mimecast.com/customer-success/technical-support/) para obter o valor. 
@@ -177,11 +185,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. Selecione **Permitir início de sessão único em**.
    
-    posso. Clique em **Guardar**.
-
-> [!TIP]
-> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    i. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -241,7 +245,7 @@ Tem de registar um domínio, antes de poder criar utilizadores.
    
     ![Guardar](./media/active-directory-saas-mimecast-personal-portal-tutorial/ic795006.png "guardar")
    
-    a. No **endereço de correio eletrónico** caixa de texto, tipo **endereço de correio eletrónico** do utilizador como  **BrittaSimon@contoso.com** .
+    a. No **endereço de correio eletrónico** caixa de texto, tipo **endereço de correio eletrónico** do utilizador como **BrittaSimon@contoso.com**.
     
     b. No **nome Global** caixa de texto, tipo de **username** como **BrittaSimon**.
 
@@ -282,7 +286,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 

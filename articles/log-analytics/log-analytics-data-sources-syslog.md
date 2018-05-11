@@ -1,8 +1,8 @@
 ---
-title: "Recolher e analisar as mensagens Syslog na análise de registos do OMS | Microsoft Docs"
-description: "Syslog é um protocolo de registo de eventos que é comum para Linux. Este artigo descreve como configurar a recolha de mensagens Syslog na análise de registos e os detalhes dos registos que criarem no repositório de OMS."
+title: Recolher e analisar as mensagens Syslog na análise de registos do OMS | Microsoft Docs
+description: Syslog é um protocolo de registo de eventos que é comum para Linux. Este artigo descreve como configurar a recolha de mensagens Syslog na análise de registos e os detalhes dos registos que criarem no repositório de OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origens de dados de syslog no Log Analytics
 Syslog é um protocolo de registo de eventos que é comum para Linux.  Aplicações vai enviar mensagens que podem ser armazenadas no computador local ou entregar para um coletor Syslog.  Quando é instalado o agente do OMS para Linux, configura o daemon de Syslog local para reencaminhar mensagens para o agente.  O agente, em seguida, envia a mensagem para análise de registos em que é criado um registo correspondente no repositório de OMS.  
@@ -31,12 +31,12 @@ Syslog é um protocolo de registo de eventos que é comum para Linux.  Aplicaç�
 ![Coleção de syslog](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Configurar Syslog
-O agente do OMS para Linux só irá recolher eventos com as gravidades especificadas na respetiva configuração e instalações.  Pode configurar Syslog através do portal do OMS ou ao gerir ficheiros de configuração nos seus agentes Linux.
+O agente do OMS para Linux só irá recolher eventos com as gravidades especificadas na respetiva configuração e instalações.  Pode configurar Syslog através do portal do Azure ou através da gestão de ficheiros de configuração nos seus agentes Linux.
 
-### <a name="configure-syslog-in-the-oms-portal"></a>Configurar Syslog no portal do OMS
-Configurar o Syslog do [menu dados nas definições de análise do registo](log-analytics-data-sources.md#configuring-data-sources).  Esta configuração é entregue ao ficheiro de configuração em cada agente do Linux.
+### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no portal do Azure
+Configurar o Syslog do [menu de dados no registo de análise avançadas definições](log-analytics-data-sources.md#configuring-data-sources).  Esta configuração é entregue ao ficheiro de configuração em cada agente do Linux.
 
-Pode adicionar uma nova instalação, escrevendo no respetivo nome e clicar em  **+** .  Para cada função, apenas as mensagens com as gravidades selecionadas serão recolhidas.  Verifique as gravidades para a instalações específica que pretende recolher.  Não é possível fornecer quaisquer critérios adicionais para filtrar mensagens.
+Pode adicionar uma nova instalação, escrevendo no respetivo nome e clicar em **+**.  Para cada função, apenas as mensagens com as gravidades selecionadas serão recolhidas.  Verifique as gravidades para a instalações específica que pretende recolher.  Não é possível fornecer quaisquer critérios adicionais para filtrar mensagens.
 
 ![Configurar o Syslog](media/log-analytics-data-sources-syslog/configure.png)
 
@@ -138,8 +138,8 @@ Pode remover uma função ao remover a secção do ficheiro de configuração.  
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Recolher dados de portas adicionais do Syslog
 O agente do OMS escuta mensagens Syslog no cliente local na porta 25224.  Quando o agente está instalado, uma configuração de syslog predefinida é aplicada e encontrada na seguinte localização:
 
-* Rsyslog:`/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng:`/etc/syslog-ng/syslog-ng.conf`
+* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 Pode alterar o número de porta ao criar dois ficheiros de configuração: um ficheiro de configuração FluentD e um ficheiro de ng de rsyslog ou syslog, consoante o daemon de Syslog que instalou.  
 
@@ -200,11 +200,11 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 | Consulta | Descrição |
 |:--- |:--- |
 | Syslog |Todos os auditáveis. |
-| Syslog &#124; em que nível de gravidade = = "erro" |Todos os registos de Syslog com uma gravidade de erro. |
+| Syslog &#124; onde nível de gravidade = = "erro" |Todos os registos de Syslog com uma gravidade de erro. |
 | Syslog &#124; resumir AggregatedValue = existente pelo computador |Registos de contagem de Syslog por computador. |
 | Syslog &#124; resumir AggregatedValue = existente através da instalação |Registos de contagem de Syslog das instalações. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
 * Utilize [campos personalizados](log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.
 * [Configurar agentes Linux](log-analytics-linux-agents.md) para recolher outros tipos de dados.

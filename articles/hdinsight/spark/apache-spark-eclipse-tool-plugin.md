@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit de Azure do Eclipse para criar Spark aplicações para um cluster do HDInsight
 
@@ -229,13 +229,15 @@ Para resolver este erro, terá de [transferir o ficheiro executável](http://pub
    ![Aplicação de Spark local resultado da execução](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>Problemas conhecidos
-Para submeter uma aplicação no Azure Data Lake Store, selecione **interativo** modo durante o processo de início de sessão do Azure. Se selecionar **automatizada** modo, poderá obter um erro.
+Quando ligar um cluster, posso seria sugerimos que forneça credenciais do armazenamento.
 
-![O início de sessão interativo](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![O início de sessão interativo](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-Pode escolher um cluster do Azure Data Lake ao submeter a sua aplicação com qualquer método de início de sessão.
+Existem dois modos para submeter as tarefas. Se a credencial de armazenamento é fornecida, modo batch será utilizado para submeter a tarefa. Caso contrário, será utilizado o modo interativo. Se o cluster está ocupado, poderá obter o erro abaixo.
 
-Atualmente, a visualização saídas de Spark diretamente não é suportada.
+![Erro de obtenção do Eclipse quando cluster ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![Erro de obtenção do Eclipse quando cluster ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>Comentários
 Se tiver quaisquer comentários ou se tiver quaisquer outros problemas ao utilizar esta ferramenta, envie-num endereço de e-mail hdivstool@microsoft.com.
