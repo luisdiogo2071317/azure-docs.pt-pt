@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
@@ -54,7 +54,7 @@ O plano de consumo a predefinição é o plano de alojamento e oferece as seguin
 - Paga apenas quando as suas funções estão em execução.
 - Aumentar horizontalmente automaticamente, mesmo durante períodos de alta carregar.
 
-## <a name="app-service-plan"></a>Plano do Serviço de Aplicações
+## <a name="app-service-plan"></a>Plano do App Service
 
 O plano de serviço de aplicações, as aplicações de função executam em VMs dedicadas em básicas, Standard, Premium e SKUs isolado, semelhantes às Web Apps, API Apps e aplicações móveis. VMs dedicadas são atribuídas às suas aplicações de serviço de aplicações, o que significa que o anfitrião de funções está sempre em execução. Planos de serviço de aplicações suportam Linux.
 
@@ -95,9 +95,7 @@ O plano de consumo, o controlador de escala dimensiona automaticamente recursos 
 Quando utiliza o consumo de plano de alojamento, ficheiros de código de função são armazenados em partilhas de ficheiros do Azure numa conta de armazenamento principal da função. Ao eliminar a conta de armazenamento principal da aplicação de função, os ficheiros de código de função são eliminados e não podem ser recuperados.
 
 > [!NOTE]
-> Quando estiver a utilizar um acionador de blob um plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, se uma aplicação de função tornou-se inativo. Depois da aplicação de função está em execução, blobs são processados imediatamente. Para evitar este atraso inicial, considere uma das seguintes opções:
-> - O anfitrião da aplicação de função no plano de serviço de aplicações, com o Always On ativado.
-> - Utilize outro mecanismo para acionar o blob processar, tais como uma subscrição de evento de grelha ou uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [enlace de entrada de exemplos para o blob](functions-bindings-storage-blob.md#input---example).
+> Quando estiver a utilizar um acionador de blob um plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, se uma aplicação de função tornou-se inativo. Depois da aplicação de função está em execução, blobs são processados imediatamente. Para evitar este atraso de início frio, utilizar um plano de serviço de aplicações com o Always On ativado, ou utilizar o acionador de grelha de eventos. Para obter mais informações, consulte [o artigo de referência de enlace de Acionador de blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Dimensionamento de tempo de execução
 

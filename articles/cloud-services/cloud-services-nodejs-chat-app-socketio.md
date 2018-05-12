@@ -1,11 +1,11 @@
 ---
-title: "Aplicação node.js com Socket.io - Azure"
-description: "Saiba como utilizar socket.io numa aplicação node.js alojada no Azure."
+title: Aplicação node.js com Socket.io - Azure
+description: Saiba como utilizar socket.io numa aplicação node.js alojada no Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar uma aplicação de chat Node.js com Socket.IO num serviço em nuvem do Azure
 
@@ -61,7 +61,7 @@ Para este projeto, utilizamos o exemplo de chat do [repositório do Socket.IO Gi
 
 1. Criar uma cópia local do repositório utilizando o **Clone** botão. Também pode utilizar o **ZIP** botão para transferir o projeto.
    
-   ![Uma janela do browser ver https://github.com/LearnBoost/socket.io/tree/master/examples/chat, com o ícone de transferência ZIP realçado][chat-example-view]
+   ![Uma visualização da janela de browser https://github.com/LearnBoost/socket.io/tree/master/examples/chat, com o ícone de transferência ZIP realçado][chat-example-view]
 2. Navegue até a estrutura de diretórios do repositório local até chegar ao **exemplos\\chat** diretório. Copie o conteúdo deste diretório para o **c:\\nó\\chatapp\\WorkerRole1** diretório que criou anteriormente.
    
    ![Explorador, que apresenta o conteúdo dos exemplos\\diretório de chat extraído de arquivo][chat-contents]
@@ -148,7 +148,7 @@ A aplicação está agora em execução no Azure e pode reencaminhar mensagens d
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu como criar uma aplicação de chat básico alojada num serviço em nuvem do Azure. Para saber como alojar esta aplicação num Web site do Azure, consulte [compilar uma aplicação de Chat Node.js com Socket.IO no Web Site um Azure][chatwebsite].
 
 Para obter mais informações, consulte também o [Centro para programadores do Node.js](/develop/nodejs/).

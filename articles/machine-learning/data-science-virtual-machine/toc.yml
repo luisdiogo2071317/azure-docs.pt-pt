@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: Utilizar uma VM de Ciência de Dados de IA Geográfica
       href: use-geo-ai-dsvm.md
+- name: Diretrizes empresariais
+  items:
+    - name: Descrição geral
+      href: dsvm-enterprise-overview.md
+    - name: Dimensionamento
+      href: dsvm-pools.md
+    - name: Integração do Active Directory
+      href: dsvm-common-identity.md
+    - name: Proteger credenciais de acesso aos recursos
+      href: dsvm-secure-access-keys.md
 - name: Referência
   expanded: true
   items:
