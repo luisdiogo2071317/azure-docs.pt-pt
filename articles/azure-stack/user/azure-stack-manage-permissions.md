@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9944f51c080da6edd89927bfd26398024c5d4de2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerir o acesso a recursos com controlo de acesso de Azure Stack Role-Based
 
@@ -38,6 +38,28 @@ Pilha do Azure tem três funções básicas que pode aplicar a todos os tipos de
 * **Proprietário** podem gerir tudo, incluindo o acesso a recursos.
 * **Contribuidor** podem gerir tudo, exceto o acesso aos recursos.
 * **Leitor** podem ver tudo, mas não é possível efetuar quaisquer alterações.
+
+### <a name="resource-hierarchy-and-inheritance"></a>Hierarquia de recursos e herança
+
+Pilha do Azure tem a hierarquia de recurso seguinte:
+
+* Cada subscrição pertence a um diretório.
+* Cada grupo de recursos pertence a uma subscrição.
+* Cada recurso pertence a um grupo de recursos.
+
+Acesso que conceda a um âmbito principal é herdado, os âmbitos subordinados. Por exemplo:
+
+* Atribuir a função de leitor a um grupo do Azure AD no âmbito de subscrição. Os membros desse grupo podem ver cada grupo de recursos e recursos na subscrição.
+* Atribuir a função de contribuinte a uma aplicação no âmbito do grupo de recursos. A aplicação pode gerir os recursos de todos os tipos nesse grupo de recursos, mas não outros grupos de recursos na subscrição.
+
+### <a name="assigning-roles"></a>atribuir funções
+
+Pode atribuir mais de uma função a um utilizador e cada função pode ser associada a outro âmbito. Por exemplo:
+
+* Atribuir função leitor a TestUser-A à subscrição 1.
+* Atribuir função de proprietário o TestUser-A para TestVM-1.
+
+O Azure [atribuições de funções](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre a visualização, atribuir e eliminar funções.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hierarquia de recursos e herança
 

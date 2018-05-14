@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7e4731e150c2d6428fa8c752765780f827c33741
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik sentido 
 Azure Active Directory para o Proxy de aplicações e Qlik sentido tem parcerias em conjunto para se certificar de que é facilmente capazes de utilizar o Proxy de aplicações para fornecer acesso remoto para a sua implementação Qlik sentido.  
@@ -25,13 +25,13 @@ Azure Active Directory para o Proxy de aplicações e Qlik sentido tem parcerias
 O resto deste cenário pressupõe que efetuar o seguinte:
  
 - Configurado [Qlik sentido](https://community.qlik.com/docs/DOC-19822). 
-- [Instalar um conector do Proxy de aplicações](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [Instalar um conector do Proxy de aplicações](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Publicar as suas aplicações no Azure 
 Para publicar QlikSense, terá de publicar duas aplicações no Azure.  
 
 ### <a name="application-1"></a>Aplicação #1: 
-Siga estes passos para publicar a aplicação. Para um mais detalhadas instruções dos passos 1-8, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). 
+Siga estes passos para publicar a aplicação. Para um mais detalhadas instruções dos passos 1-8, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md). 
 
 
 1. Inicie sessão no portal do Azure como um administrador global. 
@@ -58,5 +58,5 @@ A aplicação está agora pronta para testar. O URL externo que utilizou para pu
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- [Publicar aplicações com o Proxy de aplicações](application-proxy-publish-azure-portal.md)
+- [Publicar aplicações com o Proxy de aplicações](manage-apps/application-proxy-publish-azure-portal.md)
 - [Trabalhar com conetores da Proxy da aplicação](active-directory-application-proxy-connectors-azure-portal.md).

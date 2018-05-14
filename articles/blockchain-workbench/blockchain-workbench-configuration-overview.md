@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 5569a7608a61b4e79a03264e0ccf62682782264b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência da configuração do Blockchain Workbench do Azure
 
@@ -41,7 +41,7 @@ Uma aplicação blockchain contém funções de utilizador, metadados e fluxos d
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | ApplicationName | Nome de aplicação único. O contrato inteligente correspondente tem de utilizar o mesmo **ApplicationName** para a classe de contrato aplicável.  | Sim |
-| displayName | Nome a apresentar amigável da aplicação. | Sim |
+| Nome a Apresentar | Nome a apresentar amigável da aplicação. | Sim |
 | Descrição | Descrição da aplicação. | Não |
 | ApplicationRoles | Coleção de [ApplicationRoles](#application-roles). Funções de utilizador que podem agir ou participar na aplicação.  | Sim |
 | Fluxos de trabalho | Coleção de [fluxos de trabalho](#workflows). Cada fluxo de trabalho atua como uma máquina de estado para controlar o fluxo de lógica de negócio. | Sim |
@@ -55,7 +55,7 @@ Lógica de negócio de uma aplicação pode ser modelada como uma máquina de Es
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a classe de contrato aplicável. | Sim |
-| displayName | Nome a apresentar amigável do fluxo de trabalho. | Sim |
+| Nome a Apresentar | Nome a apresentar amigável do fluxo de trabalho. | Sim |
 | Descrição | Descrição do fluxo de trabalho. | Não |
 | Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que são atribuídas a utilizadores que estão autorizados a criar contratos no fluxo de trabalho. | Sim |
 | StartState | Nome do Estado inicial do fluxo de trabalho. | Sim |
@@ -78,7 +78,7 @@ Tipos de dados suportada.
 | Int      | Tipo de dados de número inteiro |
 | dinheiro    | Tipo de dados de moeda |
 | state    | Estado do fluxo de trabalho |
-| string   | Tipo de dados de cadeia |
+| cadeia   | Tipo de dados de cadeia |
 | Utilizador     | Endereço do tipo de utilizador |
 | hora     | Tipo de dados de tempo |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicação. Os limites que os utilizadores desse tipo de função. |
@@ -124,7 +124,7 @@ Define as funções que podem ser executadas no fluxo de trabalho.
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | O nome exclusivo da função. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a função aplicável. | Sim |
-| displayName | Nome a apresentar amigável da função. | Sim |
+| Nome a Apresentar | Nome a apresentar amigável da função. | Sim |
 | Descrição | Descrição da função | Não |
 | Parâmetros | Coleção de [identificadores](#identifiers) correspondente para os parâmetros da função. | Sim |
 
@@ -172,7 +172,7 @@ Uma coleção de Estados exclusivos dentro de um fluxo de trabalho. Cada Estado 
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | Nome exclusivo do Estado. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para o estado aplicável. | Sim |
-| displayName | Nome a apresentar amigável do Estado. | Sim |
+| Nome a Apresentar | Nome a apresentar amigável do Estado. | Sim |
 | Descrição | Descrição do Estado. | Não |
 | PercentComplete | Um número inteiro apresentado na interface de utilizador de Blockchain Workbench para mostrar o progresso no fluxo de controlo de lógica de negócio. | Sim |
 | Estilo | Sugestão visual que indica se o estado representa um Estado de êxito ou falha. Existem dois valores válidos: `Success` ou `Failure`. | Sim |
@@ -242,7 +242,7 @@ Ações disponíveis para o estado do seguinte. Uma ou mais funções de utiliza
 |-------|-------------|:--------:|
 | AllowedRoles | Lista de funções de aplicações permitidas para iniciar a transição. Todos os utilizadores da função especificada podem ser capazes de efetuar a ação. | Não |
 | AllowedInstanceRoles | Lista de funções de utilizador que participam ou especificado no contrato inteligente permitido para iniciar a transição. Funções de instância são definidas no **propriedades** dentro de fluxos de trabalho. Estes utilizadores representam um utilizador que participam especificados, ou no contrato inteligente, por oposição a todos os utilizadores de um tipo de função. | Não |
-| displayName | Nome a apresentar amigável da transição. | Sim |
+| Nome a Apresentar | Nome a apresentar amigável da transição. | Sim |
 | Descrição | Descrição da transição. | Não |
 | Função | O nome da função para iniciar a transição. | Sim |
 | NextStates | Uma coleção de Estados seguintes potenciais após uma transição com êxito. | Sim |
@@ -309,7 +309,7 @@ Identificadores representam uma coleção de informações utilizadas para descr
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | Nome | O nome exclusivo a propriedade ou o parâmetro. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a propriedade aplicável ou o parâmetro. | Sim |
-| displayName | Nome a apresentar amigável para a propriedade ou o parâmetro. | Sim |
+| Nome a Apresentar | Nome a apresentar amigável para a propriedade ou o parâmetro. | Sim |
 | Descrição | Descrição da propriedade ou parâmetro. | Não |
 
 ### <a name="identifiers-example"></a>Exemplo de identificadores
@@ -491,5 +491,6 @@ O exemplo seguinte define uma aplicação básica de resposta-pedido no qual um 
 ```
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Implementar o Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Implementar o Azure Blockchain Workbench](blockchain-workbench-deploy.md)
 

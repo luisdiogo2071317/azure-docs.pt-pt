@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão 
 Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte o artigo [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
@@ -35,10 +35,10 @@ Pode alterar o nome do grupo de gestão utilizando o portal, o PowerShell ou a C
 3. Selecione o grupo de gestão que pretende mudar o nome. 
 4. Selecione o **mudança de nome de grupo** opção na parte superior da página. 
 
-    ![Mudança de nome de grupo](media/management-groups/detail_action_small.png)
+    ![Mudar o Nome do Grupo](media/management-groups/detail_action_small.png)
 5. Quando abre o menu, introduza o novo nome que pretende ter apresentado.
 
-    ![Mudança de nome de grupo](media/management-groups/rename_context.png) 
+    ![Mudar o Nome do Grupo](media/management-groups/rename_context.png) 
 4. Selecione **Guardar**. 
 
 ### <a name="change-the-name-in-powershell"></a>Altere o nome do PowerShell
@@ -103,9 +103,9 @@ Pode ver a qualquer grupo de gestão que tiver uma função RBAC direta ou herda
 ### <a name="view-in-the-portal"></a>Ver no portal
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 2. Selecione **todos os serviços** > **grupos de gestão** 
-3. Hierarquia de grupo de gestão de página onde são apresentados todos os grupos que têm acesso de cargas. 
+3. Hierarquia de grupo de gestão de página onde pode explorar todos os grupos de gestão e subscrições que tem acesso de cargas. Selecionar o nome do grupo leva-o para baixo de um nível na hierarquia. A navegação funciona da mesma forma um Explorador de ficheiros. 
     ![Principal](media/management-groups/main.png)
-4. Selecione um grupo de gestão individual para obter os detalhes  
+4. Para ver os detalhes do grupo de gestão, selecione o **(detalhes)** hiperligação junto o título do grupo de gestão. Se esta ligação não estiver disponível, não tem permissões para ver esse grupo de gestão.  
 
 ### <a name="view-in-powershell"></a>Ver no PowerShell
 Utilize o comando Get-AzureRmManagementGroup obter todos os grupos.  
@@ -151,7 +151,7 @@ Para ver as permissões têm, selecione o grupo de gestão e, em seguida, seleci
 6. No menu aberto, selecione o **tipo de recurso** do item que está a tentar mover a que é **subscrição**.
 7. Selecione a subscrição na lista com o ID correto. 
 
-    ![Elementos subordinados](media/management-groups/add_context_2.png)
+    ![Crianças](media/management-groups/add_context_2.png)
 8. Selecione "Guardar"
 
 **Remover uma subscrição de um grupo de gestão**

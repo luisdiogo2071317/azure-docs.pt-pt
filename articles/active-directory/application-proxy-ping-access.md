@@ -15,8 +15,8 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f480553e6a8ca09872cd638537bc6fb98e793d8b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 5554260ad2b47cf4c66046c95007c95e44f188bd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -50,7 +50,7 @@ Este artigo destina-se das pessoas que estão a publicar uma aplicação com est
 
 Se já tiver ativado o Proxy de aplicações e tem um conector instalado, pode ignorar esta secção e mover para [adicionar a sua aplicação para o Azure AD com o Proxy da aplicação](#add-your-app-to-azure-ad-with-application-proxy).
 
-O conector do Proxy de aplicações é um serviço do Windows Server que direciona o tráfego do que os empregados remotos para as aplicações publicadas. Para obter mais instruções de instalação, consulte [ativar o Proxy da aplicação no portal do Azure](active-directory-application-proxy-enable.md).
+O conector do Proxy de aplicações é um serviço do Windows Server que direciona o tráfego do que os empregados remotos para as aplicações publicadas. Para obter mais instruções de instalação, consulte [ativar o Proxy da aplicação no portal do Azure](manage-apps/application-proxy-enable.md).
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Selecione **do Azure Active Directory** > **proxy de aplicações**.
@@ -65,7 +65,7 @@ O conector do Proxy de aplicações é um serviço do Windows Server que direcio
 
 Existem duas ações que precisa de tomar no portal do Azure. Em primeiro lugar, tem de publicar a aplicação com o Proxy da aplicação. Em seguida, terá de recolher algumas informações sobre a aplicação que pode utilizar durante os passos de PingAccess.
 
-Siga estes passos para publicar a aplicação. Para um mais detalhadas instruções dos passos 1-8, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md).
+Siga estes passos para publicar a aplicação. Para um mais detalhadas instruções dos passos 1-8, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md).
 
 1. Se não na última secção, inicie sessão no [portal do Azure](https://portal.azure.com) como um administrador global.
 2. Selecione **do Azure Active Directory** > **aplicações empresariais**.
@@ -181,5 +181,5 @@ Quando tiver terminado de todos estes passos, a aplicação deve ser configurado
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar PingAccess para o Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Como Proxy de aplicações do Azure AD fornece o início de sessão único?](application-proxy-sso-overview.md)
+- [Como Proxy de aplicações do Azure AD fornece o início de sessão único?](manage-apps/application-proxy-single-sign-on.md)
 - [Resolver problemas de Proxy de aplicações](active-directory-application-proxy-troubleshoot.md)

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -31,14 +31,14 @@ Quando cria uma conta de armazenamento, tem de selecionar uma das seguintes opç
 
 A tabela seguinte fornece uma rápida descrição geral do âmbito de durabilidade e disponibilidade que cada estratégia de replicação irá fornecer-lhe para um determinado tipo de evento (ou evento de impacto semelhante).
 
-| Cenário | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Indisponibilidade de nó dentro de um centro de dados |Sim |Sim |Sim |Sim
-| Um centro de dados completo (zonal ou não zonal) fica indisponível |Não |Sim |Sim |Sim |
-| Uma falha de toda a região |Não |Não |Sim |Sim |
-| Acesso de leitura aos seus dados (numa região remoto, georreplicação) em caso de indisponibilidade de toda a região |Não |Não |Não |Sim |
-| Concebida para fornecer ___ durabilidade dos objetos através de um ano específico |pelo menos 99.999999999% (11 da 9)|pelo menos 99.9999999999% (12 do 9)|pelo menos 99.99999999999999% (16 do 9)|pelo menos 99.99999999999999% (16 do 9)|
-| Disponível em tipos de conta de armazenamento ___ |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
+| Cenário                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Indisponibilidade de nó dentro de um centro de dados                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                  |
+| Um centro de dados completo (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim                                  | Sim                                  |
+| Uma falha de toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
+| Acesso de leitura aos seus dados (numa região remoto, georreplicação) em caso de indisponibilidade de toda a região | Não                              | Não                               | Não                                   | Sim                                  |
+| Concebida para fornecer ___ durabilidade dos objetos através de um ano específico                                          | pelo menos 99.999999999% (11 da 9) | pelo menos 99.9999999999% (12 do 9) | pelo menos 99.99999999999999% (16 do 9) | pelo menos 99.99999999999999% (16 do 9) |
+| Tipos de conta de armazenamento suportadas                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 Consulte [preços do Storage do Azure](https://azure.microsoft.com/pricing/details/storage/) para informações sobre as opções de redundância diferentes de preços.
 
@@ -49,7 +49,7 @@ Consulte [preços do Storage do Azure](https://azure.microsoft.com/pricing/detai
 Iremos permitem-lhe alterar estratégia de replicação da sua conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou um dos muitos [ Bibliotecas de cliente do Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num tempo.
 
    > [!NOTE]
-   > Atualmente, não é possível utilizar o Portal ou a API para converter a sua conta para o ZRS. No entanto, planeamos suportar a migrar para o ZRS do LRS, GRS e RA-GRS depois do ZRS estiver geralmente disponível. Consulte [armazenamentocomredundânciadezona (ZRS)](storage-redundancy-zrs.md) para obter mais detalhes.
+   > Atualmente, não é possível utilizar o Portal ou a API para converter a sua conta para o ZRS. Se pretender converter a replicação da sua conta ZRS, consulte [armazenamentocomredundânciadezona (ZRS)](storage-redundancy-zrs.md) para obter mais detalhes.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Existem quaisquer custos para alterar a estratégia de replicação da minha conta?
 Depende do seu caminho de conversão. Ordenação de cheapest a oferta de redundância mais dispendioso temos LRS, ZRS, GRS e RA-GRS. Por exemplo, vai *de* LRS para qualquer coisa resultará em encargos adicionais, porque, se pretender um nível de redundância mais sofisticado. Vai *para* GRS ou RA-GRS será cobrado um custo de largura de banda de saída porque os dados (na sua região principal) está a ser replicados para a região secundária remoto. Este é cobrada uma taxa única na configuração inicial. Depois dos dados são copiados, não existem sem custos de conversão mais. Só será cobrada para replicar qualquer novo ou atualizações aos dados existentes. Para obter mais detalhes em custos de largura de banda, consulte [página de preços do Storage do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).

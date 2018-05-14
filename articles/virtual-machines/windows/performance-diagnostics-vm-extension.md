@@ -1,24 +1,24 @@
 ---
-title: "Extensão de VM de diagnóstico de desempenho do Azure para Windows | Microsoft Docs"
-description: "Apresenta a extensão de VM de diagnóstico de desempenho do Azure para Windows."
+title: Extensão de VM de diagnóstico de desempenho do Azure para Windows | Microsoft Docs
+description: Apresenta a extensão de VM de diagnóstico de desempenho do Azure para Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/29/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ea7f4652aff07282c9c106f3894db807f341210
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
@@ -65,12 +65,12 @@ O seguinte JSON mostra o esquema de extensão de VM de diagnóstico de desempenh
 |   **Nome**   |**Valor / exemplo**|       **Descrição**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|A versão da API.
-|publisher|Microsoft.Azure.Performance.Diagnostics|O espaço de nomes de publicador para a extensão.
+|Fabricante|Microsoft.Azure.Performance.Diagnostics|O espaço de nomes de publicador para a extensão.
 |tipo|AzurePerformanceDiagnostics|O tipo de extensão de VM.
 |typeHandlerVersion|1.0|A versão de processador de extensão.
 |performanceScenario|básica|O cenário de desempenho para o qual pretende capturar os dados. Os valores válidos são: **básico**, **vmslow**, **azurefiles**, e **personalizado**.
 |traceDurationInSeconds|300|A duração de rastreios, se qualquer uma das opções de rastreio estão selecionadas.
-|perfCounterTrace|p|Opção para ativar o rastreio de contador de desempenho. Os valores válidos são **p** ou valor de vazio. Se não pretender capturar este rastreio, deixe o valor como vazio.
+|perfCounterTrace|P|Opção para ativar o rastreio de contador de desempenho. Os valores válidos são **p** ou valor de vazio. Se não pretender capturar este rastreio, deixe o valor como vazio.
 |networkTrace|N|Opção para ativar o rastreio de rede. Os valores válidos são **n** ou valor de vazio. Se não pretender capturar este rastreio, deixe o valor como vazio.
 |xperfTrace|x|Opção para ativar o rastreio XPerf. Os valores válidos são **x** ou valor de vazio. Se não pretender capturar este rastreio, deixe o valor como vazio.
 |storPortTrace|s|Opção para ativar o rastreio StorPort. Os valores válidos são **s** ou valor de vazio. Se não pretender capturar este rastreio, deixe o valor como vazio.

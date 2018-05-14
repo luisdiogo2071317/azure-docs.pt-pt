@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source perguntas mais frequentes para aplicações Web no Azure
 
@@ -71,7 +71,7 @@ Para capturar os erros da aplicação Python:
 1. No portal do Azure, na sua aplicação web, selecione **definições**.
 2. No **definições** separador, selecione **definições da aplicação**.
 3. Em **as definições de aplicação**, introduza o seguinte par chave/valor:
-    * Key : WSGI_LOG
+    * Chave: WSGI_LOG
     * Valor: D:\home\site\wwwroot\logs.txt (introduza a sua escolha de nome de ficheiro)
 
 Deverá ver erros no ficheiro logs.txt na pasta wwwroot.

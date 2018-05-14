@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -42,11 +42,18 @@ O agente de sincronização de ficheiros do Azure é um pacote transferível, qu
 - **FileSyncSvc.exe**: O serviço do Windows que é responsável para monitorização de alterações em pontos finais do servidor e para iniciar sessões de sincronização para o Azure em segundo plano.
 - **StorageSync.sys**: A sincronização de ficheiros do Azure ficheiro filtro do sistema, que é responsável por camadas ficheiros para ficheiros do Azure (nuvem quando camadas está ativado).
 - **Cmdlets de gestão do PowerShell**: cmdlets do PowerShell que utilizar para interagir com o fornecedor de recursos do Microsoft.StorageSync Azure. Pode encontrar estas nas seguintes localizações (predefinição):
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
+    - C:\Programas\Microsoft Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto final do servidor
-Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Atualmente, não é possível criar um ponto final do servidor para a raiz de um volume (por exemplo `F:\` ou `C:\myvolume`, se está montado um volume como um ponto de montagem).
+Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. 
+
+Pode criar um ponto final do servidor através de um pontodemontagem. Tenha em atenção de que são ignorados mountpoints dentro do ponto final do servidor.  
+
+Pode criar um ponto final do servidor no volume do sistema, mas, existem dois limitações se fazê-lo:
+* Nuvem em camadas não podem ser ativada.
+* Não é efetuado o restauro rápido do espaço de nomes (onde o sistema rapidamente traz para baixo de todo o espaço de nomes e, em seguida, começa a recuperar conteúdo).
+
 
 > [!Note]  
 > São suportados apenas volumes não amovíveis.  Unidades mapeadas de uma partilha remota não são suportadas para um caminho de ponto final do servidor.  Além disso, um ponto final do servidor pode ser localizado no volume de sistema na nuvem através do Windows em camadas não é suportado no volume do sistema.
@@ -105,7 +112,7 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 | ~$\*.\* | Ficheiro temporário do Office |
 | \*.tmp | Ficheiro temporário |
 | \*.laccdb | Ficheiro de bloqueio de acesso DB|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Ficheiro de sincronização interno|
 | \\Informações de Volume do sistema | Pasta específica para volume |
 | $RECYCLE.BIN| Pasta |
 | \\SyncShareState | Pasta para sincronização |
@@ -191,6 +198,6 @@ Pré-visualização, suportamos a sincronizar apenas com uma partilha de ficheir
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Considere as definições de proxy e firewall](storage-sync-files-firewall-and-proxy.md)
-* [Planning for an Azure Files deployment](storage-files-planning.md) (Planear uma implementação de Ficheiros do Azure)
+* [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 * [Implementar ficheiros do Azure](storage-files-deployment-guide.md)
 * [Implementar a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md)

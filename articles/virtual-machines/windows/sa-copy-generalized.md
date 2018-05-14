@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem VM não gerida a partir de uma VM do Azure
 
@@ -78,6 +78,11 @@ Também pode generalizar uma VM com Linux utilizando `sudo waagent -deprovision+
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Desalocar a VM e definir o estado de generalizado
+
+> [!IMPORTANT] 
+> Não é possível adicionar, editar ou remover etiquetas de uma VM, uma vez que está marcado como generalizado. Se pretender adicionar uma etiqueta para a VM, certifique-se de que adicionar as etiquetas antes de marcá-lo como generalizado.
+> 
+
 1. Desalocar os recursos da VM.
    
     ```powershell

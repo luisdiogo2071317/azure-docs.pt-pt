@@ -15,11 +15,11 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 66fdc03d2945b84615ee39dcbcc9bc71ddb06711
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f31b5be80ae56ffe4d0f570cb8d25da8cc098009
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Aceder as aplicações no local através de Teams da Microsoft
 
@@ -30,7 +30,7 @@ Os utilizadores podem adicionar aplicações em nuvem para os seus canais de equ
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Instalar o conector do Proxy de aplicações e publicar a aplicação
 
-Se ainda não o fez, [configurar o Proxy de aplicações para o seu inquilino e instalar o conector](active-directory-application-proxy-enable.md). Em seguida, [publicar a aplicação no local](application-proxy-publish-azure-portal.md) para acesso remoto. Quando estiver a publicar a aplicação, anote o URL externo porque é utilizado para adicionar a aplicação para equipas.
+Se ainda não o fez, [configurar o Proxy de aplicações para o seu inquilino e instalar o conector](manage-apps/application-proxy-enable.md). Em seguida, [publicar a aplicação no local](manage-apps/application-proxy-publish-azure-portal.md) para acesso remoto. Quando estiver a publicar a aplicação, anote o URL externo porque é utilizado para adicionar a aplicação para equipas.
 
 Se já tiver as aplicações publicadas, mas não se lembra da respetiva URLs externos, procure-os [portal do Azure](https://portal.azure.com). A iniciar sessão, em seguida, navegue para **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações** > selecione a sua aplicação >  **Proxy de aplicações**.
 
@@ -55,4 +55,4 @@ Depois de um membro de um agrupamento adiciona o separador, aparece para todos o
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [publicar sites do SharePoint no local](application-proxy-enable-remote-access-sharepoint.md) com o Proxy da aplicação.
-- Configurar as suas aplicações a utilizar [domínios personalizados](active-directory-application-proxy-custom-domains.md) para as respetivas URL externo. 
+- Configurar as suas aplicações a utilizar [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) para as respetivas URL externo. 

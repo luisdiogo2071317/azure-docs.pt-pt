@@ -6,25 +6,28 @@ documentationcenter: ''
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 656651d067e5685aead65fdd647a0ea500ae7de9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5a37a5a14dcb07db7e078558072f7edad7432d9b
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Adicionar utilizadores de convidado de colaboração B2B sem um convite
+
+> [!NOTE]
+> Agora, os utilizadores convidados já não precisam do e-mail de convite, exceto em alguns casos especiais. Para obter mais informações, consulte [resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md).  
 
 Pode permitir que um utilizador, tal como um representante de parceiro, para adicionar utilizadores do parceiro à sua organização sem necessitar de convites para ser resgatadas. Tudo o que deve fazer é conceder privilégios de enumeração no diretório que está a utilizar para o org. de parceiro a que o utilizador 
 
 Conceda estes privilégios quando:
 
 1. Um utilizador na organização do anfitrião (por exemplo, o WoodGrove) invites um utilizador da organização de parceiro (por exemplo, Sam@litware.com) como convidado.
-2. O administrador na organização do anfitrião configura políticas que lhe permitem Sam identificar e adicionar outros utilizadores da organização de parceiro (Litware).
+2. O administrador na organização do anfitrião [configura políticas](active-directory-b2b-delegate-invitations.md) que permitem Sam identificar e adicionar outros utilizadores da organização de parceiro (Litware).
 3. Agora Sam pode adicionar outros utilizadores de Litware para o diretório de WoodGrove, grupos ou aplicações sem ser necessário convites para ser resgatadas. Se Sam tem os privilégios adequados enumeração Litware, ocorre automaticamente.
 
 ### <a name="next-steps"></a>Passos Seguintes

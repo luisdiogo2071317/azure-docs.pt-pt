@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados
 
@@ -43,6 +43,8 @@ Este tutorial abrange as seguintes tarefas:
 Antes de seguir as instruções neste artigo, certifique-se de que tem o seguinte instalado:
 
 * [O Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou superior.
+
+* Aumentar o débito: durante a migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Lembre-se de que aumentar o débito para migrações de dados maior. Após concluir a migração, reduzir o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, consulte o escalões de preços do BD Azure Cosmos e níveis de desempenho.
 
 ## <a id="Overviewl"></a>Descrição geral
 A ferramenta de migração de dados é uma solução de código aberto que importa dados BD do Cosmos do Azure a partir de uma variedade de origens, incluindo:

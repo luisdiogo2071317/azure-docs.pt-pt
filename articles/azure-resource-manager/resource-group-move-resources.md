@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -114,6 +114,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Application Insights
 * Automatização
 * Azure Cosmos DB
+* Reencaminhamento do Azure
 * Batch
 * Mapas Bing
 * CDN
@@ -130,6 +131,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Hubs IoT
 * Cofre de Chaves
 * Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
+* Log Analytics
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de Machine Learning podem ser movidos entre subscrições.
 * Serviços de Multimédia
@@ -137,7 +139,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Hubs de Notificação
 * Informações Operacionais
 * Gestão de Operações
-* Power BI
+* Power BI - o Power BI Embedded e ligue-a coleção de área de trabalho de BI
 * IP público - consulte [limitações de IP público](#pip-limitations)
 * Cache de Redis
 * Scheduler
@@ -148,7 +150,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Armazenamento
 * Armazenamento (clássica) - consulte [limitações de implementação clássica](#classic-deployment-limitations)
 * Estado do Stream Analytics - Stream Analytics não não possível mover as tarefas em execução.
-* Base de dados do SQL server - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Isto inclui bases de dados SQL Database do Azure e Azure SQL Data Warehouse. 
+* Base de dados do SQL server - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados SQL Database do Azure e Azure SQL Data Warehouse. 
 * Gestor de Tráfego
 * Não é possível mover máquinas virtuais - VMs com discos geridos. Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássicas) - consulte [limitações de implementação clássica](#classic-deployment-limitations)
@@ -164,6 +166,8 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Serviço de estado de funcionamento de AD híbrido
 * Gateway de Aplicação
 * Base de Dados do Azure para MySQL
+* Base de Dados do Azure para PostgreSQL
+* Azure Migrate
 * Serviços BizTalk
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
 * Serviço de Kubernetes
@@ -176,7 +180,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * IP público - consulte [limitações de IP público](#pip-limitations)
 * Cofre dos serviços de recuperação - também efetue não mover os recursos de computação, rede e armazenamento associados ao Cofre de serviços de recuperação, consulte [limitações de serviços de recuperação](#recovery-services-limitations).
 * Segurança
-* Gestor de Dispositivos do StorSimple
+* Gestor de dispositivos do StorSimple
 * Redes virtuais (clássicas) - consulte [limitações de implementação clássica](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Limitações de máquinas virtuais
@@ -188,6 +192,11 @@ Discos geridos não suportam a movimentação. Esta restrição significa que v�
 * Imagens de criada a partir de discos geridos
 * Instantâneos criados a partir de discos geridos
 * Conjuntos de disponibilidade com máquinas virtuais com discos geridos
+
+Apesar de não é possível mover um disco gerido, pode criar uma cópia e, em seguida, criar uma nova máquina virtual a partir do disco existente gerido. Para obter mais informações, consulte:
+
+* Copiar discos geridos na mesma subscrição ou uma subscrição diferente com [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) ou [CLI do Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Criar uma máquina virtual utilizando um disco de SO gerido existente com [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) ou [CLI do Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
 
 Não é possível mover máquinas virtuais criadas a partir dos recursos de mercado com planos ligados através de grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implementar novamente a nova subscrição.
 

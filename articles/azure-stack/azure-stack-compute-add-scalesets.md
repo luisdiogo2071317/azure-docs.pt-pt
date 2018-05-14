@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar os conjuntos de dimensionamento de máquina virtual na pilha do Azure
 
@@ -38,14 +36,15 @@ Na pilha do Azure, conjuntos de dimensionamento de máquina virtual não suporta
    Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure. Consulte [começar a trabalhar com o PowerShell na pilha de Azure](azure-stack-powershell-configure-quickstart.md).
 
    Depois de instalar as ferramentas de pilha do Azure, certifique-se de importar o módulo do PowerShell seguinte (caminho relativa a. \ComputeAdmin pasta na pasta master de ferramentas de AzureStack):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Imagem do sistema operativo**
 
    Se ainda não adicionou uma imagem do sistema operativo para a pilha do Azure Marketplace, consulte o artigo [adicionar a imagem de VM do Windows Server 2016 para o mercado de pilha do Azure](azure-stack-add-default-image.md).
 
-   Para obter suporte do Linux, transfira Ubuntu Server 16.04 e adicioná-lo utilizando ```Add-AzsVMImage``` com os seguintes parâmetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Para obter suporte do Linux, transfira Ubuntu Server 16.04 e adicioná-lo utilizando ```Add-AzsPlatformImage``` com os seguintes parâmetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Adicionar o conjunto de dimensionamento de máquina virtual
@@ -54,7 +53,7 @@ Editar o seguinte script do PowerShell para o seu ambiente e, em seguida, execut
 
 ``$User`` é a conta que utiliza para ligar o portal de administrador. Por exemplo, serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Atualizar imagens de um conjunto de dimensionamento de máquina virtual 
 Depois de criar um conjunto de dimensionamento de máquina virtual, os utilizadores podem atualizar imagens na escala definir sem o conjunto ter de ser recriadas de dimensionamento. O processo para atualizar uma imagem depende os seguintes cenários:
@@ -83,12 +82,14 @@ Depois de criar um conjunto de dimensionamento de máquina virtual, os utilizado
 
    Segue-se um exemplo de especificação *mais recente*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Antes de trabalho de dimensionamento pode utilizar uma nova imagem, tem de transferir essa nova imagem:  
 
@@ -110,12 +111,12 @@ Para obter mais informações, consulte [discos de sistema operativo e imagens](
 
 Para remover uma máquina virtual item da Galeria de conjunto de dimensionamento, execute o seguinte comando do PowerShell:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > O item da Galeria não pode ser removido imediatamente. Noite tem de atualizar o portal várias vezes antes do item mostra como removido do Marketplace.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 [Perguntas mais frequentes sobre pilha do Azure](azure-stack-faq.md)
-

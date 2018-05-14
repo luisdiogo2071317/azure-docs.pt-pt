@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 702fe812d4ff80c9f18a163af38f883ed3739f12
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -244,7 +244,7 @@ Hora para concluído aproximada: 20 minutos
 | Do Microsoft Azure AD basic ou subscrição premium e um diretório do Azure AD para o qual é um administrador global | [Edições do Azure Active Directory](active-directory-editions.md) |
 | Uma aplicação web alojadas no local que pretende configurar para acesso remoto |  |
 | Um servidor a executar o Windows Server 2012 R2 ou Windows 8.1 ou superior, em que pode instalar o conector do Proxy da aplicação | [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md) |
-| Se existir uma firewall no caminho, certifique-se de que está aberta, para que o conector possa fazer pedidos HTTPS (TCP) para o Proxy de aplicações | [Ativar o Proxy da aplicação no portal do Azure: pré-requisitos do Proxy de aplicações](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
+| Se existir uma firewall no caminho, certifique-se de que está aberta, para que o conector possa fazer pedidos HTTPS (TCP) para o Proxy de aplicações | [Ativar o Proxy da aplicação no portal do Azure: pré-requisitos do Proxy de aplicações](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
 | Se a organização utilizar servidores proxy para estabelecer ligação à internet, faça uma vista de olhos a blogue após a trabalhar com servidores de proxy no local existentes para obter detalhes sobre como configurá-las | [Trabalhar com servidores de proxy no local existentes](application-proxy-working-with-proxy-servers.md) |
 
 
@@ -252,9 +252,9 @@ Hora para concluído aproximada: 20 minutos
 
 | Passo | Recursos |
 | --- | --- |
-| Instalar um conector no servidor | [Ativar o Proxy da aplicação no portal do Azure: instalar e registar o conector](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| Publicar a aplicação no local no Azure AD como uma aplicação de Proxy de aplicações | [Publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md) |
-| Atribuir utilizadores de teste | [Publicar aplicações através do Proxy de aplicações do Azure AD: adicionar um utilizador de teste](application-proxy-publish-azure-portal.md#add-a-test-user) |
+| Instalar um conector no servidor | [Ativar o Proxy da aplicação no portal do Azure: instalar e registar o conector](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| Publicar a aplicação no local no Azure AD como uma aplicação de Proxy de aplicações | [Publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md) |
+| Atribuir utilizadores de teste | [Publicar aplicações através do Proxy de aplicações do Azure AD: adicionar um utilizador de teste](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
 | Opcionalmente, configure uma experiência único início de sessão para os seus utilizadores | [Forneça o início de sessão único com o Proxy de aplicações do Azure AD](application-proxy-sso-azure-portal.md) |
 | Testar a aplicação através do início de sessão portal de MyApps como utilizador atribuído | https://myapps.microsoft.com |
 

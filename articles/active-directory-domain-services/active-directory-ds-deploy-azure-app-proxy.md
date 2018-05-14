@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 13141549b5b1b77f45dd6fa1c7560b9f9d0e9b72
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -95,7 +95,7 @@ Tem de configurar o Proxy de aplicações do Azure AD e integrado-lo no seu dom�
 
 * **Migrar as suas aplicações para máquinas virtuais do Azure:** pode comparação de precisão-e-shift as suas aplicações de servidores no local para máquinas virtuais do Azure associadas ao seu domínio gerido. Se o fizer, ajuda-o a remover os custos de infraestrutura da execução de servidores no local.
 
-* **Publicar aplicações através do Proxy de aplicações do Azure AD:** publicar aplicações em execução nas suas máquinas virtuais do Azure utilizando o Proxy de aplicações do Azure AD. Para obter mais informações, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](../active-directory/application-proxy-publish-azure-portal.md)
+* **Publicar aplicações através do Proxy de aplicações do Azure AD:** publicar aplicações em execução nas suas máquinas virtuais do Azure utilizando o Proxy de aplicações do Azure AD. Para obter mais informações, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Nota de implementação - aplicações de publicar IWA (autenticação integrada do Windows) com o Proxy de aplicações do Azure AD

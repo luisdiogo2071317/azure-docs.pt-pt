@@ -10,11 +10,11 @@ ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 1c13da977021538651084ec4462cf8bd32f131d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Os utilizadores do Azure AD B2B conceder acedem às suas aplicações no local
 
@@ -27,7 +27,7 @@ Se a sua aplicação no local utiliza autenticação baseada em SAML, pode facil
 Terá de efetuar ambos os procedimentos seguintes:
 
 - Integrar a aplicação SAML utilizando o modelo não Galeria de aplicações, conforme descrito em [configurar início de sessão único para aplicações que não estejam na Galeria de aplicações do Azure Active Directory](active-directory-saas-custom-apps.md). Certifique-se de que tenha em atenção utiliza para o **URL de início de sessão** valor.
--  Utilizar o Proxy de aplicações do Azure AD para publicar a aplicação no local, com **do Azure Active Directory** configurado como origem de autenticação. Para obter instruções, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). 
+-  Utilizar o Proxy de aplicações do Azure AD para publicar a aplicação no local, com **do Azure Active Directory** configurado como origem de autenticação. Para obter instruções, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md). 
 
    Quando configura o **Url interno** definição, utilize o URL de início de sessão que especificou no modelo de aplicação não galeria. Desta forma, os utilizadores podem aceder a aplicação a partir de fora do limite da organização. Proxy de aplicações efetua o SAML-início de sessão único para a aplicação no local.
  
@@ -37,8 +37,8 @@ Terá de efetuar ambos os procedimentos seguintes:
 
 Para fornecer B2B utilizadores acesso a aplicações no local que estejam protegidos com a autenticação integrada do Windows e a delegação restrita de Kerberos, terá dos seguintes componentes:
 
-- **Autenticação através do Proxy de aplicações do Azure AD**. Utilizadores de B2B tem de conseguir autenticar para a aplicação no local. Para tal, tem de publicar a aplicação no local através do Proxy de aplicações do Azure AD. Para obter mais informações, consulte [começar com o Proxy de aplicações e instalar o conector](active-directory-application-proxy-enable.md) e [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md).
-- **Autorização através de um objeto de utilizador no diretório no local B2B**. A aplicação tem de ser capaz de efetuar as verificações de acesso de utilizador e conceder acesso aos recursos corretos. IWA e KCD necessitam de um objeto de utilizador no local no Windows Server Active Directory para concluir esta autorização. Conforme descrito em [como-início de sessão único com KCD funciona](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), Proxy de aplicações tem este objeto de utilizador para representar o utilizador e obter um token de Kerberos para a aplicação. 
+- **Autenticação através do Proxy de aplicações do Azure AD**. Utilizadores de B2B tem de conseguir autenticar para a aplicação no local. Para tal, tem de publicar a aplicação no local através do Proxy de aplicações do Azure AD. Para obter mais informações, consulte [começar com o Proxy de aplicações e instalar o conector](manage-apps/application-proxy-enable.md) e [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md).
+- **Autorização através de um objeto de utilizador no diretório no local B2B**. A aplicação tem de ser capaz de efetuar as verificações de acesso de utilizador e conceder acesso aos recursos corretos. IWA e KCD necessitam de um objeto de utilizador no local no Windows Server Active Directory para concluir esta autorização. Conforme descrito em [como-início de sessão único com KCD funciona](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Proxy de aplicações tem este objeto de utilizador para representar o utilizador e obter um token de Kerberos para a aplicação. 
 
    Para o cenário de utilizador B2B, existem dois métodos que pode utilizar para criar os objetos de utilizador de convidados que são necessários para autorização no diretório no local disponíveis:
 

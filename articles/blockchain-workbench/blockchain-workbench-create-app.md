@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Criar uma aplicação de blockchain no Azure Blockchain Workbench
 
 Pode utilizar o Azure Blockchain Workbench para criar aplicações blockchain que representam os fluxos de trabalho de múltiplos intervenientes definidos pela configuração e o código de contrato inteligente.
 
-Irá aprender como:
+Saiba como:
 
 > [!div class="checklist"]
 > * Configurar uma aplicação blockchain
@@ -35,6 +35,8 @@ Irá aprender como:
 * Uma conta de administrador Blockchain Workbench. Para obter mais informações, consulte Adicionar [administradores Blockchain Workbench no Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 Vamos criar uma aplicação básica no qual um requerente envia um pedido e um dispositivo de resposta enviar uma resposta ao pedido. Por exemplo, pode ser um pedido, "Olá, como está?" e pode a resposta ser, "Estou excelente!". O pedido e resposta são registadas no ficheiro de blockchain subjacente. 
+
+Siga os passos para criar os ficheiros de aplicação ou pode [transferir o exemplo a partir do GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>Ficheiro de configuração
 
@@ -398,4 +400,7 @@ Para obter mais informações sobre a gestão de utilizadores no Blockchain Work
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que criou uma aplicação, experimente [utilizando uma aplicação blockchain](blockchain-workbench-use.md).
+Neste artigo procedimentos, criou uma aplicação básica de pedido e resposta. Para saber como utilizar a aplicação, avance para o seguinte artigo procedimentos.
+
+> [!div class="nextstepaction"]
+> [Utilizar uma aplicação blockchain](blockchain-workbench-use.md)

@@ -5,20 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: a758fe4d9cb00af56f7b8ba6b894f0e87ee8c0d3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ab78d6530bb792ad01a04c6774fe680579251db
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Como técnicos de informação adicionar utilizadores de colaboração B2B do Azure Active Directory?
 
 Os infotrabalhadores podem utilizar o [painel de acesso de aplicação](http://myapps.microsoft.com) para adicionar utilizadores de colaboração do B2B a grupos e aplicações que possam administrar.
+
+Depois de um utilizador convidado é adicionado ao diretório, o técnico de informação pode optar por enviar utilizador convidado uma ligação direta para uma aplicação partilhada ou o utilizador convidado pode clique no URL de resgate no e-mail de convite. Para obter mais informações sobre o processo de resgate, consulte [resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md).
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Infotrabalhadores com a adição de utilizadores de colaboração do B2B a uma aplicação
 Atribua utilizadores de colaboração do B2B a uma aplicação como um técnico de informação na organização de parceiro, conforme mostrado no vídeo seguinte:

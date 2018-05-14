@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importar dados para utilização com a API de tabela de base de dados do Azure Cosmos
 
@@ -29,6 +29,10 @@ Este tutorial abrange as seguintes tarefas:
 > * Importar dados com a ferramenta de migração de dados
 > * Importar dados com o AzCopy
 > * Migrar a partir da tabela de API (pré-visualização) à API de tabela 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Aumentar o débito: durante a migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Lembre-se de que aumentar o débito para migrações de dados maior. Após concluir a migração, reduzir o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, consulte o escalões de preços do BD Azure Cosmos e níveis de desempenho.
 
 ## <a name="data-migration-tool"></a>Ferramenta de migração de dados
 

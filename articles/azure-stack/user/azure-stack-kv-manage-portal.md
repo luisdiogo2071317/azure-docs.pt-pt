@@ -1,56 +1,56 @@
 ---
 title: Gerir o Cofre de chaves na pilha do Azure utilizando o portal | Microsoft Docs
-description: "Saiba como gerir o Cofre de chaves na pilha do Azure através do portal"
+description: Saiba como gerir o Cofre de chaves na pilha do Azure através do portal
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: d76a1e188c5a5bf008ac2fba9b43741a6a8d97b1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e387e365b2de3412c23c995939f75400a03eeb80
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gerir o Cofre de chaves na pilha do Azure através do portal
 
-Pode gerir o Cofre de chaves na pilha do Azure utilizando o portal de pilha do Azure. Este artigo ajuda-o a começar a utilizar para criar e gerir um cofre de chaves na pilha do Azure. 
+Pode gerir o Cofre de chaves na pilha do Azure utilizando o portal de pilha do Azure. Este artigo ajuda-o a começar a utilizar para criar e gerir um cofre de chaves na pilha do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos
 
 Tem de subscrever uma oferta, que inclui o serviço Cofre de chaves do Azure.
- 
-## <a name="create-a-key-vault"></a>Criar um cofre de chaves 
 
-1. Iniciar sessão para o [portal de utilizador](https://portal.local.azurestack.external).  
+## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-2. A partir do dashboard, selecione **novo** > **segurança + identidade** > **Cofre de chaves**.  
+1. Iniciar sessão para o [portal de utilizador](https://portal.local.azurestack.external).
 
-    ![Ecrã de Cofre de chaves](media/azure-stack-kv-manage-portal/image1.png)  
+2. A partir do dashboard, selecione **novo** > **segurança + identidade** > **Cofre de chaves**.
 
-3. No **criar Cofre de chaves** painel, atribuir um **nome** para o cofre. Os nomes de cofre podem conter apenas carateres alfanuméricos e o caráter especial de hífen (-). Estes não devem começar com um número.  
+    ![Ecrã de Cofre de chaves](media/azure-stack-kv-manage-portal/image1.png)
 
-4. Escolha um **subscrição** da lista de subscrições disponíveis. Todas as subscrições que oferecem serviço Cofre de chaves são apresentadas na lista pendente.  
+3. No **criar Cofre de chaves** painel, atribuir um **nome** para o cofre. Os nomes de cofre podem conter apenas carateres alfanuméricos e o caráter especial de hífen (-). Estes não devem começar com um número.
 
-5. Selecione um existente **grupo de recursos** ou crie um novo.  
+4. Escolha um **subscrição** da lista de subscrições disponíveis. Todas as subscrições que oferecem serviço Cofre de chaves são apresentadas na lista pendente.
 
-6. Selecione o **escalão de preço**.  
+5. Selecione um existente **grupo de recursos** ou crie um novo.
+
+6. Selecione o **escalão de preço**.
     >[!NOTE]
     > Chave cofres no suporte do Azure pilha Development Kit **padrão** SKUs apenas.
 
-7. Escolha uma das existente **políticas de acesso** ou crie um novo. Uma política de acesso permite-lhe de conceder permissões para um utilizador, aplicação ou um grupo de segurança executar operações com este cofre.  
+7. Escolha uma das existente **políticas de acesso** ou crie um novo. Uma política de acesso permite-lhe de conceder permissões para um utilizador, aplicação ou um grupo de segurança executar operações com este cofre.
 
-8. Opcionalmente, escolha um **política de acesso avançado** para ativar funcionalidades, como o acesso às máquinas virtuais (VMs) para a implementação, aceder ao Gestor de recursos para implementação do modelo e acesso ao Azure Disk Encryption para encriptação de volume. 
-  
-9.  Depois de configurar as definições, selecione **OK**e, em seguida, selecione **criar**. Esta ação inicia a implementação do Cofre de chaves. 
+8. Opcionalmente, escolha um **política de acesso avançado** para ativar o acesso a funcionalidades. Por exemplo: máquinas virtuais (VMs) para a implementação, o Gestor de recursos para implementação do modelo e o acesso ao Azure Disk Encryption para encriptação de volume.
+
+9. Depois de configurar as definições, selecione **OK**e, em seguida, selecione **criar**. Esta ação inicia a implementação do Cofre de chaves.
 
 ## <a name="manage-keys-and-secrets"></a>Gerir chaves e segredos
 
@@ -58,46 +58,44 @@ Depois de criar um cofre, utilize os seguintes passos para criar e gerir chaves 
 
 ### <a name="create-a-key"></a>Criar uma chave
 
-1. Iniciar sessão para o [portal de utilizador](https://portal.local.azurestack.external).  
+1. Iniciar sessão para o [portal de utilizador](https://portal.local.azurestack.external).
 
-2. A partir do dashboard, selecione **todos os recursos**, selecione o Cofre de chaves que criou anteriormente e, em seguida, selecione o **chaves** mosaico.  
+2. A partir do dashboard, selecione **todos os recursos**, selecione o Cofre de chaves que criou anteriormente e, em seguida, selecione o **chaves** mosaico.
 
-3. No **chaves** painel, selecione **adicionar**. 
+3. No **chaves** painel, selecione **adicionar**.
 
-4. No **criar uma chave** painel, na lista de **opções**, escolha o método que pretende utilizar para criar uma chave. Pode **gerar** uma nova chave, **carregar** existente de chaves ou utilizar **restaurar cópia de segurança** para selecionar uma cópia de segurança de uma chave.  
+4. No **criar uma chave** painel, na lista de **opções**, escolha o método que pretende utilizar para criar uma chave. Pode **gerar** uma nova chave, **carregar** existente de chaves ou utilizar **restaurar cópia de segurança** para selecionar uma cópia de segurança de uma chave.
 
-5. Introduza um **nome** para a sua chave. O nome da chave pode conter apenas carateres alfanuméricos e o hífen caráter especial (-).  
+5. Introduza um **nome** para a sua chave. O nome da chave pode conter apenas carateres alfanuméricos e o hífen caráter especial (-).
 
-6. Opcionalmente, configure o **definir a data de ativação** e **definir a data de expiração** valores para a sua chave.  
+6. Opcionalmente, configure o **definir a data de ativação** e **definir a data de expiração** valores para a sua chave.
 
-7. Selecione **criar** para iniciar a implementação.  
+7. Selecione **criar** para iniciar a implementação.
 
-Depois da chave foi criada com êxito, pode selecioná-lo em **chaves** e ver ou modificar as respetivas propriedades. A secção de propriedades contém o **identificador da chave**, que é um Uniform Resource Identifier (URI) através do qual aplicações externas podem aceder esta chave. Para limitar as operações esta chave, configure as definições em **permitido operações**.
+Depois da chave foi criada com êxito, pode selecioná-lo em **chaves** e ver ou modificar as respetivas propriedades. A secção de propriedades contém o **identificador da chave**, que é um Uniform Resource Identifier (URI) que aplicações externas utilizam para aceder a esta chave. Para limitar as operações esta chave, configure as definições em **permitido operações**.
 
-![Chave URI](media/azure-stack-kv-manage-portal/image4.png)  
+![Chave URI](media/azure-stack-kv-manage-portal/image4.png)
 
-### <a name="create-a-secret"></a>Criar um segredo 
+### <a name="create-a-secret"></a>Criar um segredo
 
-1. Iniciar sessão para o [portal de utilizador](https://portal.local.azurestack.external).  
-2. A partir do dashboard, selecione **todos os recursos**, selecione o Cofre de chaves que criou anteriormente e, em seguida, selecione o **segredos** mosaico.  
+1. Iniciar sessão para o [portal de utilizador](https://portal.local.azurestack.external).
+2. A partir do dashboard, selecione **todos os recursos**, selecione o Cofre de chaves que criou anteriormente e, em seguida, selecione o **segredos** mosaico.
 
-3. Em **segredos**, selecione **adicionar**.  
+3. Em **segredos**, selecione **adicionar**.
 
-4. Em **criar um segredo**, na lista de **carregar opções**, escolha uma opção através do qual pretende criar um segredo. Pode criar um segredo **manualmente** se introduzir um valor para o segredo ou ao carregar um **certificado** do seu computador local.  
+4. Em **criar um segredo**, na lista de **carregar opções**, escolha uma opção através do qual pretende criar um segredo. Pode criar um segredo **manualmente** se introduzir um valor para o segredo ou ao carregar um **certificado** do seu computador local.
 
-5. Introduza um **nome** para o segredo. O nome secreto pode conter apenas carateres alfanuméricos e o hífen caráter especial (-).  
+5. Introduza um **nome** para o segredo. O nome secreto pode conter apenas carateres alfanuméricos e o hífen caráter especial (-).
 
-6. Opcionalmente, especifique o **tipo de conteúdo**e configurar os valores para **definir a data de ativação** e **definir a data de expiração** para o segredo.  
+6. Opcionalmente, especifique o **tipo de conteúdo**e configurar os valores para **definir a data de ativação** e **definir a data de expiração** para o segredo.
 
-7. Selecione **criar** para iniciar a implementação.  
+7. Selecione **criar** para iniciar a implementação.
 
-Depois do segredo foi criado com êxito, pode selecioná-lo em **segredos** e ver ou modificar as respetivas propriedades. A secção de propriedades contém um **segredo identificador**, que é um URI que aplicações externas podem aceder a este segredo. 
+Depois do segredo foi criado com êxito, pode selecioná-lo em **segredos** e ver ou modificar as respetivas propriedades. O **segredo identificador** é um URI que podem utilizar aplicações externas para aceder a este segredo.
 
-![Segredo do URI](media/azure-stack-kv-manage-portal/image5.png) 
+![Segredo do URI](media/azure-stack-kv-manage-portal/image5.png)
 
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="next-steps"></a>Passos seguintes
-* [Implementar uma VM ao obter a palavra-passe armazenada no Cofre de chaves](azure-stack-kv-deploy-vm-with-secret.md) 
-* [Implementar uma VM com o certificado armazenado no Cofre de chaves](azure-stack-kv-push-secret-into-vm.md)     
-
-
+* [Implementar uma VM ao obter a palavra-passe armazenada no Cofre de chaves](azure-stack-kv-deploy-vm-with-secret.md)
+* [Implementar uma VM com o certificado armazenado no Cofre de chaves](azure-stack-kv-push-secret-into-vm.md)

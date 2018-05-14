@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ee8f30bc81d3c3bd0bf4659359a6ca3a9280f734
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão para aplicações da empresa
 
@@ -28,13 +28,13 @@ Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com)
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar as suas aplicações no portal
 Todas as aplicações da empresa que são definidas para o início de sessão único pode ser visto e gerido no portal do Azure. As aplicações podem ser encontradas no **todos os serviços** &gt; **aplicações empresariais** secção do portal. 
 
-![Painel de aplicações da empresa][1]
+![Painel de aplicações da empresa](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 Selecione **todas as aplicações** para ver uma lista de todas as aplicações que tenham sido configurados. A seleção de uma aplicação apresenta os recursos para essa aplicação, onde podem ser visualizados relatórios para essa aplicação e uma variedade de definições pode ser gerida.
 
 Para gerir as definições de início de sessão único, selecione **de sessão único-**.
 
-![Painel de recursos de aplicação][2]
+![Painel de recursos de aplicação](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Modos de início de sessão único
 **De sessão único-** começa com um **modo** menu, que permite que o modo único início de sessão seja configurado. As opções disponíveis incluem:
@@ -76,24 +76,19 @@ O **configurar aplicação** momento Escalamento menu fornece instruções passo
 > 
 > 
 
-![Docs incorporados][3]
+![Docs incorporados](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Baseado em palavra-passe de início de sessão
 Se suportado para a aplicação, selecionar o modo SSO baseada em palavra-passe e selecionando **guardar** instantaneamente configura não SSO baseada em palavra-passe. Para obter mais informações sobre a implementação do SSO baseada em palavra-passe, consulte [como único início de sessão com o trabalho do Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Baseado em palavra-passe de início de sessão][4]
+![Baseado em palavra-passe de início de sessão](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>O início de sessão ligado
 Se suportado para a aplicação, selecionar o modo ligado do SSO permite-lhe introduzir o URL que pretende que o painel de acesso do Azure AD ou o Office 365 para redirecionar para quando os utilizadores clicarem nesta aplicação. Para mais informações sobre ligado SSO (anteriormente conhecida como "SSO existente"), consulte [como único início de sessão com o trabalho do Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![O início de sessão ligado][5]
+![O início de sessão ligado](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Comentários
 
 Esperamos, como a utilização a melhor experiência do Azure AD. Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Iremos estiver entusiasmados sobre como criar conteúdo novo frio diariamente e utilize a orientações sobre a forma e definir o que devemos criar a seguir.
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

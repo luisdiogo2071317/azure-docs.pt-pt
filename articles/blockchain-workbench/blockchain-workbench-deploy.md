@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
 
@@ -254,4 +254,7 @@ Depois de ter sido implementado o Blockchain Workbench do Azure, o próximo pass
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que tem o Azure Blockchain Workbench implementada, o passo seguinte consiste em [gerir utilizadores no Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+Neste artigo procedimentos, implementou Azure Blockchain Workbench. Para saber como criar uma aplicação blockchain, avance para o seguinte artigo de procedimentos.
+
+> [!div class="nextstepaction"]
+> [Criar uma aplicação de blockchain no Azure Blockchain Workbench](blockchain-workbench-create-app.md)

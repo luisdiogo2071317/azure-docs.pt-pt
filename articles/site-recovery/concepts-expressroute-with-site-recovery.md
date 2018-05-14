@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: ffdceeba829cc77d506236274ec1d1cc160eb525
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 7cc4c84ebae7ade4169f8d85a2d5cc11f1df6f87
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>ExpressRoute do Azure com o Azure Site Recovery
 
@@ -46,11 +46,11 @@ O cenário combinado que é representado no diagrama seguinte: ![no local-para o
 
 O Azure Site Recovery permite a recuperação de desastre do [máquinas virtuais do Azure](azure-to-azure-architecture.md). Dependendo se o seu Azure virtual máquinas utilize [Azure geridos discos](../virtual-machines/windows/managed-disks-overview.md), são enviados dados de replicação para uma conta de armazenamento do Azure ou a réplica gerido disco no destino região do Azure. Embora os pontos finais de replicação são públicos, tráfego de replicação para a replicação de VM do Azure, por predefinição, não atravessar da Internet, independentemente da que região do Azure a rede virtual de origem existe. Pode substituir a rota de sistema predefinida do Azure para o prefixo do endereço 0.0.0.0/0 com um [rotas personalizadas](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e divert tráfego da VM para uma aplicação de virtual de rede no local (NVA), mas esta configuração não é recomendada para a recuperação de Site replicação. Se estiver a utilizar rotas personalizadas, deve [criar um ponto final de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) no seu virtual de rede para "Armazenamento", para que o tráfego de replicação deixam o limite do Azure.
 
-Recuperação de desastres da VM do Azure, desde que os dados de replicação deixam o limite do Azure, ExpressRoute não é necessário para replicação. Depois de máquinas virtuais efetuar a ativação pós-falha para o destino da região do Azure, pode aceder aos mesmos utilizando [peering privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Para a recuperação de desastre de VM do Azure, por predefinição, o ExpressRoute não é necessário para a replicação. Depois de máquinas virtuais efetuar a ativação pós-falha para o destino da região do Azure, pode aceder aos mesmos utilizando [peering privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
 Se já estiver a utilizar o ExpressRoute para ligar a partir do seu centro de dados no local para as VMs do Azure na região de origem, pode planear para voltar a estabelecer conectividade do ExpressRoute na região de destino de ativação pós-falha. Pode utilizar o mesmo circuito de ExpressRoute para ligar à região de destino através de uma nova ligação de rede virtual ou utilizar uma ligação para recuperação após desastre e separado circuito do ExpressRoute. Os cenários possíveis diferentes descritos [aqui](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
 
-Pode replicar máquinas virtuais do Azure a qualquer região do Azure dentro do mesmo cluster geográfico conforme detalhado [aqui](../site-recovery/azure-to-azure-support-matrix.md#region-support). Se a região do Azure de destino que escolheu não estiver na mesma região geopolítica como origem, poderá ter de ativar o ExpressRoute Premium. Para mais detalhes, consulte [localizações do ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [ExpressRoute preços](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+Pode replicar máquinas virtuais do Azure a qualquer região do Azure dentro do mesmo cluster geográfico conforme detalhado [aqui](../site-recovery/azure-to-azure-support-matrix.md#region-support). Se a região do Azure de destino que escolheu não estiver na mesma região geopolítica como origem, poderá ter de ativar o ExpressRoute Premium. Para mais detalhes, consulte [localizações do ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [ExpressRoute preços](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).

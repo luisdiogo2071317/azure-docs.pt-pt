@@ -6,84 +6,49 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 5/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 15c916d2374d941c15190ef3bde3bfe1f60d27b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.reviewer: hectorl
+ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Ativar a cópia de segurança para a pilha do Azure com o PowerShell
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Ative o serviço de cópia de segurança de infraestrutura com o Windows PowerShell para que a pilha do Azure pode ser restaurada se ocorrer uma falha. Pode aceder os cmdlets do PowerShell para ativar a cópia de segurança, iniciar a cópia de segurança e obter informações de cópia de segurança através do ponto final de gestão de operador.
+Ativar o serviço de cópia de segurança de infraestrutura com o Windows PowerShell para efetuar cópias de segurança periódicas de:
+ - Certificado de raiz e do serviço de identidade interna
+ - Planos de utilizador, ofertas, subscrições
+ - Segredos do Keyvault
+ - Funções de RBAC de utilizador e políticas
 
-## <a name="download-azure-stack-tools"></a>Descarregar as ferramentas de pilha do Azure
+Pode aceder os cmdlets do PowerShell para ativar a cópia de segurança, iniciar a cópia de segurança e obter informações de cópia de segurança através do ponto final de gestão de operador.
 
-Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure. Consulte [começar a trabalhar com o PowerShell na pilha de Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+## <a name="prepare-powershell-environment"></a>Preparar o ambiente de PowerShell
 
-##  <a name="load-the-connect-and-infrastructure-modules"></a>Carregar os módulos de ligar e a infraestrutura
+Para obter instruções sobre como configurar o ambiente de PowerShell, consulte [instale o PowerShell para Azure pilha ](azure-stack-powershell-install.md).
 
-Abra o Windows PowerShell com uma linha de comandos elevada e execute os seguintes comandos:
-
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-    
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
-   ```
-
-##  <a name="setup-rm-environment-and-log-into-the-operator-management-endpoint"></a>Configurar o ambiente Rm e de registo para o ponto final de gestão de operador
-
-Na mesma sessão do PowerShell, edite o seguinte script do PowerShell, adicionando as variáveis para o seu ambiente. Execute o script atualizado para configurar o ambiente de RM e inicie sessão no ponto final de gestão de operador.
-
-| Variável    | Descrição |
-|---          |---          |
-| $TenantName | Nome de inquilino do Azure Active Directory. |
-| Nome da conta do operador        | O nome de conta de operador de pilha do Azure. |
-| Ponto final do Gestor de recursos do Azure | URL para o Gestor de recursos do Azure. |
-
-   ```powershell
-   # Specify Azure Active Directory tenant name
-    $TenantName = "contoso.onmicrosoft.com"
-    
-    # Set the module repository and the execution policy
-    Set-PSRepository `
-      -Name "PSGallery" `
-      -InstallationPolicy Trusted
-    
-    Set-ExecutionPolicy RemoteSigned `
-      -force
-    
-    # Configure the Azure Stack operator’s PowerShell environment.
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
-    
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience "https://graph.windows.net/"
-    
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName $TenantName `
-      -EnvironmentName AzureStackAdmin
-    
-    # Sign-in to the operator's console.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
-    
-   ```
 ## <a name="generate-a-new-encryption-key"></a>Gerar uma nova chave de encriptação
 
+Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure.
+ - Consulte [começar a trabalhar com o PowerShell na pilha de Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+ - Consulte [ferramentas Transferir pilha do Azure a partir do GitHub](azure-stack-powershell-download.md)
+
+Abra o Windows PowerShell com uma linha de comandos elevada e execute os seguintes comandos:
+   
+   ```powershell
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+   ```
+   
 Na mesma sessão do PowerShell, execute os seguintes comandos:
 
    ```powershell
@@ -136,4 +101,4 @@ O resultado deverá ser semelhante a saída JSON seguinte:
 ## <a name="next-steps"></a>Passos Seguintes
 
  - Saiba como executar uma cópia de segurança, consulte [cópia de segurança do Azure pilha](azure-stack-backup-back-up-azure-stack.md ).  
-- Saiba como verificar que executou a cópia de segurança, consulte [Confirmar cópia de segurança foi concluída no portal de administração](azure-stack-backup-back-up-azure-stack.md ).
+ - Saiba como verificar que executou a cópia de segurança, consulte [Confirmar cópia de segurança foi concluída no portal de administração](azure-stack-backup-back-up-azure-stack.md ).

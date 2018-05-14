@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: 7783d08283c2ff3fd277e9c8604c9d4cff242510
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74af858c433db2a178d5fa346315e3f8a2dbd4f2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações com suporte para afirmações no Proxy de aplicações
 [Aplicações com suporte para afirmações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) efetuar um redirecionamento para serviço de Token segurança (STS). O STS os pedidos de credenciais do utilizador in exchange for um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de ativar o Proxy da aplicação trabalhar com estes redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações com suporte para afirmações. 
@@ -28,7 +28,7 @@ Certifique-se de que o STS que a aplicação com suporte para afirmações redir
 
 ## <a name="publish-your-application"></a>Publicar a aplicação
 
-1. Publicar a aplicação, de acordo com as instruções descritas em [publicar aplicações com o Proxy de aplicações](application-proxy-publish-azure-portal.md).
+1. Publicar a aplicação, de acordo com as instruções descritas em [publicar aplicações com o Proxy de aplicações](manage-apps/application-proxy-publish-azure-portal.md).
 2. Navegue para a página da aplicação no portal e selecione **de sessão único-**.
 3. Se tiver escolhido **do Azure Active Directory** como seu **método de pré-autenticação**, selecione **do Azure AD-início de sessão único desativada** como o **método de autenticação interno**. Se tiver escolhido **Passthrough** como seu **método de pré-autenticação**, não precisa de alterar nada.
 
@@ -38,7 +38,7 @@ Pode configurar o AD FS para aplicações com suporte para afirmações de uma d
 
 ### <a name="option-1-custom-domains"></a>Opção 1: Domínios personalizados
 
-Se todos os URLs internos para as suas aplicações são completamente qualificado (FQDN) de nomes de domínio, em seguida, pode configurar [domínios personalizados](active-directory-application-proxy-custom-domains.md) para as suas aplicações. Utilize os domínios personalizados para criar URLs externos que são os mesmos que os URLs internos. Quando os URLs externos corresponder ao seu URLs internos, em seguida, de redirecionamentos de STS funcionam se os seus utilizadores estão no local ou remoto. 
+Se todos os URLs internos para as suas aplicações são completamente qualificado (FQDN) de nomes de domínio, em seguida, pode configurar [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) para as suas aplicações. Utilize os domínios personalizados para criar URLs externos que são os mesmos que os URLs internos. Quando os URLs externos corresponder ao seu URLs internos, em seguida, de redirecionamentos de STS funcionam se os seus utilizadores estão no local ou remoto. 
 
 ### <a name="option-2-ws-federation"></a>Opção 2: WS-Federation
 
@@ -53,7 +53,7 @@ Se todos os URLs internos para as suas aplicações são completamente qualifica
    ![Adicionar um ponto final - defina o valor do URL fidedigna - captura de ecrã](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Ativar o início de sessão único em](application-proxy-sso-overview.md) para aplicações que não suporte para afirmações
+* [Ativar o início de sessão único em](manage-apps/application-proxy-single-sign-on.md) para aplicações que não suporte para afirmações
 * [Permitir que as aplicações de cliente nativo interagir com aplicações de proxy](active-directory-application-proxy-native-client.md)
 
 

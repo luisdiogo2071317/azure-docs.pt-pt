@@ -15,11 +15,11 @@ ms.date: 09/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5d61ad93ad5e3ab7fdf83c1cef2fe6770089112f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74c99351656a685077bf4ea7714e6804274d396c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD
 
@@ -162,7 +162,7 @@ Para configurar o KCD, repita os passos seguintes para cada máquina de conector
 
 Agora que ativou a SharePoint para Kerberos e KCD configurado, está pronto para publicar o farm do SharePoint para acesso remoto através do Proxy de aplicações do Azure AD.
 
-1. Publica o site do SharePoint com as seguintes definições. Para obter instruções passo a passo, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). 
+1. Publica o site do SharePoint com as seguintes definições. Para obter instruções passo a passo, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md). 
    - **URL interno**: o URL do site do SharePoint internamente, tal como **https://SharePoint/**. Neste exemplo, certifique-se de que utiliza **https**
    - **Método de pré-autenticação**: do Azure Active Directory
    - **Traduzir URL nos cabeçalhos**: não
@@ -204,6 +204,6 @@ Agora pode aceder ao site de SharePoint externamente através do Proxy de aplica
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md)
+- [Trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](manage-apps/application-proxy-configure-custom-domain.md)
 - [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)
 

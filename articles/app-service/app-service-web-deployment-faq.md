@@ -1,11 +1,11 @@
 ---
-title: "Perguntas mais frequentes de implementação para aplicações web do Azure | Microsoft Docs"
-description: "Obtenha respostas às perguntas mais frequentes sobre a implementação para a funcionalidade Web Apps do App Service do Azure."
+title: Perguntas mais frequentes de implementação para aplicações web do Azure | Microsoft Docs
+description: Obtenha respostas às perguntas mais frequentes sobre a implementação para a funcionalidade Web Apps do App Service do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 318a236652229c4e093ca33886ac1831686aed73
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas mais frequentes de implementação para aplicações Web no Azure
 
@@ -91,7 +91,7 @@ Tem duas opções para utilizar a implementação contínua com o Visual Studio 
 *   Utilize um projeto de Git. Liga através do serviço de aplicações utilizando as opções de implementação para esse repositório.
 *   Utilize um projeto de equipa Foundation versão controlo (TFVC). Implemente utilizando o agente de compilação para o App Service.
 
-Implementação contínua do código para ambos os estas opções depende em fluxos de trabalho de programador existentes e procedimentos de verificação. Para obter mais informações, consulte estes artigos: 
+Implementação contínua do código para ambos os estas opções depende em fluxos de trabalho de programador existentes e procedimentos de verificação. Para obter mais informações, veja estes artigos: 
 
 *   [Implementar a implementação contínua da aplicação para um Web site do Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Configurar uma conta do Visual Studio Team Services, pelo que pode implementar uma aplicação web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

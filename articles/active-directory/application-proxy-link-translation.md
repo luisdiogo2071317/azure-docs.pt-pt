@@ -15,17 +15,17 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e2057241065ecefbbcd398ddf482961359f51de7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a96296e8918c658f1dc3ebeadf01bd064e80716a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar codificado ligações para aplicações publicadas com o Proxy de aplicações do Azure AD
 
 Proxy de aplicações do Azure AD disponibiliza as suas aplicações no local para os utilizadores que são remotos, ou os seus próprios dispositivos. No entanto, algumas aplicações foram desenvolvidas com ligações locais incorporadas no HTML. Estas ligações não funcionam corretamente quando a aplicação é utilizada remotamente. Quando tiver várias aplicações no local a apontar para si, os utilizadores esperam que as ligações para manter a funcionar quando não estiverem no escritório. 
 
-É a melhor forma para se certificar de que as ligações funcionam da mesma dentro e fora da rede empresarial para configurar os URLs externos das suas aplicações para ser o mesmo que os URLs internos. Utilize [domínios personalizados](active-directory-application-proxy-custom-domains.md) para configurar os URLs externos para ter o seu nome de domínio empresarial em vez do domínio de proxy de aplicações predefinido.
+É a melhor forma para se certificar de que as ligações funcionam da mesma dentro e fora da rede empresarial para configurar os URLs externos das suas aplicações para ser o mesmo que os URLs internos. Utilize [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) para configurar os URLs externos para ter o seu nome de domínio empresarial em vez do domínio de proxy de aplicações predefinido.
 
 
 Se não conseguir utilizar domínios personalizados no seu inquilino, existem várias outras opções para fornecer esta funcionalidade. Todos estes também são compatíveis com domínios personalizados e outros, pelo que pode configurar domínios personalizados e outras soluções se for necessário. 
@@ -40,7 +40,7 @@ Estas três funcionalidades manter as ligações, independentemente de onde os u
 
  
 > [!NOTE]
-> A última opção é apenas para inquilinos que, para que pelo motivo, não é possível utilizar domínios personalizados com os mesmos URLs internos e externos para as suas aplicações. Antes de ativar esta funcionalidade, consulte o artigo se [domínios personalizados no Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md) pode resolver o problema. 
+> A última opção é apenas para inquilinos que, para que pelo motivo, não é possível utilizar domínios personalizados com os mesmos URLs internos e externos para as suas aplicações. Antes de ativar esta funcionalidade, consulte o artigo se [domínios personalizados no Proxy de aplicações do Azure AD](manage-apps/application-proxy-configure-custom-domain.md) pode resolver o problema. 
 
 >Ou, se a aplicação tem de configurar com ligação tradução é SharePoint, consulte [configurar mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para outra abordagem para ligações de mapeamento. 
 
@@ -118,6 +118,6 @@ Agora, quando os utilizadores acederem a esta aplicação, o proxy irá analisar
 Queremos a sua ajudá-lo para tornar esta funcionalidade funciona para todas as suas aplicações. Iremos procurar mais de 30 tags HTML e CSS. Se tiver um exemplo de ligações geradas que não estão a ser traduzidos, envie um fragmento de código para [comentários de Proxy de aplicação](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Utilizar domínios personalizados com o Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md) para ter o mesmo URL interno e externo
+[Utilizar domínios personalizados com o Proxy de aplicações do Azure AD](manage-apps/application-proxy-configure-custom-domain.md) para ter o mesmo URL interno e externo
 
 [Configurar os mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-los para uma auditoria iniciar sessão na sua conta do storage do Azure. Auditoria também:
@@ -73,11 +73,11 @@ A secção seguinte descreve a configuração de auditoria no portal do Azure.
 
     ![Painel de navegação][3]
 5. Para abrir o **armazenamento de registos de auditoria** painel, selecione **detalhes armazenamento**. Selecione a conta de armazenamento do Azure onde serão guardados os registos e, em seguida, selecione o período de retenção. Os registos antigos serão eliminados. Em seguida, clique em **OK**.
-   >[!TIP]
-   >Para tirar o máximo partido os modelos de relatórios de auditoria, utilize a mesma conta de armazenamento para todas as bases de dados auditadas.
+    >[!TIP]
+    >Para tirar o máximo partido os modelos de relatórios de auditoria, utilize a mesma conta de armazenamento para todas as bases de dados auditadas.
 
     <a id="storage-screenshot"></a> ![Painel de navegação][4]
-6. Se pretender personalizar os eventos auditados, pode fazê-lo através do PowerShell ou a API REST.
+6. Se pretender personalizar os eventos auditados, isto pode ser feito através de [cmdlets do PowerShell](#subheading-7) ou [REST API](#subheading-9).
 7. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar mensagens de correio eletrónico para receber alertas de segurança. Quando utilizar a deteção de ameaças, recebe alertas proativa em atividades de base de dados anómalas, que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [como começar a deteção de ameaças](sql-database-threat-detection-get-started.md).
 8. Clique em **Guardar**.
 
@@ -149,8 +149,8 @@ Com georreplicação bases de dados, quando ativar a auditoria na base de dados 
    * Auditoria de blob tem de estar ativada no *base de dados primária próprio*, não o servidor.
    * Depois de ativar a auditoria de blob na base de dados primária, também irá tornar-se ativada na base de dados secundária.
 
-     >[!IMPORTANT]
-     >Com a auditoria a nível de base de dados, as definições de armazenamento para a base de dados secundária será idênticas de base de dados primária, fazendo com que o tráfego entre regionais. Recomendamos que ativar a auditoria apenas ao nível do servidor e deixe o nível de base de dados de auditoria desativada para todas as bases de dados.
+    >[!IMPORTANT]
+    >Com a auditoria a nível de base de dados, as definições de armazenamento para a base de dados secundária será idênticas de base de dados primária, fazendo com que o tráfego entre regionais. Recomendamos que ativar a auditoria apenas ao nível do servidor e deixe o nível de base de dados de auditoria desativada para todas as bases de dados.
 <br>
 
 ### <a id="subheading-6">Regeneração da chave de armazenamento</a>
@@ -169,33 +169,41 @@ Na produção, que é provável que atualize periodicamente as chaves de armazen
 
 * Para obter detalhes sobre o registo de formato de hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte o [referência de formatos de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-   > [!IMPORTANT]
-   > Auditoria de base de dados SQL do Azure armazena 4000 carateres dos dados para campos de caráter no registo de auditoria. Quando o **instrução** ou **data_sensitivity_information** valores devolvidos por uma ação auditável contém mais de 4000 carateres, quaisquer dados para além dos primeiro 4000 carateres serão  **truncados e não terem sido auditadas**.
+    > [!IMPORTANT]
+    > Auditoria de base de dados SQL do Azure armazena 4000 carateres dos dados para campos de caráter no registo de auditoria. Quando o **instrução** ou **data_sensitivity_information** valores devolvidos por uma ação auditável contém mais de 4000 carateres, quaisquer dados para além dos primeiro 4000 carateres serão  **truncados e não terem sido auditadas**.
 
-* Os registos de auditoria são escritos **os Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure.
-   * **Armazenamento Premium** está atualmente **não suportado** pelos Blobs de acréscimo.
-   * **Armazenamento na VNet** está atualmente **não suportado**.
+* Os registos de auditoria são escritos **os Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure:
+    * **Armazenamento Premium** está atualmente **não suportado** pelos Blobs de acréscimo.
+    * **Armazenamento na VNet** está atualmente **não suportado**.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
+* A política de auditoria predefinida inclui todas as ações e o seguinte conjunto de grupos de ação, o que irá auditar todas as consultas e procedimentos armazenados, executados em relação a base de dados, bem como os inícios de sessão com êxito ou falhados:
 
-* **Cmdlets do PowerShell**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    Pode configurar a auditoria para diferentes tipos de ações e grupos de ação com o PowerShell, conforme descrito no [auditoria de base de dados de SQL gerir com o Azure PowerShell](#subheading-7) secção.
 
-   Para obter um exemplo de script, consulte [configurar a auditoria e deteção de ameaças através do PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a id="subheading-7"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>Gerir a auditoria de SQL da base de dados utilizando a REST API
+**Cmdlets do PowerShell**:
 
-* **API de REST - auditoria de Blob**:
+* [Criar ou atualizar o Blob de base de dados (Set-AzureRMSqlDatabaseAuditing) de política de auditoria][105]
+* [Criar ou atualizar o Blob de servidor (Set-AzureRMSqlServerAuditing) de política de auditoria][106]
+* [Obter política de auditoria de base de dados (Get-AzureRMSqlDatabaseAuditing)][101]
+* [Obter política de auditoria de Blob de servidor (Get-AzureRMSqlServerAuditing)][102]
 
-   * [Criar ou atualizar a política de auditoria de Blob de base de dados](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [Criar ou atualizar a política de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [Obter a política de auditoria de Blob de base de dados](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [Obter a política de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [Obter o resultado da operação de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+Para obter um exemplo de script, consulte [configurar a auditoria e deteção de ameaças através do PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a id="subheading-9"></a>Gerir a auditoria de SQL da base de dados utilizando a REST API
+
+**API de REST - auditoria de Blob**:
+
+* [Criar ou atualizar a política de auditoria de Blob de base de dados](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Criar ou atualizar a política de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Obter a política de auditoria de Blob de base de dados](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Obter a política de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Obter o resultado da operação de auditoria de Blob de servidor](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +212,9 @@ Na produção, que é provável que atualize periodicamente as chaves de armazen
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

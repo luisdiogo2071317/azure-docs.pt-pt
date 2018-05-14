@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço da Azure Search
 Máximo limita-se no armazenamento, as cargas de trabalho e quantidades de índices, documentos, e outros objetos dependem se [aprovisionar da Azure Search](search-create-service-portal.md) em **livres**, **básico**, ou **Padrão** escalões de preço.
@@ -87,12 +87,13 @@ Para manter o tamanho do documento para baixo, lembre-se excluir os dados não c
 
 ## <a name="indexer-limits"></a>Limites do indexador
 
-Um limite de aumento de 15 índices, indexadores e origens de dados, os serviços básicos criados após o enlace tardio 2017 ter.
+Serviços básicos criados depois de enlace tardio 2017 tem um limite de aumento de 15 índices, origens de dados, skillsets e indexadores.
 
 | Recurso | Livre&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |
+| Skillsets máximo |3 |5 ou 15 |50 |200 |200 |N/A |
 | Carga máxima de indexação por invocação |10 000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/A |
 | Tempo de execução máximo | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |
 | Indexador de blob: o tamanho máximo de blob, MB |16 |16 |128 |256 |256 |N/A  |

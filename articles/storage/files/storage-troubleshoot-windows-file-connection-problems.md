@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 78170df99e9ced304bebd9112d79b5c7e402f218
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -51,15 +51,15 @@ Ligar a partir de um cliente que suporta um dos seguintes:
 
 Erro de sistema 53 ou erro de sistema 67 pode ocorrer se a porta 445 comunicação saída para um centro de dados de ficheiros do Azure está bloqueada. Para ver o resumo de ISPs que permitem ou não permitir acesso de porta 445, aceda à [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Para saber se é este o motivo por trás de mensagem de "Erro de sistema 53", pode utilizar Portqry para consultar o ponto final TCP:445. Se o ponto final TCP:445 é apresentado como filtrada, é bloqueada a porta TCP. Eis um exemplo de consulta:
+Para saber se é este o motivo por trás de mensagem de "Erro de sistema 53", pode utilizar Portqry para consultar o ponto final TCP:445. Se o ponto final TCP:445 é apresentado como filtrada, é bloqueada a porta TCP. Segue-se uma consulta de exemplo:
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
-Se a porta TCP 445 está bloqueada por uma regra ao longo do caminho de rede, verá a seguinte saída:
+Se a porta TCP 445 estiver bloqueada por uma regra no caminho de rede, verá a seguinte saída:
 
   `TCP port 445 (microsoft-ds service): FILTERED`
 
-Para obter mais informações sobre como utilizar Portqry, consulte [descrição do utilitário de linha de comandos a Portqry.exe](https://support.microsoft.com/help/310099).
+Para obter mais informações sobre como utilizar o Portqry, veja [Descrição do utilitário de linha de comandos Portqry.exe](https://support.microsoft.com/help/310099).
 
 ### <a name="solution-for-cause-2"></a>Solução para causa 2
 
@@ -186,10 +186,10 @@ Para copiar um ficheiro através da rede, tem de desencriptá-lo primeiro. Utili
 
 - Utilize o **copiar /d** comando. Permite que os ficheiros encriptados seja guardada como ficheiros desencriptados no destino.
 - Defina a seguinte chave de registo:
-  - Path = HKLM\Software\Policies\Microsoft\Windows\System
+  - Caminho = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo de valor = DWORD
   - Name = CopyFileAllowDecryptedRemoteDestination
-  - Value = 1
+  - Valor = 1
 
 Lembre-se de que a chave de registo a definição afeta todas as operações de cópia que são efetuadas para partilhas de rede.
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f899e3f45174aef8274810e184cc374bcca2c50
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -79,8 +79,8 @@ Se tiver aplicações na sua rede privada que precisam de ser acedido por utiliz
 | Guia do artigo |  |
 |:---:| --- |
 | Descrição geral do Proxy de aplicações do Azure AD e como funciona |[Fornecer acesso remoto seguro a aplicações no local](manage-apps/application-proxy.md) |
-| Tutoriais sobre como configurar o Proxy de aplicações e como publicar a sua primeira aplicação |[Como configurar o Proxy de aplicações do Azure AD](active-directory-application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector do Proxy de aplicações](active-directory-application-proxy-silent-installation.md)<br /><br />[Como publicar aplicações através do Proxy de aplicação](application-proxy-publish-azure-portal.md)<br /><br />[Como utilizar o seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md) |
-| Como ativar o acesso de início de sessão e condicional único para aplicações publicadas com o Proxy da aplicação |[Single-sign-on com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Acesso condicional e Proxy de aplicações](application-proxy-enable-remote-access-sharepoint.md) |
+| Tutoriais sobre como configurar o Proxy de aplicações e como publicar a sua primeira aplicação |[Como configurar o Proxy de aplicações do Azure AD](manage-apps/application-proxy-enable.md)<br /><br />[Como instalar silenciosamente o conector do Proxy de aplicações](active-directory-application-proxy-silent-installation.md)<br /><br />[Como publicar aplicações através do Proxy de aplicação](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Como utilizar o seu próprio nome de domínio](manage-apps/application-proxy-configure-custom-domain.md) |
+| Como ativar o acesso de início de sessão e condicional único para aplicações publicadas com o Proxy da aplicação |[Single-sign-on com o Proxy da aplicação](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Acesso condicional e Proxy de aplicações](application-proxy-enable-remote-access-sharepoint.md) |
 | Documentação de orientação sobre como utilizar o Proxy de aplicações para os seguintes cenários |[Como suportar aplicações de cliente nativo](active-directory-application-proxy-native-client.md)<br /><br />[Como suportar aplicações com suporte para afirmações](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Como suportar as aplicações publicadas em redes separadas e localizações](active-directory-application-proxy-connectors-azure-portal.md) |
 | Guia de resolução de problemas do Proxy de aplicações |[Guia de resolução de problemas de Proxy de aplicações](active-directory-application-proxy-troubleshoot.md) |
 

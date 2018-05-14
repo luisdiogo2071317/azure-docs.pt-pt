@@ -5,16 +5,16 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6160e3e6f23bf4eabb33295fa19323c71c7ed18d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração B2B do Active Directory Azure perguntas mais frequentes
 
@@ -31,9 +31,6 @@ Sim. Para obter mais informações sobre como utilizar a funcionalidade de carre
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>Como personalizar o meu mensagens de e-mail de convite?
 Pode personalizar quase tudo sobre o processo de inviter utilizando o [B2B convite APIs](active-directory-b2b-api.md).
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>Um utilizador externo convidado pode deixar a organização após a ser convidou?
-O administrador da organização convidando pode eliminar um utilizador de convidado de colaboração B2B do respetivo diretório, mas o utilizador convidado não pode deixar o diretório da organização convidando por si mesmos. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Os utilizadores convidados podem repor o respetivo método de autenticação multifator?
 Sim. Os utilizadores convidados podem repor o método de autenticação multifator da mesma forma que os utilizadores regulares fazem.
@@ -99,9 +96,7 @@ Estamos constantemente está a escutar para os seus comentários para melhorar a
 Também Convidamo-lo para submeter as suas ideias e votar para futuras funcionalidades em [ideias de colaboração do B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Podemos enviar um convite que é automaticamente resgatado, para que o utilizador é apenas "pronto para ir"? Ou a do utilizador sempre tem de clicar para o URL de resgate?
-Convites para que são enviadas por um utilizador na organização convidando que também seja membro da organização do parceiro não necessitam de resgate pelo utilizador B2B.
-
-Recomendamos que convidar um utilizador da organização de parceiro para associar a organização convidando. [Adicione este utilizador à função de inviter do convidado na organização de recursos](active-directory-b2b-add-guest-to-role.md). Este utilizador pode convidar outros utilizadores na organização do parceiro com a início de sessão IU, scripts do PowerShell ou APIs. Em seguida, os utilizadores de colaboração do B2B da organização não são necessários para resgatar as respetivas convites.
+Um inviter pode convidar os outros utilizadores na organização do parceiro através da IU, scripts do PowerShell ou APIs. Em seguida, o inviter pode enviar utilizador convidado uma ligação direta para uma aplicação partilhada. Na maioria dos casos, há já não é necessário abrir o convite de correio eletrónico e clique num URL de resgate. Para obter mais informações, consulte [resgate de convite de colaboração do Azure Active Directory B2B](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Como funciona colaboração B2B quando o parceiro convidado através de Federação para adicionar as seus próprios autenticação no local?
 Se o parceiro tem um inquilino do Azure AD é federado para a infraestrutura de autenticação no local, no local-início de sessão único (SSO) é automaticamente alcançado. Se o parceiro não tiver um inquilino do Azure AD, é criada uma conta do Azure AD para os novos utilizadores. 

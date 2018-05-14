@@ -15,11 +15,11 @@ ms.date: 10/12/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 14e2b82b5c32e1b36bf730b7b834c9b8ad124629
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -33,7 +33,7 @@ Os conectores são agentes simples que manter-se no local e o facilitam a ligaç
 
 Para implementar o Proxy de aplicações com êxito, tem de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instale o conector no Windows Server 2012 R2 ou numa máquina 2016. O conector tem de conseguir comunicar com o serviço de Proxy de aplicações, bem como as aplicações no local que publicar. 
 
-Para obter mais informações sobre os requisitos de rede para o servidor do conector, consulte [começar com o Proxy da aplicação e instale um conector](active-directory-application-proxy-enable.md).
+Para obter mais informações sobre os requisitos de rede para o servidor do conector, consulte [começar com o Proxy da aplicação e instale um conector](manage-apps/application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Manutenção
 Os conectores e o serviço asseguramos todas as tarefas de elevada disponibilidade. Podem ser adicionados ou removidos dinamicamente. Sempre que um novo pedido chega é encaminhado para um dos conectores que se encontra disponível. Se um conector temporariamente não estiver disponível, não responder a este tráfego.
@@ -50,7 +50,7 @@ Não tem de eliminar manualmente os conectores que são utilizados. Quando um co
 
 ## <a name="automatic-updates"></a>Atualizações automáticas
 
-O Azure AD fornece as atualizações automáticas para todos os conectores que implementar. O Atualizador de conector do Proxy de aplicação está em execução, desde que os conectores atualizar automaticamente. Se não vir o serviço Atualizador do conector no seu servidor, terá de [reinstalar o conector](active-directory-application-proxy-enable.md) para obter todas as atualizações. 
+O Azure AD fornece as atualizações automáticas para todos os conectores que implementar. O Atualizador de conector do Proxy de aplicação está em execução, desde que os conectores atualizar automaticamente. Se não vir o serviço Atualizador do conector no seu servidor, terá de [reinstalar o conector](manage-apps/application-proxy-enable.md) para obter todas as atualizações. 
 
 Se não pretender aguardar por uma atualização automática fique para o conector, pode efetuar uma atualização manual. Vá para o [página de transferência do conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) no servidor onde o conector está localizado e selecione **transferir**. Este processo arranca uma atualização para o conector local. 
 
@@ -123,7 +123,7 @@ Os conectores também podem ser associados a domínios ou florestas que possui u
 
 Normalmente, a implementação do conector é simples e não requer nenhuma configuração especial. No entanto, existem algumas condições exclusivas que devem ser consideradas:
 
-* As organizações que limitam o tráfego de saída tem [abrir as portas necessárias](active-directory-application-proxy-enable.md#open-your-ports).
+* As organizações que limitam o tráfego de saída tem [abrir as portas necessárias](manage-apps/application-proxy-enable.md#open-your-ports).
 * Poderão ser necessário máquinas compatíveis com FIPS para alterar as respetivas configurações para permitir que os processos de conector gerar e armazenar um certificado.
 * As organizações que bloqueie o respetivo ambiente com base nos processos que emitem pedidos de rede tem de certificar-se de que ambos os serviços de conector estão ativados para aceder a todas as portas necessárias e IPs.
 * Em alguns casos, os proxies de reencaminhar saídas podem interromper a autenticação de certificado bidirecional e fazer com que a comunicação a falhar.

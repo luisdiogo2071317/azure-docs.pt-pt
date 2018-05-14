@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ebc4de2b3a01138a8b48cc637dcab5fc67a68841
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações da empresa no portal do Azure
 Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir o aprovisionamento da conta de utilizador automáticas e anular o aprovisionamento de aplicações que suportem-lo, particularmente as que foram adicionados a categoria do "emdestaque"[ Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento da conta de utilizador automáticas e como funciona, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -27,13 +27,13 @@ Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com)
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar as suas aplicações no portal
 Todas as aplicações que estão configuradas para início de sessão num diretório, por um administrador do diretório a utilizar o [Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), podem ser vistos e geridos no [portal do Azure](https://portal.azure.com). As aplicações podem ser encontradas no **todos os serviços** &gt; **aplicações empresariais** secção do portal. Aplicações da empresa são aplicações que estão implementadas e utilizadas dentro da sua organização.
 
-![Painel de aplicações da empresa][0]
+![Painel de aplicações da empresa](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 
 Selecionar o **todas as aplicações** ligação no lado esquerdo mostra uma lista de todas as aplicações que tenham sido configurados, incluindo aplicações que tinham sido adicionadas a partir da galeria. Selecionar uma aplicação carrega o painel de recursos para essa aplicação, onde podem ser visualizados relatórios para essa aplicação e uma variedade de definições pode ser gerida.
 
 Definições de aprovisionamento da conta de utilizador pode ser gerida selecionando **aprovisionamento** à esquerda.
 
-![Painel de recursos de aplicação][1]
+![Painel de recursos de aplicação](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modos de aprovisionamento
 O **aprovisionamento** painel começa com um **modo** menu, que mostra os modos de aprovisionamento são suportados para uma aplicação empresarial e permite-lhes para ser configurado. As opções disponíveis incluem:
@@ -54,7 +54,7 @@ Esta secção é onde os administradores podem ver e editar o fluxo de atributos
 
 Não há um conjunto de mapeamentos entre objetos de utilizador do Azure AD e objetos de utilizador de cada aplicação SaaS pré-configurada. Algumas aplicações, gerir outros tipos de objetos, tais como grupos ou contactos. Selecionar uma destes mapeamentos na tabela mostra o editor de mapeamento para a direita, onde podem ser visualizadas e personalizados.
 
-![Painel de recursos de aplicação][2]
+![Painel de recursos de aplicação](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.png)
 
 Personalizações suportadas incluem:
 
@@ -80,7 +80,3 @@ São fornecidas hiperligações para a **relatório de atividade de aprovisionam
 
 Manter os comentários provenientes! Publique os seus comentários e ideias para melhoria no **Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  A equipa de engenharia é entusiasmada sobre como criar conteúdo novo frio todos os dias e utilizam a orientações sobre a forma e definem o que criar a seguir.
 
-
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
-[1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

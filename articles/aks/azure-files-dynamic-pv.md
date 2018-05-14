@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbd1b171185bf49ed5e633153938d3e7ba81387d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumes persistentes com ficheiros do Azure
 
@@ -66,10 +66,10 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Criar a classe de armazenamento com o [kubectl criar] [ kubectl-create] comando.
+Criar a classe de armazenamento com o [kubectl aplicar] [ kubectl-apply] comando.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl apply -f azure-file-sc.yaml
 ```
 
 ## <a name="create-persistent-volume-claim"></a>Criar afirmações volume persistente
@@ -94,10 +94,10 @@ spec:
       storage: 5Gi
 ```
 
-Criar a afirmação de volume persistente com o [kubectl criar] [ kubectl-create] comando.
+Criar a afirmação de volume persistente com o [kubectl aplicar] [ kubectl-apply] comando.
 
 ```azurecli-interactive
-kubectl create -f azure-file-pvc.yaml
+kubectl apply -f azure-file-pvc.yaml
 ```
 
 Depois de concluído, será criada a partilha de ficheiros. Um segredo Kubernetes também é criado que contém informações de ligação e as credenciais.
@@ -126,10 +126,10 @@ spec:
         claimName: azurefile
 ```
 
-Criar pod com o [kubectl criar] [ kubectl-create] comando.
+Criar pod com o [kubectl aplicar] [ kubectl-apply] comando.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-files.yaml
+kubectl apply -f azure-pvc-files.yaml
 ```
 
 Tem agora um pod em execução com o Azure disco montado no `/mnt/azure` diretório. Esta configuração pode ser vista quando inspecionar o pod através de `kubectl describe pod mypod`.
@@ -174,7 +174,7 @@ Saiba mais sobre os volumes de persistentes Kubernetes utilizando ficheiros do A
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/

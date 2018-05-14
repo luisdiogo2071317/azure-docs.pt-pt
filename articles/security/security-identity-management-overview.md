@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8e83eb161f487a73d5984425e2c24993006a08a5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral de segurança de gestão de identidade do Azure
 Microsoft identidades e acessos soluções ajuda da gestão de IT proteger o acesso a aplicações e recursos em todo o datacenter empresarial e para a nuvem, permitindo níveis adicionais de validação, tais como autenticação multifator e políticas de acesso condicional. Monitorização de atividade suspeita através de segurança avançada, auditoria e relatórios de alerta ajuda a mitigar potenciais problemas de segurança. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece início de sessão único a milhares de nuvem aplicações (SaaS) e acesso a aplicações web é executado no local.
@@ -64,9 +64,9 @@ Proxy de aplicações do Azure AD permite-lhe publicar aplicações no local, ta
 
 Saiba mais:
 
-* [Ativar o Proxy de aplicações do Azure AD](../active-directory/active-directory-application-proxy-enable.md)
+* [Ativar o Proxy de aplicações do Azure AD](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publicar aplicações através do Proxy de aplicações do Azure AD](../active-directory/active-directory-application-proxy-publish.md)
-* [Single-sign-on com o Proxy da aplicação](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
+* [Single-sign-on com o Proxy da aplicação](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Trabalhar com acesso condicional](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication

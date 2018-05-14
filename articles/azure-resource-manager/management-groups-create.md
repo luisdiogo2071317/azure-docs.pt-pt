@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1592e47509f2537bef9cbcefd3cf49618561edcc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gestão para a organização de recursos e de gestão
 Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Criar estes contentores para criar uma hierarquia eficaz e eficiente que pode ser utilizada com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure função](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md). 
@@ -34,7 +34,7 @@ Pode criar o grupo de gestão utilizando o portal, o PowerShell ou a CLI do Azur
 2. Selecione **todos os serviços** > **grupos de gestão**.
 3. Na página principal, selecione **grupo de gestão novo.** 
 
-    ![Criar Grupo](media/management-groups/create_main.png) 
+    ![Grupo principal](media/management-groups/main.png) 
 4.  Preencha o campo de ID do grupo de gestão. 
     - O **ID do grupo de gestão** é o identificador exclusivo do diretório que é utilizado para submeter os comandos neste grupo de gestão. Este identificador não é editável após a criação, que está a ser utilizada em todo o sistema do Azure para identificar este grupo. 
     - O campo de nome de apresentação é o nome que é apresentado no portal do Azure. Um nome a apresentar separado é um campo opcional ao criar a gestão de grupo e podem ser alteradas em qualquer altura.  

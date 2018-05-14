@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de agente do observador de rede para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-[Observador de rede do Azure](/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
+[Observador de rede do Azure](/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual (VM) do agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em VMs do Azure, tais como capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
 
-Este documento fornece detalhes sobre as plataformas suportadas e opções de implementação para a extensão de máquina virtual de agente do observador de rede do Linux. Instalação do agente não interromper, nem requer um reinício, da máquina virtual.
+Este artigo fornece detalhes sobre as plataformas suportadas e opções de implementação para a extensão de VM de agente do observador de rede do Linux. Instalação do agente não interromper, nem requer um reinício, da VM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente do observador de rede pode ser executada em relação a estas distribuições do Linux:
+A extensão de agente do observador de rede pode ser configurada para as distribuições de Linux seguintes:
 
 | Distribuição | Versão |
 |---|---|
@@ -46,15 +46,15 @@ A extensão de agente do observador de rede pode ser executada em relação a es
 | CentOS | 6.5 + e 7 |
 | CoreOS | 899.17.0+ |
 
-Tenha em atenção que CoreOS não é suportado neste momento.
+CoreOS não é suportada.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída algumas das funcionalidades do agente do observador de rede podem avaria ou ficar indisponíveis. Para obter mais detalhes, consulte o [documentação de observador de rede](/azure/network-watcher/).
+Algumas das funcionalidades do agente do observador de rede necessita que uma VM está ligada à Internet. Sem a capacidade para estabelecer ligações de saída, algumas das funcionalidades do agente do observador de rede poderão avaria ou ficar indisponíveis. Para obter mais informações sobre a funcionalidade de observador de rede que requer que o agente, consulte o[documentação de observador de rede](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente do observador de rede. A extensão não necessita de nem suporta quaisquer definições fornecido pelo utilizador neste momento e baseia-se na sua configuração predefinida.
+O JSON seguinte mostra o esquema para a extensão de agente do observador de rede. A extensão não necessita, ou suportar, quaisquer definições fornecido pelo utilizador. A extensão baseia-se na sua configuração predefinida.
 
 ```json
 {
@@ -85,32 +85,49 @@ O JSON seguinte mostra o esquema para a extensão de agente do observador de red
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo Azure Resource Manager para executar a extensão de agente do observador de rede durante uma implementação de modelo Azure Resource Manager.
+É possível implementar extensões de VM do Azure com um modelo Azure Resource Manager. Para implementar a extensão de agente do observador de rede, utilize o esquema json anterior no modelo.
 
-## <a name="azure-cli-deployment"></a>Implementação da CLI do Azure
+## <a name="azure-cli-10-deployment"></a>Implementação CLI 1.0 do Azure
 
-A CLI do Azure pode ser utilizada para implementar a extensão de VM de agente do observador de rede para uma máquina virtual existente.
+O exemplo seguinte implementa a extensão de VM de agente do observador de rede VM existente implementada através do modelo de implementação clássica:
 
 ```azurecli
-azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+azure config mode asm
+azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+```
+
+## <a name="azure-cli-20-deployment"></a>Implementação de 2.0 da CLI do Azure
+
+O exemplo seguinte implementa a extensão de VM de agente do observador de rede VM existente implementada através do Gestor de recursos:
+
+```azurecli
+az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name NetworkWatcherAgentLinux --publisher Microsoft.Azure.NetworkWatcher --version 1.4
 ```
 
 ## <a name="troubleshooting-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-É possível obter dados sobre o estado das implementações de extensão do portal do Azure e utilizando a CLI do Azure. Para ver o estado de implementação das extensões para uma determinada VM, execute o seguinte comando utilizando a CLI do Azure.
+Pode obter dados sobre o estado das implementações de extensão com o portal do Azure ou a CLI do Azure.
+
+O exemplo seguinte mostra o estado de implementação das extensões para uma VM implementada através do modelo de implementação clássica, utilizando a CLI do Azure 1.0:
 
 ```azurecli
-azure vm extension get myResourceGroup1 myVM1
+azure config mode asm
+azure vm extension get myVM1
 ```
-
 Resultado da execução de extensão é registado para ficheiros encontrados no diretório seguinte:
 
 `
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
+O exemplo seguinte mostra o estado de implementação da extensão NetworkWatcherAgentLinux para uma VM implementada através do Resource Manager, utilizando o 2.0 CLI do Azure:
+
+```azurecli
+az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
+```
+
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda, a qualquer altura neste artigo, pode consulte a documentação do observador de rede ou contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda, a qualquer altura neste artigo, pode consultar o [documentação de observador de rede](/azure/network-watcher/), ou contacte as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**. Para obter informações sobre a utilização do Azure suporta, consulte o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

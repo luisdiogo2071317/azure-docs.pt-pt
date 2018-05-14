@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -46,7 +46,7 @@ Numa implementação RDS, a função da Web de RD e a função de Gateway de RD 
 
 - Pontos finais de Web de RD e Gateway de RD tem de estar localizados no mesmo computador e com uma raiz comuns. Web de RD e Gateway de RD são publicados como uma única aplicação com o Proxy da aplicação para que pode ter uma experiência único início de sessão entre as duas aplicações.
 
-- Já deverá ter [implementado RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), e [ativado a Proxy da aplicação](active-directory-application-proxy-enable.md).
+- Já deverá ter [implementado RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), e [ativado a Proxy da aplicação](manage-apps/application-proxy-enable.md).
 
 - Este cenário pressupõe que os utilizadores finais aceda através do Internet Explorer em ambientes de trabalho Windows 7 ou Windows 10 que se ligam através da página Web de RD. Se precisar de suportar outros sistemas operativos, consulte [suporte para outras configurações de cliente](#support-for-other-client-configurations).
 
@@ -58,7 +58,7 @@ Depois de configurar RDS e Proxy de aplicações do Azure AD para o seu ambiente
 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicar o ponto final de anfitrião de RD
 
-1. [Publicar uma nova aplicação de Proxy de aplicações](application-proxy-publish-azure-portal.md) com os seguintes valores:
+1. [Publicar uma nova aplicação de Proxy de aplicações](manage-apps/application-proxy-publish-azure-portal.md) com os seguintes valores:
    - URL interno: https://\<rdhost\>empresa>.com /, onde \<rdhost\> é a raiz comuns que partilham Web de RD e Gateway de RD.
    - URL externo: Este campo é preenchido automaticamente com base no nome da aplicação, mas pode modificá-la. Os utilizadores que serão enviadas para este URL quando estes acedem ao RDS.
    - Método de pré-autenticação: Azure Active Directory

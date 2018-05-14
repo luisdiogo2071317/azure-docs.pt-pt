@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 
@@ -220,5 +220,6 @@ Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Market
 | ![Compatível com a NooBaa híbrida AWS S3 - edição Community](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa híbrida AWS S3 compatibe - edição Community](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Serviço de armazenamento compatível com a S3 que abranja pública e a capacidade de recursos no local. | NooBaa |
 | ![Firewall de aplicação PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall de aplicação PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Firewall de aplicação PT Deteta vulnerabilidades conhecidas & desconhecidas e impede ataques nas aplicações web. <b>Transfira ambos os itens do PT Marketplace.</b> | Tecnologias positivas |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise permite-lhe automatizar o ciclo de vida completo da sua infraestrutura de pilha do Azure. <b>Transfira ambos os itens do Puppet Marketplace.</b> | Puppet |
+| ![Recuperação rápida vação](media/azure-stack-marketplace-azure-items/quest.png) | [Core de uma recuperação rápida vação](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Recuperação rápida avançadas proteção de dados unifica replicação e recuperação numa solução fácil de utilizar software de cópia de segurança. | Software vação |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestão de infraestruturas de open source melhor na classe. | SUSE |
 | ![Ferramenta ZeroDown Software](media/azure-stack-marketplace-azure-items/zerodown.png) | [Ferramenta ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software ferramenta v7.1 - migrar + HA. | ZeroDown Software |

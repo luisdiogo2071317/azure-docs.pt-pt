@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/1/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este documento fornece os passos sobre como resolver problemas com a sincronização de objeto através da tarefa resolução de problemas.
@@ -34,6 +34,7 @@ Para executar a tarefa de resolução de problemas do assistente, execute os seg
 4.  Navegue para a página de tarefas adicionais, selecione de resolução de problemas e clique em seguinte.
 5.  Na página de resolução de problemas, clique em Iniciar para iniciar o menu de resolução de problemas no PowerShell.
 6.  No menu principal, selecione a resolver problemas de sincronização de objetos.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Os parâmetros de entrada de resolução de problemas
 Os seguintes parâmetros de entrada necessários para a tarefa de resolução de problemas:
@@ -47,6 +48,8 @@ A tarefa de resolução de problemas efetua as seguintes verificações:
 1.  Erro de correspondência de UPN de detetar se o objeto está sincronizado com o Azure Active Directory
 2.  Verifique se o objeto é filtrado devido a filtragem de domínio
 3.  Verifique se o objeto é filtrado devido à filtragem de UO
+4.  Verifique se a sincronização de objetos é bloqueada devido a uma caixa de correio ligada
+5. Verifique se o objeto é o grupo de distribuição dinâmica que não seja deveria ser sincronizados
 
 As restantes desta secção descreve os resultados específicos que são devolvidos pela tarefa. Em cada caso, a tarefa fornece uma análise seguida ações recomendadas para resolver o problema.
 
@@ -76,9 +79,17 @@ Objeto está fora do âmbito devido ao domínio não configurado. No exemplo aba
 Objeto está fora do âmbito como o domínio está em falta executar passos de perfis/executar. No exemplo abaixo, o objeto está dessincronizado do âmbito que o domínio a que pertence está em falta passos de execução para a importação completa perfil de execução.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>Objeto é filtrado devido à filtragem de UO
-O objecto está dessincronizado âmbito devido à configuração de filtragem de UO. No exemplo abaixo, o objeto pertence a UO = NoSync, DC = bvtadwbackdc, DC = com.  Essa UO não está incluído no âmbito da sincronização.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>Objeto é filtrado devido à filtragem de UO
+O objecto está dessincronizado âmbito devido à configuração de filtragem de UO. No exemplo abaixo, o objeto pertence a UO = NoSync, DC = bvtadwbackdc, DC = com.  Essa UO não está incluído no âmbito da sincronização.</br>
+
+![UO](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Problema de caixa de correio ligado
+Uma caixa de correio ligada deve para ser associado com uma conta de principal externa localizada noutra floresta conta fidedigna. Se não houver nenhuma conta deste género externa principal, em seguida, o Azure AD Connect não irá sincronizar o utilizador conta corresponde a caixa de correio ligada na floresta do Exchange para o inquilino do Azure AD.</br>
+![Caixa de correio ligada](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Problema de grupo dinâmico de distribuição
+Devido a várias diferenças entre no local do Active Directory e do Azure Active Directory, Azure AD Connect não sincronizar a grupos de distribuição dinâmica para o inquilino do Azure AD.
 
 ## <a name="html-report"></a>Relatório de HTML
 Além de analisar o objeto, a tarefa de resolução de problemas também gera um relatório HTML que contém tudo sobre o objeto. Este relatório HTML pode ser partilhado com a equipa de suporte para o fazer adicionais de resolução de problemas, se necessário.

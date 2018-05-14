@@ -1,12 +1,12 @@
 ---
-title: "Implementação de PoC manual do Azure Active Directory | Microsoft Docs"
-description: "Explorar e implementar rapidamente a cenários de identidade e gestão de acesso"
+title: Implementação de PoC manual do Azure Active Directory | Microsoft Docs
+description: Explorar e implementar rapidamente a cenários de identidade e gestão de acesso
 services: active-directory
 keywords: do Azure Active Directory, manual, uma prova de conceito, PoC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory prova de conceito manual: implementação
 
@@ -87,7 +87,7 @@ Uma identidade híbrida é o alicerce da maioria dos clientes empresariais que j
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Acesso remoto seguro a aplicações no local
 
-1. Bernardo, o Administrador Global AD do Azure, tem de foi obtido vários pedidos para permitir que os funcionários aceder a várias útil recursos no local, como a aplicação de despesas, ao trabalhar remotamente. Ele segue o [documentação do Proxy de aplicações](active-directory-application-proxy-enable.md) para instalar um conector e publicar as despesas como uma aplicação de Proxy de aplicações. 
+1. Bernardo, o Administrador Global AD do Azure, tem de foi obtido vários pedidos para permitir que os funcionários aceder a várias útil recursos no local, como a aplicação de despesas, ao trabalhar remotamente. Ele segue o [documentação do Proxy de aplicações](manage-apps/application-proxy-enable.md) para instalar um conector e publicar as despesas como uma aplicação de Proxy de aplicações. 
 2. Bernardo partilha o URL externo de aplicação despesas com Susie, um dos empregados que necessitam de acesso remoto. Ela acede a ligação e, depois de autenticação relativamente do AAD, ela é capaz de aceder à aplicação despesas e continuar a serem produtivos ao remoto. 
 3. Bernardo, em seguida, continua a publicação de aplicações adicionais no local utilizando o mesmo processo e conceder acesso a utilizadores, conforme necessário. Adiciona o acesso condicional e multi-factor authentication para as aplicações mais confidenciais que ele publica, para garantir a segurança adicional.
 

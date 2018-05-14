@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ffc453c98f8d21f1cd6f7025387031bdacf073a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações utilizar grupos de conector
 
@@ -33,7 +33,7 @@ Todas as aplicações são atribuídas a um grupo de conector. Se não criar gru
 >Se tiver uma grande implementação do Proxy de aplicações, não atribua quaisquer aplicações ao grupo predefinido do conector. Dessa forma, os novos conectores não recebem qualquer tráfego em direto até que atribui a um grupo de conector do Active Directory. Esta configuração também lhe permite colocar os conectores de um modo inativo movendo-os novamente para o grupo predefinido, para que possam executar manutenção sem afetar os seus utilizadores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para os conectores de grupo, tem de certificar-se de [instalados vários conectores](active-directory-application-proxy-enable.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo de conector.
+Para os conectores de grupo, tem de certificar-se de [instalados vários conectores](manage-apps/application-proxy-enable.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo de conector.
 
 ## <a name="create-connector-groups"></a>Criar grupos de conector
 Utilize estes passos para criar grupos de conector tantos conforme pretender. 
@@ -126,6 +126,6 @@ No exemplo abaixo, a empresa tem dois centros de dados, A e B, com dois conector
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)
-* [Ativar o início de sessão único](application-proxy-sso-overview.md)
+* [Ativar o início de sessão único](manage-apps/application-proxy-single-sign-on.md)
 
 

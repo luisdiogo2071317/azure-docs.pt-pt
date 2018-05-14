@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 5a2a818b6a36fd4dbaf3a18c1ef98d2a13596240
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o utilizador o aprovisionamento automatizado para aplicações SaaS?
@@ -80,7 +80,7 @@ Contactar o Azure AD engenharia equipa para pedir suporte aprovisionamento para 
 
 Configuração do Azure AD para uma aplicação selecionada é iniciado no serviço de fornecimento de  **[portal do Azure](https://portal.azure.com)**. No **do Azure Active Directory > aplicações da empresa** secção, selecione **adicionar**, em seguida, **todos os**e, em seguida, adicione o seguinte dependendo do seu cenário:
 
-* Todas as aplicações a **em destaque aplicações** aprovisionamento automático do secção suporte. Consulte a [lista de tutoriais de aplicação para o aprovisionamento de utilizador] active-directory-saas-tutorial-list.md) para adicionais.
+* Todas as aplicações a **em destaque aplicações** aprovisionamento automático do secção suporte. Consulte o [lista de tutoriais de aplicação para o aprovisionamento de utilizador](active-directory-saas-tutorial-list.md) para adicionais.
 
 * Utilize a opção "não Galeria a aplicação" para integrações de SCIM desenvolvidos personalizada
 

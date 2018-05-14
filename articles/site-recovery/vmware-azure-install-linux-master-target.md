@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar um servidor de destino principal do Linux
 Após a ativação pós-falha de máquinas virtuais no Azure, pode efetuar a cópia as máquinas virtuais para o site no local. Para falhar novamente, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino principal no local para receber o tráfego. 
@@ -330,9 +330,9 @@ Após a conclusão da instalação, registe o servidor de configuração utiliza
      Aguarde pela conclusão do script. Se o destino principal está registado com êxito, o destino principal está listado no **infraestrutura de recuperação de Site** página do portal.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Instalar as ferramentas do VMware no servidor de destino mestre
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Instalar as ferramentas do VMware / open-vm-tools no servidor de destino mestre
 
-Tem de instalar as ferramentas do VMware no destino principal para que possa detetar os arquivos de dados. Se as ferramentas não estiverem instaladas, o ecrã de reproteção não está listado nos arquivos de dados. Após a instalação das ferramentas VMware, terá de reiniciar.
+Tem de instalar as ferramentas do VMware ou ferramentas de vm aberta no destino principal para que possa detetar os arquivos de dados. Se as ferramentas não estiverem instaladas, o ecrã de reproteção não está listado nos arquivos de dados. Após a instalação das ferramentas VMware, terá de reiniciar.
 
 ### <a name="upgrade-the-master-target-server"></a>Atualizar o servidor de destino mestre
 

@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb71bd0bcaae8d7f9cb3ae357e726ea1f1c00b07
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -51,7 +51,7 @@ Proxy de aplicações do Azure AD é:
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Que tipo de trabalho de aplicações com o Proxy de aplicações?
 Com o Proxy de aplicações do Azure AD pode aceder a diferentes tipos de aplicações internas:
 
-* Aplicações Web que utilizem [autenticação integrada do Windows](../active-directory-application-proxy-sso-using-kcd.md) para autenticação  
+* Aplicações Web que utilizem [autenticação integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação  
 * As aplicações que utilizam baseada em formulários Web ou [com base no cabeçalho](../application-proxy-ping-access.md) acesso  
 * Web APIs que pretende expor avançado aplicações em dispositivos diferentes  
 * As aplicações alojadas por trás de um [Gateway de ambiente de trabalho remoto](../application-proxy-publish-remote-desktop.md)  
@@ -87,14 +87,14 @@ Antes de configurar o Proxy de aplicações, certifique-se de que tem um suporta
 
 Introdução ao Proxy de aplicações em dois passos:
 
-1. [Ativar o Proxy da aplicação e configurar o conector](../active-directory-application-proxy-enable.md).    
-2. [Publicar aplicações](../application-proxy-publish-azure-portal.md) -utilize o assistente rápido e fácil para obter as suas aplicações no local publicado e está acessível remotamente.
+1. [Ativar o Proxy da aplicação e configurar o conector](application-proxy-enable.md).    
+2. [Publicar aplicações](application-proxy-publish-azure-portal.md) -utilize o assistente rápido e fácil para obter as suas aplicações no local publicado e está acessível remotamente.
 
 ## <a name="whats-next"></a>Passos seguintes?
 Depois de publicar a sua primeira aplicação, não há muito mais pode fazer com o Proxy de aplicações:
 
-* [Ativar o início de sessão único](../active-directory-application-proxy-sso-using-kcd.md)
-* [Publicar aplicações com o seu próprio nome de domínio](../active-directory-application-proxy-custom-domains.md)
+* [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
+* [Publicar aplicações com o seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Saiba mais sobre os conectores de Proxy de aplicações do Azure AD](../application-proxy-understand-connectors.md)
 * [Trabalhar com servidores de Proxy no local existentes](../application-proxy-working-with-proxy-servers.md) 
 * [Definir uma página inicial personalizada](../application-proxy-office365-app-launcher.md)

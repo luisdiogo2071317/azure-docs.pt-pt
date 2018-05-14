@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: afd5460ef3e286cd3d8b550e7d7e54b3e09f2990
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 5aba26d14ba0ee8e8ee58f62deb8a82ad147a8aa
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -27,33 +27,33 @@ Se estiver a ter problemas em iniciar sessão uma aplicação no local, pode ten
 
 Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
 
-  * [Consigo aceder à minha aplicação, mas a página da aplicação não é apresentada corretamente](https://docs.microsoft.com/azure/active-directory/application-proxy-page-appearance-broken-problem/)
-  * [Consigo aceder à minha aplicação, mas a aplicação demora demasiado tempo a carregar](https://docs.microsoft.com/azure/active-directory/application-proxy-page-load-speed-problem/)
-  * [Consigo aceder à minha aplicação, mas as ligações na página da aplicação não funcionam](https://docs.microsoft.com/azure/active-directory/application-proxy-page-links-broken-problem/)
+  * [Consigo aceder à minha aplicação, mas a página da aplicação não é apresentada corretamente](application-proxy-page-appearance-broken-problem.md)
+  * [Consigo aceder à minha aplicação, mas a aplicação demora demasiado tempo a carregar](application-proxy-page-load-speed-problem.md)
+  * [Consigo aceder à minha aplicação, mas as ligações na página da aplicação não funcionam](application-proxy-page-links-broken-problem.md)
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Estou a ter um problema de conectividade a minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Não sei que portas abrir para a minha aplicação](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/)
-  * [Encontrei um problema porque não havia um conector a funcionar num grupo de conectores da minha aplicação](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-no-working-connector/)
+  * [Não sei que portas abrir para a minha aplicação](application-proxy-connectivity-ports-how-to.md)
+  * [Encontrei um problema porque não havia um conector a funcionar num grupo de conectores da minha aplicação](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Estou a ter um problema ao configurar o Proxy de aplicações do Azure AD no portal de administração
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Estou a ter dificuldades em configurar uma aplicação do Proxy de aplicações](https://docs.microsoft.com/azure/active-directory/application-proxy-config-how-to/)
-  * [Não sei como configurar o início de sessão único na aplicação do Proxy de aplicações](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/)
-  * [Encontrei um problema ao criar a minha aplicação no portal de administração](https://docs.microsoft.com/azure/active-directory/application-proxy-config-problem/)
+  * [Estou a ter dificuldades em configurar uma aplicação do Proxy de aplicações](application-proxy-config-how-to.md)
+  * [Não sei como configurar o início de sessão único na aplicação do Proxy de aplicações](application-proxy-config-sso-how-to.md)
+  * [Encontrei um problema ao criar a minha aplicação no portal de administração](application-proxy-config-problem.md)
 
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Estou a ter um problema ao configurar a autenticação back-end para a minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Não sei configurar a Delegação Restrita de Kerberos](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/)
-  * [Não sei configurar a minha aplicação com o PingAccess](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/)
+  * [Não sei configurar a Delegação Restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+  * [Não sei configurar a minha aplicação com o PingAccess](application-proxy-back-end-ping-access-how-to.md)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Estou a ter um problema ao iniciar sessão na minha aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Recebo um erro "Não é Possível Aceder a esta Aplicação Empresarial"](https://docs.microsoft.com/azure/active-directory/application-proxy-sign-in-bad-gateway-timeout-error/)
+  * [Recebo um erro "Não é Possível Aceder a esta Aplicação Empresarial"](application-proxy-sign-in-bad-gateway-timeout-error.md)
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Estou a ter um problema com o conector de agente de Proxy da aplicação
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Estou a ter problemas ao instalar o Conector do Agente do Proxy de Aplicações](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
+  * [Estou a ter problemas ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Como fornecer acesso remoto seguro a aplicações no local](manage-apps/application-proxy.md)

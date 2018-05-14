@@ -1,11 +1,11 @@
 ---
-title: "Resolver problemas de Kerberos restrita configurações de delegação para Proxy de aplicações | Microsoft Docs"
-description: "Resolver problemas de Kerberos restrita configurações de delegação para Proxy de aplicações."
+title: Resolver problemas de Kerberos restrita configurações de delegação para Proxy de aplicações | Microsoft Docs
+description: Resolver problemas de Kerberos restrita configurações de delegação para Proxy de aplicações.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de Kerberos restrita configurações de delegação para Proxy de aplicações
 
@@ -30,7 +30,7 @@ Como tal, este artigo tenta fornecer um ponto único de referência deve ajudar 
 
 Este artigo faz com que os seguintes pressupostos:
 
--   A implementação do Proxy de aplicações do Azure por [documentação](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) e geral acesso a aplicações de KCD não está a funcionar conforme esperado.
+-   A implementação do Proxy de aplicações do Azure por [documentação](manage-apps/application-proxy-enable.md) e geral acesso a aplicações de KCD não está a funcionar conforme esperado.
 
 -   A aplicação de destino publicados baseia-se na implementação de IIS e da Microsoft do Kerberos.
 
@@ -42,7 +42,7 @@ Este artigo faz com que os seguintes pressupostos:
 
 Proxy de aplicações do Azure pode ser implementado em vários tipos de infraestruturas ou e as arquiteturas de ambientes doubt variam de organização para organização. Uma das causas mais comuns dos problemas relacionados com o KCD não são as ambientes, mas em vez disso simples incorrecta configurações ou supervisão geral.
 
-Por este motivo, é sempre melhor iniciar, certificando-se de que cumpriu todos os pré-requisitos apresentados em [utilizando SSO KCD no artigo de Proxy de aplicações](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) antes de começar resolução de problemas.
+Por este motivo, é sempre melhor iniciar, certificando-se de que cumpriu todos os pré-requisitos apresentados em [utilizando SSO KCD no artigo de Proxy de aplicações](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) antes de começar resolução de problemas.
 
 Especialmente a secção sobre como configurar KCD no 2012R2, como esta utiliza uma abordagem fundamentalmente diferente para configurar KCD em versões anteriores do Windows, mas também ao que está a ser mindful de muitas outras considerações:
 
@@ -68,13 +68,13 @@ todas as que tenha a mesma sintoma de falha ao executar o SSO e, consequentement
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-A forma como os, em seguida, resolver problemas de dependem o problema e os sintomas observadas. Antes de avançar qualquer adicional, explore as hiperligações seguintes, que contêm informações úteis, que não pode ainda tem origem em:
+Como resolver depende o problema e os sintomas observadas. Antes de avançar qualquer adicional, explore as hiperligações seguintes, que contêm informações úteis, que não pode ainda tem origem em:
 
--   [Resolver problemas de Proxy de aplicações e as mensagens de erro](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Resolver problemas de Proxy de aplicações e as mensagens de erro](active-directory-application-proxy-troubleshoot.md)
 
--   [Erros de Kerberos e sintomas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Erros de Kerberos e sintomas](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Trabalhar com o SSO quando no local e na nuvem não são idênticas identidades](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Trabalhar com o SSO quando no local e na nuvem não são idênticas identidades](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Se já tem esta, extremidade, em seguida, o problema principal sem dúvida existe. Comece por separar o fluxo em três fases distintas que pode resolver.
 
@@ -98,7 +98,7 @@ E visto das entradas correspondentes que no registo de eventos teria de ser vist
 
 -   Utilizar um registo no seu DNS interno para o endereço da aplicação e não um CName
 
--   Reconfirm se foram concedido os direitos para delegar a designado SPN de conta de destino e de que o anfitrião do conector **utilizar qualquer protocolo de autenticação** está selecionada. Para obter mais informações acerca deste tópico, consulte [artigo de configuração de SSO](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Reconfirm se foram concedido os direitos para delegar a designado SPN de conta de destino e de que o anfitrião do conector **utilizar qualquer protocolo de autenticação** está selecionada. Para obter mais informações acerca deste tópico, consulte [artigo de configuração de SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Verifique se existe apenas uma única instância o SPN na existência no AD ao emitir um `setspn -x` de uma linha de comandos em qualquer anfitrião membro de domínio
 
@@ -179,4 +179,4 @@ Se não estiver ainda não é possível progresso seu problema, suporte seria ma
 -   Duplo salto autenticação - normalmente utilizada em cenários em que uma aplicação está em camadas, com um back-end e frente end, tanto que exigem que a autenticação, como SQL Server Reporting Services.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Configurar a delegação restringida de kerberos (KCD) um domínio gerido](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Configurar a delegação restringida de kerberos (KCD) um domínio gerido](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

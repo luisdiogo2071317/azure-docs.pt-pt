@@ -8,15 +8,15 @@ manager: jahogg
 ms.service: storage
 ms.devlang: bash
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Como montar o armazenamento de BLOBs como um sistema de ficheiros com blobfuse (pré-visualização)
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o armazenamento de BLOBs como um sistema de ficheiros com blobfuse
 
 ## <a name="overview"></a>Descrição geral
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) é um controlador de sistema de ficheiros virtual para o Blob Storage do Azure, que lhe permite aceder os dados de BLOBs de blocos existente na sua conta de armazenamento através do sistema de ficheiros do Linux. Armazenamento de Blobs do Azure é um serviço de armazenamento de objeto e, por conseguinte, não tem um espaço de nomes hierárquico. Blobfuse fornece este espaço de nomes utilizando o esquema do diretório virtual com a utilização de reencaminhamento barra '/' como um delimitador.  

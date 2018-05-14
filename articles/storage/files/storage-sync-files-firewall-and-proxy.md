@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 81425c6ac4e463bd4242328206bd43ce78a1105a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Definições do Azure de proxy e de firewall de sincronização de ficheiros
+# <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 Sincronização de ficheiros do Azure liga os servidores no local ao Azure Files, ativar a sincronização de vários site e as funcionalidades de criação de camadas de nuvem. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor para aceder a serviços em nuvem do Azure.
 
 Este artigo irá fornecer informações sobre os requisitos específicos e as opções disponíveis para ligação segura e com êxito o servidor para a sincronização de ficheiros do Azure.
+
+> [!Important]
+> Sincronização de ficheiros do Azure ainda não suporta as firewalls e redes virtuais para uma conta de armazenamento. 
 
 ## <a name="overview"></a>Descrição geral
 Sincronização de ficheiros do Azure funciona como um serviço de orquestração entre o servidor do Windows, a partilha de ficheiros do Azure e vários outros serviços do Azure para sincronizar os dados conforme descrito no seu grupo de sincronização. Para a sincronização de ficheiros de Azure funcione corretamente, terá de configurar os servidores para comunicar com os seguintes serviços do Azure:

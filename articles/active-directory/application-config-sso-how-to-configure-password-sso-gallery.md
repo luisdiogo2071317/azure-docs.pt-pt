@@ -1,11 +1,11 @@
 ---
-title: "Como configurar a palavra-passe-início de sessão único para uma aplicação de galeria do Azure AD | Microsoft Docs"
-description: "Como configurar uma aplicação para segura baseada em palavra-passe de início de sessão quando já está listado na Galeria de aplicações do Azure AD"
+title: Como configurar a palavra-passe-início de sessão único para uma aplicação de galeria do Azure AD | Microsoft Docs
+description: Como configurar uma aplicação para segura baseada em palavra-passe de início de sessão quando já está listado na Galeria de aplicações do Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aa02bfd22a656024d8638226dc1c5551b63e6d42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8e1d8471d2feb838a6ba3eb08eedc3ca4d30ab07
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar a palavra-passe-início de sessão único para uma aplicação de galeria do Azure AD
 
@@ -179,4 +179,4 @@ Para atribuir um ou mais grupos diretamente a uma aplicação, siga estes passos
 Após um curto período de tempo, os utilizadores que selecionou conseguir iniciar estas aplicações no painel de acesso.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Fornecer início de sessão único às suas aplicações com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer início de sessão único às suas aplicações com o Proxy da aplicação](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

@@ -5,18 +5,18 @@ services: key-vault
 documentationcenter: ''
 author: barclayn
 manager: mbaldwin
-ms.assetid: ''
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4a765b314b9879877bb6ff926e4a6584456b7823
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar uma aplicação web do Azure para ler um segredo do Cofre de chaves
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
 Para iniciar sessão Azure utilizando a CLI, escreva:
 
@@ -61,22 +61,22 @@ Em seguida, criar um cofre de chaves no grupo de recursos criado no passo anteri
 > Embora "ContosoKeyVault" for utilizado como o nome do nosso Cofre de chaves ao longo deste tutorial, tem de utilizar um nome exclusivo.
 
 * Nome do cofre **ContosoKeyVault**.
-* Nome do grupo de recursos **ContosoResourceGroup**.
-* A localização **EUA Leste**.
+* **ContosoResourceGroup** como o nome do grupo de recursos.
+* **E.U.A. Leste** como a localização.
 
 ```azurecli
 az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
 ```
 
-O resultado deste comando mostra as propriedades do Cofre de chaves recentemente criado. Tome nota das duas propriedades listados abaixo:
+O resultado deste comando mostra as propriedades do Cofre de chaves recentemente criado. Tome nota das duas propriedades listadas abaixo:
 
 * **Nome do Cofre**: No exemplo, o nome é **ContosoKeyVault**. Irá utilizar o nome do seu Cofre de chaves para todos os comandos do Cofre de chaves.
 * **URI do cofre**: no exemplo, isto é https://<YourKeyVaultName>.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 >[!IMPORTANT]
-> Se receber o erro do parâmetro 'vault_name' tem de estar em conformidade com o padrão do seguinte: ' ^ [uma-zA-Z0 - 9-] {3,24} $' param-nome valor não estava exclusivo ou não cumpria numa cadeia composto por carateres alfanuméricos de 3 a 24 longo.
+> Se receber o erro do parâmetro 'vault_name' tem de estar em conformidade com o padrão do seguinte: ' ^ [uma-zA-Z0 - 9-]{3,24}$' param-nome valor não estava exclusivo ou não cumpria numa cadeia composto por carateres alfanuméricos de 3 a 24 longo.
 
-Neste momento, a conta do Azure é a única autorizada para efetuar quaisquer operações neste novo cofre.
+Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer operações neste novo cofre.
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Cofre de chaves
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 A família VM de série B permite-lhe escolher o tamanho da VM que fornece-lhe o desempenho de nível de base necessário para a carga de trabalho, a capacidade de impulsar desempenho da CPU de até 100% de um v4 Intel® Broadwell E5-2673 2.3 GHz ou um processador de v3 Intel® Haswell 2.4 GHz E5-2673 vCPU.
 
@@ -20,7 +20,7 @@ As VMs de série B são ideais para cargas de trabalho que não tem o desempenho
 
 A série B é apresentada nos tamanhos VM de seis seguintes:
 
-| Tamanho          | vCPU's | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de CPU de desempenho da VM | Desempenho de CPU máx. de VM | Créditos Banked / hora | Os créditos de Banked máx. |
+| Tamanho          | do vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de CPU de desempenho da VM | Desempenho de CPU máx. de VM | Créditos Banked / hora | Os créditos de Banked máx. |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
@@ -58,7 +58,8 @@ Se efetuar os 120 créditos que posso resultantes ponta e subtrair os 96 crédit
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: B-série suporta discos de dados de Premium Storage?
 **A**: Sim, todos os tamanhos de série B suportam discos de dados de armazenamento Premium.   
     
-
+### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>P: meu crédito restante estão definidos para 0 após um redepoy ou um início/paragem.
+**A** : quando VM um é "REDPLOYED", ou seja, a VM é movido para outro nó e o crédito acumulado é perdido. Se a VM está parado/iniciada, mas permanece no mesmo nó, a VM mantém o crédito acumulado. Sempre que a VM entrar raiz num nó, obtém um crédito inicial, para Standard_B8ms é 240 minutos.
 
     
 

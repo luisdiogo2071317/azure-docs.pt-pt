@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: aec87625cd00b11b41c248eecf7af650ae57036f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteja máquinas do Azure para um site no local
 
@@ -79,7 +79,7 @@ Depois de criar um servidor de destino mestre, efetue o seguinte:
     - O volume de retenção predefinido para o Windows é o volume de R.
     - O volume de retenção predefinido para Linux é /mnt/retention.
 - Tem de adicionar uma nova unidade se estiver a utilizar uma máquina de servidor de configuração do servidor de processo existente ou uma escala ou um computador de servidor de destino do processo servidor/principal. A nova unidade deve satisfazer os requisitos de anteriores. Se a unidade de retenção não estiver presente, não aparecem na lista pendente de seleção no portal. Depois de adicionar uma unidade para o destino principal no local, que demora até 15 minutos para a unidade a aparecer na seleção no portal. Também pode atualizar o servidor de configuração se a unidade não aparecer após 15 minutos.
-- Instale as ferramentas do VMware no servidor de destino mestre. Sem as ferramentas do VMware, não é possível detetar o datastores no anfitrião ESXi do destino principal.
+- Instale as ferramentas do VMware ou ferramentas de vm aberta no servidor de destino principal. Sem as ferramentas, não é possível detetar o datastores no anfitrião ESXi do destino principal.
 - Definir o `disk.EnableUUID=true` definição os parâmetros de configuração da máquina virtual destino principal no VMware. Se esta linha não existir, adicioná-lo. Esta definição é necessário para fornecer um UUID consistente para o disco de máquina virtual (VMDK) para que o se monta corretamente.
 - O anfitrião do ESX nos quais o destino principal é criado deve ter pelo menos um arquivo de dados VMFS anexado ao mesmo. Se não houver nenhum, o **arquivo de dados** entrada na página de reproteção estará vazia, e não é possível continuar.
 - O servidor de destino principal não pode ter instantâneos de discos. Se existirem instantâneos, só e a reativação pós-falha falharem.

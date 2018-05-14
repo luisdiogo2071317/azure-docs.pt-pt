@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Prepay para máquinas virtuais com instâncias de VM reservado
 
@@ -13,6 +13,7 @@ Prepay para máquinas virtuais e a poupar dinheiro com instâncias de Máquina V
 Pode comprar instâncias de Máquina Virtual reservada [portal do Azure](https://portal.azure.com). Para comprar uma instância de Máquina Virtual reservado:
 -   Tem de ser uma função de proprietário para, pelo menos, uma empresa ou de subscrição pay as you go.
 -   Para as subscrições empresariais, tem de estar ativadas compras de reserva no [EA portal](https://ea.azure.com).
+-   Para o programa fornecedor de solução em nuvem (CSP), só o admin de agentes ou agentes de vendas podem comprar as reservas.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar uma instância de Máquina Virtual reservada
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
@@ -50,3 +51,4 @@ Para mais informações sobre as instâncias de Máquina Virtual reservado, cons
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com instâncias reservado](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Instâncias reservadas no programa de parceiro Center solução fornecedor Cloud (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

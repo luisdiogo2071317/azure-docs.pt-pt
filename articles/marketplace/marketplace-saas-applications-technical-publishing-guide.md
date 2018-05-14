@@ -12,82 +12,144 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guia publicação technical aplicações SaaS
 
-Bem-vindo ao técnica de aplicações de SaaS do Azure Marketplace publicação guia. Este guia foi concebido para ajudar candidato e publicadores existentes para listar as respetivas aplicações e serviços no Azure Marketplace utilizando as aplicações de SaaS oferta.  
-Pretende utilizar aplicações SaaS oferta quando a sua solução será implementada na sua própria subscrição do Azure e os clientes irão iniciar sessão através de uma interface que conceber e gerir para testar a aplicação. Fazê-lo utilizando [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) tirar partido do seu ambiente de avaliação. Por outras palavras, é uma versão de avaliação gratuita guiado de cliente, é alojado de parceiro. É fundamental para expor a sua solução de forma a que dá a oportunidade de experimentar a sua solução de forma independente para uma taxa ou não encargos-buyers de nuvem e para que este tipo de oferta fornece uma experiência de avaliação gratuita que corresponde à forma como os clientes procurar soluções de nuvem.  
+Bem-vindo ao técnica de aplicações de SaaS do Azure Marketplace publicação guia. Este guia foi concebido para ajudar candidato e publicadores existentes para listar as respetivas aplicações e serviços no Azure Marketplace utilizando as aplicações de SaaS oferta. 
 
-Para obter uma descrição geral de todas as outras ofertas de Marketplace, consulte o [Marketplace publicador guia](https://aka.ms/sellerguide).
+Para compreender melhor como publicar uma oferta de SaaS, este guia está dividido nas seguintes secções:
+* Descrição geral da oferta
+* Requisitos do Negócio
+* Requisitos Técnicos
+* Processo de publicação
+* Utilizar o Azure Active Directory para ativar avaliações
+* Certificar a integração do Azure AD para Marketplace
 
-## <a name="saas-application-technical-guidance"></a>Orientações para o técnica de aplicações SaaS
-Os requisitos técnicos para aplicações SaaS são simples. Os publicadores só são necessárias para ser integrado com o Azure AD a ser publicado.  A integração do Azure AD com aplicações está bem documento e a Microsoft fornece várias SDKs e recursos para realizar esta tarefa.  
+## <a name="offer-overview"></a>Descrição geral da oferta  
 
-Para começar, é recomendável que tiver uma subscrição dedicada para a publicação do Azure Marketplace, permitindo-lhe isolar o trabalho de outros iniciativas. Além disso, se não estiver já instalado, recomendamos que tem as ferramentas seguintes como parte do seu ambiente de desenvolvimento: 
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [O Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
-- [Ferramentas de programador do Azure (rever o que está disponível)](https://azure.microsoft.com/tools/)  
-- [Visual Studio Code](https://code.visualstudio.com/)  
+Aplicações SaaS estão disponíveis em ambos os Storefronts Azure a tabela seguinte descreve as opções disponíveis atuais:
 
-### <a name="resources"></a>Recursos
-As listas seguintes fornecem ligações para os recursos do Azure AD melhor para começar: 
+| Opção storefront | Listagem | Versão de avaliação/Transact |  
+| --- | --- | --- |  
+| AppSource | Sim (contactar-Me) | Sim (PowerBI/Dynamics) |
+| Mercado do Azure | Não | Sim (aplicações SaaS) |   
 
-**Documentação**
+**Listagem:** a opção de publicação de listagem é composta por um contacto enviar-me um tipo de oferta e é utilizada quando uma participação de nível de versão de avaliação ou de transação não é exequível. A vantagem desta abordagem é que permite a publicadores com um solução de mercado iniciar imediatamente a receção de clientes potenciais clientes potenciais que podem ser ativadas em oportunidades para aumentar a sua empresa.  
+**Versão de avaliação/Transact:** o cliente tem a opção para diretamente comprar ou pedir uma versão de avaliação para a sua solução. Fornecer uma experiência de avaliação aumenta o nível de envolvimento oferecido aos clientes e permite que os clientes explorar a sua solução antes de comprar. Com uma experiência de avaliação, terá uma melhor possibilidades de promoção de storefronts e deve esperar mais rico e mais clientes potenciais clientes potenciais de ações de envolvimento do cliente. Avaliações tem de incluir suporte gratuito, pelo menos, durante o período de avaliação.  
 
-- [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+| Oferta de aplicações SaaS | Requisitos do Negócio | Requisitos Técnicos |  
+| --- | --- | --- |  
+| **Contacte-nos** | Sim | Não |  
+| **PowerBI / Dynamics** | Sim | Sim (integração com o Azure AD) |  
+| **Aplicações SaaS**| Sim | Sim (integração com o Azure AD) |     
 
-- [Integração com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
+Para obter mais informações sobre os storefronts Marketplace e um descripiton de cada opção de publicação, consulte o [Marketplace publicador guia](https://aka.ms/sellerguide) e [opções de publicação](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
-- [Integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+## <a name="business-requirements"></a>Requisitos comerciais
+Os SaaS oferecem requisitos empresariais podem ser concluídos em paralelo com os requisitos técnicos. A maioria dos requisitos de negócio e as informações são recolhidas quando criar a oferta de SaaS no Portal de parceiros de nuvem. Os requisitos comerciais são as seguintes: 
+* Aceita as políticas de participação
+* Integração com a Microsoft 
+* Identificar audiência a oferta
+* Definir e determinar a gestão de oportunidades potenciais a ser utilizado
+* Configurar a política de privacidade e termos de utilização
+* Definir os contactos de suporte  
 
-- [Plano do Azure - segurança e identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
+Para obter mais informações, pode ser encontrado no tópico [pré-requisitos para a publicação do marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
-**Vídeos**
+## <a name="technical-requirements"></a>Requisitos técnicos
 
-- [Autenticação do Azure Active Directory com Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+Os requisitos técnicos para aplicações SaaS são simples. Os publicadores só são necessárias para ser integrado com o Azure Active Directory (Azure AD) a serem publicadas. A integração do Azure AD com aplicações está bem documento e a Microsoft fornece várias SDKs e recursos para realizar esta tarefa.  
 
-- [Briefing de técnicas de identidade do Azure Active Directory - parte 1 de 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+Para começar, é recomendável que tiver uma subscrição dedicada para a publicação do Azure Marketplace, permitindo-lhe isolar o trabalho de outros iniciativas. Após este procedimento é efetuado pode começar a implementar a aplicação SaaS nesta subscrição para iniciar o trabalho de desenvolvimento.  
 
-- [Briefing de técnicas de identidade do Azure Active Directory - parte 2 de 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+A documentação do Azure Active Directory, exemplos e orientação melhor estão localizados em sites seguintes: 
 
-- [Compilar aplicações com o Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+* [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Vídeos do Microsoft Azure concentra-se no Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+* [Integração com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
 
-**Formação**  
-- [Microsoft Azure para a série de conteúdo de profissionais IT: do Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
-**Atualizações de serviço do Azure Active Directory**  
-- [Atualizações de serviço do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
+* [Plano do Azure - segurança e identidade](https://azure.microsoft.com/roadmap/?category=security-identity)
+
+Para tutoriais de vídeos, reveja o seguinte:
+
+* [Autenticação do Azure Active Directory com Vittorio Bertocci](https://channel9.msdn.com/Shows/XamarinShow/Episode-27-Azure-Active-Directory-Authentication-with-Vittorio-Bertocci?term=azure%20active%20directory%20integration)
+
+* [Briefing de técnicas de identidade do Azure Active Directory - parte 1 de 2](https://channel9.msdn.com/Blogs/MVP-Enterprise-Mobility/Azure-Active-Directory-Identity-Technical-Briefing-Part-1-of-2?term=azure%20active%20directory%20integration)
+
+* [Briefing de técnicas de identidade do Azure Active Directory - parte 2 de 2](https://channel9.msdn.com/Blogs/MVP-Azure/Azure-Active-Directory-Identity-Technical-Briefing-Part-2-of-2?term=azure%20active%20directory%20integration)
+
+* [Compilar aplicações com o Microsoft Azure Active Directory](https://channel9.msdn.com/Blogs/Windows-Development-for-the-Enterprise/Building-Apps-with-Microsoft-Azure-Active-Directory?term=azure%20active%20directory%20integration)
+
+* [Vídeos do Microsoft Azure concentra-se no Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
+
+Formação gratuita do Azure Active Directory está disponível em  
+* [Microsoft Azure para a série de conteúdo de profissionais IT: do Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+
+Além disso, o Azure Active Directory fornece um site para verificar a existência de atualizações de serviço   
+* [Atualizações de serviço do Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
 Para obter suporte, pode utilizar os seguintes recursos:
-- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+* [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## <a name="the-azure-active-directory-gallery"></a>A galeria do Azure Active Directory
-Além de ter a sua aplicação listada no Azure Marketplace/AppSource, também pode ter a aplicação listada na Galeria de aplicações do Azure AD, que faz parte do Azure Marketplace AppStore. Os clientes que utilizam o Azure AD como um fornecedor de identidade pode encontrar os conectores de aplicações SaaS diferentes publicaram aqui. Os administradores de TI podem adicionar os conectores da Galeria de aplicações e, em seguida, configurar e utilizar os conectores de-início de sessão único (SSO) e o aprovisionamento. AD do Azure suporta todos os protocolos de Federação principal para SSO, incluindo SAML 2.0, OpenID Connect, OAuth e WS-Fed.  
+## <a name="publishing-process"></a>Processo de publicação
 
-Depois de ter testado que a integração de aplicações funciona com o Azure AD, submeta o pedido de acesso no Portal de rede a nossa aplicação. Se tiver uma conta do Office 365, utilize-o para iniciar sessão no portal. Se não tiver uma conta do Office 365, pode utilizar a sua conta Microsoft (tais como o Outlook ou Hotmail) para iniciar sessão.
+O processo de publicação de SaaS tem passos técnicos e empresariais.  A maioria do trabalho que é feita a desenvolver e a integração do Active Directory do Azure pode ser efetuada em paralelo com o trabalho necessário para satisfazer os requisitos comerciais da oferta. O volume dos requisitos de negócio fazem parte da configuração de oferta da aplicação SaaS o Portal de parceiros de nuvem.  
+O diagrama seguinte mostra que os principais passos publicação para a versão de avaliação/Transact oferecem:  
 
-## <a name="program-benefits"></a>Benefícios do programa
-- Fornece a melhor possíveis único início de sessão experiência para os clientes
-- Configuração mínima e Simple da aplicação
-- Os clientes podem procurar para a aplicação e encontrá-lo na Galeria
-- Qualquer cliente pode utilizar esta integração, independentemente da que SKU do AD do Azure utilizam (gratuito, Basic ou Premium)
-- Tutorial de configuração passo a passo para os nossos clientes mútua
-- Permite o aprovisionamento de utilizador para a mesma aplicação se estiver a utilizar o SCIM
+![Passos de publicação de SaaS](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
 
-## <a name="prerequisites"></a>Pré-requisitos
-Para listar uma aplicação na galeria do Azure AD, a aplicação deve primeiro implementar um dos protocolos Federação suportados pelo Azure AD. Leia os termos e condições da Galeria de aplicações do Azure AD, localizado em [Informação Legal do Microsoft Azure](https://azure.microsoft.com/support/legal/).  
+A tabela seguinte descreve cada um dos passos principais publicação:  
 
-O seguinte descreve as informações de pré-requisitos adicionais, dependendo do protocolo de que está a utilizar:
+| Passo de publicação | Descrição |   
+| --- | --- |  
+| **Criar a aplicação SaaS** | Inicie sessão no Portal de parceiros de nuvem, selecione **novo**e, em seguida, selecione o **aplicações SaaS** oferecem. |  
+| **Criar a integração com o Azure AD** | Siga os requisitos técnicos descritos na secção anterior para integrar o SaaS oferta com o Azure AD. |  
+| **Configurar as definições de oferta**| Introduza a todas as informações da oferta de SaaS iniciais. O ID de oferecer e oferecem nome que pretende utilizar. |     
+| **Definir as informações técnicas sobre** | Introduza as informações técnicas sobre a oferta. Para aplicações de SaaS, é necessário a solução URI e tipo do botão de aquisição da oferta (gratuito, registo ou contactar-Me). |  
+| **Teste Drive(Optional)** | Este é um tipo de avaliação, necessário principalmente para domínio outros tipos de Marketplace oferece opcional. Permite-lhe ter a versão de avaliação implementado em subscrições do publicador vs. o cliente do fim. |  
+| **Definir os materiais Storefront oferta**| Nesta secção publicador irá ligar e carregar logótipos, materiais, documentos legais de Marketing e configurar o sistema de gestão de clientes potenciais clientes potenciais. |
+| **Definir os contactos de oferta** | Introduza o contactos de engenharia e informações de contacto de suporte para a oferta de SaaS. |  
+| **Certifique-se a integração do SaaS aplicação Azure AD** | Antes de submeter a sua aplicação SaaS para publicação, tem de verificar que a aplicação está integrada com o Azure AD |  
+| **Publicar a oferta**| Depois da oferta e dos recursos técnicos concluídos, pode submeter a oferta. Esta ação iniciará o processo de publicação, na qual o modelo de solução é testado, validado, certificado e aprovado para publicação. |
 
-**OpenID Connect** - criar a aplicação multi-inquilino no Azure AD e implementar a estrutura de consentimento para a sua aplicação. Envie o pedido de início de sessão para o ponto final comum, para que qualquer cliente pode fornecer consentimento para a aplicação. Pode controlar o acesso de utilizador do cliente com base no ID de inquilino e de UPN do utilizador foi recebido no token.  
-**SAML 2.0 ou WS-Fed** -a aplicação deve ter uma capacidade de efetuar a integração de SAML ou WS-Fed SSO no modo SP ou IdP.
+## <a name="using-azure-active-directory-to-enable-trials"></a>Utilizar o Azure Active Directory para ativar avaliações  
+
+Microsoft autentica todos os utilizadores de Marketplace com o Azure AD, por conseguinte, quando um utilizador autenticado clica através da sua lista de avaliação no Marketplace e é redirecionado para o seu ambiente de avaliação, pode aprovisionar o utilizador diretamente para uma versão de avaliação sem necessidade de um início de sessão no passo adicional. O token que recebe a aplicação do Azure AD durante a autenticação inclui informações de utilizador importantes que pode utilizar para criar uma conta de utilizador na sua aplicação, permitindo-lhe automatizar a experiência de aprovisionamento e aumentar a probabilidade de conversão. Para mais informações sobre o token, consulte [Tokens de exemplo](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+
+Utilizar o Azure AD para ativar a autenticação de 1-Clique para a sua aplicação ou a versão de avaliação faz o seguinte:  
+* Simplifica a experiência do cliente do Marketplace para avaliação.  
+* Mantém o funcionamento de uma experiência' no produto', mesmo quando do utilizador é redirecionado do Marketplace para o domínio ou o ambiente de avaliação.  
+* Diminui a probabilidade de abandonment no redirecionamento porque não existe um passo adicional do início de sessão.  
+* Reduz barreiras as eficazes de implementação para o número elevado de utilizadores do Azure AD.  
+
+## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificar a integração do Azure AD para Marketplace  
+
+Pode certificar a integração do Azure AD de algumas formas diferentes, dependendo se a aplicação é o único inquilino ou multi-inquilino e se estiver familiarizado como único federado do Azure AD início de sessão (SSO), ou já suportam.  
+
+**Para aplicações de multi-inquilinos:**  
+
+Se já suportam o Azure AD, efetue o seguinte:
+1.  Registar a sua aplicação no portal do Azure
+2.  Ative a funcionalidade de suporte de vários inquilinos no Azure AD para obter uma experiência de avaliação 'num só clique'. Pode encontrar informações mais específicas [aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+
+Se estiver familiarizado com o Azure AD federado SSO, efetue o seguinte: 
+1.  Registar a sua aplicação no portal do Azure
+2.  Desenvolver SSO com o Azure AD com [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) ou [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Ativar o suporte de vários inquilinos funcionalidade do AAD para obter informações mais específicas de experiência de avaliação gratuita 'num só clique' pode ser encontrada [aqui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+
+**Para a aplicação de inquilino único, utilize qualquer uma das seguintes opções:**  
+* Adicionar utilizadores ao seu diretório, como os utilizadores convidados utilizando [B2B do Azure](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Aprovisionar manualmente avaliações para clientes através da utilização de 'Contactar-Me'
+* Desenvolver por-cliente por unidade de teste
+* Criar uma aplicação de demonstração de exemplo do multi-inquilino com o SSO
+

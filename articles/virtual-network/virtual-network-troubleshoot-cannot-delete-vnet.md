@@ -1,24 +1,24 @@
 ---
-title: "Não é possível eliminar uma rede virtual no Azure | Microsoft Docs"
-description: "Saiba como resolver o problema no qual não é possível eliminar uma rede virtual no Azure."
+title: Não é possível eliminar uma rede virtual no Azure | Microsoft Docs
+description: Saiba como resolver o problema no qual não é possível eliminar uma rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: d3ffcd9981ff0c57f6d625efcede3e930acd17b5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Resolução de problemas: Falha ao eliminar uma rede virtual no Azure
 
@@ -89,7 +89,7 @@ Se a rede virtual está encravada no estado de migração, não pode ser elimina
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Rede Virtual do Azure](virtual-networks-overview.md)
 - [Perguntas mais frequentes (FAQ) da Rede Virtual do Azure](virtual-networks-faq.md)

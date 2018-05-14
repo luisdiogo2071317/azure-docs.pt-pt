@@ -15,8 +15,8 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a5466a0b5027fa8fe0edec3c9663e6cd1aafc9a3
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -48,14 +48,14 @@ Por exemplo: `http(s)://*.adventure-works.com`. Enquanto os URLs internos e exte
 
 Se tiver aplicações adicionais com diferentes definições de configuração, tem de publicar estas exceções como aplicações separadas para substituir as predefinições definido para o caráter universal. Aplicações sem um caráter universal sempre precedência sobre as aplicações de caráter universal. Da perspetiva de configuração, estes são aplicações "apenas" regulares.
 
-Criar uma aplicação de carateres universais baseia-se no mesmo [fluxo de publicação de aplicação](application-proxy-publish-azure-portal.md) que está disponível para todas as outras aplicações. A única diferença é que inclua um caráter universal nos URLs e potencialmente a configuração de SSO.
+Criar uma aplicação de carateres universais baseia-se no mesmo [fluxo de publicação de aplicação](manage-apps/application-proxy-publish-azure-portal.md) que está disponível para todas as outras aplicações. A única diferença é que inclua um caráter universal nos URLs e potencialmente a configuração de SSO.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="custom-domains"></a>Domínios personalizados
 
-Enquanto [domínios personalizados](active-directory-application-proxy-custom-domains.md) são opcionais para todas as outras aplicações, são um pré-requisito para aplicações universais. A criação de domínios personalizados requer a:
+Enquanto [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) são opcionais para todas as outras aplicações, são um pré-requisito para aplicações universais. A criação de domínios personalizados requer a:
 
 1. Criar um domínio verificado no Azure 
 2. Carregar um certificado SSL no formato PFX para o proxy de aplicações.
@@ -117,7 +117,7 @@ A aplicação de carateres universais é representada com apenas um mosaico no [
 
 ### <a name="kerberos-constrained-delegation"></a>Delegação restringida de Kerberos
 
-Para aplicações utilizando [restrita de kerberos (KCD) de delegação como método de SSO](active-directory-application-proxy-sso-using-kcd.md), o SPN listados para o método SSO também poderá ter um caráter universal. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Ainda precisa de ter os SPNs individuais configurados nos seus servidores de back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Para aplicações utilizando [restrita de kerberos (KCD) de delegação como método de SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), o SPN listados para o método SSO também poderá ter um caráter universal. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Ainda precisa de ter os SPNs individuais configurados nos seus servidores de back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -136,7 +136,7 @@ Todos os três aplicações:
 - Tem as mesmas propriedades
 
 
-Pode publicar a aplicação de carateres universais utilizando os passos descritos em [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). Este cenário pressupõe:
+Pode publicar a aplicação de carateres universais utilizando os passos descritos em [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md). Este cenário pressupõe:
 
 - Um inquilino com o seguinte ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -144,7 +144,7 @@ Pode publicar a aplicação de carateres universais utilizando os passos descrit
 
 - A **CNAME** entrada que aponta `*.adventure-works.com` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` foi criado.
 
-Seguir o [documentados passos](application-proxy-publish-azure-portal.md), criar uma nova aplicação de proxy de aplicação no seu inquilino. Neste exemplo, o caráter universal tem os seguintes campos:
+Seguir o [documentados passos](manage-apps/application-proxy-publish-azure-portal.md), criar uma nova aplicação de proxy de aplicação no seu inquilino. Neste exemplo, o caráter universal tem os seguintes campos:
 
 - URL interno:
 
@@ -183,7 +183,7 @@ Neste cenário, terá de além de três aplicações de gerais outra aplicação
 
 Tem de certificar-se de que os registos CNAME existem esse pontos `finance.adventure-works.com` para o aplicação ponto final específico, especificado na página de Proxy de aplicações para a aplicação. Para este cenário, `finance.adventure-works.com` aponta para `https://finance-awcycles.msappproxy.net/`. 
 
-Seguir o [documentados passos](application-proxy-publish-azure-portal.md), este cenário requer as seguintes definições:
+Seguir o [documentados passos](manage-apps/application-proxy-publish-azure-portal.md), este cenário requer as seguintes definições:
 
 
 - No **URL interno**, definir **financeiro** em vez de um caráter universal. 
@@ -212,8 +212,8 @@ Se tiver várias aplicações publicadas financeiro e tiver `finance.adventure-w
 
 Para obter mais informações sobre:
 
-- **Domínios personalizados**, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md).
+- **Domínios personalizados**, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](manage-apps/application-proxy-configure-custom-domain.md).
 
-- **Publicar aplicações**, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md)
+- **Publicar aplicações**, consulte [publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md)
 
 

@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Event Hubs perguntas mais frequentes
 
@@ -30,7 +30,7 @@ O escalão Standard de Event Hubs do Azure fornece funcionalidades para além de
 * Mais retenção de eventos
 * Ligações mediadas adicionais, com um custo de mais do que o número incluído excedida
 * Mais do que um único grupo de consumidores
-* [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 Para obter mais informações sobre preços camadas, incluindo dedicado de Hubs de eventos, consulte o [detalhes de preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -112,7 +112,7 @@ Para obter uma lista de exceções de Hubs de eventos possíveis, consulte [desc
 Os Event Hubs suportam dois tipos de [registos de diagnóstico](event-hubs-diagnostic-logs.md) -captura de registos de erros e registos operacionais - que são representados no json e podem ser ativados através do portal do Azure.
 
 ### <a name="support-and-sla"></a>Suporte e SLA
-O suporte técnico para os Event Hubs está disponível através de [fóruns da Comunidade](https://social.msdn.microsoft.com/forums/azure/home). O suporte de gestão da faturação e subscrição é fornecido sem custos.
+O suporte técnico para os Event Hubs está disponível através de [fóruns da Comunidade](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). O suporte de gestão da faturação e subscrição é fornecido sem custos.
 
 Para saber mais sobre o nosso SLA, consulte o [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/) página.
 

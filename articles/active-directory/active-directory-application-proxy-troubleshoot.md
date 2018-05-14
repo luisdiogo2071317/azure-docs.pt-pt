@@ -15,8 +15,8 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 96e7361ce66caaa653706d22f767e1a109fdacf7
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
@@ -50,7 +50,7 @@ Depois de localizar o erro do conector do registo de eventos, utilize esta tabel
 
 | Erro | Passos recomendados |
 | ----- | ----------------- |
-| Falha no registo do conector: Certifique-se de que ativou o Proxy da aplicação no Portal de gestão do Azure e se introduziu o nome de utilizador do Active Directory e a palavra-passe corretamente. Erro: 'ocorreram um ou mais erros.' | Se fechar a janela de registo sem início de sessão para o Azure AD, execute novamente o Assistente do conector e registar o conector. <br><br> Se a janela de registo abre e, em seguida, fecha imediatamente sem que permite iniciar sessão, provavelmente, irá obter este erro. Este erro ocorre quando existe um erro de rede no seu sistema. Certifique-se de que é possível ligar a partir de um browser para um Web site público e que as portas são abertas conforme especificado no [pré-requisitos do Proxy de aplicações](active-directory-application-proxy-enable.md). |
+| Falha no registo do conector: Certifique-se de que ativou o Proxy da aplicação no Portal de gestão do Azure e se introduziu o nome de utilizador do Active Directory e a palavra-passe corretamente. Erro: 'ocorreram um ou mais erros.' | Se fechar a janela de registo sem início de sessão para o Azure AD, execute novamente o Assistente do conector e registar o conector. <br><br> Se a janela de registo abre e, em seguida, fecha imediatamente sem que permite iniciar sessão, provavelmente, irá obter este erro. Este erro ocorre quando existe um erro de rede no seu sistema. Certifique-se de que é possível ligar a partir de um browser para um Web site público e que as portas são abertas conforme especificado no [pré-requisitos do Proxy de aplicações](manage-apps/application-proxy-enable.md). |
 | Limpar erro é apresentado na janela de registo. Não é possível continuar | Se vir este erro e, em seguida, fecha a janela, introduzir o nome de utilizador errado ou a palavra-passe. Tente novamente. |
 | Falha no registo do conector: Certifique-se de que ativou o Proxy da aplicação no Portal de gestão do Azure e se introduziu o nome de utilizador do Active Directory e a palavra-passe corretamente. Erro: ' AADSTS50059: não existem informações de identificação de inquilino encontrado no pedido ou implícito por qualquer fornecido as credenciais e pesquisa por serviço principal URI falhou. | Está a tentar iniciar sessão com uma Account Microsoft e não um domínio que faz parte do ID de organização do diretório que está a tentar aceder. Certifique-se de que o administrador faz parte do mesmo nome de domínio como o domínio de inquilino, por exemplo, se o domínio do Azure AD for contoso.com, o administrador deve ser admin@contoso.com. |
 | Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, certifique-se certifique-se de que a política de execução do PowerShell não está desativada. <br><br>1. Abra o Editor de políticas de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows** > **do Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **ativado**, certifique-se de que em Opções, a política de execução está definida como **permitir scripts locais e remotos scripts assinados** ou **permitir todos os scripts**. |
@@ -87,9 +87,9 @@ Esta lista inclui os erros que os utilizadores finais podem surgir quando tentar
 Se ocorrer um erro ou problema com o Proxy da aplicação AD do Azure que não está listado neste guia de resolução de problemas, gostaríamos de ouvir acerca do mesmo. Enviar um e-mail ao nosso [equipa comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro que encontrou.
 
 ## <a name="see-also"></a>Consulte também
-* [Ativar o Proxy de aplicações do Azure Active Directory](active-directory-application-proxy-enable.md)
-* [Publicar aplicações com o Proxy de aplicações](application-proxy-publish-azure-portal.md)
-* [Ativar o início de sessão único](active-directory-application-proxy-sso-using-kcd.md)
+* [Ativar o Proxy de aplicações do Azure Active Directory](manage-apps/application-proxy-enable.md)
+* [Publicar aplicações com o Proxy de aplicações](manage-apps/application-proxy-publish-azure-portal.md)
+* [Ativar o início de sessão único](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Ativar o acesso condicional](application-proxy-enable-remote-access-sharepoint.md)
 
 

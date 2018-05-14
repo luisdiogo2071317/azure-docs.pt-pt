@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8b4c7bb561d311796f59b94a6e2fbcd9b571d2cd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 44ecbcc51cb53f4d7b68f5c5e24e7d81c5a4208c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Com o ExpressRoute com a recuperação de desastre de máquina virtual do Azure
 
@@ -79,7 +79,7 @@ Por predefinição, o tráfego de replicação não deixe o limite do Azure. Nor
 
 Quando as máquinas virtuais do Azure são a ativação pós-falha numa região diferente, a ligação do ExpressRoute existente para a rede virtual de origem não é transferida automaticamente para a rede virtual de destino na região de recuperação. Uma nova ligação é necessário para estabelecer a ligação de ExpressRoute para a rede virtual de destino.
 
-Pode replicar máquinas virtuais do Azure a qualquer região do Azure dentro do mesmo cluster geográfico conforme detalhado [aqui](azure-to-azure-support-matrix.md#region-support). Se a região do Azure de destino que escolheu não estiver na mesma região geopolítica como origem, tem de ativar o ExpressRoute Premium se estiver a utilizar um circuito ExpressRoute único para a conectividade de região de origem e de destino. Para mais detalhes, consulte [localizações do ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [ExpressRoute preços](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+Pode replicar máquinas virtuais do Azure a qualquer região do Azure dentro do mesmo cluster geográfico conforme detalhado [aqui](azure-to-azure-support-matrix.md#region-support). Se a região do Azure de destino que escolheu não estiver na mesma região geopolítica como origem, tem de ativar o ExpressRoute Premium se estiver a utilizar um circuito ExpressRoute único para a conectividade de região de origem e de destino. Para mais detalhes, consulte [localizações do ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e [ExpressRoute preços](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>Dois circuitos do ExpressRoute em duas localizações de peering de ExpressRoute diferentes
 -   Esta configuração é útil se pretender assegurar contra falhas do circuito ExpressRoute primário e contra em grande escala regionais perante desastres, que também podem afetar as localizações de peering de ExpressRoute e perturbar o seu circuito de ExpressRoute primário.

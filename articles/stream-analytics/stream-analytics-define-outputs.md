@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/11/2018
+ms.openlocfilehash: 030af72951e226d3484706e627bc8b74d5469670
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa de Stream Analytics. Utilizar os dados de saída, pode fazê-lo ainda mais análise de negócio e dados do armazém de dados. 
@@ -86,7 +86,7 @@ A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a c
 | Conta de Armazenamento | O nome da conta do storage onde está a enviar o resultado. |
 | Chave da Conta de Armazenamento | A chave secreta associada à conta de armazenamento. |
 | Contentor de armazenamento | Contentores fornecem um agrupamento lógico blobs armazenados no Microsoft serviço Blob do Azure. Quando carregar um blob para o serviço Blob, tem de especificar um contentor para esse blob. |
-| Padrão do caminho | Opcional. O padrão do caminho de ficheiro utilizado para escrever os blobs no contentor especificado. </br></br> O padrão de caminho, pode optar por utilizar uma ou mais instâncias das variáveis do tempo de data para especificar a frequência com que os blobs são escritos: </br> {date}, {time} </br> </br>Também pode especificar um nome de campo {coluna} dos seus dados para blobs da partição por onde o nome do campo seja alfanumérico e pode incluir espaços, hífenes e carateres de sublinhado. Restrições em campos personalizados incluem o seguinte: <ul><li>Caso insensitivity (não é possível diferente entre a coluna "ID" e coluna "id")</li><li>Campos aninhados não são permitidos (em vez disso, utilize um alias de consulta da tarefa para "aplanar" o campo)</li><li>As expressões não podem ser utilizadas como um nome de campo</li></ul>Exemplos: <ul><li>Exemplo 1: cluster1/logs / {date} / {time}</li><li>Exemplo 2: cluster1/logs / {date}</li><li>Exemplo 3: cluster1 / {client_id} / {date} / {time}</li><li>Exemplo 4: cluster1 / {myField} em que a consulta é: data.myField SELECIONE como myField de entrada;</li></ul><BR> Atribuição de nome de ficheiro, segue-se a seguinte convenção: </br> {Caminho prefixo Pattern}/schemaHashcode_Guid_Number.extension </br></br> Ficheiros de saída de exemplo: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Padrão do caminho | Opcional. O padrão do caminho de ficheiro utilizado para escrever os blobs no contentor especificado. </br></br> O padrão de caminho, pode optar por utilizar uma ou mais instâncias das variáveis do tempo de data para especificar a frequência com que os blobs são escritos: </br> {date}, {time} </br> </br>Também pode especificar um nome personalizado {campo} dos seus dados de eventos para particionar blobs pelo, onde o nome do campo seja alfanumérico e pode incluir espaços, hífenes e carateres de sublinhado. Restrições em campos personalizados incluem o seguinte: <ul><li>Caso insensitivity (não é possível diferente entre a coluna "ID" e coluna "id")</li><li>Campos aninhados não são permitidos (em vez disso, utilize um alias de consulta da tarefa para "aplanar" o campo)</li><li>As expressões não podem ser utilizadas como um nome de campo</li></ul>Exemplos: <ul><li>Exemplo 1: cluster1/logs / {date} / {time}</li><li>Exemplo 2: cluster1/logs / {date}</li><li>Exemplo 3: cluster1 / {client_id} / {date} / {time}</li><li>Exemplo 4: cluster1 / {myField} em que a consulta é: data.myField SELECIONE como myField de entrada;</li></ul><BR> Atribuição de nome de ficheiro, segue-se a seguinte convenção: </br> {Caminho prefixo Pattern}/schemaHashcode_Guid_Number.extension </br></br> Ficheiros de saída de exemplo: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato da data em que os ficheiros estão organizados. Exemplo: DD/MM/DD |
 | Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
 | Formato de serialização de eventos | Formato de serialização para dados de saída.  JSON, CSV e Avro são suportados.
@@ -166,7 +166,7 @@ Partir do Stream Analytics | Para o Power BI
 bigint | Int64
 nvarchar (Max) | Cadeia
 datetime | Datetime
-Número de vírgula flutuante | Duplo
+flutuante | duplo
 Matriz de registo | Cadeia de tipo, o valor constante "IRecord" ou "IArray"
 
 ### <a name="schema-update"></a>Atualização do esquema
@@ -175,10 +175,10 @@ Do Stream Analytics infere o esquema do modelo de dados com base no primeiro con
 O `SELECT *` consulta deve ser evitada para impedir a atualização do esquema dinâmico em linhas. Para além das implicações de desempenho potencial, também pode resultar num uncertainty de tempo decorrido para os resultados. Devem selecionar os campos exatos que precisam de ser mostrada no dashboard do Power BI. Além disso, os valores de dados devem ser compatíveis com o tipo de dados escolhidas.
 
 
-Anterior/atual | Int64 | Cadeia | Datetime | Duplo
+Anterior/atual | Int64 | Cadeia | Datetime | duplo
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | Cadeia | Cadeia | Duplo
-Duplo | Duplo | Cadeia | Cadeia | Duplo
+Int64 | Int64 | Cadeia | Cadeia | duplo
+duplo | duplo | Cadeia | Cadeia | duplo
 Cadeia | Cadeia | Cadeia | Cadeia |  | Cadeia | 
 Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
@@ -289,8 +289,8 @@ A tabela seguinte resume o suporte de partição e o número de escritores de sa
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Sim | Utilize {date} e {time} tokens. o padrão de prefixo do caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Segue-se de que a entrada partições para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
 | Base de Dados SQL do Azure | Não | Nenhuma | Não aplicável. | 
-| Armazenamento de Blobs do Azure | Sim | Utilize {date} e {time} tokens. o padrão de caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Segue-se de que a entrada partições para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
-| Hub de eventos do Azure | Sim | Sim | Varia consoante o alinhamento de partição.</br> Quando o resultado da chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é o mesmo número de saída partições do Hub de eventos. Cada escritor utiliza do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada escritor utiliza EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
+| Armazenamento de Blobs do Azure | Sim | Utilize {date} e tokens {time} ou {fieldname} única do seu campos de eventos no padrão de caminho. Escolha o formato de data, tais como aaaa/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH é utilizada para o formato de hora. | Segue-se de que a entrada partições para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
+| Hub de Eventos do Azure | Sim | Sim | Varia consoante o alinhamento de partição.</br> Quando o resultado da chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é o mesmo número de saída partições do Hub de eventos. Cada escritor utiliza do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de escritores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada escritor utiliza EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. | 
 | Armazenamento de Tabelas do Azure | Sim | Nenhuma coluna de saída.  | Segue-se de que a entrada partições para [totalmente paralelizada consultas](stream-analytics-scale-jobs.md). | 
 | Tópico de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições é baseado no [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor de número inteiro exclusivo para cada partição.| Igual ao número de partições existentes no tópico de saída.  |
@@ -308,7 +308,7 @@ A tabela seguinte explica algumas das considerações sobre a criação de batch
 | Azure Data Lake Store | Consulte [limites de armazenamento do Data Lake](../azure-subscription-service-limits.md#data-lake-store-limits) | Até 4 MB por operação de escrita |
 | Base de Dados SQL do Azure | Inserir 10 000 máx. de linhas por em massa única</br>Linhas de 100 mín. por inserção em massa única </br>Consulte também [limita SQL do Azure](../sql-database/sql-database-resource-limits.md) |  Cada lote é inicialmente em massa inserida com tamanho de lote máximo e pode dividir o lote em metade (até que o tamanho do lote Min) com base na repetição erros do SQL Server. |
 | Armazenamento de Blobs do Azure | Consulte [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits) | O tamanho máximo do bloco de Blob é 4 MB</br>Contagem máxima de bock do Blob é 50000 |
-| Hub de eventos do Azure   | 256 KB por mensagem </br>Consulte também [limita os Event Hubs](../event-hubs/event-hubs-quotas.md) |    Quando a criação de partições de saída de entrada não alinha, cada evento é packed individualmente num EventData e enviado num batch de até ao tamanho máximo de mensagem (1 MB para Premium SKU). </br></br>  Quando a criação de partições de entrada-saída está alinhada, vários eventos são packed para um único EventData até tamanho máximo de mensagem e enviados.    |
+| Hub de Eventos do Azure   | 256 KB por mensagem </br>Consulte também [limita os Event Hubs](../event-hubs/event-hubs-quotas.md) |    Quando a criação de partições de saída de entrada não alinha, cada evento é packed individualmente num EventData e enviado num batch de até ao tamanho máximo de mensagem (1 MB para Premium SKU). </br></br>  Quando a criação de partições de entrada-saída está alinhada, vários eventos são packed para um único EventData até tamanho máximo de mensagem e enviados.    |
 | Power BI | Consulte [limita a API de Rest do Power BI](https://msdn.microsoft.com/library/dn950053.aspx) |
 | Armazenamento de Tabelas do Azure | Consulte [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits) | Predefinido é 100 entidades por transação única e pode ser configurado para um valor menor conforme necessário. |
 | Fila do Service Bus do Azure   | 256 KB por mensagem</br> Consulte também [limita do Service Bus](../service-bus-messaging/service-bus-quotas.md) | Evento único por mensagem |

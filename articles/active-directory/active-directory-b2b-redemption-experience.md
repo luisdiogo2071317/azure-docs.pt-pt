@@ -1,37 +1,61 @@
 ---
-title: Resgate de convite de colaboração B2B do Active Directory do Azure | Microsoft Docs
-description: Experiência do resgate de convite de colaboração do Azure Active Directory B2B
+title: Resgate convite na colaboração B2B - Azure Active Directory | Microsoft Docs
+description: Descreve a experiência de resgate do convite de colaboração B2B do Azure AD para utilizadores finais, incluindo o contrato de termos de privacidade.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7a0b492ccb48352c5e8463d3196179237f0ca412
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2e354bc4ae06e86afd5d14e87ef796fce942521b
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite de colaboração B2B do Active Directory do Azure
 
-## <a name="azure-ad-and-microsoft-account-users"></a>Azure AD e os utilizadores da conta Microsoft
-Para os utilizadores com a conta do Azure AD existente ou contas Microsoft, a experiência de resgate é tão fácil como iniciar sessão.
+Para colaborar com os utilizadores de organizações de parceiro através de colaboração B2B do Azure Active Directory (Azure AD), pode convidar os utilizadores convidados para aceder às aplicações partilhadas. Depois de um utilizador convidado é adicionado ao diretório através da interface de utilizador ou o utilizador está convidado através do PowerShell, os utilizadores convidados tem de passar por um processo de consentimento de primeira hora em que estão a concordar com [termos de privacidade](#privacy-policy-agreement). Este processo ocorre em qualquer uma das seguintes formas:
 
-## <a name="social-id-user-first-time-redemption"></a>Redes social resgate de primeiro tempo de utilizador de ID
-Colaboração do Azure AD B2B torna mais fácil para qualquer endereço de e-mail ser utilizado para resgate. Observe a experiência de resgate quando é utilizado um endereço de e-mail de terceiros para colaboração B2B. Este fluxo de resgate é mais envolvido, porque poderá ter de criar uma conta no momento da resgate. Veja-lo no vídeo seguinte:
+- Envia o inviter convidado terminar uma ligação direta para uma aplicação partilhada. O invitee clica na ligação para iniciar sessão, aceita os termos de privacidade e acede perfeitamente o recurso partilhado. (O utilizador de convidados ainda recebe um e-mail de convite com um URL de resgate, mas que não sejam alguns casos especiais, tem já não é necessária para utilizar o e-mail de convite).  
+- O utilizador convidado recebe um e-mail de convite e clica no URL de resgate. Como parte do tempo de primeiro início de sessão, são-lhe pedido que aceite os termos de privacidade.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
-> 
+## <a name="redemption-through-a-direct-link"></a>Resgate através de uma ligação direta
+
+Um inviter convidado pode convidar um utilizador convidado através do envio de uma ligação direta para uma aplicação partilhada. Para o utilizador convidado, a experiência de resgate é tão fácil como o início de sessão na aplicação que foi partilhada com os mesmos. Pode clicar numa ligação para a aplicação, reveja e aceite os termos de privacidade e, em seguida, aceder perfeitamente a aplicação. Na maioria dos casos, os utilizadores convidados já não é necessitam clicar num URL de resgate no e-mail de convite.
+
+Se convidou utilizadores convidados através da interface de utilizador ou optar por enviar o e-mail de convite como parte da experiência de convite de PowerShell, o utilizador convidado ainda recebe um e-mail de convite. Este e-mail é útil para os seguintes casos especiais:
+
+- O utilizador não tem uma conta do Azure AD ou uma conta Microsoft (MSA). Neste caso, o utilizador tem de criar uma MSA antes de clicar na ligação ou podem utilizar o URL de resgate no e-mail de convite. O processo de resgate automaticamente solicita ao utilizador para criar uma MSA.
+- Por vezes, o objeto de utilizador convidados não pode ter um endereço de e-mail devido a um conflito com um objeto de contacto (por exemplo, um Outlook contacto objeto). Neste caso, o utilizador tem de clicar no URL de resgate no e-mail de convite.
+- O utilizador pode iniciar sessão com um alias do endereço de e-mail que foi convidado. (O alias é um endereço de e-mail adicionais associado a uma conta de e-mail). Neste caso, o utilizador tem de clicar no URL de resgate no e-mail de convite.
+
+Se estes casos especiais são importantes para a sua organização, recomendamos que convidar os utilizadores através de métodos ainda enviar o e-mail de convite. Além disso, se um utilizador não abrangidos por uma nestes casos especiais, pode ainda clicarem o URL de um e-mail de convite de obter acesso.
+
+## <a name="redemption-through-the-invitation-email"></a>Resgate através do e-mail de convite
+
+Se convidado através de um método que envia um e-mail de convite, os utilizadores também podem resgatar um convite através do e-mail de convite. Um utilizador de convidados pode clique no URL de resgate no e-mail e, em seguida, reveja e aceite os termos de privacidade. O processo é descrito aqui mais detalhadamente:
+
+1.  Após a ser convidado, o invitee recebe um convite através de correio eletrónico que é enviado a partir de **Microsoft Invitations**.
+2.  Seleciona o invitee **começar** no e-mail.
+3.  Se o invitee não tiver uma conta do Azure AD ou uma MSA, são-lhe pedido que crie uma MSA.
+4.  O invitee é redirecionado para o **rever permissões** ecrã, onde pode consultar a declaração de privacidade da organização convidando e aceite os termos.
+
+## <a name="privacy-policy-agreement"></a>Contrato de política de privacidade
+
+Depois de qualquer utilizador convidado inicia sessão aceder a recursos numa organização parceira pela primeira vez, este vê uma **rever permissões** ecrã. Aqui, podem rever a declaração de privacidade da organização convidando. Um utilizador tem de aceitar a utilização das respetivas informações na accordance para as políticas de privacidade da organização convidando para continuar.
+
+![Captura de ecrã que mostra as definições de utilizador no painel de acesso](media/active-directory-b2b-redemption-experience/ConsentScreen.png) 
+
+Para obter informações sobre como como um administrador inquilino pode ligar a declaração de privacidade da sua organização, consulte [procedimentos: adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte os artigos seguintes na colaboração B2B do Azure AD:
-
-* [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Os elementos do e-mail de convite de colaboração B2B](active-directory-b2b-invitation-email.md)
-* [Colaboração do Azure Active Directory B2B perguntas mais frequentes (FAQ)](active-directory-b2b-faq.md)
-* [Colaboração B2B do Active Directory Azure API e personalização](active-directory-b2b-api.md)
+- [O que é a colaboração B2B do Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Adicionar utilizadores de colaboração do B2B de diretório Active Directory do Azure no portal do Azure](active-directory-b2b-admin-add-users.md)
+- [Como técnicos de informação adicionar utilizadores de colaboração B2B do Azure Active Directory?](active-directory-b2b-iw-add-users.md)
+- [Adicionar utilizadores de colaboração do B2B de diretório Active Directory do Azure utilizando o PowerShell](active-directory-b2b-api.md#powershell)
+- [Sair de uma organização como um utilizador convidado](active-directory-b2b-leave-the-organization.md)

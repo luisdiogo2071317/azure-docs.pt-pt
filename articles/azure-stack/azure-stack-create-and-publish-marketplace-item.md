@@ -2,24 +2,23 @@
 title: Criar e publicar um item do Marketplace na pilha do Azure | Microsoft Docs
 description: Criar e publicar um item do Marketplace na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar itens do Marketplace
 
@@ -110,7 +109,7 @@ ms.lasthandoff: 02/21/2018
 ### <a name="metadata"></a>Metadados
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Cadeia |Recomendação de 80 carateres |O portal pode não apresentar o nome do item de lidar graciosamente se for mais de 80 carateres. |
+| Nome a Apresentar |X |Cadeia |Recomendação de 80 carateres |O portal pode não apresentar o nome do item de lidar graciosamente se for mais de 80 carateres. |
 | PublisherDisplayName |X |Cadeia |Recomendação de 30 carateres |O portal pode não apresentar o nome do publicador corretamente se for mais de 30 carateres. |
 | PublisherLegalName |X |Cadeia |Máximo de 256 carateres | |
 | Resumo |X |Cadeia |60 a 100 carateres | |
@@ -136,21 +135,21 @@ Cada item do Marketplace pode incluir várias ligações para conteúdo adiciona
 
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Cadeia |Máximo de 64 carateres | |
-| URI |X |URI | | |
+| Nome a Apresentar |X |Cadeia |Máximo de 64 carateres | |
+| Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Propriedades adicionais
 Para além dos metadados anterior, os autores de Marketplace podem fornecer dados de par chave/valor personalizado no seguinte formato:
 
 | Nome | Necessário | Tipo | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Cadeia |Máximo de 25 carateres | |
+| Nome a Apresentar |X |Cadeia |Máximo de 25 carateres | |
 | Valor |X |Cadeia |Máximo de 30 carateres | |
 
 ### <a name="html-sanitization"></a>Sanitização de HTML
 Para qualquer campo que lhe permite HTML, são permitidos os seguintes elementos e atributos:
 
-h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i
+H1, h2, h3, h4, h5, p, ol, ul, li, uma [destino | href], br, segura, IT, o b, posso
 
 ## <a name="reference-marketplace-item-ui"></a>Referência: O item do Marketplace IU
 Ícones e o texto de itens do Marketplace visto no portal do Azure pilha são as seguintes.

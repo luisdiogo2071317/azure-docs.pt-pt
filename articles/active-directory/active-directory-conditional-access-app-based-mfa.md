@@ -12,25 +12,25 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/10/2018
+ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b451ede984d3baa8331ec87575557f845686c01f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d675236f36840858f0f011484392186d355ac6df
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory 
 
-Para simplificar a experiência de início de sessão dos utilizadores, pode querer permitir-lhes autorização iniciar sessão suas aplicações em nuvem utilizando um nome de utilizador e uma palavra-passe. No entanto, muitos ambientes tem, pelo menos, algumas aplicações para o qual é recomendado para exigir um formulário de verificação de conta, tais como a autenticação multifator mais forte. Isto pode ser, para VERDADEIRO de exemplo, para acesso ao sistema de e-mail da sua organização ou as aplicações de RH. No Azure Active Directory, pode realizar este objetivo com uma política de acesso condicional.    
+Para simplificar a experiência de início de sessão dos utilizadores, pode querer permitir-lhes autorização iniciar sessão suas aplicações em nuvem utilizando um nome de utilizador e uma palavra-passe. No entanto, muitos ambientes tem, pelo menos, algumas aplicações para o qual é recomendado para exigir um formulário de verificação de conta, tais como a autenticação multifator (MFA) mais forte. Isto pode ser, para VERDADEIRO de exemplo, para acesso ao sistema de e-mail da sua organização ou as aplicações de RH. No Azure Active Directory (Azure AD), pode realizar este objetivo com uma política de acesso condicional.    
 
-Este guia de introdução mostra como configurar um [política de acesso condicional do Azure AD](active-directory-conditional-access-azure-portal.md) para exigir a autenticação multifator para um conjunto de aplicações em nuvem selecionado no seu ambiente.
+Este guia de introdução mostra como configurar um [política de acesso condicional do Azure AD](active-directory-conditional-access-azure-portal.md) que requer autenticação multifator para um conjunto de aplicações em nuvem selecionado no seu ambiente.
 
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-O cenário neste artigo utiliza o portal do Azure como marcador de posição para uma aplicação de nuvem que requer autenticação multifator para um utilizador específico. Isabella Simonsen é um utilizador na sua organização. Quando iniciar sessão para o portal do Azure, pretende-lhe para verificar ainda mais a sua conta multi-factor Authentication.
+O cenário neste artigo utiliza o portal do Azure como marcador de posição para uma aplicação de nuvem exige a MFA para um utilizador específico. Isabella Simonsen é um utilizador na sua organização. Quando iniciar sessão para o portal do Azure, pretende-lhe verificar ainda mais a sua conta com a MFA.
 
 ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
@@ -58,7 +58,7 @@ Na sua política, definir:
 |Conceder | Exigir autenticação multifator |
  
 
-![Criar política](./media/active-directory-conditional-access-app-based-mfa/21.png)
+![Criar política](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
 
 
