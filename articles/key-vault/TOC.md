@@ -1,7 +1,7 @@
 # [Documentação do Cofre de Chaves](index.yml)
 
 # Descrição geral
-## [Descrição geral do Cofre de Chaves](key-vault-overview.md)
+## [Sobre o Key Vault](key-vault-overview.md)
 
 # Inícios rápidos
 ## [Criar um Cofre de Chaves - CLI](quick-create-cli.md)
@@ -65,8 +65,8 @@
 ## [Descrição geral do serviço](https://azure.microsoft.com/services/key-vault/)
 ## [Sobre Chaves, Segredos e Certificados](about-keys-secrets-and-certificates.md)
 ### [Introdução aos certificados](certificate-scenarios.md)
-#### [Métodos de criação de certificados](create-certificate.md)
-#### [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)
+### [Métodos de criação de certificados](create-certificate.md)
+### [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)
 ## [Autenticação, Pedidos e Respostas](authentication-requests-and-responses.md)
 ## [Parâmetros e cabeçalhos comuns](common-parameters-and-headers.md)
 ## [Versões do Key Vault](key-vault-versions.md)

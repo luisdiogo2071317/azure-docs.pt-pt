@@ -16,6 +16,7 @@
 ## [Adicionar utilizadores ao Azure AD](add-users-azure-active-directory.md)
 ## [Atribuir licenças a utilizadores](license-users-groups.md)
 ## [Configurar a reposição personalizada de palavra-passe](authentication/quickstart-sspr.md)
+## [Adicionar informações de privacidade da sua organização no Azure AD](active-directory-properties-area.md)
 
 
 # Procedimento
@@ -58,6 +59,7 @@
 #### [Políticas de partilha B2B](active-directory-b2b-delegate-invitations.md)
 #### [Adicionar um utilizador B2B a uma função](active-directory-b2b-add-guest-to-role.md)
 #### [Grupos dinâmicos e utilizadores B2B](active-directory-b2b-dynamic-groups.md)
+#### [Sair de uma organização](active-directory-b2b-leave-the-organization.md)
 #### [Auditoria e relatórios](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B para organizações híbridas](active-directory-b2b-hybrid-organizations.md)
 ##### [Conceder aos utilizadores B2B acesso a aplicações locais](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Aceder a aplicações remotamente com o Proxy de Aplicações](manage-apps/application-proxy.md)
 #### Introdução
-##### [Ativar Proxy de aplicações](active-directory-application-proxy-enable.md)
-##### [Publicar aplicações](application-proxy-publish-azure-portal.md)
-##### [Domínios personalizados](active-directory-application-proxy-custom-domains.md)
-#### [Início de sessão único](application-proxy-sso-overview.md)
-##### [SSO com KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Ativar Proxy de aplicações](manage-apps/application-proxy-enable.md)
+##### [Publicar aplicações](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Início de sessão único](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO com KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO com cabeçalhos](application-proxy-ping-access.md)
 ##### [SSO com colocação de palavras-passe em cofres](application-proxy-sso-azure-portal.md)
 #### Conceitos

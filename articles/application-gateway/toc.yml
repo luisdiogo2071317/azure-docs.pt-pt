@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: Redirecionamento de URL
       href: redirect-overview.md
+    - name: Monitorização do estado de funcionamento
+      href: application-gateway-probe-overview.md
 - name: Guias de procedimentos
   items:
     - name: Criar um gateway de aplicação
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: Criar um gateway de aplicação com redundância de zona
       href: create-zone-redundant.md
+    - name: Sondas personalizadas
+      items:
+        - name: Portal
+          href: application-gateway-create-probe-portal.md
+        - name: PowerShell Clássico
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Resolução de problemas
+      items:
+        - name: Resolver erros de Gateway Incorreto (502)
+          href: application-gateway-troubleshooting-502.md
+        - name: Diagnóstico
+          href: application-gateway-diagnostics.md
 - name: Referência
   items:
     - name: CLI do Azure

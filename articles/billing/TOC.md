@@ -43,6 +43,7 @@
 ### [Atualizar informações de pagamento](billing-how-to-change-credit-card.md)
 ### [Comprar subscrições através de fatura](billing-how-to-pay-by-invoice.md)
 ### [ID do parceiro de ligação](billing-partner-admin-link-started.md)
+### [Ver contas de faturação](billing-view-all-accounts.md)
 ## [Gerir Instâncias de VM Reservadas](billing-manage-reserved-vm-instance.md)
 ## Resolução de problemas
 ### [Problemas de inscrição](https://support.microsoft.com/en-us/help/4042959)
