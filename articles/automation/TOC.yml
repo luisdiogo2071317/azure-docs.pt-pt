@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Função de Trabalho de Runbook Híbrida
       items:
-        - name: Implementar Função de Trabalho de Runbook Híbrida
+        - name: Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
           href: automation-hybrid-runbook-worker.md
-        - name: Função de Trabalho de Runbook Híbrida do Windows da Automatização do Azure
+        - name: Implementar Função de Trabalho de Runbook Híbrida do Windows
           href: automation-windows-hrw-install.md
-        - name: Função de Trabalho de Runbook Híbrida do Linux da Automatização do Azure
+        - name: Implementar Função de Trabalho de Runbook Híbrida do Linux
           href: automation-linux-hrw-install.md
-        - name: Executar runbooks na função de trabalho
+        - name: Executar runbooks numa Função de Trabalho de Runbook Híbrida
           href: automation-hrw-run-runbooks.md
-        - name: Remover Funções de Trabalho de Runbook Híbridas da Automatização do Azure
-          href: automation-remove-hrw.md
     - name: Implementar gestão de configuração (DSC)
       items:
         - name: Descrição geral do Desired State Configuration (DSC)

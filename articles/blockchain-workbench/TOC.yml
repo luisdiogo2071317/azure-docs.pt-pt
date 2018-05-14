@@ -24,23 +24,27 @@
       href: blockchain-workbench-use-API.md
     - name: Resolução de problemas a aplicações
       href: blockchain-workbench-troubleshooting.md
-    - name: Obter os detalhes do Workbench DB
-      href: blockchain-workbench-getdb-details.md
-    - name: Configurar a firewall a BD do Workbench SQL
-      href: blockchain-workbench-database-firewall.md
-    - name: Utilizar dados do Workbench no Excel
-      href: blockchain-workbench-data-excel.md
-    - name: Utilizar dados do Workbench no Power BI
-      href: blockchain-workbench-data-powerbi.md
-    - name: Utilizar dados do Workbench no SQL Management Studio
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: Utilizar dados do Workbench
+      items:
+        - name: Configurar a firewall da BD
+          href: blockchain-workbench-database-firewall.md
+        - name: Obter os detalhes da base de dados
+          href: blockchain-workbench-getdb-details.md
+        - name: Utilizar dados no Excel
+          href: blockchain-workbench-data-excel.md
+        - name: Utilizar dados no Power BI
+          href: blockchain-workbench-data-powerbi.md
+        - name: Utilizar dados no SQL Management Studio
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: Referência
   items:
+    - name: Exemplos de código
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Configuração
       href: blockchain-workbench-configuration-overview.md
     - name: Vistas de base de dados
       href: blockchain-workbench-database-views.md
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: API de Mensagens
       href: blockchain-workbench-messages-overview.md
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'

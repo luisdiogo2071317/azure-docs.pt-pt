@@ -49,6 +49,8 @@
       href: backup-azure-security-feature.md
     - name: Configurar a cópia de segurança offline
       href: backup-azure-backup-import-export.md
+    - name: Cópia de segurança offline para o DPM e Azure Backup Server
+      href: backup-azure-backup-server-import-export-.md
     - name: Substituir a sua biblioteca de unidades de banda
       href: backup-azure-backup-cloud-as-tape.md
 - name: Procedimento

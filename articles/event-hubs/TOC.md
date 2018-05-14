@@ -28,6 +28,11 @@
 ### [Disponibilidade e consistência](event-hubs-availability-and-consistency.md)
 ### [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md)
 ### [Integração do Apache Spark com os Hubs de Eventos](event-hubs-spark-connector.md)
+## Hubs de Eventos para Kafka
+### [Hubs de Eventos para o Ecossistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+### [Criar Hubs de Eventos ativados pelo Kafka](event-hubs-create-kafka-enabled.md) 
+### [Transmitir para os Hubs de Eventos do Azure para o Ecossistema Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Utilizar o Kafka MirrorMaker com os Hubs de Eventos do Azure para o Ecossistema do Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
 ## Programar
 ### [Enviar eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Receber eventos com o .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
