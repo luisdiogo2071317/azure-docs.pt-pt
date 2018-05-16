@@ -1,75 +1,147 @@
 ---
-title: Adicione o conector do SQL Database do Azure nas suas Logic Apps | Microsoft Docs
-description: "Descrição geral do conector do SQL Database do Azure com os parâmetros de REST API"
-services: 
-documentationcenter: 
+title: Ligar ao SQL Server ou base de dados do SQL do Azure - as do Azure Logic Apps | Microsoft Docs
+description: Criar ligações ao SQL Server no local e a SQL Database do Azure na nuvem do Azure Logic Apps
+services: logic-apps
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: cfowler
+editor: ''
 tags: connectors
 ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
 ms.service: logic-apps
-ms.devlang: na
+ms.workload: logic-apps
+ms.devlang: ''
+ms.tgt_pltfrm: ''
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 05/15/2018
+ms.author: estfan
+ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="get-started-with-the-azure-sql-database-connector"></a>Começar a utilizar o conector do SQL Database do Azure
-Utilizar o conector do SQL Database do Azure, crie fluxos de trabalho para a sua organização que gerem dados no seu tabelas. 
+# <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ligar ao SQL Server ou base de dados SQL do Azure a partir do Azure Logic Apps
 
-Base de dados SQL, pode:
+Este artigo mostra como pode aceder aos dados na base de dados SQL do dentro de uma aplicação lógica com o conector do SQL Server. Dessa forma, pode criar as logic apps que automatizem tarefas e fluxos de trabalho para gerir os seus dados. O conector funciona para ambos [do SQL Server no local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) e para [SQL Database do Azure na nuvem](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-* Crie o fluxo de trabalho ao adicionar um novo cliente para uma base de dados de clientes ou atualizar uma ordem numa base de dados ordens.
-* Utilize ações para obter uma linha de dados, insira uma nova linha e até mesmo eliminar. Por exemplo, quando é criado um registo no Dynamics CRM Online (um acionador), insira uma linha numa SQL Database do Azure (uma ação). 
+Pode criar as logic apps, que são executados quando é acionada por eventos na sua base de dados do SQL Server ou em outros sistemas, tais como o Dynamics CRM Online. As logic apps podem também obtém, inserir, ou eliminar dados e também executar consultas SQL ou procedimentos armazenados. Por exemplo, pode criar uma aplicação lógica que automaticamente verifica a existência de novos registos no Dynamics CRM Online, adiciona os itens na base de dados do SQL Server para quaisquer novos registos e, em seguida, envia alertas por e-mail.
 
-Este artigo mostra-lhe como utilizar o conector de base de dados SQL numa aplicação lógica e também lista as ações.
+Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com as logic apps, reveja [que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: criar a sua primeira aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte o <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referência de conector do SQL Server</a>.
 
-Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="connect-to-azure-sql-database"></a>Ligar à base de dados SQL do Azure
-Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de criar um *ligação* ao serviço. Uma ligação oferece a conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar à base de dados do SQL Server, tem primeiro de criar uma base de dados do SQL Server *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que está a ligar. Por isso, na base de dados do SQL Server, introduza as credenciais da base de dados SQL para criar a ligação. 
+* A aplicação lógica em que precisa de acesso à base de dados SQL. Para iniciar a sua aplicação lógica com um acionador SQL, é necessário um [aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-#### <a name="create-the-connection"></a>Criar a ligação
-> [!INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
-> 
-> 
+* Um [SQL database do Azure](../sql-database/sql-database-get-started-portal.md) ou um [base de dados do SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
 
-## <a name="use-a-trigger"></a>Utilizar um acionador
-Este conector não ter acionadores. Utilize outros acionadores para iniciar a aplicação lógica, tais como um acionador de recorrência, um acionador de HTTP Webhook, acionadores disponíveis com outros conectores e muito mais. [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) fornece um exemplo.
+  As tabelas têm de ter dados para que a sua aplicação lógica pode devolver resultados ao chamar operações. Se criar uma base de dados do SQL do Azure, pode utilizar bases de dados de exemplo, que estão incluídos. 
 
-## <a name="use-an-action"></a>Utilizar uma ação
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* O nome do servidor SQL, nome de base de dados, o nome de utilizador e a palavra-passe. Precisa destas credenciais, para que podem autorizar a lógica de aceder ao seu SQL server. 
 
-1. Selecione o sinal de adição. Pode ver várias opções: **adicionar uma ação**, **adicionar uma condição**, ou um do **mais** opções.
+  * Para a base de dados SQL do Azure, pode encontrar estes detalhes na cadeia de ligação ou o portal do Azure nas propriedades de base de dados SQL:
+
+    "Servidor = tcp: <*yourServerName*>. database.windows.net,1433;Initial catálogo = <*yourDatabaseName*>; Manter informações de segurança = False; ID de utilizador = <*yourUserName*>; Palavra-passe = <*yourPassword*>; MultipleActiveResultSets = False; Encriptar = True; TrustServerCertificate = False; Tempo limite da ligação = 30; "
+
+  * Para o SQL Server, pode encontrar estes detalhes na cadeia de ligação: 
+
+    "Servidor = <*yourServerAddress*>; base de dados = <*yourDatabaseName*>; Id de utilizador = <*yourUserName*>; Palavra-passe = <*yourPassword*>; "
+
+* Antes de poder ligar as logic apps para sistemas no local, como o SQL Server, tem [configurar um gateway de dados no local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, pode selecionar o gateway ao criar a ligação do SQL Server para a sua aplicação lógica.
+
+<a name="add-sql-trigger"></a>
+
+## <a name="add-sql-trigger"></a>Adicionar o acionador do SQL Server
+
+No Azure Logic Apps, cada aplicação lógica tem de começar com uma [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que é desencadeado quando um evento específico acontece ou quando for cumprida uma condição específica. Sempre que o acionador é desencadeado, o motor de Logic Apps cria uma instância de aplicação lógica e inicia a executar o fluxo de trabalho da sua aplicação.
+
+1. No portal do Azure ou Visual Studio, crie uma aplicação de lógica em branco, o qual abre o Designer de aplicações lógicas. Este exemplo utiliza o portal do Azure.
+
+2. Na caixa de pesquisa, introduza "sql server" como o filtro. Na lista de acionadores, selecione o acionador do SQL Server que pretende. 
+
+   Para este exemplo, selecione este acionador: **do SQL Server - quando um item é criado**
+
+   ![Selecione "SQL Server - quando é criado um item" acionador](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
+
+3. Se lhe for pedida para detalhes de ligação, [criar a sua ligação de SQL agora](#create-connection). 
+   Ou, se a ligação já existir, selecione o **nome da tabela** que pretende que o da lista.
+
+   ![Selecionar a tabela](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
+
+4. Definir o **intervalo** e **frequência** as propriedades que especificam a frequência a sua aplicação lógica verifica a tabela.
+
+   Neste exemplo só verifica as tabelas selecionadas, mais nada. 
+   Para fazer algo mais interessante, adicione as ações que executar as tarefas que pretende. 
    
-    ![](./media/connectors-create-api-sqlazure/add-action.png)
-2. Escolha **adicionar uma ação**.
-3. Na caixa de texto, escreva "sql" para obter uma lista de todas as ações disponíveis.
+   Por exemplo, para ver o novo item na tabela, poderá adicionar outras ações, tais como criar um ficheiro que tem campos da tabela e, em seguida, enviar alertas por e-mail. 
+   Para mais informações sobre outras ações para este conector ou outros conectores, consulte o artigo [conectores Logic Apps](../connectors/apis-list.md).
+
+5. Quando tiver terminado, na barra de ferramentas estruturador, escolha **guardar**. 
+
+   Este passo permite e publica a sua aplicação lógica em direto no Azure automaticamente. 
+
+<a name="add-sql-action"></a>
+
+## <a name="add-sql-action"></a>Adicionar ação do SQL Server
+
+No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um passo no fluxo de trabalho que se segue um acionador ou outra ação. Neste exemplo, a aplicação lógica começa com o [acionador de recorrência](../connectors/connectors-native-recurrence.md)e chama uma ação que obtém uma linha de uma base de dados do SQL Server.
+
+1. No portal do Azure ou Visual Studio, abra a aplicação de lógica no Designer de aplicações lógicas. Este exemplo utiliza o portal do Azure.
+
+2. No Designer de aplicação lógica, sob o acionador ou ação, escolha **novo passo** > **adicionar uma ação**.
+
+   ![Selecione "Novo passo", "Adicionar uma ação"](./media/connectors-create-api-sqlazure/add-action.png)
    
-    ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. Neste exemplo, escolha **do SQL Server - Get linha**. Se já existe uma ligação, em seguida, selecione o **nome da tabela** da lista pendente lista e introduza o **ID de linha** pretender regressar.
+   Para adicionar uma ação entre passos existentes, mova o rato sobre a seta para a ligação. 
+   Escolha o sinal de adição (**+**) que é apresentado e, em seguida, escolha **adicionar uma ação**.
+
+2. Na caixa de pesquisa, introduza "sql server" como o filtro. Na lista de ações, selecione qualquer ação do SQL Server que pretender. 
+
+   Para este exemplo, selecione esta ação, o que obtém um único registo: **do SQL Server - linha Get**
+
+   ![Introduza "sql server", selecione "SQL Server - linha Get"](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
+
+3. Se lhe for pedida para detalhes de ligação, [criar a sua ligação de SQL agora](#create-connection). 
+   Ou, se a ligação existe, selecione um **nome da tabela**e introduza o **ID de linha** para o registo de que pretende.
+
+   ![Introduza o nome da tabela e o ID de linha](./media/connectors-create-api-sqlazure/table-row-id.png)
    
-    ![](./media/connectors-create-api-sqlazure/sample-table.png)
-   
-    Se lhe for pedido para obter as informações de ligação, em seguida, introduza os detalhes para criar a ligação. [Criar a ligação](connectors-create-api-sqlazure.md#create-the-connection) este artigo descreve estas propriedades. 
-   
-   > [!NOTE]
-   > Neste exemplo, iremos devolver uma linha de uma tabela. Para ver os dados nesta linha, adicione outra ação que cria um ficheiro com os campos da tabela. Por exemplo, adicione uma ação de OneDrive que utiliza os campos FirstName e LastName para criar um novo ficheiro na conta de armazenamento na nuvem. 
-   > 
-   > 
-5. **Guardar** as suas alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
+   Neste exemplo devolve apenas uma linha entre as tabelas selecionadas, mais nada. 
+   Para ver os dados nesta linha, pode adicionar outras ações que crie um ficheiro com os campos da linha para revisão posterior e armazenar esse ficheiro numa conta de armazenamento na nuvem. Para saber mais sobre as restantes ações deste conector ou outros conectores, consulte [conectores Logic Apps](../connectors/apis-list.md).
+
+4. Quando tiver terminado, na barra de ferramentas estruturador, escolha **guardar**. 
+
+<a name="create-connection"></a>
+
+## <a name="connect-to-your-database"></a>Ligar à base de dados
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
+
+## <a name="process-data-in-bulk"></a>Processamento de dados em massa
+
+Quando trabalha com conjuntos de resultados tão elevados que o conector não devolve todos os resultados ao mesmo tempo, em alternativa, um melhor controlo sobre o tamanho e a estrutura para conjuntos de resultados, pode utilizar *paginação*, que ajuda a gerir os resultados como conjuntos mais pequenos. 
+
+[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+
+### <a name="create-a-stored-procedure"></a>Criar um procedimento armazenado
+
+Ao obter ou inserir várias linhas, a aplicação lógica pode itere através destes itens utilizando um [ *até ciclo* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dentro estes [limites](../logic-apps/logic-apps-limits-and-config.md). No entanto, por vezes, a aplicação lógica tem de trabalhar com conjuntos de registos tão elevados como milhares ou milhões de linhas, o que pretende minimizar os custos de chamadas para a base de dados. 
+
+Em vez disso, pode criar um <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank"> *procedimento armazenado* </a> que é executado na sua instância do SQL Server e utiliza o **SELECIONAR - ORDER BY** instrução para organizar o forma como pretende que os resultados. Esta solução fornece-lhe mais controlo sobre o tamanho e a estrutura dos resultados da sua. A aplicação lógica chama o procedimento armazenado utilizando o conector do SQL Server **executar procedimento armazenado** ação. 
+
+Para detalhes de solução, consulte estes artigos:
+
+* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">Paginação de SQL para a transferência de dados em massa com Logic Apps</a>
+
+* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECIONE - ordenar por uma cláusula</a>
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/sql/). 
+Para obter informações técnicas sobre acionadores este conector, ações e limites, consulte o [detalhes de referência do conector](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no [lista APIs](apis-list.md).
+
+* Saiba mais sobre outros [conectores Logic Apps](../connectors/apis-list.md)
 

@@ -3,23 +3,25 @@ title: Referência de tokens do Azure Active Directory v 2.0 | Microsoft Docs
 description: Os tipos de tokens e afirmações emitidas pelo ponto final v 2.0 do Azure AD
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, características de segurança e conteúdo de cada tipo de token.
@@ -69,8 +71,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | nome |`name` |`Babe Ruth` |A afirmação de nome fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido ser exclusivo, é mutável e foi concebido para ser utilizado apenas para efeitos de apresentação. O `profile` âmbito é necessário para receber esta afirmação. |
 | e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |O endereço de correio eletrónico principal associado com a conta de utilizador, se existir. O valor é mutável e pode ser alterados ao longo do tempo. O `email` âmbito é necessário para receber esta afirmação. |
 | nome de utilizador preferencial |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |O nome de utilizador primário que representa o utilizador no ponto final v 2.0. Poderia ser um endereço de e-mail, número de telefone ou um nome de utilizador genérico sem um formato especificado. O valor é mutável e pode ser alterados ao longo do tempo. Uma vez que é mutável, este valor não deve ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta afirmação. |
-| Requerente |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | O principal sobre os quais o token de asserções informações, tais como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizada. Este pode ser utilizado para efetuar verificações de autorização com segurança, tal como quando o token é utilizado para aceder a um recurso e pode ser utilizado como uma chave nas tabelas de base de dados. Porque o requerente é sempre apresente os tokens que problemas do Azure AD, recomendamos que utilize este valor num sistema de autorização para fins gerais. O requerente é, no entanto, um identificador pairwise - é exclusivo num ID de aplicação em particular.  Por conseguinte, se um único utilizador inicia sessão duas aplicações diferentes com dois IDs de cliente diferente, essas aplicações receberá dois valores diferentes para a afirmação de assunto.  Esta pode ou não pode ser pretendida dependendo dos requisitos de privacidade e arquitetura. |
-| ID de objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável para um objeto de sistema de identidade Microsoft, neste caso, uma conta de utilizador.  Também pode ser utilizado para efetuar verificações de autorização segura e como uma chave nas tabelas de base de dados. Este ID identifica exclusivamente o utilizador em todas as aplicações - duas aplicações diferentes assinatura no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação.  Isto significa que pode ser utilizado quando efetuar consultas para o Microsoft online services, como o Microsoft Graph.  O Microsoft Graph devolverá este ID de como o `id` propriedade para uma determinada conta de utilizador.  Porque o `oid` permite que várias aplicações correlacionar os utilizadores, a `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador na vários inquilinos, o utilizador irá conter um ID de objeto diferentes cada inquilino - que são consideradas diferentes contas, apesar do utilizador iniciar sessão cada conta com as mesmas credenciais. |
+| Requerente |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | O principal sobre os quais o token de asserções informações, tais como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizada. Este pode ser utilizado para efetuar verificações de autorização com segurança, tal como quando o token é utilizado para aceder a um recurso e pode ser utilizado como uma chave nas tabelas de base de dados. Porque o requerente é sempre apresente os tokens que problemas do Azure AD, recomendamos que utilize este valor num sistema de autorização para fins gerais. O requerente é, no entanto, um identificador pairwise - é exclusivo num ID de aplicação em particular. Por conseguinte, se um único utilizador inicia sessão duas aplicações diferentes com dois IDs de cliente diferente, essas aplicações receberá dois valores diferentes para a afirmação de assunto. Esta pode ou não pode ser pretendida dependendo dos requisitos de privacidade e arquitetura. |
+| ID de objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável para um objeto de sistema de identidade Microsoft, neste caso, uma conta de utilizador. Também pode ser utilizado para efetuar verificações de autorização segura e como uma chave nas tabelas de base de dados. Este ID identifica exclusivamente o utilizador em todas as aplicações - duas aplicações diferentes assinatura no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. Isto significa que pode ser utilizado quando efetuar consultas para o Microsoft online services, como o Microsoft Graph. O Microsoft Graph devolverá este ID de como o `id` propriedade para uma determinada conta de utilizador. Porque o `oid` permite que várias aplicações correlacionar os utilizadores, a `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador na vários inquilinos, o utilizador irá conter um ID de objeto diferentes cada inquilino - que são consideradas diferentes contas, apesar do utilizador iniciar sessão cada conta com as mesmas credenciais. |
 
 ### <a name="access-tokens"></a>Tokens de acesso
 
@@ -83,7 +85,7 @@ Atualizar tokens são tokens de segurança que pode utilizar a aplicação para 
 
 Os tokens de atualização são vários recursos. Um token de atualização recebido durante um pedido de token para um recurso pode ser resgatado para tokens de acesso a um recurso completamente diferente.
 
-Para receber uma atualização numa resposta token, a aplicação tem de pedir e receber o `offline_acesss` âmbito. Para saber mais sobre o `offline_access` âmbito, consulte o [consentimento e âmbitos](active-directory-v2-scopes.md) artigo.
+Para receber uma atualização numa resposta token, a aplicação tem de pedir e receber o `offline_access` âmbito. Para saber mais sobre o `offline_access` âmbito, consulte o [consentimento e âmbitos](active-directory-v2-scopes.md) artigo.
 
 Tokens de atualização são e sempre serão, completamente opaco à sua aplicação. Estes são emitidos pelo ponto final v 2.0 do Azure AD e podem apenas ser inspecionadas e interpretados pelo ponto final v 2.0. Estão longa duração, mas a aplicação não deve ser escrita esperar que um token de atualização duram qualquer período de tempo. Atualização de tokens pode ser inválida em qualquer momento por vários motivos - para obter detalhes, consulte [token revogação](active-directory-token-and-claims.md#token-revocation). É a única forma da sua aplicação para saber se um token de atualização é válido para tentar resgatar-ao efetuar um pedido de token para o ponto final v 2.0.
 
@@ -123,7 +125,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Este documento de metadados é um objeto JSON que tem várias partes útil de informações, tais como a localização dos vários pontos finais necessários para a autenticação OpenID Connect.  O documento também inclui um *jwks_uri*, que lhe oferece a localização do conjunto de chaves públicas utilizado para assinar os tokens. O documento JSON localizado no jwks_uri tem todas as informações de chaves públicas está atualmente em utilização. A aplicação pode utilizar o `kid` no cabeçalho de JWT para selecionar qual a chave pública neste documento foi utilizada para assinar um token de afirmação. Em seguida, efetua validação da assinatura utilizando a chave pública correta e o algoritmo indicado.
+Este documento de metadados é um objeto JSON que tem várias partes útil de informações, tais como a localização dos vários pontos finais necessários para a autenticação OpenID Connect. O documento também inclui um *jwks_uri*, que lhe oferece a localização do conjunto de chaves públicas utilizado para assinar os tokens. O documento JSON localizado no jwks_uri tem todas as informações de chaves públicas está atualmente em utilização. A aplicação pode utilizar o `kid` no cabeçalho de JWT para selecionar qual a chave pública neste documento foi utilizada para assinar um token de afirmação. Em seguida, efetua validação da assinatura utilizando a chave pública correta e o algoritmo indicado.
 
 Efetuar a validação da assinatura está fora do âmbito deste documento. Bibliotecas de open source muitos estão disponíveis para ajudá-lo com este.
 

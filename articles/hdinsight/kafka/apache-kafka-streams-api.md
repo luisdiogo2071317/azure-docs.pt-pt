@@ -1,6 +1,6 @@
 ---
-title: Utilizar a API de fluxos do Apache Kafka - o Azure HDInsight | Microsoft Docs
-description: Saiba como utilizar a API do Apache Kafka fluxos com Kafka no HDInsight. Esta API permite-lhe executar o fluxo de processamento entre tópicos Kafka.
+title: 'Tutorial: Utilizar a API Streams do Apache Kafka - Azure HDInsight | Microsoft Docs'
+description: Saiba como utilizar a API Streams do Apache Kafka com o Kafka no HDInsight. Esta API permite-lhe executar o processamento de fluxos entre tópicos do Kafka.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,25 +9,43 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/10/2018
+ms.topic: tutorial
+ms.date: 04/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 36d67cdb99871f3948db1f6497b1a4638df4f3f1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="apache-kafka-streams-api"></a>Fluxos do Apache Kafka API
+# <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API Streams do Apache Kafka
 
-Saiba como criar uma aplicação que utiliza a API de fluxos Kafka e executá-lo com Kafka no HDInsight.
+Saiba como criar uma aplicação que utiliza a API Streams do Kafka e executá-la com o Kafka no HDInsight. 
 
-Ao trabalhar com Apache Kafka, processamento de fluxo, muitas vezes, é feito através do Apache Spark ou Storm. Kafka versão 0.10.0 (no HDInsight 3.5 e 3.6) introduziu a API de fluxos Kafka. Esta API permite-lhe transformar fluxos de dados entre tópicos de entrada e de saída, com uma aplicação que é executado no Kafka. Em alguns casos, isto poderá ser uma alternativa à criação de um Spark ou Storm solução de transmissão em fluxo. Para obter mais informações sobre fluxos Kafka, consulte o [introdução à fluxos](https://kafka.apache.org/10/documentation/streams/) documentação em Apache.org.
+A aplicação utilizada neste tutorial é uma contagem de palavras de transmissão em fluxo. Lê os dados do texto de um tópico do Kafka, extrai palavras individuais e, em seguida, armazena as palavras e as contagens noutro tópico.
 
-## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
+> [!NOTE]
+> Muitas vezes, o processamento da transmissão em fluxo do Kafka é feito com o Apache Spark ou o Storm. A API Streams do Kafka foi introduza na versão do Kafka 0.10.0 (no HDInsight 3.5 e 3.6). Esta API permite-lhe transformar fluxos de dados entre tópicos de entrada e de saída. Em alguns casos, esta pode ser uma alternativa à criação de uma solução de transmissão em fluxo no Spark ou no Storm. 
+>
+> Para obter mais informações sobre as Transmissões em Fluxo do Kafka, veja a documentação [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introdução às Transmissões em Fluxo) em Apache.org.
+
+Neste tutorial, ficará a saber como:
+
+> [!div class="checklist"]
+> * Configurar o ambiente de desenvolvimento
+> * Compreender o código
+> * Criar e implementar a aplicação
+> * Configurar tópicos do Kafka
+> * Executar o código
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Um cluster do Kafka no HDInsight 3.6. Para saber como criar um Kafka num cluster do HDInsight, consulte o documento [Começar a utilizar o Kafka no HDInsight](apache-kafka-get-started.md).
+
+* Conclua os passos no documento [Kafka Consumer and Producer API (API Consumer and Producer do Kafka)](apache-kafka-producer-consumer-api.md). Os passos neste documento utilizam a aplicação de exemplo e os tópicos que criou neste tutorial.
+
+## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 
 Tem de ter os seguintes componentes instalados no seu ambiente de desenvolvimento:
 
@@ -37,93 +55,188 @@ Tem de ter os seguintes componentes instalados no seu ambiente de desenvolviment
 
 * Um cliente SSH e o comando `scp`. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="set-up-your-deployment-environment"></a>Configurar o ambiente de implementação
+## <a name="understand-the-code"></a>Compreender o código
 
-Este exemplo requer Kafka no HDInsight 3.6. Para saber como criar um Kafka num cluster do HDInsight, consulte o [começar a utilizar Kafka no HDInsight](apache-kafka-get-started.md) documento.
+A aplicação de exemplo está localizada em [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), no subdiretório `Streaming`. A aplicação é composta por dois ficheiros:
+
+* `pom.xml`: este ficheiro define as dependências do projeto, a versão de Java e os métodos de empacotamento.
+* `Stream.java`: este ficheiro implementa a lógica de transmissão em fluxo.
+
+### <a name="pomxml"></a>Pom.xml
+
+Seguem-se os aspetos importantes a compreender em relação ao ficheiro `pom.xml`:
+
+* Dependências: este projeto depende das APIs de Streams do Kafka, que são disponibilizadas pelo pacote `kafka-clients`. Esta dependência é definida pelo seguinte código XML:
+
+    ```xml
+    <!-- Kafka client for producer/consumer operations -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > A entrada `${kafka.version}` é declarada na secção `<properties>..</properties>` de `pom.xml` e está configurada para a versão de Kafka do cluster do HDInsight.
+
+* Plug-ins: os plug-ins de Maven proporcionam diversas funcionalidades. Neste projeto, são utilizados os seguintes plug-ins:
+
+    * `maven-compiler-plugin`: utilizado para definir a versão de Java utilizada pelo projeto para a versão 8. O HDInsight 3.6 requer o Java 8.
+    * `maven-shade-plugin`: utilizado para gerar um JAR com dependências, que contém precisamente não só esta aplicação como todas as dependências. Também é utilizado para definir o ponto de entrada da aplicação, para que possa executar diretamente o ficheiro JAR sem ter de especificar a classe principal.
+
+### <a name="streamjava"></a>Stream.java
+
+O ficheiro `Stream.java` utiliza a API Streams para implementar uma aplicação de contagem de palavras. Lê os dados de um tópico do Kafka, denominado `test`, e escreve as contagens de palavras num tópico com o nome `wordcounts`.
+
+O código seguinte define a aplicação de contagem de palavras:
+
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.common.serialization.Serde;
+import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KStreamBuilder;
+
+import java.util.Arrays;
+import java.util.Properties;
+
+public class Stream
+{
+    public static void main( String[] args ) {
+        Properties streamsConfig = new Properties();
+        // The name must be unique on the Kafka cluster
+        streamsConfig.put(StreamsConfig.APPLICATION_ID_CONFIG, "wordcount-example");
+        // Brokers
+        streamsConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, args[0]);
+        // SerDes for key and values
+        streamsConfig.put(StreamsConfig.KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+        streamsConfig.put(StreamsConfig.VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+
+        // Serdes for the word and count
+        Serde<String> stringSerde = Serdes.String();
+        Serde<Long> longSerde = Serdes.Long();
+
+        KStreamBuilder builder = new KStreamBuilder();
+        KStream<String, String> sentences = builder.stream(stringSerde, stringSerde, "test");
+        KStream<String, Long> wordCounts = sentences
+                .flatMapValues(value -> Arrays.asList(value.toLowerCase().split("\\W+")))
+                .map((key, word) -> new KeyValue<>(word, word))
+                .countByKey("Counts")
+                .toStream();
+        wordCounts.to(stringSerde, longSerde, "wordcounts");
+
+        KafkaStreams streams = new KafkaStreams(builder, streamsConfig);
+        streams.start();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
+    }
+}
+```
+
 
 ## <a name="build-and-deploy-the-example"></a>Criar e implementar o exemplo
 
-Utilize os seguintes passos para criar e implementar o projeto no seu Kafka num cluster do HDInsight.
+Para compilar e implementar o projeto no cluster do Kafka no HDInsight, siga os passos abaixo:
 
-1. Transfira os exemplos de [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Transfira os exemplos partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Altere os diretórios para o `Streaming` diretório e, em seguida, utilize o seguinte comando para criar um pacote de jar:
+2. Mude os diretórios para o diretório `Streaming` e utilize o seguinte comando para criar um pacote jar:
 
     ```bash
     mvn clean package
     ```
 
-    Este comando cria um diretório com o nome `target`, que contém um ficheiro com o nome `kafka-streaming-1.0-SNAPSHOT.jar`.
+    Este comando cria o pacote em `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Utilize o seguinte comando para copiar o `kafka-streaming-1.0-SNAPSHOT.jar` ficheiro ao cluster do HDInsight:
+3. Utilize o seguinte comando para copiar o ficheiro `kafka-streaming-1.0-SNAPSHOT.jar` para o cluster do HDInsight:
    
     ```bash
-    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
+    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
    
-    Substitua **SSHUSER** pelo utilizador SSH do seu cluster, e substitua **CLUSTERNAME** pelo nome do seu cluster. Se lhe for solicitado, introduza a palavra-passe da conta de utilizador SSH. Para obter mais informações sobre como utilizar `scp` com o HDInsight, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Substitua `sshuser` pelo utilizador SSH do seu cluster e `clustername` pelo nome do seu cluster. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH. Para obter mais informações sobre como utilizar `scp` com o HDInsight, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run-the-example"></a>Executar o exemplo
+## <a name="create-kafka-topics"></a>Criar tópicos do Kafka
 
-1. Para abrir uma ligação SSH para o cluster, utilize o seguinte comando:
+1. Para abrir uma ligação de SSH ao cluster, utilize o seguinte comando:
 
     ```bash
-    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Substitua **SSHUSER** pelo utilizador SSH do seu cluster, e substitua **CLUSTERNAME** pelo nome do seu cluster. Se lhe for solicitado, introduza a palavra-passe da conta de utilizador SSH. Para obter mais informações sobre como utilizar `scp` com o HDInsight, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Substitua `sshuser` pelo utilizador SSH do seu cluster e `clustername` pelo nome do seu cluster. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH. Para obter mais informações sobre como utilizar `scp` com o HDInsight, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-4. Para criar o Kafka tópicos que são utilizados neste exemplo, utilize os seguintes comandos:
+2. Para guardar o nome do cluster numa variável e instalar um utilitário de análise JSON (`jq`), utilize os comandos mais abaixo. Quando lhe for pedido, introduza o nome do cluster de Kafka:
 
     ```bash
     sudo apt -y install jq
+    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
+    ```
 
-    CLUSTERNAME='your cluster name'
+3. Para obter os anfitriões de mediador de Kafka e os anfitriões de Zookeeper, utilize os seguintes comandos. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster. É-lhe pedida a palavra-passe duas vezes.
 
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    ```
 
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+4. Para criar os tópicos que a operação de transmissão em fluxo vai utilizar, utilize os seguintes comandos:
 
+    > [!NOTE]
+    > Poderá receber um erro que diz que o tópico `test` já existe. Esse erro não é problemático, porque o tópico pode já ter sido criado no tutorial da API Producer and Consumer.
+
+    ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
-    Substitua __o nome do cluster__ com o nome do cluster do HDInsight. Quando lhe for pedido, introduza a palavra-passe para a conta de início de sessão do cluster de HDInsight.
+    Os tópicos são utilizados para os seguintes fins:
+
+    * `test`: é neste tópico onde os registos são recebidos. A aplicação de transmissão em fluxo lê a partir deste tópico.
+    * `wordcounts`: é neste tópico que a aplicação de transmissão em fluxo armazena a respetiva saída.
+    * `RekeyedIntermediateTopic`: este tópico é utilizado para reparticionar os dados à medida que a contagem é atualizada pelo operador `countByKey`.
+    * `wordcount-example-Counts-changelog`: este tópico é um arquivo de estado que a operação `countByKey` utiliza.
+
+    > [!IMPORTANT]
+    > O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, veja o documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configurar a criação automática de tópicos).
+
+## <a name="run-the-code"></a>Executar o código
+
+1. Para iniciar a aplicação de transmissão em fluxo como um processo em segundo plano, utilize o seguinte comando:
+
+    ```bash
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
+    ```
 
     > [!NOTE]
-    > Se o seu início de sessão do cluster é diferente do valor predefinido de `admin`, substitua o `admin` valor nos comandos anteriores com o nome de início de sessão do cluster.
+    > Poderá receber um aviso sobre log4j. Pode ignorá-lo.
 
-5. Para executar este exemplo, terá de efetuar três ações:
+2. Para enviar os registos para o tópico `test`, utilize o seguinte comando para iniciar a aplicação de produtor:
 
-    * Iniciar a solução de fluxos contida no `kafka-streaming.jar`.
-    * Iniciar um produtor que escreve o `test` tópico.
-    * Iniciar um consumidor para que possa ver o resultado escrito o `wordcounts` tópico
+    ```bash
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    ```
+
+3. Após a conclusão do produtor, utilize o seguinte comando par ver as informações armazenada no tópico `wordcounts`:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
+    ```
 
     > [!NOTE]
-    > Tem de confirmar que o `auto.create.topics.enable` propriedade está definida como `true` no ficheiro de configuração de Kafka mediador. Esta propriedade pode ser visualizada e modificada no ficheiro de configuração do Mediador de Kafka avançadas utilizando a IU da Web do Ambari. Caso contrário, terá de criar o tópico intermédio `RekeyedIntermediateTopic` manualmente antes de executar este exemplo, utilizando o seguinte comando:
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
-    ```
-    
-    Pode realizar estas operações abrindo a três sessões SSH. Mas, em seguida, tem de definir `$KAFKABROKERS` e `$KAFKAZKHOSTS` para cada ao executar o passo 4 desta secção em cada sessão SSH. Uma solução mais fácil consiste em utilizar o `tmux` utilitário, que pode dividir a apresentação SSH atual em várias secções. Para iniciar o fluxo, o produtor e o consumidor utilizando `tmux`, utilize o seguinte comando:
+    > Os parâmetros `--property` dizem ao consumidor da consola para imprimir a chave (palavra), juntamente com a contagem (valor). Este parâmetro também configura o desserializador que vai ser utilizado para ler esses valores a partir do Kafka.
 
-    ```bash
-    tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
-    ```
-
-    Este comando divide a apresentação SSH nas três secções:
-
-    * Secção esquerda executa um consumidor de consola, que lê mensagens do `wordcounts` tópico: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
-
-        > [!NOTE]
-        > O `--property` parâmetros dizer o consumidor da consola para a chave (word) juntamente com a contagem (valor) de impressão. Este parâmetro também configura o desserializador a utilizar ao ler estes valores do Kafka.
-
-    * A secção superior direita é executado a solução de fluxos de API: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
-
-    * A secção inferior direita é executado o produtor de consola e aguarda no introduzir mensagens a enviar para o `test` tópico: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
- 
-6. Depois do `tmux` comando divide a apresentação, o cursor está na secção inferior direita. Inicie a introdução de frases. Após cada frase, o painel esquerdo é atualizado para apresentar uma contagem das palavras exclusivas. O resultado é semelhante ao seguinte texto:
+    O resultado é semelhante ao seguinte texto:
    
         dwarfs  13635
         ago     13664
@@ -139,19 +252,13 @@ Utilize os seguintes passos para criar e implementar o projeto no seu Kafka num 
         jumped  13641
    
     > [!NOTE]
-    > A contagem aumenta sempre que uma palavra é encontrada.
+    > O parâmetro `--from-beggining` configura o consumidor para começar no início dos registos armazenados no tópico. A contagem aumenta sempre que for encontrada uma palavra, de modo que o tópico contém múltiplas entradas para cada palavra, com uma contagem progressiva.
 
-7. Utilize o __Ctrl + C__ para o produtor de sair. Continuar a utilizar __Ctrl + C__ para sair da aplicação e o consumidor.
+7. Utilize __Ctrl + C__ para sair do produtor. Continue a utilizar __Ctrl + C__ para sair da aplicação e do consumidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste documento, aprendeu a utilizar a API de fluxos de Kafka com Kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
+Neste documento, aprendeu a utilizar a API Streams do Kafka com o Kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 
 * [Analisar os registos do Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Replicar dados entre clusters do Kafka](apache-kafka-mirroring.md)
-* [Produtor Kafka e API de Consumidor com o HDInsight](apache-kafka-producer-consumer-api.md)
-* [Utilizar a transmissão em fluxo de Apache Spark (DStream) com o Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Utilizar a Transmissão em Fluxo Estruturada de Apache Spark com o Kafka no HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Utilizar a Transmissão em Fluxo Estruturada do Apache Spark para mover dados do Kafka no HDInsight para o Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Utilizar o Apache Storm com Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Ligar ao Kafka através de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

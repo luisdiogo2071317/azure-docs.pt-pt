@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ef1387e3c8573a2bfa64c166f08bf47723eca62
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Resolver problemas de rotas com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Para ver as rotas de agregação que são aplicadas a uma VM, conclua os seguint
 ### <a name="view-effective-routes-for-a-network-interface"></a>Vista rotas eficazes para uma interface de rede
 Para ver as rotas de agregação que são aplicadas a uma interface de rede, execute os seguintes passos:
 
-1. Inicie uma sessão do PowerShell do Azure e iniciar sessão no Azure. Se não estiver familiarizado com o Azure PowerShell, leia o [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Inicie uma sessão do PowerShell do Azure e iniciar sessão no Azure. Se não estiver familiarizado com o Azure PowerShell, leia o [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. O comando seguinte devolve todas as rotas aplicadas a uma interface de rede com o nome *VM1 NIC1* no grupo de recursos *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

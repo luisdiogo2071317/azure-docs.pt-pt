@@ -3,10 +3,11 @@ title: Azure AD Node.js web API introdução | Microsoft Docs
 description: Como criar uma API que se integra com o Azure AD para autenticação de web de Node.js REST.
 services: active-directory
 documentationcenter: nodejs
-author: celestedg
+author: CelesteDG
 manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -14,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: a8438dcd1f37cfc6b259cfc7831805a0476446ea
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 24591c46858970724fbd1fe36336f7f2b0b2fefd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Introdução de API web do AD Node.js do Azure
 
@@ -76,7 +77,7 @@ Antes de poder ligar ao Azure Active Directory, terá as seguintes informações
 | Nome  | Descrição | Nome da variável no ficheiro de configuração |
 | ------------- | ------------- | ------------- |
 | Nome do inquilino  | [Nome do inquilino](active-directory-howto-tenant.md) que pretende utilizar para autenticação | `tenantName`  |
-| ID do Cliente  | ID de cliente é o termo de OAuth utilizado para o AAD _ID da aplicação_. |  `clientID`  |
+| ID de Cliente  | ID de cliente é o termo de OAuth utilizado para o AAD _ID da aplicação_. |  `clientID`  |
 
 Da resposta de registo na Shell de nuvem do Azure, copie o `appId` valor e criar um novo ficheiro designado `config.js`. Em seguida, adicione o seguinte código e substitua os valores com os tokens entre parênteses:
 

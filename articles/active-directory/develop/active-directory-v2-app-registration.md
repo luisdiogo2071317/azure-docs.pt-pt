@@ -3,23 +3,24 @@ title: Registar uma aplicação com o ponto final v 2.0 do Azure AD através do 
 description: Como registar uma aplicação com a Microsoft para ativar o início de sessão e aceder aos serviços da Microsoft com o ponto final v 2.0
 services: active-directory
 documentationcenter: ''
-author: mtillman
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: mtillman
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 7c24271553f131e67711a3e8d914049e704e919e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8ab4e6b5b2813a216b6dd6f0fc108a09239ca9a6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Como registar uma aplicação com o ponto final v 2.0
 Para criar uma aplicação que aceita a conta Microsoft (MSA) de pessoal e profissional ou escolar início de sessão na conta (Azure AD), primeiro terá de registar uma aplicação com a Microsoft. Neste momento, não poderá utilizar todas as aplicações existentes que poderão ter com o Azure AD ou MSA - tem de criar uma nova.
@@ -35,7 +36,7 @@ Inicie sessão com um um pessoal ou conta escolar ou profissional Microsoft. Se 
 
 Feito? Deve agora ser à procura na sua lista de aplicações da Microsoft, que é provavelmente vazio. Vamos alterar que.
 
-Clique em **adicionar uma aplicação**e atribua um nome.  O portal irá atribuir a sua aplicação um ID de aplicação exclusivo global que utilizará posteriormente no seu código.  Se a sua aplicação inclui um componente do lado do servidor que tem os tokens de acesso para chamadas as APIs (pensar: Office, Azure ou a suas próprias API web), poderá ser útil criar um **segredo da aplicação** também aqui.
+Clique em **adicionar uma aplicação**e atribua um nome. O portal irá atribuir a sua aplicação um ID de aplicação exclusivo global que utilizará posteriormente no seu código. Se a sua aplicação inclui um componente do lado do servidor que tem os tokens de acesso para chamadas as APIs (pensar: Office, Azure ou a suas próprias API web), poderá ser útil criar um **segredo da aplicação** também aqui.
 
 Em seguida, adicione o **plataformas** que irá utilizar a sua aplicação.
 
@@ -50,7 +51,7 @@ Opcionalmente, pode personalizar o aspeto e funcionalidade da sua página de in�
 
 
 ## <a name="build-a-quickstart-app"></a>Criar uma aplicação de início rápido
-Agora que tem uma aplicação da Microsoft, pode concluir um dos tutoriais de início rápido v 2.0.  Seguem-se algumas recomendações:
+Agora que tem uma aplicação da Microsoft, pode concluir um dos tutoriais de início rápido v 2.0. Seguem-se algumas recomendações:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 

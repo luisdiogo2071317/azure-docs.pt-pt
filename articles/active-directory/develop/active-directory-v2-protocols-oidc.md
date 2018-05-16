@@ -3,23 +3,25 @@ title: Azure Active Directory v 2.0 e o protocolo OpenID Connect | Microsoft Doc
 description: Crie aplicações web, utilizando a implementação de v 2.0 do Azure AD do protocolo de autenticação OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fd1f29f5c2920ea9956d883b9668f36c934a5e59
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v 2.0 e o protocolo OpenID Connect
 OpenID Connect é um protocolo de autenticação incorporado no OAuth 2.0, que pode utilizar a sessão em segurança um utilizador a uma aplicação web. Quando utilizar a implementação do ponto final v 2.0 do OpenID Connect, pode adicionar início de sessão e acesso à API às suas aplicações baseadas na web. Neste artigo, vamos mostrar-lhe como efetuar esta independente de idioma. Iremos descrevem como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de open source de Microsoft.
@@ -82,7 +84,7 @@ Quando a aplicação web tem de autenticar o utilizador, pode direcionar o utili
 * O pedido tem de incluir o `nonce` parâmetro.
 
 > [!IMPORTANT]
-> Por ordem com êxito pedir um token de ID, o registo de aplicação no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **[concessão implícita](active-directory-v2-protocols-implicit.md)** ativada para o cliente Web.  Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código' "
+> Por ordem com êxito pedir um token de ID, o registo de aplicação no [portal de registo](https://apps.dev.microsoft.com) tem de ter o **[concessão implícita](active-directory-v2-protocols-implicit.md)** ativada para o cliente Web. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: "o valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código' "
 
 Por exemplo:
 
@@ -196,10 +198,10 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parâmetro | Condição | Descrição |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | Recomendado | O URL que o utilizador é redirecionado para depois de terminar com êxito. Se o parâmetro não for incluído, o utilizador é apresentado uma mensagem genérica que é gerada pelo ponto final v 2.0. Este URL tem de corresponder a um redirecionamento que URIs registados para a sua aplicação no portal de registo de aplicação.  |
+| post_logout_redirect_uri | Recomendado | O URL que o utilizador é redirecionado para depois de terminar com êxito. Se o parâmetro não for incluído, o utilizador é apresentado uma mensagem genérica que é gerada pelo ponto final v 2.0. Este URL tem de corresponder a um redirecionamento que URIs registados para a sua aplicação no portal de registo de aplicação. |
 
 ## <a name="single-sign-out"></a>Fim de sessão único
-Quando lhe redireciona o utilizador para o `end_session_endpoint`, o ponto final v 2.0 limpa a sessão do utilizador do browser. No entanto, o utilizador ainda pode ser iniciado outras aplicações que utilizem contas Microsoft para autenticação. Para ativar as aplicações iniciar o utilizador terminar em simultâneo, a v 2.0 o ponto final envia um pedido de HTTP GET para o registado `LogoutUrl` de todas as aplicações que o utilizador tem atualmente sessão iniciado para. As aplicações devem responder para este pedido por qualquer sessão que identifica o utilizador de limpeza e devolver um `200` resposta.  Se pretender suportar terminar o início de sessão único na sua aplicação, tem de implementar como uma `LogoutUrl` no código da aplicação.  Pode definir o `LogoutUrl` partir do portal de registo da aplicação.
+Quando lhe redireciona o utilizador para o `end_session_endpoint`, o ponto final v 2.0 limpa a sessão do utilizador do browser. No entanto, o utilizador ainda pode ser iniciado outras aplicações que utilizem contas Microsoft para autenticação. Para ativar as aplicações iniciar o utilizador terminar em simultâneo, a v 2.0 o ponto final envia um pedido de HTTP GET para o registado `LogoutUrl` de todas as aplicações que o utilizador tem atualmente sessão iniciado para. As aplicações devem responder para este pedido por qualquer sessão que identifica o utilizador de limpeza e devolver um `200` resposta. Se pretender suportar terminar o início de sessão único na sua aplicação, tem de implementar como uma `LogoutUrl` no código da aplicação. Pode definir o `LogoutUrl` partir do portal de registo da aplicação.
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: aquisição do token de acesso
 Muitas aplicações web tem de assinar não só o utilizador no, mas também para aceder a um serviço web em nome do utilizador através da utilização de OAuth. Este cenário combina OpenID Connect para a autenticação de utilizador ao obter simultaneamente um código de autorização que pode utilizar para obter os tokens de acesso, se estiver a utilizar o fluxo de código de autorização do OAuth.

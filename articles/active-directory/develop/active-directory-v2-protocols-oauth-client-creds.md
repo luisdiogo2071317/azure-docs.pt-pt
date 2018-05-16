@@ -3,23 +3,25 @@ title: Utilizar o Azure AD v 2.0 para aceder a recursos segurados sem interaçã
 description: Crie aplicações web, utilizando a implementação do Azure AD do protocolo de autenticação OAuth 2.0.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ea681244edd81bcba1269886acc725175f779bfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 Pode utilizar o [conceder credenciais de cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) especificado no RFC 6749, por vezes denominado *legged de dois OAuth*, para aceder a recursos alojados em web utilizando a identidade de uma aplicação. Este tipo de conceder normalmente é utilizado para o servidor para servidor interações que devem ser executada em segundo plano, sem interação imediata com um utilizador. Estes tipos de aplicações, muitas vezes, são denominados *daemons* ou *às contas de serviço*.
@@ -49,7 +51,7 @@ Este tipo de autorização é comum para daemons e contas de serviço que precis
 ### <a name="application-permissions"></a>Permissões de aplicação
 Em vez de utilizar as ACLs, pode utilizar os APIs para expor um conjunto de permissões de aplicação. Uma permissão de aplicação é concedida a uma aplicação pelo administrador de uma organização e pode ser utilizada apenas para aceder a dados pertencentes a organização e os respetivos empregados. Por exemplo, o Microsoft Graph expõe várias permissões de aplicação para fazer o seguinte:
 
-* Leia correio em todas as caixas de correio
+* Ler correio em todas as caixas de correio
 * Ler e escrever correio em todas as caixas de correio
 * Enviar e-mails como um utilizador qualquer
 * Ler dados do diretório
@@ -171,8 +173,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | inquilino |Necessário | O inquilino de diretório de aplicação planos operar contra, no formato de nome de domínio ou GUID. |
 | client_id |Necessário |ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída à aplicação. |
 | scope |Necessário |O valor transmitido para o `scope` parâmetro neste pedido deve ser o identificador de recurso (URI de ID de aplicação) do recurso que pretende, affixed com o `.default` sufixo. Por exemplo o Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. Este valor informa o ponto final v 2.0 que de todas as aplicações direta permissões que tiver configurado para a sua aplicação, deverá emitir um token para que estão associados o recursos que pretende utilizar. |
-| client_assertion_type |Necessário |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
+| client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
 | grant_type |Necessário |Tem de ser `client_credentials`. |
 
 Tenha em atenção que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado com a exceção que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.

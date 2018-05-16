@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8340ca9d95e7600e2500755de252e7f6c6de9343
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 22513ed9c6f726f2d3dd5d8b3327fedfa6d3ca04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Tutorial: Atualizar o Kubernetes no Azure Container Service (AKS)
+# <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar o Kubernetes no Serviço Kubernetes do Azure (AKS)
 
-Um cluster do Azure Container Service (AKS) poder ser atualizado através da CLI do Azure. Durante o processo de atualização, os nós do Kubernetes são cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar a interrupção das aplicações em execução.
+Um cluster do Serviço Kubernetes do Azure (AKS) poder ser atualizado através da CLI do Azure. Durante o processo de atualização, os nós do Kubernetes são cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar a interrupção das aplicações em execução.
 
 Neste tutorial, parte oito de oito, é atualizado um cluster do Kubernetes. As tarefas que concluir incluem:
 

@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: marsma
-ms.openlocfilehash: 80d12d1f5d6b388c46ed90eb84b7bc00250e17ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 818bae2e05f6a3256ccbf0cbcc901dd337b9a260
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuração de rede no serviço do Azure Kubernetes (AKS)
 
@@ -86,7 +86,7 @@ As seguintes perguntas e respostas aplicam-se para o **avançadas** configuraç�
 
   Não. Implementar VMs na sub-rede utilizada pelo Kubernetes cluster não é suportada. VMs podem ser implementadas na mesma VNet, mas numa sub-rede diferente.
 
-* * Pode configurar políticas de rede por pod?
+* *Pode configurar políticas de rede por pod?*
 
   Não. Políticas de rede por pod não são atualmente suportadas.
 

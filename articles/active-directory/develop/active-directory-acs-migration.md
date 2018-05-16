@@ -3,22 +3,24 @@ title: Migrar a partir do serviço de controlo de acesso do Azure | Microsoft Do
 description: Opções para mover as aplicações e serviços a partir do serviço de controlo de acesso do Azure
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar a partir do serviço de controlo de acesso do Azure
 
@@ -252,7 +254,7 @@ Nestes casos, pode querer considere migrar a sua aplicação web para outro serv
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientações de migração de elevado nível para clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que faz dos ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de nuvem que suporta muitas das mesmas funcionalidades como ACS e PingFederate é um produto de identidade no local semelhantes que oferece uma maior flexibilidade. Consulte [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como utilizar estes produtos.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de nuvem que suporta muitas das mesmas funcionalidades como ACS e PingFederate é um produto de identidade no local semelhantes que oferece uma maior flexibilidade. Consulte [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como utilizar estes produtos. |
 
 Nosso objetivo trabalhar com a identidade de Ping e Auth0 é certificar-se de que todos os clientes de controlo de acesso tem um caminho de migração para os serviços e aplicações que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
 
@@ -277,7 +279,7 @@ Para os serviços web que estão protegidos com tokens emitidos pelo controlo de
 - Suporte para os seguintes formatos de token: JWT, SAML 1.1, SAML 2.0 e SWT.
 - Regras de transformação de token simples.
 
-Identidades de serviço no controlo de acesso são tipicamente usadas para implementar a autenticação de servidor para servidor.  
+Identidades de serviço no controlo de acesso são tipicamente usadas para implementar a autenticação de servidor para servidor. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrar para o Azure Active Directory
 
@@ -291,7 +293,7 @@ Também pode utilizar o Azure AD para autenticação de servidor para servidor u
 | Como registar um cliente | Criar uma identidade de serviço no portal de gestão do controlo de acesso | Criar outra aplicação web do Azure AD no portal do Azure |
 | Protocolo utilizado |-Protocolo de moldagem OAuth<br />-As credenciais de cliente OAuth 2.0 rascunho 13 conceder | Conceder credenciais de cliente OAuth 2.0 |
 | Métodos de autenticação de cliente |-Palavra-passe simples<br />-SWT assinado<br />-Token SAML de um fornecedor de identidade federada |-Palavra-passe simples<br />-JWT assinado |
-| Formatos de token |- JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Apenas JWT |
+| Formatos de token |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Apenas JWT |
 | Transformação de token |-Adicionar afirmações personalizadas<br />-Lógica de emissão de afirmação simples de depois de se | Adicionar afirmações personalizadas | 
 | Automatizar tarefas de gestão e configuração | Suportadas através do serviço de gestão do controlo de acesso | Suportada através do Microsoft Graph e do Azure AD Graph API |
 
@@ -314,7 +316,7 @@ Nestes casos, poderá considerar migrar a sua aplicação web para outro serviç
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de nuvem flexível que criou [orientações de migração de elevado nível para clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que faz dos ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de nuvem que suporta muitas das mesmas funcionalidades como ACS e PingFederate é um produto de identidade no local semelhantes que oferece uma maior flexibilidade. Consulte [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como utilizar estes produtos.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Identidade de ping](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de nuvem que suporta muitas das mesmas funcionalidades como ACS e PingFederate é um produto de identidade no local semelhantes que oferece uma maior flexibilidade. Consulte [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como utilizar estes produtos. |
 
 Nosso objetivo trabalhar com a identidade de Ping e Auth0 é certificar-se de que todos os clientes de controlo de acesso tem um caminho de migração para os serviços e aplicações que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
 

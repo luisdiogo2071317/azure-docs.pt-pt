@@ -1,25 +1,27 @@
 ---
 title: Como obter AppSource certificada para Azure Active Directory | Microsoft Docs
-description: "Detalhes sobre como obter a sua aplicação AppSource certificada para Azure Active Directory."
+description: Detalhes sobre como obter a sua aplicação AppSource certificada para Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: andretms
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/03/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter AppSource certificada para Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) é um destino para os utilizadores empresariais, detetar, tente e gerir aplicações de SaaS de linha de negócio (autónomo SaaS e suplementares para produtos de Microsoft SaaS existentes).
@@ -35,7 +37,7 @@ Uma aplicação que aceite inícios de sessão dos utilizadores de qualquer empr
 
 Para ativar vários inquilinos na sua aplicação:
 - Definir `Multi-Tenanted` propriedade `Yes` nas informações do seu registo de aplicação do [Portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (por predefinição, as aplicações criadas no Portal do Azure estão configuradas como *deinquilinoúnico*)
-- Atualizar o código para enviar pedidos para o '`common`' ponto final (atualizar o ponto final de  *https://login.microsoftonline.com/{yourtenant}*  para  *https://login.microsoftonline.com/common* )
+- Atualizar o código para enviar pedidos para o '`common`' ponto final (atualizar o ponto final de *https://login.microsoftonline.com/{yourtenant}* para *https://login.microsoftonline.com/common*)
 - Em algumas plataformas, como o ASP.NET, também tem de atualizar o seu código para aceitar vários emissores
 
 Para obter mais informações sobre vários inquilinos, consulte: [como iniciar sessão em qualquer utilizador do Azure Active Directory (AD) através do padrão de aplicação multi-inquilino](./active-directory-devhowto-multi-tenant-overview.md).

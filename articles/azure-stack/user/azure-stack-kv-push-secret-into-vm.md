@@ -1,38 +1,40 @@
 ---
-title: "Implementar uma máquina virtual com um certificado armazenado em segurança na pilha do Azure | Microsoft Docs"
-description: "Saiba como implementar uma máquina virtual e emitir um certificado no mesmo, utilizando um cofre de chaves na pilha do Azure"
+title: Implementar uma máquina virtual com um certificado armazenado em segurança na pilha do Azure | Microsoft Docs
+description: Saiba como implementar uma máquina virtual e emitir um certificado no mesmo, utilizando um cofre de chaves na pilha do Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/03/2017
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: e319f5c6d27d3a223764b0a5593480f02864ddbe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Criar uma máquina virtual e incluir o certificado obtido a partir de um cofre de chaves
+# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Criar uma máquina virtual e instale um certificado obtido a partir de um cofre de chaves de pilha do Azure
 
-Este artigo ajuda-o a criar uma máquina virtual na pilha do Azure e certificados de emissão no mesmo. 
+*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-## <a name="prerequisites"></a>Pré-requisitos
+Saiba como criar uma máquina virtual de pilha do Azure (VM) com um certificado de chave de cofre instalado.
 
-* Tem de subscrever uma oferta, que inclui o serviço Cofre de chaves. 
-* [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)  
-* [Configurar o Azure pilha ambiente do utilizador do PowerShell](azure-stack-powershell-configure-user.md)
+## <a name="overview"></a>Descrição geral
 
-Um cofre de chaves na pilha do Azure é utilizado para armazenar certificados. Os certificados são úteis em vários cenários diferentes. Por exemplo, considere um cenário em que tenha uma máquina virtual na pilha do Azure que está a executar uma aplicação que necessita de um certificado. Este certificado pode ser utilizado para encriptar, para autenticar no Active Directory ou para SSL num Web site. Ter o certificado numa ajuda-o Cofre de chaves, certifique-se de que é seguro.
+Os certificados são utilizados em vários cenários, como autenticar para o Active Directory ou encriptar tráfego web. Pode armazenar com segurança certificados como segredos no Cofre de chaves pilha do Azure. As vantagens de utilizar o Cofre de chaves de pilha do Azure são:
 
-Neste artigo, iremos orientá-lo pelos passos necessários para emitir um certificado para uma máquina virtual do Windows na pilha do Azure. Pode utilizar estes passos do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseados em Windows se estiver ligado através de VPN.
+* Certificados não são expostos num script, o histórico da linha de comandos ou o modelo.
+* O processo de gestão de certificados simplificado.
+* Tem controlo de chaves que aceder a certificados.
+
+### <a name="process-description"></a>Descrição do processo
 
 Os passos seguintes descrevem o processo necessário para emitir um certificado para a máquina virtual:
 
@@ -40,9 +42,21 @@ Os passos seguintes descrevem o processo necessário para emitir um certificado 
 2. Atualize o ficheiro azuredeploy.parameters.json.
 3. Implementar o modelo
 
+>[!NOTE]
+>Pode utilizar estes passos o Kit de desenvolvimento de pilha do Azure ou a partir de um cliente externo se estiver ligado através de VPN.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Tem de subscrever uma oferta, que inclui o serviço Cofre de chaves.
+* [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)
+* [Configurar o Azure pilha ambiente do utilizador do PowerShell](azure-stack-powershell-configure-user.md)
+
 ## <a name="create-a-key-vault-secret"></a>Criar um cofre de chave secreta
 
-O script seguinte cria um certificado no formato. pfx, cria um cofre de chaves e armazena o certificado no Cofre de chaves como um segredo. Tem de utilizar o `-EnabledForDeployment` parâmetro ao criar o Cofre de chaves. Este parâmetro certifica-se de que o Cofre de chaves pode ser referenciado a partir de modelos Azure Resource Manager.
+O script seguinte cria um certificado no formato. pfx, cria um cofre de chaves e armazena o certificado no Cofre de chaves como um segredo.
+
+>[!IMPORTANT]
+>Tem de utilizar o `-EnabledForDeployment` parâmetro ao criar a chave de falhas. Este parâmetro assegura que o Cofre de chaves pode ser referenciado a partir de modelos Azure Resource Manager.
 
 ```powershell
 
@@ -111,7 +125,7 @@ Modificar o `azuredeploy.parameters.json` ficheiros, de acordo com os valores de
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Atualizar o ficheiro azuredeploy.parameters.json
 
-Atualize o ficheiro de azuredeploy.parameters.json com o vaultName, URI secreta, VmName e outros valores de acordo com o seu ambiente. O ficheiro JSON seguinte mostra um exemplo do ficheiro de parâmetros de modelo: 
+Atualize o ficheiro de azuredeploy.parameters.json com o vaultName, URI secreta, VmName e outros valores de acordo com o seu ambiente. O ficheiro JSON seguinte mostra um exemplo do ficheiro de parâmetros de modelo:
 
 ```json
 {
@@ -148,7 +162,7 @@ Atualize o ficheiro de azuredeploy.parameters.json com o vaultName, URI secreta,
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Agora, implemente o modelo utilizando o seguinte script do PowerShell:
+Implemente o modelo utilizando o seguinte script do PowerShell:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -161,21 +175,24 @@ New-AzureRmResourceGroupDeployment `
 
 Quando o modelo é implementado com êxito, o que resulta no seguinte resultado:
 
-![Saída de implementação](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Resultados de implementação do modelo](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Quando esta máquina virtual é implementada, a pilha do Azure envia o certificado para a máquina virtual. No Windows, o certificado foi adicionado para a localização do certificado LocalMachine, com o arquivo de certificados que o utilizador forneceu. No Linux, o certificado é colocado sob o diretório de /var/lib/waagent, com o nome de ficheiro &lt;UppercaseThumbprint&gt;. crt para o X509 ficheiro de certificado e &lt;UppercaseThumbprint&gt;.prv para a chave privada .
+Pilha do Azure envia o certificado para a máquina virtual durante a implementação. Localização do certificado depende do sistema de operativo a VM:
+
+* No Windows, o certificado foi adicionado para a localização do certificado LocalMachine, com o arquivo de certificados que o utilizador forneceu.
+* No Linux, o certificado é colocado sob o diretório de /var/lib/waagent, com o nome de ficheiro &lt;UppercaseThumbprint&gt;. crt para o X509 ficheiro de certificado e &lt;UppercaseThumbprint&gt;.prv para a chave privada .
 
 ## <a name="retire-certificates"></a>Extinguir os certificados
 
-Na secção anterior, iremos mostrou como emitir um novo certificado para uma máquina virtual. O certificado antigo é ainda na máquina virtual e este não pode ser removido. No entanto, pode desativar a versão mais antiga do segredo do utilizando o `Set-AzureKeyVaultSecretAttribute` cmdlet. Segue-se um exemplo de utilização deste cmdlet. Certifique-se de que substitui o nome do cofre, nome secreto e valores de versão, de acordo com seu ambiente:
+Extinguir os certificados faz parte do processo de gestão de certificados. Não é possível eliminar a versão mais antiga de um certificado, mas pode desativá-lo utilizando o `Set-AzureKeyVaultSecretAttribute` cmdlet.
+
+O exemplo seguinte mostra como desativar um certificados. Utilizar os seus próprios valores para o **VaultName**, **nome**, e **versão** parâmetros.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Implementar uma VM com uma palavra-passe do Cofre de Chaves](azure-stack-kv-deploy-vm-with-secret.md)
 * [Permitir que uma aplicação aceder ao Cofre de chaves](azure-stack-kv-sample-app.md)
-
-

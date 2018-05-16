@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25dcbad8607a651a7dd4b79f4f418cc473a2bf0e
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Expandir alertas (cópia) a partir do portal do OMS no Azure
 O portal do Operations Management Suite (OMS) mostra apenas os alertas de análise de registos.  A nova experiência de alertas tem agora a alerta experiência integrada em vários serviços e partes no Microsoft Azure. A nova experiência disponível como **alertas** no Monitor do Azure do Azure portal contém alertas de registo de atividade, métricas alertas e alertas de registo para análise de registos e o Application Insights. 
@@ -36,7 +36,10 @@ Para além do benefício acumulado no não ter de navegar fora do portal do Azur
 ## <a name="process-of-extending-your-alerts"></a>Processo de alargar os alertas
 O processo de alargar alertas a partir do portal do OMS no Azure, **não** envolvem alterar a definição de alerta, a consulta ou a configuração de qualquer forma. A única alteração necessária é que, no Azure, todas as ações como notificação por correio eletrónico, chamada webhook, executar o runbook de automatização ou ligar à ferramenta ITSM são efetuadas através do grupo de ação. Por conseguinte, se o grupo de medidas adequadas está associado com o alerta - estes irão tornar-se expandido no Azure.
 
-Uma vez que o processo de alargar nondestructive e não interruptive, a Microsoft irá expandir alertas criados automaticamente no portal do OMS para alertas do Azure - começando **14 de Maio de 2018**. Deste dia, a Microsoft irá começar agendar a expandir os alertas no Azure e efetuar gradualmente todos os alertas presentes no portal do OMS, gerido a partir do portal do Azure. 
+Uma vez que o processo de alargar nondestructive e não interruptive, a Microsoft irá expandir alertas criados automaticamente no portal do OMS para alertas do Azure - começando **14 de Maio de 2018**. Deste dia, a Microsoft irá começar agendar a expandir os alertas no Azure e efetuar gradualmente todos os alertas presentes no portal do OMS, gerido a partir do portal do Azure, bem como. 
+
+> [!NOTE]
+> Iniciar 14 de Maio de 2018 - Microsoft irá iniciar o processo de alargar automaticamente alertas para o Azure. Nem todas as áreas de trabalho e alertas serão alargados este dia; em vez disso, a Microsoft irá começar expandir a alertas automaticamente no tranches semanas futuras. Por conseguinte, os alertas no portal do OMS serão não automática-expandir no Azure imediatamente no 14 de Maio de 2018 e utilizador pode ainda [expandir manualmente os respetivos alertas](monitoring-alerts-extend-tool.md) durante este período.
 
 Quando alertas na área de trabalho do Log Analytics obterem agendadas para alargar no Azure, irá continuar a funcionar e será **não** de qualquer forma comprometer a monitorização. Quando agendada, os alertas podem não estar disponíveis para edição/modificação temporariamente; mas novos alertas do Azure podem continuar a ser criada no momento breve. Neste breve período, se qualquer edição ou a criação do alerta é efetuada no portal do OMS, os utilizadores têm a opção para continuar para Log Analytics do Azure ou alertas do Azure.
 
@@ -61,7 +64,7 @@ Para todas as operações de alertas, como a edição ou criação efetuada no p
 > [!NOTE]
 > Como os utilizadores serão transparente executados para o Azure, em qualquer adição ou editar a ação de um alerta no OMS - Certifique-se os utilizadores estão mapeados corretamente com adequado [permissões para utilizar a monitorização do Azure e alertas](monitoring-roles-permissions-security.md)
 
-Alerta de criação vai continuar do existente [API de análise do registo](../log-analytics/log-analytics-api-alerts.md) como anterior, com alteração apenas secundária que depois de alertas são expandidos no Azure - grupos de ação iriam têm de ser associada na agenda.
+Alerta de criação vai continuar do existente [API de análise do registo](../log-analytics/log-analytics-api-alerts.md) e [modelo de recursos de análise do registo](../monitoring/monitoring-solutions-resources-searches-alerts.md) como anterior, com apenas secundária alteração que está a ser que depois de alertas são expandidos no Azure - grupos de ação teriam de ser associada na agenda.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,11 +15,11 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f31b5be80ae56ffe4d0f570cb8d25da8cc098009
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 974c364588d34631c8214352be7821c69e5f7aa7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Aceder as aplicações no local através de Teams da Microsoft
 
@@ -54,5 +54,5 @@ Depois de um membro de um agrupamento adiciona o separador, aparece para todos o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [publicar sites do SharePoint no local](application-proxy-enable-remote-access-sharepoint.md) com o Proxy da aplicação.
+- Saiba como [publicar sites do SharePoint no local](manage-apps/application-proxy-integrate-with-sharepoint-server.md) com o Proxy da aplicação.
 - Configurar as suas aplicações a utilizar [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) para as respetivas URL externo. 

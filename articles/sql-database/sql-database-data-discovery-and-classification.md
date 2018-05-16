@@ -1,6 +1,6 @@
 ---
-title: "Base de dados SQL do Azure deteção & classificação | Microsoft Docs"
-description: "Base de dados SQL do Azure deteção & classificação"
+title: Base de dados SQL do Azure deteção & classificação | Microsoft Docs
+description: Base de dados SQL do Azure deteção & classificação
 services: sql-database
 author: giladm
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 375142b0e55c741e6ab914e969751833f989d2fb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Base de dados SQL do Azure deteção e a classificação
 Deteção de dados & classificação (atualmente em pré-visualização) fornece capacidades avançadas de incorporadas no Azure SQL Database para **detetar**, **classificar**, **etiquetas**  &  **proteger** os dados confidenciais nas suas bases de dados.
@@ -22,6 +22,9 @@ Detetar e classificar os dados mais confidenciais (empresas, financeiras, cuidad
 * Ajudar a satisfazer as normas de privacidade de dados e requisitos de conformidade de regulamentação, tais como GDPR.
 * Vários cenários de segurança, tais como (auditoria) de monitorização e alertas anómalos acesso a dados confidenciais.
 * Controlar o acesso ao e proteger a segurança das bases de dados que contém dados altamente confidenciais.
+
+> [!NOTE]
+> Este documento está relacionada com apenas a SQL Database do Azure. Para o SQL Server (no local), consulte [deteção de dados do SQL Server e a classificação](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Descrição geral
 Deteção de dados & classificação apresenta um conjunto de serviços avançados e novas funcionalidades do SQL Server, que formam uma nova paradigma de proteção de informações do SQL Server diversificada proteger os dados, não apenas a base de dados:

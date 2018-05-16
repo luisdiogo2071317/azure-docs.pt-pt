@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c5f706e6e9402bfc404c370a0d1a45fc07656a9e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicações no local
 
@@ -52,15 +52,15 @@ Proxy de aplicações do Azure AD é:
 Com o Proxy de aplicações do Azure AD pode aceder a diferentes tipos de aplicações internas:
 
 * Aplicações Web que utilizem [autenticação integrada do Windows](application-proxy-configure-single-sign-on-with-kcd.md) para autenticação  
-* As aplicações que utilizam baseada em formulários Web ou [com base no cabeçalho](../application-proxy-ping-access.md) acesso  
+* As aplicações que utilizam baseada em formulários Web ou [com base no cabeçalho](application-proxy-configure-single-sign-on-with-ping-access.md) acesso  
 * Web APIs que pretende expor avançado aplicações em dispositivos diferentes  
-* As aplicações alojadas por trás de um [Gateway de ambiente de trabalho remoto](../application-proxy-publish-remote-desktop.md)  
+* As aplicações alojadas por trás de um [Gateway de ambiente de trabalho remoto](application-proxy-integrate-with-remote-desktop-services.md)  
 * Aplicações de cliente avançada que estão integradas com Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Como funciona o Proxy de aplicações?
 Existem dois componentes que terá de configurar para tornar o Proxy de aplicações de trabalho: um conector e um ponto final externo. 
 
-O conector é um agente simples que se encontre num servidor Windows dentro da sua rede. O conector facilita o fluxo de tráfego do serviço de Proxy de aplicações na nuvem para a sua aplicação no local. Utiliza apenas ligações de saída, pelo que não tem de abrir as portas de entrada ou colocar qualquer coisa na rede de Perímetro. Os conectores são sem monitorização de estado e solicitar informações a partir da nuvem conforme necessário. Para obter mais informações sobre conectores, como como estes balanceamento de carga e autenticar, consulte [conetores da Proxy da aplicação Azure compreender AD](../application-proxy-understand-connectors.md). 
+O conector é um agente simples que se encontre num servidor Windows dentro da sua rede. O conector facilita o fluxo de tráfego do serviço de Proxy de aplicações na nuvem para a sua aplicação no local. Utiliza apenas ligações de saída, pelo que não tem de abrir as portas de entrada ou colocar qualquer coisa na rede de Perímetro. Os conectores são sem monitorização de estado e solicitar informações a partir da nuvem conforme necessário. Para obter mais informações sobre conectores, como como estes balanceamento de carga e autenticar, consulte [conetores da Proxy da aplicação Azure compreender AD](application-proxy-connectors.md). 
 
 O ponto final externo é a forma como os seus utilizadores atingir as suas aplicações enquanto fora da rede. Quer podem aceder diretamente a um URL externo que determinar ou podem aceder à aplicação através do portal de MyApps. Quando os utilizadores aceder a um destes pontos finais, podem autenticar no Azure AD e, em seguida, são encaminhados através do conector para a aplicação no local.
 
@@ -95,9 +95,9 @@ Depois de publicar a sua primeira aplicação, não há muito mais pode fazer co
 
 * [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Publicar aplicações com o seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
-* [Saiba mais sobre os conectores de Proxy de aplicações do Azure AD](../application-proxy-understand-connectors.md)
-* [Trabalhar com servidores de Proxy no local existentes](../application-proxy-working-with-proxy-servers.md) 
-* [Definir uma página inicial personalizada](../application-proxy-office365-app-launcher.md)
+* [Saiba mais sobre os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)
+* [Trabalhar com servidores de Proxy no local existentes](application-proxy-configure-connectors-with-proxy-servers.md) 
+* [Definir uma página inicial personalizada](application-proxy-configure-custom-home-page.md)
 
 Para obter as notícias e atualizações mais recentes, consulte o [blogue do Proxy da Aplicação](http://blogs.technet.com/b/applicationproxyblog/)
 

@@ -185,27 +185,27 @@
 ##### [Domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md)
 #### [Início de sessão único](manage-apps/application-proxy-single-sign-on.md)
 ##### [SSO com KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [SSO com cabeçalhos](application-proxy-ping-access.md)
-##### [SSO com colocação de palavras-passe em cofres](application-proxy-sso-azure-portal.md)
+##### [SSO com cabeçalhos](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [SSO com colocação de palavras-passe em cofres](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Conceitos
-##### [Conectores](application-proxy-understand-connectors.md)
-##### [Segurança](application-proxy-security-considerations.md)
-##### [Redes](application-proxy-network-topology-considerations.md)
+##### [Conectores](manage-apps/application-proxy-connectors.md)
+##### [Segurança](manage-apps/application-proxy-security.md)
+##### [Redes](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Atualizar a partir de TMG ou UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Atualizar a partir de TMG ou UAG](manage-apps/application-proxy-migration.md)
 
 #### Configurações avançadas
-##### [Publicar em redes separadas](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Servidores proxy](application-proxy-working-with-proxy-servers.md)
-##### [Aplicações com suporte para afirmações](active-directory-application-proxy-claims-aware-apps.md)
-##### [Aplicações clientes nativas](active-directory-application-proxy-native-client.md)
-##### [Instalação silenciosa](active-directory-application-proxy-silent-installation.md)
-##### [Página inicial personalizada](application-proxy-office365-app-launcher.md)
-##### [Converter ligações inline](application-proxy-link-translation.md)
+##### [Publicar em redes separadas](manage-apps/application-proxy-connector-groups.md)
+##### [Servidores proxy](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Aplicações com suporte para afirmações](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Aplicações clientes nativas](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Instalação silenciosa](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Página inicial personalizada](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Converter ligações inline](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Instruções de publicação
-##### [Ambiente de Trabalho Remoto](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Ambiente de Trabalho Remoto](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Equipas da Microsoft](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 

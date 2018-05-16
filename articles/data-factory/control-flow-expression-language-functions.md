@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>As expressões e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -199,11 +199,11 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 ## <a name="conversion-functions"></a>Funções de conversão  
  Estas funções são utilizadas para a conversão entre cada um dos tipos nativos no idioma:  
   
--   string  
+-   cadeia  
   
--   número inteiro  
+-   inteiro  
   
--   Número de vírgula flutuante  
+-   flutuante  
   
 -   boolean  
   
@@ -214,9 +214,9 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
 |Int|Converta o parâmetro para um número inteiro. Por exemplo, a seguinte expressão devolve 100 como um número, em vez de uma cadeia:  `int('100')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número inteiro.|  
-|string|Converta o parâmetro numa cadeia. Por exemplo, a seguinte expressão devolve `'10'`: `string(10)` também pode converter um objeto de uma cadeia, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
-|json|Converta o parâmetro para um valor de tipo JSON. É o oposto da string(). Por exemplo, a seguinte expressão devolve `[1,2,3]` como uma matriz, em vez de uma cadeia:<br /><br /> `parse('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Número de vírgula flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:  `float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
+|cadeia|Converta o parâmetro numa cadeia. Por exemplo, a seguinte expressão devolve `'10'`: `string(10)` também pode converter um objeto de uma cadeia, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
+|json|Converta o parâmetro para um valor de tipo JSON. É o oposto da string(). Por exemplo, a seguinte expressão devolve `[1,2,3]` como uma matriz, em vez de uma cadeia:<br /><br /> `json('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:  `float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
 |bool|Converta o parâmetro booleano. Por exemplo, a seguinte expressão devolve `false`:  `bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
 |Unir|Devolve o objeto não nulo primeiro os argumentos transmitidos. Nota: uma cadeia vazia não é nula. Por exemplo, se não for definidos um parâmetros 1 e 2, esta ação devolve `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parâmetro**: 1... *n*<br /><br /> **Nome**: objeto*n*<br /><br /> **Descrição**: necessário. Os objetos para procurar `null`.|  
 |base64|Devolve a representação de base64 de cadeia de entrada. Por exemplo, a seguinte expressão devolve `c29tZSBzdHJpbmc=`:  `base64('some string')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de cadeia<br /><br /> **Descrição**: necessário. A cadeia de codificar para base64 representação.|  
@@ -238,7 +238,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |array|Converta o parâmetro de uma matriz.  Por exemplo, a seguinte expressão devolve `["abc"]`: `array('abc')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa matriz.|
 |createArray|Cria uma matriz de parâmetros.  Por exemplo, a seguinte expressão devolve `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Número de parâmetro**: 1... n<br /><br /> **Nome**: quaisquer n<br /><br /> **Descrição**: necessário. Os valores para combinar numa matriz.|
 
-## <a name="math-functions"></a>Funções de bibliotecas  
+## <a name="math-functions"></a>Funções matemáticas  
  Estas funções podem ser utilizadas para qualquer um dos tipos de números: **números inteiros** e **floats**.  
   
 |Nome da função|Descrição|  

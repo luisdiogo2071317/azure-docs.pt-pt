@@ -14,33 +14,34 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 05/11/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: 96a3b6f8f8a03019f0446aa7ba42f53298e21009
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1038f0c8a967c05ebf07849619268f22b1eb0c4b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>SAP certificações e configurações em execução no Microsoft Azure
 
-SAP e a Microsoft tem um comprimento histórico de trabalhar em conjunto numa parceria segura que tem mútua vantagens para os seus clientes. Microsoft está constantemente a atualizar a sua plataforma e submeter novos detalhes de certificação para SAP para garantir que o Microsoft Azure é a melhor plataforma para executar as cargas de trabalho do SAP. As tabelas seguintes descrevem a nossa lista de certificações a crescer e configurações suportadas. 
+SAP e a Microsoft tem um comprimento histórico de trabalhar em conjunto numa parceria segura que tem mútua vantagens para os seus clientes. Microsoft está constantemente a atualizar a sua plataforma e submeter novos detalhes de certificação para SAP para garantir que o Microsoft Azure é a melhor plataforma para executar as cargas de trabalho do SAP. O seguinte contorno de tabelas do Azure suportadas configurações e lista de certificações de SAP a crescer. 
 
 ## <a name="sap-hana-certifications"></a>Certificações SAP HANA
 Referências:
 
-- [A nota 2316233 - SAP HANA no Microsoft Azure (instâncias de grande)](https://launchpad.support.sap.com/#/notes/2316233) que abrangem instâncias grande HANA sobre o suporte de SAP HANA.
-- [SAP HANA certificadas IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Amazon%20Web%20Services%2CMicrosoft%20Azure) para suporte de SAP HANA para nativo VMs do Azure.
+- [SAP HANA certificadas IaaS plataformas](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) para suporte de SAP HANA para nativo VMs do Azure e instâncias de grande HANA.
 
 | Produto SAP | SO Suportados | Ofertas do Azure |
 | --- | --- | --- |
 | Edição de programador do SAP HANA (incluindo o software de cliente HANA composto SQLODBC, ODBO Windows apenas, ODBC, JDBC controladores, HANA studio e a base de dados HANA) | Red Hat Enterprise Linux, SUSE Linux Enterprise | Família de série D VM |
 | HANA num de negócio | SUSE Linux Enterprise | DS14_v2 |
-| SAP S/4 HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise | Disponibilidade controlada para GS5, SAP HANA no Azure (instâncias de grandes) |
-| Suite no HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 para implementações de nó único para cenários de não produção, SAP HANA no Azure (instâncias de grandes) |
-| HANA Enterprise para BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 para implementações de nó único, SAP HANA no Azure (instâncias de grandes) |
-| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 para implementações de nó único, SAP HANA no Azure (instâncias de grandes) |
+| SAP HANA DE S/4 | Red Hat Enterprise Linux, SUSE Linux Enterprise | Disponibilidade controlada para GS5 M64s, M64ms, M128s, M128ms, SAP HANA no Azure (instâncias de grandes) |
+| Suite no HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 para cenários de não produção, M64s M64ms, M128s, M128ms, SAP HANA no Azure (instâncias de grandes) |
+| HANA Enterprise para BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 M64s, M64ms, M128s, M128ms, SAP HANA no Azure (instâncias de grandes) |
+| SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 M64s, M64ms, M128s, M128ms, SAP HANA no Azure (instâncias de grandes) |
+
+Todas as VMs do Azure são certificadas para SAP HANA vertical até ao momento.
 
 ## <a name="sap-netweaver-certifications"></a>Certificações SAP NetWeaver
 O Microsoft Azure está certificado para os seguintes produtos SAP, com suporte total da Microsoft e da SAP.
@@ -51,17 +52,17 @@ Referências:
 
 | Produto SAP | SO convidado | RDBMS | Tipos de Máquina Virtual |
 | --- | --- | --- | --- |
-| Software SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows e Oracle Linux apenas), DB2, SAP ASE |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows e Oracle Linux apenas), DB2, SAP ASE |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
-| SAP BusinessObjects BI |Windows |N/A |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows e Oracle Linux apenas), DB2, SAP ASE |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
+| Software SAP Business Suite | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows e Oracle Linux apenas), DB2, SAP ASE |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
+| SAP Business All-in-One | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows e Oracle Linux apenas), DB2, SAP ASE |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
+| SAP BusinessObjects BI | Windows |N/A |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
+| SAP NetWeaver | Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux, Oracle Linux |SQL Server, Oracle (Windows e Oracle Linux apenas), DB2, SAP ASE |A5 para A11, D11 para D14, DS11 para DS14, DS11_v2 para DS15_v2, GS1 para GS5, D2s_v3 para D64s_v3, E2s_v3 para E64s_v3, M64s para M128ms |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Outras cargas de trabalho do SAP suportadas no Azure
 
 | Produto SAP | SO convidado | RDBMS | Tipos de Máquina Virtual |
 | --- | --- | --- | --- |
 | SAP Business no SQL Server | Windows  | SQL Server | Certificado de NetWeaver todos os tipos VM |
-| SAP BPC 10.01 MS SP08 | Windows | | Todos os tipos de NetWeaver certificadas VM<br /> A nota #2451795 |
-| Plataforma de negócio objetos BI do SAP | Windows | | A nota #2145537 |
+| SAP BPC 10.01 MS SP08 | Windows e Linux | | Todos os tipos de NetWeaver certificadas VM<br /> A nota #2451795 |
+| Plataforma de negócio objetos BI do SAP | Windows e Linux | | A nota #2145537 |
 | Serviços de dados SAP 4.2 | | | A nota #2288344 |
 | Plataforma de comércio Hybris SAP 5. x e 6. x | Windows | SQL Server, Oracle | Certificado de NetWeaver todos os tipos VM<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

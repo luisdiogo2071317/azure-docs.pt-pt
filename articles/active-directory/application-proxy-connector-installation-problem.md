@@ -1,11 +1,11 @@
 ---
-title: "Problema de instalar o conector de agente de Proxy de aplicações | Microsoft Docs"
-description: "Como resolver problemas que poderá enfrentam ao instalar o conector de agente de Proxy da aplicação"
+title: Problema de instalar o conector de agente de Proxy de aplicações | Microsoft Docs
+description: Como resolver problemas que poderá enfrentam ao instalar o conector de agente de Proxy da aplicação
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Instalar o conector de agente de Proxy de aplicações do problema
 
@@ -69,4 +69,4 @@ Ligar ao <https://login.microsoftonline.com> e utilizar as mesmas credenciais. C
 Selecione a sua conta de utilizador, em seguida, "função de diretório" no menu resultante. Verifique se a função selecionada "Administrador Global". Se não for possível aceder a qualquer uma das páginas ao longo estes passos, não é um administrador global.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)
+[Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md)

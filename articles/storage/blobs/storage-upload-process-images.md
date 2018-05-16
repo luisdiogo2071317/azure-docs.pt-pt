@@ -1,8 +1,8 @@
 ---
 title: Carregar dados de imagem na cloud com o Armazenamento do Azure | Microsoft Docs
-description: "Utilizar o armazenamento de blobs do Azure com uma aplicação Web para armazenar dados da aplicação"
+description: Utilizar o armazenamento de blobs do Azure com uma aplicação Web para armazenar dados da aplicação
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carregar dados de imagem na cloud com o Armazenamento do Azure
 
@@ -24,10 +24,10 @@ Este tutorial é a primeira parte de uma série. Este tutorial mostra como imple
 
 ![Vista do contentor de imagens](media/storage-upload-process-images/figure2.png)
 
-Na primeira parte da série, ficará a saber como:
+Na primeira parte da série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Criar um contentor e definir permissões
 > * Obter uma chave de acesso
 > * Configurar definições da aplicação
@@ -36,7 +36,7 @@ Na primeira parte da série, ficará a saber como:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos 
 
@@ -48,7 +48,7 @@ O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup`.
 az group create --name myResourceGroup --location westcentralus 
 ``` 
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
  
 O exemplo carrega imagens para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de armazenamento no grupo de recursos que criou. 
 
@@ -72,7 +72,7 @@ Obtenha a chave da conta de armazenamento com o comando [az storage account keys
 Neste caso, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs que criou. O acesso público dos contentores de _imagens_ está definido como `off` e o acesso público dos contentores de _miniaturas_ está definido como `container`. A definição de acesso público de `container` permite às pessoas que acedem à página Web visualizar as miniaturas.
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
@@ -211,7 +211,7 @@ A CDN pode ser ativada para o conteúdo da cache a partir da conta de armazename
 Na primeira parte da série, aprendeu a configurar uma aplicação Web ao interagir com o armazenamento, como:
 
 > [!div class="checklist"]
-> * Criar uma conta do Storage
+> * Criar uma conta de armazenamento
 > * Criar um contentor e definir permissões
 > * Obter uma chave de acesso
 > * Configurar definições da aplicação

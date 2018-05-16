@@ -1,7 +1,7 @@
 ---
 title: Learning profunda e AI estruturas - Azure | Microsoft Docs
 description: Arquiteturas de Aprendizagem Profunda e AI
-keywords: ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux
+keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Arquiteturas de Aprendizagem Profunda e AI
 O [máquinas de virtuais de ciência de dados](http://aka.ms/dsvm) (DSVM) e o [profunda VM Learning](http://aka.ms/dsvm/deeplearning) suporta um número de estruturas de aprendizagem avançada para o ajudar a criar aplicações Artificial Intelligence (AI) com a Análise Preditiva e capacidades cognitivos como imagem e a compreensão de idiomas. 
@@ -80,6 +80,7 @@ Seguem-se os detalhes em todos os avançada disponíveis no DSVM estruturas de a
 | O que é?   | Learning profunda framework      |
 | Edições de DSVM suportados      | Ubuntu     |
 | Como é mesmo configurado / instalado o DSVM?  | Caffe está instalado no `/opt/caffe`.    |
+| Como mudar para o Python 2.7 | Execute `source activate root` |
 | Ligações para amostras      | Amostras incluídas no `/opt/caffe/examples`.      |
 | Ferramentas relacionadas no DSVM      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?  
@@ -88,12 +89,15 @@ Utilize X2Go para iniciar sessão na sua VM, em seguida, inicie um novo terminal
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Abre uma nova janela do browser com blocos de notas do exemplo.
 
-Binários são instalados na /opt/caffe/build/install/bin. 
+Binários são instalados na /opt/caffe/build/install/bin.
+
+Versão instalada do Caffe requer o Python 2.7 e não funcionará com o Python 3.5 ativado por predefinição. Executar `source activate root` mudar ambiente Anaconda. 
 
 ## <a name="caffe2"></a>Caffe2
 

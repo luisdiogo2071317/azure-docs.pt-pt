@@ -3,22 +3,24 @@ title: Compreender o fluxo de código de autorização do OAuth 2.0 no Azure AD
 description: Este artigo descreve como utilizar mensagens HTTP para autorizar o acesso a aplicações web e APIs web no seu inquilino utilizando o Azure Active Directory e OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d2a160d75f89768a3884beff9ea10cbc168d3dda
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão do código de OAuth 2.0
 Azure Active Directory (Azure AD) utiliza OAuth 2.0 para que possa autorizar o acesso a aplicações web e APIs web no inquilino do Azure AD. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer um dos nossos [bibliotecas de open source](active-directory-authentication-libraries.md).
@@ -49,19 +51,19 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
-| client_id |Necessário |O ID de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no Portal do Azure. Clique em **do Azure Active Directory** na barra lateral serviços, clique em **registos de aplicação**e escolha a aplicação. |
-| response_type |Necessário |Tem de incluir `code` para que o fluxo de código de autorização. |
-| redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação.  Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url.  Para aplicações móveis & nativas, deve utilizar o valor predefinido de `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Pode ser `query` ou `form_post`. `query` Fornece o código como um parâmetro de cadeia de consulta no seu URI, de redirecionamento enquanto `form_post` executa uma mensagem que contém o código para o URI de redirecionamento. |
-| state |recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
-| Recurso | recomendado |O URI de ID de aplicação de API (recursos protegidos) da web de destino. Para obter o URI de ID de aplicação no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`.  Isto é necessário dos autorização ou pedidos de token.  Para garantir autenticação menos avisos colocá-lo no pedido de autorização para garantir que é recebido consentimento do utilizador. |
+| inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
+| client_id |obrigatório |O ID de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no Portal do Azure. Clique em **do Azure Active Directory** na barra lateral serviços, clique em **registos de aplicação**e escolha a aplicação. |
+| response_type |obrigatório |Tem de incluir `code` para que o fluxo de código de autorização. |
+| redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação. Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url. Para aplicações móveis & nativas, deve utilizar o valor predefinido de `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação. Pode ser `query` ou `form_post`. `query` Fornece o código como um parâmetro de cadeia de consulta no seu URI, de redirecionamento enquanto `form_post` executa uma mensagem que contém o código para o URI de redirecionamento. |
+| state |recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
+| Recurso | recomendado |O URI de ID de aplicação de API (recursos protegidos) da web de destino. Para obter o URI de ID de aplicação no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário dos autorização ou pedidos de token. Para garantir autenticação menos avisos colocá-lo no pedido de autorização para garantir que é recebido consentimento do utilizador. |
 | scope | **ignorado** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicações **definições**, **permissões obrigatórias**. |
 | linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser pedido para voltar. <p> *consentimento*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido que consentimento em nome de todos os utilizadores da organização |
-| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência.  Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
+| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
 | domain_hint |opcional |Fornece uma sugestão sobre o domínio que o utilizador deve utilizar para iniciar sessão ou inquilino. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, AAD redireciona para o servidor de Federação do inquilino especificado. |
-| code_challenge_method | opcional    | O método utilizado para codificar o `code_verifier` para o `code_challenge` parâmetro. Pode ser um dos `plain` ou `S256`.  Se excluído, `code_challenge` é prestada texto simples se `code_challenge` está incluído.  V 1.0 do AAD do Azure suporta `plain` e `S256`. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | opcional    | Utilizado para proteger o código de autorização concede através de chave de prova para código Exchange (PKCE) de um cliente nativo ou público. Se necessário `code_challenge_method` está incluído.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | opcional    | O método utilizado para codificar o `code_verifier` para o `code_challenge` parâmetro. Pode ser um dos `plain` ou `S256`. Se excluído, `code_challenge` é prestada texto simples se `code_challenge` está incluído. V 1.0 do AAD do Azure suporta `plain` e `S256`. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | opcional    | Utilizado para proteger o código de autorização concede através de chave de prova para código Exchange (PKCE) de um cliente nativo ou público. Se necessário `code_challenge_method` está incluído. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Se o utilizador faz parte de uma organização, um administrador da organização pode consentimento ou recusar em nome do utilizador ou permitir que o utilizador consentimento. O utilizador é dada a opção de consentimento apenas quando o administrador permite-lo.
@@ -134,14 +136,14 @@ grant_type=authorization_code
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
-| client_id |Necessário |O Id de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no portal do Azure. O Id de aplicação é apresentado nas definições de registo de aplicação.  |
-| grant_type |Necessário |Tem de ser `authorization_code` para que o fluxo de código de autorização. |
-| código |Necessário |O `authorization_code` que obteve na secção anterior |
-| redirect_uri |Necessário |O mesmo `redirect_uri` valor que utilizou para adquirir o `authorization_code`. |
-| client_secret |necessário para as web apps, não é permitidas para clientes públicos |O segredo de aplicação que criou no Portal do Azure para a sua aplicação em **chaves**.  Não pode ser utilizado numa aplicação nativa (cliente público), porque client_secrets não pode ser fiável armazenado nos dispositivos.  É necessário para as aplicações web e web APIs (confidenciais todos os clientes), que têm a capacidade de armazenar o `client_secret` em segurança no lado do servidor. |
-| Recurso | recomendado |O URI de ID de aplicação de API (recursos protegidos) da web de destino. Para obter o URI de ID de aplicação no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`.  Isto é necessário dos autorização ou pedidos de token.  Para garantir autenticação menos avisos colocá-lo no pedido de autorização para garantir que é recebido consentimento do utilizador.  Se o pedido de autorização e o pedido de token, o recurso ' parâmetros têm de corresponder. | 
-| code_verifier | opcional | O mesmo code_verifier que foi utilizado para obter o authorization_code.  Necessário se PKCE foi utilizada no pedido de concessão do código de autorização.  Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
+| inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
+| client_id |obrigatório |O Id de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no portal do Azure. O Id de aplicação é apresentado nas definições de registo de aplicação. |
+| grant_type |obrigatório |Tem de ser `authorization_code` para que o fluxo de código de autorização. |
+| código |obrigatório |O `authorization_code` que obteve na secção anterior |
+| redirect_uri |obrigatório |O mesmo `redirect_uri` valor que utilizou para adquirir o `authorization_code`. |
+| client_secret |necessário para as web apps, não é permitidas para clientes públicos |O segredo de aplicação que criou no Portal do Azure para a sua aplicação em **chaves**. Não pode ser utilizado numa aplicação nativa (cliente público), porque client_secrets não pode ser fiável armazenado nos dispositivos. É necessário para as aplicações web e web APIs (confidenciais todos os clientes), que têm a capacidade de armazenar o `client_secret` em segurança no lado do servidor. |
+| Recurso | recomendado |O URI de ID de aplicação de API (recursos protegidos) da web de destino. Para obter o URI de ID de aplicação no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário dos autorização ou pedidos de token. Para garantir autenticação menos avisos colocá-lo no pedido de autorização para garantir que é recebido consentimento do utilizador. Se o pedido de autorização e o pedido de token, o recurso ' parâmetros têm de corresponder. | 
+| code_verifier | opcional | O mesmo code_verifier que foi utilizado para obter o authorization_code. Necessário se PKCE foi utilizada no pedido de concessão do código de autorização. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Para obter o URI de ID de aplicação no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**.
 
@@ -174,7 +176,7 @@ Uma resposta com êxito pode ter o seguinte aspeto:
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até que a hora de expiração. Este valor é utilizado para determinar a duração de tokens em cache. |
 | Recurso |O URI de ID de aplicação da web API (recursos protegidos). |
 | scope |Representação, as permissões concedidas à aplicação de cliente. A permissão predefinida é `user_impersonation`. O proprietário do recurso protegido pode registar valores adicionais no Azure AD. |
-| refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir tokens de acesso adicionais depois do token de acesso atual expira.  Atualizar são os tokens e pode ser utilizados para manter o acesso a recursos para períodos de tempo prolongados. |
+| refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir tokens de acesso adicionais depois do token de acesso atual expira. Atualizar são os tokens e pode ser utilizados para manter o acesso a recursos para períodos de tempo prolongados. |
 | id_token |Um não assinados JSON Web tokens (JWT). Base64Url de pode aplicação descodificar os segmentos do token pedido informações sobre o utilizador que tem sessão iniciada. A aplicação pode colocar em cache os valores e apresentá-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. |
 
 ### <a name="jwt-token-claims"></a>Afirmações de Token JWT
@@ -256,7 +258,7 @@ A tabela seguinte lista os códigos de estado HTTP que devolve o ponto final de 
 | --- | --- |
 | 400 |Código HTTP predefinido. Utilizado na maioria dos casos e é normalmente devido a um pedido com formato incorreto. Corrija e submeta novamente o pedido. |
 | 401 |Falha na autenticação. Por exemplo, o pedido está em falta o parâmetro client_secret. |
-| 403 |Falha de autorização. Por exemplo, o utilizador não tem permissão para aceder ao recurso. |
+| 403 |Falha na autorização. Por exemplo, o utilizador não tem permissão para aceder ao recurso. |
 | 500 |Erro interno do serviço. Repita o pedido. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de erro para erros de ponto final de tokens
@@ -361,7 +363,7 @@ Uma resposta de erro de exemplo foi ter este aspeto:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],

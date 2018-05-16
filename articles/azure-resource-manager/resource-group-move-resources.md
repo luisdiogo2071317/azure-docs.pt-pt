@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -209,6 +209,8 @@ Quando move uma rede virtual, também tem de mover os recursos dependentes. Por 
 Para mover uma rede virtual em modo de peering, primeiro tem de desativar o peering de rede virtual. Quando desativado, pode mover a rede virtual. Após a mudança, Reative o peering de rede virtual.
 
 Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contém uma sub-rede com ligações de navegação de recursos. Por exemplo, se um recurso de Cache de Redis está implementado para uma sub-rede, que tem uma ligação de navegação de recursos.
+
+Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contém um servidor DNS personalizado. Para mover a rede virtual, tem de defini-lo ao servidor DNS predefinido de (fornecidos pelo Azure). Após a mudança, reconfigure o servidor DNS personalizado.
 
 ## <a name="app-service-limitations"></a>Limitações do serviço de aplicações
 

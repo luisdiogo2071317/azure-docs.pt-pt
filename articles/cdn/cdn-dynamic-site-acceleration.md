@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração dinâmicas do site através da CDN do Azure
 
@@ -144,7 +144,7 @@ Esta funcionalidade automaticamente monitoriza qualidade da rede e utiliza os m�
 
 Compressão de imagem adaptável | Extensões de ficheiro  
 --- | ---  
-Compressão de JPEG | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
+Compressão de JPEG | . jpg, JPEG, .jpe, .jig, .jgig, .jgi
 
 ## <a name="caching"></a>Colocação em cache
 
@@ -158,7 +158,7 @@ A colocação em cache as regras de acesso:
 
 1. Do **perfil da CDN** página, em definições, selecionadas **regras a colocação em cache**.  
     
-    ![Botão de regras de colocação em cache de CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+    ![Botão Regras de colocação em cache da CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
     O **regras a colocação em cache** é aberta a página.
 
@@ -183,9 +183,6 @@ Para o motor de regras de acesso:
 Em alternativa, pode utilizar dois pontos finais da CDN: um ponto final otimizada com DSA para fornecer recursos dinâmicos e de outro ponto final otimizada com um tipo de otimização estáticos, tais como geral entrega web, a recursos colocáveis de entrega. Modificar o URL de página Web para ligar diretamente para o elemento no ponto final da CDN que planeia utilizar. 
 
 Por exemplo: `mydynamic.azureedge.net/index.html` é uma página dinâmica e é carregada a partir do ponto final de DSA.  Página html faz referência a vários recursos estáticos, tais como bibliotecas de JavaScript ou imagens que são carregadas a partir estático ponto final de CDN, tais como `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
-
-Para obter um exemplo sobre como utilizar os controladores numa aplicação web ASP.NET para servir conteúdo através de um URL específico da CDN, consulte [servir conteúdo das ações de controlador através do Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

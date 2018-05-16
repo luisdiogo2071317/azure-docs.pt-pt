@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Visual Studio Code para depurar um módulo de c# com o Azure IoT Edge | Microsoft Docs
-description: Faça a depuração de um módulo de c# com o limite de IoT do Azure no Visual Studio Code.
+title: Depurar módulos c# com o Azure IoT Edge | Microsoft Docs
+description: Utilize o Visual Studio Code para depurar um módulo de c# com o limite de IoT do Azure no Visual Studio Code.
 services: iot-edge
 keywords: ''
 author: shizn
@@ -9,14 +9,14 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: eecbc10b5e030f67382d72a7b702e441a2e5492c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 035cb129bc3933c10f430b593226108f5d160972
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Utilizar o Visual Studio Code para depurar um módulo de c# com o Azure IoT Edge
-Este artigo fornece instruções detalhadas para utilizar [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para os módulos do Azure IoT contorno de depuração.
+Este artigo fornece instruções detalhadas para utilizar [código Visual Studio (VS)](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para os módulos do Azure IoT contorno de depuração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que está a utilizar um computador ou máquina virtual com o Windows ou Linux como computador de desenvolvimento. O dispositivo de limite de IoT pode ser outro dispositivo físico, ou pode simular o seu dispositivo de limite de IoT no computador de desenvolvimento.
@@ -35,18 +35,17 @@ Antes de seguir as orientações neste artigo, concluir os passos [desenvolver u
 
 2. Reconstrua a sua solução. Na paleta do comando de VS Code, escreva e execute o comando **Edge: solução de ponta de IoT criar**.
 
-3. No Explorador de dispositivos do Azure IoT Hub, clique com botão direito um ID de dispositivo de limite de IoT, em seguida, selecione **criar a implementação para o dispositivo de limite**. Selecione o `deployment.json` em `config` pasta. Em seguida, pode ver que a implementação foi criada com êxito com uma implementação que ID no VS Code integrado terminal.
+3. No Explorador de dispositivos do Azure IoT Hub, clique com botão direito um ID de dispositivo de limite de IoT, em seguida, selecione **criar a implementação para o dispositivo de limite**. Selecione o `deployment.json` ficheiros o `config` pasta. Em seguida, pode ver que a implementação foi criada com êxito com uma implementação que ID no VS Code integrado terminal.
 
-> [!NOTE]
-> Pode verificar o estado do contentor no Explorador do Docker de código de VS ou ao executar o `docker images` comando no terminal.
+Pode verificar o estado do contentor no Explorador do Docker de código de VS ou ao executar o `docker images` comando no terminal.
 
 ## <a name="start-debugging-c-module-in-vs-code"></a>Iniciar a depuração c# módulo no VS Code
-1. O VS Code mantém depuração informações de configuração num `launch.json` ficheiros localizados num `.vscode` pasta na sua área de trabalho. Isto `launch.json` ficheiro ter sido gerado ao criar uma nova solução de IoT Edge. E será atualizada sempre que adicionar um novo módulo que suportam a depuração. Navegue para a vista de depuração e selecione o ficheiro de configuração de depuração correspondente.
+1. O VS Code mantém depuração informações de configuração num `launch.json` ficheiros localizados num `.vscode` pasta na sua área de trabalho. Isto `launch.json` ficheiro foi gerado quando criou uma nova solução de IoT Edge. Atualiza sempre que adicionar um novo módulo que suporta a depuração. Navegue para a vista de depuração e selecione o ficheiro de configuração de depuração correspondente.
     ![Configuração de depuração selecione](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
 2. Navegue para `program.cs`. Adicione um ponto de interrupção neste ficheiro.
 
-3. Clique no botão Iniciar depuração ou prima **F5**e selecionar o processo para anexar a.
+3. Clique em de **iniciar depuração** botão ou prima **F5**e selecionar o processo para anexar a.
 
 4. Na vista de depuração do código de VS, pode ver as variáveis no painel esquerdo. 
 

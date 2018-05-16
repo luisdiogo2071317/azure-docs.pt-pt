@@ -14,8 +14,8 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2a51169fa74384778d3351d48055d05e387d0ea6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
@@ -71,7 +71,7 @@ Azure Stack
     - Pode encontrar instruções detalhadas sobre a implementação ASDK em "[Tutorial: implementar o ASDK utilizando o instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
     - Pode automatizar muitas dos passos de pós-implementação ASDK com o seguinte script do PowerShell, [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
 
-    > [!note]  
+    > [!Note]  
     > A instalação de ASDK demora um sete horas a concluir, por isso planeie em conformidade.
 
  - Implementar [do serviço de aplicações](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS serviços à pilha do Azure. 
@@ -87,7 +87,7 @@ Azure Stack
  - [Instalar Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [início de sessão para VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Ligar para o projeto e [clonar localmente](https://www.visualstudio.com/docs/git/gitquickstart).
  
- > [!note]  
+ > [!Note]  
  > Precisa de pilha do Azure com imagens adequadas syndicated para executar (Windows Server e SQL) e tem o serviço de aplicações implementado.
  
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Preparar a compilação privada e o agente de versão para a integração do Visual Studio Team Services
@@ -207,7 +207,7 @@ Em vez de gerir individualmente cada agente, organizar os agentes em conjuntos d
 
 3. Copie o token.
     
-    > [!note]  
+    > [!Note]  
     > Obter as informações do token. Não será apresentado depois de abandonar o fileparser neste ecrã. 
     
     ![Texto alternativo](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -268,7 +268,7 @@ Os utilizadores podem criar pontos finais para que VSTO compilações podem impl
 
 Configure híbrida CI/CD para implementar a aplicação Web do Azure e Azure pilha e automática envie as alterações para ambas as nuvens.
 
-> [!note]  
+> [!Note]  
 > Precisa de pilha do Azure com imagens adequadas syndicated para executar (Windows Server e SQL) e tem o serviço de aplicações implementado. Reveja a documentação do App Service secção "Pré-requisitos" requisitos de operador de pilha do Azure.
 
 ### <a name="add-code-to-vsts-project"></a>Adicionar código ao projeto VSTS
@@ -399,7 +399,7 @@ Visual Studio Team Services (VSTS) e o Team Foundation Server (TFS) fornecem um 
 
 21. Guarde todas as alterações.
 
-> [!note]  
+> [!Note]  
 > Algumas definições para as tarefas podem ter sido definidas automaticamente como [variáveis de ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) quando criou uma definição de versão de um modelo. Estas definições não podem ser modificadas nas definições de tarefas; em vez disso, tem de selecionar o item de ambiente de principal para editar estas definições.
 
 ## <a name="create-a-release"></a>Criar uma versão

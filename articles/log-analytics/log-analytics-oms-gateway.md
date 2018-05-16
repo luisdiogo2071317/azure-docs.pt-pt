@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 207b7ab0968f775dba99c2f48c1961d74b4f11c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar a computadores sem acesso à Internet através do Gateway do OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e análise de registos com o Gateway do OMS quando direta ligado ou computadores monitorizados do Operations Manager não têm acesso à Internet.  O Gateway do OMS, que é um proxy de reencaminhamento de HTTP que suporte o HTTP de túnel utilizando o comando HTTP ligar, pode recolher dados e envia-as à automatização do Azure e análise de registos em nome daqueles.  
@@ -36,7 +36,7 @@ Quando um grupo de gestão do Operations Manager está integrado com a análise 
 
 Para fornecer elevada disponibilidade para direta ligado ou grupos de gestão de operações que comunicam com a análise de registos através do gateway, pode utilizar o balanceamento de carga na rede para redirecionar e distribuir o tráfego por vários servidores de gateway.  Se um servidor de gateway ficar inativo, o tráfego é redirecionado para outro nó disponível.  
 
-Recomenda-se que instale o agente do OMS no computador com o software do OMS Gateway para monitorizar o Gateway do OMS e analisar dados de desempenho ou eventos. Além disso, o agente ajuda a identificar os pontos finais de serviço que necessita para comunicar com o Gateway de OMS.
+É necessário o agente do OMS no computador com o Gateway do OMS-la identificar os pontos finais de serviço que necessita para comunicar com e monitorizar o Gateway do OMS para analisar o desempenho ou os dados de eventos.
 
 Cada agente tem de ter conectividade de rede para o gateway para que os agentes podem ser transferidos automaticamente dados de e para o gateway. Não é recomendável instalar o gateway num controlador de domínio.
 
@@ -56,6 +56,7 @@ Ao designar um computador a executar o Gateway do OMS, este computador tem de te
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * .NET framework 4.5
 * Mínimo de 8 GB de memória e 4 núcleos processador 
+* Agente do OMS para Windows 
 
 ### <a name="language-availability"></a>Disponibilidade de idioma
 
@@ -285,7 +286,7 @@ A tabela seguinte mostra os IDs de eventos e as descrições de eventos de regis
 | 403 |Erro de rede. Por exemplo: não é possível ligar ao servidor de destino |
 | 100 |Informações gerais |
 | 101 |Serviço foi iniciado |
-| 102 |Serviço foi parado |
+| 102 |O serviço está parado |
 | 103 |Foi recebido um comando HTTP ligar a partir do cliente |
 | 104 |Não um comando HTTP ligar |
 | 105 |Servidor de destino não está na lista permitida ou a porta de destino não é porta segura (443) <br> <br> Certifique-se de que o agente MMA no seu servidor de Gateway e os agentes de comunicar com o Gateway está ligado à mesma área de trabalho de análise de registos. |

@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 942c2bce3a5907917b8d1cc9e8c251b5779542b5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Início Rápido: Criar um Key Vault com o portal do Azure
 
@@ -87,4 +87,4 @@ Quando já não for necessário, elimine o grupo de recursos e o Key Vault e tod
 Neste início rápido, criou um Key Vault e armazenou um segredo. Para saber mais sobre o Key Vault e como utilizá-lo com as suas aplicações, avance para o tutorial referente às aplicações Web que funcionam com o Key Vault.
 
 > [!div class="nextstepaction"]
-> [Utilizar o Azure Key Vault a partir de uma Aplicação Web](key-vault-use-from-web-application.md). Para saber como ler um segredo a partir do Key Vault através de uma aplicação Web com a [identidade do serviço gerido](/active-directory/managed-service-identity/overview.md), avance para o tutorial [Configurar uma aplicação Web do Azure para ler um segredo a partir do Key Vault](tutorial-web-application-keyvault.md)
+> Para saber como ler um segredo a partir do Key Vault através de uma aplicação Web com identidades do serviço gerido, avance para o tutorial[Configurar uma aplicação Web do Azure para ler um segredo a partir do Key Vault](tutorial-web-application-keyvault.md).

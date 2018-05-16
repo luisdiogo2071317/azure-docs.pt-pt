@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 227792bcf5776b4fd13c263e02aa462b4d2d104f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Introdução ao Proxy de aplicações e instalar o conector
 Este artigo explica como ativar a Proxy da Aplicação do Microsoft Azure AD para o diretório em nuvem no Azure AD.
@@ -33,7 +33,7 @@ Para poder ativar e utilizar os serviços do Proxy da Aplicação, terá de ter:
 * Um servidor a executar o Windows Server 2012 R2 ou 2016, em que pode instalar o conector do Proxy da aplicação. O servidor tem de ser possível estabelecer ligação com os serviços do Proxy de aplicações na nuvem e as aplicações no local que está a publicar.
   * Para início de sessão para aplicações publicadas utilizando a delegação restrita de Kerberos, esta máquina deve ser associado a um domínio no mesmo domínio do AD como as aplicações que está a publicar. Para informações, consulte [KCD para o início de sessão único com o Proxy da aplicação](application-proxy-configure-single-sign-on-with-kcd.md).
 
-Se a organização utilizar servidores proxy para estabelecer ligação à internet, leia [funcionam com existente no local servidores proxy](../application-proxy-working-with-proxy-servers.md) para obter detalhes sobre como configurá-las antes de começar com o Proxy de aplicações.
+Se a organização utilizar servidores proxy para estabelecer ligação à internet, leia [funcionam com existente no local servidores proxy](application-proxy-configure-connectors-with-proxy-servers.md) para obter detalhes sobre como configurá-las antes de começar com o Proxy de aplicações.
 
 ## <a name="open-your-ports"></a>Abrir as portas
 
@@ -51,7 +51,7 @@ Para preparar o ambiente para o Proxy de aplicações do Azure AD, terá primeir
    > [!IMPORTANT]
    > A tabela reflete os requisitos de porta para versões de conector 1.5.132.0 e mais recentes. Se ainda tiver uma versão mais antiga do conector, também terá de ativar as seguintes portas 80 e 443: 5671, 8080, além de 9090-9091 9350, 9352, 10100 – 10120.
    >
-   >Para obter informações sobre como atualizar os conectores para a versão mais recente, consulte [conetores da Proxy da aplicação Azure compreender AD](../application-proxy-understand-connectors.md#automatic-updates).
+   >Para obter informações sobre como atualizar os conectores para a versão mais recente, consulte [conetores da Proxy da aplicação Azure compreender AD](application-proxy-connectors.md#automatic-updates).
 
 2. Se a sua firewall ou proxy permite adicionar à lista branca DNS, pode ligações de lista branca msappproxy.net e servicebus.windows.net. Se não, terá de permitir o acesso à [intervalos de IP de DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizadas por semana.
 
@@ -99,10 +99,10 @@ No seu servidor, verifique a lista de serviços do Active Directory para o conec
 
    ![Serviços do Conector do Proxy da Aplicação – captura de ecrã](./media/application-proxy-enable/app_proxy_services.png)
 
-Para obter informações sobre conectores e como continuar atualizados, consulte [conetores da Proxy da aplicação Azure compreender AD](../application-proxy-understand-connectors.md).
+Para obter informações sobre conectores e como continuar atualizados, consulte [conetores da Proxy da aplicação Azure compreender AD](application-proxy-connectors.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Está agora pronto para [Publicar aplicações com o Proxy da Aplicação](application-proxy-publish-azure-portal.md).
 
-Se tiver aplicações que estão em redes separadas ou em diferentes localizações, utilize grupos de conetor para organizar os diferentes conetores em unidades lógicas. Saiba mais sobre [Trabalhar com conetores da Proxy da Aplicação](../active-directory-application-proxy-connectors-azure-portal.md).
+Se tiver aplicações que estão em redes separadas ou em diferentes localizações, utilize grupos de conetor para organizar os diferentes conetores em unidades lógicas. Saiba mais sobre [Trabalhar com conetores da Proxy da Aplicação](application-proxy-connector-groups.md).

@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory 
 
@@ -112,7 +112,7 @@ Se utilizar esta opção, também terá de outra entrada CNAME para o valor `App
 
 A aplicação de carateres universais é representada com apenas um mosaico no [MyApps painel](https://myapps.microsoft.com). Por predefinição, este mosaico está oculto. Para mostrar o mosaico e têm de telefone de utilizadores numa página específica:
 
-1. Siga as diretrizes para [definir um URL de home page](application-proxy-office365-app-launcher.md).
+1. Siga as diretrizes para [definir um URL de home page](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Definir **Mostrar aplicação** para **verdadeiro** na página de propriedades da aplicação.
 
 ### <a name="kerberos-constrained-delegation"></a>Delegação restringida de Kerberos

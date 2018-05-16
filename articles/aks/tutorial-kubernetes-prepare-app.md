@@ -3,24 +3,24 @@ title: Tutorial do Kubernetes no Azure - Preparar Aplicação
 description: Tutorial do AKS - Preparar Aplicação
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Tutorial: Preparar aplicação para o Azure Container Service (AKS)
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar aplicação para o Serviço Kubernetes do Azure (AKS)
 
-Neste tutorial, a parte um de oito, uma aplicação de vários contentores é preparada para utilização com o Kubernetes. Os passos concluídos incluem:  
+Neste tutorial, a parte um de oito, uma aplicação de vários contentores é preparada para utilização com o Kubernetes. Os passos concluídos incluem:
 
 > [!div class="checklist"]
-> * A clonagem de origens das aplicações a partir do GitHub  
+> * A clonagem de origens das aplicações a partir do GitHub
 > * Criar uma imagem de contentor a partir da origem de aplicação
 > * Testar a aplicação num ambiente local do Docker
 
@@ -32,7 +32,7 @@ Nos tutoriais subsequentes, a imagem de contentor é carregada para o Azure Cont
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker. Se for necessário, veja a [Introdução ao Docker][docker-get-started] para obter um manual sobre as noções básicas dos contentores. 
+Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentores e comandos simples do Docker. Se for necessário, veja a [Introdução ao Docker][docker-get-started] para obter um manual sobre as noções básicas dos contentores.
 
 Para concluir este tutorial, precisa de um ambiente de desenvolvimento do Docker. O Docker disponibiliza pacotes que o configuram facilmente em qualquer sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 
@@ -40,7 +40,7 @@ O Azure Cloud Shell não inclui os componentes do Docker necessários para concl
 
 ## <a name="get-application-code"></a>Obter o código da aplicação
 
-O exemplo de aplicação neste tutorial é uma aplicação de votos básica. A aplicação consiste num componente Web front-end e uma instância do Redis em back-end. O componente Web é compactado numa imagem personalizada de contentor. A instância do Redis utiliza uma imagem inalterada do Hub do Docker.  
+O exemplo de aplicação neste tutorial é uma aplicação de votos básica. A aplicação consiste num componente Web front-end e uma instância do Redis em back-end. O componente Web é compactado numa imagem personalizada de contentor. A instância do Redis utiliza uma imagem inalterada do Hub do Docker.
 
 Utilize o git para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento.
 
@@ -54,7 +54,7 @@ Altere os diretórios para trabalhar a partir do diretório clonado.
 cd azure-voting-app-redis
 ```
 
-Dentro do diretório estão: o código de origem da aplicação, um ficheiro de composição do Docker e um ficheiro de manifesto do Kubernetes. Estes ficheiros são utilizados em todo o tutorial. 
+Dentro do diretório estão: o código de origem da aplicação, um ficheiro de composição do Docker e um ficheiro de manifesto do Kubernetes. Estes ficheiros são utilizados em todo o tutorial.
 
 ## <a name="create-container-images"></a>Criar imagens de contentor
 
@@ -124,7 +124,7 @@ Após a conclusão, tem uma imagem de contentor que contém a aplicação Azure 
 Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas para a aplicação. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
-> * Clonagem da origem da aplicação a partir do GitHub  
+> * Clonagem da origem da aplicação a partir do GitHub
 > * Criou uma imagem de contentor a partir da origem de aplicação
 > * Testou a aplicação em ambientes do Docker locais
 

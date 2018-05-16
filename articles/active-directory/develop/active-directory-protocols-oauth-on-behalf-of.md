@@ -1,25 +1,27 @@
 ---
-title: "Autenticação de serviços do Azure AD, utilizando OAuth2.0 especificação em-nome-de rascunho | Microsoft Docs"
-description: "Este artigo descreve como utilizar mensagens HTTP para implementar a autenticação de serviços utilizando a OAuth2.0 fluxo em-nome-de."
+title: Autenticação de serviços do Azure AD, utilizando OAuth2.0 especificação em-nome-de rascunho | Microsoft Docs
+description: Este artigo descreve como utilizar mensagens HTTP para implementar a autenticação de serviços utilizando a OAuth2.0 fluxo em-nome-de.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço para chamadas de serviço com o delegado de fluxo em-nome-de identidade do utilizador
 On-Behalf-Of de 2.0 OAuth fluxo funciona o caso de utilização onde uma aplicação invoca uma serviço/API web, que por sua vez tem de chamar outro serviço/API web. A ideia é para propagar a identidade do delegado de utilizador e as permissões através da cadeia de pedidos. Para o serviço de camada média fazer pedidos autenticados para o serviço a jusante, tem de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.
@@ -41,7 +43,7 @@ Os passos que se seguem constituem o fluxo em-nome-de e são explicados com a aj
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Registar a aplicação e do serviço no Azure AD
 Registe a aplicação de cliente e o serviço de camada média no Azure AD.
 ### <a name="register-the-middle-tier-service"></a>Registar o serviço de camada média
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, no **diretório** lista, escolha o inquilino do Active Directory onde pretende registar a sua aplicação.
 3. Clique em **mais serviços** na navegação esquerda e escolha **do Azure Active Directory**.
 4. Clique em **registos de aplicação** e escolha **novo registo de aplicação**.
@@ -49,7 +51,7 @@ Registe a aplicação de cliente e o serviço de camada média no Azure AD.
 6. Enquanto ainda no portal do Azure, escolha a sua aplicação e clique em **definições**. No menu de definições, escolha **chaves** e adicionar uma chave – Selecione uma duração de chave do ano 1 ou 2 anos. Quando guardar esta página, o valor da chave será apresentado, copie e guarde o valor numa localização segura, terá - esta chave mais tarde para configurar as definições da aplicação na sua implementação - este valor de chave não serão apresentadas novamente, nem recuperável por quaisquer outros meios , para registar assim que está visível a partir do Portal do Azure.
 
 ### <a name="register-the-client-application"></a>Registar a aplicação de cliente
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, no **diretório** lista, escolha o inquilino do Active Directory onde pretende registar a sua aplicação.
 3. Clique em **mais serviços** na navegação esquerda e escolha **do Azure Active Directory**.
 4. Clique em **registos de aplicação** e escolha **novo registo de aplicação**.
@@ -76,16 +78,16 @@ Quando utilizar um segredo partilhado, um pedido de token de acesso de serviço 
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |Necessário | O tipo de pedido de token. Para um pedido utilizando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| Asserção |Necessário | O valor do token utilizado no pedido. |
-| client_id |Necessário | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
-| client_secret |Necessário | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter foi indicado o momento de registo. |
-| Recurso |Necessário | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
-| requested_token_use |Necessário | Especifica a forma como o pedido deve ser processado. No fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
-| Âmbito |Necessário | Lista de âmbitos para o pedido de token valores separados por um espaço. Para OpenID Connect, o âmbito **openid** tem de ser especificado.|
+| grant_type |obrigatório | O tipo de pedido de token. Para um pedido utilizando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
+| Asserção |obrigatório | O valor do token utilizado no pedido. |
+| client_id |obrigatório | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
+| client_secret |obrigatório | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter foi indicado o momento de registo. |
+| Recurso |obrigatório | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
+| requested_token_use |obrigatório | Especifica a forma como o pedido deve ser processado. No fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
+| scope |obrigatório | Lista de âmbitos para o pedido de token valores separados por um espaço. Para OpenID Connect, o âmbito **openid** tem de ser especificado.|
 
 #### <a name="example"></a>Exemplo
-O HTTP POST seguintes pedidos de um token de acesso para a API web de https://graph.windows.net. O `client_id` identifica o serviço que os pedidos de token de acesso.
+Um token de acesso para os pedidos de HTTP POST seguintes o https://graph.windows.net web API. O `client_id` identifica o serviço que os pedidos de token de acesso.
 
 ```
 // line breaks for legibility only
@@ -108,19 +110,19 @@ Um pedido de token de acesso de serviços com um certificado contém os seguinte
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |Necessário | O tipo de pedido de token. Para um pedido utilizando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| Asserção |Necessário | O valor do token utilizado no pedido. |
-| client_id |Necessário | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
-| client_assertion_type |Necessário |O valor tem de ser`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação.  Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
-| Recurso |Necessário | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
-| requested_token_use |Necessário | Especifica a forma como o pedido deve ser processado. No fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
-| Âmbito |Necessário | Lista de âmbitos para o pedido de token valores separados por um espaço. Para OpenID Connect, o âmbito **openid** tem de ser especificado.|
+| grant_type |obrigatório | O tipo de pedido de token. Para um pedido utilizando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
+| Asserção |obrigatório | O valor do token utilizado no pedido. |
+| client_id |obrigatório | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
+| client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
+| Recurso |obrigatório | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
+| requested_token_use |obrigatório | Especifica a forma como o pedido deve ser processado. No fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
+| scope |obrigatório | Lista de âmbitos para o pedido de token valores separados por um espaço. Para OpenID Connect, o âmbito **openid** tem de ser especificado.|
 
 Tenha em atenção que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado com a exceção que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 
 #### <a name="example"></a>Exemplo
-O HTTP POST seguintes pedidos de um token de acesso para a API de web https://graph.windows.net com um certificado. O `client_id` identifica o serviço que os pedidos de token de acesso.
+Um token de acesso para os pedidos de HTTP POST seguintes o https://graph.windows.net web API com um certificado. O `client_id` identifica o serviço que os pedidos de token de acesso.
 
 ```
 // line breaks for legibility only
@@ -145,7 +147,7 @@ Uma resposta de êxito for uma resposta de JSON OAuth 2.0 com os seguintes parâ
 | Parâmetro | Descrição |
 | --- | --- |
 | token_type |Indica o valor de tipo de token. O único tipo que suporta do Azure AD é **portador**. Para obter mais informações sobre os tokens de portador, consulte o [Framework de autorização do OAuth 2.0: utilização de tokens de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Âmbito |O âmbito de acesso concedido no token. |
+| scope |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo do token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até que a hora de expiração. Este valor é utilizado para determinar a duração de tokens em cache. |
 | Recurso |O URI de ID de aplicação do serviço de receção (recursos protegidos). |
@@ -154,7 +156,7 @@ Uma resposta de êxito for uma resposta de JSON OAuth 2.0 com os seguintes parâ
 | refresh_token |O token de atualização para o token de acesso solicitado. O serviço de chamada pode utilizar este token para pedir outro token de acesso após o atual token de acesso expira. |
 
 ### <a name="success-response-example"></a>Exemplo de resposta de êxito
-O exemplo seguinte mostra a resposta de êxito a um pedido de um token de acesso para a API web de https://graph.windows.net.
+O exemplo seguinte mostra a resposta de êxito a um pedido de acesso token para o https://graph.windows.net web API.
 
 ```
 {
@@ -196,7 +198,7 @@ Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o protocolo OAuth 2.0 e outra forma de efetuar a autenticação de serviço a serviço utilizando credenciais do cliente.
 * [Serviço de autenticação de serviço utilizando a concessão de credenciais de cliente OAuth 2.0 no Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 no Azure AD](active-directory-protocols-oauth-code.md)

@@ -1,12 +1,12 @@
 ---
-title: "Instruções da solução de fábrica ligada - Azure | Microsoft Docs"
-description: "Uma descrição da solução pré-configurada de Fábrica ligada do Azure IoT e respetiva arquitetura."
-services: 
+title: Instruções da solução de Fábrica Ligada - Azure | Microsoft Docs
+description: Uma descrição do acelerador de soluções de Fábrica Ligada do Azure IoT e respetiva arquitetura.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Instruções da solução pré-configurada de fábrica ligada
+# <a name="connected-factory-solution-accelerator-walkthrough"></a>Instruções do acelerador de soluções de Fábrica Ligada
 
-A [solução pré-configurada][lnk-preconfigured-solutions] de Fábrica ligada do IoT Suite é uma implementação de uma solução industrial ponta a ponta que:
+O [acelerador de soluções][lnk-preconfigured-solutions] de Fábrica Ligada é uma implementação de uma solução industrial ponta a ponta que:
 
-* Se liga quer a dispositivos industriais simulados que executem servidores OPC UA em linhas de produção de fábricas simuladas, quer a dispositivos de servidor OPC UA reais. Para obter mais informações sobre OPC UA, veja as [FAQ sobre a fábrica ligada](iot-suite-faq-cf.md).
+* Se liga quer a dispositivos industriais simulados que executem servidores OPC UA em linhas de produção de fábricas simuladas, quer a dispositivos de servidor OPC UA reais. Para obter mais informações sobre OPC UA, veja as [FAQ sobre a Fábrica Ligada](iot-suite-faq-cf.md).
 * Mostra KPIs e OEE operacionais relativos a esses dispositivos e linhas de produção.
 * Demonstra como utilizar uma aplicação baseada na cloud para interagir com sistemas de servidores OPC UA.
 * Permite-lhe ligar os seus próprios dispositivos de servidor OPC UA.
@@ -34,19 +34,19 @@ A [solução pré-configurada][lnk-preconfigured-solutions] de Fábrica ligada d
 
 Pode utilizar a solução como um ponto de partida para a sua própria implementação e [personalizá-la][lnk-customize] para satisfazer os seus requisitos comerciais específicos.
 
-Este artigo acompanha-o através de alguns dos elementos-chave da solução de Fábrica ligada, para que possa compreender como funciona. O artigo também descreve como os dados fluem através da solução. Estes conhecimentos ajudam a:
+Este artigo acompanha-o através de alguns dos elementos principais da solução de Fábrica Ligada, para que possa compreender como funciona. O artigo também descreve como os dados fluem através da solução. Estes conhecimentos ajudam a:
 
 * Resolver problemas na solução.
 * Planear a forma de personalizar a solução para satisfazer os seus próprios requisitos específicos.
 * Estruturar a sua própria solução de IoT que utiliza os serviços do Azure.
 
-Para obter mais informações , veja as [FAQ sobre a fábrica ligada](iot-suite-faq-cf.md).
+Para obter mais informações, veja as [FAQ sobre a Fábrica Ligada](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
-O diagrama que se segue descreve os componentes lógicos da solução pré-configurada:
+O diagrama que se segue descreve os componentes lógicos do acelerador de soluções:
 
-![Arquitetura lógica da fábrica ligada][connected-factory-logical]
+![Arquitetura lógica da Fábrica Ligada][connected-factory-logical]
 
 ## <a name="communication-patterns"></a>Padrões de comunicação
 
@@ -122,7 +122,7 @@ O Hub IoT na solução também:
 A solução utiliza o Armazenamento de blobs do Azure como armazenamento de discos para a VM e para armazenar dados de implementação.
 
 ## <a name="web-app"></a>Aplicação Web
-A aplicação Web implementada como parte da solução pré-configurada inclui um cliente OPC UA integrado processamento de alertas e visualização de telemetria.
+A aplicação Web implementada como parte do acelerador de soluções inclui um cliente OPC UA integrado, processamento de alertas e visualização de telemetria.
 
 ## <a name="telemetry-data-flow"></a>Fluxo de dados de telemetria
 
@@ -162,17 +162,17 @@ A aplicação Web implementada como parte da solução pré-configurada inclui u
 
 9. Dados inativos no TSI.
 
-10. A WebApp de fábrica ligada no Azure AppService consulta os dados necessários a partir do TSI.
+10. A WebApp de Fábrica Ligada no Azure AppService consulta os dados necessários a partir do TSI.
     - Utiliza a comunicação protegida por TCP/TLS.
     - Este passo é interno para o datacenter.
 
-11. O browser liga à WebApp de Fábrica ligada.
-    - Compõe o dashboard de Fábrica ligada.
+11. O browser liga à WebApp de Fábrica Ligada.
+    - Compõe o dashboard de Fábrica Ligada.
     - Liga por HTTPS.
-    - O acesso à Aplicação de Fábrica ligada requer autenticação do utilizador através do Azure Active Directory.
-    - Todas as chamadas WebApi na aplicação de Fábrica ligada são protegidas por Tokens Antifalsificação.
+    - O acesso à Aplicação de Fábrica Ligada requer autenticação do utilizador através do Azure Active Directory.
+    - Todas as chamadas WebApi na aplicação de Fábrica Ligada são protegidas por Tokens Antifalsificação.
 
-12. Nas atualizações de dados, a WebApp de fábrica ligada envia os dados atualizados para o browser.
+12. Nas atualizações de dados, a WebApp de Fábrica Ligada envia os dados atualizados para o browser.
     - Utiliza o protocolo SignalR.
     - Protegida por TCP/TLS.
 
@@ -190,16 +190,16 @@ A aplicação Web implementada como parte da solução pré-configurada inclui u
     - Lê todos os dispositivos conhecidos a partir do Hub IoT.
     - Utiliza MQTT por TLS através de Socket ou Websocket Seguro.
 
-3. O browser liga à WebApp de Fábrica ligada e compõe o dashboard de Fábrica ligada.
+3. O browser liga à WebApp de Fábrica Ligada e compõe o dashboard de Fábrica Ligada.
     - Utiliza HTTPS.
     - Um utilizador seleciona um servidor OPC UA ao qual ligar.
 
-4. A WebApp de fábrica ligada estabelece uma Sessão OPC UA no servidor OPC UA selecionado.
+4. A WebApp de Fábrica Ligada estabelece uma Sessão OPC UA no servidor OPC UA selecionado.
     - Utiliza a pilha OPC UA.
 
 5. O transporte do Proxy OPC recebe um pedido da pilha OPC UA para estabelecer uma ligação de socket TCP com o servidor OPC UA.
     - Obtém o payload TCP e utiliza-o inalterado.
-    - Este passo é interno para a WebApp de Fábrica ligada.
+    - Este passo é interno para a WebApp de Fábrica Ligada.
 
 6. O Proxy OPC (componente de cliente) procura o dispositivo Proxy OPC (componente de servidor) no registo de dispositivos do Hub IoT. Em seguida, chama um método de dispositivo do dispositivo Proxy OPC (componente de servidor) no Hub IoT.
     - Utiliza HTTPS por TCP/TLS para procurar o Proxy OPC.
@@ -215,29 +215,29 @@ A aplicação Web implementada como parte da solução pré-configurada inclui u
 
 10. A resposta é recebida pelo socket do Proxy OPC (componente de servidor).
     - O Proxy OPC envia os dados como valor de retorno do método de dispositivo para o Hub IoT e o Proxy OPC (componente de cliente).
-    - Estes dados são entregues na pilha OPC UA na aplicação de Fábrica ligada.
+    - Estes dados são entregues na pilha OPC UA na aplicação de Fábrica Ligada.
 
-11. A WebApp de fábrica ligada devolve o OPC Browser UX enriquecido com as informações específicas do OPC UA que recebeu do servidor OPC UA para composição pelo Browser.
-    - Ao navegar pelo espaço de endereços OPC e ao aplicar as funções nos nós do espaço de endereços OPC, o cliente OPC Browser UX utiliza as chamadas AJAX por HTTPS seguro com Tokens Antifalsificação para obter dados da WebApp de fábrica ligada.
+11. A WebApp de Fábrica Ligada devolve o OPC Browser UX enriquecido com as informações específicas do OPC UA que recebeu do servidor OPC UA para composição pelo Browser.
+    - Ao navegar pelo espaço de endereços OPC e ao aplicar as funções nos nós do espaço de endereços OPC, o cliente OPC Browser UX utiliza as chamadas AJAX por HTTPS seguro com Tokens Antifalsificação para obter dados da WebApp de Fábrica Ligada.
     - Se necessário, o cliente utiliza a comunicação explicada nos passos 4 a 10 para trocar informações com o servidor OPC UA.
 
 > [!NOTE]
 > O Proxy OPC (componente de servidor) e o Proxy OPC (componente de cliente) concluem os passos 4 a 10 para todo o tráfego TCP relacionado com a comunicação OPC UA.
 
 > [!NOTE]
-> Para o servidor OPC UA e a pilha OPC UA na WebApp de Fábrica ligada, a comunicação do Proxy OPC é transparente e aplicam-se todas as funcionalidades de segurança OPC UA para autenticação e encriptação.
+> Para o servidor OPC UA e a pilha OPC UA na WebApp de Fábrica Ligada, a comunicação do Proxy OPC é transparente e aplicam-se todas as funcionalidades de segurança OPC UA para autenticação e encriptação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode continuar a introdução ao IoT Suite ao ler os artigos seguintes:
+Pode continuar a introdução aos aceleradores de soluções do IoT ao ler os artigos seguintes:
 
 * [Permissões no site azureiotsuite.com][lnk-permissions]
-* [Implementar um gateway no Windows ou Linux para a solução de Fábrica ligada pré-configurada](iot-suite-connected-factory-gateway-deployment.md)
+* [Implementar um gateway no Windows ou Linux para o acelerador de soluções de Fábrica Ligada](iot-suite-connected-factory-gateway-deployment.md)
 * [Implementação de referência do Publicador OPC](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

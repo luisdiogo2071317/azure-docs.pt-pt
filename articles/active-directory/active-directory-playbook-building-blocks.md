@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory prova do manual de comunicação social conceito: blocos modulares
 
@@ -241,11 +241,11 @@ Hora para concluído aproximada: 20 minutos
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Do Microsoft Azure AD basic ou subscrição premium e um diretório do Azure AD para o qual é um administrador global | [Edições do Azure Active Directory](active-directory-editions.md) |
+| Do Microsoft Azure AD basic ou subscrição premium e um diretório do Azure AD para o qual é um administrador global | [Edições do Azure Active Directory](active-directory-whatis.md) |
 | Uma aplicação web alojadas no local que pretende configurar para acesso remoto |  |
-| Um servidor a executar o Windows Server 2012 R2 ou Windows 8.1 ou superior, em que pode instalar o conector do Proxy da aplicação | [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md) |
+| Um servidor a executar o Windows Server 2012 R2 ou Windows 8.1 ou superior, em que pode instalar o conector do Proxy da aplicação | [Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md) |
 | Se existir uma firewall no caminho, certifique-se de que está aberta, para que o conector possa fazer pedidos HTTPS (TCP) para o Proxy de aplicações | [Ativar o Proxy da aplicação no portal do Azure: pré-requisitos do Proxy de aplicações](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
-| Se a organização utilizar servidores proxy para estabelecer ligação à internet, faça uma vista de olhos a blogue após a trabalhar com servidores de proxy no local existentes para obter detalhes sobre como configurá-las | [Trabalhar com servidores de proxy no local existentes](application-proxy-working-with-proxy-servers.md) |
+| Se a organização utilizar servidores proxy para estabelecer ligação à internet, faça uma vista de olhos a blogue após a trabalhar com servidores de proxy no local existentes para obter detalhes sobre como configurá-las | [Trabalhar com servidores de proxy no local existentes](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Passos
@@ -255,13 +255,13 @@ Hora para concluído aproximada: 20 minutos
 | Instalar um conector no servidor | [Ativar o Proxy da aplicação no portal do Azure: instalar e registar o conector](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
 | Publicar a aplicação no local no Azure AD como uma aplicação de Proxy de aplicações | [Publicar aplicações através do Proxy de aplicações do Azure AD](manage-apps/application-proxy-publish-azure-portal.md) |
 | Atribuir utilizadores de teste | [Publicar aplicações através do Proxy de aplicações do Azure AD: adicionar um utilizador de teste](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
-| Opcionalmente, configure uma experiência único início de sessão para os seus utilizadores | [Forneça o início de sessão único com o Proxy de aplicações do Azure AD](application-proxy-sso-azure-portal.md) |
+| Opcionalmente, configure uma experiência único início de sessão para os seus utilizadores | [Forneça o início de sessão único com o Proxy de aplicações do Azure AD](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | Testar a aplicação através do início de sessão portal de MyApps como utilizador atribuído | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerações
 
-1. Embora sugerimos colocar o conector na sua rede empresarial, há casos quando o utilizador verá um melhor desempenho colocando-lo na nuvem. Saiba mais: [considerações sobre a topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory](application-proxy-network-topology-considerations.md)
-2. Para obter mais detalhes de segurança e como esta opção fornece um acesso remoto seguro particularmente Consulte solução, mantendo apenas ligações de saída: [considerações de segurança para aceder remotamente a aplicações ao utilizar o Proxy de aplicações do Azure AD](application-proxy-security-considerations.md)
+1. Embora sugerimos colocar o conector na sua rede empresarial, há casos quando o utilizador verá um melhor desempenho colocando-lo na nuvem. Saiba mais: [considerações sobre a topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory](manage-apps/application-proxy-network-topology.md)
+2. Para obter mais detalhes de segurança e como esta opção fornece um acesso remoto seguro particularmente Consulte solução, mantendo apenas ligações de saída: [considerações de segurança para aceder remotamente a aplicações ao utilizar o Proxy de aplicações do Azure AD](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>Configuração do conector LDAP genérico
 

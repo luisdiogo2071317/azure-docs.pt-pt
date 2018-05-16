@@ -1,19 +1,19 @@
 ---
-title: "Implementar módulos para o limite do Azure IoT | Microsoft Docs"
-description: "Saiba mais sobre a forma como os módulos obterem implementados em dispositivos de limite"
+title: Implementar módulos para o limite do Azure IoT | Microsoft Docs
+description: Saiba mais sobre a forma como os módulos obterem implementados em dispositivos de limite
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Compreender as implementações de IoT Edge para dispositivos único ou na escala – pré-visualização
 
@@ -59,7 +59,7 @@ Os metadados de configuração para cada módulo incluem:
 
 A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que cumprem os requisitos ou remova os dispositivos que já não fazer através de tempo de vida da implementação. A implementação irá ser reativada se o serviço detetar qualquer alteração de condição de destino. Por exemplo, tem uma implementação de um que tenha um tags.environment de condição de destino = 'prod'. Quando pode iniciar a implementação, existem 10 prod dispositivos. Os módulos são instalados com êxito nestes 10 dispositivos. O estado de agente de limite de IoT é mostrado como 10 total de dispositivos, 10 com êxito as respostas, 0 respostas de falhas e 0 respostas pendentes. Agora adicione 5 dispositivos mais com tags.environment = 'prod'. O serviço Deteta a alteração e o estado do agente Edge IoT torna-se 15 total de dispositivos, 10 com êxito as respostas, respostas de falhas de 0 e 5 respostas pendentes ao tentar implementar a cinco novos dispositivos.
 
-Utilize qualquer condição booleana etiquetas do dispositivos duplos ou deviceId para selecionar os dispositivos de destino. Se pretender utilizar a condição com etiquetas, terá de adicionar "etiquetas" secção :{} no dispositivo duplo sob o mesmo nível de propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+Utilize qualquer condição booleana etiquetas do dispositivos duplos ou deviceId para selecionar os dispositivos de destino. Se pretender utilizar a condição com etiquetas, terá de adicionar "etiquetas":{} secção no dispositivo duplo sob o mesmo nível de propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exemplos de condição de destino:
 * deviceId = 'linuxprod1'

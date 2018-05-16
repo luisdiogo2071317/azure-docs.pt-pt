@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 0b7b8642d29a815ba40655dd9cab519a2b12ecd8
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 72acfbd21159e15fe237be6d509cb2c4a2b1bffd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Como abrir as portas de firewall necessárias para uma aplicação de Proxy de aplicações
 
@@ -36,4 +36,4 @@ Para certificar-se de que a ferramenta dá-lhe os resultados da direita, não se
 -   Certifique-se de que quaisquer proxies ou firewalls aplicáveis ao seu conector também são aplicadas a esta página. Isto pode ser feito no Internet Explorer, acedendo a **definições**  - &gt; **opções da Internet**  - &gt; **ligações**  - &gt; **definições de Lan**. Nesta página, verá o campo "Utilizar um Proxy de servidor para o LAN". Selecione esta caixa e colocar o endereço proxy no campo "Address".
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)
+[Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md)

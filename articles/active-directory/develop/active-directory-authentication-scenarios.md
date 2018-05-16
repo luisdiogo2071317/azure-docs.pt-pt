@@ -3,23 +3,25 @@ title: Cenários de autenticação para o Azure AD | Microsoft Docs
 description: Fornece uma descrição geral dos cenários de autenticação mais comuns cinco para o Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f85898d566ea5c6791350df809e960f7e951012d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Cenários de autenticação para o Azure AD
 
@@ -49,7 +51,7 @@ Com o diagrama acima em mente, eis o que precisa de saber sobre os diversos comp
 * Azure AD é o fornecedor de identidade, responsável por verificar a identidade de utilizadores e aplicações que existe no diretório da organização e, em última análise emitir tokens de segurança após a autenticação com êxito desses utilizadores e aplicações.
 * Uma aplicação que pretende outsource autenticação para o Azure AD tem de estar registada no Azure AD, que regista e identifica de forma a aplicação no diretório.
 * Os programadores podem utilizar as bibliotecas de autenticação de open source do Azure AD para facilitar a autenticação, processando os detalhes de protocolo por si. Para obter mais informações, consulte [bibliotecas de autenticação do Azure Active Directory](active-directory-authentication-libraries.md).
-* Depois de um utilizador foi autenticado, a aplicação necessário validar o token de segurança do utilizador para se certificar de que a autenticação foi efetuada com êxito.  Temos amostras de que a aplicação tem de efetuar uma variedade de linguagens e arquiteturas no [GitHub](https://github.com/Azure-Samples?q=active-directory).  Se estiver a criar uma aplicação web no ASP.NET, consulte o [adicionar início de sessão para um guia de aplicação web ASP.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp).  Se estiver a criar uma recurso de API no ASP.NET da web, consulte o [web API guia de introdução](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Depois de um utilizador foi autenticado, a aplicação necessário validar o token de segurança do utilizador para se certificar de que a autenticação foi efetuada com êxito. Temos amostras de que a aplicação tem de efetuar uma variedade de linguagens e arquiteturas no [GitHub](https://github.com/Azure-Samples?q=active-directory). Se estiver a criar uma aplicação web no ASP.NET, consulte o [adicionar início de sessão para um guia de aplicação web ASP.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Se estiver a criar uma recurso de API no ASP.NET da web, consulte o [web API guia de introdução](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * O fluxo de pedidos e respostas para o processo de autenticação é determinado pelo protocolo de autenticação que foi utilizado, tais como o OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Estes protocolos são abordados mais detalhadamente no [protocolos de autenticação do Azure Active Directory](active-directory-authentication-protocols.md) artigo e nas secções abaixo.
 
 > [!NOTE]
@@ -72,10 +74,10 @@ Tokens de segurança (acesso e tokens de identidade) emitidos pelo Azure AD cont
 | Grupos | Contém os grupos de IDs de Azure AD de objeto que o utilizador é membro. |
 | Fornecedor de Identidade | Regista o fornecedor de identidade autenticado o assunto do token. |
 | Emitido no | Regista o tempo no qual o token foi emitido, utilizado frequentemente para actualização token. |
-| Emitente | Identifica o STS que emitidos o token, bem como o inquilino do Azure AD. |
+| Emissor | Identifica o STS que emitidos o token, bem como o inquilino do Azure AD. |
 | Apelido | Fornece o apelido do utilizador conforme definido no Azure AD. |
 | Nome | Fornece um valor de legível humano que identifica o assunto do token. |
-| ID do Objeto | Contém um identificador exclusivo, imutável do assunto no Azure AD. |
+| ID de objeto | Contém um identificador exclusivo, imutável do assunto no Azure AD. |
 | Funções | Contém nomes amigáveis de funções da aplicação AD do Azure que tenha sido concedido ao utilizador. |
 | Âmbito | Indica as permissões concedidas à aplicação de cliente. |
 | Assunto | Indica o principal sobre os quais o token de asserções informações. |
@@ -189,7 +191,7 @@ Utilizar ADAL.js ajuda com:
 * atualizar um token expirado
 * pedir um token de acesso para chamar uma recurso de API de web
 
-Após uma autenticação com êxito, o Azure AD escreve um cookie no browser do utilizador para estabelecer uma sessão.  Tenha em atenção de que a sessão existe entre o utilizador e o Azure AD (não entre o utilizador e a aplicação web). Quando um token expira, ADAL.js utiliza esta sessão silenciosamente obter outro token. ADAL.js utiliza um iFrame oculta para enviar e receber o pedido utilizando o protocolo de concessão implícita de OAuth. ADAL.js também pode utilizar este mesmo mecanismo para obter automaticamente os tokens de acesso para outros recursos de web API a aplicação de chamadas, desde que os recursos de várias origens (CORS), de partilha de suportar estes recursos estão registados no diretório do utilizador e quaisquer consentimento necessário foi especificado pelo utilizador durante o início de sessão.
+Após uma autenticação com êxito, o Azure AD escreve um cookie no browser do utilizador para estabelecer uma sessão. Tenha em atenção de que a sessão existe entre o utilizador e o Azure AD (não entre o utilizador e a aplicação web). Quando um token expira, ADAL.js utiliza esta sessão silenciosamente obter outro token. ADAL.js utiliza um iFrame oculta para enviar e receber o pedido utilizando o protocolo de concessão implícita de OAuth. ADAL.js também pode utilizar este mesmo mecanismo para obter automaticamente os tokens de acesso para outros recursos de web API a aplicação de chamadas, desde que os recursos de várias origens (CORS), de partilha de suportar estes recursos estão registados no diretório do utilizador e quaisquer consentimento necessário foi especificado pelo utilizador durante o início de sessão.
 
 ### <a name="native-application-to-web-api"></a>Aplicação nativa a API web
 
@@ -260,7 +262,7 @@ A identidade da aplicação e os tipos de identidade do utilizador delegado são
 
 1. Um utilizador já tem sessão iniciado aplicação web, cujo mecanismo de autenticação é independente do Azure AD.
 1. A aplicação web requer um código de autorização para adquirir um token de acesso, para que emite um pedido através do browser para o ponto final de autorização do Azure AD, fornecendo o ID da aplicação e URI de redirecionamento para a aplicação web após a autenticação com êxito. O utilizador inicia sessão com o Azure AD.
-1. Se o utilizador da aplicação web não consentiu ainda para permitir que a aplicação web chamar a API web em seu nome, o utilizador terá de consentimento. A aplicação irá apresentar as permissões requer e, se qualquer uma das seguintes permissões ao nível do administrador, um utilizador normal no diretório não será possível consentimento. Este consentimento aplica-se a aplicação único e multi-inquilino.  No caso de inquilino único, um administrador pode realizar admin consentimento para consentimento em nome de utilizadores.  Isto pode ser feito utilizando o `Grant Permissions` clique no botão no [Portal do Azure](https://portal.azure.com). 
+1. Se o utilizador da aplicação web não consentiu ainda para permitir que a aplicação web chamar a API web em seu nome, o utilizador terá de consentimento. A aplicação irá apresentar as permissões requer e, se qualquer uma das seguintes permissões ao nível do administrador, um utilizador normal no diretório não será possível consentimento. Este consentimento aplica-se a aplicação único e multi-inquilino. No caso de inquilino único, um administrador pode realizar admin consentimento para consentimento em nome de utilizadores. Isto pode ser feito utilizando o `Grant Permissions` clique no botão no [Portal do Azure](https://portal.azure.com). 
 1. Depois do utilizador consentiu, a aplicação web recebe o código de autorização que necessita de adquirir um token de acesso.
 1. Utilizar o código de autorização emitido pelo Azure AD, a aplicação web envia um pedido para ponto final de token do Azure AD que inclui o código de autorização, detalhes sobre a aplicação de cliente (ID da aplicação e URI de redirecionamento) e o recurso pretendido (ID da aplicação URI para a API web).
 1. O código de autorização e informações sobre a aplicação web e web API são validadas pelo Azure AD. Após a validação com êxito, do Azure AD volta duas tokens: um token de acesso JWT e um token de atualização JWT.

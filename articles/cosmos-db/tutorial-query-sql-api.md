@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 74ea4753e36da7686ac88d4426391a38dac0b436
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 131296d5219dffb2c4d7602b61b3c69b390e211e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
@@ -67,12 +67,12 @@ As consultas de SQL neste artigo utilizam o documento de exemplo seguinte.
 
 Pode executar consultas utilizando o Data Explorer no portal do Azure, através de [REST API e SDK](sql-api-sdk-dotnet.md)e até mesmo [Teste de consulta](https://www.documentdb.com/sql/demo), que executada consultas num conjunto de dados de exemplo.
 
-Para obter mais informações sobre as consultas SQL, consulte:
+Para obter mais informações sobre as consultas SQL, veja:
 * [Consulta SQL e sintaxe SQL](sql-api-sql-query.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destas? Conclua o [início rápido de 5 minutos](create-mongodb-nodejs.md) ou o [tutorial do programador](tutorial-develop-mongodb.md) para criar uma conta e uma coleção.
+Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destes? Conclua o [guia de início rápido de 5 minutos](create-mongodb-nodejs.md).
 
 ## <a name="example-query-1"></a>Consulta de exemplo 1
 

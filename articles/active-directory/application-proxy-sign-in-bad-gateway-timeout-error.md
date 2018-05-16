@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f57b470208ab3bd071b83c0736efa739c7e70363
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -95,7 +95,7 @@ Para verificar se todas as necessárias portas são abertas, consulte a document
 
 Se nenhuma das respostas anteriores resolver o problema, o passo seguinte é procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors). 
 
-Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitas das mensagens de erro partilham recomendações específicas para correções. Para ver os registos, consulte o [documentação de conectores](application-proxy-understand-connectors.md#under-the-hood).
+Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitas das mensagens de erro partilham recomendações específicas para correções. Para ver os registos, consulte o [documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="additional-resolutions"></a>Resoluções adicionais
 
@@ -107,7 +107,7 @@ Agora, abra um browser e tente aceder novamente a aplicação. Deve ser pedida a
 
 Se continuar a ver o erro, avance para a máquina onde o conector é instalado, abra um browser e tentam aceder o URL interno utilizado para a aplicação. O conector funciona como outro cliente do mesmo computador. Se não conseguirem contactar a aplicação, investigue o motivo pelo qual que a máquina não é possível alcançar a aplicação, ou utilizar um conector num servidor que é capaz de aceder à aplicação.
 
-Se pode aceder a aplicação do que a máquina, para procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](active-directory-application-proxy-troubleshoot.md#connector-errors). Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitos dos nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](application-proxy-understand-connectors.md#under-the-hood).
+Se pode aceder a aplicação do que a máquina, para procurar problemas ou de erros com o conector propriamente dito. Pode ver alguns erros comuns no [documento de resolução de problemas](active-directory-application-proxy-troubleshoot.md#connector-errors). Pode também ver diretamente os registos de conector para identificar eventuais erros. Muitos dos nossas mensagens de erro poderá partilhar recomendações mais específicas para correções. Para saber como ver os registos, consulte [nossa documentação de conectores](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)
+[Compreender os conectores de Proxy de aplicações do Azure AD](manage-apps/application-proxy-connectors.md)

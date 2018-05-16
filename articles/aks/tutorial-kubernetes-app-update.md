@@ -3,21 +3,21 @@ title: Tutorial do Kubernetes no Azure tutorial - Atualizar aplicação
 description: Tutorial de AKS – Atualizar Aplicação
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Tutorial: Atualizar uma aplicação no Azure Container Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar uma aplicação no Serviço Kubernetes do Azure (AKS)
 
-Depois de a aplicação ser implementada no Kubernetes, pode ser atualizada, ao especificar uma nova imagem de contentor ou uma versão de imagem. Ao fazê-lo, a atualização é testada, para que apenas uma parte da implementação seja atualizada em simultâneo. Esta atualização testada permite que a aplicação continue a ser executada durante a atualização. Também apresenta um mecanismo de reversão se ocorrer uma falha de implementação. 
+Depois de a aplicação ser implementada no Kubernetes, pode ser atualizada, ao especificar uma nova imagem de contentor ou uma versão de imagem. Ao fazê-lo, a atualização é testada, para que apenas uma parte da implementação seja atualizada em simultâneo. Esta atualização testada permite que a aplicação continue a ser executada durante a atualização. Também apresenta um mecanismo de reversão se ocorrer uma falha de implementação.
 
 Neste tutorial, parte seis de oito, a aplicação Azure Vote de exemplo é atualizada. As tarefas que concluir incluem:
 
@@ -31,15 +31,15 @@ Nos tutoriais subsequentes, o Log Analytics está configurado para monitorizar o
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor, carregada a imagem para o Azure Container Registry e criado um cluster de Kubernetes. A aplicação foi, em seguida, executada no cluster de Kubernetes. 
+Nos tutoriais anteriores, foi compactada uma aplicação numa imagem de contentor, carregada a imagem para o Azure Container Registry e criado um cluster de Kubernetes. A aplicação foi, em seguida, executada no cluster de Kubernetes.
 
 Também foi clonado um repositório de aplicações que inclui o código de origem da aplicação e foi utilizado um ficheiro do Docker Compose pré-criado neste tutorial. Certifique-se de que criou um clone do repositório e que foram alterados diretórios no diretório clonado. No interior está um diretório denominado `azure-vote` e um ficheiro denominado `docker-compose.yaml`.
 
-Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app]. 
+Se ainda não concluiu estes passos e pretende acompanhar, regresse ao [Tutorial 1 – Criar imagens de contentor][aks-tutorial-prepare-app].
 
 ## <a name="update-application"></a>Atualizar a aplicação
 
-Para este tutorial, é realizada uma alteração na aplicação e a aplicação atualizada implementada no cluster Kubernetes. 
+Para este tutorial, é realizada uma alteração na aplicação e a aplicação atualizada implementada no cluster Kubernetes.
 
 O código de origem da aplicação pode ser encontrado no interior do diretório `azure-vote`. Abra o ficheiro `config_file.cfg` com qualquer editor de texto ou de código. Neste exemplo é utilizado `vi`.
 
@@ -69,13 +69,13 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Testar a aplicação localmente
 
-Procure http://localhost:8080 para ver a aplicação atualizada.
+Procure o http://localhost:8080 para ver a aplicação atualizada.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>Imagens de etiqueta e push
 
-Assinale a imagem `azure-vote-front` com o loginServer do registo de contentor. 
+Assinale a imagem `azure-vote-front` com o loginServer do registo de contentor.
 
 Obtenha o nome do servidor de início de sessão com o comando [az acr list](/cli/azure/acr#az_acr_list).
 
@@ -164,10 +164,10 @@ Neste tutorial, atualiza uma aplicação e implementa esta atualização num clu
 > * Enviou a imagem de contentor para o Azure Container Registry
 > * Implementou a aplicação atualizada
 
-Avance para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Log Analytics.
+Avance para o próximo tutorial para saber mais sobre a atualização do Kubernetes para uma nova versão.
 
 > [!div class="nextstepaction"]
-> [Monitorizar o Kubernetes com o Log Analytics][aks-tutorial-monitor]
+> [Atualizar Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +178,5 @@ Avance para o próximo tutorial para saber mais sobre como monitorizar o Kuberne
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

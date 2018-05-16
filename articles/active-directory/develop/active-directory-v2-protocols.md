@@ -3,29 +3,31 @@ title: Saiba mais sobre os protocolos de autorização suportados pelo Azure AD 
 description: Um guia para protocolos suportados pelo ponto final v 2.0 do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 29d9e2d9ee05b755ef40179e0e75fb0c8a6b010b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c6031bb135c48a8d58f61c3c96bf18e817809ba
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v 2.0 protocolos - OAuth 2.0 & OpenID Connect
-O ponto final v 2.0 pode utilizar o Azure AD para identidade-como-um-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0.  Enquanto o serviço está em conformidade com as normas, pode ser ligeiras diferenças entre as duas implementações destes protocolos.  As informações aqui será útil se pretender escrever o seu código enviando diretamente & HTTP a processar pedidos ou utilizar uma biblioteca de open source para terceiros 3rd, em vez de utilizar um dos nossos [abrir bibliotecas de origem](active-directory-v2-libraries.md).
+O ponto final v 2.0 pode utilizar o Azure AD para identidade-como-um-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Enquanto o serviço está em conformidade com as normas, pode ser ligeiras diferenças entre as duas implementações destes protocolos. As informações aqui será útil se pretender escrever o seu código enviando diretamente & HTTP a processar pedidos ou utilizar uma biblioteca de open source para terceiros 3rd, em vez de utilizar um dos nossos [abrir bibliotecas de origem](active-directory-v2-libraries.md).
 
 > [!NOTE]
-> Nem todos os cenários do Azure Active Directory e funcionalidades são suportadas pelo ponto final v 2.0.  Para determinar se deve utilizar o ponto final v 2.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).
+> Nem todos os cenários do Azure Active Directory e funcionalidades são suportadas pelo ponto final v 2.0. Para determinar se deve utilizar o ponto final v 2.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).
 >
 >
 
@@ -34,13 +36,13 @@ Praticamente todos os fluxos de OAuth & OpenID Connect, existem quatro partes en
 
 ![Funções de OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
 
-* O **autorização servidor** é o ponto final v 2.0.  É responsável por assegurar que a identidade do utilizador, conceder revogar o acesso a recursos e emitir tokens.  É também conhecido como o fornecedor de identidade - -lo em segurança processa qualquer coisa a fazer com as informações do utilizador, o acesso e as relações de confiança entre as partes de um fluxo.
-* O **proprietário do recurso** é, geralmente, o utilizador final.  É a entidade que tem os dados e de que tem a capacidade para permitir que terceiros aceder a esse dados ou recursos.
-* O **cliente OAuth** é a sua aplicação, identificada por um ID de aplicação.  Normalmente, é a entidade que o utilizador final interage com e que solicita tokens a partir do servidor de autorização.  O cliente tem de possuir permissão para aceder ao recurso pelo proprietário do recurso.
-* O **servidor recursos** é onde residem a recursos ou dados.  Confianças de autorização para autenticar e autorizar o cliente OAuth em segurança e utiliza access_tokens de portador para se certificar de que pode ser concedido acesso a um recurso.
+* O **autorização servidor** é o ponto final v 2.0. É responsável por assegurar que a identidade do utilizador, conceder revogar o acesso a recursos e emitir tokens. É também conhecido como o fornecedor de identidade - -lo em segurança processa qualquer coisa a fazer com as informações do utilizador, o acesso e as relações de confiança entre as partes de um fluxo.
+* O **proprietário do recurso** é, geralmente, o utilizador final. É a entidade que tem os dados e de que tem a capacidade para permitir que terceiros aceder a esse dados ou recursos.
+* O **cliente OAuth** é a sua aplicação, identificada por um ID de aplicação. Normalmente, é a entidade que o utilizador final interage com e que solicita tokens a partir do servidor de autorização. O cliente tem de possuir permissão para aceder ao recurso pelo proprietário do recurso.
+* O **servidor recursos** é onde residem a recursos ou dados. Confianças de autorização para autenticar e autorizar o cliente OAuth em segurança e utiliza access_tokens de portador para se certificar de que pode ser concedido acesso a um recurso.
 
 ## <a name="app-registration"></a>Registo de aplicação
-Cada aplicação que utiliza o ponto final v 2.0 tem de ser registado no [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) antes de pode interagir com OAuth ou o OpenID Connect.  O processo de registo de aplicação irão recolher & atribuir alguns valores para a sua aplicação:
+Cada aplicação que utiliza o ponto final v 2.0 tem de ser registado no [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) antes de pode interagir com OAuth ou o OpenID Connect. O processo de registo de aplicação irão recolher & atribuir alguns valores para a sua aplicação:
 
 * Um **Id da aplicação** que identificam de forma a aplicação
 * A **URI de redirecionamento** ou **identificador de pacote** que pode ser utilizada para direcionar as respostas de volta para a sua aplicação
@@ -63,7 +65,7 @@ Onde o `{tenant}` pode efetuar uma das quatro valores diferentes:
 | `common` |Permite que os utilizadores com contas Microsoft pessoais e de trabalho/escola contas do Azure Active Directory para iniciar sessão na aplicação. |
 | `organizations` |Permite que apenas os utilizadores com contas de trabalho/escola do Azure Active Directory para iniciar sessão na aplicação. |
 | `consumers` |Permite que apenas os utilizadores com contas Microsoft pessoais (MSA) para iniciar sessão na aplicação. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` |Permite que apenas os utilizadores com contas de trabalho/profissional de um determinado inquilino do Azure Active Directory para iniciar sessão na aplicação.  O nome de domínio amigável dos inquilino do Azure AD ou identificador de guid do inquilino pode ser utilizado. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` |Permite que apenas os utilizadores com contas de trabalho/profissional de um determinado inquilino do Azure Active Directory para iniciar sessão na aplicação. O nome de domínio amigável dos inquilino do Azure AD ou identificador de guid do inquilino pode ser utilizado. |
 
 Para obter mais informações sobre como interagir com estes pontos finais, escolha um tipo de aplicação específica abaixo.
 
@@ -73,7 +75,7 @@ A implementação de v 2.0 de OAuth 2.0 e o OpenID Connect tornar utilizar muita
 Obter mais detalhes dos diferentes tipos de tokens utilizados no ponto final v 2.0 está disponível no [a referência de token de ponto final v 2.0](active-directory-v2-tokens.md).
 
 ## <a name="protocols"></a>Protocolos
-Se estiver pronto para ver alguns pedidos de exemplo, começar a utilizar um do abaixo tutoriais.  Cada um deles corresponde a um cenário de autenticação específica.  Se precisar de ajuda para determinar qual é o fluxo correto para si, consulte [os tipos de aplicações, pode criar com a v 2.0](active-directory-v2-flows.md).
+Se estiver pronto para ver alguns pedidos de exemplo, começar a utilizar um do abaixo tutoriais. Cada um deles corresponde a um cenário de autenticação específica. Se precisar de ajuda para determinar qual é o fluxo correto para si, consulte [os tipos de aplicações, pode criar com a v 2.0](active-directory-v2-flows.md).
 
 * [Criar Mobile e aplicação nativa com OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 * [Criar Web aplicações com abrir ID Connect](active-directory-v2-protocols-oidc.md)

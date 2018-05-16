@@ -1,25 +1,27 @@
 ---
-title: "Compreender o OAuth2 implícita conceder fluxo no Azure AD | Microsoft Docs"
-description: "Saiba mais sobre a implementação do Azure Active Directory de OAuth2 implícita conceder fluxo, e se é adequada para a sua aplicação."
+title: Compreender o OAuth2 implícita conceder fluxo no Azure AD | Microsoft Docs
+description: Saiba mais sobre a implementação do Azure Active Directory de OAuth2 implícita conceder fluxo, e se é adequada para a sua aplicação.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 263a093d5cf4b48ed1dadd4a288e548065ddf282
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Compreender o fluxo de concessão implícita de OAuth2 no Azure Active Directory (AD)
 A concessão implícita OAuth2 é notorious para ser a concessão com a lista mais longo das preocupações de segurança na especificação do OAuth2. E, ainda, que é a abordagem implementada por ADAL JS e aquele que recomendamos quando SPA aplicações de escrita. O que lhe dá? É todos os um fim de fala: e como fica, a concessão implícita é a abordagem das melhores pode pursue para aplicações que consumam uma API Web através de JavaScript a partir de um browser.
@@ -58,7 +60,7 @@ Se a aplicação for um cliente nativo, o fluxo implícito de não é uma excele
 
 Se estiver a desenvolver uma aplicação Web que inclui um back-end e consumir uma API a partir do respetivo código de back-end, o fluxo implícito também não é uma boa opção. Outros concede-lhe muito maior potência. Por exemplo, a concessão de credenciais do cliente de OAuth2 fornece a capacidade para obter os tokens refletem as permissões atribuídas à aplicação, por oposição as delegações do utilizador. Isto significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um utilizador não está ativamente envolvido numa sessão e assim sucessivamente. Não só que, mas essas concede dar mais elevada de segurança de garantias. Por exemplo, tokens de acesso nunca trânsito através do browser do utilizador, não sejam guardados no histórico do browser de risco e assim sucessivamente. A aplicação de cliente também pode efetuar a autenticação forte quando pedir um token.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma lista completa dos recursos de programador, incluindo informações de referência para os protocolos e a autorização de OAuth2 conceder fluxos suporte pelo Azure AD, consulte o [Guia do programador do Azure AD][AAD-Developers-Guide]
 * Consulte [como integrar uma aplicação com o Azure AD] [ ACOM-How-To-Integrate] para profundidade adicional do processo de integração de aplicações.
 

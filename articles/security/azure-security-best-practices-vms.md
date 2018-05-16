@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Melhores práticas de segurança de VM do Azure
 
@@ -55,7 +55,7 @@ Quando ativar políticas de Gestor de recursos e o RBAC para controlar o acesso 
 
 - [Contribuinte de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerir VMs, mas não o armazenamento de rede ou conta virtual ao qual estão ligados.
 - [Clássico contribuinte de Máquina Virtual](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerir VMs criadas utilizando o modelo de implementação clássica, mas não o armazenamento de rede ou conta virtual ao qual as VMs estão ligadas.
-- [Gestor de segurança](../role-based-access-control/built-in-roles.md#security-manager): pode gerir os componentes de segurança, as políticas de segurança e as VMs.
+- [Administrador de segurança](../role-based-access-control/built-in-roles.md#security-admin): pode gerir os componentes de segurança e as políticas de segurança.
 - [DevTest Labs utilizador](../role-based-access-control/built-in-roles.md#devtest-labs-user): pode ver tudo ligar, iniciar, reiniciar e encerrar VMs.
 
 Não partilhe as contas e palavras-passe entre administradores e não reutilize palavras-passe em várias contas de utilizador ou serviços, especialmente palavras-passe de redes sociais ou outras atividades não administrativas. Idealmente, deve utilizar [do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) modelos para configurar as suas VMs de forma segura. Ao utilizar esta abordagem, pode reforçar as opções de implementação e impor as definições de segurança em toda a implementação.

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: be8c997df5893782c469eefe4e3c79ab698f4c78
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 
@@ -40,8 +40,8 @@ Sempre que existirem atualizações para extensões de máquina virtual (VM) que
 | ![Acesso VM para Linux](media/azure-stack-marketplace-azure-items/cse.png) | [ Acesso VM para Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Transferir esta atualização para a versão de na caixa do VMAccess para a extensão do Linux. Esta atualização é importante se planeia utilizar Debian VMs com Linux.</b> | Microsoft | Linux |
 | ![Extensão de cópia de segurança Acronis para Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Extensão de cópia de segurança Acronis para Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | A extensão de cópia de segurança Acronis do Microsoft Azure faz parte da família Acronis cópia de segurança dos produtos de proteção de dados. | GmbH internacional de Acronis. | Linux |
 | ![Extensão de cópia de segurança Acronis para Windows](media/azure-stack-marketplace-azure-items/acronis.png) | [ Extensão de cópia de segurança Acronis para Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | A extensão de cópia de segurança Acronis do Microsoft Azure faz parte da família Acronis cópia de segurança dos produtos de proteção de dados. | GmbH internacional de Acronis. | Windows |
-| ![Extensão de SecureVM CloudLink para Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Extensão de SecureVM CloudLink para Linux ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar as VMs com facilidade e confiança. | Dell EMC | Linux |
-| ![CloudLink SecureVM extensão para Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM extensão para Windows ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar as VMs com facilidade e confiança. | Dell EMC | Windows |
+| ![Extensão de SecureVM CloudLink para Linux](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ Extensão de SecureVM CloudLink para Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar as VMs com facilidade e confiança. | Dell EMC | Linux |
+| ![CloudLink SecureVM extensão para Windows](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM extensão para Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar as VMs com facilidade e confiança. | Dell EMC | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Imagens de Máquina Virtual da Microsoft e modelos de solução
 
@@ -214,7 +214,8 @@ Pilha do Microsoft Azure suporta as seguintes máquinas virtuais do Azure Market
 | ![Firewall de aplicação barracuda Web (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Firewall de aplicação barracuda Web (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Segurança e proteção DDoS contra automatizadas & visados ataques. | Barracuda Networks, Inc. |
 | ![Ponto de verificação vSEC gestão de segurança](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Ponto de verificação vSEC gestão de segurança](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Ponto de verificação vSEC fornece prevenção de ameaça avançadas, por várias camadas para proteger os ativos do cliente no Azure contra software maligno e ameaças sofisticadas. <b>Transfira ambos os itens de mercado de vSEC de ponto de verificação.</b> | Check Point |
 | ![Automatizar chef](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizar chef](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Criar, implementar e gerir com Chef automatizar, a plataforma de automatização contínua. <b>Transfira ambos os itens do marketplace Chef</b> | Chef. o Software, Inc |
-| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar as VMs com facilidade e confiança. <b>Transferir todos os itens de CloudLink SecureVM.<b> | Dell EMC |
+| ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [ CloudLink SecureVM ](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar as VMs com facilidade e confiança. <b>Transferir todos os itens de CloudLink SecureVM.<b> | Dell EMC |
+| ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [ F5 Big-IP Virtual edição ](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Balanceamento de carga avançada, GSLB, Firewall da rede, DNS, WAF e acesso de aplicação. | Redes F5 |
 | ![Sandbox do Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Sandbox do Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Utiliza a tecnologia de HDP 2,5 plataforma de open source de 100% de Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Comutador de conteúdo de ADC do Balanceador de carga do KEMP LoadMaster](media/azure-stack-marketplace-azure-items/kemp.png) | [Comutador de conteúdo de ADC do Balanceador de carga do KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Balanceador de carga de controlador (ADC) de entrega de aplicações de camada 4 a 7, o comutador de conteúdo e o Gestor de tráfego. | Inc. de tecnologias de KEMP |
 | ![Compatível com a NooBaa híbrida AWS S3 - edição Community](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa híbrida AWS S3 compatibe - edição Community](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Serviço de armazenamento compatível com a S3 que abranja pública e a capacidade de recursos no local. | NooBaa |

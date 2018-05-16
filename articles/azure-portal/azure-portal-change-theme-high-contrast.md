@@ -2,19 +2,19 @@
 title: Ativar alto contraste no portal do Azure | Microsoft Docs
 description: Saiba como ativar alto contraste e alterar o tema do portal do Azure.
 services: azure-portal
-keywords: 
+keywords: ''
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 08/24/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
-manager: timlt
-ms.openlocfilehash: 6099bc9d19216dced5611785c2a484d50fde7883
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+manager: dougeby
+ms.openlocfilehash: 08f42fc70373effd46297ad67d4359bfa42852b7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Ativar alto contraste e alterar o tema no portal do Azure
 Se precisar de mais contraste ou se pretender alterar o esquema de cores no portal do Azure, aceda às definições do portais para efetuar a alteração. 
@@ -37,6 +37,6 @@ Se precisar de mais contraste ou se pretender alterar o esquema de cores no port
     ![Captura de ecrã que mostra as opções de tema nas definições do portais do Azure](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
 1. Selecione **Aplicar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Atalhos de teclado no portal do Azure](azure-portal-keyboard-shortcuts.md)
 - [Dispositivos e browsers suportados](../azure-preview-portal-supported-browsers-devices.md)

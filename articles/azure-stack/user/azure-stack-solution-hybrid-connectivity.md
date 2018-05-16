@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: configurar a conectividade de nuvem híbrida com o Azure e pilha do Azure
 
@@ -93,7 +93,7 @@ Especificações da ligação:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Criar uma rede virtual no global do Azure e pilha do Azure
 
-> [!note]  
+> [!Note]  
 > Tem de se certificar de que não há nenhuma sobreposição de IPs no Azure ou do Azure pilha espaços de endereços vNet. 
 
 Para criar uma vNet no modelo de implementação Resource Manager através do portal do Azure. Use os [valores de exemplo](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) se estiver a seguir estes passos como um tutorial. Se não estiver a seguir estes passos como um tutorial, certifique-se de substitui os valores pelos seus próprios. 
@@ -129,7 +129,7 @@ No [portal](http://portal.azure.com/), navegue para a rede virtual do Gestor de 
         - Clique em **+ criar nova** para abrir o **Criar endereço IP público** página.
         - Introduza um **nome** para o seu endereço IP público. Deixe o SKU como **básico**, em seguida, selecione **OK** na parte inferior desta página para guardar as alterações.
 
-    > [!note]  
+    > [!Note]  
     > Gateway de VPN atualmente apenas suporta a atribuição de endereços IP públicos dinâmicos. No entanto, isto não significa que o endereço IP é alterado após ser atribuído ao gateway de VPN. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
 4. Verifique as definições. 

@@ -1,13 +1,14 @@
 ---
-title: "Azure início de sessão único protocolo SAML | Microsoft Docs"
-description: "Este artigo descreve o protocolo de início de sessão único no SAML no Azure Active Directory"
+title: Azure início de sessão único protocolo SAML | Microsoft Docs
+description: Este artigo descreve o protocolo de início de sessão único no SAML no Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo de SAML do início de sessão único
 Este artigo abrange os pedidos de autenticação SAML 2.0 e as respostas que suporta o Azure Active Directory (Azure AD) para Single Sign-On.
@@ -44,9 +45,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| ID |Necessário |Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. ID não tem de começar com um número, pelo que é uma estratégia de comuns preceder uma cadeia como "id" para a representação de cadeia de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
-| Versão |Necessário |Deve ser **2.0**. |
-| IssueInstant |Necessário |Esta é uma cadeia de DateTime com um valor de UTC e [formato reportadas round-trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera um valor de DateTime deste tipo, mas não avaliar ou utilize o valor. |
+| ID |obrigatório |Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. ID não tem de começar com um número, pelo que é uma estratégia de comuns preceder uma cadeia como "id" para a representação de cadeia de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
+| Versão |obrigatório |Deve ser **2.0**. |
+| IssueInstant |obrigatório |Esta é uma cadeia de DateTime com um valor de UTC e [formato reportadas round-trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera um valor de DateTime deste tipo, mas não avaliar ou utilize o valor. |
 | AssertionConsumerServiceUrl |opcional |Se for indicado, este tem de corresponder à `RedirectUri` do serviço de nuvem no Azure AD. |
 | ForceAuthn |opcional | Este é um valor booleano. Se for VERDADEIRO, isto significa que o utilizador ser forçado a autenticar novamente, mesmo que tenha uma sessão válida com o Azure AD. |
 | IsPassive |opcional |Este é um valor booleano que especifica se do Azure AD deve autenticar o utilizador silenciosamente, sem interação do utilizador, utilizando o cookie de sessão, se existir. Se for VERDADEIRO, o Azure AD irá tentar autenticar o utilizador utilizando o cookie de sessão. |
@@ -255,7 +256,7 @@ Contém afirmações sobre o assunto ou o utilizador. A seguinte excerpt contém
 ```        
 
 * **Nome de afirmação** : O valor da `Name` atributo (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) é o nome principal de utilizador do utilizador autenticado, tal como `testuser@managedtenant.com`.
-* **ObjectIdentifier afirmação** : O valor da `ObjectIdentifier` atributo (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto de diretório que representa o utilizador autenticado no Azure AD. `ObjectId`é um imutável globalmente exclusivo e utilizar novamente o identificador de segurança do utilizador autenticado.
+* **ObjectIdentifier afirmação** : O valor da `ObjectIdentifier` atributo (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto de diretório que representa o utilizador autenticado no Azure AD. `ObjectId` é um imutável globalmente exclusivo e utilizar novamente o identificador de segurança do utilizador autenticado.
 
 #### <a name="authnstatement"></a>AuthnStatement
 Este elemento asserções que o assunto de asserção foi autenticado por um meio específico num determinado momento.

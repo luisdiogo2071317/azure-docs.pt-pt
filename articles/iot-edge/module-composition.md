@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 58b4c6769f6eb441e9ccaf041f3d56f4af9a0831
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3d95a602815cd444fb4b062853d9d31b75993e6a
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Compreender como módulos de IoT limite podem ser utilizados, configurado e reutilizada - pré-visualização
 
@@ -168,7 +168,7 @@ O manifesto de implementação pode especificar propriedades pretendidas para o 
 
 Se não especificar propriedades de pretendido de um duplo de módulo no manifesto de implementação, o IoT Hub não irá modificar o duplo de módulo de qualquer forma e conseguirá definir as propriedades de pretendido através de programação.
 
-Os mesmos mecanismos que lhe permitem modificar dispositivos duplos são utilizados para modificar duplos do módulo. Consulte o [guia para programadores do dispositivo duplo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) para obter mais informações.   
+Os mesmos mecanismos que lhe permitem modificar dispositivos duplos são utilizados para modificar duplos do módulo. Consulte o [guia para programadores do dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) para obter mais informações.   
 
 ## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implementação
 

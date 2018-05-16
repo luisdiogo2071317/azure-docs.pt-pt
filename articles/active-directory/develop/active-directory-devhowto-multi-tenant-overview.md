@@ -3,26 +3,28 @@ title: Como criar uma aplicação que pode iniciar sessão em qualquer utilizado
 description: Mostra como criar uma aplicação de multi-inquilino que pode iniciar sessão um utilizador de qualquer inquilino do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
+ms.reviewer: elisol
 ms.custom: aaddev
-ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fd02cde6327cb929d1b4c0c2e3d430d64645ca26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como iniciar sessão em qualquer utilizador do Azure Active Directory através do padrão de aplicação multi-inquilino
-Se oferecer um Software como uma aplicação de serviço para muitas organizações, pode configurar a sua aplicação para aceitar inícios de sessão de qualquer inquilino do Azure Active Directory (AD). Esta configuração denomina-se tornar o multi-inquilino de aplicação. Os utilizadores em qualquer inquilino do Azure AD será possível iniciar sessão na sua aplicação após consenting para utilizar a respetiva conta com a sua aplicação.  
+Se oferecer um Software como uma aplicação de serviço para muitas organizações, pode configurar a sua aplicação para aceitar inícios de sessão de qualquer inquilino do Azure Active Directory (AD). Esta configuração denomina-se tornar o multi-inquilino de aplicação. Os utilizadores em qualquer inquilino do Azure AD será possível iniciar sessão na sua aplicação após consenting para utilizar a respetiva conta com a sua aplicação. 
 
 Se tiver uma aplicação existente que tem o seu próprio sistema conta ou suporta outros tipos de inícios de sessão a partir de outros fornecedores de nuvem, adicionar do Azure AD início de sessão a partir de nenhum inquilino é simple. Apenas registar a sua aplicação, adicione o código de início de sessão através de OAuth2, OpenID Connect ou SAML e colocar um [botão "Início de sessão In with Microsoft"] [ AAD-App-Branding] na sua aplicação.
 
@@ -39,19 +41,19 @@ Existem quatro passos simples para converter a aplicação numa aplicação mult
 Vamos ver cada passo em detalhe. Também pode ir diretamente para [esta lista de amostras de multi-inquilinos][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registo ser multi-inquilino
-Por predefinição, os registos de aplicações/API web no Azure AD são único inquilino.  Pode efetuar o registo de multi-inquilino ao localizar o **múltiplos Tenanted** comutador no **propriedades** painel do registo da aplicação no [portal do Azure] [ AZURE-portal] e defini-la como **Sim**.
+Por predefinição, os registos de aplicações/API web no Azure AD são único inquilino. Pode efetuar o registo de multi-inquilino ao localizar o **múltiplos Tenanted** comutador no **propriedades** painel do registo da aplicação no [portal do Azure] [ AZURE-portal] e defini-la como **Sim**.
 
 Antes de uma aplicação pode ser efetuada a multi-inquilino, o Azure AD requer o URI de ID de aplicação da aplicação a ser globalmente exclusivo. O URI de ID de aplicação é uma das formas que uma aplicação for identificada nas mensagens de protocolo. Para uma aplicação de inquilino único, é suficiente para o URI de ID de aplicação a ser exclusivos dentro desse inquilino. Para uma aplicação multi-inquilino, tem de ser globalmente exclusivo para que o Azure AD pode encontrar a aplicação em todos os inquilinos. Exclusividade global é imposta, exigindo que o URI de ID de aplicação ter um nome de anfitrião que corresponde a um domínio verificado do inquilino do Azure AD. Por predefinição, as aplicações criadas através do portal do Azure têm um URI de ID de aplicação globalmente exclusivo definido na criação da aplicação, mas pode alterar este valor.
 
-Por exemplo, se o nome do seu inquilino era contoso.onmicrosoft.com, em seguida, um URI de ID de aplicação será `https://contoso.onmicrosoft.com/myapp`.  Se o seu inquilino tinha um domínio verificado do `contoso.com`, também deverá ser um URI de ID de aplicação válido `https://contoso.com/myapp`. Se o URI de ID de aplicação não seguir este padrão, a definição de uma aplicação como falha de multi-inquilino.
+Por exemplo, se o nome do seu inquilino era contoso.onmicrosoft.com, em seguida, um URI de ID de aplicação será `https://contoso.onmicrosoft.com/myapp`. Se o seu inquilino tinha um domínio verificado do `contoso.com`, também deverá ser um URI de ID de aplicação válido `https://contoso.com/myapp`. Se o URI de ID de aplicação não seguir este padrão, a definição de uma aplicação como falha de multi-inquilino.
 
 > [!NOTE] 
-> Registos de cliente nativo, bem como [v2 aplicações](./active-directory-appmodel-v2-overview.md) são multi-inquilino por predefinição.  Não precisa de efetuar qualquer ação para efetuar estes registos de aplicação multi-inquilino.
+> Registos de cliente nativo, bem como [v2 aplicações](./active-directory-appmodel-v2-overview.md) são multi-inquilino por predefinição. Não precisa de efetuar qualquer ação para efetuar estes registos de aplicação multi-inquilino.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Atualize o código para enviar pedidos para /common
 Uma aplicação de inquilino único, pedidos de início de sessão são enviados para início de sessão no ponto final o inquilino. Por exemplo, para contoso.onmicrosoft.com o ponto final, seria: `https://login.microsoftonline.com/contoso.onmicrosoft.com`
 
-Pedidos enviados para o ponto final de um inquilino podem iniciar sessão em utilizadores (ou convidados) nesse inquilino para aplicações nesse inquilino. Com uma aplicação multi-inquilino, a aplicação não sabe adiantado que inquilino, o utilizador é de, pelo que não é possível enviar pedidos para o ponto final de um inquilino.  Em vez disso, os pedidos são enviados para um ponto final que multiplexes entre inquilinos todas as do Azure AD: `https://login.microsoftonline.com/common`
+Pedidos enviados para o ponto final de um inquilino podem iniciar sessão em utilizadores (ou convidados) nesse inquilino para aplicações nesse inquilino. Com uma aplicação multi-inquilino, a aplicação não sabe adiantado que inquilino, o utilizador é de, pelo que não é possível enviar pedidos para o ponto final de um inquilino. Em vez disso, os pedidos são enviados para um ponto final que multiplexes entre inquilinos todas as do Azure AD: `https://login.microsoftonline.com/common`
 
 Quando o Azure AD recebe um pedido no /common ponto final, inicia o utilizador a sessão e, como consequence, Deteta que o utilizador é a partir de inquilino. O/ponto final comum funciona com todos os protocolos de autenticação suportados pelo Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 e WS-Federation.
 
@@ -61,12 +63,12 @@ A resposta de início de sessão para a aplicação, em seguida, contém um toke
 > O/ponto final comum não é um inquilino e não é um emissor, é apenas um multiplexer. Quando utilizar /common, tem de ser atualizado para efetuar isto em consideração a lógica da sua aplicação para validar os tokens. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Atualizar o código para processar vários valores de emissor
-As aplicações Web e web APIs recebem e validar os tokens do Azure AD.  
+As aplicações Web e web APIs recebem e validar os tokens do Azure AD. 
 
 > [!NOTE]
-> Apesar das aplicações de cliente nativo pedirem e recebem tokens do Azure AD, este procedimento é efetuado para enviá-los para APIs, onde são validados.  Aplicações nativas não validar os tokens e tem de tratá-los como opaco.
+> Apesar das aplicações de cliente nativo pedirem e recebem tokens do Azure AD, este procedimento é efetuado para enviá-los para APIs, onde são validados. Aplicações nativas não validar os tokens e tem de tratá-los como opaco.
 
-Vamos ver na forma como uma aplicação valida tokens recebe do Azure AD.  Uma aplicação de inquilino único demora, normalmente, um valor de ponto final, como:
+Vamos ver na forma como uma aplicação valida tokens recebe do Azure AD. Uma aplicação de inquilino único demora, normalmente, um valor de ponto final, como:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -86,7 +88,7 @@ Porque o/ponto final comum não corresponde a um inquilino e não é um emissor,
 
     https://sts.windows.net/{tenantid}/
 
-Por conseguinte, uma aplicação multi-inquilino não é possível validar os tokens apenas por correspondência do valor de emissor nos metadados com o `issuer` valor no token. Uma aplicação de multi-inquilino tem lógica para decidir quais os valores de emissor são válidos e que não se baseiam na parte de ID de inquilino do valor de emissor.  
+Por conseguinte, uma aplicação multi-inquilino não é possível validar os tokens apenas por correspondência do valor de emissor nos metadados com o `issuer` valor no token. Uma aplicação de multi-inquilino tem lógica para decidir quais os valores de emissor são válidos e que não se baseiam na parte de ID de inquilino do valor de emissor. 
 
 Por exemplo, se uma aplicação multi-inquilino só permite início de sessão de inquilinos específicos que tenham efetuado a inscrição do seu serviço, em seguida, este tem de verificar o valor de emissor ou `tid` valor no token para se certificar de que esse inquilino é na respetiva lista de subscritores de afirmação. Se uma aplicação multi-inquilino apenas lida com indivíduos e não decisões qualquer acesso com base em inquilinos, em seguida, este pode ignorar o valor de emissor completamente.
 
@@ -137,7 +139,7 @@ Isto é demonstrado num multicamadas de cliente nativo ao exemplo de web API no 
 
 **Várias camadas em vários inquilinos**
 
-Um cenário semelhante acontece se a diferentes camadas de uma aplicação estão registadas em diferentes inquilinos. Por exemplo, considere o caso da criação de uma aplicação cliente nativa que chama a API do Office 365 Exchange Online. Para desenvolver nativo aplicações e versões posterior para a aplicação nativa para execução no inquilino de um cliente, o Exchange Online principal de serviço tem de estar presente. Neste caso, o programador e o cliente tem de comprar Exchange Online para o serviço principal a serem criadas os seus inquilinos.  
+Um cenário semelhante acontece se a diferentes camadas de uma aplicação estão registadas em diferentes inquilinos. Por exemplo, considere o caso da criação de uma aplicação cliente nativa que chama a API do Office 365 Exchange Online. Para desenvolver nativo aplicações e versões posterior para a aplicação nativa para execução no inquilino de um cliente, o Exchange Online principal de serviço tem de estar presente. Neste caso, o programador e o cliente tem de comprar Exchange Online para o serviço principal a serem criadas os seus inquilinos. 
 
 No caso de uma API criada por uma organização que não sejam Microsoft, o programador da API tem de fornecer uma forma para os seus clientes autorizar a aplicação para inquilinos dos seus clientes. É a estrutura recomendada para o Programador de terceiros construir a API de forma a que o se também pode funcionar como um cliente web para implementar a inscrição. Para efetuar este procedimento:
 

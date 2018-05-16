@@ -1,25 +1,27 @@
 ---
 title: Ponto final de v 2.0 do Azure Active Directory | Microsoft Docs
-description: "Uma introdução à criação de aplicações com o Azure Active Directory e Account Microsoft início de sessão."
+description: Uma introdução à criação de aplicações com o Azure Active Directory e Account Microsoft início de sessão.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Inicie sessão no Azure Active Directory e Account Microsoft a utilizadores numa única aplicação
 No passado, os programadores de aplicações que pretendiam para suportar ambas as contas pessoais da Microsoft e contas do Azure Active Directory profissionais tinham que integrar com dois sistemas separados. O ponto de final de v 2.0 do Azure Active Directory (Azure AD) apresenta uma nova versão de API de autenticação que simplifica este processo. Ponto final v 2.0 do Azure AD permite início de sessão a partir de ambos os tipos de contas através de uma única integração. As aplicações que utilizam o ponto final v 2.0 do Azure AD também podem consumir as APIs REST do [Microsoft Graph API](https://graph.microsoft.io) através da utilização de qualquer tipo de conta.

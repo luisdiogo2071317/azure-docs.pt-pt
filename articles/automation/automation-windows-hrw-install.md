@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e63e4afb5c60f193d46e30ab884d72912a6a5054
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9ac6423c6b08aa2a86eda5b0560c8b10e7082284
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Como implementar um Runbook Worker híbrido do Windows
 
@@ -130,6 +130,24 @@ Utilize o **-Verbose** mudar com **Add-HybridRunbookWorker** receber informaçõ
 Os Runbooks, pode utilizar qualquer um dos cmdlets definidos em módulos instalados no seu ambiente de automatização do Azure e atividades. Estes módulos não são implementados automaticamente em computadores no local, como tal, deve instalar manualmente. A exceção é o módulo do Azure, o que é instalado por predefinição, fornecer acesso a cmdlets para todos os serviços do Azure e actividades de automatização do Azure.
 
 Uma vez que o objetivo principal da funcionalidade do Runbook Worker híbrido gerir recursos locais, provavelmente terá de instalar os módulos que suportam estes recursos. Pode fazer referência a [instalar módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell. Tem de ser módulos instalados numa localização referenciada pela variável de ambiente de PSModulePath, de modo a que são automaticamente importados pelo worker híbrido. Para obter mais informações, consulte [modificar o caminho de instalação PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+O Runbook Worker híbrido depende do Microsoft Monitoring Agent para comunicar com a sua conta de automatização para registar o trabalho, receber tarefas de runbook e comunicar estado. Se o registo do worker falhar, aqui estão algumas causas possíveis para o erro:
+
+### <a name="the-microsoft-monitoring-agent-is-not-running"></a>O Microsoft Monitoring Agent não está em execução
+
+Se o serviço Windows do Microsoft Monitoring Agent não está em execução, isto impede o Runbook Worker híbrido comunicar com a automatização do Azure. Certifique-se de que o agente está em execução, introduzindo o seguinte comando do PowerShell: `Get-Service healthservice`. Se o serviço for parado, introduza o seguinte comando do PowerShell para iniciar o serviço: `Start-Service healthservice`.
+
+### <a name="event-4502-in-operations-manager-log"></a>Evento 4502 no registo do Operations Manager
+
+No **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos, para ver eventos 4502 e EventMessage contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**com a descrição seguinte: *o certificado apresentado pelo serviço \<wsid\>. oms.opinsights.azure.com não foi emitido por uma autoridade de certificação utilizada para os serviços Microsoft. Contacte o administrador de rede para ver se estiverem a executar um proxy que intercepte a comunicação TLS/SSL. O artigo KB3126513 tem informações adicionais de resolução de problemas para problemas de conectividade.*
+
+Isto pode dever-se a firewall, proxy ou de rede, bloquear a comunicação com o Microsoft Azure. Certifique-se de que o computador tem acesso de saída para *.azure automation.net nas portas 443.
+
+Os registos são armazenados localmente em cada função de trabalho híbrida no C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Pode verificar se existem quaisquer avisos ou eventos de erro escritos para o **aplicações e serviços Logs\Microsoft-SMA\Operations** e **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos deverá indicar uma conectividade ou outro problema que afetam a integração de função da automatização do Azure ou o problema ao efetuar operações normais.
+
+Para obter passos adicionais sobre como resolver problemas com a gestão de atualizações, consulte [Update Management - resolução de problemas](automation-update-management.md#troubleshooting)
 
 ## <a name="next-steps"></a>Próximos Passos
 

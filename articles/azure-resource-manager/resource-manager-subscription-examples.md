@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemplos para implementar andaime enterprise do Azure
-Este tópico fornece exemplos de como uma empresa pode implementar as recomendações para uma [andaime Azure enterprise](resource-manager-subscription-governance.md). Utiliza uma empresa fictícias com o nome Contoso para ilustrar melhores práticas para cenários comuns.
+Este artigo fornece exemplos de como uma empresa pode implementar as recomendações para uma [andaime Azure enterprise](resource-manager-subscription-governance.md). Utiliza uma empresa fictícias com o nome Contoso para ilustrar melhores práticas para cenários comuns.
 
 ## <a name="background"></a>Segundo plano
-Contoso é uma empresa em todo o mundo, que fornece soluções de cadeia de fornecimento de clientes em tudo de um modelo de "Software como um serviço" para um modelo em pacote implementado no local.  Desenvolvem software em todo o mundo com centros de desenvolvimento importantes no Índia, Estados Unidos e Canadá.
+Contoso é uma empresa em todo o mundo, que fornece soluções de cadeia de fornecimento de clientes. Fornecem tudo a partir de um Software como um modelo de serviço para um modelo em pacote implementado no local.  Desenvolvem software em todo o mundo com centros de desenvolvimento importantes no Índia, Estados Unidos e Canadá.
 
 A parte de ISV da empresa está dividida em várias unidades de negócio independentes que gerem os produtos num negócio significativo. Cada unidade de negócio tem as suas próprias programadores, gestores de produto e arquitetos de TI.
 
 A unidade de negócio de serviços de tecnologia de Enterprise (ETS) fornece a capacidade IT centralizada e gere vários centros de dados em unidades de negócio alojam as aplicações. Juntamente com a gestão de centros de dados, a organização ETS fornece e gere a colaboração centralizada (por exemplo, e-mail e os Web sites) e serviços de rede/telefonia. Também gerir orientado para o cliente cargas de trabalho para unidades de negócio mais pequenas que não tenham pessoal operacional.
 
-As pessoas fictícias seguintes são utilizadas neste tópico:
+As pessoas fictícias seguintes são utilizadas neste artigo:
 
 * Dave é o administrador do ETS Azure.
 * Alice é Director de desenvolvimento da Contoso na unidade de negócio de cadeia de fornecimento.
 
-Contoso tem de criar uma aplicação de linha de negócios e uma aplicação orientado para o cliente. Decidiu-se executar as aplicações no Azure. Dave lê o [governação de subscrição prescritiva](resource-manager-subscription-governance.md) tópico e está agora pronto para implementar as recomendações.
+Contoso tem de criar uma aplicação de linha de negócios e uma aplicação orientado para o cliente. Decidiu-se executar as aplicações no Azure. Dave lê o [governação de subscrição prescritiva](resource-manager-subscription-governance.md) artigo e está agora pronto para implementar as recomendações.
 
 ## <a name="scenario-1-line-of-business-application"></a>Cenário 1: aplicações de linha de negócio
 Contoso está a criar um sistema de gestão de código de origem (BitBucket) para ser utilizado pelos programadores por todo o mundo.  A aplicação utiliza a infraestrutura como serviço (IaaS) para alojar e consiste em servidores web e um servidor de base de dados. Os programadores aceder aos servidores nos respetivos ambientes de desenvolvimento, mas não precisam de aceder aos servidores no Azure. Contoso ETS pretende permitir que o proprietário da aplicação e a equipa gerir a aplicação. A aplicação só está disponível na rede empresarial da Contoso. Dave tem de configurar a subscrição para esta aplicação. A subscrição também irá alojar outra software relacionados com o Programador no futuro.  
 
 ### <a name="naming-standards--resource-groups"></a>Normas de nomenclatura & grupos de recursos
-Dave cria uma subscrição para suportar as ferramentas de programação que são comuns a todas as unidades de negócio. Ele tem de criar nomes significativos para os grupos de recursos e subscrição (para a aplicação e as redes). Ele cria os grupos de subscrição e dos recursos seguintes:
+Dave cria uma subscrição para suportar as ferramentas de programação que são comuns a todas as unidades de negócio. Dave tem de criar nomes significativos para os grupos de recursos e subscrição (para a aplicação e as redes). Ele cria os grupos de subscrição e dos recursos seguintes:
 
 | Item | Nome | Descrição |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave atribui as seguintes funções da subscrição:
 | Função | Atribuído a | Descrição |
 | --- | --- | --- |
 | [Proprietário](../role-based-access-control/built-in-roles.md#owner) |Gerido ID a partir da Contoso AD |Este ID é controlado com apenas acesso de tempo (JIT) através da ferramenta de gestão de identidades da Contoso e assegura que o acesso de proprietário da subscrição é totalmente auditado |
-| [Gestor de segurança](../role-based-access-control/built-in-roles.md#security-manager) |Segurança e riscos departamento de gestão |Esta função permite aos utilizadores ver o Centro de segurança do Azure e o estado dos recursos |
+| [Leitor de segurança](../role-based-access-control/built-in-roles.md#security-reader) |Segurança e riscos departamento de gestão |Esta função permite aos utilizadores ver o Centro de segurança do Azure e o estado dos recursos |
 | [Contribuidor de Rede](../role-based-access-control/built-in-roles.md#network-contributor) |Equipa de rede |Esta função permite a equipa de rede da Contoso gerir a VPN de Site a Site e as redes virtuais |
 | *Função personalizada* |Proprietário da aplicação |Dave cria uma função que concede a capacidade de modificar recursos no grupo de recursos. Para obter mais informações, consulte [funções personalizadas no Azure RBAC](../role-based-access-control/custom-roles.md) |
 
@@ -98,7 +98,7 @@ Ele cria os seguintes recursos:
 | --- | --- | --- |
 | Rede Virtual |interno vnet |Utilizado com a aplicação de BitBucket e está ligado através do ExpressRoute à rede empresarial da Contoso.  Uma sub-rede (`bitbucket`) fornece a aplicação com um espaço de endereço IP específico |
 | Rede Virtual |vnet externo |Disponível para as aplicações futuras que necessitam de pontos finais de destinado ao público |
-| Grupo de segurança de rede |bitbucket nsg |Garante que a superfície de ataque desta carga de trabalho é minimizada ao permitir ligações apenas na porta 443 para a sub-rede onde a aplicação se encontra (`bitbucket`) |
+| Grupo de Segurança de Rede |bitbucket nsg |Garante que a superfície de ataque desta carga de trabalho é minimizada ao permitir ligações apenas na porta 443 para a sub-rede onde a aplicação se encontra (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Bloqueios de recurso
 Dave reconhece que a conectividade da rede da empresa da Contoso para a rede virtual interna deve ser protegida a partir de qualquer wayward script ou a eliminação acidental.
@@ -115,7 +115,7 @@ Dave tem nada para automatizar para esta aplicação. Embora criado uma conta de
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 Gestão de serviço de TI da Contoso tem de identificar e processar ameaças rapidamente. Também deve compreender que problemas poderão existir.  
 
-Para cumprir estes requisitos, Dave permite o [Centro de segurança do Azure](../security-center/security-center-intro.md)e fornece acesso à função de Gestor de segurança.
+Para cumprir estes requisitos, Dave permite o [Centro de segurança do Azure](../security-center/security-center-intro.md)e fornece acesso à função de leitor de segurança.
 
 ## <a name="scenario-2-customer-facing-app"></a>Cenário 2: cliente com acesso à aplicação
 A liderança do negócio na unidade de negócio de cadeia de alimentação identificou vários oportunidades para aumentar o envolvimento com clientes da Contoso através da utilização de um cartão loyalty. Equipa de Alice tem de criar esta aplicação e decide Azure aumenta a sua capacidade para satisfazer a necessidade de negócio. Alice funciona com Dave de ETS para configurar as duas subscrições para desenvolver e funcionamento desta aplicação.
@@ -137,7 +137,7 @@ Para o **subscrição desenvolvimento**, criarem a seguinte política:
 | --- | --- | --- |
 | localização |Auditoria |A criação dos recursos em qualquer região de auditoria |
 
-Limita o tipo de sku que um utilizador pode criar de desenvolvimento, e não necessitam de etiquetas para grupos de recursos ou recursos.
+Estes não limitam o tipo de um utilizador pode criar no desenvolvimento de sku e não necessitam de etiquetas para grupos de recursos ou recursos.
 
 Para o **subscrição de produção**, criarem as políticas seguintes:
 
@@ -148,7 +148,7 @@ Para o **subscrição de produção**, criarem as políticas seguintes:
 | etiquetas |negar |Exigir a etiqueta do departamento |
 | etiquetas |Acrescentar |Acrescentar a etiqueta para cada grupo de recursos que indica o ambiente de produção |
 
-Limita o tipo de sku que um utilizador pode criar na produção.
+Estes não limitam o tipo de sku que um utilizador pode criar na produção.
 
 ### <a name="resource-tags"></a>Sinalizadores de recursos
 Dave compreende que tem de ter informações específicas para identificar os grupos de empresas correto de faturação e de propriedade. Define as etiquetas de recursos para grupos de recursos e recursos.
@@ -173,7 +173,7 @@ Para o **subscrição de produção**, criarem:
 | Tipo de recurso | Nome | Descrição |
 | --- | --- | --- |
 | Rede Virtual |vnet externo |Aloja a aplicação Loyalty Card e não está ligado diretamente ao ExpressRoute da Contoso. Código é enviado através do seu sistema de código fonte diretamente para os serviços de PaaS |
-| Grupo de segurança de rede |loyaltycard nsg |Garante que a superfície de ataque desta carga de trabalho é minimizada permitindo apenas a comunicação no vinculados no TCP 443.  Contoso é também investigar a utilizar uma Firewall de aplicação Web para a proteção adicional |
+| Grupo de Segurança de Rede |loyaltycard nsg |Garante que a superfície de ataque desta carga de trabalho é minimizada permitindo apenas a comunicação no vinculados no TCP 443.  Contoso é também investigar a utilizar uma Firewall de aplicação Web para a proteção adicional |
 
 ### <a name="resource-locks"></a>Bloqueios de recurso
 Dave e Alice confer e optar por adicionar alguns dos recursos chaves no ambiente para evitar a eliminação acidental durante um push código errant bloqueios de recursos.

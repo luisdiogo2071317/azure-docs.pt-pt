@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/07/2017
+ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Cofre de Chaves do Azure é um serviço em nuvem que protege chaves e segredos de encriptação (como certificados, cadeias de ligação e palavras-passe) das suas aplicações na nuvem. Uma vez que estes dados são confidenciais e vitais para a sua atividade, é fundamental proteger o acesso aos seus cofres de chaves, de modo a que só os utilizadores e as aplicações com autorização possam aceder aos mesmos. Este artigo disponibiliza uma descrição geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves das suas aplicações com um exemplo.
@@ -134,9 +134,9 @@ Agora, vamos ver quais são as permissões de acesso ao cofre de chaves de que c
 | Função de Utilizador | Permissões do plano de gestão | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipa de Segurança |Contribuinte do cofre de chaves |Chaves: criar cópia de segurança, criar, eliminar, obter, importar, listar, restaurar <br> Segredos: todas |
-| Programadores/operadores |Permissão de implementação de cofre de chaves, para que as VMs por eles implementadas possam obter segredos a partir do cofre de chaves |Nenhum |
+| Programadores/operadores |Permissão de implementação de cofre de chaves, para que as VMs por eles implementadas possam obter segredos a partir do cofre de chaves |Nenhuma |
 | Auditores |Nenhuma |Chaves: listar<br>Segredos: listar |
-| Aplicação |Nenhum |Chaves: assinar<br>Segredos: obter |
+| Aplicação |Nenhuma |Chaves: assinar<br>Segredos: obter |
 
 > [!NOTE]
 > Os auditores precisam da permissão de listar para chaves e segredos, para que possam inspecionar atributos de chaves e segredos que não são emitidos nos registos, como etiquetas e datas de ativação e expiração.

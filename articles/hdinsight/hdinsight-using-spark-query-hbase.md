@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: acad1058cbff2099a67603cc547a19d6cac022be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7cfc7f586e8a92c29736a7c4cff0b12796be430a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>Utilizar o Spark para ler e escrever dados do HBase
 
@@ -75,7 +75,7 @@ Neste passo, pode criar e preencher uma tabela simple no HBase que, em seguida, 
 3. Navegue para o cluster de HBase utilizando o [portal do Azure](https://portal.azure.com).
 4. Selecione as contas de armazenamento. 
 
-    ![Contas de Armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
+    ![Contas de armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
 5. Selecione a conta de armazenamento na lista que tem uma marca de verificação sob a coluna predefinida.
 
@@ -92,14 +92,14 @@ Neste passo, pode criar e preencher uma tabela simple no HBase que, em seguida, 
 
 9. No painel de propriedades Blob, selecione transfira e guarde `hbase-site.xml` para uma localização no seu computador local.
 
-    ![Transferir](./media/hdinsight-using-spark-query-hbase/download.png)
+    ![Transferência](./media/hdinsight-using-spark-query-hbase/download.png)
 
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Colocar hbase site.xml no seu cluster do Spark
 
 1. Navegue para o cluster do Spark utilizando o [portal do Azure](https://portal.azure.com).
 2. Selecione as contas de armazenamento.
 
-    ![Contas de Armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
+    ![Contas de armazenamento](./media/hdinsight-using-spark-query-hbase/storage-accounts.png)
 
 3. Selecione a conta de armazenamento na lista que tem uma marca de verificação sob a coluna predefinida.
 
@@ -129,7 +129,7 @@ Neste passo, pode criar e preencher uma tabela simple no HBase que, em seguida, 
 1. Ligar ao nó principal do cluster do Spark através de SSH.
 2. Inicie a shell do spark, especificando o pacote do conector do Spark HBase:
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
 
 3. Mantenha esta instância de Spark Shell aberta e avance para o passo seguinte.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9300c3a45f57da7e55eed1dbdf8fd6e94b094c31
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como utilizar um Azure VM geridos serviço de identidade (MSI) para a aquisição do token 
 
@@ -282,10 +282,10 @@ O ponto final de identidade de serviço geridas sinalizar erros através do camp
 
 | Código de Estado | Motivo de erro | Como processar |
 | ----------- | ------------ | ------------- |
+| 404 não encontrado. | Ponto final IMDS está a atualizar. | Tente novamente com Expontential término. Consulte a documentação de orientação abaixo. |
 | 429 demasiados muitos pedidos. |  Limitar IMDS foi atingido o limite. | Tente novamente com término exponencial. Consulte a documentação de orientação abaixo. |
 | Erro de 4xx no pedido. | Um ou mais dos parâmetros estavam incorreta. | Não repita.  Analise os detalhes do erro para obter mais informações.  erros de 4xx são erros em tempo de design.|
 | 5XX erro transitório de serviço. | O sistema secundárias do MSI ou o Azure Active Directory devolveu um erro transitório. | É seguro Repita após uma espera de, pelo menos, 1 segundo.  Se a repetir a forma demasiado rápida ou demasiadas vezes, IMDS e/ou do Azure AD pode devolver um erro de limite de velocidade (429).|
-| 404 não encontrado. | Ponto final IMDS está a atualizar. | Tente novamente com Expontential término. Consulte a documentação de orientação abaixo. |
 | tempo limite | Ponto final IMDS está a atualizar. | Tente novamente com Expontential término. Consulte a documentação de orientação abaixo. |
 
 Se ocorrer um erro, o corpo da resposta correspondente HTTP contém um JSON com os detalhes do erro:

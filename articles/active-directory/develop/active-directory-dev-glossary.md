@@ -1,25 +1,26 @@
 ---
-title: Glossário do programador do Azure Active Directory | Microsoft Docs
+title: Glossário de programador do Azure Active Directory | Microsoft Docs
 description: Uma lista dos termos de licenciamento para frequentemente utilizadas conceitos do programador do Azure Active Directory e funcionalidades.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 Este artigo contém definições para alguns dos principais do Azure Active Directory (AD) para programadores conceitos, que são úteis para saber mais sobre o desenvolvimento de aplicações do Azure AD.
@@ -35,7 +36,7 @@ Os tokens de acesso, por vezes, são referidos como "Utilizador + aplicação" o
 Consulte [referência de Token do Azure AD] [ AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="application-id-client-id"></a>id da aplicação (id de cliente)
-Os problemas de identificador exclusivo do Azure AD para um registo de aplicação que identifica uma aplicação específica e as configurações associadas.  Este id de aplicação ([id de cliente](https://tools.ietf.org/html/rfc6749#page-15)) é utilizado quando efetuar a autenticação de pedidos e é fornecido para as bibliotecas de autenticação no tempo de desenvolvimento. O id de aplicação (id de cliente) não é um segredo. 
+Os problemas de identificador exclusivo do Azure AD para um registo de aplicação que identifica uma aplicação específica e as configurações associadas. Este id de aplicação ([id de cliente](https://tools.ietf.org/html/rfc6749#page-15)) é utilizado quando efetuar a autenticação de pedidos e é fornecido para as bibliotecas de autenticação no tempo de desenvolvimento. O id de aplicação (id de cliente) não é um segredo. 
 
 ## <a name="application-manifest"></a>manifesto da aplicação
 Uma funcionalidade fornecida pelo [portal do Azure][AZURE-portal], que produz uma representação JSON de configuração da identidade da aplicação, utilizada como um mecanismo para atualizar associado [aplicação] [ AAD-Graph-App-Entity] e [ServicePrincipal] [ AAD-Graph-Sp-Entity] entidades. Consulte [compreender o manifesto da aplicação do Azure Active Directory] [ AAD-App-Manifest] para obter mais detalhes.
@@ -85,7 +86,7 @@ A [token de segurança](#security-token) contém afirmações, que fornecem asse
 Consulte [referência de token do Azure AD] [ AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="client-application"></a>aplicação de cliente
-Tal como definido pelo [Framework de autorização de OAuth2][OAuth2-Role-Def], protegido de uma aplicação que faz com que os pedidos de recursos em nome do [proprietário do recurso](#resource-owner). O termo "cliente" não implica as características de implementação de hardware específico (por exemplo, se a aplicação executa num servidor, um ambiente de trabalho ou outros dispositivos).  
+Tal como definido pelo [Framework de autorização de OAuth2][OAuth2-Role-Def], protegido de uma aplicação que faz com que os pedidos de recursos em nome do [proprietário do recurso](#resource-owner). O termo "cliente" não implica as características de implementação de hardware específico (por exemplo, se a aplicação executa num servidor, um ambiente de trabalho ou outros dispositivos). 
 
 Os pedidos de uma aplicação cliente [autorização](#authorization) de um proprietário de recursos para participar num [conceder de autorização de OAuth2](#authorization-grant) fluxo e pode aceder a APIs/dados em nome do proprietário do recurso. A estrutura de autorização de OAuth2 [define dois tipos de clientes][OAuth2-Client-Types]"Confidencial" e "público", com base na capacidade do cliente a manter a confidencialidade das respetivas credenciais. Podem implementar aplicações um [cliente web (confidencial)](#web-client) que é executada num servidor web, uma [cliente nativo (público)](#native-client) instalada num dispositivo, ou um [baseada no utilizador-agente de cliente (público)](#user-agent-based-client) que é executada no browser do dispositivo.
 
@@ -121,7 +122,7 @@ Tal como definido pelo [Framework de autorização de OAuth2][OAuth2-Role-Def], 
 ## <a name="resource-server"></a>servidor de recursos
 Tal como definido pelo [Framework de autorização de OAuth2][OAuth2-Role-Def], protegidos de um servidor que anfitriões recursos protegidos, capazes de aceitar e responder a pedidos de recursos por [aplicações cliente](#client-application) que apresente uma [token de acesso](#access-token). Também conhecido como um recurso protegido servidor ou recurso aplicação.
 
-Um servidor de recurso expõe as APIs e impõe o acesso ao respetivos recursos protegidos através de [âmbitos](#scopes) e [funções](#roles), utilizando a estrutura de autorização do OAuth 2.0. Os exemplos incluem o Azure AD Graph API que fornece acesso aos dados de inquilino do Azure AD e as APIs do Office 365 que fornecem acesso aos dados, tais como o correio e o calendário. Estes são também acessíveis através de [Microsoft Graph API][Microsoft-Graph].  
+Um servidor de recurso expõe as APIs e impõe o acesso ao respetivos recursos protegidos através de [âmbitos](#scopes) e [funções](#roles), utilizando a estrutura de autorização do OAuth 2.0. Os exemplos incluem o Azure AD Graph API que fornece acesso aos dados de inquilino do Azure AD e as APIs do Office 365 que fornecem acesso aos dados, tais como o correio e o calendário. Estes são também acessíveis através de [Microsoft Graph API][Microsoft-Graph]. 
 
 Tal como uma aplicação de cliente, a configuração da identidade da aplicação do recurso é estabelecida através de [registo](#application-registration) no inquilino do Azure AD, fornecendo as aplicações e o objeto principal do serviço. Algumas APIs Microsoft fornecidos pelo, tais como a AD Graph API do Azure, registou previamente disponibilizadas em todos os inquilinos durante o aprovisionamento de principais de serviço.
 
@@ -177,7 +178,7 @@ A objeto principal do serviço é utilizado para representar uma instância de a
 Um tipo de [aplicação cliente](#client-application) que executa a todo o código num servidor web e capacidade para funcionar como um cliente "Confidencial" por armazenar as respetivas credenciais de forma segura no servidor. Consulte [de perfis e tipos de cliente de OAuth2] [ OAuth2-Client-Types] para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos Seguintes
-O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os desenvolvimento do Azure AD relacionadas com tópicos, incluindo uma descrição geral do [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas do [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios].  Também pode encontrar exemplos de código & tutoriais sobre como obter rapidamente e em execução no [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os desenvolvimento do Azure AD relacionadas com tópicos, incluindo uma descrição geral do [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas do [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de código & tutoriais sobre como obter rapidamente e em execução no [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo, incluindo pedidos de existência de novas definições ou a atualização já existentes, utilize a seguinte secção de comentários!
 

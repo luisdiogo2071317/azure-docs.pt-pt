@@ -1,8 +1,8 @@
 ---
-title: "Monitorizar o estado de funcionamento da sua aplicação e a utilização com o Application Insights"
-description: "Introdução ao Application Insights. Analise a utilização, disponibilidade e desempenho dos seus no local ou aplicações do Microsoft Azure."
+title: Monitorizar o estado de funcionamento da sua aplicação e a utilização com o Application Insights
+description: Introdução ao Application Insights. Analise a utilização, disponibilidade e desempenho dos seus no local ou aplicações do Microsoft Azure.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: 32000f5a85c84913aa820df00f1bb7f877bf037f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.date: 05/10/2018
+ms.author: sdash
+ms.openlocfilehash: 02421492528e44ed6a913443a7793235170d4881
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorizar o desempenho nas aplicações Web
 
@@ -27,9 +27,6 @@ Certifique-se de que a aplicação está a executar corretamente e descobrir rap
 Application Insights podem monitorizar aplicações web de Java e ASP.NET e serviços, serviços do WCF. Podem ser alojado no local, em máquinas virtuais, ou como Web sites do Microsoft Azure. 
 
 No lado do cliente, o Application Insights pode demorar a telemetria de páginas web e uma ampla variedade de dispositivos, incluindo iOS, Android e aplicações da loja Windows.
-
->[!Note]
-> Efetuamos uma nova experiência disponível para localizar lenta efetuar páginas na sua aplicação web. Se não tiver acesso ao mesmo, ativá-la ao configurar as opções de pré-visualização com o [painel de pré-visualização](app-insights-previews.md). Leia sobre esta nova experiência em [localizar e corrigir os congestionamentos de desempenho com a investigação de desempenho interativa](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation).
 
 ## <a name="setup"></a>Configurar a monitorização de desempenho
 Se ainda não adicionou ainda Application Insights ao seu projeto (ou seja, se não tem Applicationinsights), escolha uma das seguintes formas para começar a utilizar:
@@ -116,62 +113,29 @@ Eis algumas sugestões para localizar e diagnosticar problemas de desempenho:
 * Monitorizar a aplicação Web na operação com [métricas em fluxo em direto][livestream].
 * Capturar o estado da aplicação .net com [instantâneo depurador][snapshot].
 
->[!Note]
-> Estamos no processo de transição investigação de desempenho do Application Insights para uma experiência interativa do ecrã inteiro. A seguinte documentação abrange a nova experiência de primeiro e, em seguida, revê a experiência anterior, caso ainda precisa de aceder ao mesmo, enquanto permanece disponível em toda a transição.
+## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Localize e corrija os congestionamentos de desempenho com a experiência de investigação de desempenho
 
-## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-full-screen-performance-investigation"></a>Localizar e corrigir os congestionamentos de desempenho com uma investigação de desempenho de ecrã inteiro interativa
-
-Pode utilizar a novo investigação de desempenho interativa do Application Insights para rever as operações de desempenho lentas na sua aplicação Web. Pode selecionar uma operação lenta específica e utilizar rapidamente [gerador de perfis](app-insights-profiler.md) raiz fazer com que as operações lentas para baixo até o código. Utilizar a distribuição da duração novo apresentada para a operação selecionada, pode rapidamente rapidamente apenas como incorreta é a experiência para os seus clientes. Na verdade, para cada operação lenta, pode ver o número das suas interações do utilizador foram afetado. No exemplo seguinte, foi decidido demorar um olhar mais a experiência de operação de clientes/detalhes obter. A distribuição da duração é possível ver que existem três picos. Pico de pedidos mais à esquerda é aproximadamente 400ms e representa excelente experiência reativa. Pico de pedidos média é aproximadamente 1.2s e representa uma experiência mediocre. Por fim, o 3.6s temos outro pico pequeno pedidos que representa a experiência de percentil 99th, que é provavelmente, causar os nossos clientes deixe dissatisfied. Essa experiência é dez vezes mais lenta do que o excelente experiência para a mesma operação. 
+Pode utilizar a experiência de investigação de desempenho para rever as operações de desempenho lentas na sua aplicação Web. Pode selecionar uma operação lenta específica e utilizar rapidamente [gerador de perfis](app-insights-profiler.md) raiz fazer com que as operações lentas para baixo até o código. Utilizar a distribuição da duração novo apresentada para a operação selecionada, pode rapidamente rapidamente apenas como incorreta é a experiência para os seus clientes. Pode ver o número das suas interações do utilizador foram afetado para cada operação lenta. No exemplo seguinte, foi decidido demorar um olhar mais a experiência de operação de clientes/detalhes obter. A distribuição da duração, é possível ver que existem três picos. Pico de pedidos mais à esquerda é cerca de 400 ms e representa excelente experiência reativa. Pico de pedidos média é em torno 1.2 s e representa uma experiência mediocre. Por fim, o 3.6 s temos outro pico pequeno pedidos que representa a experiência de percentil 99th, que é provavelmente, causar os nossos clientes deixe dissatisfied. Essa experiência é dez vezes mais lenta do que o excelente experiência para a mesma operação. 
 
 ![Picos de duração três clientes/detalhes GET](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
-Para obter um melhor sentido das experiências de utilizador para esta operação, mas pode selecionar um intervalo de tempo maior. Iremos pode, em seguida, também reduzir no tempo numa janela de tempo específico em que a operação foi particularmente lenta. No exemplo seguinte tiver Mudámos da predefinição 24 horas, intervalo de tempo para 7 dias intervalo de tempo e, em seguida, ampliado para o intervalo de tempo 9:47 para 12:47 entre Tue a 12 e qua a 13. Tenha em atenção que a distribuição da duração e o número de rastreios de gerador de perfis de exemplo e foram atualizadas no lado direito.
+Para obter um melhor sentido das experiências de utilizador para esta operação, mas pode selecionar um intervalo de tempo maior. Iremos pode, em seguida, também reduzir no tempo numa janela de tempo específico em que a operação foi lenta. No exemplo seguinte, iremos mudar da predefinição 24 horas, intervalo de tempo para 7 dias intervalo de tempo e, em seguida, ampliado para o intervalo de tempo 9:47 para 12:47 entre Tue a 12 e qua a 13. A distribuição da duração e o número de rastreios de gerador de perfis de exemplo e foram atualizadas no lado direito.
 
 ![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
-Para restringir nas experiências lentas, iremos junto aplicar zoom no durações que se inserem entre 95th e o percentil 99th. Estes representam a % de 4 de interações do utilizador que foram particularmente lentas.
+Para restringir nas experiências lentas, iremos junto aplicar zoom no durações que se inserem entre 95th e o percentil 99th. Estes representam a % de 4 de interações do utilizador que foram lentas.
 
 ![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Podemos agora a vista de olhos amostras representativos, clicando no botão exemplos ou os rastreios de gerador de perfis representativa, clicando no botão de rastreios de gerador de perfis. Neste exemplo, existem quatro rastreios que tenham sido recolhidos para obter os clientes/detalhes na duração de janela e o intervalo de tempo de interesse.
 
-Por vezes, o problema não será possível no seu código, mas em vez numa dependência chamadas por código. Pode mudar para o separador de dependências na vista de triagem de desempenho para investigar essas dependências lentas. Tenha em atenção que por predefinição a vista de desempenho é médias tendências, mas que realmente pretende observar o percentil 95th (ou 99th, caso esteja a monitorizar um serviço muito madura). No exemplo seguinte Concentramo-na dependência lenta de BLOB do Azure, onde chamamos PUT fabrikamaccount. O cluster de experiências boa em torno 40ms, enquanto as chamadas lentas para a dependência mesma três vezes inferior, 120ms cerca de clustering. Não tem muitas destas chamadas para adicionar a cópia de segurança para fazer com que a respetiva operação abrandar intensas em termos. Pode explorar representativos exemplos e rastreios de gerador de perfis, tal como pode fazer com o separador de operações.
+Por vezes, o problema não será possível no seu código, mas em vez numa dependência chama o seu código. Pode mudar para o separador de dependências na vista de triagem de desempenho para investigar essas dependências lentas. Por predefinição a vista de desempenho é médias tendências, mas que realmente pretende observar o percentil 95th (ou 99th, caso esteja a monitorizar um serviço madura). No exemplo seguinte Concentramo-na dependência lenta de BLOB do Azure, onde chamamos PUT fabrikamaccount. O bom ocorrer no cluster cerca de 40 ms, enquanto as chamadas lentas para a dependência mesma três vezes inferior, clustering cerca de 120 ms. Não tem muitas destas chamadas para adicionar a cópia de segurança para fazer com que a respetiva operação abrandar intensas em termos. Pode explorar representativos exemplos e rastreios de gerador de perfis, tal como pode fazer com o separador de operações.
 
 ![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
 
-Outra funcionalidade realmente poderosa que há de nova para a investigação de desempenho de ecrã inteiro interativo é a integração com o insights. Application Insights podem detetar e descobrir como regressões de capacidade de resposta de insights, bem como ajuda a identificar propriedades comuns no conjunto de exemplo que escolheu para se focarem em. É a melhor forma de ver todas as informações disponíveis para mudar para um intervalo de tempo de 30 dias e, em seguida, selecione geral para ver informações em todas as operações para o último mês.
+A experiência de investigação de desempenho mostra relevantes insights ao longo do lado do conjunto de exemplo que escolheu para se focarem em. É a melhor forma de ver todas as informações disponíveis para mudar para um intervalo de tempo de 30 dias e, em seguida, selecione geral para ver informações em todas as operações para o último mês.
 
 ![Obtenha os clientes/detalhes intervalo três picos de duração dentro de 7 dias com uma janela de tempo](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
-
-Application Insights no nova vista de triagem de desempenho literalmente podem ajudar a determinar os needles na haystack que resultar num fracas experiências para os utilizadores de aplicação Web.
-
-## <a name="deprecated-find-and-fix-performance-bottlenecks-with-a-narrow-bladed-legacy-performance-investigation"></a>Preteridas: Localizar e corrigir os congestionamentos de desempenho com uma investigação de desempenho de legado bladed estreito
-
-Pode utilizar a investigação de desempenho bladed legada do Application Insights para localizar as áreas da sua aplicação Web que são abrandamento desempenho global. Pode encontrar páginas específicas que são abrandamento e utilizam o [gerador de perfis](app-insights-profiler.md) para analisar a causa raiz, estes problemas para baixo até o código. 
-
-### <a name="create-a-list-of-slow-performing-pages"></a>Criar uma lista de páginas lentas de desempenho 
-
-O primeiro passo para encontrar problemas de desempenho é para obter uma lista das páginas lentas está a responder. O ecrã captura abaixo demonstra utilizando o painel desempenho para obter uma lista de páginas potenciais para investigação mais aprofundada. Pode ver rapidamente nesta página que ocorreu uma slow-down o tempo de resposta da aplicação aproximadamente 6:00 PM e novamente em aproximadamente as 22: 00. Também pode ver que a operação de cliente/detalhes GET tinha algumas operações de execução longa com um tempo de resposta mediano de 507.05 milissegundos. 
-
-![Desempenho interativa do Application Insights](./media/app-insights-web-monitor-performance/performance1.png)
-
-### <a name="drill-down-on-specific-pages"></a>Desagregar nas páginas específicas
-
-Assim que tiver um instantâneo do desempenho da aplicação, pode obter mais detalhes nas operações de desempenho lento específicas. Clique em qualquer operação na lista para ver os detalhes conforme mostrado abaixo. Do gráfico de pode ver se o desempenho foi com base numa dependência. Também pode ver o número de utilizadores que teve os vários tempos de resposta. 
-
-![Painel de operações do Application Insights](./media/app-insights-web-monitor-performance/performance5.png)
-
-### <a name="drill-down-on-a-specific-time-period"></a>Desagregar no período de tempo específico
-
-Depois de identificar um ponto no tempo para investigar, desagregar mesmo further to ver as operações específicas que poderá ter causado o slow-down de desempenho. Quando clica num ponto específico no tempo a obter os detalhes da página conforme mostrado abaixo. No exemplo abaixo, pode ver as operações listadas para um determinado período de tempo, juntamente com os códigos de resposta do servidor e a duração da operação. Também tem o url para abrir um item de trabalho do TFS, se tiver de enviar essas informações a sua equipa de desenvolvimento.
-
-![Intervalo de tempo do Application Insights](./media/app-insights-web-monitor-performance/performance2.png)
-
-### <a name="drill-down-on-a-specific-operation"></a>Desagregar uma operação específica
-
-Depois de identificar um ponto no tempo para investigar, desagregar mesmo further to ver as operações específicas que poderá ter causado o slow-down de desempenho. Clique numa operação a partir da lista para ver os detalhes da operação, conforme mostrado abaixo. Neste exemplo, pode ver que a operação falhou e o Application Insights forneceu os detalhes da exceção que emitiu a aplicação. Novamente, pode facilmente criar um item de trabalho do TFS a partir deste painel.
-
-![Painel de operação do Application Insights](./media/app-insights-web-monitor-performance/performance3.png)
 
 
 ## <a name="next"></a>Passos seguintes

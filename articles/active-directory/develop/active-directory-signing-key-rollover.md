@@ -1,24 +1,26 @@
 ---
 title: O Rollover da chave de assinatura no Azure AD
-description: "Este artigo aborda as assinatura rollover de chave melhores práticas para o Azure Active Directory"
+description: Este artigo aborda as assinatura rollover de chave melhores práticas para o Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
 Este artigo descreve o que precisa de saber sobre as chaves públicas que são utilizadas para assinar os tokens de segurança no Azure Active Directory (Azure AD). É importante ter em atenção que estas rollover de chaves periodicamente e, numa emergência, pode ser feito imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de lidar com o processo de rollover de chave ou estabelecer um processo manual de rollover periódica de através de programação. Continuar a ler para compreender como funcionam as chaves, como a avaliar o impacto de rollover à sua aplicação e como atualizar a sua aplicação ou estabelecer um processo manual de rollover periódica para processar o rollover da chave, se necessário.
@@ -274,7 +276,7 @@ Depois de ter seguido estes passos, Web. config da sua aplicação será atualiz
 
 Siga os passos abaixo para confirmar que a lógica de rollover de chave está a funcionar.
 
-1. Depois de ter verificado que a aplicação está a utilizar o código acima, abra o **Web. config** de ficheiros e navegue para o  **<issuerNameRegistry>**  bloco, especificamente procura o seguinte algumas linhas:
+1. Depois de ter verificado que a aplicação está a utilizar o código acima, abra o **Web. config** de ficheiros e navegue para o **<issuerNameRegistry>** bloco, especificamente procura o seguinte algumas linhas:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -282,7 +284,7 @@ Siga os passos abaixo para confirmar que a lógica de rollover de chave está a 
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. No  **<add thumbprint=””>**  definição, altere o valor de thumbprint ao substituir qualquer caráter com outro. Guardar o **Web. config** ficheiro.
+2. No **<add thumbprint=””>** definição, altere o valor de thumbprint ao substituir qualquer caráter com outro. Guardar o **Web. config** ficheiro.
 3. Criar a aplicação e volte a executar. Se pode concluir o processo de início de sessão, a aplicação está com êxito a atualizar a chave ao transferir as informações necessárias do documento de metadados de Federação do Active. Se estiver a ter problemas em iniciar sessão, certifique-se de que as alterações na sua aplicação estão corretas ao ler o [adicionar início de sessão no seu Using de aplicação Web do Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artigo, ou transferir e inspecionar o seguinte exemplo de código: [ Aplicação multi-inquilino de nuvem do Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Aplicações Web de proteger os recursos e criados com o Visual Studio 2008 ou 2010 e a v 1.0 do Windows Identity Foundation (WIF) para o .NET 3.5

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e3fb518eb407cf65908dfc628615fa86f23af7b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: deb43d977418a2a1a700461765f71877487e20bc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Como configurar uma aplicação de Proxy de aplicações a utilizar PingAccess
 
@@ -35,4 +35,4 @@ Para configurar uma aplicação com PingAccess, existem quatro passos:
 
 4.  Configurar aplicações na PingAccess
 
-Para obter detalhes sobre cada um destes passos, consulte a nossa [-início de sessão único com a documentação de cabeçalhos](application-proxy-ping-access.md).
+Para obter detalhes sobre cada um destes passos, consulte a nossa [-início de sessão único com a documentação de cabeçalhos](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).

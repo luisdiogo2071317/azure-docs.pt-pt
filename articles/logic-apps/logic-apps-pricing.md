@@ -1,24 +1,24 @@
 ---
-title: "Preços e faturação - Azure Logic Apps | Microsoft Docs"
-description: "Saiba como funciona o preços e faturação para o Azure Logic Apps"
-author: kevinlam1
-manager: anneta
-editor: 
+title: Preços e faturação - Azure Logic Apps | Microsoft Docs
+description: Saiba como funciona o preços e faturação para o Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de preços de Aplicações Lógicas
 
@@ -57,7 +57,7 @@ As ações que executam no interior de ciclos são contadas por cada ciclo em ci
 
 ## <a name="integration-account-usage"></a>Utilização da conta de integração
 
-Com base no consumo de utilização inclui um [conta integração](logic-apps-enterprise-integration-create-integration-account.md) onde pode explorar, desenvolver e testar o [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e [processar XML](logic-apps-enterprise-integration-xml.md) funcionalidades das Logic Apps não custo adicional. Pode ter uma destas contas integração por região e arquivo até 10 contratos e 25 maps. Pode ter e carregar parceiros ilimitados, esquemas e certificados.
+Com base no consumo de utilização inclui um [conta integração](logic-apps-enterprise-integration-create-integration-account.md) onde pode explorar, desenvolver e testar o [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e [processar XML](logic-apps-enterprise-integration-xml.md) funcionalidades em Logic Apps não custo adicional. Pode ter uma conta de integração por região e arquivo até específicos [números de artefactos](../logic-apps/logic-apps-limits-and-config.md), tais como parceiros comerciais EDI e contratos, mapas, esquemas, assemblagens, certificados e configurações de batch.
 
 As Logic Apps também oferece contas de automatização básico e padrão com suportados SLA de aplicações lógicas. Pode utilizar contas de automatização básica quando pretender utilizar apenas as mensagens de processamento, ou atuar como um parceiro de pequenas empresas que tenha uma relação de parceiro comercial com uma entidade de negócio maior. Contas de automatização padrão suportam relações de B2B mais complexas e aumentam o número de entidades que pode gerir. Para obter mais informações, consulte [preços do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 

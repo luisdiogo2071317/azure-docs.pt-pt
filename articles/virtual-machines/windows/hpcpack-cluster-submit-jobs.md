@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Submeter tarefas HPC de um computador no local para um cluster HPC Pack implementado no Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +29,9 @@ Configurar um computador de cliente no local para submeter tarefas a um [Microso
 ![Submeter uma tarefa para um cluster no Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Nó principal HPC Pack implementado na VM do Azure** -é recomendável que utilize ferramentas automatizadas, tais como um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) ou um [script do PowerShell do Azure](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para implementar o nó principal e o cluster . Tem o nome DNS do nó principal e as credenciais de um administrador de cluster para concluir os passos neste artigo.
+* **Nó principal HPC Pack implementado na VM do Azure** -é recomendável que utilize ferramentas automatizadas, tais como um [modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) para implementar o nó principal e o cluster. Tem o nome DNS do nó principal e as credenciais de um administrador de cluster para concluir os passos neste artigo.
 * **Computador cliente** -necessita de um computador cliente Windows ou Windows Server que pode executar utilitários de cliente de HPC Pack (consulte [requisitos de sistema](https://technet.microsoft.com/library/dn535781.aspx)). Se apenas pretender utilizar o portal web do HPC Pack ou a REST API para submeter tarefas, pode utilizar qualquer computador cliente à sua escolha.
-* **Suporte de instalação do HPC Pack** - para instalar os utilitários de cliente de HPC Pack, o pacote de instalação livre para a versão mais recente do HPC Pack (pacote HPC 2012 R2) está disponível a partir do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Certifique-se de que transfira a mesma versão do pacote HPC que está instalado no nó principal do VM.
+* **Suporte de instalação do HPC Pack** - para instalar os utilitários de cliente de HPC Pack, o pacote de instalação livre para a versão mais recente do pacote HPC está disponível a partir do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). Certifique-se de que transfira a mesma versão do pacote HPC que está instalado no nó principal do VM.
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Passo 1: Instalar e configurar os componentes web no nó principal
 Para ativar uma interface REST submeter tarefas ao cluster através de HTTPS, certifique-se de que os componentes web do HPC Pack são configurados no nó principal do HPC Pack. Se ainda não estiverem instalados, primeiro de instalar os componentes web executando o ficheiro de instalação HpcWebComponents.msi. Em seguida, configure os componentes executando o script do HPC PowerShell **conjunto HPCWebComponents.ps1**.
@@ -39,7 +39,7 @@ Para ativar uma interface REST submeter tarefas ao cluster através de HTTPS, ce
 Para obter procedimentos detalhados, consulte [instalar os componentes Web do Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Determinados modelos de início rápido do Azure para HPC Pack instalar e configurar os componentes web automaticamente. Se utilizar o [script de implementação de HPC Pack IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para criar o cluster, opcionalmente, pode instalar e configurar os componentes web como parte da implementação.
+> Determinados modelos de início rápido do Azure para clusters HPC Pack instalar e configurar os componentes web automaticamente.
 > 
 > 
 
@@ -81,7 +81,7 @@ Para obter procedimentos detalhados, consulte [instalar os componentes Web do Mi
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Passo 2: Instalar os utilitários de cliente HPC Pack num computador local
-Se pretende instalar os utilitários de cliente HPC Pack no seu computador, transferir os ficheiros de configuração de HPC Pack (instalação completa) a partir de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Quando iniciar a instalação, escolher a opção de configuração para o **utilitários de cliente de HPC Pack**.
+Se pretende instalar os utilitários de cliente HPC Pack no seu computador, transferir os ficheiros de configuração de HPC Pack (instalação completa) a partir de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). Quando iniciar a instalação, escolher a opção de configuração para o **utilitários de cliente de HPC Pack**.
 
 Para utilizar as ferramentas de cliente do pacote HPC para submeter tarefas ao nó principal do VM, também terá de exportar um certificado a partir do nó principal e instalá-lo no computador cliente. O certificado necessário. Formato CER.
 

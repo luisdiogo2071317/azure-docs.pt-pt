@@ -1,25 +1,27 @@
 ---
-title: "Âmbitos de v 2.0 do Active Directory do Azure, permissões e consentimento | Microsoft Docs"
-description: "Uma descrição da autorização no Azure AD ponto final v 2.0, incluindo âmbitos, permissões e consentimento."
+title: Âmbitos de v 2.0 do Active Directory do Azure, permissões e consentimento | Microsoft Docs
+description: Uma descrição da autorização no Azure AD ponto final v 2.0, incluindo âmbitos, permissões e consentimento.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Âmbitos, permissões e consentimento no ponto final v 2.0 do Azure Active Directory
 As aplicações que se integram com o Azure Active Directory (Azure AD), siga um modelo de autorização que proporciona aos utilizadores controlo sobre a forma como uma aplicação pode aceder aos respetivos dados. A implementação de v 2.0 do modelo de autorização foi atualizada e as alterações como uma aplicação tem de interagir com o Azure AD. Este artigo aborda os conceitos básicos neste modelo de autorização, incluindo âmbitos, permissões e consentimento.
@@ -40,7 +42,7 @@ O mesmo se aplica a quaisquer recursos de terceiros que tenha integrado com o Az
 
 * Calendário de um utilizador de leitura
 * Escrever calendário de um utilizador
-* Enviar correio eletrónico como um utilizador
+* Enviar e-mails como se fosse um utilizador
 
 Ao definir estes tipos de permissões, o recurso tem controlo detalhado sobre os dados e como os dados são expostos. Uma aplicação de terceiros pode pedir as permissões de um utilizador de aplicação. O utilizador da aplicação têm de aprovar as permissões para a aplicação pode agir em nome do utilizador. Através da funcionalidade do recurso para conjuntos mais pequenos de permissão de agrupamento, aplicações de terceiros podem ser criadas para pedir apenas as permissões específicas que precisam para realizar o seu funcionamento. Utilizadores de aplicações podem saber exatamente como uma aplicação utilizará os seus dados e podem ser mais a certeza de que a aplicação não está a comportar com intenções maliciosas.
 
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-Pode utilizar o token de acesso resultante nos pedidos HTTP para o recurso. Fiável indica ao recurso de que a aplicação tiver as permissões adequadas para executar uma tarefa específica.  
+Pode utilizar o token de acesso resultante nos pedidos HTTP para o recurso. Fiável indica ao recurso de que a aplicação tiver as permissões adequadas para executar uma tarefa específica. 
 
 Para obter mais informações sobre o protocolo OAuth 2.0 e como obter os tokens de acesso, consulte o [referência de protocolo de ponto final v 2.0](active-directory-v2-protocols.md).

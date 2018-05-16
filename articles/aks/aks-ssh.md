@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>SSH para nós de cluster do serviço de Kubernetes do Azure (AKS)
 
-Ocasionalmente, poderá ter de aceder a um nó de Azure Kubernetes serviço (AKS) para manutenção, recolha de registos ou outras operações de resolução de problemas. Nós Kubernetes. o serviço (AKS) do Azure não são expostos à internet. Utilize os passos detalhados neste documento para criar uma ligação SSH com um nó AKS.
+Ocasionalmente, poderá ter de aceder a um nó de Azure Kubernetes serviço (AKS) para manutenção, recolha de registos ou outras operações de resolução de problemas. Nós AKS não são expostos à internet. Utilize os passos detalhados neste documento para criar uma ligação SSH com um nó AKS.
 
 ## <a name="reset-ssh-keys"></a>Repor chaves SSH
 

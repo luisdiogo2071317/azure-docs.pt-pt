@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -561,8 +561,6 @@ Quando tiver concluído os passos necessários, os dispositivos associados a um 
 ### <a name="remarks"></a>Observações
 
 - Pode utilizar um objeto de política de grupo para controlar a implementação do registo automático do Windows 10 e computadores associados a domínios do Windows Server 2016. **Se não pretender que estes dispositivos a registar automaticamente com o Azure AD ou se quiser controlar o registo**, em seguida, deve implementar a política de grupo em primeiro lugar, a desativar o registo automático todos estes dispositivos antes de iniciar com a configuração passos. Depois de terminar a configurar, e quando estiver pronto para testar, tem de implementar a política de grupo ativar o registo automático apenas os dispositivos de teste e, em seguida, para todos os outros dispositivos, como a escolha.
-
-- Windows 10 de Novembro de 2015 Update automaticamente associa com o Azure AD **apenas** se o objeto de política de grupo de implementação estiver definido.
 
 - A implementação de computadores de nível inferior do Windows, pode implementar um [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para computadores que selecionou.
 

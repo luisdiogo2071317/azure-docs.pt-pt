@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 43a3427b05b8e4f1fbaf0f8f5e6b60da9e837a46
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0af8806cdc55b89a9ab87a8059808e4fcc9a1730
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizar recursos no seu centro de dados ou a nuvem com o Runbook Worker híbrido
 
@@ -143,28 +143,19 @@ Além das portas que requer que o Runbook Worker híbrido e endereços padrão, 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-O Runbook Worker híbrido depende do Microsoft Monitoring Agent para comunicar com a sua conta de automatização para registar o trabalho, receber tarefas de runbook e comunicar estado. Se o registo do worker falhar, aqui estão algumas causas possíveis para o erro:
+O Runbook Worker híbrido depende de um agente para comunicar com a sua conta de automatização para registar o trabalho, receber tarefas de runbook e comunicar estado. Para este agente do Windows é o Microsoft Monitoring Agent. Para Linux é o agente do OMS para Linux. Se o registo do worker falhar, aqui estão algumas causas possíveis para o erro:
 
-1. A função de trabalho híbrida estiver atrás de um proxy ou firewall.
+### <a name="the-hybrid-worker-is-behind-a-proxy-or-firewall"></a>A função de trabalho híbrida estiver atrás de um proxy ou firewall
 
-   Certifique-se de que o computador tem acesso de saída para *.azure automation.net na porta 443.
+Certifique-se de que o computador tem acesso de saída para *.azure automation.net na porta 443.
 
-2. A função de trabalho híbrida está em execução no computador tiver menos do que os requisitos mínimos de hardware.
+### <a name="the-computer-the-hybrid-worker-is-running-on-has-less-than-the-minimum-hardware-requirements"></a>A função de trabalho híbrida está em execução no computador tiver menos do que os requisitos mínimos de hardware
 
-   Computadores com o Runbook Worker híbrido devem cumprir os requisitos mínimos de hardware antes de indicar que esta funcionalidade do anfitrião. Caso contrário, consoante a utilização de recursos de outros processos em segundo plano e a contenção causado por runbooks durante a execução, o computador fica sobrecarregado e causar atrasos de tarefa de runbook ou tempos limite.
+Computadores com o Runbook Worker híbrido devem cumprir os requisitos mínimos de hardware antes de indicar que esta funcionalidade do anfitrião. Caso contrário, consoante a utilização de recursos de outros processos em segundo plano e a contenção causado por runbooks durante a execução, o computador fica sobrecarregado e causar atrasos de tarefa de runbook ou tempos limite.
 
-   Confirme que o computador designado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware. Se existir, monitorize a utilização de CPU e memória para determinar a qualquer correlação entre o desempenho dos processos de trabalho de Runbook híbrida e o Windows. Se existir memória ou pressão de CPU, isto pode indicar a necessidade de atualizar ou adicione processadores adicionais ou aumente a memória para resolver o congestionamento do recurso e resolva o erro. Em alternativa, selecione um recurso de computação diferentes que pode suportar os requisitos mínimos e escala, quando a carga de trabalho exigências indicam que um aumento é necessário.
+Confirme que o computador designado para executar a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware. Se existir, monitorize a utilização de CPU e memória para determinar a qualquer correlação entre o desempenho dos processos de trabalho de Runbook híbrida e o Windows. Se existir memória ou pressão de CPU, isto pode indicar a necessidade de atualizar ou adicione processadores adicionais ou aumente a memória para resolver o congestionamento do recurso e resolva o erro. Em alternativa, selecione um recurso de computação diferentes que pode suportar os requisitos mínimos e escala, quando a carga de trabalho exigências indicam que um aumento é necessário.
 
-3. O serviço Microsoft Monitoring Agent não está em execução.
-
-   Se o serviço Windows do Microsoft Monitoring Agent não está em execução, isto impede o Runbook Worker híbrido comunicar com a automatização do Azure. Certifique-se de que o agente está em execução, introduzindo o seguinte comando do PowerShell: `get-service healthservice`. Se o serviço for parado, introduza o seguinte comando do PowerShell para iniciar o serviço: `start-service healthservice`.
-
-4. No **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos, para ver eventos 4502 e EventMessage contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**com a descrição seguinte: *o certificado apresentado pelo serviço \<wsid\>. oms.opinsights.azure.com não foi emitido por uma autoridade de certificação utilizada para os serviços Microsoft. Contacte o administrador de rede para ver se estiverem a executar um proxy que intercepte a comunicação TLS/SSL. O artigo KB3126513 tem informações adicionais de resolução de problemas para problemas de conectividade.*
-    Isto pode dever-se a firewall, proxy ou de rede, bloquear a comunicação com o Microsoft Azure. Certifique-se de que o computador tem acesso de saída para *.azure automation.net nas portas 443.
-
-Os registos são armazenados localmente em cada função de trabalho híbrida no C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Pode verificar se existem quaisquer avisos ou eventos de erro escritos para o **aplicações e serviços Logs\Microsoft-SMA\Operations** e **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos deverá indicar uma conectividade ou outro problema que afetam a integração de função da automatização do Azure ou o problema ao efetuar operações normais.
-
-Para obter passos adicionais sobre como resolver problemas com a gestão de atualizações, consulte [Update Management - resolução de problemas](automation-update-management.md#troubleshooting)
+Para obter informações adicionais de resolução de um SO específico, consulte [Runbook Worker híbrido Linux](automation-linux-hrw-install.md#troubleshooting) ou [Runbook Worker híbrido Windows](automation-windows-hrw-install.md#troubleshooting)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,25 +1,27 @@
 ---
-title: "Como ativar a SSO em várias aplicações no Android utilizam a ADAL | Microsoft Docs"
-description: "Como utilizar as funcionalidades do SDK da ADAL para permitir início de sessão único em aplicações. "
+title: Como ativar a SSO em várias aplicações no Android utilizam a ADAL | Microsoft Docs
+description: 'Como utilizar as funcionalidades do SDK da ADAL para permitir início de sessão único em aplicações. '
 services: active-directory
-documentationcenter: 
-author: danieldobalian
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7d832ecf3e9c64088a75cc88551879b4e09df715
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee27b1d4dcc091ef570e2b0aef32273af986d3f9
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como ativar a SSO em várias aplicações no Android utilizam a ADAL
 Fornecer único Sign-On (SSO) para que os utilizadores só têm de introduzir as respetivas credenciais de uma vez e ter essas credenciais automaticamente funciona entre aplicações agora é esperado pelos clientes. Dificuldade em introduzindo o nome de utilizador e palavra-passe um ecrã pequeno, muitas vezes, vezes combinados com um fator adicional (2FA) como uma chamada telefónica ou um código diante, resulta em insatisfação rápida se um utilizador tem de fazer mais do que uma vez para o produto.
@@ -86,7 +88,7 @@ Eis uma representação de como os SDKs de identidade da Microsoft trabalham com
 Inícios de sessão assistida mediador são experiências de início de sessão que ocorrem dentro da aplicação de Mediador e utilizam o armazenamento e a segurança do Mediador para partilhar as credenciais em todas as aplicações no dispositivo que se aplicam a plataforma do Microsoft Identity. Isto significa que as aplicações que dependem broker para os utilizadores iniciar sessão. Em dispositivos iOS e Android estes mediadores são fornecidos através de aplicações transferíveis que clientes instalar de forma independente ou podem ser enviados para o dispositivo por uma empresa que gere o dispositivo para os seus utilizadores. Um exemplo deste tipo de aplicação é a aplicação Microsoft Authenticator em dispositivos iOS. No Windows, esta funcionalidade é fornecida por um selecionador de conta incorporada para o sistema operativo, conhecido tecnicamente como o Mediador de autenticação Web.
 A experiência varia consoante a plataforma e, por vezes, pode ser incómoda aos utilizadores se não for gerida corretamente. Familiarizado provavelmente mais com este padrão se tiver instalada a aplicação do Facebook e utilizar o Facebook ligar a partir de outra aplicação. A plataforma do Microsoft Identity utiliza o mesmo padrão.
 
-Para iOS, que isto leva a uma "transição" animação onde a aplicação é enviada para a imagem de fundo enquanto as aplicações do Microsoft Authenticator vem para primeiro plano para o utilizador selecionar a conta que pretende iniciar sessão.  
+Para iOS, que isto leva a uma "transição" animação onde a aplicação é enviada para a imagem de fundo enquanto as aplicações do Microsoft Authenticator vem para primeiro plano para o utilizador selecionar a conta que pretende iniciar sessão. 
 
 Para Android e Windows selecionador de conta é apresentada em cima da sua aplicação que é inferior acontece ao utilizador.
 
@@ -160,11 +162,11 @@ Por ordem para a plataforma do Microsoft Identity saber que tem permissão para 
 
 -Pode estar a pensar como irá identificar diferentes aplicações para o serviço do Microsoft Identity se utiliza o mesmo ID de aplicação A resposta é com o **redirecionar URIs**. Cada aplicação pode ter vários URIs redirecionar registado no portal de integração. Cada aplicação no seu conjunto tem um URI de redirecionamento diferentes. Abaixo é um exemplo do aspeto:
 
-URI de redirecionamento de App1:`msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+URI de redirecionamento de App1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-URI de redirecionamento App2:`msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+URI de redirecionamento App2: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-URI de redirecionamento App3:`msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+URI de redirecionamento App3: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 

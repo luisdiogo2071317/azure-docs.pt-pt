@@ -1,25 +1,27 @@
 ---
-title: "Azure AD Xamarin, introdução | Microsoft Docs"
-description: "Crie aplicações de Xamarin que integram com o Azure AD para início de sessão e chamar APIs do Azure AD protegida com OAuth."
+title: Azure AD Xamarin, introdução | Microsoft Docs
+description: Crie aplicações de Xamarin que integram com o Azure AD para início de sessão e chamar APIs do Azure AD protegida com OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -57,8 +59,7 @@ Para ativar a aplicação obter os tokens, terá primeiro de registá-lo no seu 
   * **URI de redirecionamento** é uma combinação de esquema e a cadeia que utiliza o Azure AD para devolver respostas token. Introduza um valor (por exemplo, http://DirectorySearcher).
 6. Depois de concluído o registo, o Azure AD atribui a aplicação um ID de aplicação único. Copie o valor da **aplicação** separador, porque irá precisar dele mais tarde.
 7. No **definições** página, selecione **permissões obrigatórias**e, em seguida, selecione **adicionar**.
-8. Selecione **Microsoft Graph** como a API. Em **permissões delegadas**, adicione o **ler dados de diretório** permissão.  
-Esta ação permite a aplicação consultar a Graph API para os utilizadores.
+8. Selecione **Microsoft Graph** como a API. Em **permissões delegadas**, adicione o **ler dados de diretório** permissão. Esta ação permite a aplicação consultar a Graph API para os utilizadores.
 
 ## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instalar e configurar a ADAL
 Agora que tem uma aplicação no Azure AD, pode instalar ADAL e escrever o seu código relacionadas com identidade. Para ativar a ADAL comunicar com o Azure AD, conceda-lhe algumas informações sobre o registo de aplicação.
@@ -91,7 +92,7 @@ Agora que tem uma aplicação no Azure AD, pode instalar ADAL e escrever o seu c
 
   * O *inquilino* é o domínio de inquilino do Azure AD (por exemplo, contoso.onmicrosoft.com).
   * O *clientId* é o ID de cliente da aplicação e que copiou do portal.
-  * O *returnUri* é o URI que introduziu no portal (por exemplo, http://DirectorySearcher) de redirecionamento.
+  * O *returnUri* é o URI que introduziu no portal de redirecionamento (por exemplo, http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passo 4: Utilizar a ADAL para obter os tokens do Azure AD
 Quase todo de lógica de autenticação da aplicação reside na `DirectorySearcher.SearchByAlias(...)`. Tudo o que é necessário em projetos de plataforma específica está a transmitir um parâmetro a nível contextual do `DirectorySearcher` PCL.
@@ -103,8 +104,7 @@ Quase todo de lógica de autenticação da aplicação reside na `DirectorySearc
     {
     ```
 
-2. Inicializar `AuthenticationContext`, que é a classe principal da ADAL.  
-Esta ação transfere a ADAL as coordenadas que necessita para comunicar com o Azure AD.
+2. Inicializar `AuthenticationContext`, que é a classe principal da ADAL. Esta ação transfere a ADAL as coordenadas que necessita para comunicar com o Azure AD.
 3. Chamar `AcquireTokenAsync(...)`, que aceita o `IPlatformParameters` de objeto e invoca o fluxo de autenticação que é necessário para devolver um token para a aplicação.
 
     ```csharp

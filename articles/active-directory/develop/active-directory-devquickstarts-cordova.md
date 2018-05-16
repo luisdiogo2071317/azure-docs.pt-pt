@@ -1,25 +1,26 @@
 ---
-title: "Azure AD Cordova, introdução | Microsoft Docs"
-description: "Como criar uma aplicação Cordova que se integra com o Azure AD para início de sessão e chama APIs do Azure AD protegida utilizando OAuth."
+title: Azure AD Cordova, introdução | Microsoft Docs
+description: Como criar uma aplicação Cordova que se integra com o Azure AD para início de sessão e chama APIs do Azure AD protegida utilizando OAuth.
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +34,7 @@ Um plug-in de Cordova encapsula num wrapper do Azure AD SDKs nativas no iOS, And
 Neste tutorial, iremos utilizar o Apache Cordova Plug-in para o Active Directory Authentication Library (ADAL) para melhorar a uma aplicação simples, adicionando as seguintes funcionalidades:
 
 * Com apenas alguns linhas de código, autenticar um utilizador e obter um token.
-* Utilize esse token para invocar a Graph API para consultar esse diretório e apresentar os resultados.  
+* Utilize esse token para invocar a Graph API para consultar esse diretório e apresentar os resultados. 
 * Utilize a cache de token ADAL para minimizar a pedidos de autenticação para o utilizador.
 
 Para efetuar essas melhorias, tem de:
@@ -47,7 +48,7 @@ Para efetuar essas melhorias, tem de:
 Para concluir este tutorial, precisa de:
 
 * Um inquilino do Azure AD em que tenha uma conta com direitos de desenvolvimento de aplicações.
-* Ambiente de desenvolvimento está configurado para utilizar o Apache Cordova.  
+* Ambiente de desenvolvimento está configurado para utilizar o Apache Cordova. 
 
 Se ainda tiver ambos configurar, avançar diretamente para o passo 1.
 
@@ -98,8 +99,8 @@ Depois de concluir o registo, o Azure AD atribui um ID de aplicação único par
 
 Para executar `DirSearchClient Sample`, conceder a permissão de aplicação criado recentemente para consultar a AD Graph API do Azure:
 
-1. Do **definições** página, selecione **permissões obrigatórias**e, em seguida, selecione **adicionar**.  
-2. Para a aplicação do Azure Active Directory, selecione **Microsoft Graph** como a API e adicione o **aceder ao diretório como o utilizador com sessão iniciada** permissão em **permissões delegadas**.  Isto permite que a aplicação consultar a Graph API para os utilizadores.
+1. Do **definições** página, selecione **permissões obrigatórias**e, em seguida, selecione **adicionar**. 
+2. Para a aplicação do Azure Active Directory, selecione **Microsoft Graph** como a API e adicione o **aceder ao diretório como o utilizador com sessão iniciada** permissão em **permissões delegadas**. Isto permite que a aplicação consultar a Graph API para os utilizadores.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>Passo 2: Clonar o repositório da aplicação de exemplo
 A partir da shell ou a linha de comandos, escreva o seguinte comando:

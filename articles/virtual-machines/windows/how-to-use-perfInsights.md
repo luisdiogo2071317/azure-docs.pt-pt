@@ -2,23 +2,23 @@
 title: Como utilizar PerfInsights no Microsoft Azure | Microsoft Docs
 description: Aprende como utilizar PerfInsights para resolver problemas de desempenho da VM do Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar PerfInsights 
 
@@ -82,7 +82,7 @@ Este cenário é executada uma captura de contador de desempenho especial, junta
 | Tamanho de e/s      | Média Pedido de bytes/dados       |
 |              | Média Bytes/Read               |
 |              | Média Bytes/escrita              |
-| Débito   | Data Bytes/sec                |
+| Débito   | Bytes de dados/seg                |
 |              | Bytes lidos/seg                |
 |              | Escrever Bytes/seg               |
 | Comprimento da fila | Média Comprimento da fila de leitura        |
@@ -149,7 +149,7 @@ Recolhe os seguintes contadores de desempenho:
 
 #### <a name="for-sql-server-instances"></a>Para instâncias do SQL Server
 - Gestor de servidor: memória intermédia \SQL, estatísticas de agrupamento \SQLServer:Resource e \SQLServer:SQL Statistics\
-- \SQLServer:Locks, \SQLServer:General, Statistics
+- \SQLServer:Locks, \SQLServer:General, estatísticas
 - Métodos de \SQLServer:Access
 
 #### <a name="for-azure-files"></a>Para ficheiros do Azure
@@ -297,7 +297,7 @@ O Diskspd é um armazenamento de carga e o desempenho do gerador de ferramenta d
 
 XPerf é uma ferramenta da linha de comandos para capturar rastreios a partir do Toolkit de desempenho do Windows. Para obter mais informações, consulte [Toolkit de desempenho do Windows – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode carregar registos de diagnóstico e de relatórios ao Microsoft Support para uma revisão mais aprofundada. O suporte poderá pedir que transmitir o resultado que é gerado pelo PerfInsights para ajudá-lo com o processo de resolução de problemas.
 

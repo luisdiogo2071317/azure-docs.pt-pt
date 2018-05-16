@@ -3,23 +3,25 @@ title: Tipos de aplicação para o ponto de final de v 2.0 do Azure Active Direc
 description: Os tipos de aplicações e os cenários suportados pelo ponto final v 2.0 do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
-ms.author: hpsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 291cd1adaf36d7f02aae84f97b7f7b3e6bca2c9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicação para o ponto de final de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) suporta a autenticação para uma variedade de arquiteturas de aplicações modernas, todos eles com base em protocolos de norma da indústria [OAuth 2.0 ou o OpenID Connect](active-directory-v2-protocols.md). Este artigo descreve os tipos de aplicações que podem ser criados utilizando v 2.0 do Azure AD, independentemente do seu idioma preferencial ou plataforma. As informações neste artigo foi concebidas para ajudar a compreender os cenários de alto nível antes de [começar a trabalhar com o código](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +97,7 @@ Uma API Web pode receber tokens de acesso de todos os tipos de aplicações, inc
 
 Para saber como proteger uma API Web utilizando tokens de acesso de OAuth2, consulte os exemplos de código Web API na nossa [introdução](active-directory-appmodel-v2-overview.md#getting-started) secção.
 
-Em muitos casos, as APIs web também precisa de efetuar pedidos de saída para outro web a jusante APIs protegidas pelo Azure Active Directory.  Para tal, as APIs web podem tirar partido do Azure AD **no nome de** fluxo, que permite que a API web trocar um token de acesso recebidos para outro token de acesso a ser utilizado em pedidos de saída.  O ponto final v 2.0 em nome de fluxo está descrito em [detalhe aqui](active-directory-v2-protocols-oauth-on-behalf-of.md).
+Em muitos casos, as APIs web também precisa de efetuar pedidos de saída para outro web a jusante APIs protegidas pelo Azure Active Directory. Para tal, as APIs web podem tirar partido do Azure AD **no nome de** fluxo, que permite que a API web trocar um token de acesso recebidos para outro token de acesso a ser utilizado em pedidos de saída. O ponto final v 2.0 em nome de fluxo está descrito em [detalhe aqui](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicações móveis e nativas
 Aplicações instaladas em dispositivos, tais como aplicações de ambiente de trabalho e móveis, muitas vezes necessitam de aceder a serviços de back-end ou APIs da Web que armazenam dados e realizar funções em nome de um utilizador. Estas aplicações podem adicionar início de sessão e autorização para serviços de back-end utilizando a [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).

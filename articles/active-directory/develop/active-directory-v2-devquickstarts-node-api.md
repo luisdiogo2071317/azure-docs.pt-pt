@@ -3,23 +3,25 @@ title: Proteger uma API web v 2.0 do Azure Active Directory utilizando Node.js |
 description: Saiba como criar uma Node.js API web que aceita tokens a partir de uma conta Microsoft pessoal e de trabalho ou escola contas.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f07e421feedf3c82da7be16434891cdbe6069038
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19ad25c7b08ff073097cacf3be359772ca0a327f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Proteger uma API web utilizando Node.js
 > [!NOTE]
@@ -139,7 +141,7 @@ O restify tem um mecanismo poderoso para rastreio de chamadas REST utilizando o 
     ```
 
 ## <a name="6-add-passport-azure-ad-to-your-web-api"></a>6: adicionar passport-azure-ad para a API web
-Em seguida, adicione a estratégia de OAuth utilizando passport-azuread. `passport-azuread`é um conjunto de estratégias que ligam o Azure AD com o Passport. Podemos utilizar esta estratégia para os tokens de portador no exemplo REST API.
+Em seguida, adicione a estratégia de OAuth utilizando passport-azuread. `passport-azuread` é um conjunto de estratégias que ligam o Azure AD com o Passport. Podemos utilizar esta estratégia para os tokens de portador no exemplo REST API.
 
 > [!NOTE]
 > Apesar de OAuth 2.0 proporciona uma arquitetura na qual pode ser emitido qualquer tipo de token conhecido, determinados tipos de tokens são frequentemente utilizados. Os tokens de portador são frequentemente utilizados para proteger pontos finais. Os tokens de portador são o tipo mais emitido de token de OAuth 2.0. Muitos implementações de OAuth 2.0 partem do princípio de que os tokens de portador são o único tipo de token emitido.
@@ -830,7 +832,7 @@ Uma resposta 401 indica que a camada do Passport está a tentar redirecionar par
 
 Foi removido como pode fazer com este servidor sem utilizar um cliente do OAuth 2.0 compatível. Para tal, terá de consultar um tutorial adicional.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para referência, o exemplo concluído (sem os valores de configuração) é fornecido tal como [um ficheiro. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Também pode cloná-lo a partir do GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```

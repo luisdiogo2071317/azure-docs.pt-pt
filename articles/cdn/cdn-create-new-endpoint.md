@@ -1,5 +1,5 @@
 ---
-title: Criar um perfil e um ponto final da CDN do Azure | Microsoft Docs
+title: Início Rápido – Criar um perfil e um ponto final da CDN do Azure | Microsoft Docs
 description: Este início rápido mostra como ativar a CDN do Azure através da criação de um novo perfil e ponto final da CDN.
 services: cdn
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f2d34db2bb18b93ee4d8b78a135caecde5a293b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto final da CDN do Azure
 Neste início rápido, vai ativar a Rede de Entrega de Conteúdos (CDN) através da criação de um novo perfil da CDN e ponto final da CDN. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes.
@@ -69,8 +69,10 @@ Depois de criar um perfil da CDN, pode utilizá-lo para criar um ponto final.
     
    ![Ponto final da CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Dado que a propagação do registo demora algum tempo, o ponto final não está imediatamente disponível para utilização. 
-
+   Dado que a propagação do registo demora algum tempo, o ponto final não está imediatamente disponível para utilização: 
+   - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em dez minutos. 
+   - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+   - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída no prazo de 90 minutos. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recursos. Guarde estes recursos, se pretender aceder aos [Passos seguintes](#next-steps) e aprender a adicionar um domínio personalizado ao ponto final. No entanto, se não pretende utilizar estes recursos no futuro pode eliminá-los, ao eliminar o grupo de recursos, evitando assim encargos adicionais:
@@ -85,6 +87,6 @@ Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recu
 Para saber mais sobre como adicionar um domínio personalizado ao ponto final de CDN, veja o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Adicionar um domínio personalizado](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
 
 

@@ -3,16 +3,16 @@ title: Integração com serviços geridos pelo Azure com o Open Service Broker f
 description: Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 
@@ -21,13 +21,13 @@ Juntamente com o [Catálogo de Serviços do Kubernetes][kubernetes-service-catal
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma subscrição do Azure.
 
-* Azure CLI 2.0: pode [instalá-la localmente][azure-cli-install] ou utilizá-la no [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI 2.0: [instalá-la localmente][azure-cli-install] ou utilizá-la no [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: pode [instalá-la localmente][helm-cli-install] ou utilizá-la no [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: [instalá-la localmente][helm-cli-install] ou utilizá-la no [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissões para criar um principal de serviço com a função de Contribuinte na sua subscrição do Azure
 
-* Um cluster do Azure Container Service (AKS) existente. Se precisar de um cluster do AKS, siga o início rápido [Criar um cluster do AKS][create-aks-cluster].
+* Um cluster do Serviço Kubernetes do Azure (AKS) existente. Se precisar de um cluster do AKS, siga o início rápido [Criar um cluster do AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Instalar o Catálogo de Serviços
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, implementou o Catálogo de Serviços num cluster do Azure Container Service (AKS). Utilizou o Open Service Broker for Azure para implementar uma instalação de WordPress que utiliza os serviços geridos pelo Azure, neste caso, a Base de Dados do Azure para MySQL.
+Neste artigo, implementou o Catálogo de Serviços num cluster do Serviço Kubernetes do Azure (AKS). Utilizou o Open Service Broker for Azure para implementar uma instalação de WordPress que utiliza os serviços geridos pelo Azure, neste caso, a Base de Dados do Azure para MySQL.
 
 Consulte o repositório [Azure/helm-charts][helm-charts] para aceder a outros gráficos Helm atualizados baseados no OSBA. Se tiver interesse em criar os seus próprios gráficos que funcionam com o OSBA, veja [Criar um Novo Gráfico][helm-create-new-chart].
 

@@ -1,24 +1,24 @@
 ---
 title: Resolver problemas do Azure--VPNs desliga ligados intermitentemente | Microsoft Docs
-description: "Saiba como resolver o problema no qual a ligação VPN de Site para Site desligado regularmente."
+description: Saiba como resolver o problema no qual a ligação VPN de Site para Site desligado regularmente.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9bcf30fbf1febbd80aa8899253de8cb61f4ae6f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c827469080195054d4ff70ab72fc123365a73df
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Resolução de problemas: VPN de Site para Site do Azure desliga ligados intermitentemente
 
@@ -69,7 +69,7 @@ O gateway de rede virtual baseado em política tem o limite de 200 pares de asso
 
 O **Perfect Forward Secrecy** funcionalidade pode causar problemas a interrupção de ligação. Se o dispositivo VPN tem **perfeita Secrecy reencaminhar** ativada, desative a funcionalidade. Em seguida, [atualizar o gateway de rede virtual política IPsec](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Configurar uma ligação Site a Site a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configurar a política de IPsec/IKE para ligações VPN de Site a Site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

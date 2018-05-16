@@ -3,23 +3,25 @@ title: Restrições e limitações de ponto final de v 2.0 do Azure Active Direc
 description: Uma lista de limitações e restrições para o ponto de final de v 2.0 do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v 2.0?
 Quando criar aplicações que se integram com o Azure Active Directory, terá de decidir se os protocolos de autenticação e de ponto final v 2.0 as suas necessidades. Ponto final do Azure do Active Directory original é ainda totalmente suportado e, em alguns aspetos, é mais avançada funcionalidade de v 2.0. No entanto, o ponto final v 2.0 [apresenta as vantagens significativas](active-directory-v2-compare.md) para programadores.
@@ -47,7 +49,7 @@ Atualmente, para cada aplicação que pretende integrar com o ponto final v 2.0,
 Além disso, os registos de aplicações que criar no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tem os seguintes avisos:
 
 * Apenas dois segredos de aplicação são permitidos por ID de aplicação.
-* Um registo de aplicação, registado por um utilizador com uma conta Microsoft pessoal, pode ser visualizado e gerido apenas por uma conta de programador único. Não é possível partilhar entre vários programadores.  Se gostaria de partilhar o seu registo de aplicação entre vários programadores, pode criar a aplicação ao iniciar sessão o portal de registo com uma conta do Azure AD.
+* Um registo de aplicação, registado por um utilizador com uma conta Microsoft pessoal, pode ser visualizado e gerido apenas por uma conta de programador único. Não é possível partilhar entre vários programadores. Se gostaria de partilhar o seu registo de aplicação entre vários programadores, pode criar a aplicação ao iniciar sessão o portal de registo com uma conta do Azure AD.
 * Existem várias restrições sobre o formato do redirecionamento URI que é permitida. Para obter mais informações sobre redirecionamento URIs, consulte a secção seguinte.
 
 ## <a name="restrictions-on-redirect-uris"></a>Restrições no URI de redirecionamento
@@ -89,12 +91,12 @@ Para saber como registar uma aplicação no Portal de registo de aplicação, co
 Atualmente, o suporte de biblioteca para o ponto final v 2.0 é limitado. Se pretender utilizar o ponto final v 2.0 numa aplicação de produção, tem estas opções:
 
 * Se está a criar uma aplicação web, pode utilizar com segurança Microsoft geralmente disponível middleware de lado do servidor para efetuar a validação do início de sessão e o token. Estes incluem o middleware OWIN abrir ID Connect para ASP.NET e o Node.js Passport Plug-in. Para exemplos de código que utilizam o middleware da Microsoft, consulte a nossa [introdução](active-directory-appmodel-v2-overview.md#getting-started) secção.
-* Se está a criar uma aplicação de ambiente de trabalho ou de dispositivo móvel, pode utilizar uma das nossa bibliotecas de autenticação da Microsoft (MSAL) de pré-visualização.  Estas bibliotecas estão na pré-visualização suportado de produção, pelo que é seguro para utilizá-los em aplicações de produção. Pode ler mais sobre os termos de pré-visualização e as bibliotecas disponíveis no nosso [referência de bibliotecas de autenticação](active-directory-v2-libraries.md).
+* Se está a criar uma aplicação de ambiente de trabalho ou de dispositivo móvel, pode utilizar uma das nossa bibliotecas de autenticação da Microsoft (MSAL) de pré-visualização. Estas bibliotecas estão na pré-visualização suportado de produção, pelo que é seguro para utilizá-los em aplicações de produção. Pode ler mais sobre os termos de pré-visualização e as bibliotecas disponíveis no nosso [referência de bibliotecas de autenticação](active-directory-v2-libraries.md).
 * Para plataformas não abrangidas por bibliotecas Microsoft, pode integrar com o ponto final v 2.0 por diretamente enviar e receber mensagens de protocolo no código da aplicação. Os protocolos de OpenID Connect e OAuth v 2.0 [explicitamente estão documentados](active-directory-v2-protocols.md) para ajudar a efetuar essa uma integração.
 * Por fim, pode utilizar bibliotecas de open source abrir ID Connect e OAuth para integrar com o ponto final v 2.0. O protocolo de v 2.0 deve ser compatível com muitos bibliotecas de open source protocolo sem alterações principais. A disponibilidade destes tipos de bibliotecas varia consoante a plataforma e de idioma. O [abrir ID Connect](http://openid.net/connect/) e [OAuth 2.0](http://oauth.net/2/) sites manter uma lista de implementações populares. Para obter mais informações, consulte [bibliotecas de v 2.0 e a autenticação do Azure Active Directory](active-directory-v2-libraries.md)e a lista de bibliotecas de cliente de open source e exemplos de que foi testados com o ponto final v 2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restrições de protocolos
-O ponto final v 2.0 não suporta SAML ou WS-Federation; só suporta abrir ID Connect e OAuth 2.0.  Nem todas as funcionalidades e capacidades de protocolos de OAuth tenham sido incorporadas para o ponto final v 2.0. Estas capacidades e funcionalidades do protocolo atualmente são *não está disponível* no ponto final v 2.0:
+O ponto final v 2.0 não suporta SAML ou WS-Federation; só suporta abrir ID Connect e OAuth 2.0. Nem todas as funcionalidades e capacidades de protocolos de OAuth tenham sido incorporadas para o ponto final v 2.0. Estas capacidades e funcionalidades do protocolo atualmente são *não está disponível* no ponto final v 2.0:
 
 * Tokens de ID, que são emitidos pelo ponto final v 2.0 não contêm um `email` de afirmação para o utilizador, mesmo se adquirir a permissão do utilizador para ver o respetivo e-mail.
 * O ponto final OpenID Connect UserInfo não está implementado no ponto final v 2.0. No entanto, todos os dados de perfil de utilizador que potencialmente seria receberá neste ponto final está disponível a partir do Microsoft Graph `/me` ponto final.

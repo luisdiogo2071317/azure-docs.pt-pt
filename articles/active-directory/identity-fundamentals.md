@@ -1,29 +1,29 @@
 ---
-title: "Noções básicas sobre a gestão de identidades do Azure"
-description: "Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais."
-keywords: 
+title: Noções básicas sobre a gestão de identidades do Azure
+description: Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Noções básicas sobre a gestão de identidades do Azure
 
 Como mais recursos digitais da empresa em direto fora da rede empresarial na nuvem e em dispositivos, uma excelente baseado na nuvem identidades e acessos solução de gestão está a tornar-se uma necessidade. Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais.
 
-Microsoft tem sido proteger identidades baseado na nuvem para através de um decade e agora, com [do Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), estes sistemas de proteção mesmo estão disponíveis para si. Com o Azure AD, administradores da empresa podem facilmente Certifique-se de utilizador e administrador accountability com maior segurança e governação que anteriormente.
+Microsoft tem sido proteger identidades baseado na nuvem para através de um decade e agora, com [do Azure Active Directory (AD)](active-directory-whatis.md), estes sistemas de proteção mesmo estão disponíveis para si. Com o Azure AD, administradores da empresa podem facilmente Certifique-se de utilizador e administrador accountability com maior segurança e governação que anteriormente.
 
 O Azure AD Premium é um baseado na nuvem identidades e acessos solução de gestão com capacidades de proteção avançada que permite uma identidade segura para todas as aplicações, proteção de identidade (avançada pelo [gráfico de segurança do Microsoft intelligence](https://www.microsoft.com/en-us/security/intelligence)) e Privileged Identity Management. Apenas outra monitorização ou a ferramenta, de relatórios do Azure AD Premium pode proteger as identidades dos utilizadores em tempo real e permitem-lhe criar políticas de acesso baseado em risco, adaptável para proteger dados da sua organização.
 
@@ -57,7 +57,7 @@ Políticas de acesso condicional no Azure AD Premium dão-lhe, o administrador d
 
 ## <a name="azure-active-directory-privileged-identity-management"></a>Gestão de Identidades Privilegiadas do Azure Active Directory
 
-[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), incluído com a oferta do Azure Active Directory Premium P2, permite-lhe detetar, restringir e monitorizar as contas administrativas e respetivo acesso a recursos no seu Azure Active Directory e outros serviços online da Microsoft. Também o ajuda a administrar o acesso administrativo a pedido para o período de tempo que tem de exato.
+[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), incluído com a oferta do Azure Active Directory Premium P2, permite-lhe detetar, restringir e monitorizar as contas administrativas e respetivo acesso a recursos no seu Azure Active Directory e outro da Microsoft serviços online. Também o ajuda a administrar o acesso administrativo a pedido para o período de tempo que tem de exato.
 
 Privileged Identity Management pode impor direitos de administrador a pedido para que os administradores podem pedir multifator autenticada, temporária elevação dos seus privilégios para a pré-configurados períodos de tempo antes das respetivas contas regressar a um Estado de utilizador normal.
 

@@ -3,27 +3,29 @@ title: Bibliotecas de autenticação de v 2.0 do Azure Active Directory | Micros
 description: Bibliotecas de cliente compatível e bibliotecas de middleware de servidor e biblioteca relacionada, origem e ligações de exemplos, para o ponto de final de v 2.0 do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: SaeedAkhter-MSFT
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2018
-ms.author: saeeda
+ms.author: celested
+ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4bcf4854198e7c5f3861a39484a047adcbc1d797
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8fe3db09acbdec606f25d0bc81300bc4f5e87411
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação de v 2.0 do Azure Active Directory
 
-O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) suporta os protocolos de OAuth 2.0 e o OpenID Connect 1.0 de norma da indústria. A biblioteca de autenticação da Microsoft (MSAL) foi concebida para funcionar com o ponto de final de v 2.0 do Azure AD.  Também é possível utilizar as bibliotecas de open source que suportem o OAuth 2.0 e o OpenID Connect 1.0.
+O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) suporta os protocolos de OAuth 2.0 e o OpenID Connect 1.0 de norma da indústria. A biblioteca de autenticação da Microsoft (MSAL) foi concebida para funcionar com o ponto de final de v 2.0 do Azure AD. Também é possível utilizar as bibliotecas de open source que suportem o OAuth 2.0 e o OpenID Connect 1.0.
 
 É recomendado que utilize bibliotecas escritas por especialistas de domínio de protocolo que siga uma metodologia Security Development Lifecycle (SDL), como [o seguido pela Microsoft][Microsoft-SDL]. Se optar por suporte de código mão para os protocolos, siga uma metodologia como SDL e pagamento da Microsoft fechar atenção para as considerações de segurança nas especificações normas para cada protocolo.
 

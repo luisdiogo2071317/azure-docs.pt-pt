@@ -1,61 +1,65 @@
 ---
-title: "Enviar notificações push para o Android com Hubs de Notificação do Azure | Microsoft Docs"
-description: "Neste tutorial, irá aprender a utilizar os Notification Hubs do Azure para emitir notificações push para dispositivos Android."
+title: Enviar notificações push para aplicações Android com Hubs de Notificação do Microsoft Azure e o Google Cloud Messaging | Microsoft Docs
+description: Neste tutorial, vai aprender a utilizar os Hubs de Notificação do Microsoft Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
 services: notification-hubs
 documentationcenter: android
-keywords: "notificações push, notificação push, notificação push android"
-author: ysxu
-manager: erikre
-editor: 
+keywords: notificações push, notificação push, notificação push android
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: hero-article
-ms.date: 07/05/2016
-ms.author: yuaxu
-ms.openlocfilehash: fff043abea0a88f5f39bf8bfcd0be206772439bc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/05/2018
+ms.author: dimazaid
+ms.openlocfilehash: efad7353a477577e5b5ac862b418ce78b1c4c304
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Enviar notificações push para aplicações para o Android com os Notification Hubs do Azure
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Enviar notificações push para dispositivos Android através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Descrição geral
+Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação com Android.
+Vai criar uma aplicação Android em branco para receber notificações push através do Google Cloud Messaging (GCM).
+
 > [!IMPORTANT]
 > Este tópico demonstra as notificações push com o Google Cloud Messaging (GCM). Se utiliza o Firebase Cloud Messaging (FCM) da Google, veja [Sending push notifications to Android with Azure Notification Hubs and FCM (Enviar notificações push para o Android com Hubs de Notificação do Azure e FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md).
-> 
-> 
-
-Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação com Android.
-Irá criar uma aplicação em branco com Android que recebe notificações push através do Google Cloud Messaging (GCM).
-
-[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 O código de conclusão para este tutorial pode ser transferido [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted) a partir do GitHub.
 
+Neste tutorial, vai realizar as seguintes ações: 
+
+> [!div class="checklist"]
+> * Criar um projeto que suporte o Google Cloud Messaging.
+> * Criar um hub de notificação
+> * Ligar a aplicação ao Notification Hub
+> * Testar a aplicação
+
 ## <a name="prerequisites"></a>Pré-requisitos
-> [!IMPORTANT]
-> Para concluir este tutorial, tem de ter uma conta ativa do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
-> 
-> 
 
-Para além da conta ativa do Azure mencionada acima, este tutorial só requer a versão mais recente do [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
-
-A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais de Notification Hubs para aplicações com Android.
+- **Subscrição do Azure**. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+- [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Criar um projeto que suporte o Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## <a name="configure-a-new-notification-hub"></a>Configurar um novo Notification Hub
+## <a name="create-a-notification-hub"></a>Criar um hub de notificação
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6.   No painel **Definições**, selecione **Serviços de Notificação** e, em seguida, **Google (GCM)**. Introduza a chave de API e clique em **Guardar**.
+### <a name="configure-gcm-setting-for-the-notification-hub"></a>Configurar a definição do GCM para o hub de notificação
 
-&emsp;&emsp;![Notification Hubs do Azure – Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+1. Selecione **Google (GCM)** nas **DEFINIÇÕES DE NOTIFICAÇÃO**. 
+2. Introduza a **Chave de API** que recebeu do Google Cloud Console. 
+3. Selecione **Guardar** na barra de ferramentas. 
+
+    ![Notification Hubs do Azure – Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 O Notification Hub está agora configurado para trabalhar com o GCM e tem as cadeias de ligação para registar a sua aplicação para receber e enviar notificações push.
 
@@ -75,548 +79,361 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
 ### <a name="adding-azure-notification-hubs-libraries"></a>Adicionar bibliotecas dos Notification Hubs do Azure
 1. No `Build.Gradle` ficheiro da **aplicação**, adicione as seguintes linhas na secção de **dependências**.
    
+    ```java
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
         compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    ```
 2. Adicione o repositório seguinte depois da secção de **dependências**.
    
-        repositories {
-            maven {
-                url "http://dl.bintray.com/microsoftazuremobile/SDK"
-            }
+    ```java
+    repositories {
+        maven {
+            url "http://dl.bintray.com/microsoftazuremobile/SDK"
         }
+    }
+    ```
 
 ### <a name="updating-the-androidmanifestxml"></a>Atualizar o AndroidManifest.xml.
-1. Para suportar o GCM, temos de implementar um serviço de escuta de ID da instância no nosso código que é utilizado para [obter os tokens de registo](https://developers.google.com/cloud-messaging/android/client#sample-register), utilizando a [API da ID de instância da Google](https://developers.google.com/instance-id/). Neste tutorial, iremos designar a classe como `MyInstanceIDService`. 
+1. Para suportar o GCM, implemente um serviço de escuta de ID da instância no código que é utilizado para [obter os tokens de registo](https://developers.google.com/cloud-messaging/android/client#sample-register), através da [API da ID de instância da Google](https://developers.google.com/instance-id/). Neste tutorial, o nome da classe é `MyInstanceIDService`. 
    
     Adicionar a seguinte definição de serviço ao ficheiro AndroidManifest.xml, no interior da etiqueta `<application>`. Substitua o marcador de posição `<your package>` pelo nome do seu pacote real indicado no topo do ficheiro `AndroidManifest.xml`.
-   
-        <service android:name="<your package>.MyInstanceIDService" android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID"/>
-            </intent-filter>
-        </service>
-2. Depois de recebermos o nosso token de registo do GCM a partir da API de ID de Instância, vamos utilizá-lo para [efetuar o registo o no Hub de Notificação do Azure](notification-hubs-push-notification-registration-management.md). Iremos suportar este registo em segundo plano, utilizando um `IntentService` com o nome `RegistrationIntentService`. Este serviço também será responsável por [atualizar o nosso token de registo do GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+  
+    ```xml 
+    <service android:name="<your package>.MyInstanceIDService" android:exported="false">
+        <intent-filter>
+            <action android:name="com.google.android.gms.iid.InstanceID"/>
+        </intent-filter>
+    </service>
+    ```
+2. Depois de a aplicação receber o token de registo do GCM da API da ID de Instância, o token é utilizado para [efetuar o registo no Hub de Notificação do Azure](notification-hubs-push-notification-registration-management.md). O registo em segundo plano é feito com um `IntentService` com o nome `RegistrationIntentService`. Este serviço também é responsável por [atualizar o token de registo do GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
    
     Adicionar a seguinte definição de serviço ao ficheiro AndroidManifest.xml, no interior da etiqueta `<application>`. Substitua o marcador de posição `<your package>` pelo nome do seu pacote real indicado no topo do ficheiro `AndroidManifest.xml`. 
    
-        <service
-            android:name="<your package>.RegistrationIntentService"
-            android:exported="false">
-        </service>
-3. Iremos também definir um recetor para receber notificações. Adicione a seguinte definição do recetor ao ficheiro AndroidManifest.xml, no interior da etiqueta `<application>`. Substitua o marcador de posição `<your package>` pelo nome do seu pacote real indicado no topo do ficheiro `AndroidManifest.xml`.
+    ```xml
+    <service
+        android:name="<your package>.RegistrationIntentService"
+        android:exported="false">
+    </service>
+    ```
+3. Defina um recetor para receber as notificações. Adicione a seguinte definição do recetor ao ficheiro AndroidManifest.xml, no interior da etiqueta `<application>`. Substitua o marcador de posição `<your package>` pelo nome do seu pacote real indicado no topo do ficheiro `AndroidManifest.xml`.
    
-        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="<your package name>" />
-            </intent-filter>
-        </receiver>
-4. Adicione as seguintes permissões do GCM por baixo da etiqueta `</application>`. Certifique-se de que substitui `<your package>` pelo nome do pacote indicado no topo do ficheiro `AndroidManifest.xml`.
+    ```xml
+    <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+        android:permission="com.google.android.c2dm.permission.SEND">
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <category android:name="<your package name>" />
+        </intent-filter>
+    </receiver>
+    ```
+4. Adicione as seguintes permissões do GCM por baixo da etiqueta `</application>`. Substitua `<your package>` pelo nome do pacote mostrado no topo do ficheiro `AndroidManifest.xml`.
    
     Para obter mais informações sobre estas permissões, consulte o artigo [Configurar uma aplicação de cliente do GCM para Android](https://developers.google.com/cloud-messaging/android/client#manifest).
    
-        <uses-permission android:name="android.permission.INTERNET"/>
-        <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-        <uses-permission android:name="android.permission.WAKE_LOCK"/>
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-   
-        <permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-        <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
+    <permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
+    ```
 ### <a name="adding-code"></a>Adicionar código
 1. Na vista de projeto, expanda **app** > **src** > **principal** > **java**. Com o botão direito do rato, clique na pasta do pacote por baixo de **java**, clique em **Nova**, e, em seguida, clique em **Classe Java**. Adicione uma nova classe com o nome `NotificationSettings`. 
    
     ![Android Studio - nova classe Java][6]
    
-    Certifique-se de que atualiza esses três marcadores de posição no seguinte código para a classe `NotificationSettings`:
+    Atualize os três marcadores de posição no seguinte código da classe `NotificationSettings`:
    
    * **SenderId**: O número do projeto que obteve anteriormente no [Google Cloud Console](http://cloud.google.com/console).
-   * **HubListenConnectionString**: A cadeia de ligação **DefaultListenAccessSignature** do seu hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de acesso** no painel **Definições** do seu hub no [Portal do Azure].
-   * **HubName**: utilize o nome do Notification Hub que aparece no painel do hub no [Portal do Azure].
+   * **HubListenConnectionString**: A cadeia de ligação **DefaultListenAccessSignature** do seu hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [portal do Azure].
+   * **HubName**: utilize o nome do hub de notificação que aparece na página do hub no [portal do Azure].
      
      Código `NotificationSettings`:
      
-       public class NotificationSettings {
-     
-           public static String SenderId = "<Your project number>";
-           public static String HubName = "<Your HubName>";
-           public static String HubListenConnectionString = "<Your default listen connection string>";
-       }
-2. Utilizando os passos acima, adicione outra nova classe com o nome `MyInstanceIDService`. Esta será a nossa implementação do serviço de escuta de ID da instância.
+    ```java
+    public class NotificationSettings {
+    
+        public static String SenderId = "<Your project number>";
+        public static String HubName = "<Your HubName>";
+        public static String HubListenConnectionString = "<Your default listen connection string>";
+    }
+    ```
+2. Adicione outra nova classe com o nome `MyInstanceIDService`. Esta classe é a implementação do serviço de escuta de ID da Instância.
    
-    O código para esta classe irá chamar `IntentService` para [atualizar o token do GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) em segundo plano.
+    O código para esta classe chama o `IntentService` para [atualizar o token do GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) em segundo plano.
    
-        import android.content.Intent;
-        import android.util.Log;
-        import com.google.android.gms.iid.InstanceIDListenerService;
+    ```java
+    import android.content.Intent;
+    import android.util.Log;
+    import com.google.android.gms.iid.InstanceIDListenerService;
 
-        public class MyInstanceIDService extends InstanceIDListenerService {
+    public class MyInstanceIDService extends InstanceIDListenerService {
 
-            private static final String TAG = "MyInstanceIDService";
+        private static final String TAG = "MyInstanceIDService";
 
-            @Override
-            public void onTokenRefresh() {
+        @Override
+        public void onTokenRefresh() {
 
-                Log.i(TAG, "Refreshing GCM Registration Token");
+            Log.i(TAG, "Refreshing GCM Registration Token");
 
-                Intent intent = new Intent(this, RegistrationIntentService.class);
-                startService(intent);
-            }
-        };
-
-
-1. Adicione outra nova classe ao projeto com o nome `RegistrationIntentService`. Esta será a implementação para o nosso `IntentService` que irá processar a [atualização do token do GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) e o [registo no hub de notificação](notification-hubs-push-notification-registration-management.md).
+            Intent intent = new Intent(this, RegistrationIntentService.class);
+            startService(intent);
+        }
+    };
+    ```
+1. Adicione outra nova classe ao projeto com o nome `RegistrationIntentService`. Esta classe implementa o `IntentService`, que processa a [atualização do token do GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) e o [registo no hub de notificação](notification-hubs-push-notification-registration-management.md).
    
     Utilize o seguinte código para esta classe.
    
-        import android.app.IntentService;
-        import android.content.Intent;
-        import android.content.SharedPreferences;
-        import android.preference.PreferenceManager;
-        import android.util.Log;
-   
-        import com.google.android.gms.gcm.GoogleCloudMessaging;
-        import com.google.android.gms.iid.InstanceID;
-        import com.microsoft.windowsazure.messaging.NotificationHub;
-   
-        public class RegistrationIntentService extends IntentService {
-   
-            private static final String TAG = "RegIntentService";
-   
-            private NotificationHub hub;
-   
-            public RegistrationIntentService() {
-                super(TAG);
+    ```java
+    import android.app.IntentService;
+    import android.content.Intent;
+    import android.content.SharedPreferences;
+    import android.preference.PreferenceManager;
+    import android.util.Log;
+
+    import com.google.android.gms.gcm.GoogleCloudMessaging;
+    import com.google.android.gms.iid.InstanceID;
+    import com.microsoft.windowsazure.messaging.NotificationHub;
+
+    public class RegistrationIntentService extends IntentService {
+
+        private static final String TAG = "RegIntentService";
+
+        private NotificationHub hub;
+
+        public RegistrationIntentService() {
+            super(TAG);
+        }
+
+        @Override
+        protected void onHandleIntent(Intent intent) {        
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String resultString = null;
+            String regID = null;
+
+            try {
+                InstanceID instanceID = InstanceID.getInstance(this);
+                String token = instanceID.getToken(NotificationSettings.SenderId,
+                        GoogleCloudMessaging.INSTANCE_ID_SCOPE);        
+                Log.i(TAG, "Got GCM Registration Token: " + token);
+
+                // Storing the registration id that indicates whether the generated token has been
+                // sent to your server. If it is not stored, send the token to your server,
+                // otherwise your server should have already received the token.
+                if ((regID=sharedPreferences.getString("registrationID", null)) == null) {        
+                    NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
+                            NotificationSettings.HubListenConnectionString, this);
+                    Log.i(TAG, "Attempting to register with NH using token : " + token);
+
+                    regID = hub.register(token).getRegistrationId();
+
+                    // If you want to use tags...
+                    // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                    // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
+
+                    resultString = "Registered Successfully - RegId : " + regID;
+                    Log.i(TAG, resultString);        
+                    sharedPreferences.edit().putString("registrationID", regID ).apply();
+                } else {
+                    resultString = "Previously Registered Successfully - RegId : " + regID;
+                }
+            } catch (Exception e) {
+                Log.e(TAG, resultString="Failed to complete token refresh", e);
+                // If an exception happens while fetching the new token or updating the registration data
+                // on a third-party server, this ensures that we'll attempt the update at a later time.
             }
-   
-            @Override
-            protected void onHandleIntent(Intent intent) {        
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-                String resultString = null;
-                String regID = null;
-   
-                try {
-                    InstanceID instanceID = InstanceID.getInstance(this);
-                    String token = instanceID.getToken(NotificationSettings.SenderId,
-                            GoogleCloudMessaging.INSTANCE_ID_SCOPE);        
-                    Log.i(TAG, "Got GCM Registration Token: " + token);
-   
-                    // Storing the registration id that indicates whether the generated token has been
-                    // sent to your server. If it is not stored, send the token to your server,
-                    // otherwise your server should have already received the token.
-                    if ((regID=sharedPreferences.getString("registrationID", null)) == null) {        
-                        NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
-                                NotificationSettings.HubListenConnectionString, this);
-                        Log.i(TAG, "Attempting to register with NH using token : " + token);
-   
-                        regID = hub.register(token).getRegistrationId();
-   
-                        // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
-                        // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
-   
-                        resultString = "Registered Successfully - RegId : " + regID;
-                        Log.i(TAG, resultString);        
-                        sharedPreferences.edit().putString("registrationID", regID ).apply();
-                    } else {
-                        resultString = "Previously Registered Successfully - RegId : " + regID;
-                    }
-                } catch (Exception e) {
-                    Log.e(TAG, resultString="Failed to complete token refresh", e);
-                    // If an exception happens while fetching the new token or updating our registration data
-                    // on a third-party server, this ensures that we'll attempt the update at a later time.
-                }
-   
-                // Notify UI that registration has completed.
-                if (MainActivity.isVisible) {
-                    MainActivity.mainActivity.ToastNotify(resultString);
-                }
+
+            // Notify UI that registration has completed.
+            if (MainActivity.isVisible) {
+                MainActivity.mainActivity.ToastNotify(resultString);
             }
         }
-2. Na sua classe `MainActivity`, adicione as seguintes `import` declarações acima da declaração de classe.
+    }
+    ```
+2. Na classe `MainActivity`, adicione as declarações `import` seguintes no início da classe.
+
+    ```java   
+    import com.google.android.gms.common.ConnectionResult;
+    import com.google.android.gms.common.GoogleApiAvailability;
+    import com.google.android.gms.gcm.*;
+    import com.microsoft.windowsazure.notifications.NotificationsManager;
+    import android.util.Log;
+    import android.widget.TextView;
+    import android.widget.Toast;
+    import android.content.Intent;
+    ```
+3. Adicione os seguintes membros privados no topo da classe. Este código [verifica a disponibilidade dos serviços do Google Play, tal como recomendado pela Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
-        import com.google.android.gms.common.ConnectionResult;
-        import com.google.android.gms.common.GoogleApiAvailability;
-        import com.google.android.gms.gcm.*;
-        import com.microsoft.windowsazure.notifications.NotificationsManager;
-        import android.util.Log;
-        import android.widget.TextView;
-        import android.widget.Toast;
-3. Adicione os seguintes membros privados no topo da classe. Iremos [verificar a disponibilidade dos serviços do Google Play, tal como recomendado pela Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
-   
-        public static MainActivity mainActivity;
-        public static Boolean isVisible = false;    
-        private GoogleCloudMessaging gcm;
-        private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    ```java
+    public static MainActivity mainActivity;
+    public static Boolean isVisible = false;    
+    private GoogleCloudMessaging gcm;
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private static final String TAG = "MainActivity";
+    ```
 4. Na sua classe `MainActivity`, adicione o seguinte método para a disponibilidade dos serviços do Google Play. 
    
-        /**
-         * Check the device to make sure it has the Google Play Services APK. If
-         * it doesn't, display a dialog that allows users to download the APK from
-         * the Google Play Store or enable it in the device's system settings.
-         */
-        private boolean checkPlayServices() {
-            GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
-            int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
-            if (resultCode != ConnectionResult.SUCCESS) {
-                if (apiAvailability.isUserResolvableError(resultCode)) {
-                    apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
-                            .show();
-                } else {
-                    Log.i(TAG, "This device is not supported by Google Play Services.");
-                    ToastNotify("This device is not supported by Google Play Services.");
-                    finish();
-                }
-                return false;
+    ```java
+    /**
+        * Check the device to make sure it has the Google Play Services APK. If
+        * it doesn't, display a dialog that allows users to download the APK from
+        * the Google Play Store or enable it in the device's system settings.
+        */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported by Google Play Services.");
+                ToastNotify("This device is not supported by Google Play Services.");
+                finish();
             }
-            return true;
+            return false;
         }
-5. Na sua classe `MainActivity`, adicione o seguinte código que irá verificar os serviços do Google Play antes de contactar o `IntentService` para obter o token de registo do GCM e registar o Notification Hub.
+        return true;
+    }
+    ```
+5. Na classe `MainActivity`, adicione o seguinte código que verifica os Serviços do Google Play antes de chamar o `IntentService` para obter o token de registo do GCM e efetuar o registo no hub de notificação.
    
-        public void registerWithNotificationHubs()
-        {
-            Log.i(TAG, " Registering with Notification Hubs");
-   
-            if (checkPlayServices()) {
-                // Start IntentService to register this application with GCM.
-                Intent intent = new Intent(this, RegistrationIntentService.class);
-                startService(intent);
-            }
+    ```java
+    public void registerWithNotificationHubs()
+    {
+        Log.i(TAG, " Registering with Notification Hubs");
+
+        if (checkPlayServices()) {
+            // Start IntentService to register this application with GCM.
+            Intent intent = new Intent(this, RegistrationIntentService.class);
+            startService(intent);
         }
+    }
+    ```
 6. No `OnCreate` método da `MainActivity` classe, adicione o seguinte código para iniciar o processo de registo quando é criada a atividade.
    
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-   
-            mainActivity = this;
-            NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
-            registerWithNotificationHubs();
-        }
+    ```java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mainActivity = this;
+        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
+        registerWithNotificationHubs();
+    }
+    ```
 7. Adicione estes métodos adicionais a `MainActivity` para verificar o estado da aplicação e do relatório na sua aplicação.
    
-        @Override
-        protected void onStart() {
-            super.onStart();
-            isVisible = true;
-        }
+    ```java
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isVisible = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isVisible = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isVisible = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        isVisible = false;
+    }
+
+    public void ToastNotify(final String notificationMessage) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+                TextView helloText = (TextView) findViewById(R.id.text_hello);
+                helloText.setText(notificationMessage);
+            }
+        });
+    }
+    ```
+8. O `ToastNotify` método utiliza o comando *"Olá, mundo"* `TextView` para comunicar o estado e as notificações de forma permanente na aplicação. No seu ctivity_main.xml layout, adicione a seguinte ID para esse comando.
    
-        @Override
-        protected void onPause() {
-            super.onPause();
-            isVisible = false;
-        }
-   
-        @Override
-        protected void onResume() {
-            super.onResume();
-            isVisible = true;
-        }
-   
-        @Override
-        protected void onStop() {
-            super.onStop();
-            isVisible = false;
-        }
-   
-        public void ToastNotify(final String notificationMessage) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
-                    TextView helloText = (TextView) findViewById(R.id.text_hello);
-                    helloText.setText(notificationMessage);
-                }
-            });
-        }
-8. O `ToastNotify` método utiliza o comando *"Olá, mundo"* `TextView` para comunicar o estado e as notificações de forma permanente na aplicação. No seu ctivity_main.xml layout, adicione a seguinte id para esse comando.
-   
-       android:id="@+id/text_hello"
-9. Em seguida, será adicionada uma subclasse do nosso recetor que definimos no AndroidManifest.xml. Adicione outra nova classe ao projeto com o nome `MyHandler`.
+    ```
+    android:id="@+id/text_hello"
+    ```
+9. Adicione uma subclasse do recetor que está definida no AndroidManifest.xml. Adicione outra nova classe ao projeto com o nome `MyHandler`.
 10. Adicione as seguintes declarações de importação no topo do ficheiro `MyHandler.java`:
     
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.NotificationCompat;
-        import com.microsoft.windowsazure.notifications.NotificationsHandler;
+    ```java
+    import android.app.NotificationManager;
+    import android.app.PendingIntent;
+    import android.content.Context;
+    import android.content.Intent;
+    import android.os.Bundle;
+    import android.support.v4.app.NotificationCompat;
+    import com.microsoft.windowsazure.notifications.NotificationsHandler;
+    import android.net.Uri;
+    import android.media.RingtoneManager;
+    ```
 11. Adicione o seguinte código à classe `MyHandler`, tornando-a numa subclasse de `com.microsoft.windowsazure.notifications.NotificationsHandler`.
     
     Este código substitui o método `OnReceive` para que o processador comunique as notificações que são recebidas. O processador também envia a notificação push para o gestor de notificações Android através do método `sendNotification()`. O método `sendNotification()` deve ser executado quando a aplicação não está em execução e deverá receber uma notificação.
     
-        public class MyHandler extends NotificationsHandler {
-            public static final int NOTIFICATION_ID = 1;
-            private NotificationManager mNotificationManager;
-            NotificationCompat.Builder builder;
-            Context ctx;
-    
-            @Override
-            public void onReceive(Context context, Bundle bundle) {
-                ctx = context;
-                String nhMessage = bundle.getString("message");
-                sendNotification(nhMessage);
-                if (MainActivity.isVisible) {
-                    MainActivity.mainActivity.ToastNotify(nhMessage);
-                }
-            }
-    
-            private void sendNotification(String msg) {
-    
-                Intent intent = new Intent(ctx, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    
-                mNotificationManager = (NotificationManager)
-                        ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-    
-                PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                        intent, PendingIntent.FLAG_ONE_SHOT);
-    
-                Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(ctx)
-                                .setSmallIcon(R.mipmap.ic_launcher)
-                                .setContentTitle("Notification Hub Demo")
-                                .setStyle(new NotificationCompat.BigTextStyle()
-                                        .bigText(msg))
-                                .setSound(defaultSoundUri)
-                                .setContentText(msg);
-    
-                mBuilder.setContentIntent(contentIntent);
-                mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+    ```java
+    public class MyHandler extends NotificationsHandler {
+        public static final int NOTIFICATION_ID = 1;
+        private NotificationManager mNotificationManager;
+        NotificationCompat.Builder builder;
+        Context ctx;
+
+        @Override
+        public void onReceive(Context context, Bundle bundle) {
+            ctx = context;
+            String nhMessage = bundle.getString("message");
+            sendNotification(nhMessage);
+            if (MainActivity.isVisible) {
+                MainActivity.mainActivity.ToastNotify(nhMessage);
             }
         }
+
+        private void sendNotification(String msg) {
+
+            Intent intent = new Intent(ctx, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            mNotificationManager = (NotificationManager)
+                    ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+            PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+                    intent, PendingIntent.FLAG_ONE_SHOT);
+
+            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(ctx)
+                            .setSmallIcon(R.mipmap.ic_launcher)
+                            .setContentTitle("Notification Hub Demo")
+                            .setStyle(new NotificationCompat.BigTextStyle()
+                                    .bigText(msg))
+                            .setSound(defaultSoundUri)
+                            .setContentText(msg);
+
+            mBuilder.setContentIntent(contentIntent);
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        }
+    }
+    ```
 12. No Android Studio, na barra de menus, clique em **Construir** > **Reconstruir projeto** para se certificar de que não existem erros no seu código.
 
-## <a name="sending-push-notifications"></a>Enviar notificações push
-Pode testar a receção das notificações push na sua aplicação, enviando-as através de [Portal do Azure] - procure a secção **Resolução de problemas** no painel do hub, conforme indicado em baixo.
-
-![Notification Hubs do Azure – Teste de Envio](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
-
-[!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
-
-## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcional) Enviar notificações push diretamente a partir da aplicação
-Normalmente, enviaria notificações através de um servidor de backend. Em alguns casos, poderia querer enviar notificações push diretamente a partir da aplicação de cliente. Esta secção explica como enviar notificações do cliente utilizando a [API REST do Notification Hub do Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
-
-1. Na vista de projeto do Android Studio, expanda **App** > **src** > **main** > **res** > **esquema**. Abra o `activity_main.xml` ficheiro de esquema e clique no separador **Texto** para atualizar o conteúdo de texto do ficheiro. Atualize-o com o código abaixo, que adiciona novos `Button` e comandos `EditText` para o envio de mensagens de notificação push para o Notification Hub. Adicione este código na parte inferior, imediatamente antes de `</RelativeLayout>`.
-   
-        <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/send_button"
-        android:id="@+id/sendbutton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="sendNotificationButtonOnClick" />
-   
-        <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextNotificationMessage"
-        android:layout_above="@+id/sendbutton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp"
-        android:hint="@string/notification_message_hint" />
-2. Na vista de projeto do Android Studio, expanda **App** > **src** > **main** > **res** > **valores**. Abra o ficheiro `strings.xml` e adicione os valores de cadeia que são referenciados pelo novo `Button` e pelos comandos `EditText`. Adicione-os na parte inferior do ficheiro, imediatamente antes de `</resources>`.
-   
-        <string name="send_button">Send Notification</string>
-        <string name="notification_message_hint">Enter notification message text</string>
-3. No seu ficheiro `NotificationSetting.java`, adicione a seguinte definição à classe `NotificationSettings`.
-   
-    Atualize `HubFullAccess` com a cadeia de ligação **DefaultFullSharedAccessSignature** para o seu hub. Esta cadeia de ligação pode ser copiada do [Portal do Azure], clicando **Políticas de acesso** no painel **Definições** do Notification Hub.
-   
-        public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
-4. No seu ficheiro `MainActivity.java`, adicione as seguintes `import` declarações acima da classe `MainActivity`.
-   
-        import java.io.BufferedOutputStream;
-        import java.io.BufferedReader;
-        import java.io.InputStreamReader;
-        import java.io.OutputStream;
-        import java.net.HttpURLConnection;
-        import java.net.URL;
-        import java.net.URLEncoder;
-        import javax.crypto.Mac;
-        import javax.crypto.spec.SecretKeySpec;
-        import android.util.Base64;
-        import android.view.View;
-        import android.widget.EditText;
-5. No seu ficheiro `MainActivity.java`, adicione as seguintes declarações acima da classe `MainActivity`.    
-   
-        private String HubEndpoint = null;
-        private String HubSasKeyName = null;
-        private String HubSasKeyValue = null;
-6. Tem de criar um token de assinatura de acesso ao software (SaS) para autenticar um pedido POST para enviar mensagens para o Notification Hub. Isto é efetuado pela análise dos dados-chave da cadeia de ligação e, em seguida, crie o token SaS, tal como mencionado na referência de APIs REST dos [Conceitos Comuns](http://msdn.microsoft.com/library/azure/dn495627.aspx). O código seguinte é uma implementação de exemplo.
-   
-    No `MainActivity.java`, adicione o método seguinte à classe `MainActivity` para analisar a cadeia de ligação.
-   
-        /**
-         * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
-         * to parse the connection string so a SaS authentication token can be
-         * constructed.
-         *
-         * @param connectionString This must be the DefaultFullSharedAccess connection
-         *                         string for this example.
-         */
-        private void ParseConnectionString(String connectionString)
-        {
-            String[] parts = connectionString.split(";");
-            if (parts.length != 3)
-                throw new RuntimeException("Error parsing connection string: "
-                        + connectionString);
-   
-            for (int i = 0; i < parts.length; i++) {
-                if (parts[i].startsWith("Endpoint")) {
-                    this.HubEndpoint = "https" + parts[i].substring(11);
-                } else if (parts[i].startsWith("SharedAccessKeyName")) {
-                    this.HubSasKeyName = parts[i].substring(20);
-                } else if (parts[i].startsWith("SharedAccessKey")) {
-                    this.HubSasKeyValue = parts[i].substring(16);
-                }
-            }
-        }
-7. No `MainActivity.java`, adicione o método seguinte à classe `MainActivity` para criar o token de autenticação SaS.
-   
-        /**
-         * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
-         * construct a SaS token from the access key to authenticate a request.
-         *
-         * @param uri The unencoded resource URI string for this operation. The resource
-         *            URI is the full URI of the Service Bus resource to which access is
-         *            claimed. For example,
-         *            "http://<namespace>.servicebus.windows.net/<hubName>"
-         */
-        private String generateSasToken(String uri) {
-   
-            String targetUri;
-            String token = null;
-            try {
-                targetUri = URLEncoder
-                        .encode(uri.toString().toLowerCase(), "UTF-8")
-                        .toLowerCase();
-   
-                long expiresOnDate = System.currentTimeMillis();
-                int expiresInMins = 60; // 1 hour
-                expiresOnDate += expiresInMins * 60 * 1000;
-                long expires = expiresOnDate / 1000;
-                String toSign = targetUri + "\n" + expires;
-   
-                // Get an hmac_sha1 key from the raw key bytes
-                byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
-                SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
-   
-                // Get an hmac_sha1 Mac instance and initialize with the signing key
-                Mac mac = Mac.getInstance("HmacSHA256");
-                mac.init(signingKey);
-   
-                // Compute the hmac on input data bytes
-                byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
-   
-                // Using android.util.Base64 for Android Studio instead of
-                // Apache commons codec
-                String signature = URLEncoder.encode(
-                        Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
-   
-                // Construct authorization string
-                token = "SharedAccessSignature sr=" + targetUri + "&sig="
-                        + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
-            } catch (Exception e) {
-                if (isVisible) {
-                    ToastNotify("Exception Generating SaS : " + e.getMessage().toString());
-                }
-            }
-   
-            return token;
-        }
-8. No `MainActivity.java`, adicione o método seguinte à classe `MainActivity` para premir o botão **Enviar notificação**. Clique e envie a mensagem de notificação push ao hub, utilizando a API REST incorporada.
-   
-        /**
-         * Send Notification button click handler. This method parses the
-         * DefaultFullSharedAccess connection string and generates a SaS token. The
-         * token is added to the Authorization header on the POST request to the
-         * notification hub. The text in the editTextNotificationMessage control
-         * is added as the JSON body for the request to add a GCM message to the hub.
-         *
-         * @param v
-         */
-        public void sendNotificationButtonOnClick(View v) {
-            EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
-            final String json = "{\"data\":{\"message\":\"" + notificationText.getText().toString() + "\"}}";
-   
-            new Thread()
-            {
-                public void run()
-                {
-                    try
-                    {
-                        // Based on reference documentation...
-                        // http://msdn.microsoft.com/library/azure/dn223273.aspx
-                        ParseConnectionString(NotificationSettings.HubFullAccess);
-                        URL url = new URL(HubEndpoint + NotificationSettings.HubName +
-                                "/messages/?api-version=2015-01");
-   
-                        HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
-   
-                        try {
-                            // POST request
-                            urlConnection.setDoOutput(true);
-   
-                            // Authenticate the POST request with the SaS token
-                            urlConnection.setRequestProperty("Authorization", 
-                                generateSasToken(url.toString()));
-   
-                            // Notification format should be GCM
-                            urlConnection.setRequestProperty("ServiceBusNotification-Format", "gcm");
-   
-                            // Include any tags
-                            // Example below targets 3 specific tags
-                            // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
-                            // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
-                            //        "tag1 || tag2 || tag3");
-   
-                            // Send notification message
-                            urlConnection.setFixedLengthStreamingMode(json.length());
-                            OutputStream bodyStream = new BufferedOutputStream(urlConnection.getOutputStream());
-                            bodyStream.write(json.getBytes());
-                            bodyStream.close();
-   
-                            // Get reponse
-                            urlConnection.connect();
-                            int responseCode = urlConnection.getResponseCode();
-                            if ((responseCode != 200) && (responseCode != 201)) {
-                                BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getErrorStream())));
-                                String line;
-                                StringBuilder builder = new StringBuilder("Send Notification returned " +
-                                        responseCode + " : ")  ;
-                                while ((line = br.readLine()) != null) {
-                                    builder.append(line);
-                                }
-   
-                                ToastNotify(builder.toString());
-                            }
-                        } finally {
-                            urlConnection.disconnect();
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        if (isVisible) {
-                            ToastNotify("Exception Sending Notification : " + e.getMessage().toString());
-                        }
-                    }
-                }
-            }.start();
-        }
-
 ## <a name="testing-your-app"></a>Testar a aplicação
-#### <a name="push-notifications-in-the-emulator"></a>Notificações push no emulador
-Se pretender testar as notificações push no interior de um emulador, certifique-se de que a imagem do emulador suporta o nível da API da Google que escolheu para a sua aplicação. Se a imagem não suportar as APIs nativas da Google, irá surgir a exceção **SERVIÇO\_NÃO\_DISPONÍVEL**.
-
-Para além do que foi mencionado em cima, certifique-se de que adicionou a sua conta da Google ao emulador em execução em **Definições** > **das contas**. Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
-
-#### <a name="running-the-application"></a>Executar a aplicação
+### <a name="run-the-mobile-application"></a>Executar a aplicação móvel
 1. Execute a aplicação e repare que a ID de registo é comunicada para um registo de sucesso.
    
       ![Teste no Android - registo de canal][18]
@@ -624,16 +441,262 @@ Para além do que foi mencionado em cima, certifique-se de que adicionou a sua c
    
       ![Teste no Android - enviar uma mensagem][19]
 
-3. Prima **Enviar notificação**. Todos os dispositivos que estejam a executar a aplicação mostram uma `AlertDialog` instância com a mensagem de notificação push. Dispositivos que não estejam a executar a aplicação, mas foram anteriormente registados para as notificações push, irão receber uma notificação no gestor de notificações do Android. Estas serão visualizadas ao percorrer para baixo a partir do canto superior esquerdo.
+3. Prima **Enviar notificação**. Todos os dispositivos que estejam a executar a aplicação mostram uma `AlertDialog` instância com a mensagem de notificação push. Dispositivos que não estejam a executar a aplicação, mas foram anteriormente registados para as notificações push, recebem uma notificação no gestor de notificações do Android. As mensagens de notificações podem ser visualizadas ao percorrer para baixo a partir do canto superior esquerdo.
    
       ![Teste no Android - notificações][21]
 
+### <a name="test-send-push-notifications-from-the-azure-portal"></a>Testar o envio de notificações push a partir do portal do Azure
+Pode testar a receção das notificações push na aplicação ao enviar notificações através do [portal do Azure]. 
+
+1. Na secção **Resolução de Problemas**, selecione **Testar Envio**. 
+2. Em **Plataformas**, selecione **Android**.
+3. Selecione **Enviar** para enviar a notificação de teste. 
+4. Confirme que vê a mensagem de notificação no dispositivo Android. 
+
+    ![Notification Hubs do Azure – Teste de Envio](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
+
+[!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
+
+#### <a name="push-notifications-in-the-emulator"></a>Notificações push no emulador
+Se pretender testar as notificações push no interior de um emulador, certifique-se de que a imagem do emulador suporta o nível da API da Google que escolheu para a sua aplicação. Se a imagem não suportar as APIs nativas da Google, termina com a exceção **SERVIÇO\_NÃO\_DISPONÍVEL**.
+
+Além disso, confirme que adicionou a sua conta Google ao emulador em execução em **Definições** > **Contas**. Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
+
+
+## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcional) Enviar notificações push diretamente a partir da aplicação
+Normalmente, enviaria notificações através de um servidor de backend. Em alguns casos, poderia querer enviar notificações push diretamente a partir da aplicação de cliente. Esta secção explica como enviar notificações do cliente utilizando a [API REST do Notification Hub do Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+
+1. Na vista de projeto do Android Studio, expanda **App** > **src** > **main** > **res** > **esquema**. Abra o `activity_main.xml` ficheiro de esquema e clique no separador **Texto** para atualizar o conteúdo de texto do ficheiro. Atualize-o com o código abaixo, que adiciona novos `Button` e comandos `EditText` para o envio de mensagens de notificação push para o Notification Hub. Adicione este código na parte inferior, imediatamente antes de `</RelativeLayout>`.
+   
+    ```xml
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/send_button"
+    android:id="@+id/sendbutton"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:onClick="sendNotificationButtonOnClick" />
+
+    <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/editTextNotificationMessage"
+    android:layout_above="@+id/sendbutton"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="42dp"
+    android:hint="@string/notification_message_hint" />
+    ```
+2. Na vista de projeto do Android Studio, expanda **App** > **src** > **main** > **res** > **valores**. Abra o ficheiro `strings.xml` e adicione os valores de cadeia que são referenciados pelo novo `Button` e pelos comandos `EditText`. Adicione as seguintes linhas na parte inferior do ficheiro, imediatamente antes de `</resources>`.
+
+    ```xml   
+    <string name="send_button">Send Notification</string>
+    <string name="notification_message_hint">Enter notification message text</string>
+    ```
+3. No seu ficheiro `NotificationSetting.java`, adicione a seguinte definição à classe `NotificationSettings`.
+   
+    Atualize `HubFullAccess` com a cadeia de ligação **DefaultFullSharedAccessSignature** para o seu hub. Esta cadeia de ligação pode ser copiada do [portal do Azure] ao clicar em **Políticas de Acesso** na página **Definições** do hub de notificação.
+   
+    ```java
+    public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
+    ```
+4. No ficheiro `MainActivity.java`, adicione as declarações `import` seguintes no início do ficheiro.
+   
+    ```java
+    import java.io.BufferedOutputStream;
+    import java.io.BufferedReader;
+    import java.io.InputStreamReader;
+    import java.io.OutputStream;
+    import java.net.HttpURLConnection;
+    import java.net.URL;
+    import java.net.URLEncoder;
+    import javax.crypto.Mac;
+    import javax.crypto.spec.SecretKeySpec;
+    import android.util.Base64;
+    import android.view.View;
+    import android.widget.EditText;
+    ```
+5. No seu ficheiro `MainActivity.java`, adicione as seguintes declarações acima da classe `MainActivity`.    
+   
+    ```java
+    private String HubEndpoint = null;
+    private String HubSasKeyName = null;
+    private String HubSasKeyValue = null;
+    ```
+6. Crie um token de Assinatura de Acesso ao Software (SaS) para autenticar um pedido POST para enviar mensagens para o hub de notificação. Analise os dados-chave da cadeia de ligação e, em seguida, crie o token SaS, tal como mencionado na referência da API REST dos [Conceitos Comuns](http://msdn.microsoft.com/library/azure/dn495627.aspx). O código seguinte é uma implementação de exemplo.
+   
+    No `MainActivity.java`, adicione o método seguinte à classe `MainActivity` para analisar a cadeia de ligação.
+   
+    ```java
+    /**
+        * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
+        * to parse the connection string so a SaS authentication token can be
+        * constructed.
+        *
+        * @param connectionString This must be the DefaultFullSharedAccess connection
+        *                         string for this example.
+        */
+    private void ParseConnectionString(String connectionString)
+    {
+        String[] parts = connectionString.split(";");
+        if (parts.length != 3)
+            throw new RuntimeException("Error parsing connection string: "
+                    + connectionString);
+
+        for (int i = 0; i < parts.length; i++) {
+            if (parts[i].startsWith("Endpoint")) {
+                this.HubEndpoint = "https" + parts[i].substring(11);
+            } else if (parts[i].startsWith("SharedAccessKeyName")) {
+                this.HubSasKeyName = parts[i].substring(20);
+            } else if (parts[i].startsWith("SharedAccessKey")) {
+                this.HubSasKeyValue = parts[i].substring(16);
+            }
+        }
+    }
+    ```
+7. No `MainActivity.java`, adicione o método seguinte à classe `MainActivity` para criar o token de autenticação SaS.
+   
+    ```java
+    /**
+        * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
+        * construct a SaS token from the access key to authenticate a request.
+        *
+        * @param uri The unencoded resource URI string for this operation. The resource
+        *            URI is the full URI of the Service Bus resource to which access is
+        *            claimed. For example,
+        *            "http://<namespace>.servicebus.windows.net/<hubName>"
+        */
+    private String generateSasToken(String uri) {
+
+        String targetUri;
+        String token = null;
+        try {
+            targetUri = URLEncoder
+                    .encode(uri.toString().toLowerCase(), "UTF-8")
+                    .toLowerCase();
+
+            long expiresOnDate = System.currentTimeMillis();
+            int expiresInMins = 60; // 1 hour
+            expiresOnDate += expiresInMins * 60 * 1000;
+            long expires = expiresOnDate / 1000;
+            String toSign = targetUri + "\n" + expires;
+
+            // Get an hmac_sha1 key from the raw key bytes
+            byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
+            SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
+
+            // Get an hmac_sha1 Mac instance and initialize with the signing key
+            Mac mac = Mac.getInstance("HmacSHA256");
+            mac.init(signingKey);
+
+            // Compute the hmac on input data bytes
+            byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
+
+            // Using android.util.Base64 for Android Studio instead of
+            // Apache commons codec
+            String signature = URLEncoder.encode(
+                    Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
+
+            // Construct authorization string
+            token = "SharedAccessSignature sr=" + targetUri + "&sig="
+                    + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
+        } catch (Exception e) {
+            if (isVisible) {
+                ToastNotify("Exception Generating SaS : " + e.getMessage().toString());
+            }
+        }
+
+        return token;
+    }
+    ```
+8. No `MainActivity.java`, adicione o método seguinte à classe `MainActivity` para premir o botão **Enviar notificação**. Clique e envie a mensagem de notificação push ao hub, utilizando a API REST incorporada.
+   
+    ```java
+    /**
+        * Send Notification button click handler. This method parses the
+        * DefaultFullSharedAccess connection string and generates a SaS token. The
+        * token is added to the Authorization header on the POST request to the
+        * notification hub. The text in the editTextNotificationMessage control
+        * is added as the JSON body for the request to add a GCM message to the hub.
+        *
+        * @param v
+        */
+    public void sendNotificationButtonOnClick(View v) {
+        EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
+        final String json = "{\"data\":{\"message\":\"" + notificationText.getText().toString() + "\"}}";
+
+        new Thread()
+        {
+            public void run()
+            {
+                try
+                {
+                    // Based on reference documentation...
+                    // http://msdn.microsoft.com/library/azure/dn223273.aspx
+                    ParseConnectionString(NotificationSettings.HubFullAccess);
+                    URL url = new URL(HubEndpoint + NotificationSettings.HubName +
+                            "/messages/?api-version=2015-01");
+
+                    HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
+
+                    try {
+                        // POST request
+                        urlConnection.setDoOutput(true);
+
+                        // Authenticate the POST request with the SaS token
+                        urlConnection.setRequestProperty("Authorization", 
+                            generateSasToken(url.toString()));
+
+                        // Notification format should be GCM
+                        urlConnection.setRequestProperty("ServiceBusNotification-Format", "gcm");
+
+                        // Include any tags
+                        // Example below targets 3 specific tags
+                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
+                        //        "tag1 || tag2 || tag3");
+
+                        // Send notification message
+                        urlConnection.setFixedLengthStreamingMode(json.length());
+                        OutputStream bodyStream = new BufferedOutputStream(urlConnection.getOutputStream());
+                        bodyStream.write(json.getBytes());
+                        bodyStream.close();
+
+                        // Get reponse
+                        urlConnection.connect();
+                        int responseCode = urlConnection.getResponseCode();
+                        if ((responseCode != 200) && (responseCode != 201)) {
+                            BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getErrorStream())));
+                            String line;
+                            StringBuilder builder = new StringBuilder("Send Notification returned " +
+                                    responseCode + " : ")  ;
+                            while ((line = br.readLine()) != null) {
+                                builder.append(line);
+                            }
+
+                            ToastNotify(builder.toString());
+                        }
+                    } finally {
+                        urlConnection.disconnect();
+                    }
+                }
+                catch(Exception e)
+                {
+                    if (isVisible) {
+                        ToastNotify("Exception Sending Notification : " + e.getMessage().toString());
+                    }
+                }
+            }
+        }.start();
+    }
+    ```
+
 ## <a name="next-steps"></a>Passos seguintes
-Recomendamos o tutorial [Utilizar Notification Hubs para notificações push a utilizadores] como o passo seguinte. Esta operação irá mostrar como enviar notificações de um back-end ASP.NET, utilizando as etiquetas para utilizadores específicos de destino.
+Neste tutorial, enviou notificações de difusão para todos os dispositivos Android registados no back-end. Para saber como enviar notificações push para dispositivos Android específicos, avance para o tutorial seguinte:  
 
-Se pretende segmentar os seus utilizadores por grupos de interesse, pode ler o tutorial [Utilizar Notification Hubs para enviar notícias de última hora].
+ > [!div class="nextstepaction"] 
+ > [Enviar notificações push para dispositivos específicos](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 
 
-Para obter informações mais gerais sobre os Notification Hubs, consulte as nossas [Documentação de Orientação dos Notification Hubs].
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
@@ -664,7 +727,7 @@ Para obter informações mais gerais sobre os Notification Hubs, consulte as nos
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Documentação de Orientação dos Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Utilizar Notification Hubs para notificações push a utilizadores]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Utilizar Notification Hubs para enviar notícias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Portal do Azure]: https://portal.azure.com
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[portal do Azure]: https://portal.azure.com

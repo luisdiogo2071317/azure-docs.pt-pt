@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dc820a95a9ccd0feb8b67c898ecfa8ce9826838a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Como Proxy de aplicações do Azure AD fornece o início de sessão único?
 
@@ -54,7 +54,7 @@ Esta opção é uma boa opção se a sua aplicação no local não requer que os
 
 Se pretender utilizar o Azure Active Directory como um cofre de palavra-passe para as suas aplicações no local, escolha **baseada em palavra-passe de início de sessão**. Esta opção é uma boa opção se a aplicação se autentica com uma combinação de nome de utilizador/palavra-passe em vez de tokens de acesso ou nos cabeçalhos. Com baseado em palavra-passe de início de sessão, os utilizadores tem de iniciar sessão para o tempo de aplicação primeiro acederem ao mesmo. Depois disso, o Azure Active Directory fornece o nome de utilizador e palavra-passe em nome do utilizador. 
 
-Para obter informações sobre a configuração baseada em palavra-passe de início de sessão, consulte [vaulting para início de sessão com o Proxy da aplicação de palavra-passe](../application-proxy-sso-azure-portal.md).
+Para obter informações sobre a configuração baseada em palavra-passe de início de sessão, consulte [vaulting para início de sessão com o Proxy da aplicação de palavra-passe](application-proxy-configure-single-sign-on-password-vaulting.md).
 
 ## <a name="linked-sign-on"></a>O início de sessão ligado
 
@@ -72,10 +72,10 @@ Para obter informações sobre como configurar a autenticação integrada do Win
 
 Se as suas aplicações utilizam cabeçalhos para autenticação, escolha **com base no cabeçalho de início de sessão**. Com esta opção, os utilizadores só precisam para autenticação o Azure Active Directory. Parceiros da Microsoft com um serviço de autenticação de terceiros chamado PingAccess, o qual o token de acesso do Azure Active Directory convertido de um cabeçalho de formato para a aplicação. 
 
-Para obter informações sobre como configurar a autenticação baseada no cabeçalho, consulte [autenticação baseada no cabeçalho para início de sessão com o Proxy da aplicação](../application-proxy-ping-access.md).
+Para obter informações sobre como configurar a autenticação baseada no cabeçalho, consulte [autenticação baseada no cabeçalho para início de sessão com o Proxy da aplicação](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Palavra-passe vaulting para início de sessão com o Proxy da aplicação](../application-proxy-sso-azure-portal.md)
+- [Palavra-passe vaulting para início de sessão com o Proxy da aplicação](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Delegação restrita de Kerberos para o início de sessão único com o Proxy da aplicação](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Autenticação baseada no cabeçalho para início de sessão com o Proxy da aplicação](../application-proxy-ping-access.md) 
+- [Autenticação baseada no cabeçalho para início de sessão com o Proxy da aplicação](application-proxy-configure-single-sign-on-with-ping-access.md) 

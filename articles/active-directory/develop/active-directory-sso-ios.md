@@ -2,22 +2,24 @@
 title: Como ativar a SSO em várias aplicações no iOS com o ADAL | Microsoft Docs
 description: 'Como utilizar as funcionalidades do SDK da ADAL para permitir início de sessão único em aplicações. '
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c477e7e6fb9ef9a93ceab53c1427b974bab99b37
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b0179e217a23d612ddcdc219f589a5d1fbca644e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como ativar a SSO em várias aplicações no iOS utilizam a ADAL
 Fornecer único Sign-On (SSO) para que os utilizadores só têm de introduzir as respetivas credenciais de uma vez e ter essas credenciais automaticamente funciona entre aplicações agora é esperado pelos clientes. Dificuldade em introduzindo o nome de utilizador e palavra-passe um ecrã pequeno, muitas vezes, vezes combinados com um fator adicional (2FA) como uma chamada telefónica ou um código diante, resulta em insatisfação rápida se um utilizador tem de fazer mais do que uma vez para o produto.
@@ -84,7 +86,7 @@ Eis uma representação de como os SDKs de identidade da Microsoft trabalham com
 Inícios de sessão assistida mediador são experiências de início de sessão que ocorrem dentro da aplicação de Mediador e utilizam o armazenamento e a segurança do Mediador para partilhar as credenciais em todas as aplicações no dispositivo que se aplicam a plataforma do Microsoft Identity. Isto significa que as aplicações que dependem broker para os utilizadores iniciar sessão. Em dispositivos iOS e Android estes mediadores são fornecidos através de aplicações transferíveis que clientes instalar de forma independente ou podem ser enviados para o dispositivo por uma empresa que gere o dispositivo para os seus utilizadores. Um exemplo deste tipo de aplicação é a aplicação Microsoft Authenticator em dispositivos iOS. No Windows, esta funcionalidade é fornecida por um selecionador de conta incorporada para o sistema operativo, conhecido tecnicamente como o Mediador de autenticação Web.
 A experiência varia consoante a plataforma e, por vezes, pode ser incómoda aos utilizadores se não for gerida corretamente. Familiarizado provavelmente mais com este padrão se tiver instalada a aplicação do Facebook e utilizar o Facebook ligar a partir de outra aplicação. A plataforma do Microsoft Identity utiliza o mesmo padrão.
 
-Para iOS, que isto leva a uma "transição" animação onde a aplicação é enviada para a imagem de fundo enquanto as aplicações do Microsoft Authenticator vem para primeiro plano para o utilizador selecionar a conta que pretende iniciar sessão.  
+Para iOS, que isto leva a uma "transição" animação onde a aplicação é enviada para a imagem de fundo enquanto as aplicações do Microsoft Authenticator vem para primeiro plano para o utilizador selecionar a conta que pretende iniciar sessão. 
 
 Para Android e Windows selecionador de conta é apresentada em cima da sua aplicação que é inferior acontece ao utilizador.
 

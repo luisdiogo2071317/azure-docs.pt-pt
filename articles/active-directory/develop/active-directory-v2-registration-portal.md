@@ -3,23 +3,25 @@ title: Tópicos de ajuda de Portal de registo de aplicação | Microsoft Docs
 description: Uma descrição das várias funcionalidades no portal de registo de aplicações da Microsoft.
 services: active-directory
 documentationcenter: ''
-author: lnalepa
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: lenalepa
+ms.author: celested
+ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: dc915facfcd62aaa05c403895631614e1a3381b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 Este documento fornece contexto e descrições de diversas funcionalidades encontradas no Portal de registo de aplicações do Microsoft [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

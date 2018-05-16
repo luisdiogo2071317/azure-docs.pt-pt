@@ -11,14 +11,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 58ecf22fa0f9349a767455fe3ab08fca058d02da
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b4c1e3fb919ab9ad88a15b51a5e204290a7a12cf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="phoenix-performance-best-practices"></a>Melhores práticas de desempenho do Phoenix
 
@@ -36,21 +36,21 @@ A chave primária definida numa tabela na Phoenix determina a forma como os dado
 
 Por exemplo, uma tabela de contactos tem o nome próprio, nome de último, número de telefone e endereço, todos na mesma família de coluna. Pode definir uma chave primária com base num crescente número de sequência:
 
-|rowkey|       Endereço|   Telefone| firstName| Apelido|
+|rowkey|       Endereço|   telefone| firstName| Apelido|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    João|Dinis|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 No entanto, se a consulta frequentemente por lastName esta chave primária pode não efetuar, porque cada consulta requer uma análise completa de tabela para ler o valor de cada lastName. Em vez disso, pode definir uma chave primária no número de segurança social colunas, firstName e lastName. Esta última coluna é para eliminar a ambiguidade residentes duas na no mesmo endereço com o mesmo nome, tal como um pai e filho.
 
-|rowkey|       Endereço|   Telefone| firstName| Apelido| socialSecurityNum |
+|rowkey|       Endereço|   telefone| firstName| Apelido| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    João|Dinis| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Chaves geradas pelo Phoenix seria com esta nova a linha de chave primária:
 
-|rowkey|       Endereço|   Telefone| firstName| Apelido| socialSecurityNum |
+|rowkey|       Endereço|   telefone| firstName| Apelido| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    João|Dinis| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -60,7 +60,7 @@ Na primeira linha acima, os dados para o rowkey são representados conforme most
 |rowkey|       key|   valor| 
 |------|--------------------|---|
 |  Dole-John-111|Endereço |1111 San Gabriel Dr.|  
-|  Dole-John-111|Telefone |1-425-000-0002|  
+|  Dole-John-111|telefone |1-425-000-0002|  
 |  Dole-John-111|firstName |João|  
 |  Dole-John-111|Apelido |Dinis|  
 |  Dole-John-111|socialSecurityNum |111| 
@@ -118,7 +118,7 @@ Ao conceber a sua índices:
 
 Por exemplo, no exemplo contacte pode criar um índice secundário apenas a coluna de socialSecurityNum de tabela. Este índice secundário seria acelerar consultas Filtrar por valores socialSecurityNum, mas a obter outros valores de campo será necessária outra ler contra a tabela principal.
 
-|rowkey|       Endereço|   Telefone| firstName| Apelido| socialSecurityNum |
+|rowkey|       Endereço|   telefone| firstName| Apelido| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    João|Dinis| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |

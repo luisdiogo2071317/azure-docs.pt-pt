@@ -1,12 +1,12 @@
 ---
-title: "Instruções sobre a solução pré-configurada de Monitorização Remota | Microsoft Docs"
-description: "Uma descrição sobre a solução pré-configurada de monitorização remota e respetiva arquitetura do Azure IoT."
-services: 
+title: Instruções sobre a solução pré-configurada de Monitorização Remota | Microsoft Docs
+description: Uma descrição sobre a solução pré-configurada de monitorização remota e respetiva arquitetura do Azure IoT.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Instruções sobre a solução pré-configurada de monitorização remota
 
@@ -35,7 +35,17 @@ Este artigo acompanha-o através de alguns dos elementos-chave da solução de m
 
 O diagrama que se segue descreve os componentes lógicos da solução pré-configurada:
 
-![Arquitetura lógica](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Microsserviços e Contentores do Docker
+A Monitorização Remota é a primeira das nossas soluções pré-configuradas para tirar partido de uma arquitetura de microsserviços. A solução está disponível em [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) e [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Os microsserviços têm emergido como um padrão prevalente para alcançar dimensionamento e flexibilidade (ao permitir que os contentores sejam dimensionados individualmente), sem comprometer a velocidade de desenvolvimento.
+Os microsserviços fragmentam o código e fornecem interfaces bem definidas que tornam a solução mais fácil de compreender e menos monolítica. Expande também as opções para os parceiros que querem expandir os nossos aceleradores de soluções atuais para criar soluções finalizadas que podem ser rentabilizadas.
+
+**Saiba mais sobre Contentores do Docker**
+* [Instalar o Docker](https://docs.docker.com/engine/installation/)
+* [Comandos do Docker Comuns para Monitorização Remota](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Introdução ao Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 

@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: Configurar o PowerShell - Operador da cloud
               href: azure-stack-powershell-configure-admin.md
-            - name: Ficar operacional com o PowerShell
-              href: azure-stack-powershell-configure-quickstart.md
         - name: Acesso ao ponto final privilegiado
           href: azure-stack-privileged-endpoint.md
         - name: Gerir atualizações

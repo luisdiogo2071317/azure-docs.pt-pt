@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -34,6 +34,63 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+4/5/2018: lançado para atualização automática, estará disponível para transferência em breve.
+
+
+
+### <a name="new-features-and-improvements"></a>Funcionalidades novas e melhoradas
+
+Funcionalidades novas e melhoradas
+
+
+- Esta versão inclui a pré-visualização pública da integração de PingFederate no Azure AD Connect. Com esta versão os clientes podem facilmente e fiável configurar o seu ambiente do Azure Active Directory para tirar partido PingFederate como o seu fornecedor de Federação. Para obter mais informações sobre como utilizar esta nova funcionalidade, visite o nosso [documentação online](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- Atualizámos do Azure AD Connect Assistente de resolução de problemas utilitário, onde, vamos analisar agora mais cenário de erro, tais como as caixas de correio ligada e grupos dinâmicos do AD. Saiba mais sobre o utilitário de resolução de problemas [aqui](active-directory-aadconnect-troubleshoot-objectsync.md).
+- Configuração de repetição de escrita do dispositivo é agora gerida apenas no Azure AD Connect Assistente para.
+- Um novo módulo do PowerShell chamado ADSyncTools.psm1 é adicionado que pode ser utilizado para resolver problemas de conectividade do SQL Server e várias outros utilitários de resolução de problemas. Saiba mais sobre o módulo de ADSyncTools [aqui](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- Foi adicionada uma nova tarefa adicional "Configurar opções de dispositivo". Pode utilizar a tarefa para configurar as seguintes duas operações: 
+    -   **A associação do Azure AD híbrido**: se no local para o seu ambiente tem requisitos de espaço do AD e também queira benefício as capacidades fornecidas pelo Azure Active Directory, pode implementar híbrida do Azure AD associado dispositivos. Estes são os dispositivos que estejam ambos, associado ao seu no local do Active Directory e o Azure Active Directory.
+    -   **Repetição de escrita do dispositivo**: repetição de escrita do dispositivo é utilizada para ativar o acesso condicional com base nos dispositivos para o AD FS (2012 R2 ou superior) protegido dispositivos
+
+   >[!NOTE] 
+   > - A opção para ativar a repetição de escrita do dispositivo a partir de personalizar as opções de sincronização estarão esbatida. 
+   > -  O módulo do PowerShell para o ADPrep foi preterido com esta versão.
+
+
+
+### <a name="fixed-issues"></a>Problemas fixos 
+
+
+- Processamento da regra de sincronização: regras de sincronização de associação de saída com nenhuma condição de associação devem ser aplicadas anular se syncrule o principal já não é aplicável
+- Assistente do Azure AD Connect: Erro ao criar a conta do conector AD quando do Azure AD Connect está num grupo de trabalho
+- Assistente do Azure AD Connect: Sobre o Azure AD-página sessão apresentar a caixa de verificação de verificação sempre que não há qualquer erro de correspondência nos domínios de AD e do Azure AD Verified domínios
+- Correção do PowerShell de atualização automática para definir o estado de atualização automática corretamente em certos casos após a atualização automática foi efetuada uma tentativa.
+- Assistente do Azure AD Connect: Atualizar telemetria para capturar as informações anteriormente em falta
+- Assistente do Azure AD Connect: PTA instalar o agente antes de converter um domínio gerido
+- Assistente do Azure AD Connect: Não são convertidos utilizadores geridas (converter apenas domínio) para PTA
+- Assistente do Azure AD Connect: Regex de domínio do AD FS várias não está correto quando o utilizador UPN tem ' atualização de Regex caráter especial para suportar os carateres especiais
+- Assistente do Azure AD Connect: Remover a mensagem de "Atributo de âncora de origem de configuração" spurious quando nenhuma alteração 
+- Assistente do Azure AD Connect: Suporte para AD FS para o cenário de Federação dupla
+- Assistente do Azure AD Connect: Afirmações do AD FS não são atualizadas para o domínio adicionado ao converter um domínio gerido federado
+- Assistente do Azure AD Connect: Durante a deteção de pacotes instalados, encontrámos obsoleto Dirsync/Azure AD Sync/do Azure AD Connect produtos relacionados. Vamos agora tentar desinstalar os produtos obsoletos.
+- Assistente do Azure AD Connect: Correto erro mensagem mapeamento quando ocorre uma falha de instalação do agente de autenticação pass-through
+- Assistente do Azure AD Connect: Remover o contentor "Configuration" da página de filtragem de UO do domínio
+- Instalar o motor de sincronização: Remover desnecessária lógica legada que ocasionalmente falha msi de instalação do motor de sincronização
+- Assistente do Azure AD Connect: Corrija o texto de ajuda de pop-up na página de funcionalidades opcionais para sincronização de Hash de palavra-passe
+- Tempo de execução do motor de sincronização: corrija o cenário onde um objeto de CS tem um eliminar importado e regras de sincronização de tentar aprovisionar novamente o objeto.
+- Tempo de execução do motor de sincronização: adicionar ajuda ligação conectividade Online Guia para o registo de eventos de resolução de problemas do erro de importação
+- Tempo de execução do motor de sincronização: reduzido a utilização de memória do agendador de sincronização ao enumerar os conectores
+- Assistente do Azure AD Connect: Corrigir um problema resolver uma conta de serviço de sincronização personalizados que não tem nenhum privilégios de leitura do AD
+- Assistente do Azure AD Connect: Melhorar o registo de domínio e a UO seleções de filtragem
+- Assistente do Azure AD Connect: Adicionar do AD FS predefinido afirmações de confiança de Federação criada para o cenário MFA
+- Assistente do Azure AD Connect: AD FS implementar WAP: adicionar o servidor não consegue utilizar o novo certificado
+- Assistente do Azure AD Connect: Exceção de DSSO quando não estão inicializados onPremCredentials para um domínio 
+- Fluxo preferentially o atributo de distinguishedName AD do objeto de utilizador do Active Directory.
+- Corrigido um erro cosmético onde a precedência da regra de sincronização de OOB primeiro foi definida como 99 em vez de 100
+
+
 
 ## <a name="117510"></a>1.1.751.0
 Estado 4/12/2018: disponibilizadas para transferência apenas
@@ -161,9 +218,9 @@ Permitir    | Administradores                | Controlo Total         | Este obj
 Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
 Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
-Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
-Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Utilizadores autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Listar conteúdo        | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Ler todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as definições para o AD DS de conta, pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 

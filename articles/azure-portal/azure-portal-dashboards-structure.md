@@ -2,22 +2,22 @@
 title: A estrutura dos Dashboards do Azure | Microsoft Docs
 description: Este artigo explica a estrutura JSON de um Dashboard do Azure
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: fa50b31a0c8e9077658106039c4fbd2eef8b4367
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento explica a estrutura de um dashboard do Azure, utilizando o dashboard seguinte como exemplo:
@@ -335,10 +335,10 @@ O __posição__ propriedade contém as informações de tamanho e localização 
 Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __tipo__. Esta cadeia informa o portal que mosaico para mostrar. A nossa dashboard de exemplo utiliza estes tipos de mosaicos:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`– Utilizada para mostrar as métricas de monitorização
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`– Utilizada para mostrar com texto ou as imagens com formatação básico de listas, ligações, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– Utilizada para mostrar os vídeos do YouTube, Channel9 e qualquer outro tipo de vídeo que funciona de uma tag de vídeo de html.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Utilizada para mostrar o nome e o estado de uma máquina virtual do Azure.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Utilizada para mostrar as métricas de monitorização
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Utilizada para mostrar com texto ou as imagens com formatação básico de listas, ligações, etc.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Utilizada para mostrar os vídeos do YouTube, Channel9 e qualquer outro tipo de vídeo que funciona de uma tag de vídeo de html.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Utilizada para mostrar o nome e o estado de uma máquina virtual do Azure.
 
 Cada tipo de parte tem a respetiva configuração. As propriedades de configuração possíveis são denominadas __entradas__, __definições__, e __asset__. 
 

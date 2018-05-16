@@ -1,52 +1,69 @@
 ---
 title: Gerir discos VM na pilha do Azure | Microsoft Docs
-description: "Aprovisionar discos para máquinas virtuais para a pilha do Azure."
+description: Aprovisionar discos para máquinas virtuais na pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Armazenamento de disco da máquina virtual para a pilha do Azure
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Aprovisionar o armazenamento de disco de máquina virtual na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Pilha do Azure suporta a utilização de [não gerido discos](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) numa máquina Virtual como um disco de sistema operativo (SO) e um disco de dados. Para utilizar discos não geridos, crie um [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) e, em seguida, armazenar os discos que os blobs de página nos contentores na conta de armazenamento. Estes discos, em seguida, são referidos como discos VM.
+Este artigo descreve como aprovisionar o armazenamento de disco da máquina virtual utilizando o portal do Azure pilha ou utilizando o PowerShell.
 
-Para melhorar o desempenho e reduzir o custo de gestão do sistema de pilha do Azure, recomendamos que coloque cada disco da VM num contentor separado. Um contentor deve conter um disco de SO ou um disco de dados, mas não ambos simultaneamente. No entanto, não há nenhuma restrição para o que impede a colocar ambos no mesmo contentor.
+## <a name="overview"></a>Descrição geral
 
-Se adicionar um ou mais discos de dados para uma VM, planeie utilizar contentores adicionais como uma localização para armazenar os discos. Como discos de dados, o disco de SO para VMs adicionais também deve ter os seus próprios contentores separados.
+Pilha do Azure suporta a utilização de [não gerido discos](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) em máquinas virtuais, como um sistema operativo (SO) e um disco de dados.
 
-Quando cria várias VMs, pode reutilizar a mesma conta de armazenamento para cada nova VM. Apenas os contentores que cria devem ser exclusivos.  
+Para utilizar discos não geridos, crie um [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para armazenar os discos. Os discos que cria são referidos como discos VM e são armazenados nos contentores na conta de armazenamento.
 
-Para adicionar discos para uma VM, utilize o portal de utilizador ou o PowerShell.
+### <a name="best-practice-guidelines"></a>Diretrizes de prática melhores
+
+Para melhorar o desempenho e reduzir os custos gerais, recomendamos que coloque cada disco da VM num contentor separado. Um contentor deve conter um disco de SO ou um disco de dados, mas não ambos simultaneamente. (No entanto, não há nada a impedir a colocação de ambos os tipos de disco no mesmo contentor.)
+
+Se adicionar um ou mais discos de dados para uma VM, utilize contentores adicionais como uma localização para armazenar estes discos. O disco de SO para VMs adicionais também deve estar no seus próprio contentores.
+
+Quando cria várias VMs, pode reutilizar a mesma conta de armazenamento para cada máquina virtual nova. Apenas os contentores que cria devem ser exclusivos.
+
+### <a name="adding-new-disks"></a>Adição de novos discos
+
+A tabela seguinte resume como adicionar discos ao utilizar o portal e através do PowerShell.
 
 | Método | Opções
 |-|-|
-|[Portal de utilizador](#use-the-portal-to-add-additional-disks-to-a-vm)|-Adicione novos discos de dados para uma VM que foi aprovisionada anteriormente. Novos discos são criados pela pilha de Azure. </br> </br>-Adicione um ficheiro. vhd existente como um disco a uma VM que foi aprovisionada anteriormente. Para fazê-lo primeiro tem de preparar e carregar o ficheiro. vhd para a pilha do Azure. |
+|[Portal de utilizador](#use-the-portal-to-add-additional-disks-to-a-vm)|-Adicione novos discos de dados para uma VM existente. Novos discos são criados pela pilha de Azure. </br> </br>-Adicione um ficheiro de disco (. vhd) existente para uma VM aprovisionada anteriormente. Para tal, tem de preparar o. vhd e, em seguida, carregue o ficheiro com a pilha do Azure. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Criar uma nova VM com um disco de SO e, ao mesmo tempo, adicione um ou mais discos de dados para essa VM. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Utilizar o portal de adicionar discos para uma VM
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Utilizar o portal para adicionar mais discos para uma VM
-Por predefinição, quando utilizar o portal para criar uma VM para a maioria dos itens do marketplace, é criado um disco de SO. Discos criados pelo Azure são denominados discos geridos.
+Por predefinição, quando utilizar o portal para criar uma VM para a maioria dos itens do marketplace, apenas o disco do SO é criado.
 
-Depois de aprovisionar uma VM, pode utilizar o portal para adicionar um novo disco de dados ou um disco de dados existente para essa VM. Cada disco adicional deve ser colocado num contentor separado. Os discos que adicionar a uma VM são denominados discos não geridos.
+Depois de criar uma VM, pode utilizar o portal para:
+* Criar um novo disco de dados e ligue-a da VM.
+* Carregar um disco de dados existente e ligue-a da VM.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>Utilizar o portal para anexar um disco de dados de novo a uma VM
+Cada disco não gerido que adicionar deve ser colocado num contentor separado.
+
+>[!NOTE]
+>Discos criada e gerida pelo Azure são denominados [discos geridos pelo](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Utilizar o portal para criar e anexar um novo disco de dados
 
 1.  No portal, clique em **máquinas virtuais**.    
     ![Exemplo: Dashboard VM](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -71,6 +88,7 @@ Depois de aprovisionar uma VM, pode utilizar o portal para adicionar um novo dis
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Anexar um disco de dados existente para uma VM
+
 1.  [Preparar um ficheiro. vhd](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) para utilização como disco de dados para uma VM. Carregar esse ficheiro. vhd para uma conta de armazenamento que utiliza com a VM que pretende anexar o ficheiro. vhd para.
 
   Recomendamos que utilize um contentor diferente para conter o ficheiro. vhd que o contentor que detém o disco do SO.   
@@ -242,5 +260,5 @@ If you have a VM with more than one disk in the same container, the service oper
 To do so, use the scripts from the following location in GitHub. These scripts can be used to move the data disks to different containers.
 -->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para saber mais sobre as máquinas virtuais de pilha do Azure, consulte o artigo [considerações para máquinas virtuais no Azure pilha](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-considerations).

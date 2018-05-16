@@ -8,6 +8,7 @@ manager: mtillman
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +16,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c817964ebab358f8e31e7435b7067fc60e9516fa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4b4f698042f6688e3db484f7d96ccfb06c5cdd4f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 > [!IMPORTANT]
@@ -58,7 +59,7 @@ Azure AD Graph API fornece as seguintes funcionalidades:
 Azure AD Graph API permite vários cenários de aplicação. Os cenários seguintes são as mais comuns:
 
 * **Linha de negócio (único inquilino) aplicação**: neste cenário, um programador de enterprise funciona de uma organização que tem uma subscrição do Office 365. O programador está a criar uma aplicação web que interage com o Azure AD para efetuar tarefas de tais atribuir uma licença a um utilizador. Esta tarefa requer acesso ao AD Graph API do Azure, para que o programador da aplicação de inquilino único se regista no Azure AD e configura de leitura e escrita permissões para o Azure AD Graph API. Em seguida, a aplicação está configurada para utilizar as suas próprias credenciais ou de utilizador atualmente início de sessão para adquirir um token para chamar AD Graph API do Azure.
-* **Software como uma aplicação de serviço (multi-inquilino)**: neste cenário, um fabricante independente de software (ISV) está a desenvolver aplicações web do multi-inquilino alojado que fornece funcionalidades de gestão de utilizadores de outras organizações que utilizam o Azure AD. Estas funcionalidades requerem acesso a objetos de diretório e, por isso, a aplicação tem de chamar AD Graph API do Azure. O programador regista a aplicação no Azure AD, configura-o para exigir a leitura e escrita permissões para AD Graph API do Azure e, em seguida, ativa o acesso externo para que as outras organizações podem autorizar a utilizar a aplicação no seu diretório. Quando um utilizador na outra organização efetua a autenticação para a aplicação pela primeira vez, é apresentada uma caixa de diálogo de consentimento com as permissões que a aplicação está a solicitar.  Os conceder consentimento, em seguida, irá dar-a aplicação pediu permissões para o Azure AD Graph API no diretório do utilizador. Para obter mais informações sobre a arquitetura de consentimento, consulte [descrição geral do Framework consentimento](active-directory-integrating-applications.md).
+* **Software como uma aplicação de serviço (multi-inquilino)**: neste cenário, um fabricante independente de software (ISV) está a desenvolver aplicações web do multi-inquilino alojado que fornece funcionalidades de gestão de utilizadores de outras organizações que utilizam o Azure AD. Estas funcionalidades requerem acesso a objetos de diretório e, por isso, a aplicação tem de chamar AD Graph API do Azure. O programador regista a aplicação no Azure AD, configura-o para exigir a leitura e escrita permissões para AD Graph API do Azure e, em seguida, ativa o acesso externo para que as outras organizações podem autorizar a utilizar a aplicação no seu diretório. Quando um utilizador na outra organização efetua a autenticação para a aplicação pela primeira vez, é apresentada uma caixa de diálogo de consentimento com as permissões que a aplicação está a solicitar. Os conceder consentimento, em seguida, irá dar-a aplicação pediu permissões para o Azure AD Graph API no diretório do utilizador. Para obter mais informações sobre a arquitetura de consentimento, consulte [descrição geral do Framework consentimento](active-directory-integrating-applications.md).
 
 ## <a name="see-also"></a>Consultar Também
 [Guia de introdução ao Azure AD Graph API](active-directory-graph-api-quickstart.md)

@@ -3,22 +3,22 @@ title: Limites e de configuração - Azure Logic Apps | Microsoft Docs
 description: Os limites de serviços e valores de configuração para o Azure Logic Apps
 services: logic-apps
 documentationcenter: ''
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: cfowler
 editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 524a2dc7a1a5ae4f0747af03d1b9e69d512f0f00
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/14/2018
+ms.author: estfan
+ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -52,15 +52,26 @@ Seguem-se os limites para uma definição de aplicação lógica única:
 
 Seguem-se os limites para uma aplicação de lógica única executar:
 
-| Nome | Limite | 
-| ---- | ----- | 
-| Duração de execução | 90 dias | 
-| Retenção de armazenamento | hora de início de 90 dias da execução | 
-| Intervalo de periodicidade mínima | 1 segundo </br>Para aplicações lógicas com um plano do App Service: 15 segundos | 
-| Intervalo de periodicidade máximo | dias de 500 | 
-||| 
+| Nome | Limite | Notas | 
+|------|-------|-------| 
+| Duração de execução | 90 dias | Para alterar este limite, consulte [alteração executar duração](#change-duration). | 
+| Retenção de armazenamento | hora de início de 90 dias da execução | Para alterar este limite, consulte [alterar a retenção de armazenamento](#change-retention). | 
+| Intervalo de periodicidade mínima | 1 segundo | | 
+| Intervalo de periodicidade máximo | dias de 500 | | 
+|||| 
 
-Exceder os limites para a duração de execução ou de retenção de armazenamento no seu fluxo de processamento normal, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+<a name="change-duration"></a>
+<a name="change-retention"></a>
+
+### <a name="change-run-duration-and-storage-retention"></a>Alterar a retenção de armazenamento e duração de execução
+
+Pode alterar este limite para um valor entre sete dias e 90 dias. No entanto, para exceder o limite máximo, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+
+1. No portal do Azure, no menu da sua aplicação lógica, escolha **definições de fluxo de trabalho**. 
+
+2. Em **opções de tempo de execução**, do **executar retenção do histórico em dias** lista, escolha **personalizada**. 
+
+3. Introduza ou arraste o controlo de deslize para o número de dias que pretende.
 
 <a name="looping-debatching-limits"></a>
 
@@ -113,7 +124,8 @@ Algumas operações de conector efetuar chamadas assíncronas ou escutam para pe
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
-| Tamanho da mensagem | 100 MB | Algumas APIs e conectores não suportem 100 MB. | 
+| Tamanho da mensagem | 100 MB | Para contornar este limite, consulte [processar grandes mensagens com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores poderá não suporta a segmentação ou mesmo o limite predefinido. | 
+| Tamanho da mensagem com a segmentação | 1 GB | Este limite aplica-se a ações que nativamente suportam a segmentação ou podem ter suporte ativado na respetiva configuração de tempo de execução de agrupamento. Para obter mais informações, consulte [processar grandes mensagens com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Limite de avaliação da expressão | 131,072 carateres | O `@concat()`, `@base64()`, `@string()` expressões não podem ser superior a este limite. | 
 |||| 
 
@@ -146,21 +158,45 @@ Seguem-se os limites para os conectores personalizados que pode criar a partir d
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites de artefacto por conta de integração
 
-Seguem-se os limites no número de artefactos para cada conta de integração.
+Seguem-se os limites no número de artefactos para cada conta de integração. Para obter mais informações, consulte [Logic Apps preços](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Escalão de preço livres*
+*Escalão gratuito*
 
-| Nome | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Contratos | 10 | | 
-| Outros tipos de artefactos | 25 | Os tipos de artefacto incluem parceiros, esquemas, certificados e mapas. Cada tipo pode ter cópias de segurança para o número máximo de artefactos. | 
+| Artefactos | Limite | Notas | 
+|----------|-------|-------| 
+| Parceiros comerciais EDI | 25 | | 
+| Nos contratos EDI comerciais | 10 | | 
+| Maps | 25 | | 
+| Esquemas | 25 | 
+| Assemblagens | 10 | | 
+| Configurações de batch | 5 | 
+| Certificados | 25 | | 
 |||| 
 
-*Escalão de preço padrão*
+*Escalão básico*
 
-| Nome | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Qualquer tipo de artefactos | 500 | Os tipos de artefacto incluem contratos, parceiros, esquemas, certificados e mapas. Cada tipo pode ter cópias de segurança para o número máximo de artefactos. | 
+| Artefactos | Limite | Notas | 
+|----------|-------|-------| 
+| Parceiros comerciais EDI | 2 | | 
+| Nos contratos EDI comerciais | 1 | | 
+| Maps | 500 | | 
+| Esquemas | 500 | 
+| Assemblagens | 25 | | 
+| Configurações de batch | 1 | | 
+| Certificados | 2 | | 
+|||| 
+
+*Escalão Standard*
+
+| Artefactos | Limite | Notas | 
+|----------|-------|-------| 
+| Parceiros comerciais EDI | 500 | | 
+| Nos contratos EDI comerciais | 500 | | 
+| Maps | 500 | | 
+| Esquemas | 500 | 
+| Assemblagens | 50 | | 
+| Configurações de batch | 5 |  
+| Certificados | 50 | | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>

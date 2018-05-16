@@ -2,22 +2,24 @@
 title: Adicionar início de sessão para uma aplicação iOS utilizando o ponto final v 2.0 do Azure AD | Microsoft Docs
 description: Como criar uma aplicação iOS que inicia sessão dos utilizadores com ambos os conta pessoal da Microsoft e contas profissionais ou escolares, utilizando bibliotecas de terceiros.
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5323f9a514c3c1c6134656e41af68e479fd8fdc5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7476417e6585976ea2404a83602a6d9aa77d9c7a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adicionar início de sessão a uma aplicação iOS utilizando uma biblioteca de terceiros com Graph API utilizando o ponto final v 2.0
 A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Os programadores podem utilizar qualquer biblioteca que pretendem integrar aos nossos serviços. Para ajudar os programadores a utilizar a nossa plataforma com outras bibliotecas, escrevemos algumas instruções como esta para demonstrar como configurar bibliotecas de terceiros para ligar à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação de especificação RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) pode ligar à plataforma de identidade da Microsoft.
@@ -39,7 +41,7 @@ O ponto final v 2.0 não suporta todos os cenários do Azure Active Directory e 
 > 
 
 ## <a name="download-code-from-github"></a>Transferir o código a partir do GitHub
-O código deste tutorial [é mantido no GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  Para acompanhar, pode [transferir a estrutura da aplicação como um. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou clonar a estrutura:
+O código deste tutorial [é mantido no GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Para acompanhar, pode [transferir a estrutura da aplicação como um. zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) ou clonar a estrutura:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
@@ -52,7 +54,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## <a name="register-an-app"></a>Registar uma aplicação
-Criar uma nova aplicação, o [portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou siga os passos detalhados em [como registar uma aplicação com o ponto final v 2.0](active-directory-v2-app-registration.md).  Certifique-se de que:
+Criar uma nova aplicação, o [portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou siga os passos detalhados em [como registar uma aplicação com o ponto final v 2.0](active-directory-v2-app-registration.md). Certifique-se de que:
 
 * Copiar o **Id da aplicação** que está atribuído à sua aplicação, porque irá precisar das mesmas em breve.
 * Adicionar o **Mobile** plataforma para a sua aplicação.
@@ -122,7 +124,7 @@ A biblioteca NXOAuth2Client requer alguns valores para obter a configurar. Depoi
 
 Vamos ver detalhes sobre o código.
 
-Destina-se a primeira cadeia `scopes`.  O `User.Read` valor permite-lhe ler o perfil básico do utilizador com sessão iniciada.
+Destina-se a primeira cadeia `scopes`. O `User.Read` valor permite-lhe ler o perfil básico do utilizador com sessão iniciada.
 
 Pode saber mais sobre todos os âmbitos disponíveis em [âmbitos de permissões de Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 

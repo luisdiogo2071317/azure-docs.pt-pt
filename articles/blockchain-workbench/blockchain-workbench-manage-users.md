@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 440072a94ff7146ebcdb242a058ab48b434714f9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gerir utilizadores no Azure Blockchain Workbench
 
@@ -43,9 +43,9 @@ Visite [do Azure AD](../active-directory/add-users-azure-active-directory.md) do
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Gerir administradores Blockchain Workbench
 
-Assim que os utilizadores foram adicionados ao diretório, o próximo passo é escolher quais os utilizadores que são administradores de Blockchain Workbench. Os utilizadores a **administradores** grupo estão associados a **função de administrador de aplicações** no Blockchain Workbench. Os administradores podem adicionar ou remover utilizadores, atribuir utilizadores a cenários específicos e crie novas aplicações.
+Assim que os utilizadores foram adicionados ao diretório, o próximo passo é escolher quais os utilizadores que são administradores de Blockchain Workbench. Os utilizadores a **administrador** grupo estão associados a **função de administrador de aplicações** no Blockchain Workbench. Os administradores podem adicionar ou remover utilizadores, atribuir utilizadores a cenários específicos e crie novas aplicações.
 
-Para adicionar os utilizadores a **administradores** grupo no diretório do Azure AD:
+Para adicionar os utilizadores a **administrador** grupo no diretório do Azure AD:
 
 1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
 2.  Certifique-se de que está no inquilino do Azure AD associado Blockchain Workbench, selecionando a sua conta no canto superior direito.

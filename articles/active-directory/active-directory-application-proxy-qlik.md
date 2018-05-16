@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7e4731e150c2d6428fa8c752765780f827c33741
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik sentido 
 Azure Active Directory para o Proxy de aplicações e Qlik sentido tem parcerias em conjunto para se certificar de que é facilmente capazes de utilizar o Proxy de aplicações para fornecer acesso remoto para a sua implementação Qlik sentido.  
@@ -59,4 +59,4 @@ A aplicação está agora pronta para testar. O URL externo que utilizou para pu
 ## <a name="next-steps"></a>Próximos Passos
 
 - [Publicar aplicações com o Proxy de aplicações](manage-apps/application-proxy-publish-azure-portal.md)
-- [Trabalhar com conetores da Proxy da aplicação](active-directory-application-proxy-connectors-azure-portal.md).
+- [Trabalhar com conetores da Proxy da aplicação](manage-apps/application-proxy-connector-groups.md).

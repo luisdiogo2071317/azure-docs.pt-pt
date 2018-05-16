@@ -1,51 +1,53 @@
 ---
-title: "Azure AD v 2.0 NodeJS AngularJS única página aplicação introdução | Microsoft Docs"
-description: "Como criar uma aplicação de página única de JS angular para que inicia sessão dos utilizadores com ambas as contas pessoais da Microsoft e contas profissionais ou escolares."
+title: Azure AD v 2.0 NodeJS AngularJS única página aplicação introdução | Microsoft Docs
+description: Como criar uma aplicação de página única de JS angular para que inicia sessão dos utilizadores com ambas as contas pessoais da Microsoft e contas profissionais ou escolares.
 services: active-directory
-documentationcenter: 
-author: navyasric
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6f617c43cc5b4d471f3effb6f4a633604b8dde0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Adicionar início de sessão a uma aplicação de página única de AngularJS - NodeJS
 Neste artigo adicionaremos inicie sessão com contas Microsoft ligada a uma aplicação de AngularJS utilizando o ponto de final de v 2.0 do Azure Active Directory. o ponto final v 2.0 permitem-lhe executar uma única integração na sua aplicação e autenticar os utilizadores com contas pessoais e trabalho/escola.
 
-Este exemplo é uma aplicação de página única de lista de tarefas simples que armazena as tarefas num back-end da API REST, escritas em NodeJS e protegidas através de tokens de portador do OAuth do Azure AD.  A aplicação de AngularJS utilizará a nossa biblioteca de autenticação de JavaScript de código aberto [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) para lidar com início de sessão completo processo e adquirir tokens para chamar a API REST.  O mesmo padrão pode ser aplicado para autenticar a outras APIs REST, como o [Microsoft Graph](https://graph.microsoft.com) ou as APIs do Azure Resource Manager.
+Este exemplo é uma aplicação de página única de lista de tarefas simples que armazena as tarefas num back-end da API REST, escritas em NodeJS e protegidas através de tokens de portador do OAuth do Azure AD. A aplicação de AngularJS utilizará a nossa biblioteca de autenticação de JavaScript de código aberto [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) para lidar com início de sessão completo processo e adquirir tokens para chamar a API REST. O mesmo padrão pode ser aplicado para autenticar a outras APIs REST, como o [Microsoft Graph](https://graph.microsoft.com) ou as APIs do Azure Resource Manager.
 
 > [!NOTE]
-> Nem todos os cenários do Azure Active Directory e funcionalidades são suportadas pelo ponto final v 2.0.  Para determinar se deve utilizar o ponto final v 2.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).
+> Nem todos os cenários do Azure Active Directory e funcionalidades são suportadas pelo ponto final v 2.0. Para determinar se deve utilizar o ponto final v 2.0, leia sobre [limitações de v 2.0](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download"></a>Transferência
-Para começar, tem de transferir e instalar [node.js](https://nodejs.org).  Em seguida, pode clonar ou [transferir](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) uma aplicação de estrutura:
+Para começar, tem de transferir e instalar [node.js](https://nodejs.org). Em seguida, pode clonar ou [transferir](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) uma aplicação de estrutura:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
 ```
 
-A aplicação esqueleto inclui todos os o código de automático para uma aplicação AngularJS simples, mas está em falta tudo relacionadas com identidade.  Se não quiser acompanhar, em vez disso, pode clonar ou [transferir](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) o exemplo concluído.
+A aplicação esqueleto inclui todos os o código de automático para uma aplicação AngularJS simples, mas está em falta tudo relacionadas com identidade. Se não quiser acompanhar, em vez disso, pode clonar ou [transferir](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) o exemplo concluído.
 
 ```
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 ```
 
 ## <a name="register-an-app"></a>Registar uma aplicação
-Em primeiro lugar, crie uma aplicação no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou siga estas [detalhadas passos](active-directory-v2-app-registration.md).  Certifique-se de que:
+Em primeiro lugar, crie uma aplicação no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou siga estas [detalhadas passos](active-directory-v2-app-registration.md). Certifique-se de que:
 
 * Adicionar o **Web** plataforma para a sua aplicação.
 * Introduza o correto **URI de redirecionamento**. A predefinição para este exemplo é `http://localhost:8080`.
@@ -54,13 +56,13 @@ Em primeiro lugar, crie uma aplicação no [Portal de registo de aplicação](ht
 Copie o **ID da aplicação** atribuída à sua aplicação, irá precisar das mesmas em breve. 
 
 ## <a name="install-adaljs"></a>Instalar adal.js
-Para começar, navegue para o projeto que transferiu e instalar adal.js.  Se tiver [bower](http://bower.io/) instalado, pode apenas executar este comando.  Para qualquer correspondência de versão de dependência, selecione apenas a versão superior.
+Para começar, navegue para o projeto que transferiu e instalar adal.js. Se tiver [bower](http://bower.io/) instalado, pode apenas executar este comando. Para qualquer correspondência de versão de dependência, selecione apenas a versão superior.
 
 ```
 bower install adal-angular#experimental
 ```
 
-Em alternativa, pode transferir manualmente [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) e [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js).  Adicionar ambos os ficheiros para o `app/lib/adal-angular-experimental/dist` diretório.
+Em alternativa, pode transferir manualmente [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) e [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js). Adicionar ambos os ficheiros para o `app/lib/adal-angular-experimental/dist` diretório.
 
 Agora abra o projeto no seu editor de texto favorito e carregar adal.js no final do corpo da página:
 
@@ -76,7 +78,7 @@ Agora abra o projeto no seu editor de texto favorito e carregar adal.js no final
 ```
 
 ## <a name="set-up-the-rest-api"></a>Configurar a API REST
-Enquanto que estiver a configurar coisas, permite obter o trabalho de REST API de back-end.  Numa linha de comandos, instale todos os pacotes necessários executando (Certifique-se de que está no diretório de nível superior do projeto):
+Enquanto que estiver a configurar coisas, permite obter o trabalho de REST API de back-end. Numa linha de comandos, instale todos os pacotes necessários executando (Certifique-se de que está no diretório de nível superior do projeto):
 
 ```
 npm install
@@ -94,12 +96,12 @@ exports.creds = {
 }
 ```
 
-A API REST irá utilizar este valor para validar os tokens que recebe da aplicação angular para nos pedidos de AJAX.  Tenha em atenção que esta API de REST simples armazena dados em memória -, por isso, a cada hora para parar o servidor, perderá todas as tarefas criadas anteriormente.
+A API REST irá utilizar este valor para validar os tokens que recebe da aplicação angular para nos pedidos de AJAX. Tenha em atenção que esta API de REST simples armazena dados em memória -, por isso, a cada hora para parar o servidor, perderá todas as tarefas criadas anteriormente.
 
-É sempre que vamos gaste debater como funciona a API REST.  Não hesite poke em torno no código, mas se pretender saber mais sobre como proteger web APIs com o Azure AD, veja [neste artigo](active-directory-v2-devquickstarts-node-api.md). 
+É sempre que vamos gaste debater como funciona a API REST. Não hesite poke em torno no código, mas se pretender saber mais sobre como proteger web APIs com o Azure AD, veja [neste artigo](active-directory-v2-devquickstarts-node-api.md). 
 
 ## <a name="sign-users-in"></a>Iniciar sessão dos utilizadores
-Tempo até ao escrever alguns códigos de identidade.  Poderá ter já reparado que adal.js contém um fornecedor AngularJS, que desempenha corretamente com angular para mecanismos de encaminhamento.  Comece por adicionar o módulo de adal para a aplicação:
+Tempo até ao escrever alguns códigos de identidade. Poderá ter já reparado que adal.js contém um fornecedor AngularJS, que desempenha corretamente com angular para mecanismos de encaminhamento. Comece por adicionar o módulo de adal para a aplicação:
 
 ```js
 // app/scripts/app.js
@@ -135,7 +137,7 @@ adalProvider.init({
     }, $httpProvider);
 ```
 
-Excelente, adal.js tem agora todas as informações de que tem para proteger a sua aplicação e aos utilizadores iniciar sessão.  Para forçar o início de sessão para uma rota específica na aplicação, tudo o que demora é uma linha de código:
+Excelente, adal.js tem agora todas as informações de que tem para proteger a sua aplicação e aos utilizadores iniciar sessão. Para forçar o início de sessão para uma rota específica na aplicação, tudo o que demora é uma linha de código:
 
 ```js
 // app/scripts/app.js
@@ -151,7 +153,7 @@ Excelente, adal.js tem agora todas as informações de que tem para proteger a s
 ...
 ```
 
-Agora quando um utilizador clica o `TodoList` ligação, adal.js será automaticamente redirecionado para o Azure AD para início de sessão se necessário.  Pode também explicitamente enviar pedidos de início de sessão e fim de sessão invocando adal.js no seu controladores:
+Agora quando um utilizador clica o `TodoList` ligação, adal.js será automaticamente redirecionado para o Azure AD para início de sessão se necessário. Pode também explicitamente enviar pedidos de início de sessão e fim de sessão invocando adal.js no seu controladores:
 
 ```js
 // app/scripts/homeCtrl.js
@@ -175,7 +177,7 @@ angular.module('todoApp')
 ```
 
 ## <a name="display-user-info"></a>Apresentar informações de utilizador
-Agora que o utilizador tem sessão iniciado, provavelmente terá de aceder a dados de autenticação de utilizador com sessão iniciada na sua aplicação.  Adal.js expõe estas informações no `userInfo` objeto.  Para aceder a este objeto numa vista, adicione primeiro adal.js para o âmbito de raiz do controlador de correspondente:
+Agora que o utilizador tem sessão iniciado, provavelmente terá de aceder a dados de autenticação de utilizador com sessão iniciada na sua aplicação. Adal.js expõe estas informações no `userInfo` objeto. Para aceder a este objeto numa vista, adicione primeiro adal.js para o âmbito de raiz do controlador de correspondente:
 
 ```js
 // app/scripts/userDataCtrl.js
@@ -216,9 +218,9 @@ Também pode utilizar o `userInfo` objecto para determinar se o utilizador tem s
 ```
 
 ## <a name="call-the-rest-api"></a>Chamar a API REST
-Por fim, está na altura de obter alguns tokens e chamar a API REST para criar, ler, atualizar e eliminar tarefas.  Bem-adivinhar que?  Não tem de fazer *uma coisa*.  Adal.js automaticamente se tratará de introdução, colocação em cache e atualizar tokens.  É também tratará de anexar esses tokens para enviados pedidos de AJAX enviar para a API REST.  
+Por fim, está na altura de obter alguns tokens e chamar a API REST para criar, ler, atualizar e eliminar tarefas. Bem-adivinhar que?  Não tem de fazer *uma coisa*. Adal.js automaticamente se tratará de introdução, colocação em cache e atualizar tokens. É também tratará de anexar esses tokens para enviados pedidos de AJAX enviar para a API REST. 
 
-Exatamente como isto funciona? É tudo graças à magia de [AngularJS intercetores](https://docs.angularjs.org/api/ng/service/$http), que lhe permite adal.js transformar enviar e receber mensagens de http.  Além disso, adal.js parte do princípio de que todos os pedidos de enviam ao mesmo domínio, como a janela deve utilizar tokens concebidos para o mesmo ID de aplicação que a aplicação de AngularJS.  É por isso é utilizado o mesmo ID de aplicação na aplicação angular para e a API de REST do NodeJS.  Obviamente, pode substituir este comportamento e dizer adal.js para obter os tokens para outras APIs REST, se necessário - mas para este cenário simple executará as predefinições.
+Exatamente como isto funciona? É tudo graças à magia de [AngularJS intercetores](https://docs.angularjs.org/api/ng/service/$http), que lhe permite adal.js transformar enviar e receber mensagens de http. Além disso, adal.js parte do princípio de que todos os pedidos de enviam ao mesmo domínio, como a janela deve utilizar tokens concebidos para o mesmo ID de aplicação que a aplicação de AngularJS. É por isso é utilizado o mesmo ID de aplicação na aplicação angular para e a API de REST do NodeJS. Obviamente, pode substituir este comportamento e dizer adal.js para obter os tokens para outras APIs REST, se necessário - mas para este cenário simple executará as predefinições.
 
 Eis um fragmento que mostra como é fácil para enviar pedidos com tokens de portador do Azure AD:
 
@@ -230,15 +232,15 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Parabéns!  A aplicação de página única integrada do Azure AD está agora concluída.  Avançar, assumir um bow.  Este pode autenticar os utilizadores, em segurança chamar a API de REST com OpenID Connect de back-end e obter informações básicas sobre o utilizador.  A Box, suporta a qualquer utilizador com um Account pessoal do Microsoft ou uma conta de trabalho/escola do Azure AD.  Atribua a aplicação tente novamente, executando a aplicação:
+Parabéns!  A aplicação de página única integrada do Azure AD está agora concluída. Avançar, assumir um bow. Este pode autenticar os utilizadores, em segurança chamar a API de REST com OpenID Connect de back-end e obter informações básicas sobre o utilizador. A Box, suporta a qualquer utilizador com um Account pessoal do Microsoft ou uma conta de trabalho/escola do Azure AD. Atribua a aplicação tente novamente, executando a aplicação:
 
 ```
 node server.js
 ```
 
-Num browser, navegue para `http://localhost:8080`.  Inicie sessão com uma conta Microsoft pessoal ou uma conta de trabalho/escola.  Adicionar tarefas à lista de tarefas do utilizador e terminar sessão.  Tente iniciar sessão com o outro tipo de conta. Se precisar de um inquilino do Azure AD para criar utilizadores de trabalho/profissional, [saber como obter um aqui](active-directory-howto-tenant.md) (é gratuito).
+Num browser, navegue para `http://localhost:8080`. Inicie sessão com uma conta Microsoft pessoal ou uma conta de trabalho/escola. Adicionar tarefas à lista de tarefas do utilizador e terminar sessão. Tente iniciar sessão com o outro tipo de conta. Se precisar de um inquilino do Azure AD para criar utilizadores de trabalho/profissional, [saber como obter um aqui](active-directory-howto-tenant.md) (é gratuito).
 
-Para saber mais sobre o o ponto final v 2.0, head voltar à nossa [guia para programadores de v 2.0](active-directory-appmodel-v2-overview.md).  Para obter recursos adicionais, consulte:
+Para saber mais sobre o o ponto final v 2.0, head voltar à nossa [guia para programadores de v 2.0](active-directory-appmodel-v2-overview.md). Para obter recursos adicionais, consulte:
 
 * [Exemplos do Azure no GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD no capacidade excedida da pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

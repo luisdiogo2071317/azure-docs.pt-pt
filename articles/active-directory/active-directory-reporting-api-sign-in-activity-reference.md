@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dbb95b5910def55437f05837986e850824fbe741
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Relatório de atividade de início de sessão do Azure Active Directory referência da API
 
@@ -52,7 +52,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>Pré-requisitos
 Para aceder a este relatório através da API de relatórios, tem de ter:
 
-* Um [edição Azure Active Directory Premium P1 ou P2](active-directory-editions.md)
+* Um [edição Azure Active Directory Premium P1 ou P2](active-directory-whatis.md)
 * Concluída a [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Aceder à API

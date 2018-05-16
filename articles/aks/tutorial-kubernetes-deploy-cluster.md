@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 99b65ba5e5f0be40e464fd6565db40fda4170a0f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e4e4e7c3956f396024513a4c48722dfb86e89151
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Tutorial: Implementar um cluster do Azure Container Service (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
 O Kubernetes dispõe de uma plataforma distribuída para aplicações em contentores. Com o AKS, o aprovisionamento de um cluster do Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte três de oito, é implementado um cluster do Kubernetes no AKS. Os passos concluídos incluem:
 

@@ -8,18 +8,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: d03f906f0cf4d22772388a589424877d8bb2f8ce
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o serviço do Azure Kubernetes (AKS)
 
 Endereços este artigo induzirem frequentes perguntas sobre o serviço do Azure Kubernetes (AKS).
 
 > [!IMPORTANT]
-> O Azure Kubernetes Service (AKS) está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> O Serviço Kubernetes do Azure (AKS) está atualmente em **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 >
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Em que regiões do Azure fornecem o serviço de Kubernetes do Azure (AKS) de hoje em dia?
@@ -60,7 +60,7 @@ Não, RBAC não é atualmente suportado no AKS mas estará disponível brevement
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS na minha rede virtual existente?
 
-Não, isto ainda não está disponível mas estará disponível brevemente.
+Sim, isto é suportado através de [funcionalidade de rede avançada](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>O Cofre de chaves do Azure está integrado com AKS?
 
@@ -68,7 +68,7 @@ Não, não é, mas esta integração é planeada. Entretanto, experimentar as se
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Pode executar contentores do Windows Server no AKS?
 
-Não, AKS atualmente fornecem nós de agente baseado no Windows Server, por isso não é possível executar contentores do Windows Server. Se precisar de executar os contentores do Windows Server em Kubernetes no Azure, consulte o [documentação para o motor de acs](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Para executar os contentores do Windows Server, tem de executar nós baseado no Windows Server. Nós com base no servidor do Windows estão atualmente no [pré-visualização privada](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Se precisar de executar os contentores do Windows Server em Kubernetes no Azure fora a pré-visualização, consulte o [documentação para o motor de acs](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que razão são criados dois grupos de recursos com AKS?
 

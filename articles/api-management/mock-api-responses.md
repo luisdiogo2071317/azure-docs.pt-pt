@@ -3,7 +3,7 @@ title: Simular respostas de API com o portal do Azure | Microsoft Docs
 description: Este tutorial mostra como utilizar a Gestão de API (APIM) para definir uma política numa API de modo a devolver uma resposta simulada. Este método permite aos programadores continuar a implementação e o teste da instância de Gestão de API no caso de o back-end não estar disponível para enviar respostas reais.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 

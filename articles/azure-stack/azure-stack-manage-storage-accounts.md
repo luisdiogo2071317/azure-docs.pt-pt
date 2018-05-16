@@ -10,16 +10,16 @@ ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 02/22/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.reviewer: anirudha
-ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 2ae2b628b2e61893a5289151c3b405e7412e7d13
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento na pilha do Azure
 Saiba como gerir contas de armazenamento na pilha do Azure para localizar, recuperar e recuperar a capacidade de armazenamento com base nas necessidades de negócio.
@@ -29,13 +29,13 @@ A lista de contas do storage na região pode ser visualizada na pilha do Azure p
 
 1. Num browser da Internet, navegue para https://adminportal.local.azurestack.external.
 2. Inicie sessão no portal de administração do Azure pilha como um operador da nuvem (utilizando as credenciais fornecidas durante a implementação)
-3. Encontrar no dashboard predefinido – o **gestão região** lista e clique na região que pretende explorar, por exemplo **(local**).
+3. Encontrar no dashboard predefinido – o **gestão região** lista e selecione a região que pretende explorar, por exemplo **(local**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Selecione **armazenamento** do **fornecedores de recursos** lista.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Agora, no painel de administrador do fornecedor de recursos de armazenamento – desloque para baixo até o **contas do Storage** separador e clique no mesmo.
+5. Agora, no painel de administrador do fornecedor de recursos de armazenamento – desloque para baixo até o **contas do Storage** separador e selecione-o.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,12 +52,12 @@ Se estiver interessado numa conta do storage específico – pode **filtrar e ob
 
 **Para filtrar para contas:**
 
-1. Clique em **filtro** na parte superior do painel.
+1. Selecione **filtro** na parte superior do painel.
 2. No painel de filtro, permite-lhe especificar **nome da conta**, * * ID de subscrição, ou **estado** para otimizar a lista de contas do storage a apresentar. Utilize-os conforme apropriado.
-3. Clique em **atualização**. A lista deverá atualizar em conformidade.
+3. Selecione **atualização**. A lista deverá atualizar em conformidade.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. Para repor o filtro: clique em **filtro**, desmarque terminar as seleções e atualizar.
+4. Para repor o filtro: selecione **filtro**, desmarque terminar as seleções e atualizar.
 
 Caixa de texto de pesquisa (no topo do painel de lista de contas de armazenamento) permite-lhe realce o texto seleccionado na lista de contas. Pode utilizar este quando o ID de nome completo ou não está facilmente disponível.
 
@@ -66,7 +66,7 @@ Pode utilizar aqui o texto livre para ajudar a localizar a conta que está inter
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Ver detalhes da conta
-Depois de localizar as contas que está interessado visualização, pode clicar em da conta específica para ver certos detalhes. Um novo painel abre-se com os detalhes da conta, tais como: o tipo da conta, a hora de criação, localização, etc.
+Depois de localizar as contas que está interessado visualização, pode selecionar a conta específica para ver certos detalhes. Um novo painel abre-se com os detalhes da conta, tais como: o tipo da conta, a hora de criação, localização, etc.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
@@ -78,13 +78,13 @@ Na pilha de Azure há uma forma simple para o fazer:
 1. Navegue para a lista de contas de armazenamento. Consulte [localizar uma conta de armazenamento](#find) neste tópico para obter mais informações.
 2. Localize essa conta específica na lista. Se pretender filtrar.
 3. Verifique o *estado* da conta. Deverá indicar **eliminado**.
-4. Clique na conta, que abre o painel de detalhes de conta.
-5. Por cima neste painel, localize o **recuperar** botão e clique no mesmo.
-6. Clique em **Sim** para confirmar.
+4. Selecione a conta, que abre o painel de detalhes de conta.
+5. Por cima neste painel, localize o **recuperar** botão e selecioná-lo.
+6. Selecione **Sim** para confirmar.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. A recuperação está agora em *... processar espera* para uma indicação de que foi efetuada com êxito.
-   Também pode clicar no ícone "sino" na parte superior do portal para ver indicações de progresso.
+   Também pode selecionar o ícone de "sino" na parte superior do portal para ver indicações de progresso.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
@@ -105,10 +105,10 @@ A definição de período de retenção permite um operador da nuvem especificar
 
 1. Num browser da internet, navegue para https://adminportal.local.azurestack.external.
 2. Inicie sessão no portal de administração do Azure pilha como um operador da nuvem (utilizando as credenciais fornecidas durante a implementação)
-3. Encontrar no dashboard predefinido – o **gestão região** lista e clique em região pretende explorar – por exemplo **(local**).
+3. Encontrar no dashboard predefinido – o **gestão região** lista e selecione a região que pretende explorar – por exemplo **(local**).
 4. Selecione **armazenamento** do **fornecedores de recursos** lista.
-5. Clique em **definições** na parte superior para abrir o painel definição.
-6. Clique em **configuração** , em seguida, edite o valor de período de retenção.
+5. Selecione **definições** na parte superior para abrir o painel definição.
+6. Selecione **configuração** , em seguida, edite o valor de período de retenção.
 
    Definir o número de dias e guarde-o.
    
@@ -123,8 +123,8 @@ Pode recuperar a capacidade de utilizar o portal ou PowerShell.
 
 **Para recuperar a capacidade através do portal:**
 1. Navegue para o painel de contas de armazenamento. Consulte [localizar uma conta de armazenamento](#find).
-2. Clique em **recuperar espaço** na parte superior do painel.
-3. Leia a mensagem e, em seguida, clique em **OK**.
+2. Selecione **recuperar espaço** na parte superior do painel.
+3. Ler a mensagem e, em seguida, selecione **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
 4. Aguarde que a notificação de sucesso Consulte no ícone de campainha no portal.
@@ -139,84 +139,20 @@ Pode também utilizar o PowerShell para substituir explicitamente o período de 
 1. Certifique-se de que tem o Azure PowerShell instalada e configurada. Caso contrário, utilize as instruções seguintes: 
    * Para instalar a versão mais recente do Azure PowerShell e associá-lo à sua subscrição do Azure, consulte [como instalar e configurar o Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
    Para obter mais informações sobre cmdlets do Azure Resource Manager, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Execute o seguinte cmdlet:
+2. Execute os seguintes cmdlets:
 
 > [!NOTE]
-> Se executar este cmdlet, poderá eliminar permanentemente a conta e o respetivo conteúdo. Não é recuperável. Utilize esta opção com cuidado.
+> Se executar estes cmdlets, pode eliminar permanentemente a conta e o respetivo conteúdo. Não é recuperável. Utilize esta opção com cuidado.
 
+```PowerShell  
+    $farm_name = (Get-AzsStorageFarm)[0].name
+    Start-AzsReclaimStorageCapacity -FarmName $farm_name
+````
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
-
-
-Para obter mais informações, consulte [documentação do powershell de pilha do Azure.](https://msdn.microsoft.com/library/mt637964.aspx)
+Para obter mais informações, consulte [documentação do PowerShell de pilha do Azure.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
-## <a name="migrate-a-container"></a>Migrar um contentor
-Devido à utilização do armazenamento desigual por inquilinos, um operador da nuvem poderá encontrar um ou mais subjacente inquilino as partilhas utilizando mais espaço que outros. Se isto ocorrer, o operador da nuvem pode tentar Liberte algum espaço na partilha de stressed migrando manualmente alguns contentores de BLOBs para outra partilha. 
+## <a name="next-steps"></a>Passos Seguintes
 
-Tem de utilizar o PowerShell para migrar os contentores.
-> [!NOTE]
->A migração de contentor do blob não suporta a migração em direto e atualmente é uma operação offline. Durante a migração e até ter concluído os blobs no contentor subjacentes não podem ser utilizados e são "offline". 
-
-**Para migrar contentores utilizando o PowerShell:**
-
-1. Certifique-se de que tem o Azure PowerShell instalada e configurada. Caso contrário, utilize as instruções seguintes:
-    * Para instalar a versão mais recente do Azure PowerShell e associá-lo à sua subscrição do Azure, consulte [como instalar e configurar o Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações sobre cmdlets do Azure Resource Manager, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Obter o nome do farm: 
-      
-      `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Obter as partilhas de: 
-
-   `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
-
-4. Obter os contentores para uma determinada partilha. Tenha em atenção que a contagem e a intenção são parâmetros opcionais:
-            
-   `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
-
-   Em seguida, examine $containers:
-
-   `$containers`
-
-    ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Obter as melhor partilhas de destino para a migração do contentor:
-
-    `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
-
-    Em seguida, examine $destinationshares:
-
-    `$destinationshares`
-
-    ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Iniciar a migração para um contentor, tenha em atenção de que esta é uma implementação de async, para que um possa cíclicas todos os contentores numa partilha e controlar o estado com o ID de tarefa devolvido.
-
-    `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
-
-    Em seguida, examine $jobId:
-
-   ```
-   $jobId
-   d1d5277f-6b8d-4923-9db3-8bb00fa61b65
-   ```
-7. Verifique o estado da tarefa de migração por um ID de tarefa. Quando concluir a migração de contentor, MigrationStatus está definido como "Concluída".
-
-    `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image15.png)
-
-8. Pode cancelar uma tarefa de migração em curso. Este novo, é uma operação assíncrona e pode ser controlado utilizando $jobid:
-
-    `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
-
-    ![](media/azure-stack-manage-storage-accounts/image16.png)
-
-    Pode verificar que os Estados da migração Cancelar novamente:
-
-    `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
-
-    ![](media/azure-stack-manage-storage-accounts/image17.png)
-
-
-
-
-  
-  
+ - Para obter informações sobre a gestão de permissões, consulte [controlo de acesso de Manage Role-Based](azure-stack-manage-permissions.md).
+ - Para obter informações sobre a capacidade de pilha do Azure gerir armazenamento, consulte [gerir a capacidade de pilha do Azure armazenamento](azure-stack-manage-storage-shares.md).

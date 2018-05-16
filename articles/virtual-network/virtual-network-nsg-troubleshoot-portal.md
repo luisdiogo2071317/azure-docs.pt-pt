@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Resolver problemas relacionados com grupos de segurança de rede através do Portal do Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Conclua os seguintes passos para resolver os NSGs para uma VM:
 
 Pode ver uma lista completa das regras de segurança eficaz de um NIC, da própria VM. Também pode adicionar, modificar e eliminar regras do NSG NIC e sub-rede a partir do painel regras Efetivo, se tiver permissões para realizar estas operações.
 
-1. Inicie sessão no portal do Azure em https://portal.azure.com com uma conta do Azure. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Inicie sessão no portal do Azure em https://portal.azure.com com uma conta do Azure. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Clique em **todos os serviços**, em seguida, clique em **máquinas virtuais** na lista que é apresentada.
 3. Selecione uma VM para resolver problemas da lista que é apresentado e é apresentado o painel uma VM com as opções.
 4. Clique em **diagnosticar & resolver problemas** e, em seguida, selecione um problema comum. Neste exemplo, **não consigo ligar à minha VM do Windows** está selecionada. 

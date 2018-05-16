@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 09d17f9f70ef352fe8d44a16c0f78323153a8a1a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c090a3fc36c300a108f10f02d0b663dc1e29f986
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar o início de sessão a uma aplicação de Proxy de aplicações
 
@@ -37,7 +37,7 @@ Configure o tipo específico de início de sessão único. Os métodos de iníci
 
 -   **Autenticação integrada do Windows**: para aplicações utilizando a autenticação integrada de Windows (IWA), o início de sessão único está ativado através do delegação de restrita de Kerberos (KCD). Este método permite permissão de conectores do Proxy de aplicações no Active Directory para representar os utilizadores e para enviar e receber tokens em nome daqueles. Podem ser encontrados detalhes sobre como configurar o KCD no [-início de sessão único com documentação KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Com base no cabeçalho de início de sessão**: com base no cabeçalho de início de sessão é ativado através de uma parceria e requer configuração adicional. Para obter detalhes sobre o parceria e instruções passo a passo para configurar o início de sessão para uma aplicação que utiliza os cabeçalhos de autenticação, consulte o [PingAccess para obter a documentação do Azure AD](application-proxy-ping-access.md).
+-   **Com base no cabeçalho de início de sessão**: com base no cabeçalho de início de sessão é ativado através de uma parceria e requer configuração adicional. Para obter detalhes sobre o parceria e instruções passo a passo para configurar o início de sessão para uma aplicação que utiliza os cabeçalhos de autenticação, consulte o [PingAccess para obter a documentação do Azure AD](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).
 
 Cada uma destas opções pode ser encontrada ao aceder à sua aplicação em "As aplicações empresariais" e abrir o **Single Sign-On** página no menu da esquerda. tenha em atenção que, se a aplicação foi criada no portal do antigo, não poderá ver todas estas opções.
 

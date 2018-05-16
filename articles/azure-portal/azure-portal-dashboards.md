@@ -4,31 +4,31 @@ description: Este artigo explica como criar e editar dashboards no portal do Azu
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: timlt
+manager: doubeby
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar os dashboards no portal do Azure
 Pode criar dashboards vários e partilhá-los com outras pessoas que têm acesso às suas subscrições do Azure.  Este artigo abordar as noções básicas de criação, edição, publicar e gerir o acesso aos dashboards.
 
 ## <a name="create-a-dashboard"></a>Criar um dashboard
-Para criar um dashboard, selecione o **novo dashboard** botão junto ao nome do dashboard atual.  
+Para criar um dashboard, selecione o botão **Novo dashboard** junto ao nome do dashboard atual.  
 
 ![criar o dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-Esta ação cria um dashboard novo, vazio, privado e coloca-o no modo de personalização onde pode nome o dashboard e adicionar ou reorganizar os mosaicos.  Neste modo, a galeria do mosaico expansível assume o menu de navegação esquerdo.  A galeria do mosaico permite-lhe localizar mosaicos para os seus recursos do Azure de várias formas: pode procurar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), por tipo de recurso, por [tag](../azure-resource-manager/resource-group-using-tags.md), ou ao pesquisar para o seu recurso por nome.  
+Esta ação cria um dashboard novo, vazio e privado, e coloca-o no modo de personalização onde pode nomear o seu dashboard e adicionar ou reorganizar os mosaicos.  Neste modo, a galeria do mosaico expansível assume o menu de navegação esquerdo.  A galeria do mosaico permite-lhe localizar mosaicos para os seus recursos do Azure de várias formas: pode procurar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), por tipo de recurso, por [tag](../azure-resource-manager/resource-group-using-tags.md), ou ao pesquisar para o seu recurso por nome.  
 
 ![Personalizar o dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -71,15 +71,15 @@ Depois de o redimensionamento de mosaicos, ver o dashboard.
 Quando tiver terminado de personalizar um dashboard, basta selecionar a **feito personalizar** para sair personalizar modo ou com o botão direito e selecione **feito personalizar** no menu de contexto.
 
 ## <a name="publish-a-dashboard-and-manage-access-control"></a>Publicar um dashboard e gerir o controlo de acesso
-Quando cria um dashboard, é privado por predefinição, o que significa que é o único utilizador possa vê-la.  Para torná-lo visível a outras pessoas, utilize o **partilha** botão que é apresentada juntamente com outros comandos do dashboard.
+Quando cria um dashboard, é privado por predefinição, o que significa que é o único utilizador que o pode ver.  Para o tornar visível a outros utilizadores, utilize o botão **Partilhar** que se encontra junto aos outros comandos do dashboard.
 
 ![Partilhe o dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-É-lhe pedido para escolher uma subscrição e o grupo de recursos para o seu dashboard para ser publicado. Para perfeitamente integrar dashboards do ecossistema, iremos tiver implementado dashboards partilhados como recursos do Azure (para que não é possível partilhar, escrevendo um endereço de e-mail).  Acesso para as informações apresentadas pela maioria dos mosaicos no portal são regidos pelas [controlo de acesso baseado em do Azure funções](../role-based-access-control/role-assignments-portal.md). De uma perspetiva de controlo de acesso partilhados dashboards são não diferentes de uma máquina virtual ou uma conta de armazenamento.  
+É-lhe pedido para escolher uma subscrição e um grupo de recursos para o seu dashboard ser publicado. Para perfeitamente integrar dashboards do ecossistema, iremos tiver implementado dashboards partilhados como recursos do Azure (para que não é possível partilhar, escrevendo um endereço de e-mail).  Acesso para as informações apresentadas pela maioria dos mosaicos no portal são regidos pelas [controlo de acesso baseado em do Azure funções](../role-based-access-control/role-assignments-portal.md). De uma perspetiva de controlo de acesso partilhados dashboards são não diferentes de uma máquina virtual ou uma conta de armazenamento.  
 
 Vamos supor que tiver uma subscrição do Azure e os membros da sua equipa foram atribuídos as funções de **proprietário**, **contribuinte**, ou **leitor** da subscrição.  Os utilizadores que são proprietários ou contribuintes são capazes de lista, ver, criar, modificar ou eliminar dashboards dentro dessa subscrição.  Os utilizadores que são leitores são capazes de lista e vista dashboards, mas não é possível modificar ou eliminar.  Os utilizadores com acesso de leitor são capazes de efetuar edições de locais para um dashboard partilhado, mas não conseguem publicar as alterações no servidor.  No entanto, fazer uma cópia do dashboard para os seus próprios utilização privada.  Como sempre, individuais mosaicos no dashboard impor as suas próprias regras de controlo de acesso baseadas nos recursos que correspondem a.  
 
-Para sua comodidade, o portal da publicação de guias de experiência, para um padrão onde colocar dashboards num grupo de recursos chamado **dashboards**.  
+Para sua comodidade, a experiência de publicação do portal encaminha-o para um padrão onde coloca dashboards num grupo de recursos designado **dashboards**.  
 
 ![Publicar o dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
 

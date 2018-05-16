@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3ab4530047daec9e8cf163b0223109be6b18525b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicar aplicações com o Proxy da Aplicação do Azure AD
 
@@ -53,7 +53,7 @@ Siga estes passos para publicar as suas aplicações com o Proxy de aplicações
    - **URL interno**: O URL que utilizar para aceder à aplicação a partir de dentro da sua rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Desta forma, pode publicar sites diferentes no mesmo servidor que diferentes aplicações e fornecer as suas próprias regras de acesso e o nome de cada um deles.
 
      > [!TIP]
-     > Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se a aplicação está em https://yourapp/app e utiliza as imagens localizadas em https://yourapp/media, em seguida, deve publicar https://yourapp/ como o caminho. Este URL interno não tem de ser os seus utilizadores verão a página de destino. Para obter mais informações, consulte [definir uma página inicial personalizada para as aplicações publicadas](../application-proxy-office365-app-launcher.md).
+     > Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se a aplicação está em https://yourapp/app e utiliza as imagens localizadas em https://yourapp/media, em seguida, deve publicar https://yourapp/ como o caminho. Este URL interno não tem de ser os seus utilizadores verão a página de destino. Para obter mais informações, consulte [definir uma página inicial personalizada para as aplicações publicadas](application-proxy-configure-custom-home-page.md).
 
    - **URL externo**: O endereço que os utilizadores que serão enviadas para poder aceder a aplicação a partir de fora da rede. Se não pretender utilizar o domínio de Proxy de aplicações predefinido, leia sobre [domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).
    - **Pré-autenticação**: como Proxy da aplicação verifica os utilizadores antes de conceder acesso à sua aplicação. 
@@ -69,7 +69,7 @@ Siga estes passos para publicar as suas aplicações com o Proxy de aplicações
 5. Se necessário, configure definições adicionais. Para a maioria das aplicações, deve manter estas definições nos respetivos Estados de predefinição. 
    - **Tempo limite de aplicação de back-end**: defina este valor como **longo** apenas se a aplicação está lenta autenticar e ligar. 
    - **Traduzir os URLs nos cabeçalhos**: manter este valor como **Sim** , a menos que a aplicação necessária o cabeçalho de anfitrião original no pedido de autenticação.
-   - **Tradução de URLs no corpo de aplicação**: manter este valor como **não** a menos que têm ligações de codificado HTML para outras aplicações no local e não utilize domínios personalizados. Para obter mais informações, consulte [tradução com o Proxy da aplicação de ligação](../application-proxy-link-translation.md).
+   - **Tradução de URLs no corpo de aplicação**: manter este valor como **não** a menos que têm ligações de codificado HTML para outras aplicações no local e não utilize domínios personalizados. Para obter mais informações, consulte [tradução com o Proxy da aplicação de ligação](application-proxy-configure-hard-coded-link-translation.md).
    
    ![Configurar a aplicação](./media/application-proxy-publish-azure-portal/additional-settings.png)
 
@@ -99,6 +99,6 @@ No seu browser, navegue para o URL externo que configurou durante o passo de pub
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Transferir conectores](application-proxy-enable.md) e [criar grupos de conector](../active-directory-application-proxy-connectors-azure-portal.md) a publicação de aplicações em redes separadas e localizações.
+- [Transferir conectores](application-proxy-enable.md) e [criar grupos de conector](application-proxy-connector-groups.md) a publicação de aplicações em redes separadas e localizações.
 
-- [Configurar o início de sessão único](../application-proxy-sso-azure-portal.md) para a sua aplicação recentemente publicada
+- [Configurar o início de sessão único](application-proxy-configure-single-sign-on-password-vaulting.md) para a sua aplicação recentemente publicada

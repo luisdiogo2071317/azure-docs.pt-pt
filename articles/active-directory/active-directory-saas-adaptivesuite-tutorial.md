@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Suite adaptável | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e adaptável Suite."
+title: 'Tutorial: Integração do Azure Active Directory com Suite adaptável | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e adaptável Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e128ddf53a93fe30350d8e914657f3539701603
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0932eea407ea6dbb43760c2e64c49be802363360
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Tutorial: Integração do Azure Active Directory com Suite adaptável
 
@@ -110,11 +110,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
     > Pode obter este valor a partir do Suite adaptável **SAML SSO definições** página.
-    >  
+    >
+    
+    Verifique o **Mostrar avançadas definições de URL** caixa. No **identificador (ID de entidade)** caixa de texto, escreva o mesmo URL que introduziu no **URL de resposta** caixa de texto.
+    
+    >[!NOTE]
+    > O ID de entidade para cada domínio Insights adaptável é o mesmo que o URL de resposta.
+    >
 
 4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

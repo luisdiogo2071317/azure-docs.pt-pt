@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 517f78f811d57e06b4c6e6f0fad24d3b0f96b6e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uma aplicação de Proxy da aplicação demora demasiado tempo a carregar
 
 Este artigo ajuda-o a compreender por que motivo uma aplicação de Proxy de aplicações do Azure AD pode demorar muito tempo a carregar. Também explica o que pode fazer para resolver este problema.
 
 ## <a name="overview"></a>Descrição geral
-Embora as aplicações estão a funcionar, pode registam uma latência de comprimento. Poderão existir tweaks de topologia de rede que pode efetuar para melhorar a velocidade. Para uma edição de avaliação das topologias diferentes, consulte o [documento de considerações de rede](application-proxy-network-topology-considerations.md).
+Embora as aplicações estão a funcionar, pode registam uma latência de comprimento. Poderão existir tweaks de topologia de rede que pode efetuar para melhorar a velocidade. Para uma edição de avaliação das topologias diferentes, consulte o [documento de considerações de rede](manage-apps/application-proxy-network-topology.md).
 
 Para além da topologia de rede, existem atualmente não existem recomendações adicionais para otimização de desempenho. Como o Proxy de aplicações, serviço expande poderá ficar para um centro de dados que esteja fisicamente mais próximo dos. A próximo proximidade pode ajudar a latência. Para obter uma lista dos centros de dados do Azure, consulte o [página de teste de latência](http://www.azurespeed.com/Azure/Latency). 
 
@@ -36,4 +36,4 @@ Os centros de dados com o serviço de Proxy de aplicações podem ser encontrado
 Microsoft está a trabalhar nas capacidades adicionais para melhorar a latência. Assim que estes melhoramentos estão disponíveis, a documentação será atualizada.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Trabalhar com servidores de proxy no local existentes](application-proxy-working-with-proxy-servers.md)
+[Trabalhar com servidores de proxy no local existentes](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)

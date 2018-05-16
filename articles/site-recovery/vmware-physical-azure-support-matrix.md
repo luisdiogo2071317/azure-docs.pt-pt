@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -145,7 +145,8 @@ Redes Aceleradas | Não
 **Componente** | **Suportado**
 --- | ---
 Anfitrião NFS | Sim para VMware<br/><br/> Não para servidores físicos
-SAN (ISCSI) no anfitrião | Sim
+Anfitrião SAN (iSCSI/FC) | Sim
+Anfitrião vSAN | Sim para VMware<br/><br/> N/d para servidores físicos
 Multipath de anfitrião (MPIO) | Sim, testada com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes de anfitriões virtuais (VVols) | Sim para VMware<br/><br/> N/d para servidores físicos
 Convidados/servidor VMDK | Sim

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -80,7 +80,7 @@ Um cluster do HDInsight típico utiliza vários serviços e pacotes de software 
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ver definições de configuração de cluster com a IU do Ambari
 
-Apache Ambari simplifica a gestão, configuração e monitorização de um cluster do HDInsight, fornecendo uma web IU e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Cluster Dashboard** painel na página de HDInsight portal do Azure para abrir o**' Dashboards de clusters** página de ligação.  Em seguida, selecione o **dashboard de cluster do HDInsight** painel para abrir a IU do Ambari.  Lhe forem pedidas as credenciais de início de sessão do cluster.
+Apache Ambari simplifica a gestão, configuração e monitorização de um cluster do HDInsight, fornecendo uma web IU e uma API REST. Ambari está incluído nos clusters do HDInsight baseado em Linux. Selecione o **Cluster Dashboard** painel na página de HDInsight portal do Azure para abrir o **' Dashboards de clusters** página de ligação.  Em seguida, selecione o **dashboard de cluster do HDInsight** painel para abrir a IU do Ambari.  Lhe forem pedidas as credenciais de início de sessão do cluster.
 
 Para abrir uma lista de vistas de serviço, selecione o **vistas do Ambari** painel na página do portal do Azure para o HDInsight.  Esta lista varia consoante as bibliotecas que tenha instalado.  Por exemplo, poderá ver o Gestor de filas YARN, a vista do Hive e a vista de Tez.  Selecione qualquer ligação de serviço para ver informações do serviço de configuração e.  A IU do Ambari **pilha e versão** página fornece informações sobre a configuração dos serviços de cluster e histórico da versão do serviço. Para navegar para esta secção da IU do Ambari, selecione o **Admin** menu e, em seguida, **pilhas e versões**.  Selecione o **versões** separador para ver informações de versão do serviço.
 
@@ -105,17 +105,6 @@ O passo seguinte é rever os ficheiros de registo de execução de tarefas para 
 HDInsight armazena os ficheiros de registo no sistema de ficheiros de cluster e no armazenamento do Azure. Pode examinar os ficheiros de registo do cluster abrindo uma ligação SSH ao cluster e navegação no sistema de ficheiros, ou utilizando o portal de Hadoop YARN Estado no servidor remoto nó principal. Pode examinar os ficheiros de registo no armazenamento do Azure, utilizando qualquer uma das ferramentas que podem aceder e transferir dados de armazenamento do Azure. Os exemplos são AZCopy, CloudXplorer e o Explorador de servidores do Visual Studio. Pode também utilizar o PowerShell e as bibliotecas de cliente de armazenamento do Azure ou os SDKs de .NET do Azure, para aceder a dados no armazenamento de Blobs do Azure.
 
 Hadoop executa o trabalho de tarefas como *tarefas tentativas* em vários nós no cluster. HDInsight pode iniciar tarefas speculative tentativas, terminar quaisquer outras tentativas de tarefas que não concluído primeiro. Isto gera significativa atividade que é registada para o controlador, stderr e syslog registo ficheiros no-a-momento. Além disso, várias tentativas de tarefas em execução em simultâneo, mas um ficheiro de registo pode apresentar apenas resultados de forma linear.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>Registos de HDInsight escritos para as tabelas do Azure
-
-Os registos de escrita de tabelas do Azure fornecem informações sobre o que acontece com um cluster do HDInsight. Quando cria um cluster do HDInsight baseado em Linux, são automaticamente criadas seis tabelas no armazenamento de tabelas predefinido:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Registos de HDInsight escritos para armazenamento de Blobs do Azure
 

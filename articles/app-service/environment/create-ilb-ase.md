@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -63,6 +63,8 @@ Para criar um ASE de ILB:
 
 4. Selecione ou crie uma VNet.
 
+    * Se selecionar uma nova VNet, pode especificar um nome e a localização. Se quiser alojar aplicações Linux neste ASE, apenas são suportadas atualmente as 6 regiões seguintes: **E.U.A. Oeste, E.U.A. Leste, Europa Ocidental, Europa do Norte, Leste da Austrália e Sudeste Asiático.** 
+
 5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/25`, que tem 128 endereços e pode processar um ASE de tamanho máximo. O tamanho mínimo que pode selecionar é `/28`. Este tamanho apenas pode ser dimensionado até um máximo de três instâncias, de acordo com as necessidades da infraestrutura.
 
     * Ultrapasse o máximo predefinido de 100 instâncias nos seus planos do Serviço de Aplicações.
@@ -106,7 +108,7 @@ Se definir **Tipo de VIP** como **Interno**, o nome do ASE não é utilizado no 
 
 Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação num ASE normalmente.
 
-1. No portal do Azure, selecione **Criar um recurso** > **Web + Móvel** > **Web** ou **Móvel** ou **Aplicação da API**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Móvel** > **Aplicação Web**.
 
 2. Introduza o nome da aplicação.
 
@@ -114,9 +116,13 @@ Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação
 
 4. Selecione ou crie um grupo de recursos.
 
-5. Selecione ou crie um plano do Serviço de Aplicações. Se quiser criar um novo plano do Serviço de Aplicações, selecione o seu ASE como localização. Selecione o conjunto de processos de trabalho onde pretende que o seu plano do Serviço de Aplicações seja criado. Quando criar o plano do Serviço de Aplicações, selecione o seu ASE como a localização e o conjunto de processos de trabalho. Quando especificar o nome da aplicação, o domínio no nome da aplicação é substituído pelo domínio para o seu ASE.
+5. Selecione o seu SO. 
 
-6. Selecione **Criar**. Se quiser que a aplicação apareça no dashboard, selecione a caixa de verificação **Afixar ao dashboard**.
+    * Se quiser criar uma aplicação Linux com um contentor do Docker personalizado, basta criar o seu próprio contentor ao seguir as instruções aqui referidas. 
+
+6. Selecione ou crie um plano do Serviço de Aplicações. Se quiser criar um novo plano do Serviço de Aplicações, selecione o seu ASE como localização. Selecione o conjunto de processos de trabalho onde pretende que o seu plano do Serviço de Aplicações seja criado. Quando criar o plano do Serviço de Aplicações, selecione o seu ASE como a localização e o conjunto de processos de trabalho. Quando especificar o nome da aplicação, o domínio no nome da aplicação é substituído pelo domínio para o seu ASE.
+
+7. Selecione **Criar**. Se quiser que a aplicação apareça no dashboard, selecione a caixa de verificação **Afixar ao dashboard**.
 
     ![Criação do plano do Serviço de Aplicações][2]
 

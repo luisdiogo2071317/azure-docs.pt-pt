@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -78,7 +78,7 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
   NÃO são suportados os seguintes serviços:
     * CDN
     * Visual Studio Team Services teste de carga
-    * Multi-factor Authentication
+    * Multi-Factor Authentication
     * Gestor de Tráfego
 
 ### <a name="microsoft-peering"></a>Peering da Microsoft
@@ -96,7 +96,7 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
   NÃO são suportados os seguintes serviços:
     * CDN
     * Visual Studio Team Services teste de carga
-    * Multi-factor Authentication
+    * Multi-Factor Authentication
     * Gestor de Tráfego
 
 ## <a name="data-and-connections"></a>Ligações de dados e
@@ -156,7 +156,7 @@ Se o seu fornecedor de serviços ExpressRoute em ambos os sites, pode trabalhar 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Pode ter vários circuitos ExpressRoute na metro mesmo? Posso ligá-las à mesma rede virtual?
 
-Sim. Pode ter vários circuitos ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering de ExpressRoute e de circuitos criados em várias localizações de peering, pode ligá-los para a mesma rede virtual. Se o circuitos criados na mesma localização de peering, não pode associá-las à mesma rede virtual.
+Sim. Pode ter vários circuitos ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering de ExpressRoute e de circuitos criados em diferentes localizações de peering, pode ligá-los para a mesma rede virtual. Se o circuitos criados na mesma localização de peering, não pode associá-las à mesma rede virtual. Cada nome de localização no Portal do Azure ou na CLI do PowerShell API representa uma localização de peering. Por exemplo, pode selecionar as localizações de peering "Singapura" e "Singapore2" e ligar circuitos de cada à mesma rede virtuan. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como se ligar a minha redes virtuais para um circuito ExpressRoute
 

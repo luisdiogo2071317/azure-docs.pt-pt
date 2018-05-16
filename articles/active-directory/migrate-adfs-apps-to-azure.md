@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2018
 ms.author: billmath
-ms.openlocfilehash: 6303fdce65e460489c9f66e388c28383b9942627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 93282f3d4a7ca84e59fa8831d5eb650a643d1e83
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicações no local do AD FS para o Azure 
 
@@ -234,6 +234,6 @@ Se quiser que o Azure AD processe diretamente o aprovisionamento de utilizadores
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Managing applications with Azure Active Directory](active-directory-enable-sso-scenario.md) (Gerir aplicações com o Azure Active Directory)
+- [Managing applications with Azure Active Directory](manage-apps/what-is-application-management.md) (Gerir aplicações com o Azure Active Directory)
 - [Gerir o acesso a aplicações](active-directory-managing-access-to-apps.md)
 - [Azure AD Connect Federation](active-directory-aadconnectfed-whatis.md) (Federação do Azure AD Connect)

@@ -1,5 +1,5 @@
 ---
-title: Dashboard de descrição geral do Application Insights | Microsoft Docs
+title: Dashboard de descrição geral de informações de aplicação do Azure | Microsoft Docs
 description: Monitorizar aplicações com a funcionalidade do Azure Application Insights e descrição geral do Dashboard.
 services: application-insights
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: bccb56ad45d9054a437bf2d85e74a8d81fbc3db1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 89ad96441ca4d519a9f4213ae3353eea1f0a7c37
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="overview-dashboard-preview"></a>Descrição geral dashboard (pré-visualização)
+# <a name="application-insights-overview-dashboard-preview"></a>Dashboard de descrição geral de informações de aplicação (pré-visualização)
 
-Application Insights sempre tiver fornecido um painel de descrição geral de resumo para permitir o rápido, uma leitura avaliação de estado de funcionamento e o desempenho da aplicação. A iniciar uma nova experiência mais flexível mais rápida no dia 15 de Maio de 2018 será lançada como uma pré-visualização. Em 29 de Maio de 2018 será descontinuada a experiência de descrição geral clássico.
+Application Insights sempre tiver fornecido um painel de descrição geral de resumo para permitir o rápido, uma leitura avaliação de estado de funcionamento e o desempenho da aplicação. Dashboard da descrição geral de pré-visualização nova fornece uma experiência mais flexível mais rápida.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Como testar enviados a nova experiência?
 
-No dia 15 de Maio, a nova experiência irá começar a aparecer no Application Insights em: _investigar_ > _descrição geral (pré-visualização)_.
+ No Application Insights em: _investigar_ selecione _descrição geral (pré-visualização)_.
 
 ![Pré-visualização de descrição geral](.\media\app-insights-overview-dashboard\01.png)
 
@@ -60,11 +60,3 @@ Enquanto pode manter a vista predefinida se pretendê-lo, também pode adicionar
 Para navegar para a experiência de descrição geral apenas selecione:
 
 ![Botão de descrição geral](.\media\app-insights-overview-dashboard\07.png)
-
-Há também um novo botão chamado _partes de Pin_.
-
-![Botão de descrição geral](.\media\app-insights-overview-dashboard\008.png)
-
-Isto replica uma funcionalidade ligeiramente conhecida da descrição de geral clássica que permite-lhe tirar qualquer um dos mosaicos da experiência de descrição geral antigo _(alertas, disponibilidade, métricas em direto, utilização, deteções Proativa e o mapeamento de aplicações)_ e Adicione-os para dashboards personalizados. 
-
-No caso da predefinição _Dashboard de aplicações_ , já foram adicionados estes mosaicos. Mas se criar dashboards personalizados adicionais ou se alguém na sua equipa elimina um mosaico clássico e adicioná-lo novamente, _partes de Pin_ fornece essa funcionalidade em qualquer seja fácil encontrar local.
