@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 49b343fca94e853a29807521f4213a5a85725f52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: 0c3662984c63195d8fc903c66b27aa253ce419cb
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Métricas em fluxo em direto: Monitor de & Diagnostique com uma latência de 1 segundo 
 
@@ -116,7 +116,7 @@ Os critérios de filtros personalizados que especificar são enviados para o com
 
 ### <a name="add-api-key-to-configuration"></a>Adicionar chave de API à configuração
 
-# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+### <a name="classic-aspnet"></a>ASP.NET clássico
 
 No ficheiro applicationinsights, adicione o AuthenticationApiKey para o QuickPulseTelemetryModule:
 ``` XML
@@ -133,7 +133,8 @@ Ou no código, defina-o QuickPulseTelemetryModule:
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
-# <a name="net-core-tabnet-core"></a>[.NET core] (# separador/.net-núcleos)
+
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (requer o ASP.NET Core SDK do Application Insights 2.3.0-beta ou superior)
 
 Modifique o ficheiro de startup.cs da seguinte forma:
 
@@ -141,26 +142,14 @@ Adicionar primeiro
 
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
 ```
 
-Em seguida, sob o método de configurar adicione:
+Em seguida, dentro do método ConfigureServices adicione:
 
 ``` C#
-  QuickPulseTelemetryModule dep;
-            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
-            foreach (var module in modules)
-            {
-                if (module is QuickPulseTelemetryModule)
-                {
-                    dep = module as QuickPulseTelemetryModule;
-                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                    dep.Initialize(TelemetryConfiguration.Active);
-                }
-            }
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
----
 
 No entanto, se reconhecer e confiar todos os servidores ligados, pode tentar os filtros personalizados sem o canal autenticado. Esta opção está disponível durante seis meses. Esta substituição não é necessária uma vez cada nova sessão ou quando um novo servidor fica online.
 

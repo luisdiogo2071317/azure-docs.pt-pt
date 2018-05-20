@@ -143,24 +143,14 @@
       href: ./blueprints/financial-services-regulated-workloads.md
     - name: GDPR
       items:
-        - name: Gerir dados pessoais
-          href: manage-personal-data-azure.md
-        - name: 'Detetar, identificar e classificar dados pessoais'
-          href: how-to-discover-classify-personal-data-azure.md
-        - name: Proteger dados pessoais no Azure
-          href: protect-personal-data-azure.md
-        - name: Proteger dados pessoais com o Centro de Segurança
-          href: protect-personal-data-azure-security-center.md
-        - name: Proteger dados pessoais com o Gateway de Aplicação
-          href: protect-personal-data-network-security.md
-        - name: Proteger dados pessoais através de controlos de acesso e de identidades
-          href: protect-personal-data-identity-access-controls.md
-        - name: Proteger dados pessoais inativos através de encriptação
-          href: protect-personal-data-at-rest.md
-        - name: Proteger dados pessoais em trânsito através de encriptação
-          href: protect-personal-data-in-transit-encryption.md
-        - name: Proteger dados pessoais com as ferramentas de relatórios do Azure
-          href: protection-personal-data-azure-reporting-tools.md
+        - name: Análise de dados
+          href: ./blueprints/gdpr-analytics-overview.md
+        - name: Armazém de dados
+          href: ./blueprints/gdpr-datawarehouse-overview.md
+        - name: Aplicação web IaaS
+          href: ./blueprints/gdpr-iaaswa-overview.md
+        - name: Aplicação web PaaS
+          href: ./blueprints/gdpr-paaswa-overview.md
     - name: FedRAMP
       items:
         - name: Análise de dados

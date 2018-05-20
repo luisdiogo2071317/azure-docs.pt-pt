@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 66818fd0d6618abe83903df8723e3e17920a4a2e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c6c92bdd2461a0f1147f15b5c1134c189c55a37c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para ligar ao Azure Analysis Services
 
@@ -20,12 +20,12 @@ Bibliotecas de cliente são necessárias para aplicações de cliente e ferramen
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Transferir as bibliotecas de cliente mais recentes (programa de instalação do Windows)  
 
-|Transferir  |Versão do produto  | 
+|Transferência  |Versão do produto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.395      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.395      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.4     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.4     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacotes de NuGet)
 

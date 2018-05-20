@@ -1,23 +1,21 @@
 ---
-title: "Autenticação de utilizador final: API de REST com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs"
-description: "Aprenda a alcançar a autenticação de utilizador final com o Data Lake Store utilizando o Azure Active Directory utilizando a REST API"
+title: 'Autenticação de utilizador final: API de REST com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs'
+description: Aprenda a alcançar a autenticação de utilizador final com o Data Lake Store utilizando o Azure Active Directory utilizando a REST API
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 5ee13756e4276055a8c9bdd9642d0766c3ca7e5c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7bebe1948d26b26716262cafb92e3563f5c6b349
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Autenticação de utilizador final com o Data Lake Store utilizando a REST API
 > [!div class="op_single_selector"]
@@ -50,7 +48,7 @@ Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
-   > \<REDIRECT-URI> tem de estar codificado para utilização num URL. Assim, para https://localhost, utilize `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> tem de estar codificado para utilização num URL. Sim, para https://localhost, utilize `https%3A%2F%2Flocalhost`)
    > 
    > 
    

@@ -16,7 +16,7 @@ ms.date: 5/14/2018
 ms.author: pkc
 ms.openlocfilehash: 503bc07ff904dcb5952a13f12296f14fdd1999c0
 ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/14/2018
 ---

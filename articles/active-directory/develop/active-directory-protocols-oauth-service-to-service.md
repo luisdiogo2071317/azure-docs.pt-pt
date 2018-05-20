@@ -3,23 +3,25 @@ title: Autenticação de serviços do Azure AD, utilizando OAuth2.0 | Microsoft 
 description: Este artigo descreve como utilizar mensagens HTTP para implementar a autenticação de serviço a serviço utilizando o fluxo de concessão de credenciais de cliente OAuth2.0.
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1a4da1af61be4b632b51f5b8f921f6f48e925559
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Serviço para chamadas de serviço utilizando credenciais de cliente (segredo partilhado ou certificado)
 O OAuth 2.0 cliente credenciais conceder fluxo permite um serviço web (*cliente confidencial*) para utilizar as suas próprias credenciais em vez de representar um utilizador, para autenticação quando chama outro serviço da web. Neste cenário, o cliente é normalmente um serviço web de camada média, um serviço do daemon ou o web site. Um nível mais elevado de garantia, o Azure AD permite também que o serviço de chamada utilizar um certificado (em vez de um segredo partilhado) como uma credencial.
@@ -52,10 +54,10 @@ Quando utilizar um segredo partilhado, um pedido de token de acesso de serviço 
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |Necessário |Especifica o tipo de pedido de concessão. Um fluxo de concessão de credenciais do cliente, o valor tem de ser **client_credentials**. |
-| client_id |Necessário |Especifica o id de cliente do Azure AD do serviço web chamada. Para localizar ID de cliente a aplicação de chamada, além de [portal do Azure](https://portal.azure.com), clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação. O client_id é o *ID da aplicação* |
-| client_secret |Necessário |Introduza uma chave registada para a chamada serviço ou o daemon de aplicação web no Azure AD. Para criar uma chave no portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação, clique em **definições**, clique em **chaves** , e adicionar uma chave.|
-| Recurso |Necessário |Introduza o URI de ID de aplicação do serviço web do recetor. Para obter o URI de ID de aplicação no portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação de serviço e, em seguida, clique em **definições** e  **Propriedades**. |
+| grant_type |obrigatório |Especifica o tipo de pedido de concessão. Um fluxo de concessão de credenciais do cliente, o valor tem de ser **client_credentials**. |
+| client_id |obrigatório |Especifica o id de cliente do Azure AD do serviço web chamada. Para localizar ID de cliente a aplicação de chamada, além de [portal do Azure](https://portal.azure.com), clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação. O client_id é o *ID da aplicação* |
+| client_secret |obrigatório |Introduza uma chave registada para a chamada serviço ou o daemon de aplicação web no Azure AD. Para criar uma chave no portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação, clique em **definições**, clique em **chaves** , e adicionar uma chave.|
+| Recurso |obrigatório |Introduza o URI de ID de aplicação do serviço web do recetor. Para obter o URI de ID de aplicação no portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação de serviço e, em seguida, clique em **definições** e  **Propriedades**. |
 
 #### <a name="example"></a>Exemplo
 Um token de acesso para os pedidos de HTTP POST seguintes o https://service.contoso.com/ serviço web. O `client_id` identifica o serviço web que os pedidos de token de acesso.
@@ -73,11 +75,11 @@ Um pedido de token de acesso de serviços com um certificado contém os seguinte
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |Necessário |Especifica o tipo de resposta pedida. Um fluxo de concessão de credenciais do cliente, o valor tem de ser **client_credentials**. |
-| client_id |Necessário |Especifica o id de cliente do Azure AD do serviço web chamada. Para localizar ID de cliente a aplicação de chamada, além de [portal do Azure](https://portal.azure.com), clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação. O client_id é o *ID da aplicação* |
-| client_assertion_type |Necessário |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
-| Recurso | Necessário |Introduza o URI de ID de aplicação do serviço web do recetor. Para obter o URI de ID de aplicação no portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação de serviço e, em seguida, clique em **definições** e  **Propriedades**. |
+| grant_type |obrigatório |Especifica o tipo de resposta pedida. Um fluxo de concessão de credenciais do cliente, o valor tem de ser **client_credentials**. |
+| client_id |obrigatório |Especifica o id de cliente do Azure AD do serviço web chamada. Para localizar ID de cliente a aplicação de chamada, além de [portal do Azure](https://portal.azure.com), clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação. O client_id é o *ID da aplicação* |
+| client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
+| Recurso | obrigatório |Introduza o URI de ID de aplicação do serviço web do recetor. Para obter o URI de ID de aplicação no portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, clique na aplicação de serviço e, em seguida, clique em **definições** e  **Propriedades**. |
 
 Tenha em atenção que os parâmetros são quase os mesmos que no caso do pedido por segredo partilhado com a exceção que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 

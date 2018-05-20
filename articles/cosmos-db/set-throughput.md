@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: fadbe5d2777bc5c8551558be80e77dd2785044a2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 925167c6b4a7f173726ec094c2847a16ca3d0ef4
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter débito para contentores de base de dados do Azure Cosmos e base de dados
 
@@ -45,7 +45,7 @@ Este artigo explica os passos necessários para configurar o débito de diferent
 
    |**Definição**  |**Descrição**  |
    |---------|---------|
-   |Id da base de dados  |  Forneça um nome exclusivo para identificar a sua base de dados. Base de dados é um contentor lógico de uma ou mais coleções. Os nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter /, \, #,?, ou um espaço à direita. |
+   |Id da base de dados  |  Forneça um nome exclusivo para identificar a sua base de dados. Base de dados é um contentor lógico de uma ou mais coleções. Os nomes das bases de dados devem conter de 1 a 255 carateres e não podem conter /, \\, #, ?, ou um espaço à direita. |
    |ID da coleção  | Forneça um nome exclusivo para identificar a sua coleção. Os IDs das coleções têm os mesmos requisitos em termos de carateres do que os nomes das bases de dados. |
    |Capacidade de armazenamento   | Este valor representa a capacidade de armazenamento da base de dados. Quando aprovisionar débito para uma coleção individuais, capacidade de armazenamento pode ser **fixo (10 GB)** ou **ilimitada**. Capacidade de armazenamento ilimitado requer que defina uma chave de partição para os seus dados.  |
    |Débito   | Cada coleção e a base de dados podem ter débito em unidades de pedido por segundo.  Fixo capacidade de armazenamento, débito mínimo é de 400 unidades de pedido por segundo (RU/s), para armazenamento ilimitado, débito de capacidade mínimo está definido como 1000 RU/s.|

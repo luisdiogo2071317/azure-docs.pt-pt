@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/18
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 442bfa7081865b2549c07a9436296ba2385a0b66
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -86,6 +86,10 @@ Para iniciar sessão baseada em palavra-passe de início de sessão, tem de util
 > [!NOTE]
 > Funcionalidades adicionais estão disponíveis apenas para o limite, o Chrome e o Firefox.
 >
+Pode transferir a extensão diretamente a partir dos seguintes sites:
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Limite](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se estiver a utilizar um URL de aplicações My diferente de `https://myapps.microsoft.com`, configurar o URL predefinido efetuando o seguinte procedimento:
 1. Enquanto estiver *não* sessão para a extensão, faça duplo clique no ícone de extensão.
@@ -93,6 +97,12 @@ Se estiver a utilizar um URL de aplicações My diferente de `https://myapps.mic
 3. Selecione o seu URL de predefinição.
 4. Selecione o ícone de extensão.
 5. Selecione **iniciar sessão começar a utilizar**.
+
+Para utilizar URLs internas da empresa ao remoto através da extensão, efetue o seguinte:
+1. [Configurar o Proxy de aplicações](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) no seu inquilino.
+2. [Publicar a aplicação](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e o URL através de Proxy de aplicações.
+3. Instalar a extensão e inicie sessão-lo ao selecionar o início de sessão para começar a utilizar.
+4. Agora pode navegar para o URL de internas da empresa, mesmo ao remoto.
 
 ## <a name="mobile-app-support"></a>Suporte de aplicações móveis
 

@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
@@ -123,7 +121,7 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
 | callerIpAddress |Cadeia |O endereço IP do cliente que efetua o pedido |
 | correlationId |Cadeia |O ID do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
-| identidade |Objeto |A identidade que gerou o registo |
+| identidade |Object |A identidade que gerou o registo |
 | propriedades |JSON |Consulte abaixo para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
@@ -134,7 +132,7 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 | RequestContentLength |Int |O comprimento do conteúdo do pedido HTTP |
 | ClientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
 | StartTime |Cadeia |A hora em que o servidor recebeu o pedido |
-| EndTime |Cadeia |A hora em que o servidor enviou uma resposta |
+| endTime |Cadeia |A hora em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob tem um objeto de raiz denominado **registos** que contém uma matriz de objetos de registo
@@ -170,7 +168,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
 | resultSignature |Cadeia |Detalhes adicionais sobre a operação. |
 | correlationId |Cadeia |O ID do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
-| identidade |Objeto |A identidade que gerou o registo |
+| identidade |Object |A identidade que gerou o registo |
 | propriedades |JSON |Consulte abaixo para obter detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria

@@ -1,24 +1,24 @@
 ---
-title: "Gestor de recursos de Cluster de recursos de infraestrutura de serviço - afinidade | Microsoft Docs"
-description: "Descrição geral de configuração de afinidade para serviços do Service Fabric"
+title: Gestor de recursos de Cluster de recursos de infraestrutura de serviço - afinidade | Microsoft Docs
+description: Descrição geral de configuração de afinidade para serviços do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8122f1644da25a9a2ab05291dafc33c77a91147f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurar e utilizar a afinidade de serviço no Service Fabric
 Afinidade é um controlo que é fornecido principalmente para ajudar a facilitar a transição das aplicações monolithic superiores para o universo de nuvem e micro-serviços. Também é utilizado como uma otimização para melhorar o desempenho dos serviços, embora se o fizer, pode ter efeitos secundários.
@@ -77,7 +77,7 @@ Outra coisa a ter em atenção hoje sobre relações de afinidade é que estão 
 ### <a name="partitioning-support"></a>Suporte de criação de partições
 A final coisa a reparar sobre a afinidade é essa afinidade não são suportadas relações em que o elemento principal está particionado. Serviços particionada principal podem ser suportados, eventualmente, mas atualmente não é permitido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como configurar os serviços, [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - Para limitar os serviços para um pequeno conjunto de máquinas ou agregar a carga de serviços, utilize [grupos de aplicações](service-fabric-cluster-resource-manager-application-groups.md)
 

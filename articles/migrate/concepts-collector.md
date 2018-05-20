@@ -4,14 +4,14 @@ description: Fornece uma descrição geral do dispositivo de Recoletor e como co
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="collector-appliance"></a>Aplicação de recoletor
 
@@ -128,7 +128,7 @@ Assim que estiver ligado ao vCenter, pode selecionar um âmbito de deteção. Se
 2. Pode selecionar apenas um âmbito de cada vez. Para selecionar mais máquinas virtuais, pode concluir uma deteção e reinicie o processo de deteção com um novo âmbito.
 3. Pode selecionar apenas um âmbito que tenha *menor 1500 máquinas de virtuais*.
 
-## <a name="specify-migration-project"></a>Especifique o projeto de migração
+## <a name="specify-migration-project"></a>Especificar o projeto de migração
 
 Depois do vCenter no local está ligado e um âmbito for especificado, agora pode especificar os detalhes do projeto de migração que têm de ser utilizados para deteção e de avaliação. Especifique o ID de projeto e a chave e ligar.
 

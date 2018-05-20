@@ -10,17 +10,16 @@ ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2a9f2e9c2634173cf2feb9ded2e87e49f9c8d1e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Criar clusters do HDInsight com o Data Lake Store como armazenamento de predefinido utilizando o PowerShell
+
 > [!div class="op_single_selector"]
 > * [Utilizar o portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Utilize o PowerShell (para armazenamento de predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -38,11 +37,12 @@ Seguem-se algumas considerações importantes para utilizar o HDInsight com o Da
 Para configurar o HDInsight para trabalhar com o Data Lake Store utilizando o PowerShell, siga as instruções nas secções junto cinco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 
 * **Uma subscrição do Azure**: aceda a [avaliação gratuita do Azure obter](https://azure.microsoft.com/pricing/free-trial/).
 * **O Azure PowerShell 1.0 ou superior**: consulte [como instalar e configurar o PowerShell](/powershell/azure/overview).
-* **Software Development Kit (SDK) do Windows**: para instalar o Windows SDK, visite [transfere e ferramentas para Windows 10](https://dev.windows.com/en-us/downloads). O SDK é utilizado para criar um certificado de segurança.
+* **Software Development Kit (SDK) do Windows**: para instalar o Windows SDK, visite [transfere e ferramentas para Windows 10](https://dev.windows.com/downloads). O SDK é utilizado para criar um certificado de segurança.
 * **Principal de serviço do Azure Active Directory**: Este tutorial descreve como criar um principal de serviço no Azure Active Directory (Azure AD). No entanto, para criar um principal de serviço, tem de ser um administrador do Azure AD. Se for um administrador, pode ignorar este pré-requisito e continue com o tutorial.
 
     >[!NOTE]
@@ -50,6 +50,7 @@ Antes de começar este tutorial, certifique-se de que cumpre os seguintes requis
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Criar uma conta do Data Lake Store
+
 Para criar uma conta de Data Lake Store, efetue o seguinte:
 
 1. A partir do ambiente de trabalho, abra uma janela do PowerShell e, em seguida, introduza os fragmentos abaixo. Quando lhe for pedido para iniciar sessão, inicie sessão como um dos administradores da subscrição ou proprietários. 
@@ -142,7 +143,7 @@ Nesta secção, criar um principal de serviço para uma aplicação do Azure AD,
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

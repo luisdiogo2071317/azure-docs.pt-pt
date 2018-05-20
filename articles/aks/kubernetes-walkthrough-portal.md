@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6fa40d1d170c9a9c5666c7c96980e658d1fe85fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implementar um cluster de Azure Kubernetes Service (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
 Neste guia de introdução, vai implementar um cluster do AKS com o portal do Azure. Depois, é executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet.
 
@@ -31,7 +31,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-aks-cluster"></a>Criar um cluster do AKS
 
-Escolha **Criar um recurso** > procure **Kubernetes** > selecione **Azure Kubernetes Service (pré-visualização)** > **Criar**.
+Escolha **Criar um recurso** > procure **Kubernetes** > selecione **Serviço Kubernetes** > **Criar**.
 
 Conclua os passos seguintes, descritos abaixo de cada um dos títulos do formulário para criar o cluster de AKS.
 
@@ -163,10 +163,10 @@ spec:
     app: azure-vote-front
 ```
 
-Utilize o comando [kubectl create][kubectl-create] para executar a aplicação.
+Utilize o comando [kubectl apply][kubectl-apply] para executar a aplicação.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 Saída:
@@ -244,7 +244,7 @@ Para saber mais sobre o AKS e ver um exemplo completo de código para implementa
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -254,7 +254,7 @@ Para saber mais sobre o AKS e ver um exemplo completo de código para implementa
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

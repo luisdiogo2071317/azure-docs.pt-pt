@@ -4,13 +4,13 @@ description: Fornece uma descrição geral de cálculos de avaliação no servi�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 2/21/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: d075ce9ee124d373a1284577324a50338245a03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b6b3e78436a215e64894b1102c4e109f72c896d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -25,7 +25,7 @@ Visualização de dependência na migrar do Azure permite-lhe criar grupos para 
 
 Azure migrar utiliza o [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) solução [Log Analytics](../log-analytics/log-analytics-overview.md) para visualização de dependência.
 - Quando cria um projeto de migração do Azure, é criada uma área de trabalho de análise de registos na sua subscrição.
-- O nome da área de trabalho é o nome que especificar para o projeto de migração, o prefixo **migrar-**e, opcionalmente, o sufixo com um número. 
+- O nome da área de trabalho é o nome que especificar para o projeto de migração, o prefixo **migrar-** e, opcionalmente, o sufixo com um número. 
 - Navegue para a área de trabalho de análise de registos do **Essentials** secção do projeto **descrição geral** página.
 - A área de trabalho criada é etiquetada com a chave **MigrateProject**e o valor **nome do projeto**. Pode utilizá-las para procurar no portal do Azure.  
 

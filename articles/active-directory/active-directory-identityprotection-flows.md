@@ -1,9 +1,9 @@
 ---
-title: "Início de sessão experiências com o Azure AD Identity Protection | Microsoft Docs"
-description: "Fornece uma descrição geral da experiência do utilizador quando Identity Protection tem atenuados ou remediado um utilizador ou quando a autenticação multifator é requerida por uma política."
+title: Início de sessão experiências com o Azure AD Identity Protection | Microsoft Docs
+description: Fornece uma descrição geral da experiência do utilizador quando Identity Protection tem atenuados ou remediado um utilizador ou quando a autenticação multifator é requerida por uma política.
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Início de sessão experiências com o Azure AD Identity Protection
 Com o Azure Active Directory Identity Protection, pode:
@@ -49,10 +49,7 @@ Este tópico fornece uma descrição geral da experiência de início de sessão
 ## <a name="multi-factor-authentication-registration"></a>Registo de autenticação multifator
 A melhor experiência de utilizador para ambos, o fluxo de recuperação de conta comprometida e arriscado fluxo início de sessão, é quando o utilizador Self-pode recuperar. Se os utilizadores estão registados para autenticação multifator, já tem um número de telefone associado à sua conta que pode ser utilizada para passar os desafios de segurança. Não é necessário nenhum envolvimento de suporte técnico ou o administrador de ajuda para recuperar de compromisso de conta. Assim, é altamente recomendado que para incentivar os utilizadores registados para autenticação multifator. 
 
-Os administradores podem:
-
-* Defina uma política que requer que os utilizadores configurar as contas para verificação de segurança adicional. 
-* permita a ignorar registo de autenticação multifator para 30 dias, no caso de que pretende conceder aos utilizadores um período de tolerância antes de registar.
+Os administradores podem definir uma política que requer que os utilizadores configurar as contas para verificação de segurança adicional. Esta política permite aos utilizadores ignorar o registo de autenticação multifator para 14 dias. O período de tolerância de 14 dias não é configurável.
 
 **O registo de autenticação multifator tem três passos:**
 

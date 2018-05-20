@@ -14,13 +14,15 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: 78e164b566194fcfe952e3ad59dd3d228f90d193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de chat com o SignalR Service
+
+O Microsoft Azure SignalR Service está atualmente em [Pré-visualização Pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O Serviço Azure SignalR é um serviço do Azure que ajuda os programadores a facilmente criar aplicações web com funcionalidades em tempo real. Este serviço é baseado em [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
@@ -84,7 +86,7 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
 
 1. Execute o seguinte comando para adicionar uma referência para o pacote de NuGet `Microsoft.Azure.SignalR`:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
 
 2. Execute o seguinte comando para restaurar os pacotes do seu projeto.
 
@@ -95,7 +97,7 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     O Secret Manager só será utilizado para testar a aplicação Web enquanto estiver alojada localmente. Num próximo tutorial, vai implementar a aplicação Web de chat no Azure. Quando a aplicação Web estiver implementada no Azure, vai utilizar uma definição de aplicação em vez de armazenar a cadeia de ligação no Secret Manager.

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Aprovisionar o armazenamento de disco de máquina virtual na pilha do Azure
 
@@ -65,22 +65,22 @@ Cada disco não gerido que adicionar deve ser colocado num contentor separado.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Utilizar o portal para criar e anexar um novo disco de dados
 
-1.  No portal, clique em **máquinas virtuais**.    
+1.  No portal, escolha **máquinas virtuais**.    
     ![Exemplo: Dashboard VM](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Selecione uma máquina virtual que tenha sido aprovisionada anteriormente.   
     ![Exemplo: Selecione uma VM no dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Para a máquina virtual, clique em **discos** > **anexar novo**.       
+3.  Para a máquina virtual, selecione **discos** > **anexar novo**.       
     ![Exemplo: Anexe um novo disco à vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  No **anexar novo disco** painel, clique em **localização**. Por predefinição, a localização é definida ao mesmo contentor que detém o disco do SO.      
+4.  No **anexar novo disco** painel, selecione **localização**. Por predefinição, a localização é definida ao mesmo contentor que detém o disco do SO.      
     ![Exemplo: Defina a localização do disco](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Selecione o **conta de armazenamento** a utilizar. Em seguida, selecione o **contentor** onde pretende colocar o disco de dados. Do **contentores** página, pode criar um novo contentor se pretender. Em seguida, pode alterar a localização para o novo disco para a suas próprias contentor. Quando utilizar um contentor separado para cada disco, distribuir o posicionamento do disco de dados que pode melhorar o desempenho. Clique em **selecione** para guardar a seleção.     
+5.  Selecione o **conta de armazenamento** a utilizar. Em seguida, selecione o **contentor** onde pretende colocar o disco de dados. Do **contentores** página, pode criar um novo contentor se pretender. Em seguida, pode alterar a localização para o novo disco para a suas próprias contentor. Quando utilizar um contentor separado para cada disco, distribuir o posicionamento do disco de dados que pode melhorar o desempenho. Escolha **selecione** para guardar a seleção.     
     ![Exemplo: Selecione um contentor](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  No **anexar novo disco** página, atualize o **nome**, **tipo**, **tamanho**, e **alojar a colocação em cache** definições de disco. Em seguida, clique em **OK** para guardar a nova configuração de disco para a VM.  
+6.  No **anexar novo disco** página, atualize o **nome**, **tipo**, **tamanho**, e **alojar a colocação em cache** definições de disco. Em seguida, selecione **OK** para guardar a nova configuração de disco para a VM.  
     ![Exemplo: Anexo de discos completos](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Depois de pilha do Azure cria o disco e anexa-lo para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**.   
@@ -94,22 +94,22 @@ Cada disco não gerido que adicionar deve ser colocado num contentor separado.
   Recomendamos que utilize um contentor diferente para conter o ficheiro. vhd que o contentor que detém o disco do SO.   
   ![Exemplo: Carregar um ficheiro VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Depois do ficheiro. vhd é carregado, está pronto para anexar o VHD para uma VM. No menu à esquerda, clique em **máquinas virtuais**.  
+2.  Depois do ficheiro. vhd é carregado, está pronto para anexar o VHD para uma VM. No menu à esquerda, selecione **máquinas virtuais**.  
  ![Exemplo: Selecione uma VM no dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  Selecione a máquina virtual na lista.    
+3.  Escolha a máquina virtual da lista.    
   ![Exemplo: Selecione uma VM no dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Na página para a máquina virtual, clique em **discos** > **anexar existente**.   
+4.  Na página para a máquina virtual, selecione **discos** > **anexar existente**.   
   ![Exemplo: Anexar um disco existente](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  No **anexar o disco existente** página, clique em **ficheiro VHD**. O **contas do Storage** é aberta a página.    
+5.  No **anexar o disco existente** página, selecione **ficheiro VHD**. O **contas do Storage** é aberta a página.    
   ![Exemplo: Selecione um ficheiro VHD](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Em **contas do Storage**, selecione a conta a utilizar e, em seguida, selecione um contentor que retém o ficheiro. vhd que carregou anteriormente. Selecione o ficheiro. vhd e, em seguida, clique em **selecione** para guardar a seleção.    
+6.  Em **contas do Storage**, selecione a conta a utilizar e, em seguida, escolha um contentor que retém o ficheiro. vhd que carregou anteriormente. Selecione o ficheiro. vhd e, em seguida, escolha **selecione** para guardar a seleção.    
   ![Exemplo: Selecione um contentor](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  Em **anexar o disco existente**, o ficheiro que selecionou é apresentado em **ficheiro VHD**. Atualização do **alojar a colocação em cache** definição do disco e, em seguida, clique em **OK** para guardar a nova configuração de disco para a VM.    
+7.  Em **anexar o disco existente**, o ficheiro que selecionou é apresentado em **ficheiro VHD**. Atualização do **alojar a colocação em cache** definição do disco e, em seguida, selecione **OK** para guardar a nova configuração de disco para a VM.    
   ![Exemplo: Anexar o ficheiro VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Depois de pilha do Azure cria o disco e anexa-lo para a máquina virtual, o novo disco está listado nas definições de disco da máquina virtual em **discos de dados**.   

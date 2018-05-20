@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/10/2018
+ms.date: 5/15/2018
 ms.author: rithorn
-ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão 
 Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e conformidade entre várias subscrições. Pode alterar, eliminar e gerir estes contentores ter hierarquias que podem ser utilizadas com [política Azure](../azure-policy/azure-policy-introduction.md) e [controlos de acesso com base do Azure funções (RBAC)](../role-based-access-control/overview.md). Para obter mais informações sobre grupos de gestão, consulte o artigo [organizar os recursos com grupos de gestão do Azure ](management-groups-overview.md).
@@ -24,6 +24,8 @@ Grupos de gestão são contentores que ajudam a gerir o acesso, políticas e con
 A funcionalidade de grupo de gestão está disponível uma versão de pré-visualização pública. Para começar a utilizar a gestão de grupos, início de sessão para o [portal do Azure](https://portal.azure.com) ou pode utilizar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [CLI do Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), ou o [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para gerir os grupos de gestão.
 
 Para efetuar alterações a um grupo de gestão, tem de ter uma função de proprietário ou contribuinte no grupo de gestão. Para ver as permissões têm, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../role-based-access-control/overview.md).
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Alterar o nome de um grupo de gestão 
 Pode alterar o nome do grupo de gestão utilizando o portal, o PowerShell ou a CLI do Azure.

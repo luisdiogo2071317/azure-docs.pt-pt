@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b668ff70d627a63fb34012b07d9b41fc6f6ecb6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de codificação geográfica dos mapas do Azure
 
@@ -53,7 +53,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Guiana Francesa                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Granada                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadalupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Guame                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -242,7 +242,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Gâmbia                                              |                 |                |              |      ✓     |          ✓         |
 | Gana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guiné                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Guiné-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Guiné Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Irão                                                |                 |                |              |      ✓     |          ✓         |
 | Iraque                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israel                                              |                 |                |              |      ✓     |          ✓         |
@@ -260,10 +260,10 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 | Ilhas Marshall |                 |                |              |      ✓     |          ✓         |
 | Mauritânia                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Maurícia                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Maiote                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Marrocos                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moçambique                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Mianmar                                             |                 |                |              |      ✓     |          ✓         |
+| Myanmar                                             |                 |                |              |      ✓     |          ✓         |
 | Namíbia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Níger                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Nigéria                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -297,7 +297,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa aceit
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a codificação geográfica mapas do Azure, consulte o [pesquisa](https://docs.microsoft.com/rest/api/azure-maps/search) páginas de referência.
+Para obter mais informações sobre a codificação geográfica mapas do Azure, consulte o [pesquisa](https://docs.microsoft.com/rest/api/maps/search) páginas de referência.
 
 Saiba mais sobre o [cobertura as áreas para os Maps tráfego serviço](traffic-coverage.md). 
 

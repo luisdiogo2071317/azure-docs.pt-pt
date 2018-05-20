@@ -8,16 +8,14 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Utilização do Azure Data Lake Store para capturar os dados dos Event Hubs
 
@@ -123,6 +121,6 @@ Pode agora testar a solução ao enviar dados para o Hub de eventos do Azure. Si
 Depois dos dados no Data Lake Store, pode executar tarefas analíticas a processar e crunch os dados. Consulte [USQL Avro exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazê-lo utilizando o Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 * [Copiar dados de Blobs de armazenamento do Azure para o Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)

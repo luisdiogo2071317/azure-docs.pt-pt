@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 816f2c10631de3809c6679c1e2715174f072f56d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 299d3df1c9ae82bb9f184e9ffb1dd922013e5e65
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Como configurar uma aplicação de Proxy de aplicações
 
@@ -51,7 +51,7 @@ A mensagem de erro deverá apresentar no canto superior direito ao criar a aplic
 
 ## <a name="configure-connectorsconnector-groups"></a>Configurar grupos de conectores/conector
 
-Se estiver a ter dificuldade em configurar a sua aplicação devido a aviso sobre os conectores e grupos de conector, consulte as instruções sobre como ativar o Proxy da aplicação para obter detalhes sobre como transferir conectores. Se pretender obter mais informações sobre conectores, consulte o [documentação de conectores](application-proxy-understand-connectors.md).
+Se estiver a ter dificuldade em configurar a sua aplicação devido a aviso sobre os conectores e grupos de conector, consulte as instruções sobre como ativar o Proxy da aplicação para obter detalhes sobre como transferir conectores. Se pretender obter mais informações sobre conectores, consulte o [documentação de conectores](manage-apps/application-proxy-connectors.md).
 
 Se os conectores estão inativos, isto significa que não conseguem alcançar o serviço. Isto é, muitas vezes, porque todas as portas necessárias não estão abertas. Para ver uma lista das portas necessárias, consulte a secção de pré-requisitos da documentação ativar Proxy de aplicações.
 

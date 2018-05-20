@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f5c8876b3711a1882550e7004022978d74231723
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1304bfd376fca7eb55c4533a690a12c3fef16efc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Proteger as comunicações com base em WCF para um serviço
 A segurança é um dos aspetos mais importantes de comunicação. A estrutura da aplicação Reliable Services fornece alguns pilhas de comunicação prebuilt e ferramentas que pode utilizar para melhorar a segurança. Este artigo aborda como melhorar a segurança quando estiver a utilizar a comunicação remota do serviço.

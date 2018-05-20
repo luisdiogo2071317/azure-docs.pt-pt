@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 5/14/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -73,40 +73,19 @@ Pode eliminar a duplicados do armazenamento do DPM utiliza a eliminação de dup
 > - Um computador no qual o Exchange Server está em execução
 > - Um computador que é um nó de um cluster
 
-Sempre associe o servidor de cópia de segurança do Azure a um domínio. Se planear mover o servidor a um domínio diferente, é recomendado que associe o servidor para o novo domínio antes de instalar o servidor de cópia de segurança do Azure. Mover uma máquina do servidor de cópia de segurança do Azure existente para um novo domínio após a conclusão da implementação *não suportado*.
+Sempre associe o servidor de cópia de segurança do Azure a um domínio. Se planear mover o servidor a um domínio diferente, instalar o servidor de cópia de segurança do Azure pela primeira vez, em seguida, associar o servidor para o novo domínio. Mover uma máquina do servidor de cópia de segurança do Azure existente para um novo domínio após a conclusão da implementação *não suportado*.
 
-## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
-Quer enviar dados de cópia de segurança para o Azure ou mantenha-o localmente, o software tem de ser ligado ao Azure. Para ser mais específicos, a máquina do servidor de cópia de segurança do Azure tem de ser registado com um cofre de serviços de recuperação.
+Quer enviar dados de cópia de segurança para o Azure, ou mantenha-o localmente, o servidor de cópia de segurança do Azure tem de ser registado com um cofre dos serviços de recuperação.
 
-Para criar um cofre dos serviços de recuperação:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, clique em **Procurar** e na lista de recursos, escreva **Serviços de Recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
-
-    ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
-
-    É apresentada a lista de cofres dos serviços de recuperação.
-3. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar**.
-
-    ![Passo 2 da Criação do Cofre dos Serviços de Recuperação](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
-
-    O painel do cofre dos Serviços de Recuperação Cofre abre-se, pedindo-lhe que forneça um **Nome**, **Subscrição**, **Grupo de recursos** e **Localização**.
-
-    ![Passo 5 da Criação do cofre dos Serviços de Recuperação](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
-4. Para o **Nome**, introduza um nome amigável para identificar o cofre. O nome tem de ser exclusivo para a subscrição do Azure. Escreva um nome que contenha entre 2 e 50 carateres. Tem de começar com uma letra e pode conter apenas letras, números e hífenes.
-5. Clique em **Subscrição** para ver a lista de subscrições disponíveis. Se não tiver a certeza de que subscrição utilizar, utilize a subscrição predefinida (ou sugerida). Terá várias escolhas apenas se a sua conta organizacional estiver associada a várias subscrições do Azure.
-6. Clique em **Grupo de recursos** para ver a lista de Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para mais informações mais completas sobre os grupos de Recursos, veja [Descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-7. Clique em **Localização** para selecionar a região geográfica do cofre.
-8. Clique em **Criar**. Pode demorar algum tempo até que o cofre dos Serviços de Recuperação seja criado. Monitorize as notificações de estado na área superior direita no portal.
-   Assim que o Cofre for criado, abre-se no portal.
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por predefinição, o seu cofre tem um armazenamento georredundante. Se este cofre é o seu Cofre primário, deixe a opção de armazenamento definida para o armazenamento georredundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por predefinição, os cofres dos serviços de recuperação utilizam o armazenamento georredundante. Se este cofre é o seu Cofre primário, deixe a opção de armazenamento definida para o armazenamento georredundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy-grs.md) e [localmente redundante](../storage/common/storage-redundancy-lrs.md) na [descrição geral da replicação de Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
-1. Selecione o cofre para abrir o dashboard do cofre e o painel de Definições. Se o painel **Definições** não abrir, clique em **Todas as definições** no dashboard do cofre.
-2. No painel **Definições**, clique em **Infraestrutura de Cópia de Segurança** > **Configuração de Cópia de Segurança** para abrir o painel **Configuração de Cópia de Segurança**. No painel **Configuração de Cópia de Segurança**, escolha a opção de replicação de armazenamento para o cofre.
+1. Selecione o cofre para abrir o dashboard do cofre e o menu definições. Se o **definições** menu não abrir, clique em **todas as definições** no dashboard do cofre.
+2. No **definições** menu, clique em **infraestrutura de cópia de segurança** > **configuração de cópia de segurança** para abrir o **configuração de cópia de segurança**painel. No **configuração de cópia de segurança** menu, escolha a opção de replicação de armazenamento para o cofre.
 
     ![Lista de cofres de cópia de segurança](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +94,7 @@ Para editar a definição de replicação de armazenamento:
 ## <a name="software-package"></a>Pacote de software
 ### <a name="downloading-the-software-package"></a>Transferir o pacote de software
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Se já tiver um cofre de serviços de recuperação aberto, avance para o passo 3. Se não tiver um cofre dos Serviços de Recuperação aberto, mas está no portal do Azure, no menu Hub, clique em **Procurar**.
+2. Se já tiver um cofre de serviços de recuperação aberto, avance para o passo 3. Se não tiver um cofre de serviços de recuperação aberto, mas estão no portal do Azure, no menu principal, clique em **procurar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
    * À medida que começa a escrever, irá filtrar a lista com base na sua entrada. Quando vir **Cofres dos Serviços de Recuperação**, clique no mesmo.

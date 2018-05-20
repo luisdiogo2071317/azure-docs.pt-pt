@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 64dcf5608710a85c47cd14ed9bee33594d46e083
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7c505080e6b6144ab3cf24ad89bb084efbb77c29
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>A página não funciona para uma aplicação de Proxy de aplicações
 
@@ -45,5 +45,5 @@ Existem três formas para resolver este problema. As opções abaixo no constam 
 Como resultado, recomendamos vivamente a utilizar o [domínios personalizados](manage-apps/application-proxy-configure-custom-domain.md) solução se possível. Se pretende associar a pré-visualização, e-mail <aadapfeedback@microsoft.com> com o applicationId(s).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Trabalhar com servidores de proxy no local existentes](application-proxy-working-with-proxy-servers.md)
+[Trabalhar com servidores de proxy no local existentes](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 
