@@ -1,13 +1,13 @@
 ---
-title: "Enlace de funções Twilio do Azure"
-description: "Compreenda como utilizar os enlaces do Twilio com as funções do Azure."
+title: Enlace de funções Twilio do Azure
+description: Compreenda como utilizar os enlaces do Twilio com as funções do Azure.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 30a47fb597b5739e9f947caa9b72238631c780fe
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Enlace Twilio para as funções do Azure
 
@@ -33,6 +33,8 @@ Este artigo explica como enviar mensagens de texto com [Twilio](https://www.twil
 Os enlaces do Twilio são fornecidos no [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) pacote NuGet. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -227,14 +229,14 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**|| tem de ser definido como `twilioSms`.|
-|**direction**|| tem de ser definido como `out`.|
+|**tipo**|| tem de ser definido como `twilioSms`.|
+|**direção**|| tem de ser definido como `out`.|
 |**name**|| Nome da variável utilizado no código de função para a mensagem de texto SMS do Twilio. |
 |**accountSid**|**AccountSid**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o Sid de conta do Twilio.|
 |**authToken**|**AuthToken**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o token de autenticação do Twilio.|
 |**Para**|**Para**| Este valor é definido para o número de telefone que o texto SMS é enviado para.|
-|**from**|**Do**| Este valor é definido para o número de telefone que o texto SMS é enviado do.|
-|**body**|**Corpo**| Este valor pode ser utilizado rígido codificar a mensagem de texto SMS se não precisa de configurá-lo dinamicamente no código para a sua função. |
+|**Do**|**Do**| Este valor é definido para o número de telefone que o texto SMS é enviado do.|
+|**Corpo**|**Corpo**| Este valor pode ser utilizado rígido codificar a mensagem de texto SMS se não precisa de configurá-lo dinamicamente no código para a sua função. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

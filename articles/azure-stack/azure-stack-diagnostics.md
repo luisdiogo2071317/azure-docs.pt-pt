@@ -1,25 +1,23 @@
 ---
-title: "Diagnóstico no Azure Stack"
-description: "Como recolher ficheiros de registo para obter um diagnóstico na pilha do Azure"
+title: Diagnóstico no Azure Stack
+description: Como recolher ficheiros de registo para obter um diagnóstico na pilha do Azure
 services: azure-stack
 author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 04/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
-*Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
- 
 Pilha do Azure é uma coleção grande de componentes de trabalhar em conjunto e interagir entre si. Todos estes componentes geram os seus próprios registos exclusivos. Isto pode fazer diagnosticar problemas com uma tarefa difícil, especialmente para erros provenientes de vários interação de componentes de pilha do Azure. 
 
 A nossa ferramentas de diagnóstico garantir que o mecanismo de coleção de registo é fácil e eficiente. O diagrama seguinte mostra como iniciar ferramentas de recolha em projetos de pilha do Azure:
@@ -79,7 +77,36 @@ Estes ficheiros são recolhidos e guardados numa partilha pelo Recoletor do rast
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Para executar Get-AzureStackLog uma pilha do Azure integrado no sistema
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Para executar Get-AzureStackLog na pilha do Azure integrado versão sistemas 1804 e posterior
+
+Para executar a ferramenta de coleção de registo num sistema integrado, tem de ter acesso ao ponto final com privilégios (PEP). Eis um script de exemplo, pode executar utilizando o PEP para recolher registos num sistema integrado:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são utilizados para carregar os registos para uma pasta partilhada externa.
+- Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos para um período de tempo específico. Isto pode ter de útil para cenários como recolher registos depois de aplicar um pacote de atualização num sistema integrado.
+
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Para executar Get-AzureStackLog na pilha do Azure integrado versão sistemas 1803 e anterior
 
 Para executar a ferramenta de coleção de registo num sistema integrado, tem de ter acesso ao ponto final com privilégios (PEP). Eis um script de exemplo, pode executar utilizando o PEP para recolher registos num sistema integrado:
 
@@ -108,6 +135,7 @@ if($s)
 - Os parâmetros **OutputSharePath** e **OutputShareCredential** são opcionais e são utilizadas quando carregar os registos para uma pasta partilhada externa. Utilize estes parâmetros *Ademais* para **OutputPath**. Se **OutputPath** não for especificado, a ferramenta de registo de coleção utiliza a unidade de sistema da PEP VM para armazenamento. Isto poderá originar o script falhou porque o espaço de disco é limitado.
 - Conforme mostrado no exemplo anterior, o **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos para um período de tempo específico. Isto pode ter de útil para cenários como recolher registos depois de aplicar um pacote de atualização num sistema integrado.
 
+
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 
 - Se o **FromDate** e **ToDate** não foram especificados parâmetros, os registos serão recolhidos as últimos quatro horas por predefinição.
@@ -117,35 +145,44 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | AC                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | Domínio                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | Armazenamento                | StorageController  |
-   | URP                     | UsageBridge            | virtualMachines    |  
-   | FOI                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | Rede                    |
+   | ACSFabric              | Domínio                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Recursos de infraestrutura                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | SLB                        |   
+   | ACSTableServer         | Galeria                          | SlbVips                    |
+   | ACSWac                 | Gateway                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | Armazenamento                    |   
+   | NCAzureBridge          | IBC                              | StorageAccounts            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | iDns                             | Inquilino                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | Infraestrutura                   | URP                        |
+   | AC                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | Nuvem                  | KeyVaultControlPlane             | virtualMachines            |
+   | Cluster                | KeyVaultDataPlane                | FOI                        |
+   | Computação                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>Recolher registos utilizando uma interface gráfica do utilizador
-Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog obter registos de pilha do Azure, também pode tirar partido das ferramentas de pilha do Azure disponíveis open source para localizado no principal do Azure pilha ferramentas ferramentas repositório do GitHub em http://aka.ms/AzureStackTools.
+Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog obter registos de pilha do Azure, pode também tirar partido as ferramentas de pilha do Azure de open source para disponíveis localizadas no principal do Azure pilha ferramentas ferramentas repositório do GitHub em http://aka.ms/AzureStackTools.
 
-O **ERCS_AzureStackLogs.ps1** é armazenado no repositório GitHub ferramentas de script do PowerShell e é atualizado regularmente. Para se certificar de que tem a versão mais recente disponível, deve transferi-lo diretamente a partir do http://aka.ms/ERCS. O script iniciada a partir de uma sessão do PowerShell administrativa, liga ao ponto final com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se não existem parâmetros são fornecidos, o script será assumida a pedir para os parâmetros através de uma interface gráfica do utilizador.
+O **ERCS_AzureStackLogs.ps1** é armazenado no repositório GitHub ferramentas de script do PowerShell e é atualizado regularmente. Para se certificar de que tem a versão mais recente disponível, devem transferi-lo diretamente a partir do http://aka.ms/ERCS. O script iniciada a partir de uma sessão do PowerShell administrativa, liga ao ponto final com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se não existem parâmetros são fornecidos, o script será assumida a pedir para os parâmetros através de uma interface gráfica do utilizador.
 
 Para saber mais sobre o script do ERCS_AzureStackLogs.ps1 PowerShell, pode ver [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou ver o script [ficheiro Leia-me](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas de pilha do Azure. 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 
 * O comando demora algum tempo para executar com base nos que funções selecionadas os registos estão a recolher. Fatores coadjuvantes também incluem a duração de tempo especificada para a recolha de registos e o número de nós no ambiente de pilha do Azure.
-* Após a conclusão da recolha de registos, consulte a nova pasta que criou no **OutputPath** parâmetro especificado no comando.
+* Como iniciar sessão execuções de coleção, verifique a nova pasta que criou no **OutputSharePath** parâmetro especificado no comando.
 * Cada função tem os seus registos dentro ficheiros zip individuais. Dependendo do tamanho dos registos recolhidos, uma função tem os seus registos dividida em múltiplos ficheiros zip. Para uma função, se pretende que todos os ficheiros de registo deszipados para uma única pasta, utilize uma ferramenta que pode deszipe em massa (por exemplo, 7zip). Selecione todos os ficheiros zipped para a função e selecione **extrair aqui**. Isto unzips todos os ficheiros de registo para essa função numa única pasta intercalada.
 * Um ficheiro chamado **Get-AzureStackLog_Output.log** também é criado na pasta que contém os ficheiros de registo zipped. Este ficheiro é um registo de resultado do comando, o que pode ser utilizado para resolver problemas durante a recolha de registos.
 * Para investigar uma falha específica, podem ser necessária, registos de mais do que um componente.

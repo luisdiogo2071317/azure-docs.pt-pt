@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
 A família VM de série B permite-lhe escolher o tamanho da VM que fornece-lhe o desempenho de nível de base necessário para a carga de trabalho, a capacidade de impulsar desempenho da CPU de até 100% de um v4 Intel® Broadwell E5-2673 2.3 GHz ou um processador de v3 Intel® Haswell 2.4 GHz E5-2673 vCPU.
 
@@ -58,8 +58,8 @@ Se efetuar os 120 créditos que posso resultantes ponta e subtrair os 96 crédit
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: B-série suporta discos de dados de Premium Storage?
 **A**: Sim, todos os tamanhos de série B suportam discos de dados de armazenamento Premium.   
     
-### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>P: meu crédito restante estão definidos para 0 após um redepoy ou um início/paragem.
-**A** : quando VM um é "REDPLOYED", ou seja, a VM é movido para outro nó e o crédito acumulado é perdido. Se a VM está parado/iniciada, mas permanece no mesmo nó, a VM mantém o crédito acumulado. Sempre que a VM entrar raiz num nó, obtém um crédito inicial, para Standard_B8ms é 240 minutos.
+### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>P: por que motivo é meu crédito restante estão definidos para 0 após um redepoy ou um início/paragem?
+**A** : VM um quando é "REDPLOYED" e a VM é movido para outro nó, o crédito acumulado é perdido. Se a VM está parado/iniciada, mas permanece no mesmo nó, a VM mantém o crédito acumulado. Sempre que a VM entrar raiz num nó, obtém um crédito inicial, para Standard_B8ms é 240 minutos.
 
     
 

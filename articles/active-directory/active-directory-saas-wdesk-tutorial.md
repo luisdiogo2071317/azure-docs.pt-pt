@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Wdesk | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Wdesk."
+title: 'Tutorial: Integração do Azure Active Directory com Wdesk | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Wdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9338c8b8ef740885562ea3f2f1ac316b2a0783fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c55b9c32ccf6712da69c869a6f44c71e1c209627
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integração do Azure Active Directory com Wdesk
 
@@ -29,7 +29,7 @@ Integrar Wdesk com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Wdesk (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo. [O que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo. [O que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,15 +110,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
 4. Verifique **Mostrar avançadas definições de URL**. Se pretender configurar a aplicação no **SP** iniciada modo, executar o passo seguinte:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Pode obter estes valores do portal de WDesk quando configurar o SSO. 
@@ -216,7 +216,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Wdesk, têm de
    
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-wdesk-tutorial/createuser1.png)  
 
-5. No **utilizador** texto, introduza o nome de utilizador do utilizador, como  **brittasimon@contoso.com**  e clique em **continuar** botão.
+5. No **utilizador** texto, introduza o nome de utilizador do utilizador, como **brittasimon@contoso.com** e clique em **continuar** botão.
 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-wdesk-tutorial/createuser3.png)
 
@@ -224,7 +224,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Wdesk, têm de
   
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-wdesk-tutorial/createuser4.png)
  
-    a. No **correio electrónico** texto, introduza o e-mail do utilizador, como  **brittasimon@contoso.com** .
+    a. No **correio electrónico** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
 
     b. No **nome próprio** texto, introduza o nome de utilizador como **Britta**.
 
@@ -275,7 +275,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

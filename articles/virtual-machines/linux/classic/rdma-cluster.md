@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster RDMA do Linux para executar aplicações MPI
 Saiba como configurar um cluster de Linux RDMA no Azure com [tamanhos de VM de computação de elevado desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicações de Interface de passagem de mensagens (MPI) paralelas. Este artigo fornece os passos para preparar uma imagem de Linux HPC para executar Intel MPI num cluster. Depois de preparação, implementar um cluster de VMs com esta imagem e dos tamanhos de VM do Azure com capacidade RDMA (atualmente H16r, H16mr, A8, A9 ou utilizador). Utilize o cluster para executar aplicações de MPI comunicam de forma eficiente através de uma rede de latência baixa e débito elevado com base na tecnologia de (RDMA) de acesso remoto direto à memória.
@@ -210,7 +210,7 @@ Num cluster HPC com base em CentOS, existem dois métodos para estabelecer confi
 
 Um script de exemplo contribuído da Comunidade está disponível no [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) para ativar a autenticação de utilizador fácil num cluster HPC com base em CentOS. Transfira e utilize este script utilizando os seguintes passos. Também pode modificar este script ou utilizar qualquer outro método para estabelecer a autenticação SSH passwordless entre os nós de computação de cluster.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Para executar o script, terá de saber o prefixo para os endereços IP da sub-rede. Obtenha o prefixo executando o seguinte comando num de nós do cluster. A saída deve ter um aspeto semelhante 10.1.3.5 e o prefixo é o 10.1.3 parte.
 

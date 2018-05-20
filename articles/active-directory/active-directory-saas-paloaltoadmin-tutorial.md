@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integrar do Azure Active Directory com redes da Palo Alto - Admin IU | Microsoft Docs'
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e redes da Palo Alto - UI de Admin."
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e redes da Palo Alto - UI de Admin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aa3366810a40b004fe510cb2909f8da0f3513ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrar do Azure Active Directory com redes da Palo Alto - UI de Admin
 
@@ -30,7 +30,7 @@ Ao integrar o Azure AD com redes da Palo Alto - Admin IU, obtenha as seguintes v
 - Pode permitir aos utilizadores obter com sessão iniciada automaticamente a redes da Palo Alto - Admin IU (o início de sessão único, ou SSO) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central, o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -180,7 +180,7 @@ Ativar o Azure AD início de sessão no portal do Azure e configurar o início d
 
     ![A janela "Perfil do servidor de fornecedor de identidade SAML"](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-    a. No **URL de SLO de fornecedor de identidade** caixa, substitua o URL de SLO importado anteriormente com o seguinte URL:  **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0** .
+    a. No **URL de SLO de fornecedor de identidade** caixa, substitua o URL de SLO importado anteriormente com o seguinte URL: **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0**.
   
     b. Selecione **OK**.
 
@@ -301,7 +301,7 @@ Nesta secção, vai ativar utilizador Britta Simon para utilizar o Azure-início
 
 7. No **adicionar atribuição** janela, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -312,7 +312,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre a integração de aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

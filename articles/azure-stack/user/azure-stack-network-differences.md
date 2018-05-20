@@ -1,29 +1,27 @@
 ---
-title: "Redes de pilha do Azure: Diferenças e as considerações"
-description: "Saiba mais sobre as diferenças e as considerações ao trabalhar com redes na pilha do Azure."
+title: 'Redes de pilha do Azure: Diferenças e as considerações'
+description: Saiba mais sobre as diferenças e as considerações ao trabalhar com redes na pilha do Azure.
 services: azure-stack
-keywords: 
+keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações para redes de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Funcionamento em rede na pilha do Azure fornece muitas das funcionalidades que encontrar no Azure, com algumas diferenças que deve saber antes de iniciar a implementação.
+Rede de pilha do Azure tem muitas das funcionalidades fornecidas pelo redes do Azure. No entanto, existem algumas diferenças fundamentais que deve saber antes de implementar uma rede de pilha do Azure.
 
-
-Este artigo fornece uma descrição geral das considerações de exclusivas para o funcionamento em rede e as respetivas funcionalidades na pilha do Azure. Para saber mais sobre das principais diferenças entre a pilha do Azure e do Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
-
+Este artigo fornece uma descrição geral das considerações de exclusivas para redes de pilha do Azure e as respetivas funcionalidades. Para saber mais sobre das principais diferenças entre a pilha do Azure e do Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
 
 ## <a name="cheat-sheet-networking-differences"></a>Cheat folha: redes de diferenças
 
@@ -33,7 +31,7 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 | |Registos DNS AAAA|Suportadas|Não suportado|
 | |Zonas DNS por subscrição|100 (predefinição)<br>Pode ser aumentado no pedido.|100|
 | |Conjuntos de registos DNS por zona|5000 (predefinição)<br>Pode ser aumentado no pedido.|5000|
-||Servidores de nomes para a delegação de zona|Azure fornecem quatro servidores de nomes para cada zona de utilizador (inquilino) que é criada.|Pilha do Azure fornece dois servidores de nomes para cada zona de utilizador (inquilino) que é criada.|
+||Servidores de nomes para a delegação de zona|O Azure oferece quatro servidores de nomes para cada zona de utilizador (inquilino) que é criada.|Pilha do Azure fornece dois servidores de nomes para cada zona de utilizador (inquilino) que é criada.|
 | Rede virtual|Peering de rede virtual|Ligar duas redes virtuais na mesma região através da rede principal do Azure.|Ainda não suportado|
 | |Endereços IPv6|Pode atribuir um endereço IPv6 como parte do [configuração de Interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|É apenas suportado o IPv4.|
 |Gateways de VPN|Gateway de VPN de ponto a Site|Suportadas|Ainda não suportado|

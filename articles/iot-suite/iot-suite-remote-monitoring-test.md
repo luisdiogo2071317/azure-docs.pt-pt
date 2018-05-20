@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9b4f7f9a9c501204d48b738089dc3cbd015a744c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Criar um novo dispositivo simulado
 
@@ -90,7 +90,7 @@ O vídeo seguinte mostra uma explicação passo a passo de ligar os dispositivos
 
 Para seguir este tutorial, tem de:
 
-* Uma instância implementada da solução de monitorização remota na sua subscrição do Azure. Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+* Uma instância implementada da solução de monitorização remota na sua subscrição do Azure. Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 * O Visual Studio 2017. Se não tiver o Visual Studio 2017, instalado, pode transferir o livre [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edição.
 

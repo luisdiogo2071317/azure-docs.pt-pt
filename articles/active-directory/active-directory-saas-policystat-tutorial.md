@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com PolicyStat | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e PolicyStat."
+title: 'Tutorial: Integração do Azure Active Directory com PolicyStat | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e PolicyStat.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c50c42e888a905cc886c68ff1937b84c34b55280
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0cd4cc4a622a8e23b98e06bb33d99755f247612c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com PolicyStat
 
@@ -29,7 +29,7 @@ Integrar PolicyStat com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para PolicyStat (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-policystat-tutorial/tutorial_policystat_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.policystat.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.policystat.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.policystat.com/saml2/metadata/`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente PolicyStat](http://www.policystat.com/support/) para obter estes valores. 
@@ -173,7 +173,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **último nome do atributo** caixa de texto, tipo **lastname** do utilizador **Simon**.
 
-    d. No **atributo de correio eletrónico** caixa de texto, tipo **emailaddress** do utilizador  **BrittaSimon@contoso.com** .
+    d. No **atributo de correio eletrónico** caixa de texto, tipo **emailaddress** do utilizador **BrittaSimon@contoso.com**.
 
     e. Clique em **guardar alterações**.
 
@@ -270,7 +270,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: eda1f0e434c59a2a1c7bb63d92ce7b1fa5b42344
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8523b012d6ceaf116e6849abaf8952bbde8b41b3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight utilizando o SDK .NET
 
@@ -30,7 +30,7 @@ Saiba como criar um cluster do Hadoop no cluster do Azure HDInsight utilizando o
 > [!IMPORTANT]
 > Os passos neste documento criar um cluster com o nó de um trabalho. Se pretender mais do que 32 nós de trabalho, durante a criação do cluster ou ao aumentar o cluster após a criação, tem de selecionar um tamanho de nó principal com pelo menos 8 núcleos e 14GB de ram.
 >
-> Para obter mais informações sobre os tamanhos de nós e os custos associados, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

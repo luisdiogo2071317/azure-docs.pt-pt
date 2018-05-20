@@ -1,5 +1,5 @@
 ---
-title: Escolha um SKU ou escalão de preço para a Azure Search | Microsoft Docs
+title: Escolha um escalão de preço ou SKU de serviço da Azure Search | Microsoft Docs
 description: 'A pesquisa do Azure pode ser aprovisionada nestes SKUs: gratuita, básico e padrão, está disponível em vários níveis de capacidade e configurações de recursos onde padrão.'
 services: search
 author: HeidiSteen
@@ -7,102 +7,145 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/24/2016
+ms.date: 05/12/2018
 ms.author: heidist
-ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 5454e659d488c84de32a15de65226bc3e1b07dfe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Escolher um SKU ou escalão de preço para o Azure Search
-Na Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço específico ou SKU. As opções incluem **livres**, **básico**, ou **padrão**, onde **padrão** está disponível em várias configurações e as capacidades.
+# <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para pesquisa do Azure
 
-O objetivo deste artigo é ajudar a escolher uma camada. Se a capacidade de uma camada fica ser demasiado baixo, terá de aprovisionar um novo serviço na camada superior e, em seguida, volte a carregar os índices. Não há nenhuma atualização no local do mesmo serviço de um SKU para outro.
+Na Azure Search, um [serviço é aprovisionado](search-create-service-portal.md) num escalão de preço específico ou SKU. As opções incluem **livres**, **básico**, ou **padrão**, onde **padrão** está disponível em várias configurações e as capacidades. 
 
-> [!NOTE]
-> Depois de escolher um escalão e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), pode aumentar a réplica e partição contagens no âmbito do serviço. Para obter orientações, consulte [Dimensionar níveis de recursos de consulta e cargas de trabalho de indexação](search-capacity-planning.md).
->
->
+O objetivo deste artigo é ajudar a escolher uma camada. Complementa o [página de preços](https://azure.microsoft.com/pricing/details/search/) e [limites de serviço](search-limits-quotas-capacity.md) página com um resumo de faturação conceitos e padrões de consumo associados com várias camadas. Também recomenda uma abordagem iterativa para compreender que camada melhor satisfaz as suas necessidades. 
 
-## <a name="how-to-approach-a-pricing-tier-decision"></a>Como abordagem uma decisão de escalão de preço
-Na Azure Search, a camada determina capacidade, não a disponibilidade de funcionalidades. Geralmente, funcionalidades estão disponíveis em cada camada, incluindo funcionalidades de pré-visualização. A única exceção é a sem suporte de indexadores na S3 HD.
+Camadas de determinam a capacidade, não as funcionalidades. Se a capacidade de uma camada fica ser demasiado baixo, terá de aprovisionar um novo serviço na camada superior e, em seguida, [recarregar os índices](search-howto-reindex.md). Não há nenhuma atualização no local do mesmo serviço de um SKU para outro.
+
+Disponibilidade de funcionalidade não é uma consideração de camada principal. Todas as camadas, incluindo o **livres** camada, oferecem paridade de funcionalidades, com exceção do suporte de indexador para S3HD. No entanto, as restrições de indexação e de recursos eficazmente podem limitar a extensão de utilização da funcionalidade. Por exemplo, [pesquisa cognitivos](cognitive-search-concept-intro.md) indexação tem competências de longa execução que o limite de tempo num serviço gratuito, a menos que o conjunto de dados acontece ser muito pequenos.
 
 > [!TIP]
-> Recomendamos que sempre aprovisionar um **livres** serviço (um por subscrição, sem expiração) para que o prontamente disponíveis para projetos de ponderação leve. Utilize o **livres** service para avaliação e teste; criar um segundo serviço sujeito a faturação no **básico** ou **padrão** camada para produção ou maiores cargas de trabalho de teste.
+> A maioria dos clientes começam com o **livres** camada para avaliação e, em seguida, graduate para **padrão** para o desenvolvimento. Depois de escolher um escalão e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), pode [aumentar o número de partição e réplica](search-capacity-planning.md) para otimização de desempenho. Para obter mais informações sobre quando e por que motivo seria ajustar capacidade, consulte [considerações de desempenho e a otimização de](search-performance-optimization.md).
 >
->
 
-Capacidade e os custos de executar o serviço aceda à mão na mão. Informações deste artigo podem ajudá-lo a decidir que SKU disponibiliza o equilíbrio certo entre, mas para qualquer um dos que seja útil, precisa de, pelo menos, aproximadas estimativas nos seguintes:
+## <a name="billing-concepts"></a>Conceitos de faturação
 
-* Número e tamanho de planear a criação de índices
-* Número e tamanho dos documentos para carregar
-* Alguns ideia do volume de consulta, em termos de consultas por segundo (QPS). Para obter orientações, consulte [desempenho de pesquisa do Azure e a otimização de](search-performance-optimization.md).
+Conceitos que tem de compreender da seleção do escalão incluem definições de capacidade, limites de serviço e unidades de serviço. 
 
-Número e tamanho são importantes porque os limites máximos são atingidos através de um limite rígido a contagem de índices por serviço, ou em recursos (armazenamento ou réplicas) utilizados pelo serviço. O limite real para o seu serviço é que obtém a gastar primeiro: recursos ou objetos.
+### <a name="capacity"></a>Capacidade
 
-Estimativas no lado, os seguintes passos devem simplificar o processo de:
-
-* **Passo 1** rever as descrições de SKU abaixo para saber mais sobre as opções disponíveis.
-* **Passo 2** responda às perguntas abaixo para chegam a uma decisão preliminar.
-* **Passo 3** finalizar a sua decisão ao rever os limites fixos no armazenamento e preços.
-
-## <a name="sku-descriptions"></a>Descrições de SKU
-A tabela seguinte fornece descrições de cada camada.
-
-| Escalão | Cenários principais |
-| --- | --- |
-| **Livre** |Um serviço partilhado, sem encargos, utilizado para avaliação, investigação ou pequenas cargas de trabalho. Porque é partilhado com outros subscritores, débito de consulta e indexação varia com base na pessoa que está a utilizar o serviço. A capacidade é pequena (50 MB ou 3 índices com segurança 10 000 documentos cada o). |
-| **Básica** |Cargas de trabalho de produção de pequena no hardware dedicado. Elevada disponibilidade. A capacidade é até 3 réplicas e de 1 partição (2 GB). |
-| **S1** |1 padrão suporta flexíveis combinações de partições (12) e as réplicas (12), utilizadas para cargas de trabalho de produção médio no hardware dedicado. Pode atribuir partições e réplicas em combinações suportadas por um número máximo 36 facturável de unidades de pesquisa. Este nível, partições são 25 GB. |
-| **S2** |2 padrão executa cargas de trabalho de produção maior utilizando as unidades de 36 pesquisa mesmo que S1, mas com partições de tamanho superiores e as réplicas. Este nível, partições são 100 GB. |
-| **S3** |3 padrão executa cargas de trabalho de produção proporcionalmente maiores nos sistemas de fim superiores, em configurações de até 12 partições ou 12 réplicas unidades de pesquisa em 36. Este nível, partições são 200 GB. |
-| **S3 HD** |Standard 3 alta densidade foi concebida para um grande número de índices mais pequenos. Pode ter até 3 partições, em 200 GB.|
+Capacidade está estruturada como *réplicas* e *partições*. As réplicas são instâncias do serviço de pesquisa, onde cada réplica aloja uma cópia de um índice com balanceamento de carga. Por exemplo, um serviço com 6 réplicas tem 6 cópias de cada índice carregado no serviço. As partições armazenar índices e automaticamente dividir dados pesquisáveis: duas partições dividir o índice do meio, três partições em thirds e assim sucessivamente. Em termos de capacidade, *tamanho de partição* é a principal funcionalidade differentiating em camadas.
 
 > [!NOTE]
-> Valores máximos de partição e réplica são faturados enviados como unidades de pesquisa (36 unidade máxima por serviço), que impõe um limite inferior eficaz a que o máximo implica no valor de letra. Por exemplo, para utilizar o número máximo de 12 réplicas, pode ter no máximo de 3 partições (3 * 12 = 36 unidades). Da mesma forma, para utilizar partições máximas, reduza as réplicas para 3. Consulte [Dimensionar níveis de recursos de consulta e indexação cargas de trabalho na Azure Search](search-capacity-planning.md) de um gráfico de combinações permitidos.
->
->
+> Todos os **padrão** camadas suporte [réplica combinações flexível e partições](search-capacity-planning.md#chart) , de modo a que possa [o sistema de armazenamento ou de velocidade de importância](search-performance-optimization.md) alterando o equilíbrio. **Básico** oferece segurança de três réplicas de disponibilidade elevada, mas tem apenas uma partição. **Livre** camadas fornece os recursos dedicados: informática recursos são partilhados por vários serviços livres.
 
-## <a name="review-limits-per-tier"></a>Reveja os limites por camada
-O gráfico seguinte é um subconjunto dos limites de [limites de serviço da Azure Search](search-limits-quotas-capacity.md). Lista os fatores provavelmente a afetar a uma decisão de SKU. Pode fazer referência a este gráfico ao rever as perguntas abaixo.
+### <a name="limits"></a>Limites
 
-| Recurso | Gratuito | Básica | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Contrato de Nível de Serviço (SLA) |N.º <sup>1</sup> |Sim |Sim |Sim |Sim |Sim |
-| Limites de índice |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
-| Limites do documento |10 000 total |milhões de 1 por serviço |milhões de 15 por partição |milhões de 60 por partição |milhões de 120 por partição |milhões de 1 por índice |
-| Partições máximas |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
-| Tamanho da partição |Total de 50 MB |2 GB por serviço |25 GB por partição |100 GB por partição (até um máximo de 1.2 TB por serviço) |200 GB por partição (até um máximo de 2.4 TB por serviço) |200 GB (até um máximo de 600 GB por serviço) |
-| Réplicas máximas |N/A |3 |12 |12 |12 |12 |
+Serviços de recursos de anfitrião, como índices, indexadores e assim sucessivamente. Cada camada impõe [os limites de serviço](search-limits-quotas-capacity.md) sobre a quantidade de recursos, pode criar. Como tal, um limite no número de índices (e outros objetos) é a funcionalidade differentiating segundo em camadas. Como rever cada opção no portal, tenha em atenção os limites no número de índices. Outros recursos, tais como indexadores, origens de dados e skillsets, são pegged limites de índice.
 
-<sup>1</sup> funcionalidades de pré-visualização e o escalão gratuito não são fornecidos com os contratos de nível de serviço (SLAs). Para todos os escalões faturáveis, SLAs entram em vigor quando aprovisionar redundância suficiente para o seu serviço. Dois ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação SLA (leitura / escrita). O número de partições não é uma consideração de SLA. 
+### <a name="search-units"></a>Unidades de pesquisa
 
-<sup>2</sup> S3 e S3 HD são apoiados por infraestrutura idênticos capacidade elevada, mas cada um da atinge o limite máximo de formas diferentes. S3 destina-se um número mais pequeno índices muito grande. Como tal, o limite máximo está vinculado ao recurso (2.4 TB para cada serviço). S3 HD destina-se um grande número de índices muito pequenos. Em 1.000 índices, S3 HD atingir os limites na forma de restrições de índice. Se for um cliente de S3 HD que requer mais de 1000 índices, contacte Support da Microsoft para obter informações sobre como proceder.
+O conceito de faturação mais importante para compreender um *unidade de pesquisa* (SU), que é a unidade de faturação do Azure Search. Porque a Azure Search depende das réplicas e de partições para a função, este não fazer sentido faturado por um ou outro. Em vez disso, a faturação é baseada num compostos de ambos. Formulaically, um SU é o produto de réplica e partições utilizadas por um serviço: (P X de R = SU). No mínimo, todos os serviço começa com 1 SU (uma réplica multiplicada por uma partição), mas um modelo mais realista poderá ser um serviço de réplica de 3, 3 partição-lhe cobrado como 9 SUs. 
 
-## <a name="eliminate-skus-that-dont-meet-requirements"></a>Eliminar SKUs que não cumprem os requisitos
-As perguntas seguintes podem ajudar a chegam a decisão de SKU certa para a carga de trabalho.
+Apesar de cada camada oferece progressivamente maior capacidade, que pode colocar uma parte da capacidade total online, que contém o resto na reserva. Em termos de faturação, é o número de partições e réplicas poder colocar online, calculada utilizando a fórmula SU, que determina o que, na verdade, de pagar.
 
-1. Tem **contrato de nível de serviço (SLA)** requisitos? Pode utilizar qualquer camada facturável (básico na cópia de segurança), mas tem de configurar o seu serviço para redundância. Dois ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação SLA (leitura / escrita). O número de partições não é uma consideração de SLA.
-2. **Quantos indexa** exige que? Uma das maiores variáveis factoring para uma decisão de SKU é o número de índices suportados por cada SKU. Suporte do índice é em markedly diferentes níveis de escalões de preço inferiores. Os requisitos de número de índices pode ser um determinant primária de uma decisão de SKU.
-3. **O número de documentos** irá ser carregado para cada índice? O número e tamanho dos documentos determinará o tamanho de uma eventual do índice. Pressupondo que pode fazer a estimativa do tamanho previsto do índice, pode comparar esse número contra o tamanho de partição por SKU, expandido pelo número de partições necessário para armazenar um índice desse tamanho.
-4. **O que é a carga esperada**? Depois dos requisitos de armazenamento estão compreendidos, considere as cargas de trabalho de consulta. S2 e ambos os SKUs de S3 oferecem débito de quase equivalentes, mas serão de regras de requisitos de SLA horizontalmente os SKUs de pré-visualização.
-5. Se estiver a considerar o escalão S2 ou S3, determinar se necessita de [indexadores](search-indexer-overview.md). Indexadores ainda não estão disponíveis para a camada de S3 HD. Abordagem alternativa consiste em utilizar um modelo de envio para atualizações de índice, onde escrever o código da aplicação para enviar um conjunto de dados para um índice.
+Taxa de faturação é numa base horária por SU, com cada escalão de uma taxa diferentes. Classifica para cada camada pode ser encontrada no [detalhes dos preços](https://azure.microsoft.com/pricing/details/search/).
 
-Maioria dos clientes pode da regra de um SKU específico entrada ou saída com base na respetiva respostas às questões acima. Se ainda não tem a certeza que SKU em com, pode publicar perguntas nos fóruns MSDN ou StackOverflow ou contacte o suporte do Azure para obter orientações adicionais.
+## <a name="consumption-patterns"></a>Padrões de consumo
 
-## <a name="decision-validation-does-the-sku-offer-sufficient-storage-and-qps"></a>As decisões de validação: o SKU oferece armazenamento suficiente e QPS?
-Como último passo, revê o [página de preços](https://azure.microsoft.com/pricing/details/search/) e [por serviço e por índice secções limites de serviço](search-limits-quotas-capacity.md) para verificar as estimativas contra os limites de subscrição e serviço.
+A maioria dos clientes começam com o **livres** de serviço, que são manter indefinidamente e, em seguida, escolha uma do **padrão** camadas para cargas de trabalho graves desenvolvimento ou de produção. 
 
-Se os requisitos de preços ou armazenamento são fora dos limites, pode querer refatorar as cargas de trabalho entre vários serviços mais pequenos (por exemplo). No nível mais granular, foi redesenhar índices ser menor ou utilizar filtros para efetuar consultas mais eficiente.
+![Camadas de pesquisa do Azure](./media/search-sku-tier/tiers.png "escalões de preço de pesquisa do Azure")
+
+Em cada extremidade **básico** e **S3 HD** existem padrões de consumo importantes mas atípica. **Básico** é para cargas de trabalho de produção de pequena: oferece SLA, dedicado recursos, elevada disponibilidade, mas armazenamento modest, topping no total de 2 GB. Este escalão foi projetado para os clientes que consistentemente em sobreutilizado capacidade disponível. No final distante, **S3 HD** é para cargas de trabalho típico de ISV, parceiros, [soluções multi-inquilino](search-modeling-multitenant-saas-applications.md), ou qualquer configuração para um grande número de índices pequenos. É frequentemente self-evident quando **básico** ou **S3 HD** camada é a opção adequada, mas se pretender que a confirmação de pode publicar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) ou [contactar o Azure Suporte](https://azure.microsoft.com/support/options/) para obter orientações adicionais.
+
+Mudarem o foco para os escalões standard mais frequentemente utilizados, **S1 S3** são uma progressão de aumentar os níveis de capacidade, com os pontos de inflection no tamanho de partição e valores máximos em números de índices, indexadores e corollary recursos:
+
+|  | S1 | S2 | S3 |  |  |  |  |
+|--|----|----|----|--|--|--|--|
+| Tamanho de partição|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| limites de índice e indexador| 50 | 200 | 200 |  |  |  |  |
+
+**S1** é uma escolha de comuns ficarem de recursos dedicados uma necessidade. Com partições de 25 GB para até 12 partições, por-serviço limite **S1** é de 300 GB total se maximizar a partições através de réplicas (consulte [alocar partições e réplicas](search-capacity-planning.md#chart) mais realistas e compositions equilibradas.)
+
+Para além do armazenamento e limites, outros aspetos da capacidade de serviço são uniforme em camadas. Réplicas, que são instâncias do motor de busca (operações de indexação e consulta de processamento), não variam consoante a camada: um **S1** réplica é o mesmo que um **S3** réplica. Da mesma forma, payloads de pedido e resposta, o débito de consultas por segundo e o tempo de execução máximo também não variam consoante a camada.
+
+**S3** e **S3 HD** são apoiados por infraestrutura idênticos capacidade elevada, mas cada um atinge o limite máximo de formas diferentes. **S3** está direcionada para um número mais pequeno índices muito grande. Como tal, o limite máximo está vinculado ao recurso (2.4 TB para cada serviço). **S3 HD** destina-se um grande número de índices muito pequenos. Em 1.000 índices, **S3 HD** atingir os limites na forma de restrições de índice. Se for um **S3 HD** cliente que requer mais de 1000 índices, contacte Support da Microsoft para obter informações sobre como proceder.
 
 > [!NOTE]
-> Requisitos de armazenamento podem ser excessiva inflated se documentos contêm dados supérfluas. Idealmente, os documentos contêm apenas dados pesquisáveis ou metadados. Dados binários é não pesquisáveis e devem ser armazenados em separado (talvez no armazenamento do Azure de tabela ou blob) com um campo no índice para conter uma referência de URL para os dados externos. O tamanho máximo de um documento individuais é 16 MB (ou menos se estiver em massa carregar vários documentos num pedido). Consulte [Service limites na Azure Search](search-limits-quotas-capacity.md) para obter mais informações.
->
+> Anteriormente, os limites do documento foram uma consideração, mas já não são aplicáveis para a maioria dos serviços de pesquisa do Azure aprovisionados após de 2018 Janeiro. Para obter mais informações sobre as condições para o qual os limites do documento ainda são aplicáveis, consulte [os limites de serviço: limites de documento](search-limits-quotas-capacity.md#document-limits).
 >
 
-## <a name="next-step"></a>Passo seguinte
-Quando souber que SKU é a opção adequada, continue com estes passos:
+## <a name="evaluate-capacity"></a>Capacidade de avaliar
 
-* [Criar um serviço de pesquisa no portal](search-create-service-portal.md)
-* [Alterar a alocação de partições e réplicas para dimensionar o serviço](search-capacity-planning.md)
+Capacidade e os custos de executar o serviço aceda à mão na mão. As camadas impõe limites que esteja dois níveis (armazenamento e recursos), pelo que é necessário pensar sobre ambos porque qualquer um aceder pela primeira vez é o limite em vigor. 
+
+Requisitos de negócio ditarem, normalmente, o número de índices, terá de. Por exemplo, um índice global para um repositório de grandes dimensões de documentos ou talvez vários índices com base na região, aplicação ou niche de negócio.
+
+Para determinar o tamanho de um índice, tem de [compilar um](search-create-index-portal.md). A estrutura de dados na Azure Search é principalmente um [inverted índice](https://en.wikipedia.org/wiki/Inverted_index), que tem características diferentes de origem de dados. Para um índice inverted, tamanho e complexidade são determinados pelo conteúdo, não necessariamente a quantidade de feed de dados-para-lo. Uma origem de dados de grande dimensão com redundância em massa e pode resultar em índices menores que um conjunto de dados mais pequeno, que contém conteúdo altamente variável.  Como tal, é raramente possível inferir o tamanho de índice com base no tamanho do conjunto de dados original.
+
+### <a name="preliminary-estimates-using-the-free-tier"></a>Calcula preliminar utilizando o escalão gratuito
+
+Uma abordagem para estimar a capacidade para começar é o **livres** camada. Recuperar que o **livres** service oferece até 3 índices, 50 MB de armazenamento e de indexação de tempo de 2 minutos. Pode ser um desafio para calcular um tamanho de índice prevista destas restrições, mas o exemplo a seguir ilustra uma abordagem:
+
++ [Criar um serviço gratuito](search-create-service-portal.md)
++ Preparar um conjunto de dados pequeno e representativo (partem do princípio de cinco thousand documentos e o tamanho da amostra dez por cento)
++ [Criar um índice inicial](search-create-index-portal.md) e anote o respetivo tamanho no portal (partem do princípio de 30 MB)
+
+Partindo do princípio de que amostra foi representante e dez por cento da origem de dados completo, um índice de 30 MB torna-se aproximadamente 300 MB se todos os documentos são indexados. Armed com este número preliminar, poderá duplo esse valor a budget para dois índices (programação e produção), para um total de 600 MB nos requisitos de armazenamento. Isto facilmente for satisfeito pelo **básico** camada, pelo que deverá iniciar não existe.
+
+### <a name="advanced-estimates-using-a-billable-tier"></a>Calcula avançadas através de uma camada facturável
+
+Alguns clientes preferem começar a utilizar recursos dedicados que podem acomodar a amostragem maior e tempos de processamento e, em seguida, desenvolva realistas calcula a quantidade de índice, tamanho e volumes de consulta durante o desenvolvimento. Inicialmente, um serviço é aprovisionado com base numa estimativa de melhor estimado e, em seguida, como o projeto de desenvolvimento evoluiu, equipas, normalmente, lembre-se o serviço existente é sobre ou com capacidade para cargas de trabalho de produção prevista. 
+
+1. [Reveja os limites de serviço em cada camada](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) para determinar se as camadas inferiores podem suportar a quantidade de índices é necessário. Entre o **básico**-**S1**- **S2** camadas, limites de índice são 15-50-200, respetivamente.
+
+1. [Criar um serviço de uma camada facturável](search-create-service-portal.md):
+
+    + Iniciar insuficiente, **básico** ou **S1** se estiver no início da curva de aprendizagem.
+    + Iniciar elevado, em **S2** ou mesmo **S3**, se em grande escala de indexação e consulta são self-evident.
+
+1. [Criar um índice inicial](search-create-index-portal.md) para determinar como traduz os dados de origem para um índice. Esta é a única forma de estimar o tamanho do índice.
+
+1. [Monitorizar o armazenamento, limites de serviço, volume de consulta e latência](search-monitor-usage.md) no portal. O portal mostra consultas por segundo, otimizadas consultas e a latência de pesquisa; todos os que podem ajudar a decidir se estiver na camada de direita. Para além de portais métricas, pode configurar a monitorização profunda, tais como análise clickthrough, ativando [pesquisar a análise de tráfego](search-traffic-analytics.md). 
+
+Número de índice e o tamanho são igualmente relevantes para a análise porque os limites máximos são atingidos através da utilização total de armazenamento (partições) ou os limites máximos nos recursos (índices, indexadores e assim consecutivamente), o que ocorrer primeiro. O portal de ajuda a manter controlar dos ambos, que mostra a utilização atual e os limites máximos lado a lado na página de descrição geral.
+
+> [!NOTE]
+> Requisitos de armazenamento podem ser excessiva inflated se documentos contêm dados supérfluas. Idealmente, os documentos contêm apenas os dados que necessita para a experiência de pesquisa. Dados binários é não pesquisáveis e devem ser armazenados em separado (talvez no armazenamento do Azure de tabela ou blob) com um campo no índice para conter uma referência de URL para os dados externos. O tamanho máximo de um documento individuais é 16 MB (ou menos se estiver em massa carregar vários documentos num pedido). [Os limites na Azure Search de serviço](search-limits-quotas-capacity.md) tem mais informações.
+>
+
+**Considerações de volume de consulta**
+
+As consultas por segundo (QPS) é uma métrica de obtiver prominence durante a otimização de desempenho, mas normalmente, não é uma consideração de camada, exceto se esperar volume muito elevado de consulta em proposto.
+
+Todas as camadas standard podem fornecer um equilíbrio de réplicas para partições, que suporta uma resposta mais rápida consulta através de réplicas adicionais para carregar as partições de balanceamento e adicionais para processamento paralelo. Pode otimizar para desempenho depois do serviço está aprovisionado.
+
+Cliente que esperava strong constante consulta volumes proposto devem considerar camadas superiores, associadas a mais poderosa hardware. Pode, em seguida, coloque partições e réplicas offline, ou até mesmo se muda para um serviço de camada inferior, esses volumes de consulta não conseguem materializar. Para obter mais informações sobre como calcular o débito de consulta, consulte [desempenho de pesquisa do Azure e a otimização de](search-performance-optimization.md).
+
+
+**Contratos de nível de serviço**
+
+O **livres** camada e pré-visualização de funcionalidades não são fornecidos com [(SLAs) de contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Para todos os escalões faturáveis, SLAs entram em vigor quando aprovisionar redundância suficiente para o seu serviço. Dois ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação SLA (leitura / escrita). O número de partições não é uma consideração de SLA. 
+
+## <a name="tips-for-tier-evaluation"></a>Sugestões para a avaliação da camada
+
++ Saiba como criar índices eficiente e as metodologias de atualização são o impactful menos. Recomendamos [pesquisar a análise de tráfego](search-traffic-analytics.md) para as informações obtidas na atividade de consulta.
+
++ Permitir que as métricas compilar em torno de consultas e recolher dados em torno de padrões de utilização (consultas durante o horário comercial, indexação horas de ponta) e utilizar estes dados para informar o serviço futuro decisões de aprovisionamento. Enquanto não práticas ao nível de uma horário ou diário, pode ajustar dinamicamente partições e de recursos para acomodar planeadas alterações em volumes de consulta, ou não planeada, mas as alterações constante se níveis reter suficientemente longo para garantir a colocar a ação.
+
++ Lembre-se de que o downside apenas de aprovisionamento em é que poderá ter de fechar as um serviço se os requisitos reais são maiores do que o previsto. Para evitar a interrupção do serviço, tem de criar um novo serviço na mesma subscrição num escalão superior e execute-lado a lado até que todos os pedidos de aplicações e o novo ponto final de destino.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Começar com uma **livres** camada e criar um índice inicial a utilizar um subconjunto dos seus dados para compreender as características. A estrutura de dados na pesquisa do Azure é um índice inverted, em que o tamanho e complexidade de um índice inverted é determinada pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar num índice que conteúdo altamente dados mais pequeno. Como tal, é características conteúdas em vez do tamanho do conjunto de dados que determina os requisitos de armazenamento de índice.
+
+Depois de ter uma ideia inicial do tamanho do índice, [aprovisionar um serviço sujeito a faturação](search-create-service-portal.md) em um dos escalões abordados neste artigo, quer **básico** ou um **padrão** camada. Reduzir as eventuais restrições artificial em subconjuntos de dados e [reconstrua o índice](search-howto-reindex.md) para incluir todos os dados que pretende, na verdade, de ser pesquisáveis.
+
+[Alocar partições e réplicas](search-capacity-planning.md) conforme necessário para obter o desempenho e dimensionamento necessita.
+
+Se desempenho e a capacidade, terminar. Caso contrário, volte a criar um serviço de pesquisa na camada de diferentes mais detalhadamente alinhar com as suas necessidades.
+
+> [!NOTE]
+> Para obter mais ajuda com as suas perguntas, publicar [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) ou [contacte o suporte do Azure](https://azure.microsoft.com/support/options/).

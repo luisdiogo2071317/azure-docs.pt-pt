@@ -1,24 +1,24 @@
 ---
-title: "A criação de partições de serviços do Service Fabric | Microsoft Docs"
-description: "Descreve como serviços do Service Fabric com monitorização de estado de partição. As partições permite que o armazenamento de dados nas máquinas locais para que dados e computação podem ser ampliadas em conjunto."
+title: A criação de partições de serviços do Service Fabric | Microsoft Docs
+description: Descreve como serviços do Service Fabric com monitorização de estado de partição. As partições permite que o armazenamento de dados nas máquinas locais para que dados e computação podem ser ampliadas em conjunto.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo fornece uma introdução aos conceitos básicos de criação de partições de serviços fiáveis do Service Fabric do Azure. O código de origem utilizado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -238,7 +238,7 @@ Como queremos literalmente ter uma partição por uma letra, podemos utilizar 0 
     }
     ```
    
-    `ProcessInternalRequest`lê os valores do parâmetro de cadeia de consulta utilizada para chamar a partição e chamadas `AddUserAsync` para adicionar o apelido ao dicionário fiável `dictionary`.
+    `ProcessInternalRequest` lê os valores do parâmetro de cadeia de consulta utilizada para chamar a partição e chamadas `AddUserAsync` para adicionar o apelido ao dicionário fiável `dictionary`.
 10. Vamos adicionar um serviço sem monitorização de estado para o projeto para ver como pode ligar a uma determinada partição.
     
     Este serviço funciona como uma interface web simples que aceita o apelido como um parâmetro de cadeia de consulta, determina a chave de partição e envia-a para o serviço de Alphabet.Processing para processamento.
@@ -321,7 +321,7 @@ Como queremos literalmente ter uma partição por uma letra, podemos utilizar 0 
     ```
     
     Lembre-se, neste exemplo, que estamos a utilizar 26 partições com a chave de uma partição por partição.
-    Em seguida, obtemos a partição de serviço `partition` para esta chave, utilizando o `ResolveAsync` método no `servicePartitionResolver` objeto. `servicePartitionResolver`está definido como
+    Em seguida, obtemos a partição de serviço `partition` para esta chave, utilizando o `ResolveAsync` método no `servicePartitionResolver` objeto. `servicePartitionResolver` está definido como
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
@@ -363,7 +363,7 @@ Como queremos literalmente ter uma partição por uma letra, podemos utilizar 0 
 
 O código de origem completo de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre os conceitos de Service Fabric, consulte o seguinte:
 
 * [Disponibilidade dos serviços do Service Fabric](service-fabric-availability-services.md)

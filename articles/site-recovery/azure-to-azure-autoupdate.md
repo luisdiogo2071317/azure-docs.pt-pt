@@ -1,20 +1,20 @@
 ---
 title: A atualização automática do serviço de mobilidade na recuperação de desastre do Azure para o Azure | Microsoft Docs
-description: Fornece uma descrição geral da atualização automática do serviço de mobilidade, que é utilizada para a replicação de VMs do Azure utilizando o Azure Site Recovery.
+description: Fornece uma descrição geral da atualização automática do serviço de mobilidade, ao replicar as VMs do Azure utilizando o Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: rajanaki
-ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Atualização automática da extensão do serviço de mobilidade na replicação do Azure para o Azure
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
 O Azure Site Recovery tem uma cadência de versão mensal onde melhoramentos a funcionalidades existentes ou novas são adicionadas e problemas conhecidos se qualquer sejam corrigidos. Isto seria significa que permaneça atual com o serviço, terá de planear a implementação destas correções de erros, mensalmente. Para evitar no cabeçalho de ativação pós-falha associado com a atualização, os utilizadores em vez disso, podem optar por permitir a recuperação de sites gerir atualizações dos componentes. Como detalhadas no [referência de arquitetura](azure-to-azure-architecture.md) para recuperação de desastre do Azure para o Azure, o serviço de mobilidade obtém instalado em todas as máquinas virtuais do Azure para o qual a replicação está ativada ao replicar máquinas virtuais do um Azure região para outro. Depois de ativar a atualização automática, a extensão de serviço de mobilidade obtém atualizada com cada nova versão. Este documento fornece detalhes sobre o seguinte:
 

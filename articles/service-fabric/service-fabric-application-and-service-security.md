@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: a84e42d3a0254c90bfad2d54eda1aa8e5e35650a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicação de Service Fabric
 Pode colocar uma arquitetura de micro-serviços [muitas vantagens](service-fabric-overview-microservices.md). Gerir a segurança dos micro-serviços, no entanto, é um desafio e diferente de gerir a segurança de aplicações monolithic tradicional. 
@@ -95,7 +95,7 @@ Pode estabelecer uma ligação segura entre o proxy inverso e serviços, permiti
 A estrutura da aplicação Reliable Services fornece alguns pilhas de comunicação prebuilt e ferramentas que pode utilizar para melhorar a segurança. Saiba como melhorar a segurança quando estiver a utilizar a comunicação remota do serviço (no [c#](service-fabric-reliable-services-secure-communication.md) ou [Java](service-fabric-reliable-services-secure-communication-java.md)) ou utilizar [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Encriptar dados da aplicação Inativos
-Cada [tipo de nó](service-fabric-cluster-nodetypes.md) num cluster de Service Fabric em execução no Azure é copiado por um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Utilizar um modelo Azure Resource Manager, pode anexar os discos de dados para o conjunto de (s escala), o que compõem o cluster do Service Fabric.  Se os serviços de guardam os dados para um disco de dados ligados, pode [encriptar destes discos de dados](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger os dados de aplicação.
+Cada [tipo de nó](service-fabric-cluster-nodetypes.md) num cluster de Service Fabric em execução no Azure é copiado por um [conjunto de dimensionamento da máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Ao utilizar um modelo do Azure Resource Manager, pode anexar discos de dados aos conjuntos de dimensionamento que compõem o cluster do Service Fabric.  Se os serviços de guardam os dados para um disco de dados ligados, pode [encriptar destes discos de dados](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) para proteger os dados de aplicação.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

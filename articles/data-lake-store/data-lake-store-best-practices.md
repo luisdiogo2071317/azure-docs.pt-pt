@@ -9,15 +9,13 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Melhores práticas para utilizar o Azure Data Lake Store
 Neste artigo, pode saber mais sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Store. Este artigo fornece informações em torno da segurança, desempenho, resiliência e monitorização para o Data Lake Store. Antes de Data Lake Store, como trabalhar com macrodados verdadeiramente nos serviços como o Azure HDInsight era demasiado complexo. Era necessário dividir os dados em várias contas do Blob storage para que podem ser alcançados petabyte armazenamento e um desempenho ideal que escala. Com o Data Lake Store, a maioria dos limites de tamanho e o desempenho do disco rígidos é removida. No entanto, ainda existem algumas considerações que este artigo abrange, de modo a que possa obter o melhor desempenho com o Data Lake Store. 

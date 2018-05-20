@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Sequr | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Sequr."
+title: 'Tutorial: Integração do Azure Active Directory com Sequr | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Sequr.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 8a2984bc2c77e9d92d4236b01c21912c27e167f9
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f3e245f609d96cc247f10ef3c184b7fe1de53756
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integração do Azure Active Directory com Sequr
 
@@ -30,7 +30,7 @@ Integrar Sequr com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Sequr (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,13 +108,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Sequr e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_url.png)
 
-    No **identificador** caixa de texto, escreva o URL:`https://login.sequr.io`
+    No **identificador** caixa de texto, escreva o URL: `https://login.sequr.io`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio Sequr e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sequr-tutorial/tutorial_sequr_url1.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL:`https://login.sequr.io`
+    a. No **URL de início de sessão** caixa de texto, escreva o URL: `https://login.sequr.io`
 
     b. No **reencaminhamento estado** caixa de texto, irá obter este valor, o que é explicada mais tarde no tutorial.
      
@@ -221,7 +221,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -231,7 +231,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

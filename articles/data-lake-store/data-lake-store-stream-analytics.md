@@ -1,24 +1,22 @@
 ---
 title: Fluxo de dados a partir do Stream Analytics para o Data Lake Store | Microsoft Docs
-description: "Utiliza o Azure Stream Analytics para dados de sequência no Azure Data Lake Store"
+description: Utiliza o Azure Stream Analytics para dados de sequência no Azure Data Lake Store
 services: data-lake-store,stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ff59957cf7700af79425aa005444a135b7ee098
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Stream data from Azure Storage Blob into Data Lake Store using Azure Stream Analytics (Transmitir dados do Blob de Armazenamento do Azure para o Data Lake Store com o Azure Stream Analytic)
 Neste artigo, ficará a saber como utilizar o Azure Data Lake Store como resultado de uma tarefa do Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e escreve os dados ao Data Lake Store (saída).
@@ -96,7 +94,7 @@ Começar através da criação de uma tarefa de Stream Analytics que inclui uma 
     
     Clique em **Criar**. Agora, o portal adiciona a saída e testa a ligação ao mesmo.
     
-## <a name="run-the-stream-analytics-job"></a>Executar a tarefa de Stream Analytics
+## <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
 1. Para executar uma tarefa de Stream Analytics, tem de executar uma consulta do **consulta** separador. Para este tutorial, pode executar a consulta de exemplo, substituindo os marcadores de posição pela tarefa de entrada e saída aliases, conforme mostrado na captura de ecrã abaixo.
 

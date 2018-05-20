@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Velpic SAML | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Velpic SAML."
+title: 'Tutorial: Integração do Azure Active Directory com o Velpic SAML | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Velpic SAML.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: e4f7e4c9e960450f0024cd7ca35bd3808d31ee19
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03ef1ef04d80ac9bb83bcce2082b6cc3f617d812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory com Velpic SAML
 
@@ -29,7 +29,7 @@ Integrar Velpic SAML com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Velpic SAML (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, digite o valor como:`https://<sub-domain>.velpicsaml.net`
+    a. No **URL de início de sessão** caixa de texto, digite o valor como: `https://<sub-domain>.velpicsaml.net`
 
-    b. No **identificador** caixa de texto, cole o **'Único URL de início de sessão'** valor`https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. No **identificador** caixa de texto, cole o **'Único URL de início de sessão'** valor `https://auth.velpic.com/saml/v2/<entity-id>/login`
     
     > [!NOTE]
     > Tenha em atenção que o URL de início de sessão será fornecido pela equipa do Velpic SAML e o valor do identificador estará disponível quando configurar o plug-in do SSO no lado de Velpic SAML. Tem de copiar esse valor a partir da página da aplicação de Velpic SAML e cole-a aqui.
@@ -262,7 +262,7 @@ Nesta secção, testar a configuração do Azure AD único início de sessão at
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1f1c8d0305334d85500b501aee5a71664bb49050
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9a51638ea6d85178e6631ac278c116e4c7e05d61
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Criar um padrão de Balanceador de público de carga com redundância de zona IP público endereço front-end através do portal do Azure
 
@@ -46,10 +46,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     > O público IP criada neste passo do Standard SKU e é com redundância de zona por predefinição. 
 8. Em **localização**, selecione **US2 Leste**e, em seguida, clique em **OK**. Em seguida, o balanceador de carga inicia a implementação e demora alguns minutos a concluir a implementação com êxito.
 
-    ![criar o padrão de Balanceador de carga com redundância de zona com o portal do Azure](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
-
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [zonas padrão Balanceador de carga e a disponibilidade](load-balancer-standard-availability-zones.md).
 
 

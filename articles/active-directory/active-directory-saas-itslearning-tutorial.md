@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com itslearning | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e itslearning."
+title: 'Tutorial: Integração do Azure Active Directory com itslearning | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e itslearning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: f8762aa6c2d082335a8de617ae9c135796c71d0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c9999e1ba1e69e872b8392b64f566c83c230be9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integração do Azure Active Directory com itslearning
 
@@ -29,7 +29,7 @@ Integrar itslearning com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para itslearning (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,7 +116,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://www.itslearning.com/index.aspx`|
     | `https://us1.itslearning.com/index.aspx`|
 
-    b. No **identificador** caixa de texto, escreva um URL como:`urn:mace:saml2v2.no:services:com.itslearning`
+    b. No **identificador** caixa de texto, escreva um URL como: `urn:mace:saml2v2.no:services:com.itslearning`
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -210,7 +210,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

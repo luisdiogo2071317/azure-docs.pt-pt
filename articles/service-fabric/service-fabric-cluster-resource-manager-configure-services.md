@@ -1,24 +1,24 @@
 ---
-title: "Especificar as definições de métricas e o posicionamento no Azure micro-serviços | Microsoft Docs"
-description: "Que descrevem um serviço do Service Fabric, especificando métricas, restrições de posicionamento e outras políticas de colocação."
+title: Especificar as definições de métricas e o posicionamento no Azure micro-serviços | Microsoft Docs
+description: Que descrevem um serviço do Service Fabric, especificando métricas, restrições de posicionamento e outras políticas de colocação.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0ae4e874d0fd0922295a4ec7ad719a0a1fb108c8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16e19a02bf12e30e81eb1743fc637bce435df914
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configurar definições de Gestor de recursos do cluster para serviços do Service Fabric
 O Gestor de recursos de Cluster do serviço de recursos de infraestrutura permite um controlo detalhado sobre as regras que regem cada indivíduo com o nome de serviço. Cada serviço com o nome pode especificar regras para a forma como deve ser alocada no cluster. Cada serviço com nome também pode definir o conjunto de métricas pretende para o relatório, incluindo a forma como estes são importantes para esse serviço. Configurar os serviços divide em três tarefas diferentes:

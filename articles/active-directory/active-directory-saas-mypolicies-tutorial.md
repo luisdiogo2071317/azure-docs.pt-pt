@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com myPolicies | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e myPolicies."
+title: 'Tutorial: Integração do Azure Active Directory com myPolicies | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e myPolicies.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 39c2acb24f1c15af9ab0c8698e9590fb0e032113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22bc26190971ef8ceed409a70d45be5e049d7401
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory com myPolicies
 
@@ -29,7 +29,7 @@ Integrar myPolicies com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para myPolicies (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<tenantname>.mypolicies.com/`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenantname>.mypolicies.com/`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<tenantname>.mypolicies.com/users/auth/saml/callback`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [myPolicies suporta equipa](mailto:support@mypolicies.com) para obter estes valores.
@@ -128,7 +128,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | givenName | User.givenName |
     | Apelido | User.Surname |
     | endereço de correio eletrónico | User.Mail |
-    | nome | User.userPrincipalName |
+    | nome | user.userprincipalname |
     
     a. Clique no atributo para abrir o **Editar atributo** caixa de diálogo.
     
@@ -231,7 +231,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Wingspan eTMF | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Wingspan eTMF."
+title: 'Tutorial: Integração do Azure Active Directory com Wingspan eTMF | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Wingspan eTMF.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 83ec7a6fda5bfb14fefa0932135592a9e1a640a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f597a6cbad27da2f9e06273a10034ea77a37caf1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integração do Azure Active Directory com Wingspan eTMF
 
@@ -29,7 +29,7 @@ Integrar Wingspan eTMF com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para eTMF Wingspan (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,11 +110,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_url11.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<customer name>.<instance name>.mywingspan.com/saml`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`http://saml.<instance name>.wingspan.com/shibboleth`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `http://saml.<instance name>.wingspan.com/shibboleth`
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<customer name>.<instance name>.mywingspan.com/`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<customer name>.<instance name>.mywingspan.com/`
      
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão, identificador e URL de resposta, incluindo o nome do cliente real e o nome de instância real. Contacte [equipa de suporte de cliente de eTMF Wingspan](http://www.wingspan.com/contact-us/) para obter estes valores. 
@@ -207,7 +207,7 @@ Clique no mosaico de eTMF Wingspan no painel de acesso, será redirecionado para
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

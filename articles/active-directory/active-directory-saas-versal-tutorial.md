@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Versal | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Versal."
+title: 'Tutorial: Integração do Azure Active Directory com Versal | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Versal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 34ac0f6f98ba84584d468b5f199d8d6a713ede8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2710c7fa0d035cee8a16d10edf3d603443ad520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutorial: Integração do Azure Active Directory com Versal
 
@@ -30,7 +30,7 @@ Integrar Versal com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Versal (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Versal URLs de domínio e única informações de início de sessão](./media/active-directory-saas-versal-tutorial/tutorial_versal_url.png)
 
-    a. No **identificador** caixa de texto, digite o valor:`VERSAL`
+    a. No **identificador** caixa de texto, digite o valor: `VERSAL`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://versal.com/sso/saml/orgs/<organization_id>`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://versal.com/sso/saml/orgs/<organization_id>`
 
     > [!NOTE] 
     > O valor de URL de resposta não é real. Atualize este valor com o URL de resposta real. Contacte [equipa de suporte de Versal](https://support.versal.com/hc/) para obter este valor.
@@ -198,7 +198,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão utilizando um método de Versal incorporado no seu Web site.
 Consulte o [incorporar organizacional Courses](https://support.versal.com/hc/en-us/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On** suporte guia para obter instruções sobre como incorporar um decorrer Versal com suporte para o Azure AD de sessão único-. 
@@ -209,7 +209,7 @@ Terá de criar um decorrer, partilhe-a com a sua organização e publicá-lo par
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

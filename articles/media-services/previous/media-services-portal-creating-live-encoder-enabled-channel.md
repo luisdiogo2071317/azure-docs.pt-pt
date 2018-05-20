@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 4f512d906f9d35efbc602b104d8742bdedba7261
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9ac1696594ab9f7cb67bb0e340c6a80158e67e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Como realizar uma transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla com o Portal do Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 > 
 > 
 
-1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador em direto no local que possa enviar uma transmissão de velocidade de transmissão única através de um dos seguintes protocolos: RTMP, Transmissão em Fluxo Uniforme ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador em direto no local que possa enviar uma transmissão de velocidade de transmissão única através de um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Este passo também pode ser realizado depois de criar o Canal.
 2. Crie e inicie um Canal. 
@@ -95,7 +95,6 @@ O seguinte é necessário para concluir o tutorial.
       
       * MP4 fragmentado de velocidade de transmissão única (Transmissão em Fluxo Uniforme)
       * RTMP de velocidade transmissão única
-      * RTP (MPEG-TS): Transmissão de Fluxo de Transporte de MPEG-2 sobre RTP.
         
         Para uma explicação mais detalhada sobre cada protocolo, consulte [Transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md).
         

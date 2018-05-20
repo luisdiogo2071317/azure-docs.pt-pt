@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com PagerDuty | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e PagerDuty."
+title: 'Tutorial: Integração do Azure Active Directory com PagerDuty | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e PagerDuty.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: a5a2e3a9d8aa32894e07fb8e96389167d5bb96f9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6ba7e1fc2f58fd8fb7a05935ce2c4b99709d642c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integração do Azure Active Directory com PagerDuty
 
@@ -30,7 +30,7 @@ Integrar PagerDuty com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para PagerDuty (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio PagerDuty e os URLs únicos de informações de início de sessão](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<tenant-name>.pagerduty.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenant-name>.pagerduty.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<tenant-name>.pagerduty.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente PagerDuty](https://www.pagerduty.com/support/) para obter estes valores. 
@@ -210,7 +210,7 @@ No caso de PagerDuty, o aprovisionamento é uma tarefa manual.
 
     a. Tipo de **primeiro e último nome** do utilizador, como **Britta Simon**. 
    
-    b. Introduza **E-Mail** como o endereço do utilizador  **brittasimon@contoso.com** .
+    b. Introduza **E-Mail** como o endereço do utilizador **brittasimon@contoso.com**.
    
     c. Clique em **adicionar**e, em seguida, clique em **enviar Invites**.
    
@@ -247,7 +247,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -258,7 +258,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Zscaler privada acesso (ZPA) | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e acesso privado Zscaler (ZPA)."
+title: 'Tutorial: Integração do Azure Active Directory com Zscaler privada acesso (ZPA) | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e acesso privado Zscaler (ZPA).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ac65791e8d50d5e5da5d36adee14cd0e88a3da8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d5434c57a95e53e4fe37c33f3fe11585fc3177f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integração do Azure Active Directory com Zscaler privada acesso (ZPA)
 
@@ -29,7 +29,7 @@ Integrar Zscaler privada acesso (ZPA) com o Azure AD fornece as seguintes vantag
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Zscaler privada acesso (ZPA) (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +77,7 @@ Para configurar a integração de Zscaler privada acesso (ZPA) com o Azure AD, t
 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_001.png)
 
-5. No painel de resultados, selecione **Zscaler privada acesso (ZPA)**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **Zscaler privada acesso (ZPA)** e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_0001.png)
 
@@ -115,9 +115,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
     
     ![Configurar o início de sessão único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_01.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
 
-    b. No **identificador** caixa de texto, tipo:`https://samlsp.private.zscaler.com/auth/metadata`
+    b. No **identificador** caixa de texto, tipo: `https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE] 
     > Tenha em atenção que estas não são os valores reais. Tem de atualizar estes valores com o URL de início de sessão e o identificador real. Aqui sugerimos que utilize o valor do URL exclusivo no identificador de. Contacte [equipa de suporte do acesso privado Zscaler (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para obter estes valores.
@@ -242,7 +242,7 @@ Quando clica no mosaico de acesso privado Zscaler (ZPA) no painel de acesso, dev
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

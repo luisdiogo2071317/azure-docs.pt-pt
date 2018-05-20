@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -194,21 +194,6 @@ Este problema é específico para VMs gerido em que o utilizador bloqueia o grup
 
 #### <a name="solution"></a>Solução
 
-Para resolver o problema, execute os seguintes passos para remover a recolha de ponto de restauro: <br>
- 
-1. Remova o bloqueio no grupo de recursos em que a VM se encontra. 
-2. Instale ARMClient utilizando Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Inicie sessão no ARMClient: <br>
-    `.\armclient.exe login`
-4. Obter a coleção de ponto de restauro que corresponde à VM: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Elimine a coleção de ponto de restauro: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. A cópia de segurança agendada seguinte cria automaticamente uma coleção de ponto de restauro e novos pontos de restauro.
-
- 
-O problema será acionador se bloquear o grupo de recursos novamente. 
+Para resolver o problema, remova o bloqueio do grupo de recursos e permita que o serviço de cópia de segurança do Azure, desmarque a coleção de ponto de recuperação e dos instantâneos subjacentes na cópia de segurança seguinte.
+Quando tiver terminado, pode novamente colocar novamente o bloqueio no grupo de recursos de VM. 
 

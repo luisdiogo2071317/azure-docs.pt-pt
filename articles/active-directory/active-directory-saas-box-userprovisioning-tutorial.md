@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e caixa."
+title: 'Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e caixa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento de utilizadores automática
 
@@ -43,7 +43,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, tem de decidir quai
 O **caixa > utilizadores e grupos** separador no portal do Azure permite-lhe especificar quais os utilizadores e grupos devem receber acesso à caixa. Atribuição de um utilizador ou grupo faz com que os seguintes procedimentos ocorrer:
 
 * Azure AD permite ao utilizador atribuído (a atribuição direta ou associação de grupo) para autenticar à caixa. Se um utilizador não está atribuído, do Azure AD não permite que-los para iniciar sessão caixa e devolve um erro na página de início de sessão do Azure AD.
-* É adicionado um mosaico da aplicação para a caixa para o utilizador [iniciador da aplicação](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* É adicionado um mosaico da aplicação para a caixa para o utilizador [iniciador da aplicação](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 * Se o aprovisionamento automático está ativado, em seguida, atribuídos aos utilizadores e/ou grupos são adicionados à fila aprovisionamento aprovisionar automaticamente.
   
   * Se apenas os objetos de utilizador foram configurados para ser aprovisionados, em seguida, todos os utilizadores diretamente atribuídos são colocados na fila de aprovisionamento e todos os utilizadores que são membros de quaisquer grupos atribuídos são colocados na fila de aprovisionamento. 
@@ -120,5 +120,5 @@ No seu inquilino de caixa, os utilizadores sincronizados estão listados na **ut
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o início de sessão único](active-directory-saas-box-tutorial.md)

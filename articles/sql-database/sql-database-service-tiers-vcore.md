@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>modelo de compra baseado em vCore para a SQL Database do Azure (pré-visualização)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/11/2018
 |**Modelo de compra**|**Descrição**|**Melhor opção para**|
 |---|---|---|
 |Modelo de DTU|Este modelo é baseado numa medida agrupada de computação, armazenamento e recursos de e/s. Os níveis de desempenho são expressos em Unidades de Transação de Base de Dados (DTUs) para bases de dados únicas e Unidades de Transação de Bases de Dados elásticas (eDTUs) para conjuntos elásticos. Para mais informações sobre as DTUs e eDTUs, consulte [quais são as DTUs e eDTUs](sql-database-what-is-a-dtu.md)?|Melhor para os clientes que pretendem simples, pré-configurados opções de recursos.| 
-|com base em vCore modelo|Este modelo permite-lhe independentemente Dimensionar recursos de computação e armazenamento. Também permite-lhe utilizar o benefício de híbrida do Azure para o SQL Server para obter uma redução de custos.|Melhor opção para os clientes que valor flexibilidade, controlo e transparência.|
+|com base em vCore modelo|Este modelo permite-lhe uma forma independente, dimensionar recursos de computação e armazenamento - vCores até 80, 4 TB de armazenamento de dados e 200000 IOPS. Também permite-lhe utilizar o benefício de híbrida do Azure para o SQL Server para obter uma redução de custos.|Melhor opção para os clientes que valor flexibilidade, controlo e transparência.|
 ||||  
 
 ![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
@@ -48,7 +48,7 @@ Na com base em vCore compra modelo (pré-visualização) aos clientes pay para:
 \*\* Durante a pré-visualização, 7 dias de cópias de segurança e o IOs são gratuitos
 
 > [!IMPORTANT]
-> IOs, dados, de computação e armazenamento de registo são cobrados por base de dados ou o conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes da instância geridos encargos consulte [da base de dados geridas por instância de SQL do Azure](sql-database-managed-instance.md).
+> IOs, dados, de computação e armazenamento de registo são cobrados por base de dados ou o conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes de encargos de instância geridos, consulte [da base de dados geridas por instância de SQL do Azure](sql-database-managed-instance.md).
 
 > [!IMPORTANT]
 > Limitações de região: 
@@ -65,10 +65,10 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estas duas camadas:
 ||**Fins gerais**|**Crítico de negócio**|
 |---|---|---|
 |Melhor para|A maioria das cargas de trabalho de negócio. Ofertas budget orientado para opções de armazenamento e computação equilibradas e dimensionáveis.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|
-|Computação|1 e 16 vCore|1 e 16 vCore|
+|Computação|1 e 80 vCore, geração 4 e 5 de geração |1 e 80 vCore, geração 4 e 5 de geração|
 |Memória|7 GB por núcleo |7 GB por núcleo |
-|Armazenamento|Armazenamento Premium remoto, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 1 TB|
-|Débito de e/s (aproximado)|500 IOPS por vCore com 7500 IOPS máximo|5000 IOPS por núcleo|
+|Armazenamento|Armazenamento Premium remoto, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 4 TB|
+|Débito de e/s (aproximado)|500 IOPS por vCore com 7000 IOPS máximo|5000 IOPS por núcleos com 200000 IOPS máximo|
 |Disponibilidade|1 réplica, sem dimensionamento de leitura|3 réplicas, 1 [leitura escala](sql-database-read-scale-out.md), HA redundante de zona|
 |Cópias de segurança|RA-GRS, 7-35 dias (7 dias por predefinição)|RA-GRS, 7-35 dias (7 dias por predefinição) *|
 |Dentro da memória|N/A|Suportadas|

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Evernote | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Evernote."
+title: 'Tutorial: Integração do Azure Active Directory com Evernote | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Evernote.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c0dda5288d7985669afef5464bf2f9a34f9e8e8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6926472cad5e124ec3e8636df057044b792827c6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Azure Active Directory com Evernote
 
@@ -30,7 +30,7 @@ Integrar Evernote com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Evernote (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,13 +108,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Evernote e os URLs únicos de informações de início de sessão](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url.png)
 
-    No **identificador** caixa de texto, escreva o URL:`https://www.evernote.com/saml2`
+    No **identificador** caixa de texto, escreva o URL: `https://www.evernote.com/saml2`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio Evernote e os URLs únicos de informações de início de sessão](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url1.png)
 
-    No **iniciar sessão no URL** caixa de texto, escreva o URL:`https://www.evernote.com/Login.action`   
+    No **iniciar sessão no URL** caixa de texto, escreva o URL: `https://www.evernote.com/Login.action`   
 
 5. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -239,7 +239,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -248,7 +248,7 @@ Quando clica no mosaico Evernote no painel de acesso, deve obter com sessão ini
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

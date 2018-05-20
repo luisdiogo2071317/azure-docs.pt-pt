@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de arranque do serviço como uma conta de utilizador local ou conta de sistema
 Antes de inicia o executável do serviço de Service Fabric poderá ser necessário executar algumas trabalho de configuração ou a configuração.  Por exemplo, a configurar variáveis de ambiente. Pode especificar um script seja executado antes do executável do serviço é iniciado no manifesto de serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço, pode alterar a conta é executado o programa de configuração executável em.  Um ponto de entrada de configuração individual permite-lhe executar a configuração de alta-privilged durante um curto período de tempo para que o executável do anfitrião do serviço não tem de ser executado com privilégios elevados para períodos de tempo prolongados.
 
 O ponto de entrada de configuração (**SetupEntryPoint** no [manifesto serviço](service-fabric-application-and-service-manifests.md)) é um ponto de entrada com privilégios que, por predefinição, é executada com as mesmas credenciais de Service Fabric (normalmente o  *NetworkService* conta) antes de qualquer outro ponto de entrada. O executável que é especificado por **EntryPoint** é, geralmente, o anfitrião do serviço de execução longa. O **EntryPoint** ficheiro executável é executado o **SetupEntryPoint** executável sai com sucesso. O processo de resultante é monitorizado e reiniciado e começa novamente com **SetupEntryPoint** se alguma vez termina ou falhas. 
 
-## <a name="configure-the-service-setup-entry-point"></a>Configurar o ponto de entrada de configuração de serviço
+## <a name="configure-the-service-setup-entry-point"></a>Configurar o ponto de entrada da configuração do serviço
 Segue-se um exemplo de manifesto do serviço simples para um serviço sem monitorização de estado que especifica um script de configuração *MySetup.bat* no serviço **SetupEntryPoint**.  **Argumentos** é utilizado para transmitir argumentos ao script quando é executada.
 
 ```xml

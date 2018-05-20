@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 1d0ae04bee6d50456949529449b658907d338f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual com Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -34,6 +34,7 @@ Existem várias vantagens da utilização de autenticação do Azure AD para in�
   - Ao reduzir a dependência em contas de administrador local, não precisa de preocupar com perda/roubo de credenciais, os utilizadores a configurar credenciais fracas, etc.
   - A complexidade de palavra-passe e as políticas de duração de palavra-passe configuradas para o diretório do Azure AD ajudam a proteger VMs com Linux, bem como.
   - Para início de sessão mais seguro para máquinas virtuais do Azure, pode configurar a autenticação multifator.
+  - A capacidade de início de sessão para VMs com Linux no Azure Active Directory também funciona para os clientes que utilizam [os serviços de Federação](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Colaboração totalmente integrada:** controlo de acesso With Role-Based (RBAC), pode especificar quem pode iniciar sessão para uma VM indicada como um utilizador normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de equipa, pode atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito mais simples do que ter de eliminar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a conta de utilizador é desativada ou removida do Azure AD, já não ter acesso aos recursos.
 

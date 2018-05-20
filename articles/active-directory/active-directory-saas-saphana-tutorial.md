@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com SAP HANA | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SAP HANA."
+title: 'Tutorial: Integração do Azure Active Directory com SAP HANA | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e SAP HANA.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 855525e2c1d3c33cc7134bbc1cd9b53ca59e1a70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 626dfe07c13c90686157dea710715b333a378136
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integração do Azure Active Directory com SAP HANA
 
@@ -30,7 +30,7 @@ Quando integrar o SAP HANA com o Azure AD, obtenha as seguintes vantagens:
 - Pode permitir aos utilizadores obter iniciada automaticamente SAP HANA com as respetivas contas do Azure AD.
 - Pode gerir as contas numa única localização central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -109,9 +109,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-saphana-tutorial/tutorial_saphana_url.png)
 
-    a. No **identificador** caixa, digite o seguinte:`HA100` 
+    a. No **identificador** caixa, digite o seguinte: `HA100` 
 
-    b. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte:`https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
+    b. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
     > [!NOTE] 
     > Estes valores não são reais. Atualizar estes valores com o identificador real e o URL de resposta. Contacte o [equipa de suporte de cliente de SAP HANA](https://cloudplatform.sap.com/contact.html) para obter estes valores. 
@@ -144,7 +144,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE]
     > Na configuração predefinida, o URL redireciona o pedido para um início de sessão no ecrã, que requer que as credenciais de um utilizador autenticado de base de dados SAP HANA. O utilizador que inicia sessão tem de ter permissões para efetuar tarefas de administração de SAML.
 
-9. Na Interface de Web XSA, aceda a **fornecedor de identidade**. A partir daí, selecione o  **+**  botão na parte inferior do ecrã, para apresentar o **adicionar informações do fornecedor de identidade** painel. Em seguida, siga os passos seguintes:
+9. Na Interface de Web XSA, aceda a **fornecedor de identidade**. A partir daí, selecione o **+** botão na parte inferior do ecrã, para apresentar o **adicionar informações do fornecedor de identidade** painel. Em seguida, siga os passos seguintes:
 
     ![Adicione o fornecedor de identidade](./media/active-directory-saas-saphana-tutorial/sap1.png)
 
@@ -152,7 +152,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Adicionar as definições do fornecedor de identidade](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. Se o conteúdo do documento XML válido, o processo de análise extrai as informações que são necessárias para o **requerente, o ID de entidade e o emissor** campos no **dados gerais** ecrã área. Extrai também as informações necessárias para os campos de URL no **destino** ecrã área, por exemplo, o  **Base URL e o URL de SingleSignOn (*)** os campos.
+    b. Se o conteúdo do documento XML válido, o processo de análise extrai as informações que são necessárias para o **requerente, o ID de entidade e o emissor** campos no **dados gerais** ecrã área. Extrai também as informações necessárias para os campos de URL no **destino** ecrã área, por exemplo, o **Base URL e o URL de SingleSignOn (*)** campos.
 
     ![Adicionar as definições do fornecedor de identidade](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -266,7 +266,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Selecione o **atribuir** clique no botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -276,7 +276,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

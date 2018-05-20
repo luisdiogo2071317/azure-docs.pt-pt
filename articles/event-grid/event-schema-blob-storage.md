@@ -1,18 +1,18 @@
 ---
 title: Azure esquema de eventos do armazenamento de BLOBs de grelha de eventos
-description: "Descreve as propriedades que são fornecidas para eventos de armazenamento de Blobs com a grelha de eventos do Azure"
+description: Descreve as propriedades que são fornecidas para eventos de armazenamento de Blobs com a grelha de eventos do Azure
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de grelha de eventos do Azure para o Blob storage
 
@@ -95,7 +95,7 @@ Um evento tem os seguintes dados de nível superior:
 | ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
@@ -104,7 +104,7 @@ O objeto de dados tem as seguintes propriedades:
 | api | cadeia | A operação que acionou o evento. |
 | clientRequestId | cadeia | Um valor opaco gerados pelo cliente, com um limite de caracteres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, é registada nos registos de análise. |
 | requestId | cadeia | O identificador exclusivo para o pedido. Utilizá-lo para o pedido de resolução de problemas. |
-| eTag | cadeia | O valor que pode utilizar para executar operações condicionalmente. |
+| ETag | cadeia | O valor que pode utilizar para executar operações condicionalmente. |
 | contentType | cadeia | O tipo de conteúdo especificado para o blob. |
 | contentLength | inteiro | O tamanho do blob em bytes. |
 | blobType | cadeia | O tipo de blob. Os valores válidos são "BlockBlob" ou "PageBlob". |

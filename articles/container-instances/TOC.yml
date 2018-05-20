@@ -26,7 +26,7 @@
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
     - name: Modelos do Resource Manager
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
+      href: container-instances-samples-rm.md
 - name: Conceitos
   items:
     - name: Quotas e limites regionais

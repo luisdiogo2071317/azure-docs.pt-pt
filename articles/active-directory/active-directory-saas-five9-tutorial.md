@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Five9 adaptador Plus (CTI, contacte o Centro de agentes) | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Five9 adaptador Plus (CTI, contacte o Centro de agentes)."
+title: 'Tutorial: Integração do Azure Active Directory com Five9 adaptador Plus (CTI, contacte o Centro de agentes) | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Five9 adaptador Plus (CTI, contacte o Centro de agentes).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 7eae27ba61cf61e616bb7060ce99b3802793993f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d5c6b2c658a899b3c4363803dc3858cc2b6bab46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Azure Active Directory com Five9 adaptador Plus (CTI, contacte o Centro de agentes)
 
@@ -29,7 +29,7 @@ Integrar Five9 adaptador Plus (CTI, agentes do System Center de contacto) com o 
 - Pode ativar a que os utilizadores automaticamente obter com sessão iniciada para Five9 adaptador Plus (CTI, contacte o Centro de agentes) (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -73,7 +73,7 @@ Para configurar a integração de Five9 adaptador Plus (CTI, agentes do System C
 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-five9-tutorial/tutorial_five9_search.png)
 
-5. No painel de resultados, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+5. No painel de resultados, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
     ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-five9-tutorial/tutorial_five9_addfromgallery.png)
 
@@ -112,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     a. No **identificador** caixa de texto, escreva um URL utilizando os seguintes padrões:
 
-    |    Ambiente      |       URL      |
+    |    Ambiente      |       do IdP      |
     | :-- | :-- |
     | Para "Five9 Plus adaptador para Microsoft Dynamics CRM" | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
     | Para "Five9 Plus adaptador para Zendesk" | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
@@ -120,7 +120,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
 
-    |      Ambiente     |      URL      |
+    |      Ambiente     |      do IdP      |
     | :--                  | :--           |
     | Para "Five9 Plus adaptador para Microsoft Dynamics CRM" | `https://app.five9.com/appsvcs/saml/SSO/alias/msdc` |
     | Para "Five9 Plus adaptador para Zendesk" | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
@@ -226,7 +226,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

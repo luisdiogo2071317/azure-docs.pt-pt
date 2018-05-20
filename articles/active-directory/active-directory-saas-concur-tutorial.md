@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Concur | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Concur."
+title: 'Tutorial: Integração do Azure Active Directory com Concur | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Concur.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 7619b09f24cf63f86871c975584254636292d7f3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc87add18145bbc733f33df8f4072cb13ae7b75f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutorial: Integração do Azure Active Directory com Concur
 
@@ -29,7 +29,7 @@ Integrar Concur com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Concur (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -113,9 +113,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-concur-tutorial/tutorial_concur_url.png)
 
-    a. No **iniciar sessão no URL** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://www.concursolutions.com/UI/SSO/<OrganizationId>`
+    a. No **iniciar sessão no URL** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<customer-domain>.concursolutions.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<customer-domain>.concursolutions.com`
 
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualize estes valores com o início de sessão real no URL e o identificador. Contacte [equipa de suporte de cliente Concur](https://www.concur.co.in/contact) para obter estes valores. 
@@ -214,7 +214,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o aprovisionamento de utilizadores](active-directory-saas-concur-provisioning-tutorial.md)
 
 

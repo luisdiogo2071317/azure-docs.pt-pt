@@ -1,23 +1,21 @@
 ---
-title: "Autenticação do serviço de serviço: Java com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs"
-description: "Aprenda a alcançar a autenticação de serviço a serviço utilizando o Azure Active Directory com o Java do Data Lake Store"
+title: 'Autenticação do serviço de serviço: Java com o Data Lake Store utilizando o Azure Active Directory | Microsoft Docs'
+description: Aprenda a alcançar a autenticação de serviço a serviço utilizando o Azure Active Directory com o Java do Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e537d8a6ea53bf4366168727de8ef95b96281d5b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5dccdf7cc7598381bae0de2eb24f3761cbef7612
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Autenticação do serviço de serviço com o Data Lake Store com Java
 > [!div class="op_single_selector"]

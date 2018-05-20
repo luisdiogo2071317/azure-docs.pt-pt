@@ -1,13 +1,13 @@
 ---
-title: "Enlaces de aplicações móveis para as funções do Azure"
-description: "Compreenda como utilizar os enlaces de Mobile Apps do Azure das funções do Azure."
+title: Enlaces de aplicações móveis para as funções do Azure
+description: Compreenda como utilizar os enlaces de Mobile Apps do Azure das funções do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: c5fb7bdd88691c9aeab6b348507901c34502b28b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1129bd36b1f1f413e5fd40da16a48f5aff1078bc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
 
@@ -34,6 +34,8 @@ Os enlaces de aplicações móveis permitem-lhe ler e atualizar as tabelas de da
 Enlaces de aplicações móveis são fornecidos no [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="input"></a>Input
 
@@ -144,12 +146,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **type**|| Tem de ser definido como "mobileTable"|
-| **direction**||Tem de ser definido como "em"|
+| **tipo**|| Tem de ser definido como "mobileTable"|
+| **direção**||Tem de ser definido como "em"|
 | **name**|| Nome do parâmetro de entrada na assinatura da função.|
 |**tableName** |**TableName**|Nome da tabela de dados da aplicação móvel|
 | **id**| **Id** | O identificador do registo para obter. Pode ser estático ou com base no acionador que invoca a função. Por exemplo, se utilizar um acionador de fila para a sua função, em seguida, `"id": "{queueTrigger}"` utiliza o valor da cadeia da mensagem de fila como o ID do registo para obter.|
-|**connection**|**Ligação**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
+|**Ligação**|**Ligação**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|O nome de uma definição de aplicação que tenha a chave de API da sua aplicação móvel. Forneça a caso da chave de API [uma chave de API de implementar na sua aplicação móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), ou [uma chave de API de implementar na sua aplicação móvel .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de aplicação na sua aplicação de função que contém a chave de API, em seguida, adicione o `apiKey` propriedade no seu enlace de entrada com o nome da definição de aplicação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -303,11 +305,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **type**|| Tem de ser definido como "mobileTable"|
-| **direction**||Tem de ser definido como "out"|
+| **tipo**|| Tem de ser definido como "mobileTable"|
+| **direção**||Tem de ser definido como "out"|
 | **name**|| Nome do parâmetro de saída na assinatura da função.|
 |**tableName** |**TableName**|Nome da tabela de dados da aplicação móvel|
-|**connection**|**MobileAppUriSetting**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
+|**Ligação**|**MobileAppUriSetting**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Crie uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade de enlace de entrada. O URL do aspeto `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|O nome de uma definição de aplicação que tenha a chave de API da sua aplicação móvel. Forneça a caso da chave de API [implementar uma chave de API no seu back-end da aplicação móvel de Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), ou [implementar uma chave de API no seu back-end da aplicação móvel de .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma definição de aplicação na sua aplicação de função que contém a chave de API, em seguida, adicione o `apiKey` propriedade no seu enlace de entrada com o nome da definição de aplicação. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

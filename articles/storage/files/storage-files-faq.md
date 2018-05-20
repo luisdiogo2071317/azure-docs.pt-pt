@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes sobre ficheiros do Azure | Microsoft Docs
+title: Perguntas mais frequentes (FAQ) sobre ficheiros do Azure | Microsoft Docs
 description: Encontrar respostas a perguntas mais frequentes sobre os ficheiros do Azure.
 services: storage
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="frequently-asked-questions-about-azure-files"></a>Perguntas mais frequentes sobre os ficheiros do Azure
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
 
 Este artigo responde a questões recorrentes sobre ficheiros do Azure e funcionalidades, incluindo a utilização de sincronização de ficheiros do Azure com ficheiros do Azure. Se não vir a resposta à sua pergunta, pode contactar-nos através dos seguintes canais (pela ordem em constante crescendo):
@@ -127,7 +127,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
         | A | Arquivo | Indica que o ficheiro deve ser feito pelo software de cópia de segurança. Este atributo é sempre definido, independentemente se o ficheiro está em camadas ou totalmente armazenado no disco. |
         | P | Ficheiro disperso | Indica que o ficheiro é um ficheiro disperso. Um ficheiro disperso é um tipo especializado de ficheiros NTFS oferece para uma utilização eficiente quando o ficheiro no fluxo de disco principalmente está vazio. Sincronização de ficheiros do Azure utiliza ficheiros dispersos porque um ficheiro é totalmente camado ou parcialmente resgatar os. Num ficheiro totalmente em camadas, a sequência de ficheiros é armazenada na nuvem. Um ficheiro parcialmente recalled, que parte dos ficheiros já se encontra no disco. Se um ficheiro é totalmente resgatar os para o disco, sincronização de ficheiros do Azure converte-o partir de um ficheiro disperso para um ficheiro regular. |
         | L | Ponto de reanálise | Indica que o ficheiro tem um ponto de reanálise. Um ponto de reanálise é um ponteiro especial para utilização por um filtro de sistema de ficheiros. Sincronização de ficheiros do Azure utiliza pontos de reanálise, para definir o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) a localização de nuvem onde está armazenado o ficheiro. Isto suporta o acesso totalmente integrado. Os utilizadores não precisam de saber que a sincronização de ficheiros do Azure está a ser utilizada ou como obter acesso ao ficheiro na partilha de ficheiros do Azure. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove o ponto de reanálise do ficheiro. |
-        | NÃ | Offline | Indica que alguns ou todos os conteúdos do ficheiro não estão armazenados num disco. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove este atributo. |
+        | O | Offline | Indica que alguns ou todos os conteúdos do ficheiro não estão armazenados num disco. Quando um ficheiro é totalmente resgatar os, Azure ficheiro Sync remove este atributo. |
 
         ![A caixa de diálogo de propriedades para um ficheiro, o separador de detalhes, selecionado](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
@@ -232,7 +232,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 ## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>
 **Como posso fazer cópia de segurança os meus ficheiros do Azure partilhar?**  
-    Pode utilizar periódica [partilhar instantâneos](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer cópias de segurança de uma partilha de ficheiros montada. 
+    Pode utilizar periódica [partilhar instantâneos](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer cópias de segurança de uma partilha de ficheiros montada. Cópia de segurança do Azure oferece uma cópia de segurança de ficheiros do Azure. Saiba mais sobre [cópia de segurança do Azure partilhas pela cópia de segurança do Azure de ficheiros](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Partilhar instantâneos
 ### <a name="share-snapshots-general"></a>Partilhar instantâneos: gerais

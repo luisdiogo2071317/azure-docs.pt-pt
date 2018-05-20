@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Boomi | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Boomi."
+title: 'Tutorial: Integração do Azure Active Directory com Boomi | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Boomi.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bd0b5cd66718ca0eeb9fa90366b90a899181e912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Azure Active Directory com Boomi
 
@@ -30,7 +30,7 @@ Integrar Boomi com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Boomi (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Boomi e os URLs únicos de informações de início de sessão](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL:`https://platform.boomi.com/`
+    a. No **identificador** caixa de texto, escreva um URL: `https://platform.boomi.com/`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE] 
     > O valor do URL de resposta não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte de Boomi](https://boomi.com/company/contact/) para obter o valor.
@@ -214,7 +214,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Boomi, têm de
 
     ![Os utilizadores](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "utilizadores")
 
-3. Clique em  **+**  ícone e o **funções de utilizador de adicionar/manter** abre a caixa de diálogo.
+3. Clique em **+** ícone e o **funções de utilizador de adicionar/manter** abre a caixa de diálogo.
 
     ![Os utilizadores](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "utilizadores")
 
@@ -265,7 +265,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -275,7 +275,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

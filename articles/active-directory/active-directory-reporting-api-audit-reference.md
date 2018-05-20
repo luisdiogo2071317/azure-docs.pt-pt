@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1bf86a9190039cdf0fe8dc435bdee4308b28cf29
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e620a7f488e51a60bff6943135831eea0d12816d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Auditoria de Active Directory referência da API do Azure
 
@@ -52,7 +52,7 @@ Para:
 ## <a name="prerequisites"></a>Pré-requisitos
 Para aceder a este relatório através da API de relatórios, tem de ter:
 
-* Um [gratuito do Azure Active Directory ou a edição melhor](active-directory-editions.md)
+* Um [gratuito do Azure Active Directory ou a edição melhor](active-directory-whatis.md)
 * Concluída a [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Aceder à API

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Dropbox para empresas | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Dropbox para empresas."
+title: 'Tutorial: Integração do Azure Active Directory com o Dropbox para empresas | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Dropbox para empresas.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 255cfcb777f88fd6c6ac62b3e7c216360ea11e54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa00a88f8325345b1b45d7d0971a03590bce1029
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Integração do Azure Active Directory com o Dropbox para empresas
 
@@ -30,7 +30,7 @@ Integrar o Dropbox para empresas com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada ao Dropbox para empresas (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Dropbox para domínio de negócio e URLs único início de sessão informações](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.dropbox.com/sso/<id>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.dropbox.com/sso/<id>`
 
-    b. No **identificador** caixa de texto, escreva um valor:`Dropbox`
+    b. No **identificador** caixa de texto, escreva um valor: `Dropbox`
 
     > [!NOTE] 
     > O valor de URL de início de sessão anterior não é o valor real. Atualizar o valor com o real início de sessão no URL, que é explicado mais tarde no tutorial. Contacte [Dropbox para a equipa de suporte de cliente de negócio](https://www.dropbox.com/business/contact) para obter o valor. 
@@ -237,7 +237,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -247,7 +247,7 @@ Ao clicar em Dropbox do mosaico de negócio no painel de acesso, pode ser obtido
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

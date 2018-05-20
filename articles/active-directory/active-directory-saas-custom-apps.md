@@ -15,23 +15,23 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b76809e615174e7c4e118c6043c8f3fbef3ee94
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5316cca9d3c944735355d7912a0f1e044c585001
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory
 Este artigo é sobre uma funcionalidade que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview no 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](active-directory-whatis.md). Se estiver em vez disso, a procurar orientações para programadores sobre como integrar aplicações personalizadas com o Azure AD através do código, consulte o artigo [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 
-Galeria de aplicações do Azure Active Directory fornece uma lista de aplicações que se sabe suportarem um formulário de início de sessão no Azure Active Directory, conforme descrito em [neste artigo](active-directory-appssoaccess-whatis.md). Uma vez (como um IT especialista em integrador na sua organização) encontrar a aplicação que pretende ligar, pode começar a utilizar seguindo as instruções passo a passo apresentadas no portal do Azure para ativar o início de sessão único.
+Galeria de aplicações do Azure Active Directory fornece uma lista de aplicações que se sabe suportarem um formulário de início de sessão no Azure Active Directory, conforme descrito em [neste artigo](manage-apps/what-is-single-sign-on.md). Uma vez (como um IT especialista em integrador na sua organização) encontrar a aplicação que pretende ligar, pode começar a utilizar seguindo as instruções passo a passo apresentadas no portal do Azure para ativar o início de sessão único.
 
 Clientes com [Azure Active Directory Premium](active-directory-whatis.md) licença também obter estas capacidades adicionais:
 
 * Integração de self-service de qualquer aplicação que suporta SAML 2.0 fornecedores de identidade (iniciado por SP ou iniciadas por IdP)
-* Integração de self-service de qualquer aplicação web que tem um baseado em HTML página de início de sessão utilizando [SSO baseada em palavra-passe](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Integração de self-service de qualquer aplicação web que tem um baseado em HTML página de início de sessão utilizando [SSO baseada em palavra-passe](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Ligação self-service das aplicações que utilizam o protocolo SCIM para aprovisionamento de utilizadores ([descrito aqui](active-directory-scim-provisioning.md))
-* Capacidade de adicionar ligações a qualquer aplicação no [iniciador da aplicação do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou [painel de acesso do Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Capacidade de adicionar ligações a qualquer aplicação no [iniciador da aplicação do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou [painel de acesso do Azure AD](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Isto pode incluir não apenas aplicações de SaaS que utilizar, mas tem não ainda foi integrada para a Galeria de aplicações do Azure AD, mas as aplicações web de terceiros que tenha implementado organização servidores que controlar, ou na nuvem ou no local.
 
@@ -115,18 +115,18 @@ Para testar, basta iniciar sessão para o Azure AD painel de acesso em https://m
 Para sugestões de depuração, consulte este [artigo sobre como depurar baseados em SAML-início de sessão único para aplicações](active-directory-saml-debugging.md) 
 
 ## <a name="password-single-sign-on"></a>Palavra-passe-início de sessão único
-Selecione esta opção para configurar [baseada em palavra-passe de início de sessão](active-directory-appssoaccess-whatis.md) para uma aplicação web que tem uma página de início de sessão HTML. Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que várias os utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais. 
+Selecione esta opção para configurar [baseada em palavra-passe de início de sessão](manage-apps/what-is-single-sign-on.md) para uma aplicação web que tem uma página de início de sessão HTML. Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que várias os utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais. 
 
 Depois de selecionar **seguinte**, será solicitado para introduzir o URL da baseada na web início de sessão na página da aplicação. Tenha em atenção que tem de ser a página que inclua os campos de entrada de nome de utilizador e palavra-passe. Uma vez introduzidas, do Azure AD inicia um processo para analisar a página de início de sessão para introduzir um nome de utilizador e uma palavra-passe de entrada. Se o processo não for bem sucedido, em seguida,-orienta-o num processo de instalação de uma extensão de browser (requer o Internet Explorer, Chrome ou Firefox) que irá permitir-lhe capturar manualmente os campos alternativo.
 
-Depois da página de início de sessão é capturada, podem ser atribuídos a utilizadores e grupos e políticas de credencial podem ser definidas como regular [palavra-passe SSO aplicações](active-directory-appssoaccess-whatis.md).
+Depois da página de início de sessão é capturada, podem ser atribuídos a utilizadores e grupos e políticas de credencial podem ser definidas como regular [palavra-passe SSO aplicações](manage-apps/what-is-single-sign-on.md).
 
 Nota: Pode carregar um logótipo de mosaico para a aplicação utilizando o **carregar o logótipo** botão no **configurar** separador para a aplicação. 
 
 ## <a name="existing-single-sign-on"></a>Existente Single Sign-On
 Selecione esta opção para adicionar uma ligação para uma aplicação no portal de painel de acesso do Azure AD ou o Office 365 da sua organização. Pode utilizar este para adicionar hiperligações para aplicações web personalizado que a utilizam atualmente os serviços de Federação do Active Directory do Azure (ou outro serviço de Federação) em vez do Azure AD para autenticação. Em alternativa, pode adicionar ligações avançadas para páginas do SharePoint específicas ou de outras páginas web que pretende aparecem no painel de acesso do utilizador. 
 
-Depois de selecionar **seguinte**, será solicitado para introduzir o URL da aplicação para ligar a. Depois de concluída, utilizadores e grupos que podem ser atribuídos a aplicação, o que faz com que a aplicação a aparecer no [iniciador da aplicação do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou [painel de acesso do Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) para os utilizadores.
+Depois de selecionar **seguinte**, será solicitado para introduzir o URL da aplicação para ligar a. Depois de concluída, utilizadores e grupos que podem ser atribuídos a aplicação, o que faz com que a aplicação a aparecer no [iniciador da aplicação do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou [painel de acesso do Azure AD](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) para os utilizadores.
 
 Nota: Pode carregar um logótipo de mosaico para a aplicação utilizando o **carregar o logótipo** botão no **configurar** separador para a aplicação.
 

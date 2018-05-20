@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com PurelyHR | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e PurelyHR."
+title: 'Tutorial: Integração do Azure Active Directory com PurelyHR | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e PurelyHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 5254f0e043a301cd05b6f00785db48cbc9d02f17
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4bf6dd503e50214185bd1470f0faa57cfce2228f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com PurelyHR
 
@@ -29,7 +29,7 @@ Integrar PurelyHR com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para PurelyHR (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,13 +110,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-purelyhr-tutorial/tutorial_purelyhr_url.png)
    
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyID>.purelyhr.com/sso-consume`
+    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyID>.purelyhr.com/sso-consume`
 
 4. Verifique **Mostrar avançadas definições de URL**, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-purelyhr-tutorial/tutorial_purelyhr_url1.png)
     
-    No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<companyID>.purelyhr.com/sso-initiate`
+    No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
     > Estes valores não estiverem a real. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente PurelyHR](http://support.purelyhr.com/) para obter estes valores. 
@@ -231,7 +231,7 @@ Para obter mais informações sobre o painel de acesso, consulte. [Introdução 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

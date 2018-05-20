@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f64f25713dd05ece018138624a06c225218f68e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
@@ -74,13 +74,20 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
 4. Em Tipo de gestão de certificado, selecione **CDN gerida**.
 
-4. Selecione **Ativar** para ativar o HTTPS.
+5. Selecione **Ativar** para ativar o HTTPS.
 
     ![Estado do HTTPS do domínio personalizado](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Avance para [Validar o domínio](#validate-the-domain).
+
 
 ## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Opção 2: ativar a funcionalidade HTTPS com o seu próprio certificado 
+
+> [!IMPORTANT]
+> Esta funcionalidade só está disponível nos perfis **Azure CDN Standard da Microsoft**. 
+>
  
+
 Pode utilizar o seu próprio certificado na CDN do Azure para disponibilizar conteúdo através de HTTPS. Este processo é feito através de uma integração com o Azure Key Vault. O Azure Key Vault permite que os clientes armazenem os certificados de forma segura. O serviço da CDN do Azure tira partido deste mecanismo seguro ao obter o certificado. Utilizar o seu próprio certificado requer mais alguns passos.
 
 ### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Passo 1: preparar a conta e o certificado do Azure Key Vault
@@ -89,9 +96,23 @@ Pode utilizar o seu próprio certificado na CDN do Azure para disponibilizar con
  
 2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na conta do Azure Key Vault ou pode criar um novo diretamente através do Azure Key Vault a partir de uma das Autoridades de Certificação (CA) do parceiro com o qual o Azure Key Vault está integrado. 
 
-### <a name="step-2-grant-azure-cdn-access-to-your-key-vault"></a>Passo 2: conceder acesso da CDN ao cofre de chaves
+### <a name="step-2-register-azure-cdn"></a>Passo 2: Registar a CDN do Azure
+
+Registe a CDN do Azure como uma aplicação no Azure Active Directory através do PowerShell.
+
+1. Caso seja necessário, instale o [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) no PowerShell no seu computador local.
+
+2. No PowerShell, execute o seguinte comando:
+
+     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+
+    ![Registar a CDN do Azure no PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
+              
+
+### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>Passo 3: conceder à CDN do Azure acesso ao cofre de chaves
  
-Tem de dar permissão da CDN do Azure para aceder aos certificados (segredos) na conta do Azure Key Vault.
+Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta do Azure Key Vault.
+
 1. Na sua conta do cofre de chaves, em DEFINIÇÕES, selecione **Políticas de acesso** e **Adicionar nova** para criar uma nova política.
 
     ![Criar uma nova política de acesso](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -106,7 +127,7 @@ Tem de dar permissão da CDN do Azure para aceder aos certificados (segredos) na
 
     A CDN do Azure pode agora aceder a este cofre de chaves e aos certificados (segredos) que estão armazenados neste cofre de chaves.
  
-### <a name="step-3-select-the-certificate-for-azure-cdn-to-deploy"></a>Passo 3: selecionar o certificado para a CDN do Azure implementar
+### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>Passo 4: selecionar o certificado para a CDN do Azure implementar
  
 1. Regresse ao portal da CDN do Azure e selecione o perfil e o ponto final da CDN para os quais pretende ativar HTTPS personalizado. 
 
@@ -126,16 +147,20 @@ Tem de dar permissão da CDN do Azure para aceder aos certificados (segredos) na
     - As versões dos certificados disponíveis. 
  
 5. Selecione **Ativar** para ativar o HTTPS.
+  
+6. Quando utiliza o seu próprio certificado, a validação de domínio não é necessária. Avance para [Aguardar pela propagação](#wait-for-propagation).
 
 
 ## <a name="validate-the-domain"></a>Validar o domínio
 
-Se já tiver um domínio personalizado em utilização e que esteja mapeado para o ponto final personalizado com um registo CNAME, avance para  
+Se já tiver um domínio personalizado em utilização que esteja mapeado para o ponto final personalizado com um registo CNAME ou estiver a utilizar o seu próprio certificado, avance para  
 [O domínio personalizado está mapeado para o ponto final da CDN](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Caso contrário, se a entrada do registo CNAME para o ponto final já não existir ou contiver o subdomínio cdnverify, avance para [O domínio personalizado não está mapeado para o ponto final da CDN](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>O domínio personalizado está mapeado para o ponto final da CDN por um registo CNAME
 
-Quando adicionou um domínio personalizado ao ponto final, criou um registo CNAME na tabela de DNS da sua entidade de registo de domínios para mapeá-lo para o nome de anfitrião do ponto final da CDN. Se esse registo CNAME ainda existir e não contiver o subdomínio cdnverify, a autoridade de certificação (AC) DigiCert utiliza-o para validar a propriedade do seu domínio personalizado. 
+Quando adicionou um domínio personalizado ao ponto final, criou um registo CNAME na tabela de DNS da sua entidade de registo de domínios para mapeá-lo para o nome de anfitrião do ponto final da CDN. Se esse registo CNAME ainda existir e não contiver o subdomínio cdnverify, a autoridade de certificação (AC) DigiCert utiliza-o para validar automaticamente a propriedade do seu domínio personalizado. 
+
+Se utilizar o seu próprio certificado, a validação de domínio não é necessária.
 
 O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu domínio personalizado e *Valor* é o nome de anfitrião do ponto final da CDN:
 

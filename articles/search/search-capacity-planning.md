@@ -1,5 +1,5 @@
 ---
-title: Planeamento da capacidade para a Azure Search | Microsoft Docs
+title: Alocar partições e réplicas para consulta e indexação na Azure Search | Microsoft Docs
 description: Ajuste a partição e réplica recursos de computador na Azure Search, onde cada recurso tem um preço em unidades de pesquisa sujeito a faturação.
 author: HeidiSteen
 manager: cgronlun
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Níveis de recursos de escala de consulta e indexação cargas de trabalho na Azure Search
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Alocar partições e réplicas para consulta e indexação cargas de trabalho na Azure Search
 Depois de [escolha um escalão de preço](search-sku-tier.md) e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), o passo seguinte consiste em opcionalmente aumentar o número de réplicas ou partições utilizadas pelo seu serviço. Cada camada oferece um número fixo de unidades de faturação. Este artigo explica como atribuir as unidades para alcançar uma configuração ideal equilibrar os requisitos para a execução da consulta, indexação e armazenamento.
 
 Configuração do recurso está disponível quando configurar um serviço no [escalão básico](http://aka.ms/azuresearchbasic) ou um do [camadas Standard](search-limits-quotas-capacity.md). Para estas camadas de serviços, a capacidade é adquirida em incrementos de *unidades de pesquisa* (SUs) onde cada partição e réplica contagem como um SU. 

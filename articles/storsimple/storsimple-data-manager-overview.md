@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Descrição geral da solução do Gestor de dados do StorSimple
 
@@ -80,6 +80,11 @@ Esta chave é utilizada por recursos de computação para efetuar a transformaç
 Se a sua região do Gestor de dados é diferente da sua região de definição de tarefa, é importante compreender que dados/metadados reside em cada um destas regiões. O diagrama seguinte ilustra o efeito de ter regiões diferentes para a definição de tarefa e o Gestor de dados.
 
 ![Definição de serviço e a tarefa em regiões diferentes](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>Conformidade GDPR
+
+[Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR contém muitos requisitos sobre como recolher, armazenar e utilize as informações pessoais. As regras GDPR são impostas em empresas, agências governamentais e outras organizações que operam em EU e recolhem, analisam dados associados ao residentes de EU. O Gestor de dados do StorSimple é GDPR em conformidade. O serviço do Gestor de dados não recolhe dados pessoais.
+Para obter mais informações, consulte a política do Microsoft Privacy ao [Centro de confiança](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

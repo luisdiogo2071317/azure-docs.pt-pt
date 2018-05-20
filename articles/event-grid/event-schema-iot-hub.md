@@ -1,20 +1,20 @@
 ---
 title: Esquema de grelha de eventos do Azure para o IoT Hub | Microsoft Docs
-description: "Página de referência para o formato de esquema de eventos e as propriedades do IoT Hub"
+description: Página de referência para o formato de esquema de eventos e as propriedades do IoT Hub
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de grelha de eventos do Azure para o IoT Hub
 
@@ -93,7 +93,7 @@ Todos os eventos contêm o mesmo nível superior de dados:
 | eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
 | dados | objeto | Dados de eventos do IoT Hub.  |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O conteúdo do objeto de dados é diferente para cada publicador de eventos. Para eventos de IoT Hub, o objeto de dados contém as seguintes propriedades:
 
@@ -112,7 +112,7 @@ O conteúdo do objeto de dados é diferente para cada publicador de eventos. Par
 | lastActivityTime | cadeia | O carimbo de ISO8601 da última atividade. | 
 | cloudToDeviceMessageCount | inteiro | Contagem de nuvem para as mensagens do dispositivo enviadas para este dispositivo. | 
 | authenticationType | cadeia | Tipo de autenticação utilizado para este dispositivo: um `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
-| x509Thumbprint | cadeia | O thumbprint é um valor exclusivo para o x509 certificado, normalmente utilizado para localizar um determinado certificado num arquivo de certificados. O thumbprint dinamicamente é gerado utilizando o algoritmo SHA1 e não existe fisicamente no certificado. | 
+| X509Thumbprint | cadeia | O thumbprint é um valor exclusivo para o x509 certificado, normalmente utilizado para localizar um determinado certificado num arquivo de certificados. O thumbprint dinamicamente é gerado utilizando o algoritmo SHA1 e não existe fisicamente no certificado. | 
 | primaryThumbprint | cadeia | Thumbprint primário para o x509 certificado. |
 | secondaryThumbprint | cadeia | Thumbprint secundário para o x509 certificado. | 
 | versão | inteiro | Tempo de um número inteiro que é aumentado em cada dispositivo duplo é atualizado. |

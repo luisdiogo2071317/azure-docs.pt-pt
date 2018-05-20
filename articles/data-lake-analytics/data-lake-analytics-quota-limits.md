@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limites de Quota do Azure Data Lake Analytics
 
@@ -32,29 +32,33 @@ Se pretender que ultrapassem este limite, pode experimentar estas opções:
 * Escolha outra região se adequado
 * Contacte o suporte do Azure por [abrir um pedido de suporte](#increase-maximum-quota-limits) para pedir um aumento de quota.
 
-## <a name="adla-account-limits"></a>Limites de conta ADLA
+## <a name="default-adla-account-limits"></a>Limites de conta ADLA predefinido
 
-**Número máximo de unidades de análise (AUs) por conta:** 250
+**Número máximo de unidades de análise (AUs) por conta:** 32
 
 Este é o número máximo de AUs que podem ser executados em simultâneo na sua conta. Se o número total de execução AUs em todas as tarefas excede este limite, as tarefas mais recentes são colocados em fila automaticamente. Por exemplo:
 
-* Se tiver apenas uma tarefa em execução com 250 AUs, quando submete uma segunda tarefa-irá aguardar na fila de tarefas até que a primeira tarefa é concluída.
-* Se já tiver cinco tarefas em execução e se cada utiliza 50 AUs, quando submete uma tarefa de sexto que necessita de 20 AUs espera na fila de tarefas até não existirem 20 AUs disponíveis.
+* Se tiver apenas uma tarefa em execução com 32 AUs, quando submete uma segunda tarefa-irá aguardar na fila de tarefas até que a primeira tarefa é concluída.
+* Se já tiver quatro tarefas em execução e se cada utiliza 8 AUs, quando submete uma tarefa de quinta que necessita de 8 AUs espera na fila de tarefas até não existirem 8 AUs disponíveis.
+
+**Número máximo de unidades de análise (AUs) por tarefa:** 32
+
+Este é o número máximo predefinido de AUs que pode ser atribuída a cada tarefa individuais na sua conta. Serão rejeitadas tarefas que são atribuídas mais do que este limite, a menos que o submissor é afetado por uma política de computação (limite de submissão da tarefa) que lhes dá mais AUs por tarefa. O limite superior deste valor é o limite de AU para a conta.
 
 **Número máximo de tarefas U-SQL em simultâneo por conta:** 20
 
 Este é o número máximo de tarefas que podem ser executados em simultâneo na sua conta. Acima este valor, as tarefas mais recentes são colocados em fila automaticamente.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>Ajuste os limites de quota ADLA por conta
+## <a name="adjust-adla-account-limits"></a>Ajuste ADLA limites de conta
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha uma conta ADLA existente.
 3. Clique em **Propriedades**.
-4. Ajustar **paralelismo** e **tarefas simultâneas** de acordo com as suas necessidades.
-
-    ![Página do portal do Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Ajustar os valores para **AUs máximo**, **número máximo de tarefas em execução**, e **limites de submissão da tarefa** de acordo com as suas necessidades.
 
 ## <a name="increase-maximum-quota-limits"></a>Aumentar os limites de quota máxima
+
+Pode encontrar mais informações sobre os limites do Azure no [específicos do serviço de Azure limita documentação](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Abra um pedido de suporte no portal do Azure.
 

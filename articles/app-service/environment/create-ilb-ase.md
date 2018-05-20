@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72ba97727fd4de1c419091475f14427065790cc7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -215,7 +215,7 @@ O nome do site SCM leva-o para a consola Kudu, denominada **Portal avançado**, 
 
 No Serviço de Aplicações multi-inquilino e num ASE Externo, existe início de sessão único entre o portal do Azure e a consola Kudu. No entanto, para o ASE de ILB, terá de utilizar as suas credenciais de publicação para iniciar sessão na consola Kudu.
 
-Os sistemas CI baseados na Internet, como o GitHub e o Visual Studio Team Services, não funcionam com um ASE de ILB porque o ponto final de publicação não é acessível pela Internet. Em alternativa, tem de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
+Os sistemas CI baseados na Internet, como o GitHub e o Visual Studio Team Services, continuarão a funcionar com um ASE de ILB se o agente de compilação for acessível pela Internet e estiver na mesma rede que o ASE de ILB. Por isso, no caso do Visual Studio Team Services, se o agente de compilação for criado na mesma VNET que o ASE de ILB (pode ser outra sub-rede), conseguirá obter o código do VSTS git e implementar no ASE de ILB. Se não quiser criar o seu próprio agente de compilação, terá de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
 
 Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Este domínio aparece no perfil de publicação da aplicação e no painel do portal da aplicação (**Descrição geral** > **Informações Básicas** e também **Propriedades**). Se tiver um ASE de ILB com o subdomínio *contoso.net* e uma aplicação com o nome *mytest*, utilize *mytest.contoso.net* para FTP e *mytest.scm.contoso.net* para implementação na Web.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir retenção de cópias de segurança de longa duração de SQL Database do Azure
 
@@ -80,6 +80,10 @@ Ver as cópias de segurança que são mantidas para uma base de dados específic
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o PowerShell para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
 
 As secções seguintes mostram como utilizar o PowerShell para configurar a retenção de cópias de segurança de longa duração, ver as cópias de segurança no armazenamento de SQL do Azure e o restauro a partir de uma cópia de segurança no armazenamento de SQL do Azure.
+
+> [!IMPORTANT]
+> Tem de utilizar o powershell AzureRM mais recente para configurar políticas de V2 imediatamente disponíveis. A versão atual é [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), esta é uma versão de pré-visualização, por isso, utilize este comando para instalá-la: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Para obter orientações sobre como instalar a versão de pré-lançamento, consulte [PowerShellGet obter módulo](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). O powershell AzureRM versão de Maio de 2018 estará disponível dentro de alguns dias (deve ser 18/5/2018), pode ignorar o comutador - AllowPrelease quando instalar a versão de lançamento quando ficar disponível e utilize o seguinte comando " `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Criar uma política de imediatamente disponíveis
 

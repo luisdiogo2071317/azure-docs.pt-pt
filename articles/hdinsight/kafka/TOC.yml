@@ -40,6 +40,8 @@
   items:
     - name: Ativar a criação automática de tópicos
       href: apache-kafka-auto-create-topics.md
+    - name: Utilizar Kafka com o Hub IoT
+      href: apache-kafka-connector-iot-hub.md
     - name: Instalar aplicações do HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true

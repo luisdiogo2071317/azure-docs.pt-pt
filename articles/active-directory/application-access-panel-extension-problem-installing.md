@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 87396204933ca964634656f9eb84c6d245c0c6c0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instale a extensão de browser do painel de acesso
 
@@ -124,4 +124,4 @@ Se estiver disponível, abra um pedido de suporte com as seguintes informações
 -   Rastreios de fiddler
 
 ## <a name="next-steps"></a>Passos Seguintes
-[O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

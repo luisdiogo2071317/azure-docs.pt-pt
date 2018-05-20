@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com etouches | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e etouches."
+title: 'Tutorial: Integração do Azure Active Directory com etouches | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e etouches.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bc111d6805af9e4f86ab91b6673a0d52dca78223
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2b51227d89064e233ea1d1126bbf19169753094
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutorial: Integração do Azure Active Directory com etouches
 
@@ -30,7 +30,7 @@ Integrar etouches com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para etouches (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,9 +107,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![etouches URLs e de domínio único informações de início de sessão](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://www.eiseverywhere.com/<instance name>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://www.eiseverywhere.com/<instance name>`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize o valor com o início de sessão real no URL e o identificador, o que é explicada mais tarde no tutorial.
@@ -123,7 +123,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |
-    | E-mail | User.Mail |    
+    | Email | User.Mail |    
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -165,7 +165,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. Copiar o **SP ID da entidade** valor e cole-o para o **identificador** caixa de texto, o que está a ser **etouches domínios e URLs** secção no portal do Azure.
 
-    posso. Cópia o **SSO URL / ACS** valor e cole-o para o **iniciar sessão no URL** caixa de texto, o que está a ser **etouches domínios e URLs** secção no portal do Azure.
+    i. Cópia o **SSO URL / ACS** valor e cole-o para o **iniciar sessão no URL** caixa de texto, o que está a ser **etouches domínios e URLs** secção no portal do Azure.
    
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -236,7 +236,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 
 O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.
@@ -246,7 +246,7 @@ Quando clica no mosaico etouches no painel de acesso, deve obter automaticamente
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

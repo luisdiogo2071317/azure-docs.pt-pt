@@ -1,18 +1,18 @@
 ---
-title: "Introdução à CLI do Azure Service Fabric"
-description: "Saiba como utilizar a CLI do Azure Service Fabric. Saiba como ligar a um cluster e como gerir aplicações."
+title: Introdução à CLI do Azure Service Fabric
+description: Saiba como utilizar a CLI do Azure Service Fabric. Saiba como ligar a um cluster e como gerir aplicações.
 services: service-fabric
 author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: bikang
-ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -262,7 +262,7 @@ pip uninstall sfctl
 pip install sfctl
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Implementar uma aplicação com a CLI do Azure Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)

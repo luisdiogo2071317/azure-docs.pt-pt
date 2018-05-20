@@ -1,24 +1,22 @@
 ---
-title: "Registar dados do Data Lake Store no catálogo de dados do Azure | Microsoft Docs"
-description: "Registar dados do Data Lake Store no catálogo de dados do Azure"
+title: Registar dados do Data Lake Store no catálogo de dados do Azure | Microsoft Docs
+description: Registar dados do Data Lake Store no catálogo de dados do Azure
 services: data-lake-store,data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registar dados do Data Lake Store no catálogo de dados do Azure
 Neste artigo, ficará a saber como integrar o Azure Data Lake Store com o catálogo de dados do Azure para tornar os dados detetável dentro de uma organização, como o integrar com o catálogo de dados. Para obter mais informações sobre cataloging dados, consulte [catálogo de dados do Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Para compreender os cenários em que pode utilizar o catálogo de dados, consulte [cenários comuns do catálogo de dados do Azure](../data-catalog/data-catalog-common-scenarios.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.openlocfilehash: 1d1cdee7373b949456032aff3c808cc233aaa1cc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -31,14 +31,18 @@ Este artigo explica como trabalhar com enlaces de armazenamento de Blobs do Azur
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!NOTE]
+> Utilize o acionador de grelha de evento em vez do acionador de armazenamento de BLOBs para contas de armazenamento apenas de BLOBs, de grande escala, ou para evitar atrasos frio início. Para obter mais informações, consulte o [acionador](#trigger) secção. 
+
 ## <a name="packages"></a>Pacotes
 
 Os enlaces de armazenamento de BLOBs são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> Utilize o acionador de grelha de evento em vez do acionador de armazenamento de BLOBs para contas de armazenamento apenas de BLOBs, de grande escala, ou para evitar atrasos frio início. Para obter mais informações, consulte o seguinte **acionador** secção. 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Acionador
 
@@ -788,7 +792,7 @@ Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name from fu
 | BLOB, tabela, fila |  [Códigos de erro do armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um guia de introdução que utiliza um acionador de armazenamento de BLOBs](functions-create-storage-blob-triggered-function.md)

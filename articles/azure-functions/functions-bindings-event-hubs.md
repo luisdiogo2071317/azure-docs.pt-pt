@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 8516f6d1f598e79bcb47922f02926f75c328861b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
 
@@ -82,15 +82,29 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obter acesso aos metadados de evento, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer um `using` instrução para `Microsoft.ServiceBus.Messaging`).
+Para obter acesso a [metadados de evento](#trigger---event-metadata) no código de função, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer um utilizando instrução para `Microsoft.ServiceBus.Messaging`). Também pode aceder às propriedades do mesmas através de expressões de enlace da assinatura do método.  O exemplo seguinte mostra ambas as formas de obter os dados do mesmos:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
+public static void Run(
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
+
 Para receber eventos num batch, certifique- `string` ou `EventData` uma matriz:
 
 ```cs
@@ -130,16 +144,29 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para obter acesso aos metadados de evento, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer um utilizando instrução para `Microsoft.ServiceBus.Messaging`).
+Para obter acesso a [metadados de evento](#trigger---event-metadata) no código de função, vincular a um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto (requer um utilizando instrução para `Microsoft.ServiceBus.Messaging`). Também pode aceder às propriedades do mesmas através de expressões de enlace da assinatura do método.  O exemplo seguinte mostra ambas as formas de obter os dados do mesmos:
 
 ```cs
 #r "Microsoft.ServiceBus"
 using System.Text;
+using System;
 using Microsoft.ServiceBus.Messaging;
 
-public static void Run(EventData myEventHubMessage, TraceWriter log)
+public static void Run(EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
 
@@ -180,7 +207,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador de hub de eventos.
+O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função lê [eventos metadados](#trigger---event-metadata) e regista a mensagem.
 
 Segue-se os dados do enlace *function.json* ficheiro:
 
@@ -197,8 +224,12 @@ Segue-se os dados do enlace *function.json* ficheiro:
 Eis o código JavaScript:
 
 ```javascript
-module.exports = function (context, myEventHubMessage) {
-    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+module.exports = function (context, eventHubMessage) {
+    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('SequenceNumber =', context.bindingData.sequenceNumber);
+    context.log('Offset =', context.bindingData.offset);
+     
     context.done();
 };
 ```
@@ -253,15 +284,31 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
-|**direction** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** | n/d | tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
+|**direção** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o item de eventos no código da função. | 
 |**path** |**EventHubName** | O nome do hub de eventos. | 
 |**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define o [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizado para subscrever o hub de eventos. Se for omitido, o `$Default` é utilizado o grupo de consumidores. | 
-|**cardinality** | n/d | Para Javascript. Definido como `many` para activar a criação de batches.  Se for omitido ou definido como `one`, única mensagem transmitido à função. | 
-|**connection** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o [espaço de nomes](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
+|**Cardinalidade** | n/d | Para Javascript. Definido como `many` para activar a criação de batches.  Se for omitido ou definido como `one`, única mensagem transmitido à função. | 
+|**Ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o [espaço de nomes](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="trigger---event-metadata"></a>Acionador - metadados de eventos
+
+O acionador de Event Hubs fornece vários [propriedades de metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Estas são as propriedades do [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) classe.
+
+|Propriedade|Tipo|Descrição|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|O `PartitionContext` instância.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo, colocados em fila em UTC.|
+|`Offset`|`string`|O desvio de dados relativo para o fluxo de partição do Hub de eventos. O desvio é um marcador ou o identificador de um evento dentro do fluxo de Event Hubs. O identificador é exclusivo dentro de uma partição do fluxo de Event Hubs.|
+|`PartitionKey`|`string`|A partição para a qual o evento devem ser enviados dados.|
+|`Properties`|`IDictionary<String,Object>`|As propriedades de utilizador dos dados do evento.|
+|`SequenceNumber`|`Int64`|O número de sequência lógica do evento.|
+|`SystemProperties`|`IDictionary<String,Object>`|As propriedades do sistema, incluindo os dados do evento.|
+
+Consulte [exemplos de código](#trigger---example) que utilize estas propriedades anteriormente neste artigo.
 
 ## <a name="trigger---hostjson-properties"></a>Acionador - host.json propriedades
 
@@ -427,11 +474,11 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Tem de ser definida para "eventHub". |
-|**direction** | n/d | Tem de ser definida para "out". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
+|**tipo** | n/d | Tem de ser definida para "eventHub". |
+|**direção** | n/d | Tem de ser definida para "out". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável utilizado no código de função que representa o evento. | 
 |**path** |**EventHubName** | O nome do hub de eventos. | 
-|**connection** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
+|**Ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

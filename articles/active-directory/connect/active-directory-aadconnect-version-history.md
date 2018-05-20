@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: eb824913a4b3482879ccc45e2f660342695b1618
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -37,14 +37,13 @@ Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?Lin
 
 ## <a name="118190"></a>1.1.819.0
 
-4/5/2018: lançado para atualização automática, estará disponível para transferência em breve.
+### <a name="release-status"></a>Estado da versão
 
-
+14/5/2018: lançado para atualização automática e a transferência.
 
 ### <a name="new-features-and-improvements"></a>Funcionalidades novas e melhoradas
 
 Funcionalidades novas e melhoradas
-
 
 - Esta versão inclui a pré-visualização pública da integração de PingFederate no Azure AD Connect. Com esta versão os clientes podem facilmente e fiável configurar o seu ambiente do Azure Active Directory para tirar partido PingFederate como o seu fornecedor de Federação. Para obter mais informações sobre como utilizar esta nova funcionalidade, visite o nosso [documentação online](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
 - Atualizámos do Azure AD Connect Assistente de resolução de problemas utilitário, onde, vamos analisar agora mais cenário de erro, tais como as caixas de correio ligada e grupos dinâmicos do AD. Saiba mais sobre o utilitário de resolução de problemas [aqui](active-directory-aadconnect-troubleshoot-objectsync.md).
@@ -62,14 +61,16 @@ Funcionalidades novas e melhoradas
 
 ### <a name="fixed-issues"></a>Problemas fixos 
 
-
+- Esta versão atualizações a instalação do SQL Server Express do SQL Server 2012 SP4, que, entre outros, fornece correções para várias vulnerabilidades de segurança.  Consulte [aqui](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) para obter mais informações sobre o SQL Server 2012 SP4.
 - Processamento da regra de sincronização: regras de sincronização de associação de saída com nenhuma condição de associação devem ser aplicadas anular se syncrule o principal já não é aplicável
+- Foram aplicadas várias correções de acessibilidade da IU do Gestor do serviço de sincronização e Editor de regras de sincronização
 - Assistente do Azure AD Connect: Erro ao criar a conta do conector AD quando do Azure AD Connect está num grupo de trabalho
 - Assistente do Azure AD Connect: Sobre o Azure AD-página sessão apresentar a caixa de verificação de verificação sempre que não há qualquer erro de correspondência nos domínios de AD e do Azure AD Verified domínios
 - Correção do PowerShell de atualização automática para definir o estado de atualização automática corretamente em certos casos após a atualização automática foi efetuada uma tentativa.
 - Assistente do Azure AD Connect: Atualizar telemetria para capturar as informações anteriormente em falta
-- Assistente do Azure AD Connect: PTA instalar o agente antes de converter um domínio gerido
-- Assistente do Azure AD Connect: Não são convertidos utilizadores geridas (converter apenas domínio) para PTA
+- Assistente do Azure AD Connect: As seguintes alterações foram efetuadas ao utilizar o **alterar utilizador início de sessão** tarefas para mudar a partir do AD FS para autenticação pass-through:
+    - O agente de autenticação pass-through está instalado no servidor do Azure AD Connect e a funcionalidade de autenticação pass-through é ativada, antes de converter iremos domínios de federado gerido.
+    - Os utilizadores já não são convertidos do federado gerido. Apenas a domínios são convertidos.
 - Assistente do Azure AD Connect: Regex de domínio do AD FS várias não está correto quando o utilizador UPN tem ' atualização de Regex caráter especial para suportar os carateres especiais
 - Assistente do Azure AD Connect: Remover a mensagem de "Atributo de âncora de origem de configuração" spurious quando nenhuma alteração 
 - Assistente do Azure AD Connect: Suporte para AD FS para o cenário de Federação dupla

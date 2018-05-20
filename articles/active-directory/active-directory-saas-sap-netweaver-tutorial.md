@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com SAP NetWeaver | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SAP NetWeaver."
+title: 'Tutorial: Integração do Azure Active Directory com SAP NetWeaver | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e SAP NetWeaver.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 3987b833e5ed15082d3cc6b39bb160e3eaac6e91
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ef63353286a43afed9c8a909e121a75fc8a14c5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Azure Active Directory com SAP NetWeaver
 
@@ -29,7 +29,7 @@ Integrar o SAP NetWeaver com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para SAP NetWeaver (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -111,11 +111,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<your company instance of SAP NetWeaver>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<your company instance of SAP NetWeaver>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<your company instance of SAP NetWeaver>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<your company instance of SAP NetWeaver>`
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
      
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualize estes valores com o identificador real e URL de resposta e URL de início de sessão. Aqui sugerimos que utilize o valor de cadeia exclusivo no identificador de. Contacte [equipa de suporte de cliente do SAP NetWeaver](https://www.sap.com/support.html) para obter estes valores. 
@@ -212,7 +212,7 @@ Quando clica no mosaico do SAP NetWeaver no painel de acesso, deve obter automat
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

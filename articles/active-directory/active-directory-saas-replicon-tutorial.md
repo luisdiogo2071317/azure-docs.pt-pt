@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Replicon | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Replicon."
+title: 'Tutorial: Integração do Azure Active Directory com Replicon | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Replicon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 130e13b0bb801c498f6de6e4bfd61bd3d2c3bf00
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 4afe9bb36080027ba1873dc6fd3938972044a5d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integração do Azure Active Directory com Replicon
 
@@ -30,7 +30,7 @@ Integrar Replicon com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Replicon (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,11 +108,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio replicon e os URLs únicos de informações de início de sessão](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://global.replicon.com/<companyname>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://global.replicon.com/<companyname>`
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://global.replicon.com/!/saml2/<companyname>/sso/post`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente Replicon](https://www.replicon.com/customerzone/contact-support) para obter estes valores. 
@@ -131,14 +131,14 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![Ativar a autenticação SAML](./media/active-directory-saas-replicon-tutorial/ic777805.png "autenticação ativar SAML")
     
-    a. Para apresentar o **EnableSAML Authentication2** caixa de diálogo, acrescentar o seguinte para o URL, após a sua chave de empresa:`/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    a. Para apresentar o **EnableSAML Authentication2** caixa de diálogo, acrescentar o seguinte para o URL, após a sua chave de empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
     
     * O seguinte mostra o esquema do URL concluído:  
    `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
    
-   b. Clique em de  **+**  para expandir o **v20Configuration** secção.
+   b. Clique em de **+** para expandir o **v20Configuration** secção.
 
-   c. Clique em de  **+**  para expandir o **metaDataConfiguration** secção.
+   c. Clique em de **+** para expandir o **metaDataConfiguration** secção.
 
    d. Clique em **Escolher ficheiro**, para selecionar o ficheiro XML de metadados de fornecedor de identidade e clique em **submeter**.
 
@@ -198,7 +198,7 @@ Para permitir que os utilizadores do Azure AD sessão Replicon, têm de ser apro
    
     ![Perfil de utilizador](./media/active-directory-saas-replicon-tutorial/ic777808.png "perfil de utilizador")
     
-    a. No **nome de início de sessão** caixa de texto, o Azure AD de tipo endereço de correio eletrónico do utilizador do Azure AD que pretende aprovisionar como  **BrittaSimon@contoso.com** .
+    a. No **nome de início de sessão** caixa de texto, o Azure AD de tipo endereço de correio eletrónico do utilizador do Azure AD que pretende aprovisionar como **BrittaSimon@contoso.com**.
     
     b. Como **tipo de autenticação**, selecione **SSO**.
     
@@ -241,7 +241,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -251,7 +251,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

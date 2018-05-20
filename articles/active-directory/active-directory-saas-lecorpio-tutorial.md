@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Lecorpio | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Lecorpio."
+title: 'Tutorial: Integração do Azure Active Directory com Lecorpio | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Lecorpio.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 15eded8b676dfea018f041aed75b4f706bc1a55b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b5acc60873cc88e465d7268d9aa9709016d6fda7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Tutorial: Integração do Azure Active Directory com Lecorpio
 
@@ -29,7 +29,7 @@ Integrar Lecorpio com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Lecorpio (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-lecorpio-tutorial/tutorial_lecorpio_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<instance name>.lecorpio.com/<customer name>`
+    a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://<instance name>.lecorpio.com/<customer name>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<instance name>.lecorpio.com/<customer name>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualize estes valores com o URL de início de sessão real e o identificador. Aqui sugerimos que utilize o valor de cadeia exclusivo no identificador de. Contacte [equipa de suporte de cliente Lecorpio](mailto:info@lecorpio.com) para obter estes valores. 
@@ -206,7 +206,7 @@ Quando clica no mosaico Lecorpio no painel de acesso, deve obter automaticamente
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

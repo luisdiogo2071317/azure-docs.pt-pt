@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: e0c0c3f51b455983dbe3f937917ed090e51d0005
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligado e aninhada modelos quando implementar recursos do Azure
 
@@ -148,7 +148,7 @@ O exemplo seguinte mostra como utilizar um URL de base para criar dois URLs para
 }
 ```
 
-Também pode utilizar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter o URL de base para o modelo atual e utilize-a para obter o URL para outros modelos na mesma localização. Esta abordagem é útil se a localização do modelo é alterado (talvez devido ao controlo de versões) ou se quiser evitar rígido codificação URLs no ficheiro de modelo.
+Também pode utilizar [deployment()](resource-group-template-functions-deployment.md#deployment) para obter o URL de base para o modelo atual e utilize-a para obter o URL para outros modelos na mesma localização. Esta abordagem é útil se a localização do modelo é alterado (talvez devido ao controlo de versões) ou se quiser evitar rígido codificação URLs no ficheiro de modelo. A propriedade templateLink só é devolvida quando ligar a um modelo remoto com um URL. Se estiver a utilizar um modelo local, essa propriedade não está disponível.
 
 ```json
 "variables": {
@@ -209,7 +209,7 @@ O modelo de principal implementa o modelo ligado e obtém o valor devolvido. Ten
 }
 ```
 
-Como outros tipos de recursos, pode definir as dependências entre o modelo ligado e outros recursos. Por conseguinte, quando a outros recursos necessitam de um valor de saída do modelo ligado, pode certificar-se que o modelo ligado é implementado antes de lhes. Em alternativa, quando o modelo ligado depende de outros recursos, pode certificar-se a que outros recursos são implementados antes do modelo ligado.
+Como outros tipos de recursos, pode definir as dependências entre o modelo ligado e outros recursos. Por conseguinte, quando a outros recursos necessitam de um valor de saída do modelo ligado, certifique-se do que modelo ligado é implementado antes de lhes. Em alternativa, quando o modelo ligado depende de outros recursos, certifique-se a que outros recursos são implementados antes do modelo ligado.
 
 O exemplo seguinte mostra um modelo que implementa um endereço IP público e devolve o ID de recurso:
 

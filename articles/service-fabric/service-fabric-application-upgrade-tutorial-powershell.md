@@ -1,24 +1,24 @@
 ---
-title: "Atualização do App Service Fabric com o PowerShell | Microsoft Docs"
-description: "Este artigo explica a experiência de implementação de uma aplicação de Service Fabric, alterar o código e disponibilizando uma atualização através do PowerShell."
+title: Atualização do App Service Fabric com o PowerShell | Microsoft Docs
+description: Este artigo explica a experiência de implementação de uma aplicação de Service Fabric, alterar o código e disponibilizando uma atualização através do PowerShell.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização da aplicação de Service Fabric com o PowerShell
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Criar e publicar a aplicação ao clicar no projeto de aplicação, **VisualObje
 
 Depois de compilar o projeto no Visual Studio, pode utilizar o comando do PowerShell [cópia ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) para copiar o pacote de aplicação para o arquivo de imagens. Se pretende verificar o pacote de aplicação localmente, utilize o [teste ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. O passo seguinte consiste em registar a aplicação para o tempo de execução do Service Fabric utilizando o [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. O passo seguinte é para iniciar uma instância da aplicação utilizando o [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  Estes três passos são análogos a utilizar o **implementar** item de menu no Visual Studio.  Depois de concluído o aprovisionamento, deve limpar o pacote de aplicação copiado do arquivo de imagens para reduzir os recursos consumidos.  Se já não é necessário um tipo de aplicação, deve ser anular o registo para a mesma razão. Consulte [implementar e remover aplicações utilizando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) para obter mais informações.
 
-Agora, pode utilizar [Service Fabric Explorer para ver o cluster e a aplicação](service-fabric-visualizing-your-cluster.md). A aplicação tem um serviço web que pode ser utilizado no Internet Explorer, escrevendo [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) na barra de endereço.  Deverá ver alguns objetos visual flutuante mover à volta, no ecrã.  Além disso, pode utilizar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o estado da aplicação.
+Agora, pode utilizar [Service Fabric Explorer para ver o cluster e a aplicação](service-fabric-visualizing-your-cluster.md). A aplicação tem um serviço web que pode ser utilizado no Internet Explorer, escrevendo [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) na barra de endereço.  Deverá ver alguns objetos visual flutuante mover à volta, no ecrã.  Além disso, pode utilizar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o estado da aplicação.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passo 2: Atualizar o exemplo de objetos Visual
 Poderá reparar que com a versão que tenha sido implementada no passo 1, os objetos visual não rodar. Vamos atualizar esta aplicação para um onde os objetos visual rodar também.

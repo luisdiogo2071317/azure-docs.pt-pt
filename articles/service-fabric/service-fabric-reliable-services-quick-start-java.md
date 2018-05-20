@@ -1,24 +1,24 @@
 ---
-title: "Criar a sua primeira microsserviço fiável de Azure em Java | Microsoft Docs"
-description: "Introdução à criação de uma aplicação do Microsoft Azure Service Fabric com serviços sem monitorização de estado e com monitorização de estado."
+title: Criar a sua primeira microsserviço fiável de Azure em Java | Microsoft Docs
+description: Introdução à criação de uma aplicação do Microsoft Azure Service Fabric com serviços sem monitorização de estado e com monitorização de estado.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/12/2018
 >
 >
 
-Este artigo explica as noções básicas do Azure Service Fabric Reliable Services e explica-lhe como criar e implementar uma aplicação de serviço fiável simple escrita em Java. Este vídeo do Microsoft Virtual Academy também mostra-lhe como criar um serviço fiável sem monitorização de estado:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+Este artigo explica as noções básicas do Azure Service Fabric Reliable Services e explica-lhe como criar e implementar uma aplicação de serviço fiável simple escrita em Java. Este vídeo do Microsoft Virtual Academy também mostra-lhe como criar um serviço fiável sem monitorização de estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -117,7 +117,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 Neste tutorial, iremos focar-se no `runAsync()` o método de ponto de entrada. Este é onde imediatamente pode começar a executar o seu código.
 
-### <a name="runasync"></a>Runasync com
+### <a name="runasync"></a>RunAsync
 A plataforma chama este método quando uma instância de um serviço está pronto para executar e colocá-la. Para um serviço sem monitorização de estado, basta que significa quando a instância de serviço é aberta. Um token de cancelamento é fornecido para coordenar quando a instância de serviço tem de ser fechado. No Service Fabric, este ciclo de abertura/fecho de uma instância de serviço pode ocorrer demasiadas vezes ao longo da duração do serviço como um todo. Esta situação pode ocorrer por vários motivos, incluindo:
 
 * O sistema move as instâncias de serviço para balanceamento de recurso.
@@ -127,7 +127,7 @@ A plataforma chama este método quando uma instância de um serviço está pront
 
 Esta orquestração é gerida pelo serviço de recursos de infraestrutura para manter o seu serviço altamente disponível e corretamente equilibrada.
 
-`runAsync()`não deverá bloquear forma síncrona. A implementação de runasync com deverá devolver um CompletableFuture para permitir que o tempo de execução continuar. Se a carga de trabalho tem de implementar uma tarefa de execução longa que deve ser efetuada dentro de CompletableFuture.
+`runAsync()` não deverá bloquear forma síncrona. A implementação de runasync com deverá devolver um CompletableFuture para permitir que o tempo de execução continuar. Se a carga de trabalho tem de implementar uma tarefa de execução longa que deve ser efetuada dentro de CompletableFuture.
 
 #### <a name="cancellation"></a>Cancelamento
 O cancelamento da sua carga de trabalho é um esforço cooperative orquestrado pelo token de cancelamento fornecido. O sistema aguarda que a tarefa terminar (por conclusão com êxito, cancelamento ou falhas) antes de se move. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair `runAsync()` mais rapidamente possível quando o sistema pede cancelamento. O exemplo seguinte demonstra como processar um evento de cancelamento:
@@ -192,8 +192,8 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 }
 ```
 
-### <a name="runasync"></a>Runasync com
-`RunAsync()`funciona da mesma forma nos serviços de monitorização de estado e sem monitorização de estado. No entanto, num serviço com monitorização de estado, a plataforma executa tarefas adicionais em seu nome antes de ser executada `RunAsync()`. Este trabalho pode incluir a garantir que o Gestor de estado fiável e coleções fiável, estará pronto a utilizar.
+### <a name="runasync"></a>RunAsync
+`RunAsync()` funciona da mesma forma nos serviços de monitorização de estado e sem monitorização de estado. No entanto, num serviço com monitorização de estado, a plataforma executa tarefas adicionais em seu nome antes de ser executada `RunAsync()`. Este trabalho pode incluir a garantir que o Gestor de estado fiável e coleções fiável, estará pronto a utilizar.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções fiáveis e o Gestor de estado fiável
 ```java

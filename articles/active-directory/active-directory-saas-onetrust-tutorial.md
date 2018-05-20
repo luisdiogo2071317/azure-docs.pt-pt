@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Software de gestão da privacidade de OneTrust | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Software de gestão da privacidade de OneTrust."
+title: 'Tutorial: Integração do Azure Active Directory com o Software de gestão da privacidade de OneTrust | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Software de gestão da privacidade de OneTrust.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 89d657e754f6908a3afbb615a2158c9d7f3380f9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 38125877a5ab17a81d6fe108e0e8c462ecd5d953
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory com o Software de gestão da privacidade de OneTrust
 
@@ -30,7 +30,7 @@ Integrar o Software de gestão da privacidade de OneTrust com o Azure AD fornece
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada para o Software de gestão de privacidade OneTrust (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,15 +108,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio de Software de gestão de privacidade OneTrust e os URLs únicos de informações de início de sessão](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL:`https://www.onetrust.com/saml2`
+    a. No **identificador** caixa de texto, escreva um URL: `https://www.onetrust.com/saml2`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio de Software de gestão de privacidade OneTrust e os URLs únicos de informações de início de sessão](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.onetrust.com/auth/login`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.onetrust.com/auth/login`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente de Software de gestão de privacidade OneTrust](mailto:support@onetrust.com) para obter estes valores. 
@@ -203,7 +203,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -213,7 +213,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Reflektive | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Reflektive."
+title: 'Tutorial: Integração do Azure Active Directory com Reflektive | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Reflektive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 7ce23d7940b99d50adf558dcd41e63c7e83b5f28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 92649829b1f646009891c15bea743482ec0b5db9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: Integração do Azure Active Directory com Reflektive
 
@@ -30,7 +30,7 @@ Integrar Reflektive com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Reflektive (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,7 +118,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Reflektive e os URLs únicos de informações de início de sessão](./media/active-directory-saas-reflektive-tutorial/tutorial_reflektive_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL:`https://www.reflektive.com/app`
+    No **URL de início de sessão** caixa de texto, escreva um URL: `https://www.reflektive.com/app`
 
     > [!NOTE]
     > Para SP modo tem de obter o id de correio eletrónico registado [equipa de suporte de Reflektive](https://support@reflektive.com). Quando introduzir o seu ID de **E-Mail** será ativada a caixa de texto, em seguida, a opção de início de sessão único.
@@ -202,7 +202,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -212,7 +212,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory Splunk Enterprise e nuvem Splunk | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Splunk Enterprise e Splunk nuvem."
+title: 'Tutorial: Integração do Azure Active Directory Splunk Enterprise e nuvem Splunk | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Splunk Enterprise e Splunk nuvem.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: fe9a995a32f632c47aeed6d3f12d37a224823f06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b06680c872f567cef3fd2821e40a814b834c3a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Active Directory Splunk Enterprise e Splunk nuvem
 
@@ -29,7 +29,7 @@ Integrar Splunk Enterprise e Splunk Cloud com o Azure AD fornece as seguintes va
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada Splunk Enterprise e da nuvem de Splunk (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,11 +110,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<splunkserverUrl>/en-US/app/launcher/home`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<splunkserverUrl>/en-US/app/launcher/home`
     
     b. No **identificador** caixa de texto, escreva o URL do seu servidor Splunk.
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<splunkserver>/saml/acs`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<splunkserver>/saml/acs`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Aqui sugerimos que utilize o valor de cadeia exclusivo no identificador de. Contacte [Splunk Enterprise e o cliente de Cloud Splunk suportam equipa](https://www.splunk.com/content/splunkcom/en_us/about-us/contact.html#tabs/customer-support) para obter estes valores. 
@@ -207,7 +207,7 @@ Quando clicar em empresa Splunk e nuvem Splunk na peça de mosaico do painel de 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

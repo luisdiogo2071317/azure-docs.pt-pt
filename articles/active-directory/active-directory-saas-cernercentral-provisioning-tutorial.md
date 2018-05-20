@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configurar Cerner Central para o aprovisionamento de utilizador automáticas com o Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configurar Cerner Central para o aprovisionamento de utilizador automáticas com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para aprovisionar automaticamente os utilizadores para uma lista na Cerner Central.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configurar Cerner Central para o aprovisionamento de utilizador automáticas
 
@@ -69,23 +69,23 @@ Para aprovisionar contas de utilizador para Cerner Central, terá de pedir uma c
 
    * Sandbox:  https://sandboxcernercare.com/accounts/create
 
-   * Produção: https://cernercare.com/accounts/create  
+   * Produção:  https://cernercare.com/accounts/create  
 
 2.  Em seguida, deve ser criada uma conta de sistema para o Azure AD. Utilize as instruções abaixo para pedir uma conta de sistema para os seus ambientes de sandbox e produção.
 
-   * Instruções: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instruções:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
    * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Production:  https://cernercentral.com/system-accounts/
+   * Produção:  https://cernercentral.com/system-accounts/
 
 3.  Em seguida, gere um token de portador do OAuth para cada uma das suas contas de sistema. Para tal, siga as instruções abaixo.
 
-   * Instructions:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instruções:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
    * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Production:  https://cernercentral.com/system-accounts/
+   * Produção:  https://cernercentral.com/system-accounts/
 
 4. Por fim, terá de adquirir IDs de Realm de lista de utilizador para ambientes de sandbox e de produção no Cerner para concluir a configuração. Para obter informações sobre como adquirir isto, consulte: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -105,7 +105,7 @@ Para aprovisionar contas de utilizador para Cerner Central, terá de pedir uma c
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Produção: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * No **segredo Token** campo, introduza o token de portador do OAuth gerados no passo 3 de # e clique em **Testar ligação**.
 
@@ -130,7 +130,7 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 * [Centro de Cerner: Publicar dados de identidade com o Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Tutorial: Configurar Cerner Central para início de sessão no Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba como rever os registos e obter relatórios sobre o aprovisionamento de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

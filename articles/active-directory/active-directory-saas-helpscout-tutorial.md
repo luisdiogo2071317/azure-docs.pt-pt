@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ajudar Scout | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ajudar Scout."
+title: 'Tutorial: Integração do Azure Active Directory com ajudar Scout | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ajudar Scout.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5608df300ad3b5d3fd42bd904a52d43d115ebf53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 596a1ba27516755e586d88ab56a20a1daed63fc2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Azure Active Directory com Scout ajudar
 
@@ -30,7 +30,7 @@ Integrar Scout ajudar com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada para ajudar a Scout (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -105,9 +105,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Ajudar os URLs e Scout domínio único início de sessão informações](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. **Identificador** é o **"Público-alvo URI (ID de entidade do fornecedor de serviço)"** de ajudar Scout, começa com`urn:`
+    a. **Identificador** é o **"Público-alvo URI (ID de entidade do fornecedor de serviço)"** de ajudar Scout, começa com `urn:`
 
-    b. **URL de resposta** é o **"URL de pós-back (asserção consumidor o URL do serviço)"** de ajudar Scout, começa com`https://` 
+    b. **URL de resposta** é o **"URL de pós-back (asserção consumidor o URL do serviço)"** de ajudar Scout, começa com `https://` 
 
     > [!NOTE] 
     > Os valores existentes nestes URLs são para a demonstração apenas. Terá de atualizar estes valores do URL de resposta real e o identificador. Pode obter estes valores do **Single Sign-On** separador na secção de autenticação, o que é explicada mais tarde no tutorial.
@@ -116,7 +116,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Ajudar os URLs e Scout domínio único início de sessão informações](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL como:`https://secure.helpscout.net/members/login/`
+    No **URL de início de sessão** caixa de texto, escreva um URL como: `https://secure.helpscout.net/members/login/`
      
 5. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -234,7 +234,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -244,7 +244,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

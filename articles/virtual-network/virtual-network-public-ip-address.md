@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar um endereço IP público
 
-Saiba mais sobre um endereço IP público e como criar, alterar e eliminar um. Um endereço IP público é um recurso com as suas próprias definições configuráveis. Atribuir um endereço IP público a outros recursos do Azure permite:
-- Entrada de ligação à Internet para recursos, tais como máquinas virtuais do Azure, conjuntos de dimensionamento de Máquina Virtual do Azure, o Gateway de VPN do Azure, gateways de aplicação e Balanceadores de carga do Azure para a Internet. Recursos do Azure não consegue receber comunicação de entrada a partir da Internet sem um endereço IP público atribuído. Embora alguns recursos do Azure são inerentemente acessíveis através de endereços IP públicos, outros recursos tem de ter os endereços IP públicos atribuídos esteja acessível a partir da Internet.
-- Conectividade de saída à Internet através de um endereço IP previsível. Por exemplo, uma máquina virtual podem comunicar atribuída saída à Internet sem um endereço IP público, mas o respetivo endereço é o endereço de rede traduzido pelo Azure para um endereço público imprevisível. Atribuir um endereço IP público para um recurso permite-lhe saber qual o endereço IP é utilizado para a ligação de saída. Embora previsível, pode alterar o endereço, consoante o método de atribuição escolhido. Para obter mais informações, consulte [criar um endereço IP público](#create-a-public-ip-address). Para saber mais sobre ligações de saída a partir dos recursos do Azure, leia o [compreender ligações de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artigo.
+Saiba mais sobre um endereço IP público e como criar, alterar e eliminar um. Um endereço IP público é um recurso com as suas próprias definições configuráveis. Atribuir um endereço IP público para um recurso do Azure que suporta os endereços IP públicos permite:
+- Comunicação de entrada da Internet para o recurso, tal como máquinas virtuais do Azure (VM), Gateways de aplicação do Azure, balanceadores de carga do Azure, os Gateways de VPN do Azure e outros utilizadores. Pode ainda comunicar com alguns recursos, tais como VMs, a partir da Internet, se uma VM não tem um endereço IP público atribuído ao mesmo, desde que a VM faz parte de um conjunto de back-end de Balanceador de carga e o Balanceador de carga é atribuído um endereço IP público. Para determinar se um recurso para um serviço específico do Azure pode ser atribuído um endereço IP público ou se pode ser comunicada com através do endereço IP público de um recurso do Azure diferente, consulte a documentação para o serviço. 
+- Conectividade de saída à Internet através de um endereço IP previsível. Por exemplo, uma máquina virtual podem comunicar atribuída saída à Internet sem um endereço IP público, mas o respetivo endereço é o endereço de rede traduzido pelo Azure para um endereço público imprevisível, por predefinição. Atribuir um endereço IP público para um recurso permite-lhe saber qual o endereço IP é utilizado para a ligação de saída. Embora previsível, pode alterar o endereço, consoante o método de atribuição escolhido. Para obter mais informações, consulte [criar um endereço IP público](#create-a-public-ip-address). Para saber mais sobre ligações de saída a partir dos recursos do Azure, consulte o artigo [compreender ligações de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

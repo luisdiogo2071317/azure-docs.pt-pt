@@ -47,7 +47,7 @@ Vamos um olhar estes.
 **Tipo de armazenamento:** discos geridos oferece 2 escalões de desempenho: [Premium](../articles/virtual-machines/windows/premium-storage.md) (baseadas em SSD) e [padrão](../articles/virtual-machines/windows/standard-storage.md) (baseado em HDD). A faturação de um disco gerido depende de qual o tipo de armazenamento que selecionou para o disco.
 
 
-**Tamanho do disco**: faturação para discos geridos depende do tamanho do disco aprovisionado. Azure mapeia o tamanho de aprovisionamento (arredondar por excesso) para a opção de discos geridos mais próximo conforme especificado nas tabelas abaixo. Cada disco gerido mapeia para um dos tamanhos suportados aprovisionados e é faturado em conformidade. Por exemplo, se criar um disco gerido standard e especificar um tamanho de aprovisionamento de 200 GB, é-lhe cobrada de acordo com os preços do tipo disco S20.
+**Tamanho do disco**: faturação para discos geridos depende do tamanho do disco aprovisionado. Azure mapeia o tamanho de aprovisionamento (arredondar por excesso) para a opção de discos geridos mais próximo conforme especificado nas tabelas abaixo. Cada disco gerido mapeia para um dos tamanhos suportados aprovisionados e é faturado em conformidade. Por exemplo, se criar um disco gerido standard e especificar um tamanho de aprovisionamento de 200 GB, é-lhe cobrada de acordo com os preços do tipo disco S15.
 
 Aqui estão os tamanhos de disco disponíveis para um disco gerido premium:
 
@@ -58,9 +58,9 @@ Aqui estão os tamanhos de disco disponíveis para um disco gerido premium:
 
 Seguem-se disponível para um disco gerido standard os tamanhos de disco:
 
-| **Standard gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
+| **Standard gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 **Número de transações**: É Faturado por número de transações que efetuar um disco gerido standard. Não há sem qualquer custo para transações para um disco gerido premium.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Azure Active Directory a integração com SAML SSO para Bamboo pela resolução GmbH | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SAML SSO para Bamboo pela resolução GmbH."
+title: 'Tutorial: Azure Active Directory a integração com SAML SSO para Bamboo pela resolução GmbH | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e SAML SSO para Bamboo pela resolução GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: c677161defb04091566ae608c3edfb9f25af801b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 13b2a4e70c4d48f36155515727b1d4b3b1e24a1d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Azure Active Directory a integração com SAML SSO para Bamboo pela resolução GmbH
 
@@ -30,7 +30,7 @@ Integrar SAML SSO para Bamboo pela resolução GmbH com o Azure AD fornece as se
 - Pode permitir que os utilizadores automaticamente obter assinado no SAML SSO para Bamboo pela resolução GmbH (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,15 +108,15 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     ![URLs de SAML SSO para Bamboo pela resolução GmbH domínio e única informações de início de sessão](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<server-base-url>/plugins/servlet/samlsso`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<server-base-url>/plugins/servlet/samlsso`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server-base-url>/plugins/servlet/samlsso`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![URLs de SAML SSO para Bamboo pela resolução GmbH domínio e única informações de início de sessão](./media/active-directory-saas-bamboo-tutorial/tutorial_bamboo_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<server-base-url>/plugins/servlet/samlsso`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server-base-url>/plugins/servlet/samlsso`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [SAML SSO para Bamboo pela resolução GmbH cliente suportar equipa](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bamboo/server/support) para obter estes valores. 
@@ -238,7 +238,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -248,7 +248,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

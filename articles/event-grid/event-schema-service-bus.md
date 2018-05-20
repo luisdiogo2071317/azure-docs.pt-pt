@@ -1,18 +1,18 @@
 ---
 title: Esquema de eventos de evento grelha Service Bus do Azure
-description: "Descreve as propriedades que são fornecidas para eventos de Service Bus com grelha de eventos do Azure"
+description: Descreve as propriedades que são fornecidas para eventos de Service Bus com grelha de eventos do Azure
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos de grelha de eventos do Azure para o Service Bus
 
@@ -79,25 +79,25 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
-| Requerente | string | Caminho definida pelo fabricante para o assunto do evento. |
-| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | string | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
+| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | O espaço de nomes do Service Bus o recurso existe. |
-| requestUri | string | O URI para a fila específica ou a emitir o evento de subscrição. |
-| entityType | string | O tipo de entidade de barramento de serviço emitir eventos (fila ou subscrição). |
-| queueName | string | A fila com o Active Directory mensagens se subscrever uma fila. Valor nulo se utilizar tópicos / subscrições. |
-| topicName | string | O tópico a subscrição do Service Bus com mensagens de Active Directory pertence. Valor nulo se utilizar uma fila. |
-| subscriptionName | string | A subscrição do Service Bus com mensagens de Active Directory. Valor nulo se utilizar uma fila. |
+| nameSpaceName | cadeia | O espaço de nomes do Service Bus o recurso existe. |
+| requestUri | cadeia | O URI para a fila específica ou a emitir o evento de subscrição. |
+| EntityType | cadeia | O tipo de entidade de barramento de serviço emitir eventos (fila ou subscrição). |
+| queueName | cadeia | A fila com o Active Directory mensagens se subscrever uma fila. Valor nulo se utilizar tópicos / subscrições. |
+| TopicName | cadeia | O tópico a subscrição do Service Bus com mensagens de Active Directory pertence. Valor nulo se utilizar uma fila. |
+| SubscriptionName | cadeia | A subscrição do Service Bus com mensagens de Active Directory. Valor nulo se utilizar uma fila. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

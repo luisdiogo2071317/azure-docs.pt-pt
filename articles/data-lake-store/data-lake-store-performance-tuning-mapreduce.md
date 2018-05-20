@@ -1,8 +1,8 @@
 ---
-title: "Otimização diretrizes de MapReduce do desempenho do Azure Data Lake Store | Microsoft Docs"
-description: "Otimização diretrizes de MapReduce do desempenho do Azure Data Lake Store"
+title: Otimização diretrizes de MapReduce do desempenho do Azure Data Lake Store | Microsoft Docs
+description: Otimização diretrizes de MapReduce do desempenho do Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,26 +10,23 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 522e03769a8f09acd88d92d72c4658407b86bd0b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5586e7706d4dad7e3c943b2a661fa296b4d30bf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>Orientações para MapReduce no HDInsight e o Azure Data Lake Store de otimização do desempenho
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Cluster do HDInsight Azure** com acesso a uma conta de Data Lake Store. Consulte [criar um cluster do HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-* **Utilizar o MapReduce no HDInsight**.  Para obter mais informações, consulte [MapReduce de utilização no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)  
-* **Diretrizes no ADLS de otimização do desempenho**.  Para os conceitos gerais de desempenho, consulte [guia de otimização de desempenho do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
+* **Utilizar o MapReduce no HDInsight**.  Para obter mais informações, consulte [MapReduce de utilização no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
+* **Diretrizes no ADLS de otimização do desempenho**.  Para os conceitos gerais de desempenho, consulte [guia de otimização de desempenho do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parâmetros
 

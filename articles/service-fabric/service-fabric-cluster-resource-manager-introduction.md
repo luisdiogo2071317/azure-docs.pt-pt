@@ -1,24 +1,24 @@
 ---
-title: "O Gestor de recursos de Cluster do serviço de recursos de infraestrutura de introdução | Microsoft Docs"
-description: "Uma introdução para o serviço de recursos de infraestrutura Cluster Gestor de recursos."
+title: O Gestor de recursos de Cluster do serviço de recursos de infraestrutura de introdução | Microsoft Docs
+description: Uma introdução para o serviço de recursos de infraestrutura Cluster Gestor de recursos.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f25a422385abfcdb7020eb7477c0ae2ee55cd8fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzir o Gestor de recursos de cluster do Service Fabric
 Tradicionalmente gerir os sistemas de TI ou serviços online pretendem dedicação física específica ou de máquinas virtuais a esses serviços específicos ou sistemas. Foram criados como camadas de serviços. Poderia ser uma camada de "web" e uma camada de "dados" ou "armazenamento". As aplicações seriam ter uma camada de serviço de mensagens onde pedidos em fluxo e terminar, bem como um conjunto de máquinas dedicadas a colocação em cache. Cada camada ou tipo de carga de trabalho tinha máquinas específicas dedicadas para a mesma: a base de dados obteve máquinas alguns dedicadas, os servidores web a poucos. Se as máquinas que estava de surgir um determinado tipo de carga de trabalho execute demasiado frequente, em seguida, adicionar mais máquinas com essa mesma configuração para essa camada. No entanto, nem todas as cargas de trabalho podem ser ampliadas, por isso, facilmente - particularmente com a camada de dados normalmente seriam substituir máquinas com máquinas maiores. Fácil. Se uma máquina falhou, que parte da aplicação global ficou inferior capacidade até que a máquina pode ser restaurada. Ainda bastante fácil (se não necessariamente diversão).
@@ -43,7 +43,7 @@ O Gestor de recursos do Cluster é o componente do sistema que processa orquestr
 2. Otimizar o seu ambiente
 3. Ajudar com outros processos
 
-Para ver como funciona o Gestor de recursos de Cluster, veja o vídeo seguinte do Microsoft Virtual Academy:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
+Para ver como funciona o Gestor de recursos de Cluster, veja o vídeo seguinte do Microsoft Virtual Academy: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
 <img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -56,8 +56,8 @@ Apesar de algumas das estratégias destes serem interessantes, o Gestor de recur
 
 Porque o Gestor de recursos do Cluster é responsável por serviços à volta de mover, contém um conjunto de funcionalidades diferente em comparação comparado o poderia localizar um balanceador de carga de rede. Isto acontece porque os balanceadores de carga de rede fornecem o tráfego de rede onde serviços já estão, mesmo que a localização não é ideal para executar o serviço de si próprio. O Gestor de recursos de Cluster do Service Fabric emprega fundamentalmente diferentes estratégias para se certificar de que os recursos no cluster são utilizados de forma eficiente.
 
-## <a name="next-steps"></a>Passos seguintes
-- Para obter informações sobre o fluxo de informações e arquitetura dentro do Gestor de recursos do Cluster, consulte [neste artigo](service-fabric-cluster-resource-manager-architecture.md)
+## <a name="next-steps"></a>Passos Seguintes
+- Para obter informações sobre o fluxo de informações e arquitetura dentro do Gestor de recursos do Cluster, consulte [neste artigo ](service-fabric-cluster-resource-manager-architecture.md)
 - O Gestor de recursos do Cluster tem muitas opções para descrever o cluster. Para saber mais sobre as métricas, consulte este artigo no [que descrevem um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - Para obter mais informações sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
 - As métricas são como o serviço de recursos de infraestrutura Cluster Resource Manager gere consumo e capacidade do cluster. Para saber mais sobre as métricas e como configurá-las modificações [neste artigo](service-fabric-cluster-resource-manager-metrics.md)

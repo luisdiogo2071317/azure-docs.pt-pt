@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8eada6b88c320396b30ecdeb96c95e4ec61679ce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 ## <a name="view-device-telemetry"></a>Ver a telemetria do dispositivo
 
@@ -40,7 +40,7 @@ Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página 
 
     ![Selecione o dispositivo físico](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Para apresentar uma lista dos métodos pode chamar no seu dispositivo, escolha **agenda**. Para agendar um método para ser executado em vários dispositivos, pode selecionar vários dispositivos na lista. O **agenda** painel mostra os tipos de método comuns a todos os dispositivos selecionados.
+1. Para apresentar uma lista dos métodos pode chamar no seu dispositivo, escolha **tarefas**, em seguida, **executar o método**. Para agendar uma tarefa para ser executada em vários dispositivos, pode selecionar vários dispositivos na lista. O **tarefas** painel mostra os tipos de método comuns a todos os dispositivos selecionados.
 
 1. Escolha **FirmwareUpdate**, defina o nome da tarefa **UpdatePhysicalChiller**. Definir **versão de Firmware** para **2.0.0**, defina **URI de Firmware** para **http://contoso.com/updates/firmware.bin**e, em seguida, escolha **aplicar**:
 
@@ -57,4 +57,4 @@ Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O artigo [personalizar o acelerador de solução de monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) descreve algumas formas de personalizar o acelerador de solução.
+O artigo [personalizar o acelerador de solução de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descreve algumas formas de personalizar o acelerador de solução.

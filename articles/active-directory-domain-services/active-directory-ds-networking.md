@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações sobre o funcionamento em rede para serviços de domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma Azure virtual network
@@ -63,7 +63,7 @@ As seguintes diretrizes ajudam a selecionar uma rede virtual para utilizar com o
 ## <a name="ports-required-for-azure-ad-domain-services"></a>Portas necessárias para os serviços de domínio do Azure AD
 As seguintes portas são necessárias para os serviços de domínio do Azure AD para o serviço e manter o seu domínio gerido. Certifique-se de que estas portas não são bloqueadas para a sub-rede em que tiver ativado o seu domínio gerido.
 
-| Número de porta | Necessário? | Objetivo |
+| Número da porta | Necessário? | Objetivo |
 | --- | --- | --- |
 | 443 | Obrigatório |Sincronização com o seu inquilino do Azure AD |
 | 5986 | Obrigatório | Gestão do seu domínio |
@@ -95,7 +95,7 @@ As seguintes portas são necessárias para os serviços de domínio do Azure AD 
 
 
 ## <a name="network-security-groups"></a>Grupos de Segurança de Rede
-A [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias de VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restringido adicional ao associar um NSG diretamente a essa VM.
+A [grupo de segurança de rede (NSG)](../virtual-network/security-overview.md) contém uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias de VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restringido adicional ao associar um NSG diretamente a essa VM.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exemplo de NSG para redes virtuais com os serviços de domínio do Azure AD
 A tabela seguinte ilustra um exemplo NSG, pode configurar uma rede virtual com um domínio gerido dos serviços de domínio do Azure AD. Esta regra permite o tráfego de entrada sobre as portas necessárias para garantir que o seu domínio gerido permanece corrigido, atualizar e pode ser monitorizado pela Microsoft. A regra predefinida do 'DenyAll' aplica-se a todos os outro o tráfego de entrada da internet.
@@ -141,5 +141,5 @@ Pode ligar uma rede virtual baseada no Resource Manager para a rede virtual clá
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Peering de rede virtual do Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Configurar uma ligação VNet a VNet para o modelo de implementação clássica](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Grupos de segurança de rede do Azure](../virtual-network/virtual-networks-nsg.md)
+* [Grupos de segurança de rede do Azure](../virtual-network/security-overview.md)
 * [Criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

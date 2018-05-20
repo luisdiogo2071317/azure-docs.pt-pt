@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2afe1e91465c92c6f6cba00c4383456ef78d225c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
 
@@ -30,7 +30,7 @@ Saiba como configurar clusters no HDInsight com o Hadoop, Spark, Kafka, consulta
 Um cluster do Hadoop é composta por várias máquinas virtuais (nós) são utilizadas para processamento distribuído de tarefas. O Azure HDInsight processa os detalhes de implementação da instalação e configuração de nós individuais, pelo que apenas terá de fornecer informações de configuração geral. 
 
 > [!IMPORTANT]
->Faturação de cluster do HDInsight é iniciado depois de um cluster é criado e para quando o cluster é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Saiba como [eliminar um cluster.](hdinsight-delete-cluster.md)
+>A faturação do cluster do HDInsight tem início quando o cluster é criado e termina quando é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Saiba como [eliminar um cluster.](hdinsight-delete-cluster.md)
 >
 
 ## <a name="cluster-setup-methods"></a>Métodos de configuração de cluster

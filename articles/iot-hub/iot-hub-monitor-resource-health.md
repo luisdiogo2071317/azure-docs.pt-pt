@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: ed0bde0945a36c4fa194059f3b17557d566047a2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Azure IoT Hub e diagnosticar problemas rapidamente
 
@@ -34,7 +34,7 @@ Para além de integração com esses dois serviços, o IoT Hub também fornece a
 
 Monitor do Azure fornece informações de diagnóstico de nível de recursos, o que significa que pode monitorizar as operações que tenham lugar no seu IoT hub. 
 
-Substitui de definições de diagnóstico do Azure Monitor as operações de IoT Hub monitorizar. Se tiver atualmente operações do utilizador de monitorização, deve migrar os fluxos de trabalho. Para obter mais informações, consulte [migrar de operações de definições de monitorização para o diagnóstico][lnk-migrate].
+Substitui de definições de diagnóstico do Azure Monitor as operações de IoT Hub monitorizar. Se utilizar atualmente a operações de monitorização, deve migrar os seus fluxos de trabalho. Para obter mais informações, consulte [migrar de operações de definições de monitorização para o diagnóstico][lnk-migrate].
 
 Para saber mais sobre as métricas específicas e os eventos que monitoriza os Monitor do Azure, consulte [suportado métricas com a monitorização do Azure] [ lnk-AM-metrics] e [suportado categorias, esquemas e serviços do Azure Os registos de diagnóstico][lnk-AM-schemas].
 

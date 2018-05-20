@@ -1,24 +1,24 @@
 ---
-title: "Recuperação de desastres do Service Fabric do Azure | Microsoft Docs"
-description: "Azure Service Fabric oferece as capacidades necessárias para lidar com todos os tipos de desastres inesperados. Este artigo descreve os tipos de perante desastres que podem ocorrer e saber como lidar com os mesmos."
+title: Recuperação de desastres do Service Fabric do Azure | Microsoft Docs
+description: Azure Service Fabric oferece as capacidades necessárias para lidar com todos os tipos de desastres inesperados. Este artigo descreve os tipos de perante desastres que podem ocorrer e saber como lidar com os mesmos.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5346e331d76149ac3aed7aaf11eb3171e0ac5cfc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 295772b70529f79c7a4c135d8ea7c12a1c661fe6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastres no Azure Service Fabric
 Uma parte crítica da entrega de elevada disponibilidade é garantir que os serviços podem continuam a vigorar após todos os diferentes tipos de falhas. Isto é especialmente importante para as falhas são não planeadas e fora do controlo. Este artigo descreve alguns modos de falha comuns que pode ser perante desastres se não for modelada e geridos corretamente. Também abordar a mitigações e as ações a tomar nesse caso de um desastre aconteceu mesmo assim. O objetivo é limitar ou eliminar o risco de um período de indisponibilidade ou perda de dados sempre que ocorrerem falhas planeadas ou caso contrário, ocorrer.
@@ -134,7 +134,7 @@ Service Fabric tem o conceito de nós Seed. Estes são nós que mantêm a dispon
 
 Nos clusters de Service Fabric autónomos e Azure, o "tipo de nó primário" é o que é executado os seeds. Ao definir um tipo de nó principal, Service Fabric será automaticamente tirar partido do número de nós fornecida através da criação até 9 seed nós e 9 réplicas de cada um dos serviços de sistema. Se um conjunto de falhas aleatórias demora enviados a maioria desses réplicas de serviço do sistema em simultâneo, os serviços do sistema entrará em perda de quórum, conforme é descrito acima. Se uma maioria de nós seed é perdida, o cluster será encerrado logo após.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como simular várias falhas utilizando o [framework de teste](service-fabric-testability-overview.md)
 - Ler outros recursos de recuperação após desastre e elevada disponibilidade. Microsoft ter publicado uma grande quantidade de documentação de orientação estes tópicos. Embora alguns destes documentos se refiram ao técnicas específicas para utilização em outros produtos, que contêm muitos gerais melhores práticas que pode aplicar no contexto de Service Fabric:
   - [Lista de verificação de disponibilidade](../best-practices-availability-checklist.md)

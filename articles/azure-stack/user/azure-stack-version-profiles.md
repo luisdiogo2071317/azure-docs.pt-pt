@@ -13,65 +13,70 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1ea65c9c1f69c8eec77eb498a5963b0d77ce57f1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gerir perfis de versão de API na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Perfis de API especificar o fornecedor de recursos do Azure e a versão da API para pontos finais REST do Azure. Pode criar clientes personalizados em idiomas diferentes através de perfis de API. Cada cliente utiliza um perfil de API para contactar o fornecedor de recursos à direita e a versão de API de pilha do Azure. 
+Perfis de API especificar o fornecedor de recursos do Azure e a versão da API para pontos finais REST do Azure. Pode criar clientes personalizados em idiomas diferentes através de perfis de API. Cada cliente utiliza um perfil de API para contactar o fornecedor de recursos correto e a versão de API de pilha do Azure.
 
-Pode criar uma aplicação para trabalhar com fornecedores de recursos do Azure, sem ter de ordenar exatamente a versão de cada fornecedor de recursos API é compatível com a pilha do Azure. Apenas alinhar a sua aplicação para um perfil; o SDK é revertido para as versões de API corretas.
-
+Pode criar uma aplicação para trabalhar com fornecedores de recursos do Azure, sem ter de ordenar exatamente a versão de cada fornecedor de recursos API é compatível com a pilha do Azure. Apenas alinhar a sua aplicação para um perfil; o SDK reverte para a versão de API correta.
 
 Este tópico ajuda-o:
+
  - Compreenda os perfis de API de pilha do Azure.
- - Como pode utilizar perfis de API para desenvolver as suas soluções.
- - Onde procure orientações específicas do código.
+ - Saiba como pode utilizar perfis de API para desenvolver as suas soluções.
+ - Ver onde deve encontrar orientações específicas do código.
 
 ## <a name="summary-of-api-profiles"></a>Resumo dos perfis de API
 
 - Perfis de API são utilizados para representar um conjunto de fornecedores de recursos do Azure e as respetivas versões de API.
-- Perfis de API foram criadas para os programadores criar modelos em várias nuvens do Azure. Que foram concebidos para satisfazer a necessidade de uma interface compatível e estável.
+- Perfis de API foram criados para programadores, para que podem criar modelos em várias nuvens do Azure. Perfis foram concebidos para satisfazer a necessidade de uma interface compatível e estável.
 - Perfis são lançados quatro vezes um ano.
-- São três convenções de nomenclatura de perfil:
+- São utilizadas três convenções de nomenclatura de perfil:
     - **latest**  
-        Versões de API mais recentes lançadas no Azure.
+        Contém as versões de API mais recentes, lançadas em global do Azure.
     - **yyyy-mm-dd-hybrid**  
-    Lançadas a uma cadência biannual, esta versão centra-se na consistência e a estabilidade em várias nuvens. Este perfil destina-se ideal compatibilidade de pilha do Azure. 
-    - **yyyy-mm-dd-profile**  
-    Encontra-se entre ideal estabilidade e às funcionalidades mais recentes.
+    Lançadas a uma cadência biannual, esta versão está centrado nas consistência e a estabilidade em várias nuvens. Este perfil destina-se ideal compatibilidade de pilha do Azure.
+    - **aaaa-mm-dd-perfil** encontra-se entre ideal estabilidade e às funcionalidades mais recentes.
 
-### <a name="api-profiles-and-azure-stack-compatibility"></a>Perfis de API e a compatibilidade de pilha do Azure
+### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Perfis de API do Azure e a compatibilidade de pilha do Azure
 
-Os perfis de API mais recentes não são compatíveis com a pilha do Azure. As convenções de nomenclatura irão ajudá-lo a identificar os perfis para utilizar nas suas soluções de pilha do Azure.
+Os perfis de API do Azure mais recentes não são compatíveis com a pilha do Azure. Pode utilizar as seguintes convenções de nomenclatura para identificar os perfis da utilizar para as suas soluções de pilha do Azure.
 
 **Latest**  
-Este perfil é as versões de API mais atualizadas à sua encontradas no Azure global, que não funcionará na pilha do Azure. Este perfil tiver o maior número de alterações. O perfil coloca reservados estabilidade e a compatibilidade com outras nuvens. Se uma estiver a tentar utilizar as versões de API mais atualizadas, este é o perfil que deve utilizar.
+Este perfil tem as versões de API mais atualizadas à sua encontradas no Azure global, que não funcionará na pilha do Azure. **Mais recente** tem o maior número de alterações. O perfil coloca reservados estabilidade e a compatibilidade com outras nuvens. Se estiver a tentar utilizar as versões de API mais atualizadas, **mais recente** o perfil deve utilizar.
 
 **Aaaa-mm-dd-híbrida**  
-Este perfil é lançado em Março e Setembro, todos os anos. Este perfil tem ideal estabilidade e a compatibilidade com várias nuvens. Este perfil foi concebido para global do Azure e pilha do Azure de destino. As versões de API do Azure listadas neste perfil serão os mesmos que as que estão listadas na pilha do Azure. Pode utilizar este perfil para desenvolver o código para soluções de nuvem híbrida.
+Este perfil é lançado em Março e Setembro, todos os anos. Este perfil tem ideal estabilidade e a compatibilidade com várias nuvens. **Aaaa-mm-dd-híbrida** foi concebido para global do Azure e pilha do Azure de destino. As versões de API do Azure listadas neste perfil serão os mesmos que as que estão listadas na pilha do Azure. Pode utilizar este perfil para desenvolver o código para soluções de nuvem híbrida.
 
 **yyyy-mm-dd-profile**  
-Este perfil é libertado para o global Azure em Junho e Dezembro. Este perfil não irá funcionar em relação a pilha do Azure; haverá várias alterações. Enquanto se encontra por trás ideal estabilidade e funcionalidades mais recentes, a diferença entre a versão mais recente e este perfil é que mais recente irá sempre consistir as versões de API mais recentes, independentemente de quando a API foi libertada. Se uma nova versão de API é criada para a API de computação amanhã, essa versão de API será listada no perfil de mais recente, mas não no perfil de aaaa-mm-dd-perfil como este perfil é estabelecida com antecedência. Aborda as versões mais atualizadas à sua lançadas antes de Junho ou Dezembro.
+Este perfil é libertado para o global Azure em Junho e Dezembro. Este perfil não funcionará em relação a pilha do Azure; Normalmente, existirão muitas alterações. Embora encontra-se entre ideal estabilidade e funcionalidades mais recentes, a diferença entre **mais recente** e este perfil é que **mais recente** será sempre consistir em versões de API mais recentes, independentemente de quando a API foi lançada. Por exemplo, se uma nova versão de API é criada para a API de computação amanhã, essa versão de API será listada no **mais recente**, mas não no **aaaa-mm-dd-perfil** porque já existe este perfil.  **aaaa-mm-dd-perfil** aborda as versões mais atualizadas à sua lançadas antes de Junho ou antes de Dezembro.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Perfis de API do Gestor de recursos do Azure
 
-Pilha do Azure não utiliza a versão mais recente das versões de API encontradas no global Azure. A criar a sua própria solução, é necessário localizar a versão da API para cada fornecedor de recursos no Azure que é compatível com a pilha do Azure.
+Pilha do Azure não utiliza a versão mais recente das versões de API encontradas no global Azure. Quando estiver a criar uma solução, tem de encontrar a versão da API para cada fornecedor de recursos do Azure que é compatível com a pilha do Azure.
 
 Em vez de pesquisar cada fornecedor de recursos e a versão específica suportado pela pilha do Azure, pode utilizar um perfil de API. O perfil Especifica um conjunto de fornecedores de recursos e versões de API. O SDK, ou uma ferramenta criadas com o SDK, irá reverter para a api-version de destino especificada no perfil. Com perfis de API, pode especificar uma versão de perfil que se aplica a um modelo completo e, em runtime, o Azure Resource Manager seleciona a versão correta do recurso.
 
 Os perfis de API funcionar com as ferramentas que utilizar o Azure Resource Manager, tais como o PowerShell, o CLI do Azure, o código fornecido no SDK e o Microsoft Visual Studio. SDKs e ferramentas podem utilizar perfis para ler a versão de módulos e bibliotecas para incluir quando criar uma aplicação.
 
-Por exemplo, se utilizar o PowerShell para criar um armazenamento conta através do **Microsoft** fornecedor de recursos, que suporta a api-version 2016-03-30 e uma VM com o fornecedor de recursos Microsoft. Compute api-version 2015-12-01 , terá de procurar que suporte de módulo do PowerShell 2016-03-30 para armazenamento e o módulo suporta 2015-02-01 para computação e instalá-las. Em vez disso, pode utilizar um perfil. Utilize o cmdlet * * instalar perfil * profilename *** e PowerShell carrega as versões corretas dos módulos.
+**Cenário de desenvolvimento de utilização do perfil**  
+Partem do princípio de que está a utilizar o PowerShell para criar:
 
-Da mesma forma, ao utilizar o SDK Python para criar uma aplicação baseada no Python, pode especificar o perfil. O SDK carrega os módulos de direita para os fornecedores de recursos que especificou no script.
+* Uma conta de armazenamento que utiliza o **Microsoft** fornecedor de recursos, que suporta a api-version 2016-03-30.
+* Uma VM que utiliza o **Microsoft. Compute** fornecedor de recursos, que suporta a api-version 2015-12-01.
 
-Como um programador pode concentrar-se sobre como escrever a sua solução. Em vez de a pesquisar as versões de api, o fornecedor de recursos e que em nuvem funciona em conjunto, utilize um perfil e saber que o seu código irá funcionar em todas as nuvens que suportam esse perfil.
+Em vez de localizar e instalar os módulos do PowerShell que suportam as api-versions que precisa de armazenamento e computação, pode utilizar um perfil. Utilize o cmdlet * * instalar perfil * profilename *** e PowerShell carrega a versão correta dos módulos.
+
+Da mesma forma, se estiver a utilizar o SDK Python para criar uma aplicação baseada no Python, pode utilizar um perfil. O SDK carrega os módulos corretos para os fornecedores de recursos que especificou no script.
+
+Como um programador pode concentrar-se sobre como escrever a sua solução. Pode utilizar um perfil, sabendo que o seu código irá funcionar em todas as nuvens que suporta o perfil.
 
 ## <a name="api-profile-code-samples"></a>Exemplos de código do perfil de API
 
@@ -87,6 +92,7 @@ SDK ACEDA, um perfil é uma combinação de tipos de recursos diferente com dife
 O SDK de Ruby para o Gestor de recursos de pilha do Azure fornece ferramentas para ajudar a criar e gerir a sua infraestrutura. Fornecedores de recursos no SDK incluem computação, redes virtuais e armazenamento com o idioma Ruby. Para informações, consulte [perfis de versão de API de utilização com Ruby](azure-stack-version-profiles-ruby.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
 * [Configurar o Azure pilha ambiente do utilizador do PowerShell](azure-stack-powershell-configure-user.md)
 * [Reveja os detalhes sobre as versões de API do fornecedor de recursos suportados pelos perfis de](azure-stack-profiles-azure-resource-manager-versions.md).

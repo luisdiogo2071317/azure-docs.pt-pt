@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento do Azure Premium: Conceção de elevado desempenho
-## <a name="overview"></a>Descrição geral
+
 Este artigo fornece diretrizes para a criação de aplicações de elevado desempenho com o Premium Storage do Azure. Pode utilizar as instruções fornecidas neste documento juntamente com as melhores práticas aplica-se a tecnologias utilizadas pela sua aplicação. Para ilustrar as diretrizes, ter utilizámos o SQL Server em execução no armazenamento Premium como um exemplo ao longo deste documento.
 
 Enquanto que tratam cenários de desempenho da camada de armazenamento neste artigo, terá de otimizar a camada da aplicação. Por exemplo, se alojar um Farm do SharePoint no armazenamento do Azure Premium, pode utilizar os exemplos de SQL Server do artigo para otimizar o servidor de base de dados. Além disso, Otimize o servidor Web e servidor de aplicação para obter o desempenho de maioria do Farm do SharePoint.
@@ -90,7 +90,7 @@ Os contadores de PerfMon estão disponíveis para processador, memória e, como 
 | **Débito** |Quantidade de dados lidas ou escritas para o disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
 | **Latência** |Total de tempo para concluir um pedido de e/s de disco. |Médio disco seg/leitura <br> Média de disco seg/escrita |await <br> svctm |
 | **Tamanho de e/s** |O tamanho de e/s pedidos problemas para os discos de armazenamento. |Bytes de média de disco/leitura <br> Bytes de média de disco/escrita |avgrq sz |
-| **Profundidade de fila** |Número de e/s pendentes pedidos a aguardar para ser formulário de leitura ou escrita para o disco de armazenamento. |Comprimento da fila de disco |avgqu sz |
+| **Profundidade de fila** |Número de e/s pendentes pedidos a aguardar para ser lidas ou escritas para o disco de armazenamento. |Comprimento da fila de disco |avgqu sz |
 | **Máx. Memória** |Quantidade de memória necessária para executar a aplicação facilmente |% Dos Bytes consolidados em utilização |Utilizar vmstat |
 | **Máx. CPU** |Quantidade de CPU necessária para executar a aplicação facilmente |% Tempo do processador |% util |
 
@@ -102,15 +102,18 @@ Os principais fatores que influenciam o desempenho de uma aplicação em execuç
 Ao longo de nesta secção, consulte a lista de verificação de requisitos de aplicação que criou, para identificar quanto precisa otimizar o desempenho da sua aplicação. Com base no que, será capaz de determinar quais fatores desta secção, terá de ajustar. Para o testemunho os efeitos de cada fator no desempenho da sua aplicação, execute ferramentas direcionamento de caminhos na sua configuração de aplicação. Consulte o [Benchmarking](#Benchmarking) secção no final deste artigo para obter os passos executar as ferramentas de direcionamento de caminhos comuns no Windows e VMs com Linux.
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Otimizar o IOPS, débito e latência num instante
-A tabela abaixo resume todos os fatores de desempenho e os passos para otimizar o IOPS, débito e latência. As secções seguintes este resumo descrevem cada fator é profundidade muito mais.
+
+A tabela abaixo resume fatores de desempenho e os passos necessários para otimizar o IOPS, débito e latência. As secções seguintes este resumo descrevem cada fator é profundidade muito mais.
+
+Para obter mais informações em tamanhos de VM e sobre o IOPS, débito e latência disponível para cada tipo de VM, consulte [tamanhos de VM com Linux](../articles/virtual-machines/linux/sizes.md) ou [tamanhos de Windows VM](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **ESP** | **Débito** | **Latência** |
 | --- | --- | --- | --- |
 | **Cenário de exemplo** |Aplicação de OLTP de Enterprise que requerem muito elevadas transações por segundo taxa. |Aplicação processamento vastos volumes de dados de armazém de dados da empresa. |Junto de aplicações em tempo real que requerem respostas instantâneas a pedidos de utilizador, como jogos online. |
 | Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
 | **Tamanho de e/s** |Tamanho mais pequeno de e/s gera IOPS superior. |Tamanho maior de e/s para gera um maior débito. | &nbsp;|
-| **Tamanho da VM** |Utilize um tamanho VM que oferece maior do que o requisito da aplicação de IOPS. Consulte os tamanhos de VM e os respetivos limites IOPS aqui. |Utilize um tamanho VM com limite de débito maior do que o requisito da aplicação. Consulte os tamanhos de VM e os respetivos limites de débito aqui. |Utilize um tamanho VM que oferece Dimensionar limites maiores do que o requisito da aplicação. Consulte os respetivos limites aqui e tamanhos VM. |
-| **Tamanho do disco** |Utilize um tamanho de disco que oferece maior do que o requisito da aplicação de IOPS. Consulte os tamanhos de disco e os respetivos limites IOPS aqui. |Utilize um tamanho de disco com limite de débito maior do que o requisito da aplicação. Consulte os tamanhos de disco e os respetivos limites de débito aqui. |Utilize um tamanho de disco que ofertas aumentar os limites de maiores do que o requisito da aplicação. Consulte os respetivos limites aqui e tamanhos de disco. |
+| **Tamanho da VM** |Utilize um tamanho VM que oferece maior do que o requisito da aplicação de IOPS. |Utilize um tamanho VM com limite de débito maior do que o requisito da aplicação. |Utilize um tamanho VM que oferece Dimensionar limites maiores do que o requisito da aplicação. |
+| **Tamanho do disco** |Utilize um tamanho de disco que oferece maior do que o requisito da aplicação de IOPS. |Utilize um tamanho de disco com limite de débito maior do que o requisito da aplicação. |Utilize um tamanho de disco que ofertas aumentar os limites de maiores do que o requisito da aplicação. |
 | **VM e os limites de escala de disco** |Limite IOPS do tamanho da VM escolhido deve ser maior que ESP totais condicionadas pelos discos de armazenamento premium ligados ao mesmo. |Limite de débito do tamanho da VM escolhido deve ser maior que o débito total conduzido pelos discos de armazenamento premium ligados ao mesmo. |Os limites de escala do tamanho da VM escolhido tem de ser maiores do que os limites de escala total dos discos de armazenamento premium ligados. |
 | **Colocação em cache do disco** |Ative a Cache de só de leitura nos discos de armazenamento premium com as operações de leitura pesadas para obter mais elevado de leitura de IOPS. | &nbsp; |Ative a Cache de só de leitura nos discos de armazenamento premium com operações pesadas prontos para obter as latências de leitura muito baixa. |
 | **Disco Striping** |Utilizar vários discos e stripe-los em conjunto para obter um limite IOPS e de débito superior combinado. Tenha em atenção que o valor de limite combinado por VM deve ser superior aos limites combinados de discos premium ligados. | &nbsp; | &nbsp; |
@@ -236,7 +239,7 @@ Para obter mais informações sobre como funciona o BlobCache, consulte interior
 | **Tipo de disco** | **Definição de Cache predefinida** |
 | --- | --- |
 | Disco do SO |ReadWrite |
-| Disco de dados |Nenhum |
+| Disco de dados |Nenhuma |
 
 Seguem-se as definições de cache do disco recomendado para discos de dados
 

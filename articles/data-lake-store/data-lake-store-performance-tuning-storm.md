@@ -1,8 +1,8 @@
 ---
-title: "Desempenho do Azure Data Lake Store Storm otimização diretrizes | Microsoft Docs"
-description: "Desempenho do Azure Data Lake Store Storm diretrizes de otimização"
+title: Desempenho do Azure Data Lake Store Storm otimização diretrizes | Microsoft Docs
+description: Desempenho do Azure Data Lake Store Storm diretrizes de otimização
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Orientações para Storm no HDInsight e o Azure Data Lake Store de otimização do desempenho
 
@@ -27,7 +25,7 @@ Compreenda os fatores que devem ser considerados ao otimizar o desempenho de uma
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar uma, veja [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
 * **Um cluster do Azure HDInsight** com acesso a uma conta de Data Lake Store. Consulte [criar um cluster do HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
 * **Executar um cluster do Storm no Data Lake Store**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Desempenho de otimização diretrizes no Data Lake Store**.  Para os conceitos gerais de desempenho, consulte [guia de otimização de desempenho do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
@@ -133,10 +131,10 @@ Se atingiu os limites de largura de banda fornecida pelo Data Lake Store, poder�
 
 Para verificar se a introdução limitada, ative a depuração de registo do lado do cliente:
 
-1. No **Ambari** > **Storm** > **configuração** > **avançadas log4j de trabalho de storm**, alterar  **&lt;nível de raiz = "informações"&gt;**  para  **&lt;nível de raiz = "a depuração"&gt;**. Reinicie todos os nós/serviço para a configuração entrem em vigor.
+1. No **Ambari** > **Storm** > **configuração** > **avançadas log4j de trabalho de storm**, alterar **&lt;nível de raiz = "informações"&gt;** para  **&lt;nível de raiz = "a depuração"&gt;**. Reinicie todos os nós/serviço para a configuração entrem em vigor.
 2. Monitorizar a topologia do Storm os registos de nós de trabalho (em /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) do Data Lake Store exceções de limitação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Otimização de desempenho adicional para Storm pode ser referenciado na [este blogue](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
 Para obter um exemplo adicional executar, consulte [este um no GitHub](https://github.com/hdinsight/storm-performance-automation).

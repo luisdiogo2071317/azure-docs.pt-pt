@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a7ab3881cd1058a60ff7d5f6e50c296f042e76e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementar vários executáveis convidados
 Este artigo mostra como o pacote e a implementar vários executáveis de convidado do Azure Service Fabric. Para criar e implementar um único pacote de Service Fabric Leia como para [implementar um executável de convidado para o Service Fabric](service-fabric-deploy-existing-app.md).
@@ -203,7 +203,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Assim que a aplicação for publicada com êxito ao local cluster, pode aceder a aplicação Node.js na porta que foi introduzido no manifesto da aplicação Node.js - por exemplo http://localhost:3000 serviço.
+Assim que a aplicação for publicada com êxito ao local cluster, pode aceder à aplicação Node.js na porta que foi introduzido no manifesto de serviço da aplicação Node.js - por exemplo http://localhost:3000.
 
 Neste tutorial, constatou como compactar facilmente duas aplicações existentes como uma aplicação de Service Fabric. Também aprendeu como implementá-la para o Service Fabric para que este pode beneficiar de algumas das funcionalidades do Service Fabric, tais como de elevada disponibilidade e a integração do sistema de estado de funcionamento.
 

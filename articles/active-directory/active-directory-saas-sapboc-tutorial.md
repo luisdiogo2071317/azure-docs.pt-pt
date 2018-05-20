@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory nuvem de objeto do SAP Business | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e na nuvem de objeto do SAP Business."
+title: 'Tutorial: Integração do Azure Active Directory nuvem de objeto do SAP Business | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e na nuvem de objeto do SAP Business.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem de objeto do SAP Business
 
@@ -30,7 +30,7 @@ Obter as seguintes vantagens quando integrar o SAP Business objeto de nuvem com 
 - Pode assinar automaticamente na nuvem de objeto do SAP Business que os utilizadores ao utilizar o início de sessão único e a conta do Azure AD de um utilizador.
 - Pode gerir as contas numa, localização central, o portal do Azure.
 
-Para saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -217,7 +217,7 @@ Para Aprovisionar uma conta de utilizador:
 
     ![Adicionar empregado](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. No **utilizadores** página, para adicionar novos detalhes de utilizador, selecione  **+** . 
+3. No **utilizadores** página, para adicionar novos detalhes de utilizador, selecione **+**. 
 
     ![Adicionar página de utilizadores](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
@@ -231,7 +231,7 @@ Para Aprovisionar uma conta de utilizador:
 
     4. No **nome a apresentar** box, introduza o nome completo do utilizador, como **Britta Simon**.
 
-    5. No **correio electrónico** box, introduza o endereço de e-mail do utilizador, como  **brittasimon@contoso.com** .
+    5. No **correio electrónico** box, introduza o endereço de e-mail do utilizador, como **brittasimon@contoso.com**.
 
     6. No **selecionar funções de** página, selecione a função adequada para o utilizador e, em seguida, selecione **OK**.
 
@@ -270,7 +270,7 @@ Para atribuir Britta Simon a nuvem de objeto do SAP Business:
 
 ![Atribuir a função de utilizador][200] 
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -281,7 +281,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

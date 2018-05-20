@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 026ff0394e988081bdc581bf001417b13e44427b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - quotas do IoT Hub e a limitação
 
@@ -39,7 +39,7 @@ A tabela seguinte mostra as limitações impostas. Consulte os valores para um h
 | Limitação | Libertar, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | Operações de registo de identidade (criar, obter, listar, atualizar, eliminar) | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
-| Ligações do dispositivo | Mais de 100 por segundo ou seg/12/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24/seg, mas tem de ter, pelo menos, 100/seg nas suas unidades. Com unidades de S1 nove, tiver 108/seg (9\*12) entre as unidades. | 120/seg/unidade | 6000/seg/unidade |
+| Novas ligações de dispositivo (este limite aplica-se a taxa a que _novas ligações_ são estabelecidas, não é o número total de ligações) | Mais de 100 por segundo ou seg/12/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24 nova ligações/seg, mas têm, pelo menos, 100 novas ligações/seg na suas unidades. Com unidades de S1 nove, tiver 108 novas ligações/seg (9\*12) entre as unidades. | 120 ligações/seg/unidade nova | 6000 novas ligações/seg/unidade |
 | Envios do dispositivo para a cloud | Mais de 100 por segundo ou seg/12/unidade <br/> Por exemplo, duas unidades de S1: 2\*12 = 24/seg, mas tem de ter, pelo menos, 100/seg nas suas unidades. Com unidades de S1 nove, tiver 108/seg (9\*12) entre as unidades. | 120/seg/unidade | 6000/seg/unidade |
 | Nuvem para o dispositivo envia<sup>1</sup> | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
 | Nuvem para o dispositivo recebe<sup>1</sup> <br/> (apenas ao dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/mínimo/unidade) | 16.67/SEC/Unit (1000/mínimo/unidade) | 833.33/SEC/Unit (50000/mínimo/unidade) |

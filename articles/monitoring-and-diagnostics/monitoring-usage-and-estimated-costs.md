@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Utilização de monitorização e os custos estimados
 
@@ -92,7 +92,7 @@ O novo modelo de preços simplifica a análise de registos e o Application Insig
 A estimativa de custo mostra os efeitos destas alterações.
 
 > [!WARNING]
-> Aqui uma nota importante se utilizar o Azure Resource Manager ou o PowerShell para implementar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) numa subscrição movido para o novo modelo de preços. Se especificar um camada/plano de preços que não seja "pergb2018" para análise de registos ou "Básico" para o Application Insights, vez a falhar a implementação devido à especificação de um inválido/plano, de escalão de preço será bem sucedida **mas irá utilizar apenas válido / plano de escalão de preço**. 
+> Aqui uma nota importante se utilizar o Azure Resource Manager ou o PowerShell para implementar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) ou [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) numa subscrição movido para o novo modelo de preços. Se especificar um camada/plano de preços que não seja "pergb2018" para análise de registos ou "Básico" para o Application Insights, vez a falhar a implementação devido à especificação de um inválido/plano, de escalão de preço será bem sucedida **mas irá utilizar apenas válido / plano de escalão de preço** (isto não é aplicável para o escalão gratuito de análise do registo em que é gerada uma mensagem de escalão de preço inválido).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 848e27078d77a53a03d538b846eed0117d44dbe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 170836fb4ef617e7bcbf2e15ebb644855a427b9b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
@@ -140,7 +140,7 @@ Eis a recomendação sobre como escolher o escalão de fiabilidade.
 | --- | --- |
 | 1 |Especifique o parâmetro de escalão de fiabilidade, o sistema calcula-la |
 | 3 |Bronze |
-| 5 ou 6|Prata |
+| 5 ou 6|Prateado |
 | 7 ou 8 |Dourado |
 | 9 e até |Platinum |
 

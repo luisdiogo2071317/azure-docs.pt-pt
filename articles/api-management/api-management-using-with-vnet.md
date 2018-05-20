@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 20c5635c0ce00c9fccfec84c477d60c77c55e2fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -168,6 +168,7 @@ Dado o cálculo acima o tamanho mínimo da sub-rede, na qual pode ser implementa
 * A sub-rede e o serviço de API Management tem de ser na mesma subscrição.
 * Uma sub-rede que contém instâncias de API Management não pode ser movida entre subscrições.
 * Para implementações de gestão de API de multirregião configuradas no modo de rede virtual interna, os utilizadores são responsáveis por gerir a balanceamento de carga entre várias regiões, como possuem o encaminhamento.
+* Conectividade de um recurso na VNET em modo de peering globalmente noutra região ao serviço de gestão de API no modo interno não irá funcionar devido à limitação de plataforma. Para obter mais informações, consulte [recursos numa rede virtual não é possível comunicar com o Balanceador de carga interno do Azure na rede virtual em modo de peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
 
 ## <a name="related-content"> </a>Conteúdo relacionado

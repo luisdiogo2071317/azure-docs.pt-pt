@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.openlocfilehash: cb672c8e378db80707db1b0cf77a3196e36b1eb5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure
 
@@ -72,8 +72,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
@@ -91,8 +91,8 @@ Se a instalação foi bem-sucedida, os módulos AzureRM e AzureStack são aprese
 
 Num cenário de desligado, tem de transferir primeiro os módulos do PowerShell para uma máquina que tenha acesso à Internet e, em seguida, transfere-os para o Kit de desenvolvimento de pilha do Azure para a instalação.
 
-> [!IMPORTANT]
-> A versão do módulo do PowerShell AzureRM 1.2.12 vem com uma lista de alterações de última hora. Para atualizar a partir de 1.2.10 versão, consulte o [guia de migração](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
+> [!IMPORTANT]  
+> A versão do módulo do PowerShell do Azure de pilha 1.3.0 vem com uma lista de alterações de última hora. Para atualizar a partir de 1.2.11 versão, consulte o [guia de migração](https://aka.ms/azspowershellmigration).
 
 1. Inicie sessão computador onde tem conectividade internet e utilize o seguinte script de transferir o AzureRM e pacotes de AzureStack no seu computador local:
 
@@ -105,7 +105,7 @@ Num cenário de desligado, tem de transferir primeiro os módulos do PowerShell 
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -113,11 +113,11 @@ Num cenário de desligado, tem de transferir primeiro os módulos do PowerShell 
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12 
+     -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> Se não estiver a executar pilha do Azure com a atualização 1804 ou superior, altere o **requiredversion** valor do parâmetro para `1.2.11`. 
+  > [!Important]  
+  > Se não estiver a executar pilha do Azure com a atualização 1804 ou superior, altere o **requiredversion** valor do parâmetro para `1.2.11`. 
 
 2. Copie os pacotes transferidos através de um dispositivo USB.
 

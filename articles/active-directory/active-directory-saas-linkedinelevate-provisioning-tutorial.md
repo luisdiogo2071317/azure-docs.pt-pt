@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configurar LinkedIn elevar para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o Azure Active Directory para aprovisionar e anular o aprovisionamento contas de utilizador para efetuar a elevação LinkedIn automaticamente."
+title: 'Tutorial: Configurar LinkedIn elevar para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory para aprovisionar e anular o aprovisionamento contas de utilizador para efetuar a elevação LinkedIn automaticamente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: af922aaae21ab87c7e8d9354bcbae64fc97c6f02
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0e390cb76888960dbc52c1c5015d1cb9a6c169c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn elevar para aprovisionamento de utilizadores automática
 
@@ -124,4 +124,4 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 ## <a name="additional-resources"></a>Recursos Adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

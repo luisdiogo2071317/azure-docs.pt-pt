@@ -1,24 +1,24 @@
 ---
-title: "Teste: Comunicação de serviço | Microsoft Docs"
-description: "Comunicação de serviço a serviço é um ponto de integração críticos de uma aplicação de Service Fabric. Este artigo aborda considerações de design e técnicas de teste."
+title: 'Teste: Comunicação de serviço | Microsoft Docs'
+description: Comunicação de serviço a serviço é um ponto de integração críticos de uma aplicação de Service Fabric. Este artigo aborda considerações de design e técnicas de teste.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c87b5d82b6eef2b1d28a3280cc2fa07c28084f90
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Cenários de teste de Service Fabric: comunicação de serviço
 Micro-serviços e superfície de estilos de arquitetura orientada para serviços naturalmente no Service Fabric do Azure. Nestes tipos de arquiteturas distribuídas, aplicações de microsserviço componentized são normalmente compostas por vários serviços que têm de comunicar entre si. No mesmo cenários mais simples, geralmente, é ter, pelo menos, um serviço web sem monitorização de estado e um serviço de armazenamento de dados de monitorização de estado têm de comunicar.

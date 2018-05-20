@@ -1,23 +1,23 @@
 ---
-title: "Azure Service Fabric inverso comunicação segura proxy | Microsoft Docs"
-description: "Configure um proxy inverso para ativar a comunicação de ponto a ponto segura."
+title: Azure Service Fabric inverso comunicação segura proxy | Microsoft Docs
+description: Configure um proxy inverso para ativar a comunicação de ponto a ponto segura.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 568f9638c59282bcd7d3fae058a1588a889c22dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 237a72fd282b29d3032675ccf3fb350f8db59ef7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ligar a um serviço seguro com o proxy inverso
 
@@ -190,7 +190,7 @@ Se o cliente não apresentar um certificado, o proxy inverso reencaminha um cabe
 > Proxy inverso é um reencaminhador mere. Não efetuará nenhuma validação de certificado do cliente.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte [Configurar proxy inverso para ligar aos serviços segurados](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager amostras de modelo para configurar o secure proxy inverso com o certificado de serviço diferentes opções de validação.
 * Ver um exemplo de comunicação HTTP entre serviços num [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Chamadas de procedimento remoto com o sistema de interação remota Reliable Services](service-fabric-reliable-services-communication-remoting.md)

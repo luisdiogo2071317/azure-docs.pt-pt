@@ -8,18 +8,17 @@ editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4c08dac95a2d2b52f1a1d28f6933b94ad4db10b7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Utilizar o Azure PowerShell para criar um cluster do HDInsight com o Data Lake Store (como armazenamento adicional)
+
 > [!div class="op_single_selector"]
 > * [Utilizar o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Através do PowerShell (para armazenamento de predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -54,7 +53,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-* **O Windows SDK**. Pode instalar a [aqui](https://dev.windows.com/en-us/downloads). Utilize esta para criar um certificado de segurança.
+* **O Windows SDK**. Pode instalá-lo a partir [daqui](https://dev.windows.com/en-us/downloads). Utilize esta para criar um certificado de segurança.
 * **Principal de serviço de diretório do Azure Active Directory**. Os passos neste tutorial fornecem instruções sobre como criar um principal de serviço no Azure AD. No entanto, tem de ser um administrador do Azure AD para poder criar um principal de serviço. Se for um administrador do Azure AD, pode ignorar este pré-requisito e continue com o tutorial.
 
     **Se não for um administrador do Azure AD**, não será capaz de executar os passos necessários para criar um principal de serviço. Nesse caso, o administrador do Azure AD tem primeiro de criar um principal de serviço antes de poder criar um cluster do HDInsight com o Data Lake Store. Além disso, o principal de serviço tem de ser criado utilizando um certificado, conforme descrito em [criar um principal de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -122,6 +121,7 @@ Siga estes passos para criar um Data Lake Store.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Configurar a autenticação de acesso baseado em funções para o Data Lake Store
+
 Cada subscrição do Azure está associada um Azure Active Directory. Utilizadores e serviços que acedem aos recursos da subscrição utilizando o portal do Azure ou a API do Azure Resource Manager, devem primeiro autenticar com o diretório do Azure Active Directory. É concedido acesso aos serviços e subscrições do Azure ao lhes atribuir a função adequada num recurso do Azure.  Para os serviços, um principal de serviço identifica o serviço no Azure Active Directory (AAD). Esta secção ilustra como conceder a um serviço de aplicações, como o HDInsight, acesso a um recurso do Azure (a conta do Azure Data Lake Store que criou anteriormente), criando um principal de serviço para a aplicação e atribuir funções a que através do PowerShell do Azure.
 
 Para configurar a autenticação do Active Directory para o Azure Data Lake, tem de efetuar as seguintes tarefas.
@@ -130,6 +130,7 @@ Para configurar a autenticação do Active Directory para o Azure Data Lake, tem
 * Criar uma aplicação no Azure Active Directory e um Principal de serviço
 
 ### <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
+
 Certifique-se de que tem [Windows SDK](https://dev.windows.com/en-us/downloads) instalado antes de continuar com os passos nesta secção. Tem de ter também criou um diretório, tais como **C:\mycertdir**, onde será criado o certificado.
 
 1. A janela do PowerShell, navegue para a localização onde instalou o SDK do Windows (normalmente, `C:\Program Files (x86)\Windows Kits\10\bin\x86` e utilizar o [MakeCert] [ makecert] utilitário para criar um certificado autoassinado e uma chave privada. Utilize os seguintes comandos.
@@ -147,13 +148,14 @@ Certifique-se de que tem [Windows SDK](https://dev.windows.com/en-us/downloads) 
     Quando lhe for pedido introduza a palavra-passe chave privada que especificou anteriormente. O valor especificado para o **-po** parâmetro é a palavra-passe que estão associada com o ficheiro. pfx. Depois do comando for concluído com êxito, deve também verá um CertFile.pfx no diretório de certificado que especificou.
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>Criar um Azure Active Directory e um principal de serviço
+
 Nesta secção, execute os passos para criar um serviço principal para uma aplicação do Azure Active Directory, atribuir uma função para o principal de serviço e efetue a autenticação como o principal de serviço ao fornecer um certificado. Execute os seguintes comandos para criar uma aplicação no Azure Active Directory.
 
 1. Cole os cmdlets seguintes na janela de consola do PowerShell. Certifique-se de que o valor especificado para o **- DisplayName** propriedade é exclusiva. Além disso, os valores para **- home page** e **- IdentiferUris** são valores de marcador de posição e não são verificadas.
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

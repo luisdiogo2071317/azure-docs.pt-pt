@@ -8,11 +8,11 @@ ms.date: 01/21/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: b56e352a1f39dbd536347f6c7e83a6aabfe32ecc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -33,7 +33,7 @@ Para ver um dispositivo individual:
 
 1. No painel da direita, verá uma lista de dispositivos criada a partir desse modelo do dispositivo. Escolha um dispositivo individual para ver o **detalhes do dispositivo** página desse dispositivo:
 
-    ![Página de detalhes do dispositivo](./media/howto-manage-devices/image1.png)
+    [![Página de detalhes do dispositivo](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
 ## <a name="add-a-device"></a>Adicionar um dispositivo
 
@@ -46,6 +46,39 @@ Para adicionar um dispositivo à sua aplicação do Azure IoT Central:
 1. Escolha + **novo**.
 
 1. Escolha **Real** ou **Simulated**. Um dispositivo real é para um dispositivo físico se ligar à sua aplicação do Azure IoT Central. Um dispositivo simulado tem dados de exemplo gerados pelo Azure IoT Central. Este exemplo utiliza um dispositivo real. Escolha **Real** para navegar para o **detalhes do dispositivo** página para o novo dispositivo.
+
+
+## <a name="bulk-import-devices"></a>Dispositivos de importação em volume
+
+Para ligar o elevado número de dispositivos à sua aplicação do Azure IoT Central ofertas em massa importação dispositivos através de um ficheiro CSV. 
+
+Requisitos do ficheiro CSV:
+1. O ficheiro CSV deve ter apenas uma coluna que contém os IDs do dispositivo.
+
+1. Ficheiro não deve ter qualquer cabeçalho.
+
+
+Para registar de em massa dispositivos na sua aplicação:
+
+1. Escolha **Explorer** no menu de navegação esquerdo.
+
+1. No painel esquerdo, selecione o modelo de dispositivo para o qual pretende em massa criar os dispositivos.
+
+1. Escolha **novo** e selecione **importação em volume**.
+
+    [![Ação de importação em volume](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+
+1. Selecione o ficheiro CSV que tem a lista de IDs de dispositivo para ser importado.
+
+1. Importação de dispositivo é iniciado depois do ficheiro foi carregado. Pode controlar o estado de importação no topo da grelha de dispositivo.
+
+1. Assim que a importação estiver concluída, é apresentada uma mensagem de êxito na grelha de dispositivo.
+
+    [![Sucesso de importação em volume](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+
+Se o dispositivo importar operação falhar, será um erro apresentado na grelha de dispositivo. Um ficheiro de registo capturar todos os erros for gerado, podendo ser transferido clicando a mensagem de erro.
+
+
 
 ## <a name="delete-a-device"></a>Eliminar um dispositivo
 

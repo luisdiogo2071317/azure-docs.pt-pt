@@ -1,24 +1,24 @@
 ---
-title: "Definine e gerir o estado no Azure micro-serviços | Microsoft Docs"
-description: "Como definir e gerir o estado do serviço no Service Fabric"
+title: Definine e gerir o estado no Azure micro-serviços | Microsoft Docs
+description: Como definir e gerir o estado do serviço no Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-state"></a>Estado do serviço
 **Estado do serviço** refere-se para a memória ou nos dados de disco que necessita de um serviço de função. Inclui, por exemplo, as estruturas de dados e variáveis de membro que o serviço de leituras e escritas para trabalhar. Dependendo de como o serviço é criado, também pode incluir ficheiros ou outros recursos que são armazenados no disco. Por exemplo, os ficheiros de uma base de dados utilizará para armazenar os registos de dados e a transação.
@@ -34,7 +34,7 @@ Estado pode ser externalized ou localizado conjuntamente com o código que é a 
 
 Também pode ser localizado conjuntamente com o código que manipula o estado de estado. Serviços com monitorização de estado no Service Fabric são normalmente criados utilizando este modelo. O Service Fabric fornece a infraestrutura para se certificar de que este estado é altamente disponível, consistente e durável e de que os serviços incorporados desta forma podem Dimensionar facilmente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre os conceitos de Service Fabric, consulte os artigos seguintes:
 
 * [Disponibilidade dos serviços do Service Fabric](service-fabric-availability-services.md)

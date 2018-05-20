@@ -1,6 +1,6 @@
 ---
 title: Transferir itens do marketplace a partir do Azure | Microsoft Docs
-description: Posso pode transferir itens do marketplace a partir do Azure para a minha implementação da pilha do Azure.
+description: O operador da nuvem pode transferir os itens do marketplace a partir do Azure para os meus implementação da pilha do Azure.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,66 +12,97 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2e92dc96a69400f689e49b70d1b855c955084362
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir os itens do marketplace a partir do Azure com a pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
+Como um operador da nuvem, transfira os itens no Azure Marketplace e disponibilizá-los na pilha do Azure. São os itens que pode escolher entre uma lista organizada de itens de Azure Marketplace, que são previamente testada e suportados para trabalhar com a pilha do Azure. Itens adicionais frequentemente são adicionados a esta lista, por isso, continue a verificar para o novo conteúdo. 
 
-Como decidir o conteúdo que pretende incluir na sua marketplace de pilha do Azure, deve considerar o conteúdo disponível no Azure Marketplace. Pode transferir a partir de uma lista organizada de itens do marketplace do Azure que tenham sido previamente testada para executar na pilha do Azure. Novos itens frequentemente são adicionados a esta lista, por isso, certifique-se para o novo conteúdo.
+Existem dois cenários de ligação para o Azure Marketplace: 
 
-## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Transferir itens do marketplace num cenário ligado (com acesso à Internet)
+- **Um cenário ligado** -requer que o ambiente de pilha do Azure para ser ligada à internet. Utilizar o portal do Azure pilha para localizar e transferir itens. 
+- **Um cenário parcialmente ligado ou desligado** -que requer acesso à internet utilizando a ferramenta de sindicação do marketplace para transferir os itens do marketplace. Em seguida, transferir as transferências para a instalação de Azure pilha desligada. Este cenário utiliza do PowerShell.
 
-1. Para transferir os itens do marketplace, deve primeiro [registar pilha do Azure com o Azure](azure-stack-register.md).
-2. Inicie sessão no portal de administrador a pilha do Azure (para ASDK, utilize https://portal.local.azurestack.external).
-3. Alguns itens do marketplace podem ser elevados. Certifique-se de que tem espaço suficiente no seu sistema clicando **fornecedores de recursos** > **armazenamento**.
+Consulte [itens do Azure Marketplace para o Azure pilha](azure-stack-marketplace-azure-items.md) para obter uma lista dos itens do marketplace pode transferir.
 
-    ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
-4. Clique em **mais serviços** > **Marketplace gestão**.
-
-    ![](media/azure-stack-download-azure-marketplace-item/image02.png)
-
-4. Clique em **adicionar a partir do Azure** para ver uma lista de itens disponíveis para transferência. Pode clicar em cada item na lista para visualizar a descrição e tamanho de transferência.
-
-    ![](media/azure-stack-download-azure-marketplace-item/image03.png)
-
-5. Selecione o item que pretende na lista e, em seguida, clique em **transferir**. A imagem VM para o item selecionado começa a transferir. Tempo de transferência variar.
-
-    ![](media/azure-stack-download-azure-marketplace-item/image04.png)
-
-6. Depois de concluída a transferência, pode implementar o novo item do marketplace como um operador de pilha do Azure ou o utilizador. Clique em **+ novo**, pesquisar entre as categorias para o novo item do marketplace e, em seguida, selecione o item.
-7. Clique em **criar** para abrir a experiência de criação para o item recentemente transferido. Siga as instruções passo a passo para implementar o item.
-
-## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Transferir itens do marketplace num desligado ou um cenário parcialmente ligado (com acesso à internet limitada)
-
-Quando implementa a pilha do Azure num modo desligado (sem qualquer acesso à internet), não é possível transferir os itens do marketplace utilizando o portal de pilha do Azure. No entanto, pode utilizar a ferramenta de sindicação do marketplace para transferir os itens do marketplace para uma máquina que tenha acesso à internet e, em seguida, transfere-os para o seu ambiente de pilha do Azure.
+## <a name="connected-scenario"></a>Cenário ligado
+Pilha do Azure estabelece ligação à internet, pode utilizar o portal de administração para transferir os itens do marketplace.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de poder utilizar a ferramenta de sindicação do marketplace, certifique-se de que tem [registado pilha do Azure com a sua subscrição do Azure](azure-stack-register.md).  
+A implementação de pilha do Azure tem de ter conectividade à internet e ser [está registado no Azure](azure-stack-register.md).
 
-Partir do computador que tenha acesso à internet, utilize os seguintes passos para transferir os itens do marketplace necessário:
+### <a name="use-the-portal-to-download-marketplace-items"></a>Utilizar o portal para transferir os itens do marketplace  
+1. Inicie sessão no portal de administrador a pilha do Azure.
 
-1. Abra uma consola do PowerShell como administrador e [instalar os módulos do PowerShell específicos do Azure pilha](azure-stack-powershell-install.md). Certifique-se de que instala **módulo do PowerShell do Azure pilha versão 1.2.11 ou superior**.  
+2.  Reveja o espaço de armazenamento disponível antes de transferir os itens do marketplace. Mais tarde, ao selecionar itens para transferência, pode comparar o tamanho de transferência para a capacidade de armazenamento disponível. Se a capacidade é limitada, considere as opções para [gerir o espaço disponível](azure-stack-manage-storage-shares.md#manage-available-space). 
 
-2. Adicione a conta do Azure que utilizou para registar a pilha do Azure. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet sem quaisquer parâmetros. É-lhe pedido que introduza as credenciais da conta do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.  
+    Para rever o espaço disponível, no **gestão região** selecione a região que pretende explorar e, em seguida, aceda a **fornecedores de recursos** > **armazenamento**.
+
+    ![Reveja o espaço de armazenamento](media/azure-stack-download-azure-marketplace-item/storage.png)  
+
+    
+3. Abra a pilha do Azure Marketplace e ligar ao Azure. Para tal, selecione **gestão Marketplace**e, em seguida, selecione **adicionar a partir do Azure**.
+
+    ![Adicionar a partir do Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+
+    O portal apresenta a lista de itens disponíveis para transferência a partir do Azure Marketplace. Pode clicar em cada item para ver a descrição e informações adicionais sobre o assunto, incluindo o tamanho de transferência. 
+
+    ![Lista de Marketplace](media/azure-stack-download-azure-marketplace-item/image03.png)
+
+4. Selecione o item que pretende e, em seguida, selecione **transferir**. Tempo de transferência variar.
+
+    ![Transferir a mensagem](media/azure-stack-download-azure-marketplace-item/image04.png)
+
+    Depois de concluída a transferência, pode implementar o novo item do marketplace como um operador de pilha do Azure ou o utilizador.
+
+5. Para implementar o item transferido, selecione **+ novo**e, em seguida, procure entre as categorias para o novo item do marketplace. Em seguida, selecione o item para iniciar o processo de implementação. O processo varia consoante o itens do marketplace diferentes. 
+
+## <a name="disconnected-or-a-partially-connected-scenario"></a>Desligado ou um cenário parcialmente ligado
+
+Se a pilha do Azure está num modo desligado e sem conectividade à internet, utilizar o PowerShell e o *ferramenta de sindicação do marketplace* para transferir os itens do marketplace para uma máquina com a conectividade à internet. Em seguida, transferir os itens para o seu ambiente de pilha do Azure. Num ambiente desligado, não é possível transferir os itens do marketplace utilizando o portal de pilha do Azure. 
+
+A ferramenta de sindicação do marketplace também pode ser utilizada num cenário ligado. 
+
+Existem duas partes para este cenário:
+- **Parte 1:** transferir a partir do Azure Marketplace. No computador com acesso à internet configurar o PowerShell, transfira a ferramenta de sindicação e, em seguida, transferir o formulário de itens no Azure Marketplace.  
+- **Parte 2:** carregar e publicar a pilha do Azure Marketplace. Mova os ficheiros transferidos para o ambiente de pilha do Azure, importe-as à pilha do Azure e, em seguida, publicá-los para a pilha do Azure Marketplace.  
+
+
+### <a name="prerequisites"></a>Pré-requisitos
+- A implementação de pilha do Azure tem de ser [está registado no Azure](azure-stack-register.md).  
+
+- O computador que tem acesso à internet tem de ter **módulo do PowerShell do Azure pilha versão 1.2.11** ou superior. Se não estiver já presente, [instalar os módulos do PowerShell específicos do Azure pilha](azure-stack-powershell-install.md).  
+
+- Para ativar a importação de um item do marketplace transferidos, o [ambiente de PowerShell para o operador de pilha do Azure](azure-stack-powershell-configure-admin.md) tem de ser configurado.  
+
+- Tem de ter uma conta do storage na pilha do Azure que tem um contentor acessível publicamente (que é um blob de armazenamento). Utilizar o contentor como armazenamento temporário para os ficheiros de Galeria de itens do marketplace. Se não estiver familiarizado com as contas de armazenamento e de contentores, consulte [trabalhar com blobs - portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) na documentação do Azure.
+
+- A ferramenta de sindicação do marketplace é transferida durante o primeiro procedimento. 
+
+### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Utilize a ferramenta de sindicação do marketplace para transferir os itens do marketplace
+
+1. Num computador com uma ligação à Internet, abra uma consola do PowerShell como administrador.
+
+2. Adicione a conta do Azure que utilizou para registar a pilha do Azure. Para adicionar a conta, na execução do PowerShell `Add-AzureRmAccount` sem quaisquer parâmetros. É-lhe pedido que introduza as credenciais da conta do Azure e poderá ter de utilizar a autenticação de fator 2, com base na configuração da sua conta.
 
 3. Se tiver várias subscrições, execute o seguinte comando para selecionar aquela que utilizou para o registo:  
 
-   ```powershell
+   ```PowerShell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
-4. Transferir a versão mais recente da ferramenta de sindicação do marketplace utilizando o script seguinte:  
+4. Transferir a versão mais recente da ferramenta de sindicação marketplace utilizando o script seguinte:  
 
    ```PowerShell
    # Download the tools archive.
@@ -85,82 +116,100 @@ Partir do computador que tenha acesso à internet, utilize os seguintes passos p
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-master
+   cd .\AzureStack-Tools-master
 
    ```
 
-5. Importe o módulo de sindicação e iniciar a ferramenta, executando os seguintes comandos:  
+5. Importe o módulo de sindicação e, em seguida, inicie a ferramenta, executando o seguinte script. Substitua o *caminho da pasta de destino* com uma localização para armazenar os ficheiros que transfere do Azure Marketplace.   
 
-   ```powershell
+   ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination "<Destination folder path>" `
+     -destination "Destination folder path" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
 
-6. Quando a ferramenta é executada, são-lhe pedido que insira as credenciais de conta do Azure. Iniciar sessão para a conta do Azure que utilizou para registar a pilha do Azure. Após o início de sessão for bem sucedida, verá o ecrã seguinte, com a lista de itens do marketplace disponíveis.  
+6. Quando a ferramenta é executada, são-lhe pedido que insira as credenciais de conta do Azure. Iniciar sessão para a conta do Azure que utilizou para registar a pilha do Azure. Após o início de sessão for bem sucedida, verá um ecrã de como a imagem seguinte, com a lista de itens do marketplace disponíveis.  
 
-   ![Sobreposição de itens do Azure Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
+   ![Sobreposição de itens do Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Selecione a imagem que pretende transferir e tome nota da versão de imagem. Pode selecionar várias imagens ao premir a tecla Ctrl. Utilize a versão da imagem para importar a imagem na secção seguinte.  Em seguida, clique em **Ok**e, em seguida, aceite os termos legais, clicando no **Sim**. Também pode filtrar a lista de imagens, utilizando o **adicionar critérios** opção. 
+7. Selecione o item que pretende transferir e anote o *versão*. (Pode selecionar várias imagens ao premir a *Ctrl* chave.) Irá referenciar o *versão* ao importar o item no procedimento seguinte. 
+   
+   Também pode filtrar a lista de imagens, utilizando o **adicionar critérios** opção.
 
-   A transferência demora algum tempo, consoante o tamanho da imagem. Uma vez as transferências de imagem, está disponível no caminho de destino que forneceu anteriormente. A transferência contém um ficheiro VHD (para máquinas virtuais) ou um. Ficheiro ZIP (para extensões de máquina virtual) e um item da galeria no formato Azpkg.
+8. Selecione **OK**e, em seguida, reveja e aceite os termos legais. 
 
-### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importe a imagem e publicá-lo no mercado de pilha do Azure
-Existem três tipos diferentes de itens no marketplace: máquinas virtuais, extensões de Máquina Virtual e modelos de solução. Modelos de solução são abordados abaixo.
-> [!NOTE]
-> Extensões de máquina virtual não é possível adicionar a pilha de Azure neste momento.
+9. O tempo que demora a transferência depende do tamanho do item. Depois de concluída a transferência, o item está disponível na pasta que especificou no script. A transferência inclui um ficheiro VHD (para máquinas virtuais) ou um. Ficheiro ZIP (para extensões de máquina virtual). Também inclui um pacote de galeria no *.azpkg* formato. (A *.azpkg* pacote é um *. zip* ficheiro.)
+ 
 
-1. Depois de transferir o pacote de imagem e galeria, guarde-los e o conteúdo na pasta master de ferramentas de AzureStack para uma unidade de disco amovível e copie-a para o ambiente de pilha do Azure (pode copiá-la localmente em qualquer localização, tais como: "C:\MarketplaceImages").     
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importar a transferência e publicar no Azure Marketplace da pilha
+1. Os ficheiros de imagens da máquina virtual ou modelos de solução que tiver [anteriormente transferidos](#use-the-marketplace-syndication-tool-to-download-marketplace-items) tem de ser disponibilizada localmente para o seu ambiente de pilha do Azure.  
 
-2. Antes de importar a imagem, tem de ligar ao ambiente do operador de pilha do Azure, utilizando os passos descritos no [configurar o ambiente de PowerShell do operador de pilha do Azure](azure-stack-powershell-configure-admin.md).  
+2. Importe. Ficheiros VHD a pilha do Azure. Para importar com êxito uma imagem de máquina virtual (VM), tem de ter as seguintes informações sobre a VM:
+   - O *versão*, conforme indicado no passo 7 do procedimento anterior.
+   - Os valores para as VMs *publicador*, *oferecem*, e *sku*. Para obter estes valores, mudar o nome de uma cópia do **.azpkg** ficheiro para alterar a extensão de ficheiro para **. zip**. Em seguida, pode utilizar um editor de texto para abrir **DeploymentTemplates\CreateUiDefinition.json**. No ficheiro. JSON, localize o *imageReference* secção, que contém estes valores para o item do marketplace. O exemplo seguinte demonstra como estas informações aparecem:
 
-3. Se a transferência incluído um pequeno ficheiro VHD de 3MB fixed3.vhd com o nome, é um modelo de solução. Este ficheiro não é necessária; avance para o passo 5. Certifique-se que transferir quaisquer itens dependentes, conforme indicado na descrição para a transferência.
+     ```json  
+     "imageReference": {  
+        "publisher": "MicrosoftWindowsServer",  
+        "offer": "WindowsServer",  
+        "sku": "2016-Datacenter-Server-Core"  
+      }
+     ```  
 
-4. Importe a imagem à pilha do Azure utilizando o cmdlet Add-AzsVMImage. Quando utilizar este cmdlet, certifique-se de que substitui o *publicador*, *oferecem*e outros valores de parâmetros com os valores da imagem que está a importar. Pode obter o *publicador*, *oferecem*, e *sku* valores da imagem a partir do objeto imageReference do ficheiro Azpkg que transferiu anteriormente e a  *versão* valor no passo 6 na secção anterior.
+   Importe a imagem à pilha do Azure utilizando o **adicionar AzsPlatformimage** cmdlet. Quando utilizar este cmdlet, certifique-se de que substitui o *publicador*, *oferecem*e outros valores de parâmetros com os valores da imagem que está a importar. Pode obter o *publicador*, *oferecem*, e *sku* valores da imagem do ficheiro de texto que é transferido, juntamente com o ficheiro AZPKG e armazenado na localização de destino . 
 
-Para localizar o imageReference, terá de mudar o nome do ficheiro AZPKG com o. ZIP extensão, extraia-o para uma localização temporária e abra o ficheiro DeploymentTemplates\CreateUiDefinition.json com um editor de texto. Localize nesta secção:
+   O script de exemplo seguinte, são utilizados valores para o Windows Server 2016 Datacenter - máquina virtual de Server Core. 
 
-   ```json
-   "imageReference": {
-      "publisher": "MicrosoftWindowsServer",
-      "offer": "WindowsServer",
-      "sku": "2016-Datacenter-Server-Core"
-    }
-   ```
-
-   Substitua os valores de parâmetros e execute o seguinte comando:
-
-   ```powershell
-   Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-
-   Add-AzsVMImage `
+   ```PowerShell  
+   Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-    -CreateGalleryItem $False `
-    -Location Local
    ```
+   **Sobre os modelos de solução:** alguns modelos podem incluir um pequeno de 3 MB. Ficheiro VHD com o nome **fixed3.vhd**. Não é necessário importar esse ficheiro para a pilha do Azure. Fixed3.vhd.  Este ficheiro está incluído com alguns modelos de solução para satisfazer os requisitos de publicação para o Azure Marketplace.
 
-5. Portal de utilização para carregar o item do Marketplace (. Azpkg) para pilha Blob storage do Azure. Pode carregar para o armazenamento de Azure pilha local ou carregar para o Storage do Azure. (Esta é uma localização temporária para o pacote.) Certifique-se de que o blob acessível publicamente e tenha em atenção o URI.  
+   Reveja a descrição de modelos e transferir e, em seguida, importar requisitos adicionais, como os VHDs que são necessários para funcionar com o modelo de solução.
 
-6. Publicar o item do marketplace com pilha do Azure utilizando o **adicionar AzsGalleryItem**. Por exemplo:
+3. Utilize o portal de administração para carregar o pacote do item do marketplace (o ficheiro .azpkg) para pilha Blob storage do Azure. Carregamento do pacote torna disponível para a pilha do Azure para que mais tarde pode publicar o item a pilha do Azure Marketplace.
 
-   ```powershell
-   Add-AzsGalleryItem `
-     -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.2.azpkg" `
+   Carregamento requer que tenha uma conta de armazenamento com um contentor acessível publicamente (consulte os pré-requisitos para este cenário)   
+   1. No portal de administração de pilha do Azure, aceda a **mais serviços** > **contas do Storage**.  
+   
+   2. Selecione uma conta de armazenamento da sua subscrição e, em seguida, em **serviço BLOB**, selecione **contentores**.  
+      ![Serviço blob](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+   
+   3. Selecione o contentor que pretende utilizar e, em seguida, selecione **carregar** para abrir o **carregar blob** painel.  
+      ![contentor](media/azure-stack-download-azure-marketplace-item/container.png)  
+   
+   4. No painel de blob de carregamento, navegue para os ficheiros que pretende carregar para o armazenamento e, em seguida, selecione **carregar**.  
+      ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
+
+   5. Os ficheiros que carregar aparecem no painel do contentor. Selecione um ficheiro e, em seguida, copie o URL do **Blob propriedades** painel. Irá utilizar este URL no próximo passo, quando importar o item do marketplace com pilha do Azure.  Na imagem seguinte, o contentor é *armazenamento de BLOBs teste* e o ficheiro é *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  O ficheiro de URL é *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
+      ![Propriedades de blob](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+4.  Utilizar o PowerShell para publicar o item do marketplace com pilha do Azure utilizando o **adicionar AzsGalleryItem** cmdlet. Por exemplo:  
+    ```PowerShell  
+    Add-AzsGalleryItem `
+     -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
-   ```
+    ```
+5. Depois de publicar um item da galeria, pode ver a **mais serviços** > **Marketplace**.  Se a transferência é um modelo de solução, certifique-se de que adicionar qualquer imagem VHD dependente para esse modelo de solução.  
+  ![Marketplace de vista](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
-7. Depois do item da galeria é publicado, pode ver ao **novo** > **Marketplace** painel. Se a transferência estava um modelo de solução, certifique-se de que transferiu também a imagem VHD dependente.
+> [!NOTE]
+> Com o lançamento da pilha do Azure PowerShell 1.3.0 agora pode adicionar extensões de Máquina Virtual.
 
-   ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
+Por exemplo:
+
+````PowerShell
+Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
+````
 
 ## <a name="next-steps"></a>Passos Seguintes
-
 [Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)

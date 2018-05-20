@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Arquitetura de acelerador da solução de monitorização remota
 
-Monitorização remota [acelerador solução](iot-suite-what-are-solution-accelerators.md) implementa uma solução de monitorização ponto a ponto para várias máquinas em localizações remotas. A solução combina serviços-chave do Azure para fornecer uma implementação genérica do cenário de negócios. Pode utilizar a solução como um ponto de partida para a sua própria implementação e [personalizar](iot-suite-remote-monitoring-customize.md) para satisfazer os seus requisitos empresariais específicos.
+Monitorização remota [acelerador solução](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementa uma solução de monitorização ponto a ponto para várias máquinas em localizações remotas. A solução combina serviços-chave do Azure para fornecer uma implementação genérica do cenário de negócios. Pode utilizar a solução como um ponto de partida para a sua própria implementação e [personalizar](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) para satisfazer os seus requisitos empresariais específicos.
 
 Este artigo acompanha-o através de alguns dos elementos-chave da solução de monitorização remota para que possa compreender como funciona. Estes conhecimentos ajudam a:
 
@@ -33,7 +33,7 @@ Este artigo acompanha-o através de alguns dos elementos-chave da solução de m
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
-O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitorização remota, overlaid no [arquitetura IoT](iot-suite-what-is-azure-iot.md):
+O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitorização remota, overlaid no [arquitetura IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Se pretende explorar a documentação de código e o programador da origem, come
 * [Acelerador de solução de monitorização remota com o Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 * [Solution accelerator arquitetura de monitorização remota)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [personalizar o acelerador solução](iot-suite-remote-monitoring-customize.md).
+Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [personalizar o acelerador solução](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

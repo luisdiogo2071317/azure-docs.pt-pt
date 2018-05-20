@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/06/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
 Este artigo fornece os passos detalhados de resolução de problemas para diagnosticar e corrigir os erros de ambiente de trabalho remoto complexos baseados em Windows máquinas virtuais do Azure.

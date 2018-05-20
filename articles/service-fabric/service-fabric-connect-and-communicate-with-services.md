@@ -1,6 +1,6 @@
 ---
-title: "Ligar e comunicar com serviços no Azure Service Fabric | Microsoft Docs"
-description: "Saiba como resolver, ligar e comunicar com serviços no Service Fabric."
+title: Ligar e comunicar com serviços no Azure Service Fabric | Microsoft Docs
+description: Saiba como resolver, ligar e comunicar com serviços no Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,23 +9,23 @@ editor: msfussell
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Ligar e comunicar com serviços no Service Fabric
 No Service Fabric, um serviço é executado algures num cluster de Service Fabric, normalmente distribuído por várias VMs. -Pode ser movida local para outro, pelo proprietário do serviço, ou automaticamente pelo Service Fabric. Serviços estaticamente não estão associados a um determinado computador ou endereço.
 
 Uma aplicação de Service Fabric, geralmente, é composta por vários serviços diferentes, onde cada serviço executa uma tarefa de especializado. Estes serviços podem comunicar entre si para formar uma função concluída, como as diferentes partes composição de uma aplicação web. Também existem aplicações cliente que se ligar a e comunicam com serviços. Este documento descreve como configurar a comunicação com o operador and entre os serviços no Service Fabric.
 
-Este vídeo Microsoft Virtual Academy também descreve comunicação do serviço:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
+Este vídeo Microsoft Virtual Academy também descreve comunicação do serviço: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
 <img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -174,14 +174,14 @@ Por exemplo, para aceitar o tráfego externo na porta **80**, tem de ser configu
 ## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: Opções de API de comunicação incorporada
 A estrutura de Reliable Services é fornecido com várias opções de comunicação pré-criadas. A decisão sobre quais um funcionarão melhor para si depende a escolha do modelo de programação, a arquitetura de comunicação e que os serviços são escritos em linguagem de programação.
 
-* **Nenhum protocolo específico:** se não tiver uma escolha específica de estrutura de comunicação, mas pretende obter algo cópias de segurança e executar rapidamente, em seguida, é a opção ideal para si [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md), que permite que o tipo seguro de procedimento remoto chamadas para Reliable Services e Reliable Actors. Esta é a forma mais fácil e mais rápida para começar com comunicação de serviço. Comunicação remota do serviço processa a resolução de endereços de serviço, ligação, tente novamente e processamento de erros. Trata-se disponível para c# e aplicações de Java.
+* **Nenhum protocolo específico:** se não tiver uma escolha específica de estrutura de comunicação, mas pretende obter algo cópias de segurança e executar rapidamente, em seguida, é a opção ideal para si [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md), que lhe permite tipo seguro de procedimento remoto chama para Reliable Services e Reliable Actors. Esta é a forma mais fácil e mais rápida para começar com comunicação de serviço. Comunicação remota do serviço processa a resolução de endereços de serviço, ligação, tente novamente e processamento de erros. Trata-se disponível para c# e aplicações de Java.
 * **HTTP**: para comunicação de linguagem, HTTP fornece uma opção de norma da indústria com servidores HTTP disponíveis em vários idiomas diferentes, todos suportados pelo serviço de recursos de infraestrutura e ferramentas. Os serviços podem utilizar qualquer pilha HTTP disponível, incluindo [API Web do ASP.NET](service-fabric-reliable-services-communication-webapi.md) para aplicações do c#. Podem tirar partido dos clientes escritos em c# do `ICommunicationClient` e `ServicePartitionClient` classes, enquanto que para Java, utilize o `CommunicationClient` e `FabricServicePartitionClient` classes, [para resolução de serviço, as ligações HTTP e ciclos de repetição](service-fabric-reliable-services-communication.md).
 * **WCF**: Se tiver o código existente que utiliza o WCF como o framework de comunicação, em seguida, pode utilizar o `WcfCommunicationListener` no lado do servidor e `WcfCommunicationClient` e `ServicePartitionClient` classes para o cliente. No entanto é apenas disponível para aplicações c# em clusters de baseado no Windows. Para obter mais detalhes, consulte este artigo [implementação baseada no WCF da pilha de comunicação](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Utilizar protocolos personalizados e outras estruturas de comunicação
 Os serviços podem utilizar qualquer protocolo ou arquitetura de comunicação, se se trata de um protocolo personalizado de binário através de TCP sockets ou eventos de transmissão em fluxo através de [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/) ou [IoT Hub do Azure](https://azure.microsoft.com/services/iot-hub/). O Service Fabric fornece comunicação APIs que pode fixação a pilha de comunicações para, enquanto todo o trabalho para detetar e ligar é abstracted do utilizador. Consulte este artigo o [modelo de comunicação de serviço fiável](service-fabric-reliable-services-communication.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre os conceitos e as APIs disponíveis no [modelo de comunicação Reliable Services](service-fabric-reliable-services-communication.md), em seguida, comece a trabalhar rapidamente com [comunicação remota do serviço](service-fabric-reliable-services-communication-remoting.md) ou vá aprofundada para saber mais sobre como escrever um serviço de escuta de comunicação com [Web API com OWIN Self-alojar](service-fabric-reliable-services-communication-webapi.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png

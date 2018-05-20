@@ -4,13 +4,13 @@ description: Descreve como avaliar grande número de máquinas no local ao utili
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e0bd62710c47cfdf81535470ef96bad2ab675bb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -88,7 +88,7 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
 
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
 
-    Para a versão de OVA 1.0.9.7
+    Para a versão OVA 1.0.9.7
 
     **Algoritmo** | **Valor de hash**
     --- | ---
@@ -170,12 +170,12 @@ A tabela seguinte lista também os resultados da avaliação que vai ser afetado
 | Contador                                 | Nível | Nível de por dispositivo | Impacto de avaliação                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
 | cpu.usage.average                       | 1     | ND               | Tamanho da VM recomendada e o custo         |
-| mem.usage.average                       | 1     | ND               | Tamanho da VM recomendada e o custo         |
+| Mem.Usage.Average                       | 1     | ND               | Tamanho da VM recomendada e o custo         |
 | virtualDisk.read.average                | 2     | 2                | Tamanho do disco, o custo de armazenamento e o tamanho da VM |
 | virtualDisk.write.average               | 2     | 2                | Tamanho do disco, o custo de armazenamento e o tamanho da VM |
 | virtualDisk.numberReadAveraged.average  | 1     | 3                | Tamanho do disco, o custo de armazenamento e o tamanho da VM |
 | virtualDisk.numberWriteAveraged.average | 1     | 3                | Tamanho do disco, o custo de armazenamento e o tamanho da VM |
-| net.received.average                    | 2     | 3                | Custo de tamanho e a rede VM             |
+| NET.Received.Average                    | 2     | 3                | Custo de tamanho e a rede VM             |
 | net.transmitted.average                 | 2     | 3                | Custo de tamanho e a rede VM             |
 
 > [!WARNING]
@@ -203,7 +203,7 @@ Para cada deteção que é necessário executar, execute o recoletor para deteta
 5.  Em **Especificar detalhes do vCenter Server**, efetue o seguinte:
     - Especifique o nome (FQDN) ou endereço IP do vCenter Server.
     - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter Server.
-    - No **selecionar âmbito**, selecione um âmbito de deteção VM. O recoletor pode detetar apenas as VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Esta não deve conter mais de 1000 VMs. 
+    - Em **Select scope** (Selecionar âmbito), selecione um âmbito para a deteção de VMs. O recoletor pode detetar apenas as VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Esta não deve conter mais de 1000 VMs. 
 
 6.  No **projeto de migração de especificar**, especifique o ID e a chave para o projeto. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. O projeto **descrição geral** página, selecione **detetar máquinas** e copie os valores.  
 7.  No **ver o progresso da coleção**, monitorizar o processo de deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de deteção aproximado.

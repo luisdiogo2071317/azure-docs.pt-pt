@@ -1,6 +1,6 @@
 ---
-title: Custos de software do Windows de instâncias de VM de reserva do Azure | Microsoft Docs
-description: Saiba quais medidores de software do Windows não estiverem incluídos nos custos de instância de Máquina Virtual reservada.
+title: Custos de software do Windows de instâncias de reserva do Azure - faturação do Azure | Microsoft Docs
+description: Saiba quais medidores de software do Windows não estejam incluídas nos custos de instância de VM do Azure reservado.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="windows-software-costs-not-included-with-reserved-instances"></a>Custos de software do Windows não incluídos com instâncias reservado
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Custos de software do Windows não incluídos com instâncias de reservados do Azure
 
 Se não tiver uma vantagem de utilização de híbrida do Azure em máquinas virtuais instância reservado, em seguida, são-lhe cobrados para medidores de software do Windows listadas na secção seguinte.
 
@@ -52,11 +52,18 @@ Se não tiver uma vantagem de utilização de híbrida do Azure em máquinas vir
 Pode obter o custo de cada uma destes medidores através do Azure RateCard API. Para obter informações sobre como obter as taxas de uma medição do azure, consulte [obter informações de preços e metadados para os recursos utilizados numa subscrição do Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+Para saber mais sobre instâncias reservados do Azure, consulte os artigos seguintes:
 
-- [Prepay para máquinas virtuais com instâncias de VM reservado](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir instâncias de Máquina Virtual reservada](billing-manage-reserved-vm-instance.md)
-- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](billing-save-compute-costs-reservations.md)
-- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](billing-understand-vm-reservation-charges.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias de reservados do Azure](billing-save-compute-costs-reservations.md)
+- [Prepay para máquinas virtuais com instâncias reservadas](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir instâncias reservadas](billing-manage-reserved-vm-instance.md)
+- [Compreender a forma como é aplicado o desconto instância reservado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](billing-understand-reserved-instance-usage-ea.md)
+
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+
+Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.
+
+
+

@@ -1,24 +1,24 @@
 ---
-title: "Tutorial de atualização de aplicação de Service Fabric | Microsoft Docs"
-description: "Este artigo explica a experiência de implementação de uma aplicação de Service Fabric, alterar o código e disponibilizando uma atualização através do Visual Studio."
+title: Tutorial de atualização de aplicação de Service Fabric | Microsoft Docs
+description: Este artigo explica a experiência de implementação de uma aplicação de Service Fabric, alterar o código e disponibilizando uma atualização através do Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização de aplicação de Service Fabric com o Visual Studio
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Selecionar **publicar** aparece um pop-up, e pode definir o **destino perfil** p
 
 ![Publicar uma aplicação de Service Fabric][image2]
 
-Agora, pode clicar em **publicar** na caixa de diálogo. Pode utilizar [Service Fabric Explorer para ver o cluster e a aplicação](service-fabric-visualizing-your-cluster.md). A aplicação de objetos Visual tem um serviço web que pode aceder à escrevendo [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) na barra de endereço do seu browser.  Deverá ver 10 objetos visual flutuante mover à volta, no ecrã.
+Agora, pode clicar em **publicar** na caixa de diálogo. Pode utilizar [Service Fabric Explorer para ver o cluster e a aplicação](service-fabric-visualizing-your-cluster.md). A aplicação de objetos Visual tem um serviço web que pode aceder à escrevendo [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) na barra de endereço do seu browser.  Deverá ver 10 objetos visual flutuante mover à volta, no ecrã.
 
 **Nota:** se implementar `Cloud.xml` perfil (Azure Service Fabric), a aplicação, em seguida, deve estar disponível em **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Certifique-se de que tem `8081/TCP` configurado no balanceador de carga (localizar o Balanceador de carga no mesmo grupo de recursos que a instância do Service Fabric).
 

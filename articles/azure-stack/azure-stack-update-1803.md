@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-1803-update"></a>Atualização de pilha 1803 do Azure
 
@@ -56,7 +56,7 @@ Este artigo descreve os melhoramentos e corrige no pacote de atualização de 18
 ### <a name="post-update-steps"></a>Passos pós-atualização
 - Após a instalação de 1803, instale as correções aplicáveis. Para mais informações, veja os seguintes artigos da base de dados de conhecimento, bem como a nossa [manutenção política](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - falhas de serviço de API do controlador de rede ao tentar instalar uma atualização de pilha do Azure](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - operações de contra a falham de recursos de inquilino e partilhas inesperadas são criadas no mesmo inquilino ou no volume de infraestrutura](https://support.microsoft.com/en-us/help/4294441)
 
 - Depois de instalar esta atualização, reveja a configuração de firewall para se certificar [as portas necessárias](azure-stack-integrate-endpoints.md) estão abertas. Por exemplo, esta atualização apresenta Monitor do Azure, que inclui uma alteração de registos de auditoria nos registos de atividade. Com esta alteração, porta 13012 agora é utilizada e também tem de estar aberta.  
 
@@ -118,8 +118,6 @@ As seguintes são problemas conhecidos de pós-instalação para a compilação 
 - Poderá não ser possível ver os recursos de computação ou o armazenamento no portal do administrador. A causa deste problema é um erro durante a instalação da atualização que faz com que a atualização incorretamente sejam comunicados como concluída com êxito. Se este problema ocorrer, contacte o suporte técnico da Microsoft para obter assistência.
 
 - Poderá ver um dashboard em branco no portal. Para recuperar o dashboard, selecione o ícone de equipamento no canto superior direito do portal e, em seguida, selecione **restaurar predefinições**.
-
-- Ao visualizar as propriedades de um recurso ou grupo de recursos, o **mover** botão está desativado. Este comportamento é esperado. Mover recursos ou grupos de recursos entre grupos de recursos ou subscrições não é atualmente suportado.
 
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos completo e, em seguida, eliminar subscrições de utilizador.
 
@@ -244,6 +242,7 @@ As seguintes são problemas conhecidos de pós-instalação para a compilação 
 
 - O fornecedor de recursos é suportado para criar itens nos servidores desse anfitrião SQL ou MySQL. Itens criados num servidor anfitrião que não são criados pelo fornecedor de recursos poderão resultar num Estado não correspondentes.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Depois de atualizar para 1803 de pilha do Azure, pode continuar a utilizar os fornecedores de recursos do SQL Server e o MySQL que implementou anteriormente.  Recomendamos que Atualize para o SQL Server e o MySQL quando uma nova versão fica disponível. Como a pilha do Azure, aplica atualizações de fornecedores de recursos do SQL Server e o MySQL sequencialmente.  Por exemplo, se utilizar a versão 1711, aplicar primeiro a versão 1712, em seguida, 1802 e, em seguida, atualize para 1803.      

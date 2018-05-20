@@ -3,17 +3,17 @@ title: Tutorial do Kubernetes no Azure tutorial - Atualizar aplicação
 description: Tutorial de AKS – Atualizar Aplicação
 services: container-service
 author: neilpeterson
-manager: jeconnoc
+manager: timlt
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar uma aplicação no Serviço Kubernetes do Azure (AKS)
 
@@ -164,10 +164,10 @@ Neste tutorial, atualiza uma aplicação e implementa esta atualização num clu
 > * Enviou a imagem de contentor para o Azure Container Registry
 > * Implementou a aplicação atualizada
 
-Avance para o próximo tutorial para saber mais sobre a atualização do Kubernetes para uma nova versão.
+Avance para o próximo tutorial para saber mais sobre como monitorizar o Kubernetes com o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Atualizar Kubernetes][aks-tutorial-upgrade]
+> [Monitorizar o Kubernetes com o Log Analytics][aks-tutorial-monitor]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +178,5 @@ Avance para o próximo tutorial para saber mais sobre a atualização do Kuberne
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

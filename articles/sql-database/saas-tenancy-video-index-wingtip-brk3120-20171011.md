@@ -2,20 +2,20 @@
 title: Vídeo indexada, aplicações de SQL de SaaS do Azure | Microsoft Docs
 description: Este artigo indexa vários pontos de tempo no nosso minutos 81 vídeos sobre a estrutura de aplicação de inquilinos de BD de SaaS, de conferência o Ignite contida 11 de Outubro de 2017. Pode avançar diretamente para a parte que lhe interessa. Pelo menos 3 padrões são descritas. Funcionalidades do Azure que simplificam o desenvolvimento e gestão descritas.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexada e anotadas para a aplicação de SaaS de mulit inquilino com a SQL Database do Azure
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexada e anotadas para a aplicação de SaaS de multi-inquilino com a SQL Database do Azure
 
 Este artigo é um índice anotado para as localizações de tempo de um minuto 81 vídeo sobre modelos de inquilinos de SaaS ou padrões. Este artigo permite-lhe ignorar trás ou reencaminhar as vídeo para os quais lhe interessa. O vídeo explica as opções de estrutura principal para uma aplicação de base de dados do multi-inquilino na base de dados do Azure SQL. O vídeo inclui demonstrações, instruções de código de gestão e, por vezes mais detalhadamente informado por experiência que pode ser na nossa documentação escrita.
 

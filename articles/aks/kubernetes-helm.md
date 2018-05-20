@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 53201021433b71aa6cd5b53e2089c2a105bade07
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Utilizar Helm serviço Kubernetes do Azure (AKS)
 
@@ -53,7 +53,7 @@ Bash completion has been installed to:
 O [helm init] [ helm-init] comando é utilizado para instalar componentes de Helm num Kubernetes cluster e efetuar configurações do lado do cliente. Execute o seguinte comando para instalar Helm no seu cluster AKS e configurar o cliente Helm.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 Saída:
@@ -118,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 Para implementar um controlador de entrada NGINX, utilize o [helm instalação] [ helm-install] comando.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 O resultado semelhante ao seguinte, mas inclui informações adicionais, tais como as instruções sobre como utilizar a implementação de Kubernetes.

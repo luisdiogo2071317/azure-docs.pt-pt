@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 422563f6a4e85884f4512d797d666e470835e2d2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -37,7 +37,9 @@ Os enlaces de HTTP são fornecidos no [Microsoft.Azure.WebJobs.Extensions.Http](
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="trigger"></a>Acionar
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+## <a name="trigger"></a>Acionador
 
 O acionador HTTP permite invocar uma função com um pedido de HTTP. Pode utilizar um acionador HTTP para criar APIs sem servidor e responder a webhooks. 
 

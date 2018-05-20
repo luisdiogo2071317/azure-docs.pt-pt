@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Azure Active Directory a integração com BC na nuvem | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e BC na nuvem."
+title: 'Tutorial: Azure Active Directory a integração com BC na nuvem | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e BC na nuvem.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/1/2017
 ms.author: jeedes
-ms.openlocfilehash: 97cbd4c88746500f1783f573478d279873d42f87
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89c6aea65bb6ee812ec14cb8cc2334eb49686cd4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Azure Active Directory a integração com BC na nuvem
 
@@ -29,7 +29,7 @@ Integrar BC na nuvem com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para BC na nuvem (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-bcinthecloud-tutorial/tutorial_bcinthecloud_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://app.bcinthecloud.com/router/loginSaml/<customerid>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://app.bcinthecloud.com/router/loginSaml/<customerid>`
 
-    b. No **identificador** caixa de texto, escreva um URL como:`https://app.bcinthecloud.com`
+    b. No **identificador** caixa de texto, escreva um URL como: `https://app.bcinthecloud.com`
 
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [BC no cliente de nuvem suportar equipa](https://www.bcinthecloud.com/supportcenter/) para obter este valor. 
@@ -205,7 +205,7 @@ Nesta secção, testar a configuração do Azure AD único início de sessão at
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

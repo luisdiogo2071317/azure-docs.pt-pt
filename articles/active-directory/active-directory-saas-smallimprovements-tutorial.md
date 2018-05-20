@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com as melhorias de pequenas | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e melhorias pequeno."
+title: 'Tutorial: Integração do Azure Active Directory com as melhorias de pequenas | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e melhorias pequeno.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 959033978ace68012ab65655cb5fd6a62de87290
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f6cab5dd7c10e4036cdd2013c809142bf7ec846
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Azure Active Directory com as melhorias de pequenos
 
@@ -29,7 +29,7 @@ Melhoramentos pequenas a integração com o Azure AD fornece as seguintes vantag
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para pequenas melhoramentos (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.small-improvements.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.small-improvements.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.small-improvements.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de melhoramentos pequeno](mailto:support@small-improvements.com) para obter estes valores. 
@@ -214,7 +214,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no melhoramentos pequeno,
 
     b. Introduza o **Apelido** do utilizador, como **Simon**.
 
-    c. Introduza o **E-Mail** do utilizador, como  **brittasimon@contoso.com** . 
+    c. Introduza o **E-Mail** do utilizador, como **brittasimon@contoso.com**. 
 
     d. Também pode optar por introduzir a mensagem pessoal o **enviar e-mail de notificação** caixa. Se não pretender enviar a notificação, em seguida, desmarque esta caixa de verificação.
 
@@ -259,7 +259,7 @@ Quando clica no mosaico de pequenas melhorias no painel de acesso, deve obter au
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este documento fornece os passos sobre como resolver problemas com a sincronização de objeto através da tarefa resolução de problemas.
@@ -90,6 +90,8 @@ Uma caixa de correio ligada deve para ser associado com uma conta de principal e
 
 ## <a name="dynamic-distribution-group-issue"></a>Problema de grupo dinâmico de distribuição
 Devido a várias diferenças entre no local do Active Directory e do Azure Active Directory, Azure AD Connect não sincronizar a grupos de distribuição dinâmica para o inquilino do Azure AD.
+
+![Grupo de distribuição dinâmico](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>Relatório de HTML
 Além de analisar o objeto, a tarefa de resolução de problemas também gera um relatório HTML que contém tudo sobre o objeto. Este relatório HTML pode ser partilhado com a equipa de suporte para o fazer adicionais de resolução de problemas, se necessário.

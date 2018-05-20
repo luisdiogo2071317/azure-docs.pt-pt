@@ -1,24 +1,24 @@
 ---
-title: "Limitação no Gestor de recursos de cluster de Service Fabric | Microsoft Docs"
-description: "Saiba como configurar as limitações fornecidas pelo serviço de recursos de infraestrutura Cluster Gestor de recursos."
+title: Limitação no Gestor de recursos de cluster de Service Fabric | Microsoft Docs
+description: Saiba como configurar as limitações fornecidas pelo serviço de recursos de infraestrutura Cluster Gestor de recursos.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitação do Gestor de recursos de Cluster do serviço de recursos de infraestrutura
 Mesmo se tiver configurado o Gestor de recursos de Cluster corretamente, o cluster pode obter interrompido. Por exemplo, poderia ser simultâneas nó falhas e de falhas domínio - que aconteceria se de que ocorreu durante a atualização? O Gestor de recursos de Cluster tenta sempre corrigir tudo, consumir recursos do cluster tentar reorganize e corrigir o cluster. Limitações ajudam a fornecer um backstop para que o cluster pode utilizar recursos para stabilize - os nós voltar atrás, as partições de rede heal, bits corrigidas implementados.
@@ -90,6 +90,6 @@ Estas informações são fornecidas no caso de ter clusters antigos ou ainda man
 
 A configuração para estas limitações acompanha o mesmo padrão, como a limitação com base em percentagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações sobre a forma como o Gestor de recursos de Cluster gere e equilibra a carga no cluster, consulte o artigo em [balanceamento de carga](service-fabric-cluster-resource-manager-balancing.md)
 - O Gestor de recursos do Cluster tem muitas opções para descrever o cluster. Para saber mais sobre os mesmos, consulte este artigo no [que descrevem um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)

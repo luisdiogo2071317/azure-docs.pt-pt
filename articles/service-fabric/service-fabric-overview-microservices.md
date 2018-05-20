@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que motivo um micro-serviços abordagem de criação de aplicações?
 Como os programadores de software, não há nada de novo na forma como acreditamos sobre factoring uma aplicação em partes de componente. É o paradigma central de orientação de objeto, abstrações de software e componentization. Hoje em dia, este factorization tende a ter a forma de classes e interfaces entre camadas de tecnologia e bibliotecas partilhadas. Normalmente, é necessária uma abordagem em camadas com um arquivo de back-end, lógica de negócio de camada média e uma interface de front-end de utilizador (IU). O que *tem* alterados ao longo dos últimos anos alguns é que podemos, como os programadores, está a criar aplicações que são para a nuvem distribuídas e condicionadas pela empresa.

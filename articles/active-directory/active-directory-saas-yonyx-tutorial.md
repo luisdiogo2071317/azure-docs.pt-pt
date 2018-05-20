@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com guias interativa Yonyx | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e guias interativa Yonyx."
+title: 'Tutorial: Integração do Azure Active Directory com guias interativa Yonyx | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e guias interativa Yonyx.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e221959a9997c44bbcb1fe97273b2e40b1eec06c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c4448c8810d1411cb84b5c7e55a710e157c821e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com guias interativa Yonyx
 
@@ -30,7 +30,7 @@ Guias de interativa Yonyx a integração com o Azure AD fornece as seguintes van
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Yonyx guias interativa (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Yonyx interativa guias de domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.yonyx.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.yonyx.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de guias interativa Yonyx](mailto:support@yonyx.com) para obter estes valores. 
@@ -172,7 +172,7 @@ O objetivo desta secção consiste em criar um utilizador chamado Britta Simon g
 Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante a tentativa de aceder guias interativa Yonyx se não existir ainda.
 
 >[!NOTE]
->Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de guias interativa Yonyx através de < mailto:support@yonyx.com >. 
+>Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de guias interativa Yonyx através de <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -204,7 +204,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -215,7 +215,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

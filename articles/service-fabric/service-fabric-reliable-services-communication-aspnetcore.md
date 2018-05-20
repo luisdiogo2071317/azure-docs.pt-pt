@@ -1,24 +1,24 @@
 ---
-title: "Serviço de comunicação com o ASP.NET Core | Microsoft Docs"
-description: "Saiba como utilizar o ASP.NET Core nos serviços de fiável sem monitorização de estado e com monitorização de estado."
+title: Serviço de comunicação com o ASP.NET Core | Microsoft Docs
+description: Saiba como utilizar o ASP.NET Core nos serviços de fiável sem monitorização de estado e com monitorização de estado.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core nos serviços de fiável de recursos de infraestrutura de serviço
 
@@ -132,7 +132,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys num serviço de monitorização de estado
 
-`HttpSysCommunicationListener`Atualmente não foi concebida para utilização nos serviços de monitorização de estado devido a complicações com subjacentes *http.sys* funcionalidade de partilha de porta. Para obter mais informações, consulte a secção seguinte na alocação de porta dinâmica com HttpSys. Para os serviços com monitorização de estado, Kestrel é o servidor web recomendada.
+`HttpSysCommunicationListener` Atualmente não foi concebida para utilização nos serviços de monitorização de estado devido a complicações com subjacentes *http.sys* funcionalidade de partilha de porta. Para obter mais informações, consulte a secção seguinte na alocação de porta dinâmica com HttpSys. Para os serviços com monitorização de estado, Kestrel é o servidor web recomendada.
 
 ### <a name="endpoint-configuration"></a>Configuração de ponto final
 
@@ -310,7 +310,7 @@ Quando exposto à Internet, um serviço sem monitorização de estado deve utili
 | --- | --- | --- |
 | Servidor Web | kestrel | Kestrel é o servidor web preferencial, dado que é suportada em Windows e Linux. |
 | Configuração da porta | estático | Deve ser configurada uma porta estática bem conhecida no `Endpoints` configuração de ServiceManifest.xml, por exemplo 80 para HTTP ou 443 para HTTPS. |
-| ServiceFabricIntegrationOptions | Nenhum | O `ServiceFabricIntegrationOptions.None` opção deve ser utilizada quando configurar o middleware de integração do Service Fabric para que o serviço não tenta validar pedidos recebidos para um identificador exclusivo. Os utilizadores externos da sua aplicação não saberá que as informações de identificação exclusivas utilizadas pelo middleware. |
+| ServiceFabricIntegrationOptions | Nenhuma | O `ServiceFabricIntegrationOptions.None` opção deve ser utilizada quando configurar o middleware de integração do Service Fabric para que o serviço não tenta validar pedidos recebidos para um identificador exclusivo. Os utilizadores externos da sua aplicação não saberá que as informações de identificação exclusivas utilizadas pelo middleware. |
 | Contagem de Instâncias | -1 | Em casos de utilização típica, a contagem de instâncias definição deve ser definida como "-1" para que uma instância está disponível em todos os nós que recebem o tráfego do Balanceador de carga. |
 
 Se vários serviços externamente expostos partilham o mesmo conjunto de nós, HttpSys pode ser utilizado com um caminho de URL único, porém está estável. Isto pode ser efetuado ao modificar o URL fornecido ao configurar IWebHost. Tenha em conta de que isto se aplica a HttpSys apenas.

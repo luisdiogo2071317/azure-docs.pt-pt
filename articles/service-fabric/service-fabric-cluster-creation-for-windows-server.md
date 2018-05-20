@@ -1,24 +1,24 @@
 ---
-title: "Criar um cluster do Azure Service Fabric autónomo | Microsoft Docs"
-description: "Criar um cluster do Service Fabric do Azure em qualquer computador (físico ou virtual) com o Windows Server, quer seja local ou em nenhuma nuvem."
+title: Criar um cluster do Azure Service Fabric autónomo | Microsoft Docs
+description: Criar um cluster do Service Fabric do Azure em qualquer computador (físico ou virtual) com o Windows Server, quer seja local ou em nenhuma nuvem.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: dekapur;chackdan;maburlik
-ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: dekapur
+ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Service Fabric do Azure para criar clusters de Service Fabric em qualquer máquinas virtuais ou computadores que executam o Windows Server. Isto significa que pode implementar e executar aplicações de Service Fabric em qualquer ambiente que contém um conjunto de computadores do Windows Server interligados, sê-lo no local ou com qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de Service Fabric chamados o pacote do Windows Server autónomo.
@@ -130,7 +130,7 @@ Exemplo:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>Passo 3: Trazer Service Fabric Explorer
-Agora pode ligar ao cluster com o Service Fabric Explorer a diretamente a partir de uma das máquinas http://localhost:19080/Explorer/index.html ou remotamente com http://&lt*IPAddressofaMachine*>: 19080/Explorer / Index.HTML.
+Agora pode ligar ao cluster com o Service Fabric Explorer diretamente a partir de uma das máquinas com http://localhost:19080/Explorer/index.html ou remotamente com http://&lt*IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Adicionar e remover nós
 Pode adicionar ou remover nós ao cluster do Service Fabric do autónomo conforme as necessidades da empresa alterar. Consulte [adicionar ou remover nós para um cluster do Service Fabric autónomo](service-fabric-cluster-windows-server-add-remove-nodes.md) para obter passos detalhados.
@@ -154,19 +154,19 @@ Este script pode ser executado em qualquer computador que tenha acesso de admini
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Os dados telemétricos recolhidos e como ativamente por não-la
-Por predefinição, o produto recolhe telemetria a utilização de Service Fabric para melhorar o produto. O analisador de melhores práticas que é executado como parte da configuração verifica a existência de conectividade para [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Se não estiver acessível, o programa de configuração falhará, a menos que ativamente telemetria.
+Por predefinição, o produto recolhe telemetria a utilização de Service Fabric para melhorar o produto. O analisador de melhores práticas que é executado como parte da configuração verifica a existência de conectividade para [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1). Se não estiver acessível, o programa de configuração falhará, a menos que ativamente telemetria.
 
-1. O pipeline de telemetria tenta carregar os dados seguintes para [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) uma vez para cada dia. Este é um carregamento de melhor esforço e não tem impacto sobre a funcionalidade de cluster. A telemetria é enviada apenas a partir do nó que execute a ativação pós-falha Gestor primário. Não existem outros nós enviam telemetria.
+1. O pipeline de telemetria tenta carregar os dados seguintes para [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1) uma vez para cada dia. Este é um carregamento de melhor esforço e não tem impacto sobre a funcionalidade de cluster. A telemetria é enviada apenas a partir do nó que execute a ativação pós-falha Gestor primário. Não existem outros nós enviam telemetria.
 2. A telemetria consiste no seguinte:
 
 * Número de serviços
 * Número de ServiceTypes
-* Número de aplicações
+* Número de Aplicações
 * Número de ApplicationUpgrades
 * Número de FailoverUnits
 * Número de InBuildFailoverUnits
 * Número de UnhealthyFailoverUnits
-* Número de réplicas
+* Número de Réplicas
 * Número de InBuildReplicas
 * Número de StandByReplicas
 * Número de OfflineReplicas

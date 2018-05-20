@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Estas perguntas mais frequentes respondem a dúvidas sobre o Centro de segurança do Azure, um serviço que o ajuda a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos do Microsoft Azure.
@@ -51,16 +51,18 @@ Centro de segurança avalia a configuração dos seus recursos para identificar 
 Consulte [permissões no Centro de segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e as ações permitidas no Centro de segurança.
 
 ## <a name="data-collection"></a>Recolha de dados
-Centro de segurança recolhe dados das suas máquinas virtuais para avaliar o respetivo estado de segurança, fornecer recomendações de segurança e alertá-lo a ameaças. Quando aceder primeiro ao centro de segurança, a recolha de dados está ativada em todas as máquinas virtuais na sua subscrição. Também pode ativar a recolha de dados na política de centro de segurança.
+Centro de segurança recolhe dados de máquinas de virtuais (VMs) do Azure e computadores não do Azure para monitorizar vulnerabilidades de segurança e ameaças. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
 
 ### <a name="how-do-i-disable-data-collection"></a>Como desativar a recolha de dados?
-Se estiver a utilizar o escalão gratuito de centro de segurança do Azure, pode desativar a recolha de dados provenientes de máquinas virtuais em qualquer altura. Recolha de dados é necessária para subscrições na camada padrão. Pode desativar a recolha de dados para uma subscrição na política de segurança. ([Inicie sessão no portal do Azure](https://portal.azure.com), selecione **procurar**, selecione **Centro de segurança**e selecione **política**.)  Ao selecionar uma subscrição, um novo painel abre-se e fornece-lhe a opção para desativar **recolha de dados**.
+Aprovisionamento automático está desativado por predefinição. Pode desativar aprovisionamento automático de recursos em qualquer altura desativar esta definição na política de segurança. Aprovisionamento Automático é altamente recomendável para obter os alertas de segurança e recomendações sobre as atualizações do sistema, endpoint protection e vulnerabilidades do SO.
+
+Para desativar a recolha de dados, [inicie sessão no portal do Azure](https://portal.azure.com), selecione **procurar**, selecione **Centro de segurança**e selecione **selecione política**. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático. Quando seleciona uma subscrição **política de segurança – recolha de dados** abre. Em **aprovisionamento automático**, selecione **desativar**.
 
 ### <a name="how-do-i-enable-data-collection"></a>Como ativar a recolha de dados?
-Pode ativar a recolha de dados para a sua subscrição do Azure na política de segurança. Para ativar a recolha de dados. [Inicie sessão no portal do Azure](https://portal.azure.com), selecione **procurar**, selecione **Centro de segurança**e selecione **política**. Definir **recolha de dados** para **no**.
+Pode ativar a recolha de dados para a sua subscrição do Azure na política de segurança. Para ativar a recolha de dados. [Inicie sessão no portal do Azure](https://portal.azure.com), selecione **procurar**, selecione **Centro de segurança**e selecione **política de segurança**. Selecione a subscrição que pretende ativar o aprovisionamento automático. Quando seleciona uma subscrição **política de segurança – recolha de dados** abre. Em **aprovisionamento automático**, selecione **no**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?
-Quando a recolha de dados estiver ativada, o Microsoft Monitoring Agent é automaticamente aprovisionado em todos os existente e máquinas virtuais que são implementadas novas suportadas na subscrição.
+Quando o aprovisionamento automático está ativado, Aprovisiona o Centro de segurança do Microsoft Monitoring Agent em todos os suportadas VMs do Azure e quaisquer novos que são criados. Aprovisionamento Automático é vivamente recomendado, mas a instalação manual do agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 O agente permite que o evento de criação de processo 4688 e *CommandLine* campo no interior do evento 4688. Novos processos criados na VM são registados pelo registo de eventos e monitorizados pelos serviços de deteção do Centro de segurança. Para obter informações sobre os detalhes registado para cada novo processo consulte [descrição os campos no 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Além disso, o agente recolhe os 4688 eventos criados na VM e armazena-os na pesquisa.
 

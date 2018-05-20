@@ -1,24 +1,24 @@
 ---
-title: "Atualização da aplicação: serialização de dados | Microsoft Docs"
-description: "Melhores práticas para a serialização de dados e a forma como afeta a atualizações graduais de aplicação."
+title: 'Atualização da aplicação: serialização de dados | Microsoft Docs'
+description: Melhores práticas para a serialização de dados e a forma como afeta a atualizações graduais de aplicação.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c5a4ff9d70ea2b9c7e3a0337e913ea224b31648c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2f6fad0ecca09ff9210b5961301fea3446a88f11
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Como a serialização de dados afeta uma atualização da aplicação
 Num [a atualização da aplicação](service-fabric-application-upgrade.md), a atualização é aplicada a um subconjunto de nós, um domínio de atualização a uma hora. Durante este processo, alguns domínios de atualização são na versão mais recente da aplicação e alguns domínios de atualização são na versão anterior da aplicação. Durante a implementação, a nova versão da aplicação tem de ser possível ler a versão anterior dos seus dados e a versão antiga da aplicação tem de ser possível ler a nova versão dos seus dados. Se o formato de dados não é compatível com versões anteriores e reencaminhar, a atualização poderá falhar ou worse, os dados podem ser perdidos ou corrompidos. Este artigo descreve o que constitui o formato de dados e oferece melhores práticas para se certificar de que os dados estão a reencaminhar e com versões anteriores compatível.
@@ -52,7 +52,7 @@ Das duas versões do formato de código e os dados têm de ser direta e com vers
 
 Contrato de dados é a solução recomendada para se certificar de que os seus dados são compatíveis. Tem regras de controlo de versões definida especificamente para adicionar, remover e alteração dos campos. Também tem suporte para lidar com campos desconhecidos, hooking para o processo de serialização e a anulação da serialização e lidar com a herança de classe. Para obter mais informações, consulte [através de contrato de dados](https://msdn.microsoft.com/library/ms733127.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Atualizar a aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta-o através de uma atualização da aplicação com o Visual Studio.
 
 [Atualizar a sua aplicação através do Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta-o através de uma atualização da aplicação através do PowerShell.

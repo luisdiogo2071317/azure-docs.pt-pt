@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Ativar a cópia de segurança para a pilha do Azure no portal de administração
 Ative o serviço de cópia de segurança de infraestrutura através do portal de administração para que a pilha do Azure pode gerar cópias de segurança. Pode utilizar estas cópias de segurança para restaurar o seu ambiente na nuvem de recuperação em caso de a utilizar [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação na nuvem é garantir que os operadores e os utilizadores podem iniciar sessão no portal do após a conclusão da recuperação. Os utilizadores terão as respetivas subscrições restauradas incluindo permissões de acesso baseado em funções e as funções, planos originais, ofertas e a computação definida anteriormente, armazenamento e quotas de rede.
@@ -45,7 +45,7 @@ Os administradores e utilizadores são responsáveis pela cópia de segurança e
 3. Escreva o caminho para o **localização de armazenamento de cópia de segurança**. Utilize uma cadeia de convenção de Nomenclatura Universal (UNC) para o caminho para uma partilha de ficheiros alojado num dispositivo separado. Uma cadeia em UNC Especifica a localização dos recursos, tais como ficheiros partilhados ou dispositivos. Para o serviço, pode utilizar um endereço IP. Para garantir a disponibilidade dos dados de cópia de segurança depois de um desastre, o dispositivo deve estar num local separado.
     > [!Note]  
     > Se o seu ambiente suportar resolução do nome de rede de infraestrutura de pilha do Azure para o seu ambiente empresarial, pode utilizar um FQDN, em vez de IP.
-4. Tipo de **Username** com o domínio e o nome de utilizador. Por exemplo, `Contoso\administrator`.
+4. Tipo de **Username** a utilizar o domínio e o nome de utilizador com acesso suficiente para ler e escrever em ficheiros. Por exemplo, `Contoso\backupshareuser`.
 5. Tipo de **palavra-passe** para o utilizador.
 5. Escreva a palavra-passe novamente a **Confirmar palavra-passe**.
 6. Fornecer uma chave pré-partilhada no **chave de encriptação** caixa. Ficheiros de cópia de segurança estão encriptados com esta chave. Certifique-se armazenar esta chave numa localização segura. Depois de definir esta chave pela primeira vez ou rodar a chave no futuro, não é possível ver esta chave desta interface. Para obter mais instruções gerar uma chave pré-partilhada, siga os scripts em [ativar a cópia de segurança de pilha do Azure com o PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 

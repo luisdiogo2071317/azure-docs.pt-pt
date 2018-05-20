@@ -1,24 +1,24 @@
 ---
-title: "Adicionar ou remover nós para um cluster do Service Fabric autónomo | Microsoft Docs"
-description: "Saiba como adicionar ou remover nós num cluster do Azure Service Fabric numa máquina física ou virtual com o Windows Server, que pode ser no local ou em nenhuma nuvem."
+title: Adicionar ou remover nós para um cluster do Service Fabric autónomo | Microsoft Docs
+description: Saiba como adicionar ou remover nós num cluster do Azure Service Fabric numa máquina física ou virtual com o Windows Server, que pode ser no local ou em nenhuma nuvem.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós para um cluster do Service Fabric autónomo em execução no Windows Server
 Depois de ter [criado o seu cluster do Service Fabric autónomo nas máquinas do Windows Server](service-fabric-cluster-creation-for-windows-server.md), podem alterar a suas necessidades (empresariais) e terá de adicionar ou remover nós ao cluster. Este artigo fornece os passos detalhados de alcançar isto. Tenha em atenção que adicionar/remover a funcionalidade de nó não é suportada em clusters de desenvolvimento local.
@@ -57,7 +57,7 @@ Depois de ter [criado o seu cluster do Service Fabric autónomo nas máquinas do
     Pode monitorizar o progresso da atualização no Service Fabric Explorer. Em alternativa, pode executar [Get ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Adicionar nós nos clusters configurados com a segurança do Windows utilizam a gMSA
-Para clusters configurados com o grupo gerido serviço Account(gMSA) (https://technet.microsoft.com/library/hh831782.aspx), um novo nó pode ser adicionado através de uma atualização da configuração:
+Para clusters configurados com grupo Account(gMSA) de serviço geridas (https://technet.microsoft.com/library/hh831782.aspx), um novo nó pode ser adicionado através de uma atualização da configuração:
 1. Executar [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) em qualquer um de nós existentes para obter o ficheiro de configuração mais recente e adicione os detalhes sobre o novo nó que pretende adicionar na secção "Nós". Certifique-se que o novo nó faz parte da mesma conta geridas de grupo. Esta conta deve ser um administrador em todas as máquinas.
 
     ```
@@ -127,7 +127,7 @@ Antes de remover um tipo de nó, verifique duplo se existem quaisquer nós a ref
 A substituição de nós principais deve ser executado um nó após a outra, em vez de remover e, em seguida, adicionar em lotes.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Definições de configuração do cluster do Windows autónomo](service-fabric-cluster-manifest.md)
 * [Proteger um cluster autónomo no Windows utilizando X509 certificados](service-fabric-windows-cluster-x509-security.md)
 * [Criar um cluster do Service Fabric autónomo com as VMs do Azure com o Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)

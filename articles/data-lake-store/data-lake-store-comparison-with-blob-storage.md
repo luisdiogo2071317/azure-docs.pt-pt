@@ -9,23 +9,21 @@ editor: cgronlun
 ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: d394c856b2f27446ab28c44fe4fed2dfd59ae62f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f44532f0b0c0927c7b06c7e92a4839c5ce762f6e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o armazenamento de Blobs do Azure
 A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o armazenamento de Blobs do Azure ao longo de alguns aspetos fundamentais grande de processamento de dados. Armazenamento de Blobs do Azure é um objetivo geral, o arquivo de objeto dimensionável, que foi concebido para uma grande variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de hiper escala que está otimizado para cargas de trabalho de análise de macrodados.
 
-|  | Arquivo do Azure Data Lake | Armazenamento de Blobs do Azure |
+|  | Azure Data Lake Store | Armazenamento de Blobs do Azure |
 | --- | --- | --- |
-| Finalidade |Armazenamento otimizado para cargas de trabalho de análise de macrodados |Arquivo de objeto de objetivo geral para uma grande variedade de cenários de armazenamento, incluindo a análise de macrodados |
+| Objetivo |Armazenamento otimizado para cargas de trabalho de análise de macrodados |Arquivo de objeto de objetivo geral para uma grande variedade de cenários de armazenamento, incluindo a análise de macrodados |
 | Casos de utilização |O batch, interativa, transmissão em fluxo de dados do machine learning e de análise, tais como dados de IoT ficheiros de registo, clique em fluxos de grandes conjuntos de dados |Qualquer tipo de dados de texto ou binários, tais como aplicações de back-end, dados de cópia de segurança, armazenamento de suporte de dados para dados de objetivo de transmissão em fluxo e geral. Suporte para cargas de trabalho de análise; além disso, inteiro o batch, interativa, transmissão em fluxo de dados do machine learning e de análise, tais como dados de IoT ficheiros de registo, clique em fluxos de grandes conjuntos de dados |
 | Conceitos-chave |Conta do Data Lake Store contém pastas, que por sua vez, contém dados armazenados como ficheiros |Conta de armazenamento tem contentores, que por sua vez tem dados sob a forma de blobs |
 | estrutura |Sistema de ficheiros hierárquico |Arquivo de objeto com o espaço de nomes simples |

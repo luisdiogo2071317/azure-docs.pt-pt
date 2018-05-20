@@ -1,24 +1,24 @@
 ---
-title: "Atualização da aplicação: atualizar parâmetros | Microsoft Docs"
-description: "Descreve os parâmetros relacionados com a atualização de uma aplicação de Service Fabric, incluindo as verificações de estado de funcionamento para executar e políticas a anular automaticamente a atualização."
+title: 'Atualização da aplicação: atualizar parâmetros | Microsoft Docs'
+description: Descreve os parâmetros relacionados com a atualização de uma aplicação de Service Fabric, incluindo as verificações de estado de funcionamento para executar e políticas a anular automaticamente a atualização.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 4dafedb3fef821cd2562cf47937d034fdc59d92e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eb319b0f4e910163572ee62d8bdee735f27be592
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros da atualização da aplicação
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de uma aplicação de Service Fabric do Azure. Os parâmetros de incluir o nome e versão da aplicação. São botões que controlam os tempos limite e verificações de estado de funcionamento que são aplicadas durante a atualização, e especificarem as políticas que tem de ser aplicadas quando uma atualização falha.

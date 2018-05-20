@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir os certificados federado início de sessão no Azure Active Directory
 Este artigo aborda informações relacionadas com os certificados que o Azure Active Directory (Azure AD) cria para estabelecer federado-início de sessão único (SSO) para as aplicações de SaaS e perguntas comuns. Adicione aplicações na Galeria de aplicações do Azure AD ou utilizando um modelo de aplicação não galeria. Configure a aplicação utilizando a opção de SSO federada.
@@ -76,5 +76,5 @@ Os seguintes passos de renovação devem resultar em nenhum período de indispon
 ## <a name="related-articles"></a>Artigos relacionados
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Índice de artigos da gestão de aplicações no Azure Active Directory](active-directory-apps-index.md)
-* [Acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Resolução de problemas baseados em SAML-início de sessão único](active-directory-saml-debugging.md)

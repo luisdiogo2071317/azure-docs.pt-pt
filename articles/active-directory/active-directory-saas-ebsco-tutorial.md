@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com EBSCO | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e EBSCO."
+title: 'Tutorial: Integração do Azure Active Directory com EBSCO | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e EBSCO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9da10e134db019162abdff35a8eb742ccdc30626
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Azure Active Directory com EBSCO
 
@@ -30,7 +30,7 @@ Integrar EBSCO com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para EBSCO (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,13 +106,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio EBSCO e os URLs únicos de informações de início de sessão](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
 
-    No **identificador** caixa de texto, escreva um URL:`pingsso.ebscohost.com`
+    No **identificador** caixa de texto, escreva um URL: `pingsso.ebscohost.com`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio EBSCO e os URLs únicos de informações de início de sessão](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
      
     > [!NOTE] 
     > O valor do URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente EBSCO](mailto:sso@ebsco.com) para obter o valor. 
@@ -134,9 +134,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |    
-    | FirstName   | user.givenname |
-    | LastName   | user.surname |
-    | E-mail   | user.mail |
+    | FirstName   | User.givenName |
+    | Apelido   | User.Surname |
+    | Email   | User.Mail |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -236,7 +236,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -256,7 +256,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

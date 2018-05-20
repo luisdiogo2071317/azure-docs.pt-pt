@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Questetra BPM Suite | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Questetra BPM Suite."
+title: 'Tutorial: Integração do Azure Active Directory com Questetra BPM Suite | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Questetra BPM Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e2515d571aa1615f14b597ef82b1087df3827f82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 122473da723cb101e0f0f9226b34aa3294477657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Active Directory com Questetra BPM Suite
 
@@ -30,7 +30,7 @@ Integrar Questetra BPM Suite com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Questetra BPM Suite (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,9 +107,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Secção Questetra BPM Suite domínio e os URLs](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.questetra.net/`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.questetra.net/`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Pode obter estes valores na **SP informações** secção no seu **Questetra BPM Suite** site da empresa, que é explicada mais tarde no tutorial ou contacte [suporte Questetra BPM Suite cliente equipa](https://www.questetra.com/contact/). 
@@ -207,9 +207,9 @@ O objetivo desta secção consiste em criar um utilizador chamado Britta Simon n
    
     ![Criar utilizador de teste][300] 
    
-    a. No **nome** caixa de texto, tipo **nome** do utilizador  **britta.simon@contoso.com** .
+    a. No **nome** caixa de texto, tipo **nome** do utilizador **britta.simon@contoso.com**.
    
-    b. No **E-Mail** caixa de texto, tipo **e-mail** do utilizador**britta.simon@contoso.com**
+    b. No **E-Mail** caixa de texto, tipo **e-mail** do utilizador **britta.simon@contoso.com**
    
     c. No **palavra-passe** caixa de texto, escreva um **palavra-passe** do utilizador.
     
@@ -245,7 +245,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -255,7 +255,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

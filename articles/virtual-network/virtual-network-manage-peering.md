@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 11726b274d72f263ff3defeb7eb7b80594681e15
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: d47a1099a8b57c450aa48e086cc1c391faf91aa7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -111,6 +111,11 @@ Se pretender que as redes virtuais para comunicar por vezes, mas nem sempre, em 
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações 
 
+- <a name="cross-region"></a>Pode elemento redes virtuais na mesma região ou regiões diferentes. As seguintes restrições não se aplicam quando ambas as redes virtuais estiverem a ser o *mesmo* região, mas aplicam quando as redes virtuais global em modo de peering: 
+    - As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
+    - Recursos numa rede virtual não é possível comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual em modo de peering. O Balanceador de carga e os recursos que comunicam com a mesma tem de ser na mesma rede virtual.
+    - Não é possível utilizar gateways remotos ou permitir que o trânsito do gateway. Para utilizar gateways remotos ou permitir que o trânsito do gateway, ambas as redes virtuais no peering de tem de existir na mesma região. 
+- As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando as redes virtuais estão em diferentes subscrições, ambas as subscrições tem de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições que estão associadas ao diferentes inquilinos do Active Directory.
 - As redes virtuais que o elemento tem de ter espaços de endereços IP sem sobreposição.
 - Não é possível adicionar intervalos de endereços para ou eliminar intervalos de endereços do espaço de endereços da rede virtual depois de uma rede virtual é executado o peering com outra rede virtual. Para adicionar ou remover intervalos de endereços, eliminar o peering, adicionar ou remover os intervalos de endereços, em seguida, recrie o peering. Para intervalos de endereços para adicionar ou remover intervalos de endereços das redes virtuais, consulte o artigo [gerir redes virtuais](manage-virtual-network.md).
 - Pode elemento duas redes virtuais implementadas através do Gestor de recursos ou uma rede virtual implementado através do Resource Manager com uma rede virtual implementada através do modelo de implementação clássica. Não é possível elemento duas redes virtuais criadas através do modelo de implementação clássica. Se não estiver familiarizado com os modelos de implementação do Azure, leia o [modelos de implementação do Azure compreender](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artigo. Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais criadas através do modelo de implementação clássica.
@@ -125,13 +130,8 @@ Se pretender que as redes virtuais para comunicar por vezes, mas nem sempre, em 
   Não há nenhum peering entre VirtualNetwork1 e VirtualNetwork3 através de VirtualNetwork2. Se pretender criar uma rede virtual peering entre VirtualNetwork1 e VirtualNetwork3, terá de criar um peering entre VirtualNetwork1 e VirtualNetwork3.
 - Não é possível resolver os nomes de redes virtuais em modo de peering com a resolução do nome do Azure de predefinição. Para resolver os nomes de outras redes virtuais, tem de utilizar [DNS do Azure para domínios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um servidor DNS personalizado. Para saber como configurar o próprio servidor DNS, consulte [resolução de nomes utilizando o seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Recursos na redes virtuais em modo de peering na mesma região podem comunicar entre si com o mesmo largura de banda e latência como se estivessem na mesma rede virtual. Cada tamanho da máquina virtual tem no entanto a sua própria largura de banda de rede máxima. Para saber mais sobre a largura de banda de rede máxima para tamanhos de outra máquina virtual, consulte [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tamanhos de máquina virtual.
-- As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando as redes virtuais estão em diferentes subscrições, ambas as subscrições tem de estar associadas ao mesmo inquilino do Azure Active Directory. Se ainda não tiver um inquilino do AD, pode rapidamente [criar um](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Pode utilizar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para ligar duas redes virtuais que existam em diferentes subscrições que estão associadas ao diferentes inquilinos do Active Directory.
 - Uma rede virtual pode estar em modo de peering para outra rede virtual e também de estar ligada a outra rede virtual com um gateway de rede virtual do Azure. Quando estão ligados a redes virtuais através de peering e um gateway, o tráfego entre as redes virtuais flui através da configuração do peering, em vez do gateway.
 - Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize um peering de rede virtual. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
-* <a name="cross-region"></a>Pode elemento redes virtuais na mesma região ou regiões diferentes. As seguintes restrições não se aplicam quando ambas as redes virtuais estiverem a ser o *mesmo* região, mas aplicam quando as redes virtuais global em modo de peering: 
-    - As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
-    - Recursos numa rede virtual não é possível comunicar com o endereço IP de um balanceador de carga interno do Azure na rede virtual em modo de peering. O Balanceador de carga e os recursos que comunicam com a mesma tem de ser na mesma rede virtual.
-    - Não é possível utilizar gateways remotos ou permitir que o trânsito do gateway. Para utilizar gateways remotos ou permitir que o trânsito do gateway, ambas as redes virtuais no peering de tem de existir na mesma região. 
 
 ## <a name="permissions"></a>Permissões
 

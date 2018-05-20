@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Grovo | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Grovo."
+title: 'Tutorial: Integração do Azure Active Directory com Grovo | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Grovo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7016208aad3ec60f2db8d071bf67f9dae66a59bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Azure Active Directory com Grovo
 
@@ -30,7 +30,7 @@ Integrar Grovo com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Grovo (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Grovo e os URLs únicos de informações de início de sessão](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
 4. Verifique **Mostrar avançadas definições de URL**, executar o passo seguinte:
 
@@ -122,7 +122,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Grovo e os URLs únicos de informações de início de sessão](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
     
-    No **iniciar sessão no URL** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    No **iniciar sessão no URL** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador, o URL de resposta, real de sessão no estado de URL e reencaminhamento. Contacte [equipa de suporte de Grovo](https://www.grovo.com/contact-us) para obter estes valores.
@@ -135,9 +135,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
-    | Nome Próprio          | user.givenname |
-    | Apelido           | user.surname |
-    | Endereço de E-mail       | user.mail    |
+    | Nome Próprio          | User.givenName |
+    | Apelido           | User.Surname |
+    | Endereço de E-mail       | User.Mail    |
     | Campo IDdeEmpregado          | User.employeeid |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -262,7 +262,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -272,7 +272,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

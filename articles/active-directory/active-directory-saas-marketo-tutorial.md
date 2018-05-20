@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Marketo | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e do Marketo."
+title: 'Tutorial: Integração do Azure Active Directory com Marketo | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e do Marketo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 10ce59668127ff918a85caf537e8ab495c542278
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 48aee4565548fd57ef9925a41299b06660df2718
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory com Marketo
 
@@ -29,7 +29,7 @@ Integração do Marketo com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Marketo (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://saml.marketo.com/sp`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://saml.marketo.com/sp`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte do Marketo](http://investors.marketo.com/contactus.cfm) para obter estes valores.
@@ -174,7 +174,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE]
     > Se o identificador do seu utilizador não é o valor UPN e altere o valor no separador de atributo.
    
-    posso. Carregue o certificado que transferiu a partir do Assistente de configuração do Azure AD. **Guardar** as definições.
+    i. Carregue o certificado que transferiu a partir do Assistente de configuração do Azure AD. **Guardar** as definições.
    
     j. Edite as definições de páginas de redirecionamento.
    
@@ -315,7 +315,7 @@ Quando clica no mosaico do Marketo no painel de acesso, deve obter automaticamen
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

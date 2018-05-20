@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com LockPath Keylight | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e LockPath Keylight."
+title: 'Tutorial: Integração do Azure Active Directory com LockPath Keylight | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e LockPath Keylight.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 74d9d80a1ce35f1766261038a985cc6f0cc39fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5eb3aa008ccfa5711d8282f6d98df44239d236a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Azure Active Directory com LockPath Keylight
 
@@ -29,7 +29,7 @@ Integrar LockPath Keylight com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para LockPath Keylight (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,11 +110,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.keylightgrc.com/`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.keylightgrc.com/`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.keylightgrc.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.keylightgrc.com`
 
-    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.keylightgrc.com/Login.aspx`
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.keylightgrc.com/Login.aspx`
     
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de cliente de Keylight LockPath](https://www.lockpath.com/contact/) para obter estes valores. 
@@ -167,7 +167,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. Definir **tipo de conta de aprovisionamento automático** para **utilizador completo**.
 
-    posso. Definir **função de segurança de aprovisionamento automático**, selecione **utilizador padrão com SAML**.
+    i. Definir **função de segurança de aprovisionamento automático**, selecione **utilizador padrão com SAML**.
     
     j. Definir **configuração de segurança de aprovisionamento automático**, selecione **configuração de utilizador padrão**.
      
@@ -261,7 +261,7 @@ Quando clica no mosaico LockPath Keylight no painel de acesso, deve obter automa
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

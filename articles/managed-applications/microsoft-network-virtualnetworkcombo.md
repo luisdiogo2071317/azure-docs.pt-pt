@@ -1,23 +1,23 @@
 ---
 title: Elemento de IU VirtualNetworkCombo do Azure | Microsoft Docs
 description: Descreve o elemento de IU Microsoft.Network.VirtualNetworkCombo para o portal do Azure.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38202b3b669a162f1cdbe88663d050d8d791c964
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de IU Microsoft.Network.VirtualNetworkCombo
 Um grupo de controlos para selecionar uma rede virtual nova ou existente.
@@ -114,6 +114,6 @@ O valor predefinido é **0**. Para se certificar de que os endereços disponíve
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com SAP Business ByDesign | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e do SAP Business ByDesign."
+title: 'Tutorial: Integração do Azure Active Directory com SAP Business ByDesign | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e do SAP Business ByDesign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: bc090dfc2dd0833b1ff85ccb87b5a1a2c9fa4ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 23a0f202cabf39036a3a405894c814655e3f3cd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: Integração do Azure Active Directory com SAP Business ByDesign
 
@@ -30,7 +30,7 @@ Integração do SAP Business ByDesign com o Azure AD fornece as seguintes vantag
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada para SAP Business ByDesign (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio do SAP Business ByDesign e URLs único informações de início de sessão](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<servername>.sapbydesign.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<servername>.sapbydesign.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<servername>.sapbydesign.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<servername>.sapbydesign.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do SAP Business ByDesign](https://www.sap.com/products/cloud-analytics.support.html) para obter estes valores.
@@ -159,7 +159,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![Configurar o início de sessão único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
    
-    posso. Especifique se o empregado manualmente pode escolher entre o início de sessão com o ID de utilizador e palavra-passe ou SSO selecionando **seleção de fornecedor de identidade Manual**.
+    i. Especifique se o empregado manualmente pode escolher entre o início de sessão com o ID de utilizador e palavra-passe ou SSO selecionando **seleção de fornecedor de identidade Manual**.
    
     j. No **SSO URL** secção, especifique o URL que deve ser utilizado pelo empregado para início de sessão no sistema. 
     O URL enviados para a lista pendente de empregado, pode optar entre as seguintes opções:
@@ -251,7 +251,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -260,7 +260,7 @@ Quando clica no mosaico do SAP Business ByDesign no painel de acesso, deve obter
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com MaxxPoint | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e MaxxPoint."
+title: 'Tutorial: Integração do Azure Active Directory com MaxxPoint | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e MaxxPoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: b353573938f77455b62b4a0019ba6baf0665bac3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9368abc5694fc52b8cad2d5cc9faafecf853004d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Tutorial: Integração do Azure Active Directory com MaxxPoint
 
@@ -29,7 +29,7 @@ Integrar MaxxPoint com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para MaxxPoint (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Clique em **Mostrar avançadas definições de URL** opção
 
-    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
+    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
     > [!NOTE] 
     > Tenha em atenção que isto não é o valor real. Tem de atualizar este valor com o início de sessão real no URL. Chamar MaxxPoint equipa **888-728-0950** para obter este valor.
@@ -210,7 +210,7 @@ Quando clica no mosaico MaxxPoint no painel de acesso, deve obter automaticament
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

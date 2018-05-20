@@ -1,6 +1,6 @@
 ---
-title: "Enlaces de funções SendGrid do Azure"
-description: "Referência de enlaces de funções SendGrid do Azure."
+title: Enlaces de funções SendGrid do Azure
+description: Referência de enlaces de funções SendGrid do Azure.
 services: functions
 documentationcenter: na
 author: tdykstra
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29f6b3e8b7d7d940da098953e8f9d3deaccf78dc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de funções SendGrid do Azure
 
@@ -29,6 +29,8 @@ Este artigo explica como enviar correio eletrónico com [SendGrid](https://sendg
 Os enlaces do SendGrid são fornecidos no [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -183,12 +185,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**|| Necessário - tem de ser definido como `sendGrid`.|
-|**direction**|| Necessário - tem de ser definido como `out`.|
+|**tipo**|| Necessário - tem de ser definido como `sendGrid`.|
+|**direção**|| Necessário - tem de ser definido como `out`.|
 |**name**|| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. Este valor é ```$return``` quando existe apenas um valor de retorno. |
 |**apiKey**|**ApiKey**| O nome de uma definição de aplicação que contém a chave de API. Se não conjunto, a aplicação de predefinição definir o nome é "AzureWebJobsSendGridApiKey".|
 |**Para**|**Para**| endereço de e-mail do destinatário. |
-|**from**|**Do**| endereço de correio eletrónico do remetente. |
+|**Do**|**Do**| endereço de correio eletrónico do remetente. |
 |**subject**|**Assunto**| o assunto do e-mail. |
 |**text**|**Text** (Texto)| o conteúdo de e-mail. |
 

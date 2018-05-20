@@ -1,24 +1,24 @@
 ---
-title: "Adicionar relatórios de estado de funcionamento personalizados do Service Fabric | Microsoft Docs"
-description: "Descreve como enviar relatórios de estado de funcionamento personalizados para entidades de estado de funcionamento do Azure Service Fabric. Fornece recomendações para estruturar e implementar os relatórios de estado de funcionamento de qualidade."
+title: Adicionar relatórios de estado de funcionamento personalizados do Service Fabric | Microsoft Docs
+description: Descreve como enviar relatórios de estado de funcionamento personalizados para entidades de estado de funcionamento do Azure Service Fabric. Fornece recomendações para estruturar e implementar os relatórios de estado de funcionamento de qualidade.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
 Azure Service Fabric apresenta um [modelo de estado de funcionamento](service-fabric-health-introduction.md) concebido para sinalizador cluster mau estado de funcionamento e condições de aplicação no entidades específicas. O modelo de estado de funcionamento utiliza **Informadores de estado de funcionamento** (componentes de sistema e watchdogs). O objetivo é rápido e fácil de diagnóstico e de reparação. Os escritores de serviço tem de pensar compromisso sobre estado de funcionamento. Qualquer condição que pode afetar o estado de funcionamento deve ser comunicada, especialmente se pode ajudar a problemas de sinalizador próximo raiz. As informações de estado de funcionamento podem poupar tempo e esforço na depuração e investigação. Não é especialmente limpar a utilidade assim que o serviço está a funcionar à escala na nuvem (privada ou do Azure).

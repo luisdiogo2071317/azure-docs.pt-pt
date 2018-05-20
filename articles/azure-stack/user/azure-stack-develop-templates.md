@@ -1,25 +1,25 @@
 ---
 title: Desenvolver modelos para a pilha do Azure | Microsoft Docs
-description: "Saiba Azure pilha modelo melhores práticas"
+description: Saiba Azure pilha modelo melhores práticas
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bbd6cc68f1c16d48380cf498d6b089abe923e95a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 046866d9ed7ce65e3b46be1c67b4ab2058cefa4d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerações sobre os modelos Azure Resource Manager
 
@@ -28,17 +28,20 @@ ms.lasthandoff: 02/22/2018
 Como desenvolver a sua aplicação, é importante certificar-se a portabilidade de modelo entre o Azure e pilha do Azure. Este artigo fornece considerações para o desenvolvimento do Azure Resource Manager [modelos](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), para poder criar protótipos a implementação de aplicação e teste no Azure sem acesso a um ambiente de pilha do Azure.
 
 ## <a name="resource-provider-availability"></a>Disponibilidade do fornecedor de recursos
-O modelo que estiver a planear implementar apenas tem de utilizar os serviços do Microsoft Azure que já estão disponíveis ou em pré-visualização na pilha do Azure.
+
+O modelo que está a planear implementar apenas tem de utilizar os serviços do Microsoft Azure que já estão disponíveis ou em pré-visualização na pilha do Azure.
 
 ## <a name="public-namespaces"></a>Espaços de nomes públicos
-Porque a pilha do Azure está alojada no seu centro de dados, tem espaços de nomes de ponto final de outro serviço de nuvem pública do Azure. Como resultado, os pontos finais públicos codificado em modelos do Azure Resource Manager falharem quando tenta implementá-las à pilha do Azure. Em vez disso, pode utilizar o *referência* e *concatenar* função para criar dinamicamente o ponto final de serviço com base nos valores obtidos a partir do fornecedor de recursos durante a implementação. Por exemplo, em vez de especificar *w* no seu modelo, obter o [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) definir dinamicamente o *osDisk.URI* ponto final:
 
-     "osDisk": {"name": "osdisk","vhd": {"uri": 
+Porque a pilha do Azure está alojada no seu centro de dados, tem espaços de nomes de ponto final de outro serviço de nuvem pública do Azure. Como resultado, os pontos finais públicos codificado em modelos do Azure Resource Manager falharem quando tenta implementá-las à pilha do Azure. Pode criar dinamicamente pontos finais de serviço utilizando o *referência* e *concatenar* funções para obter os valores do fornecedor de recursos durante a implementação. Por exemplo, em vez de codificar *w* no seu modelo, obter o [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) definir dinamicamente o *osDisk.URI* ponto final:
+
+     "osDisk": {"name": "osdisk","vhd": {"uri":
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
       '/',variables('OSDiskName'),'.vhd')]"}}
 
 ## <a name="api-versioning"></a>Controlo de versões de API
-Versões do serviço do Azure podem divergir entre o Azure e pilha do Azure. Cada recurso requer o atributo apiVersion, que define as capacidades disponibilizadas. Para garantir a compatibilidade da versão de API na pilha do Azure, seguem-se válido versões de API para cada fornecedor de recursos:
+
+Versões do serviço do Azure podem divergir entre o Azure e pilha do Azure. Cada recurso requer o **apiVersion** atributo, que define as capacidades disponibilizadas. Para garantir a compatibilidade da versão de API na pilha do Azure, as seguintes versões de API são válidas para cada fornecedor de recursos:
 
 | Fornecedor de Recursos | apiVersion |
 | --- | --- |
@@ -49,11 +52,12 @@ Versões do serviço do Azure podem divergir entre o Azure e pilha do Azure. Cad
 | Serviço de Aplicações |`'2015-08-01'` |
 
 ## <a name="template-functions"></a>Funções de modelos
+
 O Azure Resource Manager [funções](../../azure-resource-manager/resource-group-template-functions.md) fornecem capacidades de necessários para criar modelos dinâmicos. Por exemplo, pode utilizar as funções para tarefas como:
 
-* CONCATENAR ou corte de cadeias 
-* Valores de referência de outros recursos
-* Iterating nos recursos para implementar várias instâncias 
+* CONCATENAR ou corte de cadeias.
+* Valores de referenciação de outros recursos.
+* Iterating nos recursos para implementar várias instâncias.
 
 Estas funções não estão disponíveis na pilha do Azure:
 
@@ -61,6 +65,7 @@ Estas funções não estão disponíveis na pilha do Azure:
 * tirar
 
 ## <a name="resource-location"></a>Localização do recurso
+
 Modelos Azure Resource Manager utilizam um atributo de localização para colocar recursos durante a implementação. No Azure, localizações de fazer referência a uma região EUA Oeste ou América do Sul. Na pilha do Azure, localizações são diferentes, porque a pilha do Azure no seu centro de dados. Para garantir que os modelos são transferíveis entre o Azure e Azure pilha, deverá referenciar a localização do grupo de recursos, à medida que implementa recursos individuais. Isto pode ser feito utilizando `[resourceGroup().Location]` para garantir que todos os recursos herdam a localização do grupo de recursos. O excerpt seguinte é um exemplo de como utilizar esta função durante a implementação de uma conta de armazenamento:
 
     "resources": [
@@ -77,7 +82,7 @@ Modelos Azure Resource Manager utilizam um atributo de localização para coloca
     ]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Implementar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
 * [Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 * [Implementar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)
-

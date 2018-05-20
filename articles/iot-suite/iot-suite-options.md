@@ -1,6 +1,6 @@
 ---
 title: Opções de IoT do Microsoft Azure | Microsoft Docs
-description: Escolha como pretende implementar a sua solução IoT com os aceleradores de soluções do Azure IoT, o Microsoft IoT Central ou o Hub IoT do Azure.
+description: Escolha como quer implementar a sua solução IoT com os aceleradores de soluções do Azure IoT, o Azure IoT Central ou o Hub IoT do Azure.
 services: iot-suite
 suite: iot-suite
 author: dominicbetts
@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddda6bc265cbbaa61025891cf9bc7c28c998160c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f0d6fc2a49034b2e01a0397fe256a2b44030777b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-azure-iot-options"></a>Comparar as opções de IoT do Azure
 
@@ -29,22 +29,22 @@ Para implementar esta arquitetura,o Azure IoT oferece várias opções, cada uma
 
 * Os [aceleradores de soluções do Azure IoT](index.md) são uma coleção de nível empresarial de [aceleradores de soluções](iot-suite-what-are-solution-accelerators.md) incorporada na plataforma-como-um-serviço (PaaS) do Azure, que lhe permite acelerar o desenvolvimento de soluções de IoT personalizadas.
 
-* O [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) é uma solução SaaS (Software-as-a-Service) que utiliza uma abordagem baseada no modelo, que lhe permite criar soluções de IoT de nível empresarial sem a necessidade de conhecimentos de desenvolvimento de soluções na cloud.
+* O [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) é uma solução SaaS (Software-as-a-Service) que utiliza uma abordagem baseada no modelo, que lhe permite criar soluções de IoT de nível empresarial sem a necessidade de conhecimentos de desenvolvimento de soluções na cloud.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-O Hub IoT é a principal PaaS do Azure que o Microsoft IoT Central e os aceleradores de soluções do Azure IoT utilizam. O Hub IoT permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e um solução na cloud. O Hub IoT ajuda a cumprir os desafios de implementação de IoT, como:
+O Hub IoT é a principal PaaS do Azure que o Azure IoT Central e os aceleradores de soluções do Azure IoT utilizam. O Hub IoT permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e um solução na cloud. O Hub IoT ajuda a cumprir os desafios de implementação de IoT, como:
 
 * Conectividade e gestão de dispositivos de volume elevado.
 * Ingestão de telemetria de volume elevado.
 * Comando e controlo de dispositivos.
 * Imposição de segurança do dispositivo.
 
-## <a name="compare-azure-iot-solution-accelerators-and-microsoft-iot-central"></a>Comparar os aceleradores de soluções do Azure IoT e o Microsoft IoT Central
+## <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Comparar os aceleradores de soluções do Azure IoT e o Azure IoT Central
 
-Escolher o produto do Azure IoT é uma parte crítica do planeamento da solução de IoT. O Hub IoT é um serviço do Azure individual que, por si só, não fornece uma solução de IoT ponto a ponto. O Hub IoT pode ser utilizado como um ponto de partida para qualquer solução de IoT e não precisa de utilizar aceleradores de soluções do Azure IoT ou o Microsoft IoT Central para utilizá-lo. Tanto os aceleradores de soluções do Azure IoT como o Microsoft IoT Central utilizam o Hub IoT, juntamente com outros serviços do Azure. A tabela seguinte resume as principais diferenças entre os aceleradores de soluções do Azure IoT e o Microsoft IoT Central, para o ajudar a escolher o mais adequado para os seus requisitos:
+Escolher o produto do Azure IoT é uma parte crítica do planeamento da solução de IoT. O Hub IoT é um serviço do Azure individual que, por si só, não fornece uma solução de IoT ponto a ponto. O Hub IoT pode ser utilizado como um ponto de partida para qualquer solução de IoT e não precisa de utilizar aceleradores de soluções do Azure IoT ou o Azure IoT Central para utilizá-lo. Tanto os aceleradores de soluções do Azure IoT como o Azure IoT Central utilizam o Hub IoT, juntamente com outros serviços do Azure. A tabela seguinte resume as principais diferenças entre os aceleradores de soluções do Azure IoT e o Azure IoT Central, para o ajudar a escolher o mais adequado para os seus requisitos:
 
-|                        | Aceleradores de soluções do Azure IoT | Microsoft IoT Central |
+|                        | Aceleradores de soluções do Azure IoT | Azure IoT Central |
 | ---------------------- | --------- | ----------- |
 | Utilização principal | Acelerar o desenvolvimento de uma solução de IoT personalizada que precisa da máxima flexibilidade. | Acelerar o tempo de colocação no mercado para soluções de IoT simples que não necessitam de personalização avançada do serviço. |
 | Acesso aos serviços PaaS subjacentes          | Tem acesso aos serviços do Azure subjacentes para geri-los ou substituí-los, conforme necessário. | SaaS. Solução totalmente gerida, os serviços subjacentes não são expostos. |
@@ -64,5 +64,5 @@ A decisão do produto a utilizar para criar a sua solução de IoT é, em últim
 Com base no produto e na abordagem escolhidos, os passos seguintes sugeridos são:
 
 * **Aceleradores de soluções do Azure IoT**: [quais são os aceleradores de soluções do Azure IoT?](iot-suite-what-are-solution-accelerators.md)
-* **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **Azure IoT Central**: [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **Hub IoT**: [ Descrição geral do serviço Hub IoT do Azure](../iot-hub/iot-hub-what-is-iot-hub.md).

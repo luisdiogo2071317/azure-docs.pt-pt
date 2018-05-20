@@ -8,11 +8,11 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Eventos de armazenamento de BLOBs de rota para um ponto de final web personalizado com o PowerShell
 
@@ -21,7 +21,7 @@ O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, utiliza
 Normalmente, os eventos são enviados para um ponto final que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo apresentado neste artigo, os eventos são enviados para um URL que recolhe apenas as mensagens. Vai criar este URL através de uma ferramenta de terceiros a partir do [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **Hookbin** não se destina a utilização de débito elevado. A utilização desta ferramenta é meramente demonstrativa. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
+> **Hookbin** não se destina a utilização de débito elevado. A utilização desta ferramenta é meramente demonstrativa. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta. Além disso, tenha em atenção que **Hookbin** obtém [tratamento especial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) pela grelha de eventos do Azure. Para facilitar a testar, grelha de eventos envia eventos existe sem necessidade de uma resposta a pedidos de validação de subscrição correta (que aconteceria [caso contrário](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 Quando concluir os passos descritos neste artigo, pode ver que os dados do evento foram enviados para um ponto final.
 
@@ -59,7 +59,7 @@ $resourceGroup = "gridResourceGroup"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Para utilizar eventos de armazenamento de BLOBs, precisa de um uma [conta de armazenamento de BLOBs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou um [conta de armazenamento de v2 de objetivo geral](../common/storage-account-options.md#general-purpose-v2). **V2 de objetivo geral (GPv2)** são contas de armazenamento que suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo tabelas, filas, ficheiros e Blobs. A **conta de armazenamento de BLOBs** é uma conta do storage especializadas para armazenar os dados não estruturados como blobs (objetos) no Storage do Azure. Contas do blob storage são como as contas do storage para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho funcionalidades que utiliza atualmente, incluindo 100% de consistência de API para blobs de blocos e blobs de acréscimo. Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs.  
 

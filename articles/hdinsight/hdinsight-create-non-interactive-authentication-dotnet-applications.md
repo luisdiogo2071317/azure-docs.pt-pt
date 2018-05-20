@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 497c67132b6d5ebc1301f56fde72031ca3e7b976
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação do HDInsight de .NET de autenticação não interativa
 Pode executar a aplicação do Microsoft .NET do Azure HDInsight com a identidade da aplicação (não interativo) ou com a identidade do utilizador com sessão iniciada da aplicação (interativa). Este artigo mostra como criar uma aplicação .NET para ligar ao Azure e gerir HDInsight de autenticação não interativa. Para um exemplo de uma aplicação interativa, consulte [ligar ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ab9ad821c6780c685c884a87f3075a5d58c1d73a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 Tamanhos de VM de objetivo geral fornecem equilibrado CPU para memória rácio. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento débito e a rede de largura de banda para cada tamanho neste agrupamento. 
 
@@ -29,7 +29,7 @@ Tamanhos de VM de objetivo geral fornecem equilibrado CPU para memória rácio. 
 
 ## <a name="b-series"></a>Série B
 
-As VMs burstable B-série são ideais para cargas de trabalho que não tem o desempenho total da CPU continuamente, como servidores web, desenvolvimento de bases de dados pequenas e ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece estes clientes a capacidade para comprar um tamanho VM com um desempenho de linha de base de conscience de preços que permite que a instância VM criar cópias de segurança créditos quando a VM está a utilizar menor do que o desempenho de base. Quando a VM terem sido acumulados crédito, a VM pode impulsar linha de base da VM com até 100% de CPU, quando a aplicação requer o desempenho da CPU superior.
+As VMs burstable B-série são ideais para cargas de trabalho que não tem o desempenho total da CPU continuamente, como servidores web, desenvolvimento de bases de dados pequenas e ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece estes clientes a capacidade para comprar um tamanho VM com um desempenho de linha de base conscientes preços que permite que a instância VM criar cópias de segurança créditos quando a VM está a utilizar menor do que o desempenho de base. Quando a VM terem sido acumulados crédito, a VM pode impulsar linha de base da VM com até 100% de CPU, quando a aplicação requer o desempenho da CPU superior.
 
 
 | Tamanho             | vCPU  | Memória: GiB | SSD Local: GiB | Base de desempenho de um núcleo | Créditos banked / hora | Os créditos de Banked máx. | Discos de dados máximos | Desempenho de disco local máx.: IOPS / MBps | Máx. uncached desempenho de disco: IOPS / MBps | NICs máximos |          

@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporta chamadas REST, pode efetuar operações de atualização de dados assíncrona nos seus modelos em tabela do Analysis Services do Azure. Isto inclui a sincronização de réplicas de só de leitura para consulta Escalamento horizontal. 
@@ -97,11 +97,11 @@ Não é necessário especificar parâmetros. A predefinição é aplicada.
 
 |Nome  |Tipo  |Descrição  |Predefinição  |
 |---------|---------|---------|---------|
-|Tipo     |  Enum       |  O tipo de processamento para executar. Os tipos estão alinhados com o TMSL [atualizar comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) tipos: completa, clearValues, calcular apenas dados automático, adicione e desfragmentar.       |   Automática      |
+|Tipo     |  Enum       |  O tipo de processamento para executar. Os tipos estão alinhados com o TMSL [atualizar comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) tipos: completa, clearValues, calcule, apenas dados automático e desfragmentar. Adicione o tipo não é suportado.      |   Automática      |
 |CommitMode     |  Enum       |  Determina se os objetos serão confirmados em lotes ou apenas após concluir o procedimento. Modos incluem: partialBatch transacional, predefinição,.  |  transacional       |
 |MaxParallelism     |   Int      |  Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Este valor alinhada com a propriedade MaxParallelism que pode ser definida no TMSL [sequência comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou através de outros métodos.       | 10        |
 |RetryCount    |    Int     |   Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
-|Objetos     |   Matriz      |   Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se não existem objetos forem especificados, é atualizar o modelo de todo. |   Processar o modelo completo      |
+|Objetos     |   Array      |   Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se não existem objetos forem especificados, é atualizar o modelo de todo. |   Processar o modelo completo      |
 
 CommitMode é igual ao partialBatch. É utilizado ao fazer uma carga de grandes conjuntos de dados inicial pode demorar horas. Se a operação de atualização falhar após a consolidação com êxito um ou mais lotes, permanecerá consolidadas os lotes consolidadas com êxito (esta irá não reverter lotes consolidadas com êxito).
 

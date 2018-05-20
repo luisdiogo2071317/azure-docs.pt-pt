@@ -1,24 +1,24 @@
 ---
-title: "Proteger um cluster do Service Fabric do Azure no Windows através da utilização de certificados | Microsoft Docs"
-description: "Proteger a comunicação dentro de um cluster do Azure Service Fabric autónomo ou no local, bem como entre clientes e o cluster."
+title: Proteger um cluster do Service Fabric do Azure no Windows através da utilização de certificados | Microsoft Docs
+description: Proteger a comunicação dentro de um cluster do Azure Service Fabric autónomo ou no local, bem como entre clientes e o cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autónomo no Windows utilizando certificados x. 509
 Este artigo descreve como proteger a comunicação entre os vários nós do cluster autónomo Windows. Descreve também como autenticar clientes que se ligam a este cluster utilizando certificados x. 509. Autenticação garante que apenas utilizadores autorizados podem aceder ao cluster e as aplicações implementadas e executar tarefas de gestão. Segurança do certificado deve ser ativada no cluster quando o cluster for criado.  

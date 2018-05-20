@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Accredible | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Accredible."
+title: 'Tutorial: Integração do Azure Active Directory com Accredible | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Accredible.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jeedes
-ms.openlocfilehash: b0e33d2a1d455e233672bf1467efcfaf9df2cab3
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6f869c0992619e17689a590a60eca77c0de09d92
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutorial: Integração do Azure Active Directory com Accredible
 
@@ -30,7 +30,7 @@ Integrar Accredible com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Accredible (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -114,7 +114,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     |  `https://api.accredible.com/sp/admin/accredible` |
     | `https://api.accredible.com/sp/user/accredible` |
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`
 
     > [!NOTE] 
     > O valor do URL de resposta não é real. De acordo com a função de utilizador, utilize o valor de identificador, respetivamente. Cada cliente tem um URL de resposta único consoante os respetivos ID. Contacte [equipa de suporte de Accredible](mailto:support@accredible.com) para obter estes valores.
@@ -198,7 +198,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -208,7 +208,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

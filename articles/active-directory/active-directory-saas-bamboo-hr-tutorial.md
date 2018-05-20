@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com BambooHR | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e BambooHR."
+title: 'Tutorial: Integração do Azure Active Directory com BambooHR | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e BambooHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Azure Active Directory com BambooHR
 
@@ -30,7 +30,7 @@ Integrar BambooHR com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter a sessão iniciada no BambooHR utilizando início de sessão único (SSO) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +107,7 @@ Nesta secção, ativar o SSO do Azure AD no portal do Azure e configurar o SSO n
     > [!NOTE] 
     > O **iniciar sessão no URL** valor não é real. A atualização com o seu URL de início de sessão real. Para obter o valor, contacte o [equipa de suporte de cliente BambooHR](https://www.bamboohr.com/contact.php). 
  
-4. Em **certificado de assinatura de SAML**, selecione **certificado (Base64)**e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Em **certificado de assinatura de SAML**, selecione **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![A hiperligação de transferência do certificado](./media/active-directory-saas-bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
@@ -187,7 +187,7 @@ Para ativar o Azure AD aos utilizadores iniciar sessão BambooHR, configurá-los
    
     ![No botão definições](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "definição")
 
-3. Selecione **descrição geral**.
+3. Selecione **Descrição geral**.
 
 4. No painel esquerdo, selecione **segurança** > **utilizadores**.
 
@@ -228,7 +228,7 @@ Para atribuir o utilizador Britta Simon a BambooHR, efetue o seguinte:
 
 7. No **adicionar atribuição** janela, selecione o **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Teste a configuração de SSO do Azure AD utilizando o painel de acesso.
 
@@ -239,7 +239,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

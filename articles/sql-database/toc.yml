@@ -30,6 +30,8 @@
           href: sql-database-connect-query-dotnet-visual-studio.md
         - name: .NET base
           href: sql-database-connect-query-dotnet-core.md
+        - name: .NET com MFA do Active Directory
+          href: active-directory-interactive-connect-azure-sql-db.md
         - name: Ir
           href: sql-database-connect-query-go.md
         - name: Java
@@ -102,6 +104,16 @@
       items:
         - name: Descrição geral
           href: sql-database-security-overview.md
+        - name: Proteção Avançada Contra Ameaças
+          href: sql-advanced-threat-protection.md
+        - name: Deteção e classificação de dados
+          href: sql-database-data-discovery-and-classification.md
+        - name: Avaliação de vulnerabilidades
+          href: sql-vulnerability-assessment.md
+        - name: Deteção de ameaças - Base de Dados SQL
+          href: sql-database-threat-detection.md
+        - name: Deteção de ameaças - Instância Gerida
+          href: sql-database-managed-instance-threat-detection.md
         - name: Regras da firewall
           href: sql-database-firewall-configure.md
         - name: Regras de firewall de rede virtual
@@ -118,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Auditoria - Instância Gerida
           href: sql-database-managed-instance-auditing.md
-        - name: Deteção de ameaças - Base de Dados SQL
-          href: sql-database-threat-detection.md
-        - name: Deteção de ameaças - Instância Gerida
-          href: sql-database-managed-instance-threat-detection.md
         - name: Auditoria e TDS de tabelas
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Máscara de dados dinâmica
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Avaliação de vulnerabilidades
-          href: sql-vulnerability-assessment.md
-        - name: Deteção e classificação de dados
-          href: sql-database-data-discovery-and-classification.md
     - name: Continuidade do negócio
       items:
         - name: Descrição geral

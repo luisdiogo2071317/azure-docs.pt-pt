@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 70b07cae9a1dc8b45e27f95e19fbc84f06a0b6d3
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados do SQL Server na pilha do Microsoft Azure
 Utilize o fornecedor de recursos do servidor de SQL de pilha do Azure para expor bases de dados do SQL Server como um serviço da pilha do Azure. O serviço de fornecedor de recursos do SQL Server é executado no fornecedor de recursos SQL VM, que é uma máquina de virtual do Windows Server core.
@@ -73,6 +73,8 @@ Pode especificar estes parâmetros na linha de comandos. Se não o fizer, ou se 
 | **Desinstalar** | Remove o fornecedor de recursos e recursos de todos os associados (consulte as seguintes notas). | Não |
 | **DebugMode** | Impede a limpeza automática em caso de falha. | Não |
 
+>[!NOTE]
+> SKUs podem demorar até uma hora ser visível no portal. Não é possível criar uma base de dados até que seja criada a SKU.
 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Implementar o fornecedor de recursos do SQL Server através de um script personalizado

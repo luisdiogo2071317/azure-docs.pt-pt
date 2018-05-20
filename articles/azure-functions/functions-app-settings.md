@@ -1,12 +1,12 @@
 ---
-title: "Referência de definições de aplicação para as funções do Azure"
-description: "Documentação de referência para as definições de aplicação de funções do Azure ou variáveis de ambiente."
+title: Referência de definições de aplicação para as funções do Azure
+description: Documentação de referência para as definições de aplicação de funções do Azure ou variáveis de ambiente.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de definições de aplicação para as funções do Azure
 
@@ -44,11 +44,11 @@ Cadeia de ligação de conta de armazenamento opcional para armazenar os registo
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`significa que desative a predefinição de página que é apresentada para o URL de raiz de uma aplicação de função de destino. Predefinição é `false`.
+`true` significa que desative a predefinição de página que é apresentada para o URL de raiz de uma aplicação de função de destino. A predefinição é `false`.
 
 |Chave|Valor da amostra|
 |---|------------|
-|AzureWebJobsDisableHomepage|VERDADEIRO|
+|AzureWebJobsDisableHomepage|true|
 
 Quando esta definição de aplicação for omitida ou definida para `false`, é apresentada uma página semelhante ao seguinte exemplo em resposta ao URL `<functionappname>.azurewebsites.net`.
 
@@ -56,11 +56,11 @@ Quando esta definição de aplicação for omitida ou definida para `false`, é 
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`significa utiliza o modo de libertação ao compilar o código de .NET; `false` significa utiliza o modo de depuração. Predefinição é `true`.
+`true` significa utiliza o modo de libertação ao compilar o código de .NET; `false` significa utiliza o modo de depuração. A predefinição é `true`.
 
 |Chave|Valor da amostra|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|VERDADEIRO|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -153,10 +153,10 @@ Predefinição é "6.5.0".
 |---|------------|
 |WEB SITE\_NÓ\_DEFAULT_VERSION|6.5.0|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Saiba como atualizar as definições de aplicação](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Saiba como atualizar as definições de aplicação](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [Consulte as definições globais no ficheiro host.json](functions-host-json.md)
+[Consulte as definições globais no ficheiro host.json](functions-host-json.md)
+
+[Consulte as outras definições de aplicação para aplicações do App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

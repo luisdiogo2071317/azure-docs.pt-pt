@@ -1,8 +1,8 @@
 ---
 title: Eventos de risco do Azure Active Directory | Microsoft Docs
-description: "Este tópico fornece uma descrição detalhada dos eventos de risco."
+description: Este artice dá-lhe obter uma descrição detalhada dos eventos de risco.
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, a segurança, a risco, a nível de risco, a vulnerabilidade e a política de segurança"
+keywords: proteção de identidade do Azure Active Directory, a segurança, a risco, a nível de risco, a vulnerabilidade e a política de segurança
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -39,18 +39,19 @@ Atualmente, o Azure Active Directory Deteta seis tipos de eventos de risco:
 As informações que obtém para um evento de risco detetados está associada à sua subscrição do Azure AD. Com a edição do Azure AD Premium P2, obter as informações mais detalhadas sobre todas as deteções subjacentes. Com a edição do Azure AD Premium P1, deteções que não são abrangidas pelo seu licença aparecem como o evento de risco **início de sessão com o risco adicional detetado**.
 
 
-Este tópico fornece-lhe uma descrição detalhada do que eventos de risco são e como pode utilizá-las para proteger as identidades do Azure AD.
+Este artigo dá-lhe uma descrição detalhada do que eventos de risco são e como pode utilizá-las para proteger as identidades do Azure AD.
 
 
 ## <a name="risk-event-types"></a>Tipos de eventos de risco
 
-A propriedade de tipo de eventos de risco é que um identificador para a ação suspeita um registo de eventos de risco tiver sido criado para.  
+A propriedade de tipo de eventos de risco é que um identificador para a ação suspeita um registo de eventos de risco tiver sido criado para.
+
 Levar os investimentos de contínuos da Microsoft para o processo de deteção para:
 
 - Melhoramentos para a precisão da deteção de eventos de risco existente 
 - Novos tipos de eventos de risco que serão adicionados no futuro
 
-### <a name="leaked-credentials"></a>Credenciais obtidas ilicitamente
+### <a name="leaked-credentials"></a>Fuga de credenciais
 
 Quando cybercriminals comprometimentos palavras-passe válidas de utilizadores legítimos, os criminals, muitas vezes, partilham essas credenciais. Normalmente, isto é feito ao publicá-los publicamente nos sites web ou de colar escuro ou por comerciais ou vender as credenciais no mercado negro. A Microsoft podem fugir credenciais serviço adquire o nome de utilizador / palavra-passe pares através da monitorização de web sites público e um escuro e trabalhar com:
 
@@ -76,6 +77,8 @@ O algoritmo ignora óbvios "falsos positivos" contribuir para as condições de 
 
 Este tipo de eventos de risco considera decorridos desde o início de sessão localizações (IP, Latitude / Longitude e ASN) para determinar as localizações de nova / familiarizadas. O sistema armazena informações sobre localizações anteriores utilizados por um utilizador e considera estas localizações "familiares". O evento de risco é acionado quando o início de sessão ocorre a partir de uma localização que já não se encontra na lista de localizações familiares. O sistema tem um período de aprendizagem inicial de 30 dias, durante os quais não sinalizador quaisquer novas localizações como localizações desconhecidas. O sistema ignora também inícios de sessão de dispositivos familiares e localizações geograficamente próximo de uma localização familiar. 
 
+Proteção de identidade Deteta inícios de sessão a partir de localizações desconhecidas também para a autenticação básica / legado protocolos. Porque estes protocolos tem modernas funcionalidades familiares, como o id de cliente, não há telemetria suficiente para reduzir os falsos positivos. Para reduzir o número de eventos de risco detetados, deve mover para a autenticação moderna.   
+
 ### <a name="sign-ins-from-infected-devices"></a>Inícios de sessão de dispositivos infetados
 
 Este tipo de eventos de risco identifica inícios de sessão de dispositivos infetados com software maligno, que são reconhecidos ativamente comunicar com um servidor bot. Isto é determinado através da correlação entre os endereços IP do dispositivo do utilizador em relação a endereços IP que contactaram um servidor bot. 
@@ -86,8 +89,7 @@ Este tipo de eventos de risco identifica os endereços IP do que um número elev
 
 ## <a name="detection-type"></a>Tipo de deteção
 
-A propriedade de tipo de deteção é um indicador (em tempo real ou Offline) para o período de tempo da deteção de um evento de risco.  
-Atualmente, a maioria dos eventos de risco são detetados offline numa operação de pós-processamento após o evento de risco.
+A propriedade de tipo de deteção é um indicador (em tempo real ou Offline) para o período de tempo da deteção de um evento de risco. Atualmente, a maioria dos eventos de risco são detetados offline numa operação de pós-processamento após o evento de risco.
 
 A tabela seguinte apresenta a quantidade de tempo que demora para um tipo de deteção apresentar um relatório relacionados:
 
@@ -113,8 +115,7 @@ Para os tipos de eventos de risco que do Azure Active Directory Deteta, os tipos
 
 A propriedade de nível de risco de um evento de risco é um indicador (alta, média ou baixa) para a gravidade e a confiança de um evento de risco. Esta propriedade ajuda-o a atribuir prioridades as ações que deve tomar. 
 
-A gravidade do evento de risco representa a força do sinal, como uma previsão da receita de compromisso de identidade.  
-A confiança é um indicador para a possibilidade de falsos positivos. 
+A gravidade do evento de risco representa a força do sinal, como uma previsão da receita de compromisso de identidade. A confiança é um indicador para a possibilidade de falsos positivos. 
 
 Por exemplo, 
 
@@ -126,19 +127,18 @@ Por exemplo,
 
 ![Nível de risco](./media/active-directory-reporting-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>Credenciais obtidas ilicitamente
+### <a name="leaked-credentials"></a>Fuga de credenciais
 
 Fuga credenciais eventos de risco estão classificados como um **elevada**, porque fornecem uma indicação clara que o nome de utilizador e palavra-passe estão disponíveis para um atacante.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inícios de sessão de endereços IP anónimos
 
-O nível de risco para este tipo de eventos de risco é **média** porque um endereço IP anónimo não é uma indicação de um compromisso de conta segura.  
-Recomendamos que contacte o utilizador para verificar se estava a utilizar endereços IP anónimos imediatamente.
+O nível de risco para este tipo de eventos de risco é **média** porque um endereço IP anónimo não é uma indicação de um compromisso de conta segura. Recomendamos que contacte o utilizador para verificar se estava a utilizar endereços IP anónimos imediatamente.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Deslocação impossível para localizações atípicas
 
-Impossível é normalmente um bom indicador de que um hacker conseguiu com êxito início de sessão. No entanto, FALSO-positivos podem ocorrer quando um utilizador viaja utilizando um novo dispositivo ou uma VPN que não é normalmente utilizada por outros utilizadores na organização. Outra origem de Falso-positivos é aplicações incorretamente passaram servidor IPs como cliente IPs, que pode dar o aspecto de inícios de sessão está alojado ocorridos a partir do Centro de dados em que essa aplicação do back-end (muitas vezes, estes são os datacenters da Microsoft, que Pode dar o aspecto de inícios de sessão a decorrer da Microsoft pertencentes à empresa endereços IP). Como resultado destas falso-positivos, o nível de risco para este evento de risco é **média**.
+Impossível é normalmente um bom indicador de que um hacker tenha conseguido iniciar sessão com êxito. No entanto, FALSO-positivos podem ocorrer quando um utilizador viaja utilizando um novo dispositivo ou uma VPN que não é normalmente utilizada por outros utilizadores na organização. Outra origem de Falso-positivos é aplicações incorretamente passaram servidor IPs como cliente IPs, que pode dar o aspecto de inícios de sessão está alojado ocorridos a partir do Centro de dados em que essa aplicação do back-end (muitas vezes, estes são os datacenters da Microsoft, que Pode dar o aspecto de inícios de sessão a decorrer da Microsoft pertencentes à empresa endereços IP). Como resultado destas falso-positivos, o nível de risco para este evento de risco é **média**.
 
 > [!TIP]
 > Pode reduzir a quantidade de Falso-positivos comunicados para este tipo de eventos de risco configurando [denominado localizações](active-directory-named-locations.md). 
@@ -173,16 +173,16 @@ Eventos de risco são foundation para proteger as identidades do seu Azure AD. D
 | [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Médio | Em tempo real |
 | [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) | Médio | Offline |
 | [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) | Médio | Em tempo real |
-| [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) | Baixo | Offline |
+| [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) | Baixa | Offline |
 | [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Médio | Offline|
 
 Onde podem encontrar os eventos de risco que foram detetados no seu ambiente?
 Existem dois locais onde rever eventos de risco comunicado:
 
- - **Relatórios do Azure AD** -eventos de risco fazem parte de segurança do Azure AD de relatórios. Para obter mais detalhes, consulte o [os utilizadores no relatório de segurança de risco](active-directory-reporting-security-user-at-risk.md) e [relatório de segurança de inícios de sessão arriscados](active-directory-reporting-security-risky-sign-ins.md).
+ - **Relatórios do Azure AD** -eventos de risco fazem parte de segurança do Azure AD de relatórios. Para obter mais informações, consulte o [os utilizadores no relatório de segurança de risco](active-directory-reporting-security-user-at-risk.md) e [relatório de segurança de inícios de sessão arriscados](active-directory-reporting-security-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** -eventos de risco são também fazem parte da [do Azure Active Directory Identity Protection](active-directory-identityprotection.md) capacidades de relatórios.
     
 
-Enquanto a deteção de eventos de risco já representa um aspeto importante de proteger as identidades, também tem a opção para resolvê-los o manualmente ou implementar mesmo respostas automáticas através da configuração de políticas de acesso condicional. Para obter mais detalhes, consulte o artigo de [do Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Enquanto a deteção de eventos de risco já representa um aspeto importante de proteger as identidades, também tem a opção para resolvê-los o manualmente ou implementar mesmo respostas automáticas através da configuração de políticas de acesso condicional. Para obter mais informações, consulte o artigo de [do Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  

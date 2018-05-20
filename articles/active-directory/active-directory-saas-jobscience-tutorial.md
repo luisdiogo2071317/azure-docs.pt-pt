@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Jobscience | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Jobscience."
+title: 'Tutorial: Integração do Azure Active Directory com Jobscience | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Jobscience.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a2840968cadb3d78dee9d35fd0048d5941508cd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cf6dccf02fa56b90ea4737e1d1c7b9a5e9d1d4af
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Azure Active Directory com Jobscience
 
@@ -29,7 +29,7 @@ Integrar Jobscience com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Jobscience (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`http://<company name>.my.salesforce.com`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Este valor não é real. Atualize este valor com o URL de início de sessão real. Para obter este valor [equipa de suporte de cliente Jobscience](https://www.jobscience.com/support) ou do perfil de SSO, irá criar que é explicada mais tarde no tutorial. 
@@ -161,7 +161,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **emissor** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    c. No **Id de entidade** caixa de texto, tipo`https://salesforce-jobscience.com`
+    c. No **Id de entidade** caixa de texto, tipo `https://salesforce-jobscience.com`
 
     d. Clique em **procurar** para carregar o certificado do Azure AD.
 
@@ -173,7 +173,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. No **URL de fim de sessão do fornecedor de identidade** caixa de texto, cole o valor de **Sign-Out URL**, que copiou do portal do Azure.
 
-    posso. Clique em **Guardar**.
+    i. Clique em **Guardar**.
 
 14. No painel de navegação esquerdo, no **administrar** secção, clique em **gestão de domínios** para expandir a secção relacionada e, em seguida, clique em **meu domínio** para abrir o **Meu domínio** página. 
     
@@ -191,7 +191,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Controlos de segurança](./media/active-directory-saas-jobscience-tutorial/ic784368.png "controlos de segurança")
     
-    Clique no perfil SSO que criou no passo acima. Esta página mostra o início de sessão único num URL para a sua empresa (por exemplo, [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
+    Clique no perfil SSO que criou no passo acima. Esta página mostra o início de sessão único num URL para a sua empresa (por exemplo, [ https://companyname.my.salesforce.com?so=companyid ](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -311,7 +311,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

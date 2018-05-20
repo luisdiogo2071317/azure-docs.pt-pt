@@ -1,24 +1,24 @@
 ---
-title: "Desfragmentação de métricas nos recursos de infraestrutura de serviço do Azure | Microsoft Docs"
-description: "Uma descrição geral da utilização desfragmentação ou packing como uma estratégia de métricas no Service Fabric"
+title: Desfragmentação de métricas nos recursos de infraestrutura de serviço do Azure | Microsoft Docs
+description: Uma descrição geral da utilização desfragmentação ou packing como uma estratégia de métricas no Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0b8b2bad967532bb0040407dc6a3a7b9599576d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e a carga no Service Fabric
 Os recursos de infraestrutura Cluster recursos do Service Manager estratégia a predefinição para gerir as métricas de carga no cluster é distribuir a carga. Garantir que os nós estão uniformemente utilizados evita oportunidades de acesso frequente e amovíveis que levar a contenção e wasted recursos. Distribuição de cargas de trabalho no cluster também é esta em termos de reiniciadas falhas, uma vez que garante que uma falha não remova uma grande percentagem de uma carga de trabalho especificada. 
@@ -95,7 +95,7 @@ através de Clusterconfig para implementações autónomas ou Template do Azure 
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - O Gestor de recursos do Cluster tem opções de man para descrever o cluster. Para saber mais sobre os mesmos, consulte este artigo no [que descrevem um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - As métricas são como o serviço de recursos de infraestrutura Cluster Resource Manager gere consumo e capacidade do cluster. Para saber mais sobre as métricas e como configurá-las, consulte [neste artigo](service-fabric-cluster-resource-manager-metrics.md)
 

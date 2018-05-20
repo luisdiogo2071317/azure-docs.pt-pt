@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Dome9 arco | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Dome9 arco."
+title: 'Tutorial: Integração do Azure Active Directory com Dome9 arco | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Dome9 arco.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2ce4bb1be8b0124c69991765e18ce9922bd2f4a4
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: de164f6a439fd68b4746dc96c43ff5cb0740ffe8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integração do Azure Active Directory com Dome9 arco
 
@@ -30,7 +30,7 @@ Integrar o arco de Dome9 com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter sessão iniciada em arco Dome9 (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Dome9 arco domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url.png)
 
-    a. No **identificador** caixa de texto, escreva o URL:`https://secure.dome9.com/`
+    a. No **identificador** caixa de texto, escreva o URL: `https://secure.dome9.com/`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > Irá selecionar o valor de nome de empresa no portal de administração dome9, que é explicado mais tarde no tutorial.
@@ -119,7 +119,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Dome9 arco domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://secure.dome9.com/sso/saml/<yourcompanyname>`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente de arco Dome9](https://dome9.com/about/contact-us/) para obter estes valores. 
@@ -280,7 +280,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -290,7 +290,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

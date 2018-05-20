@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -154,7 +154,7 @@ Se a sincronização falhar num servidor:
     2. Certifique-se de que o serviço de sincronização de ficheiros do Azure está em execução no servidor. Para tal, abra o snap-in MMC de serviços e certifique-se de que o agente de sincronização de armazenamento (FileSyncSvc) está em execução.
 
 <a id="replica-not-ready"></a>**Falha de sincronização, com o erro: "0x80c8300f - a réplica não está pronta para efetuar a operação necessária"**  
-Este problema é esperado se criar um ponto final da nuvem e utilizar uma partilha de ficheiros do Azure que contém dados. Quando a tarefa de deteção de alteração estiver concluída em execução na partilha de ficheiros do Azure (pode demorar até 24 horas), a sincronização deve começar a funcionar corretamente.
+Este problema é esperado se criar um ponto final da nuvem e utilizar uma partilha de ficheiros do Azure que contém dados. A tarefa de deteção de alteração que verifica a existência de alterações na partilha de ficheiros do Azure está agendada por uma vez a cada 24 horas.  O tempo para concluir é depende do tamanho do espaço de nomes na partilha de ficheiros do Azure.  Este erro deve passar ausente depois de concluído.
 
 
     > [!NOTE]

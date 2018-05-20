@@ -1,6 +1,6 @@
 ---
-title: "Descrever serviços e aplicações de Service Fabric do Azure | Microsoft Docs"
-description: "Descreve como os manifestos são utilizados para descrever serviços e aplicações de Service Fabric."
+title: Descrever serviços e aplicações de Service Fabric do Azure | Microsoft Docs
+description: Descreve como os manifestos são utilizados para descrever serviços e aplicações de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,16 +9,16 @@ editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Aplicação de Service Fabric e os manifestos de serviço
 Este artigo descreve como aplicações de Service Fabric e os serviços são definidas e com a versão utilizando os ficheiros ApplicationManifest.xml e ServiceManifest.xml.  O esquema XML para estes ficheiros de manifesto é descrito da [documentação de esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

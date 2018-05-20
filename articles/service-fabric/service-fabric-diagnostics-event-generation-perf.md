@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
-ms.author: dekapur; srrengar
-ms.openlocfilehash: 54837b2a43f93f43d089a2fdf35d8b74ecacfc3e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: srrengar
+ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -28,7 +28,7 @@ Métricas devem ser recolhidas para compreender o desempenho do seu cluster, bem
 
 Para as máquinas do cluster, considere os seguintes contadores de desempenho para melhor compreender a carga em cada máquina e fazer cluster adequado dimensionamento decisões a recolher.
 
-| Categoria do contador | Nome do contador |
+| Categoria do contador | Nome do Contador |
 | --- | --- |
 | PhysicalDisk (por disco) | Média Comprimento de fila de leitura do disco |
 | PhysicalDisk (por disco) | Média Comprimento de fila de escrita de disco |
@@ -43,7 +43,7 @@ Para as máquinas do cluster, considere os seguintes contadores de desempenho pa
 | Processor(total) | % Tempo do processador |
 | Processo (para serviço) | % Tempo do processador |
 | Processo (para serviço) | ID de processo |
-| Processo (para serviço) | Bytes privados |
+| Processo (para serviço) | Bytes Privados |
 | Processo (para serviço) | Número de Threads |
 | Processo (para serviço) | Bytes virtuais |
 | Processo (para serviço) | Conjunto de trabalho |
@@ -58,7 +58,7 @@ Para as máquinas do cluster, considere os seguintes contadores de desempenho pa
 
 Recolha os seguintes contadores se estiver a implementar os serviços de .NET para o cluster. 
 
-| Categoria do contador | Nome do contador |
+| Categoria do contador | Nome do Contador |
 | --- | --- |
 | Memória de CLR de .NET (por serviço) | ID de Processo |
 | Memória de CLR de .NET (por serviço) | N. º total dos Bytes consolidados |

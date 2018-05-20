@@ -1,11 +1,11 @@
 ---
-title: "A extensão do painel de acesso do Azure de resolução de problemas do IE | Microsoft Docs"
-description: "Como utilizar a política de grupo para implementar o suplemento do Internet Explorer para o portal de aplicações My."
+title: A extensão do painel de acesso do Azure de resolução de problemas do IE | Microsoft Docs
+description: Como utilizar a política de grupo para implementar o suplemento do Internet Explorer para o portal de aplicações My.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>A extensão do painel de acesso de resolução de problemas para o Internet Explorer
 Este artigo ajuda-o a resolver os problemas seguintes:
@@ -92,6 +92,6 @@ Se ocorrerem problemas desinstalar a extensão, pode também removê-la utilizan
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
-* [Acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [Como implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo](active-directory-saas-ie-group-policy.md)
 

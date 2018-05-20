@@ -1,23 +1,21 @@
 ---
-title: "Desempenho de otimização de orientações para a utilização do Powershell com o Data Lake Store | Microsoft Docs"
-description: "Sugestões sobre como melhorar o desempenho quando utilizar o Azure PowerShell com o Data Lake Store"
+title: Desempenho de otimização de orientações para a utilização do Powershell com o Data Lake Store | Microsoft Docs
+description: Sugestões sobre como melhorar o desempenho quando utilizar o Azure PowerShell com o Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Orientações para a utilização do PowerShell do Azure Data Lake Store de otimização do desempenho
 

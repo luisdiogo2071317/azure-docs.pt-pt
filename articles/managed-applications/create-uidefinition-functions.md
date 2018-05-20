@@ -1,23 +1,23 @@
 ---
-title: "Aplicação do Azure gerida criar funções de definição de IU | Microsoft Docs"
-description: "Descreve as funções a utilizar quando criar definições de IU para aplicações geridas do Azure"
-services: azure-resource-manager
+title: Aplicação do Azure gerida criar funções de definição de IU | Microsoft Docs
+description: Descreve as funções a utilizar quando criar definições de IU para aplicações geridas do Azure
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta secção contém as assinaturas para todas as funções suportadas de um CreateUiDefinition.
@@ -196,7 +196,7 @@ O exemplo seguinte devolve `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>vazio
+### <a name="empty"></a>Vazio
 Devolve `true` se a cadeia, uma matriz nem um objeto é nulo ou está vazio.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia
@@ -369,7 +369,7 @@ O exemplo seguinte devolve `{"key2": "raboof"}`:
 ## <a name="logical-functions"></a>Funções lógicas
 Estas funções podem ser utilizadas no conditionals. Algumas funções não podem suportar todos os tipos de dados JSON.
 
-### <a name="equals"></a>igual a
+### <a name="equals"></a>é igual a
 Devolve `true` se ambos os parâmetros têm o mesmo tipo e valor. Esta função suporta todos os tipos de dados JSON.
 
 O exemplo seguinte devolve `true`:
@@ -510,7 +510,7 @@ O exemplo seguinte devolve `2`:
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>Número de vírgula flutuante
+### <a name="float"></a>flutuante
 Converte o parâmetro uma vírgula flutuante. Esta função suporta os parâmetros de tipo número e a cadeia.
 
 O exemplo seguinte devolve `1.0`:
@@ -525,7 +525,7 @@ O exemplo seguinte devolve `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>Cadeia
+### <a name="string"></a>cadeia
 Converte o parâmetro numa cadeia. Esta função suporta parâmetros de todos os tipos de dados JSON.
 
 O exemplo seguinte devolve `"1"`:
@@ -642,8 +642,8 @@ O exemplo seguinte devolve `"https://portal.azure.com/"`:
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
-## <a name="math-functions"></a>Funções de bibliotecas
-### <a name="add"></a>Adicionar
+## <a name="math-functions"></a>Funções matemáticas
+### <a name="add"></a>adicionar
 Adiciona dois números e devolve o resultado.
 
 O exemplo seguinte devolve `3`:
@@ -670,7 +670,7 @@ O exemplo seguinte devolve `6`:
 "[mul(2, 3)]"
 ```
 
-### <a name="div"></a>Div
+### <a name="div"></a>div
 Divide o primeiro número, o segundo número e devolve o resultado. O resultado é sempre um número inteiro.
 
 O exemplo seguinte devolve `2`:
@@ -703,7 +703,7 @@ O exemplo seguinte devolve `1`:
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>Máx.
+### <a name="max"></a>máx.
 Devolve o maior de dois números.
 
 O exemplo seguinte devolve `2`:
@@ -785,6 +785,6 @@ O exemplo seguinte devolve `"1991-01-01T00:59:59.000Z"`:
 "[addHours('1990-12-31T23:59:59Z', 1)]"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para uma introdução para o Azure Resource Manager, consulte [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 

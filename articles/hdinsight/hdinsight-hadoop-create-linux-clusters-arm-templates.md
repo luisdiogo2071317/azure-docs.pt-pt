@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 1c50c3fbef5495171693b64e410f858af6176147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ae5085eb52210844b364113a436fa033da9daac7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters do Hadoop no HDInsight com modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -33,7 +33,7 @@ Para seguir as instruções neste artigo, tem de:
 * Um [subscrição do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * CLI do Azure PowerShell e/ou do Azure.
 
-### <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
+### <a name="resource-manager-templates"></a>Modelos do Resource Manager
 Um modelo do Resource Manager torna mais fácil de criar o resoruces seguintes para a sua aplicação numa operação única e coordenada:
 * Clusters do HDInsight e os recursos dependentes (como a conta de armazenamento predefinido)
 * Outros recursos (por exemplo, o Azure a base de dados de SQL Server para utilizar o Apache Sqoop)

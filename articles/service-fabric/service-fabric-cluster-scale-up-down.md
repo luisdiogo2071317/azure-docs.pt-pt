@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c2479dad013bfcb738e61e67cc8cf9584b4d11cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Dimensionar um cluster do Service Fabric no ou utilizando regras de dimensionamento automático ou manual
 Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster de Service Fabric está configurado como um conjunto de dimensionamento de máquina virtual separada. Cada tipo de nó, em seguida, pode ser ampliado na ou saída de forma independente, têm conjuntos diferentes de portas abertas e pode ter as métricas de capacidade diferentes. Saiba mais sobre-na [nodetypes de Service Fabric](service-fabric-cluster-nodetypes.md) documento. Uma vez que os tipos de nó de Service Fabric no seu cluster são constituídos por conjuntos de dimensionamento de máquina virtual no back-end, terá de configurar regras de dimensionamento automático para cada conjunto de dimensionamento da Máquina Virtual/tipo nó.

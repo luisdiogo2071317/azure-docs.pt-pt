@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar Workday para o aprovisionamento de utilizador automáticas
 
@@ -99,14 +99,14 @@ Um único conector aprovisionamento das interfaces com a API de um sistema de or
 
 Há uma relação unívoca entre instâncias de conector aprovisionamento e instâncias da aplicação no Azure AD:
 
-| Sistema de origem | Sistema de destino |
+| Sistema de Origem | Sistema de destino |
 | ---------- | ---------- | 
 | Inquilino do Azure AD | Aplicação SaaS |
 
 
 No entanto, ao trabalhar com Workday e o Active Directory, existem vários sistemas de origem e de destino para ser considerado:
 
-| Sistema de origem | Sistema de destino | Notas |
+| Sistema de Origem | Sistema de destino | Notas |
 | ---------- | ---------- | ---------- |
 | Workday | Floresta do Active Directory | Cada floresta é tratada como um sistema de destino distintos |
 | Workday | Inquilino do Azure AD | Conforme necessário para os utilizadores apenas na nuvem |
@@ -804,20 +804,13 @@ Para tal, tem de utilizar [Workday Studio](https://community.workday.com/studio-
 
 * Um problema com os registos de auditoria não são apresentados no inquilinos do Azure AD, localizados na União Europeia anterior foi resolvido. No entanto, a configuração do agente adicionais é necessária para inquilinos do Azure AD no EU. Para obter mais informações, consulte [parte 3: configurar o agente de sincronização no local](#Part 3: Configure the on-premises synchronization agent)
 
-## <a name="gdpr-compliance"></a>Conformidade GDPR
+## <a name="gdpr-information"></a>Informações de GDPR
 
 [Geral regulamento de proteção de dados (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) é um leis de privacidade e proteção de dados do União Europeia (EU). O GDPR impõe regras em empresas, agências governamentais, não lucros e outras organizações que ofereçam bens e serviços a pessoas no EU ou que recolher e analisam dados associados ao residentes de EU. 
 
-O serviço de aprovisionamento do Azure AD é GDPR em conformidade, juntamente com o resto das funcionalidades e serviços da Microsoft. Para saber mais sobre o bloco GDPR da Microsoft, consulte o [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Para saber mais sobre o bloco GDPR da Microsoft, consulte o [termos de serviço](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-No entanto, uma vez que a solução de aprovisionamento do Workday para o Active Directory requer um agente de sincronização para ser instalada num servidor associado a um domínio, existem alguns eventos, terá de monitorizar também permanecer GDPR em conformidade.
- 
-O agente cria registos no **registo de eventos do Windows**, que pode conter informações de identificação pessoal.
-
-Existem duas formas das manter GDPR em conformidade:
-
-1. Mediante pedido, extrair dados para uma pessoa e remover dados dessa pessoa dos registos de eventos do Windows. 
-2. Manter a retenção de registos de eventos do Windows tenham origem a partir do processo de AADSyncAgent em 48 horas
+Tenha em atenção que Workday solução de aprovisionamento do Active Directory requer um agente de sincronização ser instalada num servidor associado a um domínio, e este agente cria registos no **registo de eventos do Windows** que pode conter informações de identificação pessoal.
 
 Para obter informações sobre como configurar a retenção de dados para os registos de eventos do Windows, consulte o [as definições de registos de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obter informações gerais sobre o registo de eventos do Windows, consulte [neste artigo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -827,4 +820,3 @@ Para obter informações sobre como configurar a retenção de dados para os reg
 * [Saiba como rever os registos e obter relatórios sobre o aprovisionamento de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Saiba como configurar o início de sessão entre Workday e o Azure Active Directory](active-directory-saas-workday-tutorial.md)
 * [Saiba como integrar a outras aplicações de SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-

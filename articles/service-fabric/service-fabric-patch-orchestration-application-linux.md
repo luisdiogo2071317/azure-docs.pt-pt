@@ -1,24 +1,24 @@
 ---
-title: "Aplicação de orquestração do Service Fabric patch do Azure para linux | Microsoft Docs"
-description: "Aplicação para automatizar a aplicação de patches de sistema operativo num cluster de Linux Service Fabric."
+title: Aplicação de orquestração do Service Fabric patch do Azure para linux | Microsoft Docs
+description: Aplicação para automatizar a aplicação de patches de sistema operativo num cluster de Linux Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/22/2018
 ms.author: nachandr
-ms.openlocfilehash: dac8068705e284b04d84d128eb1ce62c459d44ff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Correção do sistema operativo Linux no seu cluster do Service Fabric
 
@@ -124,7 +124,7 @@ Transferir a aplicação a [transferir ligação](https://go.microsoft.com/fwlin
 
 O comportamento da aplicação de orquestração patch pode ser configurado para satisfazer as suas necessidades. Substitua os valores predefinidos mediante a transmissão no parâmetro de aplicação durante a criação de aplicação ou atualização. Podem ser fornecidos parâmetros de aplicação, especificando `ApplicationParameter` para o `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication` cmdlets.
 
-|Parâmetro        |**Tipo**                          | **Detalhes**|
+|**Parâmetro**        |**Tipo**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |Longo                              | Número máximo de resultados de atualização, que devem ser colocados em cache. <br>Valor predefinido é 3000 partindo do princípio de: <br> -Número de nós é 20. <br> -O número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ter 10. <br> -Devem ser armazenados resultados durante os últimos três meses. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. As atualizações são instalado um nó de cada vez. <br>                                                           <b>UpgradeDomainWise</b>. As atualizações são instalado um domínio de atualização de cada vez. (No máximo, podem aceder todos os nós que pertencem a um domínio de atualização para atualização.)
@@ -219,7 +219,7 @@ Os campos de JSON são descritos da seguinte forma:
 Campo | Valores | Detalhes
 -- | -- | --
 OperationResult | 0 - foi concluída com êxito<br> 1 - foi concluída com êxito com erros<br> 2 - falha<br> 3 - abortada<br> 4 - abortado com tempo limite | Indica o resultado da operação global (geralmente que envolve a instalação de atualizações de um ou mais).
-ResultCode | Mesmo que OperationResult | Este campo indica o resultado da operação de instalação para a atualização individual.
+resultCode | Mesmo que OperationResult | Este campo indica o resultado da operação de instalação para a atualização individual.
 OperationType | 1 - instalação<br> 0 - procurar e transferir.| A instalação é a única OperationType que deverá ser apresentada nos resultados por predefinição.
 UpdateClassification | Predefinição é "securityupdates" | Tipo de atualizações que é instalado durante a operação de atualização
 UpdateFrequency | Predefinição é "Semanal, quarta-feira, 7:00:00" | Atualização de frequência configurada para esta atualização.

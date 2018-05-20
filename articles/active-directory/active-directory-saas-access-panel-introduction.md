@@ -15,11 +15,11 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -60,7 +60,7 @@ Para alcançar o painel de acesso, tem de ser autenticado através de uma conta 
 
 Se tiver uma subscrição do Azure ou do Office 365 e utiliza o portal do Azure ou uma aplicação do Office 365, pode ver a lista de aplicações sem iniciar sessão novamente. Se não são autenticados, lhe for pedido que inicie sessão com o nome de utilizador e palavra-passe para a sua conta no Azure AD. Se a sua organização tiver configurado a Federação, escrever o nome de utilizador é suficiente.
 
-Quando são autenticados, pode interagir com as aplicações que o administrador tem integrado com o diretório. Para saber como integrar aplicações com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Quando são autenticados, pode interagir com as aplicações que o administrador tem integrado com o diretório. Para saber como integrar aplicações com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="web-browser-requirements"></a>Requisitos de Web browsers
 
@@ -215,7 +215,7 @@ Por exemplo, se uma aplicação estiver configurada para autenticar os utilizado
  
 - Para saber como integrar uma aplicação SaaS com o Azure AD, consulte o [lista de tutoriais sobre como integrar aplicações SaaS](active-directory-saas-tutorial-list.md).
  
-- Para saber mais sobre a gestão de aplicações com o Azure AD, consulte o [introdução ao acesso de aplicação único de início de sessão e gerir com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- Para saber mais sobre a gestão de aplicações com o Azure AD, consulte o [introdução ao acesso de aplicação único de início de sessão e gerir com o Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  
 - Para saber mais sobre o aprovisionamento de utilizador, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Configurar fiáveis micro-serviços do Azure | Microsoft Docs"
-description: "Saiba mais sobre como configurar Reliable Services com monitorização de estado no Service Fabric do Azure."
+title: Configurar fiáveis micro-serviços do Azure | Microsoft Docs
+description: Saiba mais sobre como configurar Reliable Services com monitorização de estado no Service Fabric do Azure.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar os serviços fiáveis com monitorização de estado
 Existem dois conjuntos de definições de configuração para serviços fiáveis. Um conjunto é global para todos os serviços fiáveis do cluster enquanto o outro conjunto é específico para um determinado serviço fiável.
@@ -29,8 +29,8 @@ A configuração do serviço fiável global é especificada no manifesto do clus
 ### <a name="configuration-names"></a>Nomes de configuração
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |Número mínimo de KB alocar no modo de kernel para o conjunto de memória do registador escrita da memória intermédia. Este conjunto de memória é utilizado para colocar em cache as informações de estado antes de escrever no disco. |
-| WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem Limite |Pode aumentar o tamanho máximo para o qual o registo escrever o conjunto de memória de memória intermédia. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB alocar no modo de kernel para o conjunto de memória do registador escrita da memória intermédia. Este conjunto de memória é utilizado para colocar em cache as informações de estado antes de escrever no disco. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Pode aumentar o tamanho máximo para o qual o registo escrever o conjunto de memória de memória intermédia. |
 | SharedLogId |GUID |"" |Especifica um GUID exclusivo a utilizar para identificar o ficheiro de registo partilhado predefinido utilizado por todos os serviços fiáveis em todos os nós no cluster que não especificam o SharedLogId na respetiva configuração específica do serviço. Se não for especificado SharedLogId, em seguida, SharedLogPath deve ser também especificado. |
 | SharedLogPath |Nome de caminho completamente qualificado |"" |Especifica o caminho completamente qualificado, onde o ficheiro de registo partilhado utilizado por todos os serviços fiáveis em todos os nós no cluster que não especificam o SharedLogPath na respetiva configuração específica do serviço. No entanto, se SharedLogPath for especificado, em seguida, SharedLogId deve ser também especificado. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB de espaço em disco para alocar estaticamente para o registo partilhado. O valor tem de ser 2048 ou superior. |
@@ -106,7 +106,7 @@ ReplicatorConfig
 | Nome | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicador na aguarda secundária depois de receber uma operação antes de enviar fazer uma cópia de uma confirmação para o site primário. Quaisquer outras confirmações sejam enviados para operações de processamento dentro deste intervalo são enviadas como uma resposta. |
-| ReplicatorEndpoint |N/D |Sem predefinição - parâmetro necessário |Definir o endereço IP e a porta que o replicador principal/secundário irá utilizar para comunicar com outros os replicadores na réplica. Isto deverá referenciar um ponto de final de recursos TCP no manifesto de serviço. Consulte [recursos do serviço do manifesto](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto final no manifesto do serviço. |
+| ReplicatorEndpoint |N/A |Sem predefinição - parâmetro necessário |Definir o endereço IP e a porta que o replicador principal/secundário irá utilizar para comunicar com outros os replicadores na réplica. Isto deverá referenciar um ponto de final de recursos TCP no manifesto de serviço. Consulte [recursos do serviço do manifesto](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto final no manifesto do serviço. |
 | MaxPrimaryReplicationQueueSize |Número de operações |8192 |Número máximo de operações na fila principal. Uma operação é libertada cópias de segurança depois do replicador primário recebe uma confirmação dos secundários replicadores. Este valor tem de ser superior a 64 e uma potência de 2. |
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é libertada cópias de segurança depois de efetuar o seu estado de elevada disponibilidade através de persistência. Este valor tem de ser superior a 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |50 |Quantidade de espaço no ficheiro de registo após o qual o estado é checkpointed. |
@@ -183,7 +183,7 @@ A definição de MaxRecordSizeInKB define o tamanho máximo de um registo que po
 
 As definições de SharedLogId e SharedLogPath são sempre utilizadas em conjunto para tornar um serviço a utilizar um registo partilhado separado do registo partilhado predefinido para o nó. Para melhor eficiência, como muitos serviços possível devem especificar o mesmo registo partilhado. Ficheiros de registo partilhado devem ser colocados em discos que são utilizados apenas para o ficheiro de registo partilhado para reduzir a contenção de movimento head. Esperamos que este valor deverá ser necessário alterar em casos raros apenas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Depurar a aplicação de Service Fabric no Visual Studio](service-fabric-debugging-your-application.md)
 * [Referência para programadores para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

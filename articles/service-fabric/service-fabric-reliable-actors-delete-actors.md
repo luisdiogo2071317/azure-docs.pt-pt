@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: 32153a916ed9c868c002f4b69f9f6f3cdcc3c9d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fa4fe018a9e6b32158f5bbd13c44ff57069cb1cf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminar Reliable Actors e o respetivo estado
 Recolha de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator for reativado, dos dados é novamente disponibilizados ao mesmo através do Gestor de estado. Nos casos em que atores armazenar dados no Gestor de estado e estão desativados mas nunca reativados, poderá ser necessário limpar os seus dados.

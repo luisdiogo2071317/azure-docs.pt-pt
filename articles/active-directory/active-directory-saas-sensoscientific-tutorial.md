@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o sistema de monitorização do SensoScientific sem fios temperatura | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e do sistema de monitorização do SensoScientific sem fios temperatura."
+title: 'Tutorial: Integração do Azure Active Directory com o sistema de monitorização do SensoScientific sem fios temperatura | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e do sistema de monitorização do SensoScientific sem fios temperatura.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: e2863e1094cdbd66744141b25213313c09c6de4b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 750474af2ba8ae63d45a63fbed3355c3d8b913f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Azure Active Directory com o sistema de monitorização do SensoScientific sem fios temperatura
 
@@ -29,7 +29,7 @@ Integrar o sistema de monitorização do SensoScientific sem fios temperatura co
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o sistema de monitorização do SensoScientific sem fios temperatura (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -217,7 +217,7 @@ Nesta secção, testar a configuração do Azure AD único início de sessão at
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

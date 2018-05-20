@@ -1,54 +1,59 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Prepay para máquinas virtuais com instâncias de VM reservado
+# <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prepay para máquinas virtuais com instâncias VM reservados do Azure
 
-Prepay para máquinas virtuais e a poupar dinheiro com instâncias de Máquina Virtual reservada. Para obter mais informações, consulte [oferta de instâncias de Máquina Virtual reservada](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Prepay para máquinas virtuais e a poupar dinheiro com instâncias de Máquina Virtual reservada do Azure (VM). Para obter mais informações, consulte [oferta de instâncias reservado Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-Pode comprar instâncias de Máquina Virtual reservada [portal do Azure](https://portal.azure.com). Para comprar uma instância de Máquina Virtual reservado:
+Pode comprar instâncias reservados do Azure [portal do Azure](https://portal.azure.com). Para comprar uma instância reservado:
 -   Tem de ser uma função de proprietário para, pelo menos, uma empresa ou de subscrição pay as you go.
--   Para as subscrições empresariais, tem de estar ativadas compras de reserva no [EA portal](https://ea.azure.com).
--   Para o programa fornecedor de solução em nuvem (CSP), só o admin de agentes ou agentes de vendas podem comprar as reservas.
+-   Para as subscrições empresariais, instância reservado compras tem de estar ativadas no [EA portal](https://ea.azure.com).
+-   Para o programa fornecedor de solução em nuvem (CSP), só o admin de agentes ou agentes de vendas podem comprar as instâncias reservado.
 
-## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar uma instância de Máquina Virtual reservada
+## <a name="buy-a-reserved-instance"></a>Comprar uma instância reservada
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reservas**.
-3. Selecione **adicionar** para comprar uma nova reserva.
-4. Preencha os campos obrigatórios. VM em execução instâncias que correspondam os atributos que selecionar elegíveis para obter o desconto de reserva. O número real das instâncias de VM que obtenha o desconto depende no âmbito e na quantidade selecionado.
+3. Selecione **adicionar** para comprar uma nova instância reservado.
+4. Preencha os campos obrigatórios. Instâncias de VM em execução que corresponda os atributos que selecionar elegíveis para obter o desconto instância reservado. O número real das instâncias de VM que obtenha o desconto depende no âmbito e na quantidade selecionado.
 
     | Campo      | Descrição|
     |:------------|:--------------|
-    |Nome        |O nome desta reserva.| 
-    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento de subscrição é-lhe cobrado os custos de compromisso de reserva. O tipo de subscrição tem de ser um enterprise agreement (oferecem número: MS-AZR - 0017P) ou pay as you go (oferecem número: MS-AZR - 0003P). Para uma subscrição do enterprise, os encargos são deducted do saldo de compromisso monetário a inscrição ou cobrados como excedido. Para a subscrição pay as you go, os encargos são cobrados para o método de pagamento de cartão de crédito ou fatura na subscrição.|    
-    |Âmbito       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhada). Se selecionar: <ul><li>Única subscrição - o desconto de reserva é aplicada às VMs nesta subscrição. </li><li>Partilhado - o desconto de reserva é aplicado às VMs em execução em quaisquer subscrições dentro do contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições (exceto as subscrições de programador/teste) dentro de inscrição. Para clientes de pay as you go, o âmbito partilhado é todas as subscrições de pay as you go criadas pelo administrador de conta.</li></ul>|
-    |Localização    |A região do Azure que é abrangida pela reserva.|    
+    |Nome        |O nome desta instância reservado.| 
+    |Subscrição|A subscrição utilizada pagar para a instância reservado. O método de pagamento de subscrição é-lhe cobrado os custos de compromisso para a instância reservado. O tipo de subscrição tem de ser um enterprise agreement (oferecem número: MS-AZR - 0017P) ou pay as you go (oferecem número: MS-AZR - 0003P). Para uma subscrição do enterprise, os encargos são deducted do saldo de compromisso monetário a inscrição ou cobrados como excedido. Para a subscrição pay as you go, os encargos são cobrados para o método de pagamento de cartão de crédito ou fatura na subscrição.|    
+    |Âmbito       |Âmbito da instância reservado pode abranger uma subscrição ou várias subscrições (âmbito partilhada). Se selecionar: <ul><li>Única subscrição - desconto a instância reservado é aplicada às VMs nesta subscrição. </li><li>O desconto reservado instância partilhada - é aplicado a VMs em execução em quaisquer subscrições dentro do contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições (exceto as subscrições de programador/teste) dentro de inscrição. Para clientes de pay as you go, o âmbito partilhado é todas as subscrições de pay as you go criadas pelo administrador de conta.</li></ul>|
+    |Localização    |A região do Azure que está abrangida pela instância reservado.|    
     |Tamanho da VM     |O tamanho das instâncias da VM.|
     |Termo        |Um ano ou três anos.|
-    |Quantidade    |O número de instâncias que está a ser adquirido dentro de reserva. A quantidade é o número de instâncias VM que podem obter o desconto faturação em execução. Por exemplo, se estiver a executar o 10 Standard_D2 VMs nos EUA leste, em seguida, tem de especificar quantidade como 10 para maximizar o benefício de todas as máquinas em execução. |
-5. Pode ver o custo da reserva ao selecionar **calcular o custo**.
+    |Quantidade    |O número de instâncias que está a ser adquirido dentro de instância reservado. A quantidade é o número de instâncias VM que podem obter o desconto faturação em execução. Por exemplo, se estiver a executar o 10 Standard_D2 VMs nos E.U.A. leste, em seguida, tem de especificar quantidade como 10 para maximizar o benefício de todas as máquinas em execução. |
+5. Pode ver o custo da instância reservado ao selecionar **calcular o custo**.
 
-    ![Captura de ecrã antes de submeter a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
+    ![Captura de ecrã antes de submeter a compra de instância reservado](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
 
 6. Selecione **Compra**.
 7. Selecione **ver esta reserva** para ver o estado da compra.
 
-    ![Captura de ecrã antes de submeter a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+    ![Captura de ecrã depois de submeter a compra de instância reservado](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
 ## <a name="next-steps"></a>Passos Seguintes 
-O desconto de reserva é aplicado automaticamente para o número de máquinas virtuais que corresponder ao âmbito de reserva e atributos em execução. Pode atualizar o âmbito da reserva através de [portal do Azure](https://portal.azure.com), PowerShell, CLI ou através da API. 
+O desconto instância reservado é aplicado automaticamente para o número de máquinas virtuais que corresponder ao âmbito de instância reservado e atributos em execução. Pode atualizar o âmbito da instância reservado através de [portal do Azure](https://portal.azure.com), PowerShell, CLI ou através da API. 
 
-Para saber como gerir uma reserva, consulte [gerir Azure reservado instâncias de Máquina Virtual](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para saber como gerir uma instância reservadas, consulte [gerir instâncias reservado da Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Para mais informações sobre as instâncias de Máquina Virtual reservado, consulte os artigos seguintes.
+Para saber mais sobre instâncias reservados do Azure, consulte os artigos seguintes:
 
-- [Poupar dinheiro em máquinas virtuais com instâncias de Máquina Virtual reservado](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Poupar dinheiro em máquinas virtuais com instâncias reservado](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gerir instâncias reservadas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Compreender a forma como é aplicado o desconto instância reservado](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de instância reservado para a sua subscrição pay as you go](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de instância reservado para a inscrição Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Custos de software do Windows não incluídos com instâncias reservado](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Instâncias reservadas no programa de parceiro Center solução fornecedor Cloud (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
+
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+
+Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

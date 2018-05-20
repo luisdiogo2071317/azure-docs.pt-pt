@@ -1,9 +1,9 @@
 ---
 title: Ativar estado da empresa em Roaming no Azure Active Directory | Microsoft Docs
-description: "Perguntas mais frequentes sobre as definições de Roaming de estado empresarial em dispositivos Windows. Roaming de estado empresarial fornece aos utilizadores uma experiência unificada entre os respetivos dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo."
+description: Perguntas mais frequentes sobre as definições de Roaming de estado empresarial em dispositivos Windows. Roaming de estado empresarial fornece aos utilizadores uma experiência unificada entre os respetivos dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo.
 services: active-directory
 keywords: roaming, nuvem do windows, como ativar o roaming de estado empresarial de estado empresarial
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 Roaming de estado empresarial está disponível para qualquer organização com um Azure AD Premium ou Enterprise Mobility + licença de segurança (EMS). Para obter mais informações sobre como obter uma subscrição do Azure AD, consulte o [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
 
-Quando ativar Roaming de estado empresarial, a organização é concedida automaticamente uma licença gratuita de utilização limitada para o Azure Rights Management. Esta subscrição gratuita está limitada a encriptação e desencriptação de definições da empresa e dados da aplicação sincronizados por Roaming de estado empresarial. Tem de ter [uma subscrição paga](https://azure.microsoft.com/pricing/details/active-directory/) para utilizar as funcionalidades completas do Azure Rights Management.
+Quando ativar Roaming de estado empresarial, a organização é concedida automaticamente uma licença gratuita de utilização limitada para proteção do Azure Rights Management do Azure Information Protection. Esta subscrição gratuita está limitada a encriptação e desencriptação de definições da empresa e dados da aplicação sincronizados por Roaming de estado empresarial. Tem de ter [uma subscrição paga](https://azure.microsoft.com/pricing/details/information-protection/) para utilizar as funcionalidades completas do serviço Azure Rights Management.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Para ativar o Roaming de estado empresarial
 

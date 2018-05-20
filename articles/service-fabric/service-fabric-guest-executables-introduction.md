@@ -1,24 +1,24 @@
 ---
-title: "Implementar um executável existente para o Azure Service Fabric | Microsoft Docs"
-description: "Saiba mais sobre empacotamento uma aplicação existente como convidado executável, pelo que pode ser implementada para um cluster do Service Fabric."
+title: Implementar um executável existente para o Azure Service Fabric | Microsoft Docs
+description: Saiba mais sobre empacotamento uma aplicação existente como convidado executável, pelo que pode ser implementada para um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: mfussell;mikhegn
-ms.openlocfilehash: 328c00697a3c81f5af8488d4303feb7618d81301
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: mfussell
+ms.openlocfilehash: cdaf3dae12c2c9da1f6bcbebbff560b98e62bade
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementar um executável existente para o Service Fabric
 Pode executar qualquer tipo de código, tal como o Node.js, Java ou C++ no Service Fabric do Azure como um serviço. Service Fabric refere-se para estes tipos de serviços como convidado executáveis.
@@ -63,7 +63,7 @@ Para implementar uma aplicação de Service Fabric, a aplicação deve seguir a 
 
 O ApplicationPackageRoot contém o ficheiro de ApplicationManifest.xml que define a aplicação. Um subdiretório para cada serviço incluído na aplicação é utilizado para conter todos os artefactos requer que o serviço. Estes subdiretórios são o ServiceManifest.xml e, normalmente, o seguinte:
 
-* *Code*. Este diretório contém o código do serviço.
+* *Código*. Este diretório contém o código do serviço.
 * *Configuração*. Este diretório contém um ficheiro de Settings.xml (e outros ficheiros, se necessário) que o serviço pode aceder no tempo de execução para obter as definições de configuração específicos.
 * *Dados*. Este é um diretório adicional para armazenar os dados locais adicionais que poderá ter o serviço. Dados devem ser utilizados para armazenar apenas os dados de efémeras. Service Fabric não copie ou replicar as alterações para o diretório de dados se o serviço tem de ser relocalizada (por exemplo, durante a ativação pós-falha).
 
@@ -72,7 +72,7 @@ O ApplicationPackageRoot contém o ficheiro de ApplicationManifest.xml que defin
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes para informações relacionadas e tarefas.
 * [Implementar um executável convidado](service-fabric-deploy-existing-app.md)
 * [Implementar vários executáveis convidados](service-fabric-deploy-multiple-apps.md)

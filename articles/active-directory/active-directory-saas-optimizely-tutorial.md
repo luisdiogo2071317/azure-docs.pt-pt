@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Optimizely | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Optimizely."
+title: 'Tutorial: Integração do Azure Active Directory com Optimizely | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Optimizely.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e44e1621632bf2c8a3c4050b718d2721f5132d06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 995b440cbf9dc93ec01fe0b86c69ea09cd4714ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory com Optimizely
 
@@ -29,7 +29,7 @@ Integrar Optimizely com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Optimizely (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://app.optimizely.net/<instance name>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://app.optimizely.net/<instance name>`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`urn:auth0:optimizely:contoso`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:  `urn:auth0:optimizely:contoso`
 
     > [!NOTE] 
     > Estes valores não estiverem a real. Atualizar o valor com o URL de início de sessão real e o identificador, o que é explicada mais tarde no tutorial. 
@@ -147,7 +147,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
    
     ![Azure AD início de sessão único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_10.png)
     
-12. Clique em **guardar**
+12. Clicar em **Guardar**
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -239,7 +239,7 @@ Quando clica no mosaico Optimizely no painel de acesso, deve obter automaticamen
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

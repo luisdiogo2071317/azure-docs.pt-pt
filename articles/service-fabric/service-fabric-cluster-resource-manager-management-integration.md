@@ -1,24 +1,24 @@
 ---
-title: "Gestor de recursos de Cluster de recursos de infraestrutura de serviço - integração de gestão | Microsoft Docs"
-description: "Uma descrição geral dos pontos de integração entre o Gestor de recursos do Cluster e gestão de recursos de infraestrutura de serviço."
+title: Gestor de recursos de Cluster de recursos de infraestrutura de serviço - integração de gestão | Microsoft Docs
+description: Uma descrição geral dos pontos de integração entre o Gestor de recursos do Cluster e gestão de recursos de infraestrutura de serviço.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração de Gestor de recursos de cluster com a gestão de cluster do Service Fabric
 O Gestor de recursos de Cluster do serviço de recursos de infraestrutura não unidade atualizações no Service Fabric, mas está envolvida. A forma primeiro que o Gestor de recursos do Cluster ajuda com a gestão é controlar o estado pretendido do cluster e os serviços no interior-lo. O Gestor de recursos do Cluster de enviar relatórios de estado de funcionamento quando este não é possível colocar o cluster para a configuração pretendida. Por exemplo, se existir capacidade insuficiente o Gestor de recursos de Cluster envia os avisos de estado de funcionamento e erros que possam indicar o problema. Outra informação de integração tem de fazer com o funcionam das atualizações. O Gestor de recursos de Cluster altera o comportamento ligeiramente durante as atualizações.  
@@ -207,5 +207,5 @@ Outra coisa a fazer durante atualizações é que activa o Gestor de recursos de
 ### <a name="buffered-capacity--upgrade"></a>Capacidade de memória intermédia & atualização
 Geralmente, pretende que a atualização para concluir o mesmo que o cluster é limitado ou próximo completo. Gerir a capacidade do cluster é ainda mais importante durante as atualizações que o habitual. Dependendo do número de domínios de atualização, entre 5 e 20 por cento da capacidade de têm de ser migradas como a atualização se faz através de cluster. Tem que funcionam para ir algures. Este é onde a noção de [colocado na memória intermédia as capacidades](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) é útil. Capacidade de memória intermédia é respeitada durante o funcionamento normal. O Gestor de recursos do Cluster pode preencher nós até as respetivas capacidade total (a memória intermédia de consumo) durante as atualizações, se necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Iniciar a partir do início e [obtenha uma introdução para o serviço de recursos de infraestrutura Cluster Gestor de recursos](service-fabric-cluster-resource-manager-introduction.md)

@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Otimização do Azure Data Lake Store para desempenho
 
@@ -66,7 +64,7 @@ Normalmente, os motores de análise, tais como o HDInsight e o Azure Data Lake A
 
 Em geral, organize os dados em ficheiros superiores de tamanho para um melhor desempenho.  Como uma regra geral, organizar os conjuntos de dados nos ficheiros de 256MB ou superior. Em alguns casos, tais como imagens e os dados binários, não é possível processá-los em paralelo.  Nestes casos, é recomendado para manter os ficheiros individuais em 2GB.
 
-Por vezes, pipelines de dados limitada controlo sobre os dados não processados que tem muitos ficheiros pequenos.  É recomendado ter um processo "cooking", que gere ficheiros maiores a utilizar para as aplicações a jusante.  
+Por vezes, pipelines de dados limitada controlo sobre os dados não processados que tem muitos ficheiros pequenos.  É recomendado ter um processo "cooking", que gere ficheiros maiores a utilizar para as aplicações a jusante.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizar os dados de séries de tempo em pastas
 
@@ -123,7 +121,7 @@ Existem três camadas dentro de um cluster do HDInsight que podem ser otimizados
 
 Consoante a carga de trabalho, não existe será sempre um tamanho de contentor YARN mínimo necessário. Se escolher demasiado pequeno um contentor, as tarefas serão executadas para problemas de memória esgotada. Normalmente, contentores YARN devem não pode ser inferior a 1GB. É comum para ver os contentores YARN de 3GB. Para algumas cargas de trabalho, poderá ser necessário maior contentores YARN.  
 
-**Aumente núcleos por contentor YARN.**  Aumente o número de núcleos alocados para cada contentor para aumentar o número de tarefas paralelas que são executadas em cada contentor.  Isto funciona para aplicações, como Spark que executam várias tarefas por contentor.  Para aplicações, como o ramo de registo que são executadas num único thread em cada contentor, é melhor tem mais contentores em vez de mais núcleos por contentor.   
+**Aumente núcleos por contentor YARN.**  Aumente o número de núcleos alocados para cada contentor para aumentar o número de tarefas paralelas que são executadas em cada contentor.  Isto funciona para aplicações, como Spark que executam várias tarefas por contentor.  Para aplicações, como o ramo de registo que são executadas num único thread em cada contentor, é melhor tem mais contentores em vez de mais núcleos por contentor.
 
 ### <a name="workload-layer"></a>Camada de carga de trabalho
 

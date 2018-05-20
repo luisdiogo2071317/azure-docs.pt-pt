@@ -1,24 +1,24 @@
 ---
-title: "Gestor de recursos de Cluster de recursos de infraestrutura de serviço - as políticas de colocação | Microsoft Docs"
-description: "Descrição geral das políticas de colocação adicionais e regras para serviços do Service Fabric"
+title: Gestor de recursos de Cluster de recursos de infraestrutura de serviço - as políticas de colocação | Microsoft Docs
+description: Descrição geral das políticas de colocação adicionais e regras para serviços do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c240643d2a7ce98ddd7f7871eeef654cced953f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf10f1d9199500d4f5bda3c5a05a3d67ff65541
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços do service fabric
 Políticas de colocação são regras adicionais que podem ser utilizadas para regular posicionamento do serviço em alguns cenários específicos, menos comum. Alguns exemplos desses cenários são:
@@ -127,7 +127,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Agora, seria possível que a utilizar estas configurações para serviços em cluster que não foi geograficamente abrangido? Foi, mas não existe não é um excelente motivo demasiado. As configurações de domínio necessários, inválidos e preferencial devem ser evitadas, salvo se os cenários necessitam. -Não fazer qualquer sentido para tentar forçar uma carga de trabalho determinada para ser executada num único bastidor ou preferir algumas segmento do seu cluster local em vez de outro. As configurações de hardware diferentes devem ser distribuídas por domínios de falhas e processadas através de restrições de posicionamento normal e propriedades de nó.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como configurar os serviços, [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

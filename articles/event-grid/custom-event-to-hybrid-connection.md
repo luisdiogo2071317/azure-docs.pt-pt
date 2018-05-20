@@ -1,6 +1,6 @@
 ---
-title: Enviar eventos personalizados para a grelha de eventos do Azure para a ligação híbrida | Microsoft Docs
-description: Utilize o Azure Event Grid e a CLI do Azure para publicar um tópico e subscrever esse evento. Uma ligação híbrida é utilizada para o ponto final.
+title: Enviar eventos personalizados do Azure Event Grid para a ligação híbrida | Microsoft Docs
+description: Utilize o Azure Event Grid e a CLI do Azure para publicar um tópico e subscrever esse evento. Uma ligação híbrida serve para o ponto final.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,19 +8,21 @@ ms.author: tomfitz
 ms.date: 05/04/2018
 ms.topic: article
 ms.service: event-grid
-ms.openlocfilehash: 42b3e88d4bf411aa8a0d3bb129795f0d8ab98525
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c95cfee787244367688b82959474e2a8028b7ff6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para o reencaminhamento híbrido ligações das Azure com a CLI do Azure e a grelha de eventos
+# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para as Ligações Híbridas do Azure Relay com a CLI do Azure e o Event Grid
 
-O Azure Event Grid é um serviço de eventos para a cloud. As ligações híbridas do reencaminhamento do Azure é uma dos processadores de eventos suportados. Utilize as ligações híbridas como o processador de eventos quando necessita de processar os eventos de aplicações que não tenham um ponto final público. Estas aplicações podem ser dentro da sua rede empresarial. Neste artigo, a CLI do Azure é utilizada para criar um tópico personalizado, subscrever o tópico e acionar o evento para ver o resultado. Enviar eventos para a ligação híbrida.
+O Azure Event Grid é um serviço de eventos para a cloud. As Ligações Híbridas do Azure Relay são um dos processadores de eventos suportados. Utiliza ligações híbridas como o processador de eventos quando necessita de processar eventos de aplicações que não tenham um ponto final público. Estas aplicações podem estar dentro da sua rede empresarial. Neste artigo, a CLI do Azure é utilizada para criar um tópico personalizado, subscrever o tópico e acionar o evento para ver o resultado. Os eventos são enviados para a ligação híbrida.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de serviço de escuta. Para começar a utilizar com as ligações híbridas, consulte o artigo [começar a utilizar ligações híbridas de reencaminhamento - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) ou [começar a utilizar ligações híbridas de reencaminhamento - nó](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de serviço de escuta. Para começar a trabalhar com ligações híbridas, veja [Introdução às Ligações Híbridas de Reencaminhamento - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Introdução às Ligações Híbridas de Reencaminhamento - Nó](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -39,16 +41,20 @@ az group create --name gridResourceGroup --location westus2
 Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<topic_name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
 ## <a name="subscribe-to-a-topic"></a>Subscrever um tópico
 
-Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve o tópico que criou e transmite o ID de recurso da ligação híbrida para o ponto final. O ID da ligação híbrida está no formato:
+Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve o tópico que criou e transmite o ID do recurso da ligação híbrida para o ponto final. O ID da ligação híbrida está no formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-O script seguinte obtém o ID de recurso do espaço de nomes de reencaminhamento. Constrói o ID da ligação híbrida e subscreve um tópico da grelha de eventos. Define o tipo de ponto final `hybridconnection` e utiliza o ID da ligação híbrida para o ponto final.
+O script seguinte obtém o ID do recurso do espaço de nomes de reencaminhamento. Constrói o ID para a ligação híbrida e subscreve um tópico do Event Grid. Define o tipo de ponto final `hybridconnection` e utiliza o ID da ligação híbrida para o ponto final.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -75,7 +81,7 @@ endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --qu
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Para simplificar este artigo, vai utilizar dados do evento de exemplo para enviar para o tópico. Normalmente, uma aplicação ou serviço do Azure enviaria os dados do evento. CURL é um utilitário que envia os pedidos HTTP. Neste artigo, utilize o CURL para enviar o evento para o tópico.  O exemplo seguinte envia três eventos para o tópico de grelha de evento:
+Para simplificar este artigo, vai utilizar dados do evento de exemplo para enviar para o tópico. Normalmente, uma aplicação ou serviço do Azure enviaria os dados do evento. CURL é um utilitário que envia os pedidos HTTP. Neste artigo, utilize o CURL para enviar o evento para o tópico.  O exemplo seguinte envia três eventos para o tópico do Event Grid:
 
 ```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
@@ -91,7 +97,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

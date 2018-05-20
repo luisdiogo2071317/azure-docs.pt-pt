@@ -5,14 +5,14 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 03/29/2018
+ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 Os seguintes limites aplicam-se aos recursos do Log Analytics por subscrição:
 
@@ -29,7 +29,7 @@ Os limites seguintes aplicam-se a cada área de trabalho do Log Analytics:
 
 |  | Gratuito | Standard | Premium | Autónomo | OMS | Por GB |
 | --- | --- | --- | --- | --- | --- |--- |
-| Volume de dados recolhido por dia |500 MB<sup>1</sup> |Nenhuma |Nenhuma | Nenhuma | Nenhuma | Nenhum
+| Volume de dados recolhido por dia |500 MB<sup>1</sup> |Nenhuma |Nenhuma | Nenhuma | Nenhuma | Nenhuma
 | Período de retenção de dados |7 dias |1 mês |12 meses | 1 mês<sup>2</sup> | 1 mês <sup>2</sup>| 1 mês <sup>2</sup>|
 
 <sup>1</sup> Quando os clientes atingem o limite diário de transferência de dados de 500 MB, a análise de dados é parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC.
@@ -39,5 +39,5 @@ Os limites seguintes aplicam-se a cada área de trabalho do Log Analytics:
 | Categoria | Limites | Comentários
 | --- | --- | --- |
 | API do Recoletor de Dados | O tamanho máximo para um post individual é 30 MB<br>O tamanho máximo para os valores de campos é 32 KB | Dividir volumes maiores em vários posts<br>Os campos com mais de 32 KB são truncados. |
-| API de Pesquisa | 5000 registos devolvidos para dados não agregados<br>500 000 registos para dados agregados | Os dados agregados são uma pesquisa que inclui o comando `measure`
+| API de Pesquisa | 5000 registos devolvidos para dados não agregados<br>500 000 registos para dados agregados | Os dados agregados são uma pesquisa que inclui o comando `summarize`
  

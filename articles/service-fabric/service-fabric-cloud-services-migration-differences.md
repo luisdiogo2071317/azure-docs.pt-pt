@@ -1,24 +1,24 @@
 ---
-title: "Diferenças entre os serviços em nuvem e de recursos de infraestrutura de serviço | Microsoft Docs"
-description: "Uma descrição geral conceptual para migrar as aplicações nos serviços de nuvem do Service Fabric."
+title: Diferenças entre os serviços em nuvem e de recursos de infraestrutura de serviço | Microsoft Docs
+description: Uma descrição geral conceptual para migrar as aplicações nos serviços de nuvem do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4bb5d92cd46533b46b388d178990f230424b09dc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Saiba mais sobre as diferenças entre os serviços em nuvem e de Service Fabric antes de migrar as aplicações.
 Microsoft Azure Service Fabric é a plataforma de aplicação de nuvem de próxima geração para aplicações distribuídas altamente dimensionáveis e de elevada disponibilidade fiáveis. Introduz muitas funcionalidades novas para empacotamento, implementar, atualizar e gestão de aplicações distribuídas em nuvem. 
@@ -88,7 +88,7 @@ O mesmo modelo de comunicação pode ser utilizado no Service Fabric. Isto pode 
 
 ![Comunicação direta do Service Fabric][8]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 O caminho de migração mais simples de serviços em nuvem para o Service Fabric é substitua apenas a implementação de serviços em nuvem uma aplicação de Service Fabric, mantendo a arquitetura geral da sua aplicação aproximadamente os mesmos. O artigo seguinte fornece um guia para ajudar a converter um Web ou função de trabalho a um serviço sem monitorização de estado de Service Fabric.
 
 * [Migração Simple: um Web ou função de trabalho converter de um serviço sem monitorização de estado de Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

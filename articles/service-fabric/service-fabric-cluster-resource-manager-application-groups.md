@@ -1,24 +1,24 @@
 ---
-title: "Gestor de recursos de Cluster de recursos de infraestrutura de serviço - grupos de aplicações | Microsoft Docs"
-description: "Descrição geral da funcionalidade de grupo de aplicações no serviço de recursos de infraestrutura Cluster Gestor de recursos"
+title: Gestor de recursos de Cluster de recursos de infraestrutura de serviço - grupos de aplicações | Microsoft Docs
+description: Descrição geral da funcionalidade de grupo de aplicações no serviço de recursos de infraestrutura Cluster Gestor de recursos
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3212631ede7125bd849c2d9ba86ba2a0747d69ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 215efc1f0597f5199dd37baf4b109d7e76040aae
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicações
 Gestor de recursos de Cluster do Service Fabric gere, normalmente, os recursos do cluster, propagando-se a carga (representado através de [métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric gere a capacidade de nós no cluster e o cluster como um todo através de [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). Métricas e a capacidade de trabalham ótimo para muitas cargas de trabalho, mas os padrões que utilizam de instâncias da aplicação do serviço de recursos de infraestrutura diferentes, por vezes, colocar em requisitos adicionais. Por exemplo, poderá pretender:
@@ -207,7 +207,7 @@ As restrições são impostas ambos durante a criação de aplicações e atuali
 - Não tente utilizar as funcionalidades de grupo de aplicações para restringir a aplicação para um _específico_ subconjunto de nós. Por outras palavras, pode especificar que a aplicação é executada no máximo, cinco nós, mas não os específicos cinco nós do cluster. Constraining uma aplicação específicas nós pode ser conseguido com restrições de posicionamento para os serviços.
 - Não tente utilizar a capacidade de aplicação para se certificar de que os dois serviços da aplicação do mesmo são colocados em nós do mesmos. Em vez disso, utilize [afinidade](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) ou [restrições de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como configurar os serviços, [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - Para obter informações sobre a forma como o Gestor de recursos de Cluster gere e equilibra a carga no cluster, consulte o artigo em [balanceamento de carga](service-fabric-cluster-resource-manager-balancing.md)
 - Iniciar a partir do início e [obtenha uma introdução para o serviço de recursos de infraestrutura Cluster Gestor de recursos](service-fabric-cluster-resource-manager-introduction.md)

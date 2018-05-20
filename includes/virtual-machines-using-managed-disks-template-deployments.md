@@ -207,7 +207,7 @@ Para criar gerido conjuntos de disponibilidade com VMs com discos geridos, adici
 
 Para obter informações completas sobre as especificações de REST API, reveja o [criar um disco gerido documentação da REST API](/rest/api/manageddisks/disks/disks-create-or-update). Encontrará noutros cenários, bem como predefinição e os valores aceitáveis que podem ser submetidos para a API através de implementações do modelo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para modelos completos que utilizem discos geridos visite as seguintes ligações do repositório de início rápido do Azure.
     * [VM do Windows com o disco gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -216,4 +216,4 @@ Para obter informações completas sobre as especificações de REST API, reveja
 * Visite o [descrição geral do discos geridos Azure](../articles/virtual-machines/windows/managed-disks-overview.md) documento para saber mais sobre discos geridos.
 * Consulte a documentação de referência de modelo para recursos da máquina virtual, visitando o [referência ao modelo Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) documento.
 * Consulte a documentação de referência de modelo para recursos de disco, visitando o [referência ao modelo Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks) documento.
- 
+* Para obter informações sobre como utilizar discos geridos em conjuntos de dimensionamento de VM do Azure, visite o [utilizar discos de dados com conjuntos de dimensionamento](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) documento.

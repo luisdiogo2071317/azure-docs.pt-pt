@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Mixpanel | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Mixpanel."
+title: 'Tutorial: Integração do Azure Active Directory com Mixpanel | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Mixpanel.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e48a192ada32a764b7f23634c0728c04c226b3d3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0dec216ea2bc01c3ee3f5afae0ec4966c51afe00
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Azure Active Directory com Mixpanel
 
@@ -29,7 +29,7 @@ Integrar Mixpanel com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Mixpanel (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,10 +110,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_url.png)
 
-     No **URL de início de sessão** caixa de texto, escreva um URL como:`https://mixpanel.com/login/`
+     No **URL de início de sessão** caixa de texto, escreva um URL como: `https://mixpanel.com/login/`
 
     > [!NOTE] 
-    > Registe-se em [https://mixpanel.com/register/](https://mixpanel.com/register/) para configurar as credenciais de início de sessão e contacte o [equipa de suporte de Mixpanel](mailto:support@mixpanel.com) para ativar as definições do SSO para o seu inquilino. Também pode obter o valor de início de sessão no URL se for necessário da sua equipa de suporte Mixpanel. 
+    > Registe-se em [ https://mixpanel.com/register/ ](https://mixpanel.com/register/) para configurar as credenciais de início de sessão e contacte o [equipa de suporte de Mixpanel](mailto:support@mixpanel.com) para ativar as definições do SSO para o seu inquilino. Também pode obter o valor de início de sessão no URL se for necessário da sua equipa de suporte Mixpanel. 
  
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -240,7 +240,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

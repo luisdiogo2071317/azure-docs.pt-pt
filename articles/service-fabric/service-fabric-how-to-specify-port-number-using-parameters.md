@@ -1,22 +1,22 @@
 ---
-title: "Como especificar o número de porta de um serviço utilizando parâmetros no Service Fabric do Azure | Microsoft Docs"
-description: "Mostra como utilizar os parâmetros para especificar a porta para uma aplicação no Service Fabric"
+title: Como especificar o número de porta de um serviço utilizando parâmetros no Service Fabric do Azure | Microsoft Docs
+description: Mostra como utilizar os parâmetros para especificar a porta para uma aplicação no Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: aca5b6a476e9526498a5e4834aaa28eb73750562
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Como especificar o número de porta de um serviço utilizando parâmetros no Service Fabric
 
@@ -30,7 +30,7 @@ Neste exemplo, definir o número de porta para o asp.net core API web utilizando
 1. Escolha o modelo sem monitorização de estado ASP.NET Core.
 1. Escolha a Web API.
 1. Abra o ficheiro ServiceManifest.xml.
-1. Tome nota do nome do ponto final especificado para o seu serviço. Predefinição é `ServiceEndpoint`.
+1. Tome nota do nome do ponto final especificado para o seu serviço. A predefinição é `ServiceEndpoint`.
 1. Abra o ficheiro ApplicationManifest.xml
 1. No `ServiceManifestImport` elemento, adicione um novo `RessourceOverrides` elemento com uma referência para o ponto final no seu ficheiro ServiceManifest.xml.
 
@@ -46,7 +46,7 @@ Neste exemplo, definir o número de porta para o asp.net core API web utilizando
       </ServiceManifestImport>
     ```
 
-1. No `Endpoint` elemento, agora pode substituir qualquer atributo utilizando um parâmetro. Neste exemplo, especificou `Port` e defina-o como um nome de parâmetro utilizando parênteses Retos - por exemplo,`[MyWebAPI_PortNumber]`
+1. No `Endpoint` elemento, agora pode substituir qualquer atributo utilizando um parâmetro. Neste exemplo, especificou `Port` e defina-o como um nome de parâmetro utilizando parênteses Retos - por exemplo, `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -68,7 +68,7 @@ Neste exemplo, definir o número de porta para o asp.net core API web utilizando
       </Parameters>
     ```
 
-1. E definir um`DefaultValue`
+1. E definir um `DefaultValue`
 
     ```xml
       <Parameters>

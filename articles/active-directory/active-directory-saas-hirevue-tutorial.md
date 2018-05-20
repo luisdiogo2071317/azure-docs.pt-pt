@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com HireVue | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e HireVue."
+title: 'Tutorial: Integração do Azure Active Directory com HireVue | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e HireVue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e79526ff45babbca7722aa478347c0e3c9f013cd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cc59943871c6690a14754e919a8865065c0b40ac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integração do Azure Active Directory com HireVue
 
@@ -29,7 +29,7 @@ Integrar HireVue com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para HireVue (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -112,17 +112,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
 
-    | Ambiente | URL |
+    | Ambiente | do IdP |
     |-------------|---|
     | Produção | `https://<companyname>.hirevue.com` |
-    | Transição    | `https://<companyname>.stghv.com` |
+    | Testes    | `https://<companyname>.stghv.com` |
     
     b. No **identificador** caixa de texto, escreva um URL como:
     
     | Ambiente | URN |
     |-------------|-----|
     | Produção |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Transição    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Testes    | `urn:federation:hirevue.com:saml:sp:staging`|
     
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente HireVue](mailto:samlsupport@hirevue.com) para obter estes valores. 
@@ -219,7 +219,7 @@ Quando clica no mosaico HireVue no painel de acesso, deve obter automaticamente 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

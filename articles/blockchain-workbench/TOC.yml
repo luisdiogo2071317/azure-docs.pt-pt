@@ -1,6 +1,7 @@
 - name: Azure Blockchain Workbench (pré-visualização pública)
   href: index.yml
 - name: Descrição geral
+  expanded: true
   items:
     - name: Sobre o Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -11,13 +12,14 @@
     - name: Padrões de integração
       href: blockchain-workbench-integration-patterns.md
 - name: Guias de procedimentos
+  expanded: true
   items:
     - name: Implementar o Workbench
       href: blockchain-workbench-deploy.md
-    - name: Gerir utilizadores do Workbench
-      href: blockchain-workbench-manage-users.md
     - name: Criar aplicação de blockchain
       href: blockchain-workbench-create-app.md
+    - name: Gerir utilizadores do Workbench
+      href: blockchain-workbench-manage-users.md
     - name: Utilizar a aplicação de blockchain
       href: blockchain-workbench-use.md
     - name: Utilizar a API do Workbench

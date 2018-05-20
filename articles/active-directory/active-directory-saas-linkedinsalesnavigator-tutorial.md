@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com LinkedInSalesNavigator | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e LinkedInSalesNavigator."
+title: 'Tutorial: Integração do Azure Active Directory com LinkedInSalesNavigator | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e LinkedInSalesNavigator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: fde1d2c5d1a90092ec4528f727dc7af672f80917
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c8dcf4ad49b8f261814c2d442bfdded221e8cbf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory com LinkedIn navegador de vendas
 
@@ -29,7 +29,7 @@ Integrar o navegador de vendas LinkedIn com o Azure AD fornece as seguintes vant
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o navegador de vendas LinkedIn (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, procurar [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, procurar [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -128,7 +128,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
-    No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
+    No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
 8. O **navegador de vendas LinkedIn** aplicação espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. A seguinte captura de ecrã mostra um exemplo. O valor predefinido de **identificador de utilizador** é **user.userprincipalname** mas navegador de vendas LinkedIn espera que deve ser mapeado com o endereço de correio eletrónico do utilizador. Pode utilizar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização. 
 
@@ -264,7 +264,7 @@ Quando clica no mosaico do navegador de vendas LinkedIn no painel de acesso, dev
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

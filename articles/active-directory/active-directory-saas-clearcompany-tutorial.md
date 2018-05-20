@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ClearCompany | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ClearCompany."
+title: 'Tutorial: Integração do Azure Active Directory com ClearCompany | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ClearCompany.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: f17256f4302a9fd94e3f4497ed27d5e4929fc276
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab2628c1caa0350e95e3c11461c3d1bad0659470
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: Integração do Azure Active Directory com ClearCompany
 
@@ -30,7 +30,7 @@ Integrar ClearCompany com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para ClearCompany (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,13 +108,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio ClearCompany e os URLs únicos de informações de início de sessão](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url1.png)
 
-    No **identificador** caixa de texto, escreva o URL:`https://api.clearcompany.com`
+    No **identificador** caixa de texto, escreva o URL: `https://api.clearcompany.com`
 
 4. Verifique **Mostrar avançadas definições de URL** e executar o passo seguinte, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio ClearCompany e os URLs únicos de informações de início de sessão](./media/active-directory-saas-clearcompany-tutorial/tutorial_clearcompany_url2.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.clearcompany.com`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
     > Início de sessão do valor de URL não é um valor real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente ClearCompany](http://www.clearcompany.com/support) para obter este valor. 
@@ -202,7 +202,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -212,7 +212,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

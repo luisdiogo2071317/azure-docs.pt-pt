@@ -1,31 +1,31 @@
 ---
-title: "Ciclo de vida de aplicação no Service Fabric | Microsoft Docs"
-description: "Descreve a desenvolver, implementar, testar, atualizar, mantendo em simultâneo e remoção das aplicações de Service Fabric."
+title: Ciclo de vida de aplicação no Service Fabric | Microsoft Docs
+description: Descreve a desenvolver, implementar, testar, atualizar, mantendo em simultâneo e remoção das aplicações de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 923778e54a1ae5967d681751841c3a2b3fb45130
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e7dddfca3640615cb851fb6dce9eaa80260ccbf6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida de aplicação de Service Fabric
 Com outras plataformas, uma aplicação no Azure Service Fabric normalmente realiza as seguintes fases: estrutura, desenvolvimento, teste, implementação, a atualização, manutenção e remoção. O Service Fabric fornece suporte de primeira classe para o ciclo de vida de aplicação completa das aplicações em nuvem, de desenvolvimento através da implementação, gestão diária e manutenção para desativar eventual. O modelo de serviço permite várias funções diferentes para participar independentemente no ciclo de vida de aplicação. Este artigo fornece uma descrição geral das APIs e como são utilizados pelas funções de diferentes durante as fases do ciclo de vida de aplicação de Service Fabric.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-O vídeo Microsoft Virtual Academy seguinte descreve como gerir o ciclo de vida de aplicação:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+O vídeo Microsoft Virtual Academy seguinte descreve como gerir o ciclo de vida de aplicação: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 

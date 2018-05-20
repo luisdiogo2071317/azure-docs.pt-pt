@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com a terminação de SSL - portal do Azure | Microsoft Docs
-description: Saiba como criar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o portal do Azure.
+title: Configurar um gateway de aplicação com a terminação de SSL - portal do Azure | Microsoft Docs
+description: Saiba como configurar um gateway de aplicação e adicionar um certificado para a terminação de SSL com o portal do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,17 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Criar um gateway de aplicação com a terminação de SSL com o portal do Azure
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurar um gateway de aplicação com a terminação de SSL com o portal do Azure
 
-Pode utilizar o portal do Azure para criar um [gateway de aplicação](overview.md) com um certificado para a terminação de SSL, que utiliza máquinas virtuais para servidores back-end.
+Pode utilizar o portal do Azure para configurar um [gateway de aplicação](overview.md) com um certificado para a terminação de SSL, que utiliza máquinas virtuais para servidores back-end.
 
 Neste artigo, vai aprender a:
 

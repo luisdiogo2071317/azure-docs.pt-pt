@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Gestor de competências | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Gestor de competências."
+title: 'Tutorial: Integração do Azure Active Directory com o Gestor de competências | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Gestor de competências.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cfa44ca070996d7ae85a23f3297b07b406881e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 610ef23dff752a1503b81e9b6a4ffb651e2b0cf5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Tutorial: Integração do Azure Active Directory com o Gestor de competências
 
@@ -30,7 +30,7 @@ Integrar as competências Manager com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada no Gestor de competências (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio do Gestor de competências e os URLs únicos de informações de início de sessão](./media/active-directory-saas-skillsmanager-tutorial/tutorial_skillsmanager_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://subdomain.skills-manager.com/kennametal`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://subdomain.skills-manager.com/kennametal`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte do Gestor de competências](https://www.ibm.com/support/uk/?lnk=msu_uk) para obter estes valores.
@@ -198,7 +198,7 @@ Nesta secção, vai ativar Britta Simon utilizar Azure-início de sessão único
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -208,7 +208,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

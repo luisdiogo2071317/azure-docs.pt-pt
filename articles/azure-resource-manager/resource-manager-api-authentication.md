@@ -1,6 +1,6 @@
 ---
-title: "Autenticação do Active Directory do Azure e o Resource Manager | Microsoft Docs"
-description: "Guia do programador para autenticação com a API do Azure Resource Manager e o Azure Active Directory para integrar uma aplicação a outras subscrições do Azure."
+title: Autenticação do Active Directory do Azure e o Resource Manager | Microsoft Docs
+description: Guia do programador para autenticação com a API do Azure Resource Manager e o Azure Active Directory para integrar uma aplicação a outras subscrições do Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.author: dugill
+ms.openlocfilehash: 1a526663b0280bd1bb7739ccc9a4ebf78882754d
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utilize o Gestor de recursos autenticação API para subscrições de acesso
 ## <a name="introduction"></a>Introdução
@@ -29,7 +29,7 @@ A aplicação pode aceder a APIs do Resource Manager em duas formas:
 1. **Utilizador + acesso de aplicação**: para aplicações que acedem aos recursos em nome de um utilizador com sessão iniciada. Esta abordagem funciona para as aplicações, tais como web apps e ferramentas de linha de comandos que lidam com apenas "interativo"gestão de recursos do Azure.
 2. **Acesso só de aplicação**: para aplicações que executam os serviços de daemon e tarefas agendadas. A identidade da aplicação é concedida acesso direto aos recursos. Esta abordagem funciona para as aplicações que precisam de longa duração acesso (automático) sem interface para o Azure.
 
-Este artigo fornece instruções passo a passo para criar uma aplicação que utiliza ambos os métodos de autorização. Mostra como efetuar cada passo com a REST API ou c#. A aplicação ASP.NET MVC completa está disponível em [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Este artigo fornece instruções passo a passo para criar uma aplicação que utiliza ambos os métodos de autorização. Mostra como efetuar cada passo com a REST API ou c#. A aplicação ASP.NET MVC completa está disponível em [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>O que faz a aplicação web
 A aplicação web:
@@ -65,7 +65,7 @@ Gerir as subscrições ligadas:
 
 ![Ligar a subscrição](./media/resource-manager-api-authentication/sample-ux-7.png)
 
-## <a name="register-application"></a>Registar a aplicação
+## <a name="register-application"></a>Registar aplicação
 Antes de iniciar a codificação, registe a sua aplicação web com o Azure Active Directory (AD). O registo de aplicação cria uma identidade central para a sua aplicação no Azure AD. Realiza as informações básicas sobre a sua aplicação, como o ID de cliente OAuth, URLs de resposta e as credenciais que a aplicação utiliza para autenticar e acesso a APIs do Azure Resource Manager. O registo de aplicações também regista vários delegadas permissões que a aplicação que necessita ao aceder a Microsoft APIs em nome do utilizador.
 
 Porque a aplicação acede a outra subscrição, tem de configurá-lo como uma aplicação multi-inquilino. Para passar a validação, forneça um domínio associado ao seu Azure Active Directory. Para ver os domínios associados com o Azure Active Directory, inicie sessão no portal.
@@ -224,7 +224,7 @@ Só tem um token de acesso para o Azure Resource Manager - terá um novo token d
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obter acesso só de aplicação token para AD Graph API do Azure
-Para autenticar a sua aplicação e obter um token para AD Graph API do Azure, emitir um pedido de token de fluxo de OAuth2.0 de concessão de credencial de cliente para ponto final de tokens do AD do Azure (**https://login.microsoftonline.com/ {directory_domain_name} OAuth2/Token**).
+Para autenticar a sua aplicação e obter um token para AD Graph API do Azure, emitir um pedido de token de fluxo de OAuth2.0 de concessão de credencial de cliente para ponto final de tokens do AD do Azure (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 O [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) método da aplicação de exemplo de ASP.net MVC obtém acesso só de aplicação token para a Graph API utilizando a biblioteca de autenticação do Active Directory para o .NET.
 

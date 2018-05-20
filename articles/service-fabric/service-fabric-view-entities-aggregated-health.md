@@ -1,24 +1,24 @@
 ---
 title: Estado de funcionamento de agregado como ver as entidades de Service Fabric do Azure | Microsoft Docs
-description: "Descreve como consultar, ver e avaliar agregados estado de funcionamento as entidades do Azure Service Fabric, através de consultas de estado de funcionamento e consultas gerais."
+description: Descreve como consultar, ver e avaliar agregados estado de funcionamento as entidades do Azure Service Fabric, através de consultas de estado de funcionamento e consultas gerais.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: e73da18ffe146d09b191f1ea5ad1772b36ad8947
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de estado de funcionamento do Service Fabric
 Azure Service Fabric apresenta um [modelo de estado de funcionamento](service-fabric-health-introduction.md) com entidades de estado de funcionamento que componentes de sistema e watchdogs pode relatório local as condições que está a monitorizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) agrega todos os dados de estado de funcionamento para determinar se entidades estão em bom estadas.

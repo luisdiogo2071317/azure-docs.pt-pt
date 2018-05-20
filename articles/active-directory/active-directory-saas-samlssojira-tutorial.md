@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Azure Active Directory a integração com SAML SSO para Jira pela resolução GmbH | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SAML SSO para Jira pela resolução GmbH."
+title: 'Tutorial: Azure Active Directory a integração com SAML SSO para Jira pela resolução GmbH | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e SAML SSO para Jira pela resolução GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a3224acd2376efca19a29576980b6a3ca6a9e99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0835d89786e2d389b845c8a4bdbbfb63c0bbcd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Azure Active Directory a integração com SAML SSO para Jira pela resolução GmbH
 
@@ -29,7 +29,7 @@ Integrar SAML SSO para Jira pela resolução GmbH com o Azure AD fornece as segu
 - Pode permitir que os utilizadores automaticamente obter assinado no SAML SSO para Jira pela resolução GmbH (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,15 +110,15 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
 
     ![Configurar o início de sessão único](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_url_1.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<server-base-url>/plugins/servlet/samlsso`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<server-base-url>/plugins/servlet/samlsso`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server-base-url>/plugins/servlet/samlsso`
 
 4. Verifique **Mostrar avançadas definições de URL**. Se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-samlssojira-tutorial/tutorial_samlssojira_url_2.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<server-base-url>/plugins/servlet/samlsso`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<server-base-url>/plugins/servlet/samlsso`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [SAML SSO para Jira pela resolução GmbH cliente suportar equipa](https://www.resolution.de/go/support) para obter estes valores. 
@@ -317,7 +317,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: b8c2ff527328fe5f486362db416a99a1c711c9c2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar os registos de fluxo de grupo de segurança de rede com a CLI do Azure
 
@@ -51,7 +51,7 @@ O comando para ativar registos de fluxo é mostrado no exemplo seguinte:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-A conta de armazenamento que especificou não pode ter regras de rede configuradas para ele que restringem o acesso à rede apenas para serviços da Microsoft ou as redes virtuais específicas.
+A conta de armazenamento que especificou não pode ter regras de rede configuradas para ele que restringem o acesso à rede apenas para serviços da Microsoft ou as redes virtuais específicas. A conta de armazenamento pode ser o mesmo ou outra subscrição do Azure, que o NSG que ative o registo de fluxo. Se utilizar diferentes subscrições, têm ambos de ser associados ao mesmo inquilino do Azure Active Directory. A conta que utiliza para cada subscrição tem de ter o [as permissões necessárias](required-rbac-permissions.md).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Registos de fluxo de desativar o grupo de segurança de rede
 

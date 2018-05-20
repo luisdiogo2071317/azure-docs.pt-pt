@@ -7,17 +7,17 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Direcionar o tráfego da web - Portal
+    - name: Gerir o tráfego da web - Portal
       href: quick-create-portal.md
-    - name: Direcionar o tráfego da web - PowerShell
+    - name: Gerir o tráfego da web - PowerShell
       href: quick-create-powershell.md
-    - name: Direcionar o tráfego da web - CLI do Azure
+    - name: Gerir o tráfego da web - CLI do Azure
       href: quick-create-cli.md
 - name: Tutoriais
   items:
     - name: Gerir o tráfego da web
       href: tutorial-manage-web-traffic-cli.md
-    - name: Restringir o tráfego da web
+    - name: Ativar firewall de aplicações Web
       href: tutorial-restrict-web-traffic-cli.md
     - name: Proteger com SSL
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: Conceitos
   items:
+    - name: Terminação de SSL
+      href: ssl-overview.md
+    - name: Descrição geral da política SSL
+      href: application-gateway-ssl-policy-overview.md
     - name: Firewall de aplicação Web
       href: waf-overview.md
     - name: Encaminhamento do URL
       href: url-route-overview.md
     - name: Alojamento de vários sites
       href: multiple-site-overview.md
-    - name: Terminação de SSL
-      href: ssl-overview.md
-    - name: Redirecionamento de URL
+    - name: Suporte de redirecionamento
       href: redirect-overview.md
+    - name: Suporte multi-inquilino
     - name: Monitorização do estado de funcionamento
       href: application-gateway-probe-overview.md
+    - name: Suporte do WebSocket
+      href: application-gateway-websocket.md
 - name: Guias de procedimentos
   items:
     - name: Criar um gateway de aplicação
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Aplicações Web - PowerShell
           href: create-web-app.md
-    - name: Ativar a terminação de SSL - Portal
+        - name: Configurar o balanceador de carga interno
+          href: application-gateway-ilb.md
+    - name: Configurar a terminação de SSL - Portal
       href: create-ssl-portal.md
     - name: Alojar vários sites - Portal
       href: create-multiple-sites-portal.md
+    - name: Personalizar regras WAF
+      items:
+        - name: Portal do Azure
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: CLI do Azure
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Redirecionar o tráfego externo
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: Referência
   items:
+    - name: Regras de CRS
+      href: application-gateway-crs-rulegroups-rules.md
     - name: CLI do Azure
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

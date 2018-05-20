@@ -1,6 +1,6 @@
 ---
-title: "ServiceFabric diagnóstico do Azure e monitorização | Microsoft Docs"
-description: "Este artigo descreve as funcionalidades de monitorização do desempenho em tempo de execução ServiceRemoting fiável de recursos de infraestrutura de serviço, como os contadores de desempenho emitidos pelo-lo."
+title: ServiceFabric diagnóstico do Azure e monitorização | Microsoft Docs
+description: Este artigo descreve as funcionalidades de monitorização do desempenho em tempo de execução ServiceRemoting fiável de recursos de infraestrutura de serviço, como os contadores de desempenho emitidos pelo-lo.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -9,16 +9,16 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para fiável de serviço de gestão remota
 O tempo de execução fiável ServiceRemoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estes fornecem informações sobre a forma como o ServiceRemoting está a funcionar e ajudam a resolver problemas e monitorização do desempenho.
@@ -29,8 +29,8 @@ O tempo de execução fiável ServiceRemoting define as categorias de contador d
 
 | Categoria | Descrição |
 | --- | --- |
-| Serviço de recursos de infraestrutura |Contadores específicos do serviço de recursos de infraestrutura de serviço de Azure remota, por exemplo, tempo médio de tempo que demora a processar o pedido |
-| Método do serviço de recursos de infraestrutura de serviço |Contadores específicos para métodos implementados pelo serviço de comunicação remota do serviço de recursos de infraestrutura, por exemplo, com que frequência um método de serviço é invocado |
+| Serviço do Service Fabric |Contadores específicos do serviço de recursos de infraestrutura de serviço de Azure remota, por exemplo, tempo médio de tempo que demora a processar o pedido |
+| Método de Serviço do Service Fabric |Contadores específicos para métodos implementados pelo serviço de comunicação remota do serviço de recursos de infraestrutura, por exemplo, com que frequência um método de serviço é invocado |
 
 Cada uma das categorias anteriores tem um ou mais contadores.
 
@@ -84,20 +84,20 @@ O tempo de execução do serviço fiável publica os seguintes contadores de des
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Método do serviço de recursos de infraestrutura de serviço |Invocações por segundo |Número de vezes que o método do serviço é invocado por segundo |
-| Método do serviço de recursos de infraestrutura de serviço |Média em milissegundos por invocação |Tempo decorrido para executar o método do serviço em milissegundos |
-| Método do serviço de recursos de infraestrutura de serviço |Exceções emitidas/seg |Número de vezes que o método do serviço emitiu uma exceção por segundo |
+| Método de Serviço do Service Fabric |Invocações/Segundo |Número de vezes que o método do serviço é invocado por segundo |
+| Método de Serviço do Service Fabric |Média em milissegundos por invocação |Tempo decorrido para executar o método do serviço em milissegundos |
+| Método de Serviço do Service Fabric |Exceções geradas/Segundo |Número de vezes que o método do serviço emitiu uma exceção por segundo |
 
 ### <a name="service-request-processing-performance-counters"></a>Contadores de desempenho de processamento de pedido de serviço
 Quando um cliente invoca um método através de um objeto de proxy de serviço, o que resulta numa mensagem de pedido que está a ser enviada através da rede para o serviço de sistema de interação remota. O serviço processa a mensagem de pedido e envia uma resposta de volta para o cliente. O tempo de execução fiável ServiceRemoting publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de serviço.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Serviço de recursos de infraestrutura |n. º de pedidos pendentes |Número de pedidos em processamento no serviço |
-| Serviço de recursos de infraestrutura |Média em milissegundos por pedido |Tempo decorrido (em milissegundos) pelo serviço para processar um pedido |
-| Serviço de recursos de infraestrutura |Média em milissegundos para a desserialização do pedido |Tempo decorrido (em milissegundos) para anular a serialização da mensagem de pedido de serviço quando recebido de serviço |
-| Serviço de recursos de infraestrutura |Média em milissegundos para a serialização da resposta |Tempo decorrido (em milissegundos) antes da resposta é enviada para o cliente a serialização a mensagem de resposta do serviço do serviço |
+| Serviço do Service Fabric |N.º de pedidos pendentes |Número de pedidos em processamento no serviço |
+| Serviço do Service Fabric |Média em milissegundos por pedido |Tempo decorrido (em milissegundos) pelo serviço para processar um pedido |
+| Serviço do Service Fabric |Média em milissegundos para a desserialização do pedido |Tempo decorrido (em milissegundos) para anular a serialização da mensagem de pedido de serviço quando recebido de serviço |
+| Serviço do Service Fabric |Média em milissegundos para a serialização da resposta |Tempo decorrido (em milissegundos) antes da resposta é enviada para o cliente a serialização a mensagem de resposta do serviço do serviço |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Código de exemplo](https://github.com/Azure/servicefabric-samples)
 * [Fornecedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

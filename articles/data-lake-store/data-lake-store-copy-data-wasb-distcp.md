@@ -2,23 +2,21 @@
 title: Copiar dados de e para WASB no Data Lake Store utilizando o Distcp | Microsoft Docs
 description: Utilizar o Distcp ferramenta para copiar dados de e para o Blobs Storage do Azure para o Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 8a5052f69eee7f53bb304524fc3ea4d375c76227
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: c682ff56f4850638d3cad6e327c1237a0492c4d3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Utilizar o Distcp para copiar dados entre os Blobs de Armazenamento do Azure e o Arquivo do Data Lake
 > [!div class="op_single_selector"]

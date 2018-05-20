@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Fuze | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Fuze."
+title: 'Tutorial: Integração do Azure Active Directory com Fuze | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Fuze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 436fa7d8532d55d3a285917b278fd0adeab7fd7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 18379b26a52551c95ad8a8a5661f0adb76aa9497
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: Integração do Azure Active Directory com Fuze
 
@@ -29,7 +29,7 @@ Integrar Fuze com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Fuze (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-fuze-tutorial/tutorial_fuze_020.png)
     
-    No **iniciar sessão no URL** caixa de texto, URL de tipo de início de sessão como:`https://www.thinkingphones.com/jetspeed/portal/`
+    No **iniciar sessão no URL** caixa de texto, URL de tipo de início de sessão como: `https://www.thinkingphones.com/jetspeed/portal/`
 
 4.  Clique em **guardar** botão.
 
@@ -205,7 +205,7 @@ Quando clica no mosaico Fuze no painel de acesso, deve obter automaticamente com
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Cisco Webex | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Cisco Webex."
+title: 'Tutorial: Integração do Azure Active Directory com o Cisco Webex | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 42632dcf8997ec5e987ac8a6615aae24e903399a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 527d74910244058506e8435d431e239968896cd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integração do Azure Active Directory com Cisco Webex
 
@@ -30,7 +30,7 @@ Integrar Cisco Webex com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter a sessão iniciada no Cisco Webex com as respetivas contas do Azure AD.
 - Pode gerir as contas numa única localização central, o portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,11 +110,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Cisco Webex domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
-    a. No **URL de início de sessão** caixa, escreva um URL com o padrão do seguinte:`https://<subdomain>.webex.com`
+    a. No **URL de início de sessão** caixa, escreva um URL com o padrão do seguinte: `https://<subdomain>.webex.com`
 
     b. No **identificador** caixa, escreva o URL `http://www.webex.com`.
 
-    c. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte:`https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
+    c. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte: `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualizar estes valores com o URL de resposta real e início de sessão no URL. Contacte [equipa de suporte de cliente de Webex Cisco](https://www.webex.co.in/support/support-overview.html) para obter estes valores. 
@@ -161,7 +161,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. No **AuthnContextClassRef** caixa, escreva **urn: oasis: os nomes: tc: SAML:2.0:ac:classes:Password**.
 
-    posso. No **URL de fim de sessão do serviço do cliente SSO** caixa, cole **Sign-Out URL**, que copiou do portal do Azure.
+    i. No **URL de fim de sessão do serviço do cliente SSO** caixa, cole **Sign-Out URL**, que copiou do portal do Azure.
    
     j. Selecione **atualização**.
 
@@ -222,9 +222,9 @@ Para ativar o Azure AD aos utilizadores iniciar sessão Cisco Webex, têm de ser
 
     c. No **Apelido** caixa, digite o apelido do utilizador (neste caso, **Simon**).
 
-    d. No **Username** caixa, escreva a mensagem de e-mail do utilizador (neste caso,  **Brittasimon@contoso.com** ).
+    d. No **Username** caixa, escreva a mensagem de e-mail do utilizador (neste caso, **Brittasimon@contoso.com**).
 
-    e. No **E-Mail** caixa, escreva o endereço de e-mail do utilizador (neste caso,  **Brittasimon@contoso.com** ).
+    e. No **E-Mail** caixa, escreva o endereço de e-mail do utilizador (neste caso, **Brittasimon@contoso.com**).
 
     f. No **palavra-passe** caixa, escreva a palavra-passe do utilizador.
 
@@ -267,7 +267,7 @@ Nesta secção, permitir que o utilizador Britta Simon para utilizar o Azure-in�
 
 7. Selecione o **atribuir** clique no botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -278,7 +278,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

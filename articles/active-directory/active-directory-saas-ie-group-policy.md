@@ -1,8 +1,8 @@
 ---
-title: "Implementar a extensão de painel de acesso do Azure para o IE com um GPO | Microsoft Docs"
-description: "Como utilizar a política de grupo para implementar o suplemento do Internet Explorer para o portal de aplicações My."
+title: Implementar a extensão de painel de acesso do Azure para o IE com um GPO | Microsoft Docs
+description: Como utilizar a política de grupo para implementar o suplemento do Internet Explorer para o portal de aplicações My.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
@@ -15,14 +15,14 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo
-Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer em máquinas dos seus utilizadores. Esta extensão é necessária para os utilizadores de Internet Explorer que tem de iniciar sessão em aplicações que são configuradas utilizando [baseada em palavra-passe de início de sessão](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+Este tutorial mostra como utilizar a política de grupo para instalar remotamente a extensão do painel de acesso para o Internet Explorer em máquinas dos seus utilizadores. Esta extensão é necessária para os utilizadores de Internet Explorer que tem de iniciar sessão em aplicações que são configuradas utilizando [baseada em palavra-passe de início de sessão](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 Recomenda-se que os administradores de automatizar a implementação desta extensão. Caso contrário, os utilizadores têm de transferir e instalar a extensão, que é suscetível a erros de utilizador e necessita de permissões de administrador. Este tutorial abrange um método de automatização de implementações de software utilizando a política de grupo. [Saiba mais sobre a política de grupo.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -107,8 +107,8 @@ Além de executar o instalador, cada extensão para o Internet Explorer deve ser
     ![Clique em ativar, em seguida, clique em Mostrar...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
 4. No **Mostrar conteúdo** janela, execute os seguintes passos:
    
-   1. Para a primeira coluna (o **nome do valor** campo), copie e cole o seguinte ID de classe:`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. Para a segunda coluna (o **valor** campo), escreva o seguinte valor:`1`
+   1. Para a primeira coluna (o **nome do valor** campo), copie e cole o seguinte ID de classe: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   2. Para a segunda coluna (o **valor** campo), escreva o seguinte valor: `1`
    3. Clique em **OK** para fechar o **Mostrar conteúdo** janela.
       
       ![Preencha os valores especificados acima.](./media/active-directory-saas-ie-group-policy/show-contents.png)
@@ -151,7 +151,7 @@ Os utilizadores já não será possível armazenar as respetivas credenciais ou 
 Siga os passos abaixo para verificar se a implementação de extensão foi concluída com êxito:
 
 1. Se implementou com **configuração do computador**, inicie sessão num computador cliente que pertence à UO selecionada no [passo 2: criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se implementou com **configuração do utilizador**, certifique-se iniciar sessão como um utilizador que pertença a essa UO.
-2. Poderá demorar alguns sessão ins para a política de grupo totalmente é alterado para atualizar com esta máquina. Para forçar a atualização, abra uma **linha de comandos** janela e execute o seguinte comando:`gpupdate /force`
+2. Poderá demorar alguns sessão ins para a política de grupo totalmente é alterado para atualizar com esta máquina. Para forçar a atualização, abra uma **linha de comandos** janela e execute o seguinte comando: `gpupdate /force`
 3. Tem de reiniciar a máquina efetuar a instalação. Lido pode demorar significativamente mais tempo do que instala habitual enquanto a extensão.
 4. Depois de reiniciar, abra **Internet Explorer**. No canto superior direito da janela, clique em **ferramentas** (ícone engrenagem) e, em seguida, selecione **gerir suplementos**.
    
@@ -162,6 +162,6 @@ Siga os passos abaixo para verificar se a implementação de extensão foi concl
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
-* [Acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [A extensão do painel de acesso de resolução de problemas para o Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de Artigos da Gestão da Aplicação no Azure Active Directory
 Esta página fornece uma lista completa de todos os documentos escritas sobre as várias funcionalidades relacionadas com a aplicação no Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ Os artigos abaixo são bons pontos de partida para quem pretende simplesmente um
 | Guia do artigo |  |
 |:---:| --- |
 | Uma introdução para os problemas de gestão de aplicações que resolve o Azure AD |[Gestão de aplicações com o Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
-| Uma descrição geral das várias funcionalidades no Azure AD relacionadas com a ativação de início de sessão, definir a quem tem acesso a aplicações e a forma como os utilizadores iniciarem aplicações |[Acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| Uma descrição geral das várias funcionalidades no Azure AD relacionadas com a ativação de início de sessão, definir a quem tem acesso a aplicações e a forma como os utilizadores iniciarem aplicações |[Acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
 | Veja os diferentes passos envolvidos quando integrar aplicações com o seu Azure AD |[Integração do Azure Active Directory com aplicações](manage-apps/plan-an-application-integration.md)<br /><br />[Ativar o início de sessão para aplicações SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Gerir o acesso a aplicações](active-directory-managing-access-to-apps.md) |
 | Uma técnica explicação de como as aplicações são representadas no Azure AD |[Como e por que razão são adicionadas aplicações para o Azure AD](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ O início de sessão único permite aos utilizadores aceder uma variedade de apl
 
 | Guia do artigo |  |
 |:---:| --- |
-| Uma introdução para Federação e outros tipos de início de sessão |[Início de sessão único com o Azure AD](active-directory-appssoaccess-whatis.md) |
-| Milhares de aplicações SaaS previamente integradas com o Azure AD com simplificada passos de configuração de início de sessão único |[Introdução à Galeria de aplicações do Azure AD](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Obter uma lista completa das aplicações previamente integradas que suporta a Federação](active-directory-saas-tutorial-list.md)<br /><br />[Como adicionar a aplicação à Galeria de aplicações do Azure AD](active-directory-app-gallery-listing.md) |
+| Uma introdução para Federação e outros tipos de início de sessão |[Início de sessão único com o Azure AD](manage-apps/what-is-single-sign-on.md) |
+| Milhares de aplicações SaaS previamente integradas com o Azure AD com simplificada passos de configuração de início de sessão único |[Introdução à Galeria de aplicações do Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Obter uma lista completa das aplicações previamente integradas que suporta a Federação](active-directory-saas-tutorial-list.md)<br /><br />[Como adicionar a aplicação à Galeria de aplicações do Azure AD](active-directory-app-gallery-listing.md) |
 | Mais de 150 aplicação tutoriais sobre como configurar único início de sessão para aplicações, tais como [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md)e muitos mais |[Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Como configurar e personalizar a configuração do início de sessão único manualmente |[Como para configurar federado Single Sign-On para aplicações que não estejam na Galeria de aplicações do Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Como personalizar afirmações emitidas no Token SAML para aplicações previamente integradas](active-directory-saml-claims-customization.md) |
 | Guia de resolução de problemas para aplicações federadas que utilizam o protocolo SAML |[Resolução de problemas baseados em SAML Single Sign-On](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ Para ativar o início de sessão para aplicações que não suportam a Federaç�
 
 | Guia do artigo |  |
 |:---:| --- |
-| Uma introdução ao funciona SSO como baseada em palavra-passe e uma breve descrição geral técnica |[Baseado em palavra-passe-início de sessão único com o Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| Uma introdução ao funciona SSO como baseada em palavra-passe e uma breve descrição geral técnica |[Baseado em palavra-passe-início de sessão único com o Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Um resumo dos cenários relacionados com a conta de partilha e como estes problemas são resolvidos pelo Azure AD |[Partilha de contas com o Azure AD](active-directory-sharing-accounts.md) |
 | Alterar automaticamente a palavra-passe para determinadas aplicações em intervalos regulares |[Rollover de palavra-passe automática (pré-visualização)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Implementação e resolução de problemas de guias para a versão do Internet Explorer da extensão de gestão de palavra-passe do Azure AD |[Como implementar a extensão do painel de acesso para o Internet Explorer utilizando a política de grupo](active-directory-saas-ie-group-policy.md)<br /><br />[A extensão do painel de acesso de resolução de problemas para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ O painel de acesso do Azure AD é onde os utilizadores finais podem iniciar as s
 
 | Guia do artigo |  |
 |:---:| --- |
-| Ver uma comparação entre as diferentes opções disponíveis para implementar as aplicações de início de sessão único para os utilizadores |[Implementação do Azure AD integrado a aplicações para utilizadores](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Ver uma comparação entre as diferentes opções disponíveis para implementar as aplicações de início de sessão único para os utilizadores |[Implementação do Azure AD integrado a aplicações para utilizadores](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Uma descrição geral do painel de acesso e o respetivo MyApps equivalente móveis |[Introdução ao painel de acesso e MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Como aceder a aplicações do Azure AD do Web site do Office 365 |[Utilizar o iniciador de aplicações do Office 365](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Como aceder a aplicações do Azure AD a partir da aplicação móvel de Browser gerido do Intune |[Browser gerido do Intune](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Como aceder a aplicações do Azure AD através de ligações avançadas para iniciar o início de sessão único |[Obter ligações de início de sessão diretas às suas aplicações](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Como aceder a aplicações do Azure AD através de ligações avançadas para iniciar o início de sessão único |[Obter ligações de início de sessão diretas às suas aplicações](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Painel de acesso está disponível para [todas as edições do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

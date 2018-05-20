@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ADP Globalview | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ADP Globalview."
+title: 'Tutorial: Integração do Azure Active Directory com ADP Globalview | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ADP Globalview.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 7271efe4a1cd943f84d322e7333c92d6f60b62aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5471a4edfc6830367d120580c1c36f30f87a8f90
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Tutorial: Integração do Azure Active Directory com ADP Globalview
 
@@ -29,7 +29,7 @@ Integrar ADP Globalview com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para ADP Globalview (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_url.png)
 
-     No **identificador** caixa de texto, escreva um URL a utilizar o padrão seguinte: `https://<subdomain>.globalview.adp.com/federate` ou`https://<subdomain>.globalview.adp.com/federate2`
+     No **identificador** caixa de texto, escreva um URL a utilizar o padrão seguinte: `https://<subdomain>.globalview.adp.com/federate` ou `https://<subdomain>.globalview.adp.com/federate2`
 
     > [!NOTE] 
     > O valor não é real. Atualize o valor com o identificador real. Contacte [ADP Globalview suporte](https://www.adp.com/contact-us/overview.aspx) para obter o valor.
@@ -131,7 +131,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | ------------------- | -------------------- |    
     | personalimmutableid | User.extensionattribute2 |
     | e-mail               | User.Mail |
-    | ID de utilizador              | User.userPrincipalName|
+    | ID de utilizador              | user.userprincipalname|
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -235,7 +235,7 @@ Quando clica no mosaico ADP GlobalView no painel de acesso, deve obter automatic
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
@@ -21,10 +21,10 @@ ms.lasthandoff: 05/07/2018
 > * [Node.js no Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C no Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-Neste tutorial, implementa um **Chiller** dispositivo que envia a telemetria seguinte para a monitorização remota [acelerador solução](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
+Neste tutorial, implementa um **Chiller** dispositivo que envia a telemetria seguinte para a monitorização remota [acelerador solução](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
 * Temperatura
-* pressão
+* Pressão
 * Humidade
 
 De simplicidade, o código gera os valores de telemetria de exemplo para o **Chiller**. Podia expandir o exemplo ao ligar sensores reais para o seu dispositivo e envia a telemetria real.
@@ -43,7 +43,7 @@ Antes de escrever qualquer código para o seu dispositivo, implemente o acelerad
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementar o acelerador de solução de monitorização remota
 
-O **Chiller** dispositivo que criou neste tutorial envia dados para uma instância do [monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) acelerador de solução. Se já que ainda não aprovisionou o acelerador de solução de monitorização remota na sua conta do Azure, consulte o artigo [implementar o acelerador de solução de monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+O **Chiller** dispositivo que criou neste tutorial envia dados para uma instância do [monitorização remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) acelerador de solução. Se já que ainda não aprovisionou o acelerador de solução de monitorização remota na sua conta do Azure, consulte o artigo [implementar o acelerador de solução de monitorização remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 Quando o processo de implementação para a conclusão da solução de monitorização remota, clique em **iniciar** para abrir o dashboard de solução no seu browser.
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com SkyDesk E-Mail | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SkyDesk E-Mail."
+title: 'Tutorial: Integração do Azure Active Directory com SkyDesk E-Mail | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e SkyDesk E-Mail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: c495bd85fa2c55eec93f2e1100505b64389207f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1b75cf2b61b13957d918ac416b4317f4e65dca0e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Active Directory com SkyDesk E-Mail
 
@@ -29,7 +29,7 @@ Integrar SkyDesk E-Mail com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada ao E-Mail SkyDesk (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://mail.skydesk.jp/portal/<companyname>`
+    No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
     > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de E-Mail SkyDesk](https://www.skydesk.sg/support/) para obter o valor. 
@@ -260,7 +260,7 @@ Quando clica no mosaico de E-Mail SkyDesk no painel de acesso, deve obter automa
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

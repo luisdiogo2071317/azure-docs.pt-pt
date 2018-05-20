@@ -1,6 +1,6 @@
 ---
-title: "Reentrancy em com base em ator micro-serviços do Azure | Microsoft Docs"
-description: "Introdução ao reentrancy dos recursos de infraestrutura de serviço Reliable Actors"
+title: Reentrancy em com base em ator micro-serviços do Azure | Microsoft Docs
+description: Introdução ao reentrancy dos recursos de infraestrutura de serviço Reliable Actors
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,24 +9,24 @@ editor: amanbha
 ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: dec785757ac582f044811c0f64ae0d452d6ad9a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 40f52cb399f2d7391657ce4356a0c30921d46e5f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrancy do Reliable Actors
 Tempo de execução Reliable Actors, por predefinição, permite reentrancy baseado no contexto de chamada lógico. Isto permite atores ser reentrantes se estiverem na mesma cadeia de contexto da chamada. Por exemplo, o Ator A envia uma mensagem para Ator B, que envia uma mensagem para c de Atores. Como parte do processamento de mensagens, se Ator C chamadas de Atores A, a mensagem é reentrante, pelo que serão permitida. As mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até terminar o processamento.
 
 Existem duas opções disponíveis para reentrancy ator definido no `ActorReentrancyMode` enum:
 
-* `LogicalCallContext`(comportamento predefinido)
-* `Disallowed`-Desativa reentrancy
+* `LogicalCallContext` (comportamento predefinido)
+* `Disallowed` -Desativa reentrancy
 
 ```csharp
 public enum ActorReentrancyMode
@@ -109,5 +109,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre reentrancy no [documentação de referência da API de Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)

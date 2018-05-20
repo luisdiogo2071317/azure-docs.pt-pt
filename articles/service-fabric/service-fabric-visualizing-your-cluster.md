@@ -1,24 +1,24 @@
 ---
 title: Visualizar o cluster utilizando o Azure Service Fabric Explorer | Microsoft Docs
-description: "Explorador do Service Fabric é uma aplicação para inspecionar e gerir aplicações em nuvem e de nós num cluster do Microsoft Azure Service Fabric."
+description: Explorador do Service Fabric é uma aplicação para inspecionar e gerir aplicações em nuvem e de nós num cluster do Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 916742d89447af4097d37b5d78e97ff86c12834c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
@@ -47,7 +47,7 @@ Utilize as seguintes ligações para transferir Service Fabric Explorer como uma
 
 Service Fabric Explorer também está alojado num ponto final de gestão de HTTP de um cluster de Service Fabric. Para iniciar SFX num browser, navegue até ao ponto final de gestão de HTTP do cluster a partir de qualquer browser - por exemplo https://clusterFQDN:19080.
 
-Para a configuração da estação de trabalho de programador, pode iniciar o Explorador do Service Fabric no seu cluster local, navegando até https://localhost:19080/Explorer. Observe este artigo para [preparar o ambiente de desenvolvimento](service-fabric-get-started.md).
+Para a configuração da estação de trabalho de programador, pode iniciar Service Fabric Explorer no seu cluster local, navegando até https://localhost:19080/Explorer. Observe este artigo para [preparar o ambiente de desenvolvimento](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ligar a um cluster do Service Fabric
 Para ligar a um cluster do Service Fabric, terá do ponto de final de gestão de clusters (FQDN/IP) e a porta de ponto final de gestão de HTTP (19080 por predefinição). Por exemplo, https://mysfcluster.westus.cloudapp.azure.com:19080. Utilize a caixa de verificação "Ligar ao localhost" para ligar a um cluster local na sua estação de trabalho.

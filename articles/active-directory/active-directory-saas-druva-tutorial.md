@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Druva | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Druva."
+title: 'Tutorial: Integração do Azure Active Directory com Druva | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Druva.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 5be9f384d9e8c0871d26ccb5d35a49e9387ad753
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43b09ebaac70cceb5fdee8589ef70bd9531574dd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: Integração do Azure Active Directory com Druva
 
@@ -30,7 +30,7 @@ Integrar Druva com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Druva (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,13 +108,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
-    No **identificador** caixa de texto, digite o valor de cadeia:`druva-cloud`
+    No **identificador** caixa de texto, digite o valor de cadeia: `druva-cloud`
     
 4. Verifique **Mostrar avançadas definições de URL**. Se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Configurar o início de sessão único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
     
-    No **URL de início de sessão** caixa de texto, escreva o URL:`https://cloud.druva.com/home`
+    No **URL de início de sessão** caixa de texto, escreva o URL: `https://cloud.druva.com/home`
 
 5. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -236,7 +236,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Druva, têm de
    
    ![Criar NewUser](./media/active-directory-saas-druva-tutorial/ic795099.png "criar NewUser")
    
-   a. No **endereço de correio eletrónico** caixa de texto, introduza o e-mail do utilizador, como  **brittasimon@contoso.com** .
+   a. No **endereço de correio eletrónico** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
    
    b. No **nome** caixa de texto, introduza o nome de utilizador como **BrittaSimon**.
    
@@ -275,7 +275,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -285,7 +285,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,24 +1,24 @@
 ---
-title: "Custo de movimento do Gestor de recursos do Cluster de recursos de infraestrutura do serviço: | Microsoft Docs"
-description: "Descrição geral do custo de movimento para serviços do Service Fabric"
+title: 'Custo de movimento do Gestor de recursos do Cluster de recursos de infraestrutura do serviço: | Microsoft Docs'
+description: Descrição geral do custo de movimento para serviços do Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3063647671fea94da3ce635b887f6f0f7de89f70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-movement-cost"></a>Custo de movimento de serviço
 Um fator que considera que o Gestor de recursos de Cluster do serviço de recursos de infraestrutura ao tentar determinar o que é alterado para fazer a um cluster é o custo dessas alterações. A noção de "Custo" é transacionada desativar contra quanto o cluster pode ser melhorado. Custo é factored ao mover os serviços para balanceamento, desfragmentação e outros requisitos. O objetivo é para cumprir os requisitos da forma menos acontece ou dispendiosa. 
@@ -115,7 +115,7 @@ através de Clusterconfig para implementações autónomas ou Template do Azure 
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Manager de recurso de Cluster do serviço de recursos de infraestrutura utiliza a métrica para gerir consumo e capacidade do cluster. Para saber mais sobre as métricas e como configurá-las, consulte [consumo de recursos de gestão e a carga no Service Fabric com métricas](service-fabric-cluster-resource-manager-metrics.md).
 - Para saber mais sobre como o Gestor de recursos de Cluster gere e equilibra a carga no cluster, consulte [balanceamento de cluster do Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 

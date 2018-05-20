@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Veritas Enterprise Vault.cloud SSO | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Veritas Enterprise Vault.cloud SSO."
+title: 'Tutorial: Integração do Azure Active Directory com Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Veritas Enterprise Vault.cloud SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a60df7f743c893305f0b3b4aba05505e761f505d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Active Directory com Veritas Enterprise Vault.cloud SSO
 
@@ -29,7 +29,7 @@ Integrar Veritas Enterprise Vault.cloud SSO com o Azure AD fornece as seguintes 
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Veritas Enterprise Vault.cloud SSO (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,11 +110,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
     b. No **identificador** caixa de texto, utilize o URL de acordo com o Centro de dados
 
-    | Datacenter| URL |
+    | Datacenter| do IdP |
     |----------|----|
     | América do Norte| `https://auth.lax.archivecloud.net` |
     | Europa | `https://auth.ams.archivecloud.net` |
@@ -122,7 +122,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **URL de resposta** caixa de texto, utilize o URL de acordo com o Centro de dados
 
-    | Datacenter| URL |
+    | Datacenter| do IdP |
     |----------|----|
     | América do Norte| `https://auth.lax.archivecloud.net` |
     | Europa | `https://auth.ams.archivecloud.net` |
@@ -223,7 +223,7 @@ Quando clica no mosaico Veritas Enterprise Vault.cloud SSO no painel de acesso, 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

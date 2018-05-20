@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Qlik sentido empresarial | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Qlik sentido Enterprise."
+title: 'Tutorial: Integração do Azure Active Directory com Qlik sentido empresarial | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Qlik sentido Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: cada2ca63e27f4a17f1541679395727ef710c035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8cca4fb3ee10d56481cefccb7ea869b6bf13109c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Tutorial: Integração do Azure Active Directory com Qlik sentido empresarial
 
@@ -30,7 +30,7 @@ Integrar Qlik sentido Enterprise com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada para a empresa de sentido Qlik (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,7 +108,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![URLs e de domínio de empresa Qlik sentido único informações de início de sessão](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
     
     > [!NOTE]
     > Tenha em atenção a barra no final deste URI. É necessário.
@@ -191,7 +191,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     h. O **algoritmo de assinatura de SAML** define o certificado de fornecedor (por este servidor Qlik sentido maiúsculas) do serviço de assinatura para a configuração de virtual proxy.  Se o servidor de Qlik sentido utiliza um certificado fidedigno gerado utilizando o Microsoft avançada RSA e fornecedor de criptografia AES, altere o algoritmo de assinatura de SAML para **SHA-256**.
     
-    posso. A secção de mapeamento de atributos SAML permite atributos adicionais, como grupos sejam enviados para Qlik sentido para utilização em regras de segurança.
+    i. A secção de mapeamento de atributos SAML permite atributos adicionais, como grupos sejam enviados para Qlik sentido para utilização em regras de segurança.
 
 13. Clique em de **BALANCEAMENTO de carga** opção de menu para torná-lo visível.  É apresentado o ecrã de balanceamento de carga.
     
@@ -314,7 +314,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -323,7 +323,7 @@ Quando clica no mosaico Qlik sentido empresarial no painel de acesso, deve obter
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

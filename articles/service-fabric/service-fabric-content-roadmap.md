@@ -1,24 +1,24 @@
 ---
 title: Saiba mais sobre o Azure Service Fabric | Microsoft Docs
-description: "Saiba mais sobre os conceitos principais e áreas principais do Azure Service Fabric. Fornece uma descrição geral expandida do Service Fabric e como criar micro-serviços."
+description: Saiba mais sobre os conceitos principais e áreas principais do Azure Service Fabric. Fornece uma descrição geral expandida do Service Fabric e como criar micro-serviços.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Por isso que pretende saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma área de superfície grande, no entanto, e houver muita para saber mais.  Este artigo fornece um resumo dos recursos de infraestrutura de serviço e descreve os conceitos principais, modelos, o ciclo de vida de aplicação, testar, clusters e monitorização de estado de funcionamento de programação. Leia o [descrição geral](service-fabric-overview.md) e [quais são micro-serviços?](service-fabric-overview-microservices.md) para uma introdução e como os recursos de infraestrutura de serviço podem ser utilizados para criar micro-serviços. Este artigo não contém uma lista completa de conteúdo, mas a ligação para descrição geral e obter artigos iniciados para cada área de Service Fabric. 

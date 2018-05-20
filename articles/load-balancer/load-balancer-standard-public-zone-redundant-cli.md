@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balanceamento de carga VMs em todas as zonas de disponibilidade com a CLI do Azure
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.17 ou superior.  Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que está a executar a CLI do Azure versão 2.0.17 ou superior.  Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Suporte para as zonas de disponibilidade está disponível para famílias de tamanho VM, selecionados de recursos do Azure e regiões. Para obter mais informações sobre como começar a utilizar e os recursos do Azure, regiões e famílias de tamanho VM pode tentar zonas de disponibilidade com, consulte [zonas de descrição geral da disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, pode contactar-nos no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abrir um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
@@ -61,13 +61,13 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-load-balancer-standard"></a>Criar o padrão de Balanceador de carga do Azure
-Esta secção fornece detalhes sobre como pode criar e configurar os seguintes componentes do Balanceador de carga:
-- um conjunto IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
-- tráfego de rede com balanceamento de um conjunto IP back-end em que o conjunto de front-end envia a carga.
-- uma pesquisa de estado de funcionamento que determina o estado de funcionamento de instâncias de VM de back-end.
-- regra de Balanceador de carga que define a forma como o tráfego é distribuído para as VMs.
+Esta secção descreve como pode criar e configurar os seguintes componentes do balanceador de carga:
+- Um conjunto de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
+- um conjunto de IPs de back-end no qual o conjunto do front-end envia o tráfego de rede com balanceamento de carga.
+- uma sonda de estado de funcionamento que determina o estado de funcionamento das instâncias de VM de back-end.
+- uma regra de balanceador de carga que define como o tráfego é distribuído pelas VMs.
 
-### <a name="create-the-load-balancer"></a>Criar o Balanceador de carga
+### <a name="create-the-load-balancer"></a>Criar o balanceador de carga
 Criar um balanceador de carga Standard com [az rede lb criar](/cli/azure/network/lb#az_network_lb_create). O exemplo seguinte cria um balanceador de carga com o nome *myLoadBalancer* e atribui o *myPublicIP* endereço para a configuração de IP Front-end.
 
 ```azurecli-interactive
@@ -94,7 +94,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Criar regra de Balanceador de carga para a porta 80
-Uma regra de Balanceador de carga define a configuração de IP Front-end para o tráfego de entrada e o conjunto IP back-end para receber o tráfego, juntamente com a porta de origem e de destino necessário. Criar uma regra de Balanceador de carga *myLoadBalancerRuleWeb* com [criar regra de lb az rede](/cli/azure/network/lb/rule#az_network_lb_rule_create) para a escuta a porta 80 no conjunto de front-end *myFrontEndPool* e enviar tráfego de rede com balanceamento de carga para o conjunto de endereços de back-end *myBackEndPool* também utilizando a porta 80.
+Uma regra de balanceador de carga define a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Crie uma regra de balanceador de carga *myLoadBalancerRuleWeb* com [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) para escutar a porta 80 no conjunto de front-end *myFrontEndPool* e enviar o tráfego de rede com balanceamento de carga para o conjunto de endereços back-end *myBackEndPool* também através da porta 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -110,7 +110,7 @@ az network lb rule create \
 ```
 
 ## <a name="configure-virtual-network"></a>Configurar uma rede virtual
-Antes de implementar algumas VMs e pode testar o seu Balanceador de carga, crie os suporte recursos de rede virtual.
+Antes de implementar algumas VMs e testar o balanceador de carga, crie os recursos de rede virtual de apoio.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -171,7 +171,7 @@ Neste exemplo, crie três máquinas virtuais localizadas na zona 1, de zona 2 e 
 
 ### <a name="create-cloud-init-config"></a>Criar configuração de inicialização da cloud
 
-Pode utilizar um ficheiro de configuração de nuvem init para instalar NGINX e executar uma aplicação Node.js 'Olá, mundo' numa máquina virtual Linux. Na sua shell atual, crie um ficheiro denominado init.txt de nuvem e copie e cole a seguinte configuração o shell. Certifique-se que copie totalidade nuvem init ficheiro corretamente, especialmente a primeira linha:
+Pode utilizar o ficheiro de configuração cloud-init para instalar o NGINX e executar uma aplicação Node.js "Hello World" numa máquina virtual Linux. Na shell atual, crie um ficheiro com o nome cloud-init.txt e copie e cole a seguinte configuração na shell. Certifique-se de que copia o ficheiro cloud-init completo corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
@@ -218,19 +218,21 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>Criar as máquinas virtuais zonal
 Criar as VMs com [az vm criar](/cli/azure/vm#az_vm_create) na zona 1, de zona 2 e 3 de zona. O exemplo seguinte cria uma VM em cada zona e gera chaves SSH, caso ainda não existam:
 
-Criar VMs na zona 1
+Criar uma VM em cada zona (zona 1, zone2 e zona 3) da *westeurope* localização.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
-## <a name="test-the-load-balancer"></a>Testar o Balanceador de carga
+## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
 Obter o endereço IP público da utilização de Balanceador de carga [mostrar de ip público de rede az](/cli/azure/network/public-ip#az_network_public_ip_show). 
 
@@ -247,8 +249,8 @@ Em seguida, pode introduzir o endereço IP público num browser. Não se esqueç
 
 Para ver o Balanceador de carga distribuir o tráfego entre VMs em todas as zonas de disponibilidade três executar a sua aplicação, pode parar uma VM numa determinada zona e atualize o browser.
 
-## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [padrão Balanceador de carga](./load-balancer-standard-overview.md)
+## <a name="next-steps"></a>Passos Seguintes
+- Saiba mais sobre o [Balanceador de Carga Standard](./load-balancer-standard-overview.md)
 
 
 

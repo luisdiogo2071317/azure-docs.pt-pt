@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric proxy inverso | Microsoft Docs
-description: "Utilize proxy inverso do Service Fabric para comunicação com micro-serviços a partir de dentro e fora do cluster."
+description: Utilize proxy inverso do Service Fabric para comunicação com micro-serviços a partir de dentro e fora do cluster.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso no Azure Service Fabric
 Proxy inverso incorporado no Service Fabric do Azure ajuda-o em execução num cluster de Service Fabric micro-serviços detetar e comunicar com outros serviços que tenham pontos finais de http.
@@ -97,18 +97,18 @@ Seguem-se os recursos para o serviço:
 
 Se o serviço utiliza singleton a criação de partições de esquema, o *PartitionKey* e *PartitionKind* parâmetros de cadeia de consulta não são necessários e o serviço pode ser contactado através do gateway como:
 
-* Externamente:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
-* Internamente:`http://localhost:19081/MyApp/MyService`
+* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Internamente: `http://localhost:19081/MyApp/MyService`
 
 Se o serviço utiliza o esquema de partições Uniform Int64, o *PartitionKey* e *PartitionKind* parâmetros de cadeia de consulta tem de ser utilizados para aceder a uma partição do serviço:
 
-* Externamente:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Internamente:`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Internamente: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Para aceder os recursos que expõe o serviço, basta colocar o caminho do recurso depois do nome de serviço no URL:
 
-* Externamente:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Internamente:`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Externamente: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Internamente: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 O gateway, em seguida, irá reencaminhar estes pedidos para o URL do serviço:
 

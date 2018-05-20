@@ -7,15 +7,15 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 tags: top-support-issue
 keywords: Erro de automatização, resolução de problemas, problema
-ms.openlocfilehash: d8bf617aaef463121abe76cd85a98615c83f11ae
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 990422cb686c84501127c3fcf233f96aec5bc065
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Resolução de problemas comuns na automatização do Azure 
 Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.
@@ -204,7 +204,7 @@ Para implementar com êxito a solução, terá de considerar alterar a política
 
 Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém a sua conta de automatização e selecione **implementações** em **definições** para ver a implementação. Para obter mais informações sobre a visita de política do Azure: [descrição geral da política do Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se seguiu os passos de resolução de problemas anteriores e não é possível encontrar a resposta, pode rever o suporte adicional seguintes opções:
 

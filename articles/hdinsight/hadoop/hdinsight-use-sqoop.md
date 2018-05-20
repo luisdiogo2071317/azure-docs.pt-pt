@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 0e72585906b972c3d7ffb2513fceb27e3e8bc1c5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 55f30078918239d77c079041ebd1df0325e77719
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -45,15 +45,15 @@ Cluster do HDInsight é fornecido com alguns dados de exemplo. Utilize os seguin
   
   | Campo | Tipo de dados |
   | --- | --- |
-  | ID de cliente |string |
-  | querytime |string |
-  | mercado |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | País |string |
-  | querydwelltime |duplo |
+  | ID de cliente |cadeia |
+  | querytime |cadeia |
+  | mercado |cadeia |
+  | deviceplatform |cadeia |
+  | devicemake |cadeia |
+  | devicemodel |cadeia |
+  | state |cadeia |
+  | País |cadeia |
+  | querydwelltime |double |
   | ID de sessão |bigint |
   | sessionpagevieworder |bigint |
 
@@ -94,7 +94,7 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados d
         
         |Nome|Valor|
         |----|-----|
-        | Nome de conta do storage predefinida | &lt;CluterName>store |
+        | Nome predefinido da conta de armazenamento | &lt;CluterName>store |
         | Nome de servidor de base de dados SQL do Azure | &lt;ClusterName>dbserver |
         | Nome de base de dados SQL do Azure | &lt;ClusterName>db |
      

@@ -1,26 +1,26 @@
 ---
-title: "Trabalhar com coleções fiáveis | Microsoft Docs"
-description: "Saiba as melhores práticas para trabalhar com coleções fiável."
+title: Trabalhar com coleções fiáveis | Microsoft Docs
+description: Saiba as melhores práticas para trabalhar com coleções fiável.
 services: service-fabric
 documentationcenter: .net
 author: rajak
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rajak
-ms.openlocfilehash: f53f13e4fb83b1cd370ec673e86e5311cd93055f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="working-with-reliable-collections"></a>Trabalhar com coleções fiáveis
+# <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 Recursos de infraestrutura de serviço oferece um modelo de programação com monitorização de estado disponível para programadores do .NET através de coleções fiável. Especificamente, o Service Fabric fornece dicionário fiável e classes de fila fiável. Ao utilizar estas classes, o estado está particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos observar uma utilização típica de um objeto de dicionário fiável e ver o respetivo, na verdade, a fazer.
 
 ```csharp
@@ -142,7 +142,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir os tipos de dados imutável para evitar erros de programador
-Idealmente, pretende que o compilador de erros de relatório quando acidentalmente a produzir código mutates estado de um objeto que é suposto considerar imutável. No entanto, o compilador do c# não tem a capacidade para efetuar este procedimento. Por isso, para evitar potenciais erros de programador, recomendamos vivamente que definir os tipos de utilizar com coleções fiáveis para ser tipos imutáveis. Mais concretamente, isto significa que pen para tipos de valor de núcleos (por exemplo, números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e o semelhante). E, obviamente, também pode utilizar cadeia. É melhor evitar a propriedades de coleção como serializar e anular a serialização dos mesmos pode frequentemente pacote pode prejudicar o desempenho. No entanto, se pretender utilizar propriedades de coleção, recomendamos vivamente a utilização de. Biblioteca de coleções imutável do NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Está disponível para transferência a partir do http://nuget.org esta biblioteca. Também recomendamos que selar as classes e tornando os campos só de leitura sempre que possível.
+Idealmente, pretende que o compilador de erros de relatório quando acidentalmente a produzir código mutates estado de um objeto que é suposto considerar imutável. No entanto, o compilador do c# não tem a capacidade para efetuar este procedimento. Por isso, para evitar potenciais erros de programador, recomendamos vivamente que definir os tipos de utilizar com coleções fiáveis para ser tipos imutáveis. Mais concretamente, isto significa que pen para tipos de valor de núcleos (por exemplo, números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e o semelhante). E, obviamente, também pode utilizar cadeia. É melhor evitar a propriedades de coleção como serializar e anular a serialização dos mesmos pode frequentemente pacote pode prejudicar o desempenho. No entanto, se pretender utilizar propriedades de coleção, recomendamos vivamente a utilização de. Biblioteca de coleções imutável do NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para transferência a partir do http://nuget.org. Também recomendamos que selar as classes e tornando os campos só de leitura sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando partido de recomendações acima mencionados.
 
@@ -208,7 +208,7 @@ Além disso, o código do serviço é atualizado um domínio de atualização a 
 
 Em alternativa, pode efetuar o que, normalmente, é referido como uma atualização de fase 2. Com uma atualização de fase 2, atualizar o serviço v1 para V2: V2 contém o código que sabe como lidar com a nova alteração de esquema, mas este código não ser executado. Quando o código de V2 lê dados V1, funciona no mesmo e escreve dados V1. Em seguida, após a atualização concluída em atualização de todos os domínios, pode examinar assinalar para as instâncias de V2 em execução que a atualização foi concluída. (Uma forma Sinal Isto serve para implementar uma atualização da configuração; este é o que faz com que esta uma atualização de fase 2). Agora, as instâncias de V2 podem ler os dados de V1, convertê-lo para dados V2, operar na mesma e escrever como dados V2. Quando outras instâncias de ler os dados de V2, não é necessário convertê-lo, podendo apenas operam na mesma e escrever dados V2.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para saber mais sobre a criação de contratos de reencaminhar dados compatível, consulte [compatível com a reencaminhar dados contratos](https://msdn.microsoft.com/library/ms731083.aspx).
 
 Para obter as melhores práticas em contratos de dados de controlo de versões, consulte [controlo de versões de contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx).

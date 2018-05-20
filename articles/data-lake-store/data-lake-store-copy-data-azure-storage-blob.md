@@ -2,23 +2,21 @@
 title: Copiar dados de Blobs de armazenamento do Azure para o Data Lake Store | Microsoft Docs
 description: Utilize a ferramenta de AdlCopy para copiar dados de Blobs de armazenamento do Azure para o Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copy data from Azure Storage Blobs to Data Lake Store (Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Store)
 > [!div class="op_single_selector"]
@@ -44,7 +42,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 * **Os Blobs de armazenamento do Azure** contentor com alguns dados.
 * **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **(Opcional) da conta do Azure Data Lake Analytics** -consulte [introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como criar uma conta de Data Lake Store.
-* **Ferramenta de AdlCopy**. Instalar a ferramenta de AdlCopy do [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **Ferramenta de AdlCopy**. Instalar a ferramenta de AdlCopy do [ http://aka.ms/downloadadlcopy ](http://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxe da ferramenta AdlCopy
 Utilize a sintaxe seguinte para trabalhar com a ferramenta de AdlCopy
@@ -72,7 +70,7 @@ Os parâmetros na sintaxe são descritos abaixo:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE]A sintaxe acima Especifica o ficheiro ser copiados para uma pasta na conta do Data Lake Store. Ferramenta de AdlCopy cria uma pasta, se o nome da pasta especificado não existe.
+    >[AZURE.NOTE] A sintaxe acima Especifica o ficheiro ser copiados para uma pasta na conta do Data Lake Store. Ferramenta de AdlCopy cria uma pasta, se o nome da pasta especificado não existe.
 
     Será solicitado para introduzir as credenciais para a subscrição do Azure na qual tem a conta de Data Lake Store. Irá ver um resultado semelhante ao seguinte:
 

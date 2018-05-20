@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Pingboard | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Pingboard."
+title: 'Tutorial: Integração do Azure Active Directory com Pingboard | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Pingboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 733eff519f75368fd78824deea56f63940c0b49f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Azure Active Directory com Pingboard
 
@@ -30,7 +30,7 @@ Integrar Pingboard com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Pingboard (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,15 +108,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Pingboard e URLs único início de sessão informações IDP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_url.png)
 
-    a. No **identificador** caixa de texto, digite o valor como:`http://app.pingboard.com/sp`
+    a. No **identificador** caixa de texto, digite o valor como: `http://app.pingboard.com/sp`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 4. Verifique **Mostrar avançadas definições de URL**, se pretender configurar a aplicação no **SP** iniciada modo:
 
     ![Domínio Pingboard e URLs único início de sessão informações SP](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_sp_initiated01.png)
 
-     No **URL de início de sessão** caixa de texto, escreva o URL a utilizar o padrão do seguinte:`https://<sub-domain>.pingboard.com/sign_in`
+     No **URL de início de sessão** caixa de texto, escreva o URL a utilizar o padrão do seguinte: `https://<sub-domain>.pingboard.com/sign_in`
 
     > [!NOTE] 
     > Tenha em atenção que estes valores não estiverem reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte de cliente Pingboard](https://support.pingboard.com/) para obter estes valores.
@@ -199,7 +199,7 @@ Para permitir que os utilizadores do Azure AD sessão Pingboard, têm de ser apr
 
     a. No **nome completo** caixa de texto, o nome completo de tipo de utilizador como **Britta Simon**.
 
-    b. No **E-Mail** caixa de texto, como o tipo de endereço de correio eletrónico do utilizador  **brittasimon@contoso.com** .
+    b. No **E-Mail** caixa de texto, como o tipo de endereço de correio eletrónico do utilizador **brittasimon@contoso.com**.
 
     c. No **cargo** caixa de texto, escreva o título de trabalho de Britta Simon.
 
@@ -244,7 +244,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
@@ -254,7 +254,7 @@ Quando clica no mosaico Pingboard no painel de acesso, deve obter automaticament
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

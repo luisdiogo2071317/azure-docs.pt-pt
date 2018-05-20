@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory análise de negócio seja ágil Birst | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e análise de negócio seja ágil Birst."
+title: 'Tutorial: Integração do Azure Active Directory análise de negócio seja ágil Birst | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e análise de negócio seja ágil Birst.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: aec0e475bc897b3d983a8054819562be4aa4682b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e6ff23d76710cf1f63e7b0439e27760eed333c1b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integração do Azure Active Directory com Birst seja ágil análise de negócio
 
@@ -29,7 +29,7 @@ Análise de negócio seja ágil Birst a integração com o Azure AD fornece as s
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Birst análise de negócio seja ágil (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,13 +110,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-birst-tutorial/tutorial_birst_url.png)
 
-     No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+     No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
      O URL depende do Centro de dados que a sua conta Birst está localizada: 
 
-     * Para utilização do Centro de dados de E.U.A. seguir o padrão:`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID` 
+     * Para utilização do Centro de dados de E.U.A. seguir o padrão: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID` 
 
-     * Para a Europa Centro de dados, utilize o padrão do seguinte:`https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+     * Para a Europa Centro de dados, utilize o padrão do seguinte: `https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
     > [!NOTE] 
     > Este valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de análise de negócio seja ágil Birst](mailto:info@birst.com) para obter o valor. 
@@ -217,7 +217,7 @@ Quando clica no mosaico de análise de negócio seja ágil Birst no painel de ac
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

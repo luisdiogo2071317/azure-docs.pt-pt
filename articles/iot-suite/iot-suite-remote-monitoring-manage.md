@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 599f8327e9939f400ca18c87fa6193ac3c1e4a61
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Gerir e configurar os seus dispositivos
 
@@ -24,7 +24,7 @@ Este tutorial mostra o dispositivo capacidades de gestão de solução de monito
 
 Contoso tem ordenadas fábrica, a nova para expandir um dos respetivos instalações para aumentar a saída. Enquanto a aguardar ser entregue fábrica, a nova, que pretende executar uma simulação para verificar o comportamento da sua solução. Como um operador, que pretende gerir e configurar os dispositivos na solução de monitorização remota.
 
-Para fornecer uma forma extensível para gerir e configurar dispositivos, a solução de monitorização remota utiliza funcionalidades do IoT Hub, tais como [tarefas](../iot-hub/iot-hub-devguide-jobs.md) e [direcionar métodos](../iot-hub/iot-hub-devguide-direct-methods.md). Para saber como um programador de dispositivo implementa métodos num dispositivo físico, consulte [personalizar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-customize.md).
+Para fornecer uma forma extensível para gerir e configurar dispositivos, a solução de monitorização remota utiliza funcionalidades do IoT Hub, tais como [tarefas](../iot-hub/iot-hub-devguide-jobs.md) e [direcionar métodos](../iot-hub/iot-hub-devguide-direct-methods.md). Para saber como um programador de dispositivo implementa métodos num dispositivo físico, consulte [personalizar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
 
 Neste tutorial, ficará a saber como:
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 
 Para seguir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 

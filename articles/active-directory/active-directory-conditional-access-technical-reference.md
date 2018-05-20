@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -123,23 +123,32 @@ Esta definição funciona com todos os browsers. No entanto, para uma política 
 
 | SO                     | Browsers                            | Suporte     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, limite, Chrome     | ![Verificação][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Verificação][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Verificação][1] |
-| iOS                    | Safari, Browser gerido do Intune      | ![Verificação][1] |
-| Android                | Chrome, Browser gerido do Intune      | ![Verificação][1] |
-| Windows Phone          | Limite do Internet Explorer             | ![Verificação][1] |
-| Windows Server 2016    | Limite do Internet Explorer             | ![Verificação][1] |
+| Windows 10             | Internet Explorer, limite, Chrome     | ![Marcar][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Marcar][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Marcar][1] |
+| iOS                    | Safari, Browser gerido do Intune      | ![Marcar][1] |
+| Android                | Chrome, Browser gerido do Intune      | ![Marcar][1] |
+| Windows Phone          | Limite do Internet Explorer             | ![Marcar][1] |
+| Windows Server 2016    | Limite do Internet Explorer             | ![Marcar][1] |
 | Windows Server 2016    | Chrome                              | Brevemente |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Verificação][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Verificação][1] |
-| macOS                  | Chrome, Safari                      | ![Verificação][1] |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Marcar][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Marcar][1] |
+| macOS                  | Chrome, Safari                      | ![Marcar][1] |
 
 
 
 #### <a name="chrome-support"></a>Suporte do Chrome
 
 Para Chrome suporte no **criadores de 10 do Windows Update (versão 1703)** ou posterior, instale [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para implementar automaticamente esta extensão para browsers do Chrome, crie a seguinte chave de registo:
+
+|    |    |
+|--- | ---|
+|Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|Nome | 1 |
+|Tipo | REG_SZ (String) |
+|Dados | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 Para Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Trello | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Trello."
+title: 'Tutorial: Integração do Azure Active Directory com Trello | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Trello.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 39ea5cc19e73cb6e9ea6da9757f5e8013d1a5ffe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dfdbef1138c166beca0a470d2e55dd24703d237c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: Integração do Azure Active Directory com Trello
 
@@ -30,7 +30,7 @@ Integrar o Trello com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Trello (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,7 +95,7 @@ Para configurar e testar o Azure AD-início de sessão único com Trello, tem de
 Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Trello.
 
 >[!NOTE]
->Pode ser obtido o  **\<enterprise\>**  devendo de Trello. Se não tiver o valor do campo de dados dinâmico, contacte [equipa de suporte de Trello](mailto:support@trello.com) para obter o campo de dados dinâmico para a empresa.
+>Pode ser obtido o **\<enterprise\>** devendo de Trello. Se não tiver o valor do campo de dados dinâmico, contacte [equipa de suporte de Trello](mailto:support@trello.com) para obter o campo de dados dinâmico para a empresa.
     > 
 
 **Para configurar o Azure AD-início de sessão único com Trello, execute os seguintes passos:**
@@ -112,9 +112,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio Trello e os URLs únicos de informações de início de sessão](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
     
-    a. No **identificador** caixa de texto, escreva o seguinte URL:`https://trello.com/auth/saml/metadata`
+    a. No **identificador** caixa de texto, escreva o seguinte URL: `https://trello.com/auth/saml/metadata`
     
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://trello.com/auth/saml/consume/<enterprise>`
 
 4. Se pretender configurar a aplicação no **SP iniciada modo**, execute os seguintes passos:
 
@@ -122,7 +122,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Verifique **Mostrar avançadas definições de URL**.
 
-    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://trello.com/auth/saml/login/<enterprise>` 
+    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://trello.com/auth/saml/login/<enterprise>` 
 
 5. Aplicação de Trello espera as asserções de SAML para conter os atributos específicos. Configure os seguintes atributos para esta aplicação. Pode gerir os valores destes atributos do **"Atributos de utilizador"** da aplicação. A seguinte captura de ecrã mostra um exemplo para este.
 
@@ -235,7 +235,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -245,7 +245,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

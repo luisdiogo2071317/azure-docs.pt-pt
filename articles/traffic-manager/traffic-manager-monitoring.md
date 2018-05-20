@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -30,7 +30,7 @@ Para configurar o ponto final de monitorização, tem de especificar as seguinte
 
 * **Protocolo**. Escolha HTTP, HTTPS ou TCP como protocolo de que o Gestor de tráfego utiliza ao pesquisar o ponto final para verificar o estado de funcionamento. Monitorização de HTTPS não verifica se o certificado SSL não é válido – só verifica se o certificado está presente.
 * **Porta**. Escolha a porta utilizada para o pedido.
-* **Caminho**. Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para que o caminho de especificar a definição é necessária. Fornecer esta definição para a monitorização resultados de protocolo num erro TCP. Para o protocolo TCP, dê o caminho relativo e o nome da página Web ou o ficheiro que acede a monitorização. Uma barra (/) é uma entrada válida para o caminho relativo. Este valor implica que o ficheiro está no diretório de raiz (predefinição).
+* **Caminho**. Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para que o caminho de especificar a definição é necessária. Fornecer esta definição para a monitorização resultados de protocolo num erro TCP. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página Web ou o ficheiro que acede a monitorização. Uma barra (/) é uma entrada válida para o caminho relativo. Este valor implica que o ficheiro está no diretório de raiz (predefinição).
 * **Intervalo de pesquisa**. Este valor Especifica a frequência de um ponto final está marcado para o seu estado de funcionamento de um agente de pesquisa do Gestor de tráfego. Pode especificar dois valores aqui: 30 segundos (pesquisa normal) e de 10 segundos (pesquisa rápida). Se não existem valores são fornecidos, o perfil define um valor predefinido de 30 segundos. Visite o [preços do Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) página para saber mais sobre os preços da pesquisa rápida.
 * **Número de falhas de tolerated**. Este valor Especifica quantos falhas de um agente de pesquisa do Gestor de tráfego tolerates antes de marcar esse ponto final como estando danificado. O valor pode variar entre 0 e 9. Um valor de 0 significa que uma falha de monitorização único pode fazer com que a esse ponto final ser marcado como danificado. Se for especificado nenhum valor, utiliza o valor predefinido de 3.
 * **Tempo limite de monitorização**. Esta propriedade especifica a quantidade de tempo que o agente de pesquisa do Gestor de tráfego deve aguardar antes de considerar que uma falha de verificação quando uma sonda de verificação do Estado de funcionamento é enviada para o ponto final. Se o intervalo de pesquisa é definido como 30 segundos, em seguida, pode definir o valor de limite de tempo entre 5 e 10 segundos. Se for especificado nenhum valor, utiliza um valor predefinido de 10 segundos. Se o intervalo de pesquisa está definido para 10 segundos, em seguida, pode definir o valor de limite de tempo entre 5 e 9 segundos. Se for especificado nenhum valor de tempo limite, utiliza um valor predefinido 9 segundos.
@@ -71,7 +71,7 @@ Estado do monitor de ponto final é um valor gerado pelo Gestor de tráfego que 
 | Estado do perfil | Estado do ponto final  | Estado do monitor de ponto final | Notas |
 | --- | --- | --- | --- |
 | Desativado |Ativado |Inativa |O perfil foi desativado. Apesar do Estado do ponto final está ativado, o estado do perfil (desativada) tem precedência. Pontos finais em perfis desativados não são monitorizados. É devolvido um código de resposta NXDOMAIN para a consulta DNS. |
-| &lt;any&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos finais desativados não são monitorizados. O ponto final não está incluído em respostas DNS, por conseguinte, não receber tráfego. |
+| &lt;qualquer&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos finais desativados não são monitorizados. O ponto final não está incluído em respostas DNS, por conseguinte, não receber tráfego. |
 | Ativado |Ativado |Online |O ponto final está a ser monitorizado e está em bom estado. Está incluído nas respostas DNS e pode receber tráfego. |
 | Ativado |Ativado |Degradado |Verificações de estado de funcionamento de monitorização ponto final estão a falhar. O ponto final não está incluído em respostas DNS e não receber o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles são considerados a ser devolvido na resposta consulta).</br>|
 | Ativado |Ativado |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto final do perfil. Um ponto final neste estado está incluído nas respostas DNS e pode receber tráfego. |
@@ -90,7 +90,7 @@ O estado do monitor de perfil é uma combinação do Estado do perfil configurad
 | --- | --- | --- | --- |
 | Desativado |&lt;qualquer&gt; ou um perfil com não existem pontos finais definidos. |Desativado |O perfil foi desativado. |
 | Ativado |O estado de, pelo menos, um ponto final está atualmente degradado. |Degradado |Reveja os valores de estado de ponto final individuais para determinar quais os pontos finais mais necessitam de atenção. |
-| Ativado |O estado de, pelo menos, um ponto final está Online. Não existem pontos finais de ter o estado Degraded. |Online |O serviço está a aceitar o tráfego. É necessária nenhuma ação adicional. |
+| Ativado |O estado de, pelo menos, um ponto final está Online. Não existem pontos finais de ter o estado Degraded. |Online |O serviço está a aceitar o tráfego. Não são necessárias mais ações. |
 | Ativado |O estado de, pelo menos, um ponto final é CheckingEndpoint. Não existem pontos finais estão num Estado Online ou Degraded. |CheckingEndpoints |Este estado de transição ocorre quando um perfil se criadas ou ativadas. O estado de funcionamento do ponto final está a ser verificado pela primeira vez. |
 | Ativado |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidas pontos finais. |Inativa |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
 
@@ -133,7 +133,7 @@ A seguinte linha de tempo na figura 2 é uma descrição detalhada do processo d
 Quando um ponto final tem um Estado de Degraded, já não é devolvido em resposta a consultas DNS. Em vez disso, um ponto final alternativo é escolhido e devolvido. O método de encaminhamento de tráfego configurado no perfil determina a forma como o ponto final alternativo é escolhido.
 
 * **Prioridade**. Pontos finais formam uma lista prioritária. O primeiro ponto de final disponível na lista sempre é devolvido. Se um Estado de ponto final está atualmente degradado, em seguida, é devolvido o próximo ponto final disponível.
-* **Weighted**. Qualquer ponto final disponível é escolhido aleatoriamente com base nas respetivas importâncias atribuídas e as ponderações de outros disponíveis pontos finais.
+* **Ponderado**. Qualquer ponto final disponível é escolhido aleatoriamente com base nas respetivas importâncias atribuídas e as ponderações de outros disponíveis pontos finais.
 * **Desempenho**. O ponto final mais próximo para o utilizador final é devolvido. Se esse ponto final não estiver disponível, o Gestor de tráfego move o tráfego para os pontos finais na região do Azure mais próxima seguinte. Pode configurar planos de ativação pós-falha alternativo para o encaminhamento de tráfego de desempenho utilizando [aninhada perfis do Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfica**. O ponto final mapeado para servir a localização geográfica, com base no pedido de consulta é devolvido do IP. Se esse ponto final não estiver disponível, outro ponto final não será selecionado como a ativação pós-falha, uma vez que uma localização geográfica pode ser mapeada apenas para um ponto final num perfil (estão mais detalhes no [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como melhor prática, ao utilizar o encaminhamento geográfica, recomendamos que clientes utilizem aninhada perfis do Traffic Manager com mais do que um ponto final, como os pontos finais do perfil.
 

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -85,6 +85,12 @@ O armazenamento que Aprovisiona é a quantidade da capacidade de armazenamento d
 Pode adicionar capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornecer uma garantia IOPS. O objetivo geral e escalões de preço de otimização de memória, o IOPS dimensionar com o tamanho de aprovisionamento de armazenamento numa proporção de 3:1.
 
 Pode monitorizar o consumo de e/s no portal do Azure ou através da utilização de comandos da CLI do Azure. As métricas relevantes para monitorizar estão [limite de armazenamento, a percentagem de armazenamento, armazenamento utilizado e percentagem de e/s](concepts-monitoring.md).
+
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
+
+O servidor está marcado como só de leitura quando a quantidade de espaço de armazenamento livre atingir inferior a 5 GB ou 5% de armazenamento aprovisionado, que for menor. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real passa pela 95 GB, o servidor está marcado como só de leitura. Em alternativa, se tiverem aprovisionadas 5 GB de armazenamento, o servidor está marcado como só de leitura quando o espaço de armazenamento livre atinge menos de 250 MB.  
+
+Enquanto o serviço tenta tornar o servidor só de leitura, todos os novos pedidos de transação de escrita estão bloqueados e as transações ativas existentes irão continuar a executar. Quando o servidor está definido como só de leitura, todas as operações de escrita subsequentes e transação consolida falhar. Consultas de leitura irão continuem a funcionar sem interrupção. Depois de aumentar o armazenamento com aprovisionamento, o servidor estará pronto para aceitar novo transações de escrita.
 
 ## <a name="backup"></a>Cópia de segurança
 

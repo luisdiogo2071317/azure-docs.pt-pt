@@ -1,13 +1,13 @@
 ---
-title: "Enlaces de Hubs de notificação para as funções do Azure"
-description: "Compreenda como utilizar o enlace do Notification Hub do Azure das funções do Azure."
+title: Enlaces de Hubs de notificação para as funções do Azure
+description: Compreenda como utilizar o enlace do Notification Hub do Azure das funções do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+editor: ''
+tags: ''
+keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 292c8295cbc2705c12365a20cee0e80b6da639a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 572bf9d783e1018b835b47c6c63fff1ce69659e9
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Hubs de notificação de saída do enlace para as funções do Azure
 
@@ -34,6 +34,8 @@ Os Hubs de notificação do Azure tem de ser configurados para a plataforma de n
 Os enlaces de Notification Hubs são fornecidos no [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example---template"></a>Exemplo - modelo
 
@@ -282,13 +284,13 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** |n/d| Tem de ser definida para "notificationHub". |
-|**direction** |n/d| Tem de ser definida para "out". | 
+|**tipo** |n/d| Tem de ser definida para "notificationHub". |
+|**direção** |n/d| Tem de ser definida para "out". | 
 |**name** |n/d| Nome da variável utilizado no código de função para a mensagem de hub de notificação. |
 |**tagExpression** |**TagExpression** | Expressões de etiqueta permitem-lhe especificar que possível entregar notificações de um conjunto de dispositivos que registados para receber as notificações que corresponde à expressão tag.  Para obter mais informações, consulte [expressões de encaminhamento e etiqueta](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome do recurso de hub de notificação no portal do Azure. |
-|**connection** | **ConnectionStringSetting** | O nome de uma definição de aplicação que contém uma cadeia de ligação de Notification Hubs.  A cadeia de ligação tem de ser definida o *DefaultFullSharedAccessSignature* valor para o seu hub de notificação. Consulte [a configuração de cadeia de ligação](#connection-string-setup) posteriormente neste artigo.|
-|**platform** | **Platform** | A propriedade da plataforma indica a plataforma de cliente os destinos de notificação. Por predefinição, se a propriedade de plataforma é omitida do enlace de saída, as notificações de modelo podem ser utilizadas para qualquer plataforma configurada no Hub de notificação do Azure de destino. Para obter mais informações sobre a utilização de modelos em geral para enviar cruzada notificações de plataforma com um Hub de notificação do Azure, consulte [modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Se estiver definida, **plataforma** tem de ser um dos seguintes valores: <ul><li><code>apns</code>&mdash;Serviço Apple Push Notification. Para obter mais informações sobre configurar o notification hub para APNS e receber a notificação na aplicação cliente, consulte [enviar notificações push para o iOS com Notification Hubs do Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obter mais informações sobre configurar o notification hub para ADM e receber a notificação numa aplicação Kindle, consulte [introdução aos Notification Hubs para aplicações Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, que é a nova versão do GCM, também é suportada. Para obter mais informações, consulte [enviar notificações push para o Android com Notification Hubs do Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Serviços de notificação Push do Windows](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) direcionada para plataformas Windows. Windows Phone 8.1 e posterior também é suportada pelo WNS. Para obter mais informações, consulte [introdução aos Notification Hubs para aplicações universais do Windows plataforma](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Serviço de notificação Push da Microsoft](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Esta plataforma suporta o Windows Phone 8 e plataformas do Windows Phone anteriores. Para obter mais informações, consulte [enviar notificações de push com os Hubs de notificação do Azure no Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**Ligação** | **ConnectionStringSetting** | O nome de uma definição de aplicação que contém uma cadeia de ligação de Notification Hubs.  A cadeia de ligação tem de ser definida o *DefaultFullSharedAccessSignature* valor para o seu hub de notificação. Consulte [a configuração de cadeia de ligação](#connection-string-setup) posteriormente neste artigo.|
+|**platform** | **Plataforma** | A propriedade da plataforma indica a plataforma de cliente os destinos de notificação. Por predefinição, se a propriedade de plataforma é omitida do enlace de saída, as notificações de modelo podem ser utilizadas para qualquer plataforma configurada no Hub de notificação do Azure de destino. Para obter mais informações sobre a utilização de modelos em geral para enviar cruzada notificações de plataforma com um Hub de notificação do Azure, consulte [modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Se estiver definida, **plataforma** tem de ser um dos seguintes valores: <ul><li><code>apns</code>&mdash;Serviço Apple Push Notification. Para obter mais informações sobre configurar o notification hub para APNS e receber a notificação na aplicação cliente, consulte [enviar notificações push para o iOS com Notification Hubs do Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obter mais informações sobre configurar o notification hub para ADM e receber a notificação numa aplicação Kindle, consulte [introdução aos Notification Hubs para aplicações Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Firebase Cloud Messaging, que é a nova versão do GCM, também é suportada. Para obter mais informações, consulte [enviar notificações push para o Android com Notification Hubs do Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>&mdash;[Serviços de notificação Push do Windows](https://msdn.microsoft.com/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview) direcionada para plataformas Windows. Windows Phone 8.1 e posterior também é suportada pelo WNS. Para obter mais informações, consulte [introdução aos Notification Hubs para aplicações universais do Windows plataforma](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>&mdash;[Serviço de notificação Push da Microsoft](https://msdn.microsoft.com/library/windows/apps/ff402558.aspx). Esta plataforma suporta o Windows Phone 8 e plataformas do Windows Phone anteriores. Para obter mais informações, consulte [enviar notificações de push com os Hubs de notificação do Azure no Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

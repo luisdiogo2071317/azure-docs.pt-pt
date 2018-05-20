@@ -1,24 +1,24 @@
 ---
-title: "Aplicação de orquestração de patch de Service Fabric do Azure | Microsoft Docs"
-description: "Aplicação para automatizar a aplicação de patches de sistema operativo num cluster de Service Fabric."
+title: Aplicação de orquestração de patch de Service Fabric do Azure | Microsoft Docs
+description: Aplicação para automatizar a aplicação de patches de sistema operativo num cluster de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Correção do sistema operativo Windows no seu cluster do Service Fabric
 
@@ -149,7 +149,7 @@ O comportamento da aplicação de orquestração patch pode ser configurado para
 |MaxResultsToCache    |Longo                              | Número máximo de resultados do Windows Update, que devem ser colocados em cache. <br>Valor predefinido é 3000 partindo do princípio de: <br> -Número de nós é 20. <br> -O número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ter 10. <br> -Devem ser armazenados resultados durante os últimos três meses. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar as atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Windows Update está instalado um nó de cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update está instalado um domínio de atualização de cada vez. (No máximo, podem aceder todos os nós que pertencem a um domínio de atualização para o Windows Update.)
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinição: 1024)               |Tamanho máximo das patch orchestration aplicação regista em MB, que pode ser persistente localmente em nós.
-| WUQuery               | string<br>(Default: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | cadeia<br>(Predefinição: "IsInstalled = 0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: VERDADEIRO)                 | Este sinalizador permite que as atualizações do sistema operativo Windows ser instalada.            |
 | WUOperationTimeOutInMinutes | Int <br>(Predefinição: 90).                   | Especifica o tempo limite em nenhuma operação de atualização do Windows (pesquisa ou transferir ou instalar). Se não for possível concluir a operação dentro do tempo limite especificado, foi abortada.       |
 | WURescheduleCount     | Int <br> (Predefinição: 5).                  | O número máximo de vezes que o serviço reschedules do Windows update no caso de uma operação falha de forma permanente.          |
@@ -225,7 +225,7 @@ Os campos de JSON são descritos abaixo.
 Campo | Valores | Detalhes
 -- | -- | --
 OperationResult | 0 - foi concluída com êxito<br> 1 - foi concluída com êxito com erros<br> 2 - falha<br> 3 - abortada<br> 4 - abortado com tempo limite | Indica o resultado da operação global (geralmente que envolve a instalação de atualizações de um ou mais).
-ResultCode | Mesmo que OperationResult | Este campo indica o resultado da operação de instalação para a atualização individual.
+resultCode | Mesmo que OperationResult | Este campo indica o resultado da operação de instalação para a atualização individual.
 OperationType | 1 - instalação<br> 0 - procurar e transferir.| A instalação é a única OperationType que deverá ser apresentada nos resultados por predefinição.
 WindowsUpdateQuery | Predefinição é "IsInstalled = 0" |Windows update a consulta que foi utilizada para procurar atualizações. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | VERDADEIRO - foi necessário reiniciar o computador<br> FALSO - não foi necessário reiniciar o computador | Indica se reiniciar o computador foi necessário para concluir a instalação das atualizações.

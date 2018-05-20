@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Bonusly | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Bonusly."
+title: 'Tutorial: Integração do Azure Active Directory com Bonusly | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Bonusly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b69cf1c42cbc6aedb064378271e2c631b4be39f3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8133ec95bf0cbf6a9ce4ca1ad224d03ac593c940
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Active Directory com Bonusly
 
@@ -30,7 +30,7 @@ Integrar Bonusly com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Bonusly (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +107,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Bonusly URLs de domínio e única informações de início de sessão](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_url.png)
 
-    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://Bonus.ly/saml/<tenant-name>`
+    No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
     > O valor não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte Bonusly](https://Bonusly/contact) para obter o valor.
@@ -216,7 +216,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Bonusly, têm 
 
     b. No **Apelido** caixa de texto, introduza o apelido do utilizador, como **Simon**.
  
-    c. No **E-Mail** caixa de texto, introduza o e-mail do utilizador, como  **brittasimon@contoso.com** .
+    c. No **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
 
     d. Clique em **Guardar**.
    
@@ -254,7 +254,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -263,7 +263,7 @@ Quando clica no mosaico Bonusly no painel de acesso, deve obter automaticamente 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

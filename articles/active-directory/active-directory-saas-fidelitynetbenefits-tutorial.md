@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com fidelidade NetBenefits | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e NetBenefits fidelidade."
+title: 'Tutorial: Integração do Azure Active Directory com fidelidade NetBenefits | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e NetBenefits fidelidade.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 007d3c894731560423e2dde0572793a4282a4654
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 19d18dd0d88fa3e66c60191314d0d1f80aa415c1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Azure Active Directory com fidelidade NetBenefits
 
@@ -30,7 +30,7 @@ Integrar fidelidade NetBenefits com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada a fidelidade NetBenefits (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,15 +110,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. No **identificador** caixa de texto, escreva um URL:
 
-    Para o ambiente de teste:`urn:sp:fidelity:geninbndnbparts20:uat:xq1`
+    Para o ambiente de teste:  `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 
-    Para o ambiente de produção:`urn:sp:fidelity:geninbndnbparts20`
+    Para o ambiente de produção:  `urn:sp:fidelity:geninbndnbparts20`
 
     b. No **URL de resposta** caixa de texto, escreva um URL:
 
-    Para o ambiente de teste:`https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
+    Para o ambiente de teste:  `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
 
-    Para o ambiente de produção:`https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
+    Para o ambiente de produção:  `https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
  
 4. Aplicação de NetBenefits fidelidade espera as asserções de SAML num formato específico. Podemos ter mapeado os **identificador de utilizador** com o **user.userprincipalname**. Pode mapear isto com **campo IDdeEmpregado** ou qualquer afirmação que se aplica a sua organização como **identificador de utilizador**. A seguinte captura de ecrã mostra apenas um exemplo para este.
 
@@ -212,7 +212,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -222,7 +222,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

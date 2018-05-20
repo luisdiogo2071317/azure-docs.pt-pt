@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Sprinklr | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Sprinklr."
+title: 'Tutorial: Integração do Azure Active Directory com Sprinklr | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Sprinklr.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 13eea1b7889c6382f1f4a6fb5c9bc02578c52711
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2222e3e71fbddaebf1077149f6d71a43eb8dea0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Azure Active Directory com Sprinklr
 
@@ -29,7 +29,7 @@ Integrar Sprinklr com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Sprinklr (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.sprinklr.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.sprinklr.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.sprinklr.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize o valor com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Sprinklr](https://www.sprinklr.com/contact-us/) para obter estes valores. 
@@ -159,7 +159,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. Colar o **Sign-Out URL** valor que copiou do Portal do Azure para o **URL de fim de sessão do fornecedor de identidade** caixa de texto.
      
-    posso. Como **tipo de ID de utilizador de SAML**, selecione **asserção contém utilizador "nome de utilizador do s sprinklr.com**.
+    i. Como **tipo de ID de utilizador de SAML**, selecione **asserção contém utilizador "nome de utilizador do s sprinklr.com**.
 
     j. Como **localização de ID de utilizador de SAML**, selecione **ID de utilizador está a ser o elemento identificador de nome da declaração de assunto**.
 
@@ -284,7 +284,7 @@ Quando clica no mosaico Sprinklr no painel de acesso, deve obter automaticamente
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

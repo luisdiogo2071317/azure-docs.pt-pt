@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Resolver problemas com a aceder e utilizar o portal de aplicações My
 
@@ -57,10 +57,11 @@ Verifique para se certificar de que está a cumprir os seguintes requisitos do b
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **O Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
 
-Também pode transferir a extensão para Chrome e limite diretamente a partir de sites seguintes:
+Também pode transferir a extensão diretamente a partir dos seguintes sites:
 
-- [Extensões do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensão de limite](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Limite](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se tiver instalado a extensão e ainda está a ter problemas, experimente o seguinte:
 
@@ -77,7 +78,7 @@ Se tiver instalado a extensão e ainda está a ter problemas, experimente o segu
    4. Selecione o ícone de extensão.
    5. Para iniciar sessão para a extensão, selecione **iniciar sessão começar a utilizar**.
 
-* Para iniciar sessão diretamente a uma aplicação do browser, efetue o seguinte:
+* Para iniciar sessão diretamente numa aplicação do browser, efetue o seguinte:
    1. Depois de instalar a extensão, inicie sessão no mesmo selecionando **iniciar sessão começar a utilizar**.
    2. Inicie sessão na aplicação com o URL de início de sessão.  
        O URL de início de sessão é, normalmente, o URL da aplicação que apresenta o formulário de início de sessão.

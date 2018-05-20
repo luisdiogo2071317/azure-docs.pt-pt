@@ -15,11 +15,11 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 838bdccb06e5763d33f63208cb6f941a55778b32
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas de Proxy de aplicações e as mensagens de erro
 Se ocorrerem erros ao aceder a uma aplicação publicada ou numa publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -27,7 +27,7 @@ Se ocorrerem erros ao aceder a uma aplicação publicada ou numa publicação de
 * Abra a consola de serviços do Windows e certifique-se de que o **conector do Proxy de aplicações do Microsoft AAD** serviço está ativado e em execução. Também poderá consultar a página de propriedades do serviço de Proxy de aplicações, conforme mostrado na imagem seguinte:  
   ![Captura de ecrã de janela de propriedades de conector do Proxy de aplicações do Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Abra o Visualizador de eventos e procure eventos do conector de Proxy de aplicações no **registos de serviços e aplicações** > **Microsoft** > **AadApplicationProxy** > **conector** > **Admin**.
-* Se for necessário, registos mais detalhados estão disponíveis por [ativar os registos de sessão do conector de Proxy de aplicações](application-proxy-understand-connectors.md#under-the-hood).
+* Se for necessário, registos mais detalhados estão disponíveis por [ativar os registos de sessão do conector de Proxy de aplicações](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 Para obter mais informações sobre a ferramenta de resolução de problemas de AD do Azure, consulte [ferramenta de resolução de problemas para validar a pré-requisitos de rede do conector](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
@@ -90,7 +90,7 @@ Se ocorrer um erro ou problema com o Proxy da aplicação AD do Azure que não e
 * [Ativar o Proxy de aplicações do Azure Active Directory](manage-apps/application-proxy-enable.md)
 * [Publicar aplicações com o Proxy de aplicações](manage-apps/application-proxy-publish-azure-portal.md)
 * [Ativar o início de sessão único](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Ativar o acesso condicional](application-proxy-enable-remote-access-sharepoint.md)
+* [Ativar o acesso condicional](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

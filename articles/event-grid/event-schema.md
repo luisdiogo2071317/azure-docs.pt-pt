@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e0b7fd825b8e985cea2c32301986b3a7f8bb619
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de grelha de eventos do Azure
 
@@ -81,14 +81,14 @@ Todos os eventos contenham os seguintes dados de nível superior mesmos:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
-| Requerente | string | Caminho definida pelo fabricante para o assunto do evento. |
-| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | string | A hora que do evento é gerado com base na hora UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
+| Tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é passível de escrita. Grelha de evento fornece este valor. |
+| Requerente | cadeia | Caminho definida pelo fabricante para o assunto do evento. |
+| eventType | cadeia | Um dos tipos de eventos registados para esta origem de evento. |
+| eventTime | cadeia | A hora que do evento é gerado com base na hora UTC do fornecedor. |
+| ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos específicos do fornecedor de recursos. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 Para saber mais sobre as propriedades no objecto de dados, consulte a origem do evento:
 

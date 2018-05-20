@@ -1,7 +1,7 @@
 ---
-title: "Arquivo Data Lake a integração com outros serviços do Azure | Microsoft Docs"
-description: "Compreender a forma como a Data Lake Store integra-se com outros serviços do Azure"
-documentationcenter: 
+title: Arquivo Data Lake a integração com outros serviços do Azure | Microsoft Docs
+description: Compreender a forma como a Data Lake Store integra-se com outros serviços do Azure
+documentationcenter: ''
 services: data-lake-store
 author: nitinme
 manager: jhubbard
@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d43459b900232612d83506438e6a70daa893eb80
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: e11100118f599b4fee6362625aff05c50bb07c87
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrating Data Lake Store with other Azure Services (Integrar o Data Lake Store noutros Serviços do Azure)
 O Azure Data Lake Store pode ser utilizado em conjunto com outros serviços do Azure para ativar uma vasta gama de cenários. O artigo seguinte lista os serviços de Data Lake Store pode ser integrado.
@@ -66,7 +64,7 @@ Pode utilizar o PolyBase para carregar dados do Azure Data Lake Store para o SQL
 ## <a name="use-data-lake-store-with-azure-event-hubs"></a>Utilizar o Data Lake Store com o Event Hubs do Azure
 Pode utilizar o Azure Data Lake Store para arquivo e a captura de dados recebidos pelo Event Hubs do Azure. Para obter mais informações consulte [utilize Data Lake Store com o Event Hubs do Azure](data-lake-store-archive-eventhub-capture.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Introdução ao Data Lake Store através do Portal](data-lake-store-get-started-portal.md)
 * [Introdução ao Data Lake Store através do PowerShell](data-lake-store-get-started-powershell.md)  

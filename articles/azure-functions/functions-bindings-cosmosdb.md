@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffb18ef65bc0d901fe237ec9c4f97fdae43dc472
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Enlaces de Cosmos BD do Azure para as funções do Azure
 
@@ -35,6 +35,8 @@ Este artigo explica como trabalhar com [Azure Cosmos DB](..\cosmos-db\serverless
 Os enlaces de BD do Cosmos para a versão de funções 1. x são fornecidos no [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) pacote NuGet. Para as funções 2. x, o pacote é [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB). Código de origem para os enlaces está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Acionador
 
@@ -170,13 +172,13 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção utilizado para armazenar concessões. Quando não definido, o valor `leases` é utilizado. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcional) Quando definido como `true`, a coleção de concessões é criada automaticamente quando já não existir. O valor predefinido é `false`. |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Opcional) Define a quantidade de unidades de pedido para atribuir quando é criada a coleção de concessões. Esta definição é apenas utilizado quando `createLeaseCollectionIfNotExists` está definido como `true`. Este parâmetro é automaticamente definido quando o enlace é criado utilizando o portal.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Opcional) Se estiver definida, adiciona um prefixo concessões criadas na coleção de concessão para esta função, efetivamente, permitindo duas funções de Azure separado partilhar a mesma coleção de concessão utilizando prefixos diferentes.
+|**LeaseCollectionPrefix**| **LeaseCollectionPrefix**| (Opcional) Se estiver definida, adiciona um prefixo concessões criadas na coleção de concessão para esta função, efetivamente, permitindo duas funções de Azure separado partilhar a mesma coleção de concessão utilizando prefixos diferentes.
 |**FeedPollDelay**| **FeedPollDelay**| (Opcional) Quando o conjunto, define, em milissegundos, o atraso entre uma partição para novas alterações do feed de consulta atuais depois de todas as alterações são drained. Predefinição é 5000 (5 segundos).
 |**LeaseAcquireInterval**| **LeaseAcquireInterval**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo para iniciar uma tarefa para calcular se as partições são distribuídas uniformemente entre instâncias de anfitrião conhecido. Predefinição é 13000 (13 segundos).
 |**LeaseExpirationInterval**| **LeaseExpirationInterval**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo para o qual o período de concessão é criado numa concessão que representa uma partição. Se a concessão for renovada não dentro deste intervalo, fará com que expire e propriedade da partição irá mudar para outra instância. Predefinição é 60000 (60 segundos).
 |**LeaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente retido por uma instância. Predefinição é 17000 (17 segundos).
 |**CheckpointFrequency**| **CheckpointFrequency**| (Opcional) Se estiver definida, define, em milissegundos, o intervalo entre pontos de verificação de concessão. Predefinição é sempre após uma chamada de função com êxito.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Se estiver definida, customizes a quantidade máxima de itens recebidos por chamadas de função.
+|**MaxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Se estiver definida, customizes a quantidade máxima de itens recebidos por chamadas de função.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

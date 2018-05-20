@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: 406eb2c1974958eef5e83915e6b21e385cf7d2c7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrição de grelha de eventos
 
@@ -41,17 +41,17 @@ O artigo descreve as propriedades e o esquema para o corpo do pedido.
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| endpointType | string | O tipo de ponto final da subscrição (webhook/HTTP, Hub de eventos ou fila). | 
-| endpointUrl | string | O URL de destino para eventos nesta subscrição de evento. | 
+| endpointType | cadeia | O tipo de ponto final da subscrição (webhook/HTTP, Hub de eventos ou fila). | 
+| endpointUrl | cadeia | O URL de destino para eventos nesta subscrição de evento. | 
 
 ### <a name="filter-object"></a>objeto de filtro
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata com um destes nomes de tipo de evento. Gera um erro ao nome do evento não corresponder os nomes de tipo de evento registado para a origem do evento. Predefinição corresponde a todos os tipos de eventos. |
-| subjectBeginsWith | string | Uma correspondência de prefixo filtrar no campo do requerente de eventos mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
-| subjectEndsWith | string | Uma correspondência de sufixo filtrar no campo do requerente de eventos mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
-| isSubjectCaseSensitive | string | Controlos de maiúsculas e minúsculas de correspondência de filtros. |
+| subjectBeginsWith | cadeia | Uma correspondência de prefixo filtrar no campo do requerente de eventos mensagem. A predefinição ou uma cadeia vazia corresponde a todos. | 
+| subjectEndsWith | cadeia | Uma correspondência de sufixo filtrar no campo do requerente de eventos mensagem. A predefinição ou uma cadeia vazia corresponde a todos. |
+| isSubjectCaseSensitive | cadeia | Controlos de maiúsculas e minúsculas de correspondência de filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de subscrição de exemplo

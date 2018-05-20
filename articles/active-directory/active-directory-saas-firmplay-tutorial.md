@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com FirmPlay - empregado Advocacy para Recruiting | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e FirmPlay - empregado Advocacy para Recruiting."
+title: 'Tutorial: Integração do Azure Active Directory com FirmPlay - empregado Advocacy para Recruiting | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e FirmPlay - empregado Advocacy para Recruiting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: e1381f2273ee961a4b72dede8cf8e017814ba909
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b154901d2e31f493c32e47bd331cc2d4e9fdc1a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integração do Azure Active Directory com FirmPlay - empregado Advocacy para Recruiting
 
@@ -29,7 +29,7 @@ Integrar FirmPlay - empregado Advocacy para Recruiting com o Azure AD fornece as
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para FirmPlay - empregado Advocacy para Recruiting (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,7 +111,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
  
     ![Configurar o início de sessão único](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
 
-3. No **FirmPlay - empregado Advocacy para o domínio de Recruiting e URLs** na secção de **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<your-subdomain>.firmplay.com/`
+3. No **FirmPlay - empregado Advocacy para o domínio de Recruiting e URLs** na secção de **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<your-subdomain>.firmplay.com/`
 
     ![Configurar o início de sessão único](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
 
@@ -235,7 +235,7 @@ Ao clicar em FirmPlay - empregado Advocacy para Recruiting mosaico no painel de 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

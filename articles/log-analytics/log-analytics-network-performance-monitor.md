@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3c81d63593bb7bf268c1026064e34c3a363ef86
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -74,7 +74,7 @@ Utilize os processos de básico para instalar agentes em [computadores Windows l
 
 Monitor de desempenho de rede utiliza transações sintéticas para monitorizar o desempenho de rede entre os agentes de origem e de destino. Pode escolher entre TCP e ICMP como o protocolo para a monitorização em capacidades de Monitor de desempenho e Monitor do ponto final de serviço. TCP é utilizado para o Monitor do ExpressRoute. Certifique-se de que a firewall permite a comunicação entre os agentes do Operations Management Suite para monitorizar no protocolo que escolher. 
 
-* **Protocolo TCP**: Se optar por TCP como protocolo para monitorização, abra a porta de firewall em agentes utilizado para o Monitor de desempenho de rede e o Monitor de ExpressRoute para se certificar de que os agentes podem ligar-se entre si. Para abrir a porta, execute o script de EnableRules.ps1 PowerShell sem quaisquer parâmetros numa janela do PowerShell com privilégios administrativos.
+* **Protocolo TCP**: Se optar por TCP como protocolo para monitorização, abra a porta de firewall em agentes utilizado para o Monitor de desempenho de rede e o Monitor de ExpressRoute para se certificar de que os agentes podem ligar-se entre si. Para abrir a porta, execute o [EnableRules.ps1](https://aka.ms/npmpowershellscript) script do PowerShell sem quaisquer parâmetros numa janela do PowerShell com privilégios administrativos.
 
     O script cria as chaves de registo necessárias para a solução. Também cria regras de Firewall do Windows para permitir que os agentes para criar ligações TCP entre si. As chaves de registo criadas pelo script Especifique se pretende registar os registos de depuração e o caminho para o ficheiro de registos. O script também define a porta TCP de agente utilizada para comunicação. Os valores para estas chaves são configurados automaticamente pelo script. Não altere manualmente estas chaves. A porta aberta por predefinição é 8084. Pode utilizar uma porta personalizada, fornecendo o portNumber de parâmetro para o script. Utilize a mesma porta em todos os computadores em que o script é executado. 
 
@@ -82,7 +82,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorizar 
     > O script configura apenas Firewall do Windows localmente. Se tiver uma firewall de rede, certifique-se de que permite o tráfego destinado a porta TCP utilizada pelo Monitor de desempenho de rede.
 
     >[!NOTE]
-    > Não precisa de executar o script do EnableRules.ps1 PowerShell para o Monitor de ponto final de serviço.
+    > Não precisa de executar o [EnableRules.ps1](https://aka.ms/npmpowershellscript ) script do PowerShell para o Monitor de ponto final de serviço.
 
     
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Lesson.ly | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Lesson.ly."
+title: 'Tutorial: Integração do Azure Active Directory com Lesson.ly | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Lesson.ly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: b5295b2c4294141cc2217a35eb943316e190b77d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Tutorial: Integração do Azure Active Directory com Lesson.ly
 
@@ -29,7 +29,7 @@ Integrar Lesson.ly com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Lesson.ly (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -140,9 +140,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     | Nome do Atributo   | Valor do Atributo |
     | ---------------  | ----------------|
-    | urn: oid:2.5.4.42 |User.givenName |
-    | urn: oid:2.5.4.4  |User.Surname |
-    | urn: oid:0.9.2342.19200300.100.1.3 |User.Mail |
+    | urn:oid:2.5.4.42 |User.givenName |
+    | urn:oid:2.5.4.4  |User.Surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 |User.Mail |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.ObjectId |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -249,7 +249,7 @@ Quando clica no mosaico Lesson.ly no painel de acesso, deve obter automaticament
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

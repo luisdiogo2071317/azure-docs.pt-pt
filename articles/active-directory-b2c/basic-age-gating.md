@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Utilizar o controlo de idade no Azure AD B2C
 
@@ -47,25 +47,22 @@ Depois do diretório está configurado para utilizar o controlo de idade, em seg
 Depois de controlo de idade está ativado no seu fluxo de utilizador, o utilizador sofrem alterações.  Na sessão de cópia de segurança, os utilizadores agora serão pedidos para a respetiva data de nascimento e país de residência, juntamente com os atributos de utilizador configurado para o fluxo de utilizador.  No início de sessão, serão pedidos aos utilizadores que ainda não introduzidas anteriormente uma data de nascimento e país de residência para obter estas informações da próxima vez que iniciar sessão.  Entre estes dois valores, o Azure AD B2C irá identificar se o utilizador é um menor e atualizar o `ageGroup` campo, o valor pode ser `null`, `Undefined`, `Minor`, `Adult`, e `NotAdult`.  O `ageGroup` e `consentProvidedForMinor` campos, em seguida, são utilizados para calcular `legalAgeGroupClassification`. 
 
 ##<a name="age-gating-options"></a>Opções de controlo de antiguidade
-Pode optar por ter do Azure AD B2C lesar bloco sem o consentimento autorização parental ou permitir-lhes e ter a aplicação tomar decisões sobre o que fazer com as mesmas.  
+Pode optar por ter lesar do bloco do Azure AD B2C sem o consentimento autorização parental ou permitir-lhes e ter a aplicação tomar decisões sobre o que fazer com as mesmas.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>Permitir que os menores sem o consentimento autorização parental
-Fluxos de utilizador que tem a assinatura, iniciar sessão ou ambas, pode optar por permitir que os menores sem o consentimento na sua aplicação.  Para que os menores sem o consentimento autorização parental, estão autorizados a iniciar sessão ou iniciar sessão até como normal e emite um token de ID com a `legalAgeGroupClassification` de afirmação.  Ao utilizar esta afirmação pode escolher a experiência com estes utilizadores, tais como passar uma experiência de recolher consentimento autorização parental (e atualizar o `consentProvidedForMinor` campo).
+Fluxos de utilizador que permitir o início de sessão de cópia de segurança, a iniciar sessão ou ambas, pode optar por permitir que os menores sem o consentimento na sua aplicação.  Para que os menores sem o consentimento autorização parental, estão autorizados a iniciar sessão ou inscrever-se como normal e do Azure AD B2C emite um token de ID com a `legalAgeGroupClassification` de afirmação.  Ao utilizar esta afirmação pode escolher a experiência com estes utilizadores, tais como passar uma experiência de recolher consentimento autorização parental (e atualizar o `consentProvidedForMinor` campo).
 
 ###<a name="blocking-minors-without-parental-consent"></a>Bloquear lesar sem o consentimento autorização parental
-Fluxos de utilizador que tem a assinatura, iniciar sessão ou ambas, pode optar por bloquear lesar sem o consentimento na sua aplicação.  Existem duas opções para lidar com utilizadores bloqueados no Azure AD B2C:
+Fluxos de utilizador que permitir o início de sessão de cópia de segurança, a iniciar sessão ou ambas, pode optar por bloquear lesar sem o consentimento da aplicação.  Existem duas opções para lidar com utilizadores bloqueados no Azure AD B2C:
 * Enviar um JSON para a aplicação - esta opção irá enviar uma resposta de volta para a aplicação que foi bloqueada uma secundária.
 * Mostrar uma página de erro - o utilizador será apresentado uma página informar que não vão conseguir aceder a aplicação
 
 ##<a name="known-issues"></a>Problemas conhecidos
-###<a name="customization-unavailable-for-new-pages"></a>Personalização disponível para novas páginas
-Existem duas novas páginas que podem estar disponíveis no seu fluxo de utilizador quando ativar o controlo de antiguidade.  Estas páginas para recolher o país e a data de nascimento em iniciar sessão e a página de erro não pode ser utilizada com a personalização de idioma ou de esquema de página.  Esta opção estará disponível uma atualização próximas.
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato para a resposta quando uma secundária está bloqueada.
 A resposta atualmente não está corretamente formada, este erro será resolvido numa atualização próximas.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Eliminar atributos específicos que foram adicionados durante a configuração pode tornar o seu diretório não é possível utilizar o controlo de antiguidade.
-Na configuração de controlo de idade, configurou o seu diretório através de uma opção na sua `Properties`.  Se eliminar um `legalCountry` ou `dateOfBirth`, o seu inquilino já não pode utilizar o controlo de idade e estas propriedades não podem ser recriadas.
+Na configuração de controlo de idade, configurou o seu diretório através de uma opção na sua `Properties`.  Se eliminar um `legalCountry` ou `dateOfBirth` através do gráfico, o diretório já não pode utilizar controlo de antiguidade e estas propriedades não podem ser recriadas.
 
 ###<a name="list-of-countries-is-incomplete"></a>Lista de países está incompleta
 Atualmente, a lista de países para legalCountry estiver incompleta, iremos adicionar o resto dos países/regiões numa atualização próximas.

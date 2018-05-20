@@ -9,11 +9,11 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
-ms.openlocfilehash: 12248a719d7d30c9b83be9c72539e0a81f19fb7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 09a54e9cb1c6f063e878fd42c42699a906b60c7b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualizar dados de monitorização remotos com informações de séries de tempo
 
@@ -23,7 +23,7 @@ Um operador poderá pretender expandir ainda mais a saída dos dados de caixa de
 
 Para concluir este procedimentos, irá precisar do seguinte:
 
-* [Implementar a solução pré-configurada de monitorização remota](iot-suite-remote-monitoring-deploy.md)
+* [Implementar a solução pré-configurada de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 
@@ -87,12 +87,12 @@ Crie uma nova origem de evento para ligar ao seu IoT hub. Certifique-se de que u
     | Nome da origem de evento | Captura de ecrã seguinte utiliza o nome **contosorm-iot-hub**. Utilize o seu próprio nome exclusivo quando concluir este passo. |
     | Origem | **Hub IoT** |
     | Opção de Importar | **Utilizar o IoT Hub a partir de subscrições disponíveis** |
-    | ID da Subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Nome do hub IoT | **contosorma57a6**. Utilize o nome do seu IoT hub a partir da sua solução de monitorização remota. |
-    | nome de política do hub IoT | **iothubowner** Certifique-se de que a política utilizada é uma política de proprietário. |
-    | chave de política do hub IoT | Este campo é preenchido automaticamente. |
-    | Grupo de consumidores do hub IoT | **timeseriesinsights** |
-    | Formato de serialização de eventos | **JSON**     | Nome da propriedade de carimbo de data/hora | Deixar em branco |
+    | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
+    | Nome do hub IOT | **contosorma57a6**. Utilize o nome do seu IoT hub a partir da sua solução de monitorização remota. |
+    | Nome da política do IOT hub | **iothubowner** Certifique-se de que a política utilizada é uma política de proprietário. |
+    | Chave de política do IOT hub | Este campo é preenchido automaticamente. |
+    | Grupo de consumidores do hub IOT | **timeseriesinsights** |
+    | Formato de serialização de eventos | **JSON**     | Nome da propriedade Timestamp | Deixar em branco |
 
     ![Criar origem de evento](media/iot-suite-time-series-insights/time-series-insights-event-source-create.png)
 

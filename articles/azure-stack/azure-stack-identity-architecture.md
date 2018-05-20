@@ -2,11 +2,11 @@
 title: Arquitetura de identidade para a pilha do Azure | Microsoft Docs
 description: Saiba mais sobre a arquitetura de identidade que pode utilizar com a pilha do Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: ''
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitetura de identidade para a pilha do Azure
 Antes de escolher um fornecedor de identidade para utilizar com a pilha do Azure, compreenda as diferenças importantes entre as opções do Azure Active Directory (Azure AD) e serviços de Federação do Active Directory (AD FS). 
@@ -33,7 +33,7 @@ O fornecedor de identidade que escolher pode limitar as suas opções, incluindo
 |------------------------------|----------|-------|
 |Ligado à internet     |Sim       |Opcional|
 |Suporte para vários inquilinos     |Sim       |Não      |
-|Sindicação do Marketplace       |Sim       |Sim. Requer a utilização do [offline Marketplace sindicação](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) ferramenta.|
+|Sindicação do Marketplace       |Sim       |Sim. Requer a utilização do [offline Marketplace sindicação](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) ferramenta.|
 |Suporte para o Active Directory Authentication Library (ADAL) |Sim |Sim|
 |Suporte para as ferramentas, como a CLI do Azure, o Visual Studio e o PowerShell  |Sim |Sim|
 |Criar principais de serviço através do portal do Azure     |Sim |Não|

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com planos 10,000ft | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e planos 10,000ft."
+title: 'Tutorial: Integração do Azure Active Directory com planos 10,000ft | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e planos 10,000ft.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 76e91c1a4f52337fe7e24d2c7dc727d1fb0ebef2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 340bbd62de7dab9bd0ae45da3105ec2ffd271dfe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Azure Active Directory com planos 10,000ft
 
@@ -29,7 +29,7 @@ Integrar planos 10,000ft com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para planos 10,000ft (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL:`https://app.10000ft.com`
+    a. No **URL de início de sessão** caixa de texto, escreva o URL: `https://app.10000ft.com`
 
-    b. No **identificador** caixa de texto, escreva o URL:`https://app.10000ft.com/saml/metadata`
+    b. No **identificador** caixa de texto, escreva o URL: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE] 
     > O valor para **identificador** é diferente se tiver um domínio personalizado. Contacte [equipa de suporte de planos 10,000ft](https://www.10000ft.com/plans/support) para obter este valor. 
@@ -210,7 +210,7 @@ Quando clica no mosaico de planos 10,000ft no painel de acesso, deve obter autom
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

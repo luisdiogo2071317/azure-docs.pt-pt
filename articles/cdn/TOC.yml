@@ -28,6 +28,8 @@
   items:
     - name: Como funciona a colocação em cache
       href: cdn-how-caching-works.md
+    - name: Entrega de conteúdos da China
+      href: cdn-china-delivery.md
 - name: Guias de procedimentos
   items:
     - name: Integrar

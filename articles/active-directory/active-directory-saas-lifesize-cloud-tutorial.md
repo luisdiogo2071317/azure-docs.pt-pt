@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory Lifesize nuvem | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Lifesize nuvem."
+title: 'Tutorial: Integração do Azure Active Directory Lifesize nuvem | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Lifesize nuvem.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae2c59d672c00b466d13aad1d304f4669a38c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 84af3a9b726d990e585e2b12b1c0a6f4609fcb7e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Azure Active Directory Lifesize nuvem
 
@@ -29,7 +29,7 @@ Integrar Lifesize Cloud com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para nuvem Lifesize (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,16 +110,16 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://login.lifesizecloud.com/ls/?acs`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://login.lifesizecloud.com/ls/?acs`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://login.lifesizecloud.com/<companyname>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://login.lifesizecloud.com/<companyname>`
 
      
 4. Verifique **Mostrar avançadas definições de URL**, executar o passo seguinte:    
    
     ![Configurar o início de sessão único](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_url1.png)
 
-    No **reencaminhamento estado** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://webapp.lifesizecloud.com/?ent=<identifier>`
+    No **reencaminhamento estado** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://webapp.lifesizecloud.com/?ent=<identifier>`
    
    > [!NOTE] 
    >Tenha em atenção que estas não são os valores reais. tem de atualizar estes valores com o URL de início de sessão, o estado de reencaminhamento e identificador real. Contacte [equipa de suporte de cliente de Cloud Lifesize](https://www.lifesize.com/support) obter URL de início de sessão e valores de identificador e pode obter o valor do Estado de reencaminhamento da configuração de SSO que é explicada mais tarde no tutorial.
@@ -156,7 +156,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. Abra o certificado codificado base-64 no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-os para o **certificado x. 509** caixa de texto.
   
-    d. O atributo de SAML mapeamentos para a caixa de texto do nome próprio introduza o valor como **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
+    d. Os mapeamentos de atributos de SAML para a caixa de texto do nome próprio introduza o valor como **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**
     
     e. No mapeamento para o atributo de SAML do **Apelido** caixa de texto introduza o valor como **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
     
@@ -251,7 +251,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

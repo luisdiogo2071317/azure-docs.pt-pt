@@ -1,24 +1,24 @@
 ---
-title: "Padrões de redes para o Azure Service Fabric | Microsoft Docs"
-description: "Descreve os padrões comuns da rede para recursos de infraestrutura de serviço e como criar um cluster utilizando as funcionalidades de redes do Azure."
+title: Padrões de redes para o Azure Service Fabric | Microsoft Docs
+description: Descreve os padrões comuns da rede para recursos de infraestrutura de serviço e como criar um cluster utilizando as funcionalidades de redes do Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: b180e62804b875ca4547a9d09f19efff32ae0cd9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Pode integrar o seu cluster do Azure Service Fabric com outras funcionalidades de rede do Azure. Neste artigo, vamos mostrar-lhe como criar clusters que utilizam as seguintes funcionalidades:
@@ -340,7 +340,7 @@ Este cenário substitui o Balanceador de carga externo no modelo de Service Fabr
                 ],
     ```
 
-5. Alterar o Balanceador de carga `frontendIPConfigurations` definição de utilizar um `publicIPAddress`, a utilização de uma sub-rede e `privateIPAddress`. `privateIPAddress`utiliza um predefinidas endereço IP estático interno. Para utilizar um endereço IP dinâmico, remova o `privateIPAddress` elemento e, em seguida, altere `privateIPAllocationMethod` para **dinâmica**.
+5. Alterar o Balanceador de carga `frontendIPConfigurations` definição de utilizar um `publicIPAddress`, a utilização de uma sub-rede e `privateIPAddress`. `privateIPAddress` utiliza um predefinidas endereço IP estático interno. Para utilizar um endereço IP dinâmico, remova o `privateIPAddress` elemento e, em seguida, altere `privateIPAllocationMethod` para **dinâmica**.
 
     ```
                 "frontendIPConfigurations": [

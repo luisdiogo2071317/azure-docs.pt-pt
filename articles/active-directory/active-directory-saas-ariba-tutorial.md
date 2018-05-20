@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Ariba | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Ariba."
+title: 'Tutorial: Integração do Azure Active Directory com Ariba | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Ariba.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 167bef10b696866a9034314c383468744ebf637b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aedb8f761a16cc438a1ad6473728e29b270c3919
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Azure Active Directory com Ariba
 
@@ -29,7 +29,7 @@ Integrar Ariba com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Ariba (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão seguinte: `https://<subdomain>.sourcing.ariba.com` ou`https://<subdomain>.supplier.ariba.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão seguinte: `https://<subdomain>.sourcing.ariba.com` ou `https://<subdomain>.supplier.ariba.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`http://<subdomain>.procurement-2.ariba.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `http://<subdomain>.procurement-2.ariba.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Aqui sugerimos que utilize o valor de cadeia exclusivo no identificador de. Contacte a equipa de suporte de cliente Ariba em **1-866-218-2155** para obter estes valores. 
@@ -209,7 +209,7 @@ Quando clica no mosaico Ariba no painel de acesso, deve obter automaticamente co
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

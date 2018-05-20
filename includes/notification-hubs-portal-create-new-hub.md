@@ -1,5 +1,19 @@
-
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: spelluru
+ms.custom: include file
+ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/07/2018
+---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Criar um recurso** > **Web + Móvel** > **Hub de Notificação**.
@@ -18,10 +32,9 @@
    
       ![Portal do Azure – definir as propriedades do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Após criar o espaço de nomes e o hub de notificação, abra-o ao selecionar **Todos os recursos** e, em seguida, selecionar o hub de notificação criado na lista. 
-   
-      ![Portal do Azure - página do portal do hub de notificação](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+4. Selecione **Notificações** (ícone de campainha) e selecione **Ir para recurso**. 
 
+      ![Portal do Azure - notificações -> Ir para o recurso](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
 5. Selecione **Políticas de Acesso** na lista. Anote as duas cadeias de ligação que tem à sua disposição. Precisará destas para processar as notificações push mais tarde.
 
       >[!IMPORTANT]

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a38098dc2bbcfc6ff59b9f8c96d1e947c637ab1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Explore as capacidades do acelerador de solução de monitorização remota
 
@@ -41,7 +41,7 @@ O vídeo seguinte mostra as obter instruções sobre a solução de monitorizaç
 
 Para concluir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>A implementação de IoT de exemplo do Contoso
 
@@ -55,7 +55,7 @@ O exemplo de Contoso aprovisiona um conjunto de dispositivos simulados e regras 
 Contoso é uma empresa que gere uma variedade de recursos em ambientes diferentes. Contoso planeia utilizar a capacidade das aplicações de IoT baseada na nuvem para monitorizar e gerir vários recursos a partir de uma aplicação centralizada remotamente. As secções seguintes fornecem um resumo da configuração inicial do exemplo Contoso:
 
 > [!NOTE]
-> Demonstração de Contoso é apenas uma forma para aprovisionar dispositivos simulados e criar regras. Outras opções de aprovisionamento incluem a criação dos seus próprios dispositivos personalizados. Para obter mais informações sobre como criar os seus próprios dispositivos e as regras, consulte [gerir e configurar os seus dispositivos](iot-suite-remote-monitoring-manage.md) e [detetar problemas através de regras baseadas em limiares](iot-suite-remote-monitoring-automate.md).
+> Demonstração de Contoso é apenas uma forma para aprovisionar dispositivos simulados e criar regras. Outras opções de aprovisionamento incluem a criação dos seus próprios dispositivos personalizados. Para obter mais informações sobre como criar os seus próprios dispositivos e as regras, consulte [gerir e configurar os seus dispositivos](iot-suite-remote-monitoring-manage.md) e [detetar problemas através de regras baseadas em limiares](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 
 ### <a name="contoso-devices"></a>Dispositivos de contoso
 
@@ -80,8 +80,8 @@ Operadores contoso sabe os limiares que determinam se um dispositivo está a fun
 
 | Nome da Regra | Descrição | Limiar | Gravidade | Dispositivos afetados |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Pressão chiller demasiado elevada | Alerta se chillers alcançar superior do que os níveis de pressão normal   |P > 250 psi       | Crítico | Chillers            |
-| Temp de dispositivo de fazer o protótipo demasiado elevada  | Alerta se os dispositivos de fazer o protótipo alcancem superior do que os níveis de temperatura normal  |T &GT; 80&deg; F |Crítico | Dispositivos de fazer o protótipo |
+| Pressão chiller demasiado elevada | Alerta se chillers alcançar superior do que os níveis de pressão normal   |P > 250 psi       | Crítica | Chillers            |
+| Temp de dispositivo de fazer o protótipo demasiado elevada  | Alerta se os dispositivos de fazer o protótipo alcancem superior do que os níveis de temperatura normal  |T &GT; 80&deg; F |Crítica | Dispositivos de fazer o protótipo |
 | Tank motor vazio  | Alertas se o motor fuel tank ficar vazio                     | F < 5 gallons | Informações     | Motores             |
 | Superior a temperatura de carga normal | Alerta se a temperatura de carga do camião é superior à normal                 | T &LT; 45&deg; F |Aviso  | Trucks              |
 | Vibration abordagem parado      | Alertas se abordagem parar completamente (com base no nível de vibration)                     | V < 0.1 mm |Aviso  | Elevators           |
@@ -257,5 +257,5 @@ Agora que tem explorou a solução de monitorização remota, se os passos suger
 
 * [Monitorizar os seus dispositivos](./iot-suite-remote-monitoring-monitor.md).
 * [Gerir os seus dispositivos](./iot-suite-remote-monitoring-manage.md).
-* [Automatizar a sua solução com regras](./iot-suite-remote-monitoring-automate.md).
+* [Automatizar a sua solução com regras](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Manter a sua solução](./iot-suite-remote-monitoring-maintain.md).

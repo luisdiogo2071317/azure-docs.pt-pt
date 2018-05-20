@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 2201fa48c84aec2c291d8df7e16293a41720ce3e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 408429d0f8697b8b807e386dbcf2eade29938249
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Resolver problemas de uma VM do Windows ao anexar o disco de SO para uma VM com o Azure PowerShell de recuperação
 Se a máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou de disco, poderá ter de efetuar os passos de resolução de problemas no disco de rígido virtual. Um exemplo comum seria uma atualização da aplicação com falhas que impede a VM de ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o Azure PowerShell para ligar o seu disco rígido virtual a outra VM do Windows para corrigir os eventuais erros, em seguida, voltar a criar a VM original.
@@ -31,6 +31,9 @@ O processo de resolução de problemas é o seguinte:
 3. Ligue à VM da resolução de problemas. Editar ficheiros ou executar quaisquer ferramentas para corrigir problemas no disco rígido virtual original.
 4. Desmonte e desanexe o disco rígido virtual da VM de resolução de problemas.
 5. Crie uma VM utilizando o disco rígido virtual original.
+
+Para a VM que utiliza discos geridos, consulte [resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+
 
 Certifique-se de que tem [o Azure PowerShell mais recente](/powershell/azure/overview) instalado e tiver sessão iniciada na sua subscrição:
 
@@ -200,6 +203,13 @@ $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO
+1. Pare a VM effected do Windows de disco gerido.
+2. [Criar um instantâneo de disco gerido](snapshot-copy-managed-disk.md) do disco de SO da VM de disco gerido.
+3. [Criar um disco gerido do instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Anexar o disco gerido como um disco de dados da VM](attach-disk-ps.md).
+5. [Alterar o disco de dados a partir do passo 4 para disco do SO](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se estiver a ter problemas em ligar à VM, consulte [nas ligações RDP de resolver para uma VM do Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas com a aceder a aplicações em execução numa VM, consulte [resolver problemas de conectividade de aplicação numa Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

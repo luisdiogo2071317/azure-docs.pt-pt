@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com tela Lms | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e LMS da tela."
+title: 'Tutorial: Integração do Azure Active Directory com tela Lms | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e LMS da tela.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ae007ee34f1dc997db2d7ca8267ba2522e0eb687
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56fe4679448fec1db67f826ff70cf8768699e507
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Tutorial: Integração do Azure Active Directory com LMS tela
 
@@ -29,7 +29,7 @@ Integrar tela com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para a tela (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<tenant-name>.instructure.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<tenant-name>.instructure.com`
 
-    b. No **identificador** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<tenant-name>.instructure.com/saml2`
+    b. No **identificador** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente da tela](https://community.canvaslms.com/community/help) para obter estes valores. 
@@ -221,9 +221,9 @@ Em caso de tela, o aprovisionamento de utilizador é uma tarefa manual.
    
    a. No **nome completo** caixa de texto, introduza o nome de utilizador como **BrittaSimon**.
 
-   b. No **E-Mail** caixa de texto, introduza o e-mail do utilizador, como  **brittasimon@contoso.com** .
+   b. No **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
 
-   c. No **início de sessão** caixa de texto, introduza o endereço de correio eletrónico do utilizador do Azure AD como  **brittasimon@contoso.com** .
+   c. No **início de sessão** caixa de texto, introduza o endereço de correio eletrónico do utilizador do Azure AD como **brittasimon@contoso.com**.
 
    d. Selecione **o utilizador sobre a criação de conta de E-Mail**.
 
@@ -272,7 +272,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integrar do Azure Active Directory com caixa | Microsoft Docs'
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e caixa."
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e caixa.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 638ae63057df00375b05a58e3ceab510e2a608de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daad9104798dc02b479b4e022287c3630e4a67a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Integrar o Azure Active Directory com caixa
 
@@ -30,7 +30,7 @@ Através da integração do Azure AD com caixa, obtenha as seguintes vantagens:
 - Pode permitir aos utilizadores obter a sessão iniciada no automaticamente caixa (o início de sessão único, ou SSO) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central, o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -187,7 +187,7 @@ Nesta secção, vai ativar utilizador Britta Simon para utilizar o Azure-início
 
 7. No **adicionar atribuição** janela, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -196,7 +196,7 @@ Quando seleciona o **caixa** mosaico no painel de acesso, pode abrir a página d
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre a integração de aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o aprovisionamento de utilizadores](active-directory-saas-box-userprovisioning-tutorial.md)
 
 

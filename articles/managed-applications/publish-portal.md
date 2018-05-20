@@ -1,20 +1,20 @@
 ---
-title: "Publicar um Azure geridos aplicação através do portal | Microsoft Docs"
-description: "Mostra como utilizar o Azure portal para criar um Azure geridos aplicação destina-se a membros da sua organização."
+title: Publicar um Azure geridos aplicação através do portal | Microsoft Docs
+description: Mostra como utilizar o Azure portal para criar um Azure geridos aplicação destina-se a membros da sua organização.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar uma aplicação do catálogo de serviço através do portal do Azure
 
@@ -56,9 +56,9 @@ O ficheiro. zip que contém a definição de aplicação gerida deve estar dispo
 
 1. Quando tiver sido fornecido a todos os valores, selecione **criar**.
 
-   ![criar aplicações geridas](./media/publish-portal/create-app.png)
+   ![Criar aplicação gerida](./media/publish-portal/create-app.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter exemplos de aplicações geridas, consulte [projetos de exemplo para o Azure geridos aplicações](sample-projects.md).

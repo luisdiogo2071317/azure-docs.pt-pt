@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o OfficeSpace Software | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e OfficeSpace Software."
+title: 'Tutorial: Integração do Azure Active Directory com o OfficeSpace Software | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e OfficeSpace Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c7b456fe08db7c4e4cc71c635e405a20c24516cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f8698e50f9740d46a5cec708e3d5ae6bf1043ce
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Integração do Azure Active Directory com OfficeSpace Software
 
@@ -30,7 +30,7 @@ Integrar OfficeSpace Software com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada ao OfficeSpace Software (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![OfficeSpace Software domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`<company name>.officespacesoftware.com`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `<company name>.officespacesoftware.com`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de Software OfficeSpace](mailto:support@officespacesoftware.com) para obter estes valores. 
@@ -124,7 +124,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
     | e-mail | User.Mail |
-    | nome | User.DisplayName |
+    | nome | user.displayname |
     | first_name | User.givenName |
     | last_name | User.Surname |
 
@@ -250,7 +250,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -259,7 +259,7 @@ Quando clica no mosaico de OfficeSpace Software no painel de acesso, deve obter 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

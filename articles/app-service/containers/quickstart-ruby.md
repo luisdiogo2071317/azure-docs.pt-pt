@@ -16,15 +16,15 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: def1e3f3de25478e51a069bc64c98d650f59072f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0707835cf4d6891397579cc41de49fc0462b4521
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar uma Aplicação Ruby no Serviço de Aplicações no Linux
 
-[O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este guia de introdução mostra como criar uma aplicação básica no Ruby on Rails e, em seguida, implementá-la no Azure como uma Aplicação Web no Linux.
+[O Serviço de Aplicações do Azure no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este início rápido mostra como criar uma aplicação básica no [Ruby on Rails](https://rubyonrails.org/) que possa ser implementada no Azure como uma Aplicação Web no Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-Execute o servidor de rails para a aplicação funcionar. Mude para o diretório *hello-world* e o comando `rails server` inicia o servidor.
+O servidor do Rails tem de estar em execução para a aplicação funcionar. Mude para o diretório `hello-world` e utilize o comando `rails server` para iniciar o servidor.
 
 ```bash
 cd hello-world\bin

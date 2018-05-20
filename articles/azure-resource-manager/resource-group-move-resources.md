@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83eadb3f88c2d83bf2ce39ec67550e602308ff0e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b92cbf0df971afd3bea981327975ed792ce942d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -156,6 +156,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Máquinas virtuais (clássicas) - consulte [limitações de implementação clássica](#classic-deployment-limitations)
 * Conjuntos de dimensionamento de máquina virtual - Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Redes virtuais - Consulte [limitações de redes virtuais](#virtual-networks-limitations)
+* Visual Studio Team Services - tem de comprar VSTS as contas com extensões de terceiros [cancelar os respetivos compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poderem podem mover a conta nas subscrições.
 * Gateway de VPN
 
 ## <a name="services-that-cannot-be-moved"></a>Serviços que não não possível mover
@@ -170,10 +171,10 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Azure Migrate
 * Serviços BizTalk
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
-* Serviço de Kubernetes
 * DevTest Labs - vá para o novo grupo de recursos na mesma subscrição está ativada, mas mover subscrição cruzada não está ativada.
 * Dynamics LCS
 * ExpressRoute
+* Serviço de Kubernetes
 * Balanceadores de carga - consulte [limitações de Balanceador de carga](#lb-limitations)
 * Aplicações Geridas
 * Discos geridos - Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com DocuSign | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e DocuSign."
+title: 'Tutorial: Integração do Azure Active Directory com DocuSign | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 9fc4666ad73a7e4850719f936873a6c5ce0716c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28c46e7071841552c5bcbf3df38d9d7771b0cfe6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integração do Azure Active Directory com DocuSign
 
@@ -29,7 +29,7 @@ Integrar DocuSign com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para DocuSign (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,26 +118,26 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No menu de navegação à esquerda, clique em **domínios**.
    
-    ![Configurar o início de sessão único][51]
+    ![A configurar o início de sessão único][51]
 
 7. No painel direito, clique em **afirmação domínio**.
    
-    ![Configurar o início de sessão único][52]
+    ![A configurar o início de sessão único][52]
 
 8. No **de afirmações de um domínio** caixa de diálogo, no **nome de domínio** caixa de texto, escreva o domínio da sua empresa e, em seguida, clique em **afirmação**. Certifique-se que verifique o domínio e o estado está ativo.
    
-    ![Configurar o início de sessão único][53]
+    ![A configurar o início de sessão único][53]
 
 9. No menu no lado esquerdo, clique em **fornecedores de identidade**  
    
-    ![Configurar o início de sessão único][54]
+    ![A configurar o início de sessão único][54]
 10. No painel direito, clique em **Adicionar fornecedor de identidade**. 
    
-    ![Configurar o início de sessão único][55]
+    ![A configurar o início de sessão único][55]
 
 11. No **as definições do fornecedor de identidade** página, execute os seguintes passos:
    
-    ![Configurar o início de sessão único][56]
+    ![A configurar o início de sessão único][56]
 
     a. No **nome** caixa de texto, escreva um nome exclusivo para a sua configuração. Não utilize espaços.
 
@@ -158,21 +158,21 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE]
     > Utilize as adequadas **identificador de utilizador** ao mapear o utilizador do Azure AD para o mapeamento de utilizador DocuSign. Selecione o campo adequado e introduza o valor adequado com base nas definições da sua organização.
           
-    ![Configurar o início de sessão único][57]
+    ![A configurar o início de sessão único][57]
 
 13. No **certificado do fornecedor de identidade** secção, clique em **adicionar certificado**e, em seguida, carregue o certificado que transferiu a partir do portal do Azure AD.   
    
-    ![Configurar o início de sessão único][58]
+    ![A configurar o início de sessão único][58]
 
 14. Clique em **Guardar**.
 
 15. No **fornecedores de identidade** secção, clique em **ações**e, em seguida, clique em **pontos finais**.   
    
-    ![Configurar o início de sessão único][59]
+    ![A configurar o início de sessão único][59]
  
 16. No **ver SAML 2.0 pontos finais** secção no **portal de administração de DocuSign**, execute os seguintes passos:
    
-    ![Configurar o início de sessão único][60]
+    ![A configurar o início de sessão único][60]
    
     a. Copiar o **URL do emissor de fornecedor de serviço**e, em seguida, cole o **identificador** caixa de texto no **DocuSign domínio e os URLs** secção a seguir o padrão do portal do Azure: `https://<subdomain>.docusign.com/organization/<uniqueID>/saml2/login/sp/<uniqueID>`.
    
@@ -264,7 +264,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o aprovisionamento de utilizadores](active-directory-saas-docusign-provisioning-tutorial.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com redes da Palo Alto - Captive Portal | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e redes da Palo Alto - Captive Portal."
+title: 'Tutorial: Integração do Azure Active Directory com redes da Palo Alto - Captive Portal | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e redes da Palo Alto - Captive Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 32b3a45d9baf0b53e05708abab78a462c6780daa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aaa2adc30d1d798312b50370d4b635d0d8a123e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>Tutorial: Integração do Azure Active Directory com redes da Palo Alto - Captive Portal
 
@@ -30,7 +30,7 @@ Integração da Palo Alto redes - Portal Captive com o Azure AD fornece as segui
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para redes da Palo Alto - Portal Captive (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Redes da Palo Alto - Captive de Portal de domínio e os URLs único início de sessão informações](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltocaptiveportal_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Customer Firewall Hostname>/SAML20/SP`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<Customer Firewall Hostname>/SAML20/SP`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Customer Firewall Hostname>/SAML20/SP/ACS`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<Customer Firewall Hostname>/SAML20/SP/ACS`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [redes da Palo Alto - a equipa de suporte do Captive Portal](https://support.paloaltonetworks.com/support) para obter estes valores.
@@ -215,14 +215,14 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Captive Portal está configurado por trás da firewall na VM do Windows.  Testar o início de sessão no Portal Captive, início de sessão na VM do Windows através de RDP. Na sessão do RDP, abra um browser para qualquer site, deve abrir automaticamente o url do SSO e o pedido de autenticação. Após a conclusão da Authenticaiton, deve ser capaz de navgiate para web sites. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

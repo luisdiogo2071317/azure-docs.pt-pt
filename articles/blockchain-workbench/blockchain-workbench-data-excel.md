@@ -1,6 +1,6 @@
 ---
-title: Utilizar dados de Azure Blockchain Workbench no Microsoft Excel
-description: Saiba como carregar e ver os dados de BD SQL do Azure Blockchain Workbench no Microsoft Excel.
+title: Utilizar dados do Azure Blockchain Workbench no Microsoft Excel
+description: Saiba como carregar e ver os dados da BD SQL do Azure Blockchain Workbench no Microsoft Excel.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,61 +10,62 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 70297bd0af6322d0f3ac2c719d1827e4bc5898cd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e8c20f4b8e39615e2a8c486130d7c8bec655a936
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Ver os dados do Azure Blockchain Workbench com o Microsoft Excel
+# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Ver dados do Azure Blockchain Workbench com o Microsoft Excel
 
-Pode utilizar o Microsoft Excel para ver os dados na BD do SQL do Azure Blockchain Workbench. Este artigo fornece os passos que necessários para:
+Pode utilizar o Microsoft Excel para ver os dados na BD SQL do Azure Blockchain Workbench. Este artigo explica os passos necessários para:
 
-* Ligar à base de dados Blockchain Workbench a partir do Microsoft Excel
-* Observe a tabelas de base de dados do Blockchain Workbench e vistas
-* Carregar dados de vista do Blockchain Workbench para Excel
+* Ligar à base de dados do Blockchain Workbench a partir do Microsoft Excel
+* Observar as vistas e tabelas de base de dados do Blockchain Workbench
+* Carregar dados de vistas do Blockchain Workbench para Excel
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Ligar à base de dados Blockchain Workbench
+## <a name="connect-to-the-blockchain-workbench-database"></a>Ligar à base de dados do Blockchain Workbench
 
-Para ligar a uma base de dados do Blockchain Workbench:
+Para ligar à base de dados do Blockchain Workbench:
 
 1. Abra o Microsoft Excel.
-2. No **dados** separador, escolha **obter dados**.
-3. Selecione **do Azure** e, em seguida, selecione **de SQL Database do Azure**.
+2. No separador **Dados**, escolha **Obter Dados**.
+3. Selecione **A Partir do Azure** e, em seguida, selecione **Da Base de Dados SQL do Azure**.
 
    ![Ligar à base de Dados SQL do Azure](media/blockchain-workbench-data-excel/connect-sql-db.png)
 
-4. No **base de dados do SQL Server** caixa de diálogo:
+4. Na caixa de diálogo **Base de dados do SQL Server**:
 
-    * Para **servidor**, introduza o nome do servidor Blockchain Workbench.
-    * Para **base de dados (opcional)**, introduza o nome da base de dados.
+    * Em **Servidor**, introduza o nome do servidor do Blockchain Workbench.
+    * Em **Base de dados (opcional)**, introduza o nome da base de dados.
 
-   ![Forneça o servidor de base de dados e base de dados](media/blockchain-workbench-data-excel/provide-server-db.png)
+   ![Indicar o servidor de base de dados e a base de dados](media/blockchain-workbench-data-excel/provide-server-db.png)
 
-5. No **base de dados do SQL Server** caixa de diálogo a barra de navegação, selecione **base de dados**. Introduza o **Username** e **palavra-passe**e, em seguida, selecione **Connect**.
+5. Na barra de navegação da caixa de diálogo **Base de dados do SQL Server**, selecione **Base de dados**. Introduza o **Nome de utilizador** e a **Palavra-passe** e selecione **Ligar**.
 
     > [!NOTE]
-    > Se estiver a utilizar as credenciais que criou durante o processo de implementação do Azure Blockchain Workbench, a **nome de utilizador** é `dbadmin`. O **palavra-passe** é aquela que criou quando implementou o Blockchain Workbench.
+    > Se estiver a utilizar as credenciais que criou durante o processo de implementação do Azure Blockchain Workbench, o **Nome de utilizador** é `dbadmin`. A **Palavra-passe** é aquela que criou quando implementou o Blockchain Workbench.
     
-   ![Forneça credenciais para aceder à base de dados](media/blockchain-workbench-data-excel/provide-credentials.png)
+   ![Fornecer credenciais para aceder à base de dados](media/blockchain-workbench-data-excel/provide-credentials.png)
 
-## <a name="look-at-database-tables-and-views"></a>Observe a base de dados tabelas e vistas
+## <a name="look-at-database-tables-and-views"></a>Observar vistas e tabelas de base de dados
 
-Abre a caixa de diálogo do navegador de Excel depois de ligar à base de dados. Pode utilizar o navegador para observar as tabelas e vistas na base de dados. As vistas foram concebidas para relatórios e os respetivos nomes têm o prefixo **vw**.
+A caixa de diálogo do Navegador do Excel abre depois de ligar à base de dados. Pode utilizar o Navegador para observar as tabelas e vistas na base de dados. As vistas foram concebidas para a elaboração de relatórios e os respetivos nomes têm o prefixo **vw**.
 
-   ![Pré-visualização do navegador de Excel de uma vista](media/blockchain-workbench-data-excel/excel-navigator.png)
+   ![Pré-visualização de uma vista do Navegador do Excel](media/blockchain-workbench-data-excel/excel-navigator.png)
 
-## <a name="load-view-data-into-an-excel-workbook"></a>Dados de vista de carga para um livro do Excel
+## <a name="load-view-data-into-an-excel-workbook"></a>Carregar dados de vistas para um livro do Excel
 
-O exemplo seguinte mostra como pode carregar dados a partir de uma vista de um livro do Excel.
+O exemplo seguinte mostra como pode carregar dados de uma vista para um livro do Excel.
 
-1. No **navegador** barra de deslocamento, selecione o **vwContractAction** vista. O **vwContractAction** pré-visualização mostra todas as ações relacionadas com um contrato na base de dados Blockchain Workbench.
-2. Selecione **carga** para obter todos os dados na vista e colocá-la no seu livro do Excel.
+1. Na barra de deslocamento do **Navegador**, selecione a vista **vwContractAction**. A pré-visualização de **vwContractAction** mostra todas as ações relacionadas com um contrato na base de dados do Blockchain Workbench.
+2. Selecione **Carregar** para obter todos os dados da vista e colocá-los no seu livro do Excel.
 
    ![Dados carregados a partir de uma vista](media/blockchain-workbench-data-excel/view-data.png)
 
-Agora que tem os dados carregados, pode utilizar funcionalidades do Excel para criar os seus próprios relatórios através de metadados e de transações da base de dados do Azure Blockchain Workbench.
+Agora que tem os dados carregados, pode utilizar as funcionalidades do Excel para criar os seus próprios relatórios com os metadados e os dados de transações da base de dados do Azure Blockchain Workbench.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Vistas de base de dados no Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Vistas de base de dados no Azure Blockchain Workbench](blockchain-workbench-database-views.md)

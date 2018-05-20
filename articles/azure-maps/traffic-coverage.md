@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: 08a4f3fc135aae2772bd60c67cbd282603cd4f8d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 49e91287d23c35d8cfea858d41c47ba15efd820c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego de mapas do Azure
 
@@ -47,7 +47,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 |+ Monaco     |✓         |✓         |
 |Alemanha     |✓         |✓         |
 |Grécia     |✓         |✓         |
-|RAE de Hong Kong     |✓         |✓         |
+|R.A.E. Hong Kong     |✓         |✓         |
 |Hungria     |✓         |✓         |
 |Islândia     |         |✓         |
 |Indonésia     |✓         |✓         |
@@ -60,7 +60,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 |Lesoto     |✓         |✓         |
 |Lituânia     |         |✓         |
 |Luxemburgo     |✓         |✓         |
-|RAE de Macau     |         |✓         |
+|R.A.E. de Macau     |         |✓         |
 |Malásia     |✓         |✓         |
 |Malta     |✓         |✓         |
 |México     |✓         |✓         |
@@ -99,4 +99,4 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão para t
 |Estados Unidos     |✓         |✓        |
 |+ Porto Rico     |✓         |✓         |
 
-Para obter mais informações sobre os dados de tráfego de mapas do Azure, consulte o [tráfego](https://docs.microsoft.com/rest/api/azure-maps/traffic) páginas de referência.
+Para obter mais informações sobre os dados de tráfego de mapas do Azure, consulte o [tráfego](https://docs.microsoft.com/rest/api/maps/traffic) páginas de referência.

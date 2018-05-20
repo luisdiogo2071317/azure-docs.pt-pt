@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Azure Active Directory uma integração com telefone Gorilla cliente | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Gorilla de telefone."
+title: 'Tutorial: Azure Active Directory uma integração com telefone Gorilla cliente | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Gorilla de telefone.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 30c34deff9e8ec4a7df90a947d3950e4f84c9c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f69bfdf2be89a5c4ae882491bfde8678a11bddbe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Azure Active Directory uma integração com telefone Gorilla cliente
 
@@ -29,7 +29,7 @@ Integrar o telefone Gorilla cliente com o Azure AD fornece as seguintes vantagen
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o telefone Gorilla cliente (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -223,7 +223,7 @@ Quando clica no mosaico de telefone Gorilla cliente no painel de acesso, deve ob
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Comunicação remota do serviço no Service Fabric | Microsoft Docs"
-description: "Comunicação remota do Service Fabric permite que os clientes e serviços comunicar com os serviços, utilizando uma chamada de procedimento remoto."
+title: Comunicação remota do serviço no Service Fabric | Microsoft Docs
+description: Comunicação remota do Service Fabric permite que os clientes e serviços comunicar com os serviços, utilizando uma chamada de procedimento remoto.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: BharatNarasimman
 ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 3bdd271eff6f6ea5b337d148f661c7eada429991
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9ba650549d313a4ecc9ceae5eb05e1cde727892
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota do serviço com Reliable Services
 Para os serviços que não estão associados a um protocolo de comunicação específico ou pilha, como end WebAPI, o Windows Communication Foundation (WCF) ou outros recursos, a arquitetura de Reliable Services fornece um mecanismo de comunicação remota de forma rápida e fácil configurar a chamada de procedimento remoto para os serviços.
@@ -84,7 +84,7 @@ A arquitetura de sistema de interação remota propaga exceções acionadas pelo
 ## <a name="service-proxy-lifetime"></a>Duração do Proxy de serviço
 Criação de ServiceProxy é uma operação simples, para que os utilizadores podem criar tantas como que precisam. Instâncias de Proxy de serviço podem ser reutilizadas, desde que os utilizadores necessitam. Se uma chamada de procedimento remoto emite uma exceção, os utilizadores ainda podem reutilizar a mesma instância de proxy. Cada ServiceProxy contém um cliente de comunicação utilizado para enviar mensagens através da transmissão. Ao invocar chamadas remotas, iremos internamente Verifique se o cliente de comunicação é válido. Com base no que resultam, vamos voltar a criar o cliente de comunicação se for necessário. Por conseguinte, se ocorrer uma exceção, os utilizadores não necessário recriá- `ServiceProxy` porque este é feito transparente.
 
-### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory Lifetime
+### <a name="serviceproxyfactory-lifetime"></a>Duração de ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica de que cria instâncias de proxy para interfaces de comunicação remota diferente. Se utilizar a api `ServiceProxy.Create` para criar o proxy, em seguida, a estrutura cria um singleton ServiceProxy.
 É útil criar um manualmente quando for necessário substituir [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) propriedades.
 A criação do Factory é uma operação dispendiosa. ServiceProxyFactory mantém uma cache do cliente de comunicação interna.

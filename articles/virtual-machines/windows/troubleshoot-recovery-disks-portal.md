@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/07/2018
 ms.author: genli
-ms.openlocfilehash: 818e4ca5c4985d1740c477bf4a5aa198e64b506d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolver problemas de uma VM do Windows ao anexar o disco de SO para uma VM com o portal do Azure de recuperação
 Se a máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou de disco, poderá ter de efetuar os passos de resolução de problemas no disco de rígido virtual. Um exemplo comum seria uma atualização da aplicação com falhas que impede a VM de ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM do Windows para corrigir os eventuais erros, em seguida, voltar a criar a VM original.
@@ -31,6 +31,7 @@ O processo de resolução de problemas é o seguinte:
 4. Desmonte e desanexe o disco rígido virtual da VM de resolução de problemas.
 5. Crie uma VM utilizando o disco rígido virtual original.
 
+Para a VM que utiliza discos geridos, consulte [resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## <a name="determine-boot-issues"></a>Determinar os problemas de arranque
 Para determinar o motivo pelo qual a VM não é capaz de arranque corretamente, examine o diagnóstico de arranque captura de ecrã da VM. Um exemplo comum teria de ser uma atualização da aplicação que falhou, ou um subjacente disco de rígido virtual que está a ser eliminado ou movido.
@@ -144,6 +145,13 @@ O modelo é carregado para o portal do Azure para a implementação. Introduza o
 Quando criar a VM a partir do disco rígido virtual existente, diagnóstico de arranque pode não ser ativado automaticamente. Para verificar o estado de diagnóstico de arranque e ative se for necessário, selecione a VM no portal. Em **monitorização**, clique em **as definições de diagnóstico**. Certifique-se de que o estado é **no**e a marca de verificação junto a **diagnóstico de arranque** está selecionada. Se efetuar alterações, clique em **guardar**:
 
 ![Atualizar as definições de diagnóstico de arranque](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO
+1. Pare a VM effected do Windows de disco gerido.
+2. [Criar um instantâneo de disco gerido](snapshot-copy-managed-disk.md) do disco de SO da VM de disco gerido.
+3. [Criar um disco gerido do instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Anexar o disco gerido como um disco de dados da VM](attach-disk-ps.md).
+5. [Alterar o disco de dados a partir do passo 4 para disco do SO](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se estiver a ter problemas em ligar à VM, consulte [nas ligações RDP de resolver para uma VM do Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas com a aceder a aplicações em execução numa VM, consulte [resolver problemas de conectividade de aplicação numa Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: "Configurar ligações de cluster do Azure Service Fabric seguras | Microsoft Docs"
-description: "Saiba como utilizar o Visual Studio para configurar ligações seguras que são suportadas pelo cluster do Service Fabric do Azure."
+title: Configurar ligações de cluster do Azure Service Fabric seguras | Microsoft Docs
+description: Saiba como utilizar o Visual Studio para configurar ligações seguras que são suportadas pelo cluster do Service Fabric do Azure.
 services: service-fabric
 documentationcenter: na
 author: cawaMS
@@ -9,16 +9,16 @@ editor: tglee
 ms.assetid: 80501867-dd7a-4648-8bd6-d4f26b68402d
 ms.service: multiple
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2772cc2c59b93c7e523eaa0127dcf4ea0bc589e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurar ligações seguras para um cluster do Service Fabric do Visual Studio
 Saiba como utilizar o Visual Studio para acederem um cluster do Service Fabric do Azure com as políticas de controlo de acesso configuradas.
@@ -65,7 +65,7 @@ O **publicar aplicação do serviço Fabric** caixa de diálogo valida automatic
    ```
 5. Editar quaisquer outras definições necessárias, tais como parâmetros de atualização e localização do ficheiro de parâmetro de aplicação e, em seguida, publicar a aplicação do **publicar aplicação do serviço Fabric** caixa de diálogo no Visual Studio.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como aceder ao Service Fabric clusters, consulte [visualizar o cluster utilizando o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 <!--Image references-->

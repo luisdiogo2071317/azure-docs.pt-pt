@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 99cf9e341edf0acee434e2d01f6346291cbcea5a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Resolver problemas e resolver problemas do dispositivo
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 
 Para seguir este tutorial, precisa de uma instância implementada da solução de monitorização remota na sua subscrição do Azure.
 
-Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](iot-suite-remote-monitoring-deploy.md) tutorial.
+Se ainda não implementado a solução de monitorização remota ainda, deve efetuar o [implementar o acelerador de solução de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 ## <a name="use-the-maintenance-dashboard"></a>Utilize o dashboard de manutenção
 

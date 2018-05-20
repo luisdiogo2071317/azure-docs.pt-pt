@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com vxMaintain | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e vxMaintain."
+title: 'Tutorial: Integração do Azure Active Directory com vxMaintain | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c30d59a2bd903a5578caf376957a22bb270455f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integração do Azure Active Directory com vxMaintain
 
@@ -29,7 +29,7 @@ Esta integração proporciona várias vantagens importantes. Pode:
 - Permita aos utilizadores iniciar sessão automaticamente no vxMaintain com início de sessão único (SSO) através das respetivas contas do Azure AD.
 - Gerir as contas numa localização central: portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,9 +104,9 @@ Nesta secção, pode ativar o SSO do Azure AD no portal do Azure e configurar o 
 
     ![A secção de domínio e os URLs de vxMaintain](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. No **identificador** caixa, escreva um URL com a seguinte sintaxe:`https://<company name>.verisae.com`
+    a. No **identificador** caixa, escreva um URL com a seguinte sintaxe: `https://<company name>.verisae.com`
 
-    b. No **URL de resposta** caixa, escreva um URL com a seguinte sintaxe:`https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. No **URL de resposta** caixa, escreva um URL com a seguinte sintaxe: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
     > Os valores anteriores não são reais. Atualize-as com o identificador real e o URL de resposta. Para obter os valores, contacte o [equipa de suporte de vxMaintain](http://www.verisae.com/contact-us).
@@ -198,7 +198,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

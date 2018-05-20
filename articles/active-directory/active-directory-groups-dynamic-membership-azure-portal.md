@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 43f364ed7e8539397fe8662a8c75804883a82e4f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
 No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos. Pode configurar uma regra de filiação dinâmica em grupos de segurança ou grupos do Office 365.
@@ -84,7 +84,7 @@ A tabela seguinte apresenta uma lista de todos os operadores de regra de express
 | Contains |-contém |
 | Não corresponde |-notMatch |
 | Correspondência |-corresponder |
-| No | -no |
+| Em | -no |
 | Não | -notIn |
 
 ## <a name="operator-precedence"></a>Precedência de operador
@@ -163,7 +163,7 @@ Operadores permitidos
 | facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber - eq "value") |
 | givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName - eq "value") |
 | jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle - eq "value") |
-| capacidade de correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail - eq "value") |
+| correio |Qualquer valor de cadeia ou *nulo* (endereço SMTP do utilizador) |(user.mail - eq "value") |
 | mailNickName |Qualquer valor de cadeia (alias de correio do utilizador) |(user.mailNickName -eq "value") |
 | Mobile |Qualquer valor de cadeia ou *nulo* |(user.mobile - eq "value") |
 | objectId |GUID de objeto de utilizador |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
@@ -278,7 +278,7 @@ Também pode criar uma regra que seleciona objetos de dispositivo para a associa
  DeviceModel | Qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, empresa, desconhecido | (device.deviceOwnership - eq "Empresa")
  domainName | Qualquer valor de cadeia | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Nome do perfil de inscrição de dispositivos Apple | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Nome do perfil de perfil de inscrição de dispositivos Apple ou Autopilot do Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | VERDADEIRO false | (device.isRooted - eq verdadeiro)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  OrganizationalUnit | qualquer valor de cadeia correspondente ao nome da unidade organizacional definido por um Active Directory no local | (device.organizationalUnit -eq "US PCs")

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com AppDynamics | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e AppDynamics."
+title: 'Tutorial: Integração do Azure Active Directory com AppDynamics | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e AppDynamics.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b818f5d24873007aff5a8713a11d368cbe799ee6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e6978db61b193fad070bf937decf208906b13b82
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Azure Active Directory com AppDynamics
 
@@ -29,7 +29,7 @@ Integrar AppDynamics com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para AppDynamics (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.saas.appdynamics.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.saas.appdynamics.com`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.saas.appdynamics.com/controller`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente AppDynamics](https://www.appdynamics.com/support/) para obter estes valores. 
@@ -197,7 +197,7 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos AppDynamics, t
 
 1. Inicie sessão no site da sua empresa AppDynamics como administrador.
 
-2. Aceda a **utilizadores**e, em seguida, clique em  **+**  para abrir o **criar utilizador** caixa de diálogo.
+2. Aceda a **utilizadores**e, em seguida, clique em **+** para abrir o **criar utilizador** caixa de diálogo.
    
     ![Os utilizadores](./media/active-directory-saas-appdynamics-tutorial/ic790229.png "utilizadores")
 
@@ -251,7 +251,7 @@ Quando clica no mosaico AppDynamics no painel de acesso, deve obter automaticame
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

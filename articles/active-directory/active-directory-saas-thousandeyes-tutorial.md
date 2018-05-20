@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com ThousandEyes | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e ThousandEyes."
+title: 'Tutorial: Integração do Azure Active Directory com ThousandEyes | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e ThousandEyes.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 81132e40eba589dff7ede0ee94fab1a289dc19d7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d40ab6d2587f5d842ac98479a6db7609d8a9ce4d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Azure Active Directory com ThousandEyes
 
@@ -29,7 +29,7 @@ Integrar ThousandEyes com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para ThousandEyes (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
-    No **URL de início de sessão** caixa de texto, escreva um URL como:`https://app.thousandeyes.com/login/sso`
+    No **URL de início de sessão** caixa de texto, escreva um URL como: `https://app.thousandeyes.com/login/sso`
 
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -218,7 +218,7 @@ No caso de ThousandEyes, o aprovisionamento é uma tarefa manual.
   
     a. No **nome** caixa de texto, escreva o nome de utilizador como **Britta Simon**.
 
-    b. No **E-Mail** caixa de texto, como o tipo de mensagem de correio eletrónico do utilizador  **brittasimon@contoso.com** .
+    b. No **E-Mail** caixa de texto, como o tipo de mensagem de correio eletrónico do utilizador **brittasimon@contoso.com**.
    
     b. Clique em **adicionar novo utilizador à conta**.
       
@@ -266,7 +266,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

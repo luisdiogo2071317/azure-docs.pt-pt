@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Clarizen | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Clarizen."
+title: 'Tutorial: Integração do Azure Active Directory com Clarizen | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Azure Active Directory com Clarizen
 
@@ -32,7 +32,7 @@ O cenário deste tutorial consiste em duas tarefas principais:
 1. Adicione Clarizen a partir da galeria.
 2. Configurar e testar o Azure AD-início de sessão único.
 
-Se pretender obter mais detalhes sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Se pretender obter mais detalhes sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, veja [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para configurar a integração do Azure AD com Clarizen, terá dos seguintes itens:
@@ -225,7 +225,7 @@ Ative Britta Simon a utilizar Azure-início de sessão único, conceder o acesso
 
     ![Ao clicar em "Utilizadores e grupos"][202]
 
-4. Clique em de **adicionar** botão. Em seguida, no **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
+4. Clique no botão **Adicionar**. Em seguida, no **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
 
     ![O botão "Adicionar" e a caixa de diálogo "Atribuição adicionar"][203]
 
@@ -235,7 +235,7 @@ Ative Britta Simon a utilizar Azure-início de sessão único, conceder o acesso
 
 7. No **adicionar atribuição** caixa de diálogo, clique em de **atribuir** botão.
 
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 Teste a configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
 Quando clica no mosaico Clarizen no painel de acesso, esta deve ser iniciada automaticamente aplicação Clarizen.
@@ -243,7 +243,7 @@ Quando clica no mosaico Clarizen no painel de acesso, esta deve ser iniciada aut
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

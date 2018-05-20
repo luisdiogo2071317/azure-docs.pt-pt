@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolver problemas de uma VM com Linux ao anexar o disco de SO para uma VM com o portal do Azure de recuperação
 Se a máquina virtual (VM) do Linux encontra um erro de arranque ou de disco, poderá ter de efetuar os passos de resolução de problemas no disco de rígido virtual. Um exemplo comum é uma entrada inválida no `/etc/fstab` que impede a VM de ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM com Linux para corrigir os eventuais erros, em seguida, voltar a criar a VM original.
@@ -31,6 +31,7 @@ O processo de resolução de problemas é o seguinte:
 4. Desmonte e desanexe o disco rígido virtual da VM de resolução de problemas.
 5. Crie uma VM utilizando o disco rígido virtual original.
 
+Para a VM que utiliza discos geridos, consulte [resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## <a name="determine-boot-issues"></a>Determinar os problemas de arranque
 Examine o diagnóstico de arranque e a captura de ecrã VM para determinar o motivo pelo qual a VM não se encontra capaz de arrancar corretamente. Um exemplo comum é uma entrada inválida no `/etc/fstab`, ou um subjacente disco de rígido virtual que está a ser eliminado ou movido.
@@ -170,6 +171,13 @@ O modelo é carregado para o portal do Azure para a implementação. Introduza o
 Quando criar a VM a partir do disco rígido virtual existente, diagnóstico de arranque pode não ser ativado automaticamente. Para verificar o estado de diagnóstico de arranque e ative se for necessário, selecione a VM no portal. Em **monitorização**, clique em **as definições de diagnóstico**. Certifique-se de que o estado é **no**e a marca de verificação junto a **diagnóstico de arranque** está selecionada. Se efetuar alterações, clique em **guardar**:
 
 ![Atualizar as definições de diagnóstico de arranque](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Resolver problemas de uma VM de disco gerido ao anexar um novo disco de SO
+1. Pare a VM effected do Windows de disco gerido.
+2. [Criar um instantâneo de disco gerido](../windows/snapshot-copy-managed-disk.md) do disco de SO da VM de disco gerido.
+3. [Criar um disco gerido do instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Anexar o disco gerido como um disco de dados da VM](../windows/attach-disk-ps.md).
+5. [Alterar o disco de dados a partir do passo 4 para disco do SO](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se estiver a ter problemas em ligar à VM, consulte [resolver problemas de SSH ligações a uma VM do Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas com a aceder a aplicações em execução numa VM, consulte [resolver problemas de conectividade de aplicação numa VM com Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

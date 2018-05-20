@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com BGS Online | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e BGS Online."
+title: 'Tutorial: Integração do Azure Active Directory com BGS Online | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e BGS Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e415aab14e6c79ec937607433e0b8f13a0e971c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc551aaa0a1383376d345f922c3e226cb88c4d26
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Tutorial: Integração do Azure Active Directory com BGS Online
 
@@ -29,7 +29,7 @@ Integrar BGS Online com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para BGS Online (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -112,15 +112,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
 
-    Para o ambiente de produção, utilize este padrão`https://<company name>.millwardbrown.report` 
+    Para o ambiente de produção, utilize este padrão `https://<company name>.millwardbrown.report` 
 
-    Para o ambiente de teste, utilize este padrão`https://millwardbrown.marketingtracker.nl/mt5/`
+    Para o ambiente de teste, utilize este padrão `https://millwardbrown.marketingtracker.nl/mt5/`
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
     
-    Para o ambiente de produção, utilize este padrão`https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
+    Para o ambiente de produção, utilize este padrão `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
       
-    Para o ambiente de teste, utilize este padrão`https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
+    Para o ambiente de teste, utilize este padrão `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [a equipa de suporte BGS Online](mailTo:bgsdashboardteam@millwardbrown.com) para obter estes valores.
@@ -218,7 +218,7 @@ Quando clica no mosaico BGS Online no painel de acesso, deve obter automaticamen
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

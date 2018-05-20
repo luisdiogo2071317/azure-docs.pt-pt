@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o IBM Kenexa inquérito Enterprise | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Enterprise do IBM Kenexa inquérito."
+title: 'Tutorial: Integração do Azure Active Directory com o IBM Kenexa inquérito Enterprise | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Enterprise do IBM Kenexa inquérito.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88e0072adeeebaf6c9e964db28a45f6fe038fddf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa inquérito Enterprise
 
@@ -29,7 +29,7 @@ Integrar o IBM Kenexa inquérito Enterprise com o Azure AD fornece as seguintes 
 - Pode permitir aos utilizadores iniciar sessão automaticamente IBM Kenexa inquérito empresarial utilizando início de sessão único (SSO) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central: portal do Azure.
 
-Se pretender saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -102,14 +102,14 @@ Nesta secção, ativar o SSO do Azure AD no portal do Azure e configurar o SSO n
 
     ![Domínio de empresa do IBM Kenexa inquérito e os URLs únicos de informações de início de sessão](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL com o padrão do seguinte:`https://surveys.kenexa.com/<companycode>`
+    a. No **identificador** caixa de texto, escreva um URL com o padrão do seguinte: `https://surveys.kenexa.com/<companycode>`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL com o padrão do seguinte:`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. No **URL de resposta** caixa de texto, escreva um URL com o padrão do seguinte: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
     > Os valores anteriores não são reais. Atualize-as com o identificador real e o URL de resposta. Para obter os valores reais, contacte o [equipa de suporte do IBM Kenexa inquérito Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
 
-4. Em **certificado de assinatura de SAML**, clique em **certificado (Base64)**e, em seguida, guarde o ficheiro de certificado para o seu computador.
+4. Em **certificado de assinatura de SAML**, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado para o seu computador.
 
     ![A hiperligação de transferência do certificado (Base64)](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
@@ -202,7 +202,7 @@ Para atribuir o utilizador Britta Simon para IBM Kenexa inquérito Enterprise, e
 
 7. No **adicionar atribuição** caixa de diálogo, clique em de **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração de SSO do Azure AD utilizando o painel de acesso.
 
@@ -211,7 +211,7 @@ Ao clicar no **IBM Kenexa inquérito Enterprise** na peça de mosaico do painel 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

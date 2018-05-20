@@ -1,24 +1,24 @@
 ---
 title: Criar clusters do Azure Service Fabric no Windows Server e do Linux | Microsoft Docs
-description: "Clusters de Service Fabric executadas no servidor do Windows e Linux, que significa que poderá implementar e aplicações em qualquer local do anfitrião do Service Fabric pode executar o Windows Server ou Linux."
+description: Clusters de Service Fabric executadas no servidor do Windows e Linux, que significa que poderá implementar e aplicações em qualquer local do anfitrião do Service Fabric pode executar o Windows Server ou Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3d427d99f6919991c29fc5947ebe0082670a1cc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Criar clusters de Service Fabric no Windows Server ou Linux
 Um cluster do Service Fabric do Azure é um conjunto de ligados à rede de máquinas virtuais ou físicos para o qual os micro-serviços são implementados e geridos. Um computador ou a VM que faz parte de um cluster é designado por um nó de cluster. Clusters podem dimensionar a milhares de nós. Se adicionar novos nós ao cluster, Service Fabric efetua novamente o balanceamento as réplicas de partição de serviço e as instâncias no aumento do número de nós. Em geral melhora o desempenho da aplicação e diminui a contenção de acesso à memória. Se não estão a ser utilizados nós no cluster de forma eficiente, pode reduzir o número de nós no cluster. Service Fabric novamente efetua novamente o balanceamento as réplicas de partição e as instâncias em que o menor número de nós para tornar uma melhor utilização de hardware em cada nó.

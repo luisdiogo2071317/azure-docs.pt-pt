@@ -1,6 +1,6 @@
 ---
-title: "Criar e publicar uma aplicação gerida do catálogo de serviço do Azure | Microsoft Docs"
-description: "Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização."
+title: Criar e publicar uma aplicação gerida do catálogo de serviço do Azure | Microsoft Docs
+description: Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar uma aplicação gerida para consumo interno
 
@@ -55,7 +55,7 @@ Adicione o seguinte JSON para o ficheiro. Define os parâmetros para criar uma c
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +138,7 @@ Adicione o seguinte JSON para o ficheiro.
 }
 ```
 
-Guarde o ficheiro createUIDefinition.json.
+Guarde o ficheiro createUiDefinition.json.
 
 ## <a name="package-the-files"></a>Os ficheiros do pacote
 
@@ -152,8 +152,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +172,9 @@ O passo seguinte consiste em selecionar um grupo de utilizadores ou aplicações
 
 É necessário o ID de objeto do grupo de utilizadores a utilizar para gerir os recursos. 
 
-![Obter ID de grupo](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Obter o ID de definição de função
 
@@ -203,21 +204,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Criar a aplicação gerida utilizando o portal
+## <a name="create-the-managed-application"></a>Criar a aplicação gerida
+
+Pode implementar a aplicação gerida através do portal, o PowerShell ou a CLI do Azure.
+
+### <a name="powershell"></a>PowerShell
+
+Em primeiro lugar, vamos utilizar o PowerShell para implementar a aplicação gerida.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+As aplicações geridas e a infraestrutura gerida agora existem na subscrição.
+
+### <a name="portal"></a>Portal
 
 Agora, vamos utilizar o portal para implementar a aplicação gerida. Consulte a interface de utilizador que criou no pacote.
 
-1. Aceda ao portal do Azure. Selecione **+ novo** e procure **catálogo de serviço**.
+1. Aceda ao portal do Azure. Selecione **+ criar um recurso** e procure **catálogo de serviço**.
 
-   ![Catálogo de serviço de pesquisa](./media/publish-service-catalog-app/select-new.png)
+   ![Catálogo de serviço de pesquisa](./media/publish-service-catalog-app/create-new.png)
 
 1. Selecione **aplicações geridas do catálogo de serviço**.
 
-   ![Selecione o catálogo de serviço](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Selecione o catálogo de serviço](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Selecione **Criar**.
 
@@ -229,15 +258,15 @@ Agora, vamos utilizar o portal para implementar a aplicação gerida. Consulte a
 
 1. Fornece informações básicas que é necessárias para a aplicação gerida. Especifique a subscrição e um novo grupo de recursos que contém a aplicação gerida. Selecione **Central EUA oeste** para a localização. Quando terminar, selecione **OK**.
 
-   ![Fornecer parâmetros de aplicações geridas](./media/publish-service-catalog-app/provide-basics.png)
+   ![Fornecer parâmetros de aplicações geridas](./media/publish-service-catalog-app/add-basics.png)
 
 1. Indique os valores que são específicos para os recursos da aplicação gerida. Quando terminar, selecione **OK**.
 
-   ![Fornecer os parâmetros do recurso](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Fornecer os parâmetros do recurso](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. O modelo valida os valores que forneceu. Se a validação for bem sucedida, selecione **OK** para iniciar a implementação.
 
-   ![Validar a aplicações geridas](./media/publish-service-catalog-app/validate.png)
+   ![Validar a aplicações geridas](./media/publish-service-catalog-app/view-summary.png)
 
 Após a conclusão da implementação, a aplicação gerida existe num grupo de recursos denominado applicationGroup. A conta de armazenamento existe num grupo de recursos com o nome applicationGroup plus um valor de cadeia de hash.
 

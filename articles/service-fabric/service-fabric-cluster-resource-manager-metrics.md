@@ -1,24 +1,24 @@
 ---
-title: "Gerir a carga de microsserviço do Azure através de métricas | Microsoft Docs"
-description: "Saiba mais sobre como configurar e utilizar as métricas no Service Fabric para gerir o consumo de recursos do serviço."
+title: Gerir a carga de microsserviço do Azure através de métricas | Microsoft Docs
+description: Saiba mais sobre como configurar e utilizar as métricas no Service Fabric para gerir o consumo de recursos do serviço.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestão consumo de recursos e a carga no Service Fabric com a métrica
 *Métricas* são os recursos que o cuidado de serviços sobre e que são fornecidos por nós do cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, poderá ver o consumo de memória para saber se o serviço está sobrecarregado. Utilize outro consiste em descobrir se o serviço foi possível mover a noutro local onde a memória é que inferior restrita para obter um melhor desempenho.
@@ -261,7 +261,7 @@ No exemplo superior em apenas saldo global, o cluster como um todo, de facto, é
 
 No exemplo na parte inferior, o Gestor de recursos do Cluster tem distribuídas as réplicas com base no equilíbrio global e por serviço. Quando se calcular a classificação da solução proporciona maior parte da ponderação para a solução global e uma parte (configurável) para serviços individuais. Saldo global para uma métrica é calculado com base em média das ponderações métricas de cada serviço. Cada serviço é com balanceamento de acordo com as suas próprias ponderações métricas definidas. Isto garante que os serviços são equilibrados dentro de si próprios, de acordo com as suas próprias necessidades. Como resultado, se o mesmo primeiro nó falhar a falha é distribuído por todas as partições de todos os serviços. O impacto para cada um é o mesmo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
 - Definir métricas de desfragmentação é uma forma para consolidar a carga em nós em vez de propagando-se este. Para saber como configurar a desfragmentação, consulte [neste artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 - Para obter informações sobre a forma como o Gestor de recursos de Cluster gere e equilibra a carga no cluster, consulte o artigo em [balanceamento de carga](service-fabric-cluster-resource-manager-balancing.md)

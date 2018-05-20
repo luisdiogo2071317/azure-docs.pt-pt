@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte de firewall do Cosmos BD do Azure
 Para proteger os dados armazenados numa conta de base de dados do Azure Cosmos DB, base de dados do Azure Cosmos tem suporte fornecido para um segredo com base [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) que utiliza um código de autenticação de mensagem com base em Hash seguro (HMAC). Agora, para além do modelo de autorização baseada em segredo BD do Cosmos do Azure suporta a política orientadas por controlos de acesso baseado em IP para o suporte de firewall de entrada. Este modelo é semelhante para as regras de firewall de um sistema de bases de dados tradicionais e fornece um nível adicional de segurança para a conta de base de dados de base de dados do Azure Cosmos. Com este modelo, pode agora configurar uma conta de base de dados de base de dados do Azure Cosmos para ser acessível apenas a partir de um conjunto de máquinas aprovado e/ou serviços em nuvem. Acesso a recursos de base de dados do Azure Cosmos destes conjuntos de serviços e máquinas aprovados ainda requerem o autor da chamada apresentar um token de autorização válida.
 
+> [!NOTE]
+> Suporte de firewall está atualmente disponível para contas de API do Azure Cosmos BD SQL e Mongo API. Capacidade de configurar as firewalls para outras APIs e nuvens sovereign como Datacenters do Azure ou o Azure Government estará disponível brevemente. Se estiver a planear configurar o ponto final de serviço ACL para a sua conta de base de dados do Azure Cosmos que tem uma firewall existente do IP configurada, tenha em atenção a configuração da firewall, remova a firewall IP e, em seguida, configurar o ponto final de serviço ACL. Depois de configurar o ponto final de serviço, pode voltar a ativar a firewall do IP se necessário.
+
 ## <a name="ip-access-control-overview"></a>Descrição geral de controlo de acesso de IP
-Por predefinição, uma conta de base de dados de base de dados do Azure Cosmos é acessível a partir da internet pública, desde que o pedido é acompanhado por um token de autorização válida. Para configurar o controlo de acesso baseado em política IP, o utilizador tem de fornecer o conjunto de endereços IP ou intervalos de endereços IP no formato CIDR ser incluído como uma lista de permitidos do cliente IPs de uma conta de base de dados específica. Depois desta configuração é aplicada, todos os pedidos provenientes de máquinas fora desta lista de permitidos estão bloqueados pelo servidor.  A ligação ao processamento de fluxo para o controlo de acesso baseado em IP é descrita no diagrama seguinte:
+Por predefinição, uma conta de base de dados do Azure Cosmos DB está acessível a partir da Internet pública, desde que o pedido seja acompanhado por um token de autorização válido. Para configurar o controlo de acesso baseado em política de IP, o utilizador tem de fornecer o conjunto de endereços IP ou intervalos de endereços IP no formulário CIDR para serem incluídos como a lista de IPs de cliente permitidos para uma determinada conta de base de dados. Quando esta configuração for aplicada, todos os pedidos provenientes de máquinas fora desta lista de permissões são bloqueados pelo servidor.  A ligação ao processamento de fluxo para o controlo de acesso baseado em IP é descrita no diagrama seguinte:
 
 ![Diagrama que mostra o processo de ligação para o controlo de acesso baseado em IP](./media/firewall-support/firewall-support-flow.png)
 

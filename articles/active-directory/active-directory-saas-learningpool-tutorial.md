@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o ato de Learningpool | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Learningpool Act."
+title: 'Tutorial: Integração do Azure Active Directory com o ato de Learningpool | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Learningpool Act.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: aca50fedb44f25f4d98e4a893ac55783263ba52b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87a36e636362a8b5bfc63a7394ddb92134e119cb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integração do Azure Active Directory com Learningpool Act
 
@@ -29,7 +29,7 @@ Integrar Learningpool Act com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada como Learningpool atuar (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-Learningpool-tutorial/tutorial_Learningpoolact_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva o URL:`https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. No **URL de início de sessão** caixa de texto, escreva o URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
     | |
@@ -133,10 +133,10 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |
-    | urn: oid:1.2.840.113556.1.4.221 | User.userPrincipalName |
-    | urn: oid:2.5.4.42 | User.givenName |
-    | urn: oid:0.9.2342.19200300.100.1.3 | User.Mail |    
-    | urn: oid:2.5.4.4 | User.Surname |
+    | urn: oid:1.2.840.113556.1.4.221 | user.userprincipalname |
+    | urn:oid:2.5.4.42 | User.givenName |
+    | urn:oid:0.9.2342.19200300.100.1.3 | User.Mail |    
+    | urn:oid:2.5.4.4 | User.Surname |
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -242,7 +242,7 @@ Quando clica no mosaico Learningpool Act no painel de acesso, deve obter automat
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

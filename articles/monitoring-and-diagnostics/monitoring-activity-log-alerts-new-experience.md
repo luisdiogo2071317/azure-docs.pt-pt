@@ -1,6 +1,6 @@
 ---
-title: Criar alertas de registo de atividade e geri-los utilizando a nova experiência de alertas (pré-visualização) no Monitor do Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como criar alertas de registo de atividade a partir do separador de alertas (pré-visualização) no Monitor do Azure. Este artigo fornece detalhes sobre a nova experiência de utilizador para esta funcionalidade.
+title: Criar alertas de registo de atividade e geri-los utilizando a nova experiência de alertas no Monitor do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como criar alertas de registo de atividade no separador de alertas no Monitor do Azure
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Criar registo de atividade experiência de alertas com os novos alertas (pré-visualização)
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Criar registo de atividade alertas utilizando os alertas de nova experiência
 
 Alertas de registo de atividade são os alertas que obterem ativados quando ocorre a um novo registo de eventos de atividade que satisfaça as condições especificadas no alerta.
 
-Estes alertas são para recursos do Azure, podem ser criados utilizando um modelo Azure Resource Manager. Também podem ser criados, atualizar ou eliminados no portal do Azure. Este artigo apresenta os conceitos atrás de alertas de registo de atividade. Em seguida, mostra como utilizar o portal do Azure para configurar um alerta sobre eventos de registo de atividade utilizando a nova experiência em [alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md).
+Estes alertas são para recursos do Azure, podem ser criados utilizando um modelo Azure Resource Manager. Também podem ser criados, atualizar ou eliminados no portal do Azure. Este artigo apresenta os conceitos atrás de alertas de registo de atividade. Em seguida, mostra como utilizar o portal do Azure para configurar um alerta sobre eventos de registo de atividade utilizando a nova experiência em [alertas do Azure](monitoring-overview-unified-alerts.md).
 
 Normalmente, criar atividade alertas de registo para receber notificações quando ocorrem alterações específicas nos recursos na sua subscrição do Azure, muitas vezes, no âmbito de grupos de recurso específico ou recurso. Por exemplo, poderá ser notificado quando qualquer máquina virtual (grupo de recursos de exemplo) **myProductionResourceGroup** é eliminada, ou poderá pretender ser notificado se quaisquer novas funções são atribuídas a um utilizador na sua subscrição.
 
@@ -46,11 +46,11 @@ Para mais informações sobre grupos de ação, consulte o artigo [criar e gerir
 Para obter mais informações sobre notificações de estado de funcionamento do serviço, consulte o artigo [receber alertas de registo de atividade em notificações do Estado de funcionamento do serviço](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>Novidades na pré-visualização de alertas para os registos de atividade?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>Novidades nos alertas para os registos de atividade
 
-[Alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md) fornece agora a experiência de utilizador para os alertas de registo de atividade. Com o [avançada experiência de utilizador para alertas](monitoring-overview-unified-alerts.md), agora, pode:
+[Alertas do Azure](monitoring-overview-unified-alerts.md) fornece agora a experiência de utilizador para os alertas de registo de atividade. Com o [avançada experiência de utilizador para alertas](monitoring-overview-unified-alerts.md), agora, pode:
 
-- [Criar](#create-an-alert-rule-for-an-activity-log) e [gerir](#view-and-manage-activity-log-alert-rules) a atividade iniciar regras de alertas, a partir de **Monitor** > **alertas (pré-visualização)** painel. Saiba mais sobre [registos de atividade](monitoring-overview-activity-logs.md).
+- [Criar](#create-an-alert-rule-for-an-activity-log) e [gerir](#view-and-manage-activity-log-alert-rules) a atividade iniciar regras de alertas, a partir de **Monitor** > **alertas** painel. Saiba mais sobre [registos de atividade](monitoring-overview-activity-logs.md).
 
 - **Novas opções para o destino de alertas**: ao criar uma regra de alerta de registo de atividade, agora, pode selecionar um recurso de destino ou um grupo de recursos ou uma subscrição.
 
@@ -68,8 +68,8 @@ Para obter mais informações sobre notificações de estado de funcionamento do
 
 Utilize o seguinte procedimento:
 
-1. No portal do Azure, selecione **Monitor** > **alertas (pré-visualização).**
-2. Clique em **nova regra de alerta** na parte superior do **alertas (pré-visualização)** janela.
+1. No portal do Azure, selecione **Monitor** > **alertas**
+2. Clique em **nova regra de alerta** na parte superior do **alertas** janela.
 
      ![nova regra de alerta](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +130,7 @@ Utilize o seguinte procedimento:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Ver e gerir regras de alerta de registo de atividade
 
-1. No portal do Azure, clique em **Monitor** > **alertas (pré-visualização)** e clique em **gerir regras** na parte superior esquerdo da janela do.
+1. No portal do Azure, clique em **Monitor** > **alertas** e clique em **gerir regras de** na parte superior esquerdo da janela.
 
     ![ Gerir regras de alertas](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

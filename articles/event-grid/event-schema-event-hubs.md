@@ -1,18 +1,18 @@
 ---
 title: Azure esquema de eventos do hubs de eventos de grelha de eventos
-description: "Descreve as propriedades que são fornecidas para eventos de hubs de eventos com grelha de eventos do Azure"
+description: Descreve as propriedades que são fornecidas para eventos de hubs de eventos com grelha de eventos do Azure
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos de grelha de eventos do Azure para os event hubs
 
@@ -64,14 +64,14 @@ Um evento tem os seguintes dados de nível superior:
 | ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de hub de eventos. |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | fileUrl | cadeia | O caminho para o ficheiro de captura. |
-| fileType | cadeia | O tipo de ficheiro do ficheiro de captura. |
+| FileType | cadeia | O tipo de ficheiro do ficheiro de captura. |
 | partitionId | cadeia | O ID de partição horizontal. |
 | sizeInBytes | inteiro | O tamanho do ficheiro. |
 | eventCount | inteiro | O número de eventos no ficheiro. |

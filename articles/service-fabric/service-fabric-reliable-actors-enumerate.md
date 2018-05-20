@@ -9,16 +9,16 @@ editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 037138f68e5c18822e4d7b3fa47591411e8a2407
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d5d6ac87db18815aa945d6964338626365b08e64
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Service Fabric Reliable Actors
 O serviço de Reliable Actors permite que um cliente a enumeração de metadados sobre os atores que aloja o serviço. Porque o serviço de atores é um serviço com estado particionado, enumeração é efetuada por partição. Porque cada partição pode conter muitos atores, enumeração é devolvida como um conjunto de resultados paginados. As páginas são looped através de até que todas as páginas são lidas. O exemplo seguinte mostra como criar uma lista de todos os atores de Active Directory de uma partição de um serviço de atores:

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Salesforce Sandbox | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e a Salesforce Sandbox."
+title: 'Tutorial: Integração do Azure Active Directory com o Salesforce Sandbox | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e a Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 16b60342106c69cb9959aad539b794cb8003acda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0660bdb3592e36cb25f68243f16e32d7e51fb85c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Azure Active Directory com o Salesforce Sandbox
 
@@ -30,7 +30,7 @@ Integrar o Salesforce Sandbox com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores automaticamente obter com sessão iniciada para Salesforce Sandbox (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio de Sandbox Salesforce e URLs único informações de início de sessão](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
 
-    b. No **identificador** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    b. No **identificador** caixa de texto, digite o valor utilizando o padrão do seguinte: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
     
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente do Salesforce](https://help.salesforce.com/support) para obter estes valores.
@@ -153,7 +153,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **emissor** campo, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure
 
-    c. No **Id de entidade** caixa de texto, tipo `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` se for a primeira instância do Salesforce Sandbox que estiver a adicionar ao seu diretório. Se já adicionou uma instância do Salesforce Sandbox, em seguida, para o **ID de entidade** escreva a **URL de início de sessão**, que deve ter este formato:`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
+    c. No **Id de entidade** caixa de texto, tipo `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` se for a primeira instância do Salesforce Sandbox que estiver a adicionar ao seu diretório. Se já adicionou uma instância do Salesforce Sandbox, em seguida, para o **ID de entidade** escreva a **URL de início de sessão**, que deve ter este formato: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
  
     d. Para carregar o **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado, o que transferiu a partir do portal do Azure.  
 
@@ -171,7 +171,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. No **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL Single Sign-On serviço**, que copiou do portal do Azure. 
 
-    posso. SFDC não suporta a fim de sessão SAML.  Como solução, cole `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` para o **URL de fim de sessão do fornecedor de identidade** caixa de texto.
+    i. SFDC não suporta a fim de sessão SAML.  Como solução, cole `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` para o **URL de fim de sessão do fornecedor de identidade** caixa de texto.
 
     j. Clique em **Guardar**.
 
@@ -266,7 +266,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -276,7 +276,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

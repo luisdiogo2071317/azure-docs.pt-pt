@@ -1,0 +1,77 @@
+---
+title: Os elementos do e-mail de convite de colaboração B2B - Azure Active Directory | Microsoft Docs
+description: Modelo do e-mail de convite de colaboração do Azure Active Directory B2B
+services: active-directory
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/23/2017
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
+ms.openlocfilehash: e8285779154914bd09513c057d8e5ae0b6388831
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/17/2018
+---
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Active Directory
+
+Mensagens de e-mail de convite são um componente crítico de traga parceiros no board como utilizadores de colaboração B2B do Azure AD. Pode utilizá-los para aumentar a confiança do destinatário. Pode adicionar legitimidade e prova redes social para o e-mail, para se certificar de que o destinatário de um aspeto semelhante confortável com a seleção de **começar** botão para aceitar o convite. Esta confiança é que uma chave significa reduzir friction partilha. E também deve certificar-o e-mail parecer excelente!
+
+![E-mail de convite do Azure AD B2b](media/invitation-email-elements/invitation-email.png)
+
+## <a name="explaining-the-email"></a>Explicar o e-mail
+Vamos ver alguns elementos da mensagem de e-mail para saber como melhor para utilizar as respetivas capacidades.
+
+### <a name="subject"></a>Assunto
+O assunto do e-mail segue o padrão seguinte: está convidado para o &lt;tenantname&gt; organização
+
+### <a name="from-address"></a>Do endereço
+Podemos utilizar um padrão como o LinkedIn para o endereço.  Deve ser claro que seja o inviter e endereço de e-mail da empresa e também esclarecer que o e-mail é proveniente de um Microsoft. O formato é: &lt;nome a apresentar do inviter&gt; de &lt;tenantname&gt; (através do Microsoft) <invites@microsoft.com>
+
+### <a name="reply-to"></a>Responder A
+O e-mail de resposta é definido ao e-mail a inviter se estiver disponível, para que a resposta para o e-mail envia um e-mail para o inviter.
+
+### <a name="branding"></a>Imagem corporativa
+Os e-mails convite da sua utilização de inquilino a imagem corporativa que pode ter configurado para o seu inquilino. Se pretender tirar partido desta capacidade [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) se os detalhes sobre como configurá-lo. O logótipo de faixa aparece na mensagem de correio eletrónico. Siga o tamanho da imagem e instruções de qualidade [aqui](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) para obter os melhores resultados. Além disso, o nome da empresa também aparece na chamada para a ação.
+
+### <a name="call-to-action"></a>Chamada para a acção
+A chamada de ação é composto por duas partes: explicar por que motivo o destinatário recebeu correio e o que está a ser pedido o destinatário fazer acerca do mesmo.
+- A secção "Porquê" pode ser resolvida utilizando o padrão do seguinte: já foi convidado para aceder às aplicações no &lt;tenantname&gt; organização
+
+- E o "o seu está a ser pedido para" secção indicada pela presença do **começar** botão. Quando o destinatário tenha sido adicionado sem a necessidade de convites, este botão não aparecer.
+
+### <a name="inviters-information"></a>Informações do inviter
+Nome a apresentar o inviter está incluído no e-mail. E, além disso, se tiver configurado a uma imagem de perfil para a sua conta do Azure AD, o e-mail convidando irá incluir essa imagem bem. Ambos destinam-se para aumentar a confiança do destinatário do e-mail.
+
+Se ainda não configurou a imagem do perfil, é apresentado um ícone com iniciais do inviter em vez da imagem:
+
+  ![Apresentar iniciais do inviter](media/invitation-email-elements/inviters-initials.png)
+
+### <a name="body"></a>Corpo
+O corpo contém a mensagem de que o inviter composes ou é transferido o convite API. É uma área de texto, pelo que não processa tags de HTML por motivos de segurança.
+
+### <a name="footer-section"></a>Secção de rodapé
+O rodapé contém a marca de empresa da Microsoft e permite que o destinatário saber se o e-mail foi enviado a partir de um alias de não monitorizado. Casos especiais:
+
+- O inviter não tiver um endereço de e-mail nos inquilinos convidando
+
+  ![imagem da inviter não tiver um endereço de e-mail nos inquilinos convidando](media/invitation-email-elements/inviter-no-email.png)
+
+
+- O destinatário não necessário resgatar o convite
+
+  ![Quando não precisa de destinatário resgatar convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Consulte os artigos seguintes na colaboração B2B do Azure AD:
+
+- [O que é a colaboração B2B do Azure AD](what-is-b2b.md)
+- [Como é que os administradores de Azure Active Directory adicionar utilizadores de colaboração do B2B?](add-users-administrator.md)
+- [Como é que os infotrabalhadores adicionar utilizadores de colaboração do B2B?](add-users-information-worker.md)
+- [Resgate de convite de colaboração B2B](redemption-experience.md)
+- [Adicionar utilizadores de colaboração B2B sem um convite](add-user-without-invite.md)

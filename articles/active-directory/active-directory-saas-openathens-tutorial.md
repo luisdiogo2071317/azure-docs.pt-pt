@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com OpenAthens | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e OpenAthens."
+title: 'Tutorial: Integração do Azure Active Directory com OpenAthens | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integração do Azure Active Directory com OpenAthens
 
@@ -30,7 +30,7 @@ Integrar OpenAthens com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores iniciar sessão automaticamente para OpenAthens (-início de sessão único) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa única localização central, o portal do Azure.
 
-Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -214,7 +214,7 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Selecione o **atribuir** clique no botão no **adicionar atribuição** painel.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -224,7 +224,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * Para obter uma lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory, consulte [tutoriais de integração de aplicações de SaaS para utilização com o Azure AD](active-directory-saas-tutorial-list.md).
-* Para obter mais informações sobre o acesso a aplicações e início de sessão no Azure Active Directory, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+* Para obter mais informações sobre o acesso a aplicações e início de sessão no Azure Active Directory, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

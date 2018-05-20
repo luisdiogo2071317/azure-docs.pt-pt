@@ -1,24 +1,24 @@
 ---
-title: "Configurar o cluster de autónoma do Service Fabric do Azure | Microsoft Docs"
-description: "Saiba como configurar o cluster de Service Fabric do Azure autónomo ou no local."
+title: Configurar o cluster de autónoma do Service Fabric do Azure | Microsoft Docs
+description: Saiba como configurar o cluster de Service Fabric do Azure autónomo ou no local.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster do Windows autónomo
 Este artigo descreve como configurar um cluster do Azure Service Fabric autónoma, utilizando o ficheiro Clusterconfig. Irá utilizar este ficheiro para especificar as informações sobre nós do cluster, configurações de segurança, bem como a topologia de rede em termos de domínios de falhas e a atualização.
@@ -200,6 +200,6 @@ Para configurar funcionalidades de suplemento, configure o apiVersion como 04 20
 Para ativar o suporte de contentor de contentores do Windows Server e contentores de Hyper-V para clusters autónomos, a funcionalidade de suplemento DnsService tem de estar ativada.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de ter um ficheiro Clusterconfig completo configurado, de acordo com a configuração de cluster autónomo, pode implementar o cluster. Siga os passos no [criar um cluster do Service Fabric autónomo](service-fabric-cluster-creation-for-windows-server.md). Em seguida, avance para [visualizar o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) e siga os passos.
 

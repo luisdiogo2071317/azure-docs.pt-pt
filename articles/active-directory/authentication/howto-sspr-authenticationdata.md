@@ -10,11 +10,11 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1dba7c302d8acad6133c0e7c6a2186f7ba617e2c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem necessidade de registo de utilizador final de reposição de palavra-passe
 
@@ -33,16 +33,27 @@ Para funcionar corretamente, números de telefone tem de estar no formato *+ ind
 
 Se utilizar as predefinições no Azure AD Connect, são efetuados os seguintes mapeamentos de:
 
-| Active Directory no local | Azure AD | Informações de contacto do Azure AD authentication |
-| --- | --- | --- |
-| telephoneNumber | Telefone do emprego | Telefone alternativo |
-| Mobile | Número de telemóvel | Telefone |
+| Active Directory no local | Azure AD |
+| --- | --- |
+| telephoneNumber | Telefone do emprego |
+| Mobile | Número de telemóvel |
 
-Estes campos podem aparecer em branco, até que um utilizador confirma que os seus dados de autenticação.
+Quando o utilizador verifica o número de telemóvel, o campo de telefone em informações de contacto de autenticação no Azure AD também será preenchido com esse número.
 
-Um Administrador Global pode definir manualmente as informações de contacto de autenticação para o utilizador, tal como apresentado na seguinte captura de ecrã.
+## <a name="authentication-contact-info"></a>Informação de contacto de autenticação
+
+Um Administrador Global pode definir manualmente as informações de contacto de autenticação para um utilizador, tal como apresentado na seguinte captura de ecrã.
 
 ![Contact][Contact]
+
+Se o campo de telefone é preenchido e telemóvel está ativado na política de SSPR, o utilizador irá ver número na página de registo de reposição de palavra-passe e a palavra-passe durante o fluxo de trabalho de reposição. 
+
+O campo de telefone alternativo não é utilizado para a reposição de palavra-passe.
+
+Se o campo de correio eletrónico é preenchido e correio eletrónico está ativado na política de SSPR, o utilizador irá ver e-mail na página de registo de reposição de palavra-passe e a palavra-passe durante o fluxo de trabalho de reposição.
+
+Se o campo de correio eletrónico alternativo é preenchido e correio eletrónico está ativado na política de SSPR, o utilizador será **não** ver que a página de registo de reposição de e-mail na palavra-passe, mas irão vê-lo durante a palavra-passe de reposição de fluxo de trabalho. 
+
 
 ## <a name="security-questions-and-answers"></a>Perguntas de segurança e respostas
 

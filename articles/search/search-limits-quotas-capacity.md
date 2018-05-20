@@ -9,11 +9,11 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço da Azure Search
 Máximo limita-se no armazenamento, as cargas de trabalho e quantidades de índices, documentos, e outros objetos dependem se [aprovisionar da Azure Search](search-create-service-portal.md) em **livres**, **básico**, ou **Padrão** escalões de preço.
@@ -44,10 +44,13 @@ Máximo limita-se no armazenamento, as cargas de trabalho e quantidades de índi
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |
 | Campos máximos por índice |1000 |100 |1000 |1000 |1000 |1000 |
-| Perfis de classificação máximos por índice |100 |100 |100 |100 |100 |100 |
+| Máximo [dos sugestores](https://docs.microsoft.com/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |
+| Máximo [classificação perfis](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |
 | Funções máximas por perfil |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> criados depois de enlace tardio 2017 tem um limite de aumento de 15 índices, indexadores e origens de dados, os serviços básicos. Serviços que criou anteriormente ter 5. O escalão básico destina o SKU apenas com um limite inferior de 100 campos por índice.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Limites do documento 
 
@@ -93,7 +96,7 @@ Serviços básicos criados depois de enlace tardio 2017 tem um limite de aumento
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |
-| Skillsets máximo |3 |5 ou 15 |50 |200 |200 |N/A |
+| Skillsets máximo <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |
 | Carga máxima de indexação por invocação |10 000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/A |
 | Tempo de execução máximo | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |
 | Indexador de blob: o tamanho máximo de blob, MB |16 |16 |128 |256 |256 |N/A  |
@@ -104,6 +107,8 @@ Serviços básicos criados depois de enlace tardio 2017 tem um limite de aumento
 <sup>2</sup> criados depois de enlace tardio 2017 tem um limite de aumento de 15 índices, indexadores e origens de dados, os serviços básicos. Serviços que criou anteriormente ter 5.
 
 <sup>3</sup> serviços S3 HD não incluem o suporte.
+
+<sup>4</sup> máximo de 30 competências por skillset.
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 

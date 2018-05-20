@@ -1,24 +1,24 @@
 ---
-title: "Criar a primeira aplicação de Service Fabric em c# | Microsoft Docs"
-description: "Introdução à criação de uma aplicação do Microsoft Azure Service Fabric com serviços sem monitorização de estado e com monitorização de estado."
+title: Criar a primeira aplicação de Service Fabric em c# | Microsoft Docs
+description: Introdução à criação de uma aplicação do Microsoft Azure Service Fabric com serviços sem monitorização de estado e com monitorização de estado.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Em seguida, criar um projeto de serviço sem monitorização de estado com **.Ne
 
 Agora, a sua solução contém dois projetos:
 
-* *HelloWorld*. Este é o *aplicação* projeto que contém o *serviços*. Também contém o manifesto da aplicação que descreve a aplicação, bem como um número de scripts do PowerShell que ajudam a implementar a sua aplicação.
+* *Olámundo*. Este é o *aplicação* projeto que contém o *serviços*. Também contém o manifesto da aplicação que descreve a aplicação, bem como um número de scripts do PowerShell que ajudam a implementar a sua aplicação.
 * *HelloWorldStateless*. Este é o projeto de serviço. Contém a implementação de serviço sem estado.
 
 ## <a name="implement-the-service"></a>Implementar o serviço

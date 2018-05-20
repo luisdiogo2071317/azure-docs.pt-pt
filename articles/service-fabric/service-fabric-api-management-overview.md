@@ -1,28 +1,28 @@
 ---
-title: "Azure Service Fabric com descrição geral da gestão de API | Microsoft Docs"
-description: "Este artigo é uma introdução à utilização de API Management do Azure como um gateway para as aplicações de Service Fabric."
+title: Azure Service Fabric com descrição geral da gestão de API | Microsoft Docs
+description: Este artigo é uma introdução à utilização de API Management do Azure como um gateway para as aplicações de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Recursos de infraestrutura de serviço com descrição geral da API Management do Azure
 
-Aplicações em nuvem, normalmente, precisam de um gateway de front-end para fornecer um único ponto de entrada para os utilizadores, dispositivos ou outras aplicações. No Service Fabric, um gateway pode ser qualquer serviço sem monitorização de estado, tal como um [aplicação ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço concebida para a entrada de tráfego, tais como [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), ou [API Management do Azure](https://docs.microsoft.com/azure/api-management/).
+Geralmente, as aplicações da cloud precisam de um gateway de front-end que forneça um único ponto de entrada para utilizadores, dispositivos ou outras aplicações. No Service Fabric, um gateway pode ser qualquer serviço sem monitorização de estado, tal como um [aplicação ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço concebida para a entrada de tráfego, tais como [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), ou [API Management do Azure](https://docs.microsoft.com/azure/api-management/).
 
 Este artigo é uma introdução à utilização de API Management do Azure como um gateway para as aplicações de Service Fabric. Gestão de API integra-se diretamente com o Service Fabric, permitindo-lhe publicar APIs com um vasto conjunto de regras de encaminhamento para os serviços de recursos de infraestrutura do serviço de back-end. 
 
@@ -80,8 +80,8 @@ Neste exemplo, é criada uma nova instância de serviço sem monitorização de 
 
  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos prévio porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, por conseguinte, não pode ser hard-coded para políticas APIM ou as regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar um pedido é gerado na definição de política de back-end do `name` valor fornecido no caminho de pedido de URL. Por exemplo:
 
-  - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço`fabric:/app/users/foo`
-  - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço`fabric:/app/users/bar`
+  - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
+  - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
 
 ![Recursos de infraestrutura de serviço com descrição geral da topologia de API Management do Azure][sf-apim-dynamic-stateless]
 
@@ -99,14 +99,14 @@ Neste exemplo, é criada uma nova instância de serviço com estado para cada ut
 
  Cada serviço tem um nome exclusivo, mas os nomes não são conhecidos prévio porque os serviços são criados em resposta ao utilizador ou administrador de entrada e, por conseguinte, não pode ser hard-coded para políticas APIM ou as regras de encaminhamento. Em vez disso, o nome do serviço ao qual pretende enviar um pedido é gerado na definição de política de back-end do `name` valor indicado o caminho de pedido de URL. Por exemplo:
 
-  - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço`fabric:/app/users/foo`
-  - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço`fabric:/app/users/bar`
+  - Um pedido para `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
+  - Um pedido para `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
 
 Cada instância de serviço também está particionada com o esquema de partição Int64 duas partições e um intervalo de chaves que abranja `Int64.MinValue` para `Int64.MaxValue`. A política de back-end calcula uma chave de partição dentro desse intervalo convertendo a `id` valor fornecido no caminho de pedido de URL para um número inteiro de 64 bits, embora qualquer algoritmo pode ser aqui utilizado para calcular a chave de partição. 
 
 ![Recursos de infraestrutura de serviço com descrição geral da topologia de API Management do Azure][sf-apim-dynamic-stateful]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Siga o [tutorial](service-fabric-tutorial-deploy-api-management.md) para configurar o primeiro cluster de Service Fabric com pedidos de API Management e o fluxo através da gestão de API para os serviços.
 

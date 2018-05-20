@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o GitHub | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e do GitHub."
+title: 'Tutorial: Integração do Azure Active Directory com o GitHub | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e do GitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 2a0e1df5244ef977bdcccc5bcfea615a05efa3bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef9d0bb112738e9abea5894fb0f321368b7fc26e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Azure Active Directory com o GitHub
 
@@ -30,7 +30,7 @@ Integrar o GitHub com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada no GitHub (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal de gestão do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,9 +116,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
-    a. No **URL de início de sessão** caixa de texto, digite o valor como:`https://github.com/orgs/<entity-id>/sso`
+    a. No **URL de início de sessão** caixa de texto, digite o valor como: `https://github.com/orgs/<entity-id>/sso`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://github.com/orgs/<entity-id>`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
     > Tenha em atenção que estas não são os valores reais. Tem de atualizar estes valores com o URL de início de iniciar sessão no real e o identificador. Aqui sugerimos que utilize o valor de cadeia exclusivo no identificador de. Aceda à secção de administração do GitHub para obter estes valores. 
@@ -177,7 +177,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal de gestão 
 
     ![Definições](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
 
-16. Clique em **guardar**
+16. Clicar em **Guardar**
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal de gestão do Azure chamado Britta Simon.
@@ -284,7 +284,7 @@ Quando clica no mosaico do GitHub no painel de acesso, deve obter com sessão in
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -1,18 +1,18 @@
 ---
 title: Azure esquema de eventos do grupo de recursos de grelha de eventos
-description: "Descreve as propriedades que são fornecidas para eventos de grupo de recursos com grelha de eventos do Azure"
+description: Descreve as propriedades que são fornecidas para eventos de grupo de recursos com grelha de eventos do Azure
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 163c32bdb8a3fdc278404b9e26fdc3097797d16c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos de grelha de eventos do Azure para grupos de recursos
 
@@ -102,7 +102,7 @@ Um evento tem os seguintes dados de nível superior:
 | ID | cadeia | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos do grupo de recursos. |
 | dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão de esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
+| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de evento define o esquema das propriedades de nível superior. Grelha de evento fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
@@ -117,7 +117,7 @@ O objeto de dados tem as seguintes propriedades:
 | operationName | cadeia | A operação foi efetuada. |
 | status | cadeia | O estado da operação. |
 | subscriptionId | cadeia | O ID de subscrição do recurso. |
-| tenantId | cadeia | O ID de inquilino do recurso. |
+| TenantId | cadeia | O ID de inquilino do recurso. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

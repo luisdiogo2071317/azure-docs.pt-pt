@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configurar Slack para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o Azure Active Directory automaticamente aprovisionar e desativação de aprovisionar contas de utilizador ao Slack."
+title: 'Tutorial: Configurar Slack para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o Azure Active Directory automaticamente aprovisionar e desativação de aprovisionar contas de utilizador ao Slack.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 897121e0dcaaf417430b892c501a243303ae9b6e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para aprovisionamento de utilizadores automática
 
@@ -115,4 +115,4 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 ## <a name="additional-resources"></a>Recursos Adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

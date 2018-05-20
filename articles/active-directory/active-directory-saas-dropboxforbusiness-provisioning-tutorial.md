@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configurar o Dropbox para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Dropbox para empresas."
+title: 'Tutorial: Configurar o Dropbox para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o Dropbox para empresas.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bdac910b5011237e26a39f3e45f3e7ad6176bc83
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox para empresas para aprovisionamento de utilizadores automática
 
@@ -96,5 +96,5 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o início de sessão único](active-directory-saas-dropboxforbusiness-tutorial.md)

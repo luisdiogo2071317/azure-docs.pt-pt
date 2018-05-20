@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com BenefitHub | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e BenefitHub."
+title: 'Tutorial: Integração do Azure Active Directory com BenefitHub | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e BenefitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 1494666f63caefa53deddd7cd40567b96c5d5f40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd5bcb73fbfffacf04ccbe9c592c1f821a165530
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutorial: Integração do Azure Active Directory com BenefitHub
 
@@ -29,7 +29,7 @@ Integrar BenefitHub com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para BenefitHub (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_url1.png)
   
-    a. No **identificador** caixa de texto, tipo:`urn:benefithub:passport`
+    a. No **identificador** caixa de texto, tipo: `urn:benefithub:passport`
     
-    b. No **URL de resposta** caixa de texto, tipo:`https://passport.benefithub.info/saml/post/ac`
+    b. No **URL de resposta** caixa de texto, tipo: `https://passport.benefithub.info/saml/post/ac`
 
 4. A aplicação de BenefitHub espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. 
 
@@ -120,7 +120,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem anterior e execute os seguintes passos:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | OrganizationId | < organizationid > |
 
@@ -230,7 +230,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

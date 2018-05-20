@@ -1,23 +1,23 @@
 ---
-title: "Comunicação remota do serviço no Azure Service Fabric | Microsoft Docs"
-description: "Comunicação remota do Service Fabric permite que os clientes e serviços comunicar com os serviços, utilizando uma chamada de procedimento remoto."
+title: Comunicação remota do serviço no Azure Service Fabric | Microsoft Docs
+description: Comunicação remota do Service Fabric permite que os clientes e serviços comunicar com os serviços, utilizando uma chamada de procedimento remoto.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota do serviço com Reliable Services
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ A estrutura de Reliable Services fornece um mecanismo de comunicação remota de
 Configurar a gestão remota para um serviço é efetuada em dois passos simples:
 
 1. Crie uma interface para o seu serviço implementar. Esta interface define os métodos disponíveis para uma chamada de procedimento remoto do seu serviço. Os métodos devem ser tarefas métodos assíncronos. Tem de implementar a interface `microsoft.serviceFabric.services.remoting.Service` para assinalar que o serviço possui uma interface de gestão remota.
-2. Utilize um serviço de escuta de comunicação remota no seu serviço. Este é um `CommunicationListener` implementação que oferece funções de sistema de interação remota. `FabricTransportServiceRemotingListener`pode ser utilizado para criar um serviço de escuta da gestão remota utilizando o protocolo de transporte de comunicação remota de predefinição.
+2. Utilize um serviço de escuta de comunicação remota no seu serviço. Este é um `CommunicationListener` implementação que oferece funções de sistema de interação remota. `FabricTransportServiceRemotingListener` pode ser utilizado para criar um serviço de escuta da gestão remota utilizando o protocolo de transporte de comunicação remota de predefinição.
 
 Por exemplo, o serviço sem monitorização de estado seguinte expõe um único método para obter "Olá mundo" através de uma chamada de procedimento remoto.
 
@@ -92,7 +92,7 @@ Criação de ServiceProxy é uma operação simples, para que o utilizador pode 
 ### <a name="serviceproxyfactory-lifetime"></a>Duração de ServiceProxyFactory
 [FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) é uma fábrica de que cria o proxy para interfaces de comunicação remota diferente. Se utilizar a API `ServiceProxyBase.create` para criar o proxy, em seguida, framework cria um `FabricServiceProxyFactory`.
 É útil criar um manualmente quando for necessário substituir [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) propriedades.
-Fábrica é uma operação dispendiosa. `FabricServiceProxyFactory`mantém a cache de clientes de comunicação.
+Fábrica é uma operação dispendiosa. `FabricServiceProxyFactory` mantém a cache de clientes de comunicação.
 Melhor prática é cache `FabricServiceProxyFactory` há tempo quanto possível.
 
 ## <a name="remoting-exception-handling"></a>Processamento de exceções de comunicação remota
@@ -101,7 +101,7 @@ A exceção de remota emitida pela API do serviço, como RuntimeException ou Fab
 ServiceProxy processar todas as exceções de ativação pós-falha para a partição de serviço é criado para. Resolve novamente os pontos finais esteja Exceptions(Non-Transient Exceptions) ativação pós-falha e repetem a chamada com o ponto final correto. Número de tentativas de ativação pós-falha exceção é indefinido.
 Em caso de TransientExceptions, apenas repete a chamada.
 
-Os parâmetros predefinidos de repetição são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Transferindo OperationRetrySettings objeto para ServiceProxyFactory construtor, o utilizador pode configurar estes valores.
+Os parâmetros predefinidos de repetição são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Utilizador pode configurar estes valores através da transmissão OperationRetrySettings objeto para o construtor ServiceProxyFactory.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Proteger a comunicação para Reliable Services](service-fabric-reliable-services-secure-communication.md)

@@ -6,13 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para o Azure replicação
 
@@ -31,7 +31,7 @@ O diagrama seguinte ilustra um ambiente do Azure típico, para aplicações em e
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Se estiver a utilizar uma ligação de VPN ou Azure ExpressRoute da sua rede no local para o Azure, o ambiente de procura da seguinte forma:
+Se estiver a utilizar uma ligação de VPN ou Azure ExpressRoute da sua rede no local para o Azure, o ambiente é o seguinte:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 

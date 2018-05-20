@@ -1,23 +1,24 @@
 ---
-title: "Erro ao processar as melhores práticas para os clientes do Azure Active Directory Authentication Library (ADAL)"
-description: "Fornece orientações e melhores práticas para as aplicações cliente ADAL de processamento de erros."
+title: Erro ao processar as melhores práticas para os clientes do Azure Active Directory Authentication Library (ADAL)
+description: Fornece orientações e melhores práticas para as aplicações cliente ADAL de processamento de erros.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.custom: 
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para os clientes do Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +50,7 @@ Não há um conjunto de erros gerados pelo sistema operativo, que podem necessit
 
 Fundamentalmente, existem dois cenários de AcquireTokenSilent erros:
 
-| Caso | Descrição |
+| Maiúsculas/Minúsculas | Descrição |
 |------|-------------|
 | **Caso 1**: erro é resolvível com um interativa início de sessão | Para erros causados por uma falta de tokens válidos, é necessário um pedido de interativo. Especificamente, a pesquisa de cache e um token de atualização inválido/expirado necessitam de uma chamada de AcquireToken para resolver.<br><br>Nestes casos, o utilizador final tem de ser-lhe pedido que inicie sessão. A aplicação pode optar por fazer um pedido de interativo imediatamente, após a interação do utilizador final (tais como a atingir um botão de início de sessão) ou posterior. A opção depende o comportamento pretendido da aplicação.<br><br>Consulte o código na secção seguinte para este cenário específico e os erros que diagnosticá-lo.|
 | **Cenário 2**: erro não é resolvível com um interativa início de sessão | Para a rede e erros de transitório/temporário ou outras falhas, executar um pedido de AcquireToken interativo não resolver o problema. Desnecessários interativa início de sessão pede também pode frustrar utilizadores finais. ADAL tenta automaticamente uma repetição único para a maioria dos erros AcquireTokenSilent falhas.<br><br>A aplicação de cliente também pode tentar uma repetição em algum momento posterior, mas quando e como fazê-lo está dependente o comportamento da aplicação e experiência do utilizador final pretendido. Por exemplo, a aplicação pode efetuar uma repetição AcquireTokenSilent após alguns minutos, ou em resposta a qualquer ação do utilizador final. Uma repetição imediata resultará na aplicação a ser limitada e não deve ser tentada.<br><br>Uma repetição subsequente falha com o mesmo erro não significa que o cliente deve fazer um pedido de interativo utilizando AcquireToken, não resolver o erro.<br><br>Consulte o código na secção seguinte para este cenário específico e os erros que diagnosticá-lo. |
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -157,7 +158,7 @@ O código teria de ser implementado da seguinte forma:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ O código teria de ser implementado da seguinte forma:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken método é a predefinição ADAL utilizado para obter os tokens. Nos casos em que a identidade do utilizador é necessária, AcquireToken tentar obter um token primeiro silenciosamente, em seguida, apresenta IU se for necessário (a menos que é transmitida PromptBehavior.Never). Nos casos em que a identidade da aplicação é necessária, AcquireToken tenta obter um token, mas não mostrar a IU vez que não há nenhum utilizador final.  
+AcquireToken método é a predefinição ADAL utilizado para obter os tokens. Nos casos em que a identidade do utilizador é necessária, AcquireToken tentar obter um token primeiro silenciosamente, em seguida, apresenta IU se for necessário (a menos que é transmitida PromptBehavior.Never). Nos casos em que a identidade da aplicação é necessária, AcquireToken tenta obter um token, mas não mostrar a IU vez que não há nenhum utilizador final. 
 
-Quando o processamento de erros de AcquireToken, processamento de erros é depende da plataforma e o cenário a aplicação está a tentar alcançar.  
+Quando o processamento de erros de AcquireToken, processamento de erros é depende da plataforma e o cenário a aplicação está a tentar alcançar. 
 
 O sistema operativo também pode gerar um conjunto de erros, o que requer processamento depende a aplicação específica de erros. Para obter mais informações, consulte "Erros de sistema operativo" em [erros e de referência de registo](#error-and-logging-reference). 
 
@@ -187,7 +188,7 @@ O sistema operativo também pode gerar um conjunto de erros, o que requer proces
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Nos casos de erro e passos acionáveis: aplicações de cliente nativo
 
-Se estiver a criar uma aplicação cliente nativa, existem alguns casos de processamento de erros a ter em consideração que se relacionam com problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, uma aplicação não deve executar tentativas imediatas, mas em vez disso, aguarde interação do utilizador final que solicita um início de sessão.  
+Se estiver a criar uma aplicação cliente nativa, existem alguns casos de processamento de erros a ter em consideração que se relacionam com problemas de rede, falhas transitórias e outros erros específicos da plataforma. Na maioria dos casos, uma aplicação não deve executar tentativas imediatas, mas em vez disso, aguarde interação do utilizador final que solicita um início de sessão. 
 
 Existem alguns casos especiais em que uma única repetição poderão ajudar a resolver o problema. Por exemplo, quando um utilizador tem de ativar os dados num dispositivo ou concluir o mediador do Azure AD transfiram após a falha inicial. 
 
@@ -252,7 +253,7 @@ catch (AdalException e) {
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- acquireToken(…, PromptBehavior.Never)
+- acquireToken(..., PromptBehavior.Never)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Nos casos de erro e passos acionáveis: aplicações de página única (adal.js)
 
-Se estiver a criar uma aplicação de página única com adal.js AcquireToken, o erro do código de processamento é semelhante de uma chamada automática típica.  Especificamente no adal.js, AcquireToken nunca mostra uma IU. 
+Se estiver a criar uma aplicação de página única com adal.js AcquireToken, o erro do código de processamento é semelhante de uma chamada automática típica. Especificamente no adal.js, AcquireToken nunca mostra uma IU. 
 
 Uma falha AcquireToken tem os seguintes casos:
 
@@ -416,7 +417,7 @@ As seguintes orientações fornece exemplos de processamento em conjunto com o A
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
 - AcquireTokenAsync(…,ClientCredential, …)
 - AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion, …)
+- AcquireTokenAsync (..., UserAssertion,...)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -441,7 +442,7 @@ Para *em-nome-de* cenários de aplicação de serviço ao serviço.
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- AcquireTokenAsync(…, UserAssertion, …)
+- AcquireTokenAsync (..., UserAssertion,...)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

@@ -9,11 +9,11 @@ description: Saiba como integrar a solução de monitorização remota do Azure 
 +ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
-ms.openlocfilehash: d39330c7cc22a39aab6cb33eda0c1cefd70c8e3d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 75ad9e9ac79dca4db902d7e72511a384dd769463
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de monitorização remota com o Azure Data Lake Store
 
@@ -25,7 +25,7 @@ Este procedimentos, utilizará uma tarefa de Stream Analytics do Azure para dado
 
 Para concluir este procedimentos, irá precisar do seguinte:
 
-* [Implementar a solução pré-configurada de monitorização remota](iot-suite-remote-monitoring-deploy.md).
+* [Implementar a solução pré-configurada de monitorização remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
   * A solução de monitorização remota implementará o IoT hub e a tarefa do Azure Stream Analytics utilizada neste artigo para a sua subscrição do Azure.
 * [Implementar um Azure Data Lake Store](/data-lake-store/data-lake-store-get-started-portal.md)
   * O Data Lake Store devem ser implementado para a mesma região que a sua solução de monitorização remota.

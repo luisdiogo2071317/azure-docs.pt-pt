@@ -1,31 +1,31 @@
 ---
-title: "Adicionar uma firewall de aplicação web no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações do Centro de segurança do Azure **adicionar uma firewall de aplicação web** e **finalizar proteção aplicação**."
+title: Adicionar uma firewall de aplicação web no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações do Centro de segurança do Azure **adicionar uma firewall de aplicação web** e **finalizar proteção aplicação**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar uma firewall de aplicação web no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall de aplicação web (WAF) de um parceiro da Microsoft para proteger as suas aplicações web. Este documento explica-lhe como um exemplo de como aplicar esta recomendação.
 
 É apresentada uma recomendação WAF para qualquer destinado ao IP público (IP de nível de instância ou IP com balanceamento de carga) que tenha um grupo de segurança de rede associada com portas web de entrada aberta (80,443).
 
-Centro de segurança recomenda que Aprovisiona uma WAF para ajudar a proteger contra ataques direcionada para as aplicações web em máquinas virtuais e nos ambientes de serviço de aplicações externas. Aplicação serviço de ambiente (ASE) é um [Premium](https://azure.microsoft.com/pricing/details/app-service/) service opção plano do App Service do Azure fornece um ambiente completamente isolado e dedicado para execução segura de aplicações do App Service do Azure. Para saber mais sobre ASE, consulte o [a documentação de ambiente de serviço de aplicação](../app-service/environment/intro.md).
+Centro de segurança recomenda que Aprovisiona uma WAF para ajudar a proteger contra ataques direcionada para as aplicações web em máquinas virtuais e no externo aplicação serviço ambientes (ASE) implementados em-o [Isolated](https://azure.microsoft.com/pricing/details/app-service/windows/) plano de serviço. O plano Isolado aloja as aplicações num ambiente privado e dedicado do Azure e é ideal para aplicações que exigem ligações seguras à rede no local ou para desempenho e dimensionamento adicionais. Para além da sua aplicação está a ser um ambiente isolado, a aplicação tem de ter um endereço IP externo, o Balanceador de carga. Para saber mais sobre ASE, consulte o [a documentação de ambiente de serviço de aplicação](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Este documento não é um guia passo a passo.

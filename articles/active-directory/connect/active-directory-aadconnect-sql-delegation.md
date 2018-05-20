@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect utilizando as permissões de administrador delegado de SQL
 Antes de compilação mais recente do Azure AD Connect, administrativa delegação, ao implementar as configurações necessárias do SQL Server, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) no SQL server.
@@ -42,7 +42,7 @@ Para aprovisionar a base de dados fora de banda e instalar o Azure AD Connect co
 
 
 1.  Tem do administrador do SQL Server crie a base de dados ADSync com uma sequência de agrupamento sensível **(Latin1_General_CI_AS)**.  A base de dados tem de ter um nome **ADSync**.  O modelo de recuperação, o nível de compatibilidade e o tipo de contenção são atualizados para os valores corretos quando o Azure AD Connect está instalado.  No entanto, a sequência de agrupamento tem de ser definida corretamente pelo administrador do SQL do Azure AD Connect irá bloquear a instalação.  Para recuperar a SA tem de eliminar e recriar a base de dados.</br>
-![Agrupamento](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Agrupamento](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  Conceda ao administrador do Azure AD Connect e a conta de serviço de domínio as seguintes permissões:
     - Início de sessão do SQL 
     - **base de dados owner(dbo)** direitos.  </br>

@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8a2715666c4fff490f5184b7b8719b412952b9bf
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 419ed6dc76101366e47ae94067f7b671a10c94e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench, resolução de problemas
 
@@ -49,8 +49,9 @@ O script aceita os seguintes parâmetros:
 |---------|---------|----|
 | SubscriptionID | ID de subscrição para criar ou localizar todos os recursos. | Sim |
 | ResourceGroupName | Nome do grupo de recursos do Azure onde tiver sido implementada Blockchain Workbench. | Sim |
-| OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, será assumida a diretório atual. | Não
-| OmsSubscriptionId | O id de subscrição em que é implementado OMS. Passe apenas este parâmetro se não for implementada OMS para a rede blockchain fora do grupo de recursos do Blockchain Workbench.| Não |
+| OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, será assumida a diretório atual. | Não |
+| LookbackHours | Número de horas a utilizar ao extrair a telemetria. Valor predefinido é de 24 horas. O valor máximo é de 90 horas | Não |
+| OmsSubscriptionId | O ID de subscrição em que é implementado OMS. Passe apenas este parâmetro se não for implementada OMS para a rede blockchain fora do grupo de recursos do Blockchain Workbench.| Não |
 | OmsResourceGroup |O grupo de recursos em que é implementado OMS. Passe apenas este parâmetro se não for implementada OMS para a rede blockchain fora do grupo de recursos do Blockchain Workbench.| Não |
 | OmsWorkspaceName | O nome de área de trabalho do OMS. Passar apenas este parâmetro se não for implementada OMS para a rede blockchain fora do grupo de recursos do Blockchain Workbench | Não |
 
@@ -58,15 +59,17 @@ O script aceita os seguintes parâmetros:
 
 O ficheiro ZIP de saída contém a seguinte estrutura de pasta:
 
-| Pasta \ ficheiro | Descrição  |
+| Ficheiro ou pasta | Descrição  |
 |---------|---------|
 | \Summary.txt | Resumo do sistema |
-| \metrics\blockchain | Métricas sobre o blockchain |
-| \metrics\workbench | Métricas sobre o workbench |
-| \details\blockchain | Registos detalhados sobre o blockchain |
-| \details\workbench | Registos detalhados sobre o workbench |
+| \Metrics\blockchain | Métricas sobre o blockchain |
+| \Metrics\Workbench | Métricas sobre o workbench |
+| \Details\Blockchain | Registos detalhados sobre o blockchain |
+| \Details\Workbench | Registos detalhados sobre o workbench |
 
 O ficheiro de resumo dá-lhe um instantâneo do Estado de funcionamento da aplicação e o estado geral da aplicação. O resumo fornece as ações recomendadas, realça os erros superiores e os metadados sobre como executar os serviços.
+
+O **métricas** pasta contém métricas dos vários componentes do sistema ao longo do tempo. Por exemplo, o ficheiro de saída `\Details\Workbench\apiMetrics.txt` contém um resumo dos códigos de resposta diferentes e os tempos de resposta durante o período de coleção. O **detalhes** pasta contém registos detalhados para a resolução de problemas específicos com Workbench ou rede blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das exceções mais recentes ocorridas no sistema, que é útil para resolução de problemas de erros inteligentes contratos ou interações com o blockchain. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

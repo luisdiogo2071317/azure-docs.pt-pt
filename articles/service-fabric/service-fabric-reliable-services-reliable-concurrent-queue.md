@@ -1,6 +1,6 @@
 ---
-title: "ReliableConcurrentQueue nos recursos de infraestrutura de serviço do Azure"
-description: "ReliableConcurrentQueue é uma fila de débito elevado que permite enqueues paralelas e dequeues."
+title: ReliableConcurrentQueue nos recursos de infraestrutura de serviço do Azure
+description: ReliableConcurrentQueue é uma fila de débito elevado que permite enqueues paralelas e dequeues.
 services: service-fabric
 documentationcenter: .net
 author: sangarg
@@ -9,23 +9,23 @@ editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução ao ReliableConcurrentQueue nos recursos de infraestrutura de serviço do Azure
 Fiável fila em simultâneo é uma fila assíncrona, transacional e replicada que simultaneidade elevada de funcionalidades para colocar em fila e anular operações. Foi concebido para fornecer o débito alto e baixa latência ao simplificar a ordenação de FIFO strict fornecida pelo [fila fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e em vez disso, fornece uma ordenação de melhor esforço.
 
 ## <a name="apis"></a>APIs
 
-|Fila em simultâneo                |Fila simultânea fiável                                         |
+|Fila em simultâneo                |Fila do Reliable Concurrent                                         |
 |--------------------------------|------------------------------------------------------------------|
 | void Enqueue(T item)           | Tarefa EnqueueAsync (tx ITransaction, item de T)                       |
 | bool TryDequeue (saída de resultado de T)  | Tarefa < ConditionalValue < T >> TryDequeueAsync (ITransaction tx)  |

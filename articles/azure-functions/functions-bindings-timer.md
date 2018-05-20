@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
@@ -34,6 +34,8 @@ Este artigo explica como trabalhar com os acionadores de temporizador nas funç�
 O acionador de temporizador é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -209,7 +211,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00 em que hh significa a cada hora (uma vez a uma hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, onde é mm a cada minuto da hora (60 vezes por dia)|
 |Um intervalo (`-` operador)|<nobr>"5-7 * * * * *"</nobr>|em hh:mm:05, hh:mm:06 e hh:mm:07 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|  
-|Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|
+|Um conjunto de valores (`,` operador)|<nobr>"5,8,10 **** *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|
 |Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|no hh:05:00, hh:10:00, hh:15:00, e assim sucessivamente através de hh:55:00 em que hh significa a cada hora (12 vezes uma hora)|
 
 ### <a name="cron-examples"></a>Exemplos CRON
@@ -223,7 +225,7 @@ Seguem-se alguns exemplos de expressões de CRON que pode utilizar para o aciona
 |"0 0 */2 * * *"|uma vez a cada duas horas|
 |"0 0 9-17 * * *"|uma vez a cada hora de 09: 00 para as 17: 00|
 |"0 30 9 * * *"|às 9:30 AM todos os dias|
-|"0 30 9 * * 1-5"|às 9:30 AM cada dia da semana|
+|"0 30 9 * * 1 a 5"|às 9:30 AM cada dia da semana|
 
 >[!NOTE]   
 >Pode encontrar exemplos de expressão de CRON online, mas muitos dos mesmos omitir o `{second}` campo. Se copiar a partir de um deles, adicione o falta `{second}` campo. Normalmente, é aconselhável um zero nesse campo, não um asterisco.
@@ -256,9 +258,9 @@ Expresso como uma cadeia, a `TimeSpan` formato é `hh:mm:ss` quando `hh` é infe
 
 |Exemplo |Quando activado  |
 |---------|---------|
-|"01:00:00" | Cada hora        |
+|"01:00:00" | a cada hora        |
 |"00:01:00"|cada minuto         |
-|"24:00:00" | cada 24 dias        |
+|"24: 00:00" | cada 24 dias        |
 
 ## <a name="scale-out"></a>Expandir
 

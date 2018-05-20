@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do modelo de programação do Service Fabric | Microsoft Docs"
-description: "Recursos de infraestrutura de serviço oferece dois estruturas para a criação de serviços: a estrutura de ator e a arquitetura de serviços. Oferecem distintos compromissos na simplicidade e controlo."
+title: Descrição geral do modelo de programação do Service Fabric | Microsoft Docs
+description: 'Recursos de infraestrutura de serviço oferece dois estruturas para a criação de serviços: a estrutura de ator e a arquitetura de serviços. Oferecem distintos compromissos na simplicidade e controlo.'
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a03bb3c74d9c776b893b11c3dec8788fe9ac598c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Descrição geral do modelo programação Service Fabric
 Recursos de infraestrutura de serviço oferece várias formas para escrever e gerir os seus serviços. Serviços podem optar por utilizar as APIs de recursos de infraestrutura de serviço para tirar partido das funcionalidades e estruturas de aplicações da plataforma. Os serviços também podem ser qualquer programa do executável compilado escrito em qualquer idioma ou código em execução num contentor alojado num cluster do Service Fabric.

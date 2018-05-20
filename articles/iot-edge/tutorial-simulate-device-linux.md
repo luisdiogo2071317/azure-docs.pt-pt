@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b7f0aa514cfffb8fb2ca76238a6a65a8e6443e56
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Implementar o Azure IoT Edge num dispositivo simulado com Linux ou MacOS – pré-visualização
 
@@ -40,6 +40,7 @@ Este tutorial utiliza o seu computador ou máquina virtual, como um dispositivo 
      * _Tenha em atenção que no determinadas distribuições (por exemplo, Raspbian), também poderá ter de atualizar determinadas pacotes pip e instalar dependências adicionais:_
      ```
      sudo pip install --upgrade setuptools pip
+     
      sudo apt-get install python2.7-dev libffi-dev libssl-dev
      ```
    * MacOS: `sudo easy_install pip`.
@@ -97,7 +98,7 @@ Gerir o seu dispositivo de limite de IoT do Azure na nuvem para implementar um m
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-## <a name="view-generated-data"></a>Dados de vista gerada
+## <a name="view-generated-data"></a>Ver os dados gerados
 
 Neste tutorial, criou um novo dispositivo de limite de IoT e instalado o tempo de execução do limite de IoT. Em seguida, utilizou o portal do Azure para emitir um módulo de limite de IoT para ser executada no dispositivo sem ter de efetuar alterações para o dispositivo propriamente dito. Neste caso, o módulo que tiver feito o Push de cria ambientais dados que pode utilizar para os tutoriais. 
 

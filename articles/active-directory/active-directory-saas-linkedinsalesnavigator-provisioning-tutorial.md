@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configurar LinkedIn vendas navegador para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configurar LinkedIn vendas navegador para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para aprovisionar e anular o aprovisionamento contas de utilizador para o navegador de vendas LinkedIn automaticamente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 563cb4e231aaa3abf6e70320df8cfa6b56cd354c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 56060d11373f767b023b092cf01ceb894f70efed
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn navegador de vendas para o aprovisionamento de utilizador automáticas
 
@@ -125,4 +125,4 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 ## <a name="additional-resources"></a>Recursos Adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o ambiente de trabalho Central | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o ambiente de trabalho Central."
+title: 'Tutorial: Integração do Azure Active Directory com o ambiente de trabalho Central | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e o ambiente de trabalho Central.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 94c67bef7a0c6ba60fc9c7a60c79a23bf7984fb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 92c24688cf3d9baefcedcf22c915752b2d29b53c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Azure Active Directory com o ambiente de trabalho Central
 
@@ -30,7 +30,7 @@ Integração do ambiente de trabalho Central com o Azure AD fornece as seguintes
 - Pode permitir aos utilizadores obter iniciada automaticamente ambiente de trabalho Central com as respetivas contas do Azure AD.
 - Pode gerir as contas numa única localização central, o portal do Azure.
 
-Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obter mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,7 +108,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Domínio de ambiente de trabalho central e os URLs únicos de informações de início de sessão](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
-    a. No **URL de início de sessão** caixa, escreva um URL com o padrão do seguinte:`https://<companyname>.centraldesktop.com`
+    a. No **URL de início de sessão** caixa, escreva um URL com o padrão do seguinte: `https://<companyname>.centraldesktop.com`
 
     b. No **identificador** caixa, escreva um URL com o padrão do seguinte:
     | |
@@ -116,7 +116,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
 
-    c. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte:`https://<companyname>.centraldesktop.com/saml2-assertion.php`    
+    c. No **URL de resposta** caixa, escreva um URL com o padrão do seguinte: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
      
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualizar estes valores com o identificador real, URL de resposta e início de sessão no URL. Contacte o [equipa de suporte de cliente de ambiente de trabalho Central](https://imeetcentral.com/contact-us) para obter estes valores. 
@@ -153,7 +153,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 10. No **método de verificação de assinatura de mensagem** secção, siga os passos seguintes:
 
-    ![Método de verificação de assinatura da mensagem](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "método de verificação de assinatura de mensagem") um. Selecione **certificado**.
+    ![Método de verificação de assinatura da mensagem](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "método de verificação de assinatura de mensagem") um. Selecione **Certificado**.
     
     b. No **SSO certificado** lista, selecione **RSH SHA256**.
     
@@ -258,7 +258,7 @@ Nesta secção, vai ativar utilizador Britta Simon para utilizar o Azure-início
 
 7. No **adicionar atribuição** caixa de diálogo, selecione o **atribuir** botão.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste a configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -268,7 +268,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

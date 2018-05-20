@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Salesforce | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e da Salesforce."
+title: 'Tutorial: Integração do Azure Active Directory com o Salesforce | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e da Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf788f1c38c701699e0c275cabe3d12eb75270
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -30,7 +30,7 @@ Integrar o Salesforce com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada Salesforce (Single Sign-On) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central - portal do Azure.
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,15 +110,15 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     a. No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:
     
-    Conta de empresa:`https://<subdomain>.my.salesforce.com`
+    Conta de empresa: `https://<subdomain>.my.salesforce.com`
 
-    Conta de programador:`https://<subdomain>-dev-ed.my.salesforce.com`
+    Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
     
     b. No **identificador** caixa de texto, digite o valor utilizando o padrão do seguinte:
     
-    Conta de empresa:`https://<subdomain>.my.salesforce.com`
+    Conta de empresa: `https://<subdomain>.my.salesforce.com`
 
-    Conta de programador:`https://<subdomain>-dev-ed.my.salesforce.com`
+    Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
     
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão real e o identificador. Contacte [equipa de suporte de cliente do Salesforce](https://help.salesforce.com/support) para obter estes valores.
@@ -169,8 +169,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     c. No **caixa de texto do Id de entidade**, escreva o seu nome de domínio do Salesforce utilizando o padrão do seguinte:
       
-      * Conta de empresa:`https://<subdomain>.my.salesforce.com`
-      * Conta de programador:`https://<subdomain>-dev-ed.my.salesforce.com`
+      * Conta de empresa: `https://<subdomain>.my.salesforce.com`
+      * Conta de programador: `https://<subdomain>-dev-ed.my.salesforce.com`
       
     d. Para carregar o **certificado do fornecedor de identidade**, clique em **Escolher ficheiro** para procurar e selecionar o ficheiro de certificado, o que transferiu a partir do portal do Azure.
 
@@ -188,7 +188,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     h. No **URL de início de sessão do fornecedor de identidade** caixa de texto, cole o valor de **URL Single Sign-On serviço**, que copiou do portal do Azure
     
-    posso. Por fim, clique em **guardar** para aplicar a suas SAML único início de sessão definições.
+    i. Por fim, clique em **guardar** para aplicar a suas SAML único início de sessão definições.
 
 14. No painel de navegação esquerdo do Salesforce, clique em **definições da empresa** para expandir a secção relacionada e, em seguida, clique em **meu domínio**.
 
@@ -276,7 +276,7 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
@@ -286,7 +286,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

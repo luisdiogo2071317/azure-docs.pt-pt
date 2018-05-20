@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configurar o ServiceNow para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
+title: 'Tutorial: Configurar o ServiceNow para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs'
 description: Saiba como aprovisionar e anular o aprovisionamento contas de utilizador do Azure AD para ServiceNow automaticamente.
 services: active-directory
 documentationCenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 50d5ecd0542d236d4d68656af7808c329728aa39
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar o ServiceNow para aprovisionamento de utilizadores automática no Azure Active Directory
 
@@ -91,7 +91,7 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configurar o início de sessão único](active-directory-saas-servicenow-tutorial.md)
 
 

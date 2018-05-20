@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/26/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 35a45947c2766ccc5e64f4c3523ce163a9680680
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Utilizar as aplicações no Azure Blockchain Workbench
 
@@ -33,7 +33,7 @@ Terá de iniciar sessão como membro do Blockchain Workbench. Se não houver nen
 
 ## <a name="create-new-contract"></a>Criar novo contrato 
 
-Para criar um novo contrato, tem de ser um membro do **AllowedInstanceRoles** função. 
+Para criar um novo contrato, tem de ser um membro especificado como um contrato **iniciador**. Para definir funções da aplicação e os iniciadores para o contrato de informações, consulte [fluxos de trabalho na descrição geral configuração](blockchain-workbench-configuration-overview.md#workflows). Para obter informações sobre a atribuição de membros para funções da aplicação, consulte [adicionar um membro à aplicação](blockchain-workbench-manage-users.md#add-member-to-application).
 
 1. Na secção de aplicação Blockchain Workbench, selecione o mosaico de aplicação que contém o contrato que pretende criar. Uma lista de contratos de Active Directory são apresentados.
 
@@ -51,15 +51,10 @@ Para criar um novo contrato, tem de ser um membro do **AllowedInstanceRoles** fu
 
 ## <a name="take-action-on-contract"></a>Ação no contrato
 
+Dependendo do Estado o contrato é, os membros podem efetuar ações para transição para o estado próximo do contrato. As ações são definidas como [transições](blockchain-workbench-configuration-overview.md#transitions) dentro de um [estado](blockchain-workbench-configuration-overview.md#states). Os membros que pertencem a uma função de aplicação ou instância permitida para a transição poderá demorar a ação. 
+
 1. Na secção de aplicação Blockchain Workbench, selecione o mosaico de aplicação que contém o contrato a ação.
-
-    ![Lista de aplicações](media/blockchain-workbench-use/apps-list.png)
-
-2. Selecione o contrato na lista.
-
-    ![Lista de contrato](media/blockchain-workbench-use/select-contract.png)
-
-    São apresentados os detalhes sobre o contrato nas secções diferentes. 
+2. Selecione o contrato na lista. São apresentados os detalhes sobre o contrato nas secções diferentes. 
 
     ![Detalhes do contrato ](media/blockchain-workbench-use/contract-details.png)
 
@@ -74,9 +69,14 @@ Para criar um novo contrato, tem de ser um membro do **AllowedInstanceRoles** fu
 
 4. São apresentados os detalhes sobre o estado atual do contrato num painel. Escolha a ação que pretende colocar na lista pendente. 
 
+    ![Escolha a ação](media/blockchain-workbench-use/choose-action.png)
+
+5. Selecione **ação** para iniciar a ação.
+6. Se os parâmetros são necessários para a ação, especifique os valores para a ação.
+
     ![Tomar medidas](media/blockchain-workbench-use/take-action.png)
 
-5. Selecione **executar** a ação.
+7. Selecione **ação** para executar a ação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

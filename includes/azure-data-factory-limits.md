@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/27/2018
+ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0deda4324a4287e7aa25cb686acb5b6152443735
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites predefinido para se certificar de que as subscrições de cliente estão protegidas de cargas de trabalho entre si. Muitas dos limites podem ser facilmente geradas para a sua subscrição até ao limite máximo contactando o suporte.
 
@@ -27,7 +27,7 @@ Fábrica de dados é um serviço de multi-inquilino que tem os seguintes limites
 | Serviços ligados dentro de uma fábrica de dados | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Tempos de execução de integração dentro de uma fábrica de dados <sup>4</sup> | 2500 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Núcleos de CPU totais para o Azure SSIS integração Runtime(s) sob uma subscrição | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Pipeline em simultâneo é executada por pipeline | 20 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Pipeline em simultâneo é executada por pipeline | 100 | [Contactar o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Atividades de máx. por pipeline | 20 | 30 |
 | Parâmetros de máx. por pipeline | 20 | 30 |
 | Bytes por objeto para objetos de pipeline <sup>1</sup> | 200 KB | 200 KB |

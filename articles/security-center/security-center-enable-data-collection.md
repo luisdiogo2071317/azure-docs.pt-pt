@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados de máquinas de virtuais (VMs) do Azure e computadores não do Azure para monitorizar vulnerabilidades de segurança e ameaças. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Ativar aprovisionamento automático do Microsoft Monitoring Agent     
-Quando o aprovisionamento automático está ativado, Aprovisiona o Centro de segurança do Microsoft Monitoring Agent em todos os suportadas VMs do Azure e quaisquer novos que são criados. Aprovisionamento Automático é vivamente recomendado, mas a instalação manual do agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+Aprovisionamento automático está desativado por predefinição. Quando o aprovisionamento automático está ativado, Aprovisiona o Centro de segurança do Microsoft Monitoring Agent em todos os suportadas VMs do Azure e quaisquer novos que são criados. Aprovisionamento Automático é vivamente recomendado, mas a instalação manual do agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos. Para obter mais informações, consulte [desativar aprovisionamento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) neste artigo. Coleção de artefacto e instantâneos de discos VM estão ativadas, mesmo se o aprovisionamento automático está desativado.
@@ -32,13 +32,16 @@ Quando o aprovisionamento automático está ativado, Aprovisiona o Centro de seg
 >
 
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
-1. No menu principal do Centro de Segurança, selecione **Política de Segurança**.
+1. No menu principal do Centro de segurança, selecione **política de segurança**.
 2. Selecione uma subscrição.
+
+  ![Selecionar subscrição][7]
+
 3. Em **Política de segurança**, selecione **Recolha de Dados**.
-4. Em **integração**, selecione **no** para ativar o aprovisionamento automático.
+4. Em **aprovisionamento automático**, selecione **no** para ativar o aprovisionamento automático.
 5. Selecione **Guardar**.
 
-![Ativar o aprovisionamento automático][1]
+  ![Ativar o aprovisionamento automático][1]
 
 ## <a name="default-workspace-configuration"></a>Configuração de área de trabalho predefinida
 Dados recolhidos pelo centro de segurança são armazenados no workspace(s) de análise de registos.  Pode optar por ter dados recolhidos a partir de VMs do Azure armazenados no áreas de trabalho criadas pelo centro de segurança nem de uma área de trabalho existente que criou.
@@ -49,16 +52,16 @@ Para utilizar a sua área de trabalho de análise de registos existente:
 
 Para selecionar uma área de trabalho de análise de registos existente:
 
-1. Em **política de segurança – recolha de dados**, selecione **utilizar outra área de trabalho**.
+1. Em **configuração de área de trabalho predefinida**, selecione **utilizar outra área de trabalho**.
 
    ![Selecione a área de trabalho existente][2]
 
 2. No menu pendente, selecione uma área de trabalho para armazenar os dados recolhidos.
 
-> [!NOTE]
-> Na solicitação menu pendente, são apresentadas apenas áreas de trabalho que tenha acesso e estão na sua subscrição do Azure.
->
->
+  > [!NOTE]
+  > Na solicitação menu pendente, todas as áreas de trabalho em todas as subscrições estão disponíveis. Consulte [cruzada seleção de área de trabalho de subscrição](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obter mais informações.
+  >
+  >
 
 3. Selecione **Guardar**.
 4. Depois de selecionar **guardar**, será pedido se gostaria de VMs de reconfigure monitorizado.
@@ -73,7 +76,15 @@ Para selecionar uma área de trabalho de análise de registos existente:
 
    - Selecione **Cancelar** para cancelar a operação.
 
-   ![Selecione a área de trabalho existente][3]
+     ![Selecione a área de trabalho existente][3]
+
+## <a name="cross-subscription-workspace-selection"></a>Cruzada seleção de área de trabalho de subscrição
+Quando seleciona uma área de trabalho para armazenar os dados, todas as áreas de trabalho em todas as subscrições estão disponíveis. Subscrição cruzada seleção de área de trabalho permite-lhe recolher dados de máquinas virtuais em execução em diferentes subscrições e armazene-a na área de trabalho da sua preferência. Esta capacidade funciona para máquinas virtuais em execução no Linux e Windows.
+
+> [!NOTE]
+> Subscrição cruzada seleção de área de trabalho faz parte do escalão gratuito do Centro de segurança do Azure. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+>
+>
 
 ## <a name="data-collection-tier"></a>Camada de recolha de dados
 Centro de segurança pode reduzir o volume de eventos, mantendo em simultâneo suficiente eventos para investigação, auditoria e deteção de ameaças. Pode escolher o direito de filtragem de política para as suas subscrições e áreas de trabalho de quatro conjuntos de eventos recolhidos pelo agente.
@@ -84,7 +95,8 @@ Centro de segurança pode reduzir o volume de eventos, mantendo em simultâneo s
 - **Nenhum** – desativar a recolha de eventos de segurança de segurança e do App Locker registos. Para os clientes que escolha esta opção, os seus dashboards de segurança tem apenas registos de Firewall do Windows e avaliações proativa como antimalware, a linha de base e a atualização.
 
 > [!NOTE]
-> Estes conjuntos foram concebidos para abordar cenários típicos. Certifique-se ao avaliar quais um necessidades da sua antes de a implementar.
+> Estes conjuntos de eventos de segurança só estão disponíveis no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+Estes conjuntos foram concebidos para abordar cenários típicos. Certifique-se ao avaliar quais um necessidades da sua antes de a implementar.
 >
 >
 
@@ -115,7 +127,7 @@ Eis uma divisão de segurança e do App Locker de IDs de evento para cada conjun
 >
 
 Para escolher a política de filtragem:
-1. No **definições de política de segurança &** painel, selecione a política de filtragem em **eventos de segurança**.
+1. No **recolha de dados de política de segurança** painel, selecione a política de filtragem em **eventos de segurança**.
 2. Selecione **Guardar**.
 
    ![Escolha a política de filtragem][5]
@@ -129,12 +141,13 @@ Pode desativar aprovisionamento automático de recursos em qualquer altura desat
 >
 
 1. Regressar ao menu principal do Centro de segurança e selecione a política de segurança.
-
-   ![Desativar aprovisionamento automático][6]
-
 2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
-3. No **política de segurança – recolha de dados** painel, em **integração** selecione **desativar** para desativar aprovisionamento automático.
-4. Selecione **Guardar**.  
+3. No **política de segurança – recolha de dados** painel, em **aprovisionamento automático** selecione **desativar**.
+4. Selecione **Guardar**.
+
+  ![Desativar aprovisionamento automático][6]
+
+Quando o aprovisionamento automático está desativado (desativado), a secção de configuração de área de trabalho predefinido não é apresentado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Este artigo como mostrado a recolha de dados e o aprovisionamento automático no Centro de segurança funciona. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
@@ -153,4 +166,5 @@ Este artigo como mostrado a recolha de dados e o aprovisionamento automático no
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

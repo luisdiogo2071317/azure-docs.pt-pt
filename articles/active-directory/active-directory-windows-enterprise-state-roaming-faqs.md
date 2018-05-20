@@ -1,9 +1,9 @@
 ---
-title: "As definições e dados em roaming FAQ | Microsoft Docs"
-description: "Fornece respostas a algumas questões, os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação."
+title: As definições e dados em roaming FAQ | Microsoft Docs
+description: Fornece respostas a algumas questões, os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
 services: active-directory
-keywords: "Enterprise Estado as definições de roaming, nuvem do windows, perguntas mais frequentes em roaming de estado empresarial"
-documentationcenter: 
+keywords: Enterprise Estado as definições de roaming, nuvem do windows, perguntas mais frequentes em roaming de estado empresarial
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
-Este tópico responde a algumas perguntas os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
+Este artigo responde a algumas perguntas os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
 
 ## <a name="what-data-roams"></a>Se os dados?
 **Definições do Windows**: as definições do PC que são incorporadas no sistema operativo Windows. Geralmente, estas são as definições que personalizar o seu PC e incluem as seguintes categorias amplas:
@@ -70,12 +70,12 @@ Se tiver armazenado quaisquer dados pessoais no seu dispositivo da empresa, deve
 As versões de Novembro versão 2015 ou posterior do Windows 10, Roaming de estado empresarial é apenas suportado para uma única conta cada vez. Se iniciar sessão no Windows utilizando um trabalho ou escola conta do Azure AD, todos os dados serão sincronizados através do Azure AD. Se iniciar sessão Windows, utilizando uma conta Microsoft pessoal, serão sincronizados todos os dados através da conta Microsoft. Universal appdata será sejam acedidas remotamente utilizando apenas a início de sessão na conta principal no dispositivo e será se movem apenas se a licença da aplicação é propriedade de conta da principal. Universal appdata para as aplicações pertencentes a quaisquer contas secundárias não será sincronizado.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>As definições de sincronização para contas de anúncios do Azure a partir de múltiplos inquilinos?
-Quando contas de várias do Azure AD de diferentes inquilinos do Azure AD estão no mesmo dispositivo, tem de atualizar o registo do dispositivo para comunicar com o Azure Rights Management (Azure RMS) para cada inquilino do Azure AD.  
+Quando contas de várias do Azure AD de diferentes inquilinos do Azure AD estão no mesmo dispositivo, tem de atualizar o registo do dispositivo para comunicar com o serviço Azure Rights Management para cada inquilino do Azure AD.  
 
-1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. O GUID para o inquilino é na página de propriedades para o inquilino selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), com a etiqueta **ID de diretório**. 
+1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. O GUID para o inquilino é na página de propriedades para o inquilino selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), identificados **ID de diretório**. 
 2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID de ID de inquilino >**.
    Do **GUID de ID de inquilino** chave, crie um novo valor de cadeia múltipla (REG-várias-SZ) com o nome **AllowedRMSServerUrls**. Para os respetivos dados, especifique os URLs de ponto de distribuição licenciamento de outros inquilinos do Azure que acede ao dispositivo.
-3. Pode encontrar os URLs de ponto de distribuição licenciamento executando o **Get-AadrmConfiguration** cmdlet. Se os valores para o **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** são diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
+3. Pode encontrar os URLs de ponto de distribuição licenciamento executando o **Get-AadrmConfiguration** cmdlet do módulo AADRM. Se os valores para o **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** são diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Quais são as opções de definições de roaming para aplicações de ambiente de trabalho Windows existentes?
 Roaming só funciona para aplicações Universal do Windows. Existem duas opções disponíveis para ativar uma aplicação de ambiente de trabalho existente do Windows está em roaming:
@@ -95,9 +95,9 @@ No futuro, a Microsoft pode investigar formas para tornar profundamente integrad
 Roaming de estado empresarial armazena todos os dados sincronizados na nuvem do Azure. Oferece de UE-V no local em roaming solução.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Quem tem os dados que estão a ser movidos?
-As empresas próprias movidos dados através de Roaming de estado empresarial. Os dados são armazenados num datacenter do Azure. Todos os dados de utilizador são encriptados em trânsito e inativos na nuvem utilizando o Azure RMS. Esta é uma melhoria em comparação comparada a sincronização de definições com base na conta Microsoft, que encripta apenas determinados dados confidenciais, tais como as credenciais do utilizador antes de sai do dispositivo.
+As empresas próprias movidos dados através de Roaming de estado empresarial. Os dados são armazenados num datacenter do Azure. Todos os dados de utilizador são encriptados em trânsito e inativos na nuvem utilizando o serviço Azure Rights Management do Azure Information Protection. Esta é uma melhoria em comparação comparada a sincronização de definições com base na conta Microsoft, que encripta apenas determinados dados confidenciais, tais como as credenciais do utilizador antes de sai do dispositivo.
 
-A Microsoft está empenhada em proteger as dados de cliente. Dados de definições de um utilizador enterprise automaticamente são encriptados pelo Azure RMS antes de sai um dispositivo Windows 10, pelo que não existem outros utilizadores podem ler estes dados. Se a sua organização tiver uma subscrição paga do Azure RMS, pode utilizar outras funcionalidades do Azure RMS, por exemplo, controlar e revogar documentos, automaticamente proteger e-mails que contêm informações confidenciais e gerir as suas próprias chaves (a solução "traga a sua própria chave", também conhecido como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona o Azure RMS, consulte [que é o Azure Rights Management](https://technet.microsoft.com/jj585026.aspx).
+A Microsoft está empenhada em proteger as dados de cliente. Dados de definições de um utilizador enterprise automaticamente são encriptados pelo serviço do Azure Rights Management antes de que sai um dispositivo Windows 10, pelo que não existem outros utilizadores podem ler estes dados. Se a sua organização tiver uma subscrição paga para o serviço Azure Rights Management, pode utilizar outras funcionalidades de proteção, como controlar e revogar documentos, automaticamente proteger e-mails que contêm informações confidenciais e gerir as suas próprias chaves (o "bring a sua própria chave"solução, também conhecida como BYOK). Para obter mais informações sobre estas funcionalidades e como funciona este serviço de proteção, consulte [que é o Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Pode gerir a sincronização para uma aplicação específica ou a definição?
 No Windows 10, não há nenhuma definição de MDM ou política de grupo para desativar o roaming para uma aplicação individual. Os administradores inquilinos podem desativar a sincronização de appdata para todas as aplicações em dispositivos geridos, mas não existe nenhum melhorar o controlo a um nível por aplicação ou na aplicação.
@@ -116,8 +116,8 @@ Ao utilizar o Roaming de estado empresarial e de UE-V, aplicam as seguintes regr
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Como o Roaming de estado de Enterprise suporta a infraestrutura de ambiente de trabalho virtual (VDI)?
 Roaming de estado empresarial é suportada no Windows 10 cliente SKUs, mas não no servidor SKUs. Se um cliente VM está alojado numa máquina hipervisor e iniciam sessão remotamente em à máquina virtual, os dados serão utilizados em roaming. Se vários utilizadores partilham o mesmo sistema operativo e os utilizadores iniciam sessão remotamente em para um servidor para uma experiência de ambiente de trabalho completo, não poderá funcionar em roaming. O cenário de última baseados em sessão não é oficialmente suportado.
 
-## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>O que acontece quando a minha organização comprar o Azure RMS depois de utilizar o roaming?
-Se a sua organização já está a utilizar em roaming no Windows 10 com a Azure RMS utilização limitada subscrição gratuita, compra de uma subscrição paga do Azure RMS não terá qualquer impacto na funcionalidade da funcionalidade de roaming e sem alterações de configuração será necessárias o administrador de TI.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>O que acontece quando a minha organização comprar uma subscrição que inclui o Azure Rights Management depois de utilizar o roaming?
+Se já estiver a sua organização utilizar roaming no Windows 10 com a subscrição gratuita do Azure Rights Management utilização limitada, a compra de uma [subscrição paga](https://azure.microsoft.com/pricing/details/information-protection/) que inclui o serviço de proteção não terão o Azure Rights Management qualquer impacto na funcionalidade da funcionalidade de roaming e sem alterações de configuração, serão necessário pelo seu administrador de TI.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 Consulte a documentação do [resolução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) secção para obter uma lista dos problemas conhecidos. 

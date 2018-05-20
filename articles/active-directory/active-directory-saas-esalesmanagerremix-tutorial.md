@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 200d87b950ac76c85513bc11da2798562e48bec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f681eb91c1e79eb42b572956dfab93e620489e74
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Remix de Gestor de vendas E do Azure Active Directory
 
@@ -30,7 +30,7 @@ Através da integração do Azure AD com Remix do Gestor de vendas da I, obtenha
 - Pode permitir aos utilizadores obter a sessão iniciada no automaticamente i vendas Manager Remix (o início de sessão único, ou SSO) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central, o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +107,7 @@ Ativar o Azure AD início de sessão no portal do Azure e configurar o início d
     > [!NOTE] 
     > Os valores anteriores não são reais. Atualize-as com o URL de início de sessão real e o identificador. Para obter os valores, contacte [equipa de suporte de cliente Remix Manager vendas i](mailto:esupport@softbrain.co.jp).
 
-4. Em **certificado de assinatura de SAML**, selecione **certificado (Base64)**e, em seguida, guarde o ficheiro de certificado no seu computador.
+4. Em **certificado de assinatura de SAML**, selecione **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
     ![A hiperligação de transferência do certificado (Base64)](./media/active-directory-saas-esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -117,7 +117,7 @@ Ativar o Azure AD início de sessão no portal do Azure e configurar o início d
 
     O **Editar atributo** é aberta a janela.
 
-6. Copiar o **espaço de nomes** e **nome** valores. Gerar o valor no padrão de  *\<espaço de nomes > /\<nome >*e guardá-lo para utilização posterior neste tutorial.
+6. Copiar o **espaço de nomes** e **nome** valores. Gerar o valor no padrão de  *\<espaço de nomes > /\<nome >* e guardá-lo para utilização posterior neste tutorial.
 
     ![A janela Editar atributo](./media/active-directory-saas-esalesmanagerremix-tutorial/configure2.png)
 
@@ -259,7 +259,7 @@ Nesta secção, vai ativar utilizador Britta Simon para utilizar o Azure-início
 
 7. No **adicionar atribuição** janela, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, teste configuração do Azure AD único início de sessão utilizando o painel de acesso.
 
@@ -270,7 +270,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre a integração de aplicações SaaS no Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

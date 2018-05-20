@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory a área de trabalho Soonr | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Soonr área de trabalho."
+title: 'Tutorial: Integração do Azure Active Directory a área de trabalho Soonr | Microsoft Docs'
+description: Saiba como configurar o início de sessão entre o Azure Active Directory e Soonr área de trabalho.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 55e99b2dd566dbf5a3bcb86974210c0399584e72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1725ebd39a5d976fee061ed92ddcc686fa7a1acd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Tutorial: Integração do Azure Active Directory a área de trabalho Soonr
 
@@ -29,7 +29,7 @@ Integrar Soonr área de trabalho com o Azure AD fornece as seguintes vantagens:
 - Pode permitir que os utilizadores automaticamente obter com sessão iniciada para a área de trabalho Soonr (Single Sign-On) com as respetivas contas do Azure AD
 - Pode gerir as contas numa localização central - portal do Azure
 
-Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,9 +110,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<servername>.soonr.com/singlesignon/saml/metadata`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<servername>.soonr.com/singlesignon/saml/SSO`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
 4. No **Soonr à área de trabalho domínio e os URLs** secção, se pretender configurar a aplicação no **SP iniciada modo**, execute os seguintes passos:
     
@@ -120,7 +120,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     a. Clique em de **Mostrar avançadas definições de URL**.
 
-    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<servername>.soonr.com/singlesignon/saml/SSO`
+    b. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualizar estes valores com o identificador real, inicie sessão no URL e o URL de resposta. Contacte [equipa de suporte de área de trabalho Soonr](https://awp.autotask.net/help/) para obter estes valores.
@@ -220,7 +220,7 @@ Quando clica no mosaico Soonr área de trabalho no painel de acesso, deve obter 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

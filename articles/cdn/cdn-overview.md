@@ -4,7 +4,7 @@ description: Saiba o que é a Rede de Entrega de Conteúdos (CDN) do Azure e com
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/20/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f760c1b47da7273827ce2a980cdc9b4db943904
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de entrega de conteúdos (CND) no Azure?
 As redes de entrega de conteúdos são redes distribuídas de servidores que podem entregar, de forma eficiente, conteúdos da Web aos utilizadores. As CDNs armazenam os conteúdos em cache em servidores Edge em localizações do ponto de presença (POP) que estão próximas dos utilizadores finais, para minimizar a latência. 
@@ -28,7 +28,7 @@ A Rede de Entrega de Conteúdos (CDN) oferece aos programadores uma solução gl
 
 As vantagens de utilizar a CDN do Azure para fornecer recursos de sites incluem:
 
-* Melhor desempenho e experiência do utilizador melhorada para os utilizadores finais, especialmente quando se utilizam aplicações nas quais são necessários vários percursos de ida e volta para carregar conteúdo.
+* Melhor desempenho e experiência do utilizador melhorada para os utilizadores finais, especialmente quando se utilizam aplicações nas quais são necessárias vários percursos de ida e volta para carregar conteúdo.
 * Grande dimensionamento para processar melhor cargas elevadas instantâneas, como no início de um evento de iniciação de um produto.
 * Distribuição de pedidos de utilizador e publicação de conteúdos diretamente a partir de servidores Edge, para que seja enviado menos tráfego para o servidor de origem.
 
@@ -39,11 +39,11 @@ Para obter uma lista das localizações de nós da CDN atual, veja [Azure CDN PO
 
 1. Um utilizador (Alice) solicita um ficheiro (também denominado recurso) ao utilizar um URL com um nome de domínio especial, como _&lt; nome do ponto final&gt;_.azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
     
-2. Se nenhuns servidores Edge no POP tiverem o ficheiro na respetiva cache, o POP solicita o ficheiro do servidor de origem. O servidor de origem pode ser uma aplicação Web do Azure, um Serviço Cloud do Azure, uma conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
+2. Se nenhuns servidores Edge no POP tiverem o ficheiro na respetiva cache, o POP solicita o ficheiro do servidor de origem. O servidor de origem pode ser uma aplicação Web do Azure, um Serviço em Nuvem do Azure, uma conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
    
 3. O servidor de origem devolve o ficheiro a um servidor Edge no POP.
     
-4. Um servidor Edge no POP coloca em cache o ficheiro e devolve o ficheiro ao requerente original (Alice). O ficheiro permanece em cache no servidor Edge no POP até à expiração do TTL (Time-to-Live) especificado pelos respetivos cabeçalhos HTTP. Se o servidor de origem não tiver especificado um valor de TTL, o TTL predefinido é de sete dias.
+4. Um servidor Edge no POP coloca em cache o ficheiro e devolve o ficheiro ao requerente original (Alice). O ficheiro permanece em cache no servidor Edge no POP até à expiração do TTL (Time-to-Live) especificado pelo respetivos cabeçalhos HTTP. Se o servidor de origem não tiver especificado um valor de TTL, o TTL predefinido é de sete dias.
     
 5. Os utilizadores adicionais podem então solicitar o mesmo ficheiro, ao utilizarem o mesmo URL que a Alice utilizou, e também podem ser direcionados para o mesmo POP.
     
@@ -70,7 +70,7 @@ A CDN do Azure oferece as seguintes funcionalidades principais:
 - [Compressão de ficheiros](cdn-improve-performance.md)
 - [Filtro geográfico](cdn-restrict-access-by-country.md)
 
-Para obter uma lista completa das funcionalidades que cada produto da CDN do Azure suporta, veja [Funcionalidades de produto da CDN do Azure](cdn-features.md).
+Para obter uma lista completa das funcionalidades que cada produto da CDN do Azure suporta, veja [Comparar funcionalidades de produto da CDN do Azure](cdn-features.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 - Para começar a utilizar a CDN, veja [Criar um perfil e um ponto final da CDN do Azure](cdn-create-new-endpoint.md).

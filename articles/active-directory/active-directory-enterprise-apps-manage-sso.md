@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão para aplicações da empresa
 
-Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir definições de início de sessão único para aplicações da empresa. Aplicações da empresa são aplicações que estão implementadas e utilizadas dentro da sua organização. Este artigo aplica-se especialmente para aplicações que foram adicionadas a partir de [Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir definições de início de sessão único para aplicações da empresa. Aplicações da empresa são aplicações que estão implementadas e utilizadas dentro da sua organização. Este artigo aplica-se especialmente para aplicações que foram adicionadas a partir de [Galeria de aplicações do Azure Active Directory](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar as suas aplicações no portal
 Todas as aplicações da empresa que são definidas para o início de sessão único pode ser visto e gerido no portal do Azure. As aplicações podem ser encontradas no **todos os serviços** &gt; **aplicações empresariais** secção do portal. 
@@ -43,7 +43,7 @@ Para gerir as definições de início de sessão único, selecione **de sessão 
 * **Baseado em palavra-passe de início de sessão** -esta opção está disponível se o formulário de palavra-passe ao preencher para esta aplicação de suporte do Azure AD.
 * **Ligado início de sessão** -anteriormente conhecida como "Existentes single sign-on", esta opção permite aos administradores colocar uma ligação para esta aplicação no iniciador da aplicação de painel de acesso do Azure AD ou o Office 365 os seus utilizadores.
 
-Para obter mais informações sobre estes modos, consulte [como único início de sessão com o trabalho do Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Para obter mais informações sobre estes modos, consulte [como único início de sessão com o trabalho do Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Baseados em SAML início de sessão
 O **baseados em SAML início de sessão** opção está dividida em quatro secções:
@@ -79,12 +79,12 @@ O **configurar aplicação** momento Escalamento menu fornece instruções passo
 ![Docs incorporados](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Baseado em palavra-passe de início de sessão
-Se suportado para a aplicação, selecionar o modo SSO baseada em palavra-passe e selecionando **guardar** instantaneamente configura não SSO baseada em palavra-passe. Para obter mais informações sobre a implementação do SSO baseada em palavra-passe, consulte [como único início de sessão com o trabalho do Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Se suportado para a aplicação, selecionar o modo SSO baseada em palavra-passe e selecionando **guardar** instantaneamente configura não SSO baseada em palavra-passe. Para obter mais informações sobre a implementação do SSO baseada em palavra-passe, consulte [como único início de sessão com o trabalho do Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Baseado em palavra-passe de início de sessão](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>O início de sessão ligado
-Se suportado para a aplicação, selecionar o modo ligado do SSO permite-lhe introduzir o URL que pretende que o painel de acesso do Azure AD ou o Office 365 para redirecionar para quando os utilizadores clicarem nesta aplicação. Para mais informações sobre ligado SSO (anteriormente conhecida como "SSO existente"), consulte [como único início de sessão com o trabalho do Azure Active Directory](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Se suportado para a aplicação, selecionar o modo ligado do SSO permite-lhe introduzir o URL que pretende que o painel de acesso do Azure AD ou o Office 365 para redirecionar para quando os utilizadores clicarem nesta aplicação. Para mais informações sobre ligado SSO (anteriormente conhecida como "SSO existente"), consulte [como único início de sessão com o trabalho do Azure Active Directory](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![O início de sessão ligado](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

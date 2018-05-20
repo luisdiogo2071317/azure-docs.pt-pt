@@ -1,24 +1,24 @@
 ---
-title: "Cenários de aplicações e de design | Microsoft Docs"
-description: "Descrição geral das categorias de aplicações em nuvem no Service Fabric. Descreve o design da aplicação que utiliza os serviços com monitorização de estado e sem monitorização de estado."
+title: Cenários de aplicações e de design | Microsoft Docs
+description: Descrição geral das categorias de aplicações em nuvem no Service Fabric. Descreve o design da aplicação que utiliza os serviços com monitorização de estado e sem monitorização de estado.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0a9b24704a91d6a6893937b4ee03765fb05f092
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicação de Service Fabric
 Recursos de infraestrutura de serviço do Azure oferece uma plataforma fiável e flexível que permite-lhe escrever e executar muitos tipos de serviços e aplicações empresariais. Estas aplicações e micro-serviços podem ser sem monitorização de estado ou com monitorização de estado e são com balanceamento de recurso em máquinas virtuais para maximizar a eficiência. A arquitetura do Service Fabric exclusiva permite-lhe efetuar perto de análise de dados em tempo real, cálculo dentro da memória, transações paralelas e nas suas aplicações de processamento de eventos. Pode facilmente dimensionar as suas aplicações ou reduzir verticalmente (realmente a entrada ou saída), dependendo dos requisitos de recursos a alteração.
@@ -50,7 +50,7 @@ Com monitorização de estado micro-serviços simplificam estruturas de aplicaç
 ![Aplicação utilizando o serviço sem monitorização de estado][Image2]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Escutar [casos práticos de clientes](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
 )

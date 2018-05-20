@@ -1,17 +1,17 @@
 ---
-title: "Grupo de máquinas para avaliação com o Azure migrar | Microsoft Docs"
-description: "Descreve como agrupar máquinas antes de executar uma avaliação com o serviço Azure migrar."
+title: Grupo de máquinas para avaliação com o Azure migrar | Microsoft Docs
+description: Descreve como agrupar máquinas antes de executar uma avaliação com o serviço Azure migrar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5c5b5dc97c0faf43c9543422406c4fa1c30ed679
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="group-machines-for-assessment"></a>Grupo de máquinas para avaliação
 
@@ -31,4 +31,4 @@ Depois do grupo for criado, pode modificá-la ao selecionar o grupo no **grupos*
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como utilizar [mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md) para criar grupos de confiança elevada.
-- [Saiba mais](concepts-assessment-calculation.md) sobre como avaliações são calculadas.
+- [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.
