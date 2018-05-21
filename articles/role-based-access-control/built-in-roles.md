@@ -15,11 +15,11 @@ ms.date: 05/11/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 85a9b3a4f1fc21cbb47d41a61661de38d6fc246d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 [O controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de função são a forma de controlar o acesso a recursos no Azure. Não é possível modificar as funções incorporadas, mas pode criar os seus próprios [funções personalizadas](custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -100,7 +100,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Gestor de tráfego contribuinte](#traffic-manager-contributor) | Permite-lhe gerir perfis do Gestor de Tráfego, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Administrador de acesso de utilizador](#user-access-administrator) | Permite-lhe gerir o acesso de utilizador aos recursos do Azure. |
 | [Início de sessão de administrador de máquinas virtuais](#virtual-machine-administrator-login) | -  Os utilizadores com esta função têm a capacidade de iniciar sessão numa máquina virtual com privilégios de administrador do Windows ou utilizador de raiz do Linux. |
-| [Contribuinte de máquina virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
+| [Contribuinte de máquina virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder aos mesmos e não a rede virtual ou ligados a conta do storage. |
 | [Início de sessão de utilizador de máquina virtual](#virtual-machine-user-login) | Os utilizadores com esta função têm a capacidade de iniciar sessão numa máquina virtual como utilizador normal. |
 | [Plano de contribuinte da Web](#web-plan-contributor) | Permite-lhe gerir planos Web para sites, mas não aceder-lhes. |
 | [Contribuinte de Web site](#website-contributor) | Permite-lhe gerir sites (não planos Web), mas não aceder-lhes. |
@@ -1442,7 +1442,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir máquinas virtuais, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
+> | **Descrição** | Permite-lhe gerir máquinas virtuais, mas não aceder aos mesmos e não a rede virtual ou ligados a conta do storage. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Autorização de leitura |

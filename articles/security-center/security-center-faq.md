@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5a9f2ba68574ba8cb99b01ce426ec77a5eecd3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Estas perguntas mais frequentes respondem a dúvidas sobre o Centro de segurança do Azure, um serviço que o ajuda a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos do Microsoft Azure.
@@ -89,7 +89,7 @@ Para saber como configurar uma política de segurança, consulte [definir polít
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos Azure. Quando são identificadas potenciais vulnerabilidades de segurança, recomendações são criadas. As recomendações descrevem o processo de configuração o controlo necessário. Os exemplos são:
 
 * Aprovisionamento de antimalware para ajudar a identificar e remover software malicioso
-* Configurar [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) e regras para controlar tráfego para máquinas virtuais
+* [Grupos de segurança de rede](../virtual-network/security-overview.md) e regras para controlar tráfego para máquinas virtuais
 * Aprovisionamento de uma firewall de aplicação web para ajudar a proteger contra ataques de filtragem de aplicações web-
 * Implementação de atualizações do sistema em falta
 * Abordagem de configurações de SO que não correspondam às linhas de base recomendadas
