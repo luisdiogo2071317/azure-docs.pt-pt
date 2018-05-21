@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Melhores práticas de segurança de VM do Azure
 
@@ -68,7 +68,7 @@ Se a VM executa aplicações críticas que tem de ter elevada disponibilidade, r
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) também requer que as VMs com balanceamento de carga pertencem ao mesmo conjunto de disponibilidade. Se estas VMs tem de ser acedidos a partir da Internet, tem de configurar um [Balanceador de carga para a Internet](../load-balancer/load-balancer-internet-overview.md).
 
-Quando as VMs estão expostas à Internet, é importante que [controlar o fluxo de tráfego de rede com grupos de segurança de rede (NSGs)](../virtual-network/virtual-networks-nsg.md). Porque os NSGs podem ser aplicados a sub-redes, pode minimizar o número de NSGs agrupando os recursos por sub-rede e, em seguida, aplicando os NSGs a sub-redes. O objetivo consiste em criar uma camada de isolamento de rede, pode fazê-lo ao configurar corretamente o [segurança de rede](../best-practices-network-security.md) capacidades no Azure.
+Quando as VMs estão expostas à Internet, é importante que [controlar o fluxo de tráfego de rede com grupos de segurança de rede (NSGs)](../virtual-network/security-overview.md). Porque os NSGs podem ser aplicados a sub-redes, pode minimizar o número de NSGs agrupando os recursos por sub-rede e, em seguida, aplicando os NSGs a sub-redes. O objetivo consiste em criar uma camada de isolamento de rede, pode fazê-lo ao configurar corretamente o [segurança de rede](../best-practices-network-security.md) capacidades no Azure.
 
 Também pode utilizar a funcionalidade do just-in-time (JIT) VM acesso de leitura a partir do Centro de segurança do Azure para controlar quem tem acesso remoto para uma VM específica e como período de tempo.
 
@@ -124,6 +124,6 @@ Abuso de recurso pode ser um problema ao VM processos consumam mais recursos que
 
 Analisando [ficheiros de registo de diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), pode monitorizar os recursos da VM e identificar potenciais problemas que possam comprometer o desempenho e disponibilidade. A extensão de diagnóstico do Azure fornece capacidades de monitorização e diagnóstico em VMs baseadas no Windows. Pode ativar estas funcionalidades, incluindo a extensão como parte do [modelo Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Também pode utilizar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) ganhar visibilidade em estado de funcionamento do recurso.
+Também pode utilizar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) ganhar visibilidade em estado de funcionamento dos seus recursos.
 
 As organizações que não a monitorizar o desempenho da VM não são possível determinar se são determinadas alterações nos padrões de desempenho normal ou anormal. Se a VM está a consumir mais recursos que o habitual, essas uma anomalias pode indicar um ataque potencial de um recurso externo ou um processo de comprometido em execução na VM.
