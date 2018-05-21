@@ -9,11 +9,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/12/2018
 ms.author: heidist
-ms.openlocfilehash: 5454e659d488c84de32a15de65226bc3e1b07dfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para pesquisa do Azure
 
@@ -67,9 +67,9 @@ Mudarem o foco para os escalões standard mais frequentemente utilizados, **S1 S
 | Tamanho de partição|  25 GB | 100 GB | 250 GB |  |  |  |  |
 | limites de índice e indexador| 50 | 200 | 200 |  |  |  |  |
 
-**S1** é uma escolha de comuns ficarem de recursos dedicados uma necessidade. Com partições de 25 GB para até 12 partições, por-serviço limite **S1** é de 300 GB total se maximizar a partições através de réplicas (consulte [alocar partições e réplicas](search-capacity-planning.md#chart) mais realistas e compositions equilibradas.)
+**S1** é uma escolha de comuns quando recursos dedicados e várias partições tornar-se uma necessidade. Com partições de 25 GB para até 12 partições, por-serviço limite **S1** é de 300 GB total se maximizar a partições através de réplicas (consulte [alocar partições e réplicas](search-capacity-planning.md#chart) para balanceamento mais compositions.)
 
-Para além do armazenamento e limites, outros aspetos da capacidade de serviço são uniforme em camadas. Réplicas, que são instâncias do motor de busca (operações de indexação e consulta de processamento), não variam consoante a camada: um **S1** réplica é o mesmo que um **S3** réplica. Da mesma forma, payloads de pedido e resposta, o débito de consultas por segundo e o tempo de execução máximo também não variam consoante a camada.
+As páginas do portais e preços colocar o foco sobre o tamanho de partição e o armazenamento, mas para cada camada, todas as capacidades (capacidade de disco, velocidade, CPUs) de computação crescer de forma linear com preços. Um **S2** réplica é mais rápida do que **S1**, e **S3** é mais rápida do que **S2**. **S3** camadas interromper o padrão de preços de computação geralmente linear com disproportionately mais rápido e/s. Se prevê e/s como valor, um **S3** dá-lhe muito mais de IOPS de camadas inferiores.
 
 **S3** e **S3 HD** são apoiados por infraestrutura idênticos capacidade elevada, mas cada um atinge o limite máximo de formas diferentes. **S3** está direcionada para um número mais pequeno índices muito grande. Como tal, o limite máximo está vinculado ao recurso (2.4 TB para cada serviço). **S3 HD** destina-se um grande número de índices muito pequenos. Em 1.000 índices, **S3 HD** atingir os limites na forma de restrições de índice. Se for um **S3 HD** cliente que requer mais de 1000 índices, contacte Support da Microsoft para obter informações sobre como proceder.
 

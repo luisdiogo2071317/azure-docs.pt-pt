@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1d0ae04bee6d50456949529449b658907d338f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual com Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -50,7 +50,7 @@ As distribuições de Linux seguintes são atualmente suportadas durante a pré-
 
 As seguintes regiões do Azure atualmente são suportadas durante a pré-visualização desta funcionalidade:
 
-- Todas as regiões do Azure públicas
+- Todas as regiões do Azure global
 
 >[!IMPORTANT]
 > Para utilizar esta funcionalidade de pré-visualização, implementar apenas uma distro suportada de Linux e numa região do Azure suportada. A funcionalidade não é suportada no Azure Government ou sovereign nuvens.
@@ -167,6 +167,10 @@ Se concluir com êxito o passo de autenticação num web browser, poderá ser im
 - Certifique-se de que o nome de início de sessão que especificou na linha de SSH está correto. Um erro de digitação no nome de início de sessão pode causar um erro de correspondência entre o nome de início de sessão que especificou na linha de SSH e a conta que iniciou sessão com o Azure AD com. Por exemplo, o que escreveu *azuresuer@contoso.onmicrosoft.com* em vez de *azureuser@contoso.onmicrosoft.com*.
 - Se tiver múltiplas contas de utilizador, certifique-se que não fornecer uma conta de utilizador diferente na janela do browser quando iniciar sessão no Azure AD.
 - Linux é um sistema de operativo maiúsculas e minúsculas. Há uma diferença entre 'Azureuser@contoso.onmicrosoft.com'e'azureuser@contoso.onmicrosoft.com', que pode causar um erro de correspondência. Certifique-se de que especificou o UPN com a sensibilidade correta na linha de SSH.
+
+## <a name="preview-feedback"></a>Pré-visualização comentários
+
+Partilhar os seus comentários sobre este problemas de funcionalidade ou no relatório de pré-visualização utilizá-la no [fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
