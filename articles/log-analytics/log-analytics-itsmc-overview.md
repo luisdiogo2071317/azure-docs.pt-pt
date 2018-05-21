@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 48fe35006ca9ca5ac48e6b2d2a207576426e814d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure com ferramentas de ITSM utilizando o conector de gestão do serviço de TI
 
@@ -31,7 +31,7 @@ Serviços do Azure, como a análise de registos e Monitor do Azure fornecem ferr
 ITSMC suporta ligações com as ferramentas ITSM seguintes:
 
 -   ServiceNow
--   O System Center Service Manager
+-   System Center Service Manager
 -   Provance
 -   Cherwell
 
@@ -229,7 +229,7 @@ ServiceDeskWorkItemType_s="Incident"
 **Campos**
 
 - ServiceDeskConnectionName
-- ID do serviço de suporte técnico
+- ID do Service Desk
 - Estado
 - Urgência
 - Impacto
@@ -256,7 +256,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Campos**
 - ServiceDeskConnectionName
-- ID do serviço de suporte técnico
+- ID do Service Desk
 - Criado Por
 - Fechada pelo
 - Origem
@@ -287,7 +287,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Campo de análise do registo | Campo de ServiceNow |
 |:--- |:--- |
-| ServiceDeskId_s| Número |
+| ServiceDeskId_s| Number |
 | IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
@@ -309,7 +309,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | Campo de ServieNow |
 |:--- |:--- |
-| ServiceDeskId_s| Número |
+| ServiceDeskId_s| Number |
 | CreatedBy_s | Pedido por |
 | ClosedBy_s | Fechada pelo |
 | AssignedTo_s | Atribuído a  |
@@ -333,10 +333,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-itsm-connections"></a>Resolver problemas de ligações de ITSM
 1.  Se a ligação falhar da IU da origem ligados com um **erro na ligação de guardar** da mensagem, siga os passos seguintes:
-- Para ligações de ServiceNow, Cherwell e Provance,  
+ - Para ligações de ServiceNow, Cherwell e Provance,  
     - Certifique-se que corretamente introduziu o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
     - Verifique se tem privilégios suficientes no produto ITSM correspondente para efetuar a ligação.  
-- Para ligações do Service Manager,  
+ - Para ligações do Service Manager,  
     - Certifique-se de que a aplicação Web é implementada com êxito e é criada a ligação híbrida. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web como detalhadas da documentação para efetuar o [da ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se não está a obter sincronizados dados a partir do ServiceNow ao Log Analytics, certifique-se de que o ServiceNow instância não está suspenso. Instâncias de desenvolvimento do ServiceNow, por vezes, aceda a suspensão quando inativo durante um longo período. Relatório de outra forma, o problema.

@@ -1,44 +1,44 @@
 ---
 title: Modelo Azure Resource Manager funciona - matrizes e objetos | Microsoft Docs
-description: "Descreve as funções para utilizar num modelo Azure Resource Manager para trabalhar com objetos e matrizes."
+description: Descreve as funções para utilizar num modelo Azure Resource Manager para trabalhar com objetos e matrizes.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d040fe55cb46665c97668a76ccbc66adc002f89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto de modelos Azure Resource Manager 
 
 O Resource Manager fornece várias funções para trabalhar com objetos e matrizes.
 
-* [matriz](#array)
+* [array](#array)
 * [Unir](#coalesce)
 * [concat](#concat)
 * [contém](#contains)
 * [createArray](#createarray)
-* [vazio](#empty)
-* [primeiro](#first)
-* [intersecção](#intersection)
-* [JSON](#json)
-* [última](#last)
+* [empty](#empty)
+* [first](#first)
+* [intersection](#intersection)
+* [json](#json)
+* [last](#last)
 * [comprimento](#length)
-* [Máx.](#max)
-* [Mín.](#min)
-* [intervalo](#range)
-* [Ignorar](#skip)
+* [max](#max)
+* [min](#min)
+* [range](#range)
+* [skip](#skip)
 * [tirar](#take)
 * [União](#union)
 
@@ -46,7 +46,7 @@ Para obter uma matriz de valores de cadeia delimitada por um valor, consulte [di
 
 <a id="array" />
 
-## <a name="array"></a>Matriz
+## <a name="array"></a>array
 `array(convertToArray)`
 
 Converte o valor para uma matriz.
@@ -106,9 +106,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| intOutput | Matriz | [1] |
-| stringOutput | Matriz | ["a"] |
-| objectOutput | Matriz | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["a"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -194,8 +194,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | stringOutput | Cadeia | predefinição |
 | intOutput | Int | 1 |
-| objectOutput | Objeto | {"primeira": "predefinido"} |
-| arrayOutput | Matriz | [1] |
+| objectOutput | Object | {"primeira": "predefinido"} |
+| arrayOutput | Array | [1] |
 | emptyOutput | bool | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -270,7 +270,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| devolver | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| devolver | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -481,10 +481,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringArray | Matriz | ["a", "b", "c"] |
-| intArray | Matriz | [1, 2, 3] |
-| objectArray | Matriz | [{"um": "a", "dois": "b", "três": "c"}] |
-| arrayArray | Matriz | [["", "dois", "três"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"um": "a", "dois": "b", "três": "c"}] |
+| arrayArray | Array | [["", "dois", "três"]] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -500,7 +500,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="empty" />
 
-## <a name="empty"></a>vazio
+## <a name="empty"></a>Vazio
 
 `empty(itemToTest)`
 
@@ -628,7 +628,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Cadeia | um |
-| stringOutput | Cadeia | NÃ |
+| stringOutput | Cadeia | O |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -706,8 +706,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Objeto | {"um": "a", "três": "c"} |
-| arrayOutput | Matriz | ["dois", "três"] |
+| objectOutput | Object | {"um": "a", "três": "c"} |
+| arrayOutput | Array | ["dois", "três"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -721,7 +721,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 Devolve um objeto JSON.
@@ -730,7 +730,7 @@ Devolve um objeto JSON.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Cadeia |O valor para converter para JSON. |
+| arg1 |Sim |cadeia |O valor para converter para JSON. |
 
 
 ### <a name="return-value"></a>Valor devolvido
@@ -764,8 +764,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| jsonOutput | Objeto | {"a": "b"} |
-| nullOutput | Valor booleano | Verdadeiro |
+| jsonOutput | Object | {"a": "b"} |
+| nullOutput | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -929,7 +929,7 @@ Para obter mais informações sobre como utilizar esta função com uma matriz, 
 
 <a id="max" />
 
-## <a name="max"></a>Máx.
+## <a name="max"></a>máx.
 `max(arg1)`
 
 Devolve o valor máximo de uma matriz de números inteiros ou uma lista separada por vírgulas de números inteiros.
@@ -1105,7 +1105,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| rangeOutput | Matriz | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1185,7 +1185,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["três"] |
+| arrayOutput | Array | ["três"] |
 | stringOutput | Cadeia | dois três |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -1266,8 +1266,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["", "dois"] |
-| stringOutput | Cadeia | no |
+| arrayOutput | Array | ["", "dois"] |
+| stringOutput | Cadeia | em |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1345,8 +1345,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| objectOutput | Objeto | {"um": "a", "dois": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
-| arrayOutput | Matriz | ["", "dois", "três", "quatro"] |
+| objectOutput | Object | {"um": "a", "dois": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
+| arrayOutput | Array | ["", "dois", "três", "quatro"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1360,7 +1360,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).
