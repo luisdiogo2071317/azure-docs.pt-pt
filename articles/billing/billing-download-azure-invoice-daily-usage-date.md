@@ -17,17 +17,18 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18f568fdeead10fadad0e403ce0ca7fe4b3213a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou visualizar a fatura de faturação do Azure e a utilização de dados diária
 Pode transferir a fatura do [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou tiver enviado por correio eletrónico. Para transferir a sua utilização diária, vá para o [Centro de contas do Azure](https://account.azure.com/Subscriptions). Apenas determinadas funções tem permissão para obter a fatura de faturação e informações de utilização, como o administrador da conta. Para obter mais informações sobre como obter acesso a informações de faturação, consulte [gerir o acesso ao Azure através de funções de faturação](billing-manage-access.md).
 
->[!NOTE]
->Este artigo não se aplica aos clientes do Enterprise Agreement (EA). Se tiver um cliente EA, sua faturas são enviadas diretamente para os administradores de inscrição.
+Este artigo não se aplica aos clientes do Enterprise Agreement (EA). Se tiver um cliente EA, sua faturas são enviadas diretamente para os administradores de inscrição.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obter a sua fatura por correio eletrónico (. pdf)
 Pode optar ativamente por participar no e configurar os destinatários adicionais para receber o seu Azure fatura num e-mail. Esta funcionalidade pode não estar disponível para determinados subscrições, tais como ofertas de suporte, contratos Enterprise ou do Azure no Open.

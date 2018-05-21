@@ -8,25 +8,25 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utilize o portal para criar uma aplicação Azure Active Directory e um principal de serviço que pode aceder a recursos
 
-Quando tiver de código que precisa de aceder ou modificar recursos, tem de configurar uma aplicação do Azure Active Directory (AD). Atribuir as permissões necessárias para a aplicação AD. Esta abordagem é preferível executar a aplicação com as suas próprias credenciais, porque pode atribuir permissões para a identidade de aplicação que sejam diferentes a suas própria permissões. Normalmente, estas permissões são restritos exatamente o que a aplicação tem de fazer.
+Quando tiver de código que precisa de aceder ou modificar recursos, tem de configurar uma aplicação do Azure Active Directory (AD). Atribuir as permissões necessárias para a aplicação AD. Esta abordagem é preferível executar a aplicação com as suas próprias credenciais, porque pode atribuir permissões para a identidade de aplicação que sejam diferentes a suas própria permissões. Normalmente, estas permissões estão restritas a exatamente aquilo que a aplicação precisa de fazer.
 
 Este artigo mostra como efetuar os passos através do portal. Concentra-se uma aplicação do inquilino único onde a aplicação foi concebida para ser executada dentro da organização apenas um. Normalmente utiliza aplicações de inquilino único para aplicações de linha de negócio que são executadas dentro da sua organização.
 
 > [!IMPORTANT]
-> Em vez de criar um principal de serviço, considere utilizar identidade de serviço gerida do Azure AD para a identidade da aplicação. Azure AD MSI é uma funcionalidade de pré-visualização pública do Azure Active Directory simplifica a criação de uma identidade para o código. Se o seu código é executado num serviço que suporta o Azure AD MSI e acede a recursos que suportam a autenticação do Azure Active Directory, Azure AD MSI é uma opção melhor para si. Para saber mais sobre o Azure AD MSI, incluindo os serviços atualmente o suporta, consulte [identidade de serviço geridas para recursos do Azure](../active-directory/managed-service-identity/overview.md).
+> Em vez de criar um principal de serviço, considere utilizar a Identidade de Serviço Gerida do Azure AD para a identidade da aplicação. O MSI do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory que simplifica a criação de uma identidade para o código. Se o seu código é executado num serviço que suporta o MSI do Azure AD e acede a recursos que suportam a autenticação do Azure Active Directory, o MSI do Azure AD é uma opção melhor para si. Para saber mais sobre o MSI do Azure AD, incluindo os serviços que atualmente o suportam, veja [Identidade de Serviço Gerida para recursos do Azure](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 

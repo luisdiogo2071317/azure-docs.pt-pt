@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: cb005549fcd9a5850c990d8ef8acb724443f9908
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir o Azure HDInsight utilizando uma rede Virtual do Azure
 
@@ -93,7 +93,7 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
         Para obter mais informações, consulte o [resolver problemas relacionados com grupos de segurança de rede](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) documento.
 
         > [!IMPORTANT]
-        > Regras do grupo de segurança de rede são aplicadas por ordem, com base na prioridade da regra. A primeira regra que corresponda ao padrão tráfego é aplicada e não existem outras pessoas são aplicadas para que o tráfego. Regras de ordem de mais permissivo para menos permissiva. Para obter mais informações, consulte o [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) documento.
+        > Regras do grupo de segurança de rede são aplicadas por ordem, com base na prioridade da regra. A primeira regra que corresponda ao padrão tráfego é aplicada e não existem outras pessoas são aplicadas para que o tráfego. Regras de ordem de mais permissivo para menos permissiva. Para obter mais informações, consulte o [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) documento.
 
     * Rotas definidas pelo utilizador
 
@@ -214,7 +214,7 @@ Para ligar a Ambari e outras páginas web através da rede virtual, utilize os s
 
 Tráfego de rede num redes virtuais do Azure pode ser controlado utilizando os seguintes métodos:
 
-* **Grupos de segurança de rede** (NSG) permitem-lhe filtrar o tráfego de entrada e saído para a rede. Para obter mais informações, consulte o [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) documento.
+* **Grupos de segurança de rede** (NSG) permitem-lhe filtrar o tráfego de entrada e saído para a rede. Para obter mais informações, consulte o [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) documento.
 
     > [!WARNING]
     > HDInsight não suporta a restringir o tráfego de saída.
@@ -242,7 +242,7 @@ Se planeia utilizar **grupos de segurança de rede** ou **rotas definidas pelo u
 
 Para obter mais informações sobre grupos de segurança de rede ou as rotas definidas pelo utilizador, consulte a seguinte documentação:
 
-* [Grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+* [Grupo de segurança de rede](../virtual-network/security-overview.md)
 
 * [Rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -280,7 +280,7 @@ Se utilizar grupos de segurança de rede ou as rotas definidas pelo utilizador, 
     | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | 443 | Entrada |
     | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | 443 | Entrada |
     | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | 443 | Entrada |
-    | Canadá | Canada Este | 52.229.127.96</br>52.229.123.172 | 443 | Entrada |
+    | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | 443 | Entrada |
     | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 | 443 | Entrada |
     | China | China Norte | 42.159.96.170</br>139.217.2.219 | 443 | Entrada |
     | &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157 | 443 | Entrada |
@@ -292,15 +292,15 @@ Se utilizar grupos de segurança de rede ou as rotas definidas pelo utilizador, 
     | Japão | Leste do Japão | 13.78.125.90</br>13.78.89.60 | 443 | Entrada |
     | &nbsp; | Oeste do Japão | 40.74.125.69</br>138.91.29.150 | 443 | Entrada |
     | Coreia | Coreia Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |
-    | &nbsp; | Sul da Coreia | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
+    | &nbsp; | Coreia do Sul | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
     | Reino Unido | Reino Unido Oeste | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
-    | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
-    | Estados Unidos | E.U.A. Central | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
-    | &nbsp; | E.U.A. Leste | 13.82.225.233</br>40.71.175.99 | 443 | Entrada |
-    | &nbsp; | E.U.A. Centro-Norte | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
-    | &nbsp; | E.U.A. Centro-Oeste | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
-    | &nbsp; | E.U.A. Oeste | 13.64.254.98</br>23.101.196.19 | 443 | Entrada |
-    | &nbsp; | E.U.A. Oeste 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
+    | &nbsp; | Reino Unido Sul | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
+    | Estados Unidos | EUA Central | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
+    | &nbsp; | EUA Leste | 13.82.225.233</br>40.71.175.99 | 443 | Entrada |
+    | &nbsp; | EUA Centro-Norte | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
+    | &nbsp; | EUA Centro-Oeste | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
+    | &nbsp; | EUA Oeste | 13.64.254.98</br>23.101.196.19 | 443 | Entrada |
+    | &nbsp; | EUA Oeste 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
 
     Para obter informações sobre os endereços IP a utilizar para o Azure Government, consulte o [Azure Government Intelligence + análise](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) documento.
 
@@ -666,6 +666,6 @@ Depois de concluir estes passos, pode ligar aos recursos na rede virtual, utiliz
 * Para configurar a georreplicação HBase, consulte [configurar a replicação de cluster HBase em redes virtuais do Azure](hbase/apache-hbase-replication.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte o [descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-* Para obter mais informações sobre grupos de segurança de rede, consulte [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+* Para obter mais informações sobre grupos de segurança de rede, consulte [grupos de segurança de rede](../virtual-network/security-overview.md).
 
 * Para obter mais informações sobre as rotas definidas pelo utilizador, consulte [rotas definidas pelo utilizador e reencaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
