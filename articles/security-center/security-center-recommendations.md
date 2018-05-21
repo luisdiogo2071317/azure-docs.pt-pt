@@ -1,11 +1,11 @@
 ---
-title: "Gerir recomendações de segurança no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento explica como como recomendações no Centro de segurança do Azure ajudam a proteger os recursos do Azure e a manter em conformidade com as políticas de segurança."
+title: Gerir recomendações de segurança no Centro de segurança do Azure | Microsoft Docs
+description: Este documento explica como como recomendações no Centro de segurança do Azure ajudam a proteger os recursos do Azure e a manter em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -39,7 +39,7 @@ No [definir políticas de segurança no Centro de segurança do Azure](security-
 * Ative a recolha de dados.
 * Escolha as recomendações para ver como parte da sua política de segurança.
 
-System center de recomendações de política em torno de atualizações do sistema, as regras de linha de base, programas antimalware, [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) em sub-redes e interfaces de rede, a auditoria de base de dados SQL, encriptação de dados transparente de base de dados do SQL Server, e firewalls de aplicação web.  [Definir políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
+System center de recomendações de política em torno de atualizações do sistema, as regras de linha de base, programas antimalware, [grupos de segurança de rede](../virtual-network/security-overview.md) em sub-redes e interfaces de rede, a auditoria de base de dados SQL, encriptação de dados transparente de base de dados do SQL Server, e firewalls de aplicação web.  [Definir políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
 
 ### <a name="monitor-recommendations"></a>Recomendações de monitor
 Após definir uma política de segurança, o Centro de Segurança analisa o estado de segurança dos seus recursos para identificar potenciais vulnerabilidades. O **recomendações** mosaico em **descrição geral** permite-lhe determinar o número total de recomendações identificadas pelo centro de segurança.
@@ -75,7 +75,7 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 | [Ativar a recolha de dados para subscrições](security-center-enable-data-collection.md) |Recomenda-se que ative a recolha de dados na política de segurança para cada uma das suas subscrições e todas as máquinas de virtuais (VMs) do Azure e computadores não do Azure. |
 | [Remediar configurações de segurança](security-center-remediate-os-vulnerabilities.md) |Recomenda que alinhar as configurações de SO com as regras de configuração de segurança recomendado, por exemplo, não permitir palavras-passe sejam guardados. |
 | [Aplicar atualizações do sistema](security-center-apply-system-updates.md) |Recomenda-se de que implemente atualizações críticas e de segurança do sistema em falta para o Windows e VMs com Linux e computadores. |
-| [Aplicar um Just-In-Time controlo de acesso de rede](security-center-just-in-time.md) | Recomenda-se de que se aplicam apenas no acesso VM de tempo. O apenas na hora funcionalidade em pré-visualização e está disponível na camada padrão do Centro de segurança. Consulte [preços](security-center-pricing.md) para saber mais acerca do Centro de segurança do escalões de preço. |
+| [Aplicar um Just-In-Time controlo de acesso de rede](security-center-just-in-time.md) | Recomenda-se de que se aplicam apenas no acesso VM de tempo. O apenas na hora funcionalidade em pré-visualização e está disponível na camada padrão do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. |
 | [Reiniciar após atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Recomenda-se que reinicie uma VM para concluir o processo de aplicar atualizações do sistema. |
 | [Adicionar uma firewall de aplicação Web](security-center-add-web-application-firewall.md) |Recomenda-se de que irá implementar uma firewall de aplicação web (WAF) para pontos finais do web. É apresentada uma recomendação WAF para qualquer destinado ao IP público (IP de nível de instância ou IP com balanceamento de carga) que tenha um grupo de segurança de rede associada com portas web de entrada aberta (80,443). </br>Centro de segurança recomenda que Aprovisiona uma WAF para ajudar a proteger contra ataques direcionada para as aplicações web em máquinas virtuais e no ambiente de serviço de aplicações. Aplicação serviço de ambiente (ASE) é um [Premium](https://azure.microsoft.com/pricing/details/app-service/) service opção plano do App Service do Azure fornece um ambiente completamente isolado e dedicado para execução segura de aplicações do App Service do Azure. Para saber mais sobre ASE, consulte o [a documentação de ambiente de serviço de aplicação](../app-service/environment/intro.md).</br>Pode proteger várias aplicações web no Centro de segurança ao adicionar estas aplicações para as implementações de WAF existentes. |
 | [Finalizar a proteção das aplicações](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de uma WAF, tráfego deve ser reencaminhado para a aplicação de WAF. Seguir esta recomendação conclui as alterações de configuração necessários. |

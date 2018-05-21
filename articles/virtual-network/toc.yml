@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: Guias de procedimentos
   items:
-    - name: Planear e conceber
+    - name: Planear
       items:
         - name: Redes virtuais
           href: virtual-network-vnet-plan-design-arm.md
-        - name: Grupos de segurança de rede
-          href: virtual-networks-nsg.md
     - name: Implementação
       items:
         - name: Grupos de segurança de rede
