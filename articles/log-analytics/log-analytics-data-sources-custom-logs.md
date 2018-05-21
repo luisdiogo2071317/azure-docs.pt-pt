@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados na análise de registos
 A origem de dados de registos personalizados na análise de registos permite-lhe recolher eventos de ficheiros de texto em computadores Windows e Linux. Muitas aplicações regista informações nos ficheiros de texto em vez dos serviços de registo padrão, tais como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo de início de sessão para os campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) funcionalidade de análise de registos.
@@ -29,7 +29,7 @@ Os ficheiros de registo a recolher têm de corresponder aos seguintes critérios
 
 - O registo deve ter uma única entrada por linha ou utilizar um timestamp correspondente a um dos seguintes formatos no início de cada entrada.
 
-    HH: MM: DE AAAA-MM-DD<br>M/YYYY HH: SS AM/PM <br>MON DD, hh: mm: de aaaa
+    HH: MM: DE AAAA-MM-DD<br>M/YYYY HH: SS AM/PM<br>MON DD, hh: mm: de aaaa<br />yyMMdd hh: mm:<br />ddMMyy hh: mm:<br />MMM d hh: mm:<br />dd/MMM/yyyy:HH:mm:ss zzz<br />aaaa-MM-ddTHH:mm:ssK
 
 - O ficheiro de registo não deve permitir o registo circular ou de rotação do registo, onde o ficheiro é substituído com novas entradas.
 - O ficheiro de registo tem de utilizar codificação ASCII ou UTF-8.  Não são suportados outros formatos, tais como UTF-16.
@@ -63,7 +63,7 @@ Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGene
 4. Altere o delimitador utilizado para identificar um novo registo e selecione o delimitador melhor identifica os registos no ficheiro de registo.
 5. Clique em **Seguinte**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos de recolha de registos
+### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos da coleção de registos
 Tem de definir um ou mais caminhos no agente onde o mesmo possa localizar o registo personalizado.  Pode optar por fornecer um caminho específico e um nome para o ficheiro de registo ou pode especificar um caminho com um caráter universal para o nome.  Isto suporta aplicações que criar um novo ficheiro de cada dia ou quando um ficheiro atinge um determinado tamanho.  Também pode fornecer vários caminhos para um único ficheiro de registo.
 
 Por exemplo, uma aplicação poderá criar um ficheiro de registo por dia com a data incluída no nome que aparece log20100316.txt. Poderá ser um padrão para um registo de tal *registo\*. txt* que seria aplicada a qualquer ficheiro de registo após a aplicação da nomenclatura do esquema.
@@ -72,10 +72,10 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar os dife
 
 | Descrição | Caminho |
 |:--- |:--- |
-| Todos os ficheiros na *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*.txt |
-| Todos os ficheiros na *C:\Logs* com um nome começado com uma extensão. txt no agente do Windows e o registo |C:\Logs\log\*.txt |
+| Todos os ficheiros na *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
+| Todos os ficheiros na *C:\Logs* com um nome começado com uma extensão. txt no agente do Windows e o registo |C:\Logs\log\*. txt |
 | Todos os ficheiros na */var/log/audit* com extensão. txt no agente do Linux |/var/log/audit/*.txt |
-| Todos os ficheiros na */var/log/audit* com um nome começado com uma extensão. txt no agente Linux e o registo |/var/log/audit/log\*.txt |
+| Todos os ficheiros na */var/log/audit* com um nome começado com uma extensão. txt no agente Linux e o registo |/var/log/audit/log\*. txt |
 
 1. Selecione Windows ou Linux para especificar qual o formato de caminho que está a adicionar.
 2. Escreva o caminho e clique em de **+** botão.
@@ -150,7 +150,7 @@ Iremos fornecer um dos ficheiros de registo e pode ver os eventos que irá ser r
 
 ![Carregar e analisar um registo de exemplo](media/log-analytics-data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Adicionar caminhos de recolha de registos
+### <a name="add-log-collection-paths"></a>Adicionar caminhos da coleção de registos
 Os ficheiros de registo irão estar localizados no *C:\MyApp\Logs*.  Será criado um novo ficheiro de cada dia com um nome que inclui a data no padrão de *appYYYYMMDD.log*.  Um padrão suficiente para este registo seria *C:\MyApp\Logs\\\*. log*.
 
 ![Caminho da coleção de registo](media/log-analytics-data-sources-custom-logs/collection-path.png)

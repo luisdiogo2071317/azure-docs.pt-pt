@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0f22bae1e1e40d3ea735861b9a633ae46eae5c33
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>O que é uma lista de controlo de acesso de ponto final?
 
 > [!IMPORTANT]
 > O Azure tem dois diferentes [modelos de implementação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar e trabalhar com recursos: Resource Manager e clássico. Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que implementações mais novas utilizem o modelo de implementação Resource Manager. 
 
-Uma lista de controlo do ponto final acesso (ACL) é uma melhoria de segurança disponível para a sua implementação do Azure. Uma ACL fornece a capacidade de forma seletiva permitir ou negar o tráfego para um ponto final da máquina virtual. Esta capacidade de filtragem de pacote fornece uma camada adicional de segurança. Pode especificar ACLs de rede para apenas os pontos finais. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contidos numa rede virtual. Recomenda-se para utilizar grupos de segurança de rede (NSGs) em vez de ACLs, sempre que possível. Para saber mais sobre NSGs, consulte [descrição geral de grupo de segurança de rede](virtual-networks-nsg.md)
+Uma lista de controlo do ponto final acesso (ACL) é uma melhoria de segurança disponível para a sua implementação do Azure. Uma ACL fornece a capacidade de forma seletiva permitir ou negar o tráfego para um ponto final da máquina virtual. Esta capacidade de filtragem de pacote fornece uma camada adicional de segurança. Pode especificar ACLs de rede para apenas os pontos finais. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contidos numa rede virtual. Recomenda-se para utilizar grupos de segurança de rede (NSGs) em vez de ACLs, sempre que possível. Para saber mais sobre NSGs, consulte [descrição geral de grupo de segurança de rede](security-overview.md)
 
 As ACLs podem ser configuradas através do PowerShell ou o portal do Azure. Para configurar uma ACL de rede utilizando o PowerShell, consulte [listas de controlo de acesso de gestão para pontos finais utilizando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede através do portal do Azure, consulte [como configurar pontos finais para uma máquina virtual](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

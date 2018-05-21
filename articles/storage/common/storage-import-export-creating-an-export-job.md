@@ -1,11 +1,11 @@
 ---
-title: "Criar uma tarefa para Azure importação/exportação de exportação | Microsoft Docs"
-description: "Saiba como criar uma tarefa de exportação para o serviço de importação/exportação do Microsoft Azure."
+title: Criar uma tarefa para Azure importação/exportação de exportação | Microsoft Docs
+description: Saiba como criar uma tarefa de exportação para o serviço de importação/exportação do Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criar uma tarefa de exportação para o serviço do Azure para importar/exportar
 Criar uma tarefa de exportação para o serviço de importação/exportação do Microsoft Azure utilizando a API REST envolve os seguintes passos:
@@ -53,7 +53,7 @@ Criar uma tarefa de exportação para o serviço de importação/exportação do
  Para obter mais informações sobre como especificar blobs para exportar, consulte o [colocar tarefa](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação.
 
 ## <a name="obtaining-your-shipping-location"></a>Obter a localização de envio
-Antes de criar uma tarefa de exportação, tem de obter um envio de localização de nome e endereço ao chamar o [obter localização](https://portal.azure.com) ou [lista localizações](/rest/api/storageimportexport/listlocations) operação. `List Locations`irá devolver uma lista de localizações e os respetivos endereços de correio postal. Pode selecionar uma localização da lista devolvida e são enviados os discos rígidos a esse endereço. Também pode utilizar o `Get Location` operação para obter o endereço de envio para uma localização específica diretamente.
+Antes de criar uma tarefa de exportação, tem de obter um envio de localização de nome e endereço ao chamar o [obter localização](https://portal.azure.com) ou [lista localizações](/rest/api/storageimportexport/listlocations) operação. `List Locations` irá devolver uma lista de localizações e os respetivos endereços de correio postal. Pode selecionar uma localização da lista devolvida e são enviados os discos rígidos a esse endereço. Também pode utilizar o `Get Location` operação para obter o endereço de envio para uma localização específica diretamente.
 
 Siga os passos abaixo para obter a localização do envio:
 
@@ -92,6 +92,8 @@ Siga os passos abaixo para obter a localização do envio:
 ## <a name="receiving-the-package"></a>Receber o pacote
  Depois de ter sido processada a tarefa de exportação, as unidades serão devolvidas, com os seus dados encriptados. Pode obter a chave do BitLocker para cada unidades ao chamar o [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operação. Em seguida, pode desbloquear a unidade com a chave. O ficheiro de manifesto de unidade em cada unidade contém a lista de ficheiros na unidade, bem como o endereço de blob original para cada ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o REST API do serviço de importação/exportação](storage-import-export-using-the-rest-api.md)

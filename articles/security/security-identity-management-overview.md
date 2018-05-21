@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral de segurança de gestão de identidade do Azure
 Microsoft identidades e acessos soluções ajuda da gestão de IT proteger o acesso a aplicações e recursos em todo o datacenter empresarial e para a nuvem, permitindo níveis adicionais de validação, tais como autenticação multifator e políticas de acesso condicional. Monitorização de atividade suspeita através de segurança avançada, auditoria e relatórios de alerta ajuda a mitigar potenciais problemas de segurança. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece início de sessão único a milhares de nuvem aplicações (SaaS) e acesso a aplicações web é executado no local.
@@ -56,7 +56,7 @@ Não apenas os utilizadores não é necessário gerir vários conjuntos de nomes
 Saiba mais:
 
 * [Descrição geral sobre o início de sessão único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integrar aplicações SaaS do Azure Active Directory-início de sessão único](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
