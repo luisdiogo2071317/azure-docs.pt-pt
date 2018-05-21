@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -107,7 +107,7 @@ Este número de front-ends deve ser mais do que o suficiente para a maioria dos 
 
 Recursos de front-end são o ponto final HTTP/HTTPS para o ASE. Com a configuração predefinida do front-end, utilização de memória por front-end é consistentemente cerca de 60 por cento. Não executam cargas de trabalho do cliente num front-end. O fator chave para um front-end com relativamente a escala é a CPU, o que é suscitada pelo departamento principalmente pelo tráfego HTTPS.
 
-## <a name="app-access"></a>Acesso à aplicação ##
+## <a name="app-access"></a>Acesso da aplicação ##
 
 Está num ASE externo, o domínio que é utilizado quando criar aplicações é diferente do multi-inquilino do serviço de aplicações. Inclui o nome do ASE. Para obter mais informações sobre como criar ASE externas, consulte [criar um ambiente de serviço de aplicações][MakeExternalASE]. O nome de domínio está num ASE externo aspeto *.&lt; asename&gt;. p.azurewebsites.net*. Por exemplo, se o seu ASE é denominado _externo ase_ e alojar uma aplicação chamada _contoso_ nessa ASE, chegá-lo nos seguintes URLs:
 
@@ -177,7 +177,7 @@ Para eliminar ASE:
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml

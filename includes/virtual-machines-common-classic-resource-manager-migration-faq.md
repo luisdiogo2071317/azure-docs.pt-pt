@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/20/2018
+---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
@@ -32,14 +48,24 @@ Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do model
 
 Durante a migração, os recursos passam da implementação clássica para Resource Manager. Assim, recomendamos que planeie as atualizações das políticas de RBAC que têm de ocorrer após a migração.
 
-## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Criei uma cópia de segurança das minhas VMs clássicas num cofre do Backup. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Posso cópias de segurança minhas VMs clássicas num cofre. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
 
-<a name="vault">Clássico</a> VM pontos de recuperação no Cofre de cópia de segurança não migra automaticamente para um cofre dos serviços de recuperação quando mover a VM do clássico para o modo Resource Manager. Siga estes passos para transferir as cópias de segurança das VMs:
+<a name="vault">Quando</a> mover uma VM do clássico para o modo Resource Manager, cópias de segurança criadas antes da migração não irão migrar a VM de Gestor de recursos recentemente migrada. No entanto, se desejar manter as cópias de segurança de VMs clássicas, siga estes passos antes da migração. 
 
-1. No cofre do Backup, aceda ao separador **Itens Protegidos** e selecione a VM. Clique em [Parar Proteção](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
-2. Elimine a extensão de cópia de segurança/instantâneo da VM.
-3. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
-4. Crie um cofre dos Serviços de Recuperação e configure a cópia de segurança na máquina virtual migrada com a ação **Cópia de Segurança** no dashboard do cofre. Para obter informações detalhadas sobre a criação de cópias de segurança de VMs para um cofre dos Serviços de Recuperação, veja o artigo [Proteger VMs do Azure com um cofre dos Serviços de Recuperação](../articles/backup/backup-azure-vms-first-look-arm.md).
+1. No cofre dos serviços de recuperação, vá para o **itens protegidos** separador e selecione a VM. 
+2. Clique em [Parar Proteção](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
+
+> [!NOTE]
+> Será cobrada custo de cópia de segurança de instância até manter os dados. Serão eliminadas de acordo com o período de retenção de cópias de segurança. No entanto, a última cópia de segurança sempre é mantida até explicitamente eliminar dados de cópia de segurança. Recomenda-se para verificar o período de retenção da Máquina Virtual e o acionador "Eliminar dados de cópia de segurança" no item protegido no cofre depois do período de retenção está acima. 
+>
+>
+
+Para migrar a máquina virtual para o modo Resource Manager, 
+
+1. Elimine a extensão de cópia de segurança/instantâneo da VM.
+2. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
+
+Além disso, se pretender criar cópias de segurança a VM migrada, aceda ao painel de gestão de Máquina Virtual para [ativar cópia de segurança](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 

@@ -1,11 +1,11 @@
 ---
 title: Abrir portas para uma VM com Linux com o Azure CLI 2.0 | Microsoft Docs
-description: "Saiba como abrir uma porta / criar um ponto final para a VM com Linux utilizando o modelo de implementação do Gestor de recursos do Azure e o 2.0 CLI do Azure"
+description: Saiba como abrir uma porta / criar um ponto final para a VM com Linux utilizando o modelo de implementação do Gestor de recursos do Azure e o 2.0 CLI do Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: f02e9d7c794217824bb2b0fa965d1d581ec94003
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 16493d7ecdec0ec1464820be7668dfa19ec1b13c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e os pontos finais para uma VM com Linux com a CLI do Azure
 Abrir uma porta ou criar um ponto final, para uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou interface de rede VM. Colocar estes filtros que controlam o tráfego de entrada e saído, num grupo de segurança de rede ligado para o recurso que recebe o tráfego. Vamos utilizar um exemplo comum de tráfego da web na porta 80. Este artigo mostra como abrir uma porta para uma VM com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](nsg-quickstart-nodejs.md).
@@ -90,4 +90,4 @@ Para aplicações web de elevada disponibilidade, deve colocar as VMs por trás 
 Neste exemplo, criou uma regra para permitir tráfego HTTP simples. Pode encontrar informações sobre como criar ambientes mais detalhadas nos seguintes artigos:
 
 * [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
-* [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../../virtual-network/virtual-networks-nsg.md)
+* [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../../virtual-network/security-overview.md)

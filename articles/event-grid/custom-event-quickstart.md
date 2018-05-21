@@ -6,13 +6,13 @@ keywords: ''
 author: tfitzmac
 ms.author: tomfitz
 ms.date: 03/20/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: be98fa88727a867e0fca0ca3587db276f8a2d7f2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d68df064614c262bd9755be0688841fdb64af762
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Criar e encaminhar eventos personalizados com a CLI do Azure e o Event Grid
 
@@ -27,7 +27,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para um pont
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 Se não estiver a utilizar o Cloud Shell, primeiro tem de iniciar sessão com `az login`.
 
