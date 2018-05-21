@@ -1,23 +1,23 @@
 ---
 title: Gerir os recursos com a CLI do Azure | Microsoft Docs
 description: Utilize a Interface de linha de comandos (CLI do Azure) para gerir recursos do Azure e grupos
-editor: 
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Utilizar a CLI do Azure para gerir recursos do Azure e os grupos de recursos
 
@@ -81,7 +81,7 @@ az account show
 
 Antes de implementar quaisquer recursos na sua subscrição, tem de criar um grupo de recursos que irá conter os recursos.
 
-Para criar um grupo de recursos, utilize o **criar grupo az** comando. O comando utiliza o **nome** parâmetro para especificar um nome para o grupo de recursos e o **localização** parâmetro para especificar a localização.
+Para criar um grupo de recursos, utilize o comando **az group create**. O comando utiliza o **nome** parâmetro para especificar um nome para o grupo de recursos e o **localização** parâmetro para especificar a localização.
 
 ```azurecli-interactive
 az group create --name TestRG1 --location "South Central US"
@@ -223,7 +223,7 @@ Pode remover um recurso ou grupo de recursos. Quando remove um grupo de recursos
 
 Para ambos os comandos, é-lhe pedido para confirmar que pretende remover o recurso ou grupo de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre como criar modelos do Resource Manager, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para saber mais sobre a implementação de modelos, consulte [implementar uma aplicação com o modelo do Azure Resource Manager](resource-group-template-deploy-cli.md).
 * Pode mover recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para o novo grupo de recursos ou subscrição](resource-group-move-resources.md).

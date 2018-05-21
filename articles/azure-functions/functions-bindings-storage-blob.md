@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1d1cdee7373b949456032aff3c808cc233aaa1cc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -773,7 +773,7 @@ Em c# e c# script, é possível vincular para os seguintes tipos de escrever blo
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> necessita de "enlace em" `direction` no *function.json* ou `FileAccess.Read` uma biblioteca de classe do c#.
+<sup>1</sup> necessita de "enlace em" `direction` no *function.json* ou `FileAccess.Read` uma biblioteca de classe do c#. No entanto, pode utilizar o objeto de contentor que fornece o tempo de execução para escrever operações, tais como carregar os blobs no contentor.
 
 <sup>2</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
 

@@ -1,11 +1,11 @@
 ---
-title: "Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação de centro de segurança do Azure * * restringir o acesso através da Internet com o ponto final * *."
+title: Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar a recomendação de centro de segurança do Azure **restringir o acesso através da Internet com o ponto final**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure
 Centro de segurança do Azure recomendará que restringir o acesso através de pontos finais de acesso à Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tem uma ou mais regras de entrada que permite o acesso de "qualquer" endereço IP de origem. Abrir o acesso a "nenhum" pode permitir que os atacantes aceder aos recursos. Centro de segurança irá recomendar que editar estas regras de entrada para restringir o acesso aos endereços IP de origem que, na verdade, precisam de acesso.
@@ -44,18 +44,18 @@ Esta recomendação é gerada para qualquer porta de web não tem "qualquer" com
 
    ![Regras de segurança de entrada][4]
 
-   Tenha em atenção, também pode selecionar **predefinido regras** para ver o conjunto de regras de predefinidas contido por todos os NSGs. Não não possível eliminar as regras predefinidas, mas como lhes é atribuída uma prioridade mais baixa, podem ser substituídas pelas regras que criar. Saiba mais sobre [predefinido regras](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Tenha em atenção, também pode selecionar **predefinido regras** para ver o conjunto de regras de predefinidas contido por todos os NSGs. Não não possível eliminar as regras predefinidas, mas como lhes é atribuída uma prioridade mais baixa, podem ser substituídas pelas regras que criar. Saiba mais sobre [predefinido regras](../virtual-network/security-overview.md#default-security-rules).
 
    ![Regras predefinidas][5]
-5. No **AllowWeb** painel, editar as propriedades da regra de entrada para que o **origem** é um endereço IP ou o bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte o artigo [regras do NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. No **AllowWeb** painel, editar as propriedades da regra de entrada para que o **origem** é um endereço IP ou o bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte o artigo [regras do NSG](../virtual-network/security-overview.md#security-rules).
 
    ![Editar regra de entrada][6]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Este artigo mostrou como implementar a recomendação de centro de segurança "Restringir o acesso através de ponto de final com acesso à Internet." Para obter mais informações sobre como ativar regras e os NSGs, consulte o seguinte:
 
-* [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../virtual-network/virtual-networks-nsg.md)
-* [Como gerir os NSGs no portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [O que é um Grupo de Segurança de Rede (NSG)? (What is a Network Security Group (NSG)?)](../virtual-network/security-overview.md)
+* [Gerir um grupo de segurança de rede](../virtual-network/manage-network-security-group.md)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 

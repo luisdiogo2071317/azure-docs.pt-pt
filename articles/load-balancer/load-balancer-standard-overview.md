@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 648d96bbb18186524cfad4d3df1f61e98062fcb4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Descrição geral do padrão de Balanceador de carga do Azure
 
@@ -119,7 +119,7 @@ Reveja [detalhadas debate do HA portas](load-balancer-ha-ports-overview.md).
 
 Balanceador de carga padrão é totalmente integrado à rede virtual.  A rede virtual está numa rede privada, fechada.  Porque padrão balanceadores de carga e os endereços IP públicos padrão foram concebidos para permitir esta rede virtual ser acedido a partir de fora da rede virtual, estes recursos agora a predefinição fechada, a menos que abre-los. Isto significa que os grupos de segurança de rede (NSGs) agora são utilizados para permitir explicitamente e lista branca de tráfego permitido.  Pode criar o seu centro de dados virtual completo e decidir através do NSG que e quando devem estar disponível.  Se não tiver um NSG numa sub-rede ou NIC de recurso de máquina virtual, não podemos irá permitir o tráfego para aceder este recurso.
 
-Para saber mais sobre NSGs e como aplicá-las para o seu cenário, consulte [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+Para saber mais sobre NSGs e como aplicá-las para o seu cenário, consulte [grupos de segurança de rede](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Ligações de saída
 
@@ -237,7 +237,7 @@ Padrão de Balanceador de carga é um produto cobrado com base no número de reg
 - Saiba mais sobre [padrão Balanceador de carga com regras de balanceamento de carga de portas HA](load-balancer-ha-ports-overview.md)
 - Saiba como utilizar [Balanceador de carga com várias Frontends](load-balancer-multivip-overview.md)
 - Saiba mais sobre [redes virtuais](../virtual-network/virtual-networks-overview.md).
-- Saiba mais sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+- Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
 - Saiba mais sobre [pontos finais do serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Saiba mais sobre algumas da outra chave [capacidades de rede](../networking/networking-overview.md) no Azure.
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).

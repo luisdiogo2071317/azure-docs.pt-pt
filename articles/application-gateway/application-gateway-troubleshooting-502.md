@@ -1,11 +1,11 @@
 ---
 title: Resolver erros de Azure Application Gateway incorreto Gateway (502) | Microsoft Docs
-description: "Saiba como resolver erros 502 de Gateway de aplicação"
+description: Saiba como resolver erros 502 de Gateway de aplicação
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros do gateway incorreto no Gateway de aplicação
 
@@ -92,7 +92,7 @@ Se estiver presente, certifique-se de que o servidor DNS é capaz de resolver co
 * A chamada para http://127.0.0.1:port deverá devolver um código de resultado HTTP de 200. Isto deve ser devolvido dentro do período de tempo limite de 30 segundos.
 * Certifique-se de que a porta configurada está aberta e que não são regras de firewall ou grupos de segurança do Azure rede, que bloqueia o tráfego de entrada ou de saída na porta configurada.
 * Se as VMs clássicas do Azure ou serviço em nuvem é utilizado com o FQDN ou o IP público, certifique-se de que o correspondente [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) é aberto.
-* Se a VM está configurada através do Azure Resource Manager e está fora da VNet onde o Gateway de aplicação é implementada, [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) tem de ser configurado para permitir o acesso na porta pretendido.
+* Se a VM está configurada através do Azure Resource Manager e está fora da VNet onde o Gateway de aplicação é implementada, [grupo de segurança de rede](../virtual-network/security-overview.md) tem de ser configurado para permitir o acesso na porta pretendido.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas com a pesquisa de estado de funcionamento personalizado
 

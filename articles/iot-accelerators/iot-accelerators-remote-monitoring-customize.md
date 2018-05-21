@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ab5a0913922e4664c867d54d9ec07e3611345dd8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: 94bd864215ad80b299db09b6237f2cebe63feb88
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador de solução de monitorização remota
 
@@ -462,7 +462,7 @@ Para modificar ainda mais a camada de apresentação e visualizações na soluç
 
 Neste artigo, aprendeu sobre os recursos disponíveis para o ajudar a personalizar a IU da web no acelerador de solução de monitorização remota.
 
-Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [arquitetura de monitorização remota](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Para obter mais informações sobre como personalizar a solução de monitorização remota, consulte [personalizar e volte a implementar um microsserviço](../iot-suite/iot-suite-microservices-example.md)
+Para obter mais informações sobre como personalizar a solução de monitorização remota, consulte [personalizar e volte a implementar um microsserviço](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

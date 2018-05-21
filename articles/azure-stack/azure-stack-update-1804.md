@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dde2783db08ec00696a70c0cad08ca211194a470
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a7ba5f1947da09177e7d2d9d0e9e926d858dff7e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-stack-1804-update"></a>Atualização de pilha 1804 do Azure
 
@@ -38,7 +38,7 @@ Esta atualização inclui as seguintes melhorias de pilha do Azure.
 
 - <!-- 15028744 - IS -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
  
-- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md). 
+- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
 - <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
   - *Predefinição a subscrição do fornecedor de*. Utilize esta subscrição para a infraestrutura de núcleo apenas. Não implemente recursos ou fornecedores de recursos nesta subscrição.
@@ -60,12 +60,11 @@ Esta atualização inclui as seguintes melhorias de pilha do Azure.
 Os seguintes estão agora disponíveis, mas não necessitam de atualização de pilha do Azure 1804.
 - **Atualizar para o pacote de monitorização do Azure pilha do Microsoft System Center Operations Manager**. Uma nova versão (1.0.3.0) o Microsoft System Center Operations Manager monitorização Pack de pilha do Azure está disponível para [transferir](https://www.microsoft.com/download/details.aspx?id=55184). Com esta versão, pode utilizar principais de serviço ao adicionar uma implementação de pilha do Azure ligada. Esta versão inclui também uma experiência de gestão de atualizações que lhe permite efetuar a ação de remediação diretamente a partir do Operations Manager. Também existem novos dashboards que apresentam fornecedores de recursos, unidades de escala e nós de unidade de escala.
 
-- **Novo Azure da pilha administração PowerShell versão 1.2.12**.  O Azure PowerShell pilha 1.2.12 está agora disponível para instalação. Esta versão fornece comandos para todos os fornecedores de recursos de administrador gerir a pilha do Azure.  Com esta versão, algum conteúdo vai ser preterido a partir do GitHub de ferramentas de pilha do Azure [repositório](https://github.com/Azure/AzureStack-Tools). 
+- **Novo Azure da pilha administração PowerShell versão 1.3.0**.  O Azure PowerShell pilha 1.3.0 está agora disponível para instalação. Esta versão fornece comandos para todos os fornecedores de recursos de administrador gerir a pilha do Azure.  Com esta versão, algum conteúdo vai ser preterido a partir do GitHub de ferramentas de pilha do Azure [repositório](https://github.com/Azure/AzureStack-Tools). 
 
-   Para obter detalhes de instalação, siga o [instruções](azure-stack-powershell-install.md) ou [ajudar](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.12) conteúdo para o módulo de pilha do Azure 1.2.12. 
+   Para obter detalhes de instalação, siga o [instruções](azure-stack-powershell-install.md) ou [ajudar](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) conteúdo para o módulo de pilha do Azure 1.3.0. 
 
-- **Inicial de versão de referência da API Rest do Azure pilha**. A referência da API para todos os fornecedor de recursos do Azure pilha Admin agora é publicada
-
+- **Inicial de versão de referência da API Rest do Azure pilha**. O [referência da API para todos os fornecedores de recursos do Azure pilha Admin](https://docs.microsoft.com/rest/api/azure-stack/) agora é publicado. 
 
 
 ## <a name="before-you-begin"></a>Antes de começar    
@@ -74,10 +73,9 @@ Os seguintes estão agora disponíveis, mas não necessitam de atualização de 
 - Instalar a pilha de Azure [1803 atualizar](azure-stack-update-1803.md) antes de aplicar a atualização 1804 de pilha do Azure.    
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos relacionados com o processo de atualização   
-- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
+- Durante a instalação da atualização 1804, poderá ver alertas com o título *erro – o modelo para o FaultType UserAccounts.New está em falta.*  Pode ignorar com segurança estes alertas. Estes alertas irão fechar automaticamente depois de concluída a atualização a 1804.   
  
-- <!-- 2328416 - IS --> During installation of the 1804 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
-
+- <!-- TBD - IS --> Do not attempt to create virtual machines during the installation of this update. For more information about managing updates, see [Manage updates in Azure Stack overview](azure-stack-updates.md#plan-for-updates).
 ### <a name="post-update-steps"></a>Passos pós-atualização
 *Existem não existem passos pós-atualização para atualização 1804.*
 
@@ -108,6 +106,22 @@ As seguintes são problemas conhecidos de pós-instalação para a compilação 
 
 
 #### <a name="compute"></a>Computação
+- <!-- TBD - IS --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+  Como solução, utilize um dos seguintes métodos para implementar uma VM. Cada método, tem de especificar o tamanho da VM que pretende utilizar.
+
+  - **Modelo Azure Resource Manager:** quando utilizar um modelo, defina o *vmSize* no modelo para igualar o tamanho da VM pretendido. Por exemplo, o seguinte procedimento é utilizado para implementar uma VM que utiliza o *F32s_v2* tamanho:  
+
+    ```
+        "properties": {
+        "hardwareProfile": {
+                "vmSize": "Standard_F32s_v2"
+        },
+    ```  
+  - **CLI do Azure:** pode utilizar o [az vm criar](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) de comandos e especificar o tamanho da VM como um parâmetro semelhante `--size "Standard_F32s_v2"`.
+
+  - **PowerShell:** com o PowerShell, pode utilizar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) com o parâmetro que especifica o tamanho da VM, semelhante a `-VMSize "Standard_F32s_v2"`.
+
+
 - <!-- TBD - IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
 
 - <!-- TBD - IS --> When you create an availability set in the portal by going to **New** > **Compute** > **Availability set**, you can only create an availability set with a fault domain and update domain of 1. As a workaround, when creating a new virtual machine, create the availability set by using PowerShell, CLI, or from within the portal.

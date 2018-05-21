@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async SDK Java para API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -55,6 +55,18 @@ O SDK Java do SQL Server API Async difere de acordo com o SDK de Java de API do 
 
 ## <a name="release-notes"></a>Notas de versão
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Adicionado suporte para a política de índice exclusivo.
+* Suporte adicionado para limitar o tamanho de token de continuação de resposta nas opções do feed.
+* Adicionado suporte para a divisão de partição na consulta de partição cruzada.
+* Corrigido um erro na serialização do Json timestamp ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Corrigido um erro na serialização de enumeração de Json.
+* Corrigido um erro na gestão de documentos do tamanho de 2MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Dependência com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5 resultam de erros ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Dependência de rxjava-extras atualizado para 0.8.0.17 resultam de erros ([rxjava extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* A descrição de metadados no ficheiro pom atualizado para ser inline com o resto da documentação.
+* Melhoramento de sintaxe ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Adicionado suporte de back-pressão na consulta.
 * Suporte adicionado para o id de intervalo de chaves de partição na consulta.
@@ -79,6 +91,7 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 de Maio de 2018|--- |
 | [1.0.1](#1.0.1) |20 de Abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de fevereiro de 2018|--- |
 

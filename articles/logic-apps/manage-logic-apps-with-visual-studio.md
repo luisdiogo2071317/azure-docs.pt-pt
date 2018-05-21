@@ -3,10 +3,10 @@ title: Gerir as logic apps com o Visual Studio - Azure Logic Apps | Microsoft Do
 description: Gerir as logic apps e outros recursos do Azure com o Visual Studio Cloud Explorer
 author: ecfan
 manager: SyntaxC4
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: db847d5fa3d5f5b2b2f0293f1756226870a8b47e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir as logic apps com o Visual Studio
 
@@ -32,24 +32,24 @@ Embora possa criar, editar, gerir e implementar as logic apps no <a href="https:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrever-se numa conta do Azure gratuita</a>.
+* Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
 
-* Transferir e instalar estas ferramentas, se não tiver já: 
+* Transfira e instale estas ferramentas, se ainda não as tiver: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 ou Visual Studio 2015 - edição Community ou superior</a>. 
-  Este guia de introdução utiliza o Visual Studio Community 2017, que é gratuito.
+  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 ou Visual Studio 2015 – edição Community ou superior</a>. 
+  Este início rápido utiliza o Visual Studio Community 2017, que é gratuito.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Azure (2.9.1 ou posterior)</a> e <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Ferramentas de aplicações lógicas do Azure para Visual Studio 2017</a> ou <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versão do Visual Studio 2015</a> 
+  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Ferramentas do Azure Logic Apps para o Visual Studio 2017</a> ou a <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versão Visual Studio 2015</a> 
   
-    Pode transferir e instalar as ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou Saiba <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">como instalar esta extensão de dentro de Visual Studio</a>. 
-    Certifique-se de que reinicie o Visual Studio depois de concluir a instalação.
+    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">como instalar esta extensão a partir do Visual Studio</a>. 
+    Certifique-se de que reinicia o Visual Studio depois de concluir a instalação.
 
-* Acesso Web ao utilizar o Designer de aplicação lógica incorporados
+* Acesso Web ao utilizar o Designer de aplicações lógicas incorporados
 
-  O estruturador requer uma ligação à internet para criar recursos no Azure e ler as propriedades e os dados a partir dos conectores na sua aplicação lógica. 
-  Por exemplo, se utilizar o conector do Dynamics CRM Online, o estruturador verifica se a instância do CRM de predefinidas disponíveis e as propriedades personalizadas.
+  O estruturador precisa de uma ligação à Internet para criar recursos no Azure e ler as propriedades e os dados a partir de conectores na sua aplicação lógica. 
+  Por exemplo, se utilizar o conector do Dynamics CRM Online, o estruturador verifica se a instância do CRM tem propriedades personalizadas e predefinidas disponíveis.
 
 <a name="find-logic-apps-vs"></a>
 
@@ -78,13 +78,13 @@ No Visual Studio, pode abrir as logic apps anteriormente criada e implementada d
 
 1. Abra o Explorador de nuvem e localizar a sua aplicação lógica. 
 
-2. No menu de atalho da aplicação lógica, selecione **aberto com Logic App Editor**.
+2. No menu de atalho da aplicação lógica, selecione **aberta com o Editor de aplicação lógica**.
 
    Este exemplo mostra as logic apps por tipo de recurso, pelo que as logic apps são apresentados no **Logic Apps** secção.
 
   ![Aplicação de lógica de implementado abertos do portal do Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Depois da aplicação lógica abre no Designer de aplicação lógica, na parte inferior do designer, pode escolher **vista de código** para que pode rever a estrutura de definição de aplicação lógica subjacente. 
+   Depois da aplicação lógica abre no Designer de aplicações lógicas, na parte inferior do designer, pode escolher **vista de código** para que pode rever a estrutura de definição de aplicação lógica subjacente. 
    Se pretender criar um modelo de implementação para a aplicação lógica, saiba [como transferir um modelo Azure Resource Manager](#download-logic-app) para essa aplicação lógica. Saiba mais sobre [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
 <a name="download-logic-app"></a>
@@ -95,7 +95,7 @@ Pode transferir as logic apps do <a href="https://portal.azure.com" target="_bla
 
 1. No Visual Studio, abra o Explorador de nuvem, em seguida, localize e selecione a aplicação lógica que pretende transferir a partir do Azure.
 
-2. No menu de atalho essa aplicação, selecione **aberto com Logic App Editor**.
+2. No menu de atalho essa aplicação, selecione **aberta com o Editor de aplicação lógica**.
 
    O Designer de aplicação lógica abre-se e mostra a aplicação lógica. 
    Para rever a aplicação de lógica subjacente e de estrutura, na parte inferior do designer, escolha **vista de código**. 
@@ -170,7 +170,7 @@ Ao eliminar a sua aplicação lógica do portal do Azure, no Cloud Explorer, abr
 
 ![Eliminar a aplicação lógica](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a gerir aplicações lógicas implementado com o Visual Studio. Em seguida, saiba mais sobre como personalizar definições da aplicação lógica para a implementação:
 
