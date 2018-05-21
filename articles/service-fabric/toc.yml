@@ -543,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Ligar remotamente ao nó de cluster de VM
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: Atualizar/migrar SKU do VMSS
+              href: service-fabric-update-vmss-sku.md
         - name: Clusters autónomos
           items:
             - name: Criar
