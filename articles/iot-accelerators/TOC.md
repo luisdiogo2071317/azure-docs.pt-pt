@@ -47,48 +47,48 @@
 ### [Instruções do acelerador de soluções de Manutenção Preditiva](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Fábrica Ligada
-### [O que é a Fábrica Ligada?](../iot-suite/iot-suite-connected-factory-features.md)
-### [Descrição geral da solução de Fábrica Ligada](../iot-suite/iot-suite-connected-factory-overview.md)
-### [Instruções da solução de Fábrica Ligada](../iot-suite/iot-suite-connected-factory-sample-walkthrough.md)
+### [O que é a Fábrica Ligada?](iot-accelerators-connected-factory-features.md)
+### [Descrição geral da solução de Fábrica Ligada](iot-accelerators-connected-factory-overview.md)
+### [Instruções da solução de Fábrica Ligada](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Simulação do Dispositivo
-### [Implementar a Simulação do Dispositivo](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [Explorar a Simulação do Dispositivo](../iot-suite/iot-suite-device-simulation-explore.md)
+### [Implementar a Simulação do Dispositivo](iot-accelerators-device-simulation-deploy.md)
+### [Explorar a Simulação do Dispositivo](iot-accelerators-device-simulation-explore.md)
 
 # Guias de procedimentos
 ## Monitorização Remota
-### [Realizar a monitorização avançada](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [Realizar a monitorização avançada](iot-accelerators-remote-monitoring-monitor.md)
 ### [Utilize as regras para detetar problemas](iot-accelerators-remote-monitoring-automate.md)
-### [Integrar dados SIM](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [Gerir os seus dispositivos](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [Resolver problemas do dispositivo](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [Compreender o esquema do modelo de dispositivo](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
-### [Compreender o comportamento do modelo de dispositivo](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Criar um novo dispositivo simulado](../iot-suite/iot-suite-remote-monitoring-test.md)
-### [Visualizar com o Power BI](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [Integrar dados SIM](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Gerir os seus dispositivos](iot-accelerators-remote-monitoring-manage.md)
+### [Resolver problemas do dispositivo](iot-accelerators-remote-monitoring-maintain.md)
+### [Compreender o esquema do modelo de dispositivo](iot-accelerators-remote-monitoring-device-schema.md)
+### [Compreender o comportamento do modelo de dispositivo](iot-accelerators-remote-monitoring-device-behavior.md)
+### [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-test.md)
+### [Visualizar com o Power BI](iot-accelerators-integrate-data-powerbi.md)
 ### [Personalizar a IU da solução](iot-accelerators-remote-monitoring-customize.md)
-### [Personalizar e reimplementar um microsserviço](../iot-suite/iot-suite-microservices-example.md)
+### [Personalizar e reimplementar um microsserviço](iot-accelerators-microservices-example.md)
 ### [Implementar com a CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Implementar localmente](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Visualizar dados com o Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
-### [Integrar com o Data Lake](../iot-suite/iot-suite-integrate-data-lake.md)
+### [Integrar com o Data Lake](iot-accelerators-integrate-data-lake.md)
 ### Ligar um dispositivo físico
-#### [C em Windows](../iot-suite/iot-suite-connecting-devices.md)
-#### [C em Linux](../iot-suite/iot-suite-connecting-devices-linux.md)
-#### [Node.js (genérico)](../iot-suite/iot-suite-connecting-devices-node.md)
-#### [Node.js no Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [C no Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [C em Windows](iot-accelerators-connecting-devices.md)
+#### [C em Linux](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (genérico)](iot-accelerators-connecting-devices-node.md)
+#### [Node.js no Raspberry Pi](iot-accelerators-connecting-pi-node.md)
+#### [C no Raspberry Pi](iot-accelerators-connecting-pi-c.md)
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Conceitos
-#### [Detalhes da implementação da Monitorização Remota](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Detalhes da implementação da Monitorização Remota](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 #### [Escolhas arquitetónicas da Monitorização Remota](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Fábrica Ligada
-### [Implementar um gateway para a Fábrica Ligada](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
-### [Personalizar a Fábrica Ligada](../iot-suite/iot-suite-connected-factory-customize.md)
+### [Implementar um gateway para a Fábrica Ligada](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Personalizar a Fábrica Ligada](iot-accelerators-connected-factory-customize.md)
 ### [Utilizar o publicador de OPC para a Fábrica Ligada](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Configurar a Fábrica Ligada](../iot-suite/iot-suite-connected-factory-configure.md)
+### [Configurar a Fábrica Ligada](iot-accelerators-connected-factory-configure.md)
 ## [Permissões em azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Referência
@@ -118,8 +118,8 @@
 
 # Recursos
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/)
-## [FAQ](../iot-suite/iot-suite-faq.md)
-## [FAQ de Monitorização Remota](../iot-suite/iot-suite-faq-rm-v2.md)
-## [FAQ de Fábrica Ligada](../iot-suite/iot-suite-faq-cf.md)
+## [FAQ](iot-accelerators-faq.md)
+## [FAQ de Monitorização Remota](iot-accelerators-faq-rm-v2.md)
+## [FAQ de Fábrica Ligada](iot-accelerators-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Percurso de aprendizagem dos aceleradores de soluções de IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

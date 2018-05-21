@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Como Proxy de aplicações do Azure AD fornece o início de sessão único?
 
@@ -60,7 +60,7 @@ Para obter informações sobre a configuração baseada em palavra-passe de iní
 
 Se já tiver uma único início de sessão solução estar configurada para as identidades no local, escolha **ligado início de sessão**. Esta opção permite que o Azure Active Directory para tirar partido das soluções SSO existentes, mas ainda fornece aos utilizadores acesso remoto para a aplicação. 
 
-Para obter informações sobre ligado início de sessão (formally conhecido como existente-início de sessão único), consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
+Para obter informações sobre ligado início de sessão (formally conhecido como existente-início de sessão único), consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
 

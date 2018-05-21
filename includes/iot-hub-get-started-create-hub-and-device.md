@@ -1,44 +1,45 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f8cd78e63099f864c5fc54b6268f6e558d738626
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/20/2018
+---
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
 
 Agora que criou um hub IoT, localize as informações importantes que utilizar para ligar dispositivos e aplicações para o seu IoT hub. 
 
-1. Depois de criar o hub IoT, clique no mesmo no dashboard. Anote o **Nome de anfitrião** e, em seguida, clique em **Políticas de acesso partilhado**.
+No menu de navegação do IoT hub, abra **políticas de acesso partilhado**.
+Selecione o **iothubowner** política e, em seguida, copie o **cadeia de ligação---chave primária** do seu IoT hub. Para obter mais informações, veja [Controlar o acesso ao Hub IoT](../articles/iot-hub/iot-hub-devguide-security.md).
 
-   ![Obter o nome do anfitrião do hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
+   > [!NOTE] 
+   > Não é necessário esta cadeia de ligação iothubowner para este tutorial de configuração. No entanto, poderá ser necessário, para alguns tutoriais ou diferentes cenários de IoT depois de concluir esta configuração.
 
-1. No painel **Políticas de acesso partilhado**, clique na política **iothubowner** e copie e anote a **Cadeia de ligação** do hub IoT. Para obter mais informações, veja [Controlar o acesso ao Hub IoT](../articles/iot-hub/iot-hub-devguide-security.md).
-
-> [!NOTE] 
-Não precisará da cadeia de ligação iothubowner para este tutorial de configuração. No entanto, poderá ser necessária para alguns dos tutoriais sobre os diferentes cenários de IoT depois de concluir esta configuração.
-
-   ![Obter a cadeia de ligação do hub IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
+   ![Obter a cadeia de ligação do hub IoT](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
 ## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Registar um dispositivo no hub IoT para o seu dispositivo
 
-1. No [portal do Azure](https://portal.azure.com/), abra o hub IoT.
+1. No menu de navegação do IoT hub, abra **dispositivos IoT**, em seguida, clique em **adicionar** para registar um dispositivo no seu IoT hub.
 
-2. Clique em **dispositivos IoT**.
-3. No painel de dispositivos do IoT, clique em **adicionar** para adicionar um dispositivo ao seu IoT hub. Em seguida, faça o seguinte:
+   ![Adicionar um dispositivo em dispositivos IoT do seu IoT hub](./media/iot-hub-get-started-create-hub-and-device/create-identity-portal.png)
 
-   **ID do Dispositivo**: introduza o ID do novo dispositivo. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
-
-   **Tipo de Autenticação**: selecione **Chave Simétrica**.
-
-   **Gerar Chaves Automaticamente**: selecione esta caixa de verificação.
-
-   **Ligar dispositivo ao Hub IoT**: clique em **Ativar**.
-
-   ![Adicionar um dispositivo em dispositivos IoT do seu IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
+2. Introduza um **ID de dispositivo** para o novo dispositivo. Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Clique em **Guardar**.
-5. Depois do dispositivo é criado, abra o dispositivo no **dispositivos IoT** painel.
+5. Depois do dispositivo é criado, abra o dispositivo na lista no **dispositivos IoT** painel.
+6. Copiar o **cadeia de ligação---chave primária** para posterior utilização.
 
-   ![Lista de dispositivos de IoT no IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
-
-6. Anote a chave primária da cadeia de ligação.
-
-   ![Obter a cadeia de ligação do dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)
+   ![Obter a cadeia de ligação do dispositivo](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)
