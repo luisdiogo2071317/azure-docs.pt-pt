@@ -1,6 +1,6 @@
 ---
 title: Produz o modelo Azure Resource Manager | Microsoft Docs
-description: "Descreve como definir saídas para um modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON."
+description: Descreve como definir saídas para um modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Secção saídas modelos Azure Resource Manager
 Na secção saídas, especifique os valores que são devolvidos por implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.

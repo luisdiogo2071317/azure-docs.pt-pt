@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Controlar assíncronas operações do Azure
 Algumas operações de REST de Azure executam de forma assíncrona porque a operação não é possível concluir o mais rapidamente. Este tópico descreve como monitorizar o estado de operações assíncronas através de valores obtidos na resposta.  
@@ -32,7 +32,7 @@ Uma operação assíncrona inicialmente devolve um código de estado HTTP do:
 Quando a operação for concluída com êxito, devolverá uma:
 
 * 200 (OK)
-* 204 (No Content) 
+* 204 (nenhum conteúdo) 
 
 Consulte o [documentação da REST API](/rest/api/) para ver as respostas para a operação a que se encontram em execução. 
 
