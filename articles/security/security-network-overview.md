@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 843ff1adddcb4c1165ead3f484ad74a503410852
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: fbd589aedb955ee4bd61dc0ec754d8713a98179a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral de segurança de rede do Azure
 Azure inclui uma infraestrutura robusta de rede para suportar a sua aplicação e os requisitos de conectividade do serviço. Conectividade de rede é possível entre os recursos localizados no Azure, no local e Azure alojadas recursos e de e para a internet e o Azure.
@@ -57,7 +57,7 @@ Se precisar de controlo de acesso de nível de rede básica (com base no endere�
 
 Saiba mais:
 
-* [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+* [Grupos de segurança de rede](../virtual-network/security-overview.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Controlo de rotas e imposição do túnel
 A capacidade para controlar o comportamento de encaminhamento na sua rede virtual é crítico. Se o encaminhamento é configurado incorretamente, aplicações e serviços alojados na sua máquina virtual podem ligar a dispositivos não autorizados, incluindo sistemas pertencentes à empresa e operada por potenciais atacantes.

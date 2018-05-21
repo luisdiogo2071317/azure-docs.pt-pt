@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: c41a1057bb87c70362477d221b69ca3f5137dec4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
@@ -162,7 +162,6 @@ Pode criar uma rede virtual (clássica) utilizando o [portal do Azure](#portal),
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre todas as definições de sub-rede e de rede virtual, consulte [gerir redes virtuais](manage-virtual-network.md) e [gerir sub-redes da rede virtual](virtual-network-manage-subnet.md). Tem várias opções para utilizar redes virtuais e sub-redes num ambiente de produção para satisfazer requisitos diferentes.
-- Para filtrar o tráfego de sub-rede de entrada e saída, criar e aplicar [grupos de segurança de rede](virtual-networks-nsg.md) a sub-redes.
 - Criar um [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual e, em seguida, ligue-o a uma rede virtual existente.
 - Para ligar duas redes virtuais na mesma localização do Azure, criar um [peering de rede virtual](create-peering-different-deployment-models.md) entre as redes virtuais. Pode elemento uma rede virtual (Resource Manager) a uma rede virtual (clássica), mas não é possível criar um peering entre duas redes virtuais (clássica).
 - Ligar a rede virtual a uma rede no local utilizando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuito.

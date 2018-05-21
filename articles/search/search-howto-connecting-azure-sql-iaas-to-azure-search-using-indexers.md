@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma ligação de um indexador de Azure Search para SQL Server numa VM do Azure
 Conforme indicado no [ligar Azure base de dados SQL para a Azure Search utilizando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), criação de indexadores contra **do SQL Server em VMs do Azure** (ou **VMs do SQL do Azure** para abreviar) é suportada através da Azure Search, mas existem alguns pré-requisitos relacionadas com segurança ao asseguramos primeiro. 
@@ -52,14 +52,14 @@ Em particular, consulte a secção cada artigo para "ligar através da internet"
 ## <a name="configure-the-network-security-group-nsg"></a>Configurar o grupo de segurança de rede (NSG)
 Não é bastante invulgar configurar o NSG e ponto final do Azure correspondente ou lista de controlo de acesso (ACL) para que a VM do Azure acessível a outras entidades. Possibilidades são que tiver terminado antes de permitir a sua própria lógica de aplicação para ligar à VM do Azure SQL. É igual para uma ligação de pesquisa do Azure para a VM do SQL do Azure. 
 
-As ligações abaixo fornecem instruções sobre a configuração do NSG para implementações de VM. Utilize estas instruções para a ACL de um ponto final de Azure SEarch com base no respetivo endereço IP.
+As ligações abaixo fornecem instruções sobre a configuração do NSG para implementações de VM. Utilize estas instruções para a ACL de um ponto final de Azure Search com base no respetivo endereço IP.
 
 > [!NOTE]
-> Para em segundo plano, consulte [que é um grupo de segurança de rede?](../virtual-network/virtual-networks-nsg.md)
+> Para em segundo plano, consulte [que é um grupo de segurança de rede?](../virtual-network/security-overview.md)
 > 
 > 
 
-* Para um **Resource Manager** VM, consulte [como criar NSGs para implementações de ARM](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* Para um **Resource Manager** VM, consulte [como criar NSGs para implementações de ARM](../virtual-network/tutorial-filter-network-traffic.md). 
 * Para um **clássico** VM, consulte [como criar NSGs para implementações clássicas](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 Endereçamento IP pode apresentam alguns desafios que são facilmente ultrapassar se tem conhecimento do problema e possíveis soluções. As secções restantes fornecem recomendações para problemas relacionados com endereços IP na ACL de processamento.

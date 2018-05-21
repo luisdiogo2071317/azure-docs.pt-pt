@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introdução à segurança do Microsoft Azure
 
@@ -136,7 +136,7 @@ Pode colocar as máquinas virtuais no [redes virtuais do Azure](https://azure.mi
 
 Pode utilizar as seguintes tecnologias de rede Virtual do Azure para o ajudar a comunicação segura na sua rede virtual:
 
-* [**Grupos de segurança (NSGs) de rede**](../virtual-network/virtual-networks-nsg.md). Pode utilizar um NSG para controlar tráfego para uma ou mais instâncias de máquina virtual na sua rede virtual. Um NSG contém as regras de controlo de acesso que permitem ou negam tráfego com base na direção, protocolo, endereço e porta de origem e endereço e porta de destino do tráfego.
+* [**Grupos de segurança (NSGs) de rede**](../virtual-network/security-overview.md). Pode utilizar um NSG para controlar tráfego para uma ou mais instâncias de máquina virtual na sua rede virtual. Um NSG contém as regras de controlo de acesso que permitem ou negam tráfego com base na direção, protocolo, endereço e porta de origem e endereço e porta de destino do tráfego.
 * [**Definido pelo utilizador encaminhamento**](../virtual-network/virtual-networks-udr-overview.md). Pode controlar o encaminhamento de pacotes através de uma aplicação virtual ao criar rotas definidas pelo utilizador que especificam o salto seguinte para os pacotes que fluem para uma sub-rede específica para ir para uma aplicação de segurança de rede virtual.
 * [**Reencaminhamento IP**](../virtual-network/virtual-networks-udr-overview.md). Uma aplicação virtual de segurança de rede deve ser capaz de receber tráfego de entrada que não esteja endereçado a si mesma. Para permitir que uma máquina virtual receba tráfego endereçado a outros destinos, ativar o reencaminhamento IP para a máquina virtual.
 * [**Túnel forçado**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Permite imposição de túnel redirecionar ou "forçar" todo o tráfego vinculado à Internet gerado pela suas máquinas virtuais numa rede virtual de volta para a localização no local através de um túnel VPN de site a site para inspeção e auditoria

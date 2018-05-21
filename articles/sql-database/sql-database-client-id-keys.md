@@ -3,17 +3,17 @@ title: Obter os valores para autenticação da aplicação - SQL Database do Azu
 description: Crie um principal de serviço para aceder à base de dados SQL a partir do código.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 31dd476244d578acf1ced3881fac94d5262bcb82
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f939f059ce2777eb32c869d8a18994da1f9873de
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obter os valores necessários para a autenticação de uma aplicação para aceder à base de dados SQL a partir do código
 Para criar e gerir a base de dados SQL a partir do código tem de registar a sua aplicação no domínio do Azure Active Directory (AAD) na subscrição, onde os recursos do Azure foram criados.

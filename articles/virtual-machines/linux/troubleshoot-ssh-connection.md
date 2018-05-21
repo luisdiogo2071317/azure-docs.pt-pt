@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de uma VM com Linux do Azure que falhe, erros de saída, ou é recusada ligações SSH
 Existem várias razões se encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusou-se ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a localizar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -34,7 +34,7 @@ Depois de cada passo de resolução de problemas, tente restabelecer a ligação
 
 1. Reposição da configuração SSH.
 2. Repor as credenciais do utilizador.
-3. Certifique-se a [grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md) regras permitem tráfego SSH.
+3. Certifique-se a [grupo de segurança de rede](../../virtual-network/security-overview.md) regras permitem tráfego SSH.
    * Certifique-se de que existe uma regra de grupo de segurança de rede para permitir tráfego SSH (por predefinição, a porta TCP 22).
    * Não é possível utilizar o redirecionamento de porta / mapeamento sem utilizar um balanceador de carga do Azure.
 4. Verifique o [estado de funcionamento de recursos VM](../../resource-health/resource-health-overview.md). 
@@ -77,7 +77,7 @@ Utilize [Certifique-se de fluxo IP](../../network-watcher/network-watcher-check-
 
 Utilizar o observador de rede [próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas eficazes para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de rotas efetivas do Using para resolver problemas de VM](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
-## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
+## <a name="use-the-azure-cli-20"></a>Utilizar CLI 2.0 do Azure
 Se ainda não o fez, instale a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/reference-index#az_login).
 
 Se criar e carregar uma imagem de disco do Linux personalizada, certifique-se a [agente Linux do Microsoft Azure](../extensions/agent-windows.md) versão 2.0.5 ou posterior está instalado. Para VMs criadas com imagens Gallery, esta extensão de acesso já está instalado e configurado por si.

@@ -14,3 +14,4 @@
 ### [Iniciar sessão com o telemóvel](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Cópia de segurança e credenciais de recuperação da conta](microsoft-authenticator-app-backup-and-recovery.md)
 ### [FAQs](microsoft-authenticator-app-faq.md)
+### [Atualizações de experiência de início de sessão](sign-in-experience-updates.md)

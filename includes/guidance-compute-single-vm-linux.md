@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines-linux
+author: iainfoulds
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: iainfou
+ms.custom: include file
+ms.openlocfilehash: 08b0cd35294a6cd4086fd5640b09d944ed361c41
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/20/2018
+---
 Este artigo descreve um conjunto de práticas comprovadas para executar máquinas virtuais (VMs) do Linux no Azure, tendo em atenção a escalabilidade, a disponibilidade, a gestão e a segurança. O Azure suporta a execução de várias distribuições Linux populares, incluindo CentOS, Debian, Red Hat Enterprise, Ubuntu e FreeBSD. Para obter mais informações, veja [Azure and Linux (O Azure e o Linux)][azure-linux].
 
 > [!NOTE]
@@ -184,8 +200,8 @@ Para maior disponibilidade, implemente duas ou mais VMs por trás de um balancea
 [manage-vm-availability]:../articles/virtual-machines/linux/manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
-[nsg]: ../articles/virtual-network/virtual-networks-nsg.md
-[nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
+[nsg]: ../articles/virtual-network/security-overview.md
+[nsg-default-rules]: ../articles/virtual-network/security-overview.md#default-security-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
 [premium-storage]:../articles/virtual-machines/windows/premium-storage.md

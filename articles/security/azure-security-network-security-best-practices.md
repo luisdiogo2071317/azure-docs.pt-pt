@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0aaf49aaa31a022e040fc7019a2f115f92555010
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Práticas recomendadas de segurança de rede do Azure
 Microsoft Azure permite-lhe ligar máquinas virtuais e aplicações para outros dispositivos de rede, colocando-los em redes virtuais do Azure. Uma rede Virtual do Azure é uma construção que permite ligar placas de interface de rede virtual a uma rede virtual para permitir a comunicação baseada em TCP/IP entre dispositivos de rede ativada. Máquinas virtuais do Azure ligado a uma rede Virtual do Azure podem ligar para dispositivos em que a mesma rede Virtual do Azure, Azure redes virtuais diferentes, na Internet ou até mesmo as suas próprias redes no local.
@@ -56,7 +56,7 @@ Semelhante à que fizer no local, deve segmentar o maior espaço de endereços e
 
 Encaminhamento entre sub-redes acontecerá automaticamente e não precisa de configurar manualmente as tabelas de encaminhamento. No entanto, a predefinição é que não existem sem controlos de acesso de rede entre as sub-redes que cria na rede Virtual do Azure. Para criar controlos de acesso de rede entre sub-redes, terá de colocar algo entre as sub-redes.
 
-Uma das ações que pode utilizar para realizar esta tarefa é um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) (NSG). Os NSGs são dispositivos de inspeção de pacotes de monitorização de estado simples que utilizam a 5 cadeias de identificação (o IP de origem, porta de origem, IP de destino, porta de destino e protocolo de camada 4) abordagem para criar permitir/recusar regras para o tráfego de rede. Pode permitir ou negar o tráfego de e para o endereço IP único, para e de vários endereços IP ou mesmo e de sub-redes de todos.
+Uma das ações que pode utilizar para realizar esta tarefa é um [grupo de segurança de rede](../virtual-network/security-overview.md) (NSG). Os NSGs são dispositivos de inspeção de pacotes de monitorização de estado simples que utilizam a 5 cadeias de identificação (o IP de origem, porta de origem, IP de destino, porta de destino e protocolo de camada 4) abordagem para criar permitir/recusar regras para o tráfego de rede. Pode permitir ou negar o tráfego de e para o endereço IP único, para e de vários endereços IP ou mesmo e de sub-redes de todos.
 
 Utilizar os NSGs para controlo de acesso de rede entre sub-redes permite-lhe colocar recursos que pertencem à mesma zona de segurança ou função nas suas próprias sub-redes. Por exemplo, considere uma simples aplicação de 3 camadas que tem uma camada web, uma camada de lógica de aplicação e uma camada de base de dados. Colocar as máquinas virtuais que pertencem a cada uma destas camadas para as suas próprias sub-redes. Em seguida, utilizar os NSGs para controlar o tráfego entre as sub-redes:
 
@@ -64,7 +64,7 @@ Utilizar os NSGs para controlo de acesso de rede entre sub-redes permite-lhe col
 * Máquinas de virtuais de lógica de aplicação apenas podem iniciar ligações com camadas de base de dados e só pode aceitar ligações a partir da camada web
 * Máquinas de virtuais de camada de base de dados não é possível iniciar a ligação com qualquer coisa fora da sua própria sub-rede e só pode aceitar ligações a partir da camada de lógica de aplicação
 
-Para obter mais informações sobre grupos de segurança de rede e como pode utilizá-las para segmentar logicamente as redes virtuais do Azure, consulte o artigo [que é um grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) (NSG).
+Para obter mais informações sobre grupos de segurança de rede e como pode utilizá-las para segmentar logicamente as redes virtuais do Azure, consulte o artigo [que é um grupo de segurança de rede](../virtual-network/security-overview.md) (NSG).
 
 ## <a name="control-routing-behavior"></a>Controlar o comportamento de encaminhamento
 Ao colocar uma máquina virtual numa rede Virtual do Azure, irá reparar que a máquina virtual pode ligar a outra máquina virtual na mesma rede Virtual do Azure, mesmo se outras máquinas virtuais estiverem em sub-redes diferentes. Isto é possível porque não existe uma coleção de rotas de sistema que estão ativadas por predefinição que permita este tipo de comunicação. Estas rotas predefinidas permitem a máquinas virtuais no mesmo Azure Virtual Network para iniciar as ligações entre si e com a Internet (para comunicações de saída para a Internet apenas).

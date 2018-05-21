@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 4f0afe48c37c6cb5dc8c1658f0a7beed4f0e6140
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual utilizando apenas no tempo
 
@@ -33,7 +33,7 @@ Apenas na máquina virtual de tempo (VM), acesso pode ser utilizado para bloquea
 
 Força bruta de ataques geralmente as portas de gestão de destino como um meio para obter acesso a uma VM. Se tiver êxito, um atacante pode assumir o controlo sobre a VM e estabelecer a sua posição no ambiente.
 
-Uma forma para reduzir a exposição a um ataque de força bruta é para limitar a quantidade de tempo que uma porta está aberta. As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando apenas na hora estiver ativada, o Centro de segurança utiliza [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) regras (NSG), que restringem o acesso às portas de gestão, pelo que não pode ser visados pelos atacantes.
+Uma forma para reduzir a exposição a um ataque de força bruta é para limitar a quantidade de tempo que uma porta está aberta. As portas de gestão não precisam de estar abertas permanentemente. Apenas têm de estar abertas enquanto estiver ligado à VM, por exemplo, para realizar tarefas de gestão ou manutenção. Quando apenas na hora estiver ativada, o Centro de segurança utiliza [grupo de segurança de rede](../virtual-network/security-overview.md#security-rules) regras (NSG), que restringem o acesso às portas de gestão, pelo que não pode ser visados pelos atacantes.
 
 ![Apenas no cenário de tempo][1]
 

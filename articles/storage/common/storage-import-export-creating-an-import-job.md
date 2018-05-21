@@ -1,11 +1,11 @@
 ---
-title: "Criar uma tarefa de importação para importar/exportar do Azure | Microsoft Docs"
-description: "Saiba como criar uma importação para o serviço de importação/exportação do Microsoft Azure."
+title: Criar uma tarefa de importação para importar/exportar do Azure | Microsoft Docs
+description: Saiba como criar uma importação para o serviço de importação/exportação do Microsoft Azure.
 author: muralikk
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criar uma tarefa de importação para o serviço do Azure para importar/exportar
 
@@ -62,7 +62,7 @@ Envolve a preparação da sua unidade:
 
 ## <a name="obtaining-your-shipping-location"></a>Obter a localização de envio
 
-Antes de criar uma tarefa de importação, tem de obter um envio de localização de nome e endereço ao chamar o [lista localizações](/rest/api/storageimportexport/listlocations) operação. `List Locations`irá devolver uma lista de localizações e os respetivos endereços de correio postal. Pode selecionar uma localização da lista devolvida e são enviados os discos rígidos a esse endereço. Também pode utilizar o `Get Location` operação para obter o endereço de envio para uma localização específica diretamente.
+Antes de criar uma tarefa de importação, tem de obter um envio de localização de nome e endereço ao chamar o [lista localizações](/rest/api/storageimportexport/listlocations) operação. `List Locations` irá devolver uma lista de localizações e os respetivos endereços de correio postal. Pode selecionar uma localização da lista devolvida e são enviados os discos rígidos a esse endereço. Também pode utilizar o `Get Location` operação para obter o endereço de envio para uma localização específica diretamente.
 
  Siga os passos abaixo para obter a localização do envio:
 
@@ -104,6 +104,8 @@ Tem de enviar a unidades para o endereço que obteve no passo anterior e tem de 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Atualizar a tarefa de importação com as suas informações de envio
 Depois de ter o seu número de controlo, chame o [atualizar propriedades da tarefa](/api/storageimportexport/jobs#Jobs_Update) operação para atualizar o nome da operadora envio, o número de controlo para a tarefa e o número de conta operadora para envio de retorno. Opcionalmente, pode especificar o número de unidades e, bem como a data de envio.
 
-## <a name="next-steps"></a>Passos seguintes
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o REST API do serviço de importação/exportação](storage-import-export-using-the-rest-api.md)

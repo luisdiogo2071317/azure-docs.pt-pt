@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar cópias de segurança de SQL Database do Azure para até 10 anos
 
@@ -54,8 +54,13 @@ W = 12 semanas (84 dias), M = 12 meses (365 dias), Y = 10 anos (3650 dias), Week
 
 
  
-Se tiver que modifique a política acima e W = 0 (nenhum cópias de segurança semanais), a cadência de conjunto de cópias de segurança alteraria como mostrado na tabela acima pelas datas realçadas. A quantidade de armazenamento necessária para manter estas cópias de segurança seria reduzir em conformidade. Nota: As cópias de imediatamente disponíveis são criadas pelo serviço de armazenamento do Azure, para que o processo de cópia não tenha nenhum impacto no desempenho na base de dados existente.
-Para restaurar uma base de dados do armazenamento imediatamente disponíveis, pode selecionar uma cópia de segurança específica com base no respetivo carimbo.   É possível restaurar a base de dados para qualquer servidor existente na mesma subscrição, como a base de dados original. 
+Se tiver que modifique a política acima e W = 0 (nenhum cópias de segurança semanais), a cadência de conjunto de cópias de segurança alteraria como mostrado na tabela acima pelas datas realçadas. A quantidade de armazenamento necessária para manter estas cópias de segurança seria reduzir em conformidade. 
+
+> [!NOTE]
+1. As cópias de imediatamente disponíveis são criadas pelo serviço de armazenamento do Azure, para que o processo de cópia não tenha nenhum impacto no desempenho na base de dados existente.
+2. A política se aplica as cópias de segurança futuras. Por exemplo, Se o WeekOfYear especificado está no passado quando a política estiver configurada, será criada a primeira cópia de segurança imediatamente disponíveis ano seguinte. 
+3. Para restaurar uma base de dados do armazenamento imediatamente disponíveis, pode selecionar uma cópia de segurança específica com base no respetivo carimbo.   É possível restaurar a base de dados para qualquer servidor existente na mesma subscrição, como a base de dados original. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar a retenção de cópias de segurança de longa duração
 
