@@ -283,6 +283,7 @@
 ### [Acesso de convidado com revisões de acesso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Gerir o acesso dos utilizadores com revisões](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Gerir programas e controlos](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Obter resultados da revisão do acesso](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Proteger as suas identidades
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
@@ -336,7 +337,6 @@
 ### [Algoritmo de alteração de hash de assinatura](active-directory-federation-sha256-guidance.md)
 
 ## [Resolução de problemas](active-directory-troubleshooting-support-howto.md)
-### [O item de resolução de problemas do Active Directory está em falta ou não está disponível](active-directory-troubleshooting.md)
 
 ## Implementar a Prova de Conceito (PoC) do Azure AD
 ### [Manual PoC: Introdução](active-directory-playbook-intro.md)

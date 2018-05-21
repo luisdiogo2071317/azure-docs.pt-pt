@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Ligar a computadores sem acesso à Internet através do Gateway do OMS
 Este documento descreve como configurar a comunicação com a automatização do Azure e análise de registos com o Gateway do OMS quando direta ligado ou computadores monitorizados do Operations Manager não têm acesso à Internet.  O Gateway do OMS, que é um proxy de reencaminhamento de HTTP que suporte o HTTP de túnel utilizando o comando HTTP ligar, pode recolher dados e envia-as à automatização do Azure e análise de registos em nome daqueles.  
@@ -131,20 +131,18 @@ Pode configurar o gateway de elevada disponibilidade utilizando a rede balanceam
 
 Para saber como estruturar e implementar uma cluster de balanceamento de carga na rede do Windows Server 2016, consulte [balanceamento de carga na rede](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  Os passos seguintes descrevem como configurar uma cluster de balanceamento de carga na rede Microsoft.  
 
-1.  Inicie sessão no servidor do Windows que seja membro do cluster NLB com uma conta de administrador.  
-2.  Abra o Gestor de balanceamento de carga na rede no Gestor de servidores, clique em **ferramentas**e, em seguida, clique em **Gestor de balanceamento de carga na rede**.
+1. Inicie sessão no servidor do Windows que seja membro do cluster NLB com uma conta de administrador.  
+2. Abra o Gestor de balanceamento de carga na rede no Gestor de servidores, clique em **ferramentas**e, em seguida, clique em **Gestor de balanceamento de carga na rede**.
 3. Para ligar um servidor de Gateway do OMS com o Microsoft Monitoring Agent instalada, clique no endereço IP do cluster e, em seguida, clique em **Adicionar anfitrião ao Cluster**.<br><br> ![Carga de rede Gestor de balanceamento – Adicionar anfitrião ao Cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Introduza o endereço IP do servidor de gateway que pretende ligar.<br><br> ![Rede do Gestor de balanceamento de carga – Adicionar anfitrião ao Cluster: ligar](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurar o agente do OMS e o grupo de gestão do Operations Manager
 A secção seguinte inclui os passos sobre como configurar ligadas diretamente agentes do OMS, um grupo de gestão do Operations Manager ou do Azure automatização de Runbook híbridos com o Gateway do OMS para comunicar com a automatização do Azure ou análise de registos.  
 
-Para compreender os requisitos e passos sobre como instalar o agente do OMS em computadores Windows, ligando-se diretamente ao Log Analytics, consulte [computadores Windows ligar ao Log Analytics](log-analytics-windows-agents.md) ou para ver de computadores Linux [ligar Linux computadores ao Log Analytics](log-analytics-quick-collect-linux-computer.md).  Para informações relacionadas com o trabalho de Runbook híbrida da automatização, consulte [Runbook Worker híbrido implementar](../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configurar o agente do OMS e o Operations Manager para utilizar o Gateway do OMS como um servidor proxy
-
 ### <a name="configure-standalone-oms-agent"></a>Configurar o agente do OMS autónomo
-Consulte [configurar definições de proxy e de firewall com o Microsoft Monitoring Agent](log-analytics-proxy-firewall.md) para obter informações sobre como configurar um agente para utilizar um servidor proxy, que neste caso, é o gateway.  Se tiver implementado por trás de um balanceador de carga de rede de vários servidores de gateway, a configuração de proxy de agente do OMS é o endereço IP virtual do NLB:<br><br> ![Microsoft Monitoring Agent propriedades – definições do Proxy](./media/log-analytics-oms-gateway/nlb04.png)
+Para compreender os requisitos e passos sobre como instalar o agente do OMS em computadores Windows, ligando-se diretamente ao Log Analytics, consulte [computadores Windows ligar ao Log Analytics](log-analytics-windows-agents.md) ou para ver de computadores Linux [ligar Linux computadores ao Log Analytics](log-analytics-quick-collect-linux-computer.md). In the place of especificar um servidor proxy ao configurar o agente, substitua esse valor com o endereço IP do servidor de Gateway do OMS e o respetivo número de porta.  Se tiver implementado por trás de um balanceador de carga de rede de vários servidores de gateway, a configuração de proxy de agente do OMS é o endereço IP virtual do NLB.  
+
+Para informações relacionadas com o trabalho de Runbook híbrida da automatização, consulte [Runbook Worker híbrido implementar](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configurar o Operations Manager - todos os agentes utilizam o mesmo servidor proxy
 Configurar o Operations Manager para adicionar o servidor de gateway.  A configuração de proxy do Operations Manager é aplicada automaticamente a todos os agentes que reportam ao Operations Manager, mesmo se a definição está vazia.  

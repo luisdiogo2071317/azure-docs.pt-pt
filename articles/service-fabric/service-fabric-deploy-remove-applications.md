@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 55a8ad51712d673d4388fd2723fcf70d226828c5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementar e remover aplicações utilizando o PowerShell
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ Execute o [Register-ServiceFabricApplicationType](/powershell/module/servicefabr
 Quando um pacote anteriormente foi copiado para o arquivo de imagens, a operação de registo Especifica o caminho relativo em arquivo de imagens.
 
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
