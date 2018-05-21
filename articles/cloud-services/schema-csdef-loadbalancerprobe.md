@@ -1,23 +1,23 @@
 ---
-title: "Def de serviços em nuvem do Azure Esquema de LoadBalancerProbe | Microsoft Docs"
-ms.custom: 
+title: Def de serviços em nuvem do Azure Esquema de LoadBalancerProbe | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 14
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 31c974c5a4b9dc9cff882ff42b73ee023fc4ad9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Definição LoadBalancerProbe esquema de serviços em nuvem do Azure
 A sonda do Balanceador de carga é uma sonda do Estado de funcionamento definido de cliente de pontos finais do UDP e os pontos finais em instâncias de função. O `LoadBalancerProbe` não é um elemento de autónomo; for combinada com a função da web ou função de trabalho num ficheiro de definição de serviço. A `LoadBalancerProbe` pode ser utilizado por mais de uma função.
@@ -50,10 +50,10 @@ O `LoadBalancerProbes` elemento do ficheiro de definição de serviço inclui os
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
+##  <a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
 O `LoadBalancerProbes` elemento descreve a coleção de pesquisas de Balanceador de carga. Este elemento é o elemento principal de [LoadBalancerProbe elemento](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
+##  <a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
 O `LoadBalancerProbe` elemento define a sonda de estado de funcionamento para um modelo. Pode definir vários sondas de Balanceador de carga. 
 
 A tabela seguinte descreve os atributos do `LoadBalancerProbe` elemento:
@@ -62,10 +62,10 @@ A tabela seguinte descreve os atributos do `LoadBalancerProbe` elemento:
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Necessário. O nome da sonda de Balanceador de carga. O nome tem de ser exclusivo.|
 | `protocol`          | `string` | Necessário. Especifica o protocolo de ponto final. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, uma confirmação recebida não é necessária para a sonda seja concluída com êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado não é necessária para a sonda seja concluída com êxito.|
-| `path`              | `string` | O URI utilizado para pedir o estado de funcionamento da VM. `path`é necessário se `protocol` está definido como `http`. Caso contrário, não é permitida.<br /><br /> Não há nenhum valor predefinido.|
+| `path`              | `string` | O URI utilizado para pedir o estado de funcionamento da VM. `path` é necessário se `protocol` está definido como `http`. Caso contrário, não é permitida.<br /><br /> Não há nenhum valor predefinido.|
 | `port`              | `integer` | Opcional. A porta para comunicar a pesquisa. Isto é opcional para qualquer ponto final, como a mesma porta, em seguida, será utilizada para a sonda. Pode configurar uma porta diferente para os respetivos pesquisar, bem. Intervalo de valores possíveis de 1 a 65535, inclusive.<br /><br /> O valor predefinido é definido pelo ponto final.|
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de sonda do ponto final do Estado de funcionamento. Normalmente, o intervalo é ligeiramente inferior a meio alocado período de tempo limite (em segundos) que permite que as pesquisas completas dois antes de colocar a instância de rotação.<br /><br /> O valor predefinido é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicada para a sonda onde sem resposta resultará na parar mais tráfego sejam entregues para o ponto final. Este valor permite pontos finais para ficar fora de rotação mais rápida ou mais lenta do que as horas típicas utilizadas no Azure (que são as predefinições).<br /><br /> O valor predefinido é de 31, o valor mínimo é de 11.|
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Esquema de definição (clássica) serviço em nuvem](schema-csdef-file.md)

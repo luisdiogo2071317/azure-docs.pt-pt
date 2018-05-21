@@ -29,7 +29,11 @@
 ## [Gerir o Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Renovar certificados para o Office 365 e o Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Atualizar o certificado SSL para um farm de Serviços de Federação do Active Directory (AD FS)](active-directory-aadconnectfed-ssl-update.md)
-### [Ativar a repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Opções do dispositivo](active-directory-azure-ad-connect-device-options.md)
+#### [Ativar a repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md)
+#### [Tarefas pós-configuração de associação do Azure AD híbrido](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Opções de início de sessão do utilizador](active-directory-aadconnect-user-signin.md)
 #### [Início de Sessão Único totalmente integrado](active-directory-aadconnect-sso.md)
 ##### [Início rápido](active-directory-aadconnect-sso-quick-start.md)

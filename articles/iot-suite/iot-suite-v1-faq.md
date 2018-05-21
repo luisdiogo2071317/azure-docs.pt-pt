@@ -1,12 +1,12 @@
 ---
 title: FAQ do Azure IoT Suite | Microsoft Docs
 description: Perguntas mais frequentes sobre o IoT Suite
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4c8ecdae8d84028986b4b3fba94486ce8eb7f1bc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas mais frequentes sobre o IoT Suite
 
-Além disso, consulte o específicos de fábrica ligado [FAQ](iot-suite-faq-cf.md).
+Além disso, consulte o específicos de fábrica ligado [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Onde posso encontrar o código de origem para as soluções pré-configuradas?
 
@@ -34,7 +34,7 @@ O código de origem é armazenado no repositórios do GitHub seguintes:
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Como atualizar para a versão mais recente da solução pré-configurada de monitorização remota que utiliza as funcionalidades de gestão de dispositivos do IoT Hub?
 
-* Se implementar uma solução pré-configurada a partir do https://www.azureiotsuite.com/ site, implementa sempre uma nova instância da versão mais recente da solução.
+* Se implementar uma solução pré-configurada do https://www.azureiotsuite.com/ site, implementa sempre uma nova instância da versão mais recente da solução.
 * Se implementar uma solução pré-configurada através da linha de comandos, pode atualizar uma implementação existente com o código de novo. Consulte [implementação na nuvem] [ lnk-cloud-deployment] no GitHub [repositório][lnk-remote-monitoring-github].
 
 ### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Como adicionar suporte para um novo método de dispositivo para a solução pré-configurada de monitorização remota?
@@ -104,7 +104,7 @@ Consulte a mensagem de blogue de Eric Golpe [instruções de eliminação de um 
 Também pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
 
 * [Descrição geral de solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
-* [Descrição geral da solução de fábrica ligado pré-configurada](iot-suite-connected-factory-overview.md)
+* [Descrição geral da solução de fábrica ligado pré-configurada](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [Segurança de IoT desde o início][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md

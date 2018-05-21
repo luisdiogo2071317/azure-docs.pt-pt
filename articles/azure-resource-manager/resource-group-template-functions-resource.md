@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para os modelos Azure Resource Manager
 
@@ -51,8 +51,8 @@ Devolve os valores para qualquer tipo de recurso que suporta a operação de lis
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |string |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **aaaa-mm-dd**. |
+| resourceName ou resourceIdentifier |Sim |cadeia |Identificador exclusivo para o recurso. |
+| apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **aaaa-mm-dd**. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -157,8 +157,8 @@ Devolve informações sobre um fornecedor de recursos e os respetivos tipos de r
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |string |Espaço de nomes do fornecedor |
-| resourceType |Não |string |O tipo de recurso no espaço de nomes especificado. |
+| providerNamespace |Sim |cadeia |Espaço de nomes do fornecedor |
+| resourceType |Não |cadeia |O tipo de recurso no espaço de nomes especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -245,9 +245,9 @@ Devolve um objeto que representa o estado do tempo de execução de um recurso.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |string |Nome ou o identificador exclusivo de um recurso. |
-| apiVersion |Não |string |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado dentro do mesmo modelo. Normalmente, no formato, **aaaa-mm-dd**. |
-| 'Total' |Não |string |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, é devolvido apenas o objeto de propriedades do recurso. O objeto completo inclui os valores, tais como o ID de recurso e a localização. |
+| resourceName ou resourceIdentifier |Sim |cadeia |Nome ou o identificador exclusivo de um recurso. |
+| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado dentro do mesmo modelo. Normalmente, no formato, **aaaa-mm-dd**. |
+| 'Total' |Não |cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, é devolvido apenas o objeto de propriedades do recurso. O objeto completo inclui os valores, tais como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -538,10 +538,10 @@ Devolve o identificador exclusivo de um recurso. Utilize esta função quando o 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |cadeia (formato de GUID no) |Valor predefinido é a subscrição atual. Especificar este valor quando precisar de obter um recurso na outra subscrição. |
-| resourceGroupName |Não |string |Valor predefinido é o grupo de recursos atual. Especificar este valor quando precisar de obter um recurso noutro grupo de recursos. |
-| resourceType |Sim |string |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
-| resourceName1 |Sim |string |Nome do recurso. |
-| resourceName2 |Não |string |Recursos nome segmento seguinte se o recurso está aninhado. |
+| resourceGroupName |Não |cadeia |Valor predefinido é o grupo de recursos atual. Especificar este valor quando precisar de obter um recurso noutro grupo de recursos. |
+| resourceType |Sim |cadeia |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
+| resourceName1 |Sim |cadeia |Nome do recurso. |
+| resourceName2 |Não |cadeia |Recursos nome segmento seguinte se o recurso está aninhado. |
 
 ### <a name="return-value"></a>Valor devolvido
 

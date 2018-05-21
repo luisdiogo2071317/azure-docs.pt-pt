@@ -1,43 +1,43 @@
 ---
-title: "Funções do Azure Resource Manager modelo - numérico | Microsoft Docs"
-description: "Descreve as funções para utilizar num modelo Azure Resource Manager para funcionar com números."
+title: Funções do Azure Resource Manager modelo - numérico | Microsoft Docs
+description: Descreve as funções para utilizar num modelo Azure Resource Manager para funcionar com números.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Um valor numérico funções para modelos Azure Resource Manager
 
 O Resource Manager fornece as seguintes funções para trabalhar com números inteiros:
 
-* [Adicionar](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
-* [Div](#div)
-* [número de vírgula flutuante](#float)
-* [Int](#int)
-* [Máx.](#max)
-* [Mín.](#min)
+* [div](#div)
+* [float](#float)
+* [int](#int)
+* [max](#max)
+* [min](#min)
 * [MOD](#mod)
 * [MUL](#mul)
 * [sub](#sub)
 
 <a id="add" />
 
-## <a name="add"></a>Adicionar
+## <a name="add"></a>adicionar
 `add(operand1, operand2)`
 
 Devolve a soma de dois números de inteiros fornecidos.
@@ -117,7 +117,7 @@ Devolve o índice de um ciclo de iteração.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| loopName | Não | Cadeia | O nome do ciclo para obter a iteração. |
+| loopName | Não | cadeia | O nome do ciclo para obter a iteração. |
 | deslocamento |Não |Int |O número a adicionar ao valor iteração baseado em zero. |
 
 ### <a name="remarks"></a>Observações
@@ -154,7 +154,7 @@ Um número inteiro que representa o índice atual da iteração.
 
 <a id="div" />
 
-## <a name="div"></a>Div
+## <a name="div"></a>div
 `div(operand1, operand2)`
 
 Devolve a divisão de número inteiro de dois números inteiros fornecidos.
@@ -225,7 +225,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="float" />
 
-## <a name="float"></a>Número de vírgula flutuante
+## <a name="float"></a>flutuante
 `float(arg1)`
 
 Converte o valor de vírgula flutuante um número. Utilizar apenas esta função ao transmitir parâmetros personalizados para uma aplicação, tal como uma aplicação lógica.
@@ -319,7 +319,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="max" />
 
-## <a name="max"></a>Máx.
+## <a name="max"></a>máx.
 `max (arg1)`
 
 Devolve o valor máximo de uma matriz de números inteiros ou uma lista separada por vírgulas de números inteiros.
@@ -656,7 +656,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

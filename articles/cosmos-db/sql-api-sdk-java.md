@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -54,6 +54,22 @@ O SDK de Java de API do SQL Server suporta operações síncronas. Para obter su
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Suporte adicionado para o índice exclusivo.
+* Suporte adicionado para limitar o tamanho de token de continuação nas opções do feed.
+* Corrigido um erro na serialização Json (timestamp).
+* Corrigido um erro na serialização Json (enumeração).
+* Dependência de com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Ligação melhorada agrupamento para o modo direto.
+* Melhorado melhoramento de obtenção prévia para não orderby cruzada consulta da partição.
+* Geração de UUID melhorada.
+* Lógica de consistência de sessão melhorada.
+* Suporte adicionado para multipolygon.
+* Suporte adicionado para estatísticas de intervalo de chave de partição para a coleção.
+* Corrigido um erro no suporte de multirregião.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Desempenho melhorado de serialização Json.
@@ -184,6 +200,8 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 de Maio de 2018 |--- |
+| [1.16.0](#1.16.0) |15 de Março de 2018 |--- |
 | [1.15.0](#1.15.0) |14 de Novembro de 2017 |--- |
 | [1.14.0](#1.14.0) |28 de FPO de 2017 |--- |
 | [1.13.0](#1.13.0) |25 de Agosto de 2017 |--- |

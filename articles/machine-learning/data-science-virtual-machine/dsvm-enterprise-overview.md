@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 911d6484421cc9fddad0530bf8d9ab4f01d48bf8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Máquina de Virtual de ciência de dados com base em equipa de análise e ambiente de AI 
 O [máquinas de virtuais de ciência de dados](overview.md) (DSVM) fornece um ambiente avançado na nuvem do Azure com o software previamente concebido para análise AI e os dados. Tradicionalmente foi utilizado o DSVM como ambiente de trabalho de análise individual e cientistas de dados individuais obterem produtividade com este partilhado noção do respetivo ambiente de análise pré-criadas. Como as equipas de análise de grande planear respetivos ambientes de análise para os cientistas de dados e programadores de AI, um de temas periódicos é uma infraestrutura de desenvolvimento e experimentação de análise partilhados que é gerida de acordo com a TI empresariais políticas que também facilita a colaboração e consistência em toda a ciência de dados completo / equipas de análise. Uma infraestrutura partilhada também permite que as TI melhor utilizar o ambiente de análise. A ciência de dados baseada em equipa / infraestrutura análise também é referida por algumas organizações como "Sandbox de análise" que permite as cientistas de dados rapidamente compreender dados, executar experimentações, validar hipótese, criar modelos preditivos de forma segura sem afetar o ambiente de produção ao ter acesso a vários recursos de dados. 
@@ -32,6 +32,17 @@ Algumas dos blocos modulares chaves de um ambiente de análise da equipa de empr
 * [Agrupamento ampliada automática de máquinas de virtuais de ciência de dados](dsvm-pools.md)
 * [Identidade e acesso à área de trabalho a partir de qualquer um dos DSVMs no agrupamento de comuns](dsvm-common-identity.md)
 * [Proteger o acesso a origens de dados](dsvm-secure-access-keys.md)
-* Governação e a deteção de conjuntos de dados empresariais e abrir
 
-Esta série de artigos, indicadores e documentação de orientação são fornecidas em cada um destes aspetos. O [centro da arquitetura do Azure](https://docs.microsoft.com/en-us/azure/architecture/) fornece mais arquitetura detalhada de ponto a ponto para a sua infraestrutura de análise.  
+
+Esta série de artigos, indicadores e documentação de orientação são fornecidas em cada um destes acima aspetos. Obviamente, existem várias considerações adicionais e necessidades quando implementar DSVM nas configurações de grande empresa, que não é ainda diretamente abrangido nesta série de artigos. Seguem-se algumas das outras considerações e apontadores para documentação do Azure geral que podem ser prontamente utilizados ao implementar nas instâncias do DSVM na sua empresa. 
+
+* [Segurança de rede](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Monitorização](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestão](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
+* [Registo e auditoria](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Definição de política e de imposição](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Encriptação](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [Deteção de dados e governação](https://docs.microsoft.com/azure/data-catalog/)
+
+O [centro da arquitetura do Azure](https://docs.microsoft.com/en-us/azure/architecture/) também é um ótimo recurso que fornece a arquitetura de ponto a ponto detalhada e padrões para criar e gerir a sua infraestrutura de análise com base na nuvem. 

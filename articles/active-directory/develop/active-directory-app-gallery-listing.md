@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/09/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: fe2133e321b90f8ada91f95ecc2c556631a8b41b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -64,7 +64,7 @@ Para listar uma aplicação na Galeria de aplicações do Azure AD, primeiro ter
 
     * Se tiver quaisquer problemas relativos ao acesso, contacte o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **Palavra-passe SSO**: criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseada em palavra-passe de início de sessão](../active-directory-appssoaccess-whatis.md). Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais.
+*   **Palavra-passe SSO**: criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [baseada em palavra-passe de início de sessão](../manage-apps/what-is-single-sign-on.md). Baseado em palavra-passe SSO, também referido como palavra-passe vaulting, permite-lhe gerir o acesso de utilizador e palavras-passe de aplicações web que não suporta a Federação de identidade. Também é útil para cenários em que vários utilizadores precisam de partilhar uma única conta, tal como para contas de aplicação da sua organização de redes sociais.
 
     ![Linha cronológica de listagem aplicação de SSO de palavra-passe para a Galeria](./media/active-directory-app-gallery-listing/passwordsso.png)
 
