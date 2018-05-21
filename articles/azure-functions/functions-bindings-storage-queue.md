@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 67dff6acff33b548518053ca1f569186d6b5b3ae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a1ca2b821678b48f65fe6ec6e58fa65cd8e4304f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -33,6 +33,10 @@ Este artigo explica como trabalhar com enlaces de armazenamento de filas do Azur
 Os enlaces de armazenamento de filas são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Acionador
 
@@ -241,7 +245,7 @@ Em JavaScript, utilize `context.bindings.<name>` para aceder ao payload de item 
 
 ## <a name="trigger---message-metadata"></a>Acionador - mensagem metadados
 
-O acionador de fila fornece vários [propriedades de metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Os valores têm a mesma semântica como [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+O acionador de fila fornece vários [propriedades de metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propriedades podem ser utilizadas como parte das expressões de enlace noutros enlaces ou como parâmetros no seu código. Estas são as propriedades do [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) classe.
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
@@ -252,8 +256,6 @@ O acionador de fila fornece vários [propriedades de metadados](functions-trigge
 |`InsertionTime`|`DateTimeOffset`|O tempo que a mensagem foi adicionada à fila.|
 |`NextVisibleTime`|`DateTimeOffset`|O tempo que a mensagem seguinte será visível.|
 |`PopReceipt`|`string`|Receção pop da mensagem.|
-
-Consulte [exemplos de código](#trigger---example) que utilize estas propriedades anteriormente neste artigo.
 
 ## <a name="trigger---poison-messages"></a>Acionador - mensagens nocivas
 
