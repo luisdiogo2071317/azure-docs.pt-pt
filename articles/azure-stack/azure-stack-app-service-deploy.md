@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações a pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
 > [!IMPORTANT]
-> Aplicar a atualização 1802 ao seu sistema de pilha do Azure integrado ou implementar o kit de desenvolvimento de pilha do Azure mais recente antes de implementar o serviço de aplicações do Azure.
+> Aplicar a atualização 1804 ao seu sistema de pilha do Azure integrado ou implementar o kit de desenvolvimento de pilha do Azure mais recente antes de implementar 1.2 de serviço de aplicações do Azure.
 >
 >
 
@@ -70,7 +70,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][3]
 
-4. Tem agora a opção de implementar numa rede Virtual existente, como configurado através dos passos [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicações criar uma rede Virtual e sub-redes associadas.
+7. Tem agora a opção de implementar numa rede Virtual existente, como configurado através dos passos [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicações criar uma rede Virtual e sub-redes associadas.
     1. Selecione **criar VNet com configurações predefinidas**, aceite as predefinições e clique em **seguinte**, ou;
     2. Selecione **utilizar VNet existente e sub-redes**.
         1. Selecione o **grupo de recursos** que contém a rede Virtual;
@@ -80,7 +80,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][4]
 
-7. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+8. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
 
    > [!NOTE]
    > O instalador tenta testar a conectividade à partilha de ficheiros antes de continuar.  No entanto se tiver escolhido implementar uma rede Virtual existente, o instalador poderá não conseguir ligar à partilha de ficheiros e é apresentado um aviso a perguntar se pretende continuar.  Verifique as informações da partilha de ficheiros e continuar se estes estão corretos.
@@ -89,7 +89,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
    ![Instalador do serviço de aplicações][7]
 
-8. Na página seguinte:
+9. Na página seguinte:
     1. No **ID da aplicação de identidade** box, introduza o GUID para a aplicação estiver a utilizar para a identidade (a partir do Azure AD).
     2. No **ficheiro de certificado de identidade aplicação** caixa, introduza (ou navegue até à) a localização do ficheiro de certificado.
     3. No **palavra-passe de certificado de identidade aplicação** caixa, introduza a palavra-passe do certificado. Esta palavra-passe é aquele que anotou quando utilizou o script para criar os certificados.
@@ -98,7 +98,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][9]
 
-9. Para cada uma a três caixas de ficheiro de certificado, clique em **procurar** e navegue para o ficheiro de certificado adequado. Tem de fornecer a palavra-passe para cada certificado. Estes certificados são aqueles que criou no [passo de certificados necessários criar](azure-stack-app-service-before-you-get-started.md#get-certificates). Clique em **seguinte** após introduzir todas as informações.
+10. Para cada uma a três caixas de ficheiro de certificado, clique em **procurar** e navegue para o ficheiro de certificado adequado. Tem de fornecer a palavra-passe para cada certificado. Estes certificados são aqueles que criou no [passo de certificados necessários criar](azure-stack-app-service-before-you-get-started.md#get-certificates). Clique em **seguinte** após introduzir todas as informações.
 
     | Box | Exemplo de nome de ficheiro de certificado |
     | --- | --- |
@@ -110,7 +110,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][10]
 
-10. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, clique em **seguinte**. O instalador valida as propriedades de ligação do SQL Server.
+11. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, clique em **seguinte**. O instalador valida as propriedades de ligação do SQL Server.
 
     > [!NOTE]
     > O instalador tenta testar a conectividade com o SQl Server antes de continuar.  No entanto se tiver escolhido implementar uma rede Virtual existente, o instalador poderá não conseguir ligar ao SQL Server e é apresentado um aviso a perguntar se pretende continuar.  Verifique as informações do SQL Server e continuar se estes estão corretos.
@@ -119,7 +119,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][11]
 
-11. Reveja as opções de SKU e a instância de função. As predefinições preenchido com o número mínimo de instância e o SKU mínimo para cada função numa implementação ASDK. É fornecido um resumo dos requisitos vCPU e memória para o ajudar a planear a implementação. Depois de efetuar as seleções, clique em **seguinte**.
+12. Reveja as opções de SKU e a instância de função. As predefinições preenchido com o número mínimo de instância e o SKU mínimo para cada função numa implementação ASDK. É fornecido um resumo dos requisitos vCPU e memória para o ajudar a planear a implementação. Depois de efetuar as seleções, clique em **seguinte**.
 
     > [!NOTE]
     > Para implementações de produção, seguir as orientações no [planeamento de capacidade de funções de servidor do App Service do Azure na pilha de Azure](azure-stack-app-service-capacity-planning.md).
@@ -139,23 +139,23 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
     > [!NOTE]
     > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o Azure App Service na pilha do Azure.  Não utilize imagens de avaliação para implementações de produção.**
 
-12. No **selecione a imagem de plataforma** caixa, selecione a imagem de máquina virtual de implementação do Windows Server 2016 a partir de imagens disponíveis no fornecedor de recursos de computação para a nuvem de serviço de aplicações. Clique em **Seguinte**.
+13. No **selecione a imagem de plataforma** caixa, selecione a imagem de máquina virtual de implementação do Windows Server 2016 a partir de imagens disponíveis no fornecedor de recursos de computação para a nuvem de serviço de aplicações. Clique em **Seguinte**.
 
-13. Na página seguinte:
+14. Na página seguinte:
      1. Introduza o nome de utilizador de administrador de máquina virtual de função de trabalho e a palavra-passe.
      2. Introduza o nome de utilizador de administrador de máquina virtual de outras funções e a palavra-passe.
      3. Clique em **Seguinte**.
 
     ![Instalador do serviço de aplicações][15]    
 
-14. Na página de resumo:
+15. Na página de resumo:
     1. Certifique-se seleções que fez. Para efetuar alterações, utilize o **anterior** botões para visitar às páginas anteriores.
     2. Se as configurações estão corretas, selecione a caixa de verificação.
     3. Para iniciar a implementação, clique em **seguinte**.
 
     ![Instalador do serviço de aplicações][16]
 
-15. Na página seguinte:
+16. Na página seguinte:
     1. Controle o progresso da instalação. Serviço de aplicações na pilha de Azure demora cerca de 60 minutos para implementar com base nas seleções predefinido.
     2. Depois do programa de instalação for concluída com êxito, clique em **saída**.
 

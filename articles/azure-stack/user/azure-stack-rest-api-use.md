@@ -3,55 +3,57 @@ title: Utilize a pilha de Azure API | Microsoft Docs
 description: Saiba como obter uma autenticação do Azure para tornar os pedidos de API de pilha do Azure.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.reviewer: sijuman
-ms.openlocfilehash: 2bbfe4f829ad5c42a5742fdf08f2d185af627f42
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.reviewer: thoroet
+ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
-<!--  cblackuk and charliejllewellyn -->
+<!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>Utilize a API de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Pode utilizar a API de pilha do Azure para automatizar operações como syndicating itens do marketplace.
+Pode utilizar a API do Azure pilha Application Programming Interface () para automatizar operações como syndicating itens do marketplace.
 
-Utilizando a API necessita que o cliente autenticar relativamente ao ponto de final de início de sessão do Microsoft Azure. O ponto final devolve um token para utilizar no cabeçalho de cada pedido enviado para a API de pilha do Azure. (Microsoft Azure utiliza o Oauth 2.0.)
+A API requer que o cliente autenticar relativamente ao ponto de final de início de sessão do Microsoft Azure. O ponto final devolve um token para utilizar no cabeçalho de cada pedido enviado para a API de pilha do Azure. Microsoft Azure utiliza o Oauth 2.0.
 
-Este artigo fornece exemplos que utilizam o utilitário de curl para criar pedidos de pilha do Azure. Estes exemplos guiá-lo durante o processo de obtenção de um token para aceder à API de pilha do Azure. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que tem robustas tarefas de gestão e o identificador de token essa atualização do token.
+Este artigo fornece exemplos que utilizam o **cURL** utilitário para criar pedidos de pilha do Azure. A aplicação, cURL, é uma ferramenta da linha de comandos com uma biblioteca para transferência de dados. Estes exemplos guiá-lo durante o processo de obtenção de um token para aceder à API de pilha do Azure. A maioria das linguagens de programação fornecem bibliotecas de Oauth 2.0, que tem robustas tarefas de gestão e o identificador de token essa atualização do token.
 
-Observar todo o processo de utilizando a API de REST de pilha do Azure com um cliente REST genérico, como curl pode ajudar a compreender a subjacentes pedidos e mostra o que pode esperar receber num payload resposta.
+Reveja a todo o processo de utilizar a API de REST de pilha do Azure com um cliente REST genérico, como **cURL**, para ajudar a compreender o subjacente pedidos e mostra o que pode esperar receber num payload resposta.
 
-Este artigo não explorar todas as opções disponíveis para obter os tokens, tais como o início de sessão interativo ou criar dedicado IDs de aplicações. Para obter mais informações, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
+Este artigo não explorar todas as opções disponíveis para obter os tokens, tais como o início de sessão interativo ou criar dedicado IDs de aplicações. Para obter informações sobre estes tópicos, consulte o artigo [referência da API REST do Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Obter um token a partir do Azure
 
-Criar um pedido de *corpo* formatado utilizando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. APÓS o seu pedido para o ponto final de início de sessão e autenticação de REST do Azure.
+Crie um corpo do pedido formatado utilizando o tipo de conteúdo x-www-form-urlencoded para obter um token de acesso. APÓS o seu pedido para o ponto final de início de sessão e autenticação de REST do Azure.
 
-```
+### <a name="uri"></a>URI
+
+```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
 **ID de inquilino** encontra-se:
 
-* O domínio de inquilino, tais como fabrikam.onmicrosoft.com
-* O ID de inquilino, tais como 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
-* Valor predefinido para chaves de inquilino independente: comuns
+ - O domínio de inquilino, tais como `fabrikam.onmicrosoft.com`
+ - ID do inquilino, tais como `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - Valor predefinido para chaves de inquilino independente: `common`
 
 ### <a name="post-body"></a>Corpo da mensagem
 
-```
+```bash  
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
 &resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -62,32 +64,25 @@ grant_type=password
 
 Para cada valor:
 
-  **grant_type**
+ - **grant_type**  
+    O tipo de esquema de autenticação que irá utilizar. Neste exemplo, o valor é: `password`
 
-  O tipo de esquema de autenticação que irá utilizar. Neste exemplo, o valor é:
+ - **resource**  
+    O recurso acede ao token. Pode encontrar o recurso consultando o ponto de final de metadados da gestão de pilha do Azure. Observe o **audiências** secção
 
-  ```
-  password
-  ```
+ - **Ponto final de gestão de pilha do Azure**  
+    ```
+    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+    ```
 
-  **resource**
-
-  O recurso acede ao token. Pode encontrar o recurso consultando o ponto de final de metadados da gestão de pilha do Azure. Observe o **audiências** secção
-
-  O ponto final de gestão de pilha do Azure:
-
-  ```
-  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-  ```
-
- > [!NOTE]
- > Se for um administrador tenta aceder o API de inquilinos, em seguida, deve certificar-se de que utiliza o ponto final de inquilino, por exemplo: 'https://adminmanagement.{region}.{Azure domínio pilha} / metadados/pontos finais? api-version = 2015-01-011
+  > [!NOTE]  
+  > Se for um administrador tenta aceder o API de inquilinos, em seguida, tem de se certificar a utilizar o ponto final de inquilino, por exemplo: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Por exemplo, com o Azure pilha Development Kit como um ponto final:
 
-  ```
-  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-  ```
+    ```bash
+    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+    ```
 
   Resposta:
 
@@ -175,13 +170,13 @@ Depois de obter o token de acesso, terá de adicioná-lo como um cabeçalho para
 
 Pedido:
 
-```
+```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 Resposta:
 
-```
+```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
 subscriptionId : 800c4168-3eb1-406b-a4ca-919fe7ee42e8

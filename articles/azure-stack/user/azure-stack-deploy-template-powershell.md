@@ -1,11 +1,11 @@
 ---
 title: Implementar modelos com o PowerShell na pilha do Azure | Microsoft Docs
-description: "Saiba como implementar uma máquina virtual utilizando um modelo do Resource Manager e o PowerShell."
+description: Implemente um modelo de pilha do Azure com o PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
@@ -14,27 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Implementar modelos na pilha do Azure com o PowerShell
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implementar um modelo para a pilha do Azure com o PowerShell
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Utilize o PowerShell para implementar modelos Azure Resource Manager para o Kit de desenvolvimento de pilha do Azure.  Modelos do Resource Manager implementar e aprovisionar todos os recursos para a sua aplicação numa operação única e coordenada.
+Pode utilizar o PowerShell para implementar modelos Azure Resource Manager para a pilha do Azure. Este artigo mostra como utilizar o PowerShell para implementar um modelo.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Executar os cmdlets do AzureRM PowerShell
-Neste exemplo, executar um script para implementar uma máquina virtual para o Kit de desenvolvimento de pilha do Azure com um modelo do Resource Manager.  Antes de continuar, certifique-se de que tem [configurado PowerShell](azure-stack-powershell-configure-user.md)  
 
-O VHD utilizado neste modelo de exemplo é WindowsServer-2012 R2 Datacenter.
+Este exemplo utiliza os cmdlets do AzureRM PowerShell e um modelo armazenado no GitHub. O modelo cria uma máquina virtual do Windows Server 2012 R2 Datacenter.
 
-1. Aceda a <http://aka.ms/AzureStackGitHub>, procure o **101-simples-windows-vm** modelo e guarde-o para a seguinte localização: c:\\modelos\\ azuredeploy-101-simples-windows-vm.json.
-2. No PowerShell, execute o seguinte script de implementação. Substitua *username* e *palavra-passe* com o nome de utilizador e palavra-passe. Em utilizações subsequentes, aumentar o valor para o *$myNum* parâmetro para impedir a sua implementação de substituição.
-   
+>[!NOTE]
+>Antes de tentar neste exemplo, certifique-se de que já [configurado PowerShell](azure-stack-powershell-configure-user.md) para um utilizador de pilha do Azure.
+
+1. Aceda a <http://aka.ms/AzureStackGitHub> e localize o **101-simples-windows-vm** modelo. Guardar o modelo a esta localização: c:\\modelos\\azuredeploy-101-simples-windows-vm.json.
+2. Abra uma linha de comandos elevada do PowerShell.
+3. Substitua *username* e *palavra-passe* no seguinte script com o nome de utilizador e palavra-passe e, em seguida, execute o script.
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -56,9 +59,12 @@ O VHD utilizado neste modelo de exemplo é WindowsServer-2012 R2 Datacenter.
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Abra a pilha de Azure portal, clique em **procurar**, clique em **máquinas virtuais**e procure a sua nova máquina virtual (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >Everytime tem de executar este script, aumentar o valor do parâmetro "$myNum" para impedir a sua implementação de substituição.
+
+4. Abra selecionar portal, Azure pilha **procurar**e, em seguida, selecione **máquinas virtuais** para localizar a máquina virtual nova (*myDeployment001*).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Implementar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
+[Implementar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)

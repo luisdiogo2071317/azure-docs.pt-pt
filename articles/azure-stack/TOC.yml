@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Cópia de segurança de pilha do Azure
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: Fazer cópias de segurança de ficheiros e aplicações na pilha do Azure
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Recuperar a partir de perda catastrófica de dados
               href: azure-stack-backup-recover-data.md
             - name: Melhores práticas de cópia de segurança
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: Serviço de aplicações no notas de versão 1 de atualização de pilha do Azure
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: Serviço de aplicações no notas de versão de atualização 2 de pilha do Azure
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: Povoar o marketplace
           items:
             - name: Descrição geral do Marketplace
