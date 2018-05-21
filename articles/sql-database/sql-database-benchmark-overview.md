@@ -2,18 +2,18 @@
 title: Descrição geral de referência de DTU de base de dados SQL do Azure
 description: Este tópico descreve o Benchmark de base de dados SQL do Azure utilizado para medir o desempenho da SQL Database do Azure.
 services: sql-database
-author: jan-eng
-manager: jhubbard
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: carlrab
+ms.openlocfilehash: a045a545b8a0d4dda33dd404d0d206723eb822ad
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Descrição geral de referência de DTU de base de dados SQL do Azure
 ## <a name="overview"></a>Descrição geral
@@ -48,7 +48,7 @@ A base de dados é dimensionada com base no "fator de dimensionamento". O factor
 ## <a name="transactions"></a>Transações
 A carga de trabalho consiste em tipos de transação nove, conforme mostrado na tabela abaixo. Cada transação foi concebida para realçar um conjunto específico de características de sistema na base de dados motor e sistema de hardware, com alto contraste a partir de outras transações. Esta abordagem torna mais fácil avaliar o impacto de diferentes componentes para o desempenho global. Por exemplo, a transação "Leitura pesada" produz um número significativo de operações de leitura do disco.
 
-| Tipo de transação | Descrição |
+| Tipo de Transação | Descrição |
 | --- | --- |
 | Ler Lite |SELECIONAR; dentro da memória; só de leitura |
 | Média de leitura |SELECIONAR; sobretudo em memória; só de leitura |
@@ -63,7 +63,7 @@ A carga de trabalho consiste em tipos de transação nove, conforme mostrado na 
 ## <a name="workload-mix"></a>Combinação de carga de trabalho
 Transações são selecionadas aleatoriamente entre uma distribuição ponderada com a seguinte combinação geral. A mistura geral tem um rácio de leitura/escrita de aproximadamente 2:1.
 
-| Tipo de transação | % de combinação |
+| Tipo de Transação | % de combinação |
 | --- | --- |
 | Ler Lite |35 |
 | Média de leitura |20 |

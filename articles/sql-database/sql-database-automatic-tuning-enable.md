@@ -2,34 +2,34 @@
 title: Ativar a otimização automática para a SQL Database do Azure | Microsoft Docs
 description: Pode ativar automática otimização na base de dados SQL do Azure facilmente.
 services: sql-database
-author: veljko-msft
-manager: drasumic
+author: danimir
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: f29a7c883450cbc0f1f2b5a230a6c6e081222906
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
 Base de dados SQL do Azure é um serviço de dados geridos automaticamente que constantemente monitoriza as suas consultas e identifica a ação que pode efetuar para melhorar o desempenho da sua carga de trabalho. Pode rever as recomendações e manualmente aplicá-las ou permitir que a base de dados do SQL Azure automaticamente aplicar ações corretivas – isto é conhecido como **modo otimização automático**. A otimização automática pode ser ativado ao servidor ou ao nível de base de dados.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Ativar a otimização automática no servidor
-No nível do servidor pode escolher para herdar a configuração automática de otimização de "Predefinições do Azure" ou não para herdar a configuração. Predefinições do Azure são FORCE_LAST_GOOD_PLAN ativada, CREATE_INDEX ativada e DROP_INDEX desativada.
-
-## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar notificações de correio eletrónico de otimização automática
-
-Consulte [automática de otimização de notificações por correio eletrónico](sql-database-automatic-tuning-email-notifications.md)
+No nível do servidor pode escolher para herdar a configuração automática de otimização de "Predefinições do Azure" ou não para herdar a configuração. Predefinições do Azure são FORCE_LAST_GOOD_PLAN está ativada, CREATE_INDEX está ativada e DROP_INDEX está desativada.
 
 ### <a name="azure-portal"></a>Portal do Azure
-Para ativar a otimização automática no servidor da SQL Database do Azure, navegue para o servidor no portal do Azure e, em seguida, selecione **otimização automática** no menu. Selecione as opções de otimização automáticas que pretende ativar e selecione **aplicar**:
+Para ativar a otimização automática na SQL Database do Azure **servidor**, navegue para o servidor no portal do Azure e, em seguida, selecione **otimização automática** no menu. Selecione as opções de otimização automáticas que pretende ativar e selecione **aplicar**.
 
 ![Servidor](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Tenha em atenção que **DROP_INDEX** opção neste momento, não é compatível com aplicações utilizar sugestões de índice e de mudança de partição e não deverá ser ativada nestes casos.
+>
 
 Opções de otimização automáticas no servidor são aplicadas a todas as bases de dados no servidor. Por predefinição, todas as bases de dados de herdar a configuração do respetivo elemento principal do servidor, mas isto pode ser substituído e especificado individualmente para cada base de dados.
 
@@ -46,13 +46,15 @@ A base de dados do SQL do Azure permite-lhe especificar individualmente a config
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para ativar a otimização automática numa base de dados único, navegue para a base de dados no portal do Azure e, em seguida e selecione **otimização automática**. Pode configurar uma base de dados individual para herdar as definições do servidor, selecionando a opção ou pode especificar a configuração para uma base de dados individualmente.
+Para ativar a otimização automática num **base de dados individual**, navegue para a base de dados no portal do Azure e, em seguida e selecione **otimização automática**. Pode configurar uma base de dados individual para herdar as definições do servidor, selecionando a opção ou pode especificar a configuração para uma base de dados individualmente.
 
 ![Base de Dados](./media/sql-database-automatic-tuning-enable/database.png)
 
 Assim que tiver selecionado a configuração adequada, clique em **aplicar**.
 
-### <a name="rest-api"></a>REST API
+Tenha em atenção que a opção DROP_INDEX neste momento, é incompatível com aplicações utilizar sugestões de índice e de mudança de partição e não deverá ser ativada nestes casos.
+
+### <a name="rest-api"></a>API REST
 [Clique aqui para mais informações sobre como ativar a otimização automática numa única base de dados através da REST API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
 
 ### <a name="t-sql"></a>T-SQL
@@ -75,6 +77,10 @@ Definir a opção de otimização individuais como ON, irá substituir qualquer 
 
 ## <a name="disabled-by-the-system"></a>Desativado pelo sistema
 A otimização automática está a monitorizar todas as ações que demora na base de dados e, em alguns casos pode determinar que a otimização automática não funciona corretamente na base de dados. Nesta situação, uma opção de otimização será desativada pelo sistema. Na maioria dos casos, isto acontece porque o arquivo de consultas não está ativado ou está no estado só de leitura numa base de dados específica.
+
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar notificações de correio eletrónico de otimização automática
+
+Consulte [automática de otimização de notificações por correio eletrónico](sql-database-automatic-tuning-email-notifications.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Leia o [artigo otimização automático](sql-database-automatic-tuning.md) para saber mais sobre a otimização automática e como pode ajudar a melhorar o desempenho.
