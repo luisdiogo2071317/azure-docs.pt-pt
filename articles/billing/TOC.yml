@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Organizar recursos com grupos de gestão
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Poupe dinheiro com as Instâncias de VM Reservadas
+    - name: Poupe com as Instâncias Reservadas do Azure
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Pré-pague por Máquinas Virtuais com as Instâncias Reservadas
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Gerir as Instâncias Reservadas
+          href: billing-manage-reserved-vm-instance.md
+        - name: Compreender a aplicação de descontos da Instância Reservada
+          href: billing-understand-vm-reservation-charges.md
+        - name: Compreender a utilização da Instância Reservada para Pay As You Go
+          href: billing-understand-reserved-instance-usage.md
+        - name: Compreender a utilização da Instância Reservada para Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Os custos do Windows relativamente às Instâncias Reservadas
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Limites e quotas
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Procedimento
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Compreender o mapeamento de medição dos serviços gratuitos
           href: billing-understand-free-service-meter-mapping.md
-        - name: Os custos do Windows relativamente às Instâncias de VM Reservadas
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Compreender a aplicação de descontos da Instância de VM Reservada
-          href: billing-understand-vm-reservation-charges.md
         - name: Compreender o limite de gastos
           href: billing-spending-limit.md
         - name: Set up billing alerts (Configurar alertas de faturação)
           href: billing-set-up-alerts.md
         - name: Resolver saldo em dívida
           href: billing-azure-subscription-past-due-balance.md
-        - name: Compreender a utilização da Instância Reservada para Pay As You Go
-          href: billing-understand-reserved-instance-usage.md
-        - name: Compreender a utilização da Instância Reservada para Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Gerir subscrições
       items:
         - name: Encontrar subscrição ou grupo de gestão
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Ver contas de faturação
           href: billing-view-all-accounts.md
-    - name: Gerir Instâncias de VM Reservadas
-      href: billing-manage-reserved-vm-instance.md
     - name: Resolução de problemas
       items:
         - name: Problemas de inscrição

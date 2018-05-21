@@ -2,8 +2,8 @@
 title: Criar um gateway de aplicação com vários sites que aloja - Azure PowerShell | Microsoft Docs
 description: Saiba como criar um gateway de aplicação que aloja vários sites com o Azure Powershell.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: be3ecf1d1ce292df47cbe117390e863f4bd4d5b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.author: victorh
+ms.openlocfilehash: beacf3d36c2a74d1744a1048834bf66acfbc1682
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Criar um gateway de aplicação com vários sites de alojamento com o Azure PowerShell
 
