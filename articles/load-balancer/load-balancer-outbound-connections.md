@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -235,9 +235,9 @@ Ao utilizar o comando nslookup, pode enviar uma consulta DNS para o myip.opendns
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Impedir a conectividade de saída
-Por vezes, não é desejável para uma VM para a permissão para criar um fluxo de saída. Pode existir um requisito para gerir os destinos que podem ser acedidos com fluxos de saída ou destinos de que podem começar a fluxos de entrada. Neste caso, pode utilizar [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) para gerir os destinos em que a VM pode aceder. Também pode utilizar os NSGs para gerir que destino público pode iniciar os fluxos de entrada. 
+Por vezes, não é desejável para uma VM para a permissão para criar um fluxo de saída. Pode existir um requisito para gerir os destinos que podem ser acedidos com fluxos de saída ou destinos de que podem começar a fluxos de entrada. Neste caso, pode utilizar [grupos de segurança de rede](../virtual-network/security-overview.md) para gerir os destinos em que a VM pode aceder. Também pode utilizar os NSGs para gerir que destino público pode iniciar os fluxos de entrada.
 
-Ao aplicar um NSG a uma VM com balanceamento de carga, preste atenção para o [predefinido etiquetas](../virtual-network/virtual-networks-nsg.md#default-tags) e [predefinido regras](../virtual-network/virtual-networks-nsg.md#default-rules). Tem de se certificar de que a VM pode receber pedidos de sonda de estado de funcionamento do Balanceador de carga do Azure. 
+Ao aplicar um NSG a uma VM com balanceamento de carga, preste atenção para o [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) e [predefinido regras de segurança](../virtual-network/security-overview.md#default-security-rules). Tem de se certificar de que a VM pode receber pedidos de sonda de estado de funcionamento do Balanceador de carga do Azure. 
 
 Se um NSG bloquear pedidos de sonda de estado de funcionamento da etiqueta predefinida AZURE_LOADBALANCER, a pesquisa de estado de funcionamento da VM falha e a VM está marcado como. Balanceador de carga para a enviar de novos fluxos para essa VM.
 
@@ -249,5 +249,5 @@ Se um NSG bloquear pedidos de sonda de estado de funcionamento da etiqueta prede
 
 - Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+- Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
 - Saiba mais sobre algumas da outra chave [capacidades de rede](../networking/networking-overview.md) no Azure.
