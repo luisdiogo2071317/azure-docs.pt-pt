@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb0e2181c518db541504f0eea77ce9fde7edf8f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galleries módulos e Runbooks de automatização do Azure
 Em vez de criar os seus próprios runbooks e módulos na automatização do Azure, pode aceder a uma variedade de cenários que já ter sido criadas pela Microsoft e a Comunidade.  Pode utilizar estes cenários sem modificações ou pode utilizá-los como um ponto de partida e editá-los para os seus requisitos específicos.
@@ -90,6 +90,9 @@ Módulos do PowerShell contêm cmdlets que pode utilizar nos runbooks e módulos
 9. No **importar** página, clique em **OK** para importar o módulo. Enquanto a automatização do Azure importa um módulo à sua conta, extrai metadados sobre o módulo e os cmdlets. Esta operação pode demorar alguns minutos, uma vez que cada atividade tem de ser extraído.
 10. Receberá uma notificação inicial que o módulo está a ser implementado e a notificação de outra quando foi concluída.
 11. Depois do módulo é importado, pode ver as atividades disponíveis e pode utilizar os respetivos recursos nos seus runbooks e a configuração de estado pretendido.
+
+> [!NOTE]
+> Módulos que só suportam PowerShell core não são suportados na automatização do Azure e não conseguem ser importados no portal do Azure ou implementada diretamente a partir da galeria do PowerShell.
 
 ## <a name="requesting-a-runbook-or-module"></a>Pedir um runbook ou o módulo
 Pode enviar pedidos para [voz do utilizador](https://feedback.azure.com/forums/246290-azure-automation/).  Se precisar de ajudar a escrever um runbook ou tem alguma pergunta sobre o PowerShell, publique uma pergunta a nossa [fórum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

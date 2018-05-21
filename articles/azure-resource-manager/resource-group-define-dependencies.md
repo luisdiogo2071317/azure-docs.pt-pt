@@ -1,24 +1,24 @@
 ---
-title: "Definir a ordem de implementação de recursos do Azure | Microsoft Docs"
-description: "Descreve como definir um recurso como depende de outro recurso durante a implementação para se certificar de recursos são implementados na ordem correta."
+title: Definir a ordem de implementação de recursos do Azure | Microsoft Docs
+description: Descreve como definir um recurso como depende de outro recurso durante a implementação para se certificar de recursos são implementados na ordem correta.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34ebaf1e-480c-4b4d-9bf6-251bd3f8f2cf
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definir a ordem de implementação de recursos em modelos do Azure Resource Manager
 Para um determinado recurso, podem existir outros recursos que tem de existir antes do recurso é implementado. Por exemplo, um servidor SQL tem de existir antes de tentar implementar uma base de dados do SQL Server. Define esta relação assinalando um recurso como depende de outros recursos. Definir uma dependência com o **dependsOn** elemento, ou utilizando o **referência** função. 
@@ -154,7 +154,7 @@ O Resource Manager identifica dependências circulares durante a validação do 
 
 Para obter informações sobre a ordem de implementação de avaliar e resolver erros de dependência, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre as dependências de resolução de problemas durante a implementação, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre a criação de modelos Azure Resource Manager, consulte [criação de modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis num modelo, consulte [funções de modelo](resource-group-template-functions.md).

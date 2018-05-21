@@ -1,11 +1,11 @@
 ---
-title: "Adicionar uma firewall da próxima geração no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações do Centro de segurança do Azure * * adicionar um próxima geração Firewall * * e * * rota traffice através da NGFW apenas * *."
+title: Adicionar uma firewall da próxima geração no Centro de segurança do Azure | Microsoft Docs
+description: Este documento mostra como implementar as recomendações do Centro de segurança do Azure **adicionar uma Firewall da próxima geração** e **rota traffice através da NGFW apenas**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar uma Firewall da próxima geração no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall da próxima geração (NGFW) de um parceiro da Microsoft para aumentar as proteções de segurança. Este documento explica-lhe como um exemplo de como fazê-lo.
@@ -49,11 +49,11 @@ Volte à **recomendações** painel. Uma nova entrada foi gerada depois adiciono
    ![Encaminhar o tráfego apenas através da NGFW][7]
 2. Esta ação abre o painel **encaminhar o tráfego através da NGFW apenas**, que apresenta uma lista de VMs que pode encaminhar o tráfego. Selecione uma VM a partir da lista.
    ![Selecione uma VM][8]
-3. É aberto um painel para a VM selecionada, que apresenta as regras de entrada relacionadas. Uma descrição fornece-lhe obter mais informações sobre passos possíveis. Selecione **editar regras de entrada** para continuar com a edição de uma regra de entrada. As expectativas são de que **origem** não está definido como **qualquer** para os pontos finais de acesso à Internet ligados da NGFW. Para saber mais sobre as propriedades da regra de entrada, consulte o artigo [regras do NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+3. É aberto um painel para a VM selecionada, que apresenta as regras de entrada relacionadas. Uma descrição fornece-lhe obter mais informações sobre passos possíveis. Selecione **editar regras de entrada** para continuar com a edição de uma regra de entrada. As expectativas são de que **origem** não está definido como **qualquer** para os pontos finais de acesso à Internet ligados da NGFW. Para saber mais sobre as propriedades da regra de entrada, consulte o artigo [regras de segurança](../virtual-network/security-overview.md#security-rules).
    ![Configurar regras para limitar o acesso][9]
    ![Editar regra de entrada][10]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Este documento mostrou como implementar a recomendação de centro de segurança "Adicionar uma Firewall da próxima geração." Para saber mais sobre NGFWs e a solução de parceiros do ponto de verificação, consulte o seguinte:
 
 * [Firewall da próxima geração](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
