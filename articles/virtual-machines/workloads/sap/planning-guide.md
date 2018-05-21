@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6b01c2a0bfacb4e7e121cdb06ad8be4ab17d53a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2abb219cd43e6bb95c6cbd562dda6115628e73f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -298,7 +298,7 @@ ms.lasthandoff: 05/10/2018
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -661,7 +661,7 @@ Microsoft Azure fornece uma infraestrutura de rede, que permite o mapeamento de 
 * Conectividade entre instalações, entre a rede no local de um cliente e a rede do Azure
 * Cruzada região do Azure ou centro de dados conetividade entre sites do Azure
 
-Aqui podem encontrar mais informações: <https://azure.microsoft.com/documentation/services/virtual-network/>
+Pode encontrar mais informações aqui: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
 Existem muitos possibilidades diferentes para configurar o nome e a resolução IP no Azure. Neste documento, apenas na nuvem cenários dependem da predefinição de utilizar o DNS do Azure (contrariamente definir um próprio serviço DNS). Também é um novo serviço DNS do Azure, o que pode ser utilizado em vez de configurar o seu próprio servidor DNS. Podem encontrar mais informações no [neste artigo] [ virtual-networks-manage-dns-in-vnet] e no [nesta página](https://azure.microsoft.com/services/dns/).
 

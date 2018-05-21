@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/20/2018
+---
 Existem várias razões quando não é possível iniciar ou ligar a uma aplicação em execução numa máquina virtual do Azure (VM). Por motivos incluem a aplicação não está em execução ou está a escutar as portas esperadas, a porta de escuta bloqueado ou redes regras correctamente transmissão de tráfego para a aplicação. Este artigo descreve uma abordagem methodical para localizar e corrigir o problema.
 
 Se estiver a ter problemas em ligar à VM através de RDP ou SSH, consulte um dos seguintes artigos primeiro:
@@ -99,7 +115,7 @@ Se não conseguir aceder a aplicação, verifique as seguintes definições:
   
   * Certifique-se de que a configuração da regra NAT entrada para a VM está a permitir o tráfego de entrada, especialmente, o protocolo (TCP ou UDP) e os números das portas públicas e privadas.
   * Certifique-se de que os grupos de segurança de rede estão a permitir o tráfego de saída de resposta e pedido de entrada.
-  * Para obter mais informações, consulte o artigo [O que é um Grupo de Segurança de Rede (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
+  * Para obter mais informações, consulte [que é um grupo de segurança de rede?](../articles/virtual-network/security-overview.md)
 
 Se a máquina virtual ou o ponto final for um membro de um conjunto com balanceamento de carga:
 

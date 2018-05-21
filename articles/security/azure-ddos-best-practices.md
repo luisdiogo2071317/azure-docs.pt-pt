@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 042dd4876a63e5881e67456b449570b01cb967a5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção DDoS do Azure: Melhores práticas e arquiteturas de referência
 
@@ -86,8 +86,8 @@ Para [App Service do Azure](../app-service/app-service-value-prop-what-is.md), s
 
 É a ideia atrás de defesa em profundidade para gerir os riscos através da utilização de diversas estratégias defesas. Layering defesas de segurança de uma aplicação reduz a possibilidade de um ataque com êxito. Recomendamos que implementar estruturas seguras para as suas aplicações, utilizando as capacidades incorporadas da plataforma do Azure.
 
-Por exemplo, o risco de ataques aumenta com o tamanho (*área de superfície*) da aplicação. Pode reduzir a área de superfície utilizando a listas brancas fechar-se para baixo o espaço de endereços IP exposto e está a escutar as portas que não são necessários nos balanceadores de carga ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [Gateway de aplicação do Azure](../application-gateway/application-gateway-create-probe-portal.md)). [Grupos de segurança (NSGs) de rede](../virtual-network/virtual-networks-nsg.md) são outra forma para reduzir a superfície de ataque.
-Pode utilizar [etiquetas de serviço](/virtual-network/security-overview.md) e [grupos de segurança de aplicações](/virtual-network/security-overview.md) para minimizar a complexidade para criar regras de segurança e configuração de segurança de rede, como uma extensão natural da estrutura de uma aplicação.
+Por exemplo, o risco de ataques aumenta com o tamanho (*área de superfície*) da aplicação. Pode reduzir a área de superfície utilizando a listas brancas fechar-se para baixo o espaço de endereços IP exposto e está a escutar as portas que não são necessários nos balanceadores de carga ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [Gateway de aplicação do Azure](../application-gateway/application-gateway-create-probe-portal.md)). [Grupos de segurança (NSGs) de rede](../virtual-network/security-overview.md) são outra forma para reduzir a superfície de ataque.
+Pode utilizar [etiquetas de serviço](/virtual-network/security-overview.md#service-tags) e [grupos de segurança de aplicações](/virtual-network/security-overview.md#application-security-groups) para minimizar a complexidade para criar regras de segurança e configuração de segurança de rede, como uma extensão natural da estrutura de uma aplicação.
 
 Deve implementar serviços do Azure num [rede virtual](../virtual-network/virtual-networks-overview.md) sempre que possível. Esta prática permite que os recursos do serviço comunicar através de endereços IP privados. Tráfego do serviço do Azure de uma rede virtual utiliza endereços IP públicos como endereços IP de origem, por predefinição. Utilizar [pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) passará tráfego do serviço para utilizar endereços de rede virtual privada como os endereços IP de origem quando estiver a aceder no serviço do Azure a partir de uma rede virtual.
 
@@ -262,7 +262,7 @@ Existem várias formas de implementar uma arquitetura de N camadas. O diagrama s
 
 Nesta arquitetura, DDoS proteção padrão está ativado na rede virtual. Todos os IPs públicos na rede virtual obter proteção DDoS de camada 3 e 4. Para a proteção de 7 camadas, implemente o Gateway de aplicação no WAF SKU. Para obter mais informações sobre esta arquitetura de referência, consulte [neste artigo](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
 
-#### <a name="paas-web-application"></a>Aplicação web de PaaS
+#### <a name="paas-web-application"></a>Aplicação web PaaS
 
 Esta arquitetura de referência mostra a executar uma aplicação do App Service do Azure numa única região. Esta arquitetura mostra um conjunto de práticas comprovados para uma aplicação web que utiliza [App Service do Azure](https://azure.microsoft.com/documentation/services/app-service/) e [SQL Database do Azure](https://azure.microsoft.com/documentation/services/sql-database/).
 Uma região de reserva dinâmica é configurada para cenários de ativação pós-falha.

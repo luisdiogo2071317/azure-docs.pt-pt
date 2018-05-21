@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 1cdf33632c282a872d0eb83dd1a1b1c639fc14bd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 661d2f789ace8da68b6d65609d4584a11967a01f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP de privada interno estático através do PowerShell (clássica)
 Na maioria dos casos, não terá de especificar um endereço IP estático interno para a máquina virtual. As VMs numa rede virtual serão recebem automaticamente um endereço IP de um intervalo que especificou. Mas em certos casos, a especificação de um endereço IP estático para uma VM específica faz sentido. Por exemplo, se a VM estiver prestes a executar DNS ou serão um controlador de domínio. Um endereço IP estático interno permanece com a VM, mesmo através de um Estado de paragem/desaprovisionamento. 
@@ -95,7 +95,7 @@ Para remover o IP estático interno adicionado para a VM com o script acima, exe
     | Update-AzureVM
 
 ## <a name="how-to-add-a-static-internal-ip-to-an-existing-vm"></a>Como adicionar um IP estático interno para uma VM existente
-Para adicionar um estático interno IP para a VM criada ao utilizar o script acima, runt tados os seguintes comandos:
+Para adicionar um IP estático interno para a VM criada ao utilizar o script acima, execute o seguinte comando:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `

@@ -1,12 +1,12 @@
 ---
-title: "Resolução de SSH detalhadas para uma VM do Azure | Microsoft Docs"
-description: "Mais passos para ligar a uma máquina virtual do Azure de problemas de resolução de problemas de SSH"
-keywords: "SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou"
+title: Resolução de SSH detalhadas para uma VM do Azure | Microsoft Docs
+description: Mais passos para ligar a uma máquina virtual do Azure de problemas de resolução de problemas de SSH
+keywords: SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH detalhada passos para ligar a uma VM com Linux no Azure de problemas de resolução de problemas
 Existem várias razões possíveis para que o cliente SSH poderá não ser capaz de alcançar o serviço SSH na VM. Se seguiu através de mais [SSH geral passos de resolução de problemas](troubleshoot-ssh-connection.md), terá de resolver o problema de ligação. Este artigo orienta-o pelos passos de resolução de problemas detalhados para determinar onde está a falhar a ligação SSH e como resolvê-lo.
@@ -39,7 +39,7 @@ Os seguintes passos ajudam a isolar a origem da falha e descobrir soluções ou 
 
 2. Selecione **definições** para examinar os pontos finais, endereços IP, grupos de segurança de rede e outras definições.
 
-   A VM deve ter um ponto final definido para o tráfego SSH que pode ver na **pontos finais** ou  **[grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md)**. Pontos finais em VMs que foram criadas utilizando o Gestor de recursos são armazenados num grupo de segurança de rede. Certifique-se de que as regras foram aplicadas ao grupo de segurança de rede e que são referenciadas na sub-rede.
+   A VM deve ter um ponto final definido para o tráfego SSH que pode ver na **pontos finais** ou  **[grupo de segurança de rede](../../virtual-network/security-overview.md)**. Pontos finais em VMs que foram criadas utilizando o Gestor de recursos são armazenados num grupo de segurança de rede. Certifique-se de que as regras foram aplicadas ao grupo de segurança de rede e que são referenciadas na sub-rede.
 
 Para verificar a conectividade de rede, verifique os pontos finais configurados e ver se consegue ligar à VM através de outro protocolo, tal como HTTP ou outro serviço.
 
@@ -111,7 +111,7 @@ Para eliminar o ponto final como uma origem do problema, remova o ponto final at
 
 ## <a name="source-4-network-security-groups"></a>Origem 4: Grupos de segurança de rede
 Grupos de segurança de rede permitem-lhe ter controlo mais granular sobre o tráfego de entrada e saída permitido. Pode criar regras que abrangem sub-redes e serviços em nuvem na uma rede virtual do Azure. Verifique as regras de grupo de segurança de rede para se certificar de que o tráfego SSH e para a Internet é permitido.
-Para obter mais informações, consulte [sobre grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
+Para obter mais informações, consulte [sobre grupos de segurança de rede](../../virtual-network/security-overview.md).
 
 Também pode utilizar o IP verificar para validar a configuração de NSG. Para obter mais informações, consulte [descrição geral da monitorização de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 

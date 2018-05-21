@@ -1,3 +1,19 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/20/2018
+---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Plataforma suportada a migração de recursos IaaS do clássico para o Azure Resource Manager
 Neste artigo, vamos descrever como podemos está a ativar a migração da infraestrutura como um recursos de serviço (IaaS) do clássico para modelos de implementação do Resource Manager. Pode ler mais sobre [funcionalidades do Azure Resource Manager e os benefícios](../articles/azure-resource-manager/resource-group-overview.md). Iremos detalhe como ligar recursos a partir de modelos de implementação de dois coexistem na sua subscrição através de gateways de site para site de rede virtual.
 
@@ -93,7 +109,7 @@ As seguintes configurações não são atualmente suportadas.
 | Computação | Serviços em nuvem que contêm funções da web/trabalho | Isto não é atualmente suportado. |
 | Computação | Serviços em nuvem que contêm mais do que uma disponibilidade definiram ou conjuntos de disponibilidade vários. |Isto não é atualmente suportado. Mova as máquinas virtuais ao mesmo conjunto antes de migrar de disponibilidade. |
 | Computação | VM com a extensão do Centro de segurança do Azure | Centro de segurança do Azure instala automaticamente as extensões na suas máquinas virtuais para monitorizar a segurança e gerar alertas. Estas extensões, normalmente, obterem instaladas automaticamente se a política do Centro de segurança do Azure está ativada na subscrição. Para migrar as máquinas virtuais, desative a política do Centro de segurança na subscrição que removerá o Centro de segurança monitorização extensão das máquinas virtuais. |
-| Computação | VM com a extensão de cópia de segurança ou de instantâneo | Estas extensões são instaladas numa máquina Virtual configurada com o serviço de cópia de segurança do Azure. Para migrar estas máquinas virtuais, siga as orientações [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| Computação | VM com a extensão de cópia de segurança ou de instantâneo | Estas extensões são instaladas numa máquina Virtual configurada com o serviço de cópia de segurança do Azure. Enquanto não é suportada a migração destas VMs, siga as orientações [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) para manter cópias de segurança que foram executadas antes da migração.  |
 | Rede |Redes virtuais que contêm máquinas virtuais e funções da web/trabalho |Isto não é atualmente suportado. Mova as funções da Web/trabalho a sua própria rede Virtual antes de migrar. Assim que a rede Virtual clássica é migrada, a rede Virtual do Gestor de recursos do migrados do Azure pode estar em modo de peering com a rede Virtual clássica para alcançar configuração semelhante como anteriormente.|
 | Rede | Circuitos Expressroute clássicos |Isto não é atualmente suportado. Estes circuitos tem de ser migrados para o Azure Resource Manager antes de iniciar a migração de IaaS. Para obter mais informações sobre esta consulte [circuitos do ExpressRoute mover do clássico para o modelo de implementação Resource Manager](../articles/expressroute/expressroute-move.md).|
 | Serviço de Aplicações do Azure |Redes virtuais que contêm os ambientes do App Service |Isto não é atualmente suportado. |

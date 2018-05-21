@@ -4,13 +4,13 @@ description: Descreve como avaliar grande número de máquinas no local ao utili
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/18/2018
 ms.author: raynew
-ms.openlocfilehash: e0bd62710c47cfdf81535470ef96bad2ab675bb0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -33,13 +33,13 @@ Planear as deteções e avaliações com base nos limites dos seguintes:
 | Deteção  | 1,500             |
 | Avaliação | 1,500             |
 
-<!-- 
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+<!--
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
 - If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
       -->
 
 ## <a name="plan-multiple-discoveries"></a>Planear múltiplos deteções
@@ -88,6 +88,14 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
 
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
 
+    Para a versão de OVA 1.0.9.8
+
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
     Para a versão OVA 1.0.9.7
 
     **Algoritmo** | **Valor de hash**
@@ -112,30 +120,6 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Para a versão OVA 1.0.8.59
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Para a versão OVA 1.0.8.49
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Para a versão OVA 1.0.8.40:
-
-    **Algoritmo** | **Valor de hash**
-    --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Criar a VM do recoletor
 
 Importe o ficheiro transferido para o servidor vCenter:
@@ -149,7 +133,7 @@ Importe o ficheiro transferido para o servidor vCenter:
 4. Em **Anfitrião/Cluster**, especifique o anfitrião ou cluster em que a VM do recoletor será executada.
 5. No armazenamento, especifique o destino de armazenamento para a VM do recoletor.
 6. Em **Formato do Disco**, especifique o tipo e o tamanho do disco.
-7. Em **Mapeamento da Rede**, especifique a rede à qual se ligará a VM do recoletor. A rede necessita de conectividade de internet para enviar metadados para o Azure. 
+7. Em **Mapeamento da Rede**, especifique a rede à qual se ligará a VM do recoletor. A rede necessita de conectividade de internet para enviar metadados para o Azure.
 8. Reveja e confirme as definições e, em seguida, selecione **concluir**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identificar o ID e a chave de cada projeto
@@ -157,13 +141,13 @@ Importe o ficheiro transferido para o servidor vCenter:
 Se tiver vários projetos, lembre-se de que identificar o ID e a chave de cada um deles. Tem a chave quando executa o recoletor para detetar as VMs.
 
 1. No projeto, selecione **introdução** > **detetar & avaliação** > **detetar máquinas**.
-2. No **copie as credenciais de projeto**, copie o ID e a chave para o projeto. 
+2. No **copie as credenciais de projeto**, copie o ID e a chave para o projeto.
     ![Copie as credenciais do projeto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ## <a name="set-the-vcenter-statistics-level"></a>Definir o nível de estatísticas do vCenter
-Segue-se a lista de contadores de desempenho que são recolhidos durante a deteção. Os contadores fazem por predefinição disponível em vários níveis no vCenter Server. 
+Segue-se a lista de contadores de desempenho que são recolhidos durante a deteção. Os contadores fazem por predefinição disponível em vários níveis no vCenter Server.
 
-Recomendamos que defina o nível mais elevado do comuns (3) para o nível de estatísticas para que todos os contadores de são recolhidos corretamente. Se tiver vCenter definido num nível inferior, apenas alguns contadores podem ser recolhidos completamente, com o resto definido como 0. A avaliação, em seguida, poderá mostrar dados incompletos. 
+Recomendamos que defina o nível mais elevado do comuns (3) para o nível de estatísticas para que todos os contadores de são recolhidos corretamente. Se tiver vCenter definido num nível inferior, apenas alguns contadores podem ser recolhidos completamente, com o resto definido como 0. A avaliação, em seguida, poderá mostrar dados incompletos.
 
 A tabela seguinte lista também os resultados da avaliação que vai ser afetados se um determinado contador não é recolhido.
 
@@ -203,7 +187,7 @@ Para cada deteção que é necessário executar, execute o recoletor para deteta
 5.  Em **Especificar detalhes do vCenter Server**, efetue o seguinte:
     - Especifique o nome (FQDN) ou endereço IP do vCenter Server.
     - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter Server.
-    - Em **Select scope** (Selecionar âmbito), selecione um âmbito para a deteção de VMs. O recoletor pode detetar apenas as VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Esta não deve conter mais de 1000 VMs. 
+    - Em **Select scope** (Selecionar âmbito), selecione um âmbito para a deteção de VMs. O recoletor pode detetar apenas as VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Esta não deve conter mais de 1000 VMs.
 
 6.  No **projeto de migração de especificar**, especifique o ID e a chave para o projeto. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. O projeto **descrição geral** página, selecione **detetar máquinas** e copie os valores.  
 7.  No **ver o progresso da coleção**, monitorizar o processo de deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de deteção aproximado.
@@ -211,7 +195,7 @@ Para cada deteção que é necessário executar, execute o recoletor para deteta
 
 ### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 
-O tempo de deteção depende do número de VMs que está a detetar. Normalmente, para 100 VMs, deteção de conclusão em torno de uma hora após a conclusão da recoletor em execução. 
+O tempo de deteção depende do número de VMs que está a detetar. Normalmente, para 100 VMs, deteção de conclusão em torno de uma hora após a conclusão da recoletor em execução.
 
 1. No projeto Planeador de migração, selecione **gerir** > **máquinas**.
 2. Verifique se as VMs que quer detetar aparecem no portal.

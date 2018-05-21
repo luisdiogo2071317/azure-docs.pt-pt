@@ -2,18 +2,18 @@
 title: Criação de bases de dados em nuvem dimensionáveis | Microsoft Docs
 description: Criar aplicações de base de dados .NET dimensionáveis com a biblioteca de clientes de base de dados elástica
 services: sql-database
-manager: jhubbard
+manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 6000b06950ddd442b76838e5632196808f893ef9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5a54980e866a31b576265487fdff128f53f30470
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Criar bases de dados de nuvem escaláveis
 Aumentar horizontalmente bases de dados pode ser facilmente conseguido utilizando ferramentas dimensionáveis e funcionalidades para a SQL Database do Azure. Em particular, pode utilizar o **biblioteca de clientes de base de dados elástica** para criar e gerir bases de dados de escalamento horizontal. Esta funcionalidade permite-lhe desenvolver facilmente aplicações em partição horizontal com centenas — ou mesmo milhares — das bases de dados SQL do Azure. [As tarefas elásticas](sql-database-elastic-jobs-powershell.md) , em seguida, podem ser utilizados para ajudar a facilitar a gestão destas bases de dados.

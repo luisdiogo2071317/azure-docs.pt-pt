@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 1f0ce5599cce7fc830075e57af1bcba80d0e69e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7e5054d6f59bb3e06e4148bd9cfb3caed9fec970
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Tutorial: Carregar, codificar e transmitir vídeos com as APIs
 
@@ -66,17 +66,7 @@ Esta secção examina as funções definidas no ficheiro [Program.cs](https://gi
 
 Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de criar um objeto **AzureMediaServicesClient**. Para criar o objeto, tem de fornecer as credenciais necessárias para o cliente se ligar ao Azure com o Azure AD. Primeiro tem de obter um token e, em seguida, criar um objeto **ClientCredential** a partir do token obtido. No código que clonou no início do artigo, o objeto **ArmClientCredential** é utilizado para obter o token.  
 
-```csharp
-private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper config)
-{
-    ArmClientCredentials credentials = new ArmClientCredentials(config);
-
-    return new AzureMediaServicesClient(config.ArmEndpoint, credentials)
-    {
-        SubscriptionId = config.SubscriptionId,
-    };
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Criar um elemento de entrada e carregar um ficheiro local para ele 
 
@@ -90,61 +80,13 @@ A função seguinte executa estes passos:
 * Obtém um [URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável para o [contentor de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) do Elemento
 * Carrega o ficheiro para o contentor de armazenamento através do URL de SAS
 
-```csharp
-private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
-{
-    // Check if an Asset already exists.
-    Asset asset = client.Assets.Get(resourceGroupName, accountName, assetName);
-
-    if (asset == null)
-    {
-        asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
-
-        var response = client.Assets.ListContainerSas(
-                resourceGroupName,
-                accountName,
-                assetName,
-                permissions: AssetContainerPermission.ReadWrite,
-                expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime()
-            );
-
-        var sasUri = new Uri(response.AssetContainerSasUrls.First());
-        CloudBlobContainer container = new CloudBlobContainer(sasUri);
-        var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
-        blob.UploadFromFile(fileToUpload);
-    }
-
-    // In this sample method, we are going to assume that if an Asset already exists with the desired name, 
-    // then we can go ahead an use it for encoding or analyzing.
-
-    return asset;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Criar um elemento de saída para armazenar o resultado de uma tarefa 
 
 O elemento de saída armazena o resultado da tarefa de codificação. O projeto define a função **DownloadResults**, que transfere os resultados deste elemento de saída para a pasta “saída”, para que possa ver o que obteve.
 
-```csharp
-private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
-{
-    // Check if an Asset already exists
-    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
-    Asset asset = new Asset();
-    string outputAssetName = assetName;
-
-    if (outputAsset != null)
-    {
-        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
-        // Note that the returned Asset can have a different name than the one specified as an input parameter.
-        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
-        string uniqueness = @"-" + Guid.NewGuid().ToString();
-        outputAssetName += uniqueness;
-    }
-
-    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Criar uma Transformação e uma Tarefa que codifica o ficheiro carregado
 Ao codificar ou processar conteúdos nos Serviços de Multimédia, é um padrão comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novas Tarefas para cada vídeo novo, está a aplicar essa receita a todos os vídeos na biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transformações e tarefas](transform-concept.md). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
@@ -157,36 +99,7 @@ Pode utilizar outra EncoderNamedPreset incorporada ou utilizar as predefiniçõe
 
 Ao criar uma **Transformação**, primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue.  Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
-```csharp
-private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName)
-{
-    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
-    // also uses the same recipe or Preset for processing content.
-    Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
-
-    if (transform == null)
-    {
-        // Start by defining the desired outputs.
-        TransformOutput[] outputs = new TransformOutput[]
-        {
-            new TransformOutput
-            {
-                Preset = new BuiltInStandardEncoderPreset()
-                {
-                    PresetName = EncoderNamedPreset.AdaptiveStreaming
-                }
-            }
-        };
-
-        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
-    }
-
-    return transform;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
 #### <a name="job"></a>Tarefa
 
@@ -194,44 +107,7 @@ Conforme mencionado acima, o objeto **Transformação** é a receita e uma **Tar
 
 Neste exemplo, o vídeo de entrada foi carregado do computador local. Se quiser saber como codificar a partir de um URL HTTPS, veja [este](job-input-from-http-how-to.md) artigo.
 
-```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, 
-    string resourceGroupName, 
-    string accountName, 
-    string transformName, 
-    string jobName, 
-    JobInput jobInput, 
-    string outputAssetName)
-{
-    string uniqueJobName = jobName;
-    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
-
-    if (job != null)
-    {
-        // Job already exists with the same name, so let's append a GUID
-        string uniqueness = @"-" + Guid.NewGuid().ToString();
-        uniqueJobName += uniqueness;
-    }
-
-    JobOutput[] jobOutputs =
-    {
-        new JobOutputAsset(outputAssetName),
-    };
-
-    job = client.Jobs.Create(
-        resourceGroupName,
-        accountName,
-        transformName,
-        jobName,
-        new Job
-        {
-            Input = jobInput,
-            Outputs = jobOutputs,
-        });
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguardar a conclusão da Tarefa
 
@@ -241,43 +117,7 @@ O Event Grid foi concebido para ter uma elevada disponibilidade, um desempenho c
 
 Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
 
-```csharp
-private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName,
-    string jobName)
-{
-    int SleepInterval = 60 * 1000;
-
-    Job job = null;
-
-    while (true)
-    {
-        job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
-
-        if (job.State == JobState.Finished || job.State == JobState.Error || job.State == JobState.Canceled)
-        {
-            break;
-        }
-
-        Console.WriteLine($"Job is {job.State}.");
-        for (int i = 0; i < job.Outputs.Count; i++)
-        {
-            JobOutput output = job.Outputs[i];
-            Console.Write($"\tJobOutput[{i}] is {output.State}.");
-            if (output.State == JobState.Processing)
-            {
-                Console.Write($"  Progress: {output.Progress}");
-            }
-            Console.WriteLine();
-        }
-        System.Threading.Thread.Sleep(SleepInterval);
-    }
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
 ### <a name="get-a-streaminglocator"></a>Obter um StreamingLocator
 
@@ -292,26 +132,7 @@ Ao criar um **StreamingLocator**, terá de especificar o **StreamingPolicyName**
 
 O código seguinte parte do princípio de que está a chamar a função com um locatorName exclusivo.
 
-```csharp
-private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
-                                                        string resourceGroup,
-                                                        string accountName,
-                                                        string assetName,
-                                                        string locatorName)
-{
-    StreamingLocator locator =
-        client.StreamingLocators.Create(resourceGroup,
-        accountName,
-        locatorName,
-        new StreamingLocator()
-        {
-            AssetName = assetName,
-            StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
-        });
-
-    return locator;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
 Apesar de o exemplo neste tópico descrever a transmissão em fluxo, pode utilizar a mesma chamada para criar um StreamingLocator para distribuir o vídeo através da transferência progressiva.
 
@@ -322,57 +143,13 @@ Agora que criou um StreamingLocator, pode obter os URLs de transmissão, conform
 > [!NOTE]
 > Neste método, necessitará do locatorName que foi utilizado ao criar o **StreamingLocator** para o Elemento de saída.
 
-```csharp
-static IList<string> GetStreamingURLs(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    String locatorName)
-{
-    IList<string> streamingURLs = new List<string>();
-
-    string streamingUrlPrefx = "";
-
-    StreamingEndpoint streamingEndpoint = client.StreamingEndpoints.Get(resourceGroupName, accountName, "default");
-
-    if (streamingEndpoint != null)
-    {
-        streamingUrlPrefx = streamingEndpoint.HostName;
-
-        if (streamingEndpoint.ResourceState != StreamingEndpointResourceState.Running)
-            client.StreamingEndpoints.Start(resourceGroupName, accountName, "default");
-    }
-
-    foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
-    {
-        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
-    }
-
-    return streamingURLs;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 
 ### <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
 
-Em geral, deve limpar tudo exceto os objetos que está a planear reutilizar (normalmente, reutiliza as Transformações e mantém os StreamingLocators, etc.). Se quiser que a sua conta seja limpa após fazer experiências, deverá eliminar os recursos que não planeia reutilizar.  Por exemplo, o código seguinte elimina Tarefas.
+Em geral, deve limpar tudo exceto os objetos que está a planear reutilizar (normalmente, reutiliza as Transformações e mantém os StreamingLocators, etc.). Se quiser que a sua conta seja limpa após fazer experiências, deverá eliminar os recursos que não planeia reutilizar.  Por exemplo, o seguinte código elimina as Tarefas.
 
-```csharp
-static void CleanUp(IAzureMediaServicesClient client,
-        string resourceGroupName,
-        string accountName,
-        string transformName)
-{
-    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
-    {
-        client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
-    }
-
-    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
-    {
-        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
-    }
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
