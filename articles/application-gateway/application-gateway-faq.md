@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -155,7 +155,7 @@ Este cenário pode ser feito utilizando NSGs na sub-rede de Gateway de aplicaç�
 
 * Permitir pedidos de entrada de todas as origens para portas 65503 65534 para [comunicação de estado de funcionamento de back-end](application-gateway-diagnostics.md).
 
-* Permitir entradas sondas de Balanceador de carga do Azure (etiqueta AzureLoadBalancer) e a entrada tráfego de rede virtual (etiqueta VirtualNetwork) no [NSG](../virtual-network/virtual-networks-nsg.md).
+* Permitir entradas sondas de Balanceador de carga do Azure (etiqueta AzureLoadBalancer) e a entrada tráfego de rede virtual (etiqueta VirtualNetwork) no [NSG](../virtual-network/security-overview.md).
 
 * Bloquear todas as regras de todos os outros tráfego de entrada com uma negação.
 
@@ -188,7 +188,7 @@ Sim. Pode configurar a ligação a ser drenado e alterar os membros dentro de um
 
 Sim, o Azure distribui as instâncias em vários domínios de atualização e falhas para se certificar de que todas as instâncias não falhar ao mesmo tempo. Gateway de aplicação suporta o dimensionamento, adicionar várias instâncias do mesmo gateway para partilhar a carga.
 
-## <a name="ssl-configuration"></a>Configuração de SSL
+## <a name="ssl-configuration"></a>Configuração do SSL
 
 **Q. Os certificados são suportados no Gateway de aplicação?**
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleração dinâmicas do site através da CDN do Azure
 
 Com explosão de redes sociais, comércio eletrónico e web hyper personalizadas, é gerada uma percentagem do conteúdo servido aos utilizadores finais rapidamente aumentar em tempo real. Os utilizadores esperam que uma experiência de web personalizado, rápida e fiável, independentemente do respetivo browser, localização, dispositivo ou rede. No entanto, as inovações muito que fará com que estes experiências para exercer também lenta transferências de página e colocar a qualidade da experiência do consumidor em risco. 
 
-Capacidade de entrega de conteúdos padrão de rede (CDN) inclui a capacidade de ficheiros de cache próximo aos utilizadores finais para acelerar a entrega de ficheiros estáticos. No entanto, com aplicações web dinâmicas, esse conteúdo em localizações de limite a colocação em cache não é possível porque o servidor gera o conteúdo em resposta ao comportamento de utilizador. Acelerar o fornecimento desse conteúdo for mais complexo do que a colocação em cache de limite tradicional e necessita de uma solução ponto-a-ponto que lhe tunes cada elemento ao longo do caminho de dados completo de inception para entrega. Com a otimização de aceleração (DSA) do Azure CDN dinâmicas do site, o desempenho das páginas web com o conteúdo dinâmico measurably foi melhorado.
+Capacidade de entrega de conteúdos padrão de rede (CDN) inclui a capacidade de ficheiros de cache próximo aos utilizadores finais para acelerar a entrega de ficheiros estáticos. No entanto, com aplicações web dinâmicas, esse conteúdo em localizações de limite a colocação em cache não é possível porque o servidor gera o conteúdo em resposta ao comportamento de utilizador. Acelerar o fornecimento desse conteúdo for mais complexo do que a colocação em cache de limite tradicional e necessita de uma solução ponto-a-ponto que lhe tunes cada elemento ao longo do caminho de dados completo de inception para entrega. Com a otimização de aceleração (DSA) do Azure CDN dinâmicas do site, o desempenho da sua idade aumenta de web com o conteúdo dinâmico measurably foi melhorado.
 
 **CDN do Azure da Akamai** e **CDN do Azure da Verizon** ambos oferecem otimização DSA através de **otimizado para** menu durante a criação do ponto final.
 
@@ -33,7 +33,7 @@ Capacidade de entrega de conteúdos padrão de rede (CDN) inclui a capacidade de
 >   
 > Para **CDN do Azure da Verizon** perfis, não é possível alterar a otimização de um ponto final de CDN depois de terem sido criadas.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Configurar o ponto final da CDN para acelerar a entrega de ficheiros dinâmicos
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Configuração de ponto final da CDN para acelerar a entrega de ficheiros dinâmicos
 
 Para configurar um ponto final da CDN para otimizar a entrega de ficheiros dinâmicos, pode utilizar o portal do Azure, as APIs REST ou qualquer um dos SDKs de cliente para efetuar a mesma coisa através de programação. 
 

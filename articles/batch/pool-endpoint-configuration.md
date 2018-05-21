@@ -1,6 +1,6 @@
 ---
-title: "Configurar pontos finais de nó no conjunto do Azure Batch | Microsoft Docs"
-description: "Como configurar ou desativar o acesso ao SSH ou RDP portas em nós de computação num conjunto do Azure Batch."
+title: Configurar pontos finais de nó no conjunto do Azure Batch | Microsoft Docs
+description: Como configurar ou desativar o acesso ao SSH ou RDP portas em nós de computação num conjunto do Azure Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-ms.openlocfilehash: fdc68744406c3e995a2764f93d4474b807337ff5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desativar o acesso remoto a nós num conjunto do Azure Batch de computação
 
@@ -23,7 +23,7 @@ No seu ambiente, poderá ter de restringir ou desativar estas predefinições de
 ## <a name="about-the-pool-endpoint-configuration"></a>Sobre a configuração de ponto final do agrupamento
 A configuração de ponto final é composta por um ou mais [conjuntos de tradução (NAT) de endereços de rede](/rest/api/batchservice/pool/add#inboundnatpool) de portas front-end. (Não confunda um conjunto NAT com o conjunto de nós de computação do Batch.) Configurar cada conjunto NAT para substituir as definições de ligação predefinido em nós de computação do conjunto. 
 
-Cada configuração de conjunto NAT inclui um ou mais [regras de segurança de grupo (NSG) de rede](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra NSG permite ou nega determinado tráfego de rede para o ponto final. Pode optar por permitir ou negar todo o tráfego, tráfego identificado por um [etiqueta predefinida](../virtual-network/virtual-networks-nsg.md#default-tags) (por exemplo, "Internet"), ou tráfego de endereços IP ou sub-redes específicas.
+Cada configuração de conjunto NAT inclui um ou mais [regras de segurança de grupo (NSG) de rede](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra NSG permite ou nega determinado tráfego de rede para o ponto final. Pode optar por permitir ou negar todo o tráfego, tráfego identificado por um [service tag](../virtual-network/security-overview.md#service-tags) (por exemplo, "Internet"), ou tráfego de endereços IP ou sub-redes específicas.
 
 ### <a name="considerations"></a>Considerações
 * A configuração de ponto final do conjunto aplicacional faz parte do conjunto [configuração de rede](/rest/api/batchservice/pool/add#NetworkConfiguration). A configuração de rede, opcionalmente, pode incluir as definições de associação do agrupamento para um [rede virtual do Azure](batch-virtual-network.md). Se configurar o agrupamento de uma rede virtual, pode criar regras NSG que utilizem as definições de endereço na rede virtual.
@@ -124,7 +124,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre regras NSG no Azure, consulte [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+- Para obter mais informações sobre regras NSG no Azure, consulte [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
 
 - Para uma descrição geral aprofundada do Batch, consulte [paralelo em grande escala desenvolver soluções com o Batch de computação](batch-api-basics.md).
 

@@ -1,36 +1,36 @@
 ---
-title: "Funções de modelo do Azure Resource Manager - comparação | Microsoft Docs"
-description: "Descreve as funções de utilizar um modelo Azure Resource Manager para comparar valores."
+title: Funções de modelo do Azure Resource Manager - comparação | Microsoft Docs
+description: Descreve as funções de utilizar um modelo Azure Resource Manager para comparar valores.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 364a271d84f9abfe99c7c674a6c504ce94318ac9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos Azure Resource Manager
 
 O Resource Manager fornece várias funções, para efetuar comparações nos seus modelos.
 
-* [igual a](#equals)
-* [maior](#greater)
+* [equals](#equals)
+* [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [menor](#less)
 * [lessOrEquals](#lessorequals)
 
-## <a name="equals"></a>igual a
+## <a name="equals"></a>é igual a
 `equals(arg1, arg2)`
 
 Verifica se os dois valores igual entre si.
@@ -490,7 +490,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

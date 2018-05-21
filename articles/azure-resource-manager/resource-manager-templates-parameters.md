@@ -1,6 +1,6 @@
 ---
-title: "Secção de parâmetro de modelo do Azure Resource Manager | Microsoft Docs"
-description: "Descreve a secção de parâmetros de modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON."
+title: Secção de parâmetro de modelo do Azure Resource Manager | Microsoft Docs
+description: Descreve a secção de parâmetros de modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Secção de parâmetros de modelos Azure Resource Manager
 Na secção de parâmetros do modelo, especifique os valores que pode introduzir quando implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no modelo, mas sem parâmetros do modelo implementaria sempre os mesmos recursos com os mesmos nomes, localizações e as propriedades.
@@ -85,13 +85,13 @@ O exemplo anterior mostrou apenas algumas das propriedades que pode utilizar a s
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
-| tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia**, **secureString**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
 | defaultValue |Não |Valor predefinido para o parâmetro se não for fornecido nenhum valor para o parâmetro. |
 | allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que é fornecido o valor correto. |
-| minValue |Não |O valor mínimo de parâmetros de tipo int, este valor é inclusive. |
+| MinValue |Não |O valor mínimo de parâmetros de tipo int, este valor é inclusive. |
 | maxValue |Não |O valor máximo de parâmetros de tipo int, este valor é inclusive. |
-| minLength |Não |O comprimento mínimo de cadeia, secureString e parâmetros de tipo de matriz, este valor é inclusive. |
-| maxLength |Não |O comprimento máximo da cadeia, secureString e parâmetros de tipo de matriz, este valor é inclusive. |
+| minLength |Não |O comprimento mínimo de cadeia, securestring e parâmetros de tipo de matriz, este valor é inclusive. |
+| maxLength |Não |O comprimento máximo da cadeia, securestring e parâmetros de tipo de matriz, este valor é inclusive. |
 | descrição |Não |Descrição do parâmetro que é apresentada aos utilizadores através do portal. |
 
 ## <a name="template-functions-with-parameters"></a>Funções de modelo com parâmetros
@@ -225,7 +225,7 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
    }
    ```
 
-* Utilize **SecureString** para todas as palavras-passe e segredos. Se passar dados confidenciais num objeto JSON, utilize o **secureObject** tipo. Não não possível ler os parâmetros do modelo tipos secureString ou secureObject após a implementação de recursos. 
+* Utilize **securestring** para todas as palavras-passe e segredos. Se passar dados confidenciais num objeto JSON, utilize o **secureObject** tipo. Não não possível ler os parâmetros do modelo tipos securestring ou secureObject após a implementação de recursos. 
    
    ```json
    "parameters": {
@@ -262,7 +262,7 @@ Estes modelos de exemplo demonstram alguns cenários de utilização de parâmet
 |Modelo  |Descrição  |
 |---------|---------|
 |[parâmetros com as funções para os valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar funções de modelo quando definir os valores predefinidos para os parâmetros. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
-|[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra a utilização de um objeto para um parâmetro. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
+|[Objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra a utilização de um objeto para um parâmetro. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

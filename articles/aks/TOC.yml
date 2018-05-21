@@ -45,13 +45,13 @@
           href: delete-cluster.md
     - name: Configurar volumes de dados
       items:
-        - name: Aprovisionamento dinâmico do AzureDisk
+        - name: Azure Disk - Dinâmico
           href: azure-disks-dynamic-pv.md
-        - name: Aprovisionamento estático do AzureDisk
+        - name: Azure Disk - Estático
           href: azure-disk-volume.md
-        - name: Aprovisionamento dinâmico do AzureFile
+        - name: Ficheiros do Azure - Dinâmico
           href: azure-files-dynamic-pv.md
-        - name: Aprovisionamento estático do AzureFile
+        - name: Ficheiros do Azure - Estático
           href: azure-files-volume.md
     - name: Configurar rede
       items:

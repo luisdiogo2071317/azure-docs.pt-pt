@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: cd61aa4a69a5bed8de9874eebad059b54118ab63
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o portal do Azure
 
@@ -125,7 +125,7 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
    * **Origem de dados predefinida**: O sistema de ficheiros do cluster.
    * **Tamanho de nós de trabalho**: O tamanho selecionado da VM de nós de trabalho.
    * **Tamanho de nó de HEAD**: O tamanho selecionado da VM de nós principais.
-   * **Rede virtual**: O nome da rede Virtual e a sub-rede à qual o cluster é implementado, se um tiver sido selecionado no momento da implementação.
+   * **Rede virtual**: O nome da rede Virtual que o cluster é implementado, se um tiver sido selecionado no momento da implementação.
 
 ## <a name="delete-clusters"></a>Eliminar clusters
 Eliminar um cluster não elimina a conta do storage predefinida nem quaisquer contas do storage ligadas. Pode voltar a criar o cluster utilizando as mesmas contas do storage e metastores as mesmas. Recomendamos que utilize um novo contentor de Blob predefinido quando voltar a criar o cluster.

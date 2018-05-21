@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementar o Azure Stream Analytics como um módulo de limite de IoT – pré-visualização
 
@@ -51,21 +51,21 @@ Neste tutorial, ficará a saber como:
 
 Nesta secção, vai criar uma tarefa do Azure Stream Analytics para colocar os dados a partir do seu IoT hub, consultar os dados de telemetria enviada do seu dispositivo e, em seguida, reencaminhar os resultados para um contentor de armazenamento de Blobs do Azure. Para obter mais informações, consulte a secção "Descrição geral" da [documentação do Stream Analytics][azure-stream]. 
 
-### <a name="create-a-storage-account"></a>Criar uma conta do Storage
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 É necessária uma conta de armazenamento do Azure para fornecer um ponto final para ser utilizado como uma saída na sua tarefa do Azure Stream Analytics. O exemplo nesta secção utiliza o tipo de armazenamento de Blobs. Para obter mais informações, consulte a secção "Blobs" o [documentação do Storage do Azure][azure-storage].
 
 1. No portal do Azure, aceda a **crie um recurso**, introduza **conta de armazenamento** na caixa de pesquisa e, em seguida, selecione **conta de armazenamento - BLOBs, ficheiro, tabela, fila**.
 
-2. No **criar conta de armazenamento** painel, introduza um nome para a sua conta de armazenamento, selecione a mesma localização onde está armazenado o seu IoT hub e, em seguida, selecione **criar**. Tenha em atenção o nome para utilização posterior.
+2. No **criar conta de armazenamento** painel, introduza um nome para a sua conta de armazenamento, selecione a mesma localização onde está armazenado o seu IoT hub, selecione o mesmo grupo de recursos como o seu IoT hub e, em seguida, selecione **criar**. Tenha em atenção o nome para utilização posterior.
 
-    ![Criar uma conta do Storage][1]
+    ![Criar uma conta de armazenamento][1]
 
 3. Vá para a conta de armazenamento que acabou de criar e, em seguida, selecione **procurar blobs**. 
 
 4. Criar um novo contentor para o módulo do Azure Stream Analytics armazenar dados, defina o acesso de nível para **contentor**e, em seguida, selecione **OK**.
 
-    ![definições de armazenamento][10]
+    ![Definições de armazenamento][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Criar uma tarefa do Stream Analytics
 
@@ -84,32 +84,25 @@ Nesta secção, vai criar uma tarefa do Azure Stream Analytics para colocar os d
 
 3. Selecione **Criar**.
 
-4. Esta tarefa criada, em **tarefa topologia**, selecione **entradas**e, em seguida, selecione **adicionar**.
-
-5. No **nova entrada** painel, efetue o seguinte procedimento:
-
-    a. No **alias de entrada** box, introduza **temperatura**.
-    
-    b. No **tipo de origem** caixa, selecione **fluxo de dados**.
-    
-    c. Os campos restantes, utilize os valores predefinidos.
+4. Esta tarefa criada, em **tarefa topologia**, abra **entradas**.
 
    ![Entrada de Stream Analytics do Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Selecione **Criar**.
+5. Selecione **adicionar a entrada de fluxo**, em seguida, selecione **Edge Hub**.
 
-7. Em **tarefa topologia**, selecione **saídas**e, em seguida, selecione **adicionar**.
+5. No **nova entrada** painel, introduza **temperatura** como o alias de entrada. 
 
-8. No **nova saída** painel, efetue o seguinte procedimento:
+6. Selecione **Guardar**.
 
-    a. No **alias de saída** caixa, escreva **alerta**.
-    
-    b. Os campos restantes, utilize os valores predefinidos. 
-    
-    c. Selecione **Criar**.
+7. Em **tarefa topologia**, abra **saídas**.
 
    ![Saída do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Selecione **adicionar**, em seguida, selecione **Edge Hub**.
+
+8. No **nova saída** painel, introduza **alerta** como o alias de saída. 
+
+9. Selecione **Criar**.
 
 9. Em **tarefa topologia**, selecione **consulta**e, em seguida, substitua o texto predefinido com a seguinte consulta:
 
@@ -130,12 +123,12 @@ Nesta secção, vai criar uma tarefa do Azure Stream Analytics para colocar os d
 
 Agora está pronto para implementar a tarefa de Stream Analytics do Azure no seu dispositivo de limite de IoT.
 
-1. No portal do Azure, no seu IoT hub, aceda a **IoT Edge (pré-visualização)**e, em seguida, abra a página de detalhes para o seu dispositivo de limite de IoT.
+1. No portal do Azure, no seu IoT hub, aceda a **IoT Edge (pré-visualização)** e, em seguida, abra a página de detalhes para o seu dispositivo de limite de IoT.
 
 2. Selecione **Definir módulos**.  
     Se tiver implementado anteriormente o módulo de tempSensor neste dispositivo, poderá autopopulate. Se não existir, adicione o módulo da seguinte forma:
 
-   a. Selecione **Adicionar módulo IoT Edge**.
+   a. Selecione **Adicionar módulo do IoT Edge**.
 
    b. Para o nome, escreva **tempSensor**.
     

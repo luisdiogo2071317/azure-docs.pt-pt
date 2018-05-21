@@ -9,26 +9,23 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: dfb1bd48a47e45363e8761a3d79901e5171b37d1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bf65ab7858ba792418e325e7a025ee1bd88bbb27
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>A indexação de blobs CSV com o indexador de blob do Azure Search
-Por predefinição, [indexador de blob do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa os blobs de texto delimitado por como um segmento de texto único. No entanto, com blobs que contém os dados CSV, muitas vezes, pretende tratar cada linha no blob como um documento separado. Por exemplo, dado o seguinte texto delimitado: 
+Por predefinição, [indexador de blob do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa os blobs de texto delimitado por como um segmento de texto único. No entanto, com blobs que contém os dados CSV, muitas vezes, pretende tratar cada linha no blob como um documento separado. Por exemplo, tendo em conta o seguinte texto delimitado, pode querer analisá-lo em dois documentos, cada que contém campos de "etiquetas", "datePublished" e "id": 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-Pode querer analisá-lo para 2 documentos, cada que contém campos de "etiquetas", "datePublished" e "id".
-
-Neste artigo, ficará a saber como analisar os blobs CSV com um indexador de blob do Azure Search. 
+Neste artigo, irá aprender a analisar os blobs CSV com um indexador de blob do Azure Search. 
 
 > [!IMPORTANT]
-> Atualmente, esta funcionalidade está em pré-visualização. Está disponível apenas na API REST utilizando a versão **pré-visualização 2015-02-28**. . Lembre-se, pré-visualizar APIs foram concebidas para avaliação e de teste e não deve ser utilizadas em ambientes de produção. 
-> 
+> Esta funcionalidade está atualmente em pré-visualização pública e não deve ser utilizada em ambientes de produção. Para obter mais informações, consulte [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>Como configurar a indexação de CSV
@@ -52,10 +49,10 @@ Pode personalizar o caráter delimitador a utilizar o `delimitedTextDelimiter` d
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> Atualmente, é suportada apenas a codificação UTF-8. Se precisar de suporte para outras codificações, indique no [nosso site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Atualmente, é suportada apenas a codificação UTF-8. Se precisar de suporte para outras codificações, votá-lo em [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
-> Quando utiliza o modo de análise de texto delimitado, da Azure Search parte do princípio de que todos os blobs na sua origem de dados será CSV. Se precisar de suportar uma mistura de blobs CSV e sem CSV na mesma origem de dados, indique no [nosso site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando utiliza o modo de análise de texto delimitado, da Azure Search parte do princípio de que todos os blobs na sua origem de dados será CSV. Se precisar de suportar uma mistura de blobs CSV e sem CSV na mesma origem de dados,. votá-lo em [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
@@ -64,7 +61,7 @@ Colocar este todos os em conjunto, Eis os exemplos de payload completo.
 
 Origem de dados: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -77,7 +74,7 @@ Origem de dados:
 
 Indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -89,5 +86,5 @@ Indexador:
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-na tornar o melhor da Azure Search
-Se tiver de pedidos de funcionalidades ou ideias para melhoramentos, contacte-no nosso [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Se tiver de pedidos de funcionalidades ou ideias para melhoramentos, fornecer os dados introduzidos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

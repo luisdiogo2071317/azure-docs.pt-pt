@@ -1,31 +1,31 @@
 ---
-title: "Funções de modelo do Azure Resource Manager - implementação | Microsoft Docs"
-description: "Descreve as funções de utilizar um modelo Azure Resource Manager para obter informações de implementação."
+title: Funções de modelo do Azure Resource Manager - implementação | Microsoft Docs
+description: Descreve as funções de utilizar um modelo Azure Resource Manager para obter informações de implementação.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implementação de modelos Azure Resource Manager 
 
 O Resource Manager fornece as seguintes funções, para obter os valores de secções do modelo e os valores relacionados com a implementação:
 
-* [implementação](#deployment)
-* [parâmetros](#parameters)
+* [deployment](#deployment)
+* [parameters](#parameters)
 * [variáveis](#variables)
 
 Para obter os valores de recursos, grupos de recursos ou subscrições, consulte [funções recursos](resource-group-template-functions-resource.md).
@@ -160,7 +160,7 @@ Devolve um valor de parâmetro. O nome de parâmetro especificado tem de ser def
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |Cadeia |O nome do parâmetro para devolver. |
+| parameterName |Sim |cadeia |O nome do parâmetro para devolver. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -249,8 +249,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | stringOutput | Cadeia | opção 1 |
 | intOutput | Int | 1 |
-| objectOutput | Objeto | {"um": "a", "dois": "b"} |
-| arrayOutput | Matriz | [1, 2, 3] |
+| objectOutput | Object | {"um": "a", "dois": "b"} |
+| arrayOutput | Array | [1, 2, 3] |
 | crossOutput | Cadeia | opção 1 |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -351,9 +351,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | Cadeia | myVariable |
-| exampleOutput2 | Matriz | [1, 2, 3, 4] |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
 | exampleOutput3 | Cadeia | myVariable |
-| exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
+| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -367,7 +367,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

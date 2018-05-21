@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4b3a7425f383e1fa8145bac016aa2881d806c545
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="application-insights-overview-dashboard-preview"></a>Dashboard de descrição geral de informações de aplicação (pré-visualização)
 
@@ -56,6 +56,9 @@ Se esta for a primeira vez ao aceder ao dashboard iniciará uma vista predefinid
 ![Vista de dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
 Enquanto pode manter a vista predefinida se pretendê-lo, também pode adicionar e eliminar a partir do dashboard para se adaptar melhor se ajustar às necessidades da sua equipa.
+
+> [!NOTE]
+> Todos os utilizadores com acesso ao recurso do Application Insights partilham a mesma experiência de dashboard de aplicações. As alterações efetuadas por um utilizador vai modificar a vista para todos os utilizadores.
 
 Para navegar para a experiência de descrição geral apenas selecione:
 

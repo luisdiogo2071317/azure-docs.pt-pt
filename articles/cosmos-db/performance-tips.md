@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -41,9 +41,13 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
     Como um cliente liga à base de dados do Azure Cosmos tem implicações importantes no desempenho, especialmente em termos de latência observado do lado do cliente. Existem duas definições de configuração da chave para configurar a política de ligação – a ligação de cliente *modo* e [ligação *protocolo*](#connection-protocol).  Os dois modos de disponíveis são:
 
    1. Modo de gateway (predefinição)
+      
+      O modo de gateway é suportado em todas as plataformas do SDK e é a predefinição configurada. Se a aplicação é executado dentro de uma rede empresarial com restrições de strict firewall, o modo de Gateway é a melhor opção uma vez que utiliza a porta HTTPS padrão e um único ponto final. O compromisso de desempenho, no entanto, é o modo de Gateway envolve um salto de rede adicionais, sempre que os dados são lidos ou escritos na base de dados do Azure Cosmos. Por este motivo, o modo direto oferece um melhor desempenho devido a menos saltos de rede.
+
    2. Modo direto
 
-      O modo de gateway é suportado em todas as plataformas do SDK e é a predefinição configurada.  Se a aplicação é executado dentro de uma rede empresarial com restrições de strict firewall, o modo de Gateway é a melhor opção uma vez que utiliza a porta HTTPS padrão e um único ponto final. O compromisso de desempenho, no entanto, é o modo de Gateway envolve um salto de rede adicionais, sempre que os dados são lidos ou escritos na base de dados do Azure Cosmos. Por este motivo, o modo direto oferece um melhor desempenho devido a menos saltos de rede.
+     Modo direto suporta a conectividade através de protocolos TCP e HTTPS. Atualmente, direta é suportada no .NET 2.0 padrão para apenas a plataforma do Windows.
+      
 <a id="use-tcp"></a>
 2. **Política de ligação: utilizar o protocolo TCP**
 

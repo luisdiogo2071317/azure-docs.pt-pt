@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao Table Storage do Azure através do .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -61,7 +61,7 @@ Se preferir não criar uma conta de armazenamento neste momento, pode também ut
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta de API de tabela de base de dados do Azure Cosmos
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurar o seu ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
 
 ### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicação de consola do Windows
@@ -102,7 +102,7 @@ Pode utilizar o NuGet para obter ambos os pacotes. Siga estes passos.
 >
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
-Tem duas opções de ambiente para executar os exemplos neste guia:
+Tem três opções de ambiente para executar os exemplos neste guia:
 
 * Pode executar o código numa conta de armazenamento do Azure na nuvem. 
 * Pode executar o código uma conta de base de dados do Azure Cosmos na nuvem.

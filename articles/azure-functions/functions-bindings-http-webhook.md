@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 422563f6a4e85884f4512d797d666e470835e2d2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -43,7 +43,7 @@ Os enlaces de HTTP são fornecidos no [Microsoft.Azure.WebJobs.Extensions.Http](
 
 O acionador HTTP permite invocar uma função com um pedido de HTTP. Pode utilizar um acionador HTTP para criar APIs sem servidor e responder a webhooks. 
 
-Por predefinição, um acionador HTTP responde ao pedido com um código de estado HTTP 200 OK e um corpo vazio. Para modificar a resposta, configure um [vínculo de saída HTTP](#http-output-binding).
+Por predefinição, um acionador HTTP devolve HTTP 200 OK com um corpo vazio nas funções de 1. x ou HTTP 204 não conteúdo com um corpo vazio nas funções de 2. x. Para modificar a resposta, configure um [vínculo de saída HTTP](#http-output-binding).
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 
@@ -56,7 +56,7 @@ Veja o exemplo de específicas do idioma:
 
 ### <a name="trigger---c-example"></a>Acionador - c# exemplo
 
-O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que procuram um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que procuram um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP. Tenha em atenção que o valor de retorno é utilizado para o enlace de saída, mas um atributo de valor de retorno não é necessário.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -87,15 +87,29 @@ public static async Task<HttpResponseMessage> Run(
 
 O exemplo seguinte mostra um enlace de Acionador num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função procura um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis o *function.json* ficheiro:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 O [configuração](#trigger---configuration) secção explica estas propriedades.
@@ -147,15 +161,25 @@ public class CustomObject {
 
 O exemplo seguinte mostra um enlace de Acionador num *function.json* ficheiro e uma [F # função](functions-reference-fsharp.md) que utiliza o enlace. A função procura um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis o *function.json* ficheiro:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 O [configuração](#trigger---configuration) secção explica estas propriedades.
@@ -203,15 +227,25 @@ Precisa de um `project.json` ficheiro que utiliza o NuGet para referenciar o `FS
 
 O exemplo seguinte mostra um enlace de Acionador num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função procura um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis o *function.json* ficheiro:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 O [configuração](#trigger---configuration) secção explica estas propriedades.
@@ -224,7 +258,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -263,15 +297,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 O exemplo seguinte mostra um acionador de webhook enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista comentários de problema do GitHub.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis o *function.json* ficheiro:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 O [configuração](#trigger---configuration) secção explica estas propriedades.
@@ -303,15 +347,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 O exemplo seguinte mostra um acionador de webhook enlace num *function.json* ficheiro e uma [F # função](functions-reference-fsharp.md) que utiliza o enlace. A função regista comentários de problema do GitHub.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Eis o *function.json* ficheiro:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 O [configuração](#trigger---configuration) secção explica estas propriedades.
@@ -347,11 +401,21 @@ Segue-se os dados do enlace *function.json* ficheiro:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 O [configuração](#trigger---configuration) secção explica estas propriedades.
@@ -386,7 +450,6 @@ Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
 A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiros e o `HttpTrigger` atributo.
-
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
@@ -472,13 +535,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -549,35 +612,24 @@ O [host.json](functions-host-json.md) ficheiro contém definições que controla
 
 ## <a name="output"></a>Saída
 
-Utilize a saída HTTP de enlace para responder ao remetente de pedido HTTP. Este enlace necessita de um acionador HTTP e permite-lhe personalizar a resposta associada pedido o acionador. Se o enlace de saída de um HTTP não for fornecido, um acionador HTTP devolve HTTP 200 OK com uma mensagem vazia. 
+Utilize a saída HTTP de enlace para responder ao remetente de pedido HTTP. Este enlace necessita de um acionador HTTP e permite-lhe personalizar a resposta associada pedido o acionador. Se o enlace de saída de um HTTP não for fornecido, um acionador HTTP devolve HTTP 200 OK com um corpo vazio nas funções de 1. x ou HTTP 204 não conteúdo com um corpo vazio nas funções de 2. x.
 
 ## <a name="output---configuration"></a>De saída - configuração
 
-Para c# bibliotecas de classes, existem sem propriedades de configuração de enlace de saída específicas. Para enviar uma resposta HTTP, se a função de tipo de retorno `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
-
-Para outros idiomas, um HTTP de saída do enlace está definida como um objeto JSON no `bindings` matriz de function.json, conforme mostrado no exemplo seguinte:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro.
+A tabela seguinte explica as propriedades de configuração de enlace que definir no *function.json* ficheiro. Para a classe c# bibliotecas existe são sem propriedades de atributo que correspondam a esses *function.json* propriedades. 
 
 |Propriedade  |Descrição  |
 |---------|---------|
 | **tipo** |tem de ser definido como `http`. |
 | **direção** | tem de ser definido como `out`. |
-|**name** | O nome da variável utilizado no código de função para a resposta. |
+|**name** | O nome da variável utilizado no código de função para a resposta, ou `$return` para utilizar o valor de retorno. |
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Pode utilizar o parâmetro de saída para responder a chamador HTTP ou o webhook. Também pode utilizar os padrões de resposta de padrão de idioma. Por exemplo respostas, consulte o [exemplo acionador](#trigger---example) e [webhook exemplo](#trigger---webhook-example).
+Para enviar uma resposta HTTP, utilize os padrões de resposta de padrão de idioma. Em c# ou de script do c#, se a função de tipo de retorno `HttpResponseMessage` ou `Task<HttpResponseMessage>`. Em c#, um atributo de valor de retorno não se encontra necessário.
+
+Por exemplo respostas, consulte o [exemplo acionador](#trigger---example) e [webhook exemplo](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+[Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

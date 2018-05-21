@@ -1,55 +1,55 @@
 ---
-title: "A cadeia de funções de modelo do Azure Resource Manager - | Microsoft Docs"
-description: "Descreve as funções para utilizar num modelo Azure Resource Manager para trabalhar com cadeias."
+title: A cadeia de funções de modelo do Azure Resource Manager - | Microsoft Docs
+description: Descreve as funções para utilizar num modelo Azure Resource Manager para trabalhar com cadeias.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Cadeia de funções para modelos Azure Resource Manager
 
 O Resource Manager fornece as seguintes funções para trabalhar com cadeias de:
 
-* [Base64](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
 * [contém](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [vazio](#empty)
+* [empty](#empty)
 * [endsWith](#endswith)
-* [primeiro](#first)
-* [GUID](#guid)
+* [first](#first)
+* [guid](#guid)
 * [indexOf](#indexof)
-* [última](#last)
+* [last](#last)
 * [lastIndexOf](#lastindexof)
 * [comprimento](#length)
-* [padleft do modelo](#padleft)
-* [substituir](#replace)
-* [Ignorar](#skip)
+* [padLeft](#padleft)
+* [replace](#replace)
+* [skip](#skip)
 * [dividir](#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [cadeia](#string)
-* [subcadeia](#substring)
+* [string](#string)
+* [substring](#substring)
 * [tirar](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [limitação](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
 * [URI](#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
@@ -57,7 +57,7 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de:
 
 <a id="base64" />
 
-## <a name="base64"></a>Base64
+## <a name="base64"></a>base64
 `base64(inputString)`
 
 Devolve a representação de base64 de cadeia de entrada.
@@ -66,7 +66,7 @@ Devolve a representação de base64 de cadeia de entrada.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |Cadeia |O valor a ser devolvido como uma representação de base64. |
+| inputString |Sim |cadeia |O valor a ser devolvido como uma representação de base64. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -119,7 +119,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Cadeia | um, dois, três |
-| toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
+| toJsonOutput | Object | {"um": "a", "dois": "b"} |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -144,7 +144,7 @@ Converte uma representação de base64 para um objeto JSON.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |Cadeia |A representação de base64 para converter um objeto JSON. |
+| base64Value |Sim |cadeia |A representação de base64 para converter um objeto JSON. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -197,7 +197,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Cadeia | um, dois, três |
-| toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
+| toJsonOutput | Object | {"um": "a", "dois": "b"} |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -222,7 +222,7 @@ Converte uma representação de base64 numa cadeia.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |Cadeia |A representação de base64 para converter uma cadeia. |
+| base64Value |Sim |cadeia |A representação de base64 para converter uma cadeia. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -275,7 +275,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | base64Output | Cadeia | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Cadeia | um, dois, três |
-| toJsonOutput | Objeto | {"um": "a", "dois": "b"} |
+| toJsonOutput | Object | {"um": "a", "dois": "b"} |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -301,7 +301,7 @@ Combina vários valores de cadeia e devolve a cadeia concatenada, ou combina vá
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia ou matriz |O primeiro valor concatenação. |
-| argumentos adicionais |Não |Cadeia |Valores adicionais por ordem sequencial para concatenação. |
+| argumentos adicionais |Não |cadeia |Valores adicionais por ordem sequencial para concatenação. |
 
 ### <a name="return-value"></a>Valor devolvido
 Uma cadeia ou matriz de valores concatenados.
@@ -387,7 +387,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| devolver | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| devolver | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -506,7 +506,7 @@ Converte um valor para um URI de dados.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |Cadeia |O valor para converter para um URI de dados. |
+| stringToConvert |Sim |cadeia |O valor para converter para um URI de dados. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -574,7 +574,7 @@ Converte um URI de dados formatado valor a uma cadeia.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |Cadeia |Os dados ao converter o valor do URI. |
+| dataUriToConvert |Sim |cadeia |Os dados ao converter o valor do URI. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -633,7 +633,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="empty" /> 
 
-## <a name="empty"></a>vazio
+## <a name="empty"></a>Vazio
 `empty(itemToTest)`
 
 Determina se uma matriz, um objeto ou uma cadeia vazia.
@@ -720,8 +720,8 @@ Determina se uma cadeia termina com um valor. A comparação é sensível.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia |O valor que contém o item a localizar. |
-| stringToFind |Sim |Cadeia |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a localizar. |
+| stringToFind |Sim |cadeia |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -839,7 +839,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Cadeia | um |
-| stringOutput | Cadeia | NÃ |
+| stringOutput | Cadeia | O |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -863,8 +863,8 @@ Cria um valor no formato de um identificador exclusivo global com base nos valor
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |Cadeia |O valor utilizado na função de hash para criar o GUID. |
-| parâmetros adicionais, conforme necessário |Não |Cadeia |Pode adicionar tantos cadeias conforme necessário para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |cadeia |O valor utilizado na função de hash para criar o GUID. |
+| parâmetros adicionais, conforme necessário |Não |cadeia |Pode adicionar tantos cadeias conforme necessário para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -947,8 +947,8 @@ Devolve a primeira posição de um valor de uma cadeia. A comparação é sensí
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia |O valor que contém o item a localizar. |
-| stringToFind |Sim |Cadeia |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a localizar. |
+| stringToFind |Sim |cadeia |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1086,8 +1086,8 @@ Devolve a última posição de um valor de uma cadeia. A comparação é sensív
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia |O valor que contém o item a localizar. |
-| stringToFind |Sim |Cadeia |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a localizar. |
+| stringToFind |Sim |cadeia |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1295,9 +1295,9 @@ Devolve uma cadeia nova com todas as instâncias de uma cadeia substituída por 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |Cadeia |O valor que tem todas as instâncias de uma cadeia substituída por outra cadeia. |
-| oldString |Sim |Cadeia |A cadeia a ser removido da cadeia original. |
-| newString |Sim |Cadeia |A cadeia a adicionar em vez da cadeia removida. |
+| originalString |Sim |cadeia |O valor que tem todas as instâncias de uma cadeia substituída por outra cadeia. |
+| oldString |Sim |cadeia |A cadeia a ser removido da cadeia original. |
+| newString |Sim |cadeia |A cadeia a adicionar em vez da cadeia removida. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1416,7 +1416,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["três"] |
+| arrayOutput | Array | ["três"] |
 | stringOutput | Cadeia | dois três |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -1442,7 +1442,7 @@ Devolve uma matriz de cadeias que contém as subcadeias da cadeia de entrada que
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |Cadeia |A cadeia a divisão. |
+| inputString |Sim |cadeia |A cadeia a divisão. |
 | Delimitador |Sim |cadeia ou matriz de cadeias |O delimitador a utilizar para dividir a cadeia. |
 
 ### <a name="return-value"></a>Valor devolvido
@@ -1488,8 +1488,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| firstOutput | Matriz | ["", "dois", "três"] |
-| secondOutput | Matriz | ["", "dois", "três"] |
+| firstOutput | Array | ["", "dois", "três"] |
+| secondOutput | Array | ["", "dois", "três"] |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1514,8 +1514,8 @@ Determina se uma cadeia começa com um valor. A comparação é sensível.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |Cadeia |O valor que contém o item a localizar. |
-| stringToFind |Sim |Cadeia |O valor a localizar. |
+| stringToSearch |Sim |cadeia |O valor que contém o item a localizar. |
+| stringToFind |Sim |cadeia |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1584,7 +1584,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>Cadeia
+## <a name="string"></a>cadeia
 `string(valueToConvert)`
 
 Converte o valor especificado para uma cadeia.
@@ -1677,7 +1677,7 @@ Devolve uma subcadeia que inicia a posição de caráter especificado e contém 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |Cadeia |Da cadeia original a partir da qual a subcadeia é extraída. |
+| stringToParse |Sim |cadeia |Da cadeia original a partir da qual a subcadeia é extraída. |
 | startIndex |Não |Int |A baseado em zero caráter posição inicial para a subcadeia. |
 | comprimento |Não |Int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia de caracteres. |
 
@@ -1806,8 +1806,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | Matriz | ["", "dois"] |
-| stringOutput | Cadeia | no |
+| arrayOutput | Array | ["", "dois"] |
+| stringOutput | Cadeia | em |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -1832,7 +1832,7 @@ Converte a cadeia especificada em caso inferior.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |Cadeia |O valor para converter para maiúsculas e minúsculas inferior. |
+| stringToChange |Sim |cadeia |O valor para converter para maiúsculas e minúsculas inferior. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1896,7 +1896,7 @@ Converte a cadeia especificada em maiúsculas.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |Cadeia |O valor para converter para maiúsculas. |
+| stringToChange |Sim |cadeia |O valor para converter para maiúsculas. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -1960,7 +1960,7 @@ Remove todos os carateres de espaço em branco à direita e à esquerda a cadeia
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |Cadeia |O valor para corte. |
+| stringToTrim |Sim |cadeia |O valor para corte. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2019,8 +2019,8 @@ Cria uma cadeia de hash determinista com base nos valores fornecidos como parâm
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |Cadeia |O valor utilizado na função de hash para criar uma cadeia exclusiva. |
-| parâmetros adicionais, conforme necessário |Não |Cadeia |Pode adicionar tantos cadeias conforme necessário para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |cadeia |O valor utilizado na função de hash para criar uma cadeia exclusiva. |
+| parâmetros adicionais, conforme necessário |Não |cadeia |Pode adicionar tantos cadeias conforme necessário para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -2099,7 +2099,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="uri" />
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>uri
 `uri (baseUri, relativeUri)`
 
 Cria um URI absoluto combinando baseUri e a cadeia de relativeUri.
@@ -2108,8 +2108,8 @@ Cria um URI absoluto combinando baseUri e a cadeia de relativeUri.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |Cadeia |A cadeia base uri. |
-| relativeUri |Sim |Cadeia |A cadeia uri relativo para adicionar a cadeia base uri. |
+| baseUri |Sim |cadeia |A cadeia base uri. |
+| relativeUri |Sim |cadeia |A cadeia uri relativo para adicionar a cadeia base uri. |
 
 O valor para o **baseUri** parâmetro pode incluir um ficheiro específico, mas apenas o caminho de base é utilizado ao construir o URI. Por exemplo, transmitir `http://contoso.com/resources/azuredeploy.json` como os resultados de parâmetro baseUri no URI de base de `http://contoso.com/resources/`.
 
@@ -2158,9 +2158,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Cadeia | http%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Cadeia | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -2185,7 +2185,7 @@ Codifica um URI.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |Cadeia |O valor de codificar. |
+| stringToEncode |Sim |cadeia |O valor de codificar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2226,9 +2226,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Cadeia | http%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Cadeia | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -2253,7 +2253,7 @@ Devolve que uma cadeia de um URI codificado valor.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |Cadeia |O URI codificado valor converter numa cadeia. |
+| uriEncodedString |Sim |cadeia |O URI codificado valor converter numa cadeia. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -2294,9 +2294,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| uriOutput | Cadeia | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Cadeia | http%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Cadeia | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| toStringOutput | Cadeia | http://contoso.com/resources/nested/azuredeploy.json |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -2310,7 +2310,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

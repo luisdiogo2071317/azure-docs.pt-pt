@@ -1,33 +1,33 @@
 ---
-title: "Funções do Azure Resource Manager modelo - lógicas | Microsoft Docs"
-description: "Descreve as funções de utilizar um modelo Azure Resource Manager para determinar os valores lógicos."
+title: Funções do Azure Resource Manager modelo - lógicas | Microsoft Docs
+description: Descreve as funções de utilizar um modelo Azure Resource Manager para determinar os valores lógicos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções de lógicas de modelos Azure Resource Manager
 
 O Resource Manager fornece várias funções, para efetuar comparações nos seus modelos.
 
-* [e](#and)
+* [E](#and)
 * [bool](#bool)
-* [Se](#if)
-* [não](#not)
+* [if](#if)
+* [not](#not)
 * [ou](#or)
 
 ## <a name="and"></a>e
@@ -39,8 +39,8 @@ Verifica se ambos os valores de parâmetro forem verdadeiros.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Valor booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |Valor booleano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -166,7 +166,7 @@ Devolve um valor com base nas permissões de uma condição for true ou false.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| Condição |Sim |Valor booleano |O valor para verificar se é verdadeiro. |
+| condição |Sim |boolean |O valor para verificar se é verdadeiro. |
 | trueValue |Sim | cadeia, int, objetos ou matriz |O valor a devolver quando a condição for true. |
 | falseValue |Sim | cadeia, int, objetos ou matriz |O valor a devolver quando a condição for false. |
 
@@ -271,7 +271,7 @@ Converte o valor booleano para o valor oposto.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Valor booleano |O valor a converter. |
+| arg1 |Sim |boolean |O valor a converter. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -366,8 +366,8 @@ Verifica se o valor do parâmetro é verdadeiro.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Valor booleano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |Valor booleano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
+| arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -419,7 +419,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

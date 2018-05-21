@@ -17,16 +17,18 @@ ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f20de2c8a8870568ac624846f6a8a4f8d72b5c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de crédito ou de faturação para as subscrições do Microsoft Azure
 Se tiver o administrador de conta para uma subscrição do Azure, pode utilizar o serviço do Azure de faturação alerta criar personalizado faturação alertas que o ajudam a monitorizar e gerir atividade faturação para as contas do Azure.
 
 Este serviço está em pré-visualização, por isso terá de ativar primeiro na página de funcionalidades de pré-visualização.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Definir os destinatários de e-mail e de limiar de alerta
 1. Visite [a página de funcionalidades de pré-visualização](https://account.windowsazure.com/PreviewFeatures) e ativar **faturação alerta serviço**.
