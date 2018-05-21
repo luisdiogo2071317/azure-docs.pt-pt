@@ -12,23 +12,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: c00e5fa6284be7dbe874300a2f7a0bd20111da84
-ms.sourcegitcommit: c306be629977f6bc22bb7aefd0522a30ed591ff3
+ms.openlocfilehash: 09c63553f42c1d39ca70f7e535dbda88b15fdf7a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Os exemplos neste artigo requerem versão 3.0 ou posterior do Azure PowerShell. Se não tiver versão 3.0 ou posterior, [atualizar a versão](/powershell/azureps-cmdlets-docs/) utilizando galeria do PowerShell ou instalador de plataforma Web.
+Os exemplos neste artigo requerem a versão 6.0 ou posterior do Azure PowerShell. Se não tiver versão 6.0 ou posterior, [atualizar a versão](/powershell/azure/install-azurerm-ps).
 
 Para ver as etiquetas existentes de um *grupo de recursos*, utilize:
 
@@ -48,7 +48,7 @@ Environment                    Test
 Para ver as etiquetas existentes de um *recurso que tem um ID de recurso específico*, utilize:
 
 ```powershell
-(Get-AzureRmResource -ResourceId {resource-id}).Tags
+(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Ou para ver as etiquetas existentes de um *recurso que tem um nome e grupo de recurso específicos*, utilize:
@@ -60,13 +60,19 @@ Ou para ver as etiquetas existentes de um *recurso que tem um nome e grupo de re
 Para obter *grupos de recursos com uma etiqueta específica*, utilize:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 Para obter *recursos com uma etiqueta específica*, utilize:
 
 ```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+```
+
+Para obter *recursos que têm um nome de tag específica*, utilize:
+
+```powershell
+(Get-AzureRmResource -TagName Dept).Name
 ```
 
 Sempre que aplicar etiquetas a um recurso ou grupo de recursos, as etiquetas existentes nesse recurso ou grupo de recursos são substituídas. Por conseguinte, tem de utilizar uma abordagem diferente, que tenha em conta se o recurso ou grupo de recursos tem etiquetas existentes.
@@ -81,7 +87,7 @@ Para adicionar etiquetas a um *grupo de recursos que tenha etiquetas existentes*
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
-$tags += @{Status="Approved"}
+$tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
@@ -96,7 +102,7 @@ Para adicionar etiquetas a um *recurso que tenha etiquetas*, utilize:
 
 ```powershell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.tags += @{Status="Approved"}
+$r.Tags.Add("Status", "Approved") 
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
@@ -106,7 +112,7 @@ Para aplicar todas as etiquetas de um grupo de recursos para todos os respetivos
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -115,16 +121,21 @@ Para aplicar todas as etiquetas de um grupo de recursos para todos os respetivos
 ```powershell
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-        foreach ($key in $group.Tags.Keys)
+        if ($resourcetags)
         {
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-        $resourcetags += $group.Tags
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
@@ -134,7 +145,6 @@ Para remover todas as etiquetas, transmita uma tabela hash vazia:
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
 
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -257,7 +267,7 @@ Quando transferir a utilização de CSV para serviços que suportam etiquetas co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Pode aplicar restrições e convenções na sua subscrição através da utilização de políticas personalizadas. Uma política que definir poderão exigir que todos os recursos têm um valor para uma tag específica. Para obter mais informações, veja [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) (O que é o Azure Policy?).
+* Pode aplicar restrições e convenções na sua subscrição através da utilização de políticas personalizadas. Uma política que definir poderão exigir que todos os recursos têm um valor para uma tag específica. Para obter mais informações, consulte [o que é a política do Azure?](../azure-policy/azure-policy-introduction.md)
 * Para uma introdução ao utilizar o Azure PowerShell quando estiver a implementar recursos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para uma introdução ao utilizar a CLI do Azure quando estiver a implementar recursos, consulte [utilizando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  
