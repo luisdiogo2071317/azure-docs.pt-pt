@@ -1,4 +1,19 @@
-
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: cfe675ca269a69c7c2bfa67638acd0afbcd1c8ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 05/20/2018
+---
 Cada ponto final tem um *Porta pública* e um *porta privada*:
 
 * A porta pública é utilizada pelo balanceador de carga do Azure para escutar para tráfego de entrada para a máquina virtual a partir da Internet.
@@ -6,7 +21,7 @@ Cada ponto final tem um *Porta pública* e um *porta privada*:
 
 Valores predefinidos para o protocolo de endereço IP e portas TCP ou UDP bem conhecida rede protocolos são fornecidos quando criar pontos finais com o portal do Azure. Para os pontos finais personalizados, terá de especificar o protocolo correto de IP (TCP ou UDP) e as portas públicas e privadas. Para distribuir o tráfego de entrada aleatoriamente em várias máquinas virtuais, terá de criar um conjunto com balanceamento de carga constituídas por vários pontos finais.
 
-Depois de criar um ponto final, pode utilizar uma lista de controlo de acesso (ACL) para definir regras que permitem ou negam o tráfego de entrada para a porta pública do ponto final com base no respetivo endereço IP de origem. No entanto, se a máquina virtual está numa rede virtual do Azure, deve de utilizar grupos de segurança de rede em vez disso. Para obter mais informações, consulte [sobre grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
+Depois de criar um ponto final, pode utilizar uma lista de controlo de acesso (ACL) para definir regras que permitem ou negam o tráfego de entrada para a porta pública do ponto final com base no respetivo endereço IP de origem. No entanto, se a máquina virtual está numa rede virtual do Azure, deve de utilizar grupos de segurança de rede em vez disso. Para obter mais informações, consulte [sobre grupos de segurança de rede](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > Configuração da firewall para máquinas virtuais do Azure é efetuada automaticamente para as portas associadas a pontos finais de conectividade remota que Azure configura automaticamente. Para as portas especificadas para todos os outros pontos finais, nenhuma configuração é efetuada automaticamente para a firewall da máquina virtual. Quando cria um ponto final da máquina virtual, terá de garantir que a firewall da máquina virtual também permite que o tráfego para o protocolo e porta privada correspondente à configuração do ponto final. Para configurar a firewall, consulte a documentação ou a ajuda online para o sistema operativo em execução na máquina virtual.
@@ -39,7 +54,7 @@ Para definir o conjunto de computadores que podem enviar tráfego, a ACL num pon
 >
 >
 
-Se a máquina virtual está numa rede virtual do Azure, recomendamos que grupos de segurança de rede em vez de ACLs. Para obter mais informações, consulte [sobre grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
+Se a máquina virtual está numa rede virtual do Azure, recomendamos que grupos de segurança de rede em vez de ACLs. Para obter mais informações, consulte [sobre grupos de segurança de rede](../articles/virtual-network/security-overview.md).
 
 1. Se ainda não o tiver feito, iniciar sessão no portal do Azure.
 2. Clique em **máquinas virtuais**e, em seguida, clique no nome da máquina virtual que pretende configurar.

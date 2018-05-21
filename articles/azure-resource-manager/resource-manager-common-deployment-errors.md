@@ -10,16 +10,16 @@ editor: tysonn
 keywords: Erro de implementação, a implementação do azure, implementar no azure
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -73,8 +73,8 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | ResourceNotFound | A implementação referencia um recurso que não é possível resolver. Certifique-se de que a utilização de **referência** função inclui os parâmetros necessários para o seu cenário. | [Resolver referências](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | A implementação está a tentar criar recursos excedem a quota para a subscrição, o grupo de recursos ou a região. Se for possível, rever a sua infraestrutura de permanecer nas quotas. Caso contrário, considere solicitar uma alteração à sua quotas. | [Resolver quotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecione o SKU (por exemplo, o tamanho da VM) que está disponível para a localização que selecionou. | [Resolver SKU](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | Forneça um nome exclusivo para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md)  |
-| StorageAccountAlreadyTaken | Forneça um nome exclusivo para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md) |
+| StorageAccountAlreadyExists | Indique um nome único para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyTaken | Indique um nome único para a conta de armazenamento. | [Resolver o nome de conta de armazenamento](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Verifique a subscrição, o grupo de recursos e o nome da conta de armazenamento que está a tentar utilizar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual só pode ter uma rede virtual. Quando implementar vários NICs, certifique-se de que pertencem à mesma rede virtual. | [Vários NICs](../virtual-machines/windows/multiple-nics.md) |
 | TemplateResourceCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](resource-manager-invalid-template-errors.md#circular-dependency) |
