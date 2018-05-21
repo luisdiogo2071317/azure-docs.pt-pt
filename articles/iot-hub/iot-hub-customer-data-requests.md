@@ -4,12 +4,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/16/2018
 ms.topic: conceptual
-ms.service: iot-dps
-ms.openlocfilehash: a9115ee9c49ea069999393a6430b010addf672de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.service: iot-hub
+ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados de cliente
 
@@ -42,7 +42,7 @@ Os administradores inquilinos podem utilizar copiar e colar no painel de disposi
 Também é possível efetuar operações de exportação para dispositivos com as APIs REST. Para obter mais informações, consulte [Api do dispositivo - obter dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice).
 
 > [!NOTE]
-> Quando utilizar os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como registos gerados pelo sistema. Alguns registos do serviço de aprovisionamento de dispositivos do Azure IoT Hub gerado pelo sistema não são acessíveis ou exportável pelos administradores do inquilino. Estes registos constituem factual ações a realização de um serviço e dados de diagnóstico relacionadas com a dispositivos individuais.
+> Quando utilizar os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como registos gerados pelo sistema. Alguns registos gerados pelo sistema do IoT Hub do Azure não são acessíveis ou exportável pelos administradores do inquilino. Estes registos constituem factual ações a realização de um serviço e dados de diagnóstico relacionadas com a dispositivos individuais.
 
 ## <a name="links-to-additional-documentation"></a>Ligações para documentação adicional
 
