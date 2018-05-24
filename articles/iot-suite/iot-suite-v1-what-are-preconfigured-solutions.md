@@ -1,12 +1,12 @@
 ---
-title: "Soluções pré-configuradas do Azure IoT | Microsoft Docs"
-description: "Uma descrição das soluções pré-configuradas do Azure IoT e da sua arquitetura com ligações para recursos adicionais."
-services: 
+title: Soluções pré-configuradas do Azure IoT | Microsoft Docs
+description: Uma descrição das soluções pré-configuradas do Azure IoT e da sua arquitetura com ligações para recursos adicionais.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 76df013e8e5868fcc9f5d95aa523a6a56dea7163
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361993"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Quais são as soluções pré-configuradas do Azure IoT Suite?
 
@@ -174,4 +175,4 @@ Agora que sabe o que é uma solução pré-configurada, pode começar por implem
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+[lnk-getstarted-factory]:../iot-accelerators/iot-accelerators-connected-factory-overview.md

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: a993338e5a16514e855d771e25aac3e451faab45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364391"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Definir políticas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a configurar as políticas de segurança no Centro de Segurança.
@@ -55,7 +56,7 @@ Para compreender as definições de política que estão disponíveis na políti
 | Configurações de segurança |Analisa configurações do sistema operativo diariamente para determinar os problemas que podem tornar a máquina virtual vulnerável a ataques. A política também recomenda alterações de configuração para resolver estas vulnerabilidades. Para obter mais informações sobre as configurações específicas que estão a ser monitorizadas, veja a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Neste momento, o Windows Server 2016 não é totalmente suportado.) |
 | Endpoint protection |Recomenda que o Endpoint Protection seja configurado para todas as máquinas virtuais (VMs) Windows para ajudar a identificar e remover vírus, spyware e outro software malicioso. |
 | Encriptação de disco |Recomenda a ativação da encriptação de disco em todas as máquinas virtuais para melhorar a proteção de dados inativos. |
-| Grupos de segurança de rede |Recomenda que sejam configurados [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) para controlar o tráfego de entrada e de saída para VMs que têm pontos finais públicos. As interfaces de rede de todas as máquinas virtuais herdam os grupos de segurança de rede configurados para uma sub-rede, exceto quando especificado em contrário. Para além de verificar se um grupo de segurança de rede foi configurado, esta política avalia as regras de segurança de entrada para identificar regras que permitam o tráfego de entrada. |
+| Grupos de segurança de rede |Recomenda que sejam configurados [grupos de segurança de rede](../virtual-network/security-overview.md) para controlar o tráfego de entrada e de saída para VMs que têm pontos finais públicos. As interfaces de rede de todas as máquinas virtuais herdam os grupos de segurança de rede configurados para uma sub-rede, exceto quando especificado em contrário. Para além de verificar se um grupo de segurança de rede foi configurado, esta política avalia as regras de segurança de entrada para identificar regras que permitam o tráfego de entrada. |
 | Firewall de aplicação Web |Recomenda a configuração de uma firewall de aplicações Web em máquinas virtuais quando uma das seguintes opções for verdadeira: <ul><li>É utilizado um [IP público ao nível da instância](../virtual-network/virtual-networks-instance-level-public-ip.md) e as regras de segurança de entrada para o grupo de segurança de rede associado estão configuradas para permitir o acesso à porta 80/443.</li><li>É utilizado um IP com balanceamento de carga e o balanceamento de carga associado e as regras de tradução de endereços de rede (NAT) de entrada estão configuradas para permitir o acesso à porta 80/443. Para obter mais informações, veja [Suporte do Azure Resource Manager para o Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
 | Firewall da próxima geração |Expande as proteções de rede para além dos grupos de segurança de rede, que estão incorporados no Azure. O Centro de Segurança deteta as implementações para as quais é recomendada uma firewall da próxima geração e, em seguida, poderá configurar uma aplicação virtual. |
 | Auditoria de SQL e deteção de ameaças |Recomenda que a auditoria do acesso à sua base de dados SQL seja ativada, quer para conformidade, quer para deteção de ameaças avançada, para efeitos de investigação. |

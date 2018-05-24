@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: 4b8b8dba357db38424b86399672f4143c8c56a5f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d088223aa2ea40d5bb9cf0e492e87ef054d86348
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365379"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a utilizar o Centro de Segurança do Azure para gerir e responder a alertas de segurança.
@@ -80,7 +81,7 @@ Neste caso, os alertas que foram acionados referem-se a atividade suspeita do pr
 
 No campo **Descrição** irá encontrar mais detalhes sobre este evento. Estes detalhes adicionais facultam informações aprofundadas sobre o que acionou o alerta de segurança, o recurso de destino, quando aplicável, o endereço IP de origem e as recomendações sobre como remediar.  Em certos casos, o endereço IP de origem está vazio (não disponível) porque nem todos os registos de eventos de segurança do Windows incluem o endereço IP.
 
-A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança. Em certos casos, poderá ter de utilizar outras capacidades do Azure para implementar a remediação recomendada. Por exemplo, a remediação para este ataque é colocar na lista de proibições o endereço IP que está a gerar este ataque ao utilizar um [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md). Para obter mais informações sobre os diferentes tipos de alertas, leia [Alertas de Segurança por Tipo no Centro de Segurança do Azure](security-center-alerts-type.md).
+A remediação sugerida pelo Centro de Segurança varia de acordo com o alerta de segurança. Em certos casos, poderá ter de utilizar outras capacidades do Azure para implementar a remediação recomendada. Por exemplo, a remediação para este ataque é colocar na lista de proibições o endereço IP que está a gerar este ataque ao utilizar um [ACL de rede](../virtual-network/virtual-networks-acl.md) ou uma regra de [grupo de segurança de rede](../virtual-network/security-overview.md#security-rules). Para obter mais informações sobre os diferentes tipos de alertas, leia [Alertas de Segurança por Tipo no Centro de Segurança do Azure](security-center-alerts-type.md).
 
 > [!NOTE]
 > O Centro de Segurança lançou uma pré-visualização limitada de um novo conjunto de deteções que tiram partido dos registos de auditoria, um framework de auditoria comum, para detetar comportamentos maliciosos em computadores Linux. [Envie-nos](mailto:ASC_linuxdetections@microsoft.com) um e-mail com os seus IDs de subscrição para aderir à pré-visualização.

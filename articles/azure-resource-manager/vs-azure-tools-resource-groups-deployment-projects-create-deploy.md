@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd0680a16596931b5f595bbdd4e48414c8dbde73
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360109"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 Com o Visual Studio e o [Azure SDK](https://azure.microsoft.com/downloads/), pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. Em alternativa, pode definir uma Máquina Virtual, a Virtual Network e a Conta do Storage e implemente essa infraestrutura juntamente com um script que é executado na Máquina Virtual. O projeto de implementação **Grupo de Recursos do Azure** permite-lhe implementar todos os recursos necessários numa operação única e repetida. Para obter mais informações sobre como implementar e gerir os recursos, consulte o artigo [Descrição geral do Azure Resource Manager](resource-group-overview.md).
