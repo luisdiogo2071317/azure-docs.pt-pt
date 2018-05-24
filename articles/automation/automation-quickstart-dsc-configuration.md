@@ -1,19 +1,21 @@
 ---
-title: "Manual de Início Rápido do Azure - Configurar uma VM com DSC | Microsoft Docs"
-description: "Configurar uma Pilha LAMP numa Máquina Virtual Linux com a Configuração do Estado Pretendido"
+title: Manual de Início Rápido do Azure - Configurar uma VM com DSC | Microsoft Docs
+description: Configurar uma Pilha LAMP numa Máquina Virtual Linux com a Configuração do Estado Pretendido
 services: automation
-keywords: "dsc, configuração, automatização"
+ms.service: automation
+ms.component: dsc
+keywords: dsc, configuração, automatização
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com a Configuração do Estado Pretendido
 
@@ -28,7 +30,7 @@ Para concluir este guia de início rápido, necessita de:
 * Uma VM do Azure Resource Manager (não Clássica) com Red Hat Enterprise Linux, CentOS ou Oracle Linux. Para obter instruções sobre como criar uma VM, veja [Criar a sua primeira máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Inicie sessão no Azure em https://portal.azure.com
+Inicie a sessão no Azure em https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Carregar uma máquina virtual
 Existem vários métodos diferentes para carregar uma máquina e ativar a Configuração de Estado Pretendido. Este guia rápido abrange a inclusão através de uma conta de Automatização. Pode saber mais sobre os diferentes métodos para carregar as máquinas para a Configuração de Estado Pretendido ao ler o artigo de [inclusão](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjunto de dimensionamento de máquinas virtuais do Azure e discos de dados anexados
 Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure suportam instâncias de VM com discos de dados anexados. Pode anexar os discos de dados quando o conjunto de dimensionamento é criado ou a um conjunto de dimensionamento existente.
@@ -91,21 +91,12 @@ Para preparar automaticamente o(s) disco(s) de dados num cluster do Linux, adici
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Adicionar discos de dados pré-preenchidos a um conjunto de dimensionamento existente 
-> Quando adicionar discos a um modelo de conjunto de dimensionamento existente, por predefinição, o disco é sempre criado vazio. Este cenário também inclui novas instâncias criadas pelo conjunto de dimensionamento. Este comportamento acontece porque a definição do conjunto de dimensionamento tem um disco de dados vazio. Para criar unidades de dados pré-preenchidas para um modelo de conjunto de dimensionamento existente, pode escolher entre duas opções:
-
-* Copie dados da VM 0 da instância para o(s) disco(s) de dados nas outras VMs, executando um script personalizado.
-* Crie uma imagem gerida com o disco do SO e o disco de dados (com os dados necessários) e crie um novo conjunto de dimensionamento com a imagem. Desta forma, cada nova VM criada tem um disco de dados que é fornecido na definição do conjunto de dimensionamento. Uma vez que esta definição se refere a uma imagem com um disco de dados que tem dados personalizados, cada máquina virtual no conjunto de dimensionamento tem estas alterações.
-
-> A forma de criar uma imagem personalizada pode ser encontrada aqui: [Criar uma imagem gerida de uma VM generalizada no Azure](/azure/virtual-machines/windows/capture-image-resource/) 
-
-> O utilizador tem de capturar a VM 0 da instância que tem os dados requeridos e, em seguida, utilizar o vhd dessa definição de imagem.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Adicionar discos de dados pré-preenchidos a um conjunto de dimensionamento existente
+Os discos de dados especificados no modelo de conjunto de dimensionamento estão sempre vazios. No entanto, pode anexar um disco de dados existente a uma VM específica num conjunto de dimensionamento. Esta funcionalidade está em pré-visualização, com exemplos no [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Se quiser propagar dados em todas as VMs no conjunto de dimensionamento, pode duplicar o disco de dados e anexá-lo a cada VM no conjunto de dimensionamento, pode criar uma imagem personalizada que contenha os dados e fornecer o conjunto de dimensionamento a partir desta imagem personalizada, ou pode utilizar Ficheiros do Azure ou uma oferta de armazenamento de dados semelhante.
 
 
 ## <a name="additional-notes"></a>Notas adicionais
 O suporte para o Azure Managed Disks e para discos de dados anexados a conjuntos de dimensionamento está disponível na versão da API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) ou posterior da API Microsoft.Compute.
-
-Na implementação inicial do suporte para discos anexados para conjuntos de dimensionamento, não pode anexar nem desanexar discos de dados a/de VMs individuais num conjunto de dimensionamento.
 
 O suporte do portal do Azure para discos de dados anexados em conjuntos de dimensionamento é limitado inicialmente. Dependendo das suas necessidades, pode utilizar modelos do Azure, a CLI, o PowerShell, SDKs e a API REST para gerir discos anexados.
 

@@ -1,29 +1,29 @@
 ---
-title: "Exemplo de json de política do Azure - definição de diagnóstico de auditoria | Microsoft Docs"
-description: "Esta política de exemplo de json auditorias se as definições de diagnóstico não ativada para tipos de recurso especificado."
+title: Exemplo de json do Azure Policy – Definição de diagnóstico de auditoria | Microsoft Docs
+description: Esta política de exemplo de json audita se as definições de diagnóstico não estão ativadas para tipos de recursos especificados.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
-ms.date: 10/30/2017
-ms.author: banders
+ms.tgt_pltfrm: ''
+ms.workload: ''
+ms.date: 04/27/2018
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0e97470491f548cafd5023851e2c2f6bd76cbe9f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="audit-diagnostic-setting"></a>Definição de diagnóstico de auditoria
 
-As auditorias se as definições de diagnóstico não estão ativadas para especificar tipos de recursos. Especifique uma matriz de tipos de recurso para verificar se as definições de diagnóstico estão ativadas.
+Esta política incorporada audita se as definições de diagnóstico não estão ativadas para tipos de recursos especificados. Especifica uma matriz de tipos de recursos para verificar se as definições de diagnóstico estão ativadas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,39 +31,44 @@ As auditorias se as definições de diagnóstico não estão ativadas para espec
 
 [!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-portal), com [PowerShell](#deploy-with-powershell) ou com o [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli). Para obter a política incorporada, utilize o ID `7f89b1eb-583c-429a-8828-af049802c1d9`.
+
+## <a name="parameters"></a>Parâmetros
+
+Para passar o valor do parâmetro, utilize o seguinte formato:
+
+```json
+{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}
+```
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FMonitoring%2Faudit-diagnostic-setting%2Fazurepolicy.json)
+Ao atribuir uma política, selecione **Auditar definição de diagnóstico** das definições incorporadas disponíveis.
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "audit-diagnostic-setting" -DisplayName "Audit diagnostic setting" -description "Audit diagnostic setting for selected resource types" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.parameters.json' -Mode All
-$definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -listOfResourceTypes <Resource Types> -PolicyDefinition $definition
-$assignment
+$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
+
+New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpar a implementação de PowerShell
+### <a name="clean-up-powershell-deployment"></a>Limpar a implementação do PowerShell
 
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy definition create --name 'audit-diagnostic-setting' --display-name 'Audit diagnostic setting' --description 'Audit diagnostic setting for selected resource types' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.parameters.json' --mode All
-
-az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-diagnostic-setting"
+az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'
 ```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Limpar a implementação da CLI do Azure
@@ -71,9 +76,9 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+az policy assignment delete --name "Audit diagnostics" --resource-group myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Amostras de modelo de política do Azure adicionais são [modelos de política do Azure](../json-samples.md).
+- Pode ver exemplos adicionais do modelo do Azure Policy em [Modelos do Azure Policy](../json-samples.md).

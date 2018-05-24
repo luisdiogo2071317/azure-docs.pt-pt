@@ -1,12 +1,12 @@
 ---
 title: Azure Site Recovery Deployment Planner de VMware para o Azure | Microsoft Docs
-description: "Este artigo descreve a análise do relatório gerado do Planeador de Implementações do Azure Site Recovery para o cenário de VMware para o Azure."
+description: Este artigo descreve a análise do relatório gerado do Planeador de Implementações do Azure Site Recovery para o cenário de VMware para o Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2d44d8410734193ba8b7fdda3134727d9064340c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório de do planeador de implementações do Azure Site Recovery
 O relatório gerado pelo Microsoft Excel contém as seguintes folhas:
@@ -198,9 +198,9 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Storage Account (Conta de Armazenamento)**: o nome que utiliza o prefixo da conta de armazenamento sugerido.
 
-**R/W IOPS (with Growth Factor) (IOPS de R/W [com Fator de Crescimento])**: o pico de IOPS de leitura/escrita da carga de trabalho no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita de uma VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
+**IOPS de Leitura/Escrita n Pico (com Fator de Crescimento)**: IOPS de leitura/escrita da carga de trabalho dentro do pico no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30%). Tenha em conta que o total de IOPS de leitura/escrita de uma VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
 
-**Data Churn in Mbps (with Growth Factor) (Alterações a Dados em Mbps [com Fator de Crescimento])**: o pico da taxa de alterações a dados no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
+**Alterações a Dados em Mbps no Pico (com Fator de Crescimento)**: taxa de alterações a dados dentro do pico no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30%). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
 
 **Azure VM Size (Tamanho da VM do Azure)**: o tamanho mapeado ideal da máquina virtual dos Serviços Cloud do Azure para esta VM no local. O mapeamento baseia-se na memória da VM no local, no número de discos/núcleos/NICs e IOPS de leitura/escrita. A recomendação é sempre o tamanho de VM do Azure mais baixo que corresponda a todas as características da VM no local.
 

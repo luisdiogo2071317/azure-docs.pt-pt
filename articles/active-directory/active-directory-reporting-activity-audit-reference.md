@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -38,7 +38,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
  
 
 
-## <a name="access-reviews"></a>Revisões de Acesso
+## <a name="access-reviews"></a>Revisões de acesso
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -74,7 +74,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 
 
-## <a name="account-provisioning"></a>Aprovisionamento de Contas
+## <a name="account-provisioning"></a>Aprovisionamento de contas
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -107,7 +107,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Recurso|Remover principal de serviço|
 
 
-## <a name="automated-password-rollover"></a>Rollover de Palavra-passe Automatizada
+## <a name="automated-password-rollover"></a>Rollover de palavra-passe automatizada
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -343,7 +343,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Recurso|Emitir um token de acesso id_token para a aplicação|
 
 
-## <a name="core-directory"></a>Diretório do Núcleo
+## <a name="core-directory"></a>Diretório principal
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -477,7 +477,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Utilizadores|Atribuir|
 
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Proteção de identidade
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -496,7 +496,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Utilizadores|Criar revisão de acesso|
 
 
-## <a name="invited-users"></a>Utilizadores Convidados
+## <a name="invited-users"></a>Utilizadores convidados
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -547,7 +547,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 
 
 
-## <a name="self-service-group-management"></a>Gestão de Grupos Personalizada
+## <a name="self-service-group-management"></a>Gestão de grupos self-service
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -562,7 +562,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Grupos|O administrador gera uma palavra-passe temporária|
 
 
-## <a name="self-service-password-management"></a>Gestão de Palavra-passe Personalizada
+## <a name="self-service-password-management"></a>Gestão de palavras-passe personalizada
 
 |Categoria de Auditoria|Atividade|
 |---|---|
@@ -578,7 +578,7 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Utilizadores|Bloqueado da reposição de palavras-passe personalizada|
 
 
-## <a name="terms-of-use"></a>Termos de Utilização
+## <a name="terms-of-use"></a>Termos de utilização
 
 |Categoria de Auditoria|Atividade|
 |---|---|

@@ -1,11 +1,11 @@
 ---
-title: "Descrição geral do encaminhamento de conteúdo baseado em URL | Microsoft Docs"
-description: "Esta página fornece uma descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting."
+title: Descrição geral do encaminhamento de conteúdo baseado em URL | Microsoft Docs
+description: Esta página fornece uma descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
-ms.author: davidmu
-ms.openlocfilehash: a5d26a603eb1bbe3ce7f8f95b19ba816c32222c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -30,7 +30,7 @@ No exemplo seguinte, o Gateway de Aplicação está a enviar tráfego para conto
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Os pedidos para http://contoso.com/video/* são encaminhados para VideoServerPool, e os pedidos http://contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
+Os pedidos para http://contoso.com/video/* são encaminhados para VideoServerPool e os pedidos para http://contoso.com/images/* são encaminhados para ImageServerPool. É selecionado o DefaultServerPool se nenhum dos padrões de caminho corresponder.
 
 > [!IMPORTANT]
 > As regras são processadas pela ordem em que são apresentadas no portal. Antes de configurar um serviço de escuta básico, recomenda-se vivamente que configure serviços de escuta de múltiplos sites.  Desta forma, assegura que o tráfego é encaminhado para o back-end certo. Se for apresentado primeiro um serviço de escuta básico e este corresponde a um pedido de entrada, o pedido é processado por esse serviço de escuta.

@@ -1,9 +1,9 @@
 ---
-title: "Application Insights para os Serviços Cloud do Azure | Microsoft Docs"
-description: "Monitorizar as funções Web e de trabalho eficazmente com o Application Insights"
+title: Application Insights para os Serviços Cloud do Azure | Microsoft Docs
+description: Monitorizar as funções Web e de trabalho eficazmente com o Application Insights
 services: application-insights
-documentationcenter: 
-keywords: "WAD2AI, Diagnóstico do Azure"
+documentationcenter: ''
+keywords: WAD2AI, Diagnóstico do Azure
 author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -223,7 +223,7 @@ Para obter uma visão geral do seu sistema, pode reunir os gráficos-chave de mo
 
 Se o seu sistema utilizar outros serviços do Azure, como o Stream Analytics, inclua também os gráficos de monitorização dos mesmos. 
 
-Se tiver uma aplicação móvel cliente, insira algum código para enviar eventos personalizados relativos a operações-chave do utilizador e crie uma aplicação [HockeyApp Bridge](app-insights-hockeyapp-bridge-app.md). Crie consultas no [Analytics](app-insights-analytics.md) para apresentar as contagens de eventos e afixá-las ao dashboard.
+Se tiver uma aplicação móvel cliente, utilize o [App Center](app-insights-mobile-center-quickstart.md). Crie consultas no [Analytics](app-insights-analytics.md) para apresentar as contagens de eventos e afixá-las ao dashboard.
 
 ## <a name="example"></a>Exemplo
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitoriza um serviço que tem uma função da Web e duas funções de trabalho.

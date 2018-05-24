@@ -1,6 +1,6 @@
 ---
-title: Gerido identidade de serviço (MSI) para o Azure Active Directory
-description: Uma descrição geral da identidade de serviço geridas para recursos do Azure.
+title: O que é a Identidade de Serviço Gerida (MSI) para os recursos do Azure?
+description: Uma descrição geral da Identidade de Serviço Gerida para recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -8,107 +8,116 @@ manager: mtillman
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: identity
-ms.date: 12/19/2017
-ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.topic: overview
+ms.custom: mvc
+ms.date: 03/28/2018
+ms.author: daveba
+ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="managed-service-identity-msi-for-azure-resources"></a>Gerido identidade de serviço (MSI) para recursos do Azure
+#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>O que é a Identidade de Serviço Gerida (MSI) para os recursos do Azure?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Um desafio comum quando a criação de aplicações em nuvem como gerir as credenciais que têm de ser no seu código para autenticar a serviços em nuvem. Manter estas credenciais segura é uma tarefa importante. Idealmente, que nunca são apresentados em estações de trabalho de programador ou obterem marcadas para o controlo de origem. O Cofre de chaves do Azure fornece uma forma de armazenar com segurança as credenciais e outras chaves e segredos, mas o seu código tem de autenticar para o Cofre de chaves para recuperar. Identidade de serviço geridas (MSI) permite a resolver este problema mais simples, conferindo aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, incluindo o Cofre de chaves, sem ter as credenciais no seu código.
+Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que têm de estar no código para autenticação nos serviços cloud. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, nunca aparecem nas estações de trabalho dos programadores nem são verificadas no controlo de origem. O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
-Ao ativar a identidade de serviço geridas num serviço do Azure, o Azure cria automaticamente uma identidade para a instância de serviço no inquilino do Azure AD utilizado pela sua subscrição do Azure.  Nos bastidores, o Azure Aprovisiona as credenciais para a identidade para a instância de serviço.  O código, em seguida, pode efetuar um pedido de local para obter os tokens de acesso para os serviços que suportam a autenticação do Azure AD.  Azure encarrega-se de a anular as credenciais utilizadas pela instância do serviço.  Se a instância de serviço for eliminada, Azure limpa automaticamente as credenciais e da identidade no Azure AD.
+Existem dois tipos de Identidades de Serviço Geridas, **Atribuídas pelo Sistema** e **Atribuídas pelo Utilizador**.
 
-Eis um exemplo de como a identidade de serviço geridas funciona com máquinas virtuais do Azure.
+- A **Identidade Atribuída pelo Sistema** é ativada diretamente numa instância de um serviço do Azure. Quando ativada, o Azure cria uma identidade para a instância do serviço no inquilino do Azure AD no qual a subscrição da instância do serviço confia. Assim que a identidade for criada, as respetivas credenciais são aprovisionadas na instância do serviço. O ciclo de vida das identidades atribuídas pelo sistema está diretamente ligado à instância do serviço do Azure nas quais estão ativadas. Se a instância do serviço for eliminada, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
+- As **Identidades Atribuídas pelo Utilizador** (pré-visualização pública) são criadas como recursos do Azure autónomos. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure. O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas.
 
-![Exemplo de MSI da máquina virtual](../media/msi-vm-example.png)
+Como resultado, pode utilizar uma identidade atribuída pelo sistema ou pelo utilizador no seu código, para pedir tokens de acesso para serviços que suportem a autenticação do Azure AD. E tudo isto enquanto o Azure se encarrega da implementação das credenciais que a instância do serviço utiliza.
 
-1. O Azure Resource Manager recebe uma mensagem para ativar o MSI numa VM.
-2. O Azure Resource Manager cria um Principal de serviço no Azure AD para representar a identidade da VM. O Principal de serviço é criado no inquilino do Azure AD, que é considerado fidedigno por esta subscrição.
-3. O Azure Resource Manager configura os detalhes de Principal de serviço na extensão de VM do MSI da VM.  Este passo inclui a configuração de ID de cliente e o certificado utilizado pela extensão para obter os tokens de acesso do Azure AD.
-4. Agora que a identidade de Principal de serviço da VM é conhecida, pode conceder acesso aos recursos do Azure.  Por exemplo, se o seu código tem de chamar o Azure Resource Manager, em seguida, é iria atribuir a VM Principal de serviço a função adequada, utilizando o controlo de acesso baseado em funções (RBAC) no Azure AD.  Se o seu código tem de chamar o Cofre de chaves, teria de conceder o acesso de código para o segredo específico ou a chave no Cofre de chaves.
-5. O código em execução na VM pede um token de um ponto final local que está alojado pela extensão de VM de MSI: http://localhost:50342/oauth2/token.  O parâmetro do recurso Especifica o serviço ao qual é enviado o token. Por exemplo, se pretender que o seu código para autenticar para o Azure Resource Manager, teria de utilizar recursos =https://management.azure.com/.
-6. A extensão da VM MSI utiliza o respetivo ID de cliente configurada e o certificado para pedir um token de acesso do Azure AD.  Azure AD devolve um token de acesso de Token Web JSON (JWT).
-7. O código envia o token de acesso numa chamada para um serviço que suporta a autenticação do Azure AD.
+Eis um exemplo de como as Identidades Atribuídas pelo Sistema funcionam com as Máquinas Virtuais do Azure:
 
-Cada serviço do Azure que suporta uma identidade de serviço geridas tem o seu próprio método para o seu código obter um token de acesso. Consulte os tutoriais para cada serviço determinar o método específico para obter um token.
+![Exemplo de MSI de máquina virtual](overview/msi-vm-vmextension-imds-example.png)
 
-## <a name="try-managed-service-identity"></a>Tente a identidade de serviço geridas
+1. O Azure Resource Manager recebe um pedido para ativar a identidade atribuída pelo sistema numa VM.
+2. O Azure Resource Manager cria um Principal de Serviço no Azure AD para representar a identidade da VM. O Principal de Serviço é criado no inquilino do Azure AD no qual esta subscrição confia.
+3. O Azure Resource Manager configura a identidade na VM:
+    - Atualiza o ponto final da identidade do Azure Instance Metadata Service com o ID de cliente e o certificado do Principal de Serviço.
+    - Aprovisiona a extensão de VM do MSI e adiciona o ID de cliente e o certificado do Principal de Serviço. (vai ser preterido)
+4. Agora que a VM tem uma identidade, vamos utilizar as informações do respetivo Principal de Serviço para lhe conceder acesso aos recursos do Azure. Por exemplo, se o código tiver de chamar o Azure Resource Manager, terá de atribuir ao Principal de Serviço da VM a função adequada através do Controlo de Acesso Baseado em Funções (RBAC) no Azure AD. Se o código tiver de chamar o Key Vault, terá de lhe conceder acesso ao segredo ou à chave específica no Key Vault.
+5. O código em execução na VM pode pedir um token de dois pontos finais que só estão acessíveis a partir da mesma:
 
-Experimente um tutorial de identidade de serviço geridas para saber mais cenários ponto a ponto para aceder a diferentes recursos do Azure:
+    - Ponto final do Azure Instance Metadata Service (IMDS): http://169.254.169.254/metadata/identity/oauth2/token (recomendado)
+        - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Por exemplo, se pretender que o código autentique no Azure Resource Manager, terá de utilizar resource=https://management.azure.com/.
+        - O parâmetro de versão da API especifica a versão do IMDS; utilize api-version=2018-02-01 ou superior.
+    - Ponto final de extensão de VM do MSI: http://localhost:50342/oauth2/token (vai ser preterido)
+        - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Por exemplo, se pretender que o código autentique no Azure Resource Manager, terá de utilizar resource=https://management.azure.com/.
+
+6. É feita uma chamada para o Azure AD a pedir uma token de acesso, conforme especificado no passo 5, através da utilização do ID de cliente e do certificado configurados no passo 3. O Azure AD devolve um token de acesso JSON Web Token (JWT).
+7. O código envia o token de acesso numa chamada para um serviço que suporte a autenticação do Azure AD.
+
+Utilizando o mesmo diagrama, eis um exemplo do funcionamento de uma MSI atribuída pelo utilizador com as Máquinas Virtuais do Azure.
+
+1. O Azure Resource Manager recebe um pedido para criar uma identidade atribuída pelo utilizador.
+2. O Azure Resource Manager cria um Principal de Serviço no Azure AD para representar a identidade atribuída pelo utilizador. O Principal de Serviço é criado no inquilino do Azure AD no qual esta subscrição confia.
+3. O Azure Resource Manager recebe um pedido para configurar a identidade atribuída pelo utilizador numa VM:
+    - Atualiza o ponto final da identidade do Azure Instance Metadata Service com o ID de cliente e o certificado do Principal de Serviço da identidade atribuída pelo utilizador.
+    - Aprovisiona a extensão de VM do MSI e adiciona o ID de cliente e o certificado do Principal de Serviço da identidade atribuída pelo utilizador (vai ser preterido).
+4. Agora que a identidade atribuída pelo utilizador está criada, vamos utilizar as informações do respetivo Principal de Serviço para lhe conceder acesso aos recursos do Azure. Por exemplo, se o código tiver de chamar o Azure Resource Manager, terá de atribuir ao Principal de Serviço da identidade atribuída pelo utilizador a função adequada através do Controlo de Acesso Baseado em Funções (RBAC) no Azure AD. Se o código tiver de chamar o Key Vault, terá de lhe conceder acesso ao segredo ou à chave específica no Key Vault. Nota: este passo também pode ser realizado antes do passo 3.
+5. O código em execução na VM pode pedir um token de dois pontos finais que só estão acessíveis a partir da mesma:
+
+    - Ponto final do Azure Instance Metadata Service (IMDS): http://169.254.169.254/metadata/identity/oauth2/token (recomendado)
+        - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Por exemplo, se pretender que o código autentique no Azure Resource Manager, terá de utilizar resource=https://management.azure.com/.
+        - O parâmetro de ID de cliente especifica a identidade para a qual o token é pedido. É necessário para eliminar ambiguidades se uma única VM tiver mais de uma identidade atribuída pelo utilizador.
+        - O parâmetro de versão da API especifica a versão do IMDS; utilize api-version=2018-02-01 ou superior.
+
+    - Ponto final de extensão de VM do MSI: http://localhost:50342/oauth2/token (vai ser preterido)
+        - O parâmetro do recurso especifica o serviço para o qual o token é enviado. Por exemplo, se pretender que o código autentique no Azure Resource Manager, terá de utilizar resource=https://management.azure.com/.
+        - O parâmetro de ID de cliente especifica a identidade para a qual o token é pedido. É necessário para eliminar ambiguidades se uma única VM tiver mais de uma identidade atribuída pelo utilizador.
+6. É feita uma chamada para o Azure AD a pedir uma token de acesso, conforme especificado no passo 5, através da utilização do ID de cliente e do certificado configurados no passo 3. O Azure AD devolve um token de acesso JSON Web Token (JWT).
+7. O código envia o token de acesso numa chamada para um serviço que suporte a autenticação do Azure AD.
+     
+## <a name="try-managed-service-identity"></a>Experimentar a Identidade do Serviço Gerido
+
+Experimente um tutorial sobre a Identidade de Serviço Gerida para obter cenários completos para aceder a diferentes recursos do Azure:
 <br><br>
-| Do recurso de MSI-ativado | Saiba como |
+| A partir de um recurso com MSI ativado | Saiba como |
 | ------- | -------- |
-| VM do Azure (Windows) | [Identidade do serviço gerido de acesso do Azure Data Lake Store com uma VM do Windows](tutorial-windows-vm-access-datalake.md) |
-|                    | [Identidade do serviço do Gestor de acesso a recursos do Azure com uma VM do Windows gerido](tutorial-windows-vm-access-arm.md) |
-|                    | [Aceder ao Azure SQL Server com uma VM do Windows geridos identidade de serviço](tutorial-windows-vm-access-sql.md) |
-|                    | [Armazenamento de Azure acesso através de chave de acesso com uma identidade de serviço geridas do Windows VM](tutorial-windows-vm-access-storage.md) |
-|                    | [Aceder ao Azure Storage através de SAS com uma VM do Windows geridos identidade de serviço](tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Aceder a um recurso de AD não do Azure com uma identidade de serviço geridas do Windows VM e o Cofre de chaves do Azure](tutorial-windows-vm-access-nonaad.md) |
-| VM do Azure (Linux)   | [Aceder ao Azure Data Lake Store com uma VM com Linux geridos de identidade de serviço](tutorial-linux-vm-access-datalake.md) |
-|                    | [Identidade do serviço do Gestor de acesso a recursos do Azure com uma VM com Linux gerido](tutorial-linux-vm-access-arm.md) |
-|                    | [Armazenamento de Azure acesso através de chave de acesso com uma identidade de serviço geridas do Linux VM](tutorial-linux-vm-access-storage.md) |
-|                    | [Aceder ao Azure Storage através de SAS com uma VM com Linux geridos de identidade de serviço](tutorial-linux-vm-access-storage-sas.md) |
-|                    | [Aceder a um recurso de AD não do Azure com uma identidade de serviço geridas do Linux VM e o Cofre de chaves do Azure](tutorial-linux-vm-access-nonaad.md) |
-| Serviço de Aplicações do Azure  | [Utilizar identidade de serviço geridas com o App Service do Azure ou as funções do Azure](/azure/app-service/app-service-managed-service-identity) |
-| Funções do Azure    | [Utilizar identidade de serviço geridas com o App Service do Azure ou as funções do Azure](/azure/app-service/app-service-managed-service-identity) |
-| Service Bus do Azure  | [Utilizar identidade de serviço geridas com o Service Bus do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md) |
-| Azure Event Hubs   | [Utilizar identidade de serviço geridas com o Event Hubs do Azure](../../event-hubs/event-hubs-managed-service-identity.md) |
+| VM do Azure (Windows) | [Access Azure Data Lake Store with a Windows VM Managed Service Identity](tutorial-windows-vm-access-datalake.md) (Aceder ao Azure Data Lake Store com uma Identidade de Serviço Gerida de VM do Windows) |
+|                    | [Access Azure Resource Manager with a Windows VM Managed Service Identity](tutorial-windows-vm-access-arm.md) (Aceder ao Azure Resource Manager com uma Identidade de Serviço Gerida de VM do Windows) |
+|                    | [Access Azure SQL with a Windows VM Managed Service Identity](tutorial-windows-vm-access-sql.md) (Aceder ao Azure SQL com uma Identidade de Serviço Gerida de VM do Windows) |
+|                    | [Access Azure Storage via access key with a Windows VM Managed Service Identity](tutorial-windows-vm-access-storage.md) (Aceder ao Armazenamento do Azure através de uma chave de acesso com uma Identidade de Serviço Gerida de VM do Windows) |
+|                    | [Access Azure Storage via SAS with a Windows VM Managed Service Identity](tutorial-windows-vm-access-storage-sas.md) (Aceder ao Armazenamento do Azure através de SAS com uma Identidade de Serviço Gerida de VM do Windows) |
+|                    | [Access a non-Azure AD resource with a Windows VM Managed Service Identity and Azure Key Vault](tutorial-windows-vm-access-nonaad.md) (Aceder a recursos não Azure com uma Identidade de Serviço Gerida de VM do Windows e o Azure Key Vault) |
+| VM do Azure (Linux)   | [Access Azure Data Lake Store with a Linux VM Managed Service Identity](tutorial-linux-vm-access-datalake.md) (Aceder ao Azure Data Lake Store com uma Identidade de Serviço Gerida de VM do Linux) |
+|                    | [Access Azure Resource Manager with a Linux VM Managed Service Identity](tutorial-linux-vm-access-arm.md) (Aceder ao Azure Resource Manager com uma Identidade de Serviço Gerida de VM do Linux) |
+|                    | [Access Azure Storage via access key with a Linux VM Managed Service Identity](tutorial-linux-vm-access-storage.md) (Aceder ao Armazenamento do Azure através de uma chave de acesso com uma Identidade de Serviço Gerida de VM do Linux) |
+|                    | [Access Azure Storage via SAS with a Linux VM Managed Service Identity](tutorial-linux-vm-access-storage-sas.md) (Aceder ao Armazenamento do Azure através de SAS com uma Identidade de Serviço Gerida de VM do Linux) |
+|                    | [Access a non-Azure AD resource with a Linux VM Managed Service Identity and Azure Key Vault](tutorial-linux-vm-access-nonaad.md) (Aceder a recursos não Azure com uma Identidade de Serviço Gerida de VM do Linux e o Azure Key Vault) |
+| Serviço de Aplicações do Azure  | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) (Utilizar a Identidade de Serviço Gerida com o Serviço de Aplicações do Azure ou as Funções do Azure) |
+| Funções do Azure    | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) (Utilizar a Identidade de Serviço Gerida com o Serviço de Aplicações do Azure ou as Funções do Azure) |
+| Service Bus do Azure  | [Use Managed Service Identity with Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) (Utilizar a Identidade de Serviço Gerida com o Azure Service Bus) |
+| Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) (Utilizar a Identidade de Serviço Gerida com os Hubs de Eventos do Azure) |
 
-## <a name="which-azure-services-support-managed-service-identity"></a>Os serviços do Azure suportam uma identidade de serviço geridas?
+## <a name="which-azure-services-support-managed-service-identity"></a>Que serviços do Azure suportam a Identidade de Serviço Gerida?
 
-Serviços do Azure que suportam a identidade de serviço geridas podem utilizar MSI para se autenticarem em serviços que suportam a autenticação do Azure AD.  Estamos no processo de integração autenticação MSI e o Azure AD através do Azure.  Verifique back frequentemente para atualizações.
+As identidades geridas podem ser utilizadas para autenticação em serviços que suportem a autenticação do Azure AD. Para obter uma lista dos serviços do Azure que suportam a Identidade de Serviço Gerida, veja o artigo seguinte:
+- [Serviços que suportam a Identidade de Serviço Gerida](services-support-msi.md)
 
-### <a name="azure-services-that-support-managed-service-identity"></a>Serviços do Azure que suportam a identidade de serviço geridas
+## <a name="how-much-does-managed-service-identity-cost"></a>Quanto custa a Identidade de Serviço Gerida?
 
-Os seguintes serviços do Azure suportam uma identidade de serviço geridas.
-
-| Serviço | Estado | Data | Configurar | Obter um token |
-| ------- | ------ | ---- | --------- | ----------- |
-| Máquinas Virtuais do Azure | Pré-visualização | Setembro de 2017 | [Portal do Azure](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[CLI do Azure](qs-configure-cli-windows-vm.md)<br>[Modelos Azure Resource Manager](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Serviço de Aplicações do Azure | Pré-visualização | Setembro de 2017 | [Portal do Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modelo do Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| As funções do Azure<sup>1</sup> | Pré-visualização | Setembro de 2017 | [Portal do Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modelo do Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Pré-visualização | Novembro de 2017 | [Portal do Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-
-<sup>1</sup> suporte das funções do azure permite que o código de utilizador para utilizar uma identidade, mas ainda podem necessitar acionadores e enlaces de cadeias de ligação.
-
-### <a name="azure-services-that-support-azure-ad-authentication"></a>Suporte do Azure AD que a autenticação de serviços do Azure
-
-Os seguintes serviços de suportam a autenticação do Azure AD e foi testados com serviços de cliente que utilizam a identidade de serviço geridas.
-
-| Serviço | ID do Recurso | Estado | Data | Atribuir acesso |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Disponível | Setembro de 2017 | [Portal do Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI do Azure](howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net | Disponível | Setembro de 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Disponível | Setembro de 2017 | |
-| SQL do Azure | https://database.windows.net | Disponível | Outubro de 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net | Disponível | Dezembro de 2017 | |
-| Service Bus do Azure | https://servicebus.azure.net | Disponível | Dezembro de 2017 | |
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Quantidade de identidade de serviço geridas custos?
-
-Identidade de serviço geridas inclui gratuito do Azure Active Directory, que é a predefinição para as subscrições do Azure.  Não há sem custos adicionais para a identidade de serviço geridas.
+A Identidade de Serviço Gerida está incluída no Azure Active Directory Gratuito, que é a predefinição para as subscrições do Azure. Não existem custos adicionais.
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 
-Gostaríamos de ouvir da!
+Gostaríamos de ouvir a sua opinião!
 
-* Coloque questões procedimentos no Stack Overflow com a etiqueta [azure msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Efetuar pedidos de funcionalidade ou fazer comentários sobre o [fórum de comentários do Azure AD para os programadores](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
+* Tire dúvidas sobre procedimentos no Stack Overflow com a etiqueta [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
+* Peça funcionalidades ou envie comentários no [fórum de comentários do Azure AD para programadores](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
+## <a name="next-steps"></a>Passos seguintes
 
+Introdução à Identidade de Serviço Gerida do Azure com os inícios rápidos seguintes:
 
-
-
-
+* [Use a Windows VM Managed Service Identity (MSI) to access Resource Manager - Windows VM](tutorial-windows-vm-access-arm.md) (Utilizar uma Identidade de Serviço Gerida (MSI) do Windows para aceder ao Resource Manager - VM do Windows)
+* [Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager - Linux VM](tutorial-linux-vm-access-arm.md) (Utilizar uma Identidade de Serviço Gerida (MSI) de VM do Windows para aceder ao Azure Resource Manager - VM do Linux)

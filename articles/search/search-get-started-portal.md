@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Criar, consultar e filtrar índices do Azure Search no portal
 
@@ -110,7 +110,7 @@ Tem agora um índice de pesquisa pronto para consulta. O **Explorador de pesquis
 
    ![Comandos de índice e de API][6]
 
-3. Clique em **Definir versão da API**, na barra de comandos, para ver que APIs REST estão disponíveis. As APIs de pré-visualização dão-lhe acesso a funcionalidades novas que ainda não foram lançadas geralmente. Para as consultas abaixo, utilize a versão disponível geralmente (2016-09-01), salvo indicação em contrário. 
+3. Clique em **Definir versão da API**, na barra de comandos, para ver que APIs REST estão disponíveis. As APIs de pré-visualização dão-lhe acesso a funcionalidades novas que ainda não foram lançadas geralmente. Para as consultas abaixo, utilize a versão disponível geralmente (2017-11-11), salvo indicação em contrário. 
 
     > [!NOTE]
     > A [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) e a [Biblioteca .NET](search-howto-dotnet-sdk.md#core-scenarios) são totalmente equivalentes, mas o **Explorador de pesquisa** só está preparado para processar chamadas REST. Aceita sintaxes de [sintaxe de consultas simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [ analisador de consultas de Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), bem como todos os parâmetros de pesquisa disponíveis em operações de [Pesquisar no Documento](https://docs.microsoft.com/rest/api/searchservice/search-documents).

@@ -1,145 +1,101 @@
 ---
-title: Introdução ao observador de rede do Azure | Microsoft Docs
-description: Esta página fornece uma descrição geral do serviço de observador de rede para a monitorização e visualizar rede ligada recursos no Azure
+title: Observador de Rede do Azure | Microsoft Docs
+description: Saiba mais sobre a monitorização, os diagnósticos, as métricas e as capacidades de registo do Observador de Rede do Azure para recursos em redes virtuais.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 04/24/2018
 ms.author: jdial
-ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="azure-network-monitoring-overview"></a>Descrição geral de monitorização de rede do Azure
+# <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
-Os clientes criar uma rede ponto a ponto no Azure através da orquestração e composição vários recursos de rede individuais, tais como VNet, ExpressRoute, Gateway de aplicação, balanceadores de carga e muito mais. A monitorização está disponível em cada um dos recursos da rede. Vamos referir-se a esta monitorização como a monitorização de nível de recursos.
+O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure.
 
-Rede ponto a ponto pode ter configurações complexas e as interações entre os recursos, criar cenários complexos que necessitam de baseada em cenários de monitorização através do observador de rede.
+## <a name="monitoring"></a>Monitorização
 
-Este artigo abrange cenário e a monitorização de nível de recursos. Monitorização de rede no Azure é abrangente e abrange duas amplas categorias:
+### <a name = "connection-monitor"></a>Monitorizar a comunicação entre uma máquina virtual e um ponto final
 
-* [**Observador de rede** ](#network-watcher) -baseada em cenários de monitorização é fornecido com as funcionalidades do observador de rede. Este serviço inclui a captura de pacotes, o salto seguinte, o fluxo IP verificar, a vista de grupo de segurança, os registos de fluxo NSG. A monitorização ao nível do cenário fornece uma vista de ponto a ponto dos recursos de rede, ao contrário de monitorização de recursos de rede individuais.
-* [**Monitorização de recursos** ](#network-resource-level-monitoring) -monitorização de nível de recursos é composto por de quatro funcionalidades, os registos de diagnóstico, métricas, resolução de problemas e estado de funcionamento do recurso. Todas estas funcionalidades são criadas ao nível de recursos de rede.
+Os pontos finais podem ser outra máquina virtual (VM), um nome de domínio completamente qualificado (FQDN), um identificador de recursos uniforme (URI) ou um endereço IPv4. A capacidade de *monitorização da ligação* monitoriza a comunicação em intervalos regulares e informa-o do alcance, da latência e das alterações à topologia de rede entre a VM e o ponto final. Por exemplo, pode ter uma VM de servidor Web que comunica com uma VM de servidor de bases de dados. Sem o seu conhecimento, uma pessoa da sua organização poderá aplicar uma rota personalizada ou uma regra de segurança de rede à VM de servidor Web ou de servidor de bases de dados ou à sub-rede.
 
-## <a name="network-watcher"></a>Observador de Rede
+Se um ponto final ficar inacessível, a resolução de problemas de ligações informa-o do motivo. Alguns possíveis motivos são um problema na resolução de nomes DNS, a CPU, a memória ou a firewall dentro do sistema operativo de uma VM, ou o tipo de salto de uma rota personalizada ou regra de segurança para a VM ou sub-rede da ligação de saída. Saiba mais sobre as [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e os [tipos de salto de rotas](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) no Azure.
 
-Observador de rede é um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário rede, para e do Azure. Diagnóstico de rede e ferramentas de visualização disponíveis com o observador de rede ajudam-na compreender, diagnosticar e obter informações sobre a sua rede no Azure.
+A monitorização da ligação também disponibiliza a latência mínima, média e máxima registada ao longo do tempo. Depois de determinar a latência de uma ligação, pode constatar que pode diminuí-la ao mover os seus recursos do Azure para outras regiões do Azure. Saiba mais sobre como determinar as [latências relativas entre regiões do Azure e fornecedores de serviços de Internet](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) e como monitorizar a comunicação entre uma VM e um ponto final com o [monitor da ligação](connection-monitor.md). Se preferir testar uma ligação num ponto no tempo, em vez de ao longo do tempo, tal como faz com a monitorização da ligação, utilize a capacidade de [resolução de problemas de ligação](#connection-troubleshoot).
 
-Observador de rede atualmente tem as seguintes capacidades:
+### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Ver recursos numa rede virtual e respetivas relações
 
-* **[Topologia](network-watcher-topology-overview.md)**  -fornece uma vista de nível de rede com as várias interconnections e as associações entre recursos de rede num grupo de recursos.
-* **[Captura de pacotes variável](network-watcher-packet-capture-overview.md)**  -captura de dados do pacote e para uma máquina virtual. Opções de filtragem avançadas e controlos otimizados, tais como a capacidade de definir a hora e limitações de tamanho fornecem versatility. Os dados de pacote podem ser armazenados num arquivo de blob ou no disco local no formato .cap.
-* **[Certifique-se de fluxo IP](network-watcher-ip-flow-verify-overview.md)**  -verifica se a um pacote é permitido ou negado com base nos parâmetros de pacotes de 5 cadeias de identificação do fluxo informações (IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se o pacote é negado por um grupo de segurança, a regra e o grupo negado o pacote é devolvido.
-* **[Próximo salto](network-watcher-next-hop-overview.md)**  -determina o salto seguinte para pacotes a ser encaminhados na infraestrutura de rede do Azure, permitindo-lhe diagnosticar qualquer configurada incorretamente rotas definidas pelo utilizador.
-* **[Vista do grupo de segurança](network-watcher-security-group-view-overview.md)**  -obtém as regras de segurança eficaz e aplicados que são aplicadas numa VM.
-* **[O registo de fluxo de NSG](network-watcher-nsg-flow-logging-overview.md)**  -registos de fluxo para grupos de segurança de rede permitem-lhe capturar registos relacionados com o tráfego que são permitidas ou negadas pelas regras de segurança no grupo. O fluxo é definido por uma informação de 5 cadeias de identificação – IP de origem, IP de destino, porta de origem, porta de destino e protocolo.
-* **[Gateway de rede virtual e a resolução de problemas de ligação](network-watcher-troubleshoot-manage-rest.md)**  -fornece a capacidade de resolução de problemas de Gateways da Virtual Network e ligações.
-* **[Limites de subscrição de rede](#network-subscription-limits)**  -permite-lhe ver utilização de recursos de rede contra os limites.
-* **[Configurar registo de diagnóstico](#diagnostic-logs)**  – disponibiliza um painel único para ativar ou desativar os registos de diagnóstico para recursos de rede num grupo de recursos.
-* **[Resolver problemas de ligação](network-watcher-connectivity-overview.md)**  -verifica a possibilidade de estabelecer uma ligação de TCP direta de uma máquina virtual para um determinado ponto de final enriquecido com o contexto do Azure.
-* **[Monitor de ligação](connection-monitor.md)**  -monitorizar problemas de latência e a configuração entre uma máquina virtual do Azure e um endereço IP, utilizando a porta e o endereço IP de origem e de destino.
+À medida que são adicionados recursos a uma rede virtual, pode ser mais difícil compreender que recursos são esses e como estão relacionados entre si. A capacidade de *topologia* permite-lhe gerar um diagrama visual dos recursos numa rede virtual e as relações entre os mesmos. A imagem seguinte mostra um diagrama de topologia de exemplo para uma rede virtual que tem três sub-redes, duas VMs, interfaces de rede, endereços IP públicos, grupos de segurança de rede, tabelas de rotas e as relações entre os recursos:
 
-### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controlo de acesso baseado em funções (RBAC) na observador de rede
+![Vista da topologia](./media/network-watcher-monitoring-overview/topology.png)
 
-Utilizações de observador de rede a [modelo de controlo de acesso em funções do Azure (RBAC)](../role-based-access-control/overview.md). As seguintes permissões são necessárias pelo observador de rede. É importante certificar-se de que a função utilizada para iniciar as APIs do observador de rede ou para utilizar o observador de rede do portal tem o acesso necessário.
+Pode transferir uma versão editável da imagem em formato svg. Saiba mais sobre a [vista da topologia](view-network-topology.md).
 
-|Recurso| Permissão|
-|---|---| 
-|Microsoft.Storage/ |Leitura|
-|Microsoft.Authorization/| Leitura| 
-|Microsoft.Resources/subscriptions/resourceGroups/| Leitura|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Ação|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Ação|
-|Microsoft.Storage/storageAccounts/listKeys/ | Ação|
-|Microsoft.Compute/virtualMachines/ |Leitura|
-|Microsoft.Compute/virtualMachines/ |Escrita|
-|Microsoft.Compute/virtualMachineScaleSets/ |Leitura|
-|Microsoft.Compute/virtualMachineScaleSets/ |Escrita|
-|Microsoft.Network/networkWatchers/packetCaptures/ |Leitura|
-|Microsoft.Network/networkWatchers/packetCaptures/| Escrita|
-|Microsoft.Network/networkWatchers/packetCaptures/| Eliminar|
-|Microsoft.Network/networkWatchers/ |Escrita |
-|Microsoft.Network/networkWatchers/| Leitura |
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/ | *|
+## <a name="diagnostics"></a>Diagnóstico
 
-### <a name="network-subscription-limits"></a>Limites de subscrição de rede
+### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnosticar problemas de filtragem de tráfego de rede de ou para uma VM
 
-Limites de subscrição de rede fornecem detalhes de utilização de cada recurso de rede numa subscrição numa região contra o número máximo de recursos disponíveis.
+Quando implementa uma VM, o Azure aplica várias regras de segurança predefinidas que permitem ou negam o tráfego de ou para a mesma. Pode substituir as regras predefinidas do Azure ou criar regras adicionais. Num determinado momento, uma VM poderá deixar de conseguir comunicar com outros recursos, devido a uma regra de segurança. A capacidade de *verificação de fluxo de IP* permite-lhe especificar um endereço IPv4 de origem e de destino, uma porta, um protocolo (TCP ou UDP) e o sentido do tráfego (entrada ou saída). Em seguida, a verificação de fluxo de IP testa a comunicação e informa-o se a ligação tiver êxito ou fracassar. Se falha, a verificação de fluxo de IP diz-lhe que regra de segurança permitiu ou negou a comunicação, para que possa resolver o problema. Saiba mais sobre a [verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md).
 
-![limite de subscrição de rede][nsl]
+### <a name="diagnose-network-routing-problems-from-a-vm"></a>Diagnosticar problemas de encaminhamento de rede a partir de uma VM
 
-## <a name="network-resource-level-monitoring"></a>Monitorização ao nível da rede recursos
+Quando cria uma rede virtual, o Azure cria várias rotas de saída predefinidas para o tráfego de rede. O tráfego de saída de todos os recursos, como VMs, implementados numa rede virtual, são encaminhados com base nas rotas predefinidas do Azure. Pode substituir as rotas predefinidas do Azure ou criar rotas adicionais. Pode aperceber-se de que uma VM já não consegue comunicar com outros recursos devido a uma rota específica. A capacidade de *próximo salto* permite-lhe especificar um endereço IPv4 de origem e de destino. Depois, o próximo salto testa a comunicação e informa-o do tipo de próximo salto que é utilizado para encaminhar o tráfego. Pode, em seguida, remover, alterar ou adicionar uma rota, para resolver um problema de encaminhamento. Saiba mais sobre a capacidade de [próximo salto](network-watcher-next-hop-overview.md?).
 
-As seguintes funcionalidades estão disponíveis para monitorização de nível de recursos:
+### <a name="connection-troubleshoot"></a>Diagnosticar ligações de saída a partir de uma VM
 
-### <a name="audit-log"></a>Registo de auditoria
+A capacidade de *resolução de problemas de ligação* permite-lhe testar uma ligação entre uma VM e outra VM, um FQDN, um URI ou um endereço IPv4. O teste devolve informações semelhantes às que são devolvidas quando é utilizada a capacidade de [monitorização da ligação](#connection-monitor), mas testa a ligação num ponto no tempo, em vez de a monitorizar ao longo do tempo, que é o que acontece com a monitorização da ligação. Saiba mais sobre como resolver problemas de ligações com a [resolução de problemas de ligações](network-watcher-connectivity-overview.md).
 
-Operações efetuadas como parte da configuração de redes são registadas. Estes registos podem ser visualizados no portal do Azure ou obtidos através de ferramentas da Microsoft, tais como o Power BI ou ferramentas de terceiros. Os registos de auditoria estão disponíveis através do portal, o PowerShell, a CLI e a Rest API. Para obter mais informações sobre os registos de auditoria, consulte [auditar operações com o Resource Manager](../resource-group-audit.md)
+### <a name="capture-packets-to-and-from-a-vm"></a>Capturar pacotes de e para uma VM
 
-Os registos de auditoria estão disponíveis para operações efetuadas em todos os recursos de rede.
+As opções de filtragem avançadas e os controlos otimizados, como a possibilidade de definir limites de tempo e tamanho, proporcionam versatilidade. A captura pode ser armazenada no Armazenamento do Azure, no disco da VM ou em ambos. Depois, pode analisar o ficheiro da captura com várias ferramentas de análise de captura de rede padrão. Saiba mais sobre a [captura de pacotes](network-watcher-packet-capture-overview.md).
 
-### <a name="metrics"></a>Métricas
+### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Diagnosticar problemas com ligações e um gateway de rede virtual do Azure
 
-As métricas são medidas de desempenho e contadores recolhidos durante um período de tempo. Métricas estão atualmente disponíveis para o Gateway de aplicação. Métricas podem ser utilizadas para acionar alertas com base num limiar. Consulte [diagnóstico do Gateway de aplicação](../application-gateway/application-gateway-diagnostics.md) para ver como métricas podem ser utilizadas para criar alertas.
+Os gateways de rede virtual oferecem conectividade entre recursos no local e redes virtuais do Azure. Monitorizar os gateways e respetivas ligações é fundamental para garantir que a comunicação não é interrompida. A capacidade de *diagnóstico de VPN* proporciona a capacidade de diagnosticar gateways e ligações. O diagnóstico de VPN diagnostica o estado de funcionamento do gateway, ou da ligação do gateway, e informa-o se estiver disponível um gateway ou uma ligação de gateway. Se o gateway ou a ligação não estiverem disponíveis, o diagnóstico de VPN indica-lhe o motivo, para que possa resolver o problema. Saiba mais sobre o [diagnóstico de VPN](network-watcher-troubleshoot-overview.md).
 
-![Vista de métricas][metrics]
+### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Determinar as latências relativas entre regiões do Azure e os fornecedores de serviços de Internet
 
-### <a name="diagnostic-logs"></a>Registos de diagnósticos
+Pode consultar o Observador de Rede para obter informações de latência entre regiões do Azure e nos fornecedores de serviços de Internet. Saber as latências entre regiões do Azure e nos fornecedores de serviços de Internet permite-lhe implementar os recursos do Azure de modo a otimizar o tempo de resposta da rede. Saiba mais sobre as [latências relativas](view-relative-latencies.md).
 
-Eventos periódicos e spontaneous são criados pelos recursos de rede e registados em contas do storage, enviadas para um Hub de eventos ou análise de registos. Estes registos fornecem informações sobre o estado de funcionamento de um recurso. Estes registos podem ser visualizados no ferramentas como o Power BI e análise de registos. Para saber como ver os registos de diagnóstico, visite [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+### <a name="view-security-rules-for-a-network-interface"></a>Ver as regras de segurança de uma interface de rede
 
-Os registos de diagnóstico estão disponíveis para [Balanceador de carga](../load-balancer/load-balancer-monitor-log.md), [grupos de segurança de rede](../virtual-network/virtual-network-nsg-manage-log.md), rotas, e [Gateway de aplicação](../application-gateway/application-gateway-diagnostics.md).
+As regras de segurança eficazes para uma interface de rede são uma combinação de todas as regras de segurança aplicadas à interface de rede e à sub-rede na qual a interface de rede se encontra.  A capacidade de *visualização de grupo de segurança* mostra-lhe todas as regras de segurança aplicadas à interface de rede, à sub-rede na qual a interface de rede se encontra e o agregado de ambos. Tendo conhecimento das regras que estão aplicadas a uma interface de rede, pode adicionar, remover ou alterar as regras, caso estejam a permitir ou a negar tráfego que pretenda mudar. Saiba mais sobre a [visualização de grupo de segurança](network-watcher-security-group-view-overview.md).
 
-Observador de rede fornece que um diagnóstico os registos de vista. Esta vista contém todos os recursos de rede que suportam o registo de diagnóstico. Desta vista, pode ativar e desativar os recursos de rede rápida e convenientemente.
+## <a name="metrics"></a>Métricas
 
-![registos][logs]
+Existem [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) ao número de recursos de rede que pode criar numa subscrição e numa região do Azure. Caso atinja os limites, não poderá criar mais recursos na subscrição ou região. A capacidade de *limite de subscrição de rede* disponibiliza um resumo da quantidade de cada recurso de rede que implementou numa subscrição e numa região, bem como o limite desses recursos. A imagem seguinte mostra a saída parcial para recursos de rede implementados na região E.U.A. Leste numa subscrição de exemplo:
 
-### <a name="troubleshooting"></a>Resolução de problemas
+![Limites da subscrição](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
-O painel de resolução de problemas, uma experiência de utilização no portal, é fornecido nos recursos de rede hoje para diagnosticar problemas comuns associados a um recurso individual. Esta experiência está disponível para os seguintes recursos de rede - ExpressRoute, Gateway de VPN, Gateway de aplicação, registos de segurança de rede, rotas, DNS, Balanceador de carga e do Traffic Manager. Para mais informações sobre resolução de problemas ao nível do recurso, visite [diagnosticar e resolver problemas com a resolução de problemas do Azure](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
+As informações são úteis para planear implementações de recursos futuras.
 
-![informações de resolução de problemas][TS]
+## <a name="logs"></a>Registos
 
-### <a name="resource-health"></a>Estado de funcionamento de recursos
+### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Analisar o tráfego de ou para um grupo de segurança de rede
 
-O estado de funcionamento de um recurso de rede é fornecido numa base periódica. Esses recursos incluem o Gateway de VPN e túnel VPN. Estado de funcionamento do recurso está acessível no portal do Azure. Para mais informações sobre o estado de funcionamento de recursos, visite [descrição geral do Estado de funcionamento de recursos](../resource-health/resource-health-overview.md)
+Os grupos de segurança de rede (NSG) permitem ou negam o tráfego de entrada ou de saída para uma interface de rede numa VM. A capacidade de *registo de fluxo de NSG* permite-lhe registar o endereço IP de origem e de destino, a porta, o protocolo e se o tráfego foi permitido ou negado por um NSG. Pode analisar os registos com diversas ferramentas, como o PowerBI e a capacidade de *análise de tráfego*. A análise de tráfego proporciona visualizações ricas dos dados escritos nos registos de fluxo de NSG. A imagem seguinte mostra algumas das informações e visualizações que a análise de tráfego apresenta a partir dos dados de registo de fluxo de NSG:
 
-## <a name="next-steps"></a>Passos Seguintes
+![Análise de tráfego](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Depois de aprender mais sobre o observador de rede, pode aprender a:
+Saiba mais sobre os [registos de fluxo de NSG](network-watcher-nsg-flow-logging-overview.md) e a [análise de tráfego](traffic-analytics.md).
 
-Efetue uma captura de pacotes na sua VM, visitando [captura de pacotes variável no portal do Azure](network-watcher-packet-capture-manage-portal.md)
+### <a name="view-diagnostic-logs-for-network-resources"></a>Ver registos de diagnóstico de recursos de rede
 
-Efetuar a monitorização proativa e diagnóstico utilizando [alerta acionado captura de pacotes](network-watcher-alert-triggered-packet-capture.md).
+Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode ver os registos de diagnóstico com ferramentas como o Microsoft PowerBI e o Azure Log Analytics. Para saber mais sobre como analisar os registos de diagnóstico de rede do Azure, veja [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Soluções de rede do Azure no Log Analytics).
 
-Detetar vulnerabilidades de segurança com [analisar a captura de pacotes com o Wireshark](network-watcher-deep-packet-inspection.md), utilizando ferramentas open source.
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) do Azure.
-
-<!--Image references-->
-[TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
-[logs]: ./media/network-watcher-monitoring-overview/logs.png
-[metrics]: ./media/network-watcher-monitoring-overview/metrics.png
-[nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
-
-
-
-
-
-
-
-
-
-
+Tem agora uma descrição geral do Observador de Rede do Azure. Para começar a utilizar o Observador de Rede, utilize a verificação de fluxo de IP para diagnosticar um problema de comunicação comum de e para uma máquina virtual. Para saber como, veja o início rápido [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) (Diagnosticar problemas de filtro de tráfego de rede de uma máquina virtual).

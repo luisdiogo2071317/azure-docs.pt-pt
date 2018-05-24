@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -28,7 +28,7 @@ O Armazenamento do Azure é a solução de armazenamento da cloud da Microsoft p
 
 O Armazenamento do Azure inclui estes serviços de dados: 
 
-- [Blobs do Azure](../blobs/storage-blobs-introduction.md): um arquivo de objeto extremamente dimensionável para o dia de texto e binário.
+- [Blobs do Azure](../blobs/storage-blobs-introduction.md): um arquivo de objetos extremamente dimensionável para texto e dados binários.
 - [Ficheiros do Azure](../files/storage-files-introduction.md): partilhas de ficheiros geridos para a cloud ou implementações locais.
 - [Filas do Azure](../queues/storage-queues-introduction.md): arquivo de mensagens para mensagens fiáveis entre componentes da aplicação. 
 - [Tabelas do Azure](../../cosmos-db/table-storage-overview.md): um arquivo do NoSQL para armazenamento sem esquemas de dados estruturados.
@@ -179,7 +179,7 @@ Para obter informações detalhadas sobre os preços do Armazenamento do Azure, 
 * [API REST dos Serviços de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/)
 * [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) (Biblioteca de Clientes de Armazenamento para .NET)
 * [Biblioteca de Clientes de Armazenamento do Azure para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Biblioteca de Clientes de Armazenamento para Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Biblioteca de Clientes de Armazenamento para Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Biblioteca de Clientes de Armazenamento para Python](https://github.com/Azure/azure-storage-python)
 * [Biblioteca de Clientes de Armazenamento para PHP](https://github.com/Azure/azure-storage-php)
 * [Biblioteca de Clientes de Armazenamento para Ruby](https://github.com/Azure/azure-storage-ruby)
