@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Cenário 1: Avaliar as cargas de trabalho no local para migração para o Azure
 
 Ao considerar a migração para o Azure, a empresa Contoso quer realizar uma avaliação técnica e financeira para saber se as cargas de trabalho no local são adequadas para migração para a cloud. Mais concretamente, pretende avaliar a compatibilidade das máquinas e bases de dados para migração e estimar a capacidade e os custos para executar os respetivos recursos no Azure.
 
-Para se habituar ao processo e melhor compreender as tecnologias envolvidas, a Contoso vai avaliar e migrar uma pequena aplicação de viagens no local. Trata-se de uma aplicação com duas camadas, com um aplicação Web em execução numa VM e uma base de dados do SQL Server noutra. A aplicação é implementada no VMware e o ambiente é gerido por um vCenter Server. Para realizar a avaliação, a empresa vai utilizar o Assistente de Migração de Dados (DMA) e o serviço Azure Migrate.
+Para se habituar ao processo e melhor compreender as tecnologias envolvidas, a Contoso vai avaliar e migrar uma pequena aplicação de viagens no local. Trata-se de uma aplicação com duas camadas, com um aplicação Web em execução numa VM e uma base de dados do SQL Server noutra. A aplicação é implementada no VMware e o ambiente é gerido por um vCenter Server. Para realizar a avaliação, a empresa vai utilizar o Assistente de Migração de Dados (DMA) e o serviço Azure Migrate. Se quiser experimentar este cenário através desta aplicação de viagem ilustrativa, pode transferi-la no [github](https://github.com/Microsoft/SmartHotel360).
 
 **Tecnologia** | **Descrição** | **Custo**
 --- | --- | ---
@@ -33,11 +33,11 @@ Neste cenário, vamos transferir e executar o DMA para avaliar a base de dados d
 
 ## <a name="architecture"></a>Arquitetura
 
-Neste cenário, vamos configurar 
 
- ![A arquitetura da avaliação da migração](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![A arquitetura da avaliação da migração](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 Neste cenário:
+- Contoso é um nome fictício que representa uma organização empresarial típica. A Contoso quer avaliar e migrar a aplicação de viagem de dois escalões no local.
 - A Contoso tem um datacenter no local (**contoso datacenter**), com um controlador de domínio no local (**contosodc1**).
 - A aplicação de viagem interna tem duas camadas, uma em cada VM, **WEBVM** e **SQLVM**, e está localizada no anfitrião do VMware ESXi **contosohost1.contoso.com**.
 - O ambiente do VMware é gerido pelo vCenter Server (**vcenter.contoso.com**) em execução numa VM.
@@ -56,8 +56,8 @@ Para implementar este cenário, precisa do seguinte:
 - Pelo menos, duas VMs do VMware no local, uma a executar uma base de dados do SQL Server.
 - Deve ter permissões para instalar agentes do Azure Migrate em cada VM.
 - As VMs devem ter conectividade à Internet direta.
-        - Pode restringir o acesso à Internet aos [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).
-        - Caso tenha máquinas sem conectividade à Internet, terá de transferir e instalar o [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nas mesmas.
+        – Pode restringir o acesso à Internet aos [URLs necessários](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).
+        – Caso tenha máquinas sem conectividade à Internet, terá de transferir e instalar o [gateway OMS](../log-analytics/log-analytics-oms-gateway.md) nas mesmas.
 - Do FQDN da VM a executar a instância do SQL Server, para avaliação da base de dados.
 - A Firewall do Windows em execução na VM do SQL Server deve permitir ligações externas na porta TCP 1433 (predefinição), para que seja possível ligar o DMA.
 
@@ -103,7 +103,7 @@ Execute uma avaliação para analisar a instância do SQL Server de origem relat
     ![Selecionar origem](./media/migrate-scenarios-assessment/dma-assessment-1.png)
 
     > [!NOTE]
-      Neste momento, o DMA não suporta a avaliação para a migração para uma Instância Gerida do SQL. Como alternativa, vamos utilizar o SQL Server na VM do Azure como o nosso suposto destino para a avaliaçaõ.
+      Neste momento, o DMA não suporta a avaliação para a migração para uma Instância Gerida do SQL. Como alternativa, vamos utilizar o SQL Server na VM do Azure como o nosso suposto destino para a avaliação.
 
 1.  Em **Select Target Version** (Selecionar Versão de Destino), especifique a versão de destino do SQL Server que pretende executar no Azure e aquilo que quer descobrir na avaliação.
     - **Compatibility Issues** (Problemas de compatibilidade) mostra-lhe as alterações que podem interromper a migração ou que exigem um pequeno ajuste antes da mesma. Também lhe indica se está a utilizar funcionalidades que tenham sido entretanto preteridas. Os problemas estão organizados por nível de compatibilidade. 
@@ -338,7 +338,7 @@ Se quiser criar uma cópia da VM antes de modificá-la, crie um instantâneo ant
 #### <a name="install-the-mma"></a>Instalar o MMA
 
 1. Faça duplo clique no agente transferido.
-2. Na página **Bem-vindo**, clique em **Seguinte**. Na página **Termos de Licenciamento**, clique em **Concordo** para aceitar a licença.
+2. Na página **Bem-vindo**, clique em **Seguinte**. Na página **License Terms** (Termos de Licenciamento), clique em **Agree** (Concordo) para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha a pasta de instalação predefinida > **Seguinte**. 
 4. Em **Opções de Configuração do Agente**, selecione **Ligar o agente ao Azure Log Analytics** > **Seguinte**. 
 
@@ -460,8 +460,8 @@ O relatório da avaliação mostra as informações resumidas na tabela. Tenha e
 
 **Definição** | **Indicação** | **Detalhes**
 --- | --- | ---
-**Preparado para a VM do Azure** | Indica se a VM está preparada para migração | Estados possíveis:</br><br/>- Preparada para o Azure<br/><br/>- Preparada com condições <br/><br/>- Não está preparada para o Azure<br/><br/>- Preparação desconhecida<br/><br/> Se uma VM não estiver preparada, mostraremos alguns passos para a resolução.
-**Tamanho da VM do Azure** | Para VMs prontas, recomendamos um tamanho de VM do Azure. | A recomendação do tamanho depende das propriedades da avaliação:<br/><br/>- Se tiver utilizado o dimensionamento baseado no desempenho, é considerado o histórico do desempenho das VMs.<br/><br/>- Se tiver utilizado “como no local”, o tamanho tem por base o tamanho da VM no local e os dados de utilização não são usados.
+**Preparado para a VM do Azure** | Indica se a VM está preparada para migração | Estados possíveis:</br><br/>– Preparada para o Azure<br/><br/>– Preparada com condições <br/><br/>– Não está preparada para o Azure<br/><br/>– Preparação desconhecida<br/><br/> Se uma VM não estiver preparada, mostraremos alguns passos para a resolução.
+**Tamanho da VM do Azure** | Para VMs prontas, recomendamos um tamanho de VM do Azure. | A recomendação do tamanho depende das propriedades da avaliação:<br/><br/>– Se tiver utilizado o dimensionamento baseado no desempenho, é considerado o histórico do desempenho das VMs.<br/><br/>– Se tiver utilizado “como no local”, o tamanho tem por base o tamanho da VM no local e os dados de utilização não são usados.
 **Ferramenta sugerida** | Uma vez que as nossas máquinas estão a executar os agentes, o Azure Migrate analisa os processos em execução dentro das mesmas e identifica se são máquinas de base de dados ou não.
 **Informações da VM** | O relatório mostra definições da VM no local, incluindo informações do sistema operativo, do tipo de arranque, do disco e do armazenamento.
 
@@ -489,7 +489,7 @@ Neste cenário:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Vamos avançar para o próximo cenário, para fazer uma migração lift-and-shift das VMs do local para o Azure.
+Vamos avançar para o próximo cenário, para fazer uma [migração lift-and-shift](migrate-scenarios-lift-and-shift.md) das VMs e base de dados no local para o Azure.
 
 
 

@@ -2,25 +2,19 @@
 title: Manual de início rápido de reposição personalizada de palavra-passe - Azure Active Directory
 description: Implementar rapidamente a reposição de palavras-passe self-service do Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementação rápida da reposição personalizada de palavras-passe do Azure AD
 
@@ -33,11 +27,13 @@ Este guia pressupõe que já tem uma versão de avaliação ou um inquilino lice
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Ativar a SSPR para o seu inquilino do Azure AD
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. No seu inquilino existente do Azure AD, no **Portal do Azure**, em **Azure Active Directory**, selecione **Reposição de palavra-passe**.
 
 2. Na página **Propriedades**, na opção **Reposição Personalizada de Palavras-passe Ativada**, escolha uma das seguintes opções:
    * **Ninguém**: ninguém pode utilizar a funcionalidade SSPR.
-   * **Selecionados**: só os membros de um grupo específico do Azure AD que escolher podem utilizar a funcionalidade SSPR. Recomendamos que defina um grupo de utilizadores e que utilize esta definição quando implementar a funcionalidade, para prova de conceito.
+   * **Selecionados**: só os membros de um grupo específico do Azure AD que escolher podem utilizar a funcionalidade SSPR. Recomendamos que defina um grupo de utilizadores e que utilize esta definição quando implementar a funcionalidade, para prova de conceito. O aninhamento de grupos de segurança é suportado aqui.
    * **Todos**: todos os utilizadores que tenham contas no seu inquilino do Azure AD podem utilizar a funcionalidade SSPR. Recomendamos que utilize esta definição quando estiver pronto para implementar esta funcionalidade em todo o seu inquilino depois de concluir uma prova de conceito.
 
    > [!IMPORTANT]

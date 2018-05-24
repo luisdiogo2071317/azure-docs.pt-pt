@@ -1,12 +1,12 @@
 ---
-title: Centro de Segurança do Azure e máquinas virtuais do Linux no Azure | Microsoft Docs
-description: Saiba mais sobre a segurança da sua máquina virtual do Linux no Azure com o Centro de Segurança do Azure.
+title: Tutorial – Utilizar o Centro de Segurança do Azure para VMs do Linux no Azure | Microsoft Docs
+description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de Segurança do Azure para ajudar a proteger as suas máquinas virtuais do Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorizar a segurança da máquina virtual com o Centro de Segurança do Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Linux
 
 O Centro de Segurança do Azure pode ajudá-lo a obter visibilidade para as práticas de segurança dos seus recursos do Azure. O Centro de Segurança oferece monitorização de segurança integrada. Pode detetar ameaças que, caso contrário, poderiam passar despercebidas. Neste tutorial, pode obter informações sobre o Centro de Segurança do Azure e como:
  
@@ -30,7 +30,7 @@ O Centro de Segurança do Azure pode ajudá-lo a obter visibilidade para as prá
 > * Configurar a recolha de dados
 > * Configurar políticas de segurança
 > * Ver e corrigir problemas de estado de funcionamento da configuração
-> * Rever as ameaças detetadas  
+> * Rever as ameaças detetadas
 
 ## <a name="security-center-overview"></a>Descrição geral do Centro de Segurança
 

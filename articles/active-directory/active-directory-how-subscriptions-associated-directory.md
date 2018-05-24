@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
@@ -53,6 +51,8 @@ Todos os utilizadores têm um diretório raiz único que os autenticam, embora t
 
     ![Captura de ecrã que mostra o alternador](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Todos os seus cofres de chaves do Azure também serão afetados pela movimentação da subscrição. Por isso, [altere o ID do inquilino do cofre de chaves](../key-vault/key-vault-subscription-move-fix.md) antes de retomar as operações.
 
 Alterar o diretório da subscrição é uma operação ao nível do serviço. Não afeta a propriedade de faturação da subscrição e o Administrador de Conta pode ainda alterar o Admin de Serviço utilizando o [Centro de Contas](https://account.azure.com/subscriptions). Se pretender eliminar o diretório original, tem de transferir a propriedade de faturação da subscrição para um Administrador de Conta novo. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md). 
 

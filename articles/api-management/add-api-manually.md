@@ -1,11 +1,11 @@
 ---
-title: Adicionar uma API manualmente no portal do Azure | Microsoft Docs
-description: "Este tutorial mostra como utilizar a gestão de API (APIM) para adicionar manualmente uma API."
+title: Adicionar uma API manualmente com o portal do Azure | Microsoft Docs
+description: Este tutorial mostra como utilizar a Gestão de API (APIM) para adicionar manualmente uma API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,95 +13,95 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 9426839f88daece1bb688a2079b7854ccaebdc57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="add-an-api-manually"></a>Adicionar manualmente uma API 
+# <a name="add-an-api-manually"></a>Adicionar uma API manualmente 
 
-Os passos neste artigo mostram como utilizar o portal do Azure para adicionar uma API manualmente a instância de gestão de API (APIM). É um cenário comum quando pretender criar uma API em branco e defini-lo manualmente quando pretender mock a API. Para obter detalhes sobre mocking uma API, consulte [respostas de Mock API](mock-api-responses.md).
+Os passos neste artigo mostram como utilizar o portal do Azure para adicionar uma API manualmente à instância de Gestão de API (APIM). Um cenário comum de quando será útil criar uma API em branco e defini-la manualmente é quando pretende simular uma API. Para obter detalhes sobre a simulação de uma API, veja [Simular respostas de API](mock-api-responses.md).
 
-Se pretender importar uma API existente, consulte [relacionadas com tópicos](#related-topics) secção.
+Se pretender importar uma API existente, veja a secção [Tópicos relacionados](#related-topics).
 
-Neste artigo, vamos criar uma API em branco e especificar [httpbin.org](http://httpbin.org) (um serviço de teste) como uma API de back-end.
+Neste artigo, vamos criar uma API em branco e especificar [httpbin.org](http://httpbin.org) (um serviço de teste público) como uma API de back-end.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o guia de introdução seguinte: [criar uma instância de API Management do Azure](get-started-create-service-instance.md)
+Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-an-api"></a>Criar uma API
 
-1. Selecione **APIs** em **gestão de API**.
-2. No menu à esquerda, selecione **+ adicionar API**.
-3. Selecione **API em branco** da lista.
+1. Selecione **APIs** em **GESTÃO DE API**.
+2. No menu à esquerda, selecione **+ Adicionar API**.
+3. Selecione **API em branco** na lista.
 
     ![API em branco](media/add-api-manually/blank-api.png)
-4. Introduza as definições para a API.
+4. Introduza definições para a API.
 
     ![Definições](media/add-api-manually/settings.png)
 
     |**Nome**|**Valor**|**Descrição**|
     |---|---|---|
-    |**Nome a apresentar**|"*Em branco API*" |Este nome é apresentado no portal do programador.|
-    |**URL do serviço Web** (opcional)| "*http://httpbin.org*"| Se pretender mock uma API, não poderá introduzir nada. <br/>Neste caso, iremos introduzir [http://httpbin.org](http://httpbin.org). Este é um serviço de teste público. <br/>Se pretender importar uma API que está mapeada para um back-end automaticamente, consulte um dos tópicos no [relacionadas com tópicos](#related-topics) secção.|
-    |**Esquema de URL**|"*HTTPS*"|Neste caso, apesar do back-end tem acesso HTTP não seguro, especificamos um acesso seguro de HTTPS APIM para o back-end. <br/>Este tipo de cenário (HTTPS para HTTP) é chamado a terminação HTTPS. Poderá fazê-lo se a sua API existe dentro de uma rede virtual (em que sabe que o acesso é seguro, mesmo se não for utilizado a HTTPS). <br/>Pode querer utilizar "Terminação HTTPS" para guardar algumas ciclos da CPU.|
-    |**Sufixo do URL**|"*hbin*"| O sufixo é um nome que identifique nesta API específica nesta instância APIM. Tem de ser exclusivo nesta instância APIM.|
-    |**Produtos**|"*Ilimitados*" |Publica a API ao associar a API com um produto. Se pretender que para a API ser publicado e estar disponível para programadores, adicione-a um produto. Pode fazê-lo durante a criação de API ou defini-lo mais tarde.<br/><br/>Produtos são associações de APIs de um ou mais. Pode incluir um número de APIs e oferecem-las para os programadores através do portal do programador. <br/>Os programadores têm primeiro de subscrever um produto para obter acesso à API. Quando estes subscrever, recebem uma chave de subscrição é válida para qualquer API esse produto. Se tiver criado a instância APIM, um administrador já estiver, pelo que tem subscritos todos os produtos por predefinição.<br/><br/> Por predefinição, cada instância da API Management vem com dois produtos de exemplo: **Starter** e **ilimitada**.| 
+    |**Nome a apresentar**|"*Blank API*" |Este nome é apresentado no portal do Programador.|
+    |**URL do Serviço Web** (opcional)| "*http://httpbin.org*"| Se pretender simular uma API, poderá não introduzir nada. <br/>Neste caso, vamos introduzir [http://httpbin.org](http://httpbin.org). Este é um serviço de teste público. <br/>Se pretender importar uma API que está mapeada para um back-end automaticamente, veja um dos tópicos na secção [Tópicos relacionados](#related-topics).|
+    |**Esquema do URL**|"*HTTPS*"|Neste caso, embora o back-end tenha acesso HTTP não seguro, especificamos um acesso APIM de HTTPS seguro para o back-end. <br/>Este tipo de cenário (HTTPS para HTTP) é chamado terminação HTTPS. Poderá fazê-lo se a sua API existir dentro de uma rede virtual (onde saiba que o acesso é seguro, mesmo que não seja utilizado HTTPS). <br/>Poderá utilizar a "terminação HTTPS" para poupar alguns ciclos da CPU.|
+    |**Sufixo do URL**|"*hbin*"| O sufixo é um nome que identifica esta API específica nesta instância de APIM. Tem de ser exclusivo nesta instância de APIM.|
+    |**Produtos**|"*Unlimited*" |Publique a API ao associá-la a um produto. Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/><br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
 5. Selecione **Criar**.
 
-Neste momento, não tem nenhum operações em APIM que mapeiam para as operações na sua API de back-end. Se chamar uma operação que está exposta através do back-end, mas não através de APIM, obter um **404**. 
+Neste momento, não tem operações na APIM que mapeiem para as operações na sua API de back-end. Se chamar uma operação que está exposta através do back-end, mas não através da APIM, obtém um **404**. 
 
 >[!NOTE] 
-> Por predefinição, quando adicionar uma API, mesmo que está ligada a algumas serviço de back-end, APIM não exporá quaisquer operações até whitelist-los. A lista branca de uma operação do seu serviço de back-end, criar uma operação de APIM que mapeia para a operação de back-end.
+> Por predefinição, quando adiciona uma API, mesmo que esteja ligada a algum serviço de back-end, a APIM não irá expor quaisquer operações até colocá-las na lista de permissões. Para colocar uma operação do seu serviço de back-end numa lista de permissões, crie uma operação de APIM que mapeie para a operação de back-end.
 >
 
 ## <a name="add-and-test-an-operation"></a>Adicionar e testar uma operação
 
-Esta secção mostra como adicionar uma operação "/ obter" para mapeá-lo para a operação de "http://httpbin.org/get" back-end.
+Esta secção mostra como adicionar uma operação "/get" para mapeá-la para a operação "http://httpbin.org/get" do back-end.
 
 ### <a name="add-the-operation"></a>Adicionar a operação
 
 1. Selecione a API que criou no passo anterior.
-2. Clique em **+ adicionar operação**.
-3. No **URL**, selecione **obter** e introduza "*/obter*" no recurso.
-4. Introduza "*FetchData*" para **nome a apresentar**.
+2. Clique em **+ Adicionar Operação**.
+3. No **URL**, selecione **GET** e introduza "*/get*" no recurso.
+4. Introduza "*FetchData*" para **Nome a apresentar**.
 5. Selecione **Guardar**.
 
-### <a name="test-the-operation"></a>A operação de teste
+### <a name="test-the-operation"></a>Testar a operação
 
-A operação de teste no portal do Azure. Em alternativa, pode testar-na **portal do programador**.
+Teste a operação no portal do Azure. Em alternativa, pode testá-la no **Portal do programador**.
 
-1. Selecione o **teste** separador.
+1. Selecione o separador **Teste**.
 2. Selecione **FetchData**.
-3. Prima **enviar**.
+3. Prima **Enviar**.
 
-É apresentada a resposta que a operação de "http://httpbin.org/get" gera. Se pretender as operações de transformação, consulte [transformar e proteger a sua API](transform-api.md).
+É apresentada a resposta gerada pela operação "http://httpbin.org/get". Se pretender transformar as operações, veja [Transformar e proteger a sua API](transform-api.md).
 
 ## <a name="add-and-test-a-parameterized-operation"></a>Adicionar e testar uma operação com parâmetros
 
-Esta secção mostra como adicionar uma operação que assume um parâmetro. Neste caso, iremos mapear a operação "http://httpbin.org/status/200".
+Esta secção mostra como adicionar uma operação que assume um parâmetro. Neste caso, vamos mapear a operação para "http://httpbin.org/status/200".
 
 ### <a name="add-the-operation"></a>Adicionar a operação
 
 1. Selecione a API que criou no passo anterior.
-2. Clique em **+ adicionar operação**.
-3. No **URL**, selecione **obter** e introduza "*/status/ {code}*" no recurso. Opcionalmente, pode fornecer algumas informações associadas a este parâmetro. Por exemplo, introduza "*número*" para **tipo**, "*200*" (predefinição) para **valores**.
-4. Introduza "GetStatus" para **nome a apresentar**.
+2. Clique em **+ Adicionar Operação**.
+3. No **URL**, selecione **GET** e introduza "*/status/{code}*" no recurso. Opcionalmente, pode fornecer algumas informações associadas a este parâmetro. Por exemplo, introduza "*Number*" para **TIPO**, "*200*" (predefinição) para **VALORES**.
+4. Introduza "GetStatus" para **Nome a apresentar**.
 5. Selecione **Guardar**.
 
-### <a name="test-the-operation"></a>A operação de teste 
+### <a name="test-the-operation"></a>Testar a operação 
 
-A operação de teste no portal do Azure.  Em alternativa, pode testar-na **portal do programador**.
+Teste a operação no portal do Azure.  Em alternativa, pode testá-la no **Portal do programador**.
 
-1. Selecione o **teste** separador.
-2. Selecione **GetStatus**. Por predefinição, o valor de código está definido como "*200*". Pode alterar para outros valores de teste. Por exemplo, escreva "*418*".
-3. Prima **enviar**.
+1. Selecione o separador **Teste**.
+2. Selecione **GetStatus**. Por predefinição, o valor do código está definido como "*200*". Pode alterá-lo para testar outros valores. Por exemplo, escreva "*418*".
+3. Prima **Enviar**.
 
-    É apresentada a resposta que a operação de "http://httpbin.org/status/200" gera. Se pretender as operações de transformação, consulte [transformar e proteger a sua API](transform-api.md).
+    É apresentada a resposta gerada pela operação "http://httpbin.org/status/200". Se pretender transformar as operações, veja [Transformar e proteger a sua API](transform-api.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
@@ -110,4 +110,4 @@ A operação de teste no portal do Azure.  Em alternativa, pode testar-na **port
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Transformar e proteger uma API publicada](transform-api.md)
+> [Transformar e proteger a sua API](transform-api.md)

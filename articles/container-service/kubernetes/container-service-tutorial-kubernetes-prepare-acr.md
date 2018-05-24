@@ -1,19 +1,19 @@
 ---
-title: "Tutorial do Azure Container Service – Prepara ACR"
-description: "Tutorial do Azure Container Service – Prepara ACR"
+title: Tutorial do Azure Container Service – Prepara ACR
+description: Tutorial do Azure Container Service – Prepara ACR
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f2520c79d5d5b1dcf13147b64bd98df78e6e2f37
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementar e utilizar o Azure Container Registry
 
@@ -32,7 +32,7 @@ Em tutoriais posteriores, esta instância do ACR é integrada num cluster do Kub
 
 No [tutorial anterior](./container-service-tutorial-kubernetes-prepare-app.md), foi criada uma imagem de contentor para uma aplicação de Votação simples do Azure. Se não tiver criado a imagem de aplicação de Votação do Azure, regresse ao [Tutorial 1 – Criar imagens de contentor](./container-service-tutorial-kubernetes-prepare-app.md).
 
-Este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
@@ -93,7 +93,7 @@ Agora, marque a imagem `azure-vote-front` com o loginServer do registo de conten
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Depois de etiquetado, execute [imagens do docker] (https://docs.docker.com/engine/reference/commandline/images/) para verificar a operação.
+Depois de marcada, execute [docker images] (https://docs.docker.com/engine/reference/commandline/images/)) para verificar a operação.
 
 ```bash
 docker images
