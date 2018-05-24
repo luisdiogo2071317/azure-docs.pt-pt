@@ -1,10 +1,10 @@
 ---
-title: Exemplo de script do PowerShell do Azure - configurar uma VPN de site para site | Microsoft Docs
-description: Configurar uma rede de VPN.
+title: Exemplo de script do Azure PowerShell – Configurar uma Rede de VPNs | Microsoft Docs
+description: Configurar uma Rede de VPNs.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: anzaman
-ms.openlocfilehash: da506165dd7c2ca29f977af1452d11189d2fdd2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62381c08892017512dcf2bd5d9c7f8690bedfb6c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Criar um Gateway de VPN e adicionar uma ligação de site a site com o PowerShell
+# <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Criar um Gateway de VPN e adicionar uma ligação Site a Site com o PowerShell
 
-Este script cria um Gateway de VPN baseado em rotas e adiciona a configuração de ponto a site coma autenticação de nome de utilizador/palavra-passe RADIUS
+Este script cria um Gateway de VPN baseado em rotas e adiciona a configuração Site a Site. Para criar a ligação, também tem de configurar o dispositivo VPN. Para obter mais informações, veja [Acerca dos dispositivos VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs](../vpn-gateway-about-vpn-devices.md).
 
 
 ```azurepowershell-interactive
