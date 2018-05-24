@@ -1,6 +1,6 @@
 ---
-title: Monitorização do Azure e a atualização e máquinas virtuais do Windows | Microsoft Docs
-description: Tutorial - monitorizar e atualizar uma Máquina Virtual do Windows com o Azure PowerShell
+title: Tutorial – Monitorizar e atualizar máquinas virtuais do Windows no Azure | Microsoft Docs
+description: Neste tutorial, vai aprender a monitorizar diagnósticos de arranque e métricas de desempenho e a gerir atualizações de pacotes numa máquina virtual do Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,28 +10,28 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.openlocfilehash: 9181d79e6eb0443a4607824cfde95068b509a917
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>Monitorizar e atualizar a Máquina Virtual do Windows com o Azure PowerShell
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Windows no Azure
 
-Monitorização do Azure utiliza o agentes para recolher dados de arranque e de desempenho de VMs do Azure, armazenar estes dados no armazenamento do Azure e tornam acessível através do portal, o módulo Azure PowerShell e a CLI do Azure. Gestão de atualizações permite-lhe gerir as atualizações e correções de erros para as suas VMs do Windows Azure.
+A monitorização do Azure utiliza agentes para recolher dados de arranque e desempenho das VMs do Azure, armazena estes dados no armazenamento do Azure e torna-os acessíveis através do portal, do módulo Azure PowerShell e da CLI do Azure. A gestão de atualizações permite-lhe gerir atualizações e correções para as suas VMs do Windows do Azure.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ativar o diagnóstico de arranque numa VM
+> * Ativar diagnósticos de arranque numa VM
 > * Ver diagnósticos de arranque
-> * Veja as métricas anfitrião VM
+> * Ver métricas de anfitrião da VM
 > * Instalar a extensão de diagnóstico
 > * Ver métricas da VM
 > * Criar um alerta
@@ -39,36 +39,54 @@ Neste tutorial, ficará a saber como:
 > * Monitorizar alterações e inventário
 > * Configurar a monitorização avançada
 
-Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
-Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for preciso, este [script de exemplo](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) pode criar um para si. Ao trabalhar através do tutorial, substitua o grupo de recursos, o nome da VM e a localização em que o necessário.
+## <a name="create-virtual-machine"></a>Criar a máquina virtual
+
+Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure. Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+
+```azurepowershell-interactive
+$cred = Get-Credential
+```
+
+Crie agora uma VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados o grupo de recursos *myResourceGroupMonitorMonitor* e recursos de rede de apoio:
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupMonitor" `
+    -Name "myVM" `
+    -Location "East US" `
+    -Credential $cred
+```
+
+Demora alguns minutos até que os recursos e a VM sejam criados.
 
 ## <a name="view-boot-diagnostics"></a>Ver diagnósticos de arranque
 
-Como máquinas virtuais do Windows efetuar o arranque, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de ecrã capturadas estão armazenadas numa conta de armazenamento do Azure, que também é criada por predefinição.
+À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de ecrã são armazenadas numa conta de armazenamento do Azure, também criada por predefinição.
 
-Pode obter os dados de diagnóstico de arranque com o [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) comando. No exemplo seguinte, diagnóstico de arranque é transferido para a raiz do * c:\* unidade.
+Pode obter os dados de diagnóstico de arranque com o comando [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata). No exemplo seguinte, os diagnósticos de arranque são transferidos para a raiz da unidade *C:\*.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Ver métricas de anfitrião
 
-Uma VM do Windows tem uma VM de anfitrião dedicada no Azure que interage com. As métricas são automaticamente recolhidas para o anfitrião e podem ser visualizadas no portal do Azure.
+Uma VM do Windows tem um Anfitrião dedicado no Azure com o qual interage. As métricas são recolhidas automaticamente para o Anfitrião e podem ser visualizadas no portal do Azure.
 
-1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
-2. Clique em **métricas** no painel de VM e, em seguida, selecione qualquer uma das métricas de anfitrião em **as métricas disponíveis** para ver como a VM do anfitrião está a efetuar.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
+2. Clique em **Métricas** no painel da VM e, em seguida, selecione qualquer uma das métricas de Anfitrião em **Métricas disponíveis** para ver o desempenho da VM de Anfitrião.
 
     ![Ver métricas de anfitrião](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>Instalar a extensão de diagnóstico
 
-As métricas de anfitrião básica estão disponíveis, mas mais granular e métricas específicas de VM, que tem de instalar a extensão de diagnóstico do Azure na VM. A extensão de diagnóstico do Azure permite que sejam obtidos dados de monitorização e diagnóstico adicionais da VM. Pode ver estas métricas de desempenho e criar alertas com base no desempenho da VM. A extensão de diagnóstico é instalada através do portal do Azure da seguinte forma:
+As métricas de anfitrião básicas estão disponíveis, mas para ver métricas mais granulares e específicas da VM, tem de instalar a extensão de diagnóstico do Azure na VM. A extensão de diagnóstico do Azure permite que sejam obtidos dados de monitorização e diagnóstico adicionais da VM. Pode ver estas métricas de desempenho e criar alertas com base no desempenho da VM. A extensão de diagnóstico é instalada através do portal do Azure da seguinte forma:
 
-1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 2. Clique em **Definições de diagnóstico**. A lista mostra que os *Diagnósticos de arranque* já foram ativados na secção anterior. Clique na caixa de verificação para *Métricas básicas*.
-3. Clique em de **ativar a monitorização de ao nível do convidado** botão.
+3. Clique no botão **Ativar a monitorização ao nível do convidado**.
 
     ![Ver métricas de diagnóstico](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -76,7 +94,7 @@ As métricas de anfitrião básica estão disponíveis, mas mais granular e mét
 
 Pode ver as métricas da VM da mesma forma que vê as métricas da VM de anfitrião:
 
-1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 2. Para ver o desempenho da VM, clique em **Métricas** no painel da VM e, em seguida, selecione qualquer uma das métricas de diagnóstico em **Métricas disponíveis**.
 
     ![Ver métricas da VM](./media/tutorial-monitoring/monitor-vm-metrics.png)
@@ -87,23 +105,23 @@ Pode criar alertas com base em métricas de desempenho específicas. Podem ser u
 
 O exemplo seguinte cria um alerta para a utilização média da CPU.
 
-1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
+1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroupMonitor** e, em seguida, selecione **myVM** na lista de recursos.
 2. Clique em **Regras de alerta** no painel da VM e, em seguida, clique em **Adicionar alerta de métrica** na parte superior do painel de alertas.
-3. Forneça um **Nome** para o alerta, como *myAlertRule*
-4. Para acionar um alerta quando a percentagem da CPU excede 1.0 para cinco minutos, mantenha todas as outras predefinições selecionadas.
+3. Indique um **Nome** para o alerta, como *myAlertRule*
+4. Para acionar um alerta quando a percentagem da CPU excede 1.0 durante cinco minutos, mantenha todas as outras predefinições selecionadas.
 5. Opcionalmente, selecione a caixa para *Proprietários, contribuidores e leitores do e-mail* para enviar uma notificação por e-mail. A ação predefinida é apresentar uma notificação no portal.
 6. Clique no botão **OK**.
 
 ## <a name="manage-windows-updates"></a>Gerir atualizações do Windows
 
-Gestão de atualizações permite-lhe gerir as atualizações e correções de erros para as suas VMs do Windows Azure.
+A gestão de atualizações permite-lhe gerir atualizações e correções para as suas VMs do Windows do Azure.
 Diretamente a partir da VM, pode avaliar rapidamente o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM.
 
 Para obter informações sobre preços, veja [Preços de Automatização para Gestão de atualizações](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management"></a>Ativar a Gestão de atualizações
 
-Ative a gestão de atualização para a VM:
+Ativar a Gestão de atualizações para a VM:
 
 1. No lado esquerdo do ecrã, selecione **Máquinas virtuais**.
 2. Na lista, selecione uma VM.
@@ -135,7 +153,7 @@ A ativação da solução pode demorar até 15 minutos. Durante este período, n
 
 ### <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
-Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atualizações** aparece. Depois de concluída a avaliação de atualizações, consulte uma lista de atualizações em falta no **atualizações em falta** separador.
+Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atualizações** aparece. Após a conclusão da avaliação de atualizações, verá uma lista de atualizações em falta no separador **Atualizações em falta**.
 
  ![Ver o estado de atualização](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
@@ -167,7 +185,7 @@ Depois de concluir a configuração do agendamento, clique no botão **Criar** e
 Tenha em atenção que a tabela **Agendada** mostra o agendamento da implementação que criou.
 
 > [!WARNING]
-> Para as atualizações que requerem um reinício, a VM é reiniciada automaticamente.
+> Quanto a atualizações que requerem reinício, a VM é reiniciada automaticamente.
 
 ### <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
@@ -195,79 +213,79 @@ Clique em **Erros** para ver informações detalhadas sobre os erros da implemen
 
 Pode recolher e ver o inventário do software, dos ficheiros, dos daemons do Linux, dos Serviços do Windows e das chaves do Registo do Windows nos seus computadores. Controlar as configurações dos seus computadores pode ajudar a identificar problemas operacionais em todo o ambiente e compreender melhor o estado dos mesmos.
 
-### <a name="enable-change-and-inventory-management"></a>Gestão de alterações de ativar e inventário
+### <a name="enable-change-and-inventory-management"></a>Ativar a Gestão de alterações e de inventário
 
-Gestão de inventário e de alterações de ativar para a VM:
+Ativar a Gestão de alterações e de inventário na VM:
 
 1. No lado esquerdo do ecrã, selecione **Máquinas virtuais**.
 2. Na lista, selecione uma VM.
-3. No ecrã da VM, no **operações** secção, clique em **inventário** ou **de registo de alterações**. O **ativar o registo de alterações e de inventário** ecrã é aberto.
+3. No ecrã da VM, na secção **Operações**, clique em **Inventário** ou em **Controlo de alterações**. É aberto o ecrã **Ativar o Controlo de Alterações e Inventário**.
 
-Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Eventhough as soluções estão separadas no menu, estiverem a mesma solução. Ativar um permite ambos para a VM.
+Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
 
-![Ativar o registo de inventário e de alterações](./media/tutorial-monitoring/manage-inventory-enable.png)
+![Ativar o Controlo de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
-Depois da solução foi ativada pode demorar algum tempo inventário está a ser recolhido na VM antes de dados são apresentados.
+Após a ativação da solução, o inventário poderá demorar algum tempo a ser recolhido na VM antes de aparecerem dados.
 
-### <a name="track-changes"></a>Registar alterações
+### <a name="track-changes"></a>Controlar as alterações
 
-No seu selecione VM **alterações** em **operações**. Clique em **editar definições de**, a **alterações** é apresentada a página. Selecione o tipo de definição de que pretende controlar e, em seguida, clique em **+ adicionar** para configurar as definições. As opções disponíveis para o Windows são:
+Na sua VM, selecione **Controlo de Alterações**, em **OPERAÇÕES**. Clique em **Editar Definições**. É apresentada a página **Controlo de Alterações**. Selecione o tipo de definição que pretende controlar e clique em **+Adicionar** para configurar as definições. As opções disponíveis para o Windows são:
 
 * Registo do Windows
 * Ficheiros do Windows
 
-Para informações detalhadas sobre o controlo de alterações, consulte [alterações numa VM de resolução de problemas](../../automation/automation-tutorial-troubleshoot-changes.md)
+Para obter informações detalhadas sobre o Controlo de Alterações, veja [Resolver problemas relacionados com alterações numa VM](../../automation/automation-tutorial-troubleshoot-changes.md)
 
 ### <a name="view-inventory"></a>Ver o inventário
 
-No seu selecione VM **inventário** em **operações**. No separador **Software**, existe uma tabela que lista o software que foi encontrado. Os detalhes de alto nível para cada registo de software são visíveis na tabela. Estes detalhes incluem o nome do software, versão, fabricante e o último tempo de atualizar.
+Na sua VM, selecione **Inventário**, em **OPERAÇÕES**. No separador **Software**, existe uma tabela que lista o software que foi encontrado. Os detalhes de alto nível para cada registo de software são visíveis na tabela. Estes detalhes incluem o nome, a versão, o fabricante e a hora da última atualização do software.
 
 ![Ver o inventário](./media/tutorial-monitoring/inventory-view-results.png)
 
-### <a name="monitor-activity-logs-and-changes"></a>Monitorizar os registos de atividade e alterações
+### <a name="monitor-activity-logs-and-changes"></a>Monitorizar os Registos de Atividade e as alterações
 
 Na página **Controlo de alterações** da sua VM, selecione **Gerir Ligação de Registo de Atividades**. Esta tarefa abre a página **Registo de atividades do Azure**. Selecione **Ligar** para ligar o Controlo de alterações ao registo de atividades do Azure para a sua VM.
 
 Com esta definição ativada, navegue para a página **Descrição Geral** da sua VM e selecione **Parar** para parar a VM. Quando lhe for pedido, selecione **Sim** para parar a VM. Quando esta estiver desalocada, selecione **Iniciar** para reiniciar a sua VM.
 
-As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página **Controlo de alterações**. Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. Cada evento pode ser selecionado para ver informações detalhadas sobre o evento.
+As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página **Controlo de alterações**. Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. É possível selecionar cada um dos eventos para ver informações detalhadas sobre os mesmos.
 
-![Vista de alterações no registo de atividade](./media/tutorial-monitoring/manage-activitylog-view-results.png)
+![Ver alterações no registo de atividades](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 
 O gráfico mostra as alterações ocorridas ao longo do tempo. Após ter adicionado uma ligação do Registo de Atividades, o gráfico de linhas existente na parte superior apresenta os eventos do Registo de Atividades do Azure. Cada linha do gráfico de barras representa um tipo diferente de alteração passível de controlo. Estes tipos incluem daemons do Linux, ficheiros, chaves do Registo do Windows, software e serviços do Windows. O separador Alterações mostra os detalhes das alterações apresentadas na visualização por ordem descendente de data/hora em que a alteração ocorreu (mais recente primeiro).
 
 ## <a name="advanced-monitoring"></a>Monitorização avançada
 
-Pode fazê-lo mais avançadas de monitorização da sua VM, utilizando as soluções como gestão de atualizações e alterações e inventário fornecida pelo [da automatização do Azure](../../automation/automation-intro.md).
+Pode monitorizar a sua VM de forma mais avançada com as soluções como a Gestão de Atualizações e a Alteração e Inventário que a [Automatização do Azure](../../automation/automation-intro.md) proporciona.
 
-Quando o utilizador tem acesso à área de trabalho de análise de registos, pode encontrar a chave de área de trabalho e o identificador de área de trabalho no selecionando **definições avançadas** em **definições**. Utilize o [conjunto AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) comando para adicionar a extensão do Microsoft Monitoring agent para a VM. Atualizar os valores das variáveis no abaixo exemplo para refletir a chave da área de trabalho de análise de registos e o ID da área de trabalho
+Quando tiver acesso à área de trabalho do Log Analytics, pode localizar a chave e o identificador da mesma ao selecionar **Definições avançadas**, em **DEFINIÇÕES**. Utilize o comando [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para adicionar a extensão do agente de Monitorização da Microsoft à VM. Atualize os valores das variáveis no exemplo abaixo para refletir a chave e o ID da área de trabalho do Log Analytics.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName myResourceGroup `
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName myVM `
+  -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
   -ExtensionType "MicrosoftMonitoringAgent" `
   -TypeHandlerVersion 1.0 `
   -Settings @{"workspaceId" = $workspaceId} `
   -ProtectedSettings @{"workspaceKey" = $key} `
-  -Location eastus
+  -Location "East US"
 ```
 
-Após alguns minutos, deverá ver a nova VM, na área de trabalho Anaytics de registo.
+Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytics.
 
 ![Painel do OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, configurou e rever as VMs com o Centro de segurança do Azure. Aprendeu a:
+Neste tutorial, configurou e reviu as VMs com o Centro de Segurança do Azure. Aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma rede virtual
-> * Criar um grupo de recursos e a VM
+> * Criar um grupo de recursos e uma VM
 > * Ativar diagnósticos de arranque na VM
 > * Ver diagnósticos de arranque
 > * Ver métricas de anfitrião
@@ -278,7 +296,7 @@ Neste tutorial, configurou e rever as VMs com o Centro de segurança do Azure. A
 > * Monitorizar alterações e inventário
 > * Configurar a monitorização avançada
 
-Avançar para o próximo tutorial para saber mais acerca do Centro de segurança do Azure.
+Avance para o tutorial seguinte para saber mais sobre o centro de segurança do Azure.
 
 > [!div class="nextstepaction"]
 > [Gerir a segurança de VMs](./tutorial-azure-security.md)

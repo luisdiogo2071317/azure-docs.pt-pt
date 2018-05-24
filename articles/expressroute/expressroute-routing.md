@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 8bf1381ad089b9db41a3ef9f6fd3b9521a16da7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -183,10 +183,11 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Leste do Japão | 12076:51012 |
 | Oeste do Japão | 12076:51013 |
 | **Austrália** | |
-| Austrália Central | 12076:51032 |
-| Austrália Central 2 | 12076:51033 |
 | Leste da Austrália | 12076:51015 |
 | Sudeste da Austrália | 12076:51016 |
+| **Governo da Austrália** | |
+| Austrália Central | 12076:51032 |
+| Austrália Central 2 | 12076:51033 |
 | **Índia** | |
 | Índia do Sul | 12076:51019 |
 | Índia Ocidental | 12076:51018 |

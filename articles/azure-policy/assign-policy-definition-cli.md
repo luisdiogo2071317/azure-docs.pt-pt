@@ -1,19 +1,18 @@
 ---
-title: Utilizar a CLI do Azure para criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure | Microsoft Docs
+title: Utilize a CLI do Azure para criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure
 description: Utilize o PowerShell para criar uma atribuição de política do Azure para identificar recursos incompatíveis.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/03/2018
+ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 5c376cc2445253197dd51d8bdd89b341d3130f1a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27f00f24c1c644e340ff8a2843b56e863136c368
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure com a CLI do Azure
 
@@ -27,17 +26,17 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-O início rápido requer que execute a versão 2.0.4 da CLI do Azure ou posterior para instalar a utilizar a CLI local. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+O início rápido requer que execute a versão 2.0.4 da CLI do Azure ou posterior para instalar a utilizar a CLI local. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Utilize a CLI do Azure para registar o fornecedor de recursos do Policy Insights. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para efetuar a operação de ação de registo para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
-```
+```azurecli-interactive
 az provider register –-namespace 'Microsoft.PolicyInsights'
 ```
-Para obter mais informações sobre como registar e ver os fornecedores de recursos, veja [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md) (Fornecedores e Tipos de Recursos)
 
+Para obter mais informações sobre como registar e ver os fornecedores de recursos, veja [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md) (Fornecedores e Tipos de Recursos)
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
@@ -45,8 +44,8 @@ Neste início rápido, vai criar uma atribuição de política e atribuir as Má
 
 Execute o seguinte comando para criar uma atribuição de política:
 
-```
-az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+```azurecli-interactive
+az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 O comando anterior utiliza as seguintes informações:
@@ -54,18 +53,13 @@ O comando anterior utiliza as seguintes informações:
 - **Nome** - nome a apresentar da atribuição de política. Neste caso, está a utilizar *Máquinas Virtuais de Auditoria sem Atribuição de Managed Disks*.
 - **Política** – O ID de definição de política, com base no qual está a utilizar para criar a atribuição. Neste caso, é a definição de política – *Máquinas Virtuais de Auditoria sem Managed Disks*. Para obter o ID de definição de política, execute este comando: `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
-- **Sku** – Este comando cria uma atribuição de política com o escalão standard. O escalão standard permite-lhe alcançar a gestão à escala, a avaliação de conformidade e a remediação. Para obter detalhes adicionais sobre os escalões de preço, veja [Preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
-
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 
 Para ver os recursos que não estão em conformidade com esta nova atribuição, obtenha o ID de atribuição de política ao executar os seguintes comandos:
 
-```
-$policyAssignment = Get-AzureRmPolicyAssignment | where {$_.properties.displayName -eq "Audit Virtual Machines without Managed Disks"}
-```
-
-```
+```azurepowershell-interactive
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -79,30 +73,28 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 Os resultados assemelham-se ao seguinte exemplo:
 
-```
+```json
 {
-"@odata.context":"https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-"@odata.count": 3,
-"value": [
-{
-    "@odata.id": null,
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-    },
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-         },
-{
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-         }
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+    "@odata.count": 3,
+    "value": [{
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
+        }
 
-]
+    ]
 }
-
 ```
 
 Os resultados são comparáveis aos que normalmente vê listados em **recursos que não estão em conformidade** na vista do portal do Azure.
@@ -111,8 +103,8 @@ Os resultados são comparáveis aos que normalmente vê listados em **recursos q
 
 Outros guias desta coleção têm por base este guia de introdução. Se quiser continuar a trabalhar com os tutoriais seguintes, não limpe os recursos criados neste início rápido. Se não quiser continuar, elimine a atribuição que criou ao executar este comando:
 
-```azurecli
-az policy assignment delete –name Audit Virtual Machines without Managed Disks Assignment --scope /subscriptions/ <subscriptionID> / <resourceGroupName>
+```azurecli-interactive
+az policy assignment delete –name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -122,4 +114,4 @@ Neste guia de introdução, atribuiu uma definição de política para identific
 Para saber mais sobre a atribuição de políticas e assegurar que os recursos que cria no **futuro** estão em conformidade, avance para o tutorial:
 
 > [!div class="nextstepaction"]
-> [Criar e gerir políticas](./create-manage-policy.md)
+> [Criar e gerir políticas](create-manage-policy.md)

@@ -1,6 +1,6 @@
 ---
-title: Monitorizar e atualizar máquinas virtuais do Linux no Azure | Microsoft Docs
-description: Saiba como monitorizar diagnósticos de arranque e métricas de desempenho, e gerir atualizações de pacotes numa máquina virtual do Linux no Azure
+title: Tutorial – Monitorizar e atualizar máquinas virtuais do Linux no Azure | Microsoft Docs
+description: Neste tutorial, vai aprender a monitorizar diagnósticos de arranque e métricas de desempenho e a gerir atualizações de pacotes numa máquina virtual do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d5fb239ffd6a957cbb088bf4843819e2c886cee8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0dc403d92855902daef09c91a5dd022beb23fd71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Como monitorizar e atualizar uma máquina virtual do Linux no Azure
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Linux no Azure
 
 Para garantir que as máquinas virtuais (VMs) no Azure estão a ser executadas corretamente, pode consultar diagnósticos de arranque e métricas de desempenho, bem como gerir as atualizações de pacotes. Neste tutorial, ficará a saber como:
 
@@ -39,7 +39,7 @@ Para garantir que as máquinas virtuais (VMs) no Azure estão a ser executadas c
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial exigirá que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Criar VM
 
@@ -153,8 +153,8 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 
 1. No portal do Azure, clique em **Grupos de Recursos**, selecione **myResourceGroup** e, em seguida, selecione **myVM** na lista de recursos.
 2. Clique em **Regras de alerta** no painel da VM e, em seguida, clique em **Adicionar alerta de métrica** na parte superior do painel de alertas.
-3. Forneça um **Nome** para o alerta, como *myAlertRule*
-4. Para acionar um alerta quando a percentagem da CPU excede 1.0 para cinco minutos, mantenha todas as outras predefinições selecionadas.
+3. Indique um **Nome** para o alerta, como *myAlertRule*
+4. Para acionar um alerta quando a percentagem da CPU excede 1.0 durante cinco minutos, mantenha todas as outras predefinições selecionadas.
 5. Opcionalmente, selecione a caixa para *Proprietários, contribuidores e leitores do e-mail* para enviar uma notificação por e-mail. A ação predefinida é apresentar uma notificação no portal.
 6. Clique no botão **OK**.
 

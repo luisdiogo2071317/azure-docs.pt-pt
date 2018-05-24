@@ -1,109 +1,109 @@
 ---
-title: Ativar as subscrições do Azure e contas | Microsoft Docs
-description: Ativar o acesso através de APIs do Azure Resource Manager para novas e existentes contas e resolver problemas comuns de conta.
+title: Ativar subscrições e contas do Azure | Microsoft Docs
+description: Ative o acesso através das APIs do Azure Resource Manager para contas novas e existentes, e resolva problemas comuns com contas.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar as subscrições do Azure e contas com a gestão de custo do Azure
+# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Ativar subscrições e contas do Azure com o Azure Cost Management
 
-Adicionar ou atualizar as suas credenciais do Azure Resource Manager permite a gestão de custo do Azure detetar todas as contas e subscrições no seu inquilino do Azure. Se também tiver ativado as máquinas virtuais de extensão de diagnóstico do Azure, Azure custo de gestão pode recolher métricas expandidas, tais como CPU e memória. Este artigo descreve como ativar o acesso através de APIs do Azure Resource Manager para contas novas e existentes. Também descreve como resolver problemas comuns de conta.
+Adicionar ou atualizar as suas credenciais do Azure Resource Manager permite que o Azure Cost Management detete todas as contas e subscrições no seu Inquilino do Azure. Se também tiver ativado a extensão do Diagnóstico do Azure nas suas máquinas virtuais, o Azure Cost Management pode recolher métricas expandidas, como por exemplo da CPU e da memória. Este artigo descreve como ativar o acesso através das APIs do Azure Resource Manager para contas novas e existentes. Descreve também como resolver problemas comuns com contas.
 
-Azure de custo de gestão não é possível aceder a maior parte dos seus dados de subscrição do Azure, quando a subscrição está _não ativados tentarem_. Tem de editar _não ativados tentarem_ contas para que a gestão de custo do Azure podem aceder aos mesmos.
+O Azure Cost Management não consegue aceder à maior parte dos seus dados de subscrição do Azure quando a subscrição está _desativada_. Tem de editar contas _desativadas_ para que o Azure Cost Management possa aceder às mesmas.
 
-## <a name="required-azure-permissions"></a>As permissões do Azure necessárias
+## <a name="required-azure-permissions"></a>Permissões do Azure necessárias
 
-Permissões específicas são necessárias para concluir os procedimentos neste artigo. Ou o administrador inquilino tem de ter ambas as seguintes permissões:
+São necessárias permissões específicas para concluir os procedimentos deste artigo. Ambas as seguintes permissões são necessárias para si ou para o administrador do seu inquilino:
 
-- Permissão para registar a aplicação de CloudynCollector no inquilino do Azure AD.
+- Permissão para registar a aplicação CloudynCollector no seu inquilino do Azure AD.
 - A capacidade de atribuir a aplicação a uma função nas suas subscrições do Azure.
 
-Nas suas subscrições do Azure, as contas têm de ter `Microsoft.Authorization/*/Write` acesso para atribuir a aplicação de CloudynCollector. Esta ação é concedida através de [proprietário](../role-based-access-control/built-in-roles.md#owner) função ou [administrador de acesso de utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) função.
+Nas suas subscrições do Azure, as contas têm de ter acesso `Microsoft.Authorization/*/Write` para atribuir a aplicação CloudynCollector. Esta ação é concedida através das funções [Proprietário](../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-Se a sua conta está atribuída a **contribuinte** função, não tem permissão suficiente para atribuir a aplicação. Recebe um erro durante a tentativa de atribuir a aplicação de CloudynCollector a sua subscrição do Azure.
+Se estiver atribuída a função **Contribuidor** à sua conta, não tem permissão adequada para atribuir a aplicação. Verá um erro ao tentar atribuir a aplicação CloudynCollector à sua subscrição do Azure.
 
-### <a name="check-azure-active-directory-permissions"></a>Verifique as permissões do Azure Active Directory
+### <a name="check-azure-active-directory-permissions"></a>Verificar as permissões do Azure Active Directory
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, selecione **do Azure Active Directory**.
-3. No Azure Active Directory, selecione **as definições de utilizador**.
-4. Verifique o **registos de aplicação** opção.
-    - Se estiver definido como **Sim**, em seguida, os utilizadores não administrativos podem registar aplicações AD. Esta definição significa que qualquer utilizador no inquilino do Azure AD pode registar uma aplicação. Para poder continuar para permissões de subscrição do Azure necessários.  
-    ![Registos de aplicação](./media/activate-subs-accounts/app-register.png)
-    - Se o **registos de aplicação** opção estiver definida como **não**, em seguida, apenas inquilino utilizadores administrativos podem registar aplicações do Azure Active Directory. O administrador inquilino tem de registar a aplicação de CloudynCollector.
+2. No portal do Azure, selecione **Azure Active Directory**.
+3. No Azure Active Directory, selecione **Definições do utilizador**.
+4. Verifique a opção **Registos das aplicações**.
+    - Se estiver definida para **Sim**, os utilizadores que não forem administradores podem registar aplicações do AD. Esta definição significa que qualquer utilizador no inquilino do Azure AD pode registar uma aplicação. Pode avançar para Permissões de subscrição do Azure necessárias.  
+    ![Registos das aplicações](./media/activate-subs-accounts/app-register.png)
+    - Se a opção **Registos das aplicações** estiver definida para **Não**, apenas os utilizadores administrativos do inquilino podem registar aplicações do Azure Active Directory. O administrador do seu inquilino tem de registar a aplicação CloudynCollector.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Adicionar uma conta ou atualizar uma subscrição
 
-Quando adiciona uma atualização da conta de uma subscrição, o acesso de gestão de custo do Azure pode conceder aos seus dados do Azure.
+Ao adicionar uma conta ou atualizar uma subscrição, concede ao Azure Cost Management acesso aos seus dados do Azure.
 
 ### <a name="add-a-new-account-subscription"></a>Adicionar uma nova conta (subscrição)
 
-1. No portal de gestão de custo do Azure, clique o símbolo de equipamento no canto superior-direito e selecione **contas na nuvem**.
-2. Clique em **Adicionar nova conta** e **Adicionar nova conta** é apresentada a caixa. Introduza as informações necessárias.  
-    ![Adicionar nova caixa de conta](./media/activate-subs-accounts//add-new-account.png)
+1. No portal do Azure Cost Management, clique no símbolo de engrenagem no canto superior direito e selecione **Contas da Cloud**.
+2. Clique em **Adicionar nova conta** para apresentar a caixa **Adicionar nova conta**. Introduza as informações necessárias.  
+    ![Caixa Adicionar nova conta](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Atualizar uma subscrição
 
-1. Se pretender atualizar um _não ativados tentarem_ subscrição já existe no Azure custo de gestão na gestão de contas, clique o símbolo de lápis editar à direita do principal _inquilino GUID_. As subscrições são agrupadas sob um inquilino principal, por isso, evite ativar subscrições individualmente.
-    ![Detetar novamente subscrições](./media/activate-subs-accounts/existing-sub.png)
-2. Se necessário, introduza o ID de inquilino. Se não souber o ID de inquilino, utilize os seguintes passos para encontrá-lo:
+1. Se quiser atualizar uma subscrição _desativada_ já existente no Azure Cost Management, em Gestão de Contas, clique no símbolo de lápis de edição à direita do _GUID de inquilino_ principal. As subscrições são agrupadas num inquilino principal, pelo que deve evitar ativar subscrições individualmente.
+    ![Detetar subscrições novamente](./media/activate-subs-accounts/existing-sub.png)
+2. Se for necessário, introduza o ID de Inquilino. Se não souber o ID de Inquilino, siga os passos abaixo para o encontrar:
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-    2. No portal do Azure, selecione **do Azure Active Directory**.
+    2. No portal do Azure, selecione **Azure Active Directory**.
     3. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
-    4. Copie o GUID de ID de diretório. Este valor é o ID do inquilino.
-    Para obter mais informações, consulte [obter ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-3. Se necessário, selecione o ID de taxa. Se não souber o ID de taxa, utilize os seguintes passos para encontrá-lo.
-    1. No canto superior direito do portal do Azure, clique nas informações do utilizador e, em seguida, clique em **ver minha fatura**.
-    2. Em **conta de faturação**, clique em **subscrições**.
-    3. Em **minhas subscrições**, selecione a subscrição.
-    4. A taxa de ID é apresentado em **oferecem ID**. Copie o ID de oferta da subscrição.
-4. Adicionar nova conta (ou editar subscrição), clique em **guardar** (ou **seguinte**). Está a redirecionado para o portal do Azure.
-5. Inicie sessão no portal. Clique em **aceitar** para autorizar o Recoletor de custo de gestão do Azure aceder à sua conta do Azure.
+    4. Copie o GUID do ID do Diretório. Este valor é o ID do inquilino.
+    Para obter mais informações, veja [Obter o ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+3. Se for necessário, selecione o ID de Taxa. Se não souber o ID de Taxa, siga os passos abaixo para o encontrar:
+    1. No canto superior direito do portal do Azure, clique nas suas informações de utilizador e em **Ver a minha fatura**.
+    2. Em **Conta de Faturação**, clique em **Subscrições**.
+    3. Em **As minhas subscrições**, selecione a subscrição.
+    4. O ID de Taxa é apresentado em **ID de Oferta**. Copie o ID de Oferta para a subscrição.
+4. Na caixa Adicionar nova conta (ou Editar Subscrição), clique em **Guardar** (ou **Seguinte**). Será redirecionado para o portal do Azure.
+5. Inicie sessão no portal. Clique em **Aceitar** para autorizar o acesso do Recoletor do Azure Cost Management à sua conta do Azure.
 
-    Está a ser redirecionado para a página de gestão de contas de gestão do Azure custo e a sua subscrição está atualizada com **Active Directory** estado da conta. Deverá ser apresentado um símbolo de marca de verificação verde na coluna do Gestor de recursos.
+    Será redirecionado para a página de gestão de Contas do Azure Cost Management e a sua subscrição será atualizada com o Estado de Conta **ativa**. Deverá ser apresentado um símbolo de marca de verificação verde na coluna do Resource Manager.
 
-    Se não vir um símbolo de marca de verificação verde para uma ou mais subscrições, significa que não têm permissões para criar a aplicação de leitor (o CloudynCollector) para a subscrição. Um utilizador com permissões superiores para a subscrição tem de repetir este processo.
+    Se não for apresentado um símbolo de marca de verificação verde para uma ou mais subscrições, isso significa que não tem permissões para criar a aplicação de leitor (CloudynCollector) para a subscrição. Este processo tem de ser repetido por um utilizador com permissões superiores para a subscrição.
 
-Veja o [ligar para o Azure Resource Manager com o Azure custo Management](https://youtu.be/oCIwvfBB6kk) vídeo que explica o processo.
+Veja o vídeo [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (Ligar ao Azure Resource Manager com o Azure Cost Management) que explica o processo.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Resolver problemas comuns de configuração de empresa indireta
+## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Resolver problemas comuns de configuração da empresa indireta
 
-Quando utiliza o portal de gestão de custo de Azure pela primeira vez, poderá ver as seguintes mensagens de se for um utilizador Enterprise Agreement ou o fornecedor de solução em nuvem (CSP):
+Ao utilizar o portal do Azure Cost Management pela primeira vez, poderão ser apresentadas as seguintes mensagens se for utilizador do Contrato Enterprise ou Fornecedor de Soluções Cloud (CSP):
 
-- *A chave de API especificada não é uma chave de registo de nível superior* apresentado no **conjunto de cópias de segurança do Azure custo gestão** assistente.
-- *Direcionar inscrição – não* apresentado no portal do contrato Enterprise.
-- *Não foi encontrados nenhum dados de utilização nos últimos 30 dias. Entre em contacto com o distribuidor para se certificar de marcação foi ativada para a sua conta do Azure* apresentado no portal de gestão de custo do Azure.
+- *A chave de API especificada não é uma chave de inscrição de nível superior*, apresentada no assistente de **Configuração do Azure Cost Management**.
+- *Inscrição Direta – Não*, apresentada no portal do Contrato Enterprise.
+- *Não foram encontrados dados de utilização nos últimos 30 dias. Contacte o seu distribuidor para garantir que a marcação foi ativada para a sua conta do Azure*, apresentada no portal do Azure Cost Management.
 
-As mensagens anteriores indicam que comprou um Enterprise Agreement do Azure através de um revendedor ou CSP. Seu revendedor ou CSP tem de ativar _markup_ para o Azure da conta para que possa visualizar os dados na gestão de custo do Azure.
+As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. O seu revendedor ou CSP tem de ativar a _marcação_ para a sua conta do Azure, para que possa ver os dados no Azure Cost Management.
 
-Eis como corrigir os problemas:
+Eis como resolver os problemas:
 
-1. Tem de ativar o revendedor _markup_ para a sua conta. Para obter instruções, consulte o [Indireta guia de integração do cliente](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Gerar a chave de Enterprise Agreement do Azure para utilização com a gestão de custo do Azure. Para obter instruções, consulte [registar um Enterprise Agreement do Azure e a vista de dados de custos](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+1. O seu revendedor tem de ativar a _marcação_ para a sua conta. Para obter instruções, consulte o [Guia de Introdução do Cliente Indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
+2. A chave do Contrato Enterprise do Azure para utilizar com o Azure Cost Management é gerida por si. Para obter instruções, veja [Registar um Contrato Enterprise do Azure e ver dados de custos](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Apenas um administrador de serviço do Azure pode ativar a gestão de custo. Permissões de coadministrador são insuficientes.
+Apenas um administrador de serviços do Azure pode ativar o Cost Management. As permissões de coadministrador são insuficientes.
 
-Pode gerar a chave de API de contrato Enterprise do Azure para configurar a gestão de custo do Azure, tem de ativar a API de faturação do Azure ao seguir as instruções em:
+Para poder gerar a chave de API do Contrato Enterprise do Azure, para configurar o Azure Cost Management, tem de ativar a API de Faturação do Azure ao seguir as instruções em:
 
-- [Descrição geral de APIs de relatórios para os clientes empresariais](../billing/billing-enterprise-api.md)
-- [Portal de empresa do Microsoft Azure API de relatórios](https://ea.azure.com/helpdocs/reportingAPI) em **ativar acesso a dados para a API**
+- [Descrição geral de APIs de Relatórios para clientes Enterprise](../billing/billing-enterprise-api.md)
+- [API de Relatórios do portal empresarial do Microsoft Azure](https://ea.azure.com/helpdocs/reportingAPI) em **Ativar o acesso a dados para a API**
 
-Também poderá ter de conceder os administradores de departamento, proprietários de conta e permissões de administradores da empresa para _ver encargos_ com a API de faturação.
+Também poderá ter de conceder permissões a administradores de departamento, proprietários de conta e administradores empresariais para _ver custos_ com a API de Faturação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Se ainda não tiver concluído o primeiro tutorial para a gestão de custo, leia-lo no [rever os custos de utilização e](tutorial-review-usage.md).
+- Se ainda não tiver concluído o primeiro tutorial para o Cost Management, leia-o em [Rever a utilização e os custos](tutorial-review-usage.md).
