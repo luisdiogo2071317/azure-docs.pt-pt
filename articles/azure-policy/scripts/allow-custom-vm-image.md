@@ -1,29 +1,30 @@
 ---
-title: "Json de política do Azure de exemplo - permitir que a imagem VM personalizada de um grupo de recursos | Microsoft Docs"
-description: "Esta política de exemplo de json requer que as imagens personalizadas ser proveniente de um grupo de recursos aprovados."
+title: Exemplo de json do Azure Policy – Permitir uma imagem de VM personalizada de um grupo de recursos | Microsoft Docs
+description: Esta política de exemplo de json requer que as imagens personalizadas sejam provenientes de um grupo de recursos aprovado.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3da9a459f7e3008fc6a75473cc1a239d9cd5749b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: ca2d25828bc184a783dd065df3cc8200a3af6ee3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154363"
 ---
-# <a name="allow-custom-vm-image-from-a-resource-group"></a>Permitir que a imagem VM personalizada de um grupo de recursos
+# <a name="allow-custom-vm-image-from-a-resource-group"></a>Permitir que a imagem de VM personalizada seja de um grupo de recursos
 
-Esta política de exemplo de json requer que as imagens personalizadas ser proveniente de um grupo de recursos aprovados. Especifique o nome do grupo de recursos aprovados.
+Esta política de exemplo de json requer que as imagens personalizadas sejam provenientes de um grupo de recursos aprovado. Especifica o nome do grupo de recursos aprovado.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,7 +33,7 @@ Esta política de exemplo de json requer que as imagens personalizadas ser prove
 [!code-json[main](../../../policy-templates/samples/compute/custom-image-from-rg/azurepolicy.json "Allow custom VM image from a Resource Group")]
 
 
-Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-portal), com [PowerShell](#deploy-with-powershell) ou com o [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
@@ -49,7 +50,7 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpar a implementação de PowerShell
+### <a name="clean-up-powershell-deployment"></a>Limpar a implementação do PowerShell
 
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -57,7 +58,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -77,4 +78,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Amostras de modelo de política do Azure adicionais podem ser encontradas na documentação de política do Azure
+Pode ver exemplos de modelos do Azure Policy adicionais na documentação do Azure Policy

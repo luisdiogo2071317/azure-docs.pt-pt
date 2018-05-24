@@ -1,29 +1,30 @@
 ---
-title: "Exemplo de json de política do Azure - imagens da VM aprovados | Microsoft Docs"
-description: "Esta política de exemplo de json requer que apenas aprovadas imagens personalizadas no seu ambiente."
+title: Exemplo de json do Azure Policy – Imagens de VM aprovadas | Microsoft Docs
+description: Esta política de exemplo de json requer que sejam implementadas apenas imagens personalizadas aprovadas no seu ambiente.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: dcf43b5b820b41ec8722d843f1484c1607cfbde8
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: f20fc596783e348805977e2a8dceb29cd5cf6fb8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154630"
 ---
-# <a name="approved-vm-images"></a>Imagens VM aprovadas
+# <a name="approved-vm-images"></a>Imagens de VM aprovadas
 
-Esta política requer que apenas aprovadas imagens personalizadas no seu ambiente. Especifique uma matriz de IDs de imagem aprovada.
+Esta política requer que sejam implementadas apenas imagens personalizadas aprovadas no seu ambiente. Especifica uma matriz de IDs de imagens aprovadas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +32,7 @@ Esta política requer que apenas aprovadas imagens personalizadas no seu ambient
 
 [!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
 
-Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-portal), com [PowerShell](#deploy-with-powershell) ou com o [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
@@ -48,7 +49,7 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpar a implementação de PowerShell
+### <a name="clean-up-powershell-deployment"></a>Limpar a implementação do PowerShell
 
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -56,7 +57,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -76,4 +77,5 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Amostras de modelo de política do Azure adicionais são [modelos de política do Azure](../json-samples.md).
+- Pode ver exemplos adicionais de modelos do Azure Policy em [Modelos do Azure Policy](../json-samples.md)
+- Pode ver exemplos adicionais do Azure Policy para Máquinas Virtuais em [Aplicar políticas a VMs do Windows](/azure/virtual-machines/windows/policy)
