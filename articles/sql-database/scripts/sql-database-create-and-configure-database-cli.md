@@ -3,7 +3,7 @@ title: Exemplo da CLI - criar uma base de dados SQL do Azure | Microsoft Docs
 description: Utilize este script de exemplo da CLI do Azure para criar uma base de dados SQL.
 services: sql-database
 documentationcenter: sql-database
-author: janeng
+author: CarlRabeler
 manager: janeng
 editor: carlrab
 ms.service: sql-database
@@ -12,13 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/01/2018
-ms.author: janeng
-ms.openlocfilehash: bb80421b360f43df82ea4a9b2dff5ccc1efdb4a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: carlrab
+ms.date: 05/17/2018
+ms.openlocfilehash: bca779e55d14a6ff3cb6da0984de93123cf23903
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365734"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Utilizar a CLI para criar uma base de dados SQL do Azure única e configurar uma regra de firewall
 
@@ -29,7 +30,7 @@ Base de Dados SQL pode ser acedida a partir de todos os serviços do Azure e do 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
