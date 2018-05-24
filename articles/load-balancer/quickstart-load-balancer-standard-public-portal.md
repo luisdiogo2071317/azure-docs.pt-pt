@@ -1,27 +1,30 @@
 ---
-title: Criar um Balanceador de Carga Standard - Portal do Azure | Microsoft Docs
-description: Saiba como criar um Balanceador de Carga Standard com o Portal do Azure.
+title: 'Início Rápido: Criar um Balanceador de Carga Standard - Portal do Azure | Microsoft Docs'
+description: Este início rápido mostra como criar um balanceador de carga Standard com o portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
-ms.openlocfilehash: f67da7dc84878ca7418eb644daec1a9681e2f6f2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774527"
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Criar um Balanceador de Carga Standard para fazer o balanceamento de carga das VMs com o Portal do Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um Balanceador de Carga Standard para fazer o balanceamento de carga das VMs com o portal do Azure
 
 O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por várias máquinas virtuais. Pode utilizar o Portal do Azure para criar um balanceador de carga que faça o balanceamento de carga das máquinas virtuais (VMs). Este início rápido mostra-lhe como fazer o balanceamento de carga de VMs mediante a utilização de um Balanceador de Carga Standard.
 

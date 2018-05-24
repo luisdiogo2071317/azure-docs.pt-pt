@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5fa5c6708f3b0b0319bd669be7f9c897f095b6e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204197"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
 
 Este artigo descreve os detalhes de configuração de agentes de mapa de serviço e integração. Para obter informações sobre como utilizar o mapa de serviço, consulte [utilizar a solução de mapa de serviço no Azure]( monitoring-service-map.md).
 
-## <a name="dependency-agent-downloads"></a>Transferências de agente de dependência
+## <a name="dependency-agent-downloads"></a>Transferências do Agente de Dependência
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
@@ -33,18 +34,18 @@ Este artigo descreve os detalhes de configuração de agentes de mapa de serviç
 
 
 ## <a name="connected-sources"></a>Origens ligadas
-Mapa de serviço obtém os dados do agente de dependência do Microsoft. O agente de dependência depende do agente do OMS para as suas ligações à análise de registos. Isto significa que um servidor tem de ter o agente do OMS instalado e configurado pela primeira vez e, em seguida, pode ser instalado o agente de dependência. A tabela seguinte descreve as origens ligadas que suporte a solução de mapa de serviço.
+Mapa de serviço obtém os dados do agente de dependência do Microsoft. O Agente de Dependência depende do Agente do OMS para as suas ligações ao Log Analytics. Isto significa que um servidor tem de ter o agente do OMS instalado e configurado pela primeira vez e, em seguida, pode ser instalado o agente de dependência. A tabela seguinte descreve as origens ligadas que suporte a solução de mapa de serviço.
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Windows. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Linux. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-linux-agents.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
-| Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Não é necessária uma ligação direta do computador de agente do System Center Operations Manager para análise de registos. Dados seja reencaminhados do grupo de gestão para a área de trabalho de análise de registos.|
+| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Windows. <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-windows-agent.md), os agentes do Windows precisam do Agente de Dependência da Microsoft. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Linux. <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-linux-agents.md), os agentes Linux precisam do Agente de Dependência da Microsoft. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. Dados seja reencaminhados do grupo de gestão para a área de trabalho de análise de registos.|
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados de computadores de agente, pelo que não existem dados a partir do mesmo para recolher do armazenamento do Azure. |
 
 Mapa de serviço suporta apenas plataformas de 64 bits.
 
-No Windows, o Microsoft Monitoring Agent (MMA) é utilizado pelo System Center Operations Manager e análise de registos para recolher e enviar dados de monitorização. (Este agente é denominado o agente do System Center Operations Manager, agente do OMS, agente de análise do registo, MMA ou agente direta, dependendo no contexto.) System Center Operations Manager e análise de registos fornecem versões de caixa de fora os diferentes do MMA. Estas versões de cada relatório para o System Center Operations Manager, para análise de registos ou para ambos.  
+No Windows, o Microsoft Monitoring Agent (MMA) é utilizado pelo System Center Operations Manager e análise de registos para recolher e enviar dados de monitorização. (Este agente é denominado o agente do System Center Operations Manager, agente do OMS, agente de análise do registo, MMA ou agente direta, dependendo no contexto.) System Center Operations Manager e análise de registos fornecem versões de caixa de fora os diferentes do MMA. Estas versões podem reportar ao System Center Operations Manager, ao Log Analytics ou a ambos.  
 
 No Linux, o agente do OMS para reúne de Linux e envia dados para análise de registos de monitorização. Pode utilizar o mapa de serviço em servidores com agentes direta do OMS ou em servidores que estejam anexados a análise de registos através de grupos de gestão do System Center Operations Manager.  
 
@@ -62,45 +63,45 @@ Se for um cliente do System Center Operations Manager com um grupo de gestão li
 Se estiver a utilizar o agente do OMS direta, terá de configurar o agente de OMS para ligar à análise de registos ou para o seu Gateway OMS. O Gateway do OMS pode ser transferido a partir de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Pacotes de gestão
-Quando o mapa de serviço está ativado numa área de trabalho de análise de registos, é enviado um pacote de gestão de 300 KB para todos os servidores do Windows na área de trabalho. Se estiver a utilizar os agentes do System Center Operations Manager num [grupo de gestão ligado](../log-analytics/log-analytics-om-agents.md), é implementado o pacote de gestão de mapa de serviço do System Center Operations Manager. Se os agentes estarem ligados diretamente, análise de registos fornece o pacote de gestão.
+Quando o mapa de serviço está ativado numa área de trabalho de análise de registos, é enviado um pacote de gestão de 300 KB para todos os servidores do Windows na área de trabalho. Se estiver a utilizar os agentes do System Center Operations Manager num [grupo de gestão ligado](../log-analytics/log-analytics-om-agents.md), é implementado o pacote de gestão de mapa de serviço do System Center Operations Manager. Se os agentes estiverem ligados diretamente, o Log Analytics fornecerá o pacote de gestão.
 
-O pacote de gestão é denominado Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Este é escrito %Programfiles%\Microsoft monitorização Agent\Agent\Health serviço State\Management Packs\. A origem de dados que utiliza o pacote de gestão é % programa files%\Microsoft monitorização Agent\Agent\Health serviço State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+O pacote de gestão é designado Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Este é escrito %Programfiles%\Microsoft monitorização Agent\Agent\Health serviço State\Management Packs\. A origem de dados que utiliza o pacote de gestão é % programa files%\Microsoft monitorização Agent\Agent\Health serviço State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="installation"></a>Instalação
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Instale o agente de dependência no Microsoft Windows
-São necessários privilégios de administrador para instalar ou desinstalar o agente.
+São precisos privilégios de administrador para instalar ou desinstalar o agente.
 
-O agente de dependência é instalado em computadores com Windows através do InstallDependencyAgent Windows.exe. Se executar este ficheiro executável sem quaisquer opções, inicia um assistente que pode seguir para instalar de forma interativa.  
+O agente de dependência é instalado em computadores com Windows através do InstallDependencyAgent Windows.exe. Se executar este ficheiro executável sem opções, ele iniciará um assistente que pode seguir para instalar de forma interativa.  
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador do Windows:
 
 1.  Instalar o agente do OMS, utilizando as instruções apresentadas em [computadores Windows ligar para o serviço de análise de registos do Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  Transferir o agente do Windows e execute-o utilizando o seguinte comando: <br>`InstallDependencyAgent-Windows.exe`
-3.  Siga o Assistente para instalar o agente.
-4.  Se o agente de dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Nos agentes do Windows, o diretório de registo é %Programfiles%\Microsoft Agent\logs de dependência. 
+3.  Siga o assistente para instalar o agente.
+4.  Se o Agente de Dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Nos agentes do Windows, o diretório de registo é %Programfiles%\Microsoft Agent\logs de dependência. 
 
 #### <a name="windows-command-line"></a>Linha de comandos do Windows
-Utilize as opções da tabela seguinte para instalar a partir de uma linha de comandos. Para ver uma lista dos sinalizadores de instalação, execute o instalador utilizando o /? Sinalizador da seguinte forma.
+Utilize as opções da tabela seguinte para instalar a partir de uma linha de comandos. Para ver uma lista de sinalizadores de instalação, execute o instalador com o sinalizador /? da seguinte forma.
 
     InstallDependencyAgent-Windows.exe /?
 
 | Sinalizador | Descrição |
 |:--|:--|
 | /? | Obter uma lista das opções da linha de comandos. |
-| /S | Efetue uma instalação automática com sem avisos do utilizador. |
+| /S | Realizar uma instalação automática sem que seja solicitada a interação do utilizador. |
 
-Os ficheiros para o agente de dependência do Windows são colocados no agente de dependência C:\Program Files\Microsoft por predefinição.
+Por predefinição, os ficheiros do Agente de Dependência do Windows são colocados em C:\Program Files\Microsoft Dependency Agent.
 
-### <a name="install-the-dependency-agent-on-linux"></a>Instale o agente de dependência no Linux
-É necessário acesso de raiz para instalar ou configurar o agente.
+### <a name="install-the-dependency-agent-on-linux"></a>Instalar o Agente de Dependência no Linux
+Para instalar ou configurar o agente é preciso acesso à raiz.
 
-O agente de dependência é instalado em computadores com Linux através do InstallDependencyAgent-Linux64.bin, um script de shell com um binário de extração. Pode executar o ficheiro utilizando ostrar ou adicionar permissões para o próprio ficheiro de execução.
+O Agente de Dependência é instalado em computadores Linux através do ficheiro InstallDependencyAgent-Linux64.bin, um script de shell com um binário de extração automática. Pode executar o ficheiro utilizando ostrar ou adicionar permissões para o próprio ficheiro de execução.
  
-Utilize os seguintes passos para instalar o agente de dependência em cada computador Linux:
+Utilize os seguintes passos para instalar o Agente de Dependência em cada computador Linux:
 
 1.  Instalar o agente do OMS, utilizando as instruções apresentadas em [recolher e gerir dados a partir de computadores com Linux](https://technet.microsoft.com/library/mt622052.aspx).
 2.  Instale o agente de dependência de Linux como raiz usando o seguinte comando:<br>`sh InstallDependencyAgent-Linux64.bin`
-3.  Se o agente de dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Nos agentes Linux, o diretório de registo é /var/opt/microsoft/dependency-agent/log.
+3.  Se o Agente de Dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Nos agentes Linux, o diretório de registo é /var/opt/microsoft/dependency-agent/log.
 
 Para ver uma lista dos sinalizadores de instalação, execute a instalação do programa com-ajuda sinalizador da seguinte forma.
 
@@ -109,21 +110,21 @@ Para ver uma lista dos sinalizadores de instalação, execute a instalação do 
 | Sinalizador | Descrição |
 |:--|:--|
 | -ajudar | Obter uma lista das opções da linha de comandos. |
-| -s | Efetue uma instalação automática com sem avisos do utilizador. |
-| -Verifique | Verifique as permissões e o sistema operativo, mas não instale o agente. |
+| -s | Realizar uma instalação automática sem que seja solicitada a interação do utilizador. |
+| -Verifique | Verificar as permissões e o sistema operativo, mas não instalar o agente. |
 
-Os ficheiros para o agente de dependência são colocados nas seguintes diretórios:
+Os ficheiros do Agente de Dependência são colocados nos seguintes diretórios:
 
 | Ficheiros | Localização |
 |:--|:--|
-| Ficheiros de núcleo | /opt/microsoft/dependency-agent |
+| Ficheiros principais | /opt/microsoft/dependency-agent |
 | Ficheiros de registo | /var/opt/microsoft/dependency-agent/log |
 | Ficheiros de configuração | /etc/opt/microsoft/dependency-agent/config |
-| Ficheiros executáveis do serviço | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| Ficheiros de armazenamento binário | /var/opt/microsoft/dependency-agent/storage |
+| Ficheiros executáveis de serviço | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Ficheiros de armazenamento binários | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Exemplos de script de instalação
-Para facilmente implementar o agente de dependência em vários servidores ao mesmo tempo, ajuda a para utilizar um script. Pode utilizar os seguintes exemplos de script para transferir e instalar o agente de dependência no Windows ou Linux.
+Para implementar facilmente o Agente de Dependência em vários servidores ao mesmo tempo, poderá ser útil utilizar um script. Pode utilizar os seguintes exemplos de script para transferir e instalar o Agente de Dependência no Windows ou Linux.
 
 ### <a name="powershell-script-for-windows"></a>Script do PowerShell para Windows
 ```PowerShell
@@ -188,7 +189,7 @@ ForEach-Object {
 
 
 ## <a name="desired-state-configuration"></a>Configuração do Estado Pretendido
-Para implementar o agente de dependência através da configuração de estado pretendida, pode utilizar o módulo de xPSDesiredStateConfiguration e um bit de código como o seguinte:
+Para implementar o Agente de Dependência através da Configuração do Estado Pretendido, pode utilizar o módulo xPSDesiredStateConfiguration e um excerto de código, por exemplo:
 ```
 configuration ServiceMap {
 
@@ -222,12 +223,12 @@ Node localhost
 ```
 
 ## <a name="uninstallation"></a>Desinstalação
-### <a name="uninstall-the-dependency-agent-on-windows"></a>Desinstale o agente de dependência no Windows
-Um administrador pode desinstalar o agente de dependência para o Windows através do painel de controlo.
+### <a name="uninstall-the-dependency-agent-on-windows"></a>Desinstalar o Agente de Dependência no Windows
+Um administrador pode desinstalar o Agente de Dependência do Windows através do Painel de Controlo.
 
-Um administrador também pode executar %Programfiles%\Microsoft dependência Agent\Uninstall.exe para desinstalar o agente de dependência.
+Um administrador também pode executar o ficheiro %Programfiles%\Microsoft Dependency Agent\Uninstall.exe para desinstalar o Agente de Dependência.
 
-### <a name="uninstall-the-dependency-agent-on-linux"></a>Desinstale o agente de dependência no Linux
+### <a name="uninstall-the-dependency-agent-on-linux"></a>Desinstalar o Agente de Dependência no Linux
 Pode desinstalar o agente de dependência do Linux com o seguinte comando.
 <br>RHEL, CentOs ou Oracle:
 ```
@@ -292,7 +293,7 @@ Mapa de serviço está atualmente disponível em regiões do Azure do seguintes:
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
-As secções seguintes listam os sistemas operativos suportados para o agente de dependência. Mapa de serviço não suporta arquiteturas de 32 bits para qualquer sistema operativo.
+As secções seguintes listam os sistemas operativos suportados para o Agente de Dependência. Mapa de serviço não suporta arquiteturas de 32 bits para qualquer sistema operativo.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -306,15 +307,15 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 - Windows 8
 - Windows 7
 
-### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (com o Kernel do RHEL)
-- São suportadas apenas predefinido e versões de kernel do SMP Linux.
-- Versões kernel não padrão, tais como PAE e Xen, não são suportados para qualquer distribuição de Linux. Por exemplo, um sistema com a cadeia de versão de "2.6.16.21-0.8-xen" não é suportado.
-- Kernels personalizados, incluindo recompilações de kernels padrão, não são suportadas.
-- CentOSPlus kernel não é suportada.
-- Oracle Unbreakable Enterprise Kernel (UEK) é abrangida numa secção posterior deste artigo.
+### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (com Kernel RHEL)
+- Apenas as versões de kernel padrão e SMP Linux são suportadas.
+- As versões kernel não padrão, tais como PAE e Xen, não são suportadas para qualquer distribuição de Linux. Por exemplo, um sistema com a cadeia de versão de "2.6.16.21-0.8-xen" não é suportado.
+- Kernels personalizados, incluindo recompilações de kernels padrão, não são suportados.
+- O kernel do CentOSPlus kernel não é suportado.
+- O Oracle Unbreakable Enterprise Kernel (UEK) é abordado numa secção posterior deste artigo.
 
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 | Versão do SO | Versão de kernel |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
@@ -322,6 +323,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Versão do SO | Versão de kernel |
@@ -346,15 +348,15 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 | 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
-- Kernels personalizados, incluindo recompilações de kernels padrão, não são suportadas.
+- Kernels personalizados, incluindo recompilações de kernels padrão, não são suportados.
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux com o Kernel Unbreakable Enterprise
-#### <a name="oracle-linux-6"></a>Oracle Linux 6
+### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux com Unbreakable Enterprise Kernel
+#### <a name="oracle-linux-6"></a>Oracle Linux 6
 | Versão do SO | Versão de kernel
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
@@ -370,7 +372,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
-#### <a name="suse-linux-enterprise-server"></a>Servidor Linux Empresarial SUSE
+#### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Versão do SO | Versão de kernel
@@ -380,7 +382,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 | 11 SP4 | 3.0.101-65 |
 
 
-## <a name="diagnostic-and-usage-data"></a>dados de diagnóstico e utilização
+## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
 A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço de mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Os dados incluem informações sobre a configuração do seu software, como o sistema operativo e versão. Também inclui endereço IP, o nome DNS e o nome da estação de trabalho para fornecer capacidades de resolução de problemas exatas e eficientes. Não recolhemos nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a utilização e recolha de dados, consulte o [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

@@ -1,36 +1,37 @@
 ---
-title: Máquinas virtuais do Centro de segurança do Azure e o Windows no Azure | Microsoft Docs
-description: Saiba mais sobre a segurança para a máquina virtual do Azure Windows com o Centro de segurança do Azure.
+title: Tutorial – Utilizar o Centro de Segurança do Azure para VMs do Windows no Azure | Microsoft Docs
+description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de Segurança do Azure para ajudar a proteger as suas máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190599"
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorizar a segurança da máquina virtual com o Centro de Segurança do Azure
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Windows
 
 O Centro de Segurança do Azure pode ajudá-lo a obter visibilidade para as práticas de segurança dos seus recursos do Azure. O Centro de Segurança oferece monitorização de segurança integrada. Pode detetar ameaças que, caso contrário, poderiam passar despercebidas. Neste tutorial, pode obter informações sobre o Centro de Segurança do Azure e como:
- 
+
 > [!div class="checklist"]
 > * Configurar a recolha de dados
 > * Configurar políticas de segurança
 > * Ver e corrigir problemas de estado de funcionamento da configuração
-> * Rever as ameaças detetadas  
+> * Rever as ameaças detetadas
 
 ## <a name="security-center-overview"></a>Descrição geral do Centro de Segurança
 
@@ -135,7 +136,7 @@ Selecione um alerta para ver as informações. Por exemplo, pode ver uma descri�
 
 ![Ataque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu VMs no Centro de Segurança. Aprendeu a:
 
 > [!div class="checklist"]
@@ -144,7 +145,7 @@ Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu 
 > * Ver e corrigir problemas de estado de funcionamento da configuração
 > * Rever as ameaças detetadas
 
-Avançar para o próximo tutorial para saber como criar um pipeline de CI/CD com uma VM do Windows que executa o IIS e o Visual Studio Team Services.
+Avance para o próximo tutorial para saber como criar um pipeline CI/CD com o Visual Studio Team Services e uma VM do Windows com o IIS em execução.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Team Services CI/CD pipeline](./tutorial-vsts-iis-cicd.md)
+> [Pipeline CI/CD do Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)

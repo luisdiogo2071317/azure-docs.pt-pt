@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071551"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do SQL Server 2017 do Windows no portal do Azure
 
@@ -72,11 +73,9 @@ Na janela **Informações Básicas**, forneça as seguintes informações:
 
 ## <a name="choose-virtual-machine-size"></a>Selecionar o tamanho da máquina virtual
 
-No passo **Tamanho**, escolha um tamanho de máquina virtual na janela **Escolher um tamanho**. Inicialmente, a janela apresenta os tamanhos de máquina recomendados com base na imagem que selecionou. 
+1. No passo **Tamanho**, escolha um tamanho de máquina virtual na janela **Escolher um tamanho**.
 
-1. Clique em **Ver todos** para ver todos os tamanhos de máquinas disponíveis.
-
-1. Para este início rápido, selecione **D2S_V3**. O portal mostra o custo estimado mensal da máquina para utilização contínua (sem incluir os custos de licenciamento do SQL Server). Tenha em atenção que a Edição de Programador não tem custos de licenciamento extra para o SQL Server. Para obter mais informações de preços mais específicas, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+   Para este início rápido, selecione **D2S_V3**. O portal mostra o custo estimado mensal da máquina para utilização contínua (sem incluir os custos de licenciamento do SQL Server). Tenha em atenção que a Edição de Programador não tem custos de licenciamento extra para o SQL Server. Para obter mais informações de preços mais específicas, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
    > O tamanho de máquina **D2S_V3** poupa dinheiro ao testar. Mas para cargas de trabalho de produção, veja os tamanhos e as configurações de máquinas recomendados em [Performance best practices for SQL Server in Azure Virtual Machine](virtual-machines-windows-sql-performance.md) (Melhores práticas de desempenho para o SQL Server nas Máquinas Virtuais do Azure).
@@ -85,7 +84,14 @@ No passo **Tamanho**, escolha um tamanho de máquina virtual na janela **Escolhe
 
 ## <a name="configure-optional-features"></a>Configurar funcionalidades opcionais
 
-Na janela **Definições**, clique em **OK** para selecionar as predefinições.
+1. Na janela **Definições**, selecione a porta **RDP (3389)** na lista **Selecionar portas de entrada públicas** se pretender aceder à VM através do ambiente de trabalho remoto.
+
+   ![Portas de entrada](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > Pode selecionar a porta **MS SQL (1433)** para aceder remotamente ao SQL Server. No entanto, não é necessário fazê-lo porque o passo **Definições do SQL Server** também fornece esta opção. Se selecionar a porta 1433 neste passo, esta será aberta independentemente das suas seleções no passo **Definições do SQL Server**.
+
+1. Clique em **OK** para guardar as alterações e continuar.
 
 ## <a name="sql-server-settings"></a>Definições do SQL Server
 

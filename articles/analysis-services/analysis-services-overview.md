@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154312"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193820"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -58,7 +58,7 @@ O servidores do Azure Analysis Services podem ser criados nas [regiões do Azure
 
 | Américas | Europa | Ásia-Pacífico |
 |----------|--------|--------------|
-|  Sul do Brasil<br> Canadá Central<br> EUA Leste 2<br> EUA Centro-Norte<br> EUA Centro-Sul<br> EUA Centro-Oeste<br> EUA Oeste | Europa do Norte<br> Reino Unido Sul<br> Europa Ocidental |   Sudeste da Austrália<br> Leste do Japão<br> Sudeste Asiático<br> Índia Ocidental  |
+|  Sul do Brasil<br> Canadá Central<br> EUA Leste<br> EUA Leste 2<br> EUA Centro-Norte<br> EUA Central<br> EUA Centro-Sul<br> EUA Centro-Oeste<br> EUA Oeste<br> E.U.A. Oeste 2 | Europa do Norte<br> Reino Unido Sul<br> Europa Ocidental |   Sudeste da Austrália<br> Leste do Japão<br> Sudeste Asiático<br> Índia Ocidental  |
 
 São adicionadas regiões novas constantemente, pelo que esta lista pode estar incompleta. A localização é escolhida quando cria o seu servidor no portal do Azure ou com os modelos do Azure Resource Manager. Para obter o melhor desempenho, escolha a localização mais perto da sua base de utilizadores. Implemente os seus modelos em servidores redundantes em várias regiões para garantir a [elevada disponibilidade](analysis-services-bcdr.md).
 

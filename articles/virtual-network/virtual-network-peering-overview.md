@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367111"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -44,7 +45,7 @@ A latência de rede entre máquinas virtuais em redes virtuais no modo de peerin
 O tráfego entre as máquinas virtuais nas redes virtuais em modo de peering é encaminhado diretamente através da infraestrutura principal da Microsoft e não através de um gateway ou numa Internet pública.
 
 Os grupos de segurança de rede podem ser aplicados a qualquer rede virtual para bloquear o acesso a outras redes virtuais ou sub-redes, se assim o desejar.
-Ao configurar o peering de rede virtual, pode abrir ou fechar as regras do grupo de segurança de rede entre as redes virtuais. Se abrir a conectividade total entre as redes virtuais em modo de peering (que é a opção predefinida), pode aplicar grupos de segurança de rede a sub-redes ou máquinas virtuais específicas, para bloquear ou negar o acesso específico. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](virtual-networks-nsg.md).
+Ao configurar o peering de rede virtual, pode abrir ou fechar as regras do grupo de segurança de rede entre as redes virtuais. Se abrir a conectividade total entre as redes virtuais em modo de peering (que é a opção predefinida), pode aplicar grupos de segurança de rede a sub-redes ou máquinas virtuais específicas, para bloquear ou negar o acesso específico. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md).
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 
@@ -64,7 +65,7 @@ Quando as redes virtuais estão em modo de peering na mesma região, também pod
 
 ![trânsito de peering de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-O trânsito de gateway não é suportado na relação de peering entre redes virtuais criadas através de modelos de implementação diferentes ou em regiões diferentes. Para que o trânsito de gateway funcione, é necessário que ambas as redes virtuais na relação de peering tenham sido criadas através do Resource Manager e estejam na mesma região.
+O trânsito de gateway não é suportado na relação de peering entre redes virtuais criadas em regiões diferentes. Para que o trânsito de gateway funcione, ambas as redes virtuais na relação de peering têm de existir na mesma região. O trânsito de gateway entre redes virtuais criadas através de modelos de implementação diferentes (Resource Manager e clássico), só é suportado se o gateway estiver na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que partilham uma única ligação ExpressRoute do Azure estão em modo de peering, o tráfego entre as mesmas passa pela relação de peering (ou seja, pela rede principal do Azure). Pode continuar a utilizar gateways locais em cada rede virtual para ligar ao circuito no local. Em alternativa, pode utilizar um gateway partilhado e configurar o trânsito para conectividade no local.
 
