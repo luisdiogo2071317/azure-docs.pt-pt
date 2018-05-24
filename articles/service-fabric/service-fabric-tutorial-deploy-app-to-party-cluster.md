@@ -3,8 +3,8 @@ title: Implementar uma aplicação do Azure Service Fabric num cluster | Microso
 description: Saiba como implementar uma aplicação num cluster a partir do Visual Studio.
 services: service-fabric
 documentationcenter: .net
--author: rwike77
--manager: msfussell
+author: rwike77
+manager: msfussell
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: f75a05e965a025a3041036679ac06cfe4f1ec8d7
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 4716cacf840dcf7a372923e29f758dbdc82fbf51
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208884"
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementar uma aplicação num cluster do Service Fabric no Azure
 Este tutorial é a segunda parte de uma série e mostra-lhe como implementar uma aplicação do Azure Service Fabric num cluster novo no Azure diretamente a partir do Visual Studio.
@@ -57,7 +58,7 @@ Agora que a aplicação está pronta, pode implementá-la num cluster diretament
 
 Dispõe de duas opções de implementação no Visual Studio:
 - Criar um cluster no Azure a partir do Visual Studio. Esta opção permite-lhe criar um cluster seguro diretamente a partir do Visual Studio com as suas configurações preferidas. Este tipo de cluster é ideal para cenários de teste, nos quais pode criar o cluster e, em seguida, publicar diretamente no mesmo no Visual Studio.
-- Publicar num cluster existente na sua subscrição.  Pode criar clusters do Service Fabric através do [portal do Azure](https://portal.azure.com) com os scripts do [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou da [CLI do Azure](./scripts/cli-create-cluster.md) ou a partir de um [modelo do Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+- Publique num cluster existente na sua subscrição.  Pode criar clusters do Service Fabric através do [portal do Azure](https://portal.azure.com) com os scripts do [PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou da [CLI do Azure](./scripts/cli-create-cluster.md) ou a partir de um [modelo do Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Este tutorial cria um cluster a partir do Visual Studio. Se já tiver um cluster implementado, poderá copiar e colar o ponto final de ligação ou escolhê-lo na sua subscrição.
 > [!NOTE]
@@ -88,7 +89,7 @@ Na caixa de diálogo **Criar cluster**, modifique as seguintes definições:
 3. Selecione o separador **Certificado**. Neste separador, escreva uma palavra-passe a utilizar para proteger o certificado do seu cluster. Este certificado ajuda a tornar o seu cluster seguro. Também pode modificar o caminho para o local onde pretende guardar o certificado. O Visual Studio também pode importar o certificado por si, uma vez que este é um passo obrigatório para publicar a aplicação no cluster.
 4. Selecione o separador **Detalhes da VM**. Especifique a palavra-passe que pretende utilizar para as máquinas virtuais (VM) que compõem o cluster. O nome de utilizador e a palavra-passe podem ser utilizados para ligar remotamente às VMs. Também tem de selecionar um tamanho de VM e pode alterar a imagem da VM, se necessário.
 5. No separador **Avançado**, pode modificar a lista de portas que pretende que sejam abertas no balanceador de carga do Azure a par do cluster.  Adicione o ponto final de serviço do VotingWeb que detetou num passo anterior. Também pode adicionar uma chave do Application Insights existente para encaminhar os ficheiros de registo da aplicação.
-6. Quando terminar a modificação das definições, selecione o botão **Criar**. A criação demora alguns minutos a ser concluída; a janela de saída informá-lo-á quando o cluster estiver totalmente criado.
+6. Quando terminar de modificar as definições, selecione o botão **Criar**. A criação demora alguns minutos a ser concluída; a janela de saída informá-lo-á quando o cluster estiver totalmente criado.
 
 ![Caixa de diálogo Create Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 

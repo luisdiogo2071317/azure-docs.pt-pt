@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336556"
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -175,7 +176,7 @@ Para obter mais informações, consulte:
 * Início de sessão direto em aplicações federadas
 * Ligações avançadas para aplicações federadas, baseadas em palavras-passe ou existentes
 
-Para mais informações, consulte [Implementar aplicações integradas ao Azure AD para os utilizadores](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Para mais informações, consulte [Implementar aplicações integradas ao Azure AD para os utilizadores](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **P: Quais são as várias formas de autenticação e início de sessão único do Azure AD das aplicações?**
@@ -186,7 +187,7 @@ Para obter mais informações, consulte:
 
 * [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md)
 * [Protocolos de autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Como funciona um início de sessão único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Como funciona um início de sessão único com o Azure Active Directory?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **P: Posso adicionar as aplicações que estiver a executar no local?**
