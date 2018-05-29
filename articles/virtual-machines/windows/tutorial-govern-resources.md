@@ -1,6 +1,6 @@
 ---
-title: Governar máquinas virtuais do Azure com o Azure PowerShell | Microsoft Docs
-description: Tutorial - gerir máquinas virtuais do Azure através da aplicação RBAC, políticas, bloqueios e etiquetas com o Azure PowerShell
+title: Tutorial – Governar máquinas virtuais do Azure com o Azure PowerShell | Microsoft Docs
+description: Neste tutorial, vai aprender a utilizar o Azure PowerShell para gerir máquinas virtuais do Azure através da aplicação de RBAC, políticas, bloqueios e etiquetas
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,30 +10,32 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: d4e09eb11ea04c31b7e302b7f66f8e67c13e8252
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.custom: mvc
+ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190296"
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>Governação de máquina virtual com o Azure PowerShell
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Saber mais acerca da governação de máquinas virtuais do Linux com o Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, consulte [módulo Azure PowerShell instalar](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure. Para instalações locais, tem também [transferir o módulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo no Azure Active Directory.
+Se optar por instalar e utilizar o PowerShell localmente, veja [ Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure. Para instalações locais, tem também de [transferir o módulo do PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para criar um novo grupo no Azure Active Directory.
 
 ## <a name="understand-scope"></a>Compreender o âmbito
 
 [!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-Neste tutorial, aplicar todas as definições de gestão a um grupo de recursos para poder remover facilmente essas definições quando terminar.
+Neste tutorial, vai aplicar todas as definições de gestão a um grupo de recursos para poder remover facilmente essas definições quando terminar.
 
-Vamos criar nesse grupo de recursos.
+Vamos então criar esse grupo de recursos.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,19 +45,19 @@ Atualmente, o grupo de recursos está vazio.
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-Deve certificar-se de que os utilizadores na sua organização tiverem o nível adequado de acesso a estes recursos. Não pretende conceder acesso ilimitado a utilizadores, mas terá também de certificar-se de que podem fazer o seu trabalho. [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) permite-lhe gerir os utilizadores que têm permissão para concluir as ações específicas a um âmbito.
+Deve confirmar que os utilizadores na sua organização possuem o nível adequado de acesso a estes recursos. Não vai querer conceder acesso ilimitado aos utilizadores, mas também precisa de confirmar que estes podem fazer o seu trabalho. O [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) permite-lhe gerir os utilizadores que têm permissão para concluir ações específicas num âmbito.
 
-Para criar e remover atribuições de funções, os utilizadores devem ter `Microsoft.Authorization/roleAssignments/*` acesso. Este acesso é concedido através de funções de proprietário ou administrador de acesso de utilizador.
+Para criar e remover atribuições de funções, os utilizadores devem ter acesso `Microsoft.Authorization/roleAssignments/*`. Este acesso é concedido através das funções Proprietário ou Administrador de Acesso dos Utilizadores.
 
-Para gerir soluções de máquina virtual, existem três funções específicas do recurso que fornecem acesso normalmente necessário:
+Para gerir soluções de máquina virtual, existem três funções de recursos específicos que fornecem o acesso normalmente necessário:
 
-* [Contribuinte de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Contribuidor de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Contribuidor de Rede](../../role-based-access-control/built-in-roles.md#network-contributor)
-* [Contribuinte de conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Contribuidor de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções para utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que necessitam para efetuar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função para um âmbito. 
+Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
 
-O exemplo seguinte cria um grupo do Azure Active Directory com o nome *VMDemoContributors* com uma alcunha de correio de *vmDemoGroup*. A alcunha correio serve como um alias para o grupo.
+O exemplo seguinte cria um grupo do Azure Active Directory com o nome *VMDemoContributors* com a alcunha de correio *vmDemoGroup*. A alcunha de correio serve como um alias para o grupo.
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -64,7 +66,7 @@ $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -SecurityEnabled $true
 ```
 
-Demora alguns momentos depois de linha de comandos devolve para o grupo propagar ao longo do Azure Active Directory. Depois de aguardar 20 ou 30 segundos, utilize o [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) comando para atribuir o novo grupo no Azure Active Directory para a função de contribuinte de Máquina Virtual para o grupo de recursos.  Se executar o seguinte comando antes de este tiver sido propagada, receberá um erro a indicar **Principal <guid> não existe no diretório**. Tente executar novamente o comando.
+Depois de a linha de comandos ser devolvida, vai levar alguns instantes até que o grupo seja propagado pelo Azure Active Directory. Depois de aguardar 20 ou 30 segundos, utilize o comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir o novo grupo do Azure Active Directory à função Contribuidor de Máquina Virtual do grupo de recursos.  Se executar o seguinte comando antes da propagação, receberá um erro a indicar que o **Principal <guid> não existe no diretório**. Tente executar o comando novamente.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
@@ -72,7 +74,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Normalmente, pode repete o processo para *contribuinte de rede* e *contribuinte de conta de armazenamento* para se certificar de que os utilizadores são atribuídos a gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
+Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
 ## <a name="azure-policies"></a>Políticas do Azure
 
@@ -80,19 +82,19 @@ Normalmente, pode repete o processo para *contribuinte de rede* e *contribuinte 
 
 ### <a name="apply-policies"></a>Aplicar políticas
 
-A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) comando:
+A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o comando [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition):
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-Consulte as definições de política existente. O tipo de política está **BuiltIn** ou **personalizada**. Examine as definições para aqueles que descrevem uma condição que pretende atribuir. Neste artigo, pode atribuir políticas que:
+Poderá ver as definições de política existentes. O tipo de política é **BuiltIn** ou **Personalizado**. Examine as definições para encontrar aquelas que descrevem uma condição que pretenda atribuir. Neste artigo, pode atribuir políticas para:
 
-* Limite as localizações para todos os recursos.
-* Limite os SKUs de máquinas virtuais.
-* Máquinas virtuais que não utilize discos geridos de auditoria.
+* Limitar as localizações de todos os recursos.
+* Limitar os SKUs das máquinas virtuais.
+* Auditar máquinas virtuais que não utilizam discos geridos.
 
-No exemplo seguinte, é possível obter três definições de política com base no nome de apresentação. Utilizar o [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) comando para atribuir essas definições para o grupo de recursos. Para algumas políticas, forneça valores de parâmetro para especificar os valores permitidos.
+No exemplo seguinte, obtém três definições de políticas baseadas no nome a apresentar. Utiliza o comando [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) para atribuir essas definições ao grupo de recursos. Para algumas políticas, forneça valores de parâmetros para especificar os valores permitidos.
 
 ```azurepowershell-interactive
 # Values to use for parameters
@@ -127,7 +129,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>Implementar a máquina virtual
 
-Atribuiu funções e as políticas de, pelo que está pronto para implementar a sua solução. O tamanho predefinido é Standard_DS1_v2, que é um dos seus SKUs permitidos. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
+Atribuiu funções e políticas, pelo que está pronto para implementar a sua solução. O tamanho predefinido é Standard_DS1_v2, que é um dos seus SKUs permitidos. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
 
 ```azurepowershell-interactive
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
@@ -140,13 +142,13 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -OpenPorts 80,3389
 ```
 
-Após a conclusão da sua implementação, pode aplicar as definições de gestão mais para a solução.
+Após a conclusão da implementação, pode aplicar mais definições de gestão à solução.
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
-[Bloqueios de recurso](../../azure-resource-manager/resource-group-lock-resources.md) impedir que os utilizadores na sua organização acidentalmente eliminem ou modificar a recursos críticos. Ao contrário do controlo de acesso baseado em funções, bloqueios de recurso aplicam-se uma restrição em todos os utilizadores e funções. Pode definir o bloqueio para *CanNotDelete* ou *ReadOnly*.
+Os [bloqueios de recursos](../../azure-resource-manager/resource-group-lock-resources.md) impedem que os utilizadores na sua organização eliminem ou modifiquem acidentalmente recursos críticos. Ao contrário do controlo de acesso baseado em funções, os bloqueios de recursos aplicam uma restrição a todos os utilizadores e a todas as funções. Pode definir o nível do bloqueio para *CanNotDelete* ou *ReadOnly*.
 
-Para bloquear a máquina virtual e o grupo de segurança de rede, utilize o [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) comando:
+Para bloquear a máquina virtual e o grupo de segurança de rede, utilize o comando [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock):
 
 ```azurepowershell-interactive
 # Add CanNotDelete lock to the VM
@@ -170,15 +172,15 @@ Para testar os bloqueios, tente executar o seguinte comando:
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Verá um erro a indicar que a operação de eliminação não pode ser efetuada devido a um bloqueio. O grupo de recursos só pode ser eliminado se especificamente a remover os bloqueios. Este passo é apresentado na [limpar recursos](#clean-up-resources).
+Verá um erro a indicar que a operação de eliminação não pode ser realizada devido a um bloqueio. O grupo de recursos só poderá ser eliminado se remover especificamente os bloqueios. Este passo é apresentado em [Limpar recursos](#clean-up-resources).
 
-## <a name="tag-resources"></a>Etiqueta de recursos
+## <a name="tag-resources"></a>Etiquetar recursos
 
-Aplicar [etiquetas](../../azure-resource-manager/resource-group-using-tags.md) aos seus recursos do Azure para organizar logicamente por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
+O utilizador aplica as [etiquetas](../../azure-resource-manager/resource-group-using-tags.md) aos recursos do Azure para os organizar por categorias. Cada etiqueta é constituída por um nome e um valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
-Para aplicar etiquetas a uma máquina virtual, utilize o [conjunto AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) comando:
+Para aplicar etiquetas a uma máquina virtual, utilize o comando [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource):
 
 ```azurepowershell-interactive
 # Get the virtual machine
@@ -192,25 +194,25 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>Localizar recursos por etiqueta
 
-Para localizar recursos com um nome de tag e um valor, utilize o [localizar AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) comando:
+Para localizar recursos com um nome e valor de etiqueta, utilize o comando [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource):
 
 ```azurepowershell-interactive
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-Pode utilizar os valores devolvidos para tarefas de gestão, como parar todas as máquinas virtuais com um valor de etiqueta.
+Pode utilizar os valores devolvidos das tarefas de gestão, como parar todas as máquinas virtuais com um valor de etiqueta.
 
 ```azurepowershell-interactive
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-### <a name="view-costs-by-tag-values"></a>Custos de vista pelos valores de etiqueta
+### <a name="view-costs-by-tag-values"></a>Ver custos por valores de etiqueta
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Não é possível eliminar o grupo de segurança de rede bloqueado até que o bloqueio é removido. Para remover o bloqueio, utilize o [remover AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) comando:
+O grupo de segurança de rede bloqueado não pode ser eliminado até que o bloqueio seja removido. Para remover o bloqueio, utilize o comando [Remove-AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock):
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceLock -LockName LockVM `
@@ -229,17 +231,17 @@ Quando já não for necessário, pode utilizar o comando [Remove-AzureRmResource
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de VM personalizada. Aprendeu a:
 
 > [!div class="checklist"]
 > * Atribuir utilizadores a uma função
-> * Aplicar políticas que impõem as normas
+> * Aplicar políticas que impõem normas
 > * Proteger recursos críticos com bloqueios
-> * Recursos de etiqueta de faturação e gestão
+> * Etiquetar recursos para faturação e gestão
 
-Avançar para o próximo tutorial para saber mais sobre como elevadas máquinas virtuais.
+Avance para o próximo tutorial, para saber mais sobre máquinas virtuais de elevada disponibilidade.
 
 > [!div class="nextstepaction"]
 > [Monitorizar máquinas virtuais](tutorial-monitoring.md)

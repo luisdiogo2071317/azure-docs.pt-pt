@@ -1,6 +1,6 @@
 ---
-title: Fazer cópias de segurança de VMs Linux do Azure | Microsoft Docs
-description: Proteja as suas VMs Linux, fazendo cópias de segurança das mesmas com o Azure Backup.
+title: Tutorial - Fazer uma cópia de segurança de máquinas virtuais do Linux no portal do Azure | Microsoft Docs
+description: Neste tutorial, irá aprender a utilizar o portal do Azure para proteger as máquinas virtuais do Linux com o Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,21 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190568"
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Fazer cópias de segurança de máquinas virtuais Linux no Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure
 
-Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou apenas ficheiros específicos. Este artigo explica como restaurar um ficheiro único para uma VM Linux com nginx. Se ainda não tiver uma VM para utilizar, pode criar uma com o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, ficará a saber como:
+Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros específicos. Este artigo explica como restaurar um ficheiro único para uma VM Linux com nginx. Se ainda não tiver uma VM para utilizar, pode criar uma com o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma cópia de segurança de uma VM
 > * Agendar uma cópia de segurança diária
 > * Restaurar um ficheiro a partir de uma cópia de segurança
-
-
 
 ## <a name="backup-overview"></a>Descrição geral da Cópia de Segurança
 
@@ -43,7 +42,7 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 
 
 ## <a name="create-a-backup"></a>Criar uma cópia de segurança
-Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Recuperação. 
+Crie uma cópia de segurança diária agendada para um Cofre dos Serviços de Recuperação:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
@@ -54,7 +53,7 @@ Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Rec
 7. No painel **Ativar cópia de segurança**, clique em **Ativar Cópia de Segurança**. Esta ação cria uma cópia de segurança diária, com base na agenda predefinida.
 10. Para criar um ponto de recuperação inicial, no painel **Cópia de segurança**, clique em **Fazer cópia de segurança agora**.
 11. No painel **Fazer Cópia de Segurança Agora**, clique no ícone de calendário, utilize o controlo do calendário para selecionar o último dia em que este ponto de recuperação é mantido e clique em **Cópia de Segurança**.
-12. No painel **Cópia de Segurança** para a VM, verá o número de pontos de recuperação que estão concluídos.
+12. No painel **Cópia de Segurança** para a VM, vê o número de pontos de recuperação que estão concluídos.
 
     ![Pontos de recuperação](./media/tutorial-backup-vms/backup-complete.png)
 
@@ -62,7 +61,7 @@ A primeira cópia de segurança demora cerca de 20 minutos. Avance para a parte 
 
 ## <a name="restore-a-file"></a>Restaurar um ficheiro
 
-Se eliminar ou fizer alterações acidentalmente a um ficheiro, pode utilizar a Recuperação de Ficheiros para recuperar o ficheiro do cofre de cópias de segurança. A Recuperação de Ficheiros utiliza um script que é executado na VM, para montar o ponto de recuperação como uma unidade local. Estas unidades permanecerão montadas durante 12 horas para que possa copiar os ficheiros do ponto de recuperação e restaurá-los para a VM.  
+Se eliminar ou fizer alterações acidentalmente a um ficheiro, pode utilizar a Recuperação de Ficheiros para recuperar o ficheiro do cofre de cópias de segurança. A Recuperação de Ficheiros utiliza um script que é executado na VM, para montar o ponto de recuperação como uma unidade local. Estas unidades permanecem montadas durante 12 horas para que possa copiar os ficheiros do ponto de recuperação e restaurá-los para a VM.  
 
 Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/www/html/index.nginx-debian.html. Neste exemplo, o endereço IP público da nossa VM é *13.69.75.209*. Pode encontrar o endereço IP da VM com:
 

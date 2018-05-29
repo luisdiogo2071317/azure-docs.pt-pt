@@ -1,29 +1,30 @@
 ---
-title: "Json de política do Azure de exemplo - não auditoria nenhum administrador do Azure AD | Microsoft Docs"
-description: "Esta política de exemplo de json auditorias quando não existe nenhum administrador do Azure Active Directory atribuído para o SQL server."
+title: Exemplo de json do Azure Policy – Auditar se não existir um administrador do Azure AD | Microsoft Docs
+description: Esta política de exemplo de json faz uma auditoria quando não existe nenhum administrador do Azure Active Directory atribuído ao servidor SQL.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: ac114530c9f60fdff296b3a3cd198765c341f0f0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 576916e9a5702a3c7c21f1dbf2276a81c96a908e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149821"
 ---
-# <a name="audit-no-azure-active-directory-administrator"></a>Nenhum administrador do Azure Active Directory de auditoria
+# <a name="audit-no-azure-active-directory-administrator"></a>Auditar se não existir um administrador do Azure Active Directory
 
-Auditoria quando não existe nenhum administrador do Azure Active Directory atribuído para o SQL server.
+Auditar quando não existe nenhum administrador do Azure Active Directory atribuído ao servidor SQL.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +32,7 @@ Auditoria quando não existe nenhum administrador do Azure Active Directory atri
 
 [!code-json[main](../../../policy-templates/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.json "Audit SQL DB Level Audit Setting")]
 
-Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-portal), com [PowerShell](#deploy-with-powershell) ou com o [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
@@ -48,7 +49,7 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpar a implementação de PowerShell
+### <a name="clean-up-powershell-deployment"></a>Limpar a implementação do PowerShell
 
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -56,7 +57,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -76,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Amostras de modelo de política do Azure adicionais são [modelos de política do Azure](../json-samples.md).
+- Pode ver exemplos adicionais do modelo do Azure Policy em [Modelos do Azure Policy](../json-samples.md).

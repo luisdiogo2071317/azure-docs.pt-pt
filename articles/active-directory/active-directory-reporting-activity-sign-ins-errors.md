@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771434"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory
 
@@ -67,14 +68,21 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |50058|Não foram encontradas informações sobre a identidade do utilizador entre as credenciais fornecidas, ou o utilizador não foi encontrado no inquilino, ou um pedido de início de sessão silencioso foi enviado, mas nenhum utilizador tem sessão iniciada ou o serviço não conseguiu autenticar o utilizador.|
 |50072|O utilizador tem de se inscrever na autenticação de segundo fator (interativa)|
 |50074|O utilizador não passou na submissão da MFA.|
+|50076|O utilizador não passou na submissão da MFA (não interativa)|
 |50079|O utilizador tem de se inscrever na autenticação de segundo fator.|
 |50089|A validação do token de fluxo falhou devido à expiração do token de fluxo.|
 |50097|O dispositivo não foi autenticado.|
 |50105|O utilizador com sessão iniciada não tem uma função atribuída para esta aplicação.|
+|50125|O início de sessão foi interrompido devido a uma reposição de palavra-passe ou entrada de registo de palavra-passe|
 |50126|O nome de utilizador ou a palavra-passe é inválida ou o nome de utilizador ou a palavra-passe no local é inválida.|
+|50127|O utilizador precisa de instalar uma aplicação de mediador para obter acesso a este conteúdo.|
+|50129|O dispositivo não está associado à área de trabalho - a Associação à área de trabalho é necessária para registar o dispositivo.|
 |50131|Utilizado em vários erros de acesso condicional. Por exemplo, estado do dispositivo Windows, pedido bloqueado devido a atividades suspeitas, decisões de políticas de acesso e políticas de segurança.|
 |50133|A sessão é inválida devido à palavra-passe ter expirado ou ter sido alterada recentemente.|
+|50140|O utilizador pediu consentimento para manter a sessão iniciada no dispositivo|
 |50144|A palavra-passe do Active Directory do utilizador expirou.|
+|53000|A política de acesso condicional requer um dispositivo em conformidade e o dispositivo não está em conformidade.|
+|53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização ao administrador do seu inquilino para agir em nome da Aplicação :Y para o Recurso : Z.|
 |65005|A lista de acesso a recursos necessária para a aplicação não contém aplicações detetáveis pelo recurso, ou a aplicação cliente pediu acesso a um recurso que não foi especificado nesta lista de acesso a recursos necessária, ou o serviço Graph devolveu um pedido inválido ou o recurso não foi encontrado.|
 |70001|A aplicação com o nome X não foi encontrada no inquilino com o nome Y. Este erro pode acontecer se a aplicação não tiver sido instalada pelo administrador do inquilino ou não tiver sido permitida por qualquer utilizador do inquilino. Poderá ter enviado o pedido de autenticação para o inquilino errado.|
@@ -98,8 +106,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |81013|Não é possível encontrar o objeto de utilizador com base nas informações na permissão do Kerberos do utilizador.|
 |90014|Utilizado em vários casos nos quais um campo que era esperado não está presente na credencial.|
 |90093|O Graph devolveu com um código de erro proibido para o pedido.|
-
-
+|90094|É necessário o consentimento do administrador.|
 ## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais detalhes, veja [Relatórios de atividade de início de sessão no portal do Azure Active Directory](active-directory-reporting-activity-sign-ins.md).

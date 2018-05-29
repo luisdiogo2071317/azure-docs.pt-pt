@@ -10,11 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190415"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Referência rápida do Azure SQL Data Warehouse
 Esta referência rápida disponibiliza sugestões e melhores práticas úteis para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente em [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Padrões e Antipadrões de Cargas de Trabalho do Azure SQL Data Warehouse), que explica do que se trata e não se trata o SQL Data Warehouse.
@@ -34,7 +35,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design das ta
 
 ## <a name="data-migration"></a>Migração de dados
 
-Em primeiro lugar, carregue os dados para o [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) ou para o armazenamento de Blobs do Azure. Em seguida, utilize o PolyBase para carregar os dados para o SQL Data Warehouse numa tabela de teste. Utilize a seguinte configuração:
+Em primeiro lugar, carregue os dados para o [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou para o armazenamento de Blobs do Azure. Em seguida, utilize o PolyBase para carregar os dados para o SQL Data Warehouse numa tabela de teste. Utilize a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -43,7 +44,7 @@ Em primeiro lugar, carregue os dados para o [Azure Data Lake Store](https://docs
 | Criação de partições | Nenhuma |
 | Classe de Recursos | largerc ou xlargerc |
 
-Saiba mais sobre a [migração de dados], o [carregamento de dados] e o [processo de Extração, Carregamento e Transformação (ELT)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Saiba mais sobre a [migração de dados], o [carregamento de dados] e o [processo de Extração, Carregamento e Transformação (ELT)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelas distribuídas ou replicadas
 
@@ -78,7 +79,7 @@ A indexação é útil para ler as tabelas rapidamente. Com base nas suas necess
 **Sugestões:**
 * A partir de um índice em cluster, poderá ser útil adicionar um índice não em cluster a uma coluna utilizada muitas vezes para filtragem. 
 * Tenha cuidado com a forma como gere a memória em tabelas com CCI. Quando carrega dados, é importante que o utilizador (ou a consulta) beneficie de uma grande classe de recursos. Certifique-se de que evita cortar e criar vários grupos pequenos de linhas comprimidas.
-* Otimizado para linhas de Camada de Computação com CCI.
+* No Gen2, as tabelas CCI são colocadas em cache localmente nos nós de computação para maximizar o desempenho.
 * Em CCI, a compressão incorreta dos grupos de linhas pode provocar um desempenho lento. Se tal ocorrer, reconstrua ou reorganize o CCI. Recomenda-se, pelo menos, 100 000 linhas por grupo de linhas comprimido. O ideal é 1 milhão de linhas num grupo de linhas.
 * Com base no tamanho e na frequência de carga incremental, é útil automatizar a reorganização ou a recriação dos índices. A limpeza minuciosa é sempre útil.
 * Corte os grupos de linhas de forma estratégica. Até que ponto os grupos de linhas abertos são grandes? Quantos dados espera carregar nos próximos dias?
@@ -111,7 +112,7 @@ O SQL Data Warehouse utiliza grupos de recursos como uma forma de alocar memóri
 
 Se reparar em que as consultas demoram demasiado tempo, confirme se os utilizadores não são executados em classes de recursos grandes. Estas classes consomem muitos blocos de simultaneidade e podem fazer com que outras consultas sejam colocadas em fila.
 
-Por fim, ao utilizar a Camada Otimizada de Computação, cada classe de recursos recebe 2,5 vezes mais memória do que na Camada Otimizada Elástica.
+Por fim, ao utilizar o Gen2 do SQL Data Warehouse, cada classe de recursos obtém 2,5 vezes mais memória do que no Gen1.
 
 Saiba mais como trabalhar com [classes de recursos e a simultaneidade].
 

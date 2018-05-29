@@ -1,6 +1,6 @@
 ---
-title: Migrar Bases de Dados do SQL Server para a Base de Dados SQL do Azure utilizando DMS | Microsoft Docs
-description: Aprenda a migrar a sua base de dados do SQL Server para a Base de Dados SQL do Azure utilizando DMS.
+title: Migrar Bases de Dados do SQL Server para a Base de Dados SQL do Azure através do DMA | Microsoft Docs
+description: Aprenda a migrar a sua base de dados do SQL Server para a Base de Dados SQL do Azure através do DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,14 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942467"
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migrar a sua base de dados do SQL Server para a Base de Dados SQL do Azure utilizando DMS
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrar a sua base de dados do SQL Server para a Base de Dados SQL do Azure através do DMA
 
 Mover a sua base de dados do SQL Server para uma base de dados única da Base de Dados SQL do Azure é tão simples como criar uma base de dados do SQL vazia no Azure e, em seguida, utilizar o [Assistente de Migração de Dados](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) para importar a base de dados para o Azure. Para opções de migração adicionais, veja [Migrar a base de dados para a Base de Dados SQL do Azure](sql-database-cloud-migrate.md).
 
@@ -46,7 +47,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados SQL vazia
 
-É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](sql-database-service-tiers.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico da Base de Dados SQL do Azure](sql-database-features.md). 
+É criada uma base de dados SQL do Azure com um conjunto definido de [recursos de armazenamento e computação](sql-database-service-tiers-dtu.md). A base de dados é criada num [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e num [servidor lógico da Base de Dados SQL do Azure](sql-database-features.md). 
 
 Siga estes passos para criar uma base de dados SQL vazia. 
 
@@ -87,9 +88,9 @@ Siga estes passos para criar uma base de dados SQL vazia.
 8. Aceitd os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**. 
 
    > [!IMPORTANT]
-   > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > - Os tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para detalhes, ver os preços da [Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste 2 dos E.U.A., E.U.A. Oeste, Gov. (US) -Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Sul do Brasil, Canadá Central, Leste do Canadá, E.U.A. Central, Centro de França, Alemanha Central, Leste do Japão, Oeste do Japão, Coreia Central, E.U.A. Centro-Norte, Europa do Norte, E.U.A. Centro-Sul, Sudeste Asiático, Sul do Reino Unido, Oeste do Reino Unido, Leste 2 dos E.U.A., E.U.A. Oeste, Gov (US) – Virginia e Europa Ocidental. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Depois de selecionar o escalão de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  

@@ -1,37 +1,38 @@
 ---
-title: "Exemplo de json de política do Azure - permitido SKUs para contas de armazenamento e máquinas virtuais | Microsoft Docs"
-description: "Esta política de exemplo de json requer que as contas de armazenamento e máquinas virtuais SKUs aprovados."
+title: Exemplo de json do Azure Policy - SKUs permitidos para contas de armazenamento e máquinas virtuais | Microsoft Docs
+description: Esta política de exemplo de json requer que as contas de armazenamento e as máquinas virtuais utilizem SKUs aprovados.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 9936af72dc7babfe8935dac1b49c25695e827042
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 482408788b6d74c25350a9885e2bf4bd6ea306d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203890"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>SKUs permitidos para as contas de armazenamento e máquinas virtuais
+# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>SKUs permitidos para contas de armazenamento e máquinas virtuais
 
-Esta política requer que as contas de armazenamento e máquinas virtuais SKUs aprovados. Utiliza políticas incorporadas para garantir a aprovada SKUs. Especifique uma matriz de máquinas virtuais aprovadas SKUs e uma matriz de conta de armazenamento aprovados SKUs.
+Esta política requer que as contas de armazenamento e as máquinas virtuais utilizem SKUs aprovados. Utiliza políticas incorporadas para garantir SKUs aprovados. Especifique uma matriz de SKUs de máquinas virtuais aprovadas e uma matriz de SKUs de contas de armazenamento aprovadas.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>Modelo de exemplo
 
-[!code-json[main](../../../policy-templates/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.json "Allowed SKUs for Storage Accounts and Virtual Machines")]
+[!code-json[main](../../../policy-templates/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.json "Allowed SKUs for Storage Accounts and Virtual Machines")]
 
-Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-portal) ou com [PowerShell](#deploy-with-powershell).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal) ou com o [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
@@ -42,22 +43,42 @@ Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-por
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
-$policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.definitions.json"
-$policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.parameters.json"
+$policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json"
+$policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"
 
-$policyset= New-AzureRmPolicySetDefinition -Name "skus-for-mutiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
-
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs >  -Sku @{"Name"="A1";"Tier"="Standard"}
+$policyset= New-AzureRmPolicySetDefinition -Name "skus-for-multiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters 
+ 
+New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentName> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs>
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpar a implementação de PowerShell
+### <a name="clean-up-powershell-deployment"></a>Limpar a implementação do PowerShell
 
-Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Execute o seguinte comando para remover a definição e a atribuição de política.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmPolicyAssignment -Name <assignmentName>
+Remove-AzureRmPolicySetDefinitions -Name "skus-for-multiple-types"
+```
+
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+```azurecli-interactive
+az policy set-definition create --name "skus-for-multiple-types" --display-name "Allowed SKUs for Storage Accounts and Virtual Machines" --description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" --definitions "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json" --params "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"
+
+az policy assignment create --name <assignmentName> --scope <scope> --policy-set-definition "skus-for-multiple-types" --params "{ 'LISTOFALLOWEDSKUS_1': { 'value': <VM SKU Array> }, 'LISTOFALLOWEDSKUS_2': { 'value': <Storage Account SKU Array> } }"
+```
+
+### <a name="clean-up-azure-cli-deployment"></a>Limpar a implementação da CLI do Azure
+
+Execute o seguinte comando para remover a definição e a atribuição de política.
+
+```azurecli-interactive
+az policy assignment delete --name <assignmentName>
+az policy set-definition delete --name "skus-for-multiple-types"
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Amostras de modelo de política do Azure adicionais são [modelos de política do Azure](../json-samples.md).
+- Pode ver exemplos adicionais do modelo do Azure Policy em [Modelos do Azure Policy](../json-samples.md).
