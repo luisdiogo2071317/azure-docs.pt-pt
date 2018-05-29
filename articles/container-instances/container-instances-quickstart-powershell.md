@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8670de00e3ab66ec4a5fa5c0c340e38182fd1ffd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a1d338304dbd5e2845768b7bf0273eed23af0ec
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075548"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Início Rápido: crie o seu primeiro contentor no Azure Container Instances
 
@@ -21,7 +22,7 @@ O Azure Container Instances facilita a criação e a gestão de contentores do D
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][qs-powershell-01]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -81,7 +82,7 @@ Depois do contentor **ProvisioningState** ser movido para `Succeeded`, navegue p
 
 ![IIS implementado com o Azure Container Instances visto no browser][qs-powershell-01]
 
-## <a name="delete-the-container"></a>Eliminar o contentor
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar do contentor, pode removê-lo com o cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
@@ -91,7 +92,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução iniciou um contentor do Windows pré-criado no Azure Container Instances. Se quiser tentar criar um contentor sozinho e implementá-lo no Azure Container Instances com o Azure Container Registry, avance para o tutorial do Azure Container Instances.
+Neste início rápido, criou uma instância de contentor do Azure a partir de uma imagem no registo do Hub do Docker público. Se quiser criar uma imagem de contentor sozinho e implementá-lo no Azure Container Instances a partir de um registo de contentor do Azure, avance para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)

@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198712"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto final da CDN do Azure
 Neste início rápido, vai ativar a Rede de Entrega de Conteúdos (CDN) através da criação de um novo perfil da CDN e ponto final da CDN. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes.
@@ -70,7 +71,7 @@ Depois de criar um perfil da CDN, pode utilizá-lo para criar um ponto final.
    ![Ponto final da CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Dado que a propagação do registo demora algum tempo, o ponto final não está imediatamente disponível para utilização: 
-   - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em dez minutos. 
+   - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
    - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída no prazo de 90 minutos. 
 
@@ -87,6 +88,6 @@ Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recu
 Para saber mais sobre como adicionar um domínio personalizado ao ponto final de CDN, veja o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar a CDN do Azure a uma aplicação web](app-service-web-tutorial-content-delivery-network.md)
+> [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
 
 

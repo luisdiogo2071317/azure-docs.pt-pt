@@ -2,35 +2,30 @@
 title: Azure AD SSPR no ecrã de início de sessão do Windows 10 | Microsoft Docs
 description: Configurar a reposição de palavras-passe do Azure AD no ecrã de início de sessão do Windows 10 e esqueci-me do meu PIN
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867498"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
 Já implementou a reposição de palavras-passe self-service (SSPR) do Azure AD, mas se se esquecerem das palavras-passe, os seus utilizadores podem continuar a entrar em contacto com o suporte técnico. Entram em contacto com o suporte técnico porque não conseguem abrir um browser para aceder à SSPR.
 
-Com a nova Fall Creators Update do Windows 10, os utilizadores que tenham dispositivos associados ao Azure AD podem ver a ligação “Repor palavra-passe” no ecrã de início de sessão. Quando clicam nesta ligação, são encaminhados para a experiência de reposição de palavras-passe self-service (SSPR) que já conhecem.
+Com a nova Atualização de 10 de abril de 2018 do Windows, os utilizadores que tenham dispositivos **associados ao Azure AD** ou **associados ao Azure AD híbrido** podem ver e utilizar uma ligação "Repor palavra-passe" no ecrã de início de sessão. Quando clicam nesta ligação, são encaminhados para a experiência de reposição de palavras-passe self-service (SSPR) que já conhecem.
 
 Para que os utilizadores possam repor as palavras-passe do Azure AD a partir do ecrã de início de sessão do Windows 10, têm de ser satisfeitos os requisitos seguintes:
 
-* Windows 10, versão 1709 ou cliente mais recente que esteja [associado ao Azure AD](../device-management-azure-portal.md).
+* A Atualização de 10 de Abril de 2018 do Windows ou o cliente mais recente [associado ao Azure AD](../device-management-azure-portal.md) ou [associado ao Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md).
 * A reposição de palavras-passe self-service do Azure AD tem de estar ativada.
 * Configurar e implementar a definição para ativar a ligação Repor palavra-passe através de um dos métodos abaixo:
    * [Perfil de configuração de dispositivo no Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +61,7 @@ Para que os utilizadores possam repor as palavras-passe do Azure AD a partir do 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) e clique em **Azure Active Directory**
 2. Navegue até **Utilizadores e grupos** > **Todos os grupos** > **Novo grupo**
-3. Indique um nome para o grupo e, em **tipo de associação**, escolha **Atribuído** 
+3. Indique um nome para o grupo e, em **tipo de associação**, escolha **Atribuído**
    * Em **Membros**, escolha os dispositivos Windows 10 associados ao Azure AD aos quais pretende aplicar a política
    * Clique em **Selecionar**
 4. Clique em **Criar**.
@@ -117,6 +112,7 @@ Ao testar esta funcionalidade com o Ambiente de Trabalho Remoto, a ligação "Re
 * A reposição de palavras-passe não é suportada em Ambientes de Trabalho Remotos atualmente.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 As ligações seguintes disponibilizam informações adicionais relativamente à reposição de palavras-passe com o Azure AD
 
 * [Como implemento a SSPR?](howto-sspr-deployment.md)

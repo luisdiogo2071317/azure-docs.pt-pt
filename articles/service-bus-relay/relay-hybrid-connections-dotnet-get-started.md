@@ -1,11 +1,11 @@
 ---
-title: "Introdução às Ligações Híbridas de Reencaminhamento do Azure | Microsoft Docs"
-description: "Escreva uma aplicação de consola C# para Ligações Híbridas de Reencaminhamento do Azure."
+title: Introdução aos Websockets de Ligações Híbridas do Azure Relay em .NET | Microsoft Docs
+description: Escreva uma aplicação de consola C# para Websockets de Ligações Híbridas do Azure Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896460"
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Introdução às Ligações Híbridas de Reencaminhamento
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução aos Websockets de Ligações Híbridas de Reencaminhamento em .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 Este tutorial fornece uma introdução às [Ligações Híbridas de Reencaminhamento do Azure](relay-what-is-it.md#hybrid-connections). Saiba como utilizar o Microsoft .NET para criar uma aplicação cliente que envie mensagens a uma aplicação de escuta correspondente. 

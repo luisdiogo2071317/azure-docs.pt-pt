@@ -1,34 +1,37 @@
 ---
-title: "Descrição geral sobre o que é o Reencaminhamento do Azure e porquê utilizá-lo | Microsoft Docs"
-description: "Descrição Geral do Reencaminhamento do Azure"
+title: Descrição geral sobre o que é o Reencaminhamento do Azure e porquê utilizá-lo | Microsoft Docs
+description: Descrição Geral do Reencaminhamento do Azure
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896545"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
 
 O serviço de Reencaminhamento do Azure facilita as aplicações híbridas, permitindo-lhe expor na cloud pública, de forma segura, os serviços que se encontram numa rede empresarial, sem ter de abrir uma ligação de firewall ou sem ter de fazer alterações intrusivas na infraestrutura da rede empresarial. O Reencaminhamento suporta uma variedade de diferentes protocolos de transporte e de padrões de serviços Web.
 
-O serviço de Reencaminhamento suporta o tradicional tráfego unidirecional, pedido/resposta e ponto a ponto. Também suporta a distribuição de eventos no âmbito de Internet para permitir cenários de publicação-subscrição e comunicação de socket bidirecional para aumentar a eficiência ponto a ponto. 
+O serviço de Reencaminhamento suporta o tradicional tráfego unidirecional, pedido/resposta e ponto a ponto. Também suporta a distribuição de eventos no âmbito de Internet para permitir cenários de publicação-subscrição e comunicação de socket bidirecional para aumentar a eficiência ponto a ponto.
 
 No padrão de transferências de dados reencaminhadas, um serviço no local liga-se ao serviço de reencaminhamento através de uma porta de saída e cria um socket bidirecional para comunicação associada a um endereço de encontro específico. Depois, o cliente pode comunicar com o serviço no local ao enviar tráfego para o serviço de reencaminhamento destinado ao endereço de encontro. O serviço de reencaminhamento "reencaminha", então, os dados para o serviço no local através de um socket bidirecional dedicado a cada cliente. O cliente não precisa de uma ligação direta para o serviço local, nem precisa de saber onde reside o serviço e o serviço local não precisa de nenhuma porta de entrada aberta na firewall.
 
-Os elementos de capacidades-chave disponibilizados pelo Reencaminhamento são comunicações bidirecionais não registadas em limites de redes com limitação do tipo TCP, deteção de pontos finais, estado da conectividade e segurança de pontos finais sobrepostos. As capacidades do reencaminhamento são diferentes das tecnologias de integração ao nível da rede, como as VPNs, no sentido de que o reencaminhamento pode visar um único ponto final de aplicação num computador individual, ao passo que a tecnologia de VPN é bastante mais intrusiva, pois baseia-se na alteração do ambiente de rede.
+Os elementos de capacidades-chave disponibilizados pelo Reencaminhamento são comunicações bidirecionais não registadas em limites de redes com limitação do tipo TCP, deteção de pontos finais, estado da conectividade e segurança de pontos finais sobrepostos.
+
+As capacidades do reencaminhamento são diferentes das tecnologias de integração ao nível da rede, como as VPNs, no sentido de que o reencaminhamento pode visar um único ponto final de aplicação num computador individual, ao passo que a tecnologia de VPN é bastante mais intrusiva, pois baseia-se na alteração do ambiente de rede.
 
 O Reencaminhamento do Azure tem duas funcionalidades:
 
@@ -48,7 +51,9 @@ Tanto as Ligações Híbridas, como os Reencaminhamentos do WCF, permitem ligaç
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-A capacidade de [Ligações Híbridas do Reencaminhamento do Azure](relay-hybrid-connections-protocol.md) é uma evolução segura e de protocolo aberto das funcionalidades atuais do Reencaminhamento, que pode ser implementada em qualquer plataforma e em qualquer idioma que tenha capacidade básica para WebSocket, que inclua explicitamente a API WebSocket em browsers comuns. As Ligações Híbridas baseiam-se em HTTP e WebSockets.
+A capacidade Ligações Híbridas do Azure Relay é uma evolução segura e de protocolo aberto das funcionalidades atuais do Relay, que pode ser implementada em qualquer plataforma e em qualquer idioma. As Ligações Híbridas podem reencaminhar WebSockets, bem como pedidos e respostas de HTTP(S). Estas capacidades são compatíveis com a API de WebSocket em browsers comuns. As Ligações Híbridas baseiam-se em HTTP e WebSockets.
+
+O protocolo é documentado na íntegra no [Guia do protocolo de Ligações Híbridas](relay-hybrid-connections-protocol.md), permitindo a utilização do Reencaminhamento de Ligações Híbridas com praticamente qualquer biblioteca de Websockets em qualquer runtime e idioma.
 
 ### <a name="service-history"></a>Histórico do Serviço
 
@@ -70,6 +75,8 @@ Quando a ligação de reencaminhamento é estabelecida, os clientes podem trocar
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
-* [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
+* [Introdução aos Websockets de .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Introdução aos Pedidos de HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+* [Introdução aos Websockets de Node](relay-hybrid-connections-node-get-started.md)
+* [Introdução aos Pedidos de HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
 
