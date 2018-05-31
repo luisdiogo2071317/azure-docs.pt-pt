@@ -1,6 +1,6 @@
 ---
-title: Configurar uma aplicação web do Azure para ler um segredo do Cofre de chaves | Microsoft Docs
-description: Tutorial de configurar uma aplicação ASP.Net core ler um segredo do Cofre de chaves
+title: Configure an Azure web application to read a secret from Key vault tutorial| Microsoft Docs (Tutorial para configurar uma aplicação Web do Azure para ler segredos em cofres de segurança | Microsoft Docs)
+description: Tutorial para configurar uma aplicação ASP.Net do Azure para ler um segredo do Key Vault
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -8,26 +8,27 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305179"
 ---
-# <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar uma aplicação web do Azure para ler um segredo do Cofre de chaves
+# <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: Configurar uma aplicação Web do Azure para ler um segredo do Key Vault
 
-Neste tutorial, passam os passos necessários para obter uma aplicação web do Azure para ler as informações a partir do Cofre de chaves com identidades de serviço geridas. Saiba como:
+Neste tutorial, irá conhecer os passos necessários para que uma aplicação Web do Azure leia as informações do Cofre de chaves com identidades de serviço geridas. Saiba como:
 
 > [!div class="checklist"]
-> * Crie um cofre de chaves.
-> * Armazene um segredo no Cofre de chaves.
-> * Crie uma aplicação Web do Azure.
-> * Ativar identidades de serviço geridas
-> * Conceda as permissões necessárias para a aplicação para ler dados a partir do Cofre de chaves.
+> * Criar um Key Vault.
+> * Armazene um segredo no Key Vault.
+> * Criar uma aplicação Web do Azure.
+> * Ativar as identidades de serviço geridas
+> * Conceda as permissões necessárias para a aplicação ler dados do Cofre de chaves.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -35,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
 
-Para iniciar sessão Azure utilizando a CLI, escreva:
+Para iniciar sessão no Azure através da CLI, pode escrever:
 
 ```azurecli
 az login
@@ -48,71 +49,69 @@ Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_gr
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 O grupo de recursos que acabou de criar é utilizado ao longo deste tutorial.
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Azure Key Vault
 
-Em seguida, criar um cofre de chaves no grupo de recursos criado no passo anterior. Tem de fornecer algumas informações:
-
->[!NOTE]
-> Embora "ContosoKeyVault" for utilizado como o nome do nosso Cofre de chaves ao longo deste tutorial, tem de utilizar um nome exclusivo.
+A seguir, vai criar um Key Vault no grupo de recursos criado no passo anterior. Embora "ContosoKeyVault" seja utilizado como o nome para o Key Vault ao longo deste tutorial, tem de utilizar um nome exclusivo. Forneça as seguintes informações:
 
 * Nome do cofre **ContosoKeyVault**.
 * **ContosoResourceGroup** como o nome do grupo de recursos.
 * **E.U.A. Leste** como a localização.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
-O resultado deste comando mostra as propriedades do Cofre de chaves recentemente criado. Tome nota das duas propriedades listadas abaixo:
+O resultado deste comando mostra as propriedades do Key Vault recém-criado. Tome nota das duas propriedades listadas abaixo:
 
-* **Nome do Cofre**: No exemplo, o nome é **ContosoKeyVault**. Irá utilizar o nome do seu Cofre de chaves para todos os comandos do Cofre de chaves.
-* **URI do cofre**: no exemplo, isto é https://<YourKeyVaultName>.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **Nome do Cofre**: No exemplo, o nome é **ContosoKeyVault**. Irá utilizar o nome do seu Key Vault para todos os comandos do mesmo.
+* **URI do Cofre**: No exemplo, trata-se de https://<YourKeyVaultName>.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 >[!IMPORTANT]
-> Se receber o erro do parâmetro 'vault_name' tem de estar em conformidade com o padrão do seguinte: ' ^ [uma-zA-Z0 - 9-]{3,24}$' param-nome valor não estava exclusivo ou não cumpria numa cadeia composto por carateres alfanuméricos de 3 a 24 longo.
+> Se receber o erro do Parâmetro "vault_name" tem de estar em conformidade com o padrão seguinte: "^[a-zA-Z0-9-]{3,24}$" o valor de parâmetro -name não era exclusivo ou não cumpria uma cadeia composta por carateres alfanuméricos de 3 a 24 de comprimento.
 
 Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer operações neste novo cofre.
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Cofre de chaves
 
-Que estamos a adicionar um segredo para ajudar a ilustrar a forma como isto funciona. Pode ser a armazenar uma cadeia de ligação do SQL Server ou outras informações que tem de manter de forma segura, mas tornar disponível para a aplicação. Neste tutorial a palavra-passe será chamada **AppSecret** e irá armazenar o valor de **MySecret** no mesmo.
+Estamos a adicionar um segredo para ajudar a ilustrar a forma como isto funciona. Pode armazenar uma cadeia de ligação do SQL ou outras informações que precise de manter em segurança, mas mantenha disponível para a sua aplicação. Neste tutorial, a palavra-passe será chamada de **AppSecret** e irá armazenar o valor de **MySecret** no mesmo.
 
-Escreva os comandos abaixo para criar um segredo no Cofre de chaves chamado **AppSecret** que irá armazenar o valor **MySecret**:
+Escreva os comandos abaixo para criar um segredo no Key Vault denominado **AppSecret** que irá armazenar o valor **MySecret**:
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Para ver o valor contido no segredo como texto simples:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
-Este comando apresenta informações secretas, incluindo o URI. Depois de concluir estes passos deve ter um URI para um segredo um cofre de chaves do Azure. Tome nota destas informações. Terá num passo posterior.
+Este comando apresenta informações do segredo, incluindo o URI. Depois de concluir estes passos, deve ter um URI para um segredo num Azure Key Vault. Tome nota destas informações. Irá precisar delas noutro passo.
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-Nesta secção pode criar uma aplicação ASP.NET MVC e implementá-la no Azure como uma aplicação Web. Para obter mais informações sobre as aplicações Web do Azure, consulte [descrição geral das aplicações Web](../app-service/app-service-web-overview.md).
+Nesta secção pode criar uma aplicação ASP.NET MVC e implementá-la no Azure como uma Aplicação Web. Para obter mais informações sobre as Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/app-service-web-overview.md).
 
 1. No Visual Studio, crie um projeto ao selecionar **Ficheiro > Novo > Projeto**. 
 
 2. Na caixa de diálogo **Novo projeto**, clique em **Visual C# > Web > Aplicação Web ASP.NET Core**.
 
-3. Atribua um nome de aplicação **WebKeyVault**e, em seguida, selecione **OK**.
+3. Nomeie a aplicação de **WebKeyVault** e, em seguida, selecione **OK**.
    >[!IMPORTANT]
-   > Tem de nome de aplicação WebKeyVault para que o código de copiar e colar corresponderá o espaço de nomes. Se a o nome do site há mais alguma coisa, terá de modificar o código de corresponder ao nome do site.
+   > Tem de nomear a aplicação de WebKeyVault, para que o código que copia e cola corresponda ao espaço de nomes. Se deu outro nome ao site, terá de modificar o código para corresponder ao nome do site.
 
     ![Caixa de diálogo Novo Projeto ASP.NET](media/tutorial-web-application-keyvault/aspnet-dialog.png)
 
-4. Pode implementar qualquer tipo de aplicação Web ASP.NET Core no Azure. Para este tutorial, selecione o **aplicação Web** modelo e certifique-se a autenticação está definida como **sem autenticação**.
+4. Pode implementar qualquer tipo de aplicação Web ASP.NET Core no Azure. Neste tutorial, selecione o modelo **Aplicação Web** e confirme se a autenticação está definida como **Sem Autenticação**.
 
-    ![ASPNET nenhuma caixa de diálogo de autenticação](media/tutorial-web-application-keyvault/aspnet-noauth.png)
+    ![Caixa de diálogo sem autenticação ASPNET](media/tutorial-web-application-keyvault/aspnet-noauth.png)
 
 5. Selecione **OK**.
 
@@ -120,19 +119,19 @@ Nesta secção pode criar uma aplicação ASP.NET MVC e implementá-la no Azure 
 
 7. No menu, selecione **Depurar > Iniciar sem depuração** para executar a aplicação Web localmente.
 
-## <a name="modify-the-web-app"></a>Modificar a aplicação web
+## <a name="modify-the-web-app"></a>Modificar a aplicação Web
 
-Existem dois pacotes de NuGet que a aplicação web tem de ter instalado. Para instalá-los siga os passos abaixo:
+Existem dois pacotes NuGet que a aplicação Web tem de ter instalados. Para instalá-los, siga os passos abaixo:
 
-1. Na solução explorer com o botão direito no seu nome de Web site.
-2. Selecione **pacotes gerir NuGet para solução...**
+1. Na explorador de soluções, clique com o botão direito do rato no nome do site.
+2. Selecione **Gerir pacotes NuGet para a solução...**
 3. Selecione a caixa de verificação junto à caixa de pesquisa. **Incluir pré-lançamento**
-4. Procure os dois pacotes de NuGet listados abaixo e aceitar-lhes a ser adicionado à sua solução:
+4. Procure os dois pacotes NuGet listados abaixo e aceite que sejam adicionados à sua solução:
 
-    * [Microsoft.Azure.Services.AppAuthentication (pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -torna mais fácil de obter os tokens de acesso para cenários de autenticação de-de-Azure-serviços. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) -contém métodos para interagir com o Cofre de chaves.
+    * [Microsoft.Azure.Services.AppAuthentication (pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - torna mais fácil de obter os tokens de acesso para cenários de autenticação de "Serviço para o Serviço do Azure". 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - contém métodos para interagir com o Key Vault.
 
-5. Utilize o Explorador de soluções para abrir `Program.cs` e substitua os conteúdos do ficheiro Program.cs pelo seguinte código. Substitute ```<YourKeyVaultName>``` com o nome do seu Cofre de chaves:
+5. Utilize o Explorador de Soluções para abrir `Program.cs` e substitua os conteúdos do ficheiro Program.cs pelo seguinte código. Substitua ```<YourKeyVaultName>``` pelo nome do seu cofre de chaves:
 
     ```csharp
     
@@ -176,7 +175,7 @@ Existem dois pacotes de NuGet que a aplicação web tem de ter instalado. Para i
         }
     ```
 
-6. Utilize o Explorador de soluções para navegar para o **páginas** secção e abra `About.cshtml`. Substitua os conteúdos de **About.cshtml.cs** com o código abaixo:
+6. Utilize o Explorador de Soluções para navegar para a secção **Páginas** e abra `About.cshtml`. Substitua os conteúdos de **About.cshtml.cs** pelo código abaixo:
 
     ```csharp
     
@@ -204,56 +203,56 @@ Existem dois pacotes de NuGet que a aplicação web tem de ter instalado. Para i
     
     ```
 
-7. No menu principal, escolha **depurar** > **iniciar sem a depuração**. Quando for apresentada no browser, navegue para o **sobre** página. O valor para o AppSecret é apresentado.
+7. No menu principal, escolha **Depurar** > **Iniciar sem a Depuração**. Quando o browser é apresentado, navegue para a página **Sobre**. O valor para o AppSecret é apresentado.
 
 >[!IMPORTANT]
-> Se obtiver um 502.5 de erro HTTP - mensagem de falha de processo Verifique o nome do Cofre de chaves especificado na `Program.cs`
+> Se obteve um Erro HTTP 502.5 - mensagem de Falha de Processo, verifique o nome do Cofre de Chaves especificado no `Program.cs`
 
-## <a name="publish-the-web-application-to-azure"></a>Publicar a aplicação web no Azure
+## <a name="publish-the-web-application-to-azure"></a>Publicar a aplicação Web no Azure
 
-1. Acima do editor selecione **WebKeyVault**.
-2. Selecione **publicar**.
-3. Selecione **publicar** novamente.
-4. Selecione **criar**.
+1. Acima do editor, selecione **WebKeyVault**.
+2. Selecione **Publicar** e, em seguida, **Iniciar**.
+3. Crie um novo **Serviço de Aplicações**, selecione **Publicar**.
+4. Selecione **Criar**.
 
 >[!IMPORTANT]
-> Abre uma janela do browser e verá uma mensagem de falha de processo 502.5. Isto é esperado. Terá de conceder os direitos de identidade da aplicação para ler os segredos do Cofre de chaves.
+> É aberta uma janela do browser e verá uma mensagem de Falha de Processo - 502.5. Isto era esperado. Terá de conceder os direitos de identidade da aplicação para ler os segredos do Key Vault.
 
-## <a name="enable-managed-service-identity"></a>Ativar a identidade de serviço geridas
+## <a name="enable-managed-service-identity"></a>Ativar a Identidade de Serviço Gerida
 
-O Cofre de chaves do Azure fornece uma forma de armazenar com segurança as credenciais e outras chaves e segredos, mas o seu código tem de autenticar para o Cofre de chaves para recuperar. Identidade de serviço geridas (MSI) permite a resolver este problema mais simples, conferindo aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, incluindo o Cofre de chaves, sem ter as credenciais no seu código.
+O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
-1. Voltar para a CLI do Azure
-2. Execute o comando de atribuir-identity para criar a identidade para esta aplicação:
+1. Voltar à CLI do Azure
+2. Execute o comando assign-identity para criar a identidade para esta aplicação:
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Este é o equivalente a ir para o portal e mudança **identidade do serviço gerido** para **no** nas propriedades de aplicação web.
+>Este comando é o equivalente a ir para o portal e mudar a **Identidade do serviço gerido** para **Ativada** nas propriedades da aplicação Web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Conceder direitos para a identidade da aplicação
 
-No portal do Azure, aceda às políticas de acesso do Cofre de chaves e conceder si próprio o acesso de gestão do segredo ao Cofre de chaves. Isto permitirá executar a aplicação no seu computador de desenvolvimento local.
+No portal do Azure, aceda às políticas de acesso do Key Vault e conceda acesso a si próprio à Gestão de Segredos para o Key Vault. Isto irá permitir executar a aplicação no seu computador de desenvolvimento local.
 
-1. Procure o seu Cofre de chaves no **pesquisar recursos** caixa de diálogo no portal do Azure.
-2. Selecione **políticas de acesso**.
-3. Selecione **adicionar novo**, no **permissões secretas** secção selecione **obter** e **lista**.
-4. Selecione **selecione Principal**e adicione a identidade da aplicação. Terá o mesmo nome que a aplicação.
-5. Escolha **Ok**
+1. Procure o seu Key Vault na caixa de diálogo **Pesquisar Recursos** no portal do Azure.
+2. Selecione **Políticas de acesso**.
+3. Selecione **Adicionar Novo**, na secção **Permissões de segredos**, selecione **Obter** e **Listar**.
+4. Selecione **Selecionar Principal** e adicione a identidade da aplicação. Terá o mesmo nome que a aplicação.
+5. Escolha **Ok**.
 
-Agora a sua conta no Azure e a identidade da aplicação tem direitos para ler as informações do Cofre de chaves. Se atualizar a página deverá ver a página de destino do site. Se selecionar **sobre**. Pode ver o valor armazenado no Cofre de chaves.
+Agora a sua conta no Azure e a identidade da aplicação têm direitos para ler as informações do Key Vault. Ao atualizar a página, deverá ver a página de destino do site. Se selecionar **Sobre**, verá o valor armazenado no Key Vault.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para eliminar um grupo de recursos e todos os respetivos recursos, utilize o **eliminação do grupo de az** comando.
+Para eliminar um grupo de recursos e todos os respetivos recursos, utilize o comando **az group delete**.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Guia para programadores do Cofre de chaves do Azure](key-vault-developers-guide.md)
+> [Guia do Programador do Azure Key Vault](key-vault-developers-guide.md)
