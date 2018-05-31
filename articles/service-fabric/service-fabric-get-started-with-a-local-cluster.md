@@ -1,11 +1,11 @@
 ---
-title: "Implementar e atualizar os microsserviços do Azure localmente | Microsoft Docs"
-description: "Saiba como configurar um cluster Service Fabric local, implementar nele uma aplicação existente e atualizar essa aplicação."
+title: Implementar e atualizar os microsserviços do Azure localmente | Microsoft Docs
+description: Saiba como configurar um cluster Service Fabric local, implementar nele uma aplicação existente e atualizar essa aplicação.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
-ms.openlocfilehash: 9d547039491f6b0c0d308c64d11e9c54b4b4e3d5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.author: ryanwi
+ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205251"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introdução à implementação e atualização de aplicações no seu cluster local
 O SDK de Service Fabric de Azure inclui um ambiente de desenvolvimento local completo que pode utilizar para rapidamente começar a implementar e gerir aplicações num cluster local. Neste artigo, cria um cluster local, implementa nele uma aplicação existente e atualiza essa aplicação para uma nova versão, tudo a partir do Windows PowerShell.
@@ -148,7 +149,7 @@ A nova versão da aplicação conta agora apenas as palavras que começam por um
     Deverá ver o resultado seguinte no PowerShell, à medida que a atualização começa.
    
     ![Progresso da atualização do PowerShell][ps-appupgradeprogress]
-3. Enquanto a atualização está a decorrer, será mais fácil monitorizar o estado a partir do Service Fabric Explorer. Inicie uma janela do navegador e navegue para [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicações** na árvore à esquerda, escolha **WordCount** e, por fim, **fabric:/WordCount**. No separador Essentials, vê o estado da atualização à medida que avança nos domínios de atualização do cluster.
+3. Enquanto a atualização está a decorrer, será mais fácil monitorizar o estado a partir do Service Fabric Explorer. Inicie uma janela do browser e navegue para [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicações** na árvore à esquerda, escolha **WordCount** e, por fim, **fabric:/WordCount**. No separador Essentials, vê o estado da atualização à medida que avança nos domínios de atualização do cluster.
    
     ![Parar um nó no Service Fabric Explorer][sfx-upgradeprogress]
    

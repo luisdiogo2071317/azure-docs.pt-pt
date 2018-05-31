@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212794"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar os recursos do Azure para a replicação de máquinas no local
 
@@ -47,7 +48,7 @@ Para concluir estas tarefas, a conta deve estar atribuída à função incorpora
 As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento quando fizer a ativação pós-falha do local para o Azure.
 
 1. No menu [portal do Azure](https://portal.azure.com), selecione **Novo** > **Armazenamento** > **Conta de armazenamento**.
-2. Em **Criar conta de armazenamento**, introduza um nome para a conta. Nestes tutoriais, utilize o nome **contosovmsacct1910171607**. O nome tem de ser exclusivo no Azure e ter entre 3 e 24 carateres compostos apenas por números e letras minúsculas.
+2. Em **Criar conta de armazenamento**, introduza um nome para a conta. Nestes tutoriais, estamos a utilizar **contosovmsacct1910171607**. O nome que selecionar tem de ser exclusivo no Azure e ter entre 3 e 24 carateres compostos apenas por números e letras minúsculas.
 3. Em **Modelo de implementação**, selecione **Resource Manager**.
 4. Em **Tipo de conta**, selecione **Fins gerais**. Em **Desempenho**, selecione **Padrão**. Não selecione o armazenamento de blobs.
 5. Em **Replicação**, selecione o **Armazenamento georredundante com acesso de leitura** predefinido para redundância de armazenamento.
@@ -62,7 +63,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 ## <a name="create-a-vault"></a>Criar um cofre
 
 1. No portal do Azure, selecione **Criar um recurso** > **Monitorização + Gestão** > **Backup e Site Recovery**.
-2. Em **Nome**, introduza um nome amigável para identificar o cofre. Neste tutorial, utilize **ContosoVMVault**.
+2. Em **Nome**, introduza um nome amigável para identificar o cofre. Neste conjunto de tutoriais, estamos a utilizar **ContosoVMVault**.
 3. Em **Grupo de recursos**, selecione o grupo de recursos existente com o nome **contosoRG**.
 4. Em **Localização**, especifique a região do Azure **Europa Ocidental** que é utilizada neste conjunto de tutoriais.
 5. Para aceder rapidamente ao cofre a partir do dashboard, selecione **Afixar ao dashboard** > **Criar**.

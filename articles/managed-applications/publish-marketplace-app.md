@@ -1,180 +1,181 @@
 ---
-title: As aplicações no mercado de gerido do Azure | Microsoft Docs
-description: Descreve Azure as aplicações que estão disponíveis através do Marketplace gerido.
-services: azure-resource-manager
+title: Aplicações geridas do Azure no Marketplace | Microsoft Docs
+description: Descreve as aplicações geridas do Azure disponíveis através do Marketplace.
+services: managed-applications
 author: tfitzmac
 manager: timlt
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304536"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
-Os fornecedores podem utilizar o Azure geridos aplicações para oferecer as soluções para todos os clientes do Azure Marketplace. Os fornecedores podem incluir fornecedores de serviços geridos (MSPs), os fabricantes independentes de software (ISV) e integradores de sistema (SIs). Aplicações geridas reduzem a manutenção e a sobrecarga de manutenção para os clientes. Os fornecedores propor infraestrutura e de software através do marketplace. Pode anexar os serviços e operacional suporte para aplicações geridas. Para obter mais informações, consulte [descrição geral de aplicações gerido](overview.md).
+Os fornecedores podem utilizar as aplicações geridas do Azure para disponibilizar as suas soluções a todos os clientes do Azure Marketplace. Esses fornecedores podem incluir fornecedores de serviços geridos (MSPs), fabricantes independentes de software (ISVs) e integradores de sistemas (SIs). As aplicações geridas reduzem os custos gerais de manutenção para os clientes. Os fornecedores vendem infraestruturas e software através do marketplace. Podem anexar serviços e suporte operacional às aplicações geridas. Para obter mais informações, veja [Descrição geral das aplicações geridas](overview.md).
 
-Este artigo explica como pode publicar uma aplicação no Marketplace e que fiquem amplamente disponíveis aos clientes.
+Este artigo explica como pode publicar uma aplicação no marketplace e torná-la amplamente disponível para os clientes.
 
 ## <a name="prerequisites-for-publishing-a-managed-application"></a>Pré-requisitos para publicar uma aplicação gerida
 
-Para concluir este artigo, já tem de ter o ficheiro. zip para a sua definição de aplicações geridas. Para obter mais informações, consulte [Criar aplicação do catálogo de serviço](publish-service-catalog-app.md).
+Para concluir este artigo, pecisa de ter o ficheiro .zip para a definição da aplicação gerida. Para obter mais informações, veja [Criar uma aplicação do catálogo de serviços](publish-service-catalog-app.md).
 
-Além disso, existem vários pré-requisitos de negócio. São:
+Além disso, existem vários pré-requisitos empresariais. São:
 
-* Da sua empresa ou a sua subsidiária tem de estar localizada num país/região onde vendas são suportadas no marketplace.
-* O produto têm de estar licenciado de uma forma que é compatível com modelos de faturação suportados no marketplace.
-* Disponibilizar suporte técnico para clientes de forma comercialmente razoável. O suporte pode ser livre, paga, ou através da Comunidade suportar.
-* Licença do software e as dependências de software de terceiros.
-* Forneça o conteúdo que cumpra os critérios para a sua oferta seja apresentado no Marketplace e no portal do Azure.
-* Aceite os termos do contrato do publicador e políticas de participação do Azure Marketplace.
-* Concorda em estar em conformidade com os termos de utilização, declaração de privacidade da Microsoft e contrato de programa de certificados do Microsoft Azure.
+* A sua empresa, ou respetiva subsidiária, tem de estar localizada num país em que as vendas sejam suportadas pelo marketplace.
+* O produto tem de estar licenciado de forma a ser compatível com os modelos de faturação suportados pelo marketplace.
+* Disponibilizar suporte técnico para os clientes de forma comercialmente razoável. O suporte pode ser gratuito, pago ou através da comunidade.
+* Licencie o software e quaisquer dependências de software de terceiros.
+* Forneça conteúdo que cumpra os critérios da sua oferta apresentado no Marketplace e no portal do Azure.
+* Aceite os termos das Políticas de Participação e do Contrato de Publicação do Azure Marketplace.
+* Aceite cumprir Termos de Utilização, a Declaração de Privacidade da Microsoft e o Contrato do Programa Microsoft Azure Certified.
 
-## <a name="become-a-publisher"></a>Tornar-se de um fabricante
+## <a name="become-a-publisher"></a>Tornar-se um editor
 
-Para se tornar um publicador no Azure Marketplace, tem de:
+Para se tornar um editor no Azure Marketplace, tem de:
 
-1. Criar um ID de Microsoft - criar a sua conta Microsoft com um endereço de e-mail que pertence ao domínio da sua empresa, mas não para um único individuais. Este endereço de correio eletrónico é utilizado para a Microsoft Developer Center e o Portal de parceiros de nuvem. Para obter mais informações, consulte [guia de publicador do Azure Marketplace](https://aka.ms/sellerguide).
-1. Submeter [Azure Marketplace Nomination formulário](https://aka.ms/ampnomination) - para **solução que pretende publicar?**, selecione **aplicações geridas**. Depois do formulário é submetido, a equipa de integração de Marketplace revê a aplicação e valida o pedido. O processo de aprovação pode demorar uma a três dias. Quando o seu nomination é aprovado, receberá um código promocional para waive a taxa de registo para o Centro de programadores. Se o fizer **não** preencher o formulário de Nomination do Marketplace, é-lhe perguntado aos quais deve prestar uma taxa de registo $99.
-1. Registar no [Centro para programadores](http://dev.windows.com/registration?accountprogram=azure) -Microsoft valida que a sua organização é uma entidade legal válida com um ID de dedução dos impostos válido para o país/região na qual está registado. O processo de aprovação pode demorar 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu por correio eletrónico do processo de nomination. Para obter mais informações, consulte [guia de publicador do Azure Marketplace](https://aka.ms/sellerguide).
-1. Inicie sessão no [Portal de parceiros de nuvem](https://cloudpartner.azure.com) - no perfil do publicador, associar a sua conta do Centro de programadores com o perfil de publicador do Marketplace. Para obter mais informações, consulte [guia de publicador do Azure Marketplace](https://aka.ms/sellerguide).
+1. Criar um ID da Microsoft - Crie a sua conta Microsoft com um endereço de e-mail que pertença ao domínio da sua empresa, mas não a um único indivíduo. Este endereço de e-mail é utilizado para o Centro para Programadores da Microsoft e o Cloud Partner Portal. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
+1. Submeter o [Formulário de Nomeação do Azure Marketplace](https://aka.ms/ampnomination) - Para **Que solução quer publicar?**, selecione **Aplicação Gerida**. Depois de o formulário ser submetido, a equipa de inclusão do Marketplace revê a candidatura e valida o pedido. O processo de aprovação pode demorar entre um a três dias. Quando a nomeação for aprovada, receberá um código promocional para renunciar a taxa de registo do centro para programadores. Se **não** preencher o Formulário de Nomeação do Marketplace, é-lhe solicitado que pague uma taxa de registo de $99.
+1. Registar-se no [Centro para Programadores](http://dev.windows.com/registration?accountprogram=azure) - A Microsoft valida que a sua organização é uma entidade legal válida com um ID fiscal válido para o país onde está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
+1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) - No perfil do editor, associe a sua conta do Centro para Programadores com o Perfil de Editor do Marketplace. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicação do Azure
 
-Depois de criar a sua conta do portal de parceiros, está pronto para criar a sua oferta da aplicação gerida.
+Depois de criar a sua conta do portal de parceiros, está pronto para criar a sua oferta de aplicação gerida.
 
 ### <a name="set-up-an-offer"></a>Configurar uma oferta
 
-A oferta para uma aplicação gerida corresponde a uma classe de produto de um fabricante da oferta. Se tiver um novo tipo de aplicação que pretende tornar disponível no mercado, pode configurá-lo como uma nova oferta. Uma oferta é uma coleção de SKUs. Cada oferta aparece como o seu próprio entidade no marketplace.
+A oferta de uma aplicação gerida corresponde a uma classe de oferta de produto de um editor. Se tiver um novo tipo de aplicação que queira disponibilizar no marketplace, pode configurá-lo como uma nova oferta. Uma oferta é uma coleção de SKUs. Cada oferta aparece como a sua própria entidade no marketplace.
 
-1. Iniciar sessão para o [portal de parceiros de nuvem](https://cloudpartner.azure.com/).
+1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-1. No painel de navegação à esquerda, selecione **+ nova oferta** > **aplicações do Azure**.
+1. No painel de navegação à esquerda, selecione **+ Nova oferta** > **Aplicações do Azure**.
 
-1. No **Editor** vista, consulte os formulários necessários. Cada formulário é descrito mais à frente neste artigo.
+1. Na vista **Editor**, verá os formulários necessários. Cada formulário é descrito mais à frente neste artigo.
 
-## <a name="offer-settings-form"></a>Formulário de definições da oferta
+## <a name="offer-settings-form"></a>Formulário de Definições da Oferta
 
-Os campos para o **oferecem definições** formulário são:
+Os campos do formulário **Definições da Oferta** são:
 
-* **Oferecer ID**: este identificador exclusivo identifica a oferta dentro de um perfil do publicador. Este ID é visível no produto URLs, modelos do Resource Manager, e relatórios de faturação. Só podem ser composta de carateres alfanuméricos minúsculos ou traços (-). O ID não pode terminar com um travessão. De limitada a um máximo de 50 carateres. Depois de uma oferta fica em direto, este campo está bloqueado.
-* **ID de publicador**: Utilize esta lista pendente para escolher o perfil de publicador que pretende publicar esta oferta em. Depois de uma oferta fica em direto, este campo está bloqueado.
-* **Nome**: este nome a apresentar para a sua oferta é apresentada no Marketplace e através do portal. Pode ter um máximo de 50 carateres. Incluem um nome de marca reconhecível para o produto. Não inclua o nome da sua empresa aqui, a menos que seja como for marketed. Se estiver a marketing esta oferta no seu próprio site, certifique-se de que o nome exatamente como é apresentado no seu Web site.
+* **ID da Oferta**: este identificador exclusivo identifica a oferta num perfil de editor. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen. Está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado.
+* **ID do Editor**: utilize esta lista pendente para escolher o perfil de editor onde quer publicar esta oferta. Depois da publicação de uma oferta, este campo fica bloqueado.
+* **Nome**: este nome a apresentar da sua oferta aparece no Marketplace e no portal. Pode ter um máximo de 50 carateres. Inclua um nome de marca reconhecível para o produto. Não inclua o nome da sua empresa aqui, a menos que seja como está comercializado. Se estiver a comercializar esta oferta no seu próprio site, certifique-se de que o nome é exatamente como aparece no seu site.
 
-Quando terminar, selecione **guardar** para guardar o seu progresso.
+Quando terminar, selecione **Guardar** para guardar o seu progresso.
 
-## <a name="skus-form"></a>SKUs de formulário
+## <a name="skus-form"></a>Formulário de SKUs
 
-O passo seguinte consiste em Adicionar SKUs para a sua oferta.
+O passo seguinte é adicionar SKUs à sua oferta.
 
-Um SKU é a unidade purchasable mais pequeno de uma oferta. Pode utilizar um SKU dentro da mesma classe de produto (oferta) para diferenciar entre:
+Um SKU é a unidade de compra mais pequena de uma oferta. Pode utilizar um SKU na mesma classe de produto (oferta) para diferenciar entre:
 
-* Funcionalidades diferentes que são suportadas
-* Indica se a oferta é gerida ou não gerida
-* Modelos de faturação que são suportados
+* As diversas funcionalidades suportadas
+* Se a oferta é gerida ou não gerida
+* Os modelos de faturação suportados
 
-Um SKU aparece sob a oferta de principal no marketplace. É apresentado como o seu próprio entidade purchasable no portal do Azure.
+Um SKU aparece na oferta principal no marketplace. É apresentado como a sua própria entidade de compra no portal do Azure.
 
-1. Selecione **SKUs** > **SKU novo**.
+1. Selecione **SKUs** > **Novo SKU**.
 
-1. Introduza um **ID do SKU**. Um ID de SKU é um identificador exclusivo para o SKU dentro de uma oferta. Este ID é visível no produto URLs, modelos do Resource Manager, e relatórios de faturação. Só podem ser composta de carateres alfanuméricos minúsculos ou traços (-). O ID não pode terminar com um travessão e de limitada a um máximo de 50 carateres. Depois de uma oferta fica em direto, este campo está bloqueado. Pode ter vários SKUs dentro de uma oferta. É necessário um SKU de cada imagem que pretende publicar.
+1. Introduza o **ID do SKU**. O ID do SKU é um identificador exclusivo do SKU numa oferta. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen e está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado. Pode ter vários SKUs numa oferta. Precisa de um SKU para cada imagem que queira publicar.
 
-1. Preencha o **detalhes de SKU** secção no seguinte formato:
+1. Preencha a secção **Detalhes do SKU** no seguinte formulário:
 
-   Preencha os campos seguintes:
+   Preencha os seguintes campos:
 
-   * **Título**: introduza um título para este SKU. Este título é apresentado na Galeria para este item.
-   * **Resumo**: introduza um breve resumo para esta SKU. Este texto é apresentado sob o título.
-   * **Descrição**: introduza uma descrição detalhada sobre o SKU.
-   * **Tipo de SKU**: os valores permitidos são *aplicações geridas* e *modelos de solução*. Neste caso, selecione *aplicações geridas*.
-   * **Disponibilidade do país/região**: selecione países/regiões onde a aplicação gerida está disponível.
+   * **Título**: introduza um título para o SKU. Este título é apresentado na galeria deste item.
+   * **Resumo**: introduza um breve resumo para o SKU. Este texto é apresentado abaixo do título.
+   * **Descrição**: introduza uma descrição detalhada do SKU.
+   * **Tipo de SKU**: os valores permitidos são *Aplicação Gerida* e *Modelos de Solução*. Neste caso, selecione *Aplicação Gerida*.
+   * **Disponibilidade do país/região**: selecione os países onde a aplicação gerida está disponível.
    * **Preços**: forneça um preço para a gestão da aplicação. Selecione os países disponíveis antes de definir o preço.
 
-1. Adicione um novo pacote. Preencha o **detalhes do pacote** secção no seguinte formato:
+1. Adicione um novo pacote. Preencha a secção **Detalhes do Pacote** no seguinte formulário:
 
-   Preencha os campos seguintes:
+   Preencha os seguintes campos:
 
-   * **Versão atual**: introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
-   * **Selecione um ficheiro de pacote**: Este pacote contém dois ficheiros necessários comprimidos para um pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar a aplicação gerida. O ficheiro de outro define o [interface de utilizador](create-uidefinition-overview.md) para implementar a aplicação gerida através do portal de consumidores. Na interface de utilizador, especifique os elementos que permitem que os consumidores fornecer valores de parâmetros.
-   * **PrincipalId**: Esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, o grupo de utilizadores ou a aplicação que é concedida acesso aos recursos na subscrição do cliente. A definição de função descreve as permissões.
-   * **Definição de função**: Esta propriedade é uma lista de todos os as controlo de acesso baseado em funções (RBAC) funções incorporadas fornecidas pelo Azure AD. Pode selecionar a função que é mais adequada utilizar para gerir os recursos em nome do cliente.
+   * **Versão Atual**: introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
+   * **Selecione um ficheiro de pacote**: este pacote contém dois ficheiros necessários comprimidos num pacote .zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+   * **PrincipalId**: esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, grupo de utilizadores ou aplicação com acesso concedido aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
+   * **Definição de Função**: esta propriedade é uma lista de todas as funções de Controlo de Acesso Baseado em Funções (RBAC) incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
 
-Pode adicionar vários autorizações. Recomendamos que crie um grupo de utilizadores do AD e especificar o respetivo ID em **PrincipalId**. Desta forma, pode adicionar mais utilizadores para o grupo de utilizadores sem a necessidade de atualizar o SKU.
+Pode adicionar várias autorizações. Recomendamos que crie um grupo de utilizadores do AD e especifique o respetivo ID em **PrincipalId**. Desta forma, pode adicionar mais utilizadores ao grupo de utilizadores sem a necessidade de atualizar o SKU.
 
-Para obter mais informações sobre o RBAC, consulte [começar a utilizar o RBAC no portal do Azure](../role-based-access-control/overview.md).
+Para obter mais informações sobre o RBAC, veja [Começar a utilizar o RBAC no portal do Azure](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Formulário do Marketplace
 
-O formulário de Marketplace pede-lhe campos que apareçam no [Azure Marketplace](https://azuremarketplace.microsoft.com) e o [portal do Azure](https://portal.azure.com/).
+O formulário do Marketplace pede campos que aparecem no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [portal do Azure](https://portal.azure.com/).
 
-### <a name="preview-subscription-ids"></a>IDs de subscrição de pré-visualização
+### <a name="preview-subscription-ids"></a>Pré-visualizar IDs de subscrição
 
-Introduza uma lista de IDs, que pode aceder à oferta depois da sua publicação de subscrição do Azure. Pode utilizar estas subscrições listados em branco para testar a oferta previewed antes de torná-lo em direto. Pode compilar uma lista de permissão de até 100 subscrições no portal de parceiros.
+Introduza uma lista de IDs de subscrição do Azure que possa aceder à oferta depois da sua publicação. Pode utilizar estas subscrições permitidas para testar a oferta pré-visualizada antes de publicá-la. Pode compilar uma lista de permissão com um máximo de 100 subscrições no portal de parceiros.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 
-Selecione até cinco categorias da lista que oferta pode ser melhor associada. Estas categorias são utilizadas para mapear a oferta para as categorias de produtos que estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com) e [portal do Azure](https://portal.azure.com/).
+Selecione até cinco categorias na lista a que oferta pode ser melhor associada. Estas categorias são utilizadas para mapear a oferta para as categorias de produtos disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [portal do Azure](https://portal.azure.com/).
 
 #### <a name="azure-marketplace"></a>Azure Marketplace
 
-O resumo da sua aplicação gerida apresenta os seguintes campos:
+O resumo da aplicação gerida apresenta os seguintes campos:
 
 ![Resumo do Marketplace](./media/publish-marketplace-app/publishvm10.png)
 
-O **descrição geral** separador para a sua aplicação gerida apresenta os seguintes campos:
+O separador **Descrição Geral** da aplicação gerida apresenta os seguintes campos:
 
 ![Descrição geral do Marketplace](./media/publish-marketplace-app/publishvm11.png)
 
-O **planos + preços** separador para a sua aplicação gerida apresenta os seguintes campos:
+O separador **Planos + Preços** da aplicação gerida apresenta os seguintes campos:
 
-![Planos de Marketplace](./media/publish-marketplace-app/publishvm15.png)
+![Planos do Marketplace](./media/publish-marketplace-app/publishvm15.png)
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-O resumo da sua aplicação gerida apresenta os seguintes campos:
+O resumo da aplicação gerida apresenta os seguintes campos:
 
 ![Resumo do portal](./media/publish-marketplace-app/publishvm12.png)
 
-A descrição geral da sua aplicação gerida apresenta os seguintes campos:
+A descrição geral da aplicação gerida apresenta os seguintes campos:
 
 ![Descrição geral do portal](./media/publish-marketplace-app/publishvm13.png)
 
-#### <a name="logo-guidelines"></a>Diretrizes de logótipo
+#### <a name="logo-guidelines"></a>Diretrizes para logótipos
 
-Siga estas diretrizes para qualquer logótipo que carregar no portal de parceiros de Cloud:
+Siga estas diretrizes para qualquer logótipo que carregar no Cloud Partner Portal:
 
-*   A estrutura do Azure tem uma paleta de cores simples. Limite o número de principal e secundário cores no seu logótipo.
-*   As cores de tema do portal são brancos e marcar a negrito. Não utilize estes cores como a cor de fundo para o logótipo. Utilize uma cor que faz com que o seu logótipo prominent no portal. Recomendamos simples de principal de cores. *Se utilizar um fundo transparente, certifique-se de que o logótipo e o texto não são brancos, negra ou azul.*
-*   Não utilize um fundo gradação no logótipo.
-*   Não coloque o texto no logótipo, nem mesmo a empresa ou o nome de marca. O aspeto e funcionalidade do logótipo deve ser simples e evitar gradações.
-*   Certifique-se que o logótipo não se encontra stretched (ampliada).
+*   O design do Azure tem uma paleta de cores simples. Limite o número de cores primárias e secundárias no logótipo.
+*   As cores do tema do portal são preto e branco. Não utilize estas cores como cor de fundo do logótipo. Utilize uma cor que realce o logótipo no portal. Recomendamos cores primárias simples. *Se utilizar um fundo transparente, certifique-se de que o logótipo e o texto não são brancos, pretos ou azuis.*
+*   Não utilize um fundo de gradação no logótipo.
+*   Não coloque texto no logótipo, nem mesmo o nome da empresa ou da marca. O aspeto e funcionalidade do logótipo deve ser simples e evitar gradações.
+*   Certifique-se que o logótipo não está ampliado.
 
-#### <a name="hero-logo"></a>Logótipo de heroína
+#### <a name="hero-logo"></a>Logótipo de destaque
 
-O logótipo heroína é opcional. O fabricante pode optar por não carregar um logótipo de heroína. Depois do ícone de heroína é carregado, não pode ser eliminada. Nessa altura, o parceiro tem de seguir as diretrizes de Marketplace para ícones heroína.
+O logótipo de destaque é opcional. O editor pode optar por não carregar um logótipo de destaque. Depois de o ícone de destaque ser carregado, não pode ser eliminado. Nessa altura, o parceiro tem de seguir as diretrizes do Marketplace para ícones de destaque.
 
-Siga estas diretrizes para o ícone de logótipo heroína:
+Siga estas diretrizes para o ícone do logótipo de destaque:
 
-*   O nome de apresentação do publicador, o título do plano e a oferta longa resumo são apresentados em branco. Por conseguinte, não utilize uma cor leve para a imagem de fundo do ícone heroína. Não é permitido um fundo branco, preto ou transparente para ícones heroína.
-*   Depois da oferta é listada, elementos são incorporados programaticamente dentro o logótipo heroína. Os elementos incorporados incluem o nome de apresentação do publicador, o título do plano, a oferta longa resumo e o **criar** botão. Por conseguinte, não introduza quaisquer texto ao estruturar o logótipo heroína. Deixe o espaço em branco à direita porque o texto é através de programação desse espaço. O espaço em branco para o texto deve ser 415 x 100 pixéis à direita. É de deslocamento em 370 pixéis da esquerda.
+*   O nome a apresentar do editor, o título do plano e o resumo longo da oferta são apresentados a branco. Por conseguinte, não utilize uma cor clara para o fundo do ícone de destaque. Não é permitido um fundo preto, branco ou transparente para ícones de destaque.
+*   Depois de a oferta ser listada, os elementos são incorporados programaticamente dentro do logótipo de destaque. Os elementos incorporados incluem o nome a apresentar do editor, o título do plano, o resumo longo da oferta e o botão **Criar**. Consequentemente, não introduza texto quando estruturar o logótipo de destaque. Deixe espaço em branco à direita porque o texto é incluído programaticamente nesse espaço. O espaço em branco para o texto deve ter 415 x 100 pixéis à direita. O deslocamento é de 370 pixéis a contar da esquerda.
 
-    ![Exemplo de logótipo heroína](./media/publish-marketplace-app/publishvm14.png)
+    ![Exemplo de logótipo de destaque](./media/publish-marketplace-app/publishvm14.png)
 
 ## <a name="support-form"></a>Formulário de suporte
 
-Preencha o **suporta** contacta de formulário com o suporte da sua empresa. Estas informações podem ser engenharia contactos e contactos de suporte ao cliente.
+Preencha o formulário de **Suporte** com contactos de suporte da sua empresa. Estas informações podem ser contactos de engenharia e contactos de apoio ao cliente.
 
 ## <a name="publish-an-offer"></a>Publicar uma oferta
 
-Depois de preencher todas as secções, selecione **publicar** para iniciar o processo que disponibiliza a oferta para clientes.
+Depois de preencher todas as secções, selecione **Publicar** para iniciar o processo que disponibiliza a oferta aos clientes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
-* Para obter informações sobre como publicar uma aplicação do catálogo de serviço geridas, consulte [criar e publicar uma aplicação do catálogo de serviço geridas](publish-service-catalog-app.md).
+* Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar e publicar uma aplicação gerida do Catálogo de Serviços](publish-service-catalog-app.md).
