@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301612"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: atribuir acesso a dados de gestão de custos
 
@@ -27,7 +28,8 @@ Quando registou o seu contrato ou conta do Azure, foi criada uma conta com permi
 > [!div class="checklist"]
 > * Criar um utilizador com acesso de administrador
 > * Criar um utilizador com acesso de utilizador
-> * Criar entidades
+> * Criar e gerir entidades
+
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -56,11 +58,11 @@ Os utilizadores típicos que precisem de acesso a dados de gestão de custos, co
 
 Para ver um vídeo do tutorial sobre como adicionar utilizadores, veja [Adicionar Utilizadores ao Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Criar entidades
+## <a name="create-and-manage-entities"></a>Criar e gerir entidades
 
-Quando definir a hierarquia de entidades de custo, é recomendado identificar a estrutura da sua organização.
+Quando definir a hierarquia de entidades de custo, é recomendado identificar a estrutura da sua organização. As entidades permitem-lhe segmentar gastos por contas ou subscrições individuais. O utilizador cria entidades de custos para criar grupos lógicos para gerir e controlar gastos. À medida que cria a árvore, considere a forma como quer ou precisa de ver os seus custos segregados por unidades de negócio, centros de custos, ambientes e departamentos de vendas. A árvore de entidades no Cloudyn é flexível devido à herança de entidades.
 
-À medida que cria a árvore, considere a forma como quer ou precisa de ver os seus custos segregados por unidades de negócio, centros de custos, ambientes e departamentos de vendas. A árvore de entidades no Cloudyn é flexível devido à herança de entidades. As subscrições individuais para as suas contas da cloud estão associadas a entidades específicas. Assim, as entidades são multi-inquilino. Pode atribuir o acesso de utilizadores específicos apenas ao respetivo segmento da sua empresa através de entidades. Se o fizer, mantém os dados isolados, mesmo em grandes partes de uma empresa, como subsidiárias. Além disso, o isolamento de dados ajuda na governação.  
+As subscrições individuais para as suas contas da cloud estão associadas a entidades específicas. Pode associar uma entidade a uma subscrição ou conta de fornecedor de serviços em cloud. Assim, as entidades são multi-inquilino. Pode atribuir o acesso de utilizadores específicos apenas ao respetivo segmento da sua empresa através de entidades. Se o fizer, mantém os dados isolados, mesmo em grandes partes de uma empresa, como subsidiárias. Além disso, o isolamento de dados ajuda na governação.  
 
 Quando registou o seu contrato ou conta do Azure no Cloudyn, os dados dos recursos do Azure, incluindo utilização, desempenho, faturação e dados de etiqueta das suas subscrições, foram copiados para a sua conta do Cloudyn. No entanto, tem de criar manualmente a árvore de entidades. Caso tenha ignorado o registo do Azure Resource Manager, apenas os dados de faturação e alguns relatórios de imobilizado estão disponíveis no portal do Cloudyn.
 
@@ -74,6 +76,23 @@ Junto a **Entidades**, clique em **Adicionar Entidade**. Introduza as informaç�
 
 Quando tiver terminado, **guarde** a entidade.
 
+### <a name="entity-access-levels"></a>Níveis de acesso de entidade
+
+Os níveis de acesso de entidade em conjunto com acesso de um utilizador permite-lhe definir o tipo de ações disponíveis no portal do Cloudyn.
+
+- **Enterprise** - fornece a capacidade de criar e gerir entidades de custo subordinado.
+- **Enterprise + alocação de custos** - fornece a capacidade de criar e gerir as entidades de custos subordinados, incluindo a alocação de custos para contas consolidadas.
+- **Enterprise, custo baseado na alocação de custos principais** - fornece a capacidade de criar e gerir entidades de custos subordinados. Os custos da conta baseiam-se no modelo de alocação de custo principais.
+- **Apenas Dashboards Personalizados** - fornece o utilizador para ver apenas os dashboards personalizados predefinidos.
+- **Apenas Dashboards** - fornece ao utilizador a capacidade de verem apenas os dashboards.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Criar uma hierarquia de entidades de custo
+
+Para criar uma hierarquia de entidades de custo, deve ter uma conta com acesso enterprise ou enterprise + alocação de custos.
+
+No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**. A árvore **Entidades** é apresentada no painel esquerdo. Se necessário, expanda a árvore de entidade para que possa visualizar a entidade que pretende associar a uma conta.  As contas de fornecedor de serviço de cloud são apresentadas no separadores no painel direito. Selecione um separador e, em seguida, clique e arraste uma conta/subscrição de conta para a entidade, em seguida, largue-a. A caixa **Mover** informa-o que a conta foi movida com êxito. Clique em **OK**.
+
+Também pode associar várias contas a uma entidade. Selecione as contas e, em seguida, clique em **Mover**. Na caixa Mover contas, selecione a entidade em que pretende mover a conta e, em seguida, clique em **Guardar**. A caixa Mover contas pede-lhe para confirmar que pretende mover as contas. Clique em **Sim** e, em seguida, em **OK**.
 
 Para ver um vídeo do tutorial sobre a criação de uma hierarquia de entidades de custo, veja [Criar uma Hierarquia de Entidades de Custo no Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
@@ -86,7 +105,8 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Criar um utilizador com acesso de administrador
 > * Criar um utilizador com acesso de utilizador
-> * Criar entidades
+> * Criar e gerir entidades
+
 
 Se ainda não ativou a acesso à API do Azure Resource Manager para as suas contas, avance para o seguinte artigo.
 
