@@ -1,24 +1,21 @@
 ---
-title: Introdução ao Azure Data Lake Analytics com o portal do Azure | Microsoft Docs
-description: 'Saiba como utilizar o portal do Azure para criar uma conta do Data Lake Analytics, criar uma tarefa do Data Lake Analytics com U-SQL e submeter a tarefa. '
+title: Introdução ao Azure Data Lake Analytics com o portal do Azure
+description: Saiba como utilizar o portal do Azure para criar uma conta do Data Lake Analytics, criar uma tarefa do Data Lake Analytics com U-SQL e submeter a tarefa.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358290"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introdução ao Azure Data Lake Analytics com o Portal do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Submeter uma tarefa de U-SQL
 
-1. Na conta do Data Lake Analytics, clique em **Nova Tarefa**.
-2. Cole o texto do script U-SQL mostrado acima. 
-3. Clique em **Submeter Tarefa**.   
-4. Aguarde até que o estado da tarefa seja alterado para **Com êxito**.
-5. Clique no separador **Saída** e, em seguida, clique em `data.csv`. 
+1. Na conta do Data Lake Analytics, selecione **Nova Tarefa**.
+2. Cole o texto do script U-SQL acima. Nome da tarefa. 
+3. Selecione o botão **Submeter** para iniciar a tarefa.   
+4. Monitorize o **Estado** da tarefa e aguarde até que o estado da tarefa se altere para **Com Êxito**.
+5. Selecione o separador **Dados** e selecione o separador **Saídas**. Selecione o ficheiro de saída com o nome `data.csv` e veja os dados de saída.
 
 ## <a name="see-also"></a>Consulte também
 
