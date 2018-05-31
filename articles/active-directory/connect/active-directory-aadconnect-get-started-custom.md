@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055858"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](active-directory-aadconnect-get-started-express.md) não satisfaz a sua implementação ou topologia.
@@ -45,13 +46,14 @@ Quando instalar os serviços de sincronização, pode deixar a secção de confi
 ### <a name="user-sign-in"></a>Início de sessão do utilizador
 Depois de instalar os componentes necessários, é-lhe pedido que selecione o método de início de sessão único dos utilizadores. A tabela seguinte fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de início de sessão, consulte [Início de sessão do utilizador](active-directory-aadconnect-user-signin.md).
 
-![Início de Sessão de Utilizador](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![Início de Sessão de Utilizador](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Opção Início de Sessão Único | Descrição |
 | --- | --- |
 | Sincronização hash de palavra-passe |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Autenticação pass-through|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
 | Federação com o AD FS |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  Os utilizadores serão redirecionados para a respetiva instância do AD FS no local para iniciarem sessão e a autenticação ocorre no local. |
+| Federação com o PingFederate|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  Os utilizadores serão redirecionados para a respetiva instância do PingFederate no local para iniciarem sessão, e a autenticação ocorre no local. |
 | Não configurar |Nenhuma funcionalidade de início de sessão de utilizador é instalada e configurada. Escolha esta opção se já tiver instalado um servidor de federação de terceiros ou outra solução existente. |
 |Ativar o Início de sessão Único|Esta opção está disponível com sincronização de palavras-passe e autenticação pass-through e proporciona uma experiência de início de sessão único para utilizadores de ambiente de trabalho na rede da empresa. Veja [Início de sessão único](active-directory-aadconnect-sso.md) para obter mais informações. </br>Nota para clientes do AD FS: esta opção não está disponível porque o AD FS já oferece o mesmo nível de início de sessão único.</br>
 
@@ -302,6 +304,39 @@ Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as in
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>Configurar a federação com o PingFederate
+Configurar o PingFederate com o Azure AD Connect é simples, bastam apenas alguns cliques. É necessário o seguinte antes da configuração.  No entanto, são necessários os seguintes pré-requisitos.
+- PingFederate 8.4 ou superior.  Para obter mais informações veja [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- Um certificado SSL para o nome do serviço de federação que pretende utilizar (por exemplo, sts.contoso.com)
+
+### <a name="verify-the-domain"></a>Verificar o domínio
+Depois de selecionar a Federação com PingFederate, ser-lhe-á pedido para verificar o domínio que pretende federar.  Selecione o domínio na caixa da lista pendente.
+
+![Verificar Domínio](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>Exportar as definições do PingFederate
+
+
+O PingFederate tem de ser configurado como o servidor de federação para cada domínio federado do Azure.  Clique no botão Exportar Definições e partilhe estas informações com o seu administrador do PingFederate.  O administrador do servidor de federação irá atualizar a configuração e, em seguida, irá fornecer o URL e número de porta do servidor PingFederate, para que o Azure AD Connect possa verificar as definições de metadados.  
+
+![Verificar Domínio](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+Contacte o administrador de PingFederate para resolver quaisquer problemas de validação.  Segue-se um exemplo de um servidor PingFederate que não tem uma relação de confiança válida com o Azure:
+
+![Confiança](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>Verificar a conectividade da federação
+O Azure AD Connect irá tentar validar os pontos finais de autenticação obtidos dos metadados do PingFederate no passo anterior.  O Azure AD Connect tentará primeiro resolver os pontos finais com os servidores DNS locais.  Em seguida, irá tentar resolver os pontos finais com um fornecedor DNS externo.  Contacte o administrador de PingFederate para resolver quaisquer problemas de validação.  
+
+![Verificar a Conectividade](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>Verificar o início de sessão na federação
+Por fim, pode verificar o fluxo de início de sessão federado recém configurado, ao iniciar sessão no domínio federado. Quando for bem-sucedido, a federação com o PingFederate foi configurada com êxito.
+![Verificar início de sessão](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>Páginas de configuração e verificação
 A configuração ocorre nesta página.
 
@@ -309,6 +344,7 @@ A configuração ocorre nesta página.
 > Antes de prosseguir com a instalação e se tiver configurado a federação, certifique-se de que configurou a [Resolução de nomes dos servidores de federação](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 >
 >
+
 
 ![Preparado para configurar](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -337,8 +373,9 @@ O Azure AD Connect verifica as definições de DNS quando clica no botão Verifi
 
 ![Verificar](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-Adicionalmente, execute os seguintes passos de verificação:
+Para validar a autenticação ponto a ponto com êxito, deve efetuar manualmente um, ou mais, dos seguintes testes:
 
+* Assim que a sincronização estiver concluída, utilize a tarefa adicional Verificar início de sessão federado no Azure AD Connect para verificar a autenticação de uma conta de utilizador no local à sua escolha.
 * Confirme que pode iniciar sessão a partir de um browser num computador associado ao domínio na intranet: ligue-se a https://myapps.microsoft.com e verifique o início de sessão com a sua conta com sessão iniciada. A conta de administrador do AD DS incorporada não está sincronizada e não pode ser utilizada para a verificação.
 * Confirme que pode iniciar sessão a partir de um dispositivo da extranet. Numa máquina de uso doméstico ou num dispositivo móvel, ligue-se a https://myapps.microsoft.com e forneça as credenciais.
 * Valide o início de sessão de cliente avançado. Ligue-se a https://testconnectivity.microsoft.com, escolha o separador **Office 365** e escolha o **Teste de Início de Sessão Único do Office 365**.

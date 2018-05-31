@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781139"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -27,14 +28,12 @@ Os pontos finais de serviço da Rede Virtual (VNet) expandem o seu espaço de en
 
 Esta funcionalidade está disponível para os seguintes serviços e regiões do Azure:
 
-- **Armazenamento do Azure**: Disponível em Geral. Todas as regiões na cloud pública do Azure e no Azure Government.
-- **Base de Dados SQL do Azure**: Disponibilidade Geral em todas as regiões do Azure. 
-- **Azure SQL Data Warehouse**: Pré-visualização. Todas as regiões na cloud pública do Azure.
+- **Armazenamento do Azure**: Disponibilidade Geral em todas as regiões do Azure
+- **Base de Dados SQL do Azure**: Disponibilidade Geral em todas as regiões do Azure
+- **Azure Cosmos DB**: Disponibilidade Geral em todas as regiões da cloud pública do Azure 
+- **Azure SQL Data Warehouse**: Pré-visualização em todas as regiões da cloud pública do Azure
 
-Para obter notificações mais atualizadas da pré-visualização, veja a página [Atualizações da Rede Virtual do Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
->[!NOTE]
-> Durante a pré-visualização, a funcionalidade poderá não ter o mesmo nível de disponibilidade e fiabilidade oferecido na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -50,7 +49,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 - A funcionalidade só está disponível para redes virtuais implementadas através do modelo de implementação Azure Resource Manager.
 - Os pontos finais estão ativados nas sub-redes configuradas em redes virtuais do Azure. Os pontos finais não podem ser utilizados para tráfego dos serviços no local para os serviços do Azure. Para obter mais informações, veja [Proteger o acesso do serviço do Azure no local](#securing-azure-services-to-virtual-networks)
-- O ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. Para o Armazenamento do Microsoft Azure suportar tráfego RA-GRS e GRS, os pontos finais também se expandem para incluir regiões emparelhadas nas quais a rede virtual está implementada. Saiba mais sobre as [regiões emparelhadas do Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. No Armazenamento do Azure, para suportar tráfego RA-GRS e GRS, os pontos finais também se expandem para incluir regiões emparelhadas nas quais a rede virtual está implementada. Saiba mais sobre as [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Proteger serviços do Azure para redes virtuais
 
@@ -68,7 +67,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 - Os pontos finais de serviço são configurados numa sub-rede de uma rede virtual. Os pontos finais funcionam com qualquer tipo de instância de computação em execução nessa sub-rede.
 - Pode configurar vários pontos finais de serviço para todos os serviços do Azure suportados (por exemplo, Armazenamento ou Base de Dados SQL do Microsoft Azure) numa sub-rede.
-- As redes virtuais devem existir na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual.
+- No Azure SQL, as redes virtuais têm de estar na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual. Em todos os outros serviços, os recursos de serviço do Azure podem ser protegidos para redes virtuais em qualquer região. 
 - A rede virtual onde o ponto final está configurado pode existir na mesma subscrição ou numa subscrição diferente que a do recurso de serviço do Azure. Para obter mais informações sobre as permissões necessárias para configurar pontos finais e para proteger serviços do Azure, veja [Aprovisionamento](#Provisioning).
 - Para os serviços suportados, pode proteger recursos novos ou existentes para redes virtuais através de pontos finais de serviço.
 
@@ -112,7 +111,7 @@ As redes virtuais e os recursos de serviço do Azure podem pertencer às mesmas 
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 
-Não há encargos adicionais para a utilização de pontos finais de serviço. O modelo de preços atual dos serviços do Azure (Armazenamento e Base de Dados SQL do Microsoft Azure) aplica-se tal como já está definido.
+Não há encargos adicionais para a utilização de pontos finais de serviço. O modelo de preços atual dos serviços do Azure (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) aplica-se tal como está definido atualmente.
 
 Não existe limite para o número total de pontos finais de serviço numa rede virtual.
 

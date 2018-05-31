@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787613"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir as fórmulas de Azure DevTest Labs
 
@@ -62,7 +63,7 @@ Os seguintes passos guiá-lo durante o processo de criação de uma fórmula de 
     * **Nome de utilizador** -introduza um nome de utilizador que é concedido privilégios de administrador.
     * **Palavra-passe** - introduza - ou selecione na lista pendente - um valor que estão associado com o segredo (palavra-passe) que pretende utilizar para o utilizador especificado. Para obter mais informações sobre os segredos, consulte [Azure DevTest Labs: arquivo pessoal do segredo](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Tipo de disco de máquina virtual** - Especifique um HDD (unidade de disco rígido) ou SSD (unidade de estado sólido) para indicar o tipo de disco de armazenamento é permitido para as máquinas virtuais aprovisionadas com esta imagem de base.
-    * * *: Máquina Virtual tamanho * * - selecione um dos itens de predefinida que especifique os núcleos de processador, o tamanho da RAM e o tamanho de disco rígido da VM para criar. 
+    * **Máquina Virtual tamanho** - selecione um dos itens de predefinida que especifique os núcleos de processador, o tamanho da RAM e o tamanho de disco rígido da VM para criar. 
     * **Artefactos** - Selecione para abrir o **adicionar artefactos** painel, na qual pode selecionar e configurar os artefactos que pretende adicionar à imagem de base. Para obter mais informações sobre os artefactos, consulte [criar artefactos personalizados para a máquina virtual do Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **As definições avançadas** - Selecione para abrir o **avançadas** painel onde configurou as seguintes definições:
         * **Rede virtual** -especifique a rede virtual pretendida.

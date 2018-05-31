@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 73baef03f7b240e7bb33f3d5f827b1fc72c985f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 128a6bffe4e604eb4e02a10f13d561a336fc8c61
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354423"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integre os diretórios no local ao Azure Active Directory
 O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.
@@ -146,7 +147,7 @@ O Azure AD Connect oferece várias funcionalidades que simplificam a federação
 
 O ADFS pode ser configurado para suportar [vários domínios](active-directory-aadconnect-multiple-domains.md). Pode, por exemplo, ter vários domínios superiores que precisa de utilizar para a federação.
 
-Se o servidor do ADFS não tiver sido configurado para atualizar automaticamente os certificados a partir do Azure AD ou se utilizar uma solução não ADFS, será notificado quando tiver de [atualizar os certificados](active-directory-aadconnect-o365-certs.md).
+Se o servidor do AD FS não tiver sido configurado para atualizar automaticamente os certificados a partir do Azure AD ou se utilizar uma solução que não seja o AD FS, será notificado quando tiver de [atualizar os certificados](active-directory-aadconnect-o365-certs.md).
 
 ### <a name="next-steps-to-configure-federation-features"></a>Passos seguintes para configurar as funcionalidades de federação
 |Tópico |Ligação|  
