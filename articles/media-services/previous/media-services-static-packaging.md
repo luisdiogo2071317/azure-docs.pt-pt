@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790560"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizar Packager de suporte de dados do Azure para realizar tarefas de empacotamento estático
 > [!NOTE]
@@ -707,7 +708,7 @@ Se pretende encriptar o seu HLS com AES-128, tem uma opção de utilizar a encri
 > [!NOTE]
 > Para converter o conteúdo numa HLS, tem primeiro convert/codificar o conteúdo para transmissão em fluxo uniforme.
 > Além disso, para HLS obter encriptado com AES Certifique-se definir as seguintes propriedades no seu ficheiro MediaPackager_SmoothToHLS.xml: definir a propriedade de encriptação para true, defina o valor da chave e o valor de keyuri para apontar para o servidor de authentication\authorization.
-> Os Media Services criar um ficheiro de chave e coloque-o no contentor de elemento. Deve copiar o ficheiro /asset-containerguid/*.key ao seu servidor (ou crie o seu próprio ficheiro de chave) e, em seguida, elimine o ficheiro de *.key a partir do contentor de elemento.
+> Os Media Services criar um ficheiro de chave e coloque-o no contentor de elemento. Deve copiar o ficheiro /asset-containerguid/\*.key ao seu servidor (ou crie o seu próprio ficheiro de chave) e, em seguida, elimine o ficheiro de \*.key a partir do contentor de elemento.
 > 
 > 
 
