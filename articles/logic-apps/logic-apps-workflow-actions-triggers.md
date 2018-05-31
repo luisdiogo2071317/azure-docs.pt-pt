@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886787"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Acionadores e ações de definições de fluxo de trabalho no Azure Logic Apps
 
@@ -1394,7 +1395,7 @@ Seguem-se alguns exemplos que mostram como pode utilizar expressões nas condiç
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Suporta as funções de comparação. Neste exemplo, a ação é executado apenas quando o resultado do action1 é superior ao valor de limiar. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Suporta as funções de lógica para criar expressões aninhadas. Neste exemplo, a ação é executada quando o resultado do action1 é mais do que o limiar ou em 100. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Para verificar se uma matriz tem quaisquer itens, pode utilizar funções de matriz. Neste exemplo, a ação é executada quando a matriz de erros está vazia. | 
-| `"expression": "parameters('hasSpecialAction')"` | Esta expressão causa um erro e não é uma condição válida. Condições tem de utilizar o "@" símbolo. | 
+| `"expression": "parameters('hasSpecialAction')"` | Esta expressão causa um erro e não é uma condição válida. Condições tem de utilizar o "\@" símbolo. | 
 ||| 
 
 ## <a name="switch-action"></a>Ação de comutador
