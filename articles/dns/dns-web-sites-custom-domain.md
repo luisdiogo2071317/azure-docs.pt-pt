@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771978"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Criar registos DNS para uma aplicação web num domínio personalizado
 
@@ -53,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Passo 2
 
-Adicione o valor de IPv4 ao conjunto de registos criado anteriormente "@" utilizando a variável de $rs atribuída. O valor de IPv4 atribuído será o endereço IP para a sua aplicação web.
+Adicione o valor de IPv4 ao conjunto de registos criado anteriormente "\@\" utilizando a variável de $rs atribuída. O valor de IPv4 atribuído será o endereço IP para a sua aplicação web.
 
 Para localizar o endereço IP de uma aplicação web, siga os passos no [configurar um nome de domínio personalizado no App Service do Azure](../app-service/app-service-web-tutorial-custom-domain.md).
 
