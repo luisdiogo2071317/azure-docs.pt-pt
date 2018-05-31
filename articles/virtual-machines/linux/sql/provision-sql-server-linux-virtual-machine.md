@@ -1,22 +1,23 @@
 ---
 title: Criar uma VM do SQL Server 2017 do Linux no Azure | Microsoft Docs
-description: "Este tutorial mostra como criar uma máquina virtual do SQL Server 2017 do Linux no portal do Azure."
+description: Este tutorial mostra como criar uma máquina virtual do SQL Server 2017 do Linux no portal do Azure.
 services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 10/25/2017
+ms.date: 05/11/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071727"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionar uma máquina virtual do SQL Server do Linux no portal do Azure
 
@@ -71,7 +72,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Clique em **OK**.
 
-1. Na janela **Tamanho**, selecione um tamanho para a máquina. Para ver outros tamanhos, selecione **Ver tudo**. Para obter mais informações sobre os tamanhos das VMs, veja [Linux VM size](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) (Tamanhos de VMs do Linux).
+1. Na janela **Tamanho**, selecione um tamanho para a máquina. Para obter mais informações sobre os tamanhos das VMs, veja [Linux VM size](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) (Tamanhos de VMs do Linux).
 
     ![Selecionar um tamanho de VM](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -80,9 +81,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Clique em **Selecionar**.
 
-1. Na janela **Definições** , pode fazer alterações às definições ou manter as predefinições.
+1. Na janela **Definições**, selecione a porta **SSH (22)** na lista **Selecionar portas de entrada públicas**. Esta ação é necessária neste início rápido para ligar e concluir a configuração do SQL Server. Se pretender ligar remotamente ao SQL Server, selecione também **MS SQL (1433)** para abrir a porta 1433 para ligações através da Internet.
 
-1. Clique em **OK**.
+   ![Portas de entrada](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. Pode fazer alterações a outras definições ou manter as predefinições. Em seguida, clique em **OK**.
 
 1. Na página **Resumo**, clique em **Comprar** para criar a VM.
 
@@ -145,7 +148,10 @@ São instalados por predefinição vários [pacotes](sql-server-linux-virtual-ma
 
 ## <a id="remote"></a> Configurar ligações remotas
 
-Se tiver de ligar remotamente ao SQL Server na VM do Azure, tem de configurar uma regra de entrada no grupo de segurança de rede. A regra permite o tráfego na porta em que o SQL Server escuta (predefinição de 1433). Os passos seguintes mostram como utilizar o portal do Azure para este passo. 
+Se tiver de ligar remotamente ao SQL Server na VM do Azure, tem de configurar uma regra de entrada no grupo de segurança de rede. A regra permite o tráfego na porta em que o SQL Server escuta (predefinição de 1433). Os passos seguintes mostram como utilizar o portal do Azure para este passo.
+
+> [!TIP]
+> Se selecionou a porta de entrada **MS SQL (1433)** nas definições durante o aprovisionamento, estas alterações foram efetuadas para si. Pode avançar para a secção seguinte que explica como configurar a firewall.
 
 1. No portal do Azure, selecione **Máquinas virtuais** e selecione a sua VM do SQL Server.
 
