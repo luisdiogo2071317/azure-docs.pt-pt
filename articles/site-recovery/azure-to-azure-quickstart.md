@@ -1,27 +1,30 @@
 ---
-title: Replicar uma VM do Azure noutra região do Azure (Pré-visualização)
+title: Replicar uma VM do Azure noutra região do Azure
 description: Este início rápido fornece os passos necessários para replicar uma VM do Azure numa região do Azure para uma região diferente.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208843"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replicar uma VM do Azure noutra região do Azure (Pré-visualização)
+# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicar uma VM do Azure noutra região do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento e durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
-Este início rápido descreve como replicar uma VM do Azure numa região diferente do Azure.
+Este início rápido descreve como replicar uma VM do Azure numa região diferente do Azure. A replicação do Azure para o Azure está atualmente em pré-visualização
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -31,7 +34,7 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 1. No portal do Azure, clique em **Máquinas virtuais** e selecione a VM que pretende replicar.
 
-2. Nas **Definições**, clique em **Recuperação após desastre (pré-visualização)**.
+2. Nas **Definições**, clique em **Recuperação após desastre**.
 3. Em **Configurar recuperação após desastre** > **Região de destino**, selecione a região de destino para a qual irá replicar.
 4. Para este Início Rápido, aceite as outras predefinições.
 5. Clique em **Ativar replicação**. Esta ação inicia uma tarefa para ativar a replicação para a VM.
@@ -59,7 +62,7 @@ A VM na região primária para de replicar quando desativa a replicação na mes
 Pare a replicação da seguinte forma:
 
 1. Selecione a VM.
-2. Em **Recuperação após desastre (pré-visualização)**, clique em **Mais**.
+2. Em **Recuperação após desastre**, clique em **Mais**.
 3. Clique em **Desativar a Replicação**.
 
    ![Desativar a replicação](media/azure-to-azure-quickstart/disable2-replication.png)
