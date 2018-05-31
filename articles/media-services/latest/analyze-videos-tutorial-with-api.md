@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362299"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: analisar vídeos com os Serviços de Multimédia do Azure 
 
@@ -66,7 +67,7 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Criar um elemento de saída para armazenar o resultado de uma tarefa 
 
-O elemento de saída armazena o resultado da sua tarefa. O projeto define a função **DownloadResults** que transfere os resultados deste elemento de saída para a pasta "saída", para que possa ver o que recebeu.
+O [Elemento](https://docs.microsoft.com/rest/api/media/assets) de saída armazena o resultado da sua tarefa. O projeto define a função **DownloadResults**, que transfere os resultados deste elemento de saída para a pasta “saída”, para que possa ver o que obteve.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -76,7 +77,7 @@ Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum conf
 
 #### <a name="transform"></a>Transformar
 
-Ao criar uma nova instância **Transformar**, tem de especificar a saída resultante que pretende. O parâmetro necessário é um objeto **TransformOutput**, conforme apresentado no código acima. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, a predefinição **VideoAnalyzerPreset** é utilizada e o idioma ("en-US") é transmitido para o construtor. Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo. 
+Ao criar uma nova instância [Transformar](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar a saída resultante que pretende. O parâmetro necessário é um objeto **TransformOutput**, conforme apresentado no código acima. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, a predefinição **VideoAnalyzerPreset** é utilizada e o idioma ("en-US") é transmitido para o construtor. Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo. 
 
 Ao criar uma **Transformação**, primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue.  Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
@@ -84,7 +85,7 @@ Ao criar uma **Transformação**, primeiro deve verificar se já existe uma com 
 
 #### <a name="job"></a>Tarefa
 
-Conforme mencionado acima, o objeto **Transformação** é a receita e uma **Tarefa** é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia. 
+Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/en-us/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização do seu vídeo com: URLs HTTPS, URLs SAS ou Recursos que estão na sua conta dos Serviços de Multimédia. 
 
 Neste exemplo, a entrada da tarefa é um vídeo local.  
 
@@ -92,7 +93,7 @@ Neste exemplo, a entrada da tarefa é um vídeo local.
 
 ### <a name="wait-for-the-job-to-complete"></a>Aguarde até que a tarefa termine
 
-A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Existem algumas opções diferentes para ser notificado sobre a conclusão da tarefa. A opção mais simples (que é apresentada aqui) é utilizar uma consulta. 
+A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Existem algumas opções diferentes para ser notificado sobre a conclusão da [Tarefa](https://docs.microsoft.com/en-us/rest/api/media/jobs). A opção mais simples (que é apresentada aqui) é utilizar uma consulta. 
 
 Utilizar uma consulta não é uma prática recomendada para produzir aplicações devido à potencial latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid.
 
@@ -104,7 +105,7 @@ Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila
 
 ### <a name="download-the-result-of-the-job"></a>Transferir o resultado da tarefa
 
-A seguinte função transfere os resultados do elemento de saída para a pasta "saída", para que possa examinar os resultados da tarefa. 
+A seguinte função transfere os resultados do [Elemento](https://docs.microsoft.com/rest/api/media/assets) de saída para a pasta "saída", para que possa examinar os resultados da tarefa. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 

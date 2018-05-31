@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366754"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de pesquisa cognitiva (Pré-visualização)
 
@@ -23,7 +24,7 @@ Neste tutorial, vai fazer chamadas à API REST para realizar as seguintes tarefa
 
 > [!div class="checklist"]
 > * Criar um pipeline de indexação para melhorar os dados de origem na rota para um índice
-> * Utilizar o reconhecimento de entidades incorporado, a deteção de idioma, a manipulação de texto e as competências de extração de expressões-chave num conjunto de dados de exemplo
+> * Utilizar competências incorporadas nos dados de exemplo: reconhecimento de entidades, deteção de idioma, manipulação de texto e extração de expressões-chave
 > * Saber como encadear competências em conjunto através do mapeamento de entradas para saídas num conjunto de competências
 > * Executar pedidos e rever resultados
 > * Repor o índice e os indexadores para desenvolvimento adicional
@@ -84,7 +85,7 @@ O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os 
   A cadeia de ligação deve ter um URL semelhante ao seguinte exemplo:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 Existem outras formas de especificar a cadeia de ligação, por exemplo, fornecer uma assinatura de acesso partilhada. Para saber mais sobre as credenciais da origem de dados, veja [Indexar o Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
