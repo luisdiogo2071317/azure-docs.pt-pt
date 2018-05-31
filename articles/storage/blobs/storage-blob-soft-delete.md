@@ -10,9 +10,10 @@ ms.date: 03/21/2018
 ms.author: mihauss
 ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
 ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057864"
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure (pré-visualização)
 
@@ -63,13 +64,13 @@ Quando **eliminar BLOBs** denomina-se num instantâneo, esse instantâneo está 
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Quando **instantâneo Blob** é chamado, B0 se tornar um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é eliminado, está marcado como recuperável eliminado.*
+*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Quando **instantâneo Blob** é chamado, B0 se tornar um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é eliminado, está marcado como recuperável eliminado.\*
 
 Quando **eliminar BLOBs** é chamado um blob base (qualquer blob que é não-se de um instantâneo), esse blob está marcado como recuperável eliminado. Consistente com o comportamento anterior, chamar **eliminar BLOBs** num blob que tenha instantâneos de Active Directory devolve um erro. Chamar **eliminar BLOBs** num blob com instantâneos eliminados de forma recuperável não devolveu um erro. Ainda pode eliminar um blob e todos os respetivos instantâneos numa única operação quando a eliminação de forma recuperável está ativada. Se o fizer, marca o blob base e instantâneos de forma recuperável como eliminado.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, um **eliminar BLOBs** é efetuada uma chamada para eliminar B2 e instantâneos todos os associados. O blob Active Directory, B2 e associados todos os instantâneos são marcados como recuperável eliminado.*
+*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, um **eliminar BLOBs** é efetuada uma chamada para eliminar B2 e instantâneos todos os associados. O blob Active Directory, B2 e associados todos os instantâneos são marcados como recuperável eliminado.\*
 
 > [!NOTE]
 > Quando um blob de eliminados de forma recuperável é substituído, é automaticamente gerado um instantâneo de eliminados recuperável do Estado do blob antes da operação de escrita. O novo blob herda a camada do blob substituída.
@@ -102,7 +103,7 @@ Para restaurar um blob para um instantâneo eliminado recuperável específico p
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, **anular eliminação Blob** denomina-se no blob B, deste modo, restaurar o base blob, B1 e instantâneos todos os associados, aqui apenas B0, como o Active Directory. No segundo passo, B0 é copiada através do blob base. Esta operação de cópia gera um instantâneo eliminado recuperável B1.*
+*Dados eliminados de forma recuperável estão cinzento, Active Directory dados enquanto estes se azul. Mais recentemente escritos dados aparece por baixo de dados mais antigos. Aqui, **anular eliminação Blob** denomina-se no blob B, deste modo, restaurar o base blob, B1 e instantâneos todos os associados, aqui apenas B0, como o Active Directory. No segundo passo, B0 é copiada através do blob base. Esta operação de cópia gera um instantâneo eliminado recuperável B1.\*
 
 Para ver os blobs eliminados de forma recuperável e instantâneos do blob, pode optar por incluir dados eliminados no **lista Blobs**. Pode escolher para visualizar apenas recuperável eliminados base blobs, ou para incluir também instantâneos do blob eliminado de forma recuperável. Para todos os dados eliminados recuperável, pode ver a hora quando os dados foram eliminados, bem como o número de dias antes dos dados serão permanentemente expirou.
 

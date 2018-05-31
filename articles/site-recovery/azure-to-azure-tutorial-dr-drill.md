@@ -1,21 +1,22 @@
 ---
-title: "Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)"
-description: "Saiba como executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure através do serviço Azure Site Recovery."
+title: Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery
+description: Saiba como executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure através do serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208979"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure (Pré-visualização)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento e disponíveis durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
@@ -24,6 +25,8 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 > [!div class="checklist"]
 > * Verificar os pré-requisitos
 > * Executar uma ativação pós-falha de teste para uma única VM
+
+A replicação do Azure para o Azure está atualmente em pré-visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

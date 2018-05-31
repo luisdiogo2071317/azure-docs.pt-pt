@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Azure – Preparação CNTK com o Batch AI - CLI do Azure | Microsoft Docs
-description: Aprenda rapidamente a executar uma tarefa de preparação CNTK com o Batch AI com a CLI do Azure
+description: Aprenda rapidamente a executar um trabalho de preparação CNTK com o Batch AI com a CLI do Azure
 services: batch-ai
 documentationcenter: na
 author: AlexanderYukhanov
@@ -15,136 +15,85 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 10/06/2017
 ms.author: Alexander.Yukhanov
-ms.openlocfilehash: 82e3885021a2f2309dfed456d472e7027b8d6cf2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3601ea412790c991892a0c05210d2551810287b8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869024"
 ---
-# <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Executar uma tarefa de preparação CNTK com a CLI do Azure
+# <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Executar um trabalho de preparação CNTK com a CLI do Azure
 
-Este início rápido detalha a utilização da interface de linha de comandos (CLI) do Azure para executar uma tarefa Microsoft Cognitive Toolkit (CNTK) com o serviço Batch AI. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
+A CLI 2.0 do Azure permite-lhe criar e gerir recursos do Batch AI - criar/eliminar servidores de ficheiros e clusters do Batch AI e submeter/terminar/eliminar/monitorizar trabalhos de preparação.
 
-Neste exemplo, utiliza a base de dados MNIST de imagens manuscritas para preparar uma rede neural convolucional (CNN) num cluster GPU de nó único gerido pelo Batch AI. 
+Este início rápido mostra-lhe como criar um cluster de GPU e executar um trabalho de preparação com o Microsoft Cognitive Toolkit.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+O script de preparação [ConvNet_MNIST.py](https://github.com/Azure/BatchAI/blob/master/recipes/CNTK/CNTK-GPU-Python/CNTK-GPU-Python.ipynb) está disponível na página do GitHub do Batch AI. Este script prepara a rede neural convolucional na base de dados MNIST de dígitos escritos à mão.
 
-Este início rápido requer a execução da versão mais recente da CLI do Azure. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+O exemplo do CNTK oficial foi modificado para aceitar a localização do conjunto de dados da preparação e a localização do diretório de saída através de argumentos da linha de comandos.
 
-Os fornecedores de recursos do Batch AI também têm de estar registados na sua subscrição através do Azure Cloud Shell ou da CLI do Azure. Um registo de fornecedor pode demorar até 15 minutos.
+## <a name="quickstart-overview"></a>Descrição geral do início rápido
+
+* Criar um cluster de GPU com um único nó (com o tamanho de VM `Standard_NC6`) e o nome `nc6`;
+* Criar uma conta de armazenamento nova para armazenar a entrada e a saída do trabalho;
+* Criar uma Partilha de Ficheiros do Azure com duas pastas, `logs` e `scripts`, para armazenar a saída dos trabalhos e os scripts de preparação;
+* Criar um Contentor de Blobs do Azure, `data`, para armazenar os dados da preparação;
+* Implementar o script de preparação e os dados de preparação na partilha de ficheiros e no contentor criados;
+* Configurar o trabalho para montar a Partilha de Ficheiros do Azure e o Contentor de Blobs do Azure no nó do cluster e disponibilizá-los como sistema de ficheiros normais em `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts` e `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`.
+`AZ_BATCHAI_JOB_MOUNT_ROOT` é uma variável de ambiente que o Batch AI define para o trabalho.
+* Monitorizar a execução do trabalho ao transmitir em fluxo a respetiva saída padrão;
+* Após a conclusão do trabalho, inspecionar a respetiva saída e os modelos gerados;
+* No final, eliminar todos os recursos alocados.
+
+# <a name="prerequisites"></a>Pré-requisitos
+
+* Subscrição do Azure - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Acesso à CLI 2.0 do Azure com a versão 2.0.31 ou superior. Pode utilizar a CLI 2.0 do Azure que está disponível no [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) ou seguir [estas instruções](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) para instalá-la localmente.
+
+# <a name="cloud-shell-only"></a>Cloud Shell Apenas
+
+Se estiver a utilizar o Cloud Shell, altere o diretório de trabalho para `/usr/$USER/clouddrive`, porque o diretório raiz não tem espaço vazio:
 
 ```azurecli
-az provider register -n Microsoft.BatchAI
-az provider register -n Microsoft.Batch
+cd /usr/$USER/clouddrive
 ```
 
+# <a name="create-a-resource-group"></a>Criar um Grupo de Recursos
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-
-Os clusters e as tarefas do Batch AI são recursos do Azure e têm de ser colocados num grupo de recursos do Azure.
-
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create).
-
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*. Em seguida, utiliza o comando [az configure](/cli/azure/reference-index#az_configure) para configurar este grupo de recursos e a localização como a predefinição.
+Os grupos de recursos do Azure são contentores lógicos para implementar e gerir os recursos do Azure. O comando seguinte cria um grupo de recursos novo, ```batchai.quickstart```, na localização E.U.A. Leste:
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
-
-az configure --defaults group=myResourceGroup
-
-az configure --defaults location=eastus
+az group create -n batchai.quickstart -l eastus
 ```
 
->[!NOTE]
->Estabelecer os valores predefinidos para o comando `az` é um passo opcional. Pode optar por não estabelecer os valores predefinidos. Se optar por estabelecer as predefinições, deve remover as predefinições depois de concluir o tutorial. Remova as predefinições com os seguintes comandos:
->
->```azurecli
->az configure --defaults group=''
->
->az configure --defaults location=''
->```
->
+# <a name="create-gpu-cluster"></a>Criar cluster de GPU
 
-## <a name="create-a-storage-account"></a>Criar uma conta do Storage
-
-Este início rápido utiliza uma conta de armazenamento do Azure para alojar dados e scripts para a tarefa de preparação. Crie uma conta de armazenamento com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+O comando seguinte cria um cluster de GPU de nó único (o tamanho da VM é Standard_NC6) ao utilizar a DSVM de Ubuntu como a imagem de sistema da operação:
 
 ```azurecli
-az storage account create --name mystorageaccount --sku Standard_LRS
+az batchai cluster create -n nc6 -g batchai.quickstart -s Standard_NC6 -i UbuntuDSVM -t 1 --generate-ssh-keys
 ```
 
->[!NOTE]
->Cada conta de armazenamento tem de ter um nome exclusivo. No comando `az` anterior e noutros comandos semelhantes neste tutorial, substitua o valor da definição `mystorageaccount` pelo nome da conta de armazenamento.
+A DSVM do Ubuntu permite-lhe executar qualquer trabalho de preparação nos contentores do docker e executar as estruturas de aprendizagem profunda mais populares diretamente na VM.
 
-## <a name="prepare-azure-file-share"></a>Preparar a partilha de ficheiros do Azure
+A opção `--generate-ssh-keys` diz à CLI do Azure para gerar chaves ssh públicas e privadas, se ainda não as tiver. Para aceder aos nós do cluster, pode utilizar o nome de utilizador atual e a chave ssh gerada.
 
-Para efeitos de ilustração, este início rápido utiliza uma partilha de ficheiros do Azure para alojar os dados e os scripts de preparação da tarefa de aprendizagem.
+Tenha em atenção que, se utilizar o Cloud Shell, deve criar uma cópia de segurança da pasta ~/.ssh num armazenamento permanente.
 
-1. Crie uma partilha de ficheiros com o nome *batchaiquickstart* com o comando [az storage share create](/cli/azure/storage/share#az_storage_share_create).
-
-  ```azurecli
-  az storage share create --account-name mystorageaccount --name batchaiquickstart
-  ```
-2. Crie um diretório na partilha denominado *mnistcntksample* com o comando [az storage directory create](/cli/azure/storage/directory#az_storage_directory_create).
-
-  ```azurecli
-  az storage directory create --share-name batchaiquickstart  --name mnistcntksample
-  ```
-
-3. Transfira o [pacote de exemplo](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) e deszipe-o. Carregue o conteúdo para o diretório com o comando [az storage file upload](/cli/azure/storage/file#az_storage_file_upload):
-
-  ```azurecli
-  az storage file upload --share-name batchaiquickstart --source Train-28x28_cntk_text.txt --path mnistcntksample
-
-  az storage file upload --share-name batchaiquickstart --source Test-28x28_cntk_text.txt --path mnistcntksample
-
-  az storage file upload --share-name batchaiquickstart --source ConvNet_MNIST.py --path mnistcntksample
-  ```
-
-
-## <a name="create-gpu-cluster"></a>Criar cluster de GPU
-Utilize o comando [az batchai cluster create](/cli/azure/batchai/cluster#az_batchai_cluster_create) para criar um cluster do Batch AI constituído por um único nó de VM GPU. Neste exemplo, a VM executa a imagem de Ubuntu LTS predefinida. Especifique `image UbuntuDSVM` para executar o Microsoft Deep Learning Virtual Machine, que suporta estruturas de preparação adicionais. O tamanho NC6 tem um GPU K80 NVIDIA. Monte a partilha de ficheiros numa pasta denominada *azurefileshare*. O caminho completo desta pasta no nó de computação do GPU é $AZ_BATCHAI_MOUNT_ROOT/azurefileshare.
-
-
-```azurecli
-az batchai cluster create --name mycluster --vm-size STANDARD_NC6 --image UbuntuLTS --min 1 --max 1 --storage-account-name mystorageaccount --afs-name batchaiquickstart --afs-mount-path azurefileshare --user-name <admin_username> --password <admin_password>
-```
-
-
-Após a criação do cluster, o resultado é semelhante ao seguinte:
-
-```azurecli
+Exemplo de saída:
+```json
 {
-  "allocationState": "resizing",
-  "allocationStateTransitionTime": "2017-10-05T02:09:03.194000+00:00",
-  "creationTime": "2017-10-05T02:09:01.998000+00:00",
+  "allocationState": "steady",
+  "allocationStateTransitionTime": "2018-04-11T21:17:26.345000+00:00",
+  "creationTime": "2018-04-11T20:12:10.758000+00:00",
   "currentNodeCount": 0,
   "errors": null,
-  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.BatchAI/clusters/mycluster",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
   "location": "eastus",
-  "name": "mycluster",
-  "nodeSetup": {
-    "mountVolumes": {
-      "azureBlobFileSystems": null,
-      "azureFileShares": [
-        {
-          "accountName": "batchaisamples",
-          "azureFileUrl": "https://batchaisamples.file.core.windows.net/batchaiquickstart",
-          "credentialsInfo": {
-            "accountKey": null,
-            "accountKeySecretUrl": null
-          },
-          "directoryMode": "0777",
-          "fileMode": "0777",
-          "relativeMountPath": "azurefileshare"
-        }
-      ],
-      "fileServers": null,
-      "unmanagedFileSystems": null
-    },
-    "setupTask": null
-  },
+  "name": "nc6",
+  "nodeSetup": null,
   "nodeStateCounts": {
+    "additionalProperties": {},
     "idleNodeCount": 0,
     "leavingNodeCount": 0,
     "preparingNodeCount": 0,
@@ -152,273 +101,350 @@ Após a criação do cluster, o resultado é semelhante ao seguinte:
     "unusableNodeCount": 0
   },
   "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2017-10-05T02:09:02.857000+00:00",
-  "resourceGroup": "myresourcegroup",
+  "provisioningStateTransitionTime": "2018-04-11T20:12:11.445000+00:00",
+  "resourceGroup": "batchai.quickstart",
   "scaleSettings": {
+    "additionalProperties": {},
     "autoScale": null,
     "manual": {
       "nodeDeallocationOption": "requeue",
       "targetNodeCount": 1
     }
   },
-  "subnet": {
-    "id": null
-  },
+  "subnet": null,
   "tags": null,
   "type": "Microsoft.BatchAI/Clusters",
   "userAccountSettings": {
-    "adminUserName": "demoUser",
+    "additionalProperties": {},
+    "adminUserName": "alex",
     "adminUserPassword": null,
-    "adminUserSshPublicKey": null
+    "adminUserSshPublicKey": "<YOUR SSH PUBLIC KEY HERE>"
   },
   "virtualMachineConfiguration": {
+    "additionalProperties": {},
     "imageReference": {
-      "offer": "UbuntuServer",
-      "publisher": "Canonical",
-      "sku": "16.04-LTS",
-      "version": "latest"
+      "additionalProperties": {},
+      "offer": "linux-data-science-vm-ubuntu",
+      "publisher": "microsoft-ads",
+      "sku": "linuxdsvmubuntu",
+      "version": "latest",
+      "virtualMachineImageId": null
     }
   },
   "vmPriority": "dedicated",
   "vmSize": "STANDARD_NC6"
+}
 ```
-## <a name="get-cluster-status"></a>Obter estado do cluster
 
-Para obter uma descrição geral do estado do cluster, execute o comando [az batchai cluster list](/cli/azure/batchai/cluster#az_batchai_cluster_list):
+# <a name="create-a-storage-account"></a>Criar uma Conta de Armazenamento
+
+O comando seguinte cria uma conta de armazenamento nova na mesma região do grupo de recursos batchai.repices. Atualize o comando com um nome de conta de armazenamento exclusivo.
 
 ```azurecli
-az batchai cluster list -o table
+az storage account create -n <storage account name> --sku Standard_LRS -g batchai.quickstart
 ```
 
-O resultado é semelhante ao seguinte:
+Se o nome da conta de armazenamento escolhido não estiver disponível, o comando acima comunicará esse mesmo erro. Nesse caso, escolha outro nome e repita.
+
+# <a name="data-deployment"></a>Implementação de Dados
+
+## <a name="download-the-training-script-and-training-data"></a>Transferir o Script de Preparação e os Dados de Preparação
+
+* Transfira e extraia a Base de Dados MNIST a partir [desta localização](https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D) para a pasta atual.
+
+Para GNU/Linux ou Cloud Shell:
 
 ```azurecli
-Name        Resource Group    VM Size        State     Idle    Running    Preparing    Unusable    Leaving
----------   ----------------  -------------  -------   ------  ---------  -----------  ----------  --------
-mycluster   myresourcegroup   STANDARD_NC6   steady    1       0          0            0            0
+wget "https://batchaisamples.blob.core.windows.net/samples/mnist_dataset.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=PmhL%2BYnYAyNTZr1DM2JySvrI12e%2F4wZNIwCtf7TRI%2BM%3D" -O mnist_dataset.zip
+unzip mnist_dataset.zip
 ```
 
-Para obter mais detalhes, execute o comando [az batchai cluster show](/cli/azure/batchai/cluster#az_batchai_cluster_show). Devolve todas as propriedades do cluster mostradas após a criação do mesmo.
+Tenha em atenção que poderá ter de instalar `unzip` se a sua distribuição de GNU/Linux não o tiver.
 
-O cluster está pronto quando os nós forem alocados e a preparação estiver terminada (veja o atributo `nodeStateCounts`). Se ocorrer um problema, o atributo `errors` contém a descrição do erro.
+* Transfira o script de exemplo [ConvNet_MNIST.py](https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py) para a pasta atual:
 
-## <a name="create-training-job"></a>Criar tarefa de preparação
+Para GNU/Linux ou Cloud Shell:
 
-Depois de o cluster estar pronto, configure e submeta a tarefa de aprendizagem.
+```azurecli
+wget https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GPU-Python/ConvNet_MNIST.py
+```
 
-1. Crie um ficheiro de modelo JSON para a criação da tarefa com o nome job.json:
+## <a name="create-azure-file-share-and-deploy-the-training-script"></a>Criar a Partilha de Ficheiros do Azure e Implementar o Script de Preparação
 
-  ```JSON
-  {
+Os seguintes comandos criar as Partilhas de Ficheiros do Azure `scripts` e `logs` e copiam o script de preparação para a pasta`cntk` dentro da partilha `scripts`:
+
+```azurecli
+az storage share create -n scripts --account-name <storage account name>
+az storage share create -n logs --account-name <storage account name>
+az storage directory create -n cntk -s scripts --account-name <storage account name>
+az storage file upload -s scripts --source ConvNet_MNIST.py --path cntk --account-name <storage account name> 
+```
+
+## <a name="create-a-blob-container-and-deploy-training-data"></a>Criar um Contentor de Blobs e Implementar os Dados de Preparação
+
+Os seguintes comandos criam o Contentor de Blobs do Azure `data` e copiam os dados de preparação para a pasta `mnist_cntk`:
+```azurecli
+az storage container create -n data --account-name <storage account name>
+az storage blob upload-batch -s . --pattern '*28x28_cntk*' --destination data --destination-path mnist_cntk --account-name <storage account name>
+```
+
+# <a name="submit-training-job"></a>Submeter o Trabalho de Preparação
+
+## <a name="prepare-job-configuration-file"></a>Preparar o Ficheiro de Configuração do Trabalho
+
+Crie o ficheiro de configuração de trabalho de preparação `job.json` com o seguinte conteúdo:
+```json
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/BatchAI/master/schemas/2018-03-01/cntk.json",
     "properties": {
-        "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
-       "inputDirectories": [{
-            "id": "SAMPLE",
-            "path": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare/mnistcntksample"
-        }],
-        "outputDirectories": [{
-            "id": "MODEL",
-            "pathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
-            "pathSuffix": "model",
-            "type": "custom"
-        }],
-        "containerSettings": {
-            "imageSourceRegistry": {
-                "image": "microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0"
-            }
-        },
         "nodeCount": 1,
         "cntkSettings": {
-            "pythonScriptFilePath": "$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py",
-            "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL"
+            "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py",
+            "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL"
+        },
+        "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
+        "outputDirectories": [{
+            "id": "MODEL",
+            "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs"
+        }],
+        "mountVolumes": {
+            "azureFileShares": [
+                {
+                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/logs",
+                    "relativeMountPath": "logs"
+                },
+                {
+                    "azureFileUrl": "https://<AZURE_BATCHAI_STORAGE_ACCOUNT>.file.core.windows.net/scripts",
+                    "relativeMountPath": "scripts"
+                }
+            ],
+            "azureBlobFileSystems": [
+                {
+                    "accountName": "<AZURE_BATCHAI_STORAGE_ACCOUNT>",
+                    "containerName": "data",
+                    "relativeMountPath": "data"
+                }
+            ]
         }
     }
-  }
-  ```
-2. Crie uma tarefa com o nome *myjob* a executar no cluster com o comando [az batchai job create](/cli/azure/batchai/job#az_batchai_job_create):
+}
+```
 
-  ```azurecli
-  az batchai job create --name myjob --cluster-name mycluster --config job.json
-  ```
+Este ficheiro de configuração especifica:
 
-O resultado é semelhante ao seguinte:
+* `nodeCount` - o número de nós de que o trabalho precisa (1 neste início rápido);
+* `cntkSettings` - especifica o caminho do script de preparação e os argumentos da linha de comandos. Os argumentos da linha de comandos incluem o caminho para os dados de preparação e o caminho de destino para armazenar os modelos gerados. `AZ_BATCHAI_OUTPUT_MODEL` é uma variável de ambiente que o Batch AI define com base na configuração do diretório de saída (ver abaixo);
+* `stdOutErrPathPrefix` - o caminho no qual o Batch AI vai criar diretórios que contêm a saída e os registos do trabalho;
+* `outputDirectories` - a coleção de diretórios de saída que o Batch AI vai criar. Para cada diretório, o Batch AI cria uma variável de ambiente com o nome `AZ_BATCHAI_OUTPUT_<id>`, em que `<id>` é o identificador do diretório;
+* `mountVolumes` - uma lista de sistemas de ficheiros que vão ser montados durante a execução do trabalho. Os sistemas de ficheiros são montados em `AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`. `AZ_BATCHAI_JOB_MOUNT_ROOT` é uma variável de ambiente que o Batch AI define;
+* `<AZURE_BATCHAI_STORAGE_ACCOUNT>` indica que o nome da conta de armazenamento vai ser especificado durante a submissão do trabalho através do parâmetro --storage-account-name ou da variável de ambiente `AZURE_BATCHAI_STORAGE_ACCOUNT` no seu computador.
+
+## <a name="submit-the-job"></a>Submeter o Trabalho
+
+Utilize o seguinte comando para submeter o trabalho no cluster:
 
 ```azurecli
+az batchai job create -n cntk_python_1 -r nc6 -g batchai.quickstart -c job.json --storage-account-name <storage account name>
+```
+
+Exemplo de saída:
+```
 {
+  "additionalProperties": {},
   "caffeSettings": null,
   "chainerSettings": null,
   "cluster": {
-    "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.BatchAI/clusters/mycluster",
-    "resourceGroup": "myresourcegroup"
+    "additionalProperties": {},
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/clusters/nc6",
+    "resourceGroup": "batchai.quickstart"
   },
   "cntkSettings": {
-    "commandLineArgs": "$AZ_BATCHAI_INPUT_SAMPLE $AZ_BATCHAI_OUTPUT_MODEL",
+    "additionalProperties": {},
+    "commandLineArgs": "$AZ_BATCHAI_JOB_MOUNT_ROOT/data/mnist_cntk $AZ_BATCHAI_OUTPUT_MODEL",
     "configFilePath": null,
     "languageType": "Python",
     "processCount": 1,
     "pythonInterpreterPath": null,
-    "pythonScriptFilePath": "$AZ_BATCHAI_INPUT_SAMPLE/ConvNet_MNIST.py"
+    "pythonScriptFilePath": "$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts/cntk/ConvNet_MNIST.py"
   },
   "constraints": {
-    "maxTaskRetryCount": null,
+    "additionalProperties": {},
     "maxWallClockTime": "7 days, 0:00:00"
   },
-  "containerSettings": {
-    "imageSourceRegistry": {
-      "credentials": null,
-      "image": "microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0",
-      "serverUrl": null
-    }
-  },
-  "creationTime": "2017-10-05T06:41:42.163000+00:00",
+  "containerSettings": null,
+  "creationTime": "2018-04-11T21:48:10.303000+00:00",
   "customToolkitSettings": null,
   "environmentVariables": null,
-  "executionInfo": {
-    "endTime": null,
-    "errors": null,
-    "exitCode": null,
-    "lastRetryTime": null,
-    "retryCount": null,
-    "startTime": "2017-10-05T06:41:44.392000+00:00"
-  },
-  "executionState": "running",
-  "executionStateTransitionTime": "2017-10-05T06:41:44.953000+00:00",
+  "executionInfo": null,
+  "executionState": "queued",
+  "executionStateTransitionTime": "2018-04-11T21:48:10.303000+00:00",
   "experimentName": null,
-  "id": "/subscriptions/10d0b7c6-9243-4713-xxxx-xxxxxxxxxxxx/resourceGroups/demo/providers/Microsoft.BatchAI/jobs/myjob",
-  "inputDirectories": [
-    {
-      "id": "SAMPLE",
-      "path": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare/mnistcntksample"
-    }
-  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/batchai.quickstart/providers/Microsoft.BatchAI/jobs/cntk_python_1",
+  "inputDirectories": null,
+  "jobOutputDirectoryPathSegment": "00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/b9576bae-e878-4fb2-9390-2e962356b5b1",
   "jobPreparation": null,
   "location": null,
-  "name": "cntk_job",
+  "mountVolumes": {
+    "additionalProperties": {},
+    "azureBlobFileSystems": [
+      {
+        "accountName": "<YOU STORAGE ACCOUNT NAME>",
+        "additionalProperties": {},
+        "containerName": "data",
+        "credentials": {
+          "accountKey": null,
+          "accountKeySecretReference": null,
+          "additionalProperties": {}
+        },
+        "mountOptions": null,
+        "relativeMountPath": "data"
+      }
+    ],
+    "azureFileShares": [
+      {
+        "accountName": "<YOU STORAGE ACCOUNT NAME>,
+        "additionalProperties": {},
+        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/logs",
+        "credentials": {
+          "accountKey": null,
+          "accountKeySecretReference": null,
+          "additionalProperties": {}
+        },
+        "directoryMode": "0777",
+        "fileMode": "0777",
+        "relativeMountPath": "logs"
+      },
+      {
+        "accountName": "<YOU STORAGE ACCOUNT NAME>",
+        "additionalProperties": {},
+        "azureFileUrl": "https://<YOU STORAGE ACCOUNT NAME>.file.core.windows.net/scripts",
+        "credentials": {
+          "accountKey": null,
+          "accountKeySecretReference": null,
+          "additionalProperties": {}
+        },
+        "directoryMode": "0777",
+        "fileMode": "0777",
+        "relativeMountPath": "scripts"
+      }
+    ],
+    "fileServers": null,
+    "unmanagedFileSystems": null
+  },
+  "name": "cntk_python_1",
   "nodeCount": 1,
   "outputDirectories": [
     {
+      "additionalProperties": {},
       "createNew": true,
       "id": "MODEL",
-      "pathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
-      "pathSuffix": "model",
-      "type": "Custom"
+      "pathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
+      "pathSuffix": null,
+      "type": "custom"
     }
   ],
   "priority": 0,
   "provisioningState": "succeeded",
-  "provisioningStateTransitionTime": "2017-10-05T06:41:44.238000+00:00",
-  "resourceGroup": "demo",
-  "stdOutErrPathPrefix": "$AZ_BATCHAI_MOUNT_ROOT/azurefileshare",
+  "provisioningStateTransitionTime": "2018-04-11T21:48:11.577000+00:00",
+  "pyTorchSettings": null,
+  "resourceGroup": "batchai.quickstart",
+  "secrets": null,
+  "stdOutErrPathPrefix": "$AZ_BATCHAI_JOB_MOUNT_ROOT/logs",
   "tags": null,
   "tensorFlowSettings": null,
-  "toolType": "CNTK",
+  "toolType": "cntk",
   "type": "Microsoft.BatchAI/Jobs"
 }
 ```
 
-## <a name="monitor-job"></a>Monitorizar tarefa
+# <a name="monitor-job-execution"></a>Monitorizar a Execução do Trabalho
 
-Utilize o comando [az batchai job list](/cli/azure/batchai/job#az_batchai_job_list) para obter uma descrição geral do estado da tarefa:
+O script de preparação está a comunicar o progresso da preparação no ficheiro `stderr.txt` dentro do diretório de saída padrão. Pode utilizar o seguinte comando para monitorizar o progresso:
 
 ```azurecli
-az batchai job list -o table
+az batchai job file stream -n cntk_python_1 -g batchai.quickstart -f stderr.txt
 ```
 
-O resultado é semelhante ao seguinte:
+Exemplo de saída:
+```
+File found with URL "https://<YOU STORAGE ACCOUNT>.file.core.windows.net/logs/00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>/stdouterr/stderr.txt?sv=2016-05-31&sr=f&sig=n86JK9YowV%2BPQ%2BkBzmqr0eud%2FlpRB%2FVu%2FFlcKZx192k%3D&se=2018-04-11T23%3A05%3A54Z&sp=rl". Start streaming
+Selected GPU[0] Tesla K80 as the process wide default device.
+-------------------------------------------------------------------
+Build info:
 
-```azurecli
-Name        Resource Group    Cluster    Cluster RG      Nodes  State    Exit code
-----------  ----------------  ---------  --------------- -----  -------  -----------
-myjob       myresourcegroup   mycluster  myresourcegroup 1      running
+        Built time: Jan 31 2018 15:03:41
+        Last modified date: Tue Jan 30 03:26:13 2018
+        Build type: release
+        Build target: GPU
+        With 1bit-SGD: no
+        With ASGD: yes
+        Math lib: mkl
+        CUDA version: 9.0.0
+        CUDNN version: 7.0.4
+        Build Branch: HEAD
+        Build SHA1: a70455c7abe76596853f8e6a77a4d6de1e3ba76e
+        MPI distribution: Open MPI
+        MPI version: 1.10.7
+-------------------------------------------------------------------
+Training 98778 parameters in 10 parameter tensors.
 
+Learning rate per 1 samples: 0.001
+Momentum per 1 samples: 0.0
+Finished Epoch[1 of 40]: [Training] loss = 0.405960 * 60000, metric = 13.01% * 60000 21.741s (2759.8 samples/s);
+Finished Epoch[2 of 40]: [Training] loss = 0.106030 * 60000, metric = 3.09% * 60000 3.638s (16492.6 samples/s);
+Finished Epoch[3 of 40]: [Training] loss = 0.078542 * 60000, metric = 2.32% * 60000 3.477s (17256.3 samples/s);
+...
+Final Results: Minibatch[1-11]: errs = 0.54% * 10000
 ```
 
-Para obter mais detalhes, execute o comando [az batchai job show](/cli/azure/batchai/job#az_batchai_job_show).
+A transmissão em fluxo é interrompida quando o trabalho é concluído (com êxito ou falha).
 
-`executionState` contém o estado atual de execução da tarefa:
+# <a name="inspect-generated-model-files"></a>Inspecionar os Ficheiros do Modelo Gerados
 
-* `queued`: a tarefa está a aguardar que os nós do cluster fiquem disponíveis
-* `running`: a tarefa está em execução
-*   `succeeded` (ou `failed`): a tarefa está concluída e `executionInfo` contém detalhes sobre o resultado
-
-
-## <a name="list-stdout-and-stderr-output"></a>Listar o resultado de stdout e stderr
-Utilize o comando [az batchai job list-files](/cli/azure/batchai/job#az_batchai_job_list_files) para listar as ligações aos ficheiros de registo stdout e stderr:
+O trabalho armazena os ficheiros do modelo gerados no diretório de saída com o atributo `id` igual a `MODEL`. Pode listar os ficheiros do modelo e obter os URLs de transferência com o seguinte comando:
 
 ```azurecli
-az batchai job list-files --name myjob --output-directory-id stdouterr
+az batchai job file list -n cntk_python_1 -g batchai.quickstart -d MODEL
 ```
 
-O resultado é semelhante ao seguinte:
-
-```azurecli
+Exemplo de saída:
+```
 [
   {
-    "contentLength": 733,
-    "downloadUrl": "https://batchaisamples.file.core.windows.net/batchaiquickstart/10d0b7c6-9243-4713-91a9-2730375d3a1b/demo/jobs/cntk_job/stderr.txt?sv=2016-05-31&sr=f&sig=Rh%2BuTg9C1yQxm7NfA9YWiKb%2B5FRKqWmEXiGNRDeFMd8%3D&se=2017-10-05T07%3A44%3A38Z&sp=rl",
-    "lastModified": "2017-10-05T06:44:38+00:00",
-    "name": "stderr.txt"
+    "additionalProperties": {},
+    "contentLength": 409456,
+    "downloadUrl": "https://<YOUR STORAGE ACCOUNT>.file.core.windows.net/...",
+    "isDirectory": false,
+    "lastModified": "2018-04-11T22:05:51+00:00",
+    "name": "ConvNet_MNIST_0.dnn"
   },
   {
-    "contentLength": 300,
-    "downloadUrl": "https://batchaisamples.file.core.windows.net/batchaiquickstart/10d0b7c6-9243-4713-91a9-2730375d3a1b/demo/jobs/cntk_job/stdout.txt?sv=2016-05-31&sr=f&sig=jMhJfQOGry9jr4Hh3YyUFpW5Uaxnp38bhVWNrTTWMtk%3D&se=2017-10-05T07%3A44%3A38Z&sp=rl",
-    "lastModified": "2017-10-05T06:44:29+00:00",
-    "name": "stdout.txt"
-  }
-]
+    "additionalProperties": {},
+    "contentLength": 409456,
+    "downloadUrl": "https://<YOUR STORAGE ACCOUNT>.file.core.windows.net/...",
+    "isDirectory": false,
+    "lastModified": "2018-04-11T22:05:55+00:00",
+    "name": "ConvNet_MNIST_1.dnn"
+  },
+...
+
 ```
 
-
-## <a name="observe-output"></a>Observar o resultado
-
-Pode transmitir ou seguir os ficheiros de saída de uma tarefa enquanto esta estiver a ser executada. O exemplo seguinte utiliza o comando [az batchai job stream-file](/cli/azure/batchai/job#az_batchai_job_stream_file) para transmitir o registo stderr.txt:
+Em alternativa, pode utilizar o portal ou o Explorador de Armazenamento do Azure para inspecionar os ficheiros gerados. Para distinguir o resultado dos diferentes trabalhos, o Batch AI cria uma estrutura de pastas exclusiva para cada um. Pode utilizar o atributo `jobOutputDirectoryPathSegment` do trabalho submetido para localizar o caminho para a pasta que contém a saída:
 
 ```azurecli
-az batchai job stream-file --job-name myjob --output-directory-id stdouterr --name stderr.txt
+az batchai job show -n cntk_python_1 -g batchai.quickstart --query jobOutputDirectoryPathSegment
 ```
 
-O resultado é semelhante ao seguinte. Interrompa o resultado ao premir [Ctrl]-[C].
+Exemplo de saída:
+```
+"00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>"
+```
+
+# <a name="delete-resources"></a>Eliminar Recursos
+
+Elimine o grupo de recursos e todos os recursos alocados com o seguinte comando:
 
 ```azurecli
-…
-Finished Epoch[2 of 40]: [Training] loss = 0.104846 * 60000, metric = 3.00% * 60000 3.849s (15588.5 samples/s);
-Finished Epoch[3 of 40]: [Training] loss = 0.077043 * 60000, metric = 2.23% * 60000 3.902s (15376.7 samples/s);
-Finished Epoch[4 of 40]: [Training] loss = 0.063050 * 60000, metric = 1.82% * 60000 3.811s (15743.9 samples/s);
-…
-
+az batchai group delete -n batchai.quickstart -y
 ```
-
-## <a name="delete-resources"></a>Eliminar recursos
-
-Utilize o comando [az batchai job delete](/cli/azure/batchai/job#az_batchai_job_delete) para eliminar a tarefa:
-
-```azurecli
-az batchai job delete --name myjob
-```
-Utilize o comando [az batchai cluster delete](/cli/azure/batchai/cluster#az_batchai_cluster_delete) para eliminar o cluster:
-
-```azurecli
-az batchai cluster delete --name mycluster
-```
-
-Utilize o comando `az group delete` para eliminar o grupo de recursos que criou para este início rápido:
-
-```azurecli
-az group delete --name myResourceGroup
-```
-
-## <a name="restore-azure-cli-20-default-settings"></a>Restaurar as predefinições da CLI 2.0 do Azure
-
-Remova as predefinições configuradas anteriormente para a localização e o grupo de recursos:
-
-```azurecli
-az configure --defaults group=''
-
-az configure --defaults location=''
-```
-
-## <a name="next-steps"></a>Passos seguintes
-
-Neste início rápido, aprendeu a executar uma tarefa de preparação CNTK num cluster do Batch AI com a CLI do Azure. Para obter mais informações sobre como utilizar o Batch AI com toolkits diferentes, veja as [receitas de preparação](https://github.com/Azure/BatchAI).
-
-Para saber mais sobre como utilizar a CLI 2.0 do Azure para gerir o Batch AI, veja a [documentação do github](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).
