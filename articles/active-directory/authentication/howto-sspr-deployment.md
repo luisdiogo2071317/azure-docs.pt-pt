@@ -2,35 +2,32 @@
 title: Guia de implementação de reposição personalizada de palavras-passe - Azure Active Directory
 description: Sugestões para a implementação bem-sucedida da reposição de palavras-passe self-service do Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866988"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
 Para garantir uma suave implementação da funcionalidade de reposição personalizada de palavra-passe (SSPR) do Azure Active Directory (Azure AD), a maioria dos clientes realizam os passos seguintes:
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Ative a reposição de palavras-passe no seu diretório](quickstart-sspr.md).
 2. [Configurar as permissões do Active Directory no local para repetição de escrita de palavras-passe](howto-sspr-writeback.md#active-directory-permissions).
 3. [Configurar a repetição de escrita de palavras-passe](howto-sspr-writeback.md#configure-password-writeback) para gravar palavras-passe do Azure AD no seu diretório local.
 4. [Atribuir e verificar as licenças necessárias](concept-sspr-licensing.md).
-5. Determinar se quer fazer uma implementação gradual. Se quiser implementar a SSPR gradualmente, pode limitar o acesso a um grupo de utilizadores, para que possa criar um programa-piloto com um grupo específico. Para implementar num grupo específico, defina o comutador **Reposição Personalizada de Palavras-passe Ativada** como **Selecionada** e selecione o grupo de segurança que vai poder utilizar a reposição de palavras-passe. 
+5. Determinar se quer fazer uma implementação gradual. Se quiser implementar a SSPR gradualmente, pode limitar o acesso a um grupo de utilizadores, para que possa criar um programa-piloto com um grupo específico. Para implementar num grupo específico, defina o comutador **Reposição Personalizada de Palavras-passe Ativada** como **Selecionada** e selecione o grupo de segurança que vai poder utilizar a reposição de palavras-passe.  O aninhamento de grupos de segurança é suportado aqui.
 6. Preencha os [dados de autenticação](howto-sspr-authenticationdata.md) necessários para os seus utilizadores se registarem, como o telefone do escritório, o número de telemóvel e o endereço de e-mail alternativo.
 7. [Personalize a experiência de início de sessão do Azure AD para incluir a imagem corporativa da sua empresa](concept-sspr-customization.md).
 8. Ensine os utilizadores a utilizar a SSPR. Envie-lhes instruções para aprenderem a registar-se e a repor as palavras-passe.
@@ -66,6 +63,10 @@ Muitos clientes optam por alojar uma página Web e criar uma entrada DNS de raiz
 * Outras informações específicas da organização
 
 Pode incluir, em qualquer comunicação ou panfleto por e-mail que distribuir, um URL corporativo e memorável, ao qual os utilizadores podem aceder quando precisam de utilizar os serviços. Para seu benefício, criámos uma [página de reposição de palavras-passe de exemplo](https://github.com/ajamess/password-reset-page) que pode utilizar e personalizar consoante as necessidades da sua organização.
+
+## <a name="step-by-step-deployment-plan"></a>Plano de implementação passo a passo
+
+O grupo de produtos do Azure Active Directory criou um [plano de implementação passo a passo](https://aka.ms/SSPRDeploymentPlan) que as organizações podem utilizar em paralelo com a documentação neste site para criar um caso comercial e um plano de implementação de reposição personalizada de palavra-passe.
 
 ## <a name="use-enforced-registration"></a>Utilizar o registo forçado
 

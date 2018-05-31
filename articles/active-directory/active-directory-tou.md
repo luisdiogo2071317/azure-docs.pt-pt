@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192960"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de Utilização do Azure Active Directory
 Os Termos de Utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais.  Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores.
@@ -56,7 +57,7 @@ Depois de finalizar os seus Termos de Utilização, utilize o procedimento que s
 4. Introduza o **Nome a Apresentar**.  O cabeçalho é o que os utilizadores veem quando iniciam sessão.
 5. **Navegue** para o pdf finalizado dos termos de utilização e selecione-o.  O tamanho do tipo de letra recomendado é 24.
 6. **Selecione** um idioma para os termos de utilização.  A opção de idioma permite-lhe carregar vários termos de utilização, cada um com um idioma diferente.  A versão dos termos de utilização que um utilizador final verá serão baseados nas respetivas preferências do browser.
-7. Selecione ativado ou desativado para **Exigir que os utilizadores expandam os termos de utilização**.  Se estiver ativado, será pedido aos utilizadores finais que vejam os termos de utilização antes de os aceitarem.
+7. Selecione ativado ou desativado para **Exigir que os utilizadores expandam os termos de utilização**.  Se esta definição estiver ativada, será pedido aos utilizadores finais que vejam os termos de utilização antes de os aceitarem.
 8. Em **Acesso Condicional** pode **Impor** os termos de utilização carregados ao selecionar um modelo no menu pendente ou uma política de acesso condicional personalizada.  As políticas de acesso condicional personalizadas permitem especificar termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, consulte [configurar políticas de acesso condicional](active-directory-conditional-access-best-practices.md)
 9. Clique em **Criar**.
 10. No caso de ter selecionado um modelo de acesso condicional personalizado, será apresentado um novo ecrã que lhe permite personalizar a política de AC.
@@ -120,6 +121,13 @@ Os utilizadores podem rever e ver os termos de utilização aceitaram.  Para rev
 
 4.  A partir daí, pode rever os termos de utilização que aceitou. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Remover utilizadores de termos de utilização ativos
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Por predefinição, um utilizador eliminado permanecerá eliminado no Azure AD para 30 dias, durante o qual pode ser restaurado por um administrador, se necessário.  Após 30 dias, esse utilizador é eliminado permanentemente.  Além disso, através do portal do Azure Active Directory, um Administrador Global pode explicitamente [eliminar permanentemente um utilizador recentemente eliminado](active-directory-users-restore.md) antes desse período de tempo ser atingido.  Depois de um utilizador ser eliminado de maneira permanente, subsequentemente os dados sobre esse utilizador serão removidos dos termos de utilização ativos.  As informações de auditoria sobre os utilizadores eliminados permanecem no registo de auditoria.
+
+
 
 ## <a name="additional-information"></a>Informações adicionais
 As informações que se seguem são dados a ter em consideração e podem ajudar na utilização dos termos de utilização.
@@ -138,7 +146,7 @@ As informações que se seguem são dados a ter em consideração e podem ajudar
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **P: Como posso ver se e quando um utilizador aceitou os termos de utilização?**</br>
-R: Pode simplesmente clicar no número em “Aceites”, junto aos termos de utilização.  Para obter mais informações, veja [Viewing current user status](#viewing-current-user-status) (Ver o estado do utilizador atual).  Além disso, quando um utilizador aceita os termos de utilização, essa informação é guardada no registo de auditoria. Pode pesquisar o registo de auditoria do Azure AD para ver os resultados.  
+R: pode simplesmente clicar no número em “Aceites”, junto aos termos de utilização.  Para obter mais informações, veja [Viewing current user status](#viewing-current-user-status) (Ver o estado do utilizador atual).  Além disso, quando um utilizador aceita os termos de utilização, essa informação é guardada no registo de auditoria. Pode pesquisar o registo de auditoria do Azure AD para ver os resultados.  
 
 **P: Se alterar os termos de utilização, isso significa que os utilizadores têm de os aceitar novamente?**</br>
 R: Sim, os administradores podem alterar os termos de utilização, o que significa que os termos novos têm de voltar a ser aceites.
@@ -153,7 +161,7 @@ R: Os termos de utilização são acionados durante a experiência de início de
 R: Pode criar uma política de acesso condicional nas aplicações empresariais que utilizam autenticação moderna.  Para obter mais informações, consulte [aplicações empresariais](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **P: Posso adicionar vários termos de utilização para um determinado utilizador ou aplicação?**</br>
-R: Sim, através da criação de várias políticas de acesso condicional orientadas para esses grupos ou aplicações. Se um utilizador for abrangido pelo âmbito de vários termos de utilização, concorda com um documento de termos de utilização de cada vez.
+R: Sim, através da criação de várias políticas de acesso condicional orientadas para esses grupos ou aplicações. Se um utilizador for abrangido pelo âmbito de vários termos de utilização, concorda com um dos termos de utilização de cada vez.
  
 **P: O que acontece se um utilizador recusar os termos de utilização?**</br>
 R: O acesso do utilizador à aplicação é bloqueado. O utilizador teria de reiniciar sessão e concordar com os termos para conseguir obter acesso.
