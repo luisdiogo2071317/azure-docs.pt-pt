@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: 2e80a090d003770f47d28dfaacf7ba5140f7b41f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304570"
 ---
 # <a name="get-started"></a>Início Rápido: Criar um balanceador de carga público com o Azure PowerShell
 Este início rápido mostra como criar um Balanceador de Carga Básico com o Azure PowerShell. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o Windows Server e faça o balanceamento de carga de uma aplicação Web entre as VMs.
@@ -331,4 +332,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Saiba mais sobre o Balanceador de Carga do Azure](load-balancer-overview.md)
+
+Neste guia de introdução, criou o Balanceador de Carga Básico, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-basic-internal-portal.md)

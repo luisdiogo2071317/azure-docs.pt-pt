@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207211"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Início Rápido: criar uma aplicação .NET do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -109,6 +110,7 @@ Para ver o que acontece no código, conclua os passos seguintes:
     - Por último, devolva a resposta do serviço de back-end para o cliente **(3)**.
 
 4. Prima **F5** para continuar
+    - Se lhe for pedido pelo browser, conceda permissões para o Modo de Depuração de leitura e execução ao grupo ServiceFabricAllowedUsers.
     - Está agora no ponto de interrupção do serviço de back-end.
     
     ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Agora que a aplicação está pronta, pode implementá-la num cluster diretament
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicações e serviços num cluster
 Os serviços do Service Fabric podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Existem várias formas de dimensionar os seus serviços. Pode utilizar scripts ou comandos no PowerShell ou na CLI do Service Fabric (sfctl). Neste exemplo, utilizamos o Service Fabric Explorer.
 
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acedido num browser, navegando para a porta (19080) de gestão HTTP dos clusters; por exemplo `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acedido num browser, navegando para a porta (19080) de gestão HTTP dos clusters; por exemplo `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-Poderá receber um aviso de navegador a indicar que a localização não é fidedigna. Isto acontece porque o certificado é autoassinado. Pode optar por ignorar o aviso e continuar. Quando for pedido pelo navegador, selecione o certificado instalado para ligar. 
+Poderá receber um aviso de navegador a indicar que a localização não é fidedigna. Isto acontece porque o certificado é autoassinado. Pode optar por ignorar o aviso e continuar.
+1. Quando for pedido pelo navegador, selecione o certificado instalado para ligar. O certificado de cluster comemorativo que selecionar da lista tem de corresponder ao cluster comemorativo ao qual está a tentar aceder. Por exemplo, win243uja6w62r.westus.cloudapp.azure.com.
+2. Se lhe for pedido pelo browser, conceda acesso à sua Chave Privada CryptoAPI para esta sessão.
 
 Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
-1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. Na vista de árvore, expanda **Aplicações**->**VotingType**->**fabric:/Voting**. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/VotingWeb**, na vista de árvore, e escolha**Dimensionar Serviço**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)

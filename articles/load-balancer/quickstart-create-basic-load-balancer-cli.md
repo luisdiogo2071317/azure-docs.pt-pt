@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775909"
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304924"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs através da CLI do Azure 2.0
 
@@ -263,4 +263,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste guia de introdução, criou o balanceador de carga, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre balanceadores de carga e recursos associados, avance para os artigos de instruções.
+Neste guia de introdução, criou o Balanceador de Carga Básico, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-basic-internal-portal.md)
