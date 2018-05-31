@@ -1,29 +1,30 @@
 ---
-title: "Exemplo de json de política do Azure - auditoria se a extensão não existe | Microsoft Docs"
-description: "Esta política de exemplo de json auditorias se uma extensão não estiver implementada com uma máquina virtual."
+title: Exemplo de json do Azure Policy – Auditar se a extensão não existir | Microsoft Docs
+description: Esta política de exemplo de json faz uma auditoria se uma extensão não estiver implementada numa máquina virtual.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: f873351fb7b6742bb0ad5916607c634282b480d3
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 2edaf23f696e82b440f31cc264cab69843120f50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151659"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>Auditoria se a extensão não existe
+# <a name="audit-if-extension-does-not-exist"></a>Auditar se a extensão não existir
 
-Esta política auditorias se uma extensão não estiver implementada com uma máquina virtual. Especifique o fabricante de extensão e o tipo para verificar se esta foi implementada.
+Esta política faz uma auditoria se uma extensão não estiver implementada numa máquina virtual. Especifica o publicador da extensão e o tipo para verificar se foi implementada.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +32,7 @@ Esta política auditorias se uma extensão não estiver implementada com uma má
 
 [!code-json[main](../../../policy-templates/samples/compute/audit-vm-extension/azurepolicy.json "Audit if extension does not exist")]
 
-Pode implementar este modelo utilizando o [portal do Azure](#deploy-with-the-portal), com [PowerShell](#deploy-with-powershell) ou com o [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
@@ -48,7 +49,7 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Limpar a implementação de PowerShell
+### <a name="clean-up-powershell-deployment"></a>Limpar a implementação do PowerShell
 
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -56,7 +57,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -76,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Amostras de modelo de política do Azure adicionais são [modelos de política do Azure](../json-samples.md).
+- Pode ver exemplos adicionais do modelo do Azure Policy em [Modelos do Azure Policy](../json-samples.md).
