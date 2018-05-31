@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: cec2ab862a34a8753601dfeef3081ae9e9ca9fd9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257908"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilizar a API REST do Azure Blockchain Workbench 
 
@@ -26,12 +27,14 @@ A API REST do Azure Blockchain Workbench proporciona aos programadores e técnic
 * Listar ações disponíveis para um contrato
 * Executar uma ação para um contrato
 
+As exemplo blockchain as aplicações utilizadas em cenários, pode ser [transferido a partir do GitHub](https://github.com/Azure-Samples/blockchain). 
+
 ## <a name="list-applications"></a>Listar aplicações
 
-Depois de um utilizador iniciar sessão no cliente blockchain, a primeira tarefa consiste em obter todas as aplicações de blockchain do Blockchain Workbench para o utilizador. Neste cenário, o utilizador tem acesso a duas aplicações:
+Depois de um utilizador tem sessão iniciada para o cliente blockchain, é a primeira tarefa obter todas as aplicações de Blockchain Workbench para o utilizador. Neste cenário, o utilizador tem acesso a duas aplicações:
 
-1.  Asset Transfer
-2.  Refrigerated Transportation
+1.  [Transferência de recurso](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2.  [Transportes refrigerated](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Utilize a [API GET de Aplicações](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
@@ -74,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Listar fluxos de trabalho para uma aplicação
 
-Depois de um utilizador selecionar a aplicação de blockchain aplicável, neste caso, Asset Transfer, o cliente blockchain obtém todos os fluxos de trabalho da aplicação de blockchain específica. Em seguida, os utilizadores podem selecionar o fluxo de trabalho aplicável antes de serem apresentadas todas as instâncias de contrato inteligente para o fluxo de trabalho. Cada aplicação de blockchain tem um ou mais fluxos de trabalho e cada fluxo de trabalho tem zero ou instâncias de contrato inteligente. Ao criar aplicações cliente do blockchain, é recomendado ignorar o fluxo de experiência de utilizador, que permite que os utilizadores selecionem o fluxo de trabalho adequado quando existe apenas um fluxo de trabalho para a aplicação de blockchain. Neste caso, Asset Transfer tem apenas um fluxo de trabalho, também chamado Asset Transfer.
+Depois de um utilizador seleciona a aplicação aplicável blockchain, neste caso, **Asset transferência**, o cliente blockchain obtém todos os fluxos de trabalho da aplicação blockchain específico. Em seguida, os utilizadores podem selecionar o fluxo de trabalho aplicável antes de serem apresentadas todas as instâncias de contrato inteligente para o fluxo de trabalho. Cada aplicação de blockchain tem um ou mais fluxos de trabalho e cada fluxo de trabalho tem zero ou instâncias de contrato inteligente. Ao criar aplicações cliente do blockchain, é recomendado ignorar o fluxo de experiência de utilizador, que permite que os utilizadores selecionem o fluxo de trabalho adequado quando existe apenas um fluxo de trabalho para a aplicação de blockchain. Neste caso, **Asset transferência** tem apenas um fluxo de trabalho, também denominado **Asset transferência**.
 
 Utilize a [API Workflows GET de Aplicações](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -106,7 +109,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Listar instâncias de contrato inteligente para um fluxo de trabalho
 
-Depois de um utilizador selecionar o fluxo de trabalho aplicável, neste caso, Asset Transfer, o cliente blockchain irá obter todas as instâncias de contrato inteligente para o fluxo de trabalho especificado. Pode utilizar estas informações para mostrar todas as instâncias de contrato inteligente para o fluxo de trabalho e permitir que os utilizadores explorem mais a fundo qualquer uma das instâncias de contrato inteligente apresentadas. Neste exemplo, considere que um utilizador pretende interagir com uma das instâncias de contrato inteligente para tomar medidas.
+Depois de um utilizador seleccionar aplicável fluxo de trabalho, neste caso **Asset transferência**, o cliente de blockchain irá obter todas as instâncias de contrato inteligente para o fluxo de trabalho especificado. Pode utilizar estas informações para mostrar todas as instâncias de contrato inteligente para o fluxo de trabalho e permitir que os utilizadores explorem mais a fundo qualquer uma das instâncias de contrato inteligente apresentadas. Neste exemplo, considere que um utilizador pretende interagir com uma das instâncias de contrato inteligente para tomar medidas.
 
 Utilize a [API GET de Contratos](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
 
@@ -304,7 +307,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

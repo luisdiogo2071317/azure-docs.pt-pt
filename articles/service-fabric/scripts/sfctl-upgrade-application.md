@@ -1,29 +1,30 @@
 ---
-title: "Exemplo de Script da CLI de recursos de infraestrutura de serviço - atualização de uma aplicação num cluster"
-description: "Exemplo de Script da CLI de recursos de infraestrutura de serviço - atualização de uma aplicação com uma nova versão. Este exemplo também atualiza uma aplicação implementada com os bits de novo."
+title: Exemplo de Script da CLI do Service Fabric - Atualizar uma aplicação num cluster
+description: Exemplo de Script da CLI do Service Fabric - Atualizar uma aplicação com uma nova versão. Este exemplo também atualiza uma aplicação implementada com as novas partes.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.custom: 
-ms.openlocfilehash: 059022a7f447fe2b0decaacf44ef7bc2e9a241d1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.custom: ''
+ms.openlocfilehash: e14e65e365389b33891794a3f12b86b3a4705533
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204384"
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação para um cluster do Service Fabric
+# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicação a um cluster do Service Fabric
 
-Este script de exemplo carrega uma nova versão da aplicação existente e, em seguida, atualiza uma aplicação implementada com os bits de novo.
+Este script de exemplo carrega uma nova versão de uma aplicação existente e então atualiza uma aplicação implementada com as novas partes.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 
@@ -33,6 +34,6 @@ Este script de exemplo carrega uma nova versão da aplicação existente e, em s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações, consulte o [documentação do Service Fabric CLI](../service-fabric-cli.md).
+Para mais informações, veja a [documentação da CLI do Service Fabric](../service-fabric-cli.md).
 
-Amostras de CLI de recursos de infraestrutura de serviço adicionais para o Azure Service Fabric podem ser encontradas no [exemplos de Service Fabric CLI](../samples-cli.md).
+Podem ser encontrados exemplos adicionais da CLI do Service Fabric para o Azure Service Fabric em [Exemplos da CLI do Service Fabric](../samples-cli.md).

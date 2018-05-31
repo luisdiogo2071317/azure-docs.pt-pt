@@ -6,37 +6,38 @@ author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305315"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar uma aplicação gerida para consumo interno
 
-Pode criar e publicar Azure [geridos aplicações](overview.md) que se destinam a ser membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que garantir a conformidade com as normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, não no Azure marketplace.
+Pode criar e publicar [aplicações geridas](overview.md) do Azure que se destinam aos membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que garantir a conformidade com as normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, e não no Azure marketplace.
 
-Para publicar uma aplicação gerida para o catálogo de serviço, tem de:
+Para publicar uma aplicação gerida no catálogo de serviços, tem de:
 
-* Crie um modelo que define os recursos a implementar a aplicação gerida.
+* Criar um modelo que define os recursos a implementar com a aplicação gerida.
 * Defina os elementos de interface de utilizador para o portal quando implementar a aplicação gerida.
-* Crie um pacote. zip que contém os ficheiros de modelo necessária.
-* Decidir que utilizador, grupo ou aplicação precisa de aceder ao grupo de recursos na subscrição do utilizador.
-* Crie a definição de aplicação gerida que aponta para o pacote. zip e pedidos de acesso para a identidade.
+* Crie um pacote .zip que contém os ficheiros de modelo que são precisos.
+* Decida que utilizador, grupo ou aplicação precisa de aceder ao grupo de recursos na subscrição do utilizador.
+* Crie a definição de aplicação gerida que aponta para o pacote .zip e pedidos de acesso para a identidade.
 
-Para este artigo, a sua aplicação gerida contém apenas uma conta de armazenamento. Destina-se para ilustrar os passos para publicar uma aplicação gerida. Para obter exemplos completos, consulte [projetos de exemplo para o Azure geridos aplicações](sample-projects.md).
+Para este artigo, a sua aplicação gerida contém apenas uma conta de armazenamento. Destina-se a ilustrar os passos para publicar uma aplicação gerida. Para obter exemplos completos, veja [Projetos de exemplo para aplicações geridas do Azure](sample-projects.md).
 
-## <a name="create-the-resource-template"></a>Criar o modelo de recursos
+## <a name="create-the-resource-template"></a>Criar o modelo de recurso
 
-Cada definição de aplicações geridas contém um ficheiro denominado **mainTemplate.json**. Aqui, defina os recursos do Azure para aprovisionar. O modelo é igual aos modelos normais do Resource Manager.
+Cada definição de aplicação gerida contém um ficheiro denominado **mainTemplate.json**. Nele, defina os recursos do Azure para aprovisionar. O modelo é igual aos modelos normais do Resource Manager.
 
-Crie um ficheiro denominado **mainTemplate.json**. O nome é maiúsculas e minúsculas.
+Crie um ficheiro denominado **mainTemplate.json**. O nome é sensível a maiúsculas e minúsculas.
 
-Adicione o seguinte JSON para o ficheiro. Define os parâmetros para criar uma conta de armazenamento e especifica as propriedades da conta do storage.
+Adicione o seguinte JSON ao ficheiro. Define os parâmetros para criar uma conta de armazenamento e especifica as propriedades da conta de armazenamento.
 
 ```json
 {
@@ -83,11 +84,11 @@ Guarde o ficheiro mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>Criar a definição de interface de utilizador
 
-O portal do Azure utiliza o **createUiDefinition.json** ficheiro para gerar a interface de utilizador para os utilizadores que criar a aplicação gerida. Definir a forma como os utilizadores forneçam entrada para cada parâmetro. Pode utilizar as opções, como uma lista pendente, caixa de texto, a caixa de palavra-passe e outras ferramentas de entrada. Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
+O portal do Azure utiliza o ficheiro **createUiDefinition.json** para gerar a interface de utilizador para os utilizadores que criem a aplicação gerida. O utilizador define a forma como os utilizadores concedem entrada para cada parâmetro. Pode utilizar opções como uma lista pendente, caixa de texto, caixa de palavra-passe e outras ferramentas de entrada. Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
 
-Crie um ficheiro denominado **createUiDefinition.json**. O nome é maiúsculas e minúsculas.
+Crie um ficheiro denominado **createUiDefinition.json**. O nome é sensível a maiúsculas e minúsculas.
 
-Adicione o seguinte JSON para o ficheiro.
+Adicione o seguinte JSON ao ficheiro.
 
 ```json
 {
@@ -140,11 +141,11 @@ Adicione o seguinte JSON para o ficheiro.
 
 Guarde o ficheiro createUiDefinition.json.
 
-## <a name="package-the-files"></a>Os ficheiros do pacote
+## <a name="package-the-files"></a>Empacote os ficheiros
 
-Adicione os dois ficheiros para um ficheiro. zip com o nome app.zip. Os dois ficheiros tem de ser ao nível da raiz do ficheiro. zip. Se o put-los numa pasta, receberá um erro ao criar a definição de aplicação gerida que indica que os ficheiros necessários não estão presentes. 
+Adicione os dois ficheiros num ficheiro .zip com o nome app.zip. Os dois ficheiros têm de estar ao nível da raiz do ficheiro .zip. Se os colocar numa pasta, irá receber um erro ao criar a definição da aplicação gerida que indica que os ficheiros necessários não estão presentes. 
 
-Carregar o pacote para uma localização acessível a partir de onde pode ser utilizada. 
+Carregue o pacote para uma localização acessível a partir de onde pode ser utilizada. 
 
 ```powershell
 New-AzureRmResourceGroup -Name storageGroup -Location eastus
@@ -166,19 +167,19 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 ## <a name="create-the-managed-application-definition"></a>Criar a definição da aplicação gerida
 
-### <a name="create-an-azure-active-directory-user-group-or-application"></a>Criar um grupo de utilizadores do Azure Active Directory ou a aplicação
+### <a name="create-an-azure-active-directory-user-group-or-application"></a>Crie uma aplicação ou grupo de utilizador no Azure Active Directory
 
-O passo seguinte consiste em selecionar um grupo de utilizadores ou aplicações para gerir os recursos em nome do cliente. Este grupo de utilizadores ou a aplicação tem permissões sobre o grupo de recursos geridos, de acordo com a função que está atribuído. A função pode ser qualquer função de controlo de acesso baseado em funções (RBAC) incorporada, como o proprietário ou contribuinte. Também pode dar uma permissão de utilizador individuais para gerir os recursos, mas normalmente atribuir esta permissão a um grupo de utilizador. Para criar um novo grupo de utilizadores do Active Directory, consulte [criar um grupo e adicionar membros no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+O passo seguinte consiste em selecionar um grupo de utilizadores ou aplicações para gerir os recursos em nome do cliente. Este grupo de utilizadores ou aplicação tem permissões no grupo de recursos gerido, de acordo com a função que é atribuída. A função pode ser qualquer função de Controlo de Acesso Baseado em Funções (RBAC) incorporada, como o Proprietário ou Contribuidor. Também pode dar uma permissão de utilizador individual para gerir os recursos, mas normalmente atribui esta permissão a um grupo de utilizadores. Para criar um novo grupo de utilizadores do Active Directory, veja [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
-É necessário o ID de objeto do grupo de utilizadores a utilizar para gerir os recursos. 
+É preciso o ID de objeto do grupo de utilizadores a utilizar para gerir os recursos. 
 
 ```powershell
 $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 ```
 
-### <a name="get-the-role-definition-id"></a>Obter o ID de definição de função
+### <a name="get-the-role-definition-id"></a>Obtenha o ID de definição de função
 
-Em seguida, terá do ID de definição de função da função incorporada do RBAC que pretende conceder acesso para a aplicação, utilizador ou grupo de utilizadores. Normalmente, utiliza a função de proprietário ou contribuinte ou leitor. O comando seguinte mostra como obter o ID da definição da função da função Proprietário:
+Em seguida, precisa do ID da definição da função da função incorporada RBAC a que pretende conceder acesso ao utilizador, grupo de utilizadores ou aplicação. Normalmente, utiliza a função de Proprietário ou Contribuidor ou Leitor. O comando seguinte mostra como obter o ID da definição da função da função Proprietário:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
@@ -234,44 +235,44 @@ New-AzureRmManagedApplication `
   -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
 ```
 
-As aplicações geridas e a infraestrutura gerida agora existem na subscrição.
+A sua aplicação gerida e a infraestrutura gerida agora existem na subscrição.
 
 ### <a name="portal"></a>Portal
 
-Agora, vamos utilizar o portal para implementar a aplicação gerida. Consulte a interface de utilizador que criou no pacote.
+Agora, vamos utilizar o portal para implementar a aplicação gerida. Veja a interface de utilizador que criou no pacote.
 
-1. Aceda ao portal do Azure. Selecione **+ criar um recurso** e procure **catálogo de serviço**.
+1. Aceda ao portal do Azure. Selecione **+ Criar um recurso** e procure **catálogo de serviço**.
 
-   ![Catálogo de serviço de pesquisa](./media/publish-service-catalog-app/create-new.png)
+   ![Pesquisar catálogo de serviços](./media/publish-service-catalog-app/create-new.png)
 
-1. Selecione **aplicações geridas do catálogo de serviço**.
+1. Selecionar **Aplicação Gerida do Catálogo de Serviços**.
 
-   ![Selecione o catálogo de serviço](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
+   ![Selecionar catálogo de serviços](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Selecione **Criar**.
 
    ![Selecione criar](./media/publish-service-catalog-app/select-create.png)
 
-1. Localizar a aplicação gerida que pretende criar na lista de soluções disponíveis e selecione-o. Selecione **Criar**.
+1. Encontre a aplicação gerida que pretende criar na lista de soluções disponíveis e selecione-a. Selecione **Criar**.
 
-   ![Localizar a aplicação gerida](./media/publish-service-catalog-app/find-application.png)
+   ![Encontre a aplicação gerida](./media/publish-service-catalog-app/find-application.png)
 
-1. Fornece informações básicas que é necessárias para a aplicação gerida. Especifique a subscrição e um novo grupo de recursos que contém a aplicação gerida. Selecione **Central EUA oeste** para a localização. Quando terminar, selecione **OK**.
+1. Conceda informações básicas que são precisas para a aplicação gerida. Especifique a subscrição e um novo grupo de recursos para conter a aplicação gerida. Selecione **E.U.A. Centro-Oeste** para a localização. Quando terminar, selecione **OK**.
 
-   ![Fornecer parâmetros de aplicações geridas](./media/publish-service-catalog-app/add-basics.png)
+   ![Conceder parâmetros de aplicações geridas](./media/publish-service-catalog-app/add-basics.png)
 
-1. Indique os valores que são específicos para os recursos da aplicação gerida. Quando terminar, selecione **OK**.
+1. Indique os valores que são específicos para os recursos na aplicação gerida. Quando terminar, selecione **OK**.
 
-   ![Fornecer os parâmetros do recurso](./media/publish-service-catalog-app/add-storage-settings.png)
+   ![Conceder parâmetros do recurso](./media/publish-service-catalog-app/add-storage-settings.png)
 
-1. O modelo valida os valores que forneceu. Se a validação for bem sucedida, selecione **OK** para iniciar a implementação.
+1. O modelo valida os valores que concedeu. Se a validação for bem sucedida, selecione **OK** para iniciar a implementação.
 
-   ![Validar a aplicações geridas](./media/publish-service-catalog-app/view-summary.png)
+   ![Validar aplicação gerida](./media/publish-service-catalog-app/view-summary.png)
 
-Após a conclusão da implementação, a aplicação gerida existe num grupo de recursos denominado applicationGroup. A conta de armazenamento existe num grupo de recursos com o nome applicationGroup plus um valor de cadeia de hash.
+Após a conclusão da implementação, a aplicação gerida existe num grupo de recursos denominado applicationGroup. A conta de armazenamento existe num grupo de recursos denominado applicationGroup, além de um valor de cadeia de hash.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
-* Por exemplo projetos, consulte [projetos de exemplo para o Azure geridos aplicações](sample-projects.md).
+* Para obter projetos de exemplo, veja [Projetos de exemplo para aplicações geridas do Azure](sample-projects.md).
 * Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
