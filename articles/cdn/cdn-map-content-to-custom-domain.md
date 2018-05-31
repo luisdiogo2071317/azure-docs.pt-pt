@@ -4,21 +4,22 @@ description: Neste tutorial, vai mapear o conteúdo do ponto final da CDN do Azu
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/06/2018
+ms.date: 05/15/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196509"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto final da Rede de Entrega de Conteúdos (CDN) do Azure. Se utilizar um ponto final da CDN para entregar conteúdos e se quiser que o seu próprio nome de domínio seja visível no URL da CDN, é necessário um domínio personalizado. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa. 
@@ -112,19 +113,28 @@ Depois de registar o domínio personalizado, pode, então, adicioná-lo ao ponto
     
 2. Na página **perfil da CDN**, selecione o ponto final da CDN que vai ser associado ao domínio personalizado.
 
-    É aberta a página **Ponto Final**.
+   É aberta a página **Ponto Final**.
     
 3. Selecione **Domínio personalizado**. 
 
    ![Botão Domínio personalizado da CDN](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
 
-4. Em **Nome de anfitrião personalizado**, introduza o seu domínio personalizado, incluindo o subdomínio. Por exemplo, www.contoso.com ou cdn.contoso.com. Não utilize o nome de subdomínio cdnverify.
+   Abre-se a página **Adicionar um domínio personalizado**.
+
+4. Para o **Nome de anfitrião do ponto final**, o nome de anfitrião do ponto final a utilizar como o domínio de destino do seu registo de CNAME é pré-preenchido e deriva do seu URL de ponto final de CDN: *&lt;nome de anfitrião do ponto final&gt;*.azureedge.net. Não pode ser alterado.
+
+5. Para o **Nome de anfitrião personalizado**, introduza o seu domínio personalizado, incluindo o subdomínio para utilizar como o domínio de origem do seu registo de CNAME. Por exemplo, www.contoso.com ou cdn.contoso.com. Não utilize o nome de subdomínio cdnverify.
 
    ![Caixa de diálogo de domínio personalizado da CDN](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
-5. Selecione **Adicionar**.
+6. Selecione **Adicionar**.
 
-   O Azure verifica se o registo CNAME existe para o nome de domínio personalizado que introduziu. Se o CNAME estiver correto, o seu domínio personalizado é validado. Pode levar algum tempo para o registo CNAME ser propagado para os servidores de nomes. Se o seu domínio não for validado imediatamente, confirme que o registo CNAME está correto, aguarde alguns minutos e tente novamente. Nos pontos finais da **CDN do Azure da Verizon**, as definições dos domínios personalizados podem demorar até 90 minutos a serem propagadas para todos os nós de periferia da CDN.  
+   O Azure verifica se o registo CNAME existe para o nome de domínio personalizado que introduziu. Se o CNAME estiver correto, o seu domínio personalizado vai ser validado. 
+
+   Pode demorar algum tempo para que as novas definições de domínios personalizados se propaguem a todos os nós periféricos da CDN: 
+    - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
+    - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
+    - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída no prazo de 90 minutos.   
 
 
 ## <a name="verify-the-custom-domain"></a>Verificar o domínio personalizado
@@ -133,7 +143,7 @@ Depois de concluir o registo do seu domínio personalizado, confirme que este re
  
 1. Verifique se tem conteúdo público que seja colocado em cache no ponto final. Por exemplo, se o ponto final da CDN estiver associado a uma conta de armazenamento, a CDN do Azure colocará em cache o conteúdo num contentor público. Para testar o domínio personalizado, verifique se o contentor está definido para permitir o acesso público e se contém pelo menos um ficheiro.
 
-2. No browser, utilize o domínio personalizado para navegar para o endereço do ficheiro. Por exemplo, se o domínio personalizado for cdn.contoso.com, o URL para o ficheiro em cache deve ser semelhante a http:\//cdn.contoso.com/my-public-container/my-file.jpg.
+2. No browser, utilize o domínio personalizado para navegar para o endereço do ficheiro. Por exemplo, se o domínio personalizado for cdn.contoso.com, o URL para o ficheiro em cache deve ser semelhante a http:\//cdn.contoso.com/my-public-container/my-file.jpg. Verifique se o resultado é o mesmo que quando acede diretamente ao ponto final da CDN em *&lt;nome de anfitrião do ponto final&gt;*.azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapear o domínio personalizado permanente
