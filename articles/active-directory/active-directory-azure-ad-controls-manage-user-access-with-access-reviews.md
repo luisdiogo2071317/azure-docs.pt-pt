@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: b11f0b2032a102501de1da8315e80df88bfd57d5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192494"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gerir o acesso de utilizador com as revisões de acesso do Azure AD
 
@@ -30,7 +31,11 @@ Com o Azure Active Directory (Azure AD), pode facilmente garantir que os utiliza
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
+
+As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Azure Active Directory](active-directory-editions.md). Cada utilizador que interage com esta funcionalidade, incluindo para criar uma revisão, preencher uma revisão ou confirmar o acesso, precisa de uma licença. 
+
 As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Azure Active Directory](active-directory-whatis.md). Cada utilizador que interage com esta funcionalidade para criar uma revisão, aceder a uma revisão ou aplicar uma revisão precisa de uma licença.
+
 
 
 ## <a name="create-and-perform-an-access-review"></a>Criar e realizar uma revisão de acesso

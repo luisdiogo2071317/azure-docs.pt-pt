@@ -1,75 +1,76 @@
 ---
-title: Descrição geral do Azure gerida aplicações | Microsoft Docs
-description: Descreve os conceitos do Azure gerida aplicações
+title: Descrição geral das aplicações geridas do Azure | Microsoft Docs
+description: Descreve os conceitos das aplicações geridas do Azure
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305002"
 ---
-# <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas pelo Azure
+# <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
-Aplicações geridas do Azure permitem-lhe a oferta de soluções de nuvem que são mais fácil para os consumidores implementar e operar. Implementar a infraestrutura e fornecer suporte em curso. Para disponibilizar uma aplicação gerida para todos os clientes, publicá-lo no Azure marketplace. Para o disponibilizar apenas aos utilizadores na sua organização, publicá-lo para um catálogo interno. 
+As aplicações geridas do Azure permitem-lhe oferecer soluções na cloud que os consumidores podem implementar e operar facilmente. Tem de implementar a infraestrutura e disponibilizar suporte contínuo. Para disponibilizar uma aplicação gerida para todos os clientes, publique-a no Azure Marketplace. Para disponibilizá-la apenas aos utilizadores da sua organização, publique-a num catálogo interno. 
 
-Uma aplicação gerida é semelhante a um modelo de solução no mercado, com uma diferença de chave. Numa aplicação gerida, os recursos são aprovisionados para um grupo de recursos que é gerido pelo fabricante da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do publicador tem acesso ao grupo de recursos. Como publicador, deve especificar o custo de suporte em curso da solução.
+As aplicações geridas são semelhantes aos modelos de soluções no Marketplace, com uma diferença essencial. Numa aplicação gerida, os recursos são aprovisionados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução.
 
-## <a name="advantages-of-managed-applications"></a>Vantagens de aplicações geridas
+## <a name="advantages-of-managed-applications"></a>Vantagens das aplicações geridas
 
-Aplicações geridas reduzem barreiras as eficazes para os consumidores que utilizam as suas soluções. Não precisam de conhecimentos na infraestrutura de nuvem para utilizar a solução. Os consumidores limitada acesso a recursos críticos. Não é necessário preocupar efetuar um erro quando geri-lo. 
+As aplicações geridas reduzem barreiras aos consumidores que utilizam as suas soluções. Aqueles não precisam de conhecimentos técnicos sobre a infraestrutura na cloud para utilizar a sua solução. Os consumidores têm acesso limitado aos recursos críticos. Não têm de se preocupar em cometer erros quando a gerem. 
 
-Aplicações geridas permitem-lhe estabelecer uma relação contínua com os consumidores. Definir termos para gerir a aplicação e todos os custos são processados através de faturação do Azure.
+As aplicações geridas permitem-lhe estabelecer uma relação contínua com os seus consumidores. Os termos para gerir a aplicação são definidos por si e todos os custos são processados através da faturação do Azure.
 
-Embora os clientes implementar estas aplicações geridas nas suas subscrições, não têm de manter, atualizar ou service-los. Pode certificar-se de que todos os clientes estão a utilizar versões aprovadas. Os clientes não têm conhecimento de domínio específico da aplicação para gerir estas aplicações de desenvolver. Os clientes automaticamente adquirir atualizações da aplicação sem a necessidade de se preocupar com a resolução de problemas e diagnosticar problemas com as aplicações. 
+Embora os clientes implementem essas aplicações geridas nas respetivas subscrições, não têm de manter, atualizar ou repará-las. Pode garantir que todos os clientes estão a utilizar versões aprovadas. Os clientes não têm de desenvolver conhecimentos no domínio de aplicações específicas para geri-las. Adquirem automaticamente as atualizações das aplicações sem terem de se preocupar com a resolução e o diagnóstico de problemas com aquelas. 
 
-Para as equipas de TI, aplicações geridas permitem-lhe a oferta de soluções previamente aprovadas aos utilizadores na organização. Certifique-se que nestas soluções de estão em conformidade com as normas organizacionais.
+Para as equipas de TI, as aplicações geridas permitem-lhe oferecer soluções pré-aprovadas aos utilizadores da organização. Tem de garantir que essas soluções estão em conformidade com os padrões da organização.
 
 ## <a name="types-of-managed-applications"></a>Tipos de aplicações geridas
 
-Pode publicar a sua aplicação gerida externamente ou internamente.
+Pode publicar a sua aplicação gerida externa ou internamente.
 
-![Publicar internamente ou externamente](./media/overview/manage_app_options.png)
+![Publicar interna ou externamente](./media/overview/manage_app_options.png)
 
-### <a name="service-catalog"></a>catálogo de serviço
+### <a name="service-catalog"></a>Catálogo de serviços
 
-O catálogo de serviço é um catálogo interno de aprovados soluções para os utilizadores numa organização. Utilizar o catálogo para garantir a conformidade com determinadas normas organizacionais ao possam fornecer soluções para as organizações. Os empregados utilizar o catálogo para detetar facilmente ao conjunto avançado de aplicações que são recomendados e aprovada pelo seus departamentos de TI. Verão as aplicações geridas que outras pessoas na sua organização partilham com os mesmos.
+O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Pode utilizar o catálogo para garantir a conformidade com determinados padrões da organização enquanto oferecem soluções à organização. Os funcionários utilizam o catálogo para descobrir facilmente o rico conjunto de aplicações que são recomendadas e aprovadas pelos respetivos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
 
-Para obter informações sobre como publicar uma aplicação do catálogo de serviço geridas, consulte [Criar aplicação do catálogo de serviço](publish-service-catalog-app.md).
+Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
 
 ### <a name="marketplace"></a>Marketplace
 
-Os fornecedores que bem ao faturar para os seus serviços podem disponibilizar uma aplicação gerida através do Azure marketplace. Depois do fornecedor publica uma aplicação, estão disponível para os utilizadores fora da organização. Com esta abordagem, fornecedores de serviços geridos (MSPs), os fabricantes independentes de software (ISV) e do sistema integradores (SIs) podem oferecer as soluções para todos os clientes do Azure.
+Os fornecedores que pretendam faturar os serviços que oferecem podem disponibilizar uma aplicação gerida através do Azure Marketplace. Depois de o fornecedor publicar uma aplicação, a mesma fica disponível para os utilizadores externos à organização. Com esta abordagem, os fornecedores de serviços geridos (MSP), os fornecedores de software independentes (ISVs) e os integradores de sistemas (SIs) podem oferecer as respetivas soluções a todos os clientes do Azure.
 
-Para obter informações sobre como publicar uma aplicação gerida no Marketplace, consulte [Criar aplicação marketplace](publish-marketplace-app.md).
+Para obter informações sobre a publicação de aplicações geridas no Marketplace, veja [Criar aplicação do Marketplace](publish-marketplace-app.md).
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicações geridas
 
-Normalmente, os recursos para uma aplicação gerida residirem em dois grupos de recursos. O consumidor gere um grupo de recursos e o publicador a outro grupo de recursos. Ao definir a aplicação gerida, o publicador Especifica os níveis de acesso. A imagem seguinte mostra um cenário em que o publicador solicita a função de proprietário do grupo de recursos geridos. O publicador colocar um bloqueio de só de leitura neste grupo de recursos para o consumidor. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
+Normalmente, os recursos das aplicações geridas residirem em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. A imagem seguinte mostra um cenário em que o editor pede a função de proprietário para o grupo de recursos gerido. O editor aplicou um bloqueio de só de leitura neste grupo de recursos para o consumidor. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
 
-![Acesso de grupo de recursos](./media/overview/access.png)
+![Acesso ao grupo de recursos](./media/overview/access.png)
 
-### <a name="application-resource-group"></a>Grupo de recursos de aplicação
+### <a name="application-resource-group"></a>Grupo de recursos da aplicação
 
-Este grupo de recursos contém a instância de aplicações geridas. Este grupo de recursos só pode conter um recurso. O tipo de recurso da aplicação gerida está **Microsoft.Solutions/applications**.
+Este grupo de recursos contém a instância da aplicação gerida. Só pode conter um recurso. O tipo de recurso da aplicação gerida é **Microsoft.Solutions/applications**.
 
 O consumidor tem acesso total ao grupo de recursos e utiliza-o para gerir o ciclo de vida da aplicação gerida.
 
 ### <a name="managed-resource-group"></a>Grupo de recursos gerido
 
-Este grupo de recursos contém todos os recursos que são necessários para a aplicação gerida. Por exemplo, este grupo de recursos contém as máquinas virtuais, contas de armazenamento e redes virtuais para a solução. O consumidor limitou o acesso a este grupo de recursos porque o consumidor não gere os recursos individuais para a aplicação gerida. Corresponde ao acesso do publicador a este grupo de recursos para a função especificada na definição de aplicações geridas. Por exemplo, o fabricante pode pedir a função de proprietário ou contribuinte para este grupo de recursos.
+Este grupo de recursos contém todos os recursos de que a aplicação gerida precisa. Por exemplo, este grupo de recursos contém as máquinas virtuais, as contas de armazenamento e as redes virtuais da solução. O consumidor tem acesso limitado a este grupo de recursos porque não gere os recursos individuais da aplicação gerida. O acesso do editor a este grupo de recursos corresponde à função especificada na definição da aplicação gerida. Por exemplo, o editor pode pedir a função Proprietário ou Contribuidor para este grupo de recursos.
 
-Quando o consumidor elimina a aplicação gerida, também é eliminar o grupo de recursos geridos.
+Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido também é eliminado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução para definir e implementar uma aplicação gerida, consulte [criar e implementar do Azure gerida aplicação com a CLI do Azure](managed-apps-quickstart-cli.md)
-* Para obter informações sobre a publicação de uma aplicação interna, consulte [Criar aplicação do catálogo de serviço](publish-service-catalog-app.md).
-* Para obter informações sobre a publicação de aplicações geridas no Marketplace, consulte [Criar aplicação marketplace](publish-marketplace-app.md).
+* Para obter uma introdução à definição e implementação de aplicações geridas, veja [Criar e implementar uma aplicação gerida do Azure com a CLI do Azure](managed-apps-quickstart-cli.md)
+* Para obter informações sobre a publicação de aplicações internas, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
+* Para obter informações sobre a publicação de aplicações geridas no Marketplace, veja [Criar aplicação do Marketplace](publish-marketplace-app.md).

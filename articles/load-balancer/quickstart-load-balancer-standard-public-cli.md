@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 997129d1c67a690fb4890aeb2de9f45a681e3efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 48ed4270838a32c8060bf96a63fcfdd8c65f9689
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305077"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Guia de Início Rápido: Criar um Balanceador de Carga Standard para balancear a carga de VMs com a CLI do Azure 2.0
 
@@ -262,5 +263,8 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
   az group delete --name myResourceGroupSLB
 ```
 ## <a name="next-step"></a>Passo seguinte
-Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md)
+Neste guia de introdução, criou o Balanceador de Carga Standard, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 
