@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304883"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guia de Início Rápido: Criar um balanceador de carga Básico público com o portal do Azure
 
@@ -95,8 +96,8 @@ Nesta secção, irá criar regras de NSG para permitir ligações de entrada que
    - **80** – nos **Intervalos de portas de destino**
    - **TCP** – no **Protocolo**
    - **Allow** na **Ação**
-   - **100** – na **Prioridade**
-   - **myHTTPRule** no **Nome**
+   - **100** - na **Prioridade**
+   - **myHTTPRule** – no **Nome**
    - **Allow HTTP** na **Descrição**
  
    ![Criar uma regra NSG](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
@@ -106,7 +107,7 @@ Nesta secção, irá criar regras de NSG para permitir ligações de entrada que
    - **3389** – nos **Intervalos de portas de destino**
    - **TCP** – no **Protocolo**
    - **Allow** na **Ação**
-   - **200** – na **Prioridade**
+   - **200** - na **Prioridade**
    - **myRDPRule** – no **Nome**
    - **Allow RDP** na **Descrição**
 
@@ -194,4 +195,7 @@ Pode eliminar o grupo de recursos, o balanceador de carga e todos os recursos re
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, utilizou esses recursos para criar um balanceador de carga. Para saber mais sobre balanceadores de carga e recursos associados, avance para os artigos de tutorial.
+Neste guia de início rápido, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, utilizou esses recursos para criar um Balanceador de Carga Básico. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+
+> [!div class="nextstepaction"]
+> [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-basic-internal-portal.md)

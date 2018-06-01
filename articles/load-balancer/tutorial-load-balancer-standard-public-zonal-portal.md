@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304730"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga dentro de uma zona de disponibilidade com um Balanceador de Carga Standard através do portal do Azure
 
@@ -50,11 +51,11 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
 2. Na página **Criar um balanceador de carga**, introduza estes valores para o balanceador de carga:
-    - *myLoadBalancer* – no nome do balanceador de carga.
-    - **Público** – no tipo de balanceador de carga.
+    - *myLoadBalancer* - no nome do balanceador de carga.
+    - **Público** - no tipo de balanceador de carga.
      - *myPublicIPZonal* – no endereço IP Público novo que criar. Para tal, clique em **Selecionar um endereço IP público** e, em seguida, clique em **Criar novo**. Para o tipo de nome *myPublicIP*, o SKU é Standard por predefinição e seleciona **Zona 1** para a **Zona de disponibilidade**.
     - *myResourceGroupZLB* – no nome do novo grupo de recursos que criar.
-    - **westeurope** – na localização.
+    - **westeurope** - na localização.
 3. Clique em **Criar** para criar o balanceador de carga.
    
     ![Criar o Balanceador de Carga Standard zonal com o portal do Azure](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
@@ -66,9 +67,9 @@ Nesta secção, irá criar uma rede virtual, duas máquinas virtuais na mesma zo
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Rede virtual** e introduza estes valores para a rede virtual:
-    - *myVnet* – no nome da rede virtual.
+    - *myVnet* - no nome da rede virtual.
     - *myResourceGroupZLB* – no nome do grupo de recursos existente
-    - *myBackendSubnet* – no nome da sub-rede.
+    - *myBackendSubnet* - no nome da sub-rede.
 2. Clique em **Criar** para criar a rede virtual.
 
     ![Criar uma rede virtual](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
@@ -89,12 +90,12 @@ Nesta secção, irá criar regras de NSG para permitir ligações de entrada atr
 1. No portal do Azure, clique em **Todos os recursos**, no menu da esquerda e, em seguida, clique em **myNetworkSecurityGroup**, que se encontra no grupo de recursos **myResourceGroupZLB**.
 2. Em **Definições**, clique em **Regras de segurança de entrada** e, em seguida, clique em**Adicionar**.
 3. Introduza estes valores para a regra de segurança de entrada com o nome *myHTTPRule* para permitir ligações HTTP de entrada através da porta 80:
-    - *Service Tag* – na **Origem**.
-    - *Internet* – na **Etiqueta do serviço de origem**
-    - *80* – nos **Intervalos de portas de destino**
-    - *TCP* – no **Protocolo**
-    - *Allow* – na **Ação**
-    - *100* – na **Prioridade**
+    - *Service Tag* - na **Origem**.
+    - *Internet* - na **Etiqueta do serviço de origem**
+    - *80* - nos **Intervalos de portas de destino**
+    - *TCP* - no **Protocolo**
+    - *Allow* - na **Ação**
+    - *100* - na **Prioridade**
     - *myHTTPRule* – no **Nome**
     - *Allow HTTP* – na **Descrição**
 4. Clique em **OK**.
@@ -102,30 +103,30 @@ Nesta secção, irá criar regras de NSG para permitir ligações de entrada atr
  ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Repita os passos 2 a 4 para criar outra regra com o nome *myRDPRule* para permitir uma ligação RDP de entrada através da porta 3389 com os seguintes valores:
-    - *Service Tag* – na **Origem**.
-    - *Internet* – na **Etiqueta do serviço de origem**
-    - *3389* – nos **Intervalos de portas de destino**
-    - *TCP* – no **Protocolo**
-    - *Allow* – na **Ação**
-    - *200* – na **Prioridade**
-    - *myRDPRule* – no nome
-    - *Allow RDP* – na descrição
+    - *Service Tag* - na **Origem**.
+    - *Internet* - na **Etiqueta do serviço de origem**
+    - *3389* - nos **Intervalos de portas de destino**
+    - *TCP* - no **Protocolo**
+    - *Allow* - na **Ação**
+    - *200* - na **Prioridade**
+    - *myRDPRule* - no nome
+    - *Allow RDP* - na descrição
 
     ![Criar regra RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Computação** > **Windows Server 2016 Datacenter** e introduza estes valores para a máquina virtual:
-    - *myVM1* – no nome da máquina virtual.        
-    - *azureuser* – no nome de utilizador do administrador.    
+    - *myVM1* - no nome da máquina virtual.        
+    - *azureuser* - no nome de utilizador do administrador.    
     - *myResourceGroupZLB* – no **Grupo de recursos**, selecione **Utilizar existente** e, em seguida, selecione *myResourceGroupZLB*.
 2. Clique em **OK**.
 3. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 4. Introduza estes valores para as definições de VM:
     - *zone 1* – na Zona de Disponibilidade onde colocar a VM.
-    -  *myVNet* – certifique-se de que está selecionado como a rede virtual.
+    -  *myVNet* - certifique-se de que está selecionado como a rede virtual.
     - *myVM1PIP* – no Endereço IP Público Standard que criar. Clique em *Criar novo* e, em seguida, no tipo de nome, *myVM1PIP*, na Zona selecione **1**. O SKU do endereço IP é Standard por predefinição.
-    - *myBackendSubnet* – certifique-se de que está selecionado como a sub-rede.
+    - *myBackendSubnet* - certifique-se de que está selecionado como a sub-rede.
     - *myNetworkSecurityGroup* – no nome do grupo de segurança de rede (firewall) já existente.
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
@@ -139,7 +140,7 @@ Nesta secção, irá criar regras de NSG para permitir ligações de entrada atr
 2. Na página **Descrição geral**, clique em **Ligar** para estabelecer o RDP para a VM.
 3. Inicie sessão na VM com o nome de utilizador e a palavra-passe que especificou ao criar a VM (poderá ter de selecionar **Mais opções** e **Utilizar uma conta diferente** para especificar as credenciais que introduziu quando criou a VM) e, em seguida, selecione **OK**. Poderá receber um aviso de certificado durante o processo de início de sessão. Selecione **Sim** para continuar a ligação.
 4. No ambiente de trabalho do servidor, navegue para **Ferramentas Administrativas do Windows**>**Windows PowerShell**.
-6. Na janela do PowerShell, execute os seguintes comandos para instalar o servidor IIS, remova o ficheiro default.htm, adicione um novo ficheiro default.htm que apresenta o nome da VM:
+6. Na Janela do PowerShell, execute os seguintes comandos para instalar o servidor IIS, remova o ficheiro iisstart.htm predefinido e, em seguida, adicione um novo ficheiro iisstart.htm que apresenta o nome da VM:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ Nesta secção, irá criar regras de NSG para permitir ligações de entrada atr
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Fechar a sessão RDP com *myVM1*
-9. Repita os passos 1 a 8 para instalar o IIS no *myVM2*.
+7. Fechar a sessão RDP com *myVM1*
+8. Repita os passos 1 a 7 para instalar o IIS no *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Criar recursos do balanceador de carga
 
@@ -179,11 +180,11 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 1. Clique em **Todos os recursos**, no menu da esquerda, e clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Sondas de estado de funcionamento** e, em seguida, clique em **Adicionar**.
 3. Utilize estes valores para criar a sonda de estado de funcionamento:
-    - *myHealthProbe* – no nome da sonda de estado de funcionamento.
-    - **HTTP** – no tipo de protocolo.
-    - *80* – no número da porta.
-    - *15* – no número do **Intervalo**, em segundos, entre tentativas da sonda.
-    - *2* – no número do **Limiar de mau estado de funcionamento** ou das falhas consecutivas da sonda que têm de ocorrer para que uma VM seja considerada como estando em mau estado de funcionamento.
+    - *myHealthProbe* - no nome da sonda de estado de funcionamento.
+    - **HTTP** - no tipo de protocolo.
+    - *80* - no número da porta.
+    - *15* - no número do **Intervalo**, em segundos, entre tentativas da sonda.
+    - *2* - no número do **Limiar de mau estado de funcionamento** ou das falhas consecutivas da sonda que têm de ocorrer para que uma VM seja considerada como estando em mau estado de funcionamento.
 4. Clique em **OK**.
 
    ![Adicionar uma sonda](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
@@ -195,12 +196,12 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 1. Clique em **Todos os recursos**, no menu da esquerda, e clique em **myLoadBalancer** na lista de recursos.
 2. Em **Definições**, clique em **Regras de balanceamento de carga** e, em seguida, clique em **Adicionar**.
 3. Utilize estes valores para configurar a regra de balanceamento de carga:
-    - *myHTTPRule* – no nome da regra de balanceamento de carga.
-    - **TCP** – no tipo de protocolo.
-    - *80* – no número da porta.
-    - *80* – na porta de back-end.
-    - *myBackendPool* – no nome do conjunto de back-end.
-    - *myHealthProbe* – no nome da sonda de estado de funcionamento.
+    - *myHTTPRule* - no nome da regra de balanceamento de carga.
+    - **TCP** - no tipo de protocolo.
+    - *80* - no número da porta.
+    - *80* - na porta de back-end.
+    - *myBackendPool* - no nome do conjunto de back-end.
+    - *myHealthProbe* - no nome da sonda de estado de funcionamento.
 4. Clique em **OK**.
     
     ![Adicionar uma regra de balanceamento de carga](./media/tutorial-load-balancer-standard-zonal-portal/load-balancing-rule.png)
@@ -219,5 +220,5 @@ Quando já não for necessário, elimine o grupo de recursos, o balanceador de c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
+- Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
 - [Balancear carga de VMs por zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
