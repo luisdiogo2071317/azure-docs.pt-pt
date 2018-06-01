@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258444"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
@@ -52,9 +53,15 @@ Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da C
 
 Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto final da CDN. Para obter mais informações, veja [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
 
-## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>Opção 1 (predefinição): ativar a funcionalidade HTTPS com um certificado gerido pela CDN  
+---
 
-Com esta opção, a funcionalidade HTTPS personalizada pode ser ativada com apenas alguns cliques. A CDN do Azure processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o ponto final da CDN, não será necessária mais nenhuma ação. A CDN do Azure vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
+## <a name="ssl-certificates"></a>Certificados SSL
+Para ativar o protocolo HTTPS para entrega de conteúdos de forma segura num domínio personalizado da CDN do Azure, deve utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pela CDN do Azure ou utilizar o seu próprio certificado.
+
+
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Opção 1 (predefinição): ativar HTTPS com um certificado gerido pela CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+
+Quando utiliza um certificado gerida pela CDN, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. A CDN do Azure processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o ponto final da CDN, não será necessária mais nenhuma ação. A CDN do Azure vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
 
 Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
@@ -81,22 +88,21 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 6. Avance para [Validar o domínio](#validate-the-domain).
 
 
-## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Opção 2: ativar a funcionalidade HTTPS com o seu próprio certificado 
+# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Opção 2: ativar a funcionalidade HTTPS com o seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Esta funcionalidade só está disponível nos perfis **Azure CDN Standard da Microsoft**. 
+> Esta funcionalidade só está disponível nos perfis **CDN Padrão do Azure da Microsoft**. 
 >
  
+Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. A CDN do Azure utiliza este mecanismo seguro para obter o certificado e requer alguns passos adicionais.
 
-Pode utilizar o seu próprio certificado na CDN do Azure para disponibilizar conteúdo através de HTTPS. Este processo é feito através de uma integração com o Azure Key Vault. O Azure Key Vault permite que os clientes armazenem os certificados de forma segura. O serviço da CDN do Azure tira partido deste mecanismo seguro ao obter o certificado. Utilizar o seu próprio certificado requer mais alguns passos.
-
-### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Passo 1: preparar a conta e o certificado do Azure Key Vault
+### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
 1. Azure Key Vault: tem de ter uma conta do Azure Key Vault em execução na mesma subscrição que o perfil da CDN do Azure e os pontos finais da CDN para os quais pretende ativar HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
  
 2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na conta do Azure Key Vault ou pode criar um novo diretamente através do Azure Key Vault a partir de uma das Autoridades de Certificação (CA) do parceiro com o qual o Azure Key Vault está integrado. 
 
-### <a name="step-2-register-azure-cdn"></a>Passo 2: Registar a CDN do Azure
+### <a name="register-azure-cdn"></a>Registar a CDN do Azure
 
 Registe a CDN do Azure como uma aplicação no Azure Active Directory através do PowerShell.
 
@@ -109,7 +115,7 @@ Registe a CDN do Azure como uma aplicação no Azure Active Directory através d
     ![Registar a CDN do Azure no PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
 
-### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>Passo 3: conceder à CDN do Azure acesso ao cofre de chaves
+### <a name="grant-azure-cdn-access-to-your-key-vault"></a>Conceda acesso da CDN do Azure ao seu cofre de chaves
  
 Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta do Azure Key Vault.
 
@@ -127,7 +133,7 @@ Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta 
 
     A CDN do Azure pode agora aceder a este cofre de chaves e aos certificados (segredos) que estão armazenados neste cofre de chaves.
  
-### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>Passo 4: selecionar o certificado para a CDN do Azure implementar
+### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Selecione o certificado que vai ser implementado pela CDN do Azure
  
 1. Regresse ao portal da CDN do Azure e selecione o perfil e o ponto final da CDN para os quais pretende ativar HTTPS personalizado. 
 
@@ -150,6 +156,7 @@ Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta 
   
 6. Quando utiliza o seu próprio certificado, a validação de domínio não é necessária. Avance para [Aguardar pela propagação](#wait-for-propagation).
 
+---
 
 ## <a name="validate-the-domain"></a>Validar o domínio
 
