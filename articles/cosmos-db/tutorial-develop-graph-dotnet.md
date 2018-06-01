@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1843e37d9baf1ab264db96109eb5ffd0704e35b7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271294"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Desenvolver com o Graph API em .NET
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
@@ -110,7 +111,7 @@ Em seguida, crie um contentor de gráficos com o método [CreateDocumentCollecti
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Serializar vértices e margens para objetos .NET
@@ -168,13 +169,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## <a name="add-vertices-and-edges"></a>Adicionar vértices e margens
 
-Vamos ver mais detalhadamente as instruções do Gremlin mostradas na secção anterior. Primeiro vamos ver alguns vértices através do método `addV` do Gremlin. Por exemplo, o fragmento de código seguinte cria um vértice "Tomás Andrade" do tipo "Pessoa", com propriedades de nome próprio, apelido e idade.
+Vamos ver mais detalhes sobre as instruções do Gremlin mostradas na secção anterior. Primeiro utilizamos alguns vértices com o método `addV` do Gremlin. Por exemplo, o fragmento de código seguinte cria um vértice "Tomás Andrade" do tipo "pessoa", com propriedades de nome e idade.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {
