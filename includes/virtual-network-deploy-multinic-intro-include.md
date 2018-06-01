@@ -1,2 +1,0 @@
-Pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma das suas VMs. Vários NICs são um requisito para muitos virtual os dispositivos de rede, tais como a entrega de aplicações e soluções de otimização de WAN. Vários NICs também fornecem funcionalidades mais de gestão do tráfego rede, incluindo isolamento de tráfego entre um front-end NIC e back-end NIC(s) ou separação do tráfego de plane de dados de tráfego de plane de gestão.
-
