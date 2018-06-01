@@ -1,22 +1,22 @@
 ---
-title: Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)
+title: Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery
 description: Saiba como configurar a recuperação após desastre de VMs do Azure para uma região diferente do Azure, utilizando o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896358"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211672"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure (Pré-visualização)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
 
@@ -28,6 +28,7 @@ Este tutorial mostra como configurar a recuperação após desastre para uma reg
 > * Configurar o acesso de saída das VMs
 > * Ativar replicação para uma VM
 
+A replicação do Azure para o Azure está atualmente em pré-visualização.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
@@ -110,7 +111,7 @@ Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role
 ### <a name="select-the-source"></a>Selecionar a origem
 
 1. Nos cofres dos Serviços de Recuperação, clique no nome do cofre > **+Replicar**.
-2. Em **Origem**, selecione **Azure - PRÉ-VISUALIZAÇÃO**.
+2. Em **Origem**, selecione **Azure**.
 3. Em **Localização de origem**, selecione a região do Azure de origem onde as VMs estão atualmente a ser executadas.
 4. Selecione o **modelo de implementação da máquina virtual do Azure** para VMs: **Resource Manager** ou **Clássico**.
 5. Selecione o **Grupo de recursos de origem** para as VMs do Resource Manager ou o **serviço cloud** para as VMs clássicas.
