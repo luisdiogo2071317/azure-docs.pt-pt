@@ -1,21 +1,22 @@
 ---
-title: "Realizar a ativação pós-falha e a reativação pós-falha de VMs do Azure replicadas para uma região secundária do Azure com o Azure Site Recovery (Pré-visualização)"
-description: "Aprenda a realizar a ativação pós-falha e a reativação pós-falha da replicação de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery"
+title: Realizar a ativação pós-falha e a reativação pós-falha de VMs do Azure replicadas para uma região secundária do Azure com o Azure Site Recovery
+description: Aprenda a realizar a ativação pós-falha e a reativação pós-falha da replicação de VMs do Azure para uma região secundária do Azure com o Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209278"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Realizar a ativação pós-falha e a reativação pós-falha das VMs do Azure entre regiões do Azure (Pré-visualização)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Realizar a ativação pós-falha e a reativação pós-falha de VMs do Azure entre regiões do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
 
@@ -26,6 +27,8 @@ Este tutorial descreve como realizar a ativação pós-falha numa única VM do A
 > * Voltar a proteger a VM do Azure secundária, para que replique para a região primária
 > * Realizar a reativação pós-falha da VM secundária
 > * Voltar a proteger a VM primária para a região secundária
+
+A replicação do Azure para o Azure está atualmente em pré-visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
