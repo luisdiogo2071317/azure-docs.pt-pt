@@ -1,88 +1,82 @@
 ---
-title: Amostras de modelo de política
-description: Exemplos JSON para a política do Azure
+title: Exemplos de modelo de política
+description: Exemplos JSON para o Azure Policy
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm: ''
-ms.workload: ''
+ms.topic: sample
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 458ce4fb77f501d5feba4cf732fe3ce9a49f9c21
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 4b9096c1fb0d9ee74849e259a6e0af2486c5d29b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195129"
 ---
-# <a name="templates-for-azure-policy"></a>Modelos de política do Azure
+# <a name="templates-for-azure-policy"></a>Modelos do Azure Policy
 
-A tabela seguinte inclui ligações para modelos json para a política do Azure. Estes exemplos que se encontram no [repositório de amostras de política do Azure](https://github.com/Azure/azure-policy).
+A seguinte tabela inclui ligações para modelos json do Azure Policy. Estes exemplos encontram-se no [repositório de exemplos do Azure Policy](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Computação**||
-| [Imagens VM aprovadas](scripts/allowed-custom-images.md) | Requer que apenas aprovados personalizado imagens no seu ambiente. Especifique uma matriz de IDs de imagem aprovada. |
-| [Auditoria quando a VM não utiliza disco geridos](scripts/create-vm-managed-disk.md) | Auditorias quando é criada uma máquina virtual que utiliza discos geridos.|
-| [Auditoria se a extensão não existe](scripts/audit-ext-not-exist.md) | Auditorias se uma extensão não estiver implementada com uma máquina virtual. Especifique o fabricante de extensão e o tipo para verificar se esta foi implementada. |
-| [Permitir que a imagem VM personalizada de um grupo de recursos](scripts/allow-custom-vm-image.md) |  Requer que as imagens personalizadas ser proveniente de um grupo de recursos aprovados. Especifique o nome do grupo de recursos aprovados. |
-| [Negar a vantagem de utilizar híbrida](scripts/deny-hybrid-use.md) | Proíbe a utilização do Azure híbrida utilizar benefício (AHUB). Utilize quando não pretender permitir a utilização das licenças no local. |
-| [Não é permitida extensões de VM](scripts/not-allowed-vm-ext.md) | Proíbe a utilização de extensões especificadas. Especifique uma matriz que contém os tipos de extensão proibido. |
-| [Permitir apenas uma determinada imagem de plataforma VM](scripts/allow-certain-vm-image.md) | Requer que as máquinas virtuais, utilize uma versão específica do UbuntuServer. |
-| [Criar a VM com o disco geridos](scripts/use-managed-disk-vm.md) | Requer que as máquinas virtuais utilizam discos geridos.|
+| [Imagens de VM aprovadas](scripts/allowed-custom-images.md) | Requer que sejam implementadas apenas imagens personalizadas aprovadas no seu ambiente. Especifica uma matriz de IDs de imagens aprovadas. |
+| [Auditar quando a VM não utiliza o Disco Gerido](scripts/create-vm-managed-disk.md) | Faz uma auditoria quando é criada uma máquina virtual que não utiliza discos geridos.|
+| [Auditar se a extensão não existir](scripts/audit-ext-not-exist.md) | Faz uma auditoria se uma extensão não estiver implementada numa máquina virtual. Especifica o publicador da extensão e o tipo para verificar se foi implementada. |
+| [Permitir que a imagem de VM personalizada seja de um Grupo de Recursos](scripts/allow-custom-vm-image.md) |  Requer que as imagens personalizadas sejam provenientes de um grupo de recursos aprovado. Especifica o nome do grupo de recursos aprovado. |
+| [Negar o benefício de utilização híbrida](scripts/deny-hybrid-use.md) | Proibe a utilização do Benefício de Utilização Híbrida do Azure (AHUB). Utilize quando não quiser permitir a utilização de licenças no local. |
+| [Extensões de VM não permitidas](scripts/not-allowed-vm-ext.md) | Proíbe a utilização de extensões especificadas. Especifica uma matriz que contém os tipos de extensão proibidos. |
+| [Permitir apenas uma determinada imagem da plataforma de VM](scripts/allow-certain-vm-image.md) | Requer que as máquinas virtuais utilizem uma versão específica do UbuntuServer. |
+| [Criar VM com o Disco Gerido](scripts/use-managed-disk-vm.md) | Requer que as máquinas virtuais utilizem discos geridos.|
 |**Monitorização**||
-| [Definição de diagnóstico de auditoria](scripts/audit-diag-setting.md) | Auditorias se as definições de diagnóstico não ativadas para especificar tipos de recursos. Especifique uma matriz de tipos de recurso para verificar se as definições de diagnóstico estão ativadas. |
-|**Convenções de texto e nome**||
-| [Permitir que vários padrões de nome](scripts/allow-multiple-name-patterns.md) | Permitir que um dos muitos padrões de nome a utilizar para recursos. |
-| [Exigir como padrão](scripts/enforce-like-pattern.md) | Certifique-se de que os nomes de recursos satisfazem a condição like para um padrão. |
-| [Exigir correspondência de padrão](scripts/enforce-match-pattern.md) | Certifique-se de que os nomes de recursos correspondem o padrão de nomenclatura. |
+| [Definição de diagnóstico de auditoria](scripts/audit-diag-setting.md) | Audita se as definições de diagnóstico não estão ativadas para tipos de recursos especificados. Especifica uma matriz de tipos de recursos para verificar se as definições de diagnóstico estão ativadas. |
+|**Convenções de nome e texto**||
+| [Permitir múltiplos padrões de nome](scripts/allow-multiple-name-patterns.md) | Permita que um dos muitos padrões de nomes seja utilizado para recursos. |
+| [Exigir padrão like](scripts/enforce-like-pattern.md) | Certifique-se de que os nomes de recursos cumprem a condição like de um padrão. |
+| [Exigir padrão de correspondência](scripts/enforce-match-pattern.md) | Certifique-se de que os nomes de recursos correspondem a um padrão de nomenclatura. |
 | [Exigir padrão de correspondência de etiqueta](scripts/enforce-tag-match-pattern.md) | Certifique-se de que um valor de etiqueta corresponde a um padrão de texto. |
 |**Rede**||
-| [Permitido SKUs de Gateway de aplicação](scripts/allowed-app-gate-sku.md) | Requer que os gateways de aplicação utilizem um SKU aprovado. Especifique uma matriz de SKUs aprovados. |
-| [Se o observador de rede não está ativada para a região de auditoria](scripts/net-watch-not-enabled.md) | Auditorias se observador de rede não está ativada para uma região especificada. Especifique o nome da região para verificar se o observador de rede está ativada. |
-| [NSG X em cada NIC](scripts/nsg-on-nic.md) | Requer que um grupo de segurança de rede específica é utilizado com cada interface de rede virtual. Especifique o ID do grupo de segurança de rede a utilizar. |
-| [NSG X em cada sub-rede](scripts/nsg-on-subnet.md) | Requer que um grupo de segurança de rede específica é utilizado com todas as sub-redes virtuais. Especifique o ID do grupo de segurança de rede a utilizar. |
-| [Largura de banda permitida do Expressroute](scripts/allowed-er-band.md) | Requer que as rotas rápidas utilizem um conjunto especificado de larguras de banda. Especifique uma matriz de SKUs que pode ser especificado para o Expressroute. |
-| [Permissão de localização de Peering de Expressroute](scripts/allowed-peering-er.md) | Requer que a utilização de rotas Express especificado localizações de peering. Especifique uma matriz de localizações de peering permitidas. |
-| [SKUs de permitidos do Expressroute](scripts/allowed-er-skus.md) | Requer que as rotas Express um SKU aprovado. Especifique uma matriz de SKUs permitidos. |
-| [Permitido SKUs de Balanceador de carga](scripts/allowed-lb-skus.md) | Requer que os balanceadores de carga um SKU aprovado. Especifique uma matriz de SKUs permitidos. |
-| [Nenhuma rede peering à rede de ER](scripts/no-peering-er-net.md) | Proíbe uma rede de peering de que está a ser associado a uma rede de um grupo de recursos especificado. Utilize para impedir a ligação com a infraestrutura de rede gerido central. Especifique o nome do grupo de recursos para impedir a associação. |
-| [Nenhuma tabela de rota definida pelo utilizador](scripts/no-user-def-route-table.md)  |Proíbe a redes virtuais de que está a ser implementada com uma tabela de rota definida pelo utilizador. |
-| [Permitido SKUs de Gateway de rede Virtual](scripts/allowed-vn-gate-sku.md) | Requer que os gateways de rede virtual, utilize um tipo SKU e gateway aprovado. Especifique uma matriz de SKUs aprovados e uma matriz de tipos de gateway aprovados. |
-| [Utilizar a sub-rede aprovado para interfaces de rede VM](scripts/use-approved-subnet-vm-nics.md) | Requer que as interfaces de rede, utilize uma sub-rede aprovada. Especifique o ID da sub-rede aprovado. |
-| [Utilize a vNet aprovado para interfaces de rede VM](scripts/use-approved-vnet-vm-nics.md) | Requer que as interfaces de rede, utilize uma rede virtual aprovada. Especifique o ID da rede virtual aprovado. |
+| [SKUs de Gateways de Aplicação permitidos](scripts/allowed-app-gate-sku.md) | Requer que os gateways de aplicação utilizem um SKU aprovado. Especifica uma matriz de SKUs aprovados. |
+| [Auditar se o Observador de Rede não estiver ativado para a região](scripts/net-watch-not-enabled.md) | Faz uma auditoria se o observador de rede não estiver ativado para uma região especificada. Especifica o nome da região para verificar se o observador de rede está ativado. |
+| [NSG X em cada NIC](scripts/nsg-on-nic.md) | Exige que um grupo de segurança de rede específico seja utilizado em cada interface de rede virtual. Especifica o ID do grupo de segurança de rede a utilizar. |
+| [NSG X em cada sub-rede](scripts/nsg-on-subnet.md) | Exige que um grupo de segurança de rede específico seja utilizado em cada sub-rede virtual. Especifica o ID do grupo de segurança de rede a utilizar. |
+| [Largura de banda de rotas Express permitida](scripts/allowed-er-band.md) | Requer que as rotas express utilizem um conjunto especificado de larguras de banda. Especifica uma matriz de SKUs que pode ser especificada para uma Rota Express. |
+| [Localização de Peering Permitida para uma Rota Express](scripts/allowed-peering-er.md) | Requer que as rotas Express utilizem localizações de peering especificadas. Especifica uma matriz de localizações de peering permitidas. |
+| [SKUs de Rotas Express permitidos](scripts/allowed-er-skus.md) | Requer que as Rotas Express utilizem um SKU aprovado. Especifica uma matriz de SKUs permitidos. |
+| [SKUs de Balanceadores de Carga permitidos](scripts/allowed-lb-skus.md) | Requer que os balanceadores de carga utilizem um SKU aprovado. Especifica uma matriz de SKUs permitidos. |
+| [Sem peering de rede à rede do ER](scripts/no-peering-er-net.md) | Proíbe um peering de rede de ser associado a uma rede num grupo de recursos especificado. Utilize para impedir a ligação com a infraestrutura de rede gerida central. Especifique o nome do grupo de recursos para impedir a associação. |
+| [Nenhuma Tabela de Rotas Definida pelo Utilizador](scripts/no-user-def-route-table.md)  |Proíbe a implementação de redes virtuais numa tabela de rotas definida pelo utilizador. |
+| [SKUs de Gateways de Rede Virtual Permitidos](scripts/allowed-vn-gate-sku.md) | Requer que os gateways de rede virtual utilizem um tipo de SKU e gateway aprovado. Especifica uma matriz de SKUs aprovados e uma matriz de tipos de gateway aprovados. |
+| [Utilizar sub-rede aprovada para interfaces de rede de VM](scripts/use-approved-subnet-vm-nics.md) | Exige que as interfaces de rede utilizem uma sub-rede aprovada. Especifica o ID da sub-rede aprovada. |
+| [Utilizar vNet aprovada para interfaces de rede de VM](scripts/use-approved-vnet-vm-nics.md) | Exige que as interfaces de rede utilizem uma rede virtual aprovada. Especifica o ID da rede virtual aprovada. |
 |**Etiquetas**||
-| [Iniciativa de política de etiquetas de faturação](scripts/billing-tags-policy-init.md) | Necessita de valores de etiqueta especificada para o nome do produto e de centro de custos. Utiliza políticas incorporadas para aplicar e impor etiquetas necessárias. O utilizador especifica os valores necessários para as etiquetas.  |
-| [Impor a etiqueta e o respetivo valor dos grupos de recursos](scripts/enforce-tag-rg.md) | Requer uma etiqueta e o valor num grupo de recursos. Especifique o nome de tag necessária e o valor.  |
+| [Iniciativa de Política de Etiquetas de Faturação](scripts/billing-tags-policy-init.md) | Exige valores de etiqueta especificados para o nome do produto e o centro de custos. Utiliza políticas incorporadas para aplicar e impor etiquetas necessárias. O utilizador especifica os valores necessários para as etiquetas.  |
+| [Impor a etiqueta e o respetivo valor em grupos de recursos](scripts/enforce-tag-rg.md) | Exige uma etiqueta e um valor num grupo de recursos. Especifica o nome de etiqueta e o valor necessário.  |
 |**SQL**||
-| [O nível de base de dados do SQL Server de auditoria definição de auditoria](scripts/audit-sql-db-audit-setting.md) | As auditorias de definições de auditoria de base de dados do SQL Server se essas definições não correspondem uma definição especificada. Especifique um valor que indica se as definições de auditoria devem ser ativadas ou desativadas.  |
-| [Estado de encriptação transparente de dados de auditoria](scripts/audit-trans-data-enc-status.md) | Se não estiver ativada, as auditorias a encriptação transparente de dados do SQL Server da base de dados.  |
-| [Definição de deteção de nível de ameaças de base de dados de auditoria](scripts/audit-db-threat-det-setting.md) | As auditorias de políticas de alerta de segurança do SQL Server da base de dados se as políticas não estão definidas para o estado especificado. Especifique um valor que indica se a deteção de ameaças está ativada ou desativada.  |
-| [O nível de servidor do SQL Server de auditoria definição de auditoria](scripts/audit-sql-ser-leve-audit-setting.md) | As auditorias de definições de auditoria do servidor SQL se essas definições não correspondem uma definição especificada. Especifique um valor que indica se as definições de auditoria devem ser ativadas ou desativadas. |
-| [Definição de deteção de ameaças ao nível do servidor de auditoria](scripts/audit-sql-ser-threat-det-setting.md) | As auditorias de políticas de alerta de segurança do SQL Server da base de dados se as políticas não estão definidas para o estado especificado. Especifique um valor que indica se a deteção de ameaças está ativada ou desativada.  |
-| [Nenhum administrador do Azure Active Directory de auditoria](scripts/audit-no-aad-admin.md) | Auditoria quando não existe nenhum administrador do Azure Active Directory atribuído para o SQL server. |
-| [Permitido SKUs de BD do SQL Server](scripts/allowed-sql-db-skus.md) | Necessita de bases de dados do SQL Server utilizam um SKU aprovado. Especifique uma matriz de IDs de SKU permitido ou uma matriz de nomes SKU permitidos. |
+| [Auditar a Definição de Auditoria do Nível de DB SQL](scripts/audit-sql-db-audit-setting.md) | Faz uma auditoria das definições de auditoria da base de dados SQL se essas definições não corresponderem a uma definição especificada. Especifica um valor que indica se as definições de auditoria devem estar ativadas ou desativadas.  |
+| [Auditar o estado de encriptação de dados transparente](scripts/audit-trans-data-enc-status.md) | Faz uma auditoria se a encriptação de dados transparente da base de dados SQL não tiver ativada.  |
+| [Auditar a definição de deteção de ameaças do nível de BD](scripts/audit-db-threat-det-setting.md) | Faz uma auditoria às políticas de alerta de segurança da base de dados SQL se as políticas não estiverem definidas para o estado especificado. Especifica um valor que indica se a deteção de ameaças está ativada ou desativada.  |
+| [Auditar a Definição de Auditoria do Nível do SQL Server](scripts/audit-sql-ser-leve-audit-setting.md) | Faz uma auditoria das definições de auditoria do SQL Server se essas definições não corresponderem a uma definição especificada. Especifica um valor que indica se as definições de auditoria devem estar ativadas ou desativadas. |
+| [Auditar a definição de deteção de ameaças do nível do Servidor](scripts/audit-sql-ser-threat-det-setting.md) | Faz uma auditoria às políticas de alerta de segurança da base de dados SQL se as políticas não estiverem definidas para o estado especificado. Especifica um valor que indica se a deteção de ameaças está ativada ou desativada.  |
+| [Auditar se não existir um administrador do Azure Active Directory](scripts/audit-no-aad-admin.md) | Auditar quando não existe nenhum administrador do Azure Active Directory atribuído ao servidor SQL. |
+| [SKUs de DB SQL permitidos](scripts/allowed-sql-db-skus.md) | Requer que as bases de dados SQL utilizem um SKU aprovado. Especifica uma matriz de IDs ou nomes de SKUs permitidos. |
 |**Armazenamento**||
-| [SKUs permitidos para as contas de armazenamento e máquinas virtuais](scripts/allowed-skus-storage.md) | Requer que as contas de armazenamento e máquinas virtuais SKUs aprovados. Utiliza políticas incorporadas para garantir a aprovada SKUs. Especifique uma matriz de máquinas virtuais aprovadas SKUs e uma matriz de conta de armazenamento aprovados SKUs. |
-| [Certifique-se a tráfego https apenas para a conta de armazenamento](scripts/ensure-https-stor-acct.md) | Necessita de contas de armazenamento para utilizar o tráfego HTTPS.  |
-| [Negar o acesso esporádico camadas para contas de armazenamento](scripts/deny-cool-access-tiering.md) | Proíbe a utilização de acesso esporádico camadas para contas do blob storage.  |
-| [Certifique-se a encriptação de ficheiros de armazenamento](scripts/ensure-store-file-enc.md) | Requer que a encriptação de ficheiros está ativada para contas de armazenamento.  |
-|**Política incorporada**||
-| [Localizações permitidas](scripts/allowed-locs.md) | Requer que todos os recursos são implementados em localizações aprovadas. Especifique uma matriz de localizações aprovadas.  |
-| [Tipos de recursos permitidos](scripts/allowed-res-types.md) | Garante que apenas os tipos de recursos aprovados são implementados. Especifique uma matriz de tipos de recursos que são permitidos.  |
-| [Permitido SKUs de conta de armazenamento](scripts/allowed-stor-acct-skus.md) | Requer que as contas do storage um SKU aprovado. Especifique uma matriz de SKUs aprovados. |
-| [Aplicar a etiqueta e o respetivo valor predefinido](scripts/apply-tag-def-val.md) | Acrescenta um nome de etiqueta especificado e valor, se essa tag não for fornecido. Especifique o nome de etiqueta e o valor a aplicar.  |
-| [Auditoria de encriptação de base de dados SQL](scripts/sql-database-encryption-audit.md) | Auditorias se a base de dados SQL não tiver a encriptação transparente de dados ativada. |
-| [Definições de auditoria do SQL Server de auditoria](scripts/sql-server-audit.md) | As auditorias de SQL server com base em se as definições de auditoria estão ativadas. |
-| [Impor a encriptação de Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Nega as contas de Data Lake Store não tem a encriptação ativada. |
-| [Impor a etiqueta e o respetivo valor](scripts/enforce-tag-val.md) | Requer um nome de etiqueta especificada e o valor. Especifique o nome de etiqueta e o valor para impor.  |
-| [Não é permitida tipos de recursos](scripts/not-allowed-res-type.md) | Proíbe a implementação dos tipos de recurso especificado. Especifique uma matriz de tipos de recursos para bloquear.  |
-| [Necessita do SQL Server versão 12.0](scripts/req-sql-12.md) | Necessita de servidores do SQL Server para utilizar a versão 12.0.  |
-| [Exigir encriptação de conta de armazenamento](scripts/req-store-acct-enc.md) | Requer a encriptação de blob de utilização da conta de armazenamento.  |
+| [SKUs Permitidos para Contas de Armazenamento e Máquinas Virtuais](scripts/allowed-skus-storage.md) | Requer que as contas de armazenamento e as máquinas virtuais utilizem SKUs aprovados. Utiliza políticas incorporadas para garantir SKUs aprovados. Especifique uma matriz de SKUs de máquinas virtuais aprovadas e uma matriz de SKUs de contas de armazenamento aprovadas. |
+| [Assegurar o tráfego https apenas para contas de armazenamento](scripts/ensure-https-stor-acct.md) | Requer que as contas de armazenamento utilizem o tráfego HTTPS.  |
+| [Negar camadas de acesso esporádico para contas de armazenamento](scripts/deny-cool-access-tiering.md) | Proíbe a utilização de camadas de acesso esporádico para contas de armazenamento de blobs.  |
+| [Assegurar a encriptação de ficheiros de armazenamento](scripts/ensure-store-file-enc.md) | Requer que a encriptação de ficheiros esteja ativada para contas de armazenamento.  |
+|**Política Incorporada**||
+| [Localizações permitidas](scripts/allowed-locs.md) | Exige que todos os recursos sejam implementados nas localizações aprovadas. Especifica uma matriz de localizações aprovadas.  |
+| [Tipos de recursos permitidos](scripts/allowed-res-types.md) | Garante que apenas os tipos de recursos aprovados são implementados. Especifica uma matriz dos tipos de recursos que são permitidos.  |
+| [SKUs de contas de armazenamento permitidos](scripts/allowed-stor-acct-skus.md) | Requer que as contas de armazenamento utilizem um SKU aprovado. Especifica uma matriz de SKUs aprovados. |
+| [Aplicar etiqueta e o respetivo valor predefinido](scripts/apply-tag-def-val.md) | Acrescenta um nome de etiqueta e um valor especificado, se essa etiqueta não for fornecida. Especifica o nome de etiqueta e o valor a aplicar.  |
+| [Auditar a encriptação da Base de Dados SQL](scripts/sql-database-encryption-audit.md) | Faz uma auditoria se a base de dados SQL não tiver a encriptação de dados transparente ativada. |
+| [Auditar as definições de auditoria do SQL Server](scripts/sql-server-audit.md) | Faz uma auditoria ao SQL Server para verificar se as definições de auditoria estão ativadas. |
+| [Aplicar encriptação do Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Recusa todas as contas do Data Lake Store que não tenham a encriptação ativada. |
+| [Impor etiqueta e o respetivo valor](scripts/enforce-tag-val.md) | Exige um nome de etiqueta e um valor especificado. Especifica o nome de etiqueta e o valor a impor.  |
+| [Tipos de recursos não permitidos](scripts/not-allowed-res-type.md) | Proíbe a implementação de tipos de recursos especificados. Especifica uma matriz dos tipos de recursos a bloquear.  |
+| [Requer a Versão do SQL Server 12.0](scripts/req-sql-12.md) | Requer que os servidores do SQL utilizem a versão 12.0.  |
+| [Requerer a encriptação de contas de armazenamento](scripts/req-store-acct-enc.md) | Requer que a conta de armazenamento utilize a encriptação de blobs.  |
