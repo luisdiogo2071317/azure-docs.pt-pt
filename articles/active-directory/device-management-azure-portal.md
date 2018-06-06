@@ -8,25 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714005"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestão de dispositivos no portal do Azure
 
 
 Gestão de dispositivos no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores acedem aos seus recursos dos dispositivos que cumprem as normas de segurança e conformidade. 
 
-Neste tópico:
+Este artigo:
 
 - Parte do princípio de que está familiarizado com o [introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md)
 
@@ -185,10 +187,17 @@ Pode utilizar um ID de dispositivo para verificar os detalhes de ID de dispositi
 
 ### <a name="view-or-copy-bitlocker-keys"></a>Ver ou copie as chaves do BitLocker
 
-Se for um administrador, pode ver e copiar as chaves do BitLocker para ajudar os utilizadores recuperem a respetiva unidade encriptada. Estas chaves só estão disponíveis para dispositivos Windows que são encriptados e tem as suas chaves armazenados no Azure AD. Pode copiar estas chaves quando aceder aos detalhes do dispositivo.
+Pode ver e copiar as chaves do BitLocker para ajudar os utilizadores recuperem a respetiva unidade encriptada. Estas chaves só estão disponíveis para dispositivos Windows que são encriptados e tem as suas chaves armazenados no Azure AD. Pode copiar estas chaves quando aceder aos detalhes do dispositivo.
  
 ![Ver as chaves do BitLocker](./media/device-management-azure-portal/36.png)
 
+Para ver ou copie as chaves do BitLocker, terá de ser o proprietário do dispositivo ou um utilizador que tenha pelo menos uma das seguintes funções atribuídas:
+
+- Administradores globais
+- Administradores de suporte técnico
+- Administradores de segurança
+- Leitores de segurança
+- Administradores de serviço do Intune
 
 
 ## <a name="audit-logs"></a>Registos de auditoria

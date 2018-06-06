@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701357"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric com o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -31,13 +32,13 @@ Este guia passo a passo explica como configurar um cluster do Azure Service Fabr
 
 O guia abrange os procedimentos seguintes:
 
-* Conceitos chave que precisa de ter em consideração desativada antes de implementar um cluster do service fabric.
+* Conceitos chave que deve ter em consideração antes de implementar um cluster do Service Fabric.
 * Criar um cluster no Azure através da utilização de módulos do serviço Gestor de recursos de infraestrutura.
 * Configurar o Azure Active Directory (Azure AD) para autenticar utilizadores efetuar as operações de gestão no cluster.
 * Criação de um modelo Azure Resource Manager personalizado para o cluster e implementar a política.
 
 ## <a name="key-concepts-to-be-aware-of"></a>Conceitos chave a ter em consideração
-No Azure, o Service fabric exige deste que utilizar um x509 certificado para proteger o seu cluster e os respetivos pontos finais. Os certificados são utilizados no Service Fabric para fornecer autenticação e encriptação para proteger diferentes aspetos de um cluster e as respetivas aplicações. Para o cliente acesso/efetuar operações de gestão no cluster, incluindo a implementar, atualizar e eliminar aplicações, serviços e os dados que contêm, pode utilizar certificados ou as credenciais do Azure Active Directory. A utilização do Azure Active Directory é vivamente recomendada, uma vez que é a única forma de impedir a partilha de certificados nos seus clientes.  Para obter mais informações sobre como os certificados são utilizados no Service Fabric, consulte [cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security].
+No Azure, o Service Fabric exige deste que utilizar um x509 certificado para proteger o seu cluster e os respetivos pontos finais. Os certificados são utilizados no Service Fabric para fornecer autenticação e encriptação para proteger diferentes aspetos de um cluster e as respetivas aplicações. Para o cliente acesso/efetuar operações de gestão no cluster, incluindo a implementar, atualizar e eliminar aplicações, serviços e os dados que contêm, pode utilizar certificados ou as credenciais do Azure Active Directory. A utilização do Azure Active Directory é vivamente recomendada, uma vez que é a única forma de impedir a partilha de certificados nos seus clientes.  Para obter mais informações sobre como os certificados são utilizados no Service Fabric, consulte [cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security].
 
 O Service Fabric utiliza certificados x. 509 para proteger um cluster e fornecer funcionalidades de segurança da aplicação. Utilizar [Cofre de chaves] [ key-vault-get-started] para gerir os certificados para clusters de Service Fabric no Azure. 
 
@@ -75,30 +76,29 @@ Qualquer número de certificados adicionais pode ser especificado para operaçõ
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-O conceito de criação de clusters seguros é os mesmos, quer sejam Linux ou clusters do Windows. Este guia abrange a utilização do azure powershell ou a CLI do azure para criar novos clusters. Os pré-requisitos são 
+O conceito de criação de clusters seguros é os mesmos, quer sejam Linux ou clusters do Windows. Este guia abrange a utilização do Azure PowerShell ou a CLI do Azure para criar novos clusters. Os pré-requisitos são:
 
 -  [O Azure PowerShell 4.1 e acima] [ azure-powershell] ou [CLI do Azure 2.0 e acima][azure-CLI].
--  Pode encontrar detalhes sobre os fabic módulos do serviço de aqui - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) e [módulo do az SF CLI](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+-  Pode encontrar detalhes sobre os módulos de Service Fabric aqui - [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) e [módulo do az SF CLI](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 
-## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Utilize o módulo do serviço de recursos de infraestrutura RM para implementar um cluster
+## <a name="use-service-fabric-rm-module-to-deploy-a-cluster"></a>Utilize o módulo de RM de recursos de infraestrutura de serviço para implementar um cluster
 
-Neste documento, teria de utilizar o powershell de service fabric RM e módulo CLI para implementar um cluster, o powershell ou o comando de módulo CLI permite para vários cenários. Informe-nos percorra cada um da. Escolher o cenário sentir melhor satisfaz as suas necessidades. 
+Neste documento, iremos utilizar o powershell de Service Fabric RM e módulo CLI para implementar um cluster, o PowerShell ou o comando de módulo CLI permite para vários cenários. Informe-nos percorra cada um da. Escolher o cenário sentir melhor satisfaz as suas necessidades. 
 
-- Criar um novo cluster – a utilizar um sistema a gerar o certificado autoassinado
-    - Utilizar um modelo de cluster predefinido
-    - Utilize um modelo que já tenha
-- Criar um novo cluster – a utilizar um certificado que já possui
-    - Utilizar um modelo de cluster predefinido
-    - Utilize um modelo que já tenha
+- Criar um novo cluster 
+    - utilizar um sistema a gerar o certificado autoassinado
+    - utilizar um certificado que já possui
+
+Pode utilizar um modelo de cluster predefinido ou um modelo que já tenha
 
 ### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>Criar novo cluster – a utilizar um sistema a gerar o certificado autoassinado
 
-Utilize o seguinte comando para criar o cluster, se tiver pretende que o sistema para gerar um certificado autoassinado e utilizá-la para proteger o seu cluster. Este comando configura um certificado de cluster primário que é utilizado para a segurança do cluster e para configurar o acesso de administrador para efetuar operações de gestão a utilizar esse certificado.
+Utilize o seguinte comando para criar o cluster, se pretender que o sistema para gerar um certificado autoassinado e utilizá-la para proteger o seu cluster. Este comando configura um certificado de cluster primário que é utilizado para a segurança do cluster e para configurar o acesso de administrador para efetuar operações de gestão a utilizar esse certificado.
 
-### <a name="login-in-to-azure"></a>Inicie sessão no Azure.
+### <a name="login-to-azure"></a>iniciar sessão no Azure
 
-```Powershell
+```PowerShell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -107,15 +107,15 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Utilize o modelo de nodetype do predefinida de 5 1 nó que é fornecido no módulo para configurar o cluster
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module-to-set-up-the-cluster"></a>Utilize o modelo de tipo de nó do predefinida de 5 1 nó, é fornecido no módulo para configurar o cluster
 
 Utilize o seguinte comando para criar um cluster rapidamente, especificando os parâmetros mínimos
 
-O modelo que é utilizado está disponível na [amostras de modelo de recursos de infraestrutura de serviço do azure: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+O modelo que é utilizado está disponível na [amostras de modelo do Azure Service Fabric: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Os comandos abaixo funciona para criação de clusters do Windows e Linux, apenas tem de especificar o SO em conformidade. O PowerShell / CLI comandos também o certificado no CertificateOutputFolder especificado contudo certificar-se nas saídas certificado pasta já criada. O comando aceita outros parâmetros, bem como o SKU de VM.
+Os comandos abaixo funciona para criação de clusters do Windows e Linux, apenas tem de especificar o SO em conformidade. Os comandos da CLI do PowerShell saída também o certificado no CertificateOutputFolder especificado; No entanto, certifique-se de que certificado pasta já criou. O comando aceita outros parâmetros, bem como o SKU de VM.
 
-```Powershell
+```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -151,9 +151,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 #### <a name="use-the-custom-template-that-you-already-have"></a>Utilizar o modelo personalizado que já tenha 
 
-Se precisar de criar um modelo personalizado para se adequarem às suas necessidades, recomenda-se vivamente que comece com um dos modelos que estão disponíveis no [amostras de modelo de recursos de infraestrutura de serviço do azure](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Siga as orientações e explicações para [personalizar o modelo de cluster] [ customize-your-cluster-template] secção abaixo.
+Se precisar de criar um modelo personalizado para se adequarem às suas necessidades, recomenda-se vivamente que comece com um dos modelos que estão disponíveis no [amostras de modelo do Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Siga as orientações e explicações para [personalizar o modelo de cluster] [ customize-your-cluster-template] secção abaixo.
 
-Se já tiver um modelo personalizado, certifique-se de que a verificação de double, que o certificado três relacionados com os parâmetros no modelo e o ficheiro de parâmetros são denominados de forma e os valores são nulas da seguinte forma.
+Se já tiver um modelo personalizado, certifique-se de que double-se de que o certificado três relacionados com os parâmetros no modelo e o ficheiro de parâmetros são denominados de forma e os valores são nulas da seguinte forma.
 
 ```Json
    "certificateThumbprint": {
@@ -199,15 +199,15 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 
-### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Criar novo cluster - utilizando o certificado comprou a partir de uma AC ou que já tem.
+### <a name="create-new-cluster---using-the-certificate-you-bought-from-a-ca-or-you-already-have"></a>Criar novo cluster – utilizando o certificado comprou a partir de uma AC ou já ter
 
 Utilize o seguinte comando para criar o cluster, se tiver um certificado que pretende utilizar para proteger o cluster com o.
 
 Se se tratar de um certificado assinado pela AC que irá surgir a utilizar para outros fins, bem como, em seguida, é recomendado que forneça um grupo de recursos distintos especificamente para o seu Cofre de chaves. Recomendamos que colocar o Cofre de chaves no seu próprio grupo de recursos. Esta ação permite-lhe remover os grupos de recursos de armazenamento e computação, incluindo o grupo de recursos que contém o cluster do Service Fabric, sem perder as chaves e segredos. **O grupo de recursos que contém o seu Cofre de chaves _tem de estar na mesma região_ como o cluster que está a ser utilizado.**
 
 
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Utilize o modelo de nodetype do predefinida de 5 1 nó que é fornecido no módulo
-O modelo que é utilizado está disponível na [exemplos do azure: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module"></a>Utilize o modelo de tipo de nó do predefinida de 5 1 nó, é fornecido no módulo
+O modelo que é utilizado está disponível na [exemplos do Azure: modelo de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```PowerShell
 $resourceGroupLocation="westus"
@@ -241,9 +241,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 #### <a name="use-the-custom-template-that-you-have"></a>Utilizar o modelo personalizado que tiver 
-Se precisar de criar um modelo personalizado para se adequarem às suas necessidades, recomenda-se vivamente que comece com um dos modelos que estão disponíveis no [amostras de modelo de recursos de infraestrutura de serviço do azure](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Siga as orientações e explicações para [personalizar o modelo de cluster] [ customize-your-cluster-template] secção abaixo.
+Se precisar de criar um modelo personalizado para se adequarem às suas necessidades, recomenda-se vivamente que comece com um dos modelos que estão disponíveis no [amostras de modelo do Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). Siga as orientações e explicações para [personalizar o modelo de cluster] [ customize-your-cluster-template] secção abaixo.
 
-Se já tiver um modelo personalizado, certifique-se de que a verificação de double, que o certificado três relacionados com os parâmetros no modelo e o ficheiro de parâmetros são denominados de forma e os valores são nulas da seguinte forma.
+Se já tiver um modelo personalizado, certifique-se de que double-se de que o certificado três relacionados com os parâmetros no modelo e o ficheiro de parâmetros são denominados de forma e os valores são nulas da seguinte forma.
 
 ```Json
    "certificateThumbprint": {
@@ -333,7 +333,7 @@ Para simplificar a alguns dos passos envolvidos na configuração do Azure AD co
 3. Extraia o ficheiro zip.
 4. Executar `SetupApplications.ps1`e forneça o TenantId, ClusterName e WebApplicationReplyUrl como parâmetros. Por exemplo:
 
-```powershell
+```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
@@ -363,7 +363,7 @@ O script imprime o JSON exigido pelo modelo Azure Resource Manager, ao criar o c
 <a id="customize-arm-template" ></a>
 
 ## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo de Gestor de recursos de cluster do Service Fabric
-Esta secção é para os utilizadores que pretendem personalizada criar um modelo de Gestor de recursos de cluster do Service Fabric. Depois de ter um modelo, ainda pode voltar atrás e utilizar o powershell ou os módulos do CLI para implementá-la. 
+Esta secção é para os utilizadores que pretendem personalizados para criar um modelo de Gestor de recursos de cluster do Service Fabric. Depois de ter um modelo, ainda pode voltar atrás e utilize os módulos do PowerShell ou o CLI implementá-la. 
 
 Modelos de Gestor de recursos de exemplo estão disponíveis no [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos, podem ser utilizados como um ponto de partida para o modelo de cluster.
 
@@ -499,14 +499,13 @@ Adicionar a configuração do Azure AD para um modelo de Gestor de recursos do c
 }
 ```
 
-### <a name="populate-the-parameter-file-with-the-values"></a>Preencha o ficheiro de parâmetros com os valores.
-Por fim, utilize os valores de saída do Cofre de chaves e os comandos do Azure AD PowerShell para povoar o ficheiro de parâmetros:
+### <a name="populate-the-parameter-file-with-the-values"></a>Preencher o ficheiro de parâmetros com os valores
+Por fim, utilize os valores de saída do Cofre de chaves e os comandos do PowerShell do Azure AD para preencher o ficheiro de parâmetros.
 
-Se planeia utilizar a infraestrutura de serviço do Azure módulos do RM PowerShell, em seguida, que não é necessário para preencher as informações do certificado de cluster, se de que pretende que o sistema para gerar o self assinada de certificado de segurança do cluster tem, basta mantê-las como null. 
+Se planeia utilizar os módulos do PowerShell do Azure service fabric RM, é necessário de preencher as informações do certificado de cluster. Se pretender que o sistema para gerar o self assinado certificado de segurança do cluster, apenas mantê-las como null. 
 
 > [!NOTE]
 > Para os módulos RM recolher e preencher estes valores de parâmetro vazio, os nomes de parâmetros muito corresponder aos nomes abaixo
->
 
 ```json
 "clusterCertificateThumbprint": {
@@ -523,9 +522,9 @@ Se planeia utilizar a infraestrutura de serviço do Azure módulos do RM PowerSh
 },
 ```
 
-Se estiver a utilizar certificados de aplicação ou estiver a utilizar um cluster existente que carregou para o Cofre de chaves, terá de obter estas informações e preenchê-lo 
+Se estiver a utilizar certificados de aplicação ou estiver a utilizar um cluster existente que carregou para o Cofre de chaves, terá de obter estas informações e preenchê-lo.
 
-Os módulos RM não têm a capacidade para gerar a configuração do Azure AD para si. por isso, se planeia utilizar o Azure AD para acesso de cliente, terá de preenchê-lo.
+Os módulos RM não têm a capacidade para gerar a configuração do Azure AD para que, por isso se planeia utilizar o Azure AD para acesso de cliente, terá de preenchê-lo.
 
 ```json
 {
@@ -582,9 +581,19 @@ O diagrama seguinte ilustra onde ajustam o seu Cofre de chaves e a configuraçã
 
 ![Mapa de dependência do Gestor de recursos][cluster-security-arm-dependency-map]
 
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>Encriptar os discos ligados para os windows instâncias de máquina virtual/nó de cluster
+
+Para encriptar os discos (unidade de SO e outros discos geridos) ligados para os nós, iremos tirar partido do Azure Disk Encryption. Encriptação de disco do Azure é uma nova capacidade que o ajuda a [encriptar os discos da máquina virtual Windows](service-fabric-enable-azure-disk-encryption-windows.md). O padrão da indústria tira partido do Azure Disk Encryption [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) funcionalidade do Windows para fornecer a encriptação de volume para o volume do SO. A solução está integrada [Cofre de chaves do Azure](https://azure.microsoft.com/documentation/services/key-vault/) para o ajudar a controlar e gerir as chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves. A solução também garante que todos os dados em discos de máquinas virtuais sejam encriptados Inativos no armazenamento do Azure. 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>Encriptar os discos ligados para as instâncias de máquina de nó virtual de cluster do Linux
+
+Para encriptar os discos (unidade de dados e outros discos geridos) ligados para os nós, iremos tirar partido do Azure Disk Encryption. Encriptação de disco do Azure é uma nova capacidade que o ajuda a [encriptar os discos da máquina virtual Linux](service-fabric-enable-azure-disk-encryption-linux.md). O padrão da indústria tira partido do Azure Disk Encryption [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) funcionalidade do Linux para fornecer a encriptação de volume para os discos de dados. A solução está integrada [Cofre de chaves do Azure](https://azure.microsoft.com/documentation/services/key-vault/) para o ajudar a controlar e gerir as chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves. A solução também garante que todos os dados em discos de máquinas virtuais sejam encriptados Inativos no armazenamento do Azure. 
+
+
 ## <a name="create-the-cluster-using-azure-resource-template"></a>Criar o cluster utilizando o modelo de recursos do Azure 
 
-Agora pode implementar clusters utilizando os passos descritos anteriormente no documento ou, se tiver os valores no ficheiro de parâmetros, preenchido, em seguida, agora está pronto para criar o cluster utilizando [implementação do modelo de recursos do Azure] [ resource-group-template-deploy] diretamente.
+Agora pode implementar clusters utilizando os passos descritos anteriormente no documento ou, se tiver os valores no ficheiro de parâmetro preenchido, em seguida, agora está pronto para criar o cluster utilizando [implementação do modelo de recursos do Azure] [ resource-group-template-deploy] diretamente.
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
@@ -620,7 +629,7 @@ Depois de criar as aplicações para representar o cluster, atribuir os seus uti
 
 
 ## <a name="troubleshooting-help-in-setting-up-azure-active-directory"></a>Resolução de problemas de ajuda na configuração do Azure Active Directory
-Configurar o Azure AD e utilizá-lo, pode ser um desafio, pelo que seguem-se algumas indicações sobre o que pode fazer para depurar o problema.
+Configurar o Azure AD e utilizá-lo podem ser um desafio, pelo que seguem-se algumas indicações sobre o que pode fazer para depurar o problema.
 
 ### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer pede-lhe para selecionar um certificado
 #### <a name="problem"></a>Problema

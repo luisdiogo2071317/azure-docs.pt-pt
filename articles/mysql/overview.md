@@ -8,20 +8,21 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 06/02/2018
 ms.custom: mvc
-ms.openlocfilehash: 3b7ae08446e672c218e7278cff4f77739286fead
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0ae9c0168d8f4ff7dbea4c21c91fc70a3d355a5f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736478"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a base de dados do Azure para MySQL?
 Base de dados do Azure para MySQL é um serviço de base de dados relacional em nuvem da Microsoft com base no [MySQL Comunidade edição](https://www.mysql.com/products/community/) motor de base de dados. Fornece a base de dados do Azure para MySQL:
 
 - Elevada disponibilidade incorporada sem custos adicionais.
 - Desempenho previsível com preços de pay as you go, inclusive.
-- Dimensionamento imediato em segundos.
+- Escala conforme necessário em segundos.
 - Segurança para proteger os dados confidenciais inativos e em movimento.
 - Cópias de segurança automáticas e restauro para um ponto anterior no tempo até 35 dias.
 - Segurança e conformidade de nível empresarial.
@@ -44,14 +45,22 @@ A base de dados do Azure para o serviço de MySQL oferece vários escalões de s
 Como decidir quando aumentar e reduzir verticalmente? Utilize o desempenho incorporado, monitorização e alertas de funcionalidades, juntamente com as classificações de desempenho com base no vCores. Utilizar estas ferramentas, pode avaliar rapidamente o impacto de dimensionamento vCores ou reduzir verticalmente com base nas necessidades de desempenho atual ou prevista. Consulte [Alertas](howto-alert-on-metric.md) para obter mais detalhes.
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha a sua aplicação e o seu negócio operacionais
-Líderes 99,99% disponibilidade nível contrato de serviço (SLA), utiliza a tecnologia de uma rede global de datacenters gerida pela Microsoft, da indústria do Azure ajuda a manter a sua aplicação em execução 24/7. Com cada base de dados do Azure para o servidor de MySQL, pode tirar partido de segurança incorporadas, a tolerância a falhas e a proteção de dados que caso contrário, terá de comprar ou conceber, criar e gerir. Com base de dados do Azure para MySQL, pode utilizar o restauro de ponto no tempo para recuperar um servidor para um estado anterior, até 35 dias.
+O contrato de nível de serviço (SLA) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Com cada base de dados do Azure para o servidor de MySQL, pode tirar partido de segurança incorporadas, a tolerância a falhas e a proteção de dados que caso contrário, terá de comprar ou conceber, criar e gerir. Com base de dados do Azure para MySQL, pode utilizar o restauro de ponto no tempo para recuperar um servidor para um estado anterior, até 35 dias.
 
 ## <a name="secure-your-data"></a>Proteger os dados
 Serviços de base de dados do Azure tem um tradição de segurança de dados que mantém a base de dados do Azure para MySQL, com as funcionalidades que limitam o acesso, proteger dados em rest e em movimento e ajudarem a monitorizar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
 A base de dados do Azure para o serviço de MySQL utiliza a encriptação de armazenamento para dados em rest. Os dados, incluindo cópias de segurança, são encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
-Por predefinição, a base de dados do Azure para o serviço de MySQL está configurado para exigir [segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento através da rede. Imposição de ligações de SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man no meio" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.  Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
+Por predefinição, a base de dados do Azure para o serviço de MySQL está configurado para exigir [segurança de ligação SSL](./concepts-ssl-connection-security.md) para dados em movimento através da rede. Imposição de ligações de SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man no meio" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
+
+## <a name="contacts"></a>Contactos
+Para quaisquer dúvidas ou sugestões pode ter sobre como trabalhar com a base de dados do Azure para MySQL, envie um e-mail para a base de dados do Azure para a equipa de MySQL ([ @Ask BD do Azure para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Tenha em atenção que não se trata de um alias de suporte técnico.
+
+Além disso, considere os seguintes pontos de contacto conforme adequado:
+- Contactar o suporte do Azure, [um ticket do portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Para corrigir um problema com a sua conta, ficheiro um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+- Fornecer comentários ou pedir novas funcionalidades, crie uma entrada através de [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que já leu uma introdução à base de dados do Azure para o MySQL e respondeu à pergunta "O que é do Azure da base de dados para MySQL?", está pronto para:

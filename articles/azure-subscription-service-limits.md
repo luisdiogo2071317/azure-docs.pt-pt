@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700197"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -73,6 +74,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Serviço de Aprovisionamento de Dispositivos no Hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Cofre de Chaves](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Identidade gerida](#managed-identity-limits)
 * [Serviços de Multimédia](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços móveis](#mobile-services-limits)
@@ -82,6 +84,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Observador de rede](#network-watcher-limits)
 * [Serviço de Hub de notificação](#notification-hub-service-limits)
 * [Grupo de Recursos](#resource-group-limits)
+* [Controlo de acesso baseado em funções](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Pesquisa](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -96,8 +99,8 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Máquinas Virtuais](#virtual-machines-limits)
 * [Conjuntos de Dimensionamento de Máquinas Virtuais](#virtual-machine-scale-sets-limits)
 
-### <a name="subscription-limits"></a>Limites de subscrição
-#### <a name="subscription-limits"></a>Limites de subscrição
+### <a name="subscription-limits"></a>Limites da subscrição
+#### <a name="subscription-limits"></a>Limites da subscrição
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Limites de subscrição - Azure Resource Manager
@@ -314,6 +317,12 @@ Para obter mais informações sobre limites de um nível mais granular, tais com
 
 ### <a name="automation-limits"></a>Limites de automatização
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>Limites de identidade geridos
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Limites do controlo de acesso baseado em funções
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limites de base de dados SQL
 Para os limites de base de dados SQL, consulte [dos limites de recursos de base de dados do SQL Server](sql-database/sql-database-resource-limits.md).

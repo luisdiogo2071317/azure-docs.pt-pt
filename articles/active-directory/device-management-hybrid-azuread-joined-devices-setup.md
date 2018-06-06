@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,17 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 728eb81d360af0d62d22cd6168b9e16edceefd56
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714396"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
 Gestão de dispositivos no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores acedem aos seus recursos dos dispositivos que cumprem as normas de segurança e conformidade. Para obter mais detalhes, consulte [introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md).
 
-Se tiver um ambiente do Active Directory no local e que pretende associar os dispositivos associados a um domínio para o Azure AD, pode realizar esta através da configuração híbrida do Azure AD associado dispositivos. O tópico fornece os passos relacionados. 
+Se tiver um ambiente do Active Directory no local e que pretende associar os dispositivos associados a um domínio para o Azure AD, pode realizar esta através da configuração híbrida do Azure AD associado dispositivos. Este artigo fornece os passos relacionados. 
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -36,7 +38,7 @@ Se estão a depender de [ferramenta de preparação do sistema (Sysprep)](https:
 
 Todos os dispositivos associados a um domínio em execução de atualização de aniversário do Windows 10 e Windows Server 2016 registar automaticamente com o Azure AD no reinício de dispositivo ou utilizador iniciar sessão depois de concluir os passos de configuração mencionados abaixo. **Se este comportamento de registo automática não é preferencial ou se pretender uma implementação controlada**, siga as instruções na secção "Passo 4: controlo implementação e implementação" abaixo para se seletivamente ativar ou desativar a implementação automática antes Siga os passos de configuração.  
 
-Para melhorar a legibilidade das descrições, este tópico utiliza o termo seguinte: 
+Para melhorar a legibilidade das descrições, este artigo utiliza o termo seguinte: 
 
 - **Dispositivos atuais do Windows** -este prazo refere-se a dispositivos associados a um domínio a executar o Windows 10 ou Windows Server 2016.
 - **Dispositivos de nível inferior do Windows** -este prazo refere-se a todos os **suportado** dispositivos Windows associados a um domínio, que estão em execução Windows 10 nem do Windows Server 2016.  

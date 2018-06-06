@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698820"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador iniciar sessão
 Ligar do Azure Active Directory (Azure AD) permite aos utilizadores iniciar sessão recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade para o ajudar a escolher a identidade que pretende utilizar para iniciar sessão com o Azure AD.
@@ -47,6 +49,8 @@ Certifique-se de que nenhuma palavra-passe é armazenados na nuvem.||x*|x|
 Ative soluções de autenticação multifator no local.|||x|
 
 * Através de um agente simples.
+
+Para obter informações detalhadas sobre como escolher um método de autenticação, consulte [escolher o método de autenticação adequado para a sua solução de identidade híbrida do Azure Active Directory](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Sincronização de hash de palavra-passe
 Com a sincronização de hash de palavra-passe, hashes de palavras-passe do utilizador são sincronizados a partir do Active Directory no local ao Azure AD. Quando as palavras-passe são alteradas ou repor no local, os hashes de palavra-passe nova são sincronizados com o Azure AD imediatamente, para que os utilizadores podem utilizar sempre a mesma palavra-passe para recursos de nuvem e de recursos no local. As palavras-passe nunca são enviadas para o Azure AD ou armazenadas no Azure AD em texto não encriptado. Pode utilizar a sincronização de hash de palavra-passe, juntamente com a repetição de escrita de palavras-passe para permitir self-service reposição palavra-passe no Azure AD.

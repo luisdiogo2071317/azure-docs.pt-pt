@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: alleonar
-ms.openlocfilehash: 35e84a22eabce0b7361c2227317baab62421c301
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ff8c038ac5fa42668227a0531fa77bd853dd2b2
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757524"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia para programadores do Cofre de chaves do Azure
 
@@ -52,11 +53,11 @@ Recursos mencionados acima vídeo:
 
 ## <a name="creating-and-managing-key-vaults"></a>Criar e gerir cofres de chaves
 
-O Cofre de chaves do Azure fornece uma forma de armazenar com segurança as credenciais e outras chaves e segredos, mas o seu código tem de autenticar para o Cofre de chaves para recuperar. Identidade de serviço geridas (MSI) permite a resolver este problema mais simples, conferindo aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, incluindo o Cofre de chaves, sem ter as credenciais no seu código. 
+O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código. 
 
 Para obter mais informações sobre MSI, consulte [geridos serviço de identidade (MSI) para recursos do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-Para obter mais informações sobre como trabalhar com o AAD, consulte [integrar aplicações com o Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+Para obter mais informações sobre como trabalhar com o AAD, consulte [integrar aplicações com o Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Antes de trabalhar com as chaves, os segredos ou certificados no seu Cofre de chaves, irá criar e gerir o seu Cofre de chaves através da CLI, do PowerShell, modelos do Resource Manager ou REST, conforme descrito nos seguintes artigos:
 

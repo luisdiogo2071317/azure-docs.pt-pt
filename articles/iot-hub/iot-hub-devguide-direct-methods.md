@@ -1,25 +1,19 @@
 ---
 title: Compreender os métodos diretos do IoT Hub do Azure | Microsoft Docs
 description: Guia para programadores - utilize métodos direta invocar código nos seus dispositivos a partir de uma aplicação de serviço.
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a35c88ac053b43d4a95b5bef92f3ebfb03567e2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736682"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 IoT Hub dá-lhe a capacidade de invocar métodos diretos nos dispositivos da nuvem. Métodos diretos representam uma interação de pedido-resposta com um dispositivo semelhante a uma chamada HTTP em que são ou não bem-sucedidos imediatamente (após um tempo limite especificado de um utilizador). Esta abordagem é útil para cenários em que o método de ação imediata é diferente consoante se o dispositivo foi capaz de responder.
@@ -85,6 +79,11 @@ A aplicação de back-end recebe uma resposta que inclui:
     ```
 
     Ambos `status` e `body` são fornecidas pelo dispositivo e utilizados para responder com o código de estado do dispositivo e/ou a descrição.
+
+### <a name="method-invocation-for-iot-edge-modules"></a>Invocação de métodos de módulos de limite de IoT
+SDK de pré-visualização ao invocar métodos diretos, utilizando um módulo ID é suportado a c# (disponível [aqui](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+
+Para este efeito, utilize o `ServiceClient.InvokeDeviceMethodAsync()` método e passar no `deviceId` e `moduleId` como parâmetros.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Identificador de um método direto num dispositivo
 ### <a name="mqtt"></a>MQTT

@@ -6,21 +6,16 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: rajanaki
-ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6a57226f81e626e620033750c58d5998d8e7e894
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716589"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reproteção efetuada a ativação pós-falha de VMs do Azure para a região primária
-
-
->[!NOTE]
->
-> A replicação do Site Recovery para VMs do Azure está atualmente em pré-visualização.
-
 
 
 Quando lhe [efetuar a ativação pós-falha](site-recovery-failover.md) VMs do Azure de uma região para a utilização de outro [do Azure Site Recovery](site-recovery-overview.md), o arranque de VMs de cópia de segurança na região secundária, num Estado não protegido. Se falhar novamente as VMs para a região primária, terá de fazer o seguinte:

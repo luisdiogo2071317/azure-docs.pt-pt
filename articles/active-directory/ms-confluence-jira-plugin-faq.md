@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb7576c48d3836eec8051d849cefe4c5ec6658c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699211"
 ---
-# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Perguntas mais frequentes sobre o SSO do diretório de Active Directory do Azure Plug-in 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Perguntas mais frequentes sobre o SSO do diretório de Active Directory do Azure Plug-in
+
+Consulte abaixo perguntas mais frequentes se tiver qualquer consulta relativamente a este plug-in.
 
 ## <a name="what-does-the-plug-in-do"></a>O que faz o plug-in efetue?
 
@@ -38,13 +41,13 @@ Não. O plug-in suporta apenas no local as versões do Jira e Confluence.
 
 O plug-in suporta estas versões:
 
-* Jira núcleos e do Software: 6.0 para 7.2.2 
-* Suporte técnico do serviço de Jira: 3.0 para 3.2 
+* Jira núcleos e do Software: 6.0 para 7.8
+* Suporte técnico do serviço de Jira: 3.0 para 3.2
 * Confluence: 5.0 à versão 5.10
 
 ## <a name="is-the-plug-in-free-or-paid"></a>É o plug-in gratuita ou paga?
 
-É um suplemento livre. Pode instalá-lo no Marketplace Atlassian.
+É um suplemento livre.
 
 ## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>É necessário reiniciar Jira ou Confluence depois de implementar o plug-in
 
@@ -52,7 +55,7 @@ Não é necessário um reinício. Pode começar a utilizar o plug-in imediatamen
 
 ## <a name="how-do-i-get-support-for-the-plug-in"></a>Como posso obter suporte para o plug-in?
 
-Entrar o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipa responde no 48 de 24 horas de expediente. 
+Pode entrar para o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) para qualquer suporte necessária para este plug-in. A equipa responde no 48 de 24 horas de expediente.
 
 Também pode emitir um pedido de suporte com a Microsoft através do canal de portal do Azure.
 

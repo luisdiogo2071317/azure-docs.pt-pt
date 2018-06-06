@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4b1fefafb34dcbfdced5c978aa235e56cb7fa513
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801801"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida cumprir os requisitos de negócio que foram abordados:
@@ -32,7 +34,7 @@ Nesta tarefa, definir a estratégia de adoção de identidade híbrida para a su
 Tem dos endereços de tarefa primeiro determinar as empresas e organizações.  Isto pode ser muito abrangente e creep âmbito pode ocorrer se não tiver cuidado.  No início, manter tudo simples mas lembre-se sempre ao planear uma estrutura que irá suportar e facilitar a alteração no futuro.  Independentemente de ser uma estrutura simple ou a um extremamente complexo, o Azure Active Directory é a plataforma do Microsoft Identity que suporta o Office 365, Microsoft Online Services e em nuvem com suporte para aplicações.
 
 ## <a name="define-an-integration-strategy"></a>Definir uma estratégia de integração
-A Microsoft tem três cenários de integração principais que são as identidades de nuvem, identidades sincronizadas e identidades federadas.  Deve planear a adoção de uma destes estratégias de integração.  A estratégia de que escolha podem variar e podem incluir as decisões de escolher um, o tipo de experiência de utilizador que pretenda fornecer, tem algumas da infraestrutura existente já no local e o que é o mais económico.  
+A Microsoft tem três cenários de integração principais que são as identidades de nuvem, identidades sincronizadas e identidades federadas.  Deve planear a adoção de uma destes estratégias de integração.  A estratégia de que escolher pode variar e podem incluir as decisões de escolher um, o tipo de experiência de utilizador que pretenda fornecer, tiver uma infraestrutura existente, e o que é o mais económico.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ A tabela seguinte ajuda a determinar as vantagens e desvantagens de cada uma das
 
 | Estratégia de | Vantagens | Desvantagens |
 | --- | --- | --- |
-| **Identidades de nuvem** |Mais fácil de gerir para a organização pequena. <br> Nada para instalar hardware adicional no-local-não necessária<br>Facilmente desativada se o utilizador sai da empresa |Os utilizadores terão de iniciar sessão quando acedem a cargas de trabalho na nuvem <br> As palavras-passe podem ou não podem ser o mesmo para as identidades de nuvem e no local |
+| **Identidades de nuvem** |Mais fácil de gerir para a organização pequena. <br> Nada para instalar no local. Nenhum hardware adicional necessário<br>Facilmente desativada se o utilizador sai da empresa |Os utilizadores terão de iniciar sessão quando acedem a cargas de trabalho na nuvem <br> As palavras-passe podem ou não podem ser o mesmo para as identidades de nuvem e no local |
 | **Sincronizados** |No local efetua a autenticação de palavra-passe no local e nuvem diretórios <br>Mais fácil de gerir pequena, média ou grandes organizações <br>Os utilizadores podem ter início de sessão único (SSO) para alguns dos recursos <br> Método de Microsoft preferido para sincronização <br> Mais fácil de gerir |Alguns clientes podem estar relutantes sincronizar os seus diretórios com a nuvem devido a política da empresa específica |
 | **Federado** |Os utilizadores podem ter início de sessão único (SSO) <br>Se um utilizador é terminado ou deixa, a conta pode ser desativada imediatamente e acesso revogado,<br> Suporta avançadas de cenários que não podem ser conseguidos com sincronizados |Mais passos para configurar <br> Manutenção superior <br> Pode necessitar de hardware adicional para a infraestrutura de STS <br> Pode necessitar de hardware adicional para instalar o servidor de Federação. Software adicional é necessário se for utilizado o AD FS <br> Requer configuração extensa para SSO <br> Ponto de crítico de falha se o servidor de Federação está inativo, os utilizadores não conseguirá autenticar |
 
@@ -75,7 +77,7 @@ A estratégia de que utiliza determinarão a experiência de início de sessão 
 | Browsers da Web |Autenticação baseada em formulários |Autenticação baseada em formulários |
 | Outlook, o Skype para empresas (Lync), Skydrive Pro, subscrição do Office |Pedido de credenciais |Pedido de credenciais |
 | Exchange ActiveSync |Pedido de credenciais |único início de sessão para o Lync,-lhe pedido que as credenciais para o Exchange |
-| Aplicações Móveis |Pedido de credenciais |Pedido de credenciais |
+| Aplicações móveis |Pedido de credenciais |Pedido de credenciais |
 
 Se tiver determinado na tarefa 1, que tem um terceiros IdP ou são que utilize uma para fornecer a Federação com o Azure AD, terá de ter em consideração as seguintes capacidades suportadas:
 
@@ -119,7 +121,7 @@ Ao definir uma estratégia de sincronização, a topologia utilizada têm de ser
 
 Cenário de várias floresta
 
-Se este o caso, em seguida, a topologia de vários-forest-único do Azure AD deve ser considerada se os itens seguintes são verdadeiras:
+Se este for o caso, em seguida, a única de várias floresta deve ser considerada topologia do Azure AD, se os itens seguintes são verdadeiras:
 
 * Os utilizadores têm apenas 1 identidade em todas as florestas – a seção de utilizadores exclusivamente identificação abaixo descreve esta mais detalhadamente.
 * O utilizador efetua a autenticação para a floresta em que a sua identidade se encontra
@@ -149,7 +151,7 @@ Recomenda-se ter apenas um único diretório no Azure AD para uma organização,
 
 **Cenário de filtragem de floresta única**
 
-Para fazê-lo a seguintes deve ser verdadeiras:
+Para tal, os seguintes devem ser verdadeiras:
 
 * Servidores de sincronização do Azure AD Connect tem de ser configurados para efeitos de filtragem para cada têm um conjunto de objetos mutuamente exclusivo.  Isto feito, por exemplo, ao controlo de âmbito de cada servidor para um determinado domínio ou UO.
 * Só pode ser registado um domínio DNS num único diretório do Azure AD, por isso, o UPNs AD tem de utilizar espaços de nomes separados dos utilizadores no no local

@@ -1,11 +1,11 @@
 ---
 title: Desenvolver para os ficheiros do Azure com Java | Microsoft Docs
-description: "Saiba como desenvolver aplicações Java e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro."
+description: Saiba como desenvolver aplicações Java e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro.
 services: storage
 documentationcenter: java
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 8cd3698d4281b933881c45dfa5e7868bd7b0bdaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738205"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desenvolver para os ficheiros do Azure com Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>Acerca deste tutorial
-Este tutorial irá demonstram as noções básicas da utilização de Java para desenvolver aplicações ou serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro. Neste tutorial, iremos criar uma aplicação de consola simples e mostra como efetuar ações básicas com Java e ficheiros do Azure:
+Este tutorial irá demonstram as noções básicas da utilização de Java para desenvolver aplicações ou serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro. Neste tutorial, iremos criar uma aplicação de consola e mostram como executar ações básicas com Java e ficheiros do Azure:
 
 * Criar e eliminar as partilhas de ficheiros do Azure
 * Criar e eliminar diretórios
@@ -34,10 +35,10 @@ Este tutorial irá demonstram as noções básicas da utilização de Java para 
 * Carregar, transferir e eliminar um ficheiro
 
 > [!Note]  
-> Porque os ficheiros do Azure podem ser acedidos através de SMB, é possível escrever as aplicações simples que aceder à partilha de ficheiros do Azure utilizando as classes de e/s de Java padrão. Este artigo descreve como escrever as aplicações que utilizam o SDK de Java de armazenamento do Azure, que utiliza o [API REST da Azure ficheiros](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para falar com ficheiros do Azure.
+> Porque os ficheiros do Azure podem ser acedidos através de SMB, é possível escrever as aplicações que aceder à partilha de ficheiros do Azure utilizando as classes de e/s de Java padrão. Este artigo descreve como escrever as aplicações que utilizam o SDK de Java de armazenamento do Azure, que utiliza o [API REST da Azure ficheiros](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para falar com ficheiros do Azure.
 
 ## <a name="create-a-java-application"></a>Criar uma aplicação Java
-Para criar os exemplos, terá do Kit de desenvolvimento Java (JDK) e o [[SDK de armazenamento do Azure para Java]]. Deve também criou uma conta de armazenamento do Azure.
+Para criar os exemplos, terá do Kit de desenvolvimento Java (JDK) e o [SDK de armazenamento do Azure para Java](https://github.com/Azure/azure-storage-java). Deve também criou uma conta de armazenamento do Azure.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configurar a sua aplicação para utilizar os ficheiros do Azure
 Para utilizar as APIs de armazenamento do Azure, adicione a seguinte instrução na parte superior do ficheiro onde pretende aceder ao serviço de armazenamento de Java.
@@ -127,7 +128,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>Criar um diretório
-Também pode organizar armazenamento colocando os ficheiros secundárias diretórios em vez de ter todos eles no diretório de raiz. Ficheiros do Azure permite-lhe criar tantas diretórios como irá permitir a sua conta. O código abaixo, irá criar um subdiretório com o nome **sampledir** sob o diretório de raiz.
+Também pode organizar armazenamento colocando os ficheiros subdiretórios em vez de ter todos eles no diretório de raiz. Ficheiros do Azure permite-lhe criar tantas diretórios como irá permitir a sua conta. O código abaixo, irá criar um subdiretório com o nome **sampledir** sob o diretório de raiz.
 
 ```java
 //Get a reference to the root directory for the share.
@@ -144,7 +145,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## <a name="delete-a-directory"></a>Eliminar um diretório
-Eliminar um diretório é uma tarefa bastante simple, embora deve ser salientado que não é possível eliminar um diretório que contiver ficheiros ou outros diretórios.
+Eliminar um diretório é uma tarefa simples, embora deve ser salientado que não é possível eliminar um diretório que contiver ficheiros ou outros diretórios.
 
 ```java
 // Get a reference to the root directory for the share.
@@ -172,7 +173,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>Carregar um ficheiro
-Um ficheiro de Azure partilha contém em muito menos, um diretório de raiz, onde podem residir os ficheiros. Nesta secção, irá aprender como carregar um ficheiro a partir do armazenamento local para o diretório de raiz de uma partilha.
+Nesta secção, irá aprender como carregar um ficheiro a partir do armazenamento local para o diretório de raiz de uma partilha.
 
 O primeiro passo no carregamento de um ficheiro é para obter uma referência para o diretório onde deve residir. Fazê-lo ao chamar o **getRootDirectoryReference** método do objeto de partilha.
 
@@ -227,7 +228,7 @@ if ( file.deleteIfExists() ) {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se quiser obter mais informações sobre outras APIs de armazenamento do Azure, siga estas ligações.
 
 * [Do Azure para programadores de Java](/java/azure)/)

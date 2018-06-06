@@ -1,9 +1,9 @@
 ---
-title: Privileged Identity Management para recursos do Azure - MFA | Microsoft Docs
+title: Impor o multi-factor Authentication do Azure em recursos do Azure utilizando o Privileged Identity Management | Microsoft Docs
 description: Este documento descreve como ativar a multi-factor authentication para recursos do PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -12,48 +12,49 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8d1c05e7f61ed76c47613bfab7bb8afd9b66cbe7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3084ba4f606823f3896f266f64a24c8fe4be1309
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699840"
 ---
-# <a name="privileged-identity-management---resource-roles---mfa"></a>Privileged Identity Management - funções dos recursos - MFA
+# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Impor o multi-factor Authentication do Azure em recursos do Azure utilizando o Privileged Identity Management
 
-PIM para funções de recursos do Azure permite que os administradores de recursos e administradores de identidade proteger críticos de infraestrutura do Azure com a associação de vínculo de tempo e acesso just-in-time. Além disso, PIM oferece a implementação opcional do Azure multi-factor Authentication (MFA) para dois cenários distintos.
+Privileged Identity Management (PIM) para funções de recursos do Azure permite que os administradores de recursos e administradores de identidade proteger críticos de infraestrutura do Azure com a associação de vínculo de tempo e acesso just-in-time. Além disso, PIM oferece a implementação opcional do Azure multi-factor Authentication para dois cenários distintos.
 
-## <a name="require-mfa-to-activate"></a>Exigir a MFA ativar
+## <a name="require-multi-factor-authentication-to-activate"></a>Requer multi-factor Authentication ativar
 
-Os administradores de recursos podem exigir elegíveis membros de uma função com êxito a MFA do Azure possa ativar. Este processo garante que a ativação de requerente do utilizador é quem diga a estão com certainty razoável. Impor esta opção protege a recursos críticos em situações quando a conta de utilizador poderá ter sido comprometida. 
+Os administradores de recursos podem exigir elegíveis membros de uma função executar o Azure multi-factor Authentication possa ativar. Este processo garante que o utilizador que está a pedir a ativação é que possam indicar estão com certainty razoável. Impor esta opção protege a recursos críticos em situações quando a conta de utilizador poderá ter sido comprometida. 
 
 Para impor a este requisito, selecione um recurso na lista de recursos geridos. Do [dashboard da descrição geral](pim-resource-roles-overview-dashboards.md), selecione uma função na lista de funções na parte inferior direita do ecrã.
 
-Além disso, pode obter as definições de função das "funções" ou "Definições de função" separadores no menu de navegação esquerdo.
+Além disso, pode obter as definições de função partir o **funções** ou **definições da função** separadores no painel esquerdo.
 
 >[!Note]
->Se as opções no menu de navegação esquerdo estão desativadas e verá uma faixa na parte superior da página que indica "Tiver elegíveis funções que podem ser activadas" não é um administrador do Active Directory e tem [ativar](pim-resource-roles-activate-your-roles.md) antes de continuar.
+>Se as opções no painel esquerdo estão desativadas e verá uma faixa na parte superior da página que indica "Tiver elegíveis funções que podem ser activadas", que não é um administrador do Active Directory. Isto significa que tem [ativar](pim-resource-roles-activate-your-roles.md) antes de continuar.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_manage_a_role_v2.png)
+!["Funções" e os separadores de "Definições de função" ](media/azure-pim-resource-rbac/aadpim_rbac_manage_a_role_v2.png)
 
-Se visualizar a associação de uma função, selecione "Definições de função" a partir da barra na parte superior do ecrã, para abrir o "Detalhes de definição de função".
+Para ver a associação de uma função, selecione **definições da função** a partir da barra na parte superior do ecrã, para abrir o **detalhe de definição de função**.
 
-Clique em de **editar** botão na parte superior para modificar as definições de função.
+Para modificar as definições da função, selecione o **editar** botão na parte superior.
 
-Na secção em **ativar**, clique na caixa de verificação para **requerem o multi-factor Authentication para ativar**, em seguida, clique em Guardar.
+Na secção em **ativar**, selecione a caixa de verificação para **requerem o multi-factor Authentication na ativação**. Em seguida, selecione **Guardar**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa.png)
+![Exigir Multi-Factor Authentication](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa.png)
 
-## <a name="require-mfa-on-assignment"></a>Exigir a MFA na atribuição
+## <a name="require-multi-factor-authentication-on-assignment"></a>Requer multi-factor Authentication na atribuição
 
-Em alguns casos, um administrador de recursos poderá ser útil atribuir um membro a uma função durante um curto período de tempo (um dia, por exemplo) e não precisa dos membro ou membros atribuídos para pedir a ativação. Neste cenário, PIM não é possível impor o MFA quando o membro utiliza a atribuição de função, uma vez que já estão ativas na função a partir do momento em que estão atribuídos.
+Em alguns casos, um administrador de recursos pode pretender atribuir um membro a uma função durante um curto período de tempo (um dia, por exemplo). Neste caso, não precisam de membro ou membros atribuídos para pedir a ativação. Neste cenário, PIM não é possível impor o multi-factor Authentication quando o membro utiliza a atribuição de função, uma vez que já estão ativas na função a partir do momento em que estão atribuídos.
 
-Para garantir que o administrador de recursos satisfazer a atribuição é quem indicar são, pode impor o MFA na atribuição.
+Para garantir que o administrador de recursos satisfazer a atribuição que diga a estiverem, pode impor o multi-factor Authentication na atribuição.
 
-A partir do ecrã a mesmo função definição detalhes, selecione a caixa para "Requer autenticação Multifator atribuição".
+A partir do ecrã a mesma função definição detalhes, selecione a caixa para **requerem o multi-factor Authentication na atribuição direta**.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa_on_assignment.png)
+![Requer multi-factor Authentication na atribuição direta](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa_on_assignment.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

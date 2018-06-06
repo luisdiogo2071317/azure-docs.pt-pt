@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fd6817e63eea622294bbf766b66beb8bc49bc30c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726062"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
-Este artigo mostra como criar e gerir grupos de ação no portal do Azure.
+Um grupo de ação é uma coleção das preferências de notificações definidas pelo utilizador. Alertas de monitorização e estado de funcionamento do serviço do Azure estão configuradas para utilizar um grupo de ação específica, quando o alerta é acionado. Vários alertas podem utilizar o mesmo grupo de ação ou grupos de ação diferente dependendo dos requisitos do utilizador.
 
-Pode configurar uma lista de ações com grupos de ação. Estes grupos, em seguida, podem ser utilizados por cada alerta que definir, garantindo que as mesmas ações efetuadas sempre que um alerta é acionado.
+Este artigo mostra como criar e gerir grupos de ação no portal do Azure.
 
 Cada ação é constituída pelas seguintes propriedades:
 
@@ -44,7 +45,7 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 3. Selecione **adicionar grupo de ação**e preencha os campos.
 
     ![O comando "Adicionar grupo de ação"](./media/monitoring-action-groups/add-action-group.png)
-4. Introduza um nome no **nome do grupo de ação** caixa e introduza um nome no **nome abreviado** caixa. O nome abreviado é utilizado em vez de um nome de grupo ação completa, quando as notificações são enviadas através deste grupo.
+4. Introduza um nome no **nome do grupo de ação** caixa e introduza um nome no **nome abreviado** caixa. O nome abreviado é utilizado em vez de um nome de grupo de ação completo quando as notificações são enviadas através deste grupo.
 
       ![Caixa de diálogo de grupo de ação adicionar"](./media/monitoring-action-groups/action-group-define.png)
 
@@ -69,7 +70,14 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 <dd>Neste momento, a ação de aplicações do Azure suporta apenas ServiceHealth alertas. Outro alerta sempre que será ignorado. Consulte [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é publicada](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>Correio eletrónico</dt>
-<dd>Pode ter até 50 ações de correio eletrónico num grupo de ação</dd>
+<dd>Mensagens de correio eletrónico serão enviadas partir os seguintes endereços de e-mail. Certifique-se de que a filtragem de correio eletrónico está corretamente configurada
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>Pode ter mais de 1000 ações de correio eletrónico num grupo de ação</dd>
 <dd>Consulte o [taxa de limitação de informações](./monitoring-alerts-rate-limiting.md) artigo</dd>
 
 <dt>ITSM</dt>

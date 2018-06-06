@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 18b47014e6fe3e489f783f675a3498c58981b99f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725535"
 ---
 # <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs para processamento em segundo plano condicionada por eventos
 
@@ -322,7 +323,7 @@ Para obter mais informações, consulte [enlace no tempo de execução](../azure
 
 Informações de referência sobre cada tipo de enlace são fornecidas na documentação de funções do Azure. Utilizar fila de armazenamento como exemplo, encontrará as seguintes informações em cada artigo de referência de enlace:
 
-* [Pacotes](../azure-functions/functions-bindings-storage-queue.md#packages) -o pacote de instalação para incluir suporte para o enlace num projeto do SDK de WebJobs.
+* [Pacotes](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) -o pacote de instalação para incluir suporte para o enlace num projeto do SDK de WebJobs.
 * [Exemplos](../azure-functions/functions-bindings-storage-queue.md#trigger---example) -exemplo de biblioteca o c# classe aplica-se para o SDK de WebJobs; apenas omitir o `FunctionName` atributo.
 * [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) -os atributos a utilizar para o tipo de enlace.
 * [Configuração](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) -explicações das propriedades de atributo e os parâmetros do construtor.
@@ -391,6 +392,26 @@ Alguns acionadores têm suporte incorporado para gestão de concorrência:
 
 Pode utilizar estas definições para se certificar de que a sua função é executada como singleton numa única instância. Para garantir que apenas uma única instância da função está em execução quando a aplicação web aumenta horizontalmente de forma a várias instâncias, aplicar um bloqueio de Singleton de nível de serviço de escuta da função (`[Singleton(Mode = SingletonMode.Listener)]`). São adquirir bloqueios de serviço de escuta no arranque do JobHost. Se iniciar três instâncias de escalamento horizontal, todos os ao mesmo tempo, apenas uma das instâncias adquire o bloqueio e começa a apenas um serviço de escuta.
 
+### <a name="scope-values"></a>Valores de âmbito
+
+Pode especificar um **âmbito/valor da expressão** no Singleton que irá garantir que todas as execuções de função no âmbito de que irão ser serializadas. Implementar mais granular bloquear desta forma pode permitir algum nível de paralelismo para a sua função, ao serializar outras invocações conforme ditado pelos seus requisitos. Por exemplo, no exemplo a seguir a expressão de âmbito está vinculada ao `Region` valor da mensagem a receber. Se a fila contém 3 mensagens no regiões "Leste", "Leste" e "Oeste" respetivamente, em seguida, as mensagens com a região "Leste" executado serialmente enquanto a mensagem com a região "Oeste" será executado em paralelo com os.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
+
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 
 O âmbito da predefinição de um bloqueio é `SingletonScope.Function` que significa que o âmbito de bloqueio (o caminho de concessão de blob) está associado ao nome de função completamente qualificado. Para bloquear em funções, especifique `SingletonScope.Host` e utilizar um nome de ID de âmbito é igual em todas as funções que não pretende que sejam executados em simultâneo. No exemplo seguinte, apenas uma instância de `AddItem` ou `RemoveItem` executa cada vez:
@@ -450,7 +471,7 @@ Cada registo criado por um `ILogger` instância tem um associados `Category` e `
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
-|Crítico    | 5 |
+|Crítica    | 5 |
 |Nenhuma        | 6 |
 
 Cada categoria que pode ser filtrada independentemente a um determinado [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Por exemplo, pode querer ver todos os registos para o blob acionador processamento, mas apenas `Error` e superior para tudo o resto.

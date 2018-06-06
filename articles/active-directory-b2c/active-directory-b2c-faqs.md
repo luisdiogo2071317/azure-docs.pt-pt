@@ -1,20 +1,21 @@
 ---
-title: Perguntas mais frequentes - Azure Active Directory B2C
-description: Perguntas mais frequentes (FAQ) sobre o Azure Active Directory B2C
+title: Perguntas mais frequentes sobre Azure Active Directory B2C | Microsoft Docs
+description: Perguntas frequentes (FAQ) sobre o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: B2C
+ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710737"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para atualizações.
@@ -43,7 +44,7 @@ Introdução às políticas personalizadas ao verificar nossos [pacote de arranq
 Não, mas esta funcionalidade não está no nosso plano. Os âmbitos de predefinido utilizados para o nosso conjunto de fornecedores de identidade sociais suportado são:
 
 * Facebook: e-mail
-* Google+: email
+* Google +: e-mail
 * Conta Microsoft: perfil de e-mail openid
 * Amazon: perfil
 * LinkedIn: r_emailaddress, r_basicprofile
@@ -118,7 +119,7 @@ Siga estes passos para eliminar o inquilino do Azure AD B2C:
 4. Selecione cada utilizador, por sua vez (excluir o utilizador de administrador de subscrição tem atualmente sessão iniciada como). Clique em **eliminar** na parte inferior da página e clique em **Sim** quando lhe for pedido.
 5. Clique em de **registos de aplicação**.
 6. Selecione a aplicação de chamada **aplicação de extensões de b2c**. Clique em **eliminar** e clique em **Sim** quando lhe for pedido.
-7. Selecione **descrição geral**.
+7. Selecione **Descrição geral**.
 8. Clique em **eliminar diretório**. Para concluir o processo, siga as instruções no ecrã.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Pode obter do Azure AD B2C como parte do Enterprise Mobility Suite?

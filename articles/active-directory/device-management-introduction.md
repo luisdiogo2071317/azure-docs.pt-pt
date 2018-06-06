@@ -8,18 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 6384f63139eb64522409c5922e187afd878ebb09
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714141"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução à gestão de dispositivos no Azure Active Directory
 
@@ -30,9 +32,9 @@ No mundo mobile-primeiro, primeiro de nuvem, o Azure Active Directory (Azure AD)
 
 Através de dispositivos, os utilizadores estão a obter acesso para os recursos da empresa. Para proteger os ativos empresariais, como um administrador de TI, pretende têm controlo sobre estes dispositivos. Isto permite-lhe para se certificar de que os utilizadores acedem aos seus recursos dos dispositivos que cumprem as normas de segurança e conformidade. 
 
-Gestão de dispositivos também é o alicerce da [acesso condicional baseado no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso aos recursos no seu ambiente só é possível com dispositivos fidedignos.   
+Gestão de dispositivos também é o alicerce da [acesso condicional baseado no dispositivo](active-directory-conditional-access-policy-connected-applications.md). Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso aos recursos no seu ambiente só é possível com os dispositivos geridos.   
 
-Este tópico explica como funciona a gestão de dispositivos no Azure Active Directory.
+Este artigo explica como funciona a gestão de dispositivos no Azure Active Directory.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Inscrever os dispositivos sob o controlo do Azure AD
 
@@ -122,7 +124,7 @@ Deverá utilizar o Azure AD híbrido associado dispositivos se:
 
 - Tiver aplicações de Win32 implementadas nesses dispositivos que utilizam o NTLM / Kerberos.
 
-- Precisa de GP ou SCCM / DCM para gerir dispositivos.
+- Precisa de GP gerir dispositivos.
 
 - Pretende continuar a utilizar soluções de processamento de imagens para configurar dispositivos para os seus empregados.
 

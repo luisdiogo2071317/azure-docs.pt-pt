@@ -1,6 +1,6 @@
 ---
 title: Utilizar a CLI do Azure 1.0 com o Storage do Azure | Microsoft Docs
-description: "Saiba como utilizar a Interface de linha de comandos do Azure (CLI do Azure) 1.0 com o Storage do Azure para criar e gerir contas de armazenamento e de trabalhar com blobs do Azure e os ficheiros. A CLI do Azure é uma ferramenta de plataforma"
+description: Saiba como utilizar a Interface de linha de comandos do Azure (CLI do Azure) 1.0 com o Storage do Azure para criar e gerir contas de armazenamento e de trabalhar com blobs do Azure e os ficheiros. A CLI do Azure é uma ferramenta de plataforma
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737474"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilizar a CLI do Azure 1.0 com o Storage do Azure
 
@@ -233,7 +234,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
     --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Pode encontrar a referência de comandos da CLI do Azure 1.0 para trabalhar com recursos de armazenamento aqui:
 

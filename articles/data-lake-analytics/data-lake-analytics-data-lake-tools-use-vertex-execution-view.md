@@ -1,31 +1,25 @@
 ---
-title: "Utilize a vista de execução de vértice nas ferramentas do Data Lake para Visual Studio | Microsoft Docs"
-description: "Saiba como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics exam."
+title: Utilize a vista de execução de vértice nas ferramentas do Data Lake para Visual Studio
+description: Este artigo descreve como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics exam.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735446"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilize a vista de execução de vértice nas ferramentas do Data Lake para Visual Studio
 Saiba como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics exam.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-É necessário um conhecimento básico da utilização de ferramentas do Data Lake para Visual Studio para desenvolver scripts U-SQL.  Consulte [Tutorial: desenvolver scripts U-SQL com ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="open-the-vertex-execution-view"></a>Abrir a vista de execução de vértice
 Abra uma tarefa de U-SQL no Data Lake Tools para Visual Studio. Clique em **vista de execução de vértice** no canto inferior esquerdo. Poderá ser-lhe pedido para carregar perfis pela primeira vez e pode demorar algum tempo consoante a conectividade de rede.
@@ -57,7 +51,7 @@ Painel na parte inferior central mostra informações sobre cada vertex:
 * Versão criada tempo.
 * Processar criar início tempo/processe em fila tempo/processe início tempo/processe concluída tempo: quando o processo de vértice começa criação; Quando o processo de vértice começa a fila; Quando inicia o processo de vértice determinadas; Quando a determinados vértice está concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter informações de diagnóstico de registo, veja [Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](data-lake-analytics-diagnostic-logs.md)
 * Para ver uma consulta mais complexa, consulte [Analisar registos de site através da Análise do Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 * Para ver os detalhes da tarefa, consulte [Browser de tarefa de utilização e a vista de tarefas para tarefas do Azure Data lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md)

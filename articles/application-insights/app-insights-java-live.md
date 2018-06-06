@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794552"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para as web apps Java que já estão em direto
-
 
 Se tiver uma aplicação web que já está em execução no seu servidor J2EE, pode começar a monitorizar com [Application Insights](app-insights-overview.md) sem a necessidade de fazer alterações ao código ou recompilar o projeto. Com esta opção, obter informações sobre pedidos HTTP enviados para o servidor, exceções não processadas e os contadores de desempenho.
 
@@ -136,4 +136,4 @@ E, ao visualizar as propriedades de um pedido, pode ver os eventos de telemetria
 * [Configurar testes web](app-insights-monitor-web-app-availability.md) para se certificar de que a aplicação permanece em direto e reativa.
 * [Capturar rastreios de registo](app-insights-java-trace-logs.md)
 * [Pesquise eventos e registos](app-insights-diagnostic-search.md) para ajudar a diagnosticar problemas.
-
+* [Configurar uma aplicação de inicializador de arranque da mola](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

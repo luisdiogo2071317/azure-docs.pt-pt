@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1dd5d0f11a063d013142948c7c87a98aefe02749
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725229"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
 
@@ -95,14 +96,14 @@ Os passos seguintes utilize [APT](https://wiki.debian.org/Apt) para instalar fer
   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
   ```
 
-2.  Configure o pacote do feed, substituindo `<version>` no comando com o nome da versão adequada da tabela seguinte:
+2.  Certifique-se de que o seu servidor Ubuntu executar uma das versões adequadas da tabela abaixo. Para adicionar a origem apt, execute:
 
   ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
   sudo apt-get update
   ```
 
-  | Distribuição de Linux | `<version>` |
+  | Distribuição de Linux | Versão |
   | --------------- | ----------- |
   | Ubuntu 17.10    | `artful`    |
   | Ubuntu 17.04    | `zesty`     |
@@ -151,7 +152,7 @@ Para criar o projeto sem um repositório de Git local, utilize o `--no-source-co
 
 ## <a name="register-extensions"></a>Registar extensões
 
-Versão 2 do tempo de execução das funções do Azure, tem explicitamente de registar o [enlace extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) que utilizar na sua aplicação de função. 
+Versão 2 do tempo de execução das funções do Azure, tem de registar explicitamente as extensões de enlace (tipos de enlace) que utiliza na sua aplicação de função.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -275,7 +276,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="debug-in-vs-code-or-visual-studio"></a>Depurar no VS Code ou no Visual Studio
+### <a name="vs-debug"></a>Depurar no VS Code ou no Visual Studio
 
 Para anexar um depurador, transmitir o `--debug` argumento. Para depurar funções JavaScript, utilize o Visual Studio Code. C# funciona, para utilizar o Visual Studio.
 
@@ -407,5 +408,5 @@ No ficheiro de um pedido de erros ou funcionalidade, [abrir um problema no GitHu
 <!-- LINKS -->
 
 [Ferramentas de núcleos de funções do Azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[portal do Azure]: https://portal.azure.com 
+[Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

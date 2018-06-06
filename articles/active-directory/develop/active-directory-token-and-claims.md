@@ -17,11 +17,12 @@ ms.date: 05/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801869"
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token. 
@@ -55,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT afirmação | Nome | Descrição |
 | --- | --- | --- |
 | `aud` |Audiência |O destinatário do token. A aplicação que recebe o token tem de verificar que o valor de audiência está correto e rejeitar quaisquer tokens se destina a um público-alvo diferentes. <br><br> **Valor de SAML do exemplo**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valor de JWT exemplo**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Referência de classe de contexto de autenticação de aplicação |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se estiver a ID de cliente e o segredo do cliente, o valor é 1. <br><br> **Valor de JWT exemplo**: <br> `"appidacr": "0"` |
+| `appidacr` |Referência de classe de contexto de autenticação de aplicação |Indica como o cliente foi autenticado. Para um cliente público, o valor é 0. Se estiver a ID de cliente e o segredo do cliente, o valor é 1. Se um certificado de cliente foi utilizado para autenticação, o valor é 2. <br><br> **Valor de JWT exemplo**: <br> `"appidacr": "0"` |
 | `acr` |Referência de classe de contexto de autenticação |Indica como o requerente foi autenticado, em vez do cliente na afirmação de referência de classe de contexto de autenticação de aplicação. Um valor de "0" indica que a autenticação de utilizador final não cumpria os requisitos da norma ISO/IEC 29115. <br><br> **Valor de JWT exemplo**: <br> `"acr": "0"` |
 | Autenticação instantânea |Regista a data e hora quando ocorreu a autenticação. <br><br> **Valor de SAML do exemplo**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Método de Autenticação |Identifica como o assunto do token foi autenticado. <br><br> **Valor de SAML do exemplo**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Valor de JWT exemplo**: `“amr”: ["pwd"]` |
@@ -152,21 +153,31 @@ Para obter uma lista completa das validações de afirmação a aplicação deve
 ## <a name="token-revocation"></a>Revogação token
 
 Atualizar tokens podem invalidados ou revogados em qualquer altura, por diversos motivos. Estes enquadram-se em duas categorias principais: tempos limite e revocations. 
-* Tempos limite de token
-  * MaxInactiveTime: Se o token de atualização não foi utilizado no período de tempo ditado pelo MaxInactiveTime, o Token de atualização já não será válido. 
-  * MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ter sido definido para algo que os respetivos predefinido (até-revogados), em seguida, reautenticação será necessária após período de tempo definido em MaxAgeSession *. 
-  * Exemplos:
-    * O inquilino tem um MaxInactiveTime de 5 dias e o utilizador Ocorreu de férias durante uma semana e, por isso, AAD não vistos um novo pedido de token do utilizador dentro de 7 dias. Da próxima vez que o utilizador solicitar um novo token, irão encontrar os tokens de atualização foi revogado e tem de introduzir as respetivas credenciais novamente. 
-    * Aplicações confidenciais tem um MaxAgeSessionSingleFactor de 1 dia. Se um utilizador iniciar sessão na segunda-feira e na Terça-feira (após 25 horas decorridos), irá ser necessário para autenticar novamente. 
-* Revogação
-  * Alteração de palavra-passe voluntária: Se um utilizador altera a palavra-passe, poderá têm de autenticar novamente em algumas das respetivas aplicações, dependendo do modo como o token foi attained. Ver notas abaixo para exceções. 
-  * Alteração de palavra-passe involuntary: Se um administrador força um utilizador para alterar a palavra-passe ou repõe-lo, em seguida, tokens do utilizador são também invalidados se de que foram attained utilizando a palavra-passe. Ver notas abaixo para exceções. 
-  * Violação de segurança: Em caso de uma violação de segurança (por exemplo, o arquivo local de palavras-passe é quebrado) o administrador pode revogar todos os tokens de atualização atualmente emitidos. Isto irá forçar a todos os utilizadores para autenticar novamente. 
+
+**Tempos limite de token**
+
+* MaxInactiveTime: Se o token de atualização não foi utilizado no período de tempo ditado pelo MaxInactiveTime, o Token de atualização já não será válido. 
+* MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ter sido definido para algo que os respetivos predefinido (até-revogados), em seguida, reautenticação será necessária após período de tempo definido em MaxAgeSession *. 
+* Exemplos:
+  * O inquilino tem um MaxInactiveTime de 5 dias e o utilizador Ocorreu de férias durante uma semana e, por isso, AAD não vistos um novo pedido de token do utilizador dentro de 7 dias. Da próxima vez que o utilizador solicitar um novo token, irão encontrar os tokens de atualização foi revogado e tem de introduzir as respetivas credenciais novamente. 
+  * Aplicações confidenciais tem um MaxAgeSessionSingleFactor de 1 dia. Se um utilizador iniciar sessão na segunda-feira e na Terça-feira (após 25 horas decorridos), irá ser necessário para autenticar novamente. 
+
+**Revogação**
+
+|   | Cookie de palavra-passe com base | Token de palavra-passe com base | Cookie baseada em palavra-passe de não | Token com base sem palavra-passe | Token do cliente confidencial| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Palavra-passe expira| Permanece ativo|Permanece ativo|Permanece ativo|Permanece ativo|Permanece ativo|
+|Palavra-passe alterada pelo utilizador| Revogado | Revogado | Permanece ativo|Permanece ativo|Permanece ativo|
+|Utilizador executa SSPR|Revogado | Revogado | Permanece ativo|Permanece ativo|Permanece ativo|
+|Administrador repõe a palavra-passe|Revogado | Revogado | Permanece ativo|Permanece ativo|Permanece ativo|
+|Utilizador revoga os tokens de atualização [através do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado |Revogado | Revogado |
+|Administração revoga todos os tokens de atualização para o inquilino [através do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado |Revogado | Revogado |
+|[Início de sessão único limite](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) na web | Revogado | Permanece ativo |Revogado | Permanece ativo |Permanece ativo |Permanece ativo |
 
 > [!NOTE]
->Se um método de palavra-passe de autenticação era utilizado (Windows Hello, a aplicação de autenticação, a biometria como um rosto ou impressão digital) para obter um token, a alteração de palavra-passe do utilizador não irá forçar o utilizador novamente autenticado (mas irá forçar a respetiva aplicação de autenticador Para voltar autenticar). Isto acontece porque a autenticação escolhida de entrada (uma letra, por exemplo) não foi alterado e pode ser utilizado, por conseguinte, novamente para autenticar novamente.
+> Um início de sessão "sem palavra-passe com base" é uma em que o utilizador não escreva uma palavra-passe para obtê-lo.  Por exemplo, utilizando o tipo de letra com o Windows Hello, uma chave de FIDO ou um PIN. 
 >
-> Os clientes confidenciais não são afetados por revocations de alteração de palavra-passe. Um cliente confidencial com um token de atualização emitido antes de uma alteração de palavra-passe irá continuem a estar abl para utilizar esse token de atualização para obter os tokens mais. 
+> Existe um problema conhecido com o primário atualizar tokens do Windows.  Se o PRT é obtida através de uma palavra-passe e, em seguida, o utilizador iniciar sessão através de Olá, isso não altera a origem do PRT e será revogado se o utilizador altera a palavra-passe. 
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Configuração WeChat | Microsoft Docs'
+title: Configuração de WeChat no Azure Active Directory B2C | Microsoft Docs
 description: Forneça a inscrição e o início de sessão para consumidores com contas de WeChat nas aplicações que estejam protegidas pelo Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ca12c84042f92dafff67dc10ce6b56b77c0456eb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: bbdeccbdd0d6786fdf32fc2f547344b379bd0d7c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712492"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>O Azure Active Directory B2C: Proporcionar inscrição e o início de sessão aos consumidores com WeChat contas
 
@@ -29,7 +29,7 @@ Para utilizar WeChat como um fornecedor de identidade no Azure Active Directory 
 
 ### <a name="register-a-wechat-application"></a>Registar uma aplicação WeChat
 
-1. Aceda a [ https://open.weixin.qq.com/ ](https://open.weixin.qq.com/) e iniciar sessão.
+1. Aceda a [https://open.weixin.qq.com/](https://open.weixin.qq.com/) e inicie sessão.
 2. Clique em**管理中心**(Centro de gestão).
 3. Siga os passos necessários para registar uma nova aplicação.
 4. Para**授权回调域**(chamada de retorno URL), introduza `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Por exemplo, se sua `tenant_name` é contoso.onmicrosoft.com, definir o URL seja `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.

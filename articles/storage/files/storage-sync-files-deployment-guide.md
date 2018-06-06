@@ -1,11 +1,11 @@
 ---
-title: "Implementar a sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs"
-description: "Saiba como implementar a sincronização de ficheiros do Azure, do início ao fim."
+title: Implementar a sincronização de ficheiros do Azure (pré-visualização) | Microsoft Docs
+description: Saiba como implementar a sincronização de ficheiros do Azure, do início ao fim.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a450d3c00627a9b20ff2fe31c4dba49b33352ec1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738386"
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implementar a sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -33,7 +34,7 @@ Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azu
 * Pelo menos uma instância suportada do Windows Server ou cluster do Windows Server para sincronizar com sincronização de ficheiros do Azure. Para obter mais informações sobre as versões suportadas do Windows Server, consulte [interoperabilidade com o Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## <a name="deploy-the-storage-sync-service"></a>Implementar o serviço de sincronização de armazenamento 
-O serviço de sincronização de armazenamento é o recurso mais superior do Azure para a sincronização de ficheiros do Azure. Para implementar um serviço de sincronização do Storage, vá para o [portal do Azure](https://portal.azure.com/), clique em *novo* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **sincronização de ficheiros do Azure (pré-visualização)**e, em seguida, selecione **criar** para abrir o **implementar sincronização de armazenamento** separador.
+O serviço de sincronização de armazenamento é o recurso mais superior do Azure para a sincronização de ficheiros do Azure. Para implementar um serviço de sincronização do Storage, vá para o [portal do Azure](https://portal.azure.com/), clique em *novo* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **sincronização de ficheiros do Azure (pré-visualização)** e, em seguida, selecione **criar** para abrir o **implementar sincronização de armazenamento** separador.
 
 No painel que se abre, introduza as seguintes informações:
 
@@ -56,13 +57,16 @@ Para cada servidor que pretende utilizar com sincronização de ficheiros do Azu
     4. No **da configuração de segurança avançada do Internet Explorer** caixa de diálogo, selecione **desativar** para **administradores** e **utilizadores**:  
         ![A janela de pop da configuração de segurança avançada do Internet Explorer com "Desligado" selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-2. Certifique-se de que está a executar, pelo menos, 5.1 do PowerShell.\* (5.1 do PowerShell é a predefinição no Windows Server 2016). Pode verificar que está a executar 5.1 do PowerShell. \* ao observar o valor da **PSVersion** propriedade o **$PSVersionTable** objeto:
+2. Se estiver a utilizar o Windows Server 2012 R2, certifique-se de que está a executar, pelo menos, 5.1 do PowerShell. \*. Pode ignorar esta verificação no Windows Server 2016 com segurança como 5.1 do PowerShell é a predefinição versão out-of-box. No Windows Server 2012 R2, pode verificar que está a executar 5.1 do PowerShell. \* ao observar o valor da **PSVersion** propriedade o **$PSVersionTable** objeto:
 
     ```PowerShell
     $PSVersionTable.PSVersion
     ```
 
     Se o valor de PSVersion for inferior a 5.1. \*, como será o caso com a maioria das instalações do Windows Server 2012 R2, pode facilmente atualizar ao descarregar e instalar [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote adequado para transferir e instalar para o Windows Server 2012 R2 é **Win8.1AndW2K12R2 KB\*\*\*\*\*\*\*-x64.msu**.
+
+    > [!Note]  
+    > Sincronização de ficheiros do Azure ainda não suporta 6 do PowerShell no Windows Server 2012 R2 ou Windows Server 2016.
 
 3. [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Recomendamos que utilize a versão mais recente dos módulos do PowerShell do Azure.
 
@@ -91,6 +95,9 @@ Depois de iniciar sessão, serão apresentadas as seguintes informações:
 - **O serviço de sincronização de armazenamento**: O nome do serviço de sincronização de armazenamento com o qual pretende registar.
 
 Depois de selecionar as informações adequadas, selecione **registar** para concluir o registo do servidor. Como parte do processo de registo, é-lhe pedida uma adicional início de sessão.
+
+> [!Note]  
+> Um servidor só pode ser registado com um serviço de sincronização de armazenamento de cada vez.
 
 ## <a name="create-a-sync-group"></a>Criar um grupo de sincronização
 Um grupo de sincronização define a topologia de sincronização para um conjunto de ficheiros. Pontos finais dentro de um grupo de sincronização são mantidos sincronizados entre si. Um grupo de sincronização tem de conter ponto final de pelo menos uma nuvem, que representa uma partilha de ficheiros do Azure, e o ponto final de um servidor, que representa um caminho no Windows Server. Para criar um grupo de sincronização, no [portal do Azure](https://portal.azure.com/), aceda ao seu serviço de sincronização de armazenamento e, em seguida, selecione **+ o grupo de sincronização**:

@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 05/23/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5573399b33da64df8b9bbf78a9583572cf148d7b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713852"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Guia de introdução: Adicionar imagem corporativa à sua página de início de sessão no Azure AD
 Para evitar confusões, muitas empresas pretendem aplicar um aspeto e funcionalidade consistentes em todos os Web sites e serviços que gerem. Azure Active Directory (Azure AD) fornece esta capacidade ao permitir-lhe personalizar o aspeto da página de início de sessão com o logótipo da empresa e esquemas de cores personalizados. É apresentada a página de início de sessão quando iniciar sessão para aplicações baseadas na web, como o Office 365 que utilizam o Azure AD como o fornecedor de identidade. Interagir com esta página para introduzir as suas credenciais.
@@ -83,24 +84,24 @@ Azure AD início de sessão fornece ao utilizador a opção de permanecer com se
 ## <a name="add-company-branding-to-your-directory"></a>Adicionar a imagem corporativa para o seu diretório
 
 1. Inicie sessão no [o Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global do inquilino.
-2. Selecione **utilizadores e grupos** > **da empresa de imagem corporativa** > **editar**.
+2. Selecione **do Azure Active Directory** > **da empresa de imagem corporativa** > **editar**.
   
   ![Abrir a imagem corporativa personalizado](./media/customize-branding/navigation-to-branding.png)
 3. Modifique os elementos que pretende personalizar. Todos os elementos são opcionais.
   
   ![Editar a imagem corporativa personalizado](./media/customize-branding/edit-branding.png)
-5. Quando estiver pronto, selecione **guardar**.
+4. Quando estiver pronto, selecione **guardar**.
 
 Pode demorar até uma hora para todas as alterações efetuadas para a página de início de sessão de imagem corporativa sejam apresentados.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Adicionar a imagem corporativa específicas do idioma ao seu diretório
 
 1. Inicie sessão no [Centro de administradores do Azure AD](https://aad.portal.azure.com) com uma conta que seja administrador global do diretório.
-2. Selecione **utilizadores e grupos** > **da empresa de imagem corporativa** > **novo idioma**.
+2. Selecione **do Azure Active Directory** > **da empresa de imagem corporativa** > **novo idioma**.
   
   ![Adicionar elementos de imagem corporativa específicas do idioma](./media/customize-branding/add-language.png)
-5. Modifique os elementos que pretende personalizar. Todos os elementos são opcionais.
-6. Quando estiver pronto, selecione **guardar**.
+3. Modifique os elementos que pretende personalizar. Todos os elementos são opcionais.
+4. Quando estiver pronto, selecione **guardar**.
 
 Pode demorar até uma hora para todas as alterações efetuadas para a página de início de sessão de imagem corporativa sejam apresentados.
 

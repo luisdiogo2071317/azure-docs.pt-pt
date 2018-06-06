@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d93f79874ff65a1b6bb7ddd75932111c5caa6072
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 83204132a7494dc766420520eeaf2362c98d878f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801818"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -59,7 +60,7 @@ A tabela seguinte mostra uma lista dos sistemas operativos suportados:
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
@@ -284,7 +285,7 @@ Implementar atualizações de classificação de atualização não pode funcion
 
 Esta secção disponibiliza informações para ajudar a resolver problemas com a solução Gestão de Atualizações.
 
-Se ocorrerem problemas ao tentar integrar a solução ou uma máquina virtual, consulte o registo de eventos **Registos de Aplicações e Serviços\Operations Manager** para eventos com o ID 4502 e mensagens de evento com **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. A tabela seguinte realça as mensagens de erro específicas e uma resolução possível para cada uma.
+Se ocorrerem problemas ao tentar carregar a solução ou uma máquina virtual, verifique o **aplicação e o Gestor de serviços de Logs\Operations** registo de eventos no computador local para eventos com a mensagem de evento ID 4502 e eventos que contém **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. A tabela seguinte realça as mensagens de erro específicas e uma resolução possível para cada uma.
 
 | Mensagem | Razão | Solução |
 |----------|----------|----------|

@@ -3,7 +3,7 @@ title: Conclua uma revisão do acesso para recursos do Azure utilizando o Privil
 description: Descreve como concluir uma revisão do acesso para recursos do Azure.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1dd5eb4a2a0a4edd15e5299754028570806db09b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699459"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Conclua uma revisão do acesso para recursos do Azure utilizando o Privileged Identity Management
 Os administradores de com função privilegiada podem rever o acesso privilegiado após um [revisão de segurança tiver sido iniciado](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos do Azure envia uma mensagem de e-mail que solicita aos utilizadores para rever o respetivo acesso automaticamente. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como executar uma revisão de segurança](pim-resource-roles-perform-access-review.md).

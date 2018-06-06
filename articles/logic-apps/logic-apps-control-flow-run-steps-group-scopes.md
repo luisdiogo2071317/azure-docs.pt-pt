@@ -1,29 +1,25 @@
 ---
-title: "Executados passos com base na agrupados estado da ação - Azure Logic Apps | Microsoft Docs"
-description: "Ações para âmbitos de grupo e executar passos com base no estado de grupo"
+title: Adicionar âmbitos executam ações com base no estado do grupo - Azure Logic Apps | Microsoft Docs
+description: Como criar âmbitos que executam ações de fluxo de trabalho com base no estado de ação de grupo no Azure Logic Apps
 services: logic-apps
-keywords: ramos, processamento efetuada em paralelo
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: c6f6b54e17d12ff21d50748810699e78e3a14757
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726385"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Âmbitos: Execute passos com base no estado de grupo nas logic apps
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Crie âmbitos que executam ações de fluxo de trabalho com base no estado de grupo no Azure Logic Apps
 
-Para executar os passos apenas depois de outro grupo de ações ou não bem-sucedidos, colocar desse grupo dentro de um *âmbito*. Esta estrutura é útil quando pretender organizar ações como um grupo lógico, avaliar o estado desse grupo e executar ações que são baseadas no estado do âmbito. Depois de todas as ações num âmbito termine a execução, o âmbito também obtém o seu próprio Estado. Por exemplo, pode utilizar âmbitos quando pretender implementar [exceções e processamento de erros](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Para executar ações apenas depois de outro grupo de ações ou não bem-sucedidos, grupo essas ações dentro de um *âmbito*. Esta estrutura é útil quando pretender organizar ações como um grupo lógico, avaliar o estado desse grupo e executar ações que são baseadas no estado do âmbito. Depois de todas as ações num âmbito termine a execução, o âmbito também obtém o seu próprio Estado. Por exemplo, pode utilizar âmbitos quando pretender implementar [exceções e processamento de erros](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Para verificar o estado de um âmbito, pode utilizar os mesmos critérios que utilizar para determinar uma lógica das aplicações executam Estado, tais como "Com êxito", "Falha", "Cancelada" e assim sucessivamente. Por predefinição, quando as ações do âmbito for bem-sucedida, o âmbito está marcada como "Com êxito." Mas quando qualquer ação no âmbito de falha ou cancelamento, estado do âmbito está marcada como "Falhado". Para os limites nos âmbitos de mensagens em fila, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -84,7 +80,7 @@ Pode guardar a sua aplicação lógica em qualquer altura, por isso, muitas veze
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*start*> | Introduza a origem da rota. | 
-      | **Waypoint 2** | <*end*> | Introduza o destino da rota. | 
+      | **Waypoint 2** | <*Fim*> | Introduza o destino da rota. | 
       | **Avoid** | Nenhuma | Introduza itens para evitar no seu rota, como highways, tolls e assim sucessivamente. Para os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimize** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como a distância, o período de tempo com as informações atuais do tráfego e assim sucessivamente. Este exemplo utiliza este valor: "timeWithTraffic" | 
       | **Distance unit** | <*your-preference*> | Introduza a unidade de distância para calcular a rota. Este exemplo utiliza este valor: "Mile" | 
@@ -153,7 +149,7 @@ Pode guardar a sua aplicação lógica em qualquer altura, por isso, muitas veze
 
 Em seguida, adicione um âmbito para que possam grupo ações específicas e avaliar o respetivo estado.
 
-## <a name="add-a-scope"></a>Adicionar um âmbito
+## <a name="add-a-scope"></a>Adicionar âmbito
 
 1. Se ainda não o tiver feito, abra a aplicação lógica no Designer de aplicação lógica. 
 
@@ -162,7 +158,7 @@ Em seguida, adicione um âmbito para que possam grupo ações específicas e ava
    * Para adicionar um âmbito de entre os passos existentes no fluxo de trabalho de aplicação lógica, mova o ponteiro sobre na seta para onde pretende adicionar o âmbito. 
    Escolha o **sinal** (**+**) > **adicionar um âmbito**.
 
-     ![Adicionar um âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+     ![Adicionar âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
      Quando pretender adicionar um âmbito no fim do fluxo de trabalho, na parte inferior da sua aplicação lógica, escolha **+ novo passo** > **... Mais** > **adicionar um âmbito**.
 

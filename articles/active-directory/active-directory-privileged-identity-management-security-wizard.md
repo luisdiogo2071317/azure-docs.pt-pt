@@ -3,7 +3,7 @@ title: O Assistente de segurança do Azure AD Privileged Identity Management
 description: Na primeira vez, utilizar a extensão do Azure Active Directory Privileged Identity Management, será apresentada com um Assistente de segurança. Este artigo descreve os passos para utilizar o assistente.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 02/27/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 4b3856d74b1109b20a1ff9f93b76ee36b66ee312
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9df4e011ef5544f7074f4ac6338dd86bbb305a04
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698218"
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Utilizar o Assistente de segurança no Azure AD Privileged Identity Management 
 Se for a primeira pessoa a execução do Azure Privileged Identity Management (PIM) para a sua organização, será apresentada com um assistente. O assistente ajuda-o a compreender os riscos de segurança das identidades privilegiadas e como utilizar o PIM para reduzir os riscos. Não precisa de fazer alterações ao atribuições de funções existente no assistente, se preferir fazê-lo mais tarde.

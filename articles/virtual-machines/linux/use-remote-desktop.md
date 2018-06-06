@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716623"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar o ambiente de trabalho remoto para ligar a uma VM com Linux no Azure
 Máquinas de virtuais (VMs) com Linux no Azure, normalmente, são geridas na linha de comandos utilizando uma ligação secure shell (SSH). Quando são novos para Linux ou para cenários de resolução de problemas rápidos, a utilização de ambiente de trabalho remoto pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de trabalho ([xfce](https://www.xfce.org)) e o ambiente de trabalho remoto ([xrdp](http://www.xrdp.org)) para a VM com Linux utilizando o modelo de implementação Resource Manager.
@@ -36,7 +37,7 @@ A maioria das VMs com Linux no Azure não dispõe de um ambiente de trabalho ins
 
 O exemplo seguinte instala o lightweight [xfce4](https://www.xfce.org/) ambiente de trabalho numa VM com Ubuntu 16.04 LTS. Os comandos para outras distribuições variam ligeiramente (utilizar `yum` para instalar no Red Hat Enterprise Linux e configurar adequado `selinux` regras ou utilize `zypper` para instalar no SUSE, por exemplo).
 
-Primeiro, SSH para a VM. O exemplo seguinte estabelece ligação à VM com o nome *myvm.westus.cloudapp.azure.com* com o nome de utilizador de *azureuser*:
+Primeiro, SSH para a VM. O exemplo seguinte estabelece ligação à VM com o nome *myvm.westus.cloudapp.azure.com* com o nome de utilizador de *azureuser*. Utilize os seus próprios valores:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -85,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra de grupo de segurança de rede para tráfego de ambiente de trabalho remoto
 Para permitir tráfego de ambiente de trabalho remoto para aceder a VM com Linux, de segurança de rede tem de regra de grupo ser criado que permite que o TCP na porta 3389 alcançar a VM. Para obter mais informações sobre regras do grupo de segurança de rede, consulte [que é um grupo de segurança de rede?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Também pode [utilizar o portal do Azure para criar uma regra de grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-O exemplo seguinte cria uma regra de grupo de segurança de rede com [az vm open-porta](/cli/azure/vm#az_vm_open_port) na porta *3389*.
+O exemplo seguinte cria uma regra de grupo de segurança de rede com [az vm open-porta](/cli/azure/vm#az-vm-open-port) na porta *3389*. O 2.0 CLI do Azure, não a sessão SSH para a VM, abra a seguinte regra de grupo de segurança de rede:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

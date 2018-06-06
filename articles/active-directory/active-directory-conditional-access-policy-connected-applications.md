@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: afd29c83a69742d17e7cadda50c0054133458b68
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736614"
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurar políticas de acesso condicional baseado no dispositivo do Azure Active Directory
 
@@ -50,7 +52,7 @@ Para obter um dispositivo registado com o Azure AD, tem três opções:
 
 - **[Azure AD registado dispositivos](device-management-introduction.md#azure-ad-registered-devices)**  - para obter um dispositivo pessoal registado com o Azure AD
 
-- **[Dispositivos associados ao Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  - para obter um dispositivo organizacional do Windows 10 que não está associado a um local registado AD registado com o Azure AD. 
+- **[Dispositivos associados ao Azure AD](device-management-introduction.md#azure-ad-joined-devices)**  - para obter um dispositivo organizacional do Windows 10 que não está associado a um local AD registado com o Azure AD. 
 
 - **[Dispositivos associados ao Azure AD híbrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - para obter um dispositivo Windows 10 que está associado a um local AD registado com o Azure AD.
 

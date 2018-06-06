@@ -1,5 +1,5 @@
 ---
-title: "Como informação do Estado e restaurar na base de dados do Azure para PostgreSQL"
+title: Como informação do Estado e restaurar na base de dados do Azure para PostgreSQL
 description: Descreve como extrair uma base de dados PostgreSQL para um ficheiro de captura e restauro de um ficheiro criado pelo pg_dump na base de dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f74c60cb99ee5bae1af8e000ebbd21b41600638d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 06/01/2018
+ms.openlocfilehash: 586df8d72dc05104bbf589eabcf3bd2245c268c8
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737253"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a base de dados PostgreSQL através de captura e restauro
 Pode utilizar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair uma base de dados PostgreSQL para um ficheiro de informação e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.
@@ -35,6 +36,10 @@ Por exemplo, se tiver um servidor local e uma base de dados chamado **testdb** n
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
+> [!IMPORTANT]
+> Copie os ficheiros de cópia de segurança para um blob do Azure/arquivo e efetuar o restauro a partir daí, o que deve ser muito mais rápida do que efetuar o restauro através da Internet.
+> 
+
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restaurar os dados para o base de dados do Azure de destino para PostrgeSQL utilizando pg_restore
 Assim que tiver criado a base de dados de destino, pode utilizar o comando pg_restore e -d, parâmetro – dbname para restaurar os dados na base de dados de destino do ficheiro de informação.
 ```bash
@@ -48,4 +53,5 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para migrar uma base de dados PostgreSQL exportação e importação a utilizar, consulte [migrar a base de dados PostgreSQL utilizando a exportação e importação](howto-migrate-using-export-and-import.md)
+- Para migrar uma base de dados PostgreSQL exportação e importação a utilizar, consulte [migrar a base de dados PostgreSQL utilizando a exportação e importação](howto-migrate-using-export-and-import.md).
+- Para obter mais informações sobre como migrar bases de dados para a base de dados do Azure para PostgreSQL, consulte o [guia de migração de base de dados](http://aka.ms/datamigration).

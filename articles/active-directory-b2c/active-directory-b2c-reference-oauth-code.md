@@ -1,21 +1,21 @@
 ---
-title: Fluxo de código de autorização - Azure AD B2C | Microsoft Docs
+title: Fluxo de código de autorização no Azure Active Directory B2C | Microsoft Docs
 description: Saiba como compilar aplicações web através do protocolo de autenticação do Azure AD B2C e o OpenID Connect.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d8ed5747f29f969535bbafc1624d9d02e54c8418
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0bb15fbc5461ec76a1450bbb9ca452a6f26c8d35
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711509"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Do Azure Active Directory B2C: Fluxo de código de autorização de OAuth 2.0
 Pode utilizar a concessão de código de autorização do OAuth 2.0 aplicações instaladas no dispositivo para obter acesso a recursos protegidos, como as APIs web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação de OAuth 2.0, pode adicionar inscrição, início de sessão e tarefas de outra gestão de identidades às suas aplicações de ambiente de trabalho e móveis. Este artigo é independente de idioma. O artigo, vamos descrevem como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de open source.
@@ -78,10 +78,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id |Necessário |O ID da aplicação atribuído à sua aplicação no [portal do Azure](https://portal.azure.com). |
 | response_type |Necessário |O tipo de resposta, tem de incluir `code` para que o fluxo de código de autorização. |
 | redirect_uri |Necessário |O URI de redirecionamento da sua aplicação, onde as respostas de autenticação são enviadas e recebidas pela sua aplicação. -Deve corresponder exatamente um do redirecionamento de URIs registados no portal, exceto que tem de ser codificados de URL. |
-| Âmbito |Necessário |Uma lista separada por espaço de âmbitos. Um valor único âmbito indica ao Azure Active Directory (Azure AD) ambas as permissões que estão a ser solicitada. O ID de cliente a utilizar como âmbito indica que a aplicação tem um token de acesso que pode ser utilizado contra o seu próprio serviço ou a web API, representada pelo mesmo ID de cliente.  O `offline_access` âmbito indica que a aplicação tem um token de atualização de longa duração acesso a recursos. Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
+| scope |Necessário |Uma lista separada por espaço de âmbitos. Um valor único âmbito indica ao Azure Active Directory (Azure AD) ambas as permissões que estão a ser solicitada. O ID de cliente a utilizar como âmbito indica que a aplicação tem um token de acesso que pode ser utilizado contra o seu próprio serviço ou a web API, representada pelo mesmo ID de cliente.  O `offline_access` âmbito indica que a aplicação tem um token de atualização de longa duração acesso a recursos. Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
 | response_mode |Recomendado |O método que utilizar para enviar o código de autorização resultante de volta à aplicação. Pode ser `query`, `form_post`, ou `fragment`. |
 | state |Recomendado |Um valor incluído no pedido de que é devolvido na resposta token. Pode ser uma cadeia de todos os conteúdos que pretende utilizar. Normalmente, um valor exclusivo gerado aleatoriamente é utilizado, para impedir ataques de falsificação de pedidos entre sites. O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página que do utilizador estava no, ou a política que estava a ser executada. |
-| p |Necessário |A política que é executada. É o nome de uma política que é criado no diretório do Azure AD B2C. O valor de nome de política deve iniciar com **b2c\_1\_**. Para saber mais sobre as políticas, consulte [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| P |Necessário |A política que é executada. É o nome de uma política que é criado no diretório do Azure AD B2C. O valor de nome de política deve iniciar com **b2c\_1\_**. Para saber mais sobre as políticas, consulte [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | linha de comandos |Opcional |O tipo de interação do utilizador que é necessário. Atualmente, o único valor válido é `login`, que força o utilizador introduza as suas credenciais desse pedido. O início de sessão único não entrarão em vigor. |
 
 Neste momento, é pedido ao utilizador para concluir o fluxo de trabalho da política. Isto poderá envolver o utilizador introduzir o respetivo nome de utilizador e palavra-passe, início de sessão com uma identidade de redes social, inscrever-se para o diretório ou qualquer outro número de passos. Ações de utilizador dependem como a política está definida.
@@ -130,10 +130,10 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-| p |Necessário |A política que utilizou para adquirir o código de autorização. Não é possível utilizar uma política diferente neste pedido. Tenha em atenção que o adicione este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
+| P |Necessário |A política que utilizou para adquirir o código de autorização. Não é possível utilizar uma política diferente neste pedido. Tenha em atenção que o adicione este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
 | client_id |Necessário |O ID da aplicação atribuído à sua aplicação no [portal do Azure](https://portal.azure.com). |
 | grant_type |Necessário |O tipo de concessão. Para que o fluxo de código de autorização, o tipo de concessão deve ser `authorization_code`. |
-| Âmbito |Recomendado |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O ID de cliente a utilizar como âmbito indica que a aplicação tem um token de acesso que pode ser utilizado contra o seu próprio serviço ou a web API, representada pelo mesmo ID de cliente.  O `offline_access` âmbito indica que a aplicação tem um token de atualização de longa duração acesso a recursos.  Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
+| scope |Recomendado |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O ID de cliente a utilizar como âmbito indica que a aplicação tem um token de acesso que pode ser utilizado contra o seu próprio serviço ou a web API, representada pelo mesmo ID de cliente.  O `offline_access` âmbito indica que a aplicação tem um token de atualização de longa duração acesso a recursos.  Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
 | código |Necessário |O código de autorização que obteve na primeira parte do fluxo. |
 | redirect_uri |Necessário |O URI da aplicação em que foi recebido o código de autorização de redirecionamento. |
 
@@ -154,7 +154,7 @@ Uma resposta com êxito de token tem o seguinte aspeto:
 | not_before |A hora em que o token é considerado válido, no tempo de época. |
 | token_type |O valor de tipo de token. O único tipo que suporte do Azure AD é portador. |
 | access_token |O assinado JSON Web tokens (JWT) que pediu. |
-| Âmbito |Os âmbitos que o token é válido para. Também pode utilizar âmbitos para tokens de cache para utilização posterior. |
+| scope |Os âmbitos que o token é válido para. Também pode utilizar âmbitos para tokens de cache para utilização posterior. |
 | expires_in |O período de tempo que o token é válido (em segundos). |
 | refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir tokens adicionais depois do token atual expira. Os tokens de atualização são longa duração. Pode utilizá-los para manter o acesso a recursos para períodos de tempo prolongados. Para obter mais informações, consulte o [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 
@@ -194,11 +194,11 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-| p |Necessário |A política que utilizou para adquirir o token de atualização original. Não é possível utilizar uma política diferente neste pedido. Tenha em atenção que o adicione este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
+| P |Necessário |A política que utilizou para adquirir o token de atualização original. Não é possível utilizar uma política diferente neste pedido. Tenha em atenção que o adicione este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
 | client_id |Necessário |O ID da aplicação atribuído à sua aplicação no [portal do Azure](https://portal.azure.com). |
 | client_secret |Necessário |Client_secret associado à sua client_id no [portal do Azure](https://portal.azure.com). |
 | grant_type |Necessário |O tipo de concessão. Para esta parte do fluxo de código de autorização, o tipo de concessão deve ser `refresh_token`. |
-| Âmbito |Recomendado |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O ID de cliente a utilizar como âmbito indica que a aplicação tem um token de acesso que pode ser utilizado contra o seu próprio serviço ou a web API, representada pelo mesmo ID de cliente.  O `offline_access` âmbito indica que a sua aplicação terá um token de atualização de longa duração acesso a recursos.  Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
+| scope |Recomendado |Uma lista separada por espaço de âmbitos. Indica um valor único âmbito para o Azure AD ambas as permissões que estão a ser solicitada. O ID de cliente a utilizar como âmbito indica que a aplicação tem um token de acesso que pode ser utilizado contra o seu próprio serviço ou a web API, representada pelo mesmo ID de cliente.  O `offline_access` âmbito indica que a sua aplicação terá um token de atualização de longa duração acesso a recursos.  Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
 | redirect_uri |Opcional |O URI da aplicação em que foi recebido o código de autorização de redirecionamento. |
 | refresh_token |Necessário |O token de atualização original que obteve na segunda parte do fluxo. |
 
@@ -219,7 +219,7 @@ Uma resposta com êxito de token tem o seguinte aspeto:
 | not_before |A hora em que o token é considerado válido, no tempo de época. |
 | token_type |O valor de tipo de token. O único tipo que suporte do Azure AD é portador. |
 | access_token |O JWT assinado que pediu. |
-| Âmbito |Os âmbitos que o token é válido para. Também pode utilizar os âmbitos para tokens de cache para utilização posterior. |
+| scope |Os âmbitos que o token é válido para. Também pode utilizar os âmbitos para tokens de cache para utilização posterior. |
 | expires_in |O período de tempo que o token é válido (em segundos). |
 | refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir tokens adicionais depois do token atual expira. Atualizar são os tokens e pode ser utilizados para manter o acesso a recursos para períodos de tempo prolongados. Para obter mais informações, consulte o [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 

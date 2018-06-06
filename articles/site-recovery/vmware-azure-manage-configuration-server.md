@@ -1,44 +1,51 @@
 ---
 title: Gerir o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como gerir um servidor de configuração existente para a recuperação de desastre do VMware para o Azure com o Azure Site Recovery.
+description: Este artigo descreve como gerir um servidor de configuração existente para a recuperação de desastres do VMware para o Azure com RecoveryS de Site do Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 06/04/2018
+ms.author: raynew
+ms.openlocfilehash: 64f5f2105a9048d649503b0790231676182a4c4f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737508"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerir o servidor de configuração para as VMs de VMware
 
 Configurar um servidor de configuração no local ao utilizar [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. O servidor de configuração coordena as comunicações entre no local VMware e o Azure e gere a replicação de dados. Este artigo resume tarefas comuns para gerir o servidor de configuração após a respetiva implementação.
 
 
+
 ## <a name="modify-vmware-settings"></a>Modificar as definições de VMware
 
-Modificar definições para o servidor VMware ao qual se liga o servidor de configuração.
+Pode aceder ao servidor de configuração da seguinte forma:
+    - Iniciar sessão para a VM no qual está implementada e iniciar o Azure Site Recovery Configuration Manager de atalho para o ambiente de trabalho.
+    - Em alternativa, pode aceder ao servidor de configuração remotamente a partir de **https://*ConfigurationServerName*/:44315 /**. Inicie sessão com as credenciais de administrador.
+   
+### <a name="modify-vmware-server-settings"></a>Modificar as definições do servidor VMware
 
-1. Inicie sessão no computador que executa o servidor de configuração.
-2. Inicie o Gestor de configuração de recuperação de Site do Azure de atalho para o ambiente de trabalho. Em alternativa, abra [esta ligação](https://configuration-server-name/IP:44315).
-3. Selecione **gerir vCenter Server/vSPhere ESXi servidor**, e, em seguida, efetue o seguinte:
+1. Para associar um servidor diferente do VMware com o servidor de configuração, após o início de sessão, selecione **adicionar vCenter Server/vSphere ESXi servidor**.
+2. Introduza os detalhes e, em seguida, selecione **OK**.
 
-    * Para associar um servidor diferente do VMware com o servidor de configuração, selecione **adicionar vCenter Server/vSphere ESXi servidor**. Introduza os detalhes do servidor.
 
-    * Para atualizar as credenciais utilizadas para ligar ao servidor do VMware para a deteção automática de VMs de VMware, selecione **editar**. Introduza novas credenciais e, em seguida, selecione **OK**.
+### <a name="modify-credentials-for-automatic-discovery"></a>Modificar as credenciais para a deteção automática
+
+1. Para atualizar as credenciais utilizadas para ligar ao servidor do VMware para a deteção automática de VMs de VMware, após o início de sessão, selecione **editar**.
+2. Introduza novas credenciais e, em seguida, selecione **OK**.
 
     ![Modificar VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Modificar as credenciais para a instalação do serviço de mobilidade
 
 Modificar as credenciais utilizadas para instalar automaticamente o serviço de mobilidade nas VMs de VMware ativar para replicação.
 
-1. Inicie sessão no computador que executa o servidor de configuração.
-2. Inicie o Gestor de configuração de recuperação de Site a partir no atalho do ambiente de trabalho. Em alternativa, abra [esta ligação](https://configuration-server-name/IP:44315).
-3. Selecione **gerem credenciais de máquina virtual**e introduza as credenciais de novo. Em seguida, selecione **OK** para atualizar as definições.
+1. Após o início de sessão, selecione **gerem credenciais de máquina virtual**
+2. Introduza novas credenciais e, em seguida, selecione **OK**.
 
     ![Modificar as credenciais do serviço de mobilidade](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +53,15 @@ Modificar as credenciais utilizadas para instalar automaticamente o serviço de 
 
 Modificar as definições de proxy utilizadas pela máquina do servidor de configuração para acesso à internet para o Azure. Se tiver uma máquina do servidor de processo além do servidor de processo predefinido em execução na máquina do servidor de configuração, modifique as definições em ambas as máquinas.
 
-1. Inicie sessão no computador que executa o servidor de configuração.
-2. Inicie o Gestor de configuração de recuperação de Site a partir no atalho do ambiente de trabalho. Em alternativa, abra [esta ligação](https://configuration-server-name/IP:44315).
-3. Selecione **gerir conectividade**e atualize os valores de proxy. Em seguida, selecione **guardar** para atualizar as definições.
+1. Após o início de sessão ao servidor de configuração, selecionar **gerir conectividade**.
+2. Atualize os valores de proxy. Em seguida, selecione **guardar** para atualizar as definições.
 
 ## <a name="add-a-network-adapter"></a>Adicionar um adaptador de rede
 
-O modelo de abrir virtualização formato OVF () implementa o servidor de configuração de VM com um único adaptador de rede. Pode [adicionar um adaptador adicional para a VM)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas tem de adicioná-lo antes de registar o servidor de configuração no cofre.
+O modelo de abrir virtualização formato OVF () implementa o servidor de configuração de VM com um único adaptador de rede.
 
-Para adicionar um adaptador depois de registar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Em seguida, voltar a registar o servidor no cofre.
+- Pode [adicionar um adaptador adicional para a VM)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), mas deve adicioná-lo antes de registar o servidor de configuração no cofre.
+- Para adicionar um adaptador depois de registar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Em seguida, terá de voltar a registar o servidor no cofre.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Voltar a registar um servidor de configuração no cofre do mesmo
@@ -65,8 +72,8 @@ Pode registar o servidor de configuração no cofre do mesmo se for necessário.
   1. No cofre, abra **gerir** > **infraestrutura de recuperação de Site** > **servidores de configuração**.
   2. No **servidores**, selecione **transferir chave de registo** para transferir o ficheiro de credenciais do cofre.
   3. Inicie sessão máquina do servidor de configuração.
-  4. No **%ProgramData%\ASR\home\svagent\bin**, abra **cspsconfigtool.exe**.
-  5. No **registo de cofre** separador, selecione **procurar** e localize o ficheiro de credenciais do cofre que transferiu.
+  4. No **%ProgramData%\ASR\home\svsystems\bin**, abra **cspsconfigtool.exe**.
+  5. No **registo de cofre** separador, selecione **procurar**e localize o ficheiro de credenciais do cofre que transferiu.
   6. Se for necessário, forneça detalhes do servidor proxy. Em seguida, selecione **Registar**.
   7. Abra uma janela de comando do PowerShell de administrador e execute o seguinte comando:
 
@@ -88,15 +95,27 @@ Ligações para os update rollups para atualizar para todas as versões do servi
 
 Atualize o servidor da seguinte forma:
 
+1. O cofre, aceda a **gerir** > **infraestrutura de recuperação de Site** > **servidores de configuração**.
+2. Se estiver disponível uma atualização, é apresentada uma ligação no **versão do agente** > coluna.
+
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
+
 1. Transfira o ficheiro de instalador de atualização para o servidor de configuração.
-2. Faça duplo clique para executar o instalador.
-3. O instalador Deteta a versão atual em execução na máquina.
-4. Selecione **OK** para confirmar e executar a atualização. 
+
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Faça duplo clique para executar o instalador.
+2. O instalador Deteta a versão atual em execução na máquina. Clique em **Sim** para iniciar a atualização. 
+3. Quando a conclusão da atualização valida a configuração do servidor.
+
+    ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
+
+4. Clique em **concluir** para fechar o instalador.
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Elimine ou anular o registo de um servidor de configuração
 
-1. Desativar [desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as VMs no servidor de configuração.
+1. [Desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as VMs no servidor de configuração.
 2. [Desassocie](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [eliminar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de replicação do servidor de configuração.
 3. [Eliminar](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os anfitriões de servidores/vSphere vCenter que estão associados com o servidor de configuração.
 4. No cofre, abra **infraestrutura de recuperação de Site** > **servidores de configuração**.

@@ -1,31 +1,25 @@
 ---
 title: Arquitetura de solução de monitorização remota - Azure | Microsoft Docs
 description: Obter instruções sobre a arquitetura do acelerador de solução de monitorização remota.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757438"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Arquitetura de acelerador da solução de monitorização remota
 
 Monitorização remota [acelerador solução](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementa uma solução de monitorização ponto a ponto para várias máquinas em localizações remotas. A solução combina serviços-chave do Azure para fornecer uma implementação genérica do cenário de negócios. Pode utilizar a solução como um ponto de partida para a sua própria implementação e [personalizar](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) para satisfazer os seus requisitos empresariais específicos.
 
-Este artigo acompanha-o através de alguns dos elementos-chave da solução de monitorização remota para que possa compreender como funciona. Estes conhecimentos ajudam a:
+Este artigo explica alguns dos elementos-chave da solução de monitorização remota para permitir a compreender como funciona. Estes conhecimentos ajudam a:
 
 * Resolver problemas na solução.
 * Planear a forma de personalizar a solução para satisfazer os seus próprios requisitos específicos.
@@ -33,7 +27,7 @@ Este artigo acompanha-o através de alguns dos elementos-chave da solução de m
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
-O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitorização remota, overlaid no [arquitetura IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
+O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitorização remota overlaid no [arquitetura IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Arquitetura lógica](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -97,13 +91,13 @@ A solução inclui dois micro-serviços para processar a telemetria do dispositi
 
 O [telemetria-agent](https://github.com/Azure/telemetry-agent-dotnet) microsserviço:
 
-* Armazena a telemetria na base de dados do Cosmos.
+* Armazena a telemetria do BD Azure Cosmos.
 * Analisa o fluxo de telemetria dos dispositivos.
 * Gera alarmes, de acordo com as regras definidas.
 
-Os alarmes são armazenados na base de dados do Cosmos.
+Os alarmes são armazenados na base de dados do Azure Cosmos.
 
-O `telemetry-agent` microsserviço permite que o portal de solução ler a telemetria enviada a partir dos dispositivos. O portal de solução também utiliza este serviço para:
+O [telemetria-agent](https://github.com/Azure/telemetry-agent-dotnet) microsserviço permite que o portal de solução ler a telemetria enviada a partir dos dispositivos. O portal de solução também utiliza este serviço para:
 
 * Definir regras de monitorização, tais como os limiares que acionam alarmes
 * Obter a lista de alarmes passados.
@@ -114,9 +108,9 @@ Utilize o ponto de final RESTful fornecido por este microsserviço para gerir te
 
 O [adaptador de armazenamento](https://github.com/Azure/pcs-storage-adapter-dotnet) microsserviço é um adaptador à frente o serviço de armazenamento principal utilizado para o acelerador de solução. Proporciona uma coleção simples e o armazenamento de chave-valor.
 
-A implementação padrão do acelerador solução utiliza a BD do Cosmos como o serviço de armazenamento principal.
+A implementação padrão do acelerador solução utiliza a BD do Cosmos Azure como um serviço de armazenamento principal.
 
-A base de dados do Cosmos DB armazena dados no acelerador de solução. O **adaptador de armazenamento** microsserviço age como um adaptador para outros micro-serviços na solução de acesso nos serviços de armazenamento.
+A base de dados de base de dados do Azure Cosmos armazena dados no acelerador de solução. O **adaptador de armazenamento** microsserviço age como um adaptador para outros micro-serviços na solução de acesso nos serviços de armazenamento.
 
 ## <a name="presentation"></a>Apresentação
 
@@ -141,6 +135,8 @@ Se pretende explorar a documentação de código e o programador da origem, come
 
 * [Acelerador de solução de monitorização remota com o Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Acelerador de solução de monitorização remota com o Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Solution accelerator arquitetura de monitorização remota)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+Diagramas de arquitetura de solução detalhadas:
+* [Acelerador de solução de monitorização remota arquitetura](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Para obter mais informações concetuais sobre o acelerador de solução de monitorização remota, consulte [personalizar o acelerador solução](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

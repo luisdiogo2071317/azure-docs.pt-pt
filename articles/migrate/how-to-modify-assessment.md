@@ -4,13 +4,14 @@ description: Descreve como configurar e executar uma avaliação para migrar VMs
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
-ms.openlocfilehash: c826453dcbcaf2facfd58daa05b77decda7ae456
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73dab9c7eca53ecce44d43a9607fcc7426f9de8d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715511"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -24,12 +25,12 @@ ms.lasthandoff: 05/16/2018
 
     **Definição** | **Detalhes** | **Predefinição**
     --- | --- | ---
-    **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/> Migrar do Azure suporta atualmente a 30 regiões, incluindo leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, Canadá leste, Índia Central, EUA Central, leste da China, Norte da China, Ásia Oriental, EUA leste, Datacenters Central, Nordeste da Alemanha, EUA Leste 2, Japão Leste, oeste do Japão, Coreia Central, Coreia Sul, EUA Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, Sul da Índia, sul do RU, RU oeste, E.U.A. us Arizona, GOV us Texas, GOV us Virginia, EUA Centro Oeste, Europa Ocidental, Índia Ocidental, EUA oeste e US2 oeste. |  E.u. a oeste 2 é a localização predefinida.
-    **Redundância do armazenamento** | O tipo de redundância de armazenamento que as VMs do Azure vão utilizar após a migração. | O valor predefinido é [Armazenamento Localmente Redundante (LRS)](../storage/common/storage-redundancy-lrs.md). Migrar do Azure só suporta geridos com base em discos avaliações e discos geridos só suportam LRS, por conseguinte, a propriedade atualmente apenas tem a opção de LRS.
+    **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/> Atualmente, o Azure Migrate suporta 30 regiões, incluindo Alemanha Central, Ásia Oriental, Canadá Central, Coreia Central, EUA Central, EUA Centro-Norte, EUA Centro-Oeste, EUA Centro-Sul, EUA Leste, EUA Leste 2, EUA Oeste, EUA Oeste 2, Europa do Norte, Europa Ocidental, Índia Central, Índia Ocidental, Leste da Austrália, Leste da China, Leste do Canadá, Leste do Japão, Nordeste da Alemanha, Norte da China, Oeste do Japão, Oeste do Reino Unido, Sudeste Asiático, Sudeste da Austrália, Sul da Coreia, Sul da Índia, Sul do Brasil, Sul do Reino Unido, US Gov – Arizona, US Gov – Texas e US Gov – Virginia. |  E.u. a oeste 2 é a localização predefinida.
+    **Tipo de armazenamento** | Pode especificar o tipo de discos que pretende alocar no Azure. Esta propriedade é aplicável quando o critério de dimensionamento é como no local dimensionamento. Pode especificar o tipo de disco de destino como Premium gerido discos ou Standard discos geridos pelo. Para dimensionamento com base no desempenho, a recomendação de disco é feita automaticamente com base nos dados de desempenho das VMs. Tenha em atenção que só migrar do Azure suporta discos geridos para avaliação de migração. | O valor predefinido é discos Premium gerido (critério de dimensionamento como *tal como no local dimensionamento*).
     **Critérios de dimensionamento** | Os critérios a serem utilizados pelo Azure Migrate para encontrar VMs de tamanho adequado para o Azure. Pode dimensionar *com base no desempenho* ou dimensionar as VMs *como no local*, sem ter em conta o histórico do desempenho. | O dimensionamento baseado no desempenho é a opção predefinida.
     **Histórico de desempenho** | A duração a considerar para avaliar o desempenho das VMs. Esta propriedade só é aplicável se o critério de dimensionamento for  *dimensionamento baseado no desempenho*. | A predefinição é um dia.
     **Utilização de percentil** | O valor de percentil da amostra de desempenho definido para ser considerado para o dimensionamento certo. Esta propriedade só é aplicável se o critério de dimensionamento for  *dimensionamento baseado no desempenho*.  | A predefinição é o percentil 95.
-    **Série VM** | Pode especificar a série VM que gostaria de considerar para dimensionar. Por exemplo, se tiver um ambiente de produção que não pretende migrar para A série de VMs no Azure, pode excluir série A partir da lista ou série e o dimensionamento do lado direito serão efetuadas apenas na série de selecionado. | Por predefinição, estão selecionadas todas as séries VM.
+    **Série das VMs** | Pode especificar a série das VMs que gostaria de considerar para redimensionamento. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série e o redimensionamento será realizado apenas na série selecionada. | Por predefinição, estão selecionadas todas as séries VM.
     **Escalão de preço** | Pode especificar o [escalão de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) para as VMs de destino do Azure. Por exemplo, se estiver a planear a migração de um ambiente de produção, deve considerar o escalão Standard, que oferece baixa latência às VMs, mas pode ser mais dispendioso. Por outro lado, se tiver um ambiente de Dev/Test, deve considerar o escalão Básico que tem VMs com latência superior e custos reduzidos. | Por predefinição, é utilizado o escalão [Standard](../virtual-machines/windows/sizes-general.md).
     **Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. | A predefinição é 1,3 x.
     **Oferta** | A [Oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que se inscreveu. | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) é a predefinição.

@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713189"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -206,7 +208,7 @@ Para obter uma descrição geral da experiência de utilizador relacionadas, con
 
 - No **do Azure AD Identity Protection** painel, no **configurar** secção, clique em **início de sessão da política de risco**.
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/1014.png "ridk de política de utilizador")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/1014.png "política de risco do utilizador")
 
 
 
@@ -306,25 +308,25 @@ A caixa de diálogo relacionada fornece dois métodos diferentes para repor uma 
 ### <a name="user-risk-security-policy"></a>Política de segurança de risco do utilizador
 Uma política de segurança do utilizador risco é uma política de acesso condicional que avalia o nível de risco para um utilizador específico e aplica as ações de remediação e atenuação com base nas condições predefinidas e as regras.
 
-![Política do utilizador ridk](./media/active-directory-identityprotection/1009.png "ridk de política de utilizador")
+![Política de risco utilizador](./media/active-directory-identityprotection/1009.png "política de risco do utilizador")
 
 Azure AD Identity Protection ajuda a gerir a mitigação e remediação de utilizadores sinalizados para risco ao permitir-lhe:
 
 * Defina os utilizadores e grupos que a política aplica-se a:
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/1010.png "ridk de política de utilizador")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/1010.png "política de risco do utilizador")
 * Defina o utilizador risco nível limiar (baixa, média ou alta) que aciona a política:
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/1011.png "ridk de política de utilizador")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/1011.png "política de risco do utilizador")
 * Defina os controlos para ser imposta quando aciona a política:
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/1012.png "ridk de política de utilizador")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/1012.png "política de risco do utilizador")
 * Mude o estado da sua política:
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/403.png "registo do MFA")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/403.png "registo do MFA")
 * Rever e avaliar o impacto de uma alteração antes de ativar esta:
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/1013.png "ridk de política de utilizador")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/1013.png "política de risco do utilizador")
 
 Escolher um **elevada** limiar reduz o número de vezes que uma política é acionada e minimiza o impacto para os utilizadores.
 No entanto, exclui **baixa** e **média** utilizadores sinalizados para risco da política, o que poderá não segura identidades ou dispositivos que foram anteriormente suspeito ou conhecidos for comprometida.
@@ -347,7 +349,7 @@ Para obter uma descrição geral da experiência de utilizador relacionadas, con
 
 - No **do Azure AD Identity Protection** painel, no **configurar** secção, clique em **política do utilizador risco**.
 
-    ![Política do utilizador ridk](./media/active-directory-identityprotection/1009.png "ridk de política de utilizador")
+    ![Política de risco utilizador](./media/active-directory-identityprotection/1009.png "política de risco do utilizador")
 
 ### <a name="mitigating-user-risk-events"></a>Mitigar os eventos de risco do utilizador
 Os administradores podem definir uma política de segurança de risco do utilizador para impedir que os utilizadores após o início de sessão consoante o nível de risco.
@@ -366,7 +368,7 @@ Recomendamos que necessitam do Azure multi-factor authentication para inícios d
 * Fornece autenticação forte com uma gama de opções de verificação fácil
 * Desempenha uma função de chave na preparação da sua organização para proteger e recuperar os compromissos de conta
 
-![Política do utilizador ridk](./media/active-directory-identityprotection/1019.png "ridk de política de utilizador")
+![Política de risco utilizador](./media/active-directory-identityprotection/1019.png "política de risco do utilizador")
 
 Para obter mais detalhes, consulte [que é o Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 

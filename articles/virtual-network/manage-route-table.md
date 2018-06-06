@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726453"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rota
 
@@ -31,7 +32,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
 A conta iniciar sessão ou ligar ao Azure, tem de ser atribuída para a [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações adequadas listadas na [permissões ](#permissions).
@@ -93,6 +94,8 @@ Uma sub-rede pode ter zero ou uma tabela de rotas associada ao mesmo. Uma tabela
 3. Selecione **sub-redes** em **definições**.
 4. Selecione a sub-rede que pretende associar a tabela de rotas para.
 5. Selecione **tabela de rotas**, selecione de que pretende associar à sub-rede, em seguida, selecione a tabela de rotas **guardar**.
+
+Se a rede virtual está ligada a um gateway de VPN do Azure, não associe uma tabela de rota para o [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino 0.0.0.0/0. Se o fizer, pode impedir que o gateway de funcionar corretamente. Para obter mais informações sobre como utilizar 0.0.0.0/0 numa rota, consulte [encaminhamento de tráfego de rede Virtual](virtual-networks-udr-overview.md#default-route).
 
 **Comandos**
 
@@ -216,7 +219,7 @@ As rotas em vigor para cada interface de rede ligado a uma máquina virtual são
 
 Pode determinar o tipo de próximo salto entre uma máquina virtual e o endereço IP de outro recurso do Azure, um recurso no local ou um recurso na Internet. O do Azure ao determinar encaminhamento é útil quando a resolução de problemas de encaminhamento. Para concluir esta tarefa, tem de ter um observador de rede existente. Se não tiver um observador de rede existente, crie um seguindo os passos no [criar uma instância de observador de rede](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Na caixa de pesquisa na parte superior do portal, introduza *observador de rede* na caixa de pesquisa. Quando **observador de rede** aparece nos resultados da pesquisa, selecionados-lo.
+1. Na caixa de pesquisa na parte superior do portal, introduza *observador de rede* na caixa de pesquisa. Quando a opção **Observador de Rede** aparecer nos resultados de pesquisa, selecione-a.
 2. Selecione **próximo salto** em **as ferramentas de diagnóstico de rede**.
 3. Selecione o **subscrição** e **grupo de recursos** da máquina virtual de origem que pretende validar o encaminhamento do.
 4. Selecione o **Máquina Virtual**, **interface de rede** anexado à máquina virtual, e **endereço IP de origem** atribuído à interface de rede que pretende validar encaminhamento do.

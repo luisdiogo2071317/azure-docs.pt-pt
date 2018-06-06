@@ -8,22 +8,24 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8c9f772c9d3908e450961239797f6ce2bd4982e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801120"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor do Azure batch
 
-O Azure Batch permite-lhe executar e dimensionar grandes quantidades de batch de computação de tarefas no Azure. Até agora, as tarefas de lote foram executados diretamente em máquinas virtuais (VMs) num conjunto do Batch, mas agora pode configurar um conjunto do Batch para executar tarefas nos contentores do Docker. Este artigo mostra-lhe como utilizar o SDK .NET do Batch para criar um conjunto de nós de computação que suportam as tarefas em execução do contentor e como executar tarefas de contentor no conjunto.
+O Azure Batch permite-lhe executar e dimensionar grandes quantidades de batch de computação de tarefas no Azure. Tarefas do batch podem executar diretamente em máquinas virtuais (nós) no conjunto do Batch, mas também pode configurar um conjunto do Batch para executar tarefas nos contentores compatível com o Docker em nós. Este artigo mostra como criar um conjunto de nós de computação que suportam as tarefas em execução do contentor e, em seguida, executar tarefas de contentor no conjunto. 
 
-Utilizar contentores fornece uma forma fácil de executar tarefas de lote sem ter de gerir um ambiente e dependências para executar aplicações. Contentores implementar aplicações, como unidades de simples, portáteis, self-sufficient que podem executar uma variedade de ambientes. Por exemplo, pode criar e testar um contentor localmente e carregue a imagem do contentor para um registo no Azure ou noutro local. O modelo de implementação do contentor assegura que o ambiente de tempo de execução da sua aplicação é sempre corretamente instalado e configurado, independentemente de onde alojar a aplicação. Com base no contentor de tarefas no Batch também podem tirar partido das funcionalidades das tarefas de fora do contentor, incluindo pacotes de aplicações e gestão de ficheiros de recursos e ficheiros de saída. 
+Deve estar familiarizado com conceitos de contentor e como criar um conjunto do Batch e a tarefa. Os exemplos de código utilizam o .NET do Batch e SDKs do Python. Também pode utilizar outros SDKs do Batch e ferramentas, incluindo o portal do Azure, para criar conjuntos do Batch preparados para o contentor e executar tarefas de contentor.
 
-Este artigo pressupõe familiaridade com conceitos de contentor do Docker e como criar um conjunto do Batch e a tarefa utilizando o SDK .NET. Os fragmentos de código se destinam a ser utilizado numa aplicação de cliente semelhante para o [exemplo DotNetTutorial](batch-dotnet-get-started.md), e são exemplos de código que precisa para suportar aplicações de contentor no Batch.
+## <a name="why-use-containers"></a>Porquê utilizar contentores?
 
+Utilizar contentores fornece uma forma fácil de executar tarefas de lote sem ter de gerir um ambiente e dependências para executar aplicações. Contentores implementar aplicações, como unidades de simples, portáteis, self-sufficient que podem ser executados em vários ambientes diferentes. Por exemplo, pode criar e testar um contentor localmente e carregue a imagem do contentor para um registo no Azure ou noutro local. O modelo de implementação do contentor assegura que o ambiente de tempo de execução da sua aplicação está sempre corretamente instalado e configurado onde quer que aloja a aplicação. Com base no contentor de tarefas no Batch também podem tirar partido das funcionalidades das tarefas de fora do contentor, incluindo pacotes de aplicações e gestão de ficheiros de recursos e ficheiros de saída. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,107 +38,133 @@ Este artigo pressupõe familiaridade com conceitos de contentor do Docker e como
 
 * **Contas**: na sua subscrição do Azure, terá de criar uma conta do Batch e, opcionalmente, uma conta de armazenamento do Azure.
 
-* **Uma imagem VM suportados**: contentores só são suportados em conjuntos criados com a configuração de Máquina Virtual, a partir de imagens de detalhado na secção seguinte, "suportada imagens da máquina virtual". Se fornecer uma imagem personalizada, a aplicação tem de utilizar Azure Active Directory [autenticação (Azure AD)](batch-aad-auth.md) para executar cargas de trabalho com base no contentor. 
+* **Uma imagem VM suportados**: contentores só são suportados em conjuntos criados com a configuração de Máquina Virtual, a partir de imagens de detalhado na secção seguinte, "suportada imagens da máquina virtual". Se fornecer uma imagem personalizada, consulte as considerações na secção seguinte e os requisitos na [utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais](batch-custom-images.md). 
 
-
-## <a name="supported-virtual-machine-images"></a>Imagens de máquina virtual suportadas
-
-Tem de utilizar um Windows suportados ou imagem do Linux para criar um conjunto de VM nós de computação para cargas de trabalho do contentor.
-
-### <a name="windows-images"></a>Imagens do Windows
-
-Para cargas de trabalho do Windows contentor, atualmente, o Batch suporta imagens personalizadas que criar a partir de VMs do Docker em execução no Windows ou pode utilizar o Centro de dados do Windows Server 2016 com a imagem de contentores do Azure Marketplace. Esta imagem é compatível com o `batch.node.windows amd64` ID do SKU do agente de nó O tipo de contentor suportada está limitado ao Docker.
-
-### <a name="linux-images"></a>Imagens de Linux
-
-Para cargas de trabalho do Linux contentor Batch atualmente suporta imagens apenas personalizadas que criar a partir de VMs em execução Docker as distribuições de Linux seguintes: Ubuntu 16.04 LTS ou CentOS 7.3. Se optar por fornecer a sua imagem personalizada do Linux, consulte as instruções no [utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais](batch-custom-images.md).
-
-Para obter suporte do Docker, instalar [Docker Comunidade Edition (CE)](https://www.docker.com/community-edition) ou [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
-
-Se pretender tirar partido do desempenho GPU dos tamanhos NC do Azure ou NV VM, terá de instalar controladores NVIDIA na imagem. Além disso, tem de instalar e executar o utilitário de motor de Docker para NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-
-Para aceder à rede Azure RDMA, utilize os tamanhos de VM com capacidade RDMA, tais como A8, A9, H16r, H16mr ou NC24r. Os controladores RDMA necessários estão instalados nas imagens do CentOS 7.3 HPC e Ubuntu 16.04 LTS no Azure Marketplace. Para executar cargas de trabalho MPI, poderá ser necessária configuração adicional. Consulte [utilização com capacidade RDMA ou preparados para a GPU instâncias num conjunto do Batch](batch-pool-compute-intensive-sizes.md).
-
-
-## <a name="limitations"></a>Limitações
+### <a name="limitations"></a>Limitações
 
 * O batch fornece suporte RDMA apenas para contentores em execução em conjuntos do Linux.
 
+## <a name="supported-virtual-machine-images"></a>Imagens de máquina virtual suportadas
 
-## <a name="authenticate-using-azure-active-directory"></a>Autenticar com o Azure Active Directory
+Utilize um dos seguintes suportados Windows ou imagens de Linux para criar um conjunto de VM nós de computação para cargas de trabalho do contentor. Para obter mais informações sobre imagens do Marketplace que são compatíveis com o Batch, consulte [lista de imagens da máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images). 
 
-Se utilizar uma imagem VM personalizada para criar o conjunto do Batch, a aplicação cliente tem de ser autenticado utilizando a autenticação integrada do Azure AD (autenticação de chave partilhada não funciona). Antes de executar a aplicação, certifique-se de que registá-lo no Azure AD para estabelecer uma identidade para a mesma e especificar as respetivas permissões para outras aplicações.
+### <a name="windows-images"></a>Imagens do Windows
 
-Além disso, quando utilizar uma imagem VM personalizada, terá de conceder controlo de acesso IAM à aplicação aceder à imagem da VM. No portal do Azure, clique em **todos os recursos**, selecione a imagem do contentor e para o **(IAM) do controlo de acesso** secção da página de imagem, clique em **adicionar**. No **adicionar permissões** página, especifique um **função**, na **atribuir acesso**, selecione **utilizador do Azure AD, grupo ou aplicação**, em seguida, no  **Selecione** introduza o nome da aplicação.
+Para cargas de trabalho do Windows contentor, atualmente, o Batch suporta o **Datacenter do Windows Server 2016 com contentores** imagem no Azure Marketplace. Imagens de contentor de Docker só são suportadas no Windows.
 
-Na sua aplicação, transmita um token de autenticação do Azure AD quando cria o cliente do Batch. Se estiver a desenvolver utilizando o SDK .NET do Batch, utilize [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), conforme descrito nas [soluções de serviço de Batch de autenticar com o Active Directory](batch-aad-auth.md).
+Também pode criar imagens personalizadas de VMs em execução Docker no Windows.
 
+### <a name="linux-images"></a>Imagens de Linux
 
-## <a name="reference-a-vm-image-for-pool-creation"></a>Referência a uma imagem de VM para a criação de conjunto
+Para cargas de trabalho do Linux contentor, o Batch atualmente suporta as seguintes imagens de Linux publicadas pelo Microsoft Azure Batch no Azure Marketplace:
 
-No código da aplicação, fornecem uma referência à imagem de VM para utilizar na criação de nós de computação do conjunto. Fazê-lo através da criação de um [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) objeto. Pode especificar a imagem a utilizar das seguintes formas:
+* **CentOS para conjuntos de contentor do Azure Batch**
 
-* Se estiver a utilizar uma imagem personalizada, introduza um identificador de recurso do Azure Resource Manager para a imagem de máquina virtual. O identificador de imagem tem um formato de caminho, conforme mostrado no exemplo seguinte:
+* **CentOS (com controladores RDMA) para conjuntos de contentor do Azure Batch**
 
-  ```csharp
-  // Provide a reference to a custom image using an image ID
-  ImageReference imageReference = new ImageReference("/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.Compute/images/<imageName>");
-  ```
+* **Ubuntu Server para conjuntos de contentor do Azure Batch**
 
-    Para obter este ID de imagem do portal do Azure, abra **todos os recursos**, selecione a imagem personalizada e para o **descrição geral** secção da página de imagem, copie o caminho no **ID de recurso**.
+* **Ubuntu Server (com controladores RDMA) para conjuntos de contentor do Azure Batch**
 
-* Se estiver a utilizar um [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) de imagem, forneça um grupo de parâmetros que descrevem a imagem: o publicador, o tipo de oferta, SKU e versão da imagem, conforme indicado em [lista de imagens da máquina virtual](batch-linux-nodes.md#list-of-virtual-machine-images):
+Estas imagens são apenas suportadas para utilização em conjuntos do Azure Batch. Se a funcionalidade:
 
-  ```csharp
-  // Provide a reference to an Azure Marketplace image for
-  // "Windows Server 2016 Datacenter with Containers"
-  ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-with-Containers",
-    version: "latest");
-  ```
+* Um pré-instaladas [Moby](https://github.com/moby/moby) tempo de execução do contentor 
+
+* Controladores de NVIDIA GPU pré-instaladas, para simplificar a implementação em VMs do Azure N série
+
+* Imagens com ou sem pré-instaladas controladores RDMA; Estes controladores permite que os nós de agrupamento aceder à rede Azure RDMA quando implementados em tamanhos de VM com capacidade RDMA  
+
+Também pode criar imagens personalizadas de VMs em execução Docker das distribuições de Linux que é compatível com o Batch. Se optar por fornecer a sua imagem personalizada do Linux, consulte as instruções no [utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais](batch-custom-images.md).
+
+Para obter suporte de Docker sobre uma imagem personalizada, instalar [Docker Comunidade Edition (CE)](https://www.docker.com/community-edition) ou [Docker Enterprise Edition (EE)](https://www.docker.com/enterprise-edition).
+
+Considerações adicionais para utilizar uma imagem personalizada do Linux:
+
+* Para tirar partido do desempenho GPU dos tamanhos de série N do Azure ao utilizar uma imagem personalizada, de pré-instalação controladores NVIDIA. Além disso, tem de instalar o utilitário de motor de Docker para NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
+
+* Para aceder à rede Azure RDMA, utilize um tamanho VM com capacidade RDMA. Os controladores RDMA necessários estão instalados no imagens Ubuntu suportadas pelo Batch e CentOS HPC. Para executar cargas de trabalho MPI, poderá ser necessária configuração adicional. Consulte [utilização com capacidade RDMA ou preparados para a GPU instâncias num conjunto do Batch](batch-pool-compute-intensive-sizes.md).
 
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuração do contentor para o conjunto do Batch
 
-Para ativar um conjunto do Batch executar cargas de trabalho do contentor, tem de especificar [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) definições no agrupamento de [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) objeto.
+Para ativar um conjunto do Batch executar cargas de trabalho do contentor, tem de especificar [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) definições no agrupamento de [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) objeto. (Este artigo fornece ligações para a referência de API .NET do Batch. As definições correspondentes de [Batch Python](/python/api/azure.batch) API.)
 
-Pode criar um conjunto de contentor preparados com ou sem imagens prefetched contentor, conforme mostrado nos exemplos seguintes. O processo de extração (ou obtenção prévia) permite-lhe pré-carregar imagens contentor a partir do Hub de Docker ou outro registo de contentor na Internet. A vantagem de prefetching imagens do contentor é que quando tarefas primeiro iniciar a execução não têm de aguardar que a imagem do contentor transferir. A configuração do contentor obtém as imagens de contentor para as VMs quando o conjunto for criado. Tarefas que são executadas no conjunto, em seguida, podem referenciar a lista de imagens de contentor e opções de execução do contentor.
+Pode criar um conjunto de contentor preparados com ou sem imagens prefetched contentor, conforme mostrado nos exemplos seguintes. O processo de extração (ou obtenção prévia) permite-lhe pré-carregar imagens de contentor do Docker Hub ou outro registo de contentor na Internet. Para melhor desempenho, utilize um [registo de contentor do Azure](../container-registry/container-registry-intro.md) na mesma região que a conta do Batch.
 
+A vantagem de prefetching imagens do contentor é que quando tarefas primeiro iniciar a execução não têm de aguardar que a imagem do contentor transferir. A configuração do contentor obtém as imagens de contentor para as VMs quando o conjunto for criado. Tarefas que são executadas no conjunto, em seguida, podem referenciar a lista de imagens de contentor e opções de execução do contentor.
 
 
 ### <a name="pool-without-prefetched-container-images"></a>Conjunto sem imagens prefetched contentor
 
-Para configurar um conjunto de ativado o contentor de mensagens em fila sem imagens prefetched contentor, defina `ContainerConfiguration` e `VirtualMachineConfiguration` objetos conforme mostrado no exemplo seguinte. Este e os exemplos seguintes partem do princípio de que está a utilizar uma imagem personalizada do Ubuntu 16.04 LTS com o motor de Docker instalado.
+Para configurar um conjunto de ativado o contentor de mensagens em fila sem imagens prefetched contentor, defina `ContainerConfiguration` e `VirtualMachineConfiguration` objetos conforme mostrado no exemplo seguinte do Python. Este exemplo utiliza o Ubuntu Server para a imagem de conjuntos de contentor do Azure Batch no Marketplace.
 
-```csharp
-// Specify container configuration. This is required even though there are no prefetched images.
-ContainerConfiguration containerConfig = new ContainerConfiguration();
 
-// VM configuration
-VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
-    imageReference: imageReference,
-    containerConfiguration: containerConfig,
-    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+```python
+image_ref_to_use = batch.models.ImageReference(
+        publisher='microsoft-azure-batch',
+        offer='ubuntu-server-container',
+        sku='16-04-lts',
+        version='latest')
 
-// Create pool
-CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 4,
-    virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration);
+"""
+Specify container configuration. This is required even though there are no prefetched images.
+"""
 
-// Commit pool creation
-pool.Commit();
+container_conf = batch.models.ContainerConfiguration()
+
+new_pool = batch.models.PoolAddParameter(
+        id=pool_id,
+        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            container_configuration=container_conf,
+            node_agent_sku_id='batch.node.ubuntu 16.04'),
+        vm_size='STANDARD_D1_V2',
+        target_dedicated_nodes=1)
+...
 ```
 
 
 ### <a name="prefetch-images-for-container-configuration"></a>Prefetch imagens para a configuração do contentor
 
-Para prefetch imagens do contentor no conjunto, adicionar a lista de imagens de contentor (`containerImageNames`) para o `ContainerConfiguration`e atribua um nome de lista de imagens. O exemplo seguinte parte do princípio de que está a utilizar uma imagem personalizada do Ubuntu 16.04 LTS e prefetch uma imagem de TensorFlow de [Docker Hub](https://hub.docker.com). Este exemplo inclui uma tarefa de início que é executado no anfitrião VM em nós do conjunto. Poderá executar uma tarefa de início no anfitrião, por exemplo, para um servidor de ficheiros que pode ser acedido a partir os contentores de montagem.
+Para prefetch imagens do contentor no conjunto, adicionar a lista de imagens de contentor (`container_image_names`, no Python) para o `ContainerConfiguration`. 
+
+O exemplo de Python básico seguinte mostra como prefetch uma imagem de contentor Ubuntu padrão do [Docker Hub](https://hub.docker.com).
+
+```python
+image_ref_to_use = batch.models.ImageReference(
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
+
+"""
+Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
+"""
+
+container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+
+new_pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
+...
+```
+
+
+O seguinte exemplo de exemplo c# parte do princípio de que pretende prefetch uma imagem de TensorFlow de [Docker Hub](https://hub.docker.com). Este exemplo inclui uma tarefa de início que é executado no anfitrião VM em nós do conjunto. Poderá executar uma tarefa de início no anfitrião, por exemplo, para um servidor de ficheiros que pode ser acedido a partir os contentores de montagem.
 
 ```csharp
+
+ImageReference imageReference = new ImageReference(
+    publisher: "microsoft-azure-batch",
+    offer: "ubuntu-server-container",
+    sku: "16-04-lts",
+    version: "latest");
+
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
@@ -156,15 +184,13 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prefetch imagens a partir de um registo de contentor privada
 
-Também pode prefetch imagens contentor através da autenticação para um servidor de registo do contentor privada. No exemplo seguinte, o `ContainerConfiguration` e `VirtualMachineConfiguration` objetos utilizar uma imagem personalizada do Ubuntu 16.04 LTS e prefetch uma imagem de TensorFlow privada a partir de um registo de contentor do Azure privado.
+Também pode prefetch imagens contentor através da autenticação para um servidor de registo do contentor privada. No exemplo seguinte, o `ContainerConfiguration` e `VirtualMachineConfiguration` objetos prefetch uma imagem de TensorFlow privada a partir de um registo de contentor do Azure privado. A referência da imagem é o mesmo do exemplo anterior.
 
 ```csharp
 // Specify a container registry
@@ -191,9 +217,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
-
-// Commit pool creation
-pool.Commit();
+...
 ```
 
 
@@ -207,7 +231,22 @@ Se executar tarefas nas imagens de contentor, a [tarefas nuvem](/dotnet/api/micr
 
 Quando configura as definições de contentor, todos os diretórios em modo recursivo abaixo o `AZ_BATCH_NODE_ROOT_DIR` (a raiz de diretórios do Azure Batch no nó) estão mapeadas para o contentor, ambiente de tarefas todas as variáveis são mapeadas para o contentor e a linha de comandos de tarefas é executado no contentor.
 
-O exemplo de código no [obtenção prévia imagens para a configuração do contentor](#prefetch-images-for-container-configuration) mostrou como especificar uma configuração de contentor para uma tarefa de início. Exemplo de código seguinte mostra como especificar a configuração do contentor para uma tarefa de cloud:
+O seguinte fragmento de Python mostra uma linha de comandos básica com um contentor de Ubuntu solicitados do Hub de Docker. As opções de contentor executar são argumentos adicionais para o `docker create` comando que a tarefa é executada. Aqui, o `--rm` opção remove o contentor depois de concluída a tarefa.
+
+```python
+task_id = 'sampletask'
+task_container_settings = batch.models.TaskContainerSettings(
+    image_name='ubuntu', 
+    container_run_options='--rm')
+task = batch.models.TaskAddParameter(
+    id=task_id,
+    command_line='echo hello',
+    container_settings=task_container_settings
+)
+
+```
+
+O exemplo do c# seguinte mostra as definições de contentor básico de uma tarefa de cloud:
 
 ```csharp
 // Simple container task command
@@ -233,3 +272,5 @@ CloudTask containerTask = new CloudTask (
 * Para obter mais informações sobre como instalar e utilizar o Docker CE no Linux, consulte o [Docker](https://docs.docker.com/engine/installation/) documentação.
 
 * Para obter mais informações sobre como utilizar imagens personalizadas, consulte [utilizar uma imagem personalizada gerida para criar um conjunto de máquinas virtuais ](batch-custom-images.md).
+
+* Saiba mais sobre o [Moby projeto](https://mobyproject.org/), uma estrutura para a criação de sistemas baseados no contentor.

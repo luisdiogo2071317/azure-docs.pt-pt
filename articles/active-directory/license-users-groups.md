@@ -2,12 +2,13 @@
 title: Licenciar os utilizadores no Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre como licenciar si e aos utilizadores no Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7dc71b33f542cf49d8a0abdb16e6e2f21e5dc2a0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713750"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Início rápido: Licenciar utilizadores no Azure Active Directory
 Baseada no licenciamento do Azure AD serviços trabalho por ativar uma subscrição do Azure Active Directory (Azure AD) no seu inquilino do Azure. Depois da subscrição está ativa, capacidades de serviço são geridas por administradores do Azure AD e utilizadas pelos utilizadores licenciados. Ao adquirir o Enterprise Mobility + de segurança, Azure AD Premium ou Basic do Azure AD, o inquilino é atualizado com a subscrição, incluindo o respetivo período de validade e licenças pré-pago. Informações da sua subscrição, incluindo o número de licenças atribuídas ou disponíveis, estão disponíveis através do portal do Azure em **do Azure Active Directory** abrindo o **licenças** mosaico. O **licenças** painel também é o melhor local para gerir a suas atribuições de licenças.
@@ -64,7 +66,7 @@ Não há sem encargos durante inviting B2B utilizadores e atribuir-lhes a uma ap
 
 Não é necessário, mas se pretender fornecer acesso a paga funcionalidades do Azure AD, os utilizadores de convidado B2B têm de estar licenciados com adequado licenças do Azure AD. Um inquilino convidando com um Azure AD, uma licença paga pode atribuir a colaboração B2B direitos de utilizador a um utilizadores cinco convidados adicionais convidado para o inquilino. Para cenários e as informações, consulte [colaboração B2B licenciamento orientações](active-directory-b2b-licensing.md).
 
-## <a name="view-assigned-licenses"></a>Licenças de vista atribuída
+## <a name="view-assigned-licenses"></a>Ver licenças atribuídas
 
 Uma vista de resumo de licenças atribuídas e disponíveis é apresentada em **do Azure Active Directory** &gt; **licenças** &gt; **todos os produtos**.
 
@@ -85,7 +87,7 @@ Para remover uma licença, vá para o utilizador ou grupo e abra o **licenças**
 Não não possível remover o herdadas pelo utilizador de um grupo de licenças diretamente. Em vez disso, remova o utilizador o partir da qual estes são herdar a licença de grupo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este guia de introdução, aprendeu como atribuir licenças a utilizadores e grupos no diretório do Azure AD. 
 
 Pode utilizar a hiperligação seguinte para configurar as atribuições de licenças de subscrição no Azure AD a partir do portal do Azure.

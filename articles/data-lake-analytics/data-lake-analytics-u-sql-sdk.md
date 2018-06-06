@@ -1,28 +1,24 @@
 ---
-title: Execução de local do U-SQL de escala e teste com o SDK do Azure Data Lake U-SQL | Microsoft Docs
-description: Saiba como utilizar o SDK do Azure Data Lake U-SQL para tarefas de escala U-SQL local são executadas e teste com linha de comandos e interfaces de programação na estação de trabalho local.
+title: Executar e testar tarefas U-SQL localmente, utilizando o SDK do Azure Data Lake U-SQL
+description: Saiba como executar e testar tarefas U-SQL localmente utilizando a linha de comandos e interfaces na estação de trabalho local de programação.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737076"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Execução de local do U-SQL de escala e teste com o SDK do Azure Data Lake U-SQL
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar o U-SQL com o SDK do Azure Data Lake U-SQL
 
-Ao desenvolver scripts U-SQL, é comum para executar e teste U-SQL script localmente antes submetê-las com a nuvem. Data Lake do Azure fornece um pacote Nuget chamado SDK do Azure Data Lake U-SQL para este cenário, através do qual pode facilmente dimensionar a execução local do U-SQL e o teste. Também é possível integrar este teste U-SQL com o sistema de CI (integração contínua) para automatizar a compilação e testar.
+Ao desenvolver scripts U-SQL, é comum para executar e teste U-SQL script localmente antes submetê-las com a nuvem. Data Lake do Azure fornece um pacote Nuget chamado SDK do Azure Data Lake U-SQL para este cenário, através do qual pode facilmente dimensionar a executar o U-SQL e teste. Também é possível integrar este teste U-SQL com o sistema de CI (integração contínua) para automatizar a compilação e testar.
 
 Se que mais lhe interessam como manualmente local para executar e depurar o script U-SQL com ferramentas de GUI, pode utilizar as ferramentas do Azure Data Lake para Visual Studio para esse. Pode saber mais de [aqui](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -60,9 +56,9 @@ Pode utilizar um caminho relativo e um caminho absoluto local scripts U-SQL. O c
 
 |Caminho relativo|Caminho absoluto|
 |-------------|-------------|
-|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/abc/def/input.csv |D:\abc\def\input.csv|
+|/abc/def/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/Input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Diretório de trabalho
 
@@ -153,7 +149,7 @@ Seguem-se os argumentos opcionais para **executar**:
 |-UdoRedirect|Falso|Gerar a configuração de redirecionamento de assemblagem Udo|
 |-UseDatabase|master|Base de dados a utilizar para code-behind do registo de assemblagem temporário|
 |-Verbose|Falso|Mostrar saídas de detalhado de tempo de execução|
-|-WorkDir|Diretório Atual|Diretório para a utilização de compilador e saídas|
+|-WorkDir|Diretório atual|Diretório para a utilização de compilador e saídas|
 |-RunScopeCEP|0|Modo de ScopeCEP para utilizar|
 |-ScopeCEPTempPath|Temp|Caminho temporário a utilizar para dados de transmissão em fluxo|
 |-OptFlags| |Lista separada por vírgulas de sinalizadores de otimizador|
@@ -212,12 +208,12 @@ O **executar** comando é utilizado para executar resultados compilados.
 
 Seguem-se os argumentos opcionais para **executar**:
 
-|Argumento|Descrição|
-|--------|-----------|
-|-DataRoot [valor predefinido ']|Raiz dos dados para a execução de metadados. Assume como o **LOCALRUN_DATAROOT** variável de ambiente.|
-|-MessageOut [valor predefinido ']|Mensagens na consola para um ficheiro de imagem de erro.|
-|-Paralelo [valor predefinido '1']|Indicador de executar os passos de execução local gerados com o nível de paralelismo especificado.|
-|-Verbose [valor 'False' predefinido]|Indicador de Mostrar saídas de detalhado de tempo de execução.|
+|Argumento|Valor predefinido|Descrição|
+|--------|-------------|-----------|
+|-DataRoot | '' |Raiz dos dados para a execução de metadados. Assume como o **LOCALRUN_DATAROOT** variável de ambiente.|
+|-MessageOut | '' |Mensagens na consola para um ficheiro de imagem de erro.|
+|-Paralelo | '1' |Indicador de executar os passos de execução local gerados com o nível de paralelismo especificado.|
+|-Verbose | 'False' |Indicador de Mostrar saídas de detalhado de tempo de execução.|
 
 Eis um exemplo de utilização:
 
@@ -335,7 +331,7 @@ LocalRunHelper.exe fornece as interfaces de programação para compilar local do
 
 **Construtor**
 
-public LocalRunHelper([System.IO.TextWriter messageOutput = null])
+LocalRunHelper público ([System.IO messageOutput = null])
 
 |Parâmetro|Tipo|Descrição|
 |---------|----|-----------|
@@ -345,26 +341,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
-|AlgebraPath|string|O caminho do ficheiro de algebra (ficheiro algebra é um dos resultados de compilação)|
-|CodeBehindReferences|string|Se o script tiver adicional code-behind referências, especifique os caminhos separados ';'|
-|CppSdkDir|string|Diretório de CppSDK|
-|CurrentDir|string|Diretório atual|
-|DataRoot|string|Caminho da raiz de dados|
-|DebuggerMailPath|string|O caminho para o depurador mailslot|
+|AlgebraPath|cadeia|O caminho do ficheiro de algebra (ficheiro algebra é um dos resultados de compilação)|
+|CodeBehindReferences|cadeia|Se o script tiver adicional code-behind referências, especifique os caminhos separados ';'|
+|CppSdkDir|cadeia|Diretório de CppSDK|
+|CurrentDir|cadeia|Diretório atual|
+|DataRoot|cadeia|Caminho da raiz de dados|
+|DebuggerMailPath|cadeia|O caminho para o depurador mailslot|
 |GenerateUdoRedirect|bool|Se de que pretende gerar assemblagem ao carregar a configuração de substituição de redirecionamento|
 |HasCodeBehind|bool|Se o script tiver code-behind|
-|InputDir|string|Diretório de dados de entrada|
-|MessagePath|string|Caminho do ficheiro de informação de mensagem|
-|OutputDir|string|Diretório de dados de saída|
+|InputDir|cadeia|Diretório de dados de entrada|
+|MessagePath|cadeia|Caminho do ficheiro de informação de mensagem|
+|OutputDir|cadeia|Diretório de dados de saída|
 |Paralelismo|Int|Paralelismo para executar o algebra|
 |ParentPid|Int|PID de principal no qual o serviço monitoriza para sair, definida como 0 ou negativa para ignorar|
-|ResultPath|string|Caminho do ficheiro de informação de resultado|
-|RuntimeDir|string|Diretório de tempo de execução|
-|ScriptPath|string|Onde encontrar o script|
+|ResultPath|cadeia|Caminho do ficheiro de informação de resultado|
+|RuntimeDir|cadeia|Diretório de tempo de execução|
+|ScriptPath|cadeia|Onde encontrar o script|
 |Shallow|bool|Shallow compilação ou não|
-|TempDir|string|Diretório temporário|
-|UseDataBase|string|Especifique a base de dados a utilizar para code-behind do registo de assemblagem temporário, principal, por predefinição|
-|WorkDir|string|Diretório de trabalho preferencial|
+|TempDir|cadeia|Diretório temporário|
+|UseDataBase|cadeia|Especifique a base de dados a utilizar para code-behind do registo de assemblagem temporário, principal, por predefinição|
+|WorkDir|cadeia|Diretório de trabalho preferencial|
 
 
 **Método**
@@ -372,8 +368,8 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |Método|Descrição|Voltar|Parâmetro|
 |------|-----------|------|---------|
 |bool pública DoCompile()|Compilar o script U-SQL|VERDADEIRO com êxito| |
-|public bool DoExec()|Executar o resultado compilado|VERDADEIRO com êxito| |
-|public bool DoRun()|Execute o script U-SQL (compilação + executar)|VERDADEIRO com êxito| |
+|bool pública DoExec()|Executar o resultado compilado|VERDADEIRO com êxito| |
+|bool pública DoRun()|Execute o script U-SQL (compilação + executar)|VERDADEIRO com êxito| |
 |bool pública IsValidRuntimeDir (caminho de cadeia)|Verifique se o caminho fornecido é o caminho de runtime válido|Aplica-se válido|O caminho do diretório de tempo de execução|
 
 

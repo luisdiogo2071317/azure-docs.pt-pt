@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c1444901fa46a62761d6b94ccb8e7ea3ff3d057f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701892"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Resolver problemas de ligações de ambiente de trabalho remoto para uma máquina virtual do Azure
 A ligação de protocolo RDP (Remote Desktop Protocol) ao seu baseados em Windows máquina virtual do Azure (VM) pode falhar por diversos motivos, deixando não é possível aceder à VM. O problema pode ser com o serviço de ambiente de trabalho remoto em VM, a ligação de rede ou o cliente de ambiente de trabalho remoto no computador anfitrião. Este artigo orienta-o através de alguns dos métodos mais comuns para resolver problemas de ligação de RDP. 
@@ -65,7 +66,7 @@ Depois de cada passo de resolução de problemas, tente ligar novamente à VM. S
     Selecione a VM no portal do Azure. Desloque para baixo do painel de definições para o **suporte + resolução de problemas** secção perto da parte inferior da lista. Clique em de **Repor palavra-passe** botão. Definir o **modo** para **apenas a configuração de reposição** e, em seguida, clique em de **atualização** botão:
    
     ![Reposição da configuração RDP no portal do Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Regras do grupo de segurança de rede verifique**. Utilize a [verificação do fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra num Grupo de Segurança de Rede está a bloquear o tráfego de ou para uma máquina virtual. Também pode consultar regras do grupo de segurança eficaz para garantir que a entrada "Permitir" NSG regra existe e está definida para a porta RDP (predefinição 3389). Para obter mais informações, consulte [utilizando regras de segurança eficaz para resolver problemas de VM de fluxo de tráfego](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+2. **Regras do grupo de segurança de rede verifique**. Utilize a [verificação do fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra num Grupo de Segurança de Rede está a bloquear o tráfego de ou para uma máquina virtual. Também pode consultar regras do grupo de segurança eficaz para garantir que a entrada "Permitir" NSG regra existe e está definida para a porta RDP (predefinição 3389). Para obter mais informações, consulte [utilizando regras de segurança eficaz para resolver problemas de VM de fluxo de tráfego](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **Reveja o diagnóstico de arranque VM**. Este passo de resolução de problemas revê os registos de consola VM para determinar se a VM está a comunicar um problema. Nem todas as VMs têm de diagnóstico de arranque ativado, pelo que este passo de resolução de problemas pode ser opcional.
    
@@ -95,7 +96,7 @@ Depois de cada passo de resolução de problemas, tente ligar novamente à VM. S
    
     Depois de concluída esta operação, os dados de disco efémeras são perdidos e endereços IP dinâmicos que estão associados a VM são atualizados.
 
-9. **Certifique-se de encaminhamento**. Utilizar o observador de rede [próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas eficazes para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de rotas efetivas do Using para resolver problemas de VM](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+9. **Certifique-se de encaminhamento**. Utilizar o observador de rede [próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas eficazes para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de rotas efetivas do Using para resolver problemas de VM](../../virtual-network/diagnose-network-routing-problem.md).
 
 10. Certifique-se de que qualquer local, ou uma firewall de firewall no seu computador, permite tráfego de saída de TCP 3389 no Azure.
 
@@ -184,7 +185,7 @@ Depois de cada passo de resolução de problemas, tente ligar novamente à VM. S
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **Certifique-se de encaminhamento**. Utilizar o observador de rede [próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas eficazes para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de rotas efetivas do Using para resolver problemas de VM](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+6. **Certifique-se de encaminhamento**. Utilizar o observador de rede [próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) capacidade para confirmar que uma rota não está a impedir o tráfego, de que está a ser encaminhados para ou de uma máquina virtual. Também pode rever as rotas efetivas para ver todas as rotas eficazes para uma interface de rede. Para obter mais informações, consulte [fluxo de tráfego de rotas efetivas do Using para resolver problemas de VM](../../virtual-network/diagnose-network-routing-problem.md).
 
 7. Certifique-se de que qualquer local, ou uma firewall de firewall no seu computador, permite tráfego de saída de TCP 3389 no Azure.
 

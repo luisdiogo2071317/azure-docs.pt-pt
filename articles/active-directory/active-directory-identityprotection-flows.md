@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713413"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Início de sessão experiências com o Azure AD Identity Protection
 Com o Azure Active Directory Identity Protection, pode:
@@ -27,9 +29,9 @@ Com o Azure Active Directory Identity Protection, pode:
 * exigir que os utilizadores para se registar para autenticação multifator
 * processar o risco de inícios de sessão e utilizadores comprometidos
 
-A resposta do sistema a estes problemas tem um impacto na experiência de início de sessão do utilizador, porque apenas diretamente iniciar sessão, fornecendo um nome de utilizador e uma palavra-passe não será possível já. São necessários passos adicionais para obter um utilizador em segurança para o negócio.
+A resposta do sistema a estes problemas tem um impacto na experiência de início de sessão do utilizador, porque diretamente iniciar sessão, fornecendo um nome de utilizador e uma palavra-passe não será possível já. São necessários passos adicionais para obter um utilizador em segurança para o negócio.
 
-Este tópico fornece uma descrição geral da experiência de início de sessão do utilizador para todos os casos que podem ocorrer.
+Este artigo fornece uma descrição geral da experiência de início de sessão do utilizador para todos os casos que podem ocorrer.
 
 **Multi-Factor Authentication**
 
@@ -71,7 +73,7 @@ Quando um administrador tiver configurado uma política relativamente a riscos d
 1. O utilizador é informado atividade invulgar foi detetado sobre o seu início de sessão, tais como iniciar sessão a partir de uma nova localização, dispositivo ou aplicação. 
    
     ![Remediação](./media/active-directory-identityprotection-flows/120.png "remediação")
-2. O utilizador é necessário para provar a sua identidade por resolver um desafio de segurança. Se o utilizador está registado para autenticação multifator precisam round-trip um código de segurança para o número de telefone. Uma vez que este é um apenas um início de sessão duvidosos e não uma conta comprometida, o utilizador não terá de alterar a palavra-passe neste fluxo. 
+2. O utilizador é necessário para provar a sua identidade por resolver um desafio de segurança. Se o utilizador está registado para autenticação multifator precisam de arredondar trip um código de segurança para o número de telefone. Uma vez que esta apenas um risco início de sessão e não uma conta comprometida, o utilizador não terá de alterar a palavra-passe neste fluxo. 
    
     ![Remediação](./media/active-directory-identityprotection-flows/121.png "remediação")
 
@@ -81,14 +83,14 @@ Os administradores também podem optar por definir uma política de início de s
 ![Remediação](./media/active-directory-identityprotection-flows/200.png "remediação")
 
 ## <a name="compromised-account-recovery"></a>Recuperação de conta comprometida
-Quando tiver sido configurada uma política de segurança de risco do utilizador, os utilizadores que cumprem o utilizador risco nível especificado na política de (e, por isso, são considerados comprometidos) tem de aceder através do fluxo de recuperação de comprometimento de utilizador antes de poderem podem iniciar sessão. 
+Quando tiver sido configurada uma política de segurança de risco do utilizador, os utilizadores que cumprem o utilizador nível especificado na política de risco (e, por isso, são considerados comprometidos) deve seguir o fluxo de recuperação de comprometimento de utilizador antes de poderem iniciar sessão. 
 
 **O fluxo de recuperação de comprometimento de utilizador tem três passos:**
 
 1. O utilizador é informado que a segurança da conta está em risco devido a atividade suspeita ou fuga credenciais.
    
     ![Remediação](./media/active-directory-identityprotection-flows/101.png "remediação")
-2. O utilizador é necessário para provar a sua identidade por resolver um desafio de segurança. Se o utilizador está registado para autenticação multifator personalizada pode recuperar de ser comprometida. Terão round-trip um código de segurança para o número de telefone. 
+2. O utilizador é necessário para provar a sua identidade por resolver um desafio de segurança. Se o utilizador está registado para autenticação multifator personalizada pode recuperar de ser comprometida. Precisam de arredondar trip um código de segurança para o número de telefone. 
    
    ![Remediação](./media/active-directory-identityprotection-flows/110.png "remediação")
 3. Por fim, o utilizador é forçado a alterar a palavra-passe, uma vez que outra pessoa poderá ter tido acesso à respetiva conta. 

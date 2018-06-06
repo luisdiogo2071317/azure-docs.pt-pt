@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 64914a1b3efe81a152f5463f74c70c22f01ec0c1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724049"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
 
@@ -28,13 +29,20 @@ Este artigo explica como trabalhar com [Event Hubs do Azure](../event-hubs/event
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
 
-Para a versão das funções do Azure 1. x, os enlaces de Event Hubs são fornecidos no [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) pacote NuGet. Para encontrar funções de 2. x, utilize o [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pacote. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) repositório do GitHub.
+Para a versão das funções do Azure 1. x, os enlaces de Event Hubs são fornecidos no [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) pacote NuGet, versão 2. x.
+Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) repositório do GitHub.
+
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+
+Para encontrar funções de 2. x, utilize o [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) pacote, versão 3.
+Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) repositório do GitHub.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Acionador
 
@@ -124,7 +132,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador de hub de eventos.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
@@ -135,6 +143,16 @@ Segue-se os dados do enlace *function.json* ficheiro:
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
 Eis o código de script do c#:
 
 ```cs
@@ -188,7 +206,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [F # função](functions-reference-fsharp.md) que utiliza o enlace. A função regista o corpo da mensagem do acionador de hub de eventos.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
@@ -196,6 +214,15 @@ Segue-se os dados do enlace *function.json* ficheiro:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -211,7 +238,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função lê [eventos metadados](#trigger---event-metadata) e regista a mensagem.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
@@ -219,6 +246,15 @@ Segue-se os dados do enlace *function.json* ficheiro:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -236,8 +272,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Para receber eventos num batch, defina `cardinality` para `many` no *function.json* ficheiro:
-
+Para receber eventos num batch, defina `cardinality` para `many` no *function.json* ficheiro, conforme mostrado nos exemplos seguintes. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
@@ -245,6 +280,16 @@ Para receber eventos num batch, defina `cardinality` para `many` no *function.js
   "name": "eventHubMessages",
   "direction": "in",
   "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -289,7 +334,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**tipo** | n/d | tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure.|
 |**direção** | n/d | tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o item de eventos no código da função. | 
-|**path** |**EventHubName** | O nome do hub de eventos. | 
+|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos.  | 
+|**EventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos.  |
 |**consumerGroup** |**ConsumerGroup** | Uma propriedade opcional que define o [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizado para subscrever o hub de eventos. Se for omitido, o `$Default` é utilizado o grupo de consumidores. | 
 |**Cardinalidade** | n/d | Para Javascript. Definido como `many` para activar a criação de batches.  Se for omitido ou definido como `one`, única mensagem transmitido à função. | 
 |**Ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o [espaço de nomes](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não o hub de eventos em si. Esta cadeia de ligação tem de ter, pelo menos, permissões de leitura para ativar o acionador.|
@@ -349,13 +395,22 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -390,13 +445,22 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [F # função](functions-reference-fsharp.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -415,13 +479,22 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 O exemplo seguinte mostra um acionador de hub de eventos enlace num *function.json* ficheiro e uma [JavaScript função](functions-reference-node.md) que utiliza o enlace. A função escreve uma mensagem para um hub de eventos.
 
-Segue-se os dados do enlace *function.json* ficheiro:
+Os exemplos seguintes mostram os dados de enlace de Event Hubs no *function.json* ficheiro. O primeiro exemplo destina-se as funções 1. x, não sendo segunda de funções 2. x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -479,7 +552,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |**tipo** | n/d | Tem de ser definida para "eventHub". |
 |**direção** | n/d | Tem de ser definida para "out". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável utilizado no código de função que representa o evento. | 
-|**path** |**EventHubName** | O nome do hub de eventos. | 
+|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos.  | 
+|**EventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos.  |
 |**Ligação** |**Ligação** | O nome de uma definição de aplicação que contenha a cadeia de ligação ao espaço de nomes o hub de eventos. Copie esta cadeia de ligação ao clicar no **informações de ligação** botão para o *espaço de nomes*, não o hub de eventos em si. Esta cadeia de ligação tem de ter permissões de envio para enviar a mensagem para o fluxo de eventos.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

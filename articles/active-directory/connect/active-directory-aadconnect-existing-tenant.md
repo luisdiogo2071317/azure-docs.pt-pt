@@ -1,24 +1,26 @@
 ---
-title: "O Azure AD Connect: Se já tiver do Azure AD | Microsoft Docs"
-description: "Este tópico descreve como utilizar ligar quando tiver um inquilino do Azure AD existente."
+title: 'O Azure AD Connect: Se já tiver do Azure AD | Microsoft Docs'
+description: Este tópico descreve como utilizar ligar quando tiver um inquilino do Azure AD existente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725212"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>O Azure AD Connect: Se tiver um inquilino existente
 A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de que começa com um novo Azure inquilino do AD e de que não existe nenhum utilizador ou outros objetos não existe. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é que o utilizador.
@@ -56,7 +58,7 @@ Para grupos com capacidade de correio e contactos, pode soft-correspondência co
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Criar um novo diretório Active Directory no local a partir dos dados no Azure AD
 Alguns clientes começam com uma solução apenas na nuvem com o Azure AD e não têm um local AD. Mais tarde pretendem consumir recursos no local e pretender criar um local AD com base nos dados do Azure AD. O Azure AD Connect não pode ajudá-lo para este cenário. Não cria os utilizadores no local e não tem qualquer capacidade de definir a palavra-passe no local para os mesmos que no Azure AD.
 
-Se o motivo apenas motivo pelo qual planeia adicionar AD no local é para suportar LOBs (aplicações de linha de negócio), em seguida, talvez deve considerar a utilizar [serviços de domínio do Azure AD](../../active-directory-domain-services/index.md) em vez disso.
+Se o motivo apenas motivo pelo qual planeia adicionar AD no local é para suportar LOBs (aplicações de linha de negócio), em seguida, talvez deve considerar a utilizar [serviços de domínio do Azure AD](../../active-directory-domain-services/index.yml) em vez disso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

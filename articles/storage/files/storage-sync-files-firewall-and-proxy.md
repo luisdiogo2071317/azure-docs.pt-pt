@@ -4,7 +4,7 @@ description: Sincronização de ficheiros do Azure no local a configuração de 
 services: storage
 documentationcenter: ''
 author: fauhse
-manager: klaasl
+manager: aungoo
 editor: tamram
 ms.assetid: ''
 ms.service: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738535"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 Sincronização de ficheiros do Azure liga os servidores no local ao Azure Files, ativar a sincronização de vários site e as funcionalidades de criação de camadas de nuvem. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor para aceder a serviços em nuvem do Azure.
@@ -64,7 +65,7 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 | **Azure Resource Manager** | https://management.azure.com | Qualquer chamada de utilizador (por exemplo, o PowerShell) realiza para/este URL, incluindo a chamada de registo do servidor inicial. |
 | **Azure Active Directory** | https://login.windows.net | Chamadas de Gestor de recursos do Azure têm de ser efetuadas por um utilizador autenticado. Tenha êxito, este URL é utilizado para autenticação de utilizador. |
 | **Azure Active Directory** | https://graph.windows.net/ | Como parte da implementação de sincronização de ficheiros do Azure, será criado um principal de serviço do Azure Active Directory da subscrição. Este URL é utilizado para esse. Este principal é utilizada para delegar um conjunto mínimo de direitos para o serviço de sincronização de ficheiros do Azure. O utilizador que efetua a configuração inicial de sincronização de ficheiros do Azure tem de ser um utilizador autenticado com privilégios de proprietário da subscrição. |
-| **Armazenamento do Azure** | &ast;.core.windows.net | Quando o servidor transfere um ficheiro, em seguida, o servidor realiza esse movimento de dados mais eficientemente quando se fala diretamente para a partilha de ficheiros do Azure na conta de armazenamento. O servidor tem uma chave SAS que permita que apenas para acesso de partilha de ficheiros de destino. |
+| **Armazenamento do Azure** | &ast;.core.windows.net | Quando o servidor transfere um ficheiro, em seguida, o servidor realiza esse movimento de dados de forma mais eficiente quando se fala diretamente para a partilha de ficheiros do Azure na conta de armazenamento. O servidor tem uma chave SAS que permita que apenas para acesso de partilha de ficheiros de destino. |
 | **Sincronização de ficheiros do Azure** | &ast;.one.microsoft.com | Após o registo de servidor inicial, o servidor recebe um URL regional para a instância do serviço de sincronização de ficheiros do Azure nessa região. O servidor pode utilizar o URL para comunicar diretamente e de forma eficiente com a instância de lidar com a sincronização. |
 
 > [!Important]

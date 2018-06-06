@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9228b1e80c8c46780a24d33e13fcedbd8da63ac3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724735"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador de grelha de eventos para as funções do Azure
 
@@ -33,17 +34,17 @@ Se preferir, pode utilizar um acionador HTTP para processar eventos de grelha de
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
 
-O acionador de grelha de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet. Código de origem para o pacote está a ser o [eventgrid-extensão de azure-funções](https://github.com/Azure/azure-functions-eventgrid-extension) repositório do GitHub.
-
-<!--
-If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
--->
+O acionador de grelha de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1. x. Código de origem para o pacote está a ser o [eventgrid-extensão de azure-funções](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+
+O acionador de grelha de eventos é fornecido no [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 2. x. Código de origem para o pacote está a ser o [eventgrid-extensão de azure-funções](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) repositório do GitHub.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -57,12 +58,12 @@ Para obter um exemplo de Acionador HTTP, consulte [como utilizar o acionador HTT
 
 ### <a name="c-example"></a>Exemplo do c#
 
-O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que está vinculado a `JObject`:
+O exemplo seguinte mostra um funções 1. x [c# função](functions-dotnet-class-library.md) que está vinculado a `JObject`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -79,30 +80,26 @@ namespace Company.Function
 }
 ```
 
-<!--
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+O exemplo seguinte mostra um funções 2 [c# função](functions-dotnet-class-library.md) que está vinculado a `EventGridEvent`:
 
 ```cs
+using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
         {
-            log.Info("C# Event Grid function processed a request.");
-            log.Info($"Subject: {eventGridEvent.Subject}");
-            log.Info($"Time: {eventGridEvent.EventTime}");
-            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+            log.Info(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
--->
 
 Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
 
@@ -125,7 +122,7 @@ Segue-se os dados do enlace *function.json* ficheiro:
 }
 ```
 
-Eis o script código c# que está vinculado a `JObject`:
+Eis o código de script de 1. x c# funções que está vinculado a `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -139,26 +136,17 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-<!--
-Here's C# script code that binds to `EventGridEvent`:
+Eis o código de script de 2 c# funções que está vinculado a `EventGridEvent`:
 
 ```csharp
-#r "Newtonsoft.Json"
-#r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
 #r "Microsoft.Azure.EventGrid"
-
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-Using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    log.Info(eventGridEvent.Data.ToString());
 }
 ```
--->
 
 Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
 
@@ -221,11 +209,17 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="usage"></a>Utilização
 
-Para c# e as funções F #, pode utilizar os seguintes tipos de parâmetro para o acionador de grelha de evento:
+Para c# e F # funções no Azure funciona 1. x, pode utilizar os seguintes tipos de parâmetro para o acionador de grelha de evento:
 
 * `JObject`
 * `string`
-* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`-Define as propriedades para os campos comuns a todos os tipos de eventos. **Este tipo é preterido**, mas a sua substituição não está publicada NuGet ainda.
+
+Para as funções de c# e F # nas funções do Azure 2, também tem a opção para utilizar o seguinte tipo de parâmetro para o acionador de grelha de evento:
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades para os campos comuns a todos os tipos de eventos.
+
+> [!NOTE]
+> Em funções v1 se tentar criar o enlace `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, o compilador irá apresentar uma mensagem "preterido" e aconselhe-lhe utilizar o processo `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para utilizar o tipo mais recente, referenciar a [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet do pacote e para qualificar completamente a `EventGridEvent` nome de tipo por-com lhe o prefixo `Microsoft.Azure.EventGrid.Models`. Para obter informações sobre como fazer referência a pacotes de NuGet de uma função de script do c#, consulte [pacotes NuGet utilizando](functions-reference-csharp.md#using-nuget-packages)
 
 Para funções de JavaScript, o parâmetro com o nome de *function.json* `name` propriedade tem uma referência ao objeto de eventos.
 

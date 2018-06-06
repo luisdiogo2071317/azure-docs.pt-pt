@@ -3,18 +3,19 @@ title: Pontos finais de serviço de rede virtuais e regras para a SQL Database d
 description: Marcar uma sub-rede como um ponto final de serviço de rede Virtual. Em seguida, o ponto final como uma regra de rede virtual para a ACL de SQL Database do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802600"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -186,7 +187,7 @@ Auditoria de blob pushes registos de auditoria para a sua própria conta de arma
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall de VNET para o servidor sem desativar na VNET pontos finais de serviço
 
-Há quanto tempo antes desta funcionalidade foi melhorada, eram necessários para ativar a VNet serviço pontos finais em antes de pode implementar uma regra de VNet em direto na Firewall. Os pontos finais relacionados com uma determinada sub-rede de VNet para uma base de dados do SQL do Azure. Mas agora em Janeiro de 2018, pode contornar este requisito, definindo o **IgnoreMissingServiceEndpoint** sinalizador.
+Há quanto tempo antes desta funcionalidade foi melhorada, era necessário ativar pontos finais do serviço de VNet antes de pode implementar uma regra de VNet em direto na Firewall. Os pontos finais relacionados com uma determinada sub-rede de VNet para uma base de dados do SQL do Azure. Mas agora em Janeiro de 2018, pode contornar este requisito, definindo o **IgnoreMissingServiceEndpoint** sinalizador.
 
 Definição simplesmente uma regra de Firewall não ajudar a proteger o servidor. Tem também de ativar pontos finais do serviço de VNet para garantir a segurança tenha efeito. Quando ativar pontos finais de serviço, a sub-rede da VNet ocorrer no período de indisponibilidade até concluir a transição de desativado para no. Isto é particularmente verdadeiro no contexto de grande VNets. Pode utilizar o **IgnoreMissingServiceEndpoint** sinalizador a reduzir ou eliminar o período de indisponibilidade durante a transição.
 
@@ -318,7 +319,7 @@ A funcionalidade de regra de rede virtual para a SQL Database do Azure está dis
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 

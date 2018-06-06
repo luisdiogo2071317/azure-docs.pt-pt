@@ -7,14 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801658"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -140,7 +141,7 @@ if($s)
 
 - Se o **FromDate** e **ToDate** não foram especificados parâmetros, os registos serão recolhidos as últimos quatro horas por predefinição.
 - Pode utilizar o **TimeOutInMinutes** parâmetro para definir o tempo limite para a recolha de registos. Está definido para 150 (horas 2,5) por predefinição.
-
+- Na versão 1805 e posterior, a recolha de registos do ficheiro de captura está desativada por predefinição. Para ativar, utilize o **IncludeDumpFile** mudar o parâmetro. 
 - Atualmente, pode utilizar o **FilterByRole** parâmetro para recolha de registos de filtro para as seguintes funções:
 
    |   |   |   |
@@ -184,7 +185,7 @@ Para saber mais sobre o script do ERCS_AzureStackLogs.ps1 PowerShell, pode ver [
 * O comando demora algum tempo para executar com base nos que funções selecionadas os registos estão a recolher. Fatores coadjuvantes também incluem a duração de tempo especificada para a recolha de registos e o número de nós no ambiente de pilha do Azure.
 * Como iniciar sessão execuções de coleção, verifique a nova pasta que criou no **OutputSharePath** parâmetro especificado no comando.
 * Cada função tem os seus registos dentro ficheiros zip individuais. Dependendo do tamanho dos registos recolhidos, uma função tem os seus registos dividida em múltiplos ficheiros zip. Para uma função, se pretende que todos os ficheiros de registo deszipados para uma única pasta, utilize uma ferramenta que pode deszipe em massa (por exemplo, 7zip). Selecione todos os ficheiros zipped para a função e selecione **extrair aqui**. Isto unzips todos os ficheiros de registo para essa função numa única pasta intercalada.
-* Um ficheiro chamado **Get-AzureStackLog_Output.log** também é criado na pasta que contém os ficheiros de registo zipped. Este ficheiro é um registo de resultado do comando, o que pode ser utilizado para resolver problemas durante a recolha de registos.
+* Um ficheiro chamado **Get-AzureStackLog_Output.log** também é criado na pasta que contém os ficheiros de registo zipped. Este ficheiro é um registo de resultado do comando, o que pode ser utilizado para resolver problemas durante a recolha de registos. Por vezes, o ficheiro de registo inclui `PS>TerminatingError` entradas que podem ser ignoradas com segurança, a menos que os ficheiros de registo esperado estão em falta após as execuções de coleção de registo.
 * Para investigar uma falha específica, podem ser necessária, registos de mais do que um componente.
     -   Registos de eventos para todas as VMs de infraestrutura e de sistema são recolhidos no *VirtualMachines* função.
     -   Sistema e os registos de eventos de todos os anfitriões são recolhidos no *BareMetal* função.

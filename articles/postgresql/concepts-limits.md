@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757421"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
 
-## <a name="pricing-tier-maximums"></a>Valores máximos de escalão de preço
-Base de dados do Azure para PostgreSQL tem vários escalões de preços, que pode escolher durante a criação de um servidor. Para obter mais informações, consulte [escalões de preço na base de dados do Azure para PostgreSQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Número máximo de ligações
+O número máximo de ligações por vCores e escalão de preço é os seguintes: 
 
-Há um número máximo de ligações, unidades de computação e armazenamento em cada escalão de preço, da seguinte forma: 
-
-|Escalão de Preço| Geração de computação| vCore(s)| Máx. ligações |
-|---|---|---|---|
-|Básica| Geração 4| 1| 50 |
-|Básica| Geração 4| 2| 100 |
-|Básica| Geração 5| 1| 50 |
-|Básica| Geração 5| 2| 100 |
-|Fins Gerais| Geração 4| 2| 150|
-|Fins Gerais| Geração 4| 4| 250|
-|Fins Gerais| Geração 4| 8| 480|
-|Fins Gerais| Geração 4| 16| 950|
-|Fins Gerais| Geração 4| 32| 1500|
-|Fins Gerais| Geração 5| 2| 150|
-|Fins Gerais| Geração 5| 4| 250|
-|Fins Gerais| Geração 5| 8| 480|
-|Fins Gerais| Geração 5| 16| 950|
-|Fins Gerais| Geração 5| 32| 1500|
-|Memória Otimizada| Geração 5| 2| 150|
-|Memória Otimizada| Geração 5| 4| 250|
-|Memória Otimizada| Geração 5| 8| 480|
-|Memória Otimizada| Geração 5| 16| 950|
+|**Escalão de Preço**| **vCore(s)**| **Máx. ligações** |
+|---|---|---|
+|Básica| 1| 50 |
+|Básica| 2| 100 |
+|Fins Gerais| 2| 150|
+|Fins Gerais| 4| 250|
+|Fins Gerais| 8| 480|
+|Fins Gerais| 16| 950|
+|Fins Gerais| 32| 1500|
+|Memória Otimizada| 2| 150|
+|Memória Otimizada| 4| 250|
+|Memória Otimizada| 8| 480|
+|Memória Otimizada| 16| 950|
 
 Quando as ligações excedem o limite, poderá receber o erro seguinte:
 > FATAL: Lamentamos, mas já demasiados clientes

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 73771aaff59c3db46907ffd9f74c03f0ac0830cb
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736784"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -30,7 +31,7 @@ Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema oper
 
 
 > [!TIP]
->  Subscrever o [Feed RSS de atualização de SO do convidado] para receber a notificação mais atempada em todas as alterações de SO convidado.
+>  Subscrever o [Feed RSS de atualização de SO convidado] para receber a notificação mais atempada em todas as alterações de SO convidado.
 >
 >
 
@@ -39,9 +40,12 @@ Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema oper
 >
 >
 
-Se não souber sobre que o SO convidado ou como o SO convidado liberta o trabalho? Leitura [isto](#how-it-works) secção.
+Não souber sobre como atualizar o SO convidado? Verifique [isto] [ cloud updates] enviados.
 
 ## <a name="news-updates"></a>Atualizações de notícias de última hora
+###### <a name="june-1-2018"></a>**1 de Junho de 2018**
+O SO convidado podem foi libertado.
+
 ###### <a name="may-4-2018"></a>**4 de Maio de 2018**
 Sistema operativo convidado Abril lançou.
 
@@ -69,9 +73,6 @@ SO de convidado de Outubro foi libertado.
 ###### <a name="october-6-2017"></a>**6 de Outubro de 2017**
 SO de convidado de Setembro foi libertado. Para a versão de Setembro de 2016 do Windows Server, netfx3 está ativada por predefinição. Devem adicionar clientes ' dism /online /Enable-Feature /disable-feature /featurename:netfx3' no respetivo OnStart se o seu fluxo de trabalho requer-lhes para executarem uma aplicação de 2. x .NET com um tempo de execução de 4. x ou se a execução de uma aplicação de 2. x do .NET, processado um erro e, em seguida, foi executada uma aplicação de 4. x do .NET.
 
-###### <a name="september-14-2017"></a>**14 de Setembro de 2017**
-Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem uma versão de 9 de Outubro prevista.
-
 
 
 ## <a name="releases"></a>Versões
@@ -88,8 +89,9 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-5.19_201805-01 |1 de Junho de 2018 |Post 5.21 |TBD |
 | WA-CONVIDADO-SO-5.18_201804-01 |4 de Maio de 2018 |Post 5.20 |TBD |
-| WA-GUEST-OS-5.17_201803-01 |6 de Abril de 2018 |Post 5.19 |TBD |
+|~~WA-CONVIDADO-SO-5.17_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018|TBD |
 |~~WA-CONVIDADO-SO-5.16_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
@@ -97,10 +99,6 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-5.9_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-GUEST-OS-5.8_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-GUEST-OS-5.7_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-GUEST-OS-5.6_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
 
 
 ## <a name="family-4-releases"></a>Versões de família 4
@@ -115,8 +113,9 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-4.54_201805-01 |1 de Junho de 2018 |Post 4.56 |TBD |
 | WA-CONVIDADO-SO-4.53_201804-01 |4 de Maio de 2018 |Post 4.55 |TBD |
-| WA-GUEST-OS-4.52_201803-01 |6 de Abril de 2018 |Post 4.54 |TBD |
+|~~WA-CONVIDADO-SO-4.52_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.51_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
@@ -124,10 +123,7 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-4.44_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-GUEST-OS-4.43_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-GUEST-OS-4.42_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-GUEST-OS-4.41_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
+
 
 
 ## <a name="family-3-releases"></a>Versões da família 3
@@ -142,8 +138,9 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-3.61_201805-01 |1 de Junho de 2018 |Post 3.63 |TBD |
 | WA-CONVIDADO-SO-3.60_201804-01 |4 de Maio de 2018 |Post 3.62 |TBD |
-| WA-GUEST-OS-3.59_201803-01 |6 de Abril de 2018 |Post 3.61 |TBD |
+|~~WA-CONVIDADO-SO-3.59_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.58_201802-01~~ |19 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 de Janeiro de 2018 |19 de Março de 2018 |TBD |
@@ -151,10 +148,6 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-3.51_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-GUEST-OS-3.50_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-GUEST-OS-3.49_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-GUEST-OS-3.48_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
 
 
 ## <a name="family-2-releases"></a>Versões de família 2
@@ -169,8 +162,9 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-2.74_201805-01 |1 de Junho de 2018 |Post 2.76 |TBD |
 | WA-CONVIDADO-SO-2.73_201804-01 |4 de Maio de 2018 |Post 2.75 |TBD |
-| WA-GUEST-OS-2.72_201803-01 |6 de Abril de 2018 |Post 2.74 |TBD |
+|~~WA-CONVIDADO-SO-2.72_201803-01~~ |6 de Abril de 2018 |1 de Junho de 2018 |TBD |
 |~~WA-CONVIDADO-SO-2.71_201802-01~~ |12 de Março de 2018 |4 de Maio de 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |29 de Janeiro de 2018 |6 de Abril de 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 de Janeiro de 2018 |12 de Março de 2018 |TBD |
@@ -178,11 +172,6 @@ Implementação de SO convidado de Setembro está a iniciar 14 de Setembro e tem
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
-|~~WA-GUEST-OS-2.64_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
-|~~WA-GUEST-OS-2.63_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
-|~~WA-GUEST-OS-2.62_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
-|~~WA-GUEST-OS-2.61_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
-|~~WA-GUEST-OS-2.60_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de correção MSRC
@@ -240,7 +229,8 @@ Se atualizar manualmente o SO convidado, consulte o [política de extinção de 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Suporte de SO convidado e a política de extinção
 A política de Suportabilidade e extinção de SO convidado é explicada [aqui][retirepolicy].
 
-[Feed RSS de atualização de SO do convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
+[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[Feed RSS de atualização de SO convidado]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/

@@ -3,17 +3,18 @@ title: Resolver problemas de sincronização de dados SQL do Azure (pré-visuali
 description: Saiba como resolver problemas comuns com a sincronização de dados de SQL do Azure (pré-visualização).
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757541"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Resolver problemas com a sincronização de dados do SQL Server (pré-visualização)
 
@@ -219,12 +220,12 @@ Atualize palavra-passe o agente para a sua palavra-passe atual do servidor:
     b. Na caixa de pesquisa, introduza **services.msc**.  
     c. Nos resultados da pesquisa, selecione **serviços**.  
     d. No **serviços** janela, desloque-se para a entrada para **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)**.  
-2. Clique com botão direito **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)**e, em seguida, selecione **parar**.
-3. Clique com botão direito **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)**e, em seguida, selecione **propriedades**.
+2. Clique com botão direito **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)** e, em seguida, selecione **parar**.
+3. Clique com botão direito **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)** e, em seguida, selecione **propriedades**.
 4. No **propriedades de pré-visualização do agente de sincronização de dados do SQL Server (pré-visualização)**, selecione o **início de sessão** separador.
 5. No **palavra-passe** box, introduza a palavra-passe.
 6. No **Confirmar palavra-passe** caixa, reintroduza a palavra-passe.
-7. Selecione **aplicar**e, em seguida, selecione **OK**.
+7. Selecione **Apply** (Aplicar) e **OK**.
 8. No **serviços** janela, clique com botão direito a **pré-visualização de agente de sincronização de dados do SQL Server (pré-visualização)** de serviço e, em seguida, clique em **iniciar**.
 9. Fechar o **serviços** janela.
 
@@ -240,9 +241,8 @@ Antes de continuar, verifique as seguintes condições:
 
 -   O serviço do Windows de sincronização de dados do SQL Server (pré-visualização) está em execução.  
 -   A conta de serviço do serviço do Windows de pré-visualização de sincronização de dados do SQL Server (pré-visualização) tem acesso à rede.    
--   O agente do cliente pode contactar o serviço de localizador. Verifique se a seguinte chave de registo tem o valor https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   Num x86 computador: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   Num x64 computador: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   A porta 1433 saída está aberta na sua regra de local firewall.
+-   O ip local é adicionado para o servidor ou a regra de firewall de base de dados para a base de dados de metadados de sincronização.
 
 #### <a name="cause"></a>Causa
 
@@ -384,7 +384,7 @@ Conceda credenciais de registo-em-como-um-serviço para a conta de utilizador:
 1. Aceda a **iniciar** > **painel de controlo** > **ferramentas administrativas** > **política de segurança Local**  >  **Política local** > **gestão de direitos de utilizador**.
 2. Selecione **iniciar sessão como um serviço**.
 3. No **propriedades** diálogo caixa, adicione a conta de utilizador.
-4. Selecione **aplicar**e, em seguida, selecione **OK**.
+4. Selecione **Apply** (Aplicar) e **OK**.
 5. Feche todas as janelas.
 
 ### <a name="a-database-has-an-out-of-date-status"></a>Uma base de dados tem um Estado "Desatualizado"

@@ -2,10 +2,10 @@
 title: Criar uma VM com Linux no Azure a partir de um modelo | Microsoft Docs
 description: Como utilizar o 2.0 CLI do Azure para criar uma VM com Linux a partir de um modelo do Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716412"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Como criar uma máquina virtual Linux com modelos Azure Resource Manager
 Este artigo mostra como implementar rapidamente uma máquina virtual (VM) do Linux com modelos Azure Resource Manager e o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](create-ssh-secured-vm-from-template-nodejs.md).
@@ -41,7 +42,8 @@ az group create --name myResourceGroup --location eastus
 O exemplo seguinte cria uma VM a partir [este modelo Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) com [criar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_create). Autenticação de SSH só é permitida. Quando solicitado, forneça o valor da sua própria chave pública SSH, tais como o conteúdo do *~/.ssh/id_rsa.pub*. Se precisar de criar um par de chaves SSH, consulte [como criar e utilizar um par de chaves SSH para VMs com Linux no Azure](mac-create-ssh-keys.md).
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az group deployment create \
+    --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
@@ -49,7 +51,7 @@ No exemplo anterior, que especificou um modelo armazenado no GitHub. Também pod
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
-Para SSH para a VM, obter o endereço IP público com [mostrar de vm az](/cli/azure/vm#az_vm_show):
+Para SSH para a VM, obter o endereço IP público com [mostrar de vm az](/cli/azure/vm#az-vm-show):
 
 ```azurecli
 az vm show \

@@ -1,13 +1,14 @@
 ---
-title: "Dispositivos associados ao conjunto de cópias de segurança do Azure Active Directory | Microsoft Docs"
+title: Dispositivos associados ao conjunto de cópias de segurança do Azure Active Directory | Microsoft Docs
 description: Saiba como configurar dispositivos do Azure Active Directory associados.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 2aeaacbc48c8b49b967241522daf90e8fb228073
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713617"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Dispositivos associados ao conjunto de cópias de segurança do Azure Active Directory
 
@@ -45,12 +47,12 @@ Para associar um dispositivo Windows 10, o serviço de registo do dispositivo te
 
 - Se for um utilizador gerido, o Windows leva-o no ambiente de trabalho através do automático início de sessão.
 
-- Se um utilizador federado, tem de início de sessão com as suas credenciais.
+- Se um utilizador federado, tem de iniciar sessão com as suas credenciais.
 
 
 ## <a name="joining-a-device"></a>Associar um dispositivo
 
-Esta secção fornece os passos para associar o seu dispositivo Windows 10 para o seu Azure AD. Se associar com êxito do seu dispositivo para o Azure AD, o **acesso ou escola** caixa de diálogo indica isto com um **à \<seu Azure AD\>**  entrada.
+Esta secção fornece os passos para associar o seu dispositivo Windows 10 para o seu Azure AD. Um dispositivo associado com êxito ao aparece como **à \<seu Azure AD\>**.
 
 ![Ligado](./media/device-management-azuread-joined-devices-setup/13.png)
 
@@ -105,7 +107,7 @@ Para verificar se um dispositivo é associado a um Azure AD, pode rever o **aces
 
 ![Ligado](./media/device-management-azuread-joined-devices-setup/13.png)
 
-Em alternativa, pode executar o seguinte comando:`dsregcmd /status`  
+Em alternativa, pode executar o seguinte comando: `dsregcmd /status`  
 Num dispositivo associado com êxito, **AzureAdJoined** é **Sim**.
 
 ![Ligado](./media/device-management-azuread-joined-devices-setup/14.png)

@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 50f28fcb2d7945949134d89f6bcc4238cf625bd1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dffc76151e0739bf56091d987bf21d02b5bfb1e2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716548"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
-As quotas de vCPU para máquinas virtuais e os conjuntos de dimensionamento de máquina virtual são dispostas numa duas camadas para cada subscrição, em cada região. Primeira camada é o Total Regional vCPUs e a segunda camada é os várias VM tamanho famílias núcleos, tais como vCPUs padrão D família. Sempre que é uma nova VM implementadas a vCPUs para a VM recentemente implementada não pode exceder a quota de vCPU para a família de tamanho VM específica ou a quota do total regional vCPU. Se qualquer um desses quotas for excedido, em seguida, a implementação de VM não será permitida. Também é uma quota para o número global de máquinas virtuais na região. Os detalhes sobre cada uma destas quotas podem ser vistos no **utilização + quotas** secção o **subscrição** página no [portal do Azure](https://portal.azure.com), ou pode consultar os valores a utilizar PowerShell.
+As quotas de vCPU para máquinas virtuais e os conjuntos de dimensionamento de máquina virtual são dispostas numa duas camadas para cada subscrição, em cada região. Primeira camada é o Total Regional vCPUs e a segunda camada é os várias VM tamanho famílias núcleos, tais como o vCPUs série D. Sempre que é uma nova VM implementadas a vCPUs para a VM não pode exceder a quota de vCPU para a família de tamanho VM ou a quota do total regional vCPU. Se qualquer um desses quotas for excedido, a implementação de VM não será permitida. Também é uma quota para o número global de máquinas virtuais na região. Os detalhes sobre cada uma destas quotas podem ser vistos no **utilização + quotas** secção o **subscrição** página no [portal do Azure](https://portal.azure.com), ou pode consultar os valores a utilizar PowerShell.
 
  
 ## <a name="check-usage"></a>Utilização de verificação
@@ -74,7 +75,6 @@ Standard NCv3 Family vCPUs                   0     0 Count
 Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
-
 ```
 
 

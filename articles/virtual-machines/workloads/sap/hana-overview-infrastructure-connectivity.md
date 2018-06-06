@@ -4,28 +4,29 @@ description: Configure a infraestrutura de conectividade necessários para utili
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763770"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura de SAP HANA (instâncias de grandes dimensões) e a conectividade no Azure 
 
 Algumas definições de antemão antes de ler este guia. No [descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) introduzimos duas classes diferentes de unidades de instância grande HANA com:
 
-- S72, S72m, S144, S144m, S192 e S192m, que denominamos 'Type posso de classe' de SKUs.
-- S384, S384m, S384xm, S576m, S768m e S960m, que denominamos 'class II de tipo' de SKUs.
+- S72, S72m, S144, S144m, S192, S192m e S192xm, que denominamos 'Type posso de classe' de SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m, que denominamos 'class II de tipo' de SKUs.
 
 Os especificadores de classe que vão ser utilizados em toda a documentação de instância grande HANA eventualmente referir-se a funcionalidades diferentes e requisitos com base nas HANA grande SKUs de instância.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Neste exemplo, o SKU de gateway HighPerformance foi utilizado. As opções são HighPerformance ou UltraPerformance como o gateway só SKUs que são suportados para SAP HANA no Azure (instâncias de grande).
 
 > [!IMPORTANT]
-> Para tipos de instâncias de grande HANA do SKU S384, S384m, S384xm, S576m, S768m e S960m (SKUs de classe de tipo II), a utilização do SKU de Gateway UltraPerformance é obrigatória.
+> Para HANA grande instâncias classs o tipo II SKU, a utilização do SKU de Gateway UltraPerformance é obrigatória.
 
 ### <a name="linking-vnets"></a>Ligar VNets
 

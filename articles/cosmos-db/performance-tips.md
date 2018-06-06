@@ -5,20 +5,17 @@ keywords: como melhorar o desempenho de base de dados
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715025"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -40,27 +37,28 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Como um cliente liga à base de dados do Azure Cosmos tem implicações importantes no desempenho, especialmente em termos de latência observado do lado do cliente. Existem duas definições de configuração da chave para configurar a política de ligação – a ligação de cliente *modo* e [ligação *protocolo*](#connection-protocol).  Os dois modos de disponíveis são:
 
-   1. Modo de gateway (predefinição)
+   * Modo de gateway (predefinição)
       
-      O modo de gateway é suportado em todas as plataformas do SDK e é a predefinição configurada. Se a aplicação é executado dentro de uma rede empresarial com restrições de strict firewall, o modo de Gateway é a melhor opção uma vez que utiliza a porta HTTPS padrão e um único ponto final. O compromisso de desempenho, no entanto, é o modo de Gateway envolve um salto de rede adicionais, sempre que os dados são lidos ou escritos na base de dados do Azure Cosmos. Por este motivo, o modo direto oferece um melhor desempenho devido a menos saltos de rede.
+     O modo de gateway é suportado em todas as plataformas do SDK e é a predefinição configurada. Se a aplicação é executado dentro de uma rede empresarial com restrições de strict firewall, o modo de Gateway é a melhor opção uma vez que utiliza a porta HTTPS padrão e um único ponto final. O compromisso de desempenho, no entanto, é o modo de Gateway envolve um salto de rede adicionais, sempre que os dados são lidos ou escritos na base de dados do Azure Cosmos. Por este motivo, o modo direto oferece um melhor desempenho devido a menos saltos de rede.
 
-   2. Modo direto
+   * Modo direto
 
-     Modo direto suporta a conectividade através de protocolos TCP e HTTPS. Atualmente, direta é suportada no .NET 2.0 padrão para apenas a plataforma do Windows.
-      
-<a id="use-tcp"></a>
-2. **Política de ligação: utilizar o protocolo TCP**
+     Modo direto suporta a conectividade através de protocolos TCP e HTTPS. Atualmente, direta é suportada no .NET 2.0 padrão para apenas a plataforma do Windows. Quando utilizar o modo direto, existem duas opções de protocolo disponíveis:
 
-    Quando utilizar o modo direto, existem duas opções de protocolo disponíveis:
+    * TCP
+    * HTTPS
 
-   * TCP
-   * HTTPS
+    Quando utilizar o modo de Gateway, base de dados do Azure Cosmos utiliza a porta 443 e a API do MongoDB utiliza 10250, 10255 e 10256 portas. O 10250 porta é mapeado para uma instância do Mongodb predefinido sem georreplicação e portas 10255/10256 mapa para a instância do Mongodb com a funcionalidade de georreplicação. Quando utilizar TCP no modo direto, além das portas de Gateway, tem de garantir a porta está aberto intervalo entre 10000 e 20000 porque a base de dados do Azure Cosmos utiliza as portas TCP dinâmicas. Se estas portas não estão abertas e tentar utilizar TCP, receberá um erro 503 de serviço indisponível. A tabela seguinte mostra os modos de conectividade disponíveis para diferentes APIs e o utilizador de portas de serviço para cada API:
 
-     BD do Azure do Cosmos oferece um modelo de programação RESTful simple e abra através de HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do SDK do cliente do .NET. TCP direta e HTTPS utilizem SSL para autenticação inicial e o tráfego de encriptação. Para melhor desempenho, utilize o protocolo TCP sempre que possível.
+    |Modo de ligação  |Protocolos suportados  |SDKs suportados  |Porta do serviço de API /  |
+    |---------|---------|---------|---------|
+    |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo (10250 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Direto    |    HTTPS     |  SDK .net e o Java    |    SQL(443)   |
+    |Direto    |     TCP    |  SDK do .net    | Portas dentro do intervalo de 10 000 20.000 |
 
-     Quando o TCP no modo de Gateway, TCP 443 de porta é a porta da base de dados do Azure Cosmos e 10255 é a porta de API do MongoDB. Quando utilizar TCP no modo direto, além das portas de Gateway, tem de garantir a porta está aberto intervalo entre 10000 e 20000 porque a base de dados do Azure Cosmos utiliza as portas TCP dinâmicas. Se estas portas não estão abertas e tentar utilizar TCP, receberá um erro 503 de serviço indisponível.
+    BD do Azure do Cosmos oferece um modelo de programação RESTful simple e abra através de HTTPS. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível através do SDK do cliente do .NET. TCP direta e HTTPS utilizem SSL para autenticação inicial e o tráfego de encriptação. Para melhor desempenho, utilize o protocolo TCP sempre que possível.
 
-     O modo de conectividade é configurado durante a construção da instância com o parâmetro ConnectionPolicy DocumentClient. Se for utilizado modo direto, o protocolo também pode ser definido no parâmetro ConnectionPolicy.
+    O modo de conectividade é configurado durante a construção da instância com o parâmetro ConnectionPolicy DocumentClient. Se for utilizado modo direto, o protocolo também pode ser definido no parâmetro ConnectionPolicy.
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -77,19 +75,19 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     ![Ilustração da política de ligação de base de dados do Azure Cosmos](./media/performance-tips/connection-policy.png)
 
-3. **Chamar OpenAsync para evitar a latência de arranque no primeiro pedido**
+2. **Chamar OpenAsync para evitar a latência de arranque no primeiro pedido**
 
     Por predefinição, o primeiro pedido tem uma latência superior porque tem de obter a tabela de encaminhamento de endereço. Para evitar esta latência de arranque no pedido primeiro, deve chamar OpenAsync() uma vez durante a inicialização da seguinte forma.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Colocar os clientes na mesma região do Azure para desempenho**
+3. **Colocar os clientes na mesma região do Azure para desempenho**
 
     Sempre que possível, coloque todas as aplicações a chamar base de dados do Azure Cosmos na mesma região que a base de dados do Azure Cosmos DB. Para uma comparação aproximada, as chamadas à base de dados do Azure Cosmos na mesma região concluída dentro do ms 1-2, mas a latência entre o oeste e da Costa Leste dos E.U.A. é > 50 ms. Esta latência pode variar provavelmente de um pedido para o pedido, consoante a rota colocada por pedido, conforme tenha sido enviado a partir do cliente para os limites de datacenter do Azure. A menor latência possível é conseguida ao garantir que a aplicação de chamada está localizada na mesma região do Azure como o ponto final da BD do Cosmos Azure aprovisionado. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
 
     ![Ilustração da política de ligação de base de dados do Azure Cosmos](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **Aumentar o número de threads/tarefas**
+4. **Aumentar o número de threads/tarefas**
 
     Uma vez que as chamadas à base de dados do Azure Cosmos são efetuadas através da rede, poderá ter de variar o grau de paralelismo dos seus pedidos de modo a que a aplicação cliente despende pouco tempo à espera entre pedidos. Por exemplo, se estiver a utilizar. Do NET [biblioteca de tarefas paralelas](https://msdn.microsoft.com//library/dd460717.aspx), criar, por ordem de 100s das tarefas de leitura ou escrita de BD do Cosmos do Azure.
 

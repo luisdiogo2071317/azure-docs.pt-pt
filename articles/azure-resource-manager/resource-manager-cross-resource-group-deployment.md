@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7e9807e7195be47bf7874837ff9428c90abbcee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735675"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementar recursos do Azure em mais do que uma subscrição ou grupo de recursos
 
@@ -128,11 +129,11 @@ Se definir `resourceGroup` ao nome de um grupo de recursos que não existe, a im
 
 Para implementar o modelo de exemplo, utilize o Azure PowerShell 4.0.0 ou posterior, ou do Azure CLI 2.0.0 ou posterior.
 
-## <a name="use-the-resourcegroup-function"></a>Utilize a função de resourceGroup()
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>Utilize as funções resourceGroup() e subscription()
 
-Para cruzada implementações do grupo de recursos, o [resourceGroup() função](resource-group-template-functions-resource.md#resourcegroup) resolve forma diferente, consoante como especificar o modelo aninhado. 
+Para cruzada implementações do grupo de recursos, o [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) e [subscription()](resource-group-template-functions-resource.md#subscription) funções resolver de forma diferente com base em como especificar o modelo aninhado. 
 
-Se incorporar um modelo dentro de outro modelo, resourceGroup() no modelo aninhado é resolvido para o grupo de recursos principais. Um modelo incorporado utiliza o seguinte formato:
+Se incorporar um modelo dentro de outro modelo, as funções de modelo de aninhada de resolver para o grupo de recursos de principal e a subscrição. Um modelo incorporado utiliza o seguinte formato:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -143,12 +144,12 @@ Se incorporar um modelo dentro de outro modelo, resourceGroup() no modelo aninha
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-Se ligar a um modelo separado, resourceGroup() no modelo ligado é resolvido para o grupo de recursos aninhados. Um modelo ligado utiliza o seguinte formato:
+Se ligar a um modelo separado, as funções no modelo ligado resolver para o grupo de recursos aninhados e a subscrição. Um modelo ligado utiliza o seguinte formato:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -159,7 +160,7 @@ Se ligar a um modelo separado, resourceGroup() no modelo ligado é resolvido par
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

@@ -1,31 +1,28 @@
 ---
 title: Ligar ao SQL Server ou base de dados do SQL do Azure - as do Azure Logic Apps | Microsoft Docs
-description: Criar ligações ao SQL Server no local e a SQL Database do Azure na nuvem do Azure Logic Apps
-services: logic-apps
-documentationcenter: ''
+description: Como aceder e gerir bases de dados do SQL Server no local ou na nuvem ao automatizar fluxos de trabalho com Azure Logic Apps
 author: ecfan
 manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 73dadb85f3608f863a7fa0227d8e051fc77bb918
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756955"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ligar ao SQL Server ou base de dados SQL do Azure a partir do Azure Logic Apps
 
-Este artigo mostra como pode aceder aos dados na base de dados SQL do dentro de uma aplicação lógica com o conector do SQL Server. Dessa forma, pode criar as logic apps que automatizem tarefas e fluxos de trabalho para gerir os seus dados. O conector funciona para ambos [do SQL Server no local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) e para [SQL Database do Azure na nuvem](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Este artigo mostra como pode aceder aos dados na base de dados SQL do dentro de uma aplicação lógica com o conector do SQL Server. Dessa forma, pode automatizar tarefas, processos e fluxos de trabalho que gerem os seus dados do SQL Server e os recursos através da criação de aplicações lógicas. O conector funciona para ambos [do SQL Server no local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) e para [SQL Database do Azure na nuvem](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-Pode criar as logic apps, que são executados quando é acionada por eventos na sua base de dados do SQL Server ou em outros sistemas, tais como o Dynamics CRM Online. As logic apps podem também obtém, inserir, ou eliminar dados e também executar consultas SQL ou procedimentos armazenados. Por exemplo, pode criar uma aplicação lógica que automaticamente verifica a existência de novos registos no Dynamics CRM Online, adiciona os itens na base de dados do SQL Server para quaisquer novos registos e, em seguida, envia alertas por e-mail.
+Pode criar as logic apps, que são executados quando é acionada por eventos na sua base de dados do SQL Server ou em outros sistemas, tais como o Dynamics CRM Online. As logic apps também podem obter, insira e eliminar dados, juntamente com a execução de consultas SQL e procedimentos armazenados. Por exemplo, pode criar uma aplicação lógica que automaticamente verifica a existência de novos registos no Dynamics CRM Online, adiciona os itens na base de dados do SQL Server para quaisquer novos registos e, em seguida, envia alertas por e-mail.
 
 Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com as logic apps, reveja [que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: criar a sua primeira aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte o <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referência de conector do SQL Server</a>.
 

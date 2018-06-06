@@ -1,29 +1,25 @@
 ---
-title: "As instruções condicionais - passos de execução com base numa condição - Azure Logic Apps | Microsoft Docs"
-description: "Execute os passos na sua aplicação lógica apenas depois de reunião, uma condição. Crie árvores de decisão que executarem fluxos de trabalho com base nas condições especificadas."
+title: Adicionar declarações condicionais fluxos de trabalho - Azure Logic Apps | Microsoft Docs
+description: Como criar condições que controlam ações em fluxos de trabalho no Azure Logic Apps
 services: logic-apps
-keywords: "instruções de condicionais, árvores de decisões"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 5629c743434a0fe53f35da29343945951bbc5dd7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725735"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Instruções condicionais: execute passos com base numa condição nas logic apps
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar instruções condicionais que controlam ações de fluxo de trabalho no Azure Logic Apps
 
-Para executar passos apenas após a transmitir uma condição especificada, utilize um *instrução condicional*. Esta estrutura compara os dados no fluxo de trabalho contra os campos ou valores específicos. Em seguida, pode definir vários passos para executar com base em se pretende ou não os dados cumprem a condição. Podem aninhar condições dentro entre si.
+Para executar ações específicas na sua aplicação lógica apenas após a transmitir uma condição especificada, adicione um *instrução condicional*. Esta estrutura compara os dados no fluxo de trabalho contra os campos ou valores específicos. Em seguida, pode definir diferentes ações que são executadas com base em se pretende ou não os dados cumprem a condição. Podem aninhar condições dentro entre si.
 
 Por exemplo, suponha que tem uma aplicação lógica que envia mensagens de correio eletrónico demasiados quando novos itens são apresentados no feed RSS de um Web site. Pode adicionar uma instrução condicional para enviar correio eletrónico apenas quando o novo item inclui uma cadeia específica. 
 
@@ -65,7 +61,7 @@ Por exemplo, suponha que tem uma aplicação lógica que envia mensagens de corr
 
    Segue-se a condição concluída:
 
-   ![Condição concluída](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Concluir condição](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
 
    > [!TIP]
    > Para criar uma condição mais avançada ou utilizar expressões, escolha **editar no modo avançado**. Pode utilizar expressões definidas pelo [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).

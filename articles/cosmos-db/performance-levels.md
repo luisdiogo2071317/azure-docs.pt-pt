@@ -4,21 +4,18 @@ description: Saiba mais sobre os níveis de desempenho S1, S2 e S3 anteriormente
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e565f4ee4d25afb29627e6beca99fd2998cd6396
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796653"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Extinguir os níveis de desempenho S1, S2 e S3
 
@@ -26,16 +23,15 @@ ms.lasthandoff: 04/06/2018
 > Os níveis de desempenho S1, S2 e S3 abordados neste artigo estão a ser extinto e já não estão disponíveis para novas contas de base de dados do Azure Cosmos.
 >
 
-Este artigo fornece uma descrição geral dos níveis de desempenho S1, S2 e S3 e descreve a forma como as coleções que utilizam estes níveis de desempenho serão migradas para coleções de partições únicas de 2017. Depois de ler este artigo, poderá responder às seguintes questões:
+Este artigo fornece uma descrição geral dos níveis de desempenho S1, S2 e S3 e descreve a forma como as coleções que utilizam estes níveis de desempenho podem ser migradas para o único coleções particionadas. Depois de ler este artigo, poderá responder às seguintes questões:
 
-- [Por que razão são o desempenho S1, S2 e S3 níveis vai ser reformado?](#why-retired)
+- [Por que razão são os níveis de desempenho S1, S2 e S3 é vai ser reformado?](#why-retired)
 - [Como coleções de partições únicas e coleções particionadas comparar com S1, S2, níveis de desempenho de S3?](#compare)
 - [O que é necessário para garantir acesso ininterrupto aos meus dados?](#uninterrupted-access)
 - [Como o meu coleção será alterado após a migração?](#collection-change)
 - [Como os meus faturação será alterado depois de posso estou migrado para coleções de partições únicas?](#billing-change)
 - [E se for necessário mais de 10 GB de armazenamento?](#more-storage-needed)
 - [Posso alterar entre o S1, S2 e S3 níveis de desempenho antes da migração planeada?](#change-before)
-- [Como posso saber quando foi migrada a minha coleção?](#when-migrated)
 - [Como posso migrar de S1, S2, níveis de desempenho de S3 para coleções de partições únicas no meu próprio?](#migrate-diy)
 - [Como estou posso afetado se sou um cliente EA?](#ea-customer)
 
@@ -53,8 +49,8 @@ A tabela seguinte compara as opções de débito e armazenamento disponíveis em
 
 |   |Coleção particionada|Coleção de partições únicas|S1|S2|S3|
 |---|---|---|---|---|---|
-|Débito máximo|Ilimitado|10 mil RU/s|250 RU/s|1 K RU/s|2.5 mil RU/s|
-|Débito mínimo|2.5 mil RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 mil RU/s|
+|Débito máximo|Ilimitado|10 mil RU/s|250 RU/s|1 mil RU/s|2.5 mil RU/s|
+|Débito mínimo|2.5 mil RU/s|400 RU/s|250 RU/s|1 mil RU/s|2.5 mil RU/s|
 |Armazenamento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
 |Preço (mensalmente)|Débito: $6 / 100 RU/s<br><br>Armazenamento: $0.25/ GB|Débito: $6 / 100 RU/s<br><br>Armazenamento: $0.25/ GB|$25 EUR|$50 EUR|$100 EUR|
 
@@ -64,25 +60,23 @@ Tem a um cliente EA? Se Sim, consulte [como estou posso afetado os se sou um cli
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>O que é necessário para garantir acesso ininterrupto aos meus dados?
 
-Nada, Cosmos DB processa a migração para si. Se tiver uma coleção S1, S2 ou S3, a coleção atual será migrada para uma coleção de partições únicas de 2017. 
+Se tiver uma coleção S1, S2 ou S3, deve migrar a coleção para uma coleção de partições únicas programaticamente [utilizando o SDK .NET](#migrate-diy). 
 
 <a name="collection-change"></a>
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Como o meu coleção será alterado após a migração?
 
-Se tiver uma coleção de S1, será migrada para uma coleção de partições únicas com débito do 400 RU/s. 400 RU/s é o débito mais baixo disponível com coleções de partições únicas. No entanto, o custo de 400 RU/s de uma coleção de partições únicas é aproximadamente idêntica à foram pagante com a coleção de S1 e 250 RU/s –, pelo que não são pagar para o extra 150 RU/s disponíveis para si.
+Se tiver uma coleção de S1, pode migrá-los para uma coleção de partições únicas com débito do 400 RU/s. 400 RU/s é o débito mais baixo disponível com coleções de partições únicas. No entanto, o custo de 400 RU/s de uma coleção de partições únicas é aproximadamente idêntica à foram pagante com a coleção de S1 e 250 RU/s –, pelo que não são pagar para o extra 150 RU/s disponíveis para si.
 
-Se tiver uma coleção de S2, será migrada para uma coleção de partições únicas com 1 mil RU/s. Não verá nenhuma alteração para o nível de débito.
+Se tiver uma coleção de S2, pode migrá-los para uma coleção de partições únicas com 1 mil RU/s. Não verá nenhuma alteração para o nível de débito.
 
-Se tiver uma coleção de S3, será migrada para uma coleção de partições únicas com 2,5 mil RU/s. Não verá nenhuma alteração para o nível de débito.
+Se tiver uma coleção de S3, pode migrá-los para uma coleção de partições únicas com 2,5 mil RU/s. Não verá nenhuma alteração para o nível de débito.
 
-Em cada um nestes casos, depois da coleção é migrada, poderá personalizar o nível de débito ou dimensioná-lo e reduzir verticalmente conforme necessário para fornecer acesso de latência baixa aos seus utilizadores. Para alterar o nível de débito após a coleção foi migrada, basta abra a sua conta de base de dados do Cosmos no portal do Azure, clique em escala, escolha a sua coleção e, em seguida, ajustar o nível de débito, conforme mostrado na captura de ecrã seguinte:
-
-![Como dimensionar débito no portal do Azure](./media/performance-levels/portal-scale-throughput.png)
+Em cada um nestes casos, depois de migrar a coleção, poderá personalizar o nível de débito ou dimensioná-lo e reduzir verticalmente conforme necessário para fornecer acesso de latência baixa aos seus utilizadores. 
 
 <a name="billing-change"></a>
 
-## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Como os meus faturação será alterado depois de posso estou a migrar para as coleções de partições únicas?
+## <a name="how-will-my-billing-change-after-i-migrated-to-the-single-partition-collections"></a>Como os meus faturação será alterado depois de posso migrar para as coleções de partições únicas?
 
 Partindo do princípio de tem 10 S1 coleções, 1 GB de armazenamento para cada região dos EUA leste, e migrar destas coleções S1 10 para 10 coleções de partições únicas em 400 RU/seg (o nível mínimo). A fatura irão ter o seguinte aspeto se mantiver as 10 coleções de partições únicas durante um mês completo:
 
@@ -92,55 +86,23 @@ Partindo do princípio de tem 10 S1 coleções, 1 GB de armazenamento para cada 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>E se for necessário mais de 10 GB de armazenamento?
 
-Se tem uma coleção com um nível de desempenho S1, S2 ou S3 ou tem uma coleção de partições únicas, dos quais têm 10 GB de armazenamento disponível, pode utilizar a ferramenta de migração de dados de base de dados do Cosmos para migrar os dados para uma coleção particionada com armazenamento virtualmente ilimitados. Para obter informações sobre as vantagens de uma coleção particionada, consulte [divisão em partições e o dimensionamento do BD Azure Cosmos](sql-api-partition-data.md). 
+Se tem uma coleção com o nível de desempenho S1, S2 ou S3, ou se tem uma coleção de partições únicas, dos quais têm 10 GB de armazenamento disponível, que pode utilizar a ferramenta de migração de dados do Azure Cosmos DB para migrar os dados para uma coleção particionada com virtualmente armazenamento ilimitado. Para obter informações sobre as vantagens de uma coleção particionada, consulte [divisão em partições e o dimensionamento do BD Azure Cosmos](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
 ## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>Posso alterar entre o S1, S2 e S3 níveis de desempenho antes da migração planeada?
 
-Apenas as contas existentes com um desempenho S1, S2 e S3, poderá alterar e alterar camadas de nível de desempenho através do portal ou através de programação. Se alterar do S1, S3 ou S3 para uma coleção de partições únicas, não é possível regressar para os níveis de desempenho S1, S2 ou S3.
-
-<a name="when-migrated"></a>
-
-## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Como posso saber quando foi migrada a minha coleção?
-
-A migração irá ocorrer de 2017. Se tiver uma coleção que utiliza o S1, S2 ou S3 desempenho níveis, a equipa de BD do Cosmos irão contactá-lo por e-mail antes da migração direta. Assim que a migração estiver concluída, o portal do Azure irá mostrar que a sua coleção utiliza o preço padrão.
-
-![Como confirmar a coleção foi migrada para o escalão de preço padrão](./media/performance-levels/portal-standard-pricing-applied.png)
+Apenas as contas existentes com um desempenho S1, S2 e S3 podem ser alteradas e alterar camadas de nível de desempenho através de programação [utilizando o SDK .NET](#migrate-diy). Se alterar do S1, S3 ou S3 para uma coleção de partições únicas, não é possível regressar para os níveis de desempenho S1, S2 ou S3.
 
 <a name="migrate-diy"></a>
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Como posso migrar de S1, S2, níveis de desempenho de S3 para coleções de partições únicas no meu próprio?
 
-Pode migrar de níveis de desempenho S1, S2 e S3 para coleções de partições únicas no portal do Azure ou através de programação. Pode fazê-lo no seu próprio antes da migração planeada para tirar partido das opções disponíveis com coleções de partições únicas débito flexível ou, iremos migrar as coleções para si de 2017.
+Pode migrar de níveis de desempenho S1, S2 e S3 para coleções de partições únicas programaticamente [utilizando o SDK .NET](#migrate-diy). Pode fazê-lo no seu próprio antes da migração planeada para tirar partido das opções disponíveis com coleções de partições únicas débito flexível.
 
-**Para migrar para coleções de partições únicas no portal do Azure**
+### <a name="migrate-to-single-partition-collections-by-using-the-net-sdk"></a>Migrar para coleções de partições únicas, utilizando o SDK .NET
 
-1. No [ **portal do Azure**](https://portal.azure.com), clique em **Azure Cosmos DB**, em seguida, selecione a conta de base de dados do Cosmos a modificar. 
- 
-    Se **Azure Cosmos DB** é não no Jumpbar, clique em >, desloque-se para **bases de dados**, selecione **Azure Cosmos DB**e, em seguida, selecione a conta.  
-
-2. No menu de recursos, sob **contentores**, clique em **escala**, selecione a coleção para modificar a partir da lista pendente e, em seguida, clique em **escalão de preço**. As contas utilizando o débito predefinido têm um escalão de preço de S1, S2 ou S3.  No **escolher o escalão de preço** página, clique em **padrão** para alterar a débito definido pelo utilizador e, em seguida, clique em **selecione** para guardar a alteração.
-
-    ![Captura de ecrã da página de definições que mostra onde alterar o valor de débito](./media/performance-levels/change-performance-set-thoughput.png)
-
-3. Volta a **escala** página, o **escalão de preço** é alterado para **padrão** e o **débito (RU/s)** é apresentada a caixa com uma predefinição valor de 400. Definir o débito entre 400 e 10 000 [unidades de pedido](request-units.md)/second (RU/s). O **fatura mensal estimada** na parte inferior das atualizações de página automaticamente para fornecer uma estimativa do custo mensal. 
-
-    >[!IMPORTANT] 
-    > Depois de guardar as alterações e mover para o escalão de preço padrão, não é possível reverter para os níveis de desempenho S1, S2 ou S3.
-
-4. Clique em **guardar** para guardar as alterações.
-
-    Se determinar que precisa de mais de débito (superior a 10.000 RU/s) ou o armazenamento mais (superior a 10 GB) pode criar uma coleção particionada. Para migrar uma coleção de partições únicas para uma coleção particionada, consulte [migrar de partição única para coleções particionadas](sql-api-partition-data.md#migrating-from-single-partition).
-
-    > [!NOTE]
-    > A alteração do S1, S2 ou S3 para Standard pode demorar até dois minutos.
-    > 
-    > 
-
-**Para migrar para coleções de partições únicas utilizando o SDK .NET**
-
-Outra opção para alterar os níveis de desempenho dos seus coleções é através dos SDKs do Azure Cosmos DB. Esta secção abrange apenas a alterar o desempenho de uma coleção de nível de utilização a [.NET API do SQL Server](sql-api-sdk-dotnet.md), mas o processo é semelhante para os nossos SDKs outros.
+Esta secção abrange apenas a alterar o desempenho de uma coleção de nível de utilização a [.NET API do SQL Server](sql-api-sdk-dotnet.md), mas o processo é semelhante para os nossos SDKs outros.
 
 Eis um fragmento de código para alterar o débito de coleção para 5000 unidades de pedido por segundo:
     

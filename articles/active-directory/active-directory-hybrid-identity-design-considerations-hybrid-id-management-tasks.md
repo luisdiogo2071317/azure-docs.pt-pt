@@ -1,30 +1,32 @@
 ---
-title: "Estrutura de identidade híbrida - tarefas de gestão do Azure | Microsoft Docs"
-description: "Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação."
-documentationcenter: 
+title: Estrutura de identidade híbrida - tarefas de gestão do Azure | Microsoft Docs
+description: Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5fcb229690827c7bd508aa0d27dd68b169b4e25e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801331"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planear o ciclo de vida da identidade híbrida
-Identidade é uma das fundações da sua estratégia de acesso de mobilidade e a aplicação da empresa. Se está a iniciar sessão seu dispositivo móvel ou aplicação SaaS, a sua identidade é a chave para obter acesso ao tudo. Ao nível mais elevado, uma solução de gestão de identidades abrange unificá e a sincronização entre os repositórios de identidade que inclui a automatização e centralizar o processo de aprovisionamento de recursos. A solução de identidade deve ser uma identidade centralizada em nuvem e no local e também utilizar alguma forma de Federação de identidade para manter a autenticação centralizada em segurança partilhar e colaborar com utilizadores externos e as empresas. Recursos no intervalo de sistemas operativos e aplicações para pessoas ou afiliado, uma organização. Estrutura organizacional pode ser alterada para acomodar as políticas de aprovisionamento e os procedimentos.
+Identidade é uma das fundações da sua estratégia de acesso de mobilidade e a aplicação da empresa. Se está a iniciar sessão seu dispositivo móvel ou aplicação SaaS, a sua identidade é a chave para obter acesso ao tudo. Ao nível mais elevado, uma solução de gestão de identidades abrange unificá e a sincronização entre os repositórios de identidades, que inclui a automatização e centralizar o processo de aprovisionamento de recursos. A solução de identidade deve ser uma identidade centralizada em nuvem e no local e também utilizar alguma forma de Federação de identidade para manter a autenticação centralizada em segurança partilhar e colaborar com utilizadores externos e as empresas. Recursos no intervalo de sistemas operativos e aplicações para pessoas ou afiliado, uma organização. Estrutura organizacional pode ser alterada para acomodar as políticas de aprovisionamento e os procedimentos.
 
-Também é importante que tenha uma solução de identidade adaptada para capacitar os seus utilizadores, fornecendo-las com experiências self-service para mantê-las produtiva. A sua solução de identidade é mais robusta se permite início de sessão único para os utilizadores em todos os recursos que precisam de aceder aos administradores em todos os níveis podem utilizar procedimentos normalizados para a gestão de credenciais de utilizador. Alguns níveis de administração podem ser reduzidos ou eliminado o aperto, consoante o volume de solução de gestão de aprovisionamento. Além disso, pode em segurança distribuir capacidades de administração, manualmente ou automaticamente, entre várias organizações. Por exemplo, um administrador de domínio pode servir apenas as pessoas e os recursos nesse domínio. Este utilizador pode efetuar tarefas administrativas e de aprovisionamento, mas não está autorizado a efetuar tarefas de configuração, tais como criar fluxos de trabalho.
+Também é importante que tenha uma solução de identidade adaptada para capacitar os seus utilizadores, fornecendo-las com experiências self-service para mantê-las produtiva. A sua solução de identidade é mais robusta se permite início de sessão único para os utilizadores em todos os recursos que precisam de acesso. Os administradores em todos os níveis podem utilizar procedimentos normalizados para a gestão de credenciais de utilizador. Alguns níveis de administração podem ser reduzidos ou eliminado o aperto, consoante o volume de solução de gestão de aprovisionamento. Além disso, pode em segurança distribuir capacidades de administração, manualmente ou automaticamente, entre várias organizações. Por exemplo, um administrador de domínio pode servir apenas as pessoas e os recursos nesse domínio. Este utilizador pode efetuar tarefas administrativas e de aprovisionamento, mas não está autorizado a efetuar tarefas de configuração, tais como criar fluxos de trabalho.
 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determinar as tarefas de gestão de identidade híbrida
 A distribuição tarefas administrativas na sua organização melhora a eficácia de administração e a precisão e melhora o balanceamento da carga de trabalho de uma organização. Seguem-se a pivots que definem um sistema de gestão de identidade robusto.
@@ -56,9 +58,9 @@ Ao definir estes requisitos, certifique-se de que, pelo menos, as perguntas segu
 * Se Sim, como e que são eles e que capacidades estão disponíveis?
 
 ## <a name="synchronization-management"></a>Gestão de sincronização
-Um dos objetivos de um Gestor de identidade, para poder colocar todos os fornecedores de identidade e mantê-las sincronizado. Manter os dados sincronizados com base num fornecedor de identidade principal autoritativo. Num cenário de identidade híbrida, com um modelo de gestão sincronizados, gerir todas as identidades de utilizador e dispositivo num servidor no local e sincronizar as contas e, opcionalmente, palavras-passe para a nuvem. O utilizador introduz a mesma palavra-passe no local como ele ou ela não na nuvem e no início de sessão, a palavra-passe é verificada pela solução de identidade. Este modelo utiliza uma ferramenta de sincronização de diretórios.
+Um dos objetivos de um Gestor de identidade, para poder colocar todos os fornecedores de identidade e mantê-las sincronizado. Manter os dados sincronizados com base num fornecedor de identidade principal autoritativo. Num cenário de identidade híbrida, com um modelo de gestão sincronizados, gerir todas as identidades de utilizador e dispositivo num servidor no local e sincronizar as contas e, opcionalmente, palavras-passe para a nuvem. O utilizador introduz a mesma palavra-passe no local, o que fazer na nuvem e no início de sessão, a palavra-passe é verificada pela solução de identidade. Este modelo utiliza uma ferramenta de sincronização de diretórios.
 
-![](./media/hybrid-id-design-considerations/Directory_synchronization.png)A estrutura de adequado a sincronização da sua solução de identidade híbrida Certifique-se de que as perguntas seguintes são respondidas: • quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
+![](./media/hybrid-id-design-considerations/Directory_synchronization.png) A estrutura de adequado a sincronização da sua solução de identidade híbrida Certifique-se de que as perguntas seguintes são respondidas: • quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
 • Quais são o início de sessão único capacidades disponíveis?
 • Quais são as opções para a Federação de identidade entre B2B e B2C?
 

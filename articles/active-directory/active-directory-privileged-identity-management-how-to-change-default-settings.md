@@ -3,7 +3,7 @@ title: Como gerir as definições de ativação de função | Microsoft Docs
 description: Saiba como alterar as predefinições para as identidades privilegiadas com a extensão do Azure Active Directory Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 972fd1e322e578516073307d01548132473bc52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8dfb5b17419dbd03fe928194d96aa80f27f3699
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697936"
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Como gerir as definições de ativação de função no Azure AD Privileged Identity Management
 Um administrador com função privilegiada pode personalizar o Azure AD Privileged Identity Management (PIM) na sua organização, incluindo a alterar a experiência de para um utilizador que está a ativar uma atribuição de função elegível.
@@ -45,7 +46,7 @@ Na página de definições para cada função, existem várias definições que 
   * Administrador de faturação  
   * Administrador de Conformidade  
   * Administrador de serviço do CRM
-  * Aprovador de acesso de LockBox de cliente
+  * Aprovador de acesso ao Sistema de Proteção de Dados do Cliente
   * Escritor de diretório  
   * Administrador do Exchange  
   * Administrador global

@@ -3,22 +3,20 @@ title: Métricas de consulta SQL para a API do SQL Server de base de dados do Az
 description: Saiba mais sobre como instrumentar e o desempenho de consulta SQL da base de dados do Azure Cosmos pedidos de depuração.
 keywords: sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: b2fa8e8f-7291-45a3-9bd1-7284ed9077f8
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 00e50c3b2f4dc50e43aac03b162bc637f0821656
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798700"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização de desempenho de consulta com base de dados do Azure Cosmos
 
@@ -174,7 +172,7 @@ Para saber mais sobre a criação de partições e chaves de partição, consult
 Consulte [sugestões de desempenho](performance-tips.md) e [teste de desempenho](performance-testing.md) para saber como obter o melhor desempenho do lado do cliente da base de dados do Azure Cosmos. Isto inclui utilizar os SDKs mais recentes, configurações de plataforma específica, como o número predefinido de ligações, frequência de recolha de lixo, a configurar e utilizar opções de conectividade simples como direta/TCP. 
 
 
-#### <a name="max-item-count"></a>Número de itens de máx.
+#### <a name="max-item-count"></a>Contagem Máxima de Itens
 Para consultas, o valor de `MaxItemCount` pode ter um impacto significativo na hora de consulta de ponto a ponto. Cada ida e volta para o servidor irá devolver não mais do que o número de itens na `MaxItemCount` (predefinição de 100 itens). Definir este como um valor mais alto (a -1 é máximo e recomendada) irá melhorar a sua duração de consulta global ao limitar o número de ida e volta entre o servidor e cliente, especialmente para consultas com conjuntos de resultados grande.
 
 ```cs

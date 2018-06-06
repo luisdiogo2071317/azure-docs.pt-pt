@@ -7,13 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699908"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
 
@@ -82,6 +83,11 @@ Não, o Gateway de aplicação não suporta os endereços IP públicos estático
 **Q. Gateway de aplicação suporta vários IPs públicos no gateway?**
 
 Apenas um endereço IP público é suportado um Gateway de aplicação.
+
+**Q. Tamanho deve efetuar minha sub-rede do Gateway de aplicação?**
+
+Gateway de aplicação consome um endereço IP privado por instância, mais outro endereço IP privado se uma configuração de IP privado front-end estiver configurada. Além disso, o Azure reservas de quatro primeiro e último endereço IP em cada sub-rede para utilização interna.
+Por exemplo, se o Gateway de aplicação está definido para três instâncias e nenhum IP privado front-end, em seguida, / 29 sub-rede tamanho ou maior do que é necessária. Neste caso, o Gateway de aplicação utiliza três endereços IP. Se tiver três instâncias e um endereço IP para a configuração de IP privado front-end, em seguida, / 28 sub-rede tamanho ou superior é necessário, são necessários quatro endereços IP.
 
 **Q. Gateway de aplicação suporta x-reencaminhados-para cabeçalhos?**
 
@@ -183,6 +189,21 @@ Sem períodos de indisponibilidade, existe instâncias estão distribuídas por 
 
 Sim. Pode configurar a ligação a ser drenado e alterar os membros dentro de um conjunto de back-end sem interrupção. Isto irá permitir ligações existentes continuar a ser enviados para os respetivos destino anterior até essa ligação foi fechada ou um limite de tempo configurável expira. Tenha em atenção que aguarda apenas para ligações em trânsito atuais concluir a ser drenado e de ligação. Gateway de aplicação não está ciente de estado de sessão da aplicação.
 
+**Q. Quais são os tamanhos de gateway de aplicação?**
+
+O Gateway de Aplicação é atualmente oferecido em três tamanhos: **Pequeno**, **Médio** e **Grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+
+Pode criar até 50 gateways de aplicação por subscrição e cada gateway de aplicação pode ter até 10 instâncias. Cada gateway de aplicação pode consistir em 20 serviços de escuta http. Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+A tabela seguinte mostra um débito de desempenho médio para cada instância de gateway de aplicação com descarga de SSL ativada:
+
+| Tamanho de resposta médio de back-end de página | Pequeno | Médio | Grande |
+| --- | --- | --- | --- |
+| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Estes valores são valores aproximados para um débito de gateway de aplicação. O débito real depende de vários detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para servir uma página. Para números de desempenho exatos, deve executar o seus próprios testes. Estes valores são fornecidos apenas para a capacidade orientação de planeamento.
 
 **Q. Posso alterar tamanho da instância de média a grande sem interrupção?**
 

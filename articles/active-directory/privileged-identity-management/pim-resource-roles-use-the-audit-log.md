@@ -1,9 +1,9 @@
 ---
-title: Privileged Identity Management para recursos do Azure - auditoria recursos | Microsoft Docs
+title: Auditar funções dos recursos para recursos do Azure através de Privileged Identity Management | Microsoft Docs
 description: Explica como obter uma vista de todas as atividades de função para a um recursos específico.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
@@ -11,36 +11,37 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b8fa7d5600c0de8a3319ea4de785281372959937
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 714c8ba2a6acf1fdb73fe53f9d2aaf1d98ee9abc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699755"
 ---
-# <a name="privileged-identity-management---resource-roles---audit"></a>Privileged Identity Management - funções dos recursos - auditoria
+# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Funções de recursos de auditoria para recursos do Azure utilizando o Privileged Identity Management 
 
 Auditoria de recurso dá-lhe uma vista de todas as atividades de função para o recurso. Pode filtrar as informações utilizando uma data predefinida ou um intervalo personalizado.
-![](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+![Informações de filtro](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-Auditoria de recursos também fornece acesso rápido para ver detalhes de atividade do utilizador. Em "Tipo de auditoria" selecione "Ativar". Clique em "(atividade)" para ver as ações desse utilizador nos recursos do Azure.
-![](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+Auditoria de recursos também fornece acesso rápido aos detalhes de atividade do utilizador. Em **auditoria tipo**, selecione **ativar**. Selecione **(atividade)** para ver as ações desse utilizador nos recursos do Azure.
+![Detalhe de atividade](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-![](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+![Mais detalhe de atividade](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 # <a name="my-audit"></a>A minha auditoria
 
 A minha auditoria dá-lhe uma vista de actividade de função pessoais do utilizador. Pode filtrar as informações utilizando uma data predefinida ou um intervalo personalizado.
-![](media/azure-pim-resource-rbac/my-audit-time.png)
+![Actividade de função pessoal](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Ver a ativação e a atividade de recursos do Azure
 
-No caso de necessitar de ver as ações que um utilizador específico demorou em vários recursos, pode rever a atividade de recursos do Azure associada um período de activação fornecido (para os utilizadores elegíveis). Comece por selecionar um utilizador da vista de membros ou da lista de membros de uma função específica. O resultado mostra uma visualização gráfica de ações do utilizador nos recursos do Azure por data e as ativações de função recente esse mesmo período de tempo.
+Para ver as ações que um utilizador específico demorou em vários recursos, pode rever a atividade de recursos do Azure que está associada a um período de ativação fornecido. Comece por selecionar um utilizador do **membros** vista ou a partir da lista de membros de uma função específica. O resultado mostra uma visualização gráfica de ações do utilizador em recursos do Azure por data. Também mostra as ativações de função recente esse mesmo período de tempo.
 
-![](media/azure-pim-resource-rbac/rbac-user-details.png)
+![Detalhes do utilizador](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-A ativação de uma função específica a seleção irá mostrar os detalhes de ativação de função e atividade correspondente de recursos do Azure que ocorreram durante esse utilizador Active Directory.
+Selecionar a ativação de uma função específica mostra os detalhes de ativação de função e atividade correspondente do recurso do Azure que ocorreram durante a Active Directory que o utilizador.
 
-![](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+![Selecione a ativação da função](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 

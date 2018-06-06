@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735872"
 ---
 # <a name="advisor-cost-recommendations"></a>Recomendações de custo do Assistente
 
@@ -33,6 +34,11 @@ Se pretender ser mais agressiva em identificar subutilizadas máquinas virtuais,
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir os custos, eliminando não aprovisionados circuitos do ExpressRoute
 Advisor identifica os circuitos ExpressRoute que tenham sido do Estado de fornecedor de *não aprovisionado* para mais de um mês e recomenda a eliminar o circuito, se não estão a planear para aprovisionar o circuito com a conectividade fornecedor.
+
+## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>Compre instâncias reservadas de máquinas virtuais para poupar dinheiro sobre os custos pay as you go
+Advisor irá rever a utilização da máquina virtual durante os últimos 30 dias e determinar se foi poupar dinheiro pelo compra instâncias reservadas. Advisor mostrará a regiões e tamanhos potencialmente tenha as maioria das reduções e irá mostrar-lhe as poupanças estimadas de compra instâncias reservadas. 
+
+Com instâncias reservadas, pode comprar previamente os custos de base para as máquinas virtuais. Descontos serão aplicado automaticamente para as VMs novas ou existentes com o mesmo tamanho e região, como as instâncias reservadas. [Saiba mais sobre reservado instâncias de VM do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como aceder recomendações de custo no Azure Advisor
 

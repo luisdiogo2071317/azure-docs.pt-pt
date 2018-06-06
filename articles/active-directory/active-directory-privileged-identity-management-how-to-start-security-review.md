@@ -3,7 +3,7 @@ title: Como iniciar uma revisão do acesso | Microsoft Docs
 description: Saiba como criar uma revisão do acesso para identidades privilegiadas com a aplicação Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 05/04/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1923890e01b351f884837e14b5e2ca736ec687ce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 569084f70946523a697a821c973e2b5c0f65babd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698072"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Como iniciar uma revisão do acesso no Azure AD Privileged Identity Management
 Atribuições de função ficam "obsoletas" quando os utilizadores com acesso privilegiado que não precisam de já. Para reduzir os riscos associados estes atribuições de funções obsoletos, os administradores de com função privilegiada regularmente devem rever as funções que atribuiu utilizadores. Este documento aborda os passos para iniciar uma revisão do acesso no Azure AD Privileged Identity Management (PIM).

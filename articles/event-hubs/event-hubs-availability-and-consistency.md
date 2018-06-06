@@ -1,11 +1,11 @@
 ---
-title: "Disponibilidade e a consistência no Event Hubs do Azure | Microsoft Docs"
-description: "Como fornecer a quantidade máxima de disponibilidade e a consistência com partições de Event Hubs do Azure."
+title: Disponibilidade e a consistência no Event Hubs do Azure | Microsoft Docs
+description: Como fornecer a quantidade máxima de disponibilidade e a consistência com partições de Event Hubs do Azure.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
 ms.devlang: na
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: e119406292ca1d805f831bc65e3ae6e583147c6d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700694"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e a consistência no Event Hubs
 
 ## <a name="overview"></a>Descrição geral
 Os Hubs de eventos do Azure utiliza um [modelo de criação de partições](event-hubs-features.md#partitions) para melhorar a disponibilidade e parallelization dentro de um hub de eventos único. Por exemplo, se um hub de eventos tem quatro partições e um dessas partições é movido de um servidor para outro numa operação de balanceamento de carga, podem ainda enviar e receber de três outras partições. Além disso, ter mais de partições permite-lhe ter leitores simultâneos mais processar os dados, melhorar o débito agregado. Compreender as implicações de criação de partições e ordenação num sistema distribuído é um aspeto fundamental de design de solução.
 
-Para ajudar a explicar o compromisso entre a ordenação e disponibilidade, consulte o [theorem extremidade](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como theorem do Brewer. Este theorem aborda a escolha entre consistência, disponibilidade e a tolerância de partição.
+Para ajudar a explicar o compromisso entre a ordenação e disponibilidade, consulte o [theorem extremidade](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como theorem do Brewer. Este theorem aborda a escolha entre consistência, disponibilidade e a tolerância de partição. -Estados que para os sistemas particionados por rede há sempre variação entre a consistência e disponibilidade.
 
 Theorem do Brewer define consistência e a disponibilidade da seguinte forma:
 * A tolerância de partição: a capacidade de um sistema de processamento de dados para continuar a processar os dados, mesmo se ocorrer uma falha de partição.
@@ -36,7 +37,7 @@ Theorem do Brewer define consistência e a disponibilidade da seguinte forma:
 Os Event Hubs é desenvolvida com um modelo de dados particionada. Pode configurar o número de partições do seu hub de eventos durante a configuração, mas não é possível alterar este valor mais tarde. Uma vez que tem de utilizar partições com os Event Hubs, terá de tomar uma decisão sobre a disponibilidade e consistência para a sua aplicação.
 
 ## <a name="availability"></a>Disponibilidade
-A forma mais simples para começar a utilizar com os Event Hubs é utilizar o comportamento predefinido. Se criar um novo  **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)**  de objeto e utilizar o  **[enviar](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**  método, os eventos são distribuídos automaticamente por entre partições do seu hub de eventos. Este comportamento permite que a maior quantidade de tempo.
+A forma mais simples para começar a utilizar com os Event Hubs é utilizar o comportamento predefinido. Se criar um novo **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** de objeto e utilizar o **[enviar](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** método, os eventos são distribuídos automaticamente por entre partições do seu hub de eventos. Este comportamento permite que a maior quantidade de tempo.
 
 Casos de utilização que requerem o máximo tempo, este modelo é preferencial.
 
@@ -60,7 +61,7 @@ await eventHubClient.SendAsync(data);
 
 Este exemplo envia o evento para uma das partições de disponíveis no seu hub de eventos e define o número de sequência correspondente a partir da sua aplicação. Esta solução requer o estado para ser mantida pela sua aplicação de processamento, mas fornece os remetentes um ponto final que é mais provável estar disponível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs serviço](event-hubs-what-is-event-hubs.md)

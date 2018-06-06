@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763600"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ligar o Operations Manager ao Log Analytics
 Para manter o seu investimento existente no System Center Operations Manager e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a área de trabalho do Log Analytics.  Desta forma, pode tirar partido das oportunidades do Log Analytics e continuar a utilizar o Operations Manager para:
@@ -77,7 +78,9 @@ Realize esta série de passos para configurar o grupo de gestão do Operations M
 Se esta for a primeira vez que o grupo de gestão do Operations Manager está a ser registado numa área de trabalho do Log Analytics e se os servidores de gestão precisarem de comunicar com o serviço através de um proxy ou do servidor de Gateway do OMS, a opção para especificar a configuração do proxy para o grupo de gestão não estará disponível na Consola de operações.  O grupo de gestão tem de ser registado com êxito no serviço para esta opção ficar disponível.  Tem de atualizar a configuração do proxy do sistema através do Netsh no sistema no qual está a executar a Consola de operações para configurar a integração e todos os servidores de gestão no grupo de gestão.  
 
 1. Abra uma linha de comandos elevada.
-1. Introduza o seguinte comando e prima **Enter**:
+   a. Aceda a **iniciar** e tipo **cmd**.
+   b. Clique com botão direito **linha de comandos** e selecionar executar como administrador * *.
+2. Introduza o seguinte comando e prima **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ Os pacotes de gestão para as soluções que ativou que se integram com o Operat
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
-1. Abra o menu **Definições avançadas** da área de trabalho do Log Analytics no portal do Azure.
-1. Selecione **Origens Ligadas** e, em seguida, **System Center**.
-1. Deverá ver o nome do grupo de gestão que pretende remover da área de trabalho.  Sob a coluna **Últimos Dados**, clique em **Remover**.  
+7. No portal do OMS, clique no mosaico **Definições**.
+8. Selecione **ligado origens**.
+9. Na tabela na secção System Center Operations Manager, deverá ver o nome do grupo de gestão que pretende remover a área de trabalho.  Sob a coluna **Últimos Dados**, clique em **Remover**.  
    
     > [!NOTE]
     > A ligação **Remover** só estará disponível após 14 dias se não existir nenhuma atividade detetada no grupo de gestão ligado.  
@@ -210,7 +213,7 @@ Os pacotes de gestão para as soluções que ativou que se integram com o Operat
 Para eliminar os dois conectores – Microsoft.SystemCenter.Advisor.DataConnector e Advisor Connector, guarde o script do PowerShell abaixo no computador e execute-o com os exemplos seguintes:
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 
@@ -310,7 +313,7 @@ No futuro, se planear restabelecer a ligação do grupo de gestão a uma área d
 * No suporte de dados de origem na pasta `\ManagementPacks` do System Center 2016 – Operations Manager e superior.
 * No rollup de atualizações mais recentes aplicado ao grupo de gestão.  Para o Operations Manager 2012, a pasta de origem é ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e, para o 2012 R2, está localizada em `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para adicionar funcionalidade e recolher dados, veja [Adicionar soluções do Log Analytics a partir da Galeria de Soluções](log-analytics-add-solutions.md).
 
 

@@ -1,0 +1,82 @@
+---
+title: Criar e gerir a base de dados do Azure para pontos finais de serviço PostgreSQL VNet e regras utilizando a CLI do Azure | Microsoft Docs
+description: Este artigo descreve como criar e gerir a base de dados do Azure para pontos finais de serviço PostgreSQL VNet e regras utilizando a linha de comandos da CLI do Azure.
+services: postgresql
+author: mbolz
+ms.author: mbolz
+manager: jhubbard
+editor: jasonwhowell
+ms.service: postgresql
+ms.devlang: azure-cli
+ms.topic: article
+ms.date: 06/01/2018
+ms.openlocfilehash: 7312000d1f22af3eb0091b46caac2c9607231513
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736631"
+---
+# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>Criar e gerir a base de dados do Azure para pontos finais de serviço de PostgreSQL VNet utilizando a CLI do Azure
+Pontos finais de serviços de rede (VNet) virtuais e as regras de expandem o espaço de endereço privado de uma rede Virtual para a base de dados do Azure para o servidor de PostgreSQL. Utilizar comandos de Interface de linha de comandos do Azure (CLI) conveniente, pode criar, atualizar, eliminar, listar e Mostrar pontos finais do serviço de VNet e regras para gerir o seu servidor. Para obter uma descrição geral da base de dados do Azure para pontos finais de serviço PostgreSQL VNet, incluindo as limitações, consulte [base de dados do Azure para pontos finais de serviço PostgreSQL servidor VNet](concepts-data-access-and-security-vnet.md). Pontos finais do serviço de VNet estão disponíveis na pré-visualização pública em todas as regiões suportadas para a base de dados do Azure para PostgreSQL.
+
+## <a name="prerequisites"></a>Pré-requisitos
+Para seguir este guia de procedimentos, tem de:
+- Instalar [Azure CLI 2.0](/cli/azure/install-azure-cli) utilitário da linha de comandos ou utilize a Shell de nuvem do Azure no browser.
+- Um [base de dados do Azure para a base de dados e servidor PostgreSQL](quickstart-create-server-database-azure-cli.md).
+
+> [!NOTE]
+> Suporte para pontos finais do serviço de VNet é apenas para fins gerais e otimização de memória de servidores.
+
+## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>Configurar pontos finais do serviço de Vnet para base de dados do Azure para PostgreSQL
+O [az rede vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) comandos são utilizados para configurar redes virtuais.
+
+Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+
+Se estiver a executar a CLI localmente, tem de iniciar sessão na sua conta através do comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Anote a propriedade **id** da saída de comando para o nome de subscrição correspondente.
+```azurecli-interactive
+az login
+```
+Instale a extensão do CLI para base de dados do Azure para pontos finais de serviço de PostgreSQL VNet utilizando o `az extension add --name rdbms-vnet` comando. 
+```azurecli-interactive
+az extension add --name rdbms-vnet
+```
+
+Execute o `az extension list` comando para verificar a instalação da extensão CLI.
+```azurecli-interactive
+az extension list
+```
+O resultado do comando apresenta uma lista de todas as extensões instaladas. A base de dados do Azure para a extensão de PostgreSQL CLI é:
+
+ {"extensionType": "whl", "name": "rdbms vnet", "versão": "10.0.0"}
+
+> [!NOTE]
+> Para desinstalar a extensão CLI executar o `az extension remove -n rdbms-vnet` comando. 
+
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az_account_set). Substitua a propriedade **id** da saída **az login** da sua subscrição no marcador de posição de id de subscrição.
+
+- A conta tem de ter as permissões necessárias para criar uma rede virtual e o ponto final de serviço.
+
+Pontos finais de serviço podem ser configurados em redes virtuais de forma independente, por um utilizador com acesso de escrita para a rede virtual.
+
+Para obter os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão para "Microsoft.Network/JoinServicetoaSubnet" para as sub-redes que estão a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
+
+Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+
+As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se os recursos de serviço de VNet e o Azure estão em subscrições diferentes, os recursos devem estar no mesmo inquilino do Active Directory (AD), no momento desta pré-visualização.
+
+> [!IMPORTANT]
+> É altamente recomendado ler este artigo sobre considerações e configurações do ponto final de serviço antes de executar o script de exemplo abaixo, ou a configuração de pontos finais de serviço. **Ponto final de serviço de rede virtual:** A [ponto final do serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md) uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo de serviço do Azure formal. Pontos finais de serviços de VNet utilizam o nome do tipo de serviço **Microsoft.Sql**, que se refere ao serviço do Azure com o nome da base de dados do SQL Server. Esta etiqueta de serviço também se aplica a SQL Database do Azure, base de dados do Azure para serviços PostgreSQL e MySQL. É importante ter em conta ao aplicar o **Microsoft.Sql** etiquetas de serviço para um ponto final de serviço de VNet configura o tráfego de ponto final de serviço para todos os serviços de base de dados do Azure, incluindo o SQL Database do Azure, base de dados do Azure para PostgreSQL e Base de dados do Azure para servidores MySQL na sub-rede. 
+> 
+
+### <a name="sample-script-to-create-an-azure-database-for-postgresql-database-create-a-vnet-vnet-service-endpoint-and-secure-the-server-to-the-subnet-with-a-vnet-rule"></a>Exemplo de script para criar uma base de dados do Azure para a base de dados PostgreSQL, criar uma VNet, o ponto final do serviço de VNet e proteger o servidor para a sub-rede com uma regra de VNet
+Neste script de exemplo, altere as linhas realçadas para personalizar o nome de utilizador administrador e a palavra-passe. Substitua o ID de subscrição utilizada no `az account set --subscription` comando com o seu próprio identificador de subscrição.
+[!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/create-postgresql-server.sh?highlight=5,20 "Create an Azure Database for PostgreSQL, VNet, VNet service endpoint, and VNet rule.")]
+
+## <a name="clean-up-deployment"></a>Limpar a implementação
+Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+[!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/delete-postgresql.sh "Delete the resource group.")]

@@ -1,21 +1,21 @@
 ---
-title: 'O Azure Active Directory B2C: Resolver problemas de políticas personalizadas | Microsoft Docs'
-description: Saiba mais sobre abordagens para resolver erros ao trabalhar com as políticas personalizadas no Azure Active Directory.
+title: Resolver problemas de políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Saiba mais sobre abordagens para resolver erros ao trabalhar com as políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 22e7bc7bd275769f78ac2e482cb1af11e9404222
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709619"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolver problemas de políticas personalizadas do Azure AD B2C e a arquitetura de experiência de identidade
 
@@ -29,7 +29,7 @@ Se utilizar o Azure Active Directory B2C políticas personalizadas (Azure AD B2C
 O erro mais comuns em configurar políticas personalizadas é incorretamente formatado XML. Um bom editor de XML é praticamente essencial. Um editor de XML boa apresenta XML nativamente, color-codes conteúdo, preenche termos comuns, mantém elementos XML indexados e pode validar com o esquema. Seguem-se dois dos nossos Favoritos editores de XML:
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Notepad++](https://notepad-plus-plus.org/)
+* [Bloco de notas + +](https://notepad-plus-plus.org/)
 
 Validação de esquema XML identifica os erros antes de carregar o ficheiro XML. Na pasta raiz do pacote de arranque, obter a definição de esquema XML TrustFrameworkPolicy_0.3.0.0.xsd. Para obter mais informações, na documentação do editor de XML, procure *ferramentas XML* e *validação XML*.
 

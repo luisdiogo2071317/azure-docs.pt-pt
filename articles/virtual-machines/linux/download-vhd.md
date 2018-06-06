@@ -13,19 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1c6751d980a7bb28e58a3aa00514411959f515d7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725871"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Transferir um VHD de Linux a partir do Azure
 
 Neste artigo, irá aprender a transferir um [Linux de disco rígido virtual (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ficheiro a partir do Azure utilizando a CLI do Azure e o portal do Azure. 
-
-Máquinas virtuais (VMs) em utilização do Azure [discos](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) como um local para armazenar os dados, aplicações e um sistema operativo. Todas as VMs do Azure de ter, pelo menos, dois discos – um disco de sistema operativo Windows e um disco temporário. O disco do sistema operativo for criado inicialmente a partir de uma imagem e o disco do sistema operativo e a imagem são VHDs armazenados na conta de armazenamento do Azure. Máquinas virtuais podem ter também um ou mais discos de dados, que também são armazenados como VHDs.
 
 Se ainda não o fez, instale [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 

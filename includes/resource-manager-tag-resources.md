@@ -1,31 +1,73 @@
-1. Para ver as etiquetas de um recurso ou grupo de recursos, selecione o ícone **Etiquetas**. 
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34675341"
+---
+1. Para ver as etiquetas para um recurso ou grupo de recursos, procura etiquetas existentes na descrição geral. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia.
    
-     ![Painel “Selecionar etiquetas num recurso ou grupo de recursos”](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. São apresentadas as etiquetas existentes para o recurso. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia. 
+     ![Vista de etiquetas de recurso ou grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
+1. Para adicionar uma etiqueta, selecione **clique aqui para adicionar etiquetas**.
 
-     ![Painel “Mostrar etiquetas existentes num recurso e grupo de recursos”](./media/resource-manager-tag-resources/existing-tags.png)
-3. Para adicionar uma etiqueta, escreva um nome e um valor ou selecione um existente no menu pendente. Selecione **Guardar**.
+1. Forneça um nome e valor. Selecione **+** para adicionar a etiqueta.
+   
+     ![Adicionar etiquetas](./media/resource-manager-tag-resources/add-tag.png)
+1. Continue a adicionar etiquetas, conforme necessário. Quando terminar, selecione **Guardar**.
+   
+     ![Guardar etiquetas](./media/resource-manager-tag-resources/save-tags.png)
+1. As etiquetas são agora apresentadas na descrição geral.
+   
+     ![Mostrar etiquetas](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Para adicionar ou eliminar uma etiqueta, selecione **alterar**.
+   
+1. Para eliminar uma etiqueta, selecione o ícone do lixo. Em seguida, selecione **Guardar**.
 
-     ![Adicionar etiqueta nova](./media/resource-manager-tag-resources/tag-resources.png)
-3. Para ver todos os recursos que tenham um valor de etiqueta, selecione **>** (**Mais serviços**) e introduza a palavra **Etiquetas** na caixa de texto do filtro. Selecione **Etiquetas**, nas opções disponíveis.
-   
-     ![Localizar etiquetas através do hub da Procura](./media/resource-manager-tag-resources/browse-tags.png)
-4. É apresentado um resumo das etiquetas nas suas subscrições.
-   
-     ![Mostrar todas as etiquetas](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Selecione uma das etiquetas para apresentar os recursos e os grupos de recursos com essa etiqueta.
-   
-     ![Mostrar recursos com etiquetas](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Selecione **Afixar painel ao dashboard** para um acesso rápido.
-   
-     ![Afixar etiquetas ao dashboard](./media/resource-manager-tag-resources/pin-tag.png)
-7. Pode selecionar a etiqueta afixada do dashboard para ver os recursos com a mesma.
-
-     ![Afixar etiquetas ao dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Eliminar etiqueta](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Em massa atribuir etiquetas a vários recursos:
-1. Qualquer lista de recursos (por exemplo, todos os recursos, grupo de recursos oveview);
-2. Selecione a caixa de verificação para os recursos que pretende atribuir a tag;
-3. Opção de etiquetas de atribuir selecione;
-4. Adicionar nomes e valores e selecione atribuição.
+
+1. Qualquer lista de recursos, selecione a caixa de verificação para os recursos que pretende atribuir a etiqueta.
+
+     ![Selecione a vários recursos](./media/resource-manager-tag-resources/select-multiple-resources.png)
+
+1. Selecione **atribuir etiquetas**
+
+     ![Atribuir etiquetas](./media/resource-manager-tag-resources/assign-tags.png)
+
+1. Depois de cada nome e valor, selecione **+**. Quando terminar, selecione **atribuir**.
+
+     ![Selecione a atribuição](./media/resource-manager-tag-resources/select-assign.png)
+
+Para ver todos os recursos com uma etiqueta:
+
+1. Selecione **todos os serviços** e **etiquetas**.
+
+     ![Localizar por etiqueta](./media/resource-manager-tag-resources/find-tags.png)
+
+1. Selecione a etiqueta para a visualização de recursos.
+
+     ![Selecione a etiqueta](./media/resource-manager-tag-resources/select-tag.png)
+
+1. São apresentados todos os recursos com essa tag.
+
+     ![Ver recursos por etiqueta](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+
+1. Para um acesso rápido, pin a vista do dashboard.
+
+     ![Afixar ao dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+
+1. A vista está disponível a partir do dashboard.
+
+     ![Dashboard](./media/resource-manager-tag-resources/dashboard.png)

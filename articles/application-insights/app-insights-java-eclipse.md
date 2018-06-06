@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795565"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introdução ao Application Insights com o Java no Eclipse
 O Application Insights SDK envia a telemetria da sua aplicação web de Java para que possa analisar utilização e desempenho. O Eclipse Plug-in para o Application Insights instala automaticamente o SDK no projeto para que a tirar partido da telemetria de caixa, além de uma API que pode utilizar para escrever telemetria personalizada.   
@@ -32,6 +33,8 @@ Precisa de:
 * Uma subscrição do [Microsoft Azure](https://azure.microsoft.com/).
 * [IDE Eclipse para programadores de Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
+
+Se preferir o framework de mola tente o [configurar uma aplicação de inicializador de arranque a utilizar o Application Insights guia](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>Instalar o SDK no Eclipse (uma vez)
 Só tem de executar este uma vez por máquina. Este passo instala um conjunto de ferramentas que, em seguida, pode adicionar o SDK para cada Dynamic Web Project.
@@ -192,7 +195,7 @@ Os contadores de desempenho ficam visíveis como métricas personalizadas no [Ex
 ### <a name="unix-performance-counters"></a>Contadores de desempenho Unix
 * [Instale collectd com o plug-in do Application Insights](app-insights-java-collectd.md) para obter uma ampla variedade de dados de sistema e de rede.
 
-## <a name="availability-web-tests"></a>Disponibilidade dos testes Web
+## <a name="availability-web-tests"></a>Testes Web de disponibilidade
 O Application Insights pode testar o seu site em intervalos regulares para verificar se está a funcionar e a responder bem. [Para configurar][availability], desloque para baixo para clicar em disponibilidade.
 
 ![Desloque para baixo, clique em Disponibilidade e, em seguida, em Adicionar teste Web](./media/app-insights-java-eclipse/31-config-web-test.png)
@@ -203,7 +206,7 @@ Irá obter gráficos de tempos de resposta e notificações por e-mail, se o seu
 
 [Saiba mais sobre testes Web de disponibilidade.][availability]
 
-## <a name="diagnostic-logs"></a>Registos de diagnóstico
+## <a name="diagnostic-logs"></a>Registos de diagnósticos
 Se estiver a utilizar Logback ou Log4J (v1.2 ou v 2.0) para o rastreio, pode fazer com que os registos de rastreio automaticamente enviados para o Application Insights, onde pode explorar e procurar nos mesmos.
 
 [Saiba mais sobre os registos de diagnóstico][javalogs]

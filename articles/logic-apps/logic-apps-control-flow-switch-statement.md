@@ -1,29 +1,25 @@
 ---
-title: "Comutador instruções - passos de execução com base nos valores específicos - Azure Logic Apps | Microsoft Docs"
-description: "Executar vários passos com base nos valores de objetos, expressões ou tokens nas logic apps"
+title: Adicionar declarações de comutador para fluxos de trabalho - Azure Logic Apps | Microsoft Docs
+description: Como criar instruções de comutador que controlam ações de fluxo de trabalho com base nos valores específicos do Azure Logic Apps
 services: logic-apps
-keywords: "Falha da instrução"
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2ffac49d14e05ff252d6cd0e90fc23d77ac0caff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726079"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Instruções de comutador: executar vários passos com base nos valores específicos as logic apps
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar as instruções de comutador que executam ações de fluxo de trabalho com base nos valores específicos do Azure Logic Apps
 
-Para executar vários passos com base nos valores de um objeto, expressão ou token, utilize um *comutador* instrução. Esta estrutura avalia o objeto, expressão ou token, escolhe o cenário que corresponde ao resultado e executa os passos para apenas nesse caso. Quando é executada da instrução switch, apenas um cenário deve corresponder ao resultado.
+Para executar ações específicas com base nos valores de objetos, expressões ou tokens, adicione um *comutador* instrução. Esta estrutura avalia o objeto, expressão ou token, escolhe o cenário que corresponde ao resultado e executa as ações específicas apenas para esse cenário. Quando é executada da instrução switch, apenas um cenário deve corresponder ao resultado.
 
 Por exemplo, suponha que pretende que uma aplicação lógica que utiliza diferentes passos com base na opção selecionada no e-mail. Neste exemplo, a aplicação lógica verifica o feed para novo conteúdo RSS de um Web site. Quando um novo item é apresentado no feed RSS, a aplicação lógica envia e-mail para um aprovador. Com base em se o aprovador seleciona "Aprovar" ou "Rejeitar", a aplicação lógica segue vários passos.
 
@@ -69,7 +65,7 @@ Por exemplo, suponha que pretende que uma aplicação lógica que utiliza difere
    | # Maiúsculas | **SelectedOption** | Ação |
    |:------ |:-------------------|:------ |
    | Caso 1 | **Aprovar** | Adicionar o Outlook **enviar um e-mail** ação para o envio de detalhes sobre o item RSS apenas quando o aprovador selecionado **aprovar**. |
-   | Cenário 2 | **Reject** | Adicionar o Outlook **enviar um e-mail** ação para notificar outros aprovadores que o item RSS foi rejeitado. |
+   | Cenário 2 | **Rejeitar** | Adicionar o Outlook **enviar um e-mail** ação para notificar outros aprovadores que o item RSS foi rejeitado. |
    | Predefinição | \<Nenhum\> | Nenhuma ação necessária. Neste exemplo, o **predefinido** maiúsculas e minúsculas estão vazia porque **SelectedOption** tem apenas duas opções. |
    |         |          |
 

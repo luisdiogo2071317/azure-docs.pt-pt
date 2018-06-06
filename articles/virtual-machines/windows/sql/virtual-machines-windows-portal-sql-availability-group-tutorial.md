@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716725"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar sempre no grupo de disponibilidade na VM do Azure manualmente
 
@@ -40,10 +41,10 @@ A tabela seguinte lista os pré-requisitos que precisa para concluir antes de in
 
 |  |Requisito |Descrição |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Two SQL Servers | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores do SQL Server | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros para o testemunho de cluster |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta de domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta do domínio |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | -SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Sonda do Balanceador de carga as do azure: **59999** ou qualquer porta disponível |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores do SQL Server |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -O membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
@@ -57,7 +58,7 @@ Antes de começar o tutorial, terá de [concluir os pré-requisitos para a cria�
 <a name="CreateCluster"></a>
 ## Criar o cluster
 
-Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Cluster de ativação pós-falha do Windows Server que inclua dois SQL Servers e um servidor de testemunho.  
+Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Cluster de ativação pós-falha do Windows Server que inclua dois SQL Servers e um servidor de testemunho.
 
 1. RDP para o primeiro servidor de SQL Server utilizando uma conta de domínio que seja de administrador nos servidores do SQL Server e o servidor de testemunho.
 
@@ -85,7 +86,8 @@ Depois dos pré-requisitos estão concluídos, o primeiro passo é criar um Clus
 
    ![Propriedades do cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selecione **endereço IP estático** e especifique um endereço de sub-rede onde o SQL Server está na caixa de texto endereço disponível. Em seguida, clique em **OK**.
+3. Selecione **endereço IP estático** e especifique um endereço disponível a partir do intervalo de endereçamento IP privado automática (APIPA): 169.254.0.1 para 169.254.255.254 na caixa de texto de endereço. Para este exemplo, pode utilizar qualquer endereço nesse intervalo. Por exemplo, `169.254.0.1`. Em seguida, clique em **OK**.
+
 4. No **recursos principais do Cluster** secção, clique no nome do cluster e clique em **colocar Online**. Em seguida, aguarde até que ambos os recursos estão online. Quando o recurso de nome de cluster estiver online, atualiza o servidor DC com uma nova conta de computador do AD. Utilize esta conta do AD para executar o serviço de grupo de disponibilidade em cluster mais tarde.
 
 ### <a name="addNode"></a>Adicionar o servidor de SQL ao cluster
@@ -419,7 +421,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
 
    > [!WARNING]
-   > Devolução direta do servidor é definida durante a criação. Não pode ser alterada.
+   > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
 
 1. Clique em **OK** para definir a regras de balanceamento de carga.
 

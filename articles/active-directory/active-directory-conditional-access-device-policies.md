@@ -1,13 +1,14 @@
 ---
-title: "Azure políticas de dispositivos de acesso condicional de Active Directory para serviços do Office 365 | Microsoft Docs"
-description: "Saiba mais sobre como aprovisionar políticas de dispositivos de acesso condicional para ajudar a tornar os recursos da empresa mais seguro, mantendo a conformidade de utilizadores e aceder aos serviços."
+title: Azure políticas de dispositivos de acesso condicional de Active Directory para serviços do Office 365 | Microsoft Docs
+description: Saiba mais sobre como aprovisionar políticas de dispositivos de acesso condicional para ajudar a tornar os recursos da empresa mais seguro, mantendo a conformidade de utilizadores e aceder aos serviços.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b586aee9559b62d4cc8b21ab88ab193e61e7c14
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cc385edb6bf0b850eb97f0f6a233dd5081acbb3e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723963"
 ---
 # <a name="active-directory-conditional-access-device-policies-for-office-365-services"></a>Active Directory dispositivo políticas de acesso condicional serviços do Office 365
 
@@ -43,6 +45,6 @@ Tem de utilizar o serviço de registo de dispositivos do Azure AD para registar 
 
 Quando os utilizadores no local estão prestes a ser autenticado, serviços de Federação do Active Directory (AD FS) (versão 1.0 e versões posteriores) é necessário. Autenticação multifator para Workplace Join falha quando o fornecedor de identidade não é capaz de autenticação multifator. Por exemplo, não é possível utilizar a autenticação multifator com o AD FS 2.0. Certifique-se de que no local do AD FS funciona com a autenticação multifator e de que um método de autenticação multifator válido está em vigor antes de ativar o multi-factor authentication para o serviço de registo de dispositivos do Azure AD. Por exemplo, o AD FS no Windows Server 2012 R2 tem capacidades de autenticação multifator. Também tem de definir um método de autenticação válido adicionais (multi-factor authentication) no servidor do AD FS antes de ativar o multi-factor authentication para o serviço de registo de dispositivos do Azure AD. Para obter mais informações sobre métodos de autenticação multifator suportadas no AD FS, consulte [configurar métodos de autenticação adicionais para AD FS](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 *   Para obter respostas a questões recorrentes, consulte [acesso condicional do Azure Active Directory perguntas mais frequentes](active-directory-conditional-faqs.md).

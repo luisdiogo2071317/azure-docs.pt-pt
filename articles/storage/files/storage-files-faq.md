@@ -5,22 +5,23 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737814"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
-[Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
+[Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
 
 Este artigo responde a questões recorrentes sobre ficheiros do Azure e funcionalidades, incluindo a utilização de sincronização de ficheiros do Azure com ficheiros do Azure. Se não vir a resposta à sua pergunta, pode contactar-nos através dos seguintes canais (pela ordem em constante crescendo):
 
@@ -188,6 +189,14 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="afs-os-support"></a>
 **Pode utilizar sincronização de ficheiros do Azure com o Windows Server 2008 R2, o Linux ou o meu dispositivo de armazenamento ligados à rede (NAS)?**  
     Atualmente, a sincronização de ficheiros do Azure suporta apenas o Windows Server 2016 e o Windows Server 2012 R2. Neste momento, não temos planos de que pode partilhar, mas estamos abertos para suportar plataformas adicionais com base no pedido do cliente. Indique em [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) quais as plataformas gostaria de ver melhorado para suportar.
+
+* <a id="afs-tiered-files-out-of-endpoint"></a>
+**Por que motivo existem ficheiros em camadas fora do espaço de nomes de ponto final do servidor?**  
+    Antes da versão do agente de sincronização de ficheiros do Azure 3, a sincronização de ficheiros do Azure bloqueada a movimentação de ficheiros em camadas fora do ponto final do servidor, mas no mesmo volume que o ponto final do servidor. Copiar operações, é movido de ficheiros não camadas e move de camadas para outros volumes foram afetados. A razão para este comportamento foi o implícito pressuposto de que o Explorador de ficheiros e outras APIs do Windows têm que movem operações no mesmo volume (quase) são instanenous mudar o nome de operações. Isto significa que move tornará Explorador de ficheiros ou outros métodos de movimentação (como linha de comandos ou PowerShell) aparecem responder durante a sincronização de ficheiros do Azure recalls os dados da nuvem. Começando com [versão do agente de sincronização de ficheiros do Azure 3.0.12.0](storage-files-release-notes.md#agent-version-30120), sincronização de ficheiros do Azure permite-lhe mover um ficheiro em camadas fora do ponto final do servidor. Iremos evitar os efeitos negativos mencionados anteriormente, permitindo que o ficheiro em camadas existir como um ficheiro em camadas fora do ponto final do servidor e, em seguida, recupera um ficheiro em segundo plano. Isto significa que move no mesmo volume são instaneous e fazer todo o trabalho para recuperar o ficheiro no disco após a movimentação foi concluída. 
+
+* <a id="afs-do-not-delete-server-endpoint"></a>
+**Estou a ter um problema com a sincronização de ficheiros do Azure no meu servidor (sincronização, na nuvem em camadas, etc.). Deve remover e recriar o ponto final do meu servidor?**  
+    [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="security-authentication-and-access-control"></a>Segurança, autenticação e controlo de acesso
 * <a id="ad-support"></a>

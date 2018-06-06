@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724912"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Mestre multi à escala global com o Azure Cosmos DB 
  
-Desenvolver globalmente distribuídas aplicações respondem com latências locais enquanto mantém consistentes vistas dos dados em todo o mundo é um problema um desafio. Os clientes utilizar bases de dados globalmente distribuídas, porque necessitam para melhorar a latência de acesso de dados, obter uma disponibilidade elevada de dados e certifique-se de recuperação após desastre garantida e, (4) para satisfazer os seus requisitos empresariais. Mestre multi do BD Azure Cosmos fornece elevados níveis de disponibilidade (99.999%), latência de dígito milissegundo para escrever dados e a escalabilidade com suporte de resolução de conflito incorporado flexível e abrangente. Estas funcionalidades significativamente simplifica a programação de aplicações distribuídas global. Para aplicações distribuídas global, é fundamental multi-mestre suporte. 
+Desenvolver globalmente distribuídas aplicações respondem com latências locais enquanto mantém consistentes vistas dos dados em todo o mundo é um problema um desafio. Os clientes utilizar bases de dados globalmente distribuídas, porque necessitam para melhorar a latência de acesso de dados, alcançar dados elevada disponibilidade, certifique-se a recuperação após desastre garantido e para satisfazer os seus requisitos empresariais. Mestre multi do BD Azure Cosmos fornece elevados níveis de disponibilidade (99.999%), latência de dígito milissegundo para escrever dados e a escalabilidade com suporte de resolução de conflito incorporado flexível e abrangente. Estas funcionalidades significativamente simplificam o desenvolvimento de aplicações distribuídas global. Para aplicações distribuídas global, é fundamental multi-mestre suporte. 
 
 ![Arquitetura multi-mestre](./media/multi-region-writers/multi-master-architecture.png)
 

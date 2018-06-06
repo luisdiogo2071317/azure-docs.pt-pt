@@ -12,22 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
-ms.author: billmath
-ms.openlocfilehash: 7998d69a079c4858c54bea22dbd24e4e84c8c793
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 7e3fbb0f355ff0ffab404af9b7de1a27de02f1fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697919"
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Conclua uma revisão do acesso dos membros de um grupo ou o acesso dos utilizadores a uma aplicação no Azure AD
 
-Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão do acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação. Azure AD envia automaticamente revisores uma mensagem de e-mail que lhe solicita informações para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [rever o seu acesso](active-directory-azure-ad-controls-perform-access-review.md). (Tenha em atenção que os convidados que são atribuídos como revisores, mas não tem aceite o convite não irão receber um e-mail de revisões de acesso, como, primeiro tem de aceitar um convite antes de revisão.) O período de revisão do acesso ou se um administrador deixa a revisão do acesso, siga os passos neste artigo para ver e aplicar os resultados.
+Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação. Azure AD envia automaticamente revisores uma mensagem de e-mail que lhe solicita informações para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [rever o seu acesso](active-directory-azure-ad-controls-perform-access-review.md). (Tenha em atenção que os convidados que são atribuídos como revisores, mas não tem aceite o convite não irão receber um e-mail de revisões de acesso, como, primeiro tem de aceitar um convite antes de revisão.) O período de revisão do acesso ou se um administrador deixa a revisão do acesso, siga os passos neste artigo para ver e aplicar os resultados.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Ver uma revisão do acesso no portal do Azure
 
 1. Vá para o [acesso revê página](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), selecione **programas**e selecione o programa que contém o controlo de revisão do acesso.
 
-2. Selecione **gerir**e selecione o controlo de revisão do acesso. Se existirem vários controlos no programa, pode filtrar para controlos de um tipo específico e ordenação pelo respetivo estado. Também pode procurar por nome de revisão de controlo de acesso ou o nome a apresentar do proprietário que o criou. 
+2. Selecione **gerir**e selecione o controlo de revisão do acesso. Se existirem vários controlos no programa, pode filtrar os controlos de um tipo específico e ordená-los pelo respetivo estado. Também pode procurar pelo nome do controlo de revisão de acesso ou pelo nome a apresentar do proprietário que a criou. 
 
 ## <a name="stop-a-review-that-hasnt-finished"></a>Parar uma revisão de que não foi concluída
 

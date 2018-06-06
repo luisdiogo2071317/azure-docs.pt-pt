@@ -9,11 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802515"
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar um servidor de destino principal do Linux
 Após a ativação pós-falha de máquinas virtuais no Azure, pode efetuar a cópia as máquinas virtuais para o site no local. Para falhar novamente, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino principal no local para receber o tráfego. 
@@ -242,7 +243,7 @@ Utilize os seguintes passos para criar um disco de retenção:
 
 2. Utilize o **multipath -odas** comando para obter o ID do disco de retenção multipath: **multipath -odas**
 
-    ![ID de Multipath](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![ID de Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formatar o disco e, em seguida, crie um sistema de ficheiros na unidade de novo: **mkfs.ext4 /dev mapeador/< id de multipath do disco de retenção >**.
     

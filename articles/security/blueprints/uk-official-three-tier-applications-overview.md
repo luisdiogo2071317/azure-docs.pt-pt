@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757200"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Segurança do Azure e conformidade Blueprint - automatização de aplicações Web de três camadas oficial do RU
 
@@ -148,7 +149,7 @@ Armazenamento
 
 **Gateway de Internet e o endereço IP público**: O gateway de internet expõe os serviços de aplicações para utilizadores através da internet. Tráfego de aceder a estes serviços está protegido por um [Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) oferta capacidades com proteção de firewall (WAF) de aplicação web de balanceamento de carga e de encaminhamento de 7 camadas.
 
-**Gestão VNet**: Isto [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contém recursos que implementam a gestão e monitorização capacidades para as cargas de trabalho em execução na mesma VNet.
+**Gestão VNet**: Isto [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contém recursos que implementam a gestão e monitorização capacidades para as cargas de trabalho em execução na mesma VNet.
 
 **Jumpbox**: também chamado um [anfitrião bastion](https://en.wikipedia.org/wiki/Bastion_host), que é uma VM segura na rede que os administradores utilizam para ligar a VMs na mesma VNet. A jumpbox tem um NSG que permite tráfego remoto apenas a partir de endereços IP públicos numa lista segura. Para permitir o tráfego de (RDP) de ambiente de trabalho remoto, a origem do tráfego tem de ser definido no NSG. Gestão de recursos de produção é através de RDP com uma VM Jumpbox protegidos.
 

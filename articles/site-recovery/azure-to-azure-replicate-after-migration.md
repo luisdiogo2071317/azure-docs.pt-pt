@@ -5,18 +5,17 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: ponatara
-ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716011"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre para as VMs do Azure após a migração para o Azure 
 
->[!NOTE]
-> Recuperação após desastre para as VMs do Azure utilizando o Azure Site Recovery está atualmente em pré-visualização.
 
 Utilize este artigo depois de já [migrado máquinas no local para as VMs do Azure](tutorial-migrate-on-premises-to-azure.md) utilizando o [recuperação de Site](site-recovery-overview.md) serviço. Este artigo ajuda-o a preparar as VMs do Azure para configurar a recuperação de desastres para uma região secundária do Azure, utilizando a recuperação de sites.
 

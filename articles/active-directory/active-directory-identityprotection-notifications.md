@@ -1,14 +1,15 @@
 ---
-title: "Notificações de proteção de identidade do Active Directory do Azure | Microsoft Docs"
-description: "Saiba como notificações suportam as atividades de investigação."
+title: Notificações de proteção de identidade do Active Directory do Azure | Microsoft Docs
+description: Saiba como notificações suportam as atividades de investigação.
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
-documentationcenter: 
+keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e72cfab8886f28982e5451362704d6a7a9fe59e4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713818"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações de proteção de identidade do Active Directory do Azure
 
@@ -34,7 +36,7 @@ Este artigo fornece uma descrição geral de ambos os e-mails de notificação.
 
 ## <a name="users-at-risk-detected-email"></a>Os utilizadores em risco detetados e-mail
 
-Em resposta a uma conta detetada em risco, o Azure AD Identity Protection gera um alerta de e-mail com **utilizadores em risco detetados** como requerente. Mensagem de correio eletrónico inclui uma ligação para o  **[utilizadores sinalizados para risco](active-directory-reporting-security-user-at-risk.md)**  relatório. Como melhor prática, deve investigar imediatamente os utilizadores em risco.
+Em resposta a uma conta detetada em risco, o Azure AD Identity Protection gera um alerta de e-mail com **utilizadores em risco detetados** como requerente. Mensagem de correio eletrónico inclui uma ligação para o **[utilizadores sinalizados para risco](active-directory-reporting-security-user-at-risk.md)** relatório. Como melhor prática, deve investigar imediatamente os utilizadores em risco.
 
 ![Os utilizadores em risco detetados e-mail](./media/active-directory-identityprotection-notifications/01.png)
 
@@ -78,6 +80,6 @@ Para abrir a caixa de diálogo relacionada, clique em **resumida semanal** no **
 ![Os utilizadores em risco detetados e-mail](./media/active-directory-identityprotection-notifications/04.png)
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 - [Proteção de identidade do Azure Active Directory](active-directory-identityprotection.md)

@@ -12,16 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737542"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas para o SO convidado do Azure. Procure este artigo para determinar se uma atualização específica aplica-se para o SO convidado está a utilizar. Atualizações sempre transportem para específico [família] [ family-explain] foram introduzidas no.
+
+## <a name="may-guest-os"></a>Poderá de SO convidado
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-05 | [4103721], [4103727], [4103723] |Segurança do Windows 10 |5.19 |8 de Maio de 2018 |
+| Rel 18-05 | [4103712] |Apenas a segurança do Windows |2.74 |8 de Maio de 2018 |
+| Rel 18-05 | [4103726] |Apenas a segurança do Windows |3.61 |8 de Maio de 2018 |
+| Rel 18-05 | [4103715] |Apenas a segurança do Windows |4.54 |8 de Maio de 2018 |
+| Rel 18-05 | [4095514], [4095519] |.NET 3.5, segurança de 4. x |2.74 |8 de Maio de 2018 |
+| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4. x, segurança de x 4.5 |3.61 |8 de Maio de 2018 |
+| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4. x, segurança de x 4.5 |4.74|8 de Maio de 2018 |
+| Rel 18-05 | [4054856] |Segurança de 4.7 x .NET |5.19 |8 de Maio de 2018 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 de Maio de 2018 |
+| Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |8 de Maio de 2018 |
+| N/A | [4093118] |Agregação de segurança não Abril |2.73 |10 de abril de 2018 |
+| N/A | [4093123] |Agregação de segurança não Abril |3.61 |10 de abril de 2018 |
+| N/A | [4093114] |Agregação de segurança não Abril |4.74 |10 de abril de 2018 |
+| N/A | [4093137] |Abril SSU |5.19 |10 de abril de 2018 |
+| N/A | [4093753] |Atualização de fuso horário |2.74, 3.61, 4.74 |10 de abril de 2018 |
+
 
 ## <a name="april-guest-os"></a>SO de convidado de Abril
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -628,6 +649,28 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[2999802] |Linhas sólidas em vez de linhas ponteada são indicadas no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2896881] |Hora de início de sessão longa ao utilizar o comando AddPrinterConnection VBScript para mapear impressoras para os utilizadores durante o processo de início de sessão no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
 [4093108]: http://support.microsoft.com/kb/4093108 

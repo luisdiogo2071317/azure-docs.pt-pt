@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726266"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de carga do Azure?
 
@@ -93,7 +94,7 @@ Balanceador de carga fornece as seguintes capacidades fundamentais para as aplic
 
     - **Sonda personalizada TCP**: esta pesquisa depende de estabelecer uma sessão TCP com êxito para uma porta de pesquisa definidos. Desde que o serviço de escuta especificado na VM existe, esta pesquisa é concluída com êxito. Se a ligação é recusada, falha de pesquisa. Esta pesquisa substitui a sonda de agente de convidados predefinida.
 
-    - **Pesquisa de agente do convidado (na plataforma como um VMs de serviço [PaaS] apenas)**: O balanceador de carga, também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta de HTTP 200 OK apenas quando a instância está no estado pronto. Se o agente não conseguir responder com um HTTP 200 OK, o Balanceador de carga marca a instância como responder e deixa de envio de tráfego para essa instância. O Balanceador de carga continua a tentar aceder a instância. Se o agente convidado responde com uma HTTP 200, o Balanceador de carga envia tráfego a essa instância novamente. As pesquisas de agente do convidado são último recurso e não recomendado quando HTTP ou TCP configurações de sonda personalizada são possíveis. 
+    - **Pesquisa do agente convidado**: O balanceador de carga, também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta de HTTP 200 OK apenas quando a instância está no estado pronto. Se o agente não conseguir responder com um HTTP 200 OK, o Balanceador de carga marca a instância como responder e deixa de envio de tráfego para essa instância. O Balanceador de carga continua a tentar aceder a instância. Se o agente convidado responde com uma HTTP 200, o Balanceador de carga envia tráfego a essa instância novamente. As pesquisas de agente do convidado são um _último recurso e não recomendado_ quando são possíveis configurações de sonda personalizada de HTTP ou TCP. 
     
 * **Ligações de saída (realizar o SNAT)**
 

@@ -1,21 +1,21 @@
 ---
-title: Reposição de palavra-passe de inscrição, do autenticação, ASP.NET Azure Active Directory B2C
+title: A autenticação, inscrição, reposição palavra-passe no Azure Active Directory B2C | Microsoft Docs
 description: Como criar uma aplicação web que tem sessão-up/início de sessão, Editar perfil e palavra-passe reposição através do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710411"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com o Azure Active Directory B2C perfil de inscrição, início de sessão, editar e reposição de palavra-passe
 

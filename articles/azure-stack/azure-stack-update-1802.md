@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757262"
 ---
 # <a name="azure-stack-1802-update"></a>Atualização de pilha 1802 do Azure
 
@@ -36,7 +37,7 @@ Este artigo descreve os melhoramentos e corrige no pacote de atualização de 18
 
 ## <a name="before-you-begin"></a>Antes de começar    
 > [!IMPORTANT]    
-> Não tente criar máquinas virtuais durante a instalação desta atualização. Para obter mais informações sobre a gestão de atualizações, consulte [gerir atualizações na descrição geral do Azure pilha](/azure-stack-updates#plan-for-updates).
+> Não tente criar máquinas virtuais durante a instalação desta atualização. Para obter mais informações sobre a gestão de atualizações, consulte [gerir atualizações na descrição geral do Azure pilha](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -107,6 +108,9 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 As seguintes são problemas conhecidos de pós-instalação para a compilação **20180302.1**
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Solução: Para resolver este problema, depois de instalar esta atualização, utilize o passo 3 do [automatização de Acionador para configurar afirmações de confiança do fornecedor na pilha de Azure](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedimento para repor o proprietário da subscrição de fornecedor predefinido.   
+
 - A capacidade [para abrir um novo pedido de suporte na lista pendente](azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, utilize a seguinte hiperligação:     
     - Para a pilha do Azure integrados sistemas, utilize https://aka.ms/newsupportrequest.
 
@@ -137,7 +141,22 @@ As seguintes são problemas conhecidos de pós-instalação para a compilação 
 
 
 #### <a name="health-and-monitoring"></a>Estado de funcionamento e a monitorização
-Existem não existem problemas conhecidos depois de atualizar para 1802.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Alerta #1:
+   - NOME: Mau estado de funcionamento da função de infraestrutura
+   - GRAVIDADE: aviso
+   - COMPONENTE: Controlador de estado de funcionamento
+   - Descrição: O controlador de estado de funcionamento de Heartbeat Scanner não está disponível. Isto pode afetar métricas e relatórios de estado de funcionamento.  
+
+  Alerta #2:
+   - NOME: Mau estado de funcionamento da função de infraestrutura
+   - GRAVIDADE: aviso
+   - COMPONENTE: Controlador de estado de funcionamento
+   - Descrição: O controlador de estado de funcionamento Scanner de falhas não está disponível. Isto pode afetar métricas e relatórios de estado de funcionamento.
+
+  Ambos os alertas podem ser ignoradas. Irá fechar automaticamente ao longo do tempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Os utilizadores podem procurar o mercado completo sem uma subscrição e podem ver itens administrativos como planos e ofertas. Estes itens estão não funcional para os utilizadores.
@@ -155,7 +174,7 @@ Existem não existem problemas conhecidos depois de atualizar para 1802.
 
 - Quando cria um conjunto de disponibilidade no portal, acedendo a **novo** > **computação** > **do conjunto de disponibilidade**, só pode criar um conjunto de disponibilidade com um domínio de falhas e o domínio de atualização de 1. Como solução, ao criar uma nova máquina virtual, crie o conjunto com o PowerShell, CLI, ou a partir da disponibilidade do portal.
 
-- Ao criar máquinas virtuais no portal de utilizador de pilha do Azure, o portal apresenta um número incorreto de discos de dados que pode anexar a uma série DS VM. Série DS VMs pode acomodar tantos discos de dados como a configuração do Azure.
+- Ao criar máquinas virtuais no portal de utilizador de pilha do Azure, o portal apresenta um número incorreto de discos de dados que pode anexar a uma série de D VM. Todas as séries de D suportadas VMs podem acomodar tantos discos de dados como a configuração do Azure.
 
 - Quando não for possível criar uma imagem de VM, um item de falha que não é possível eliminar pode ser adicionado ao painel de processamento de imagens de VM.
 
@@ -277,6 +296,8 @@ Existem não existem problemas conhecidos depois de atualizar para 1802.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Transferir as ferramentas de pilha do Azure a partir do GitHub
 - Ao utilizar o *webrequest invocar* das ferramentas de cmdlet do PowerShell para transferir a pilha do Azure a partir do Github, receberá um erro:     

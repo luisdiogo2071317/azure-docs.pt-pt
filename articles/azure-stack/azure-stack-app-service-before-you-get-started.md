@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796738"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações na pilha do Azure
 
@@ -330,7 +331,7 @@ Siga estes passos.
 | AdminArmEndpoint | Necessário | Null | Ponto final de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
 | TenantARMEndpoint | Necessário | Null | Ponto de final do inquilino do Azure Resource Manager. Um exemplo é management.local.azurestack.external. |
 | AzureStackAdminCredential | Necessário | Null | Credencial de administrador de serviço de Azure AD. |
-| CertificateFilePath | Necessário | Null | Caminho para o ficheiro de certificado de aplicação de identidade gerado anteriormente. |
+| CertificateFilePath | Necessário | Null | **Caminho completo do** para o ficheiro de certificado de aplicação de identidade gerado anteriormente. |
 | CertificatePassword | Necessário | Null | Palavra-passe que o ajuda a proteger a chave privada do certificado. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Criar uma aplicação de serviços de Federação do Active Directory
@@ -364,7 +365,7 @@ Siga estes passos.
 | AdminArmEndpoint | Necessário | Null | Ponto final de administração do Azure Resource Manager. Um exemplo é adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Necessário | Null | Ponto final com privilégios. Um exemplo é AzS ERCS01. |
 | CloudAdminCredential | Necessário | Null | Credenciais de conta de domínio para os administradores de nuvem de pilha do Azure. Um exemplo é Azurestack\CloudAdmin. |
-| CertificateFilePath | Necessário | Null | Caminho do ficheiro PFX de certificado a aplicação de identidade. |
+| CertificateFilePath | Necessário | Null | **Caminho completo do** ao ficheiro PFX de certificado a aplicação de identidade. |
 | CertificatePassword | Necessário | Null | Palavra-passe que o ajuda a proteger a chave privada do certificado. |
 
 ## <a name="next-steps"></a>Passos Seguintes

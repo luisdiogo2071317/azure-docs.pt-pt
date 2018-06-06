@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 42fabb9a2ad05dbd6a449f3f9e6a729917750165
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700013"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurar um VMSS geridos serviço de identidade (MSI) com o PowerShell
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/10/2018
 
 Identidade de serviço geridas fornece serviços do Azure com uma identidade gerido automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter de credenciais no seu código. 
 
-Neste artigo, irá aprender a realizar as seguintes operações de identidade de serviço geridas numa Azure Virtual Machine escala definido (VMSS), através do PowerShell:
+Neste artigo, irá aprender a efetuarem as operações de identidade de serviço geridas numa máquina Virtual escala definido (VMSS), através do PowerShell:
 - Ativar e desativar o sistema atribuído a identidade de um VMSS do Azure
 - Adicionar e remover um utilizador atribuído a identidade de um VMSS do Azure
 
@@ -121,8 +122,7 @@ Para atribuir um utilizador atribuído identidade um VMSS existente do Azure:
 
 2. Obtenha primeiro as propriedades da VM utilizando o `Get-AzureRmVM` cmdlet. Em seguida, para atribuir uma identidade de utilizador atribuída para o Azure VMSS, utilize o `-IdentityType` e `-IdentityID` comutador no [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Substitua `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` com os seus próprios valores.
 
-   > [!IMPORTANT]
-   > Criar identidades de utilizador atribuída só suporta alfanuméricos e hífenes (0-9 ou a-z ou A-Z ou -) carateres. Além disso, o nome deve ser limitado a 24 carateres para a atribuição a VM/VMSS funcione corretamente. Verifique novamente para as atualizações. Para obter mais informações, consulte [perguntas mais frequentes e problemas conhecidos](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

@@ -1,20 +1,21 @@
 ---
 title: Personalize a IU da journey utilizador com as políticas personalizadas | Microsoft Docs
-description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C
+description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0980c79ccd9ebd170e747514bba712c498e1387c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711914"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalize a IU da journey utilizador com as políticas personalizadas
 
@@ -75,7 +76,7 @@ Para se certificar de que tudo funciona conforme esperado, tem de:
 
 Graças a esta abordagem baseada em CORS, os utilizadores finais têm experiências consistentes entre a sua aplicação e as páginas servidas pelo Azure AD B2C.
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Como pré-requisito, tem de criar uma conta de armazenamento. Necessita de uma subscrição do Azure para criar uma conta do Blob Storage do Azure. Pode inscrever numa avaliação gratuita no [Web site Azure](https://azure.microsoft.com/pricing/free-trial/).
 

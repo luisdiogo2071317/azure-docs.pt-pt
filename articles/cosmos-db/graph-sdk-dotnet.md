@@ -2,22 +2,20 @@
 title: SDK .NET da Azure CosmosDB Graph API & recursos | Microsoft Docs
 description: Saiba tudo sobre o Azure CosmosDB Graph API, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão.
 services: cosmos-db
-documentationcenter: .net
 author: luisbosquez
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 41608e76216f63ccf3165cc3959787c661d71fa0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c5975809b0f196fe88a11504549b046e910fc93c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795929"
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB Graph API do .NET: Transferir e notas de versão
 
@@ -27,14 +25,14 @@ ms.lasthandoff: 04/06/2018
 |**Documentação da API**|[Documentação de referência da API de .NET](https://aka.ms/acdbgraphapiref)|
 |**Início rápido**|[Azure Cosmos DB: Criar uma aplicação de gráfico com o .NET e a Graph API](create-graph-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Criar um contentor com a Graph API](tutorial-develop-graph-dotnet.md)|
-|**Arquitetura suportada atual**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Arquitetura suportada atual**| [O Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [O Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 
 ## <a name="release-notes"></a>Notas de versão
 
 Recomendamos que utilize o controlador de Gremlin open source para .NET, Gremlin.Net. Saiba como começar a utilizar [BD do Azure Cosmos: criar uma aplicação de gráfico com o .NET e a Graph API](create-graph-dotnet.md).
 
-### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-preview
+### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
 
 #### <a name="bug-fixes"></a>Correções de erros
 * Corrigir opcionalmente carregar `appsettings.json` (`netstandard1.6`)
@@ -43,7 +41,7 @@ Recomendamos que utilize o controlador de Gremlin open source para .NET, Gremlin
 * Mude Microsoft.Azure.Graphs para AnyCPU da plataforma de destino.
 * Remover uma assemblagem Mono da `net461` manifesto do pacote.
 
-### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-preview
+### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
 
 #### <a name="whats-new"></a>Novidades
 * Suporte adicionado para `.netstandard 1.6`
@@ -55,22 +53,22 @@ Recomendamos que utilize o controlador de Gremlin open source para .NET, Gremlin
   *  Saltos Traversal com filtros deverá ver este melhoramento, por exemplo: `g.V('1').outE().has('name', 'marko').inV()`.
 * Adicionar otimizações para traversals com `limit()` passo.
 
-#### <a name="breaking-changes"></a>As alterações de última hora
+#### <a name="breaking-changes"></a>Alterações Interruptivas
 * Suporte removido para o .NET Framework 4.5.1
 
 * O novo parser está alinhada com `gremlin-groovy` gramática. Como resultado, alguns expressões que funcionavam anteriormente são ambíguas para o parser de novo. Um cenário de Nota:
   * `in` e `as` são palavras-chave reservadas no `gremlin-groovy`, pelo que estes passos, devem estar qualificados com `.in()` ou `.as()` para evitar erros de sintaxe. Por exemplo: `g.V().repeat(in()).times(2)`  ->  _emite um erro de sintaxe_  
- `g.V().repeat(__.in()).times(2)` -> _succeeds_
+ `g.V().repeat(__.in()).times(2)` -> _será efetuada com êxito_
 
-### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-preview
+### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview
 
-### <a name="a-name022-preview022-preview"></a><a name="0.2.2-preview"/>0.2.2-preview
+### <a name="a-name022-preview022-preview"></a><a name="0.2.2-preview"/>0.2.2-Preview
 
-### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-preview
+### <a name="a-name021-preview021-preview"></a><a name="0.2.1-preview"/>0.2.1-Preview
 
-### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-preview
+### <a name="a-name020-preview020-preview"></a><a name="0.2.0-preview"/>0.2.0-Preview
 
-### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
+### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-Preview
 * Versão de pré-visualização inicial.
 
 ## <a name="release--retirement-dates"></a>Versão & extinção datas

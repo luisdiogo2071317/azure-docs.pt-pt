@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801937"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>O Azure AD Connect: Conceitos de Design
-O objetivo deste tópico é descrever áreas que devem considerar durante a estrutura de implementação do Azure AD Connect. Este tópico é uma descrição profunda sobre algumas áreas e estes conceitos uma breve descrição, bem como outros tópicos.
+O objetivo deste documento é descrever áreas que devem considerar durante a estrutura de implementação do Azure AD Connect. Este documento é uma descrição profunda sobre algumas áreas e estes conceitos uma breve descrição, bem como outros documentos.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 O atributo sourceAnchor é definido como *um atributo imutável durante a duração de um objeto*. Esta identifica exclusivamente um objeto como sendo o mesmo objeto no local e no Azure AD. O atributo é também denominado **immutableId** e os dois nomes são utilizados permutáveis.
 
-A palavra imutável, que é "não é possível alterar", é importante neste tópico. Uma vez que o valor deste atributo não pode ser alterado depois de ter sido definido, é importante escolher uma estrutura que suporta o seu cenário.
+A palavra imutável, que é "não é possível alterar", é importante para este documento. Uma vez que o valor deste atributo não pode ser alterado depois de ter sido definido, é importante escolher uma estrutura que suporta o seu cenário.
 
 O atributo é utilizado para os seguintes cenários:
 
@@ -40,12 +42,12 @@ Este tópico aborda apenas sourceAnchor no que respeita aos utilizadores. As mes
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>Selecionar um atributo sourceAnchor boa
 O valor do atributo tem de seguir as seguintes regras:
 
-* Ter menos de 60 carateres de comprimento
+* Menos de 60 carateres de comprimento
   * Carateres que não estão a ser a-z, A-Z ou 0-9 são codificados e contabilizado como 3 carateres
 * Não contém um caráter especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Deve ser globalmente exclusivo
 * Tem de ser uma cadeia, número inteiro ou binário
-* Não devem ser baseadas no nome do utilizador, estas alterações
+* Não devem ser baseadas no nome do utilizador, porque estes podem alterar
 * Não deve ser sensíveis a maiúsculas e evitar valores que podem variar devido por maiúsculas e minúsculas
 * Deve ser atribuído quando o objeto é criado
 
@@ -193,7 +195,7 @@ Algumas organizações têm domínios não encaminháveis internos, como contoso
 
 Leitura [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../active-directory-domains-add-azure-portal.md) para obter mais informações sobre adicionar e verificar domínios.
 
-O Azure AD Connect Deteta se estiver a executar num ambiente de domínio não encaminháveis internos e iria adequadamente avisá-lo de aceder diretamente com as definições rápidas. Se estão a funcionar num domínio não encaminháveis internos, em seguida, é provável que o UPN dos utilizadores têm também sufixos não encaminháveis internos. Por exemplo, se estiver a executar em contoso. local, o Azure AD Connect sugere que utilize definições personalizadas, em vez de utilizar definições expressas. Utilizar as definições personalizadas, é capazes de especificar o atributo que deve ser utilizado como o UPN para iniciar sessão no Azure depois dos utilizadores são sincronizados com o Azure AD.
+O Azure AD Connect Deteta se estiver a executar num ambiente de domínio não encaminháveis internos e iria adequadamente avisá-lo de aceder diretamente com as definições rápidas. Se estão a funcionar num domínio não encaminháveis internos, em seguida, é provável que o UPN, utilizadores, tem também sufixos não encaminháveis internos. Por exemplo, se estiver a executar em contoso. local, o Azure AD Connect sugere que utilize definições personalizadas, em vez de utilizar definições expressas. Utilizar as definições personalizadas, é capazes de especificar o atributo que deve ser utilizado como o UPN para iniciar sessão no Azure depois dos utilizadores são sincronizados com o Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

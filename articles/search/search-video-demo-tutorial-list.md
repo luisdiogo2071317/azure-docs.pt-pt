@@ -6,13 +6,14 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/06/2017
+ms.date: 06/04/2018
 ms.author: heidist
-ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 197d54480d987b3826f129e9e1264caf4a1998b8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757592"
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>A pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
 Familiarize-se mais rapidamente com os vídeos seguintes, demonstrações, tutoriais e exemplos de aplicações.
@@ -21,14 +22,14 @@ Familiarize-se mais rapidamente com os vídeos seguintes, demonstrações, tutor
 
 Comece por aqui se estiver familiarizado com o Azure Search. Pode rever todos estes recursos em cerca de uma hora.
 
-| Cargo | Descrição | Data |
-|-------|-------------|------|
-| [Veja este vídeo de introdução](https://channel9.msdn.com/Events/Connect/2016/138) | introdução 9m38s para funcionalidades, a criação de serviço e consultas. | Novembro de 2016 |
-| [ Criar um serviço](search-get-started-portal.md) | Passos para configurar a Azure Search no portal. | Fevereiro de 2017 |
-| [Consultar um índice](search-get-started-portal.md) | Criar e consultar um índice utilizando dados de exemplo incorporada. Ferramentas no portal são uma forma rápida de saber mais sobre os tipos de consulta e parâmetros de pesquisa. | Fevereiro de 2017 |
-| [Passo seguinte:<br/> código no .NET](search-howto-dotnet-sdk.md) | C# instruções mostram como ligar, índice e consultar com a biblioteca .NET de pesquisa do Azure. | Novembro de 2016 |
-| [Passo seguinte:<br/> código no REST](search-create-index-rest-api.md) | Reveja as chamadas REST e payloads JSON para criar um índice da Azure Search em qualquer plataforma e linguagem de programação. | Dezembro de 2016 |
-| [Como completa a pesquisa em texto funciona na Azure Search](search-lucene-query-architecture.md) | Arquitetura e a descrição geral de cargas de trabalho de pesquisa de texto completo na Azure Search. | Março de 2017 |
+| Cargo | Meios de comunicação social | Descrição | Date |
+|-------|-------|-------------|------|
+| [Veja este vídeo de introdução](https://channel9.msdn.com/Events/Connect/2016/138) | Vídeo | introdução 9m38s para funcionalidades, a criação de serviço e consultas. | Novembro de 2016 |
+| [ Criar um serviço](search-get-started-portal.md) | Artigo | Passos para configurar a Azure Search no portal. | Fevereiro de 2017 |
+| [Consultar um índice](search-get-started-portal.md) | Artigo |Criar e consultar um índice utilizando dados de exemplo incorporada. Ferramentas no portal são uma forma rápida de saber mais sobre os tipos de consulta e parâmetros de pesquisa. | Fevereiro de 2017 |
+| [Passo seguinte:<br/> código no .NET](search-howto-dotnet-sdk.md) | Artigo |C# instruções mostram como ligar, índice e consultar com a biblioteca .NET de pesquisa do Azure. | Novembro de 2016 |
+| [Passo seguinte:<br/> código no REST](search-create-index-rest-api.md) | Artigo |Reveja as chamadas REST e payloads JSON para criar um índice da Azure Search em qualquer plataforma e linguagem de programação. | Dezembro de 2016 |
+| [Como completa a pesquisa em texto funciona na Azure Search](search-lucene-query-architecture.md) | Artigo | Arquitetura e a descrição geral de cargas de trabalho de pesquisa de texto completo na Azure Search. | Março de 2017 |
 
 ## <a name="code-samples"></a>Exemplos de código
 
@@ -53,44 +54,13 @@ Aplicações de web totalmente funcional através da Azure Search para a experi�
 |[Demonstração de Tate Art Galeria](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) | Um site de web ASP.NET alojada utilizando dados de exemplo da Galeria de última geração do Tate. Experimente os termos de pesquisa, como "moderna", "fotografia" e "vertical" como primeiro passo.
 |[Site de demonstração de pesquisa do Azure](https://searchsamples.azurewebsites.net/#/) | Uma coleção de aplicações de demonstração de pesquisa do Azure. Test-Drive pesquisa de suporte de dados, georreplicação pesquisa produto inventário aplicações e utilização da Azure Search. |
 
-## <a name="courseware"></a>Courseware
+## <a name="online-courseware"></a>Online courseware
 
 Sessão multi demonstrações e laboratórios de pesquisa do Azure.
 
-| Ligação | Descrição | Data |
-|------|-------------|------|
-[Criar inteligente entre plataformas móveis aplicações com o Xamarin e a pesquisa do Azure](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Typeahead, pesquisa em texto completo e paginação, filtragem, pesquisa, moreLikeThis, machine learning, classificação e otimização de análise | Dezembro de 2016 |
-[Utilizar o Windows pesquisa do Azure](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) | Pesquisa anterior, mas ainda relevante em escala, pesquisa geoespacial, linguístico analysis, o reconhecimento de voz Cortana | Maio de 2015 | 
-
-## <a name="video-archive"></a>Arquivo de vídeo
-
-| Ligação | Lançadas | Detalhes |
-| --- | --- | --- |
-| [Channel9 compilação 2016: "as aplicações que saiba & adaptam: Azure Machine Learning + de pesquisa"](https://channel9.msdn.com/Events/Build/2016/P458) |Maio de 2016 |minutos de 17. Liam Cavanagh explica as vantagens da adição de capacidades 'recomendada para si' para a aplicação de pesquisa do Azure e como derivar informações sobre as preferências do utilizador do machine learning. |
-| [Channel9 compilação 2016: "inteligentes dados orientada por aplicações que saiba e se adaptam"](https://channel9.msdn.com/Events/Build/2016/B857) |Maio de 2016 |1 hora. Saiba como Machine Learning e pesquisa do Azure podem ser utilizadas em conjunto para criar aplicações sofisticadas condicionada por dados. |
-| [Dados de Channel9 expostos: "analisadores personalizados, pesquisar análise & Portal consulta na Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) |Janeiro de 2016 |15 minutos. Analisadores personalizados permitem a configuração de tokenizers e filtros de token. Análise de pesquisa fornece informações sobre os termos de pesquisa introduzidos por utilizadores e efficacy do seu índice de pesquisa. Explorador de pesquisa é uma ferramenta de consulta incorporada que permite-lhe experimentar consultas dentro do portal. |
-| [Dados Channel9 exposto: "a Azure Search melhoramentos"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements) |Novembro de 2015 |minutos de 17. Ingestão de dados de dados de StackExchange. Crie um índice no Portal do Azure. Saiba mais agora origens de dados de pesquisa suportada de indexadores para extrair dados para um índice da Azure Search. Analisadores de idioma. Expressões de consulta Lucene. |
-| [AzureCon 2015: Melhores práticas para a pesquisa do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) |Setembro de 2015 |Práticos conselhos Escalamento horizontal, otimização do desempenho e como alcançar a eficiência de codificação quando a criação de aplicações Web ou móveis cenários, apresentados pelo Pablo Castro. |
-| [2015 de compilação: Dados modernos](http://channel9.msdn.com/Events/Build/2015/2-663) |Junho de 2015 |Em 29 minutos para a sessão, saiba como da Azure Search enquadra no rotações de dados modernas, apresentada pelo Shawn Bice e Pablo Castro. |
-| [2015 de compilação: Utilizar a pesquisa do Azure para criar experiências de pesquisa excelente em Mobile e WebApps](http://channel9.msdn.com/Events/Build/2015/2-745) |Junho de 2015 |1 hora. Apresenta Pablo Castro no Microsoft compilação 2015. |
-| [Elástico  em: A ligar a pesquisa em tempo real na Microsoft](https://www.elastic.co/elasticon/2015/sf/powering-real-time-search-at-microsoft) |Março de 2015 |minutos de 16. Apresentação em elástico {} 2015 por Pablo Castro explicar como da Azure Search e outros grupos na Microsoft utilizam ElasticSearch. |
-| [Dados Channel9 exposto: "disponibilidade de geral de pesquisa do Azure e quais são as Novidades"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-General-Availability-and-Whats-New) |Março de 2015 |12 minutos. A pesquisa do Azure vai "GA", apresentado por Liam Cavanagh. |
-| [Dados Channel9 exposto: "Azure sugestões de pesquisa"](https://channel9.msdn.com/Shows/Data-Exposed/DataExposedAzureSearchSuggestions) |Fevereiro de 2015 |15 minutos. Sugestões (também conhecido como conclusão automática de antecipada ou consultas que aparecem como potenciais termos de pesquisa, como um utilizador é escrever um termo). Na Azure Search, correspondência por semelhantes é implementada através de sugestões. |
-| [Dados Channel9 exposto: "SQL Server para a sincronização de pesquisa do Azure"](http://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-to-Azure-Search-Synchronization) |Dezembro de 2014 |minutos de 16. Sincronize transações da base de dados. Carregar dados relacionais do SQL do Azure na Azure Search. |
-| [Europa techEd: Detalhada para a pesquisa do Azure](http://channel9.msdn.com/events/TechEd/Europe/2014/DBI-B410) |Outubro de 2014 |1 hora 15 minutos. Demonstração Fast-Paced da Azure Search ponto-a-ponto, entregue por Pablo Castro. |
-| [Dados Channel9 exposto: "Geoespacial dados e a pesquisa do Azure"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) |setembro de 2014 |18 minutos. Cenários de pesquisa de Geoespacial. |
-| [Channel9 nuvem abrangem: Episódio 152](http://channel9.msdn.com/Shows/Cloud%20Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) |setembro de 2014 |minutos de 25. Debate funcionalidade técnicas, como emitir regular geoespacial consultas através de Fiddler e compreender os resultados que voltar atrás. |
-| [Dados Channel9 exposto: "Introdução à pesquisa do Azure"](https://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search) |Agosto de 2014 |minutos de 22. Arquitetura e as capacidades de pesquisa do Azure, agora em pré-visualização pública. |
-
-## <a name="tutorial-archive"></a>Tutorial arquivo
-
-| Instruções | Descrição |
-| --- | --- |
-| [Como utilizar a pesquisa do Azure com D3.js para compilar visualizações de dados interativa](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/) |Blogue Publicar e dar exemplos de código que demonstra como adicionar capacidades de pesquisa visual a sua aplicação personalizada. |
-| [Introdução à Azure Search no NodeJS](search-get-started-nodejs.md) |Saiba como trabalhar com a Azure Search no NodeJS. |
-| [Introdução à Azure Search em Java](search-get-started-java.md) |Tutorial para programadores de Java utilizando o servidor Apache Tomcat e de Eclipse para compilar e executar uma aplicação de exemplo que utiliza a Azure Search. |
-| [Cenários de pesquisa do Azure e as capacidades](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/) |Blogue post que abrangem os cenários principais ativados pela funcionalidade atual. |
-| [Como adicionar sugestões às suas aplicações de pesquisa](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Saiba como implementar sugestões, geralmente designada por automática concluída. Esta demonstração explica um número de tópicos, incluindo a criação de um aplicações MVC4 que tira partido das sugestões de pesquisa do Azure, a utilização da biblioteca de typeahead.js Twitter para criar limite um eficaz de sugestão automática do componente na JavaScript e utilizar sugestões difusa para permitir -lhe recuperar sugestões, mesmo que o utilizador misspells o word. |
-| [Laboratório Virtual da TechNet: Criar uma aplicação de pesquisa do Microsoft Azure](http://go.microsoft.com/?linkid=9874663) |Laboratório virtual que fornece um ambiente de desenvolvimento, ferramentas, documentação e dados. Precisa de uma conta do Azure, uma subscrição de avaliação ou a subscrição do Azure pessoal, para concluir o laboratório. |
-| [Sincronizar dados do SQL Server com a pesquisa do Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Mensagem de blogue que explica como carregar dados de bases de dados relacionais do SQL Server para um índice da Azure Search. |
-
+| Ligação | Fornecedor| Descrição | Date
+|------|-------------|------|------|
+[Criar inteligente entre plataformas móveis aplicações com o Xamarin e a pesquisa do Azure](https://mva.microsoft.com/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) | Academia Virtual da Microsoft | Typeahead, pesquisa em texto completo e paginação, filtragem, pesquisa, moreLikeThis, machine learning, classificação e otimização de análise | Dezembro de 2016 |
+[Série de dados do Azure > parte 3: a pesquisa do Azure](https://mva.microsoft.com/training-courses/data-series-platform-azure-data-services-17696) | Academia Virtual da Microsoft | Saiba como utilizar a pesquisa do Azure com a SQL Database do Azure e Azure Cosmos DB. | Julho de 2017 | 
+[Web e de desenvolvimento de aplicações de dados com o Visual Studio 2017 e do Azure > parte 5: a pesquisa do Azure & compreensão de idiomas serviços inteligentes](https://mva.microsoft.com/training-courses/web-and-data-application-development-with-visual-studio-2017-and-azure-16931) | Academia Virtual da Microsoft | Série de vídeos e lesson para programadores. Na parte 5, saiba como criar uma experiência de pesquisa básica e, em seguida, expanda-a com LUIS para processamento de linguagem natural. | Novembro de 2016| 
+[Adicionar capacidades de pesquisa para as suas aplicações com a pesquisa do Azure](https://www.pluralsight.com/courses/azure-adding-search-abilities-apps)| Pluralsight | Altamente classificados decorrer online que o orienta através da API REST. | Setembro de 2016  | 

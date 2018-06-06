@@ -1,26 +1,25 @@
 ---
-title: 'O Azure Active Directory B2C: Adquirir um token a utilizar uma aplicação Android | Microsoft Docs'
+title: Adquirir um token de utilizar uma aplicação Android no Azure Active Directory B2C | Microsoft Docs
 description: Este artigo irá mostrar como criar uma aplicação Android que utiliza AppAuth com o Azure Active Directory B2C para gerir identidades de utilizador e autenticar utilizadores.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: mobile-android
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 6c4c9359571882fbbea4e7701305e30e0f49f460
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7c0a72e03eaa8d12c26b1bbbf6a05b4d94e72358
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709911"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>O Azure AD B2C: Início de sessão utilizando uma aplicação Android
 
-A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Isto permite aos programadores tirarem partido de qualquer biblioteca que pretendam integrar aos nossos serviços. Para ajudar os programadores a utilizarem a nossa plataforma com outras bibliotecas, escrevemos algumas instruções como esta para demonstrar como configurar 3rd bibliotecas de terceiros para ligar à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) poderão ligar à plataforma de Identidades da Microsoft.
+A plataforma de identidade da Microsoft utiliza as normas de abertura, como o OAuth2 e o OpenID Connect. Estes padrões permitem-lhe tirar partido de qualquer biblioteca que pretende integrar com o Azure Active Directory B2C. Para ajudar a utilizar outras bibliotecas, pode utilizar instruções como esta para demonstrar como configurar 3rd bibliotecas de terceiros para ligar à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação de especificação RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) pode ligar à plataforma do Microsoft Identity.
 
 > [!WARNING]
 > A Microsoft não cede correções para 3rd bibliotecas de terceiros e não tiverem efetuado uma revisão desses bibliotecas. Este exemplo está a utilizar uma biblioteca de terceiros 3rd chamada AppAuth foi testado para compatibilidade em cenários básicos com o Azure AD B2C. Problemas e pedidos de funcionalidades devem ser direcionados para o projeto de fonte aberta da biblioteca. Consulte [neste artigo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) para obter mais informações.  
@@ -136,5 +135,5 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 
 Consulte o [AppAuth guia](https://openid.github.io/AppAuth-Android/) sobre como concluir o processo. Se precisar de para rapidamente começar com uma aplicação de trabalho, consulte [nosso exemplo](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Siga os passos a [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) para introduzir a suas próprias configuração do Azure AD B2C.
 
-Podemos sempre estão abertos para comentários e sugestões! Se tiver dificuldades em causa com este tópico ou tiver recomendações para melhorar este conteúdo, Agradecemos os seus comentários na parte inferior da página. Para pedidos de funcionalidades, adicioná-los ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Podemos sempre estão abertos para comentários e sugestões! Se tiver dificuldades em causa com este artigo, ou tiver recomendações para melhorar este conteúdo, Agradecemos os seus comentários na parte inferior da página. Para pedidos de funcionalidades, adicioná-los ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

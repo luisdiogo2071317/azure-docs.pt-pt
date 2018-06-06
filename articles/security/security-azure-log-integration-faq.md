@@ -1,6 +1,6 @@
 ---
-title: "Integração de registos do Azure FAQ | Microsoft Docs"
-description: "Este artigo responde a questões sobre a integração de registo do Azure."
+title: Integração de registos do Azure FAQ | Microsoft Docs
+description: Este artigo responde a questões sobre a integração de registo do Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,25 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 02/16/2018
-ms.author: TomSh
+ms.date: 05/25/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9f270daec40d4b395588c491a7ff88ef6ca45649
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802447"
 ---
 # <a name="azure-log-integration-faq"></a>Integração de registos do Azure FAQ
 
 Este artigo responde a perguntas mais frequentes (FAQ) sobre a integração de registo do Azure.
 
->[!IMPORTANT]
->O método preferencial para integrar os registos do Azure é através do conector de Monitor do Azure do seu fornecedor SIEM e seguir estes [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para monitorizar o Azure, poderá utilizar a integração de registo do Azure como uma solução temporária (se o SIEM for suportado pelo Azure registo integração) até esse um conector está disponível.
-
 Integração de registo do Azure é um serviço do sistema operativo Windows que pode utilizar para integrar os registos não processados a partir dos seus recursos do Azure no seu sistemas no local segurança informações e eventos management (SIEM). Esta integração proporciona um dashboard unificado para todos os seus recursos, no local ou na nuvem. Pode, em seguida, Agregar, correlacionar, analisar e alerta para eventos de segurança associados com as suas aplicações.
 
+O método preferencial para integrar os registos do Azure é através do conector de Monitor do Azure do seu fornecedor SIEM e seguir estes [instruções](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). No entanto, se o fornecedor do SIEM não fornecer um conector para monitorizar o Azure, poderá utilizar a integração de registo do Azure como uma solução temporária (se o SIEM for suportado pelo Azure registo integração) até esse um conector está disponível.
+
 ## <a name="is-the-azure-log-integration-software-free"></a>O software de integração de registo do Azure é gratuito?
+
 Sim. Não há sem encargos durante o software de integração de registo do Azure.
 
 ## <a name="where-is-azure-log-integration-available"></a>Em que a integração de registo do Azure está disponível?
@@ -38,6 +39,7 @@ Sim. Não há sem encargos durante o software de integração de registo do Azur
 Está atualmente disponível no Azure comerciais e Azure Government e não está disponível na China ou na Alemanha.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Como posso ver as contas de armazenamento a partir da qual a integração de registo do Azure é extrair os registos de VM do Azure?
+
 Execute o comando **lista de origem AzLog**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Como posso saber a subscrição que pertencem os registos de integração de registo do Azure?
@@ -51,6 +53,7 @@ Os registos de auditoria do Azure Active Directory incluem o ID de inquilino com
 Os registos de diagnóstico que são lidos a partir de um hub de eventos não inclui o ID de subscrição como parte do nome. Em vez disso, incluem o nome amigável especificado como parte da criação da origem de hub de eventos. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Como posso atualizar a configuração do proxy?
+
 Se a definição de proxy não permite o acesso de armazenamento do Azure diretamente, abra o **AZLOG. EXE. CONFIGURAÇÃO** ficheiros **c:\Program Files\Microsoft Azure registo integração**. Atualizar o ficheiro para incluir o **defaultProxy** secção com o endereço do proxy da sua organização. Depois de terminar a atualização, parar e iniciar o serviço, utilizando os comandos **net parar AzLog** e **net iniciar AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -61,7 +64,7 @@ Se a definição de proxy não permite o acesso de armazenamento do Azure direta
         </connectionManagement>
         <defaultProxy>
           <proxy usesystemdefault="true"
-          proxyaddress=http://127.0.0.1:8888
+          proxyaddress="http://127.0.0.1:8888"
           bypassonlocal="true" />
         </defaultProxy>
       </system.net>
@@ -70,6 +73,7 @@ Se a definição de proxy não permite o acesso de armazenamento do Azure direta
       </system.diagnostics>   
 
 ## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>Como posso ver as informações de subscrição de eventos do Windows?
+
 Acrescente o ID de subscrição para o nome amigável ao adicionar a origem:
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
@@ -79,6 +83,7 @@ O evento de XML tem os metadados seguintes, incluindo o ID de subscrição:
 
 ## <a name="error-messages"></a>Mensagens de erro
 ### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Quando executar o comando ```AzLog createazureid```, por que motivo obterá o erro seguinte?
+
 Erro:
 
   *Falha ao criar a aplicação AAD - inquilino 72f988bf-86f1-41af-91ab-2d7cd011db37-razão = 'Proibido' - mensagem = 'Privilégios suficientes para concluir a operação'.*
@@ -86,6 +91,7 @@ Erro:
 O **azlog createazureid** tenta criar um principal de serviço em todos os inquilinos do Azure AD para as subscrições que o início de sessão do Azure tem acesso ao comando. Se o início de sessão do Azure é apenas um utilizador convidado nesse inquilino do Azure AD, o comando falha com "Privilégios suficientes para concluir a operação." Peça ao administrador do inquilino para adicionar a sua conta como um utilizador no inquilino.
 
 ### <a name="when-i-run-the-command-azlog-authorize-why-do-i-get-the-following-error"></a>Quando executar o comando **azlog autorizar**, por que motivo obterá o erro seguinte?
+
 Erro:
 
   *Criar a atribuição de função - AuthorizationFailed de aviso: O cliente janedo@microsoft.com' com o objeto id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito ' / subscrições / 70d 95299-d689-4C 97-b971-0d8ff0000000'.*
@@ -93,15 +99,18 @@ Erro:
 O **azlog autorizar** comando atribui a função de leitor para o principal de serviço do Azure AD (criado com **azlog createazureid**) para as subscrições fornecidas. Se o início de sessão do Azure não é um coadministrador ou um proprietário da subscrição, falhará com uma mensagem de erro "Falha de autorização". Azure baseada em funções controlo de acesso (RBAC) de coadministrador ou proprietário é necessário para concluir esta ação.
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>Onde posso encontrar a definição das propriedades no registo de auditoria?
-Consulte:
+
+Veja:
 
 * [Auditar operações com o Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [Lista os eventos de gestão numa subscrição na API de REST de Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931934.aspx)
 
 ## <a name="where-can-i-find-details-on-azure-security-center-alerts"></a>Onde posso encontrar os detalhes de alertas do Centro de segurança do Azure?
+
 Consulte [gerir e responder a alertas de segurança no Centro de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Como posso modificar o que é recolhido com diagnósticos da VM?
+
 Para obter detalhes sobre como obter, modificar e definir a configuração de diagnósticos do Azure, consulte [utilize o PowerShell para ativar o diagnóstico do Azure numa máquina virtual com o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 O exemplo seguinte obtém a configuração de diagnósticos do Azure:

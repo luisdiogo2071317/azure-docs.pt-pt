@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f7e456c76dcf67a40777e32b100b900b859e210e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736801"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de tráfego perguntas mais frequentes
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - Registos de fluxo NSG ativados para os NSGs que pretende monitorizar
     - Uma conta de armazenamento do Azure, para armazenar em bruto flog registos
     - Uma área de trabalho de análise de registos (OMS), com acesso de escrita e leitura
-    - Deve ser atribuída à conta as seguintes ações no fornecedor Network:
+    - Tem de ser atribuída à conta com uma das seguintes permissões ao nível da subscrição:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    Em alternativa, tem de ser atribuída à conta com seguintes todas as ações ao nível da subscrição: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read

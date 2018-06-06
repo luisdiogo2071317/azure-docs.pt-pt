@@ -5,20 +5,17 @@ keywords: ODBC, o controlador odbc
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725096"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue à BD do Cosmos do Azure utilizando as ferramentas de análise de BI com o controlador ODBC
 
@@ -123,7 +120,7 @@ Os seguintes passos criar um esquema para os dados numa ou mais coleções utili
 Pode consultar o Azure Cosmos BD do SQL Server Management Studio (SSMS), configurar uma ligação de servidor ligado.
 
 1. Crie uma origem de dados do sistema, conforme descrito em [passo 2](#connect), por exemplo denominado `SDS Name`.
-2. [Instalar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [Instalar o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e ligar ao servidor. 
 3. No editor de consultas SSMS, criar um objeto servidor ligado `DEMOCOSMOS` da origem de dados com os seguintes comandos. Substitua `DEMOCOSMOS` com o nome do servidor ligado, e `SDS Name` com o nome da sua origem de dados do sistema.
 
     ```sql
@@ -181,7 +178,7 @@ Pode criar uma várias vistas que pretender. Quando tiver terminado definir as v
 
 Pode utilizar o novo DSN ligar DocumentADB com quaisquer ferramentas compatível com ODBC - este passo simplesmente mostra como ligar ao Power BI Desktop e criar uma visualização do Power BI.
 
-1. Abra o ambiente de trabalho do Power BI.
+1. Abra o Power BI Desktop.
 2. Clique em **obter dados**.
 3. No **obter dados** janela, clique em **outros** | **ODBC** | **Connect**.
 4. No **de ODBC** janela, selecione a origem de dados de nomes que criou e, em seguida, clique em **OK**. Pode deixar o **opções avançadas** entradas em branco.

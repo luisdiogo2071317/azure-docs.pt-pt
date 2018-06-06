@@ -1,19 +1,19 @@
 ---
 title: Implementar módulos para o limite do Azure IoT | Microsoft Docs
 description: Saiba mais sobre a forma como os módulos obterem implementados em dispositivos de limite
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725331"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Compreender as implementações de IoT Edge para dispositivos único ou na escala – pré-visualização
 
@@ -25,7 +25,7 @@ Dispositivos de limite de IoT do Azure siga uma [ciclo de vida do dispositivo] [
 
 Limite de IoT do Azure fornece duas formas de configurar os módulos para executar em dispositivos de limite de IoT: uma para desenvolvimento e rápidas iterações num único dispositivo (que é utilizado nos tutoriais do Azure IoT limite) e uma gestão fleets grande de dispositivos de limite de IoT. Ambos estes abordagens estão disponíveis no Portal do Azure e através de programação.
 
-Este artigo foca-se na configuração e monitorização fases para fleets dos dispositivos, coletivamente referidas como implementações de limite de IoT. Os passos de implementação geral são os seguintes:   
+Este artigo foca-se na configuração e monitorização fases para fleets dos dispositivos, coletivamente referidas como implementações automáticas de limite de IoT. Os passos de implementação geral são os seguintes:   
 
 1. Um operador define uma implementação que descreve um conjunto de módulos, bem como os dispositivos de destino. Cada implementação tem um manifesto de implementação que reflete esta informação. 
 1. O serviço de IoT Hub comunica com todos os dispositivos direcionados para configurá-los com os módulos pretendidos. 
@@ -36,7 +36,7 @@ Este artigo explica cada componente envolvido numa configuração e monitorizaç
 
 ## <a name="deployment"></a>Implementação
 
-Uma implementação atribui IoT Edge imagens do módulo para ser executado como instâncias num conjunto de dispositivos de IoT limite de destino. Funciona ao configurar um manifesto de implementação de limite de IoT para incluir uma lista de módulos com os parâmetros de inicialização correspondente. Uma implementação pode ser atribuída a um único dispositivo (normalmente, com base no Id de dispositivo) ou a um grupo de dispositivos (com base em tags). Depois de um dispositivo de limite de IoT recebe um manifesto de implementação, transfere e instala as imagens de contentor do módulo a partir do repositórios do respetivo contentor e configura-as em conformidade. Depois de uma implementação é criada, um operador pode monitorizar o estado de implementação para ver se os dispositivos direcionados estão corretamente configurados.   
+Uma implementação automática de limite de IoT atribui o limite de IoT imagens do módulo para ser executado como instâncias num conjunto de dispositivos de IoT limite de destino. Funciona ao configurar um manifesto de implementação de limite de IoT para incluir uma lista de módulos com os parâmetros de inicialização correspondente. Uma implementação pode ser atribuída a um único dispositivo (normalmente, com base no Id de dispositivo) ou a um grupo de dispositivos (com base em tags). Depois de um dispositivo de limite de IoT recebe um manifesto de implementação, transfere e instala as imagens de contentor do módulo a partir do repositórios do respetivo contentor e configura-as em conformidade. Depois de uma implementação é criada, um operador pode monitorizar o estado de implementação para ver se os dispositivos direcionados estão corretamente configurados.   
 
 Dispositivos têm de ser aprovisionado como dispositivos de limite de IoT para estar configurado com uma implementação. Os seguintes pré-requisitos e não estão incluídas na implementação:
 * O sistema operativo base

@@ -1,21 +1,21 @@
 ---
-title: 'Do Azure Active Directory B2C: Aplicações de página única com o fluxo implícito | Microsoft Docs'
+title: Aplicações de página única com o fluxo implícito no Azure Active Directory B2C | Microsoft Docs
 description: Saiba como criar aplicações de página única diretamente, utilizando o fluxo implícito de OAuth 2.0 com o Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 3347eac16e447091ffcaaf403e1291e2c7175a2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: B2C
+ms.openlocfilehash: 540cc45d223c22fb215f0520d7d532060b43347a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711550"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>O Azure AD B2C: Página única aplicação início de sessão utilizando o fluxo implícito de OAuth 2.0
 
@@ -276,7 +276,7 @@ Para experimentar estes pedidos por si, conclua os seguintes três passos. Subst
 2. [Criar uma aplicação](active-directory-b2c-app-registration.md) para obter uma ID da aplicação e um `redirect_uri` valor. Inclua uma aplicação web ou a web API na sua aplicação. Opcionalmente, pode criar um segredo da aplicação.
 3. [Criar as políticas](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-## <a name="samples"></a>Exemplos
+## <a name="samples"></a>Amostras
 
 * [Criar uma aplicação de página única utilizando Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
 * [Criar uma aplicação de página única utilizando o .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)

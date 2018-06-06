@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802566"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
 
@@ -66,11 +67,7 @@ Pode implementar um [Balanceador de carga do Azure interno](../load-balancer/loa
 
 ## <a name="service-endpoints-for-azure-services"></a>Pontos finais de serviço para os serviços do Azure
 
-Alguns serviços do Azure não podem ser implementados em redes virtuais. Pode restringir o acesso a alguns dos recursos do serviço para sub-redes da rede virtual só específico, se optar por ativar um ponto final de serviço de rede virtual. Saiba mais sobre [pontos finais do serviço de rede virtual](virtual-network-service-endpoints-overview.md).
-
-Atualmente, os pontos finais de serviço são suportados para os seguintes serviços: 
-- **Armazenamento do Azure**: [contas de armazenamento do Azure de proteger a redes virtuais](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Base de dados SQL do Azure**: [proteger Azure base de dados SQL para redes virtuais](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Alguns serviços do Azure não podem ser implementados em redes virtuais. Pode restringir o acesso a alguns dos recursos do serviço para sub-redes da rede virtual só específico, se optar por ativar um ponto final de serviço de rede virtual. Saiba mais sobre [pontos finais do serviço de rede virtual](virtual-network-service-endpoints-overview.md)e os serviços que podem ser ativados pontos finais para.
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>Integração de rede virtual em vários serviços do Azure
 

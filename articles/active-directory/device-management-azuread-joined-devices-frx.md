@@ -1,13 +1,14 @@
 ---
 title: Associar um novo dispositivo de Windows 10 com o Azure AD durante uma primeira | Microsoft Docs
-description: "Um tópico que explica como os utilizadores podem configurar a associação do Azure AD durante a experiência de primeira execução."
+description: Um tópico que explica como os utilizadores podem configurar a associação do Azure AD durante a experiência de primeira execução.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757397"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Associar um novo dispositivo de Windows 10 com o Azure AD durante uma primeira
 
@@ -37,6 +39,8 @@ Nas janelas *experiência de out-of-box*, associar um domínio do Active Directo
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para associar um dispositivo Windows 10, o serviço de registo do dispositivo tem de ser configurado para ativar o registo de dispositivos. Além de ter permissão para associar os dispositivos no seu inquilino do Azure AD, tem de ter menos dispositivos registados que o máximo configurado. Para obter mais detalhes, consulte [configurar definições do dispositivo](device-management-azure-portal.md#configure-device-settings).
+
+Além disso, se o seu inquilino está federado, o fornecedor de identidade têm de suportar o ponto final de nome de utilizador/palavra-passe de WS-Fed e WS-Trust. Isto pode ser versão 1.3 ou 2005. Este suporte de protocolo não é necessária para associar o dispositivo para o Azure AD e inicie sessão no dispositivo com uma palavra-passe.
 
 ## <a name="joining-a-device"></a>Associar um dispositivo
 

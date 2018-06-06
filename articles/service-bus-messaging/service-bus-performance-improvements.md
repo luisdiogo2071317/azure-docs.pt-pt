@@ -1,28 +1,29 @@
 ---
-title: "Melhores práticas para melhorar o desempenho da utilização do Azure Service Bus | Microsoft Docs"
+title: Melhores práticas para melhorar o desempenho da utilização do Azure Service Bus | Microsoft Docs
 description: Descreve como utilizar o Service Bus para otimizar o desempenho quando trocar mensagens mediadas.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802549"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para melhorias de desempenho através de mensagens do Service Bus
 
-Este artigo descreve como utilizar [Service Bus do Azure](https://azure.microsoft.com/services/service-bus/) para otimizar o desempenho quando trocar mensagens mediadas. A primeira parte deste artigo descreve os diferentes mecanismos que são fornecidos para o ajudar a melhorar o desempenho. A segunda parte fornece orientações sobre como utilizar o Service Bus de forma a que pode oferecer o melhor desempenho num determinado cenário.
+Este artigo descreve como utilizar o Service Bus do Azure para otimizar o desempenho quando trocar mensagens mediadas. A primeira parte deste artigo descreve os diferentes mecanismos que são fornecidos para o ajudar a melhorar o desempenho. A segunda parte fornece orientações sobre como utilizar o Service Bus de forma a que pode oferecer o melhor desempenho num determinado cenário.
 
 Ao longo deste tópico, o termo "cliente" refere-se a qualquer entidade que acede ao Service Bus. Um cliente pode levar a função de um remetente ou um recetor. O termo "remetente" é utilizado para um cliente de fila ou um tópico de barramento de serviço que envia mensagens a uma subscrição de fila ou um tópico de barramento de serviço. O termo "recetor" refere-se a um cliente de fila ou a subscrição de barramento de serviço que recebe mensagens a partir de uma fila do Service Bus ou uma subscrição.
 
@@ -40,13 +41,13 @@ AMQP e SBMP são mais eficientes, porque estes mantêm a ligação ao Service Bu
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizar fábricas e clientes
 
-Cliente do Service Bus objetos, tais como [QueueClient] [ QueueClient] ou [MessageSender][MessageSender], são criados através de um [ MessagingFactory] [ MessagingFactory] objeto, que também fornece gestão interno de ligações. Não deve fechar fábricas de mensagens ou fila, tópico, subscrição clientes e depois enviar uma mensagem e, em seguida, recrie-los ao enviar a mensagem seguinte. Fechar uma fábrica de mensagens elimina a ligação ao serviço do Service Bus e uma nova ligação é estabelecida quando recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa, que pode evitar novamente com o mesma fábrica e objetos de cliente para várias operações. Pode utilizar em segurança o [QueueClient] [ QueueClient] objeto para envio de mensagens de operações assíncronas em simultâneo e de vários threads. 
+Cliente do Service Bus objetos, tais como [QueueClient] [ QueueClient] ou [MessageSender][MessageSender], são criados através de um [ MessagingFactory] [ MessagingFactory] objeto, que também fornece gestão interno de ligações. É recomendado que não fechar as fábricas de mensagens ou clientes de fila, tópico e uma subscrição depois de enviar uma mensagem e, em seguida, recrie-los ao enviar a mensagem seguinte. Fechar uma fábrica de mensagens elimina a ligação ao serviço do Service Bus e uma nova ligação é estabelecida quando recriar a fábrica. Estabelecer uma ligação é uma operação dispendiosa, que pode evitar por reutilizar a mesma fábrica e os objetos de cliente para várias operações. Pode utilizar em segurança o [QueueClient] [ QueueClient] objeto para envio de mensagens de operações assíncronas em simultâneo e de vários threads. 
 
 ## <a name="concurrent-operations"></a>Operações simultâneas
 
-Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Neste momento inclui o processamento da operação pelo serviço do Service Bus para além de latência do pedido e a resposta. Para aumentar o número de operações, por hora, operações tem de ser executado em simultâneo. Pode fazê-lo de várias formas diferentes:
+Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Neste momento inclui o processamento da operação pelo serviço do Service Bus para além de latência do pedido e a resposta. Para aumentar o número de operações, por hora, operações tem de ser executado em simultâneo. Pode alcançar esta concurrence de várias formas diferentes:
 
-* **Operações assíncronas**: o cliente agendas operações através de operações assíncronas. O pedido seguinte é iniciado antes do pedido anterior for concluído. Segue-se um exemplo de uma operação de envio assíncrono:
+* **Operações assíncronas**: o cliente agendas operações através de operações assíncronas. O pedido seguinte é iniciado antes do pedido anterior for concluído. O fragmento de código seguinte é um exemplo de uma operação de envio assíncrono:
   
  ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
@@ -64,7 +65,7 @@ Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Nes
   Console.WriteLine("All messages sent");
   ```
   
-  Este é um exemplo de uma recepção assíncrona a operação:
+  O código seguinte é um exemplo de um assíncrona a operação de receção:
   
   ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
@@ -82,13 +83,13 @@ Efetuar uma operação (enviar, receber, eliminar, etc.) demora algum tempo. Nes
   }
   ```
 
-* **Várias fábricas**: todos os clientes (remetentes além recetores) que são criados pela fábrica mesma partilham uma ligação de TCP. O débito máximo de mensagem está limitado pelo número de operações que pode seguir esta ligação de TCP. O débito que pode ser obtido com uma única fábrica varia bastante com vezes reportadas round-trip TCP e tamanho da mensagem. Para obter taxas de débito superiores, deve utilizar várias fábricas de mensagens.
+* **Várias fábricas**: todos os clientes (remetentes além recetores) que são criados pelas fábricas de mesmas partilham uma ligação de TCP. O débito máximo de mensagem está limitado pelo número de operações que pode seguir esta ligação de TCP. O débito que pode ser obtido com uma única fábrica varia bastante com vezes reportadas round-trip TCP e tamanho da mensagem. Para obter taxas de débito superiores, utilize várias fábricas de mensagens.
 
 ## <a name="receive-mode"></a>Receber modo
 
 Ao criar um cliente de fila ou a subscrição, pode especificar um modo de receção: *bloqueio observar* ou *receber e eliminar*. Modo de receber a predefinição é [PeekLock][PeekLock]. Durante o funcionamento neste modo, o cliente envia um pedido para receber uma mensagem a partir do Service Bus. Depois do cliente recebeu a mensagem, envia um pedido para concluir a mensagem.
 
-Ao definir o modo de receção [ReceiveAndDelete][ReceiveAndDelete], os dois passos são combinados num único pedido. Isto reduz o número global de operações e pode melhorar o débito global da mensagem. Este ganhos de desempenho é fornecido at the risk of perder mensagens.
+Ao definir o modo de receção [ReceiveAndDelete][ReceiveAndDelete], os dois passos são combinados num único pedido. Estes passos reduzir o número global de operações e melhorar o débito global da mensagem. Este ganhos de desempenho é fornecido at the risk of perder mensagens.
 
 Barramento de serviço não suporta transações para receber e-eliminação de operações. Além disso, é necessária para qualquer cenários em que o cliente pretende diferir semântica de bloqueio peek ou [entregues](service-bus-dead-letter-queues.md) uma mensagem.
 
@@ -96,7 +97,7 @@ Barramento de serviço não suporta transações para receber e-eliminação de 
 
 A criação de batches de lado do cliente permite que um cliente de fila ou um tópico atrasar o envio de uma mensagem para um determinado período de tempo. Se o cliente envia mensagens adicionais durante este período de tempo, transmite as mensagens num batch único. A criação de batches de lado do cliente também faz com que um cliente de fila ou a subscrição para vários do batch **concluída** pedidos num único pedido. Só está disponível para criação de batches assíncrona **enviar** e **concluída** operações. Operações síncronas são imediatamente enviadas para o serviço do Service Bus. Criação de batches não ocorrer para peek ou receber operações nem criação de batches ocorre em clientes.
 
-Por predefinição, um cliente utiliza um intervalo de lote de 20ms. Pode alterar o intervalo de lote, definindo o [BatchFlushInterval] [ BatchFlushInterval] propriedade antes de criar a fábrica de mensagens. Esta definição afeta todos os clientes que são criados por esta fábrica.
+Por predefinição, um cliente utiliza um intervalo de lote de 20 ms. Pode alterar o intervalo de lote, definindo o [BatchFlushInterval] [ BatchFlushInterval] propriedade antes de criar a fábrica de mensagens. Esta definição afeta todos os clientes que são criados por esta fábrica.
 
 Para desativar a criação de batches, defina o [BatchFlushInterval] [ BatchFlushInterval] propriedade **TimeSpan**. Por exemplo:
 
@@ -111,7 +112,7 @@ Criação de batches não afeta o número de operações de mensagens sujeito a 
 
 ## <a name="batching-store-access"></a>Acesso à loja de criação de batches
 
-Para aumentar o débito de uma fila, tópico ou uma subscrição, o Service Bus lotes várias mensagens quando escreve no respectivo armazenamento interno. Se estiver ativada numa fila ou um tópico, escrever mensagens para o arquivo irá ser em lotes. Se estiver ativada num fila ou subscrição, eliminar as mensagens a partir da loja será possível criar batch. Se o acesso à loja de batches é ativado para uma entidade, o Service Bus atrasa uma operação de escrita de arquivo sobre essa entidade por até 20ms. 
+Para aumentar o débito de uma fila, tópico ou uma subscrição, o Service Bus lotes várias mensagens quando escreve no respectivo armazenamento interno. Se estiver ativada numa fila ou um tópico, escrever mensagens para o arquivo irá ser em lotes. Se estiver ativada num fila ou subscrição, eliminar as mensagens a partir da loja será possível criar batch. Se o acesso à loja de batches é ativado para uma entidade, o Service Bus atrasa uma operação de escrita de arquivo sobre essa entidade por até 20 ms. 
 
 > [!NOTE]
 > Não há nenhum risco de perda de mensagens com a criação de batches, mesmo se existir uma falha de Service Bus no final de um intervalo de lotes 20ms. 
@@ -132,9 +133,9 @@ Acesso à loja de batches não afeta o número de operações de mensagens sujei
 
 [Prefetching](service-bus-prefetch.md) permite que o cliente de fila ou a subscrição a carregar mensagens adicionais do serviço quando executa uma operação de receção. O cliente armazena estas mensagens numa cache local. O tamanho da cache é determinado pelo [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] ou [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] propriedades. Cada cliente que permitem prefetching mantém a sua própria cache. Uma cache não é partilhada entre os clientes. Se o cliente inicia uma operação de receção e respetiva cache está vazia, o serviço transmite um lote de mensagens. O tamanho do lote é igual ao tamanho da cache ou 256 KB, que for mais pequeno. Se o cliente inicia uma operação de receção e a cache contém uma mensagem, a mensagem é retirada da cache.
 
-Quando uma mensagem é prefetched, o serviço bloqueia a mensagem prefetched. Ao fazê-lo, não é possível receber a mensagem de prefetched por um recetor diferentes. Se o recetor não consegue concluir a mensagem antes do bloqueio expira, a mensagem fica disponível para outros recetores. A cópia da mensagem prefetched permanece na cache. O recetor que consome a cópia em cache expirada irá receber uma exceção ao tentar concluir essa mensagem. Por predefinição, o bloqueio de mensagem expira após 60 segundos. Este valor pode ser expandido para 5 minutos. Para impedir que o consumo de mensagens expiradas, o tamanho da cache deve ser sempre menor do que o número de mensagens que pode ser utilizada por um cliente no intervalo de tempo limite de bloqueio.
+Quando uma mensagem é prefetched, o serviço bloqueia a mensagem prefetched. Com o bloqueio não é possível receber a mensagem de prefetched por um recetor diferentes. Se o recetor não consegue concluir a mensagem antes do bloqueio expira, a mensagem fica disponível para outros recetores. A cópia da mensagem prefetched permanece na cache. O recetor que consome a cópia em cache expirada irá receber uma exceção ao tentar concluir essa mensagem. Por predefinição, o bloqueio de mensagem expira após 60 segundos. Este valor pode ser expandido para 5 minutos. Para impedir que o consumo de mensagens expiradas, o tamanho da cache deve ser sempre menor do que o número de mensagens que pode ser utilizada por um cliente no intervalo de tempo limite de bloqueio.
 
-Quando utilizar a expiração do bloqueio de predefinição de 60 segundos, o valor é uma boa para [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] é o máximo de 20 vezes taxas de processamento de todos os recetores do factory. Por exemplo, uma fábrica cria 3 recetores e cada recetor pode processar até 10 mensagens por segundo. A contagem de obtenção prévia não deve exceder 20 X 3, 10 = 600. Por predefinição, [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] está definido como 0, o que significa que não existem mensagens adicionais são obtidas do serviço.
+Quando utilizar a expiração do bloqueio de predefinição de 60 segundos, o valor é uma boa para [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] é o máximo de 20 vezes taxas de processamento de todos os recetores do factory. Por exemplo, uma fábrica cria três recetores e cada recetor pode processar até 10 mensagens por segundo. A contagem de obtenção prévia não deve exceder 20 X 3, 10 = 600. Por predefinição, [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] está definido como 0, o que significa que não existem mensagens adicionais são obtidas do serviço.
 
 Prefetching mensagens aumenta o débito global para uma fila ou a subscrição porque esta reduz o número global de operações de mensagem ou ida e volta. Obter a primeira mensagem, no entanto, irá demorar mais tempo (porque o tamanho da mensagem aumentada). Receber mensagens prefetched irá ser mais rápida porque estas mensagens já foram transferidas pelo cliente.
 
@@ -161,6 +162,9 @@ Se é enviada uma mensagem que contém informações críticas que não devem se
 
 Internamente, o Service Bus utiliza o mesmo nó e mensagens do arquivo para processar e armazenar todas as mensagens de uma entidade de mensagens (fila ou um tópico). A [particionada fila ou um tópico](service-bus-partitioning.md), por outro lado, é distribuído por vários nós e arquivos de mensagens. Particionada filas e tópicos não só produzem um débito mais elevado do que o regulares filas e tópicos, estes também apresentem um disponibilidade superior. Para criar uma entidade particionada, defina o [EnablePartitioning] [ EnablePartitioning] propriedade **verdadeiro**, conforme mostrado no exemplo seguinte. Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
 
+> [!NOTE]
+> Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
+
 ```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
@@ -174,7 +178,7 @@ Se não é possível utilizar uma fila particionada ou um tópico ou à carga es
 
 ## <a name="development-and-testing-features"></a>Desenvolvimento e teste de funcionalidades
 
-Barramento de serviço possui uma funcionalidade que é utilizada especificamente para o desenvolvimento que **nunca deve ser utilizado em configurações de produção**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Barramento de serviço possui uma funcionalidade, utilizada especificamente para o desenvolvimento, que **nunca deve ser utilizado em configurações de produção**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Quando novas regras ou filtros são adicionados para o tópico, pode utilizar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para verificar se a nova expressão de filtro está a funcionar conforme esperado.
 
@@ -186,13 +190,13 @@ As secções seguintes descrevem cenários típicos de mensagens e descrevem as 
 
 Objetivo: Maximize o débito de uma fila única. O número de remetentes e os recetores é pequeno.
 
-* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 * Para aumentar a velocidade global de envio na fila, utilize várias fábricas de mensagens para criar os remetentes. Para cada remetente, utilize operações assíncronas ou de vários threads.
 * Para aumentar a taxa de receção geral da fila, utilize várias fábricas de mensagens para criar recetores.
 * Utilize operações assíncronas para tirar partido da criação de batches do lado do cliente.
-* Defina o intervalo de lotes para 50ms para reduzir o número de transmissões de protocolo de cliente do Service Bus. Se forem utilizados várias os remetentes, aumente o intervalo de lotes para 100ms.
-* Deixe o acesso de arquivo de batches ativado. Isto aumenta a velocidade global em que as mensagens podem ser escritas na fila.
-* Defina a contagem de obtenção prévia para 20 vezes as máximo as taxas de processamento de todos os recetores de uma fábrica. Isto reduz o número de transmissões de protocolo de cliente do Service Bus.
+* Defina o intervalo de lotes para 50 ms para reduzir o número de transmissões de protocolo de cliente do Service Bus. Se forem utilizados várias os remetentes, aumente o intervalo de lotes para 100 ms.
+* Deixe o acesso de arquivo de batches ativado. Este acesso aumenta a velocidade global em que as mensagens podem ser escritas na fila.
+* Defina a contagem de obtenção prévia para 20 vezes as máximo as taxas de processamento de todos os recetores de uma fábrica. Esta contagem reduz o número das transmissões de protocolo de cliente do Service Bus.
+* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 
 ### <a name="multiple-high-throughput-queues"></a>Várias filas de débito elevado
 
@@ -204,40 +208,40 @@ Para obter o débito máximo por várias filas, utilize as definições descrita
 
 Objetivo: Minimize a latência de ponto a ponto de uma fila ou tópico. O número de remetentes e os recetores é pequeno. O débito da fila é pequeno ou moderada.
 
-* Utilize uma fila particionada para disponibilidade melhorada.
 * Desative a criação de batches do lado do cliente. O cliente envia imediatamente uma mensagem.
 * Desative o acesso à loja de batches. O serviço escreve imediatamente a mensagem para o arquivo.
 * Se utilizar um único cliente, defina a contagem de obtenção prévia para 20 vezes a taxa de processamento do recetor. Se várias mensagens chegam a fila ao mesmo tempo, o protocolo de cliente do Service Bus transmite-os todos ao mesmo tempo. Quando o cliente recebe a mensagem seguinte, essa mensagem já se encontra na local cache. A cache deve ser pequena.
-* Se utilizar vários clientes, defina a contagem de obtenção prévia como 0. Ao fazê-lo, o segundo cliente pode receber a segunda mensagem enquanto o primeiro cliente ainda está a processar a primeira mensagem.
+* Se utilizar vários clientes, defina a contagem de obtenção prévia como 0. Ao definir o número, o segundo cliente pode receber a segunda mensagem enquanto o primeiro cliente ainda está a processar a primeira mensagem.
+* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Fila com um grande número de remetentes de
 
 Objetivo: Maximize o débito de uma fila ou um tópico com um grande número de remetentes. Cada remetente envia mensagens com uma velocidade de moderada. O número de recetores é pequeno.
 
-O Service Bus permite até 1000 ligações simultâneas para uma entidade de mensagens (ou 5000 através de AMQP). Este limite é aplicado ao nível do espaço de nomes, e tópicos/filas/subscrições são limitadas pelo limite de ligações em simultâneo por espaço de nomes. Para as filas, este número é partilhado entre os remetentes e os recetores. Se a todas as ligações de 1000 são necessárias para os remetentes, deve substituir a fila com um tópico e uma única subscrição. Um tópico aceita até 1000 ligações simultâneas de remetentes, enquanto a subscrição aceita um ligações simultâneas de 1000 adicionais de recetores. Se forem necessários mais de 1000 remetentes em simultâneo, os remetentes devem enviar mensagens para o protocolo de Service Bus através de HTTP.
+O Service Bus permite até 1000 ligações simultâneas para uma entidade de mensagens (ou 5000 através de AMQP). Este limite é aplicado ao nível do espaço de nomes, e tópicos/filas/subscrições são limitadas pelo limite de ligações em simultâneo por espaço de nomes. Para as filas, este número é partilhado entre os remetentes e os recetores. Se a todas as ligações de 1000 são necessárias para os remetentes, substitua a fila de um tópico e uma única subscrição. Um tópico aceita até 1000 ligações simultâneas de remetentes, enquanto a subscrição aceita um ligações simultâneas de 1000 adicionais de recetores. Se forem necessários mais de 1000 remetentes em simultâneo, os remetentes devem enviar mensagens para o protocolo de Service Bus através de HTTP.
 
-Para maximizar o débito, efetue o seguinte:
+Para maximizar o débito, execute os seguintes passos:
 
-* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 * Se o remetente de cada um reside num processo diferente, utilize apenas uma único fábrica por processo.
 * Utilize operações assíncronas para tirar partido da criação de batches do lado do cliente.
-* Utilize a predefinição de intervalo de 20ms de criação de batches para reduzir o número das transmissões de protocolo de cliente do Service Bus.
-* Deixe o acesso de arquivo de batches ativado. Isto aumenta a velocidade global em que as mensagens podem ser escritas para a fila ou tópico.
-* Defina a contagem de obtenção prévia para 20 vezes as máximo as taxas de processamento de todos os recetores de uma fábrica. Isto reduz o número de transmissões de protocolo de cliente do Service Bus.
+* Utilize a predefinição de criação de batches de intervalo de 20 ms para reduzir o número das transmissões de protocolo de cliente do Service Bus.
+* Deixe o acesso de arquivo de batches ativado. Este acesso aumenta a velocidade global em que as mensagens podem ser escritas para a fila ou tópico.
+* Defina a contagem de obtenção prévia para 20 vezes as máximo as taxas de processamento de todos os recetores de uma fábrica. Esta contagem reduz o número das transmissões de protocolo de cliente do Service Bus.
+* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Fila com um grande número de recetores
 
 Objetivo: Maximize a taxa de receção de uma fila ou a subscrição com um grande número de recetores. Cada recetor recebe mensagens de uma taxa moderada. O número de remetentes é pequeno.
 
-O Service Bus permite até 1000 ligações simultâneas a uma entidade. Se uma fila precisar de mais de 1000 recetores, deve substituir a fila com um tópico e várias subscrições. Cada subscrição pode suportar até 1000 de ligações em simultâneo. Em alternativa, os recetores podem aceder a fila através do protocolo HTTP.
+O Service Bus permite até 1000 ligações simultâneas a uma entidade. Se uma fila precisar de mais de 1000 recetores, substitua a fila de um tópico e várias subscrições. Cada subscrição pode suportar até 1000 de ligações em simultâneo. Em alternativa, os recetores podem aceder a fila através do protocolo HTTP.
 
 Para maximizar o débito, efetue o seguinte:
 
-* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 * Se cada recetor reside num processo diferente, utilize apenas uma único fábrica por processo.
 * Recetores podem utilizar operações síncronas ou assíncronas. Tendo em conta a taxa de receção moderado de um recetor individuais, do lado do cliente de lotes de um pedido de conclusão não afetam o débito de recetor.
-* Deixe o acesso de arquivo de batches ativado. Isto reduz a carga geral da entidade. Também reduz a taxa de geral em que as mensagens podem ser escritas para a fila ou tópico.
-* Defina a contagem de obtenção prévia para um valor pequeno (por exemplo, PrefetchCount = 10). Isto impede que recetores inatividade enquanto outros recetores têm de grandes quantidades de mensagens colocadas em cache.
+* Deixe o acesso de arquivo de batches ativado. Este acesso reduz a carga geral da entidade. Também reduz a taxa de geral em que as mensagens podem ser escritas para a fila ou tópico.
+* Defina a contagem de obtenção prévia para um valor pequeno (por exemplo, PrefetchCount = 10). Esta contagem impede recetores de inatividade enquanto outros recetores têm de grandes quantidades de mensagens colocadas em cache.
+* Utilize uma fila de mensagens particionada para um melhor desempenho e disponibilidade.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Tópico com um pequeno número de subscrições
 
@@ -245,27 +249,27 @@ Objetivo: Maximize o débito de um tópico com um pequeno número de subscriçõ
 
 Para maximizar o débito, efetue o seguinte:
 
-* Utilize um tópico particionado para um melhor desempenho e disponibilidade.
 * Para aumentar a velocidade global de envio para o tópico, utilize várias fábricas de mensagens para criar os remetentes. Para cada remetente, utilize operações assíncronas ou de vários threads.
 * Para aumentar a taxa de receção geral de uma subscrição, utilize várias fábricas de mensagens para criar recetores. Para cada recetor, utilize operações assíncronas ou de vários threads.
 * Utilize operações assíncronas para tirar partido da criação de batches do lado do cliente.
-* Utilize a predefinição de intervalo de 20ms de criação de batches para reduzir o número das transmissões de protocolo de cliente do Service Bus.
-* Deixe o acesso de arquivo de batches ativado. Isto aumenta a velocidade global em que as mensagens podem ser escritas para o tópico.
-* Defina a contagem de obtenção prévia para 20 vezes as máximo as taxas de processamento de todos os recetores de uma fábrica. Isto reduz o número de transmissões de protocolo de cliente do Service Bus.
+* Utilize a predefinição de criação de batches de intervalo de 20 ms para reduzir o número das transmissões de protocolo de cliente do Service Bus.
+* Deixe o acesso de arquivo de batches ativado. Este acesso aumenta a velocidade global em que as mensagens podem ser escritas para o tópico.
+* Defina a contagem de obtenção prévia para 20 vezes as máximo as taxas de processamento de todos os recetores de uma fábrica. Esta contagem reduz o número das transmissões de protocolo de cliente do Service Bus.
+* Utilize um tópico particionado para um melhor desempenho e disponibilidade.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Tópico com um grande número de subscrições
 
 Objetivo: Maximize o débito de um tópico com um grande número de subscrições. Uma mensagem é recebida por várias subscrições, o que significa que a taxa de receção combinado ao longo de todas as subscrições é muito maior do que a velocidade de envio. O número de remetentes é pequeno. O número de recetores por subscrição é pequeno.
 
-Tópicos com um grande número de subscrições expõem normalmente um débito global baixo se todas as mensagens são encaminhadas para todas as subscrições. Isto é provocado pelo facto da que cada mensagem é recebida demasiadas vezes e todas as mensagens que estão contidas num tópico e todas as respetivas subscrições são armazenadas no arquivo do mesmo. Presume-se que o número de remetentes e número de recetores por subscrição são pequenos. Service Bus suporta até 2000 subscrições por tópico.
+Tópicos com um grande número de subscrições expõem normalmente um débito global baixo se todas as mensagens são encaminhadas para todas as subscrições. Este débito baixo é causado pelo facto da que cada mensagem é recebida demasiadas vezes e todas as mensagens que estão contidas num tópico e todas as respetivas subscrições são armazenadas no arquivo do mesmo. Presume-se que o número de remetentes e número de recetores por subscrição são pequenos. Service Bus suporta até 2000 subscrições por tópico.
 
-Para maximizar o débito, efetue o seguinte:
+Para maximizar o débito, tente os seguintes passos:
 
-* Utilize um tópico particionado para um melhor desempenho e disponibilidade.
 * Utilize operações assíncronas para tirar partido da criação de batches do lado do cliente.
-* Utilize a predefinição de intervalo de 20ms de criação de batches para reduzir o número das transmissões de protocolo de cliente do Service Bus.
-* Deixe o acesso de arquivo de batches ativado. Isto aumenta a velocidade global em que as mensagens podem ser escritas para o tópico.
-* Defina a contagem de obtenção prévia 20 vezes a receção esperado taxa em segundos. Isto reduz o número de transmissões de protocolo de cliente do Service Bus.
+* Utilize a predefinição de criação de batches de intervalo de 20 ms para reduzir o número das transmissões de protocolo de cliente do Service Bus.
+* Deixe o acesso de arquivo de batches ativado. Este acesso aumenta a velocidade global em que as mensagens podem ser escritas para o tópico.
+* Defina a contagem de obtenção prévia 20 vezes a receção esperado taxa em segundos. Esta contagem reduz o número das transmissões de protocolo de cliente do Service Bus.
+* Utilize um tópico particionado para um melhor desempenho e disponibilidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,24 +1,20 @@
 ---
 title: Atualização de firmware do dispositivo com o Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Como utilizar a gestão de dispositivos no IoT Hub do Azure para iniciar uma atualização de firmware do dispositivo. Utilizar o dispositivo IoT do Azure SDK para .NET para implementar uma aplicação de dispositivo simulado e o serviço de IoT do Azure SDK para .NET implementar uma aplicação de serviço que aciona a atualização de firmware.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736760"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Utilize a gestão de dispositivos para iniciar uma atualização de firmware do dispositivo (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -345,7 +341,7 @@ Nesta secção, pode:
 > [!NOTE]
 > Este método aciona a atualização simulada para ser executado como um **tarefas** e responde imediatamente para a chamada de método informar o serviço que a atualização de firmware foi iniciada. Estado da atualização e de conclusão serão enviadas para o serviço através de comunicado propriedades do dispositivo duplo. Iremos responder para a chamada de método quando iniciar a atualização, em vez após a respetiva conclusão, porque:
 > * Um processo de atualização real é muito provável que demorar mais do que o tempo limite de chamada de método.
-> * Um processo de atualização real é muito provável que requerem um reinício, o qual seria reinicialização a efetuar esta aplicação a **MetodRequest** objeto indisponível. (Atualizar propriedades comunicadas, no entanto, é possível, mesmo após um reinício.) 
+> * Um processo de atualização real é muito provável que requerem um reinício, o qual seria reinicialização a efetuar esta aplicação a **MethodRequest** objeto indisponível. (Atualizar propriedades comunicadas, no entanto, é possível, mesmo após um reinício.) 
 
 14. Por fim, adicione o seguinte código para o **Main** método para abrir a ligação ao seu IoT hub e inicializar o serviço de escuta do método:
    

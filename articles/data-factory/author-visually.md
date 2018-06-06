@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725147"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>A criação de Visual no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite-lhe visualmente cria e implementar os recursos para a fábrica de dados sem ter de escrever qualquer código. Pode arraste as actividades à tela pipeline, efetuar execuções do teste, iteratively, depurar e implementar e monitorizar a execução de pipeline. Existem duas abordagens para utilizar o UX para efetuar a criação de visual:
@@ -46,8 +47,8 @@ Criação visual com a integração de VSTS Git suporta o controlo de origem e d
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurar um repositório de VSTS Git com o Azure Data Factory
 Pode configurar um repositório de VSTS GIT com uma fábrica de dados através de dois métodos.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>O método de configuração 1: vamos iniciar a página de introdução
+#### <a name="method1"></a> O método de configuração 1: vamos iniciar a página de introdução
+
 No Azure Data Factory, vá para o **comecemos** página. Selecione **configurar repositório de código**:
 
 ![Configurar um repositório de código VSTS](media/author-visually/configure-repo.png)
@@ -75,6 +76,14 @@ No UX de fábrica de dados do Azure **criação tela**, localize a fábrica de d
 É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições no <a href="#method1">método de configuração 1</a>.
 
 ![Configurar as definições do repositório de código para a criação do UX](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>Mudar para um repositório de Git diferentes
+
+Para mudar para um repositório de Git diferentes, localize o ícone no canto superior direito da página de descrição geral do Data Factory, conforme mostrado na captura de ecrã seguinte. Se não vir o ícone, limpe a cache local do browser. Selecione o ícone para remover a associação com o repositório atual.
+
+Depois de remover a associação a atual repositório, pode configurar as definições de Git para utilizar um repositório diferentes. Em seguida, pode importar recursos de fábrica de dados existentes para o repositório de novo.
+
+![Remova a associação com o repositório de Git atual.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>Utilizar o controlo de versão
 Sistemas de controlo de versão (também conhecido como _controlo de origem_) permitem aos programadores colaborar em código e controlar as alterações efetuadas para o código base. Controlo de origem é uma ferramenta essencial para projetos de programação multi.

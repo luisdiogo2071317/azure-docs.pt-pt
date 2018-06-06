@@ -3,23 +3,21 @@ title: As consultas SQL para a base de dados do Azure Cosmos | Microsoft Docs
 description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e as consultas SQL para a base de dados do Azure Cosmos. SQL Server pode utilizado como um idioma de consulta JSON do BD Azure Cosmos.
 keywords: sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação
 services: cosmos-db
-documentationcenter: ''
 author: LalithaMV
 manager: kfile
 editor: monicar
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 725dfa2e76ae03f17a17991c523e85e9c69a69ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f0fd1b57be07eda13655b5a6c0dcb5b412e8a248
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798326"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para a base de dados do Azure Cosmos
 
@@ -545,22 +543,22 @@ A principal diferença entre utilizar BETWEEN na API do SQL Server e ANSI SQL é
 ### <a name="logical-and-or-and-not-operators"></a>Lógica (AND, OR e não) operadores
 Operadores lógicos operam nos valores booleanos. As tabelas de truth lógicas para destes operadores são mostradas nas tabelas seguintes.
 
-| OU | True | False | Não definido |
+| OU | Verdadeiro | Falso | Não definido |
 | --- | --- | --- | --- |
-| True |True |True |True |
-| False |True |False |Não definido |
-| Não definido |True |Não definido |Não definido |
+| Verdadeiro |Verdadeiro |Verdadeiro |Verdadeiro |
+| Falso |Verdadeiro |Falso |Não definido |
+| Não definido |Verdadeiro |Não definido |Não definido |
 
-| E | True | False | Não definido |
+| E | Verdadeiro | Falso | Não definido |
 | --- | --- | --- | --- |
-| True |True |False |Não definido |
-| False |False |False |False |
-| Não definido |Não definido |False |Não definido |
+| Verdadeiro |Verdadeiro |Falso |Não definido |
+| Falso |Falso |Falso |Falso |
+| Não definido |Não definido |Falso |Não definido |
 
 | NÃO |  |
 | --- | --- |
-| True |False |
-| False |True |
+| Verdadeiro |Falso |
+| Falso |Verdadeiro |
 | Não definido |Não definido |
 
 ### <a name="in-keyword"></a>NA palavra-chave

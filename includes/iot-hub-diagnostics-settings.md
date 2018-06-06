@@ -1,7 +1,24 @@
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666947"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Ativar o registo com as definições de diagnóstico
 
 1. Iniciar sessão para o [portal do Azure] [ lnk-portal] e navegue até ao seu IoT Hub.
-1. Selecione **definições de diagnóstico**.
+1. Selecione **as definições de diagnóstico**.
 1. Selecione **ative os diagnósticos**.
 
    ![Ativar os diagnósticos][1]

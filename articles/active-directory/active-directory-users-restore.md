@@ -8,25 +8,25 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e743bdd5fd7e302e4c7c5d229bb14753776df079
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723535"
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Restaurar um utilizador eliminado no Azure Active Directory
 
 Este artigo contém instruções para restaurar ou eliminar permanentemente um utilizador eliminado anteriormente. Quando elimina um utilizador no Azure Active Directory (Azure AD), o utilizador eliminado é mantido durante 30 dias a contar da data de eliminação. Durante este período, é possível restaurar o utilizador e as respetivas propriedades. 
 
-> [!wARNING]
+> [!WARNING]
 > Depois de ser permanentemente eliminado, o utilizador não pode ser restaurado.
-
 
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Como restaurar um utilizador recentemente eliminado
 Quando um utilizador for eliminado recentemente, todas as informações de diretório são preservadas. Se o utilizador é restaurado, essa informação é restaurada bem.
@@ -44,7 +44,7 @@ Quando um utilizador for eliminado recentemente, todas as informações de diret
 ## <a name="required-permissions"></a>Permissões obrigatórias
 As seguintes permissões são suficientes para restaurar um utilizador.
 
-Função  | Permissões 
+Função | Permissões 
 --------- | ---------
 Administrador de Empresa<p>Parceiro de Suporte de Escalão 1<p>Parceiro de Suporte de Escalão 2<p>Administrador de Conta de Utilizador | Pode restaurar utilizadores eliminados 
 Administrador de Empresa<p>Parceiro de Suporte de Escalão 1<p>Parceiro de Suporte de Escalão 2<p>Administrador de Conta de Utilizador | Pode eliminar permanentemente os utilizadores

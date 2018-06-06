@@ -2,34 +2,35 @@
 title: O Azure Stream Analytics no limite de IoT (pré-visualização)
 description: Criar tarefas de limite no Azure Stream Analytics e implementá-las runnning de dispositivos do Azure IoT Edge.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802532"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>O Azure Stream Analytics no limite de IoT (pré-visualização)
 
 > [!IMPORTANT]
-> Esta funcionalidade está em pré-visualização. Não é recomendada a utilização em produção.
+> Esta funcionalidade está em pré-visualização e não é recomendada para utilização em produção.
  
-Azure Stream Analytics (ASA) no limite de IoT proporciona aos programadores implementar quase em tempo real intelligence analítico próximo dispositivos IoT para que eles podem desbloquear pleno partido dos dados gerados pelo dispositivo. Concebido para baixa latência, a resiliência, uma utilização eficiente da largura de banda e de conformidade, as empresas podem agora implementar a lógica de controlo próximo as operações industriais e complementar a análise de macrodados efetuada na nuvem.  
-O Azure Stream Analytics no limite de IoT é executado dentro de [limite do Azure IoT](https://azure.microsoft.com/campaigns/iot-edge/) framework. Assim que a tarefa é criada no ASA, deploym e gerir tarefas do ASA utilizar o IoT Hub.
-Esta funcionalidade está em pré-visualização, se tiver qualquer pergunta ou comentários, pode utilizar [este inquérito](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) contactar a equipa de produto. 
+Azure Stream Analytics (ASA) no limite de IoT proporciona aos programadores implementar quase em tempo real intelligence analítico próximo dispositivos IoT para que eles podem desbloquear pleno partido dos dados gerados pelo dispositivo. O Azure Stream Analytics foi concebido para baixa latência, a resiliência, uma utilização eficiente da largura de banda e a conformidade. As empresas podem agora implementar a lógica de controlo próximo as operações industriais e complementar a análise de macrodados efetuada na nuvem.  
+
+O Azure Stream Analytics no limite de IoT é executado dentro de [limite do Azure IoT](https://azure.microsoft.com/campaigns/iot-edge/) framework. Depois da tarefa é criada no ASA, pode implementar e gerir tarefas do ASA utilizar o IoT Hub. Esta funcionalidade está em pré-visualização. Se tiver quaisquer perguntas ou comentários, pode utilizar [este inquérito](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) contactar a equipa de produto. 
 
 ## <a name="scenarios"></a>Cenários
 ![Diagrama de alto nível](media/stream-analytics-edge/ASAedge_highlevel.png)
 
 * **Comando de latência baixa e controlo**: por exemplo, os sistemas de segurança de fabrico deve responder para dados operacionais com ultra-baixa latência. Com ASA no limite do IoT, pode analisar sensor, dados quase em tempo real e emitem comandos quando detetar anomalias para parar uma máquina ou acionar alertas.
 *   **Limitada a conectividade à nuvem**: missão sistemas críticos, como equipamento de extração remoto, vessels ligados ou desagregação offshore, tem de analisar e reagir aos dados, mesmo quando a conectividade de nuvem é intermitente. Com ASA, a lógica de transmissão em fluxo é executado independentemente a conectividade de rede e pode escolher que enviar para a nuvem para processamento adicional ou o armazenamento.
-* **Largura de banda limitada**: O volume de dados produzidos por motores de jet ou carros ligados podem ser tão grandes que dados tem de ser filtrados ou pré-processados antes de a enviar para a nuvem. Utilizar ASA, pode filtrar ou agregar os dados que têm de ser enviadas para a nuvem.
+* **Largura de banda limitada**: O volume de dados produzidos por motores de jet ou carros ligados podem ser tão grandes que dados tem de ser filtrados ou pré-processados antes de a enviar para a nuvem. Utilizar ASA, pode filtrar ou agregar os dados que tem de ser enviadas para a nuvem.
 * **Conformidade**: a conformidade regulamentar pode necessitar de alguns dados localmente anónimas ou agregado antes de a ser enviados para a nuvem.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Limite as tarefas do Azure Stream Analytics
@@ -48,16 +49,21 @@ ASA utiliza IoT Hub para implementar as tarefas de edge para dispositivos. Obter
 Os passos de alto nível são descritos na seguinte tabela. São fornecidos mais detalhes nas seguintes secções.
 |      |Passo   | Local     | Notas   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Criar uma tarefa de limite do ASA**   | Portal do Azure      |  Criar uma nova tarefa, selecione **Edge** como **ambiente de alojamento**. <br> Estas tarefas são criado/geridos a partir da nuvem e execute os seus próprios dispositivos de limite de IoT.     |
-| 2   | **Criar um contentor de armazenamento**   | Portal do Azure       | Os contentores de armazenamento são utilizados para guardar a definição de tarefa onde possam ser acedidos pelos seus dispositivos de IoT. <br>  Pode reutilizar qualquer contentor de armazenamento existente.     |
-| 3   | **Configurar o ambiente de limite de IoT no seu dispositivo (s)**   | Dispositivo(s)      | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 1   | **Criar um contentor de armazenamento**   | Portal do Azure       | Os contentores de armazenamento são utilizados para guardar a definição de tarefa onde possam ser acedidos pelos seus dispositivos de IoT. <br>  Pode reutilizar qualquer contentor de armazenamento existente.     |
+| 2   | **Criar uma tarefa de limite do ASA**   | Portal do Azure      |  Criar uma nova tarefa, selecione **Edge** como **ambiente de alojamento**. <br> Estas tarefas são criado/geridos a partir da nuvem e execute os seus próprios dispositivos de limite de IoT.     |
+| 3   | **Configuração do ambiente de limite de IoT no seu dispositivo (s)**   | Dispositivo(s)      | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Implementar ASA nos seus dispositivos de IoT Edge**   | Portal do Azure      |  Definição de tarefa do ASA é exportada para o contentor de armazenamento que criou anteriormente.       |
 Pode seguir [neste tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar o seu primeiro emprego ASA no limite de IoT. O vídeo seguinte deve ajudá-lo a compreender o processo para executar uma tarefa de Stream Analytics num dispositivo de limite de IoT:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-
+#### <a name="create-a-storage-container"></a>Criar um contentor de armazenamento
+Um contentor de armazenamento é necessário para exportar a consulta do ASA compilado e a configuração da tarefa. É utilizado para configurar a imagem do ASA Docker com a sua consulta específica. 
+1. Siga [estas instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta do storage a partir do portal do Azure. Pode manter todas as opções predefinidas para utilizar esta conta com ASA.
+2. A conta de armazenamento acabada de criar, crie um contentor de armazenamento de BLOBs:
+    1. Clique em **Blobs**, em seguida, **+ contentor**. 
+    2. Introduza um nome e manter o contentor como **privada**.
 
 #### <a name="create-an-asa-edge-job"></a>Criar uma tarefa do ASA Edge
 > [!Note]
@@ -71,17 +77,11 @@ Pode seguir [neste tutorial passo a passo](https://docs.microsoft.com/azure/iot-
     2. Defina os dados de referência (opcionais).
     3. **Definir saída Stream(s)**. Defina um ou vários fluxos saídas a tarefa. 
     4. **Definir a consulta**. Defina a consulta do ASA na nuvem utilizando o editor de inline. O compilador verifica automaticamente, a sintaxe ativada para o limite do ASA. Também pode testar a sua consulta através do carregamento de dados de exemplo. 
-4. Configurar as definições opcionais
+4. Definir as informações do contentor de armazenamento **definições de limite de IoT** menu.
+5. Configurar as definições opcionais
     1. **Ordenação de evento**. Pode configurar uma política de fora de ordem no portal. Está disponível documentação [aqui](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Região**. Defina o formato de internalization.
 
-
-#### <a name="create-a-storage-container"></a>Criar um contentor de armazenamento
-Um contentor de armazenamento é necessário para exportar a consulta do ASA compilado e a configuração da tarefa. É utilizado para configurar a imagem do ASA Docker com a sua consulta específica. 
-1. Siga [estas instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta do storage a partir do portal do Azure. Pode manter todas as opções predefinidas para utilizar esta conta com ASA.
-2. A conta de armazenamento acabada de criar, crie um contentor de armazenamento de BLOBs:
-    1. Clique em "Blobs", em seguida, "+ contentor". 
-    2. Introduza um nome e manter o contentor como "Privado"
 
 
 > [!Note]
@@ -91,27 +91,27 @@ Um contentor de armazenamento é necessário para exportar a consulta do ASA com
 #### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>Configurar o ambiente de limite de IoT no seu dispositivo (s)
 Tarefas de limite podem ser implementadas em dispositivos com o Azure IoT Edge.
 Para tal, tem de seguir estes passos:
-- Criar um Hub Iot;
-- Instalar o runtime do Docker e limite de IoT nos seus dispositivos de limite;
-- Configurar os seus dispositivos como "Dispositivos da IoT Edge" no IoT Hub.
+- Crie um Hub Iot.
+- Instale o runtime do Docker e limite de IoT nos seus dispositivos de limite.
+- Configurar os seus dispositivos como **dispositivos de limite de IoT** no IoT Hub.
 
 Estes passos são descritos na documentação do limite de IoT para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Implementação do ASA nos seus dispositivos de IoT Edge
 ##### <a name="add-asa-to-your-deployment"></a>Adicionar ASA para a implementação
-- No portal do Azure, abra o IoT Hub, navegue para o Explorador de limite de IoT e abrir o painel do dispositivo.
-- Selecione **definir módulos**, em seguida, selecione **módulo Edge IoT do serviço de importação do Azure**.
-- Selecione a subscrição e a tarefa de limite de ASA que criou. Em seguida, selecione a sua conta de armazenamento. Clique em Guardar.
+- No portal do Azure, abra o IoT Hub, navegue para **IoT Edge** e clique no dispositivo que pretende visar para esta implementação.
+- Selecione **definir módulos**, em seguida, selecione **+ adicionar** e escolha **módulo do Azure Stream Analytics**.
+- Selecione a subscrição e a tarefa de limite de ASA que criou. Clique em Guardar.
 ![Adicionar módulo ASA na sua implementação](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> Durante este passo, ASA solicita acesso ao contentor de armazenamento selecionado e, em seguida, cria uma pasta denominada "EdgeJobs". Para cada implementação é criada uma nova subpasta na pasta "EdgeJobs".
+> Durante este passo, ASA cria uma pasta denominada "EdgeJobs" no contentor de armazenamento (se não existir já). Para cada implementação é criada uma nova subpasta na pasta "EdgeJobs".
 > Para implementar o seu trabalho para dispositivos de limite, ASA cria uma assinatura de acesso partilhado (SAS) para o ficheiro de definição de tarefa. A chave SAS em segurança é transmitida para os dispositivos de limite de IoT a utilizar o dispositivo duplo. A expiração desta chave é três anos a partir do dia da respetiva criação.
 
 
-Para obter mais detalhes sobre implementações de limite de IoT, consulte o artigo [nesta página](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+Para obter mais informações sobre implementações de limite de IoT, consulte o artigo [nesta página](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 
 ##### <a name="configure-routes"></a>Configurar rotas
@@ -140,7 +140,7 @@ Neste exemplo, define as rotas seguintes:
 
 ## <a name="technical-information"></a>Informações técnicas
 ### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>Limitações atuais para tarefas de limite, em comparação comparadas as tarefas de nuvem
-O objetivo é ter paridade entre contorno trabalhos e tarefas de nuvem. A maioria das funcionalidades do nosso linguagem de consulta SQL já é suportada.
+O objetivo é ter paridade entre contorno trabalhos e tarefas de nuvem. A maioria das funcionalidades de idioma de consulta SQL já são suportadas.
 No entanto as seguintes funcionalidades não são suportadas ainda para tarefas de limite:
 * As funções definidas pelo utilizador (UDF) e agregações definidas pelo utilizador (UDA).
 * Funções do Azure ML.
@@ -161,11 +161,11 @@ No entanto as seguintes funcionalidades não são suportadas ainda para tarefas 
 
 
 ### <a name="runtime-and-hardware-requirements"></a>Requisitos de hardware e de tempo de execução
-Para executar ASA num limite de IoT, terá de dispositivos que podem ser executados [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
+Para executar ASA no limite do IoT, terá de dispositivos que podem ser executados [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
 
-ASA e limite de IoT do Azure utilizar **Docker** contentores para disponibilizar uma solução portátil que é executada em vários anfitriões SO (Windows, Linux).
+ASA e limite de IoT do Azure utilizar **Docker** contentores para disponibilizar uma solução portátil que é executada em vários sistemas operativos de anfitrião (Windows, Linux).
 
-ASA no limite de IoT é disponibilizada como imagens do Windows e Linux, em execução no x86-64 ou arquiteturas ARM. 
+ASA no limite de IoT é disponibilizada como imagens do Windows e Linux, em execução no x86-64 ou arquiteturas do Azure Resource Manager. 
 
 
 ### <a name="input-and-output"></a>Entrada e saída
@@ -176,12 +176,14 @@ Para entradas e saídas, são suportados os formatos CSV e JSON.
 
 Para cada entrada e de fluxo de saída cria na sua tarefa do ASA, é criado um ponto final correspondente no seu módulo implementado. Estes pontos finais podem ser utilizados em rotas da sua implementação.
 
+AT presente, a única suportada entrada de fluxo e tipos de saída de fluxo são Edge Hub. Referencia o tipo de ficheiro de referência de entrada suporta. Outras saídas podem ser contactadas através uma tarefa de nuvem downstream. Por exemplo, uma tarefa de Stream Analytics alojada no Edge envia o resultado para o Hub de limite, o que, em seguida, pode enviar o resultado ao IoT Hub. Pode utilizar um segundo alojada na nuvem do Azure Stream Analytics com entrada a partir do IoT Hub e a saída para o Power BI ou outro tipo de saída.
+
 
 
 ##### <a name="reference-data"></a>Dados de referência
-Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto de dados finito que são estáticos ou abrandamento alterar natureza. É utilizado para efetuar uma pesquisa de ou para correlacionar com o fluxo de dados. Para tornar a utilização de dados de referência na sua tarefa do Azure Stream Analytics, normalmente, utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Para obter mais informações, consulte o [documentação ASA sobre dados de referência](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto de dados finito que são estáticos ou alterar natureza lenta. É utilizado para efetuar uma pesquisa de ou para correlacionar com o fluxo de dados. Para tornar a utilização de dados de referência na sua tarefa do Azure Stream Analytics, normalmente, utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Para obter mais informações, consulte o [documentação ASA sobre dados de referência](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
 
-Para poder utilizar os dados de referência para ASA no limite do Iot, tem de seguir estes passos: 
+Para utilizar dados de referência para ASA no limite do Iot, siga estes passos: 
 1. Criar uma nova entrada para a sua tarefa
 2. Escolha **referência a dados** como o **tipo de origem**.
 3. Defina o caminho de ficheiro. O caminho do ficheiro deve ser um **absoluto** caminho do ficheiro no dispositivo ![criação de dados de referência](media/stream-analytics-edge/ReferenceData.png)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af0007daf6cb8a2e17e1806f47587e5958b15bd2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716079"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitorização com a análise de registos de desempenho
 
@@ -73,19 +74,27 @@ Pode transferir e modificar este modelo para implementar um cluster que melhor s
 
 Agora que adicionou o agente do OMS, head no ativação pós-falha para o portal de análise de registos para escolher que desempenho contadores pretende recolher. 
 
-1. No portal do Azure, vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfOMSWorkspace\>**  e aceda à página de descrição geral. Na parte superior, clique na ligação para aceder ao Portal do OMS.
+1. No portal do Azure, vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Quando estiver no portal, verá um mosaicos sob a forma de um gráfico para cada uma das soluções ativadas, incluindo um para o Service Fabric. Clique em continuar para a solução de análise de recursos de infraestrutura de serviço. 
+2. Clique em **área de trabalho OMS**.
 
-3. Agora verá mosaicos alguns com gráficos no canal operacional e eventos de serviços fiável. No lado direito clique no ícone de equipamento de ir para a página de definições.
+3. Clique em **definições avançadas**.
 
-    ![Definições do OMS](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Clique em **dados**, em seguida, clique em **Windows ou Linux contadores de desempenho**. Existe uma lista de contadores predefinido, que pode optar por ativar e que pode definir o intervalo de coleção. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato correto é referenciado nesta [artigo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. Na página Definições, clique em dados e escolha Windows ou Linux contadores de desempenho. Existem uma lista de predefinição aqueles que pode optar por ativar e que pode definir o intervalo de coleção. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato correto é referenciado nesta [artigo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Clique em **guardar**, em seguida, clique em **OK**.
 
-Assim que estão configurados os contadores, head de volta para a página de soluções e verá logo que seja fluxo de dados em e apresentados nos gráficos em **métricas de nó**. Pode também consultar dados de contador de desempenho da mesma forma para eventos de cluster e filtrar em nós, nome do contador de desempenho e valores utilizando a linguagem de consulta Kusto. 
+6. Feche o painel de definições avançadas.
 
-![Consulta de contador de desempenho do OMS](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Sob o cabeçalho geral, clique em **descrição geral**.
+
+8. Verá os mosaicos sob a forma de um gráfico para cada uma das soluções ativadas, incluindo um para o Service Fabric. Clique em de **Service Fabric** gráfico para continuar para a solução de análise de recursos de infraestrutura de serviço.
+
+9. Irá ver alguns mosaicos com gráficos no canal operacional e eventos de serviços fiável. A representação gráfica dos dados que circulam para os contadores selecionados será apresentado no nó de métricas. 
+
+10. Clique num gráfico de métrica de contentor para ver detalhes adicionais. Pode também consultar dados de contador de desempenho da mesma forma para eventos de cluster e filtrar em nós, nome do contador de desempenho e valores utilizando a linguagem de consulta Kusto.
+
+![Consulta de contador de desempenho do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

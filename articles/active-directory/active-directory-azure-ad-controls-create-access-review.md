@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
-ms.author: billmath
-ms.openlocfilehash: 784a461421420af403a43f944d6f63aef3ccc152
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 00d8c7f9c4b335f107f436041b027b4df8845267
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698269"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão do acesso dos membros do grupo ou de acesso de aplicação com o Azure AD
 
@@ -34,9 +35,9 @@ Atribuições de acesso tornar-se "obsoletas" quando os utilizadores têm acesso
 
 5. Defina a data de início. Por predefinição, uma revisão do acesso ocorre uma vez, inicia o mesmo tempo que é criado e -termina num mês. Pode alterar o início e fim de datas para ter acesso reveja início no futuro e pela última vez no entanto, o número de dias que pretende.
 
-6. Para tornar o recorrente de revisão de acesso, altere a frequência de uma vez para semanais, mensais, trimestrais ou anual e utilize a caixa de texto ou controlo de deslize para definir quantos dias cada revisão da série periódica será runbe abrir para a entrada de revisores. Por exemplo, tNão duração máxima para pode definir para uma revisão mensal é 27 dias, para evitar a sobreposição de revisões. 
+6. Para tornar o recorrente de revisão de acesso, altere a frequência de uma vez para semanais, mensais, trimestrais ou anual e utilize a caixa de texto ou controlo de deslize para definir quantos dias cada revisão da série periódica será aberta para entrada de revisores. Por exemplo, a duração máxima para pode ser definido para uma revisão mensal é 27 dias, para evitar a sobreposição de revisões. 
 
-7.  A série de revisão periódica do acesso pode terminar formas 3: Esta é executada continuamente para iniciar o revisões indefinidamente, ou até uma data específica ou após um determinado número de ocorrências foi concluída. O utilizador ou outro administrador global pode parar a série após a criação, alterando a data nas definições, para que este termina a essa data.
+7.  A série de revisão periódica do acesso pode terminar formas 3: é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou um determinado número de ocorrências tenha sido concluída. O utilizador ou outro administrador global pode parar a série após a criação, alterando a data nas definições, para que este termina a essa data.
 
 8. Revisões de acesso podem ser membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso revisão para revisão apenas os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de rever todos os utilizadores que são membros ou que tenham acesso à aplicação.
 
@@ -46,11 +47,11 @@ Atribuições de acesso tornar-se "obsoletas" quando os utilizadores têm acesso
 
 ### <a name="configuring-an-access-review-with-auto-apply"></a>Configurar uma revisão do acesso com auto-apply
 
-1.  Expanda o menu para nas definições de conclusão, andsettings e ativar automaticamente aplicam-se os resultados ao recurso. 
+1.  Expanda o menu para após a conclusão definições e ativar automaticamente aplicam-se os resultados ao recurso. 
 
-2.  Em casos onde os utilizadores não foram revistos pelo revisor dentro do período de revisão, pode ter a revisão do acesso demorar recomendação do sistema (se estiver ativada) no negar/aprovar o acesso do utilizador contínuo, ou deixe o respetivo acesso inalterado ou remover os respetivos acesso. Isto não irá afetar os utilizadores que foram revistos, os revisores manualmente – esteja decisão do revisor final negar, em seguida, o acesso do utilizador será removido.
+2.  Em casos onde os utilizadores não foram revistos pelo revisor dentro do período de revisão, pode ter a revisão do acesso de colocar recomendação do sistema (se estiver ativada) no negar/aprovar o acesso do utilizador contínuo, deixe o respetivo acesso inalterado ou remover os respetivos acesso. Isto não irá afetar os utilizadores que foram revistos, os revisores manualmente – esteja decisão do revisor final negar, em seguida, o acesso do utilizador será removido.
 
-3.  Para ativar a opção para efetuar recomendações devem revisores não responder, mostra recomendações nas definições avançadas tem de estar ativadas.
+3.  Para ativar a opção para efetuar recomendações devem revisores não responder, expanda definições avançadas e ativar Mostrar recomendações.
  
 4.  Por fim, clique em **iniciar**.
 
@@ -74,5 +75,3 @@ Quando uma revisão do acesso é iniciado, o Azure AD envia automaticamente revi
 Se esta for uma revisão de uso individual, em seguida, após o período de revisão do acesso ou o administrador para a revisão do acesso, siga os passos no [concluir uma revisão do acesso](active-directory-azure-ad-controls-complete-access-review.md) para ver e aplicar os resultados.  
 
 Se se tratar de uma série de revisão, em seguida, navegue para **rever histórico** na página de série de revisão do acesso, para selecionar uma revisão do acesso concluída.  Revisões futuros serão listadas sob **agendada revisão**, onde pode editar a duração e adicionar ou remover os revisores de revisões individuais.
-
-

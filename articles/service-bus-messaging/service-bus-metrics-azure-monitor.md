@@ -3,22 +3,18 @@ title: Métricas de Service Bus do Azure no Monitor do Azure (pré-visualizaçã
 description: Utilizar a monitorização do Azure para monitorizar entidades do Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/05/2018
+ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb0c9fcc33d6f5b54a8c2c8ad3e356a485d6ccbb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701299"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Service Bus do Azure no Monitor do Azure (pré-visualização)
 
@@ -64,8 +60,16 @@ Conta o número de pedidos de operações de gestão e de dados.
 | Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus através de um período de tempo especificado. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Pedidos com êxito (pré-visualização)|O número de pedidos efetuados para o serviço do Service Bus durante um período especificado com êxito.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Erros de servidor (pré-visualização)|O número de pedidos não processada devido a um erro no serviço do Service Bus através de um período de tempo especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de utilizador (pré-visualização)|O número de pedidos não processada devido a erros de utilizador durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de utilizador (pré-visualizar - consulte a subsecção seguinte)|O número de pedidos não processada devido a erros de utilizador durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Pedidos otimizados (pré-visualização)|O número de pedidos que foram limitadas porque a utilização de foi excedida.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+
+### <a name="user-errors"></a>Erros de utilizador
+
+Os seguintes dois tipos de erros são classificados como erros de utilizador:
+
+1. Erros de lado do cliente (em HTTP que seriam 400 erros).
+2. Erros ocorridos durante o processamento de mensagens, tais como [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+
 
 ## <a name="message-metrics"></a>Métricas de mensagem
 

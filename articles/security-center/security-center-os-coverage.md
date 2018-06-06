@@ -1,11 +1,11 @@
 ---
-title: "Plataformas suportadas no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento fornece uma lista dos sistemas de operatings Windows e Linux suportados no Centro de segurança do Azure."
+title: Plataformas suportadas no Centro de segurança do Azure | Microsoft Docs
+description: Este documento fornece uma lista dos sistemas de operatings Windows e Linux suportados no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756906"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas suportadas no Centro de segurança do Azure
 Monitorização de estado de segurança e as recomendações estão disponíveis para máquinas virtuais (VMs), utilizando o clássico e modelos de implementação do Resource Manager e computadores.
@@ -59,6 +60,6 @@ VMs em execução num serviço em nuvem também são suportadas. Nuvem apenas do
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Guia de operações e planeamento do Centro de segurança do Azure](security-center-planning-and-operations-guide.md) — Saiba como planear e compreender as considerações de conceção para adoção do Centro de segurança do Azure
-- [Alertas de segurança por tipo no Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquina virtual e análise de memória de captura no Centro de segurança de falhas
+- [Alertas de segurança por tipo no Centro de segurança do Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquina virtual e análise de memória de captura no Centro de segurança de falhas
 - [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço
 - [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e conformidade

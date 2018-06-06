@@ -1,11 +1,11 @@
 ---
-title: "Compre um nome de domínio personalizado para Web Apps do Azure"
-description: "Saiba como comprar um nome de domínio personalizado com uma aplicação web no App Service do Azure."
+title: Comprar um nome de domínio personalizado para Aplicações Web do Azure
+description: Saiba como comprar um nome de domínio personalizado com uma aplicação web no App Service do Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714889"
 ---
-# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Compre um nome de domínio personalizado para Web Apps do Azure
+# <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para Aplicações Web do Azure
 
 Domínios de serviço de aplicações (pré-visualização) são domínios de nível superior que são geridos diretamente no Azure. Tornar mais fácil gerir os domínios personalizados para [Web Apps do Azure](app-service-web-overview.md). Este tutorial mostra como comprar um domínio do serviço de aplicações e atribuir nomes DNS para Web Apps do Azure.
 
@@ -57,17 +58,17 @@ No painel de navegação esquerdo da página da aplicação, desloque-se para a 
 
 ![Menu de aumento vertical](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-O escalão atual da aplicação é realçado com um limite azul. Confirme que a aplicação não está no escalão **Gratuito**. O DNS personalizado não é suportado no escalão **Gratuito**. 
+O escalão atual da aplicação é realçado com um limite azul. Certifique-se de que a aplicação não está no **F1** camada. DNS personalizado não é suportada a **F1** camada. 
 
 ![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Se o plano de serviço de aplicações não está **livres**, feche o **escolher o escalão de preço** página e avançar para o [comprar o domínio](#buy-the-domain).
+Se o plano de serviço de aplicações não está no **F1** camada, feche o **aumentar verticalmente** página e avançar para o [comprar o domínio](#buy-the-domain).
 
 ### <a name="scale-up-the-app-service-plan"></a>Aumentar verticalmente o plano do Serviço de Aplicações
 
-Selecione qualquer um dos escalões não gratuitos (**Partilhado**, **Básico**, **Standard** ou **Premium**). 
+Selecione qualquer uma das camadas não livre (**D1**, **B1**, **B2**, **B3**, ou qualquer camada no **produção** categoria). Para obter opções adicionais, clique em **Consulte opções adicionais**.
 
-Clique em **Selecionar**.
+Clique em **Aplicar**.
 
 ![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

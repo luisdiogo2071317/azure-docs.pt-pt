@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714117"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível baixo 
 
@@ -53,7 +55,7 @@ Este artigo fornece orientações sobre como resolver potenciais problemas de re
 
 - O registo inicial / associação de dispositivos está configurada para efetuar uma tentativa de início de sessão ou bloquear / desbloquear. Pode haver atraso de 5 minutos acionado por uma tarefa de Programador de tarefas. 
 
-- Reinstalar o sistema operativo ou re-registos manuais, pode criar um novo registo no Azure AD, o que resulta em várias entradas no separador de informações de utilizador no portal do Azure. 
+- Uma reinstalação do sistema operativo ou re-registo manual pode criar um novo registo no Azure AD, o que resulta em várias entradas no separador de informações de utilizador no portal do Azure. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Passo 1: Obter o estado do registo 
 
@@ -88,7 +90,7 @@ Se a associação do Azure AD híbrido não foi bem sucedida, a caixa de diálog
     
     - O utilizador com sessão iniciada não é um utilizador de domínio (por exemplo, um utilizador local). Associação do Azure AD híbrido nos dispositivos de nível inferior só é suportada para os utilizadores de domínio.
     
-    - Autoworkplace.exe não consegue autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se um problemas de conectividade de rede out-vinculado aos URLs AD do Azure (Verifique os pré-requisitos). Também poderia ser que a autenticação multifator (MFA) é ativado/configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor de Federação (passos de configuração de verificação). Possibilidade de outra é nessa página do realm inicial (HRD) de deteção está a aguardar interação do utilizador, que impede que **autoworkplace.exe** obtenham silenciosamente um token.
+    - Autoworkplace.exe não consegue autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se a problemas de conectividade de rede out-vinculado aos URLs do Azure AD. Também poderia ser que a autenticação multifator (MFA) é ativado/configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor de Federação. Possibilidade de outra é nessa página do realm inicial (HRD) de deteção está a aguardar interação do utilizador, que impede que **autoworkplace.exe** obtenham silenciosamente um token.
     
     - A organização utiliza o Azure AD totalmente integrada Single Sign-On, `https://autologon.microsoftazuread-sso.com` ou `https://aadg.windows.net.nsatc.net` não estiverem presentes, i/e as definições o dispositivo da intranet, e **permita que as atualizações na barra de estado através do script** não está ativada para a zona de Intranet.
 
@@ -104,7 +106,7 @@ Também pode encontrar as informações de estado no registo de eventos em: **ap
   
 **As causas mais comuns para uma associação de falha híbrida do Azure AD são:** 
 
-- O computador não está ligado à rede interna da sua organização, nem para uma VPN com uma ligação para o seu local controlador de domínio do AD.
+- O computador não está ligado à rede interna da sua organização ou para uma VPN com uma ligação para o seu local controlador de domínio do AD.
 
 - Tem sessão iniciada num computador com uma conta de computador local. 
 

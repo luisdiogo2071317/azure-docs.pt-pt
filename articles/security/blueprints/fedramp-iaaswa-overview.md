@@ -1,6 +1,6 @@
 ---
-title: Segurança do Azure e conformidade Blueprint - aplicação Web para FedRAMP
-description: Segurança do Azure e conformidade Blueprint - aplicação Web para FedRAMP
+title: Segurança do Azure e conformidade Blueprint - aplicação Web de IaaS para FedRAMP
+description: Segurança do Azure e conformidade Blueprint - aplicação Web de IaaS para FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b7a81db6a1caf11ac4a85a5202c5ed943225e849
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 27346d8e2133ea61056817fb48050a4e5c8c3c97
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726487"
 ---
-# <a name="azure-security-and-compliance-blueprint-web-application-for-fedramp"></a>Segurança do Azure e conformidade Blueprint: aplicação para FedRAMP Web
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Segurança do Azure e conformidade Blueprint: aplicação Web de IaaS para FedRAMP
 
 ## <a name="overview"></a>Descrição geral
 
@@ -149,8 +150,8 @@ As seguintes tecnologias de fornecem a identidade de capacidades de gestão no a
 
 OMS fornece extenso registo de atividade de utilizador e de sistema, bem como o estado de funcionamento do sistema. O OMS [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solução recolhe e analisa os dados gerados pelos recursos no Azure e ambientes no local.
 
-- **Registos de atividade:**[registos de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas operações executadas nos recursos numa subscrição.   Registos de atividade podem ajudar a determinar o iniciador de uma operação, hora de ocorrência e o estado.
-- **Os registos de diagnóstico:**[registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos.   Estes registos incluem registos de sistema de eventos do Windows, os registos de armazenamento do Azure, os registos de auditoria do Cofre de chaves e os registos de acesso e de firewall de Gateway de aplicação.
+- **Registos de atividade:**[registos de atividade](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações aprofundadas operações executadas nos recursos numa subscrição. Registos de atividade podem ajudar a determinar o iniciador de uma operação, hora de ocorrência e o estado.
+- **Os registos de diagnóstico:**[registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por cada recurso de todos os registos. Estes registos incluem registos de sistema de eventos do Windows, os registos de armazenamento do Azure, os registos de auditoria do Cofre de chaves e os registos de acesso e de firewall de Gateway de aplicação.
 - **Arquivo de registo:** todos os registos de diagnóstico de escrita para uma conta de armazenamento do Azure centralizada e encriptados para arquivo. O período de retenção é configurável pelo utilizador, cópia de segurança para dias 730, para satisfazer os requisitos de retenção específico da organização. Estes registos ligar ao Log Analytics do Azure para o processamento, armazenamento e relatórios do dashboard.
 
 Além disso, as seguintes soluções OMS são instaladas como parte desta arquitetura. Tenha em atenção que se trata de responsabilidade do cliente para configurar estas soluções para alinhar com os controlos de segurança de FedRAMP:

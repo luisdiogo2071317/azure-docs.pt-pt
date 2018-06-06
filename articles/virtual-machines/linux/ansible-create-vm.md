@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: a2bf047d5a08bfd3df6a6c76116d2b9b9ab81fad
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e36bdbf84b275fb8a6a4e42496b3080bebf1b193
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716640"
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Criar uma máquina virtual básica no Azure com Ansible
 Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar Ansible para gerir as máquinas virtuais (VMs) no Azure, os mesmos como faria com qualquer outro recurso. Este artigo mostra como criar uma VM básica com Ansible. Também pode aprender como [criar um ambiente de VM completado com Ansible](ansible-create-complete-vm.md).
@@ -33,17 +34,17 @@ Para gerir recursos do Azure com Ansible, precisa do seguinte:
 - Credenciais do Azure e Ansible configurado para utilizá-los.
     - [Criar as credenciais do Azure e configurar Ansible](ansible-install-configure.md#create-azure-credentials)
 - CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. 
-    - Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). Também pode utilizar [nuvem Shell](/azure/cloud-shell/quickstart) partir do seu browser.
+    - Se precisar de atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). Também pode utilizar o [Shell de nuvem do Azure](/azure/cloud-shell/quickstart) do seu browser.
 
 
 ## <a name="create-supporting-azure-resources"></a>Criar suporte de recursos do Azure
-Neste exemplo, criar um runbook que implementa uma VM para uma infraestrutura existente. Em primeiro lugar, crie o grupo de recursos com [criar grupo az](/cli/azure/vm#az_vm_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
+Neste exemplo, criar um runbook que implementa uma VM para uma infraestrutura existente. Em primeiro lugar, crie o grupo de recursos com [criar grupo az](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Criar uma rede virtual para a VM com [az rede vnet criar](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e uma sub-rede designada *mySubnet*:
+Criar uma rede virtual para a VM com [az rede vnet criar](/cli/azure/network/vnet#az-network-vnet-create). O exemplo seguinte cria uma rede virtual denominada *myVnet* e uma sub-rede designada *mySubnet*:
 
 ```azurecli
 az network vnet create \
@@ -76,7 +77,7 @@ Criar um manual de comunicação social Ansible denominado *azure_create_vm.yml*
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 

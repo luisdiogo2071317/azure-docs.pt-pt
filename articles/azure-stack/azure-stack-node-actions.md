@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801420"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de escala na pilha do Azure
 
@@ -41,11 +43,11 @@ Para ver o estado de uma unidade de escala:
  
 Aqui, pode ver as seguintes informações:
 
-- nome de região
+- Nome de região. O nome de região está referenciado com **-localização** no módulo do PowerShell.
 - tipo de sistema
 - núcleos lógicos totais
 - total de memória
-- a lista de nós individuais e o respetivo estado; encontra-se em execução ou parado.
+- a lista de nós individuais e o respetivo estado; o **executar** ou **parado**.
 
 ![Mosaico de unidade de escala que mostra o estado de execução para cada nó](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ Esta ação é normalmente utilizada quando um nó está num estado bloqueado e 
 Para executar a operação desligar ação através do PowerShell:
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 No caso de pouco provável que a operação desligar ação não funciona, utilize a interface de web BMC em vez disso.
@@ -102,7 +104,7 @@ O **ligar** ativa a ação no nó. É o mesmo que se premir o botão de energia.
 Para executar a potência na ação através do PowerShell:
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 No caso de pouco provável que a ligar a ação não funciona, utilize a interface de web BMC em vez disso.
@@ -113,13 +115,13 @@ O **drenar** ação evacuates todas as cargas de trabalho de Active Directory po
 
 Esta ação é normalmente utilizada durante a substituição de campo de peças, tais como a substituição de um nó de todo.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Certifique-se de que drenar um nó apenas durante uma janela de manutenção planeada, onde os utilizadores notificados. Em algumas condições, cargas de trabalho de Active Directory podem deparar-interrupções.
 
 Para executar a ação de drenagem através do PowerShell:
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>Retomar
@@ -129,7 +131,7 @@ O **retomar** ação de retoma de um nó drained e marca Active Directory para o
 Para executar a ação de retoma através do PowerShell:
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>Reparar
@@ -139,7 +141,7 @@ O **reparação** ação repara um nó. Utilizá-lo apenas para qualquer um dos 
 - Substituição de nó completo (com ou sem novos discos de dados)
 - Após a falha de componente de hardware e de substituição (se que aconselhado na documentação de (FRU) de unidade substituível em campo).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Consulte a documentação de FRU do seu fornecedor de hardware de OEM para os passos exatos para quando é necessário substituir um nó ou componentes de hardware individuais. A documentação de FRU vai ser especificados se tiver de executar a ação de reparação depois de substituir um componente de hardware.  
 
 Quando executar a ação de reparação, terá de especificar o endereço IP de BMC. 
@@ -147,7 +149,9 @@ Quando executar a ação de reparação, terá de especificar o endereço IP de 
 Para executar a ação de reparação através do PowerShell:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>Passos Seguintes
 
+Para saber mais sobre o módulo de administrador de infraestrutura de pilha do Azure, consulte [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).

@@ -9,155 +9,30 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a4067db9955b804f126e889fa73641f69fef56ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39c43c079ea4d10686bd656ba2d451ff42aac9f6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700235"
 ---
-# <a name="troubleshoot-container-and-deployment-issues-in-azure-container-instances"></a>Resolver problemas de implementação e contentor em instâncias de contentor do Azure
+# <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns em instâncias de contentor do Azure
 
-Este artigo mostra como resolver problemas quando implementar contentores para instâncias de contentor do Azure. Também descreve alguns dos problemas comuns que poderá ter.
+Este artigo mostra como resolver problemas comuns para gerir ou implementar contentores para instâncias de contentor do Azure.
 
-## <a name="view-logs-and-stream-output"></a>Ver registos e a saída de fluxo
+## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Quando tiver um contentor funcionar incorretamente, comece por visualizar os seus registos com [az contentor registos][az-container-logs]e a saída padrão e o erro padrão com transmissão em fluxo [contentor az anexar] [az-container-attach].
+Ao definir a especificação de contentor, determinados parâmetros requerem aderência às restrições de nomenclatura. Segue-se uma tabela com requisitos específicos para o contentor de propriedades do grupo.
+Para obter mais informações sobre as convenções de nomenclatura do Azure, consulte [convenções de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) no Centro de arquitetura do Azure.
 
-### <a name="view-logs"></a>Ver registos
-
-Para ver registos a partir do código da aplicação num contentor, pode utilizar o [az contentor registos] [ az-container-logs] comando.
-
-Segue-se a saída de registo do contentor de baseado em tarefas de exemplo do [executar uma tarefa de ACI](container-instances-restart-policy.md), depois de ter sejam fornecidas-processar um URL inválido:
-
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
-Traceback (most recent call last):
-  File "wordcount.py", line 11, in <module>
-    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
-  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
-    with contextlib.closing(urlopen(url, data)) as fp:
-  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
-    return opener.open(url, data, timeout)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
-    response = meth(req, response)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
-    'http', request, response, code, msg, hdrs)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
-    return self._call_chain(*args)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
-    result = func(*args)
-  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
-    raise HTTPError(req.full_url, code, msg, hdrs, fp)
-urllib.error.HTTPError: HTTP Error 404: Not Found
-```
-
-### <a name="attach-output-streams"></a>Anexar fluxos de saída
-
-O [contentor az anexar] [ az-container-attach] comando fornece informações de diagnóstico durante o arranque do contentor. Depois de ter iniciado o contentor, fluxos STDOUT e STDERR à consola local.
-
-Por exemplo, o resultado é de contentor baseado em tarefas no [executar uma tarefa de ACI](container-instances-restart-policy.md), depois de ter de indicar um URL válido de um ficheiro de texto grandes para processar:
-
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
-Container 'mycontainer' is in state 'Unknown'...
-Container 'mycontainer' is in state 'Waiting'...
-Container 'mycontainer' is in state 'Running'...
-(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-
-Start streaming logs:
-[('the', 22979),
- ('I', 20003),
- ('and', 18373),
- ('to', 15651),
- ('of', 15558),
- ('a', 12500),
- ('you', 11818),
- ('my', 10651),
- ('in', 9707),
- ('is', 8195)]
-```
-
-## <a name="get-diagnostic-events"></a>Obter eventos de diagnóstico
-
-Se o contentor não conseguir implementar com êxito, terá de rever as informações de diagnóstico fornecidas pelo fornecedor de recursos de instâncias de contentor do Azure. Para ver os eventos para o contentor, execute o [mostrar de contentor az] [ az-container-show] comando:
-
-```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer
-```
-
-O resultado inclui as propriedades de núcleo do seu contentor, juntamente com os eventos de implementação (mostrados aqui truncada):
-
-```JSON
-{
-  "containers": [
-    {
-      "command": null,
-      "environmentVariables": [],
-      "image": "microsoft/aci-helloworld",
-      ...
-        "events": [
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:49+00:00",
-            "lastTimestamp": "2017-12-21T22:50:49+00:00",
-            "message": "pulling image \"microsoft/aci-helloworld\"",
-            "name": "Pulling",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
-            "name": "Pulled",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
-            "name": "Created",
-            "type": "Normal"
-          },
-          {
-            "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
-            "name": "Started",
-            "type": "Normal"
-          }
-        ],
-        "previousState": null,
-        "restartCount": 0
-      },
-      "name": "mycontainer",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": null
-        }
-      ],
-      ...
-    }
-  ],
-  ...
-}
-```
-
-## <a name="common-deployment-issues"></a>Problemas comuns de implementação
-
-As secções seguintes descrevem problemas comuns que essa conta para a maioria dos erros na implementação do contentor:
-
-* [Versão da imagem não suportada](#image-version-not-supported)
-* [Não é possível a imagem de solicitação](#unable-to-pull-image)
-* [Contentor continuamente sai e reinicia](#container-continually-exits-and-restarts)
-* [Contentor demora muito tempo a iniciar](#container-takes-a-long-time-to-start)
-* [Erro de "Recurso não está disponível"](#resource-not-available-error)
+| Âmbito | Comprimento | Maiúsculas e Minúsculas | Carateres válidos | Padrão de sugerida | Exemplo |
+| --- | --- | --- | --- | --- | --- | --- |
+| Nome do grupo de contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro nem último caráter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Nome do contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro nem último caráter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Portas de contentor | Entre 1 e 65535 |Número inteiro |Número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Etiqueta de nome DNS | 5-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro nem último caráter |`<name>` |`frontend-site1` |
+| Variável de ambiente | 1-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e o chracter '_' em qualquer lugar, exceto o primeiro nem último caráter |`<name>` |`MY_VARIABLE` |
+| Nome do volume | 5-63 |Não sensível a maiúsculas e minúsculas |Letras minúsculas, números e hífenes em qualquer lugar, exceto o primeiro nem último caráter. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
 
 ## <a name="image-version-not-supported"></a>Versão da imagem não suportada
 
@@ -252,7 +127,7 @@ Os dois fatores primários que contribuem para o tempo de arranque de contentor 
 * [Tamanho da imagem](#image-size)
 * [Localização da imagem](#image-location)
 
-As imagens do Windows tem [considerações adicionais](#use-recent-windows-images).
+As imagens do Windows tem [considerações adicionais](#cached-windows-images).
 
 ### <a name="image-size"></a>Tamanho da imagem
 
@@ -272,7 +147,7 @@ A chave para manter o tamanho de imagem pequeno é garantir que a imagem final n
 
 Outra forma de reduzir o impacto da solicitação de imagem no tempo de arranque do contentor é para alojar a imagem do contentor no [registo de contentor do Azure](/azure/container-registry/) na mesma região onde pretende implementar instâncias de contentor. Isto reduz o caminho de rede que a imagem do contentor tem de viajam, encurtar significativamente o tempo de transferência.
 
-### <a name="use-recent-windows-images"></a>Utilizar imagens recentes do Windows
+### <a name="cached-windows-images"></a>Imagens do Windows em cache
 
 Instâncias de contentor do Azure utiliza um mecanismo de colocação em cache para ajudar a acelerar o tempo de arranque contentor para imagens com base em determinados imagens do Windows.
 
@@ -280,6 +155,10 @@ Para garantir que o tempo de arranque de contentor mais rápido do Windows, util
 
 * [Windows Server 2016] [ docker-hub-windows-core] (LTS apenas)
 * [Servidor do Windows Server 2016 Nano][docker-hub-windows-nano]
+
+### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contentores do Windows
+
+Contentores do Windows podem implicar sem conectividade de entrada ou saída de até 5 segundos criação inicial. Após a configuração inicial das redes de contentor devem retomar adequadamente.
 
 ## <a name="resource-not-available-error"></a>Recurso erro não está disponível
 
@@ -294,12 +173,13 @@ Este erro indica que, devido a sobrecarga na região na qual está a tentar impl
 * Implementar noutra região do Azure
 * Implementar numa altura posterior
 
+## <a name="next-steps"></a>Passos Seguintes
+Saiba como [obter registos do contentor & eventos](container-instances-get-logs.md) para ajudar a depurar os contentores.
+
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
 [docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736192"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar utilizadores e proprietários no Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ A tabela seguinte ilustra as ações que podem ser efetuadas pelos utilizadores 
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Adicionar um proprietário ou o utilizador ao nível do laboratório
-Os proprietários e os utilizadores podem ser adicionados ao nível do laboratório através do portal do Azure. Isto inclui os utilizadores externos com um [conta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+Os proprietários e os utilizadores podem ser adicionados ao nível do laboratório através do portal do Azure. Um utilizador pode ser um utilizador externo com um [conta Microsoft (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 Os seguintes passos guiá-lo durante o processo de adicionar um utilizador ou proprietário para um laboratório no Azure DevTest Labs:
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Na lista de laboratórios, selecione o laboratório pretendido.
-4. No painel do laboratório, selecione **configuração**. 
-5. No **configuração** painel, selecione **utilizadores**.
-6. No **utilizadores** painel, selecione **+ adicionar**.
-   
+4. No painel do laboratório, selecione **políticas de configuração e**. 
+5. No **políticas de configuração e** página, selecione **(IAM) do controlo de acesso** no menu à esquerda. 
+6. Selecione **adicionar** na barra de ferramentas para adicionar um utilizador a uma função.
+
     ![Adicionar utilizador](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. No **selecionar uma função** painel, selecione a função pretendida. A secção [ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as várias ações que podem ser efetuadas pelos utilizadores nas funções de proprietário, utilizador de DevTest e contribuinte.
-8. No **adicionar utilizadores** painel, introduza o endereço de e-mail ou nome do utilizador que pretende adicionar a função especificada. Se o utilizador não for encontrado, uma mensagem de erro explica o problema. Se o utilizador for encontrado, esse utilizador é listado e seleccionado. 
-9. Selecione **selecione**.
-10. Selecione **OK** para fechar o **adicionar acesso** painel.
+1. No **adicionar permissões** janela, efetue as seguintes ações: 
+    1. Selecione uma função (por exemplo: DevTest Labs utilizador). A secção [ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as várias ações que podem ser efetuadas pelos utilizadores nas funções de proprietário, utilizador de DevTest e contribuinte.
+    2. Selecione o utilizador ser adicionada à função. 
+    3. Selecione **Guardar**. 
+
+        ![Adicionar utilizador à função](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Quando regressar ao **utilizadores** painel, o utilizador foi adicionado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Adicionar um utilizador externo a um laboratório com o PowerShell
-Para além de adicionar utilizadores no portal do Azure, pode adicionar um utilizador externo para o laboratório utilizar um script do PowerShell. No exemplo seguinte, basta modificar os valores de parâmetros nos **valores para alterar** comentário.
+Para além de adicionar utilizadores no portal do Azure, pode adicionar um utilizador externo para o laboratório utilizar um script do PowerShell. No exemplo seguinte, modifique os valores de parâmetros nos **valores para alterar** comentário.
 Pode obter o `subscriptionId`, `labResourceGroup`, e `labName` valores a partir do painel de laboratório no portal do Azure.
 
 > [!NOTE]

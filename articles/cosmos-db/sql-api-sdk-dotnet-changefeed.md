@@ -2,22 +2,20 @@
 title: 'Azure Cosmos DB: API de processador Feed do .NET alteração, SDK & recursos | Microsoft Docs'
 description: Saiba tudo sobre a API de processador de Feed de alteração e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK do processador .NET de Feed de alteração.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798896"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alteração de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -44,6 +42,10 @@ ms.lasthandoff: 05/08/2018
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="stable-builds"></a>Estáveis compilações
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Adicionar mais registo.
+* Corrigido uma fuga de DocumentClient ao chamar a estimativa de trabalho pendentes várias vezes.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Correções de estimativa de trabalho pendentes.
@@ -107,6 +109,7 @@ Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo s
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |08 de Maio de 2018 |--- |
 | [1.3.2](#1.3.2) |18 de Abril de 2018 |--- |
 | [1.3.1](#1.3.1) |13 de março de 2018 |--- |
 | [1.2.0](#1.2.0) |31 de outubro de 2017 |--- |

@@ -3,22 +3,19 @@ title: BD do Azure do Cosmos indexação políticas | Microsoft Docs
 description: Compreenda como indexação funciona do BD Azure Cosmos. Saiba como configurar e alterar a política de indexação para indexação automática e melhor desempenho.
 keywords: como a indexação funciona, automática indexação, a indexação de base de dados
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3abae65ccc430c791e289a4767d057cf010b974b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700337"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como funciona a dados do índice de BD do Cosmos do Azure?
 
@@ -79,9 +76,9 @@ BD do Azure do Cosmos suporta três modos de indexação que pode ser configurad
 
 A indexação consistente suporta consultas consistentes, mas utiliza uma redução possíveis débito de escrita. Este redução é uma função caminhos exclusivo que precisam de ser indexados e "nível de consistência." Modo de indexação consistente foi concebido para cargas de trabalho "escrever rapidamente, consulta imediatamente".
 
-**Em diferido**: O índice é atualizado de forma assíncrona quando uma coleção de base de dados do Azure Cosmos quiescent, ou seja, quando a capacidade de débito da coleção não é totalmente utilizada para servir pedidos do utilizador. O modo de indexação lento poderá ser adequado para "de inserção agora, consulta mais tarde" as cargas de trabalho que necessitam de ingestão de documento. Tenha em atenção que poderá obter resultados inconsistentes porque os dados são ingeridos e indexados lentamente. Isto significa que as consultas de CONTAGEM ou consulta específicas resultados poderão não ser consistente ou repeatable em qualquer momento. 
+**Em diferido**: O índice é atualizado de forma assíncrona quando uma coleção de base de dados do Azure Cosmos quiescent, ou seja, quando a capacidade de débito da coleção não é totalmente utilizada para servir pedidos do utilizador.  Tenha em atenção que poderá obter resultados inconsistentes porque os dados são ingeridos e indexados lentamente. Isto significa que as consultas de CONTAGEM ou os resultados da consulta específico poderão não ser consistente ou repeatable em fornecido tempo. 
 
-O índice é, geralmente, no modo catch-up com dados de transmissões em. Com Lazy indexação, o tempo (TTL) em direto alterações resultado no índice que está a ser removido e recriado. Isto faz com que os resultados de consulta e CONTAGEM inconsistente durante um período de tempo. Por este motivo, a maioria das contas de base de dados do Azure Cosmos devem utilizar o modo de indexação consistente.
+O índice é, geralmente, no modo catch-up com dados de transmissões em. Com Lazy indexação, o tempo (TTL) em direto alterações resultado no índice que está a ser removido e recriado. Isto faz com que os resultados de consulta e CONTAGEM inconsistente durante um período de tempo. A maioria das contas de base de dados do Azure Cosmos devem utilizar o modo de indexação consistente.
 
 **Nenhum**: uma coleção que tenha um nenhum modo de índice não tem nenhum índice associado. Isto é normalmente utilizado se a BD do Cosmos do Azure é utilizado como um armazenamento de chave-valor e estão a ser acedidos apenas pela respetiva propriedade ID. 
 
@@ -134,11 +131,11 @@ Seguem-se os padrões comuns para especificar os caminhos de índice:
 | Caminho                | Caso de utilização/descrição                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Caminho predefinido para a coleção. Recursiva e aplica-se para a árvore de documentos completo.                                                                                                                                                                                                                                   |
-| prop /?             | Caminho de índice necessário para efetuar consultas semelhante ao seguinte (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                       |
-| / prop / *             | Caminho de índice para todos os caminhos sob a etiqueta especificada. Funciona com as seguintes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECIONE a partir da coleção c ORDER BY c.prop         |
-| /props/[]/?         | Caminho de índice necessários para servir iteração e associar as consultas em relação a matrizes de escalares comparáveis como ["a", "b", "c"]:<br><br>SELECIONE tag da tag IN collection.props tag onde = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag > 5                                                                         |
-| /props/[]/subprop/? | Caminho de índice necessários para efetuar iteração e consultas de associação em relação a matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECIONE tag da tag IN collection.props onde tag.subprop = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag.subprop = "valor"                                  |
-| /prop/subprop/?     | Caminho de índice necessário para efetuar consultas (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5                                                                                                                    |
+| prop /?             | Caminho de índice necessário para efetuar consultas semelhante ao seguinte (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                       |
+| / prop / *             | Caminho de índice para todos os caminhos sob a etiqueta especificada. Funciona com as seguintes consultas<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5<br><br>SELECIONE da coleção c WHERE c.prop.subprop.nextprop = "valor"<br><br>SELECIONE a partir da coleção c ORDER BY c.prop         |
+| [] propriedades / /?         | Caminho de índice necessários para servir iteração e associar as consultas em relação a matrizes de escalares comparáveis como ["a", "b", "c"]:<br><br>SELECIONE tag da tag IN collection.props tag onde = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag > 5                                                                         |
+| /Props/ [] /subprop/? | Caminho de índice necessários para efetuar iteração e consultas de associação em relação a matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECIONE tag da tag IN collection.props onde tag.subprop = "valor"<br><br>SELECIONE tag da coleção c associação tag IN c.props onde tag.subprop = "valor"                                  |
+| / prop/subprop /?     | Caminho de índice necessário para efetuar consultas (com Hash ou um intervalo de tipos, respetivamente):<br><br>SELECIONE da coleção c WHERE c.prop.subprop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Quando definir caminhos de índice personalizado, é necessário especificar a regra de indexação predefinida para a árvore de documentos completo, que está em falta que o caminho especiais "/ *". 
@@ -195,8 +192,8 @@ Eis os tipos de índice suportados e exemplos de consultas que podem ser utiliza
 
 | Tipo de índice | Caso de utilização/descrição                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hash       | Hash através de/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash através de propriedades / [] /? (ou / ou propriedades /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE tag da coleção c associação tag IN c.props tag onde = 5                                                                                                                       |
-| Intervalo      | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                                                                                                                                                              |
+| Hash       | Hash através de/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>Hash através de propriedades / [] /? (ou / ou propriedades /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE tag da coleção c associação tag IN c.props tag onde = 5                                                                                                                       |
+| Intervalo      | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                                                                                                                                                              |
 | Espacial     | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECIONE de coleção c onde ST_WITHIN(c.prop, {"type": "Polygon",...}) – com a indexação pontos ativada<br><br>SELECIONE da coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com a indexação polígonos ativados              |
 
 Por predefinição, é devolvido um erro de consultas com operadores de intervalo como > = Se não houver nenhum índice de intervalo (de qualquer precisão) para assinalar que uma análise poderá ser necessária servir a consulta. Consultas de intervalo podem ser realizadas sem um índice de intervalo utilizando o **x-ms-documentdb-enable-análise** cabeçalho na REST API ou o **EnableScanInQuery** pedir opção utilizando o SDK .NET. Se existirem quaisquer outros filtros na consulta que BD do Cosmos Azure pode utilizar o índice para filtrar contra, não é devolvido nenhum erro.

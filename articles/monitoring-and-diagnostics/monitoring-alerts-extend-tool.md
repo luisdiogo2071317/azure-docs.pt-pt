@@ -1,6 +1,6 @@
 ---
-title: Como expandir (cópia) alertas a partir do portal do OMS no Azure | Microsoft Docs
-description: Ferramentas e API através do qual alargar alertas da OMS para alertas do Azure, pode ser feito por clientes voluntariamente.
+title: Como expandir os alertas de Analytcs de registo para o Azure | Microsoft Docs
+description: Este artigo descreve as ferramentas e a API através do qual pode expandir a alertas de análise de registos para alertas do Azure.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -11,65 +11,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: vinagara
-ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 0dce6e6772b4efea90df2e095ac0041641d99061
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763532"
 ---
-# <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Como expandir alertas (cópia) do OMS no Azure
-A partir **14 de Maio de 2018**, todos os clientes através de alertas que são configurados no [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), será expandido para o Azure. Alertas que são expandidos para o Azure comportam-se da mesma forma que OMS. As capacidades de monitorização permaneçam intactas. Expandir alertas criados no OMS para o Azure fornece várias vantagens. Para obter mais informações sobre as vantagens e o processo de alargar alertas do OMS no Azure, consulte [expandir os alertas do OMS no Azure](monitoring-alerts-extend.md).
+# <a name="how-to-extend-alerts-from-log-analytics-into-azure-alerts"></a>Como expandir os alertas de análise de registos para alertas do Azure
+Alertas na análise de registos está a ser substituído por alertas do Azure e como parte desta transição, alertas que configurou no Log Analytics irão ser expandidos para o Azure.  Se não pretender aguardar para ser automaticamente movido para o Azure, pode iniciar o processo de uma das opções seguintes:
+
+1. Manualmente a partir do portal do OMS 
+2. Através de programação utilizando a API de AlertsVersion  
 
 > [!NOTE]
-> Iniciar 14 de Maio de 2018 - Microsoft irá iniciar o processo de alargar automaticamente alertas para o Azure. Nem todas as áreas de trabalho e alertas serão alargados este dia; em vez disso, a Microsoft irá começar expandir a alertas automaticamente no tranches semanas futuras. Por conseguinte, os alertas no portal do OMS serão não automática-expandir no Azure imediatamente no 14 de Maio de 2018 e utilizador manualmente pode expandir os respetivos alertas com detalhes de opções abaixo.
+> Microsoft automaticamente irá expandir alertas criados na análise de registos para alertas do Azure ao iniciar no **14 de Maio de 2018** numa abordagem faseada até concluído. A partir deste dia reencaminhar, Microsoft irá começar ao agendar a migrar os alertas para o Azure e, durante desta transição, alertas podem ser geridos a partir do portal do OMS e o portal do Azure. Este processo é nondestructive e não interruptive.  
 
-Os clientes que pretenda mover os alertas do OMS no Azure imediatamente, pode fazê-lo utilizando uma das opções indicadas.
+## <a name="option-1---initiate-from-the-oms-portal"></a>Opção 1 - iniciar a partir do Portal do OMS
+Os passos seguintes descrevem como expandir alertas para a área de trabalho a partir do portal do OMS.  
 
-## <a name="option-1---using-oms-portal"></a>Opção 1 - utilizando o portal do OMS
-Para iniciar voluntariamente a expansão de alertas do portal do OMS no Azure, siga os passos listados abaixo.
+1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+2. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, selecione o **Portal do OMS** mosaico.<br><br> ![Botão Pesquisa de Registos](./media/monitor-alerts-extend/azure-portal-01.png)<br><br> 
+3. Depois de são redirecionados para o portal do OMS, clique no mosaico de definições no lado superior direito da página.<br><br> ![Opção de definições do portal do OMS](./media/monitor-alerts-extend/oms-portal-settings-option.png)<br><br> 
+4. Do **definições** página, selecione **alertas**.  
+5. Clique no botão **expanda no Azure**.<br><br> ![Página Definições de alerta de portal do OMS com opção de expanda](./media/monitor-alerts-extend/ExtendInto.png)
+6. Um assistente é apresentado no painel, com a primeira das três passos para fornecer uma descrição geral do processo.  Clique em **seguinte** para continuar.<br><br> ![Expandir a alertas de análise de registos para o Azure - passo 1](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. No segundo passo, é apresentado um resumo das alterações propostas, listagem adequado [ação grupos](monitoring-action-groups.md) para os alertas. Se a ações semelhantes são vistas através dos mais do que um alerta, o serviço será propor associe todos eles grupo uma única ação.  Grupo de ação propostas siga a Convenção de nomenclatura: *WorkspaceName_AG_ #Number*. Para continuar, clique em **seguinte**.<br><br> ![expandir a alertas de análise de registos para o Azure - passo 2](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. No último passo do assistente, clique em **concluir** e confirme quando lhe for pedido para iniciar o processo.  Opcionalmente, pode fornecer um endereços de e-mail, de modo a que são notificados quando o processo ser concluído e todos os alertas tem sido movidos com êxito para alertas do Azure.<br><br> ![Expandir a alertas de análise de registos para o Azure - passo 3](./media/monitor-alerts-extend/ExtendStep3.png)
 
-1. Na página de descrição geral portal do OMS, vá a definições e, em seguida, a secção alertas. Clique no botão com a etiqueta "Expandir para Azure", como realçada na figura abaixo.
-
-    ![Página Definições de alerta de portal do OMS com opção de expanda](./media/monitor-alerts-extend/ExtendInto.png)
-
-2. Depois do botão é clicado um Assistente de 3-passo será apresentado, com o primeiro passo, fornecendo detalhes do processo. Prima seguinte, para continuar.
-
-    ![Expandir alertas a partir do portal do OMS no Azure - passo 1](./media/monitor-alerts-extend/ExtendStep1.png)
-
-3. No segundo passo, o sistema irá mostrar um resumo da alteração proposta, listagem adequada [ação grupos](monitoring-action-groups.md), para os alertas no portal do OMS. Se ações semelhantes são vistas através dos mais do que um alerta - o sistema irá propor associe todos eles grupo uma única ação.  Grupo de ação propostas siga a Convenção de nomenclatura: *WorkspaceName_AG_ #Number*. Para ser continuar, clique em seguinte.
-Ecrã de exemplo abaixo.
-
-    ![Expandir alertas a partir do portal do OMS no Azure - passo 2](./media/monitor-alerts-extend/ExtendStep2.png)
+Assim que o assistente estiver concluído, repare que no **definições de alerta** página que a opção de expandir alertas para o Azure é removida.  Em segundo plano, os alertas são movidos para o Azure e isto pode demorar algum tempo.  Durante a operação, não poderá efetuar alterações ao alertas a partir do portal do OMS.  Será apresentado o estado atual da faixa na parte superior do portal e, se forneceu anteriormente um endereço de e-mail irá receber um e-mail quando o processo é concluído com êxito.  
 
 
-4. No último passo do assistente, pode colocar o portal do OMS para agendar a expandir a todos os alertas no Azure - através da criação de novos grupos de ação e associar os alertas, conforme mostrado no ecrã anterior. Para continuar escolha clique em Concluir e confirme na linha de comandos para iniciar o processo. Opcionalmente, os clientes também podem fornecer endereços de correio eletrónico para o qual gostaria de portal do OMS para enviar um relatório em a concluir o processamento.
-
-    ![Expandir alertas a partir do portal do OMS no Azure - passo 3](./media/monitor-alerts-extend/ExtendStep3.png)
-
-5. Depois do assistente estiver concluído, controlo regressará à página de definições de alerta e a opção "Expandir para Azure" será removida. Em segundo plano, o portal do OMS ação irá agendar alertas no Log Analytics ser expandido no Azure; Isto pode demorar algum tempo e quando a operação começa um breve período alertas de no portal do OMS não estarão disponível para serem modificadas. Será mostrado o estado atual através de faixa e se endereços de e-mail onde fornecida durante o passo 4, em seguida, será informado quando o processo em segundo plano expande com êxito todos os alertas no Azure. 
-
-6. Alertas irão continuar a ser apresentado no portal do OMS, mesmo depois de serem obterem expandidos com êxito no Azure.
-
-    ![Após expandir alertas no portal do OMS no Azure](./media/monitor-alerts-extend/PostExtendList.png)
+Alertas continuam a ser apresentados no portal do OMS, mesmo depois de estes são movidas com êxito no Azure.<br><br> ![Depois de mover alertas na análise de registos para o Azure](./media/monitor-alerts-extend/PostExtendList.png)
 
 
-## <a name="option-2---using-api"></a>Opção 2 - utilizando a API
-Para os clientes que pretendem programaticamente, controlar ou automatizar o processo de alargar alertas no portal do OMS no Azure; Microsoft forneceu nova API AlertsVersion em análise de registos.
+## <a name="option-2---using-the-alertsversion-api"></a>Opção 2 - utilizando o AlertsVersion API
+Pode utilizar a API de AlertsVersion de análise do registo para expandir alertas de análise de registos para alertas do Azure a partir de qualquer cliente que possa chamar uma API REST. Pode aceder a partir do PowerShell utilizando [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de open source que simplifica a invocar a API do Azure Resource Manager. A utilização de ARMClient e do PowerShell é uma das muitas opções para aceder à API do.  Utilizando a API irá enviar os resultados no JSON.  
 
-A API de AlertsVersion de análise do registo é RESTful e pode ser acedida através da API de REST do Azure Resource Manager. Neste documento, vai encontrar exemplos em que a API é acedida a partir de uma linha de comandos do PowerShell utilizando [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de open source que simplifica a invocar a API do Azure Resource Manager. A utilização de ARMClient e do PowerShell é uma das muitas opções para aceder à API do. A API irá enviar os resultados no formato JSON, permitindo a utilização dos resultados de várias maneiras diferentes através de programação.
-
-Ao utilizar GET na API, um pode obter no resultado o resumo da alteração proposta, como lista de adequado [ação grupos](monitoring-action-groups.md) para os alertas no portal do OMS, no JSON de formato. Se a ações semelhantes são vistas através dos mais do que um alerta - o sistema irá propor criar associe todos eles grupo uma única ação.  Grupo de ação propostas siga a Convenção de nomenclatura: *WorkspaceName_AG_ #Number*.
+Para utilizar a API, primeiro crie um pedido GET, que irá avaliar e devolver um resumo das alterações propostas antes de tentar expandir realmente no Azure através de um pedido POST. Os resultados da listam os alertas e lista proposta de [grupos ação](monitoring-action-groups.md) no formato JSON.  Se a ações semelhantes são vistas através dos mais do que um alerta, o serviço será propor todos eles associar um grupo de única ação.  Grupos de ação propostos siga a Convenção de nomenclatura: *WorkspaceName_AG_ #Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-> [!NOTE]
-> OBTER chamada à API do não irá resultar em alertas no portal do OMS obter expandido no Azure. Apenas fornecerá como resposta o resumo de propostas de alterações. Para confirmar que estas alterações ser feito para expandir os alertas no Azure, um pedido POST chamada tem de ser feito para a API.
-
-Se a chamada GET API for bem-sucedida, juntamente com a resposta OK 200, uma lista JSON de alertas, juntamente com grupos de ação proposto seria fornecida. Resposta de exemplo abaixo:
+Se o pedido GET for bem-sucedida, é devolvido um código de estado HTTP 200 juntamente com uma lista de alertas e grupos de ação proposto nos dados JSON. Segue-se um exemplo de resposta:
 
 ```json
 {
@@ -126,7 +113,7 @@ Se a chamada GET API for bem-sucedida, juntamente com a resposta OK 200, uma lis
 }
 
 ```
-No caso, não existem nenhum alerta na área de trabalho especificada, juntamente com a resposta OK 200 para a operação GET JSON seria:
+Se a área de trabalho especificada não tem quaisquer regras de alerta definidas, juntamente com o estado de HTTP 200 OK código para a operação de obter os dados JSON devolve:
 
 ```json
 {
@@ -135,14 +122,15 @@ No caso, não existem nenhum alerta na área de trabalho especificada, juntament
 }
 ```
 
-Se já tiver sido expandido todos os alertas na área de trabalho especificado, no Azure - a resposta a chamada GET seria:
+Se todas as regras de alerta na área de trabalho especificada já tiverem sido expandidas para o Azure - se a resposta ao pedido GET:
+
 ```json
 {
     "version": 2
 }
 ```
 
-Para iniciar o agendamento de expandir os alertas no portal do OMS no Azure, inicie um pedido POST para a API. Ao executar este comando/chamada confirma que o utilizador intenção, bem como aceitação tem os alertas no portal do OMS expandido para o Azure e efetuar as alterações, conforme indicado na resposta GET chamada à API. Opcionalmente, o utilizador pode fornecer uma lista de endereços de e-mail que OMS portal será correio um relatório, quando o processo em segundo plano agendada de expandir os alertas no portal do OMS no Azure for concluído com êxito.
+Para iniciar a migrar os alertas para o Azure, inicie uma resposta POST. A resposta POST confirma que a sua intenção, bem como aceitação ter alertas expandidas a partir da análise de registos ao Auzre alertas.  A atividade está agendada e os alertas são processados como indicado com base nos resultados quando efetuar a resposta GET anteriormente.  Opcionalmente, pode fornecer uma lista de endereços de e-mail para o qual de análise de registos serão correio um relatório quando o processo em segundo plano agendada de migrar os alertas for concluída com êxito.  Este procedimento é efetuado utilizando o seguinte exemplo de pedido:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -150,17 +138,17 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Resultado de expandir o OMS portal alertas no Azure, pode variar entre o resumo fornecido pelo GET - na conta de qualquer alteração efetuada no sistema. Assim que a agendada, os alertas no portal do OMS será temporariamente indisponíveis para editar/modificação - enquanto podem ser criadas novos alertas. 
+> Resultado do migrar alertas para alertas do Azure podem variar consoante o resumo fornecido pelo GET resposta.  Assim que a agendada, alertas na análise de registos serão temporariamente indisponíveis para editar/modificação no portal do OMS.  No entanto, podem ser criadas novos alertas. 
 
-Se a publicação for bem-sucedido, deverá devolver a resposta 200 OK juntamente com:
+Se o pedido POST for bem sucedido, devolve um Estado de HTTP 200 OK juntamente com a seguinte resposta:
+
 ```json
 {
     "version": 2
 }
 ```
-Com a indicação de que os alertas foram expandidos no Azure, conforme indicado pelo versão 2. Esta versão é apenas para a verificar se alertas tem sido expandidas para o Azure e não tem o nenhum efeito em utilização com [API de pesquisa de análise do registo](../log-analytics/log-analytics-api-alerts.md). Assim que os alertas são expandidos no Azure com êxito, todos os endereços de correio eletrónico fornecidos durante a GET será enviado um relatório com detalhes sobre as alterações efetuadas.
 
-E por fim, se todos os alertas na área de trabalho especificado, já está agendado para ser expandido para o Azure - a resposta a POST 403 Proibido. Para ver qualquer mensagem de erro ou determinar se se expandir o processo está bloqueado, o utilizador pode fazer uma mensagem de erro e chamada GET se qualquer será devolvido, juntamente com o resumo.
+Esta resposta indica que os alertas foram expandidos com êxito para alertas do Azure. A propriedade de versão é apenas para a verificar se alertas tem sido expandidas para o Azure e não tem a nenhuma relação para o [API de pesquisa de análise do registo](../log-analytics/log-analytics-api-alerts.md). Assim que os alertas são expandidos para o Azure com êxito, os endereços de e-mail fornecido com a mensagem de pedido são enviados um relatório com detalhes sobre as alterações efetuadas.  Se todos os alertas na área de trabalho especificado já estão agendados para ser expandido, a resposta para o pedido POST é um significado de código de 403 Estado que a tentativa de foi proibida. Para ver qualquer mensagem de erro ou compreender que se o processo é bloqueado, pode submeter um pedido GET e uma mensagem de erro se existir, será devolvido, juntamente com as informações de resumo.
 
 ```json
 {
@@ -223,18 +211,252 @@ E por fim, se todos os alertas na área de trabalho especificado, já está agen
 
 ```
 
+
+## <a name="option-3---using-custom-powershell-script"></a>Opção 3 - utilizando o script de PowerShell personalizado
+ Depois 14 de Maio de 2018 - se Microsoft não tiver com êxito expandido os alertas do portal do OMS no Azure; em seguida, até **5 de Julho de 2018** -utilizador manualmente pode fazer o mesmo através de [Option1 - através da GUI](#option-1---initiate-from-the-oms-portal) ou [opção 2 - através da API](#option-2---using-the-alertsversion-api).
+
+Depois de **5 de Julho de 2018** -todos os alertas a partir do portal do OMS irão ser expandidos para o Azure. Os utilizadores que não tenha de efetuar o [passos de remediação necessário sugeridos](#troubleshooting), serão associados os alertas em execução sem acionando ações ou notificações devido à falta de [ação grupos](monitoring-action-groups.md). 
+
+Para criar manualmente [ação grupos](monitoring-action-groups.md) para alertas na análise de registos, os utilizadores podem utilizar o script de exemplo abaixo.
+```PowerShell
+########## Input Parameters Begin ###########
+
+
+$subscriptionId = ""
+$resourceGroup = ""
+$workspaceName = "" 
+
+
+########## Input Parameters End ###########
+
+armclient login
+
+try
+{
+    $workspace = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/"$workspaceName"?api-version=2015-03-20 | ConvertFrom-Json
+    $workspaceId = $workspace.properties.customerId
+    $resourceLocation = $workspace.location
+}
+catch
+{
+    "Please enter valid input parameters i.e. Subscription Id, Resource Group and Workspace Name !!"
+    exit
+}
+
+# Get Extend Summary of the Alerts
+"`nGetting Extend Summary of Alerts for the workspace...`n"
+try
+{
+
+    $value = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview
+
+    "Extend preview summary"
+    "=========================`n"
+
+    $value
+
+    $result = $value | ConvertFrom-Json
+}
+catch
+{
+
+    $ErrorMessage = $_.Exception.Message
+    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    exit 
+}
+
+if ($result.version -eq 2)
+{
+    "`nThe alerts in this workspace have already been extended to Azure."
+    exit
+}
+
+$in = Read-Host -Prompt "`nDo you want to continue extending the alerts to Azure? (Y/N)"
+
+if ($in.ToLower() -ne "y")
+{
+    exit
+} 
+
+
+# Check for resource provider registration
+try
+{
+    $val = armclient get subscriptions/$subscriptionId/providers/microsoft.insights/?api-version=2017-05-10 | ConvertFrom-Json
+    if ($val.registrationState -eq "NotRegistered")
+    {
+        $val = armclient post subscriptions/$subscriptionId/providers/microsoft.insights/register/?api-version=2017-05-10
+    }
+}
+catch
+{
+    "`nThe user does not have required access to register the resource provider. Please try with user having Contributor/Owner role in the subscription"
+    exit
+}
+
+$actionGroupsMap = @{}
+try
+{
+    "`nCreating new action groups for alerts extension...`n"
+    foreach ($actionGroup in $result.migrationSummary.actionGroups)
+    {
+        $actionGroupName = $actionGroup.actionGroupName
+        $actions = $actionGroup.actions
+        if ($actionGroupsMap.ContainsKey($actionGroupName))
+        {
+            continue
+        } 
+        
+        # Create action group payload
+        $shortName = $actionGroupName.Substring($actionGroupName.LastIndexOf("AG_"))
+        $properties = @{"groupShortName"= $shortName; "enabled" = $true}
+        $emailReceivers = New-Object Object[] $actions.emailIds.Count
+        $webhookReceivers = New-Object Object[] $actions.webhookActions.Count
+        
+        $count = 0
+        foreach ($email in $actions.emailIds)
+        {
+            $emailReceivers[$count] = @{"name" = "Email$($count+1)"; "emailAddress" = "$email"}
+            $count++
+        }
+
+        $count = 0
+        foreach ($webhook in $actions.webhookActions)
+        {
+            $webhookReceivers[$count] = @{"name" = "$($webhook.name)"; "serviceUri" = "$($webhook.serviceUri)"}
+            $count++
+        }
+
+        $itsmAction = $actions.itsmAction
+        if ($itsmAction.connectionId -ne $null)
+        {
+            $val = @{
+            "name" = "ITSM"
+            "workspaceId" = "$subscriptionId|$workspaceId"
+            "connectionId" = "$($itsmAction.connectionId)"
+            "ticketConfiguration" = $itsmAction.templateInfo
+            "region" = "$resourceLocation"
+            }
+            $properties["itsmReceivers"] = @($val)  
+        }
+
+        $properties["emailReceivers"] = @($emailReceivers)
+        $properties["webhookReceivers"] = @($webhookReceivers)
+        $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
+
+    
+        # ARM call to create action group
+        $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
+
+        "Created Action Group with name $actionGroupName" 
+        $actionGroupsMap[$actionGroupName] = $actionGroup.actionGroupResourceId.ToLower()
+        $index++
+    }
+
+    "`nSuccessfully created all action groups!!"
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message
+
+    #Delete all action groups in case of failure
+    "`nDeleting newly created action groups if any as some error happened..."
+    
+    foreach ($actionGroup in $actionGroupsMap.Keys)
+    {
+        $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+    }
+
+    "`nError: $ErrorMessage"
+    "`nExiting..."
+    exit
+}
+
+# Update all alerts configuration to the new version
+"`nExtending OMS alerts to Azure...`n"
+
+try
+{
+    $index = 1
+    foreach ($alert in $result.migrationSummary.alerts)
+    {
+        $uri = $alert.alertId + "?api-version=2015-03-20"
+        $config = armclient get $uri | ConvertFrom-Json
+        $aznsNotification = @{
+            "GroupIds" = @($actionGroupsMap[$alert.actionGroupName])
+        }
+        if ($alert.customWebhookPayload)
+        {
+            $aznsNotification.Add("CustomWebhookPayload", $alert.customWebhookPayload)
+        }
+        if ($alert.customEmailSubject)
+        {
+            $aznsNotification.Add("CustomEmailSubject", $alert.customEmailSubject)
+        }      
+
+        # Update alert version
+        $config.properties.Version = 2
+
+        $config.properties | Add-Member -MemberType NoteProperty -Name "AzNsNotification" -Value $aznsNotification
+        $payload = $config | ConvertTo-Json -Depth 4
+        $response = $payload | armclient put $uri
+    
+        "Extended alert with name $($alert.alertName)"
+        $index++
+    }
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message   
+    if ($index -eq 1)
+    {
+        "`nDeleting all newly created action groups as no alerts got extended..."
+        foreach ($actionGroup in $actionGroupsMap.Keys)
+        {
+            $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+        }
+        "`nDeleted all action groups."  
+    }
+    
+    "`nError: $ErrorMessage"
+    "`nPlease resolve the issue and try extending again!!"
+    "`nExiting..."
+    exit
+}
+
+"`nSuccessfully extended all OMS alerts to Azure!!" 
+
+# Update version of workspace to indicate extension
+"`nUpdating alert version information in OMS workspace..." 
+
+$response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview&iversion=2"
+
+"`nExtension complete!!"
+```
+
+
+**Utilizar o script do PowerShell personalizado** 
+- Pré-requisitos é a instalação do [ARMclient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de open source que simplifica a invocar a API do Azure Resource Manager
+- Utilizador a executar o script que referida tem de ter função de contribuinte ou proprietário na subscrição do Azure
+- Seguem-se os parâmetros fornecidos para o script:
+    - $subscriptionId: o ID de subscrição do Azure associada com a área de trabalho do OMS/LA
+    - $resourceGroup: o grupo de recursos do Azure onde reside a área de trabalho do OMS/LA
+    - $workspaceName: o nome da área de trabalho OMS/LA
+
+**Resultado do script do PowerShell personalizado** o script é verboso e será saída os passos conforme ser executada. 
+- Apresentará o resumo, que contém as informações sobre os alertas existentes do OMS/LA na área de trabalho e os grupos de ação do Azure seja criado para as ações associadas. 
+- Será solicitado ao utilizador para avançar com a extensão ou de saída depois de visualizar o resumo.
+- Se o utilizador solicitar em avançar com a extensão, serão criados novos grupos de ação do Azure e todos os alertas existentes serão associados com os mesmos. 
+- No final, o script sair, apresentando a mensagem "extensão concluir!." Em caso de eventuais falhas intermédias, serão apresentados erros subsequentes.
+
 ## <a name="troubleshooting"></a>Resolução de problemas 
 Durante o processo de alargar alertas do OMS no Azure, pode haver ocasional problema que impede que o sistema de criação necessários [ação grupos](monitoring-action-groups.md). Nestes casos, uma mensagem de erro será apresentada no portal do OMS através de faixa na secção de alerta e, na chamada GET efetuada à API.
 
-Listadas abaixo estão os passos de remediação para cada erro:
-1. **Erro: A subscrição não está registada para utilizar o espaço de nomes 'insights'**: ![página Definições de alerta de portal do OMS com a mensagem de erro de registo](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+> [!WARNING]
+> Se o utilizador não siga os passos de remediação de precribed fornecidos em baixo, antes **5 de Julho de 2018** -, em seguida, os alertas serão executadas no Azure, mas sem acionando qualquer notificação ou da ação. Para obter notificações de alertas, os utilizadores tem manualmente de editar e adicionar [ação grupos](monitoring-action-groups.md) ou utilize o [script de PowerShell personalizado](#option-3---using-custom-powershell-script) fornecida acima.
 
-    a. A subscrição associada à sua área de trabalho do OMS - não foi registada para utilizar a funcionalidade de monitorização do Azure (insights); devido a não é possível expandir alertas no Monitor de Azure & alertas que OMS.
-    
-    b. Para resolver, registe utilize insights (alertas & de monitor do Azure) na sua subscrição utilizando o Powershell, a CLI do Azure ou o portal do Azure. Para obter mais informações, veja o artigo no [resolver erros no registo do fornecedor de recursos](../azure-resource-manager/resource-manager-register-provider-errors.md)
-    
-    c. Depois de resolvido de acordo com os passos ilustrados no artigo, OMS irá expandir os alertas no Azure dentro da execução agendada o dia seguinte; sem a necessidade de qualquer ação ou foi iniciado.
-2. **Erro: O bloqueio de âmbito está presente ao nível do grupo de recursos/subscrição para operações de escrita**: ![página Definições de alerta de portal do OMS com a mensagem de erro ScopeLock](./media/monitor-alerts-extend/ErrorScopeLock.png)
+Listadas abaixo estão os passos de remediação para cada erro:
+1. **Erro: O bloqueio de âmbito está presente ao nível do grupo de recursos/subscrição para operações de escrita**: ![página Definições de alerta de portal do OMS com a mensagem de erro ScopeLock](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
     a. Quando bloqueia âmbito estiver ativada, restringindo qualquer alteração nova na subscrição ou grupo de recursos que contém a área de trabalho de análise de registos (OMS); o sistema não consegue expandir alertas (cópia) no Azure e criar grupos de ação necessária.
     
@@ -242,7 +464,7 @@ Listadas abaixo estão os passos de remediação para cada erro:
     
     c. Depois de resolvido de acordo com os passos ilustrados no artigo, OMS irá expandir os alertas no Azure dentro da execução agendada o dia seguinte; sem a necessidade de qualquer ação ou foi iniciado.
 
-3. **Erro: Política está presente ao nível do grupo de recursos/subscrição**: ![página Definições de alerta de portal do OMS com a mensagem de erro de política](./media/monitor-alerts-extend/ErrorPolicy.png)
+2. **Erro: Política está presente ao nível do grupo de recursos/subscrição**: ![página Definições de alerta de portal do OMS com a mensagem de erro de política](./media/monitor-alerts-extend/ErrorPolicy.png)
 
     a. Quando [política Azure](../azure-policy/azure-policy-introduction.md) é aplicada, restringindo a qualquer recurso novo na subscrição ou grupo de recursos que contém a área de trabalho de análise de registos (OMS); o sistema não consegue expandir alertas (cópia) no Azure e criar grupos de ação necessária.
     

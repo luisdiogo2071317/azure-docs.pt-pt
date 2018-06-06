@@ -1,14 +1,15 @@
 ---
-title: "Migrar políticas clássicas no portal do Azure | Microsoft Docs"
-description: "Saiba o que precisa de saber para migrar políticas clássicas no portal do Azure."
+title: Migrar políticas clássicas no portal do Azure | Microsoft Docs
+description: Saiba o que precisa de saber para migrar políticas clássicas no portal do Azure.
 services: active-directory
-keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
-documentationcenter: 
+keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723733"
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrar políticas clássicas no portal do Azure 
 
@@ -81,7 +83,7 @@ Alterando os grupos selecionados ou excluindo grupos específicos, pode testar o
 
 Com o acesso condicional no portal do Azure, pode gerir todas as políticas numa única localização central. Porque a implementação de acesso condicional como significativamente foi alterada, deverá familiarizar-se com os conceitos básicos antes de migrar as suas políticas clássicas.
 
-Consulte:
+Veja:
 
 - [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md) para saber mais sobre os conceitos básicos e a terminologia.
 
@@ -166,7 +168,7 @@ Uma nova política, terá de selecionar o [plataformas de dispositivos](active-d
  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

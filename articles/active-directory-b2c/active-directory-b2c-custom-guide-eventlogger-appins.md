@@ -1,20 +1,21 @@
 ---
-title: Controlar o comportamento do utilizador utilizando os eventos no Application Insights do Azure AD B2C | Microsoft Docs
+title: Controlar o comportamento do utilizador utilizando os eventos no Application Insights do Azure Active Directory B2C | Microsoft Docs
 description: Guia passo a passo para ativar registos de eventos no Application Insights do percursos de utilizador do Azure AD B2C ao utilizar políticas personalizadas (pré-visualização)
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
-ms.openlocfilehash: db9ba62cb6ef0d2627dbeb07cb8165a4ac7ae490
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709969"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Controlar o comportamento de utilizador no Azure AD B2C percursos utilizando o Application Insights
 
@@ -256,7 +257,7 @@ Referenced using: {Culture:One of the property names below}
 | LanguageName | Os dois letra código ISO para o idioma | en |
 | RegionName | Os dois letra código ISO para a região | EUA |
 | RFC5646 | O código de idioma RFC5646 | pt-PT |
-| LCID   | O LCID do código de idioma | 2070 |
+| LCID   | O LCID do código de idioma | 22 |
 
 ### <a name="policy-specific-claims"></a>Específico da política de afirmações
 

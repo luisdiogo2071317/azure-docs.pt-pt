@@ -4,24 +4,25 @@ description: Saiba como registar e anular o registo do Windows Server com um ser
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738297"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gerir servidores registados com sincronização de ficheiros do Azure (pré-visualização)
-O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
+O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Fazê-lo por transformar os seus servidores do Windows para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
 
 O seguinte artigo ilustra como registar e gerir um servidor com um serviço de sincronização de armazenamento. Consulte [como implementar a sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-deployment-guide.md) para obter informações sobre como implementar a sincronização de ficheiros do Azure ponto-a-ponto.
 
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Anular o registo do servidor com o serviço de sincronização de armazenamento
 Existem vários passos que são necessárias para anular o registo de um servidor com um serviço de sincronização de armazenamento. Vamos ver como corretamente anular o registo de um servidor.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperar todos os dados em camadas
-Quando ativada para um ponto final do servidor, na nuvem será camada *camada* ficheiros para as partilhas de ficheiros do Azure. Isto permite que as partilhas de ficheiros no local agir como uma cache, em vez de uma cópia completa de conjunto de dados, para utilizar de forma eficaz de espaço no servidor de ficheiros. No entanto, se um ponto final do servidor é removido com ficheiros em camadas ainda localmente no servidor, ficará unaccessible esses ficheiros. Por conseguinte, se continuaram acesso ao ficheiro for pretendido, tem de recuperar todos os ficheiros em camadas de ficheiros do Azure antes de continuar com deregistration. 
+> [!Warning]  
+> Tente resolver problemas com a sincronização, na nuvem em camadas ou qualquer outro aspeto de sincronização de ficheiros do Azure ao anular o registo e registar um servidor, ou a remover e recriar os pontos finais de servidor, a menos que explicitamente instruído para por um engenheiro de Microsoft. Um servidor de anulação de registo e remover pontos finais do servidor são uma operação destrutivas e, em camadas ficheiros em volumes com pontos finais do servidor serão não ser "ligação restabelecidos" para as respetivas localizações na partilha de ficheiros do Azure depois do servidor registado e pontos finais do servidor recriados, que resultará em sincronização erros. Tenha também em atenção, em camadas ficheiros existentes fora de um espaço de nomes de ponto final do servidor podem ser perdidos permanentemente. Os ficheiros em camadas podem existir no servidor nunca foi ativada pontos finais, mesmo quando a criação de camadas de nuvem.
 
-Isto pode ser feito com o cmdlet do PowerShell conforme mostrado abaixo:
+#### <a name="optional-recall-all-tiered-data"></a>(Opcional) Recuperar todos os dados em camadas
+Se pretender que os ficheiros que estão atualmente em camadas para estar disponível depois de remover a sincronização de ficheiros do Azure (ou seja, este é uma produção, não um teste, ambiente), recuperar todos os ficheiros em cada volume que contém os pontos finais do servidor. Desativar a criação de camadas para todos os pontos finais de servidor de nuvem e, em seguida, execute o seguinte cmdlet do PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

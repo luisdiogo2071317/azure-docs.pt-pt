@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735463"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta de base de dados do Azure Cosmos utilizando o ponto final do serviço de rede Virtual do Azure
 
@@ -48,7 +49,7 @@ Depois de ter uma conta de base de dados do Azure Cosmos configurada com um pont
    ![Selecione a rede virtual e sub-rede](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Se o ponto final de serviço para a base de dados do Azure Cosmos anteriormente não está configurado para as redes virtuais do Azure selecionadas e sub-redes, pode ser configurado como parte desta operação. Ativar o acesso irá demorar até 15 minutos a concluir. 
+   > Se o ponto final de serviço para a base de dados do Azure Cosmos anteriormente não está configurado para as redes virtuais do Azure selecionadas e sub-redes, pode ser configurado como parte desta operação. Ativar o acesso irá demorar até 15 minutos a concluir. É muito importante desativar a firewall do IP após anota o conteúdo a ACL de firewall para renabling-los mais tarde. 
 
    ![rede virtual e sub-rede configurada com êxito](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Agora a conta de base de dados do Azure Cosmos só irá permitir tráfego deste 
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar o ponto final de serviço para uma nova rede virtual do Azure e a sub-rede
 
 1. De **todos os recursos** painel, localizar a base de dados do Azure Cosmos conta pretende proteger.  
+
+> [!NOTE]
+> Se tiver uma firewall IP existente configurada para a sua conta de base de dados do Azure Cosmos, tenha em atenção a configuração da firewall, remova a firewall IP e, em seguida, ativar o ponto final do serviço. Se ativar o ponto final de serviço sem disbling a firewall, o tráfego a partir desse intervalo de ip irá perder a identidade IP virtual e é removido com uma mensagem de erro do filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, ACL a sub-rede da base de dados do Cosmos. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar a firewall do IP novamente se for necessário.
 
 2. Antes de ativar o ponto final do serviço de rede virtual, copie as informações de firewall IP associadas com a sua conta de base de dados do Azure Cosmos para utilização futura. Pode reativar o IP firewall depois de configurar o ponto final de serviço.  
 
@@ -95,6 +99,10 @@ Para garantir que o utilizador tem acesso à base de dados do Azure Cosmos métr
 Utilize os seguintes passos para configurar o ponto final de serviço para uma conta de base de dados do Azure Cosmos utilizando o Azure PowerShell:  
 
 1. Instalar a versão mais recente [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [início de sessão](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Certifique-se de que tenha em atenção as definições de firewall IP e eliminar a firewall do IP completamente antes de ativar o ponto final de serviço para a conta.
+
+
+> [!NOTE]
+> Se tiver uma firewall IP existente configurada para a sua conta de base de dados do Azure Cosmos, tenha em atenção a configuração da firewall, remova a firewall IP e, em seguida, ativar o ponto final do serviço. Se ativar o ponto final de serviço sem disbling a firewall, o tráfego a partir desse intervalo de ip irá perder a identidade IP virtual e é removido com uma mensagem de erro do filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, ACL a sub-rede da base de dados do Cosmos. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar a firewall do IP novamente se for necessário.
 
 2. Antes de ativar o ponto final do serviço de rede virtual, copie as informações de firewall IP associadas com a sua conta de base de dados do Azure Cosmos para utilização futura. Será novamente ativar a firewall do IP após configurar o ponto final de serviço.  
 
@@ -219,9 +227,13 @@ Isto é necessário apenas quando quiser que a sua conta de base de dados do Azu
 
 pontos finais de serviço de rede virtual 64 são permitidos para uma conta de base de dados do Azure Cosmos.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>O que é a relação de ponto final de serviço no que respeita à regras do grupo de segurança de rede (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>O que é a relação entre as regras de ponto final de serviço e o grupo de segurança de rede (NSG)?  
 
-Regra de base de dados do Azure Cosmos do NSG permite acesso de restric apenas para o intervalo de endereços IP de BD do Cosmos do Azure.
+Regras do NSG do BD Azure Cosmos permitem-lhe restringir o acesso ao intervalo de endereços IP de BD do Azure Cosmos específico. Se pretender permitir o acesso a uma instância de base de dados do Azure Cosmos que está presente na específico [região](https://azure.microsoft.com/global-infrastructure/regions/), pode especificar a região no seguinte formato: 
+
+    AzureCosmosDB.<region name>
+
+Para saber mais sobre o NSG etiquetas consulte [etiquetas do serviço de rede virtual](../virtual-network/security-overview.md#service-tags) artigo. 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>O que é a relação entre um firewall IP e a capacidade de ponto final do serviço de rede Virtual?  
 

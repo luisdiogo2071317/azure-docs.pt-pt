@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725450"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
@@ -29,13 +30,17 @@ Este artigo explica como trabalhar com os acionadores de temporizador nas funç�
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
 
-O acionador de temporizador é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
+O acionador de temporizador é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2. x. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+
+O acionador de temporizador é fornecido no [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 3. Código de origem para o pacote está a ser o [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -214,6 +219,8 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Um conjunto de valores (`,` operador)|<nobr>"5,8,10 **** *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|
 |Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|no hh:05:00, hh:10:00, hh:15:00, e assim sucessivamente através de hh:55:00 em que hh significa a cada hora (12 vezes uma hora)|
 
+Para especificar meses ou dias pode utilizar com três letras abreviaturas em vez de valores numéricos. Por exemplo, utilize Jan para Janeiro ou Sun para Domingo.
+
 ### <a name="cron-examples"></a>Exemplos CRON
 
 Seguem-se alguns exemplos de expressões de CRON que pode utilizar para o acionador de temporizador de funções do Azure.
@@ -272,7 +279,7 @@ Se partilhar uma conta de armazenamento por várias aplicações de função, ce
 
 ## <a name="retry-behavior"></a>Comportamento de tentativas
 
-Ao contrário do acionador de fila, o acionador de temporizador não repita após a falha de uma função. Quando uma função falha,-is't chamado novamente até a próxima vez que a agenda.
+Ao contrário do acionador de fila, o acionador de temporizador não repita após a falha de uma função. Quando uma função falha, não é chamado novamente até à próxima vez na agenda.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

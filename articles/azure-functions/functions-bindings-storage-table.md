@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1c8cee149e99786b58e4584e5e7b508b1040389d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724586"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabela do Azure para as funções do Azure
 
@@ -27,13 +28,17 @@ Este artigo explica como trabalhar com enlaces de armazenamento de tabelas do Az
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
 
-Os enlaces de armazenamento de tabela são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) repositório do GitHub.
+Os enlaces de armazenamento de tabela são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2. x. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+
+Os enlaces de armazenamento de tabela são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 3. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) repositório do GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -104,6 +109,9 @@ public class TableStorage
     }
 }
 ```
+
+  > [!NOTE]
+  > `IQueryable` Não é suportado no [funções v2 runtime](functions-versions.md). Uma alternativa é [utilizar um parâmetro de método paramName CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de armazenamento do Azure. Se tentar criar o enlace `CloudTable` e receber uma mensagem de erro, certifique-se de que tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 ### <a name="input---c-script-example-1"></a>Entrada - c# exemplo de script 1
 
@@ -382,8 +390,8 @@ O enlace de entrada do Table storage suporta os seguintes cenários:
 
   Aceder os dados da tabela utilizando um parâmetro de método `IQueryable<T> <paramName>`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T` tem de ser um tipo que implemente `ITableEntity` ou deriva de `TableEntity`. Pode utilizar `IQueryable` métodos de fazer qualquer filtragem necessário. O `partitionKey`, `rowKey`, `filter`, e `take` propriedades não são utilizadas neste cenário.  
 
-> [!NOTE]
-> `IQueryable` Não é suportado no [funções v2 runtime](functions-versions.md). Uma alternativa é [utilizar um parâmetro de método paramName CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de armazenamento do Azure.
+  > [!NOTE]
+  > `IQueryable` Não é suportado no [funções v2 runtime](functions-versions.md). Uma alternativa é [utilizar um parâmetro de método paramName CloudTable](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) ler a tabela utilizando o SDK de armazenamento do Azure. Se tentar criar o enlace `CloudTable` e receber uma mensagem de erro, certifique-se de que tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 * **Ler uma ou mais linhas em JavaScript**
 
@@ -640,7 +648,7 @@ O armazenamento de tabelas de saída do enlace suporta os seguintes cenários:
 
   Em c# e c# script, aceder a entidade da tabela de saída através da utilização de um parâmetro de método `ICollector<T> paramName` ou `IAsyncCollector<T> paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. `T` Especifica o esquema das entidades que pretende adicionar. Normalmente, `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas não tem. A chave de partição e a linha de valores da chave *function.json* ou `Table` construtor de atributos não são utilizados neste cenário.
 
-  Uma alternativa consiste em utilizar um `CloudTable paramName` parâmetro de método para escrever a tabela utilizando o SDK de armazenamento do Azure.
+  Uma alternativa consiste em utilizar um `CloudTable paramName` parâmetro de método para escrever a tabela utilizando o SDK de armazenamento do Azure. Se tentar criar o enlace `CloudTable` e receber uma mensagem de erro, certifique-se de que tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 * **Escrever uma ou mais linhas em JavaScript**
 

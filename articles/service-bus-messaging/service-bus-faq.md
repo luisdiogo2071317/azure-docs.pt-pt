@@ -2,25 +2,21 @@
 title: Service Bus do Azure perguntas mais frequentes (FAQ) | Microsoft Docs
 description: Responde a algumas perguntas mais frequentes sobre o Service Bus do Azure.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802270"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
+
 Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [perguntas frequentes do suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para gerais informações de preços e suporte do Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Service Bus do Azure
@@ -37,9 +33,11 @@ A [fila do Service Bus](service-bus-queues-topics-subscriptions.md) é uma entid
 Um tópico pode ser visualizado como uma fila e ao utilizar várias subscrições, torna-se um modelo de serviço de mensagens mais rico; essencialmente, uma ferramenta de comunicação de um-para-muitos. Este modelo de publicação (ou *pub/sub*) permite uma aplicação que envia uma mensagem para um tópico com várias subscrições para essa mensagem recebida por várias aplicações.
 
 ### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade particionada?
-Uma fila convencional ou um tópico é processado por um mediador de mensagens única e armazenado num arquivo de mensagens. A [particionada fila ou um tópico](service-bus-partitioning.md) é processada por vários mediadores de mensagens e armazenada em vários arquivos de mensagens. Isto significa que o débito global de uma fila particionada ou um tópico já não é limitado pelo desempenho de um mediador de mensagens única ou um arquivo de mensagens. Além disso, uma falha temporária de um arquivo de mensagens não compor uma fila particionada ou um tópico indisponível.
+Uma fila convencional ou um tópico é processado por um mediador de mensagens única e armazenado num arquivo de mensagens. Suportado apenas na básico e padrão mensagens camadas, um [particionada fila ou um tópico](service-bus-partitioning.md) é processada por vários mediadores de mensagens e armazenada em vários arquivos de mensagens. Esta funcionalidade significa que o débito global de uma fila particionada ou um tópico já não é limitado pelo desempenho de um mediador de mensagens única ou um arquivo de mensagens. Além disso, uma falha temporária de um arquivo de mensagens não compor uma fila particionada ou um tópico indisponível.
 
-Tenha em atenção que a ordenação não é garantir ao utilizar entidades particionadas. No caso de uma partição não está disponível, ainda pode enviar e receber mensagens de outras partições.
+Não é garantir a ordenação quando utilizar entidades particionadas. No caso de uma partição não está disponível, ainda pode enviar e receber mensagens de outras partições.
+
+ Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>Melhores práticas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas melhores práticas de Service Bus do Azure?
@@ -74,9 +72,9 @@ Não, o barramento de serviço não cobram para armazenamento. No entanto, não 
 Para obter uma lista de Service Bus limites e quotas, consulte o [descrição geral de quotas do Service Bus][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>A Service Bus tem quaisquer quotas de utilização?
-Por predefinição, para qualquer nuvem serviço Microsoft define uma quota de utilização mensal agregado que é calculado em todas as subscrições de um cliente. Porque compreendemos que poderá ser necessário mais do que estes limites, pode contactar o serviço de cliente em qualquer altura para que iremos possa compreender as suas necessidades e ajustar estes limites adequadamente. Para o Service Bus, a quota de utilização de agregação é mensagens de mil milhões de 5 por mês.
+Por predefinição, para qualquer nuvem serviço Microsoft define uma quota de utilização mensal agregado que é calculado em todas as subscrições de um cliente. Se precisar de mais do que estes limites, pode contactar o serviço de cliente em qualquer altura para compreender as suas necessidades e ajustar estes limites adequadamente. Para o Service Bus, a quota de utilização de agregação é mensagens de mil milhões de 5 por mês.
 
-Enquanto é reservar o direito de desativar uma conta de cliente que foi excedido o respetivas quotas de utilização num determinado mês, iremos fornecer notificação por correio electrónico e fazer várias tentativas contactar um cliente antes de efetuar qualquer ação. Os clientes exceder destas quotas são ainda responsáveis por encargos excedem as quotas.
+Embora a Microsoft reserva-se o direito de desativar uma conta de cliente que foi excedido o respetivas quotas de utilização num determinado mês, são enviadas notificações por correio eletrónico e várias tentativas são efetuadas para contactar um cliente antes de efetuar qualquer ação. Os clientes exceder destas quotas são ainda responsáveis por encargos excedem as quotas.
 
 Tal como acontece com outros serviços no Azure, o Service Bus impõe um conjunto de quotas específicos para garantir que existe justa utilização de recursos. Pode encontrar mais detalhes sobre estas quotas no [descrição geral de quotas do Service Bus][Quotas overview].
 

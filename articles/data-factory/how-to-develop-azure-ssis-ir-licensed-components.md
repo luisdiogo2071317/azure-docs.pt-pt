@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42f1bb247533fafbc6947e77cc1a1f07a482fd45
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700507"
 ---
 # <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Desenvolver pagos ou licenciados componentes personalizados para o tempo de execução de integração do Azure-SSIS
 
@@ -37,7 +38,7 @@ O diagrama seguinte mostra a instalação típica, a ativação e o enlace da li
 ![Instalação dos componentes licenciadas](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Instruções
-1. Os ISVs podem oferecer os respetivos componentes licenciados em vários SKUs ou camadas (por exemplo, único nó, até 5 nós, até 10 nós e assim sucessivamente). O ISV fornece a chave de produto correspondente quando os clientes comprar um produto. O ISV também pode fornecer um contentor do blob Storage do Azure que contém um script de configuração de ISV e os ficheiros associados. Os clientes podem copiar estes ficheiros para os seus próprios contentor de armazenamento e modificá-las com a chave de produto (por exemplo, executando `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Os clientes podem aprovisionar ou reconfigurar a resposta a incidentes SSIS do Azure com o URI de SAS do respetivo contentor como parâmetro. Para obter mais informações, consulte [configuração personalizada para o tempo de execução de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. Os ISVs podem oferecer os respetivos componentes licenciados em vários SKUs ou camadas (por exemplo, único nó, até 5 nós, até 10 nós e assim sucessivamente). O ISV fornece a chave de produto correspondente quando os clientes comprar um produto. O ISV também pode fornecer um contentor do blob Storage do Azure que contém um script de configuração de ISV e os ficheiros associados. Os clientes podem copiar estes ficheiros para os seus próprios contentor de armazenamento e modificá-las com a chave de produto (por exemplo, executando `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Os clientes podem aprovisionar ou reconfigurar a resposta a incidentes SSIS do Azure com o URI de SAS do respetivo contentor como parâmetro. Para mais informações, veja [Configuração personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 2. Quando a resposta a incidentes SSIS do Azure é aprovisionada ou reconfigurada, a instalação de ISV é executada em cada nó para consultar as variáveis de ambiente do Windows, `SSIS_CLUSTERID` e `SSIS_CLUSTERNODECOUNT`. A resposta a incidentes Azure SSIS envia o ID de Cluster e a chave de produto para o produto licenciado para o servidor de ativação de ISV para gerar uma chave de ativação.
 
@@ -70,6 +71,9 @@ O diagrama seguinte mostra a instalação típica, a ativação e o enlace da li
                                                                                                                                
     }
     ```
+## <a name="isv-partners"></a>Parceiros ISV
+
+Pode encontrar uma lista de parceiros ISV que tem adaptadas os seus componentes e as extensões para a resposta a incidentes SSIS do Azure no fim desta mensagem de blogue - [Enterprise Edition, a configuração personalizada e 3rd extensibilidade de terceiros para SSIS no ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

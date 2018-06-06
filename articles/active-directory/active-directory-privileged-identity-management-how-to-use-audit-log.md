@@ -3,7 +3,7 @@ title: Como utilizar o registo de auditoria no Azure AD Privileged Identity Mana
 description: Saiba como utilizar o registo de auditoria na extensão do Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20fd9c5ee90947cc2d3816a0590d4780408baa2f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 45be09b76389471497f874dccf21453372d27a5e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698548"
 ---
 # <a name="using-the-audit-log-in-pim"></a>Utilizar o registo de auditoria no PIM
 Pode utilizar o registo de auditoria de Privileged Identity Management (PIM) para ver todas as atribuições de utilizador e ativações dentro de um determinado período de tempo. Se pretender ver o histórico de auditoria completo de atividade no seu inquilino, incluindo o administrador, o utilizador final e atividade de sincronização, pode utilizar o [relatórios de acesso e utilização do Azure Active Directory.](active-directory-view-access-usage-reports.md)

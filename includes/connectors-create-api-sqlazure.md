@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>Pré-requisitos
-* Uma conta do Azure; Pode criar um [conta gratuita](https://azure.microsoft.com/free)
-* Um [SQL Database do Azure](../articles/sql-database/sql-database-get-started.md) com as informações da ligação, incluindo o nome do servidor, o nome de base de dados e o nome de utilizador/palavra-passe. Estas informações estão incluídas na cadeia de ligação de base de dados SQL:
-  
-    Servidor = tcp:*yoursqlservername*. database.windows.net,1433;Initial catálogo =*yourqldbname*; Manter informações de segurança = False; ID de utilizador = {your_username}; Palavra-passe = {your_password}; MultipleActiveResultSets = False; Encriptar = True; TrustServerCertificate = False; Tempo limite da ligação = 30;
-  
-    Leia mais sobre [bases de dados do Azure SQL](https://azure.microsoft.com/services/sql-database).
+---
+title: incluir ficheiro
+description: incluir ficheiro
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678315"
+---
+* Se estiver a utilizar a SQL Database do Azure, siga os passos em [ligar à SQL Database do Azure](#connect-azure-sql-db). 
 
-> [!NOTE]
-> Quando cria uma base de dados do SQL do Azure, também pode criar as bases de dados de exemplo incluídos com o SQL Server. 
-> 
-> 
+* Se estiver a utilizar o SQL Server, siga os passos em [ligar ao SQL Server](#connect-sql-server).
 
-Antes de utilizar a SQL Database do Azure numa aplicação lógica, ligar à base de dados SQL. Pode fazê-facilmente na sua aplicação lógica no portal do Azure.  
+<a name="connect-azure-sql-db"></a>
 
-Ligar à SQL Database do Azure utilizando os seguintes passos:  
+### <a name="connect-to-azure-sql-database"></a>Ligar à base de dados SQL do Azure
 
-1. Crie uma aplicação lógica. No designer Logic Apps, adicione um acionador e, em seguida, adicionar uma ação. Selecione **Mostrar Microsoft APIs geridas** na lista pendente lista e, em seguida, introduza "sql" na caixa de pesquisa. Selecione uma das ações:  
-   
-    ![Passo de criação de ligação do SQL Azure](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Se ainda não criou anteriormente todas as ligações à base de dados do SQL Server, é-lhe pedida os detalhes da ligação:  
-   
-    ![Passo de criação de ligação do SQL Azure](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Introduza os detalhes da base de dados SQL. Propriedades com um asterisco são necessárias.
-   
-   | Propriedade | Detalhes |
-   | --- | --- |
-   | Ligar através do Gateway |Deixe desmarcada. Isto é utilizado ao estabelecer ligação a um servidor de SQL no local. |
-   | Nome da ligação * |Introduza um nome para a sua ligação. |
-   | Nome do servidor SQL * |Introduza o nome do servidor; qual é semelhante ao seguinte *servername.database.windows.net*. O nome do servidor é apresentado nas propriedades da base de dados SQL no portal do Azure e também é apresentado na cadeia de ligação. |
-   | Nome da base de dados SQL * |Introduza o nome que deu a sua base de dados do SQL Server. Este é listado nas propriedades da base de dados do SQL Server na cadeia de ligação: Initial Catalog =*yoursqldbname*. |
-   | Nome de utilizador * |Introduza o nome de utilizador que criou quando a base de dados do SQL Server foi criado. Este é listado nas propriedades da base de dados SQL no portal do Azure. |
-   | Palavra-passe * |Introduza a palavra-passe que criou quando a base de dados do SQL Server foi criado. |
-   
-    Estas credenciais são utilizadas para autorizar a aplicação lógica para estabelecer ligação e aceder aos seus dados do SQL Server. Depois de concluído, os detalhes de ligação semelhante ao seguinte:  
-   
-    ![Passo de criação de ligação do SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Selecione **Criar**. 
-5. Tenha em atenção de que a ligação foi criada. Agora, continue com os outros passos na sua aplicação lógica: 
-   
-    ![Passo de criação de ligação do SQL Azure](./media/connectors-create-api-sqlazure/table.png)
+1. Quando o acionador do SQL Server ou a ação pede-lhe as informações da ligação, siga estes passos:
 
+   1. Crie um nome para a ligação.
+
+   2. Selecione o SQL server e, em seguida, selecione a base de dados. 
+
+      É apresentada a lista de base de dados apenas depois de selecionar o SQL server.
+ 
+   3. Forneça o nome de utilizador e palavra-passe para o servidor.
+
+      Pode encontrar estas informações no portal do Azure com as propriedades de base de dados do SQL Server ou na sua cadeia de ligação: 
+      
+      "ID de utilizador = <*yourUserName*>"
+      <br>
+      "Palavra-passe = <*yourPassword*>"
+
+   Este exemplo mostra as informações de ligação para um acionador, mas estes passos funcionam para ações demasiado.
+
+   ![Criar a ligação de SQL Database do Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Série de asteriscos (*) indica os valores necessários.
+
+   | Propriedade | Valor | Detalhes | 
+   |----------|-------|---------| 
+   | Nome da Ligação | <*ligação My sql*> | O nome da ligação | 
+   | Nome do Servidor SQL | <*Os meus do SQL Server*> | O nome para o SQL server |
+   | Nome da Base de Dados SQL | <*Os meus-base de dados sql*>  | O nome da base de dados do SQL Server | 
+   | Nome de utilizador | <*My sql username*> | O nome de utilizador para aceder à sua base de dados |
+   | Palavra-passe | <*Os meus-sql-palavra-passe*> | A palavra-passe para aceder à sua base de dados | 
+   |||| 
+
+2. Quando tiver terminado, escolha **Create** (Criar).
+
+3. Depois de criar a ligação, prossiga com [acionador adicionar SQL](#add-sql-trigger) ou [ação adicionar SQL](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>Ligar ao SQL Server
+
+Para poder selecionar o gateway, certifique-se de que já [configurar o data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Dessa forma, o gateway aparece na lista de gateways quando criar a ligação.
+
+1. Quando o acionador do SQL Server ou a ação pede-lhe as informações da ligação, siga estes passos:
+
+   1. No acionador ou ação, selecione **ligar através do gateway de dados no local** para que as opções de servidor SQL aparecem.
+
+   2. Crie um nome para a ligação.
+
+   3. Forneça o endereço para o SQL server, em seguida, forneça o nome da base de dados.
+   
+      Pode encontrar estas informações na sua cadeia de ligação: 
+      
+      * "Servidor = <*yourServerAddress*>"
+      * "Base de dados = <*yourDatabaseName*>"
+
+   4. Forneça o nome de utilizador e palavra-passe para o servidor.
+
+      Pode encontrar estas informações na sua cadeia de ligação: 
+      
+      * "ID de utilizador = <*yourUserName*>"
+      * "Palavra-passe = <*yourPassword*>"
+
+   5. Se o SQL server utiliza o Windows ou a autenticação básica, selecione o tipo de autenticação.
+
+   6. Selecione o nome do gateway de dados no local que criou anteriormente.
+   
+      Verifique se o gateway não aparecer na lista, que corretamente [configurar o gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   Este exemplo mostra as informações de ligação para um acionador, mas estes passos funcionam para ações demasiado.
+
+   ![Criar a ligação do SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Série de asteriscos (*) indica os valores necessários.
+
+   | Propriedade | Valor | Detalhes | 
+   |----------|-------|---------| 
+   | Ligar através do gateway no local | Selecione esta opção primeiro para definições do SQL Server. | | 
+   | Nome da Ligação | <*ligação My sql*> | O nome da ligação | 
+   | Nome do Servidor SQL | <*Os meus do SQL Server*> | O nome para o SQL server |
+   | Nome da Base de Dados SQL | <*Os meus-base de dados sql*>  | O nome da base de dados do SQL Server |
+   | Nome de utilizador | <*My sql username*> | O nome de utilizador para aceder à sua base de dados |
+   | Palavra-passe | <*Os meus-sql-palavra-passe*> | A palavra-passe para aceder à sua base de dados | 
+   | Tipo de Autenticação | Windows ou básico | Opcional: O tipo de autenticação utilizado pelo seu SQL server | 
+   | Gateways | <*gateway de dados My*> | O nome do gateway de dados no local | 
+   |||| 
+
+2. Quando tiver terminado, escolha **Create** (Criar). 
+
+3. Depois de criar a ligação, prossiga com [acionador adicionar SQL](#add-sql-trigger) ou [ação adicionar SQL](#add-sql-action).

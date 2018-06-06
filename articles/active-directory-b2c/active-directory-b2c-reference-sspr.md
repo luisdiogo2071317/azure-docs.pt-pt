@@ -1,21 +1,21 @@
 ---
-title: Reposição de palavra-passe self-service | Microsoft Docs
+title: Self-service reposição palavra-passe no Azure Active Directory B2C | Microsoft Docs
 description: Demonstra como configurar o self-service reposição palavra-passe para os seus clientes no Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 5b75455ad604b594a5f85fea8299d35a7d02c848
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: ea8b23618b382f557340643afd62e56932bbfb2d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712101"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurar o self-service reposição palavra-passe para os seus clientes
 Com a funcionalidade de reposição de palavra-passe self-service, os seus clientes que tenham sessão iniciada cópias de segurança para contas locais podem repor as palavras-passe por si próprios. Esta opção reduz significativamente a carga sobre a sua equipa de suporte, especialmente se a sua aplicação tiver milhões de clientes que utilizam-lo regularmente. Atualmente, utilizando um endereço de correio eletrónico verificado é o método de recuperação suportados apenas.

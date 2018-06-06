@@ -6,21 +6,20 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: d47c170936fc954ceac0d76fdb2e6d9c2c886602
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a709c5716a861f6b8dca5a365b9ef51e1252f644
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726741"
 ---
-### <a name="c-class-library"></a>Biblioteca de classes do c#
+A tabela seguinte indica como adicionar suporte para este enlace em cada ambiente de desenvolvimento.
 
-Para c# desenvolvimento da biblioteca de classe, suporte para o enlace é adicionado pelo [instalar o pacote](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code).
-
-### <a name="binding-extensions-in-functions-2x"></a>As extensões de enlace nas funções de 2. x
-
-Para o desenvolvimento local no version2.x das funções do Azure, é utilizado para o pacote [registar a extensão de enlace](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
-
+| Ambiente de programação               | Para adicionar suporte no <br>As funções 1. x  |
+|----------------------|----------------|---------------|
+|Desenvolvimento local - biblioteca de classes do c#       | [Instalar o pacote](../articles/azure-functions/functions-triggers-bindings.md#local-csharp) | 
+|Desenvolvimento local - script do c#, JavaScript, F # |Automático         |
+|Desenvolvimento de portal|  Automático    |

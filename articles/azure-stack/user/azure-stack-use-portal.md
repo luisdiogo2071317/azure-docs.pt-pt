@@ -10,16 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/01/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7ca29ee359349f69c3d5ff21bd9db3f93358206a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724317"
 ---
-# <a name="using-the-azure-stack-portal"></a>Utilizar o portal de pilha do Azure
+# <a name="use-the-azure-stack-portal"></a>Utilizar o portal do Azure Stack
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
@@ -36,15 +37,15 @@ O operador de pilha do Azure (um fornecedor de serviços ou um administrador na 
 
 ## <a name="customize-the-dashboard"></a>Personalizar o dashboard
 
-O dashboard contém um conjunto predefinido de mosaicos. Pode clicar em **editar dashboard** para modificar o dashboard predefinido ou clique em **novo dashboard** para criar um dashboard personalizado. Pode facilmente personalizar um dashboard ao adicionar ou remover os mosaicos. Por exemplo, para adicionar um mosaico de computação, clique em **novo**. Clique com botão direito **computação**e, em seguida, clique em **afixar ao dashboard**.
+O dashboard contém um conjunto predefinido de mosaicos. Pode selecionar **editar dashboard** para modificar o dashboard predefinido ou selecione **novo dashboard** para criar um dashboard personalizado. Pode facilmente personalizar um dashboard ao adicionar ou remover os mosaicos. Por exemplo, para adicionar um mosaico de computação, selecione **novo**. Clique com botão direito **computação**e, em seguida, selecione **afixar ao dashboard**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Criar subscrição e a procurar recursos disponíveis
- 
+
 Se ainda não tiver uma subscrição, a primeira coisa que precisa de fazer é subscrever uma oferta. Depois disso, pode procurar os recursos disponíveis. Para procurar e criar recursos, utilize uma das abordagens seguintes:
 
-- Clique em de **Marketplace** mosaico no dashboard.
-- No **todos os recursos** mosaico, clique em **criar recursos**.
-- No painel de navegação esquerdo, clique em **novo**.
+- Selecione o **Marketplace** mosaico no dashboard.
+- No **todos os recursos** mosaico, selecione **criar recursos**.
+- No painel de navegação esquerdo, selecione **novo**.
 
 ## <a name="learn-how-to-use-available-services"></a>Saiba como utilizar os serviços disponíveis
 
@@ -52,15 +53,15 @@ Se necessitar de orientação sobre como utilizar os serviços disponíveis, pod
 
 - Sua organização ou o fornecedor de serviços pode fornecer as suas próprias documentação, que é normalmente o caso, se oferecem serviços personalizados ou aplicações.
 - Aplicações de terceiros tem sua própria documentação.
-- Para os serviços do Azure consistente, recomendamos vivamente que reveja a documentação de pilha do Azure pela primeira vez. Para aceder à documentação do utilizador a pilha do Azure, clique no ícone de ajuda e, em seguida, clique em **ajuda + suporte**.
- 
-    ![Captura de ecrã da opção de ajuda e suporte na IU](media/azure-stack-use-portal/HelpAndSupport.png)
+- Para os serviços do Azure consistente, recomendamos vivamente que reveja a documentação de pilha do Azure pela primeira vez. Para aceder à documentação do utilizador a pilha do Azure, selecione o ícone de ajuda e, em seguida, selecione **ajuda + suporte**.
+
+    ![Ajuda e suporte opção na IU](media/azure-stack-use-portal/HelpAndSupport.png)
 
     Em particular, sugerimos que reveja os artigos seguintes para começar a utilizar:
 
     - [Considerações da chave: utilizar os serviços ou na criação de aplicações para a pilha do Azure](azure-stack-considerations.md)
     - No **utilizar serviços** secção de documentação, há um artigo de considerações para cada serviço. A página de considerações descreve as diferenças entre o serviço disponibilizadas no Azure e o mesmo serviço oferecido na pilha do Azure. Por exemplo, consulte [considerações de VM](azure-stack-vm-considerations.md). Poderão existir outras informações no **utilizar serviços** secção que seja exclusiva à pilha do Azure.
-     
+
       Pode utilizar a documentação do Azure como referência geral para um serviço, mas tem de ser informados destas diferenças. Compreender que a documentação contém ligações no **tutoriais de início rápido** mosaico ponto para a documentação do Azure.
 
 ## <a name="get-support"></a>Obter suporte

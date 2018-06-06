@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763362"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -24,7 +25,7 @@ A interface de linha de comandos (CLI) do Azure Service Fabric é um utilitário
 
 Antes da instalação, certifique-se de que o seu ambiente tem o Python e o pip instalados. Para obter mais informações, veja a [documentação de início rápido do pip](https://pip.pypa.io/en/latest/quickstart/)e a [documentação de instalação do Python](https://wiki.python.org/moin/BeginnersGuide/Download) oficial.
 
-A CLI suporta as versões 2.7, 3.5 e 3.6 do Python. O Python 3.6 é a versão recomendada, uma vez que o Python 2.7 atingirá brevemente o fim do suporte.
+A CLI suporta Python 2.7, 3.5 e 3.6 de versões. O Python 3.6 é a versão recomendada, uma vez que o Python 2.7 atingirá brevemente o fim do suporte.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime de destino do Service Fabric
 
@@ -32,7 +33,8 @@ A CLI do Service Fabric destina-se a suportar a versão de runtime mais recente 
 
 | Versão da CLI   | Versão de runtime suportada |
 |---------------|---------------------------|
-| Mais recente (~=4)  | Mais recente (~=6.1)            |
+| Mais recente (~ = 5)  | Mais recente (~ = 6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -69,7 +71,7 @@ python --version
 pip --version
 ```
 
-Em seguida, execute o comando seguinte para instalar a CLI do Service Fabric:
+Em seguida, execute o seguinte comando para instalar a CLI de recursos de infraestrutura de serviço do Azure (sfctl) e ver a página de ajuda do CLI:
 
 ```bat
 pip install sfctl
@@ -120,7 +122,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Para testar a instalação, pode consultar os passos enumerados na secção **Ubuntu e subsistema Windows para Linux**
+Para testar a instalação, pode consultar os passos mencionados **subsistema Ubuntu e o Windows para Linux** secção
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -231,13 +233,13 @@ Para obter mais informações, veja a [documentação de OpenSSL](https://www.op
 
 Algumas operações poderão gerar a mensagem seguinte:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Verifique se o ponto final do cluster especificado está disponível e à escuta. Confirme, também, se a IU do Service Fabric Explorer está disponível no anfitrião e na porta. Para atualizar o ponto final, utilize `sfctl cluster select`.
 
 ### <a name="detailed-logs"></a>Registos detalhados
 
-Muitas vezes, os registos detalhados são úteis para depurar ou comunicar problemas. Existe um sinalizador `--debug` global que aumenta a verbosidade dos ficheiros de registo.
+Muitas vezes, os registos detalhados são úteis para depurar ou comunicar problemas. O `--debug` sinalizador aumenta a verbosidade do resultado.
 
 ### <a name="command-help-and-syntax"></a>Ajuda de comandos e sintaxe
 

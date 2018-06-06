@@ -1,24 +1,25 @@
 ---
-title: "Zip push de implementação para as funções do Azure | Microsoft Docs"
-description: "Utilize as instalações de implementação de ficheiro. zip do serviço de implementação do Kudu para publicar as suas funções do Azure."
+title: Zip push de implementação para as funções do Azure | Microsoft Docs
+description: Utilize as instalações de implementação de ficheiro. zip do serviço de implementação do Kudu para publicar as suas funções do Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: faddb73522200f60f18294dc43e8d235943f8bbb
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699959"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Implementação de push zip para as funções do Azure 
 Este artigo descreve como implementar os ficheiros de projeto de aplicação de função para o Azure a partir de um ficheiro (comprimido). zip. Saiba como efetuar uma implementação de push, utilizando a CLI do Azure e ao utilizar as APIs REST. 
@@ -40,23 +41,33 @@ O ficheiro. zip que utiliza para implementação de push tem de conter todos os 
 >[!IMPORTANT]
 > Quando utilizar a implementação de push. zip, são eliminados quaisquer ficheiros de uma implementação existente que não foi encontrados no ficheiro. zip da sua aplicação de função.  
 
-### <a name="function-app-folder-structure"></a>Estrutura de pastas de aplicação de função
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### <a name="download-your-function-app-project"></a>Transfira o projeto de aplicação de função
+Uma aplicação de função inclui todos os ficheiros e pastas no `wwwroot` diretório. Uma implementação de ficheiro. zip inclui o conteúdo a `wwwroot` diretório, mas não o diretório de si próprio.  
+
+## <a name="download-your-function-app-files"></a>Transferir os ficheiros de aplicação de função
 
 Quando estiver a desenvolver num computador local, é fácil criar um ficheiro. zip da pasta do projeto de aplicação de função no seu computador de desenvolvimento. 
 
-No entanto, pode ter criado as suas funções utilizando o editor no portal do Azure. Para transferir o projeto de aplicação de função a partir do portal: 
+No entanto, pode ter criado as suas funções utilizando o editor no portal do Azure. Pode transferir um projeto de aplicação de função existente de uma das seguintes formas: 
 
-1. Iniciar sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, aceda a sua aplicação de função.
++ **No portal do Azure:** 
 
-2. No **descrição geral** separador, selecione **transferir conteúdo de aplicação**. Selecione as opções de transferência e, em seguida, selecione **transferir**.     
+    1. Iniciar sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, aceda a sua aplicação de função.
 
-    ![Transferir o projeto de aplicação de função](./media/deployment-zip-push/download-project.png)
+    2. No **descrição geral** separador, selecione **transferir conteúdo de aplicação**. Selecione as opções de transferência e, em seguida, selecione **transferir**.     
 
-O ficheiro. zip transferido está no formato correto para a sua aplicação de função ser republicadas utilizando a implementação de push. zip.
+        ![Transferir o projeto de aplicação de função](./media/deployment-zip-push/download-project.png)
+
+    O ficheiro. zip transferido está no formato correto para a sua aplicação de função ser republicadas utilizando a implementação de push. zip. A transferência do portal também pode adicionar os ficheiros necessários para abrir a aplicação de função diretamente no Visual Studio.
+
++ **Utilizar REST APIs:** 
+
+    Utilize a seguinte implementação obter API para transferir os ficheiros do seu `<function_app>` projeto: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Incluindo `/site/wwwroot/` certifica-se do ficheiro zip inclui apenas os ficheiros de projeto de aplicação função e não o todo o site. Se lhe não já têm sessão iniciada Azure, será pedido para o fazer. Tenha em atenção que o pedido para enviar um pedido POST de `api/zip/` API é discoraged favor o método de implementação de zip descrito neste tópico. 
 
 Também pode transferir um ficheiro. zip de um repositório do GitHub. Tenha em atenção que ao transferir um repositório do GitHub como um ficheiro. zip, o GitHub adiciona um nível de pasta adicional para o ramo. Isto significa nível de pasta adicionais que não é possível implementar o ficheiro. zip diretamente como transferido-lo a partir do GitHub. Se estiver a utilizar um repositório do GitHub para manter a sua aplicação de função, deve utilizar [integração contínua](functions-continuous-deployment.md) para implementar a sua aplicação.  
 

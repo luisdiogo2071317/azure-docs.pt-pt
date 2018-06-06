@@ -1,20 +1,21 @@
 ---
-title: Adicionar início de sessão a uma aplicação web do Node.js - Azure Active Directory B2C
+title: Adicionar início de sessão a uma aplicação de web de Node.js no Azure Active Directory B2C | Microsoft Docs
 description: Como criar uma aplicação web Node.js que inicia sessão dos utilizadores com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: davidmu
-ms.openlocfilehash: b10b2338bfbcd449075e612ae00cc23802dce3a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: b9c589f8bf8189961f88a6ae1d66f1fd9e17e9bc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711115"
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Adicionar início de sessão a uma aplicação Web Node.js
 

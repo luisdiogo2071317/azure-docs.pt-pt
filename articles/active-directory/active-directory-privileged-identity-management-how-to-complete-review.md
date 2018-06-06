@@ -3,7 +3,7 @@ title: Como concluir uma revisão do acesso | Microsoft Docs
 description: Depois de iniciar uma revisão do acesso no Azure AD Privileged Identity Management, saiba como concluí-la e ver os resultados
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c1314724d8094f171e4c8468d854a9d4ae0c85d7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98a6731be3c4977b644f2f6524443aceb1d414d7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34697980"
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como concluir uma revisão do acesso no Azure AD Privileged Identity Management
 Os administradores de com função privilegiada podem rever uma vez acesso privilegiado um [revisão de segurança tiver sido iniciado](active-directory-privileged-identity-management-how-to-start-security-review.md). O Azure AD Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o respetivo acesso. Se um utilizador não foi possível obter um e-mail, pode enviar-lhes as instruções [como executar uma revisão de segurança](active-directory-privileged-identity-management-how-to-perform-security-review.md).

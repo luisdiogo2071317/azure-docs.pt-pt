@@ -1,24 +1,25 @@
 ---
 title: Como implementar os ficheiros do Azure | Microsoft Docs
-description: "Saiba como implementar os ficheiros do Azure do início ao fim."
+description: Saiba como implementar os ficheiros do Azure do início ao fim.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 193a403a64cea31a2e4cea21a5838be71af8dd53
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737355"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através do protocolo SMB padrão da indústria. Este artigo irá mostrar como implementar praticamente ficheiros do Azure dentro da sua organização.
@@ -32,18 +33,18 @@ Este artigo pressupõe que já tenha concluído os passos seguintes:
 - Criar uma partilha de ficheiros do Azure com a sua quota pretendido na sua conta de armazenamento. Consulte [criar uma partilha de ficheiros](storage-how-to-create-file-share.md) para instruções passo a passo sobre como criar uma partilha de ficheiros.
 
 ## <a name="transfer-data-into-azure-files"></a>Transferência de dados em ficheiros do Azure
-Pode pretender migrar as partilhas de ficheiros existentes, tais como esse armazenada no local, para a nova partilha de ficheiros do Azure. Esta secção irá mostrar-lhe como mover a partilham de dados para um ficheiro do Azure através de vários métodos populares detalhados do [guia de planeamento](storage-files-planning.md#data-transfer-method)
+Pode pretender migrar as partilhas de ficheiros existentes, tais como esse armazenada no local, para a nova partilha de ficheiros do Azure. Esta secção mostra como mover dados para uma partilha de ficheiros do Azure através de vários métodos populares detalhados do [guia de planeamento](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Sincronização de ficheiros do Azure (pré-visualização)
-Sincronização de ficheiros do Azure (pré-visualização) permite-lhe centralizar partilhas de ficheiros da sua organização nos ficheiros de Azure sem fornecer a flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
+Sincronização de ficheiros do Azure (pré-visualização) permite-lhe centralizar partilhas de ficheiros da sua organização nos ficheiros de Azure sem fornecer a flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Fazê-lo por transformar os seus servidores do Windows para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
 
 Sincronização de ficheiros do Azure pode ser utilizada para migrar dados para uma partilha de ficheiros do Azure, mesmo que o mecanismo de sincronização não está pretendido para utilização de longo prazo. Podem encontrar mais informações sobre como utilizar a sincronização de ficheiros do Azure para transferir dados para a partilha de ficheiros do Azure no [planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md) e [como implementar a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Importar/exportar do Azure
-O serviço importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure por envio unidades de disco rígido para um datacenter do Azure. Consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o storage do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma descrição mais detalhada do serviço.
+O serviço importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure através do envio unidades de disco rígido para um datacenter do Azure. Consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o storage do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma descrição mais detalhada do serviço.
 
 > [!Note]  
-> O serviço importar/exportar do Azure não suporta a exportação de ficheiros a partir de uma partilha de ficheiros de Azure neste momento.
+> O serviço importar/exportar do Azure não suporta a exportação de ficheiros a partir de uma partilha de ficheiros do Azure neste momento.
 
 Os passos seguintes irão importar dados de uma localização no local para a partilha de ficheiros do Azure.
 
@@ -62,7 +63,7 @@ Os passos seguintes irão importar dados de uma localização no local para a pa
 
         ![Uma captura de ecrã do Assistente de novo Volume simples in da MMC de gestão do disco](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. Crie o ficheiro CSV de conjunto de dados. O ficheiro CSV de conjunto de dados é um mapeamento entre o caminho para os dados no local e a partilha de ficheiros do Azure pretendida, que os dados devem ser copiados para. Por exemplo, o conjunto de dados seguinte um ficheiro CSV mapeia uma partilha de ficheiros no local ("F:\shares\scratch") para uma partilha de ficheiros do Azure ("MyAzureFileShare"):
+4. Crie o ficheiro CSV de conjunto de dados. O ficheiro CSV de conjunto de dados é um mapeamento entre o caminho para os dados no local e a partilha de ficheiros do Azure pretendido os dados deve ser copiada para. Por exemplo, o conjunto de dados seguinte um ficheiro CSV mapeia uma partilha de ficheiros no local ("F:\shares\scratch") para uma partilha de ficheiros do Azure ("MyAzureFileShare"):
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -91,12 +92,12 @@ Os passos seguintes irão importar dados de uma localização no local para a pa
     > [!Warning]  
     > Não modifique os dados em unidades de disco rígido ou o ficheiro de diário depois de concluir a preparação de disco.
 
-7. [Criar uma tarefa de importação](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Criar uma tarefa de importação](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
 Robocopy é uma ferramenta de cópia bem conhecidos que é fornecido com o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização montada como o destino no comando Robocopy. Utilizar o Robocopy é bastante simple:
 
-1. [Montar a partilha de ficheiros de Azure](storage-how-to-use-files-windows.md). Para otimizar o desempenho, recomendamos que montar a partilha de ficheiros do Azure localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de ficheiros que serve os dados de um dispositivo NAS, isto poderá não ser possível. Nesse caso, é perfeitamente aceitável para montar a partilha de ficheiros do Azure num PC. Neste exemplo, `net use` é utilizado na linha de comandos para montar a partilha de ficheiros:
+1. [Montar a partilha de ficheiros do Azure](storage-how-to-use-files-windows.md). Para otimizar o desempenho, recomendamos que montar a partilha de ficheiros do Azure localmente no servidor que contém os dados. Em alguns casos, como quando o servidor de ficheiros que serve os dados de um dispositivo NAS, isto poderá não ser possível. Nesse caso, é perfeitamente aceitável para montar a partilha de ficheiros do Azure num PC. Neste exemplo, `net use` é utilizado na linha de comandos para montar a partilha de ficheiros:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>

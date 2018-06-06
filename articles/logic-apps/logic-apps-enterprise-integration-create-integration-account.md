@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 97cdc809a00078ee86a40fd4567ab2d3357ed3bd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726436"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Criar e gerir contas de automatização para soluções de B2B com logic apps
 
@@ -57,11 +58,11 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
    | Subscrição | Sim | <*Nome da subscrição do Azure*> | O nome da subscrição do Azure a utilizar | 
    | Grupo de recursos | Sim | teste-integração-conta-rg | O nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizados para organizar os recursos relacionados. Neste exemplo, crie um novo grupo de recursos com o nome especificado. | 
    | Escalão de Preço | Sim | Gratuito | O escalão de preço que pretende utilizar. Para este exemplo, selecione **livres**, mas para obter mais informações, consulte [limites Logic Apps e a configuração](../logic-apps/logic-apps-limits-and-config.md) e [Logic Apps preços](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Localização | Sim | EUA Oeste | A região onde pretende armazenar as informações da conta de integração. Selecione a mesma localização que a sua aplicação lógica ou criar uma aplicação lógica na mesma localização que a sua conta de integração. Neste exemplo, | 
+   | Localização | Sim | EUA Oeste | A região onde pretende armazenar as informações da conta de integração. Selecione a mesma localização que a sua aplicação lógica ou criar uma aplicação lógica na mesma localização que a sua conta de integração. | 
    | Log Analytics | Não | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. | 
    ||||| 
 
-4. Quando estiver pronto, selecione **afixar ao dashboard**e escolha **criar**.
+4. Quando estiver pronto, selecione **Afixar ao dashboard** e escolha **Criar**.
 
    Depois de Azure implementa a sua conta de integração para a localização selecionada, o que normalmente é concluído dentro de um minuto, o Azure abre-se a conta de integração.
 

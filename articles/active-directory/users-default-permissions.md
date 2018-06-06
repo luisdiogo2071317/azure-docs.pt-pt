@@ -8,16 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: fundamentals
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: a9bf9748de5f390f95b8b672e0cf77afa5c49581
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41f69a1dd4cbd4c0f6be0764efdbf0fb61ac3cb7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724433"
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permissões de utilizador predefinidas no Azure Active Directory
 
@@ -35,11 +36,11 @@ As permissões predefinidas para os convidados são restritivas por predefiniç�
 **Área** | **Permissões de utilizador do membro** | **Permissões de utilizador convidado**
 ------------ | --------- | ----------
 Utilizadores e contactos | Ler todas as propriedades públicas de utilizadores e contactos<br>Convidar convidados<br>Alterar a própria palavra-passe<br>Gerir o número de telemóvel próprio<br>Gerir fotografia própria<br>Invalidar própria atualização de tokens | Ler as suas próprias propriedades<br>Ler o nome a apresentar, e-mail, nome de início de sessão, fotografias, nome principal de utilizador e propriedades de tipo de utilizador de outros utilizadores e contactos<br>Alterar a própria palavra-passe
-Grupos   | Criar grupos de segurança<br>Criar grupos do Office 365<br>Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Leitura oculto associações a grupos do Office 365 para associados a um grupo<br>Gerir propriedades, a propriedade e a associação dos grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa<br>Gerir definições de associação dinâmica<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365 | Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Ler ocultas associações a grupos do Office 365 para grupos associados<br>Gerir grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa (se for permitida)<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365           
+Grupos | Criar grupos de segurança<br>Criar grupos do Office 365<br>Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Leitura oculto associações a grupos do Office 365 para associados a um grupo<br>Gerir propriedades, a propriedade e a associação dos grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa<br>Gerir definições de associação dinâmica<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365 | Ler todas as propriedades dos grupos<br>Ler as associações de grupo não oculto<br>Ler ocultas associações a grupos do Office 365 para grupos associados<br>Gerir grupos pertencentes à empresa<br>Adicionar convidados em grupos pertencentes à empresa (se for permitida)<br>Eliminar grupos pertencentes à empresa<br>Restauro pertencentes a grupos do Office 365 
 Aplicações | Registar (criar) nova aplicação<br>Leitura de propriedades de registado e aplicações empresariais<br>Gerir propriedades da aplicação, atribuições e as credenciais para aplicações pertencentes à empresa<br>Criar ou eliminar aplicação palavra-passe do utilizador<br>Eliminar aplicações pertencentes à empresa<br>Restore aplicações pertencentes à empresa | Leitura de propriedades de registado e aplicações empresariais<br>Gerir propriedades da aplicação, atribuições e as credenciais para aplicações pertencentes à empresa<br>Eliminar aplicações pertencentes à empresa<br>Restore aplicações pertencentes à empresa
 Dispositivos | Ler todas as propriedades dos dispositivos<br>Gerir todas as propriedades dos dispositivos pertencentes à empresa<br> | Sem permissões<br>Eliminar dispositivos pertencentes à empresa<br>
 Diretório | Ler todas as informações da empresa<br>Ler todos os domínios<br>Ler todos os contratos de parceiros | Nome a apresentar de leitura e a verificar a domínios
-Funções e âmbitos | Ler todas as associações e funções administrativas<br>Ler todas as propriedades e associação a unidades administrativas | Sem permissões              
+Funções e âmbitos | Ler todas as associações e funções administrativas<br>Ler todas as propriedades e associação a unidades administrativas | Sem permissões 
 Subscrições | Ler todas as subscrições<br>Ativar membro do plano de serviço | Sem permissões
 Políticas | Ler todas as propriedades de políticas<br>Gerir todas as propriedades da política de propriedade | Sem permissões
 

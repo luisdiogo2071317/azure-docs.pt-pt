@@ -1,8 +1,8 @@
 ---
-title: "Aumentar verticalmente a uma aplicação no Azure | Microsoft Docs"
-description: "Saiba como aumentar verticalmente a uma aplicação no serviço de aplicações do Azure para adicionar capacidade e funcionalidades."
+title: Aumentar verticalmente a uma aplicação no Azure | Microsoft Docs
+description: Saiba como aumentar verticalmente a uma aplicação no serviço de aplicações do Azure para adicionar capacidade e funcionalidades.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714940"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentar verticalmente a uma aplicação no Azure
 
@@ -50,7 +51,7 @@ Para obter informações sobre as funcionalidades dos planos do serviço de apli
 2. Na página da aplicação do serviço de aplicações, clique em **todas as definições**e, em seguida, clique em **aumentar verticalmente**.
    
     ![Navegue para aumentar verticalmente a sua aplicação do Azure.][ChooseWHP]
-3. Escolha o escalão e, em seguida, clique em **selecione**.
+3. Escolha o escalão e, em seguida, clique em **aplicar**.
    
     O **notificações** separador irá flash um verde **êxito** depois de concluída a operação.
 

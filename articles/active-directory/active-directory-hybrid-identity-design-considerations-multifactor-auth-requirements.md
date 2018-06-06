@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 998aebfc38c4a0971a5071faebdeae4dbca86690
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fe5ac8386394bf659de8d9905827359900f08d93
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801039"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para a sua solução de identidade híbrida
 Neste mundo de mobilidade, com utilizadores que acedem aos dados e aplicações na nuvem e de qualquer dispositivo, proteger esta informação tornou essencial da.  Todos os dias há um novo título sobre uma violação de segurança.  Contudo, não há nenhuma garantia de tais danos, o multi-factor authentication, fornece uma camada adicional de segurança para ajudar a evitar estas violações.

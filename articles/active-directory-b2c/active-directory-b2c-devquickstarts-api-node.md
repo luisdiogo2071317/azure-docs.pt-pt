@@ -1,22 +1,21 @@
 ---
-title: 'B2C do Azure AD: Proteger uma API Web utilizando Node.js | Microsoft Docs'
-description: Como criar uma API Web de Node.js que aceita tokens de um inquilino do B2C
+title: Proteger uma API web utilizando Node.js no Azure Active Directory B2C | Microsoft Docs
+description: Como criar uma API que aceita tokens a partir de um inquilino do B2C da web de Node.js.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 3ce0e43beec41599c842cd273cb7230660bdf8d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 42d2f79e53017bad0f27e8c162ab4f00b6b3014e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711455"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>B2C do Azure AD: Proteger uma API Web utilizando Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->

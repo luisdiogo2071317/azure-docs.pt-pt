@@ -1,35 +1,37 @@
 ---
-title: "Requisitos de controlo de acesso de estrutura de identidade do híbrida do Azure | Microsoft Docs"
-description: "Abrange os pillars de identidade e identificar os requisitos de acesso para recursos para os utilizadores num ambiente híbrido."
-documentationcenter: 
+title: Requisitos de controlo de acesso de estrutura de identidade do híbrida do Azure | Microsoft Docs
+description: Abrange os pillars de identidade e identificar os requisitos de acesso para recursos para os utilizadores num ambiente híbrido.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801223"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de controlo de acesso para a sua solução de identidade híbrida
-Quando uma organização está a conceber a solução de identidade híbrida também podem utilizar esta oportunidade para rever os requisitos de acesso para os recursos que estiver a planear para tornar disponível para os utilizadores. O acesso a dados cruzada todos os quatro pillars da identidade, que são:
+Quando uma organização está a conceber a solução de identidade híbrida, também podem utilizar esta oportunidade para rever os requisitos de acesso para os recursos que estiver a planear para tornar disponível para os utilizadores. O acesso a dados cruzada todos os quatro pillars da identidade, que são:
 
 * Administração
 * Autenticação
 * Autorização
 * Auditoria
 
-As secções que se segue irão cobrir autenticação e autorização em obter mais detalhes, administração e auditoria fazem parte do ciclo de vida de identidade híbrida. Leitura [determinar as tarefas de gestão de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para obter mais informações sobre estas capacidades.
+As secções que se seguem abordam autenticação e autorização em obter mais detalhes, administração, e auditoria fazem parte do ciclo de vida de identidade híbrida. Leitura [determinar as tarefas de gestão de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para obter mais informações sobre estas capacidades.
 
 > [!NOTE]
 > Leitura [a quatro Pillars de identidade - Identity Management de antiguidade de TI híbrido](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para obter mais informações sobre cada uma dessas pillars.
@@ -41,13 +43,13 @@ Existem diferentes cenários de autenticação e autorização, estes cenários 
 
 * Será a sua organização autenticar e autorizar o apenas os utilizadores localizados no seu sistema de gestão de identidade?
   * Existem quaisquer planos para cenários B2B?
-  * Se Sim, já sabe quais protocolos (SAML, OAuth, Kerberos, os Tokens ou certificados) serão utilizados para ligar a ambas as empresas?
+  * Se Sim, já sabe quais protocolos (SAML, OAuth, Kerberos ou certificados) serão utilizados para ligar a ambas as empresas?
 * É a solução de identidade híbrida que adotar suporte vai esses protocolos?
 
 Outro ponto importante a ter em consideração é onde estarão localizado o repositório de autenticação que será utilizado pelos utilizadores e os parceiros e o modelo administrativo para ser utilizado. Considere as seguintes opções de dois núcleos:
 
-* Centralizado: neste modelo de credenciais do utilizador, políticas e administração podem ser centralizado no local ou na nuvem.
-* Híbrida: neste modelo de credenciais do utilizador, políticas e administração serão centralizado no local e um replicados na nuvem.
+* Centralizado: neste modelo, o utilizador as credenciais, as políticas e a administração podem ser centralizado no local ou na nuvem.
+* Híbrida: neste modelo, as credenciais do utilizador, políticas e administração serão centralizado no local e um replicados na nuvem.
 
 O modelo irá adotar a sua organização variam de acordo com os seus requisitos empresariais, pode pretender responda às questões seguintes para identificar onde irão residir o sistema de gestão de identidade e o modo administrativo a utilizar:
 
@@ -58,7 +60,7 @@ O modelo irá adotar a sua organização variam de acordo com os seus requisitos
   * Se Sim, a adoção de um modelo de identidade híbrida afeta a este processo?
 
 ## <a name="access-control"></a>Controlo de Acesso
-Apesar de autenticação e autorização são elementos principais para ativar o acesso a dados empresariais através de validação do utilizador, também é importante controlar o nível de acesso que estes utilizadores serão e o nível de administradores do acesso será têm sobre os recursos que o se estiver a gerir. A solução de identidade híbrida tem de ser capaz de fornecer granular acesso a recursos, a delegação e controlo de acesso de base de função. Certifique-se de que a questão seguinte são respondidas sobre o controlo de acesso:
+Apesar de autenticação e autorização são elementos principais para ativar o acesso a dados empresariais através de validação do utilizador, também é importante controlar o nível de acesso que estes utilizadores serão e o nível de administradores do acesso será têm sobre os recursos que o se estiver a gerir. A solução de identidade híbrida tem de ser capaz de fornecer granular acesso a recursos, a delegação e controlo de acesso de base de função. Certifique-se de que a questão seguinte é atendida sobre o controlo de acesso:
 
 * A sua empresa tem mais do que um utilizador com privilégios elevados para gerir o seu sistema de identidade?
   * Se Sim, a cada utilizador tem o mesmo nível de acesso?

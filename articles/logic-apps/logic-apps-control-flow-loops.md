@@ -1,29 +1,25 @@
 ---
-title: Ciclos - matrizes de processo ou ações repetidas - Azure Logic Apps | Microsoft Docs
-description: Processar matrizes com "para cada" ciclos ou ações repetidas até forem cumpridas condições específicas em logic apps
+title: Adicionar ciclos que repita ações ou processam matrizes - Azure Logic Apps | Microsoft Docs
+description: Como criar ciclos que repita ações de fluxo de trabalho ou processam as matrizes das Logic Apps do Azure
 services: logic-apps
-keywords: para cada ciclos
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: cfowler
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 26db63ed7706bdff9eb5c037a906fbc252b83a9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725960"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Ciclos: Processar matrizes ou repita ações até for cumprida uma condição
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repita ações de fluxo de trabalho ou processam as matrizes das Logic Apps do Azure
 
-Para iterar matrizes na sua aplicação lógica, pode utilizar um ["Foreach" ciclo](#foreach-loop) ou um [sequencial "Foreach" ciclo](#sequential-foreach-loop). Ciclos num ciclo "Foreach" standard executam em paralelo, durante a execução de ciclos num ciclo "Foreach" sequencial um de cada vez. Para o número máximo de itens de matriz "Foreach" ciclos podem processar numa aplicação lógica única executar, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
+Para iterar através de matrizes na sua aplicação lógica, pode utilizar um ["Foreach" ciclo](#foreach-loop) ou um [sequencial "Foreach" ciclo](#sequential-foreach-loop). As iterações para um ciclo de "Foreach" standard executam em paralelo, durante a execução de iterações para um ciclo de "Foreach" sequencial um de cada vez. Para o número máximo de itens de matriz "Foreach" ciclos podem processar numa aplicação lógica única executar, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Se tiver um acionador que recebe uma matriz e pretende executar um fluxo de trabalho para cada item de matriz, pode *debatch* essa matriz com o [ **SplitOn** acionar propriedade](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -202,7 +198,7 @@ Por exemplo, às 8:00 por dia, esta aplicação lógica incrementa uma variável
 
    ![Incremento "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Em mas fora do ciclo, adicione uma ação que envia correio eletrónico. Se lhe for solicitado, inicie sessão na sua conta de e-mail.
+9. Em mas fora do ciclo, adicione uma ação que envia correio eletrónico. Se tal lhe for solicitado, inicie sessão na sua conta de e-mail.
 
    ![Adicionar ação que envia correio eletrónico](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 

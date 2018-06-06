@@ -9,6 +9,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8d3fa9bf11cd1c14b2d7ef37544cb5e043e2d9da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723665"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -43,7 +45,7 @@ Quando cria uma nova política, não existem nenhum utilizadores, grupos, aplica
 Para tornar a sua política de trabalho, tem de configurar:
 
 
-|O que           | Como                                  | Por que razão|
+|O quê           | Como                                  | Por que razão|
 |:--            | :--                                  | :-- |
 |**Aplicações na nuvem** |Tem de selecionar uma ou mais aplicações.  | O objetivo de uma política de acesso condicional é permitem controlar utilizadores como autorizados podem aceder a aplicações na nuvem.|
 | **Utilizadores e grupos** | Tem de selecionar, pelo menos, um utilizador ou grupo que esteja autorizado a aceder às suas aplicações em nuvem selecionado. | Uma política de acesso condicional que não tem nenhum utilizadores e grupos atribuídos, nunca é acionada. |

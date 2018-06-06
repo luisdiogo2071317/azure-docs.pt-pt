@@ -1,12 +1,12 @@
 ---
-title: "Recomendações do Advisor elevada disponibilidade do Azure | Microsoft Docs"
-description: "Utilize o Advisor do Azure para melhorar a elevada disponibilidade das implementações do Azure."
+title: Recomendações do Advisor elevada disponibilidade do Azure | Microsoft Docs
+description: Utilize o Advisor do Azure para melhorar a elevada disponibilidade das implementações do Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736556"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recomendações de elevada disponibilidade do Assistente
 
@@ -49,13 +50,16 @@ Se os discos não necessitam de IOPS elevado, pode limitar os custos, mantendo-l
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Proteger os seus dados de máquina virtual contra a eliminação acidental
 Configurar a cópia de segurança da máquina virtual garante a disponibilidade dos dados empresariais vitais e oferece proteção contra eliminação acidental ou danificados.  Advisor identifica as máquinas virtuais em que a cópia de segurança não está ativada e recomenda a ativação da cópia de segurança. 
 
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Certifique-se de que tem acesso a especialistas em nuvem do Azure quando precisar dele
+Ao executar uma carga de trabalho fundamentais, é importante que tenha acesso ao suporte técnico quando for necessário. Advisor identifica potenciais subscrições empresariais críticos que não têm o suporte técnico incluído no seu plano de suporte e recomenda a atualização para uma opção que inclui o suporte técnico.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como aceder recomendações de elevada disponibilidade no Advisor
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
 
 2.  No dashboard do Advisor, clique em de **elevada disponibilidade** separador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre as recomendações do assistente, consulte:
 * [Introdução ao Advisor do Azure](advisor-overview.md)

@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 2de80760484ae1869b340898ea1e5f740fbc2883
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3b9a7d998e7153318b21adcada7c143b428e591f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724779"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para as funções do Azure
 
@@ -39,7 +40,7 @@ A extensão de Microsoft Graph fornece os enlaces do seguintes:
 
 O enlace de entrada de token de autenticação é fornecido no [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) pacote NuGet. Os enlaces de Microsoft Graph são fornecidos no [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) pacote. Código de origem para os pacotes está a ser o [microsoftgraph-extensão de azure-funções](https://github.com/Azure/azure-functions-microsoftgraph-extension/) repositório do GitHub.
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Configurar as extensões
 
@@ -83,7 +84,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#auth-token---example)
 * [Atributos](#auth-token---attributes)
 * [Configuração](#auth-token---configuration)
-* [Usage](#auth-token---usage)
+* [Utilização](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>Token de autenticação - exemplo
 
@@ -212,10 +213,10 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para o token de autenticação. Consulte [utilizar um token de autenticação de entrada do enlace a partir do código](#token-input-code).|
-|**type**||Necessário - tem de ser definido como `token`.|
-|**direction**||Necessário - tem de ser definido como `in`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**userId**|**UserId**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `token`.|
+|**direção**||Necessário - tem de ser definido como `in`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**userId**|**ID de utilizador**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
 |**Recurso**|**resource**|Necessário - um URL de recursos do Azure AD para o qual está a ser pedido o token.|
 
@@ -239,7 +240,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#excel-input---example)
 * [Atributos](#excel-input---attributes)
 * [Configuração](#excel-input---configuration)
-* [Usage](#excel-input---usage)
+* [Utilização](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Excel entrada - exemplo
 
@@ -345,13 +346,13 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para a tabela de Excel. Consulte [utilizando uma tabela de Excel de entrada do enlace a partir do código](#excel-input-code).|
-|**type**||Necessário - tem de ser definido como `excel`.|
-|**direction**||Necessário - tem de ser definido como `in`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**userId**|**UserId**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `excel`.|
+|**direção**||Necessário - tem de ser definido como `in`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**userId**|**ID de utilizador**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
 |**path**|**Caminho**|Necessário - o caminho no OneDrive para o livro do Excel.|
-|**worksheetName**|**WorksheetName**|A folha de cálculo que é possível localizar a tabela.|
+|**worksheetName**|**WorksheetName**|A folha de cálculo na qual é encontrada a tabela.|
 |**tableName**|**TableName**|O nome da tabela. Se não for especificado, será utilizado o conteúdo da folha de cálculo.|
 
 <a name="excel-input-code"></a>
@@ -386,7 +387,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#excel-output---example)
 * [Atributos](#excel-output---attributes)
 * [Configuração](#excel-output---configuration)
-* [Usage](#excel-output---usage)
+* [Utilização](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Excel resultado - exemplo
 
@@ -505,13 +506,13 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para o token de autenticação. Consulte [através de uma tabela do Excel enlace a partir do código de saída](#excel-output-code).|
-|**type**||Necessário - tem de ser definido como `excel`.|
-|**direction**||Necessário - tem de ser definido como `out`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**UserId** |**userId** |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `excel`.|
+|**direção**||Necessário - tem de ser definido como `out`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**ID de utilizador** |**userId** |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
 |**path**|**Caminho**|Necessário - o caminho no OneDrive para o livro do Excel.|
-|**worksheetName**|**WorksheetName**|A folha de cálculo que é possível localizar a tabela.|
+|**worksheetName**|**WorksheetName**|A folha de cálculo na qual é encontrada a tabela.|
 |**tableName**|**TableName**|O nome da tabela. Se não for especificado, será utilizado o conteúdo da folha de cálculo.|
 |**updateType**|**UpdateType**|Necessário - o tipo de alteração para tornar à tabela. Pode ser um dos seguintes valores:<ul><li><code>update</code> -Substitui o conteúdo da tabela no OneDrive.</li><li><code>append</code> -Adiciona o payload ao fim da tabela no OneDrive, criando novas linhas.</li></ul>|
 
@@ -543,7 +544,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#file-input---example)
 * [Atributos](#file-input---attributes)
 * [Configuração](#file-input---configuration)
-* [Usage](#file-input---usage)
+* [Utilização](#file-input---usage)
 
 ### <a name="file-input---example"></a>Ficheiro de entrada - exemplo
 
@@ -649,10 +650,10 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para o ficheiro. Consulte [utilizando um ficheiro do OneDrive de entrada do enlace a partir do código](#onedrive-input-code).|
-|**type**||Necessário - tem de ser definido como `onedrive`.|
-|**direction**||Necessário - tem de ser definido como `in`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**userId**|**UserId**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `onedrive`.|
+|**direção**||Necessário - tem de ser definido como `in`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**userId**|**ID de utilizador**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
 |**path**|**Caminho**|Necessário - o caminho do ficheiro no OneDrive.|
 
@@ -667,7 +668,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 O enlace expõe os seguintes tipos de funções de .NET:
 - byte[]
 - Stream
-- string
+- cadeia
 - Microsoft.Graph.DriveItem
 
 
@@ -685,7 +686,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#file-output---example)
 * [Atributos](#file-output---attributes)
 * [Configuração](#file-output---configuration)
-* [Usage](#file-output---usage)
+* [Utilização](#file-output---usage)
 
 ### <a name="file-output---example"></a>Ficheiro de saída - exemplo
 
@@ -794,10 +795,10 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para o ficheiro. Consulte [utilizando um ficheiro do OneDrive enlace a partir do código de saída](#onedrive-output-code).|
-|**type**||Necessário - tem de ser definido como `onedrive`.|
-|**direction**||Necessário - tem de ser definido como `out`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**UserId** |**userId** |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `onedrive`.|
+|**direção**||Necessário - tem de ser definido como `out`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**ID de utilizador** |**userId** |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
 |**path**|**Caminho**|Necessário - o caminho do ficheiro no OneDrive.|
 
@@ -812,7 +813,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 O enlace expõe os seguintes tipos de funções de .NET:
 - byte[]
 - Stream
-- string
+- cadeia
 - Microsoft.Graph.DriveItem
 
 
@@ -829,7 +830,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#outlook-output---example)
 * [Atributos](#outlook-output---attributes)
 * [Configuração](#outlook-output---configuration)
-* [Usage](#outlook-outnput---usage)
+* [Utilização](#outlook-outnput---usage)
 
 ### <a name="outlook-output---example"></a>Saída do Outlook - exemplo
 
@@ -943,10 +944,10 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para a mensagem de correio. Consulte [através de uma mensagem do Outlook enlace a partir do código de saída](#outlook-output-code).|
-|**type**||Necessário - tem de ser definido como `outlook`.|
-|**direction**||Necessário - tem de ser definido como `out`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**userId**|**UserId**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `outlook`.|
+|**direção**||Necessário - tem de ser definido como `out`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**userId**|**ID de utilizador**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
 
 <a name="outlook-output-code"></a>
@@ -960,7 +961,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 O enlace expõe os seguintes tipos de funções de .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- cadeia
 - Tipos de objetos personalizados (utilizando o enlace do modelo estruturais)
 
 
@@ -992,7 +993,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#webhook-trigger---example)
 * [Atributos](#webhook-trigger---attributes)
 * [Configuração](#webhook-trigger---configuration)
-* [Usage](#webhook-trigger---usage)
+* [Utilização](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Acionador de Webhook - exemplo
 
@@ -1084,8 +1085,8 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para a mensagem de correio. Consulte [através de uma mensagem do Outlook enlace a partir do código de saída](#outlook-output-code).|
-|**type**||Necessário - tem de ser definido como `graphWebhook`.|
-|**direction**||Necessário - tem de ser definido como `trigger`.|
+|**tipo**||Necessário - tem de ser definido como `graphWebhook`.|
+|**direção**||Necessário - tem de ser definido como `trigger`.|
 |**resourceType**|**ResourceType**|Necessário - o recurso de gráfico para os quais esta função deve responder para webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> -as alterações efetuadas às mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> -as alterações efetuadas aos itens de raiz do OneDrive.</li><li><code>#Microsoft.Graph.Contact</code> -as alterações efetuadas ao pessoais contactos no Outlook.</li><li><code>#Microsoft.Graph.Event</code> -as alterações efetuadas aos itens de calendário do Outlook.</li></ul>|
 
 > [!Note]
@@ -1110,7 +1111,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#webhook-input---example)
 * [Atributos](#webhook-input---attributes)
 * [Configuração](#webhook-input---configuration)
-* [Usage](#webhook-input---usage)
+* [Utilização](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Entrada de Webhook - exemplo
 
@@ -1235,14 +1236,14 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para a mensagem de correio. Consulte [através de uma mensagem do Outlook enlace a partir do código de saída](#outlook-output-code).|
-|**type**||Necessário - tem de ser definido como `graphWebhookSubscription`.|
-|**direction**||Necessário - tem de ser definido como `in`.|
+|**tipo**||Necessário - tem de ser definido como `graphWebhookSubscription`.|
+|**direção**||Necessário - tem de ser definido como `in`.|
 |**filter**|**filtro**| Se definido como `userFromRequest`, em seguida, o enlace só irá obter subscrições pertencentes ao utilizador chamado (apenas válida com [acionador HTTP]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook de entrada - utilização
 
 O enlace expõe os seguintes tipos de funções de .NET:
-- string[]
+- String]
 - Matrizes do tipo de objeto personalizado
 - Newtonsoft.Json.Linq.JObject[]
 - Microsoft.Graph.Subscription[]
@@ -1260,7 +1261,7 @@ Esta secção contém as seguintes subsecções:
 * [Exemplo](#webhook-output---example)
 * [Atributos](#webhook-output---attributes)
 * [Configuração](#webhook-output---configuration)
-* [Usage](#webhook-output---usage)
+* [Utilização](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Saída de Webhook - exemplo
 
@@ -1375,19 +1376,19 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**name**||Necessário - o nome da variável utilizado no código de função para a mensagem de correio. Consulte [através de uma mensagem do Outlook enlace a partir do código de saída](#outlook-output-code).|
-|**type**||Necessário - tem de ser definido como `graphWebhookSubscription`.|
-|**direction**||Necessário - tem de ser definido como `out`.|
-|**identity**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
-|**userId**|**UserId**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
+|**tipo**||Necessário - tem de ser definido como `graphWebhookSubscription`.|
+|**direção**||Necessário - tem de ser definido como `out`.|
+|**Identidade**|**Identidade**|Necessário - a identidade que será utilizada para executar a ação. Pode ser um dos seguintes valores:<ul><li><code>userFromRequest</code> -Só é válido com [acionador HTTP]. Utiliza a identidade do utilizador chamada.</li><li><code>userFromId</code> -Utiliza a identidade de um utilizador com sessão iniciada no anteriormente com o ID especificado. Consulte o <code>userId</code> propriedade.</li><li><code>userFromToken</code> -Utiliza a identidade representada pelo token especificado. Consulte o <code>userToken</code> propriedade.</li><li><code>clientCredentials</code> -Utiliza a identidade da aplicação de função.</li></ul>|
+|**userId**|**ID de utilizador**  |Se necessário e apenas se _identidade_ está definido como `userFromId`. ID principal de utilizador associado um utilizador anteriormente com sessão iniciada.|
 |**userToken**|**UserToken**|Se necessário e apenas se _identidade_ está definido como `userFromToken`. Um token válido para a aplicação de função. |
-|**action**|**Ação**|É necessário - Especifica a ação de enlace deve efetuar. Pode ser um dos seguintes valores:<ul><li><code>create</code> -Regista uma nova subscrição.</li><li><code>delete</code> -Elimina uma subscrição especificada.</li><li><code>refresh</code> -Atualiza uma subscrição especificada para mantê-los de expirar.</li></ul>|
+|**Ação**|**Ação**|É necessário - Especifica a ação de enlace deve efetuar. Pode ser um dos seguintes valores:<ul><li><code>create</code> -Regista uma nova subscrição.</li><li><code>delete</code> -Elimina uma subscrição especificada.</li><li><code>refresh</code> -Atualiza uma subscrição especificada para mantê-los de expirar.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Se necessário e apenas se o _ação_ está definido como `create`. Especifica o recurso de Microsoft Graph que será monitorizado para as alterações. Consulte [trabalhar com webhooks no Microsoft Graph]. |
 |**changeType**|**ChangeType**|Se necessário e apenas se o _ação_ está definido como `create`. Indica o tipo de alteração no recurso subscrito que irá emitir uma notificação. Os valores suportados são: `created`, `updated`, `deleted`. Podem ser combinados vários valores utilizando uma lista separada por vírgulas.|
 
 ### <a name="webhook-output---usage"></a>Webhook de saída - utilização
 
 O enlace expõe os seguintes tipos de funções de .NET:
-- string
+- cadeia
 - Microsoft.Graph.Subscription
 
 
@@ -1575,5 +1576,5 @@ public class UserSubscription {
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
-[acionador HTTP]: functions-bindings-http-webhook.md
-[trabalhar com webhooks no Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+[Acionador HTTP]: functions-bindings-http-webhook.md
+[Trabalhar com webhooks no Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

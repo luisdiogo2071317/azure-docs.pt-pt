@@ -1,27 +1,29 @@
 ---
-title: "Estrutura de identidade híbrida - requisitos de gestão de conteúdo do Azure | Microsoft Docs"
-description: "Fornece informações sobre como determinar os requisitos de gestão de conteúdos do seu negócio. Normalmente, quando um utilizador tiver a sua própria dispositivo ele pode ter também várias credenciais que irão ser alternados, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade e aumentar a proteção contra fugas de dados."
-documentationcenter: 
+title: Estrutura de identidade híbrida - requisitos de gestão de conteúdo do Azure | Microsoft Docs
+description: Fornece informações sobre como determinar os requisitos de gestão de conteúdos do seu negócio. Normalmente, quando um utilizador tem os seus próprios dispositivos, também podem ter várias credenciais que irão ser alternados, de acordo com a aplicação que utilizam. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade deles e aumentar a proteção contra fugas de dados.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b414a1e93d5a0f4be5be82011482b492fd9ce378
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800798"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
-Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode influenciar a sua decisão em que solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores para colocar os seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa tem de proteger os seus próprios dados, mas também deve manter a privacidade do utilizador intacto. Normalmente, quando um utilizador tiver a sua própria dispositivo ele pode ter também várias credenciais que irão ser alternados, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade e aumentar a proteção contra fugas de dados. 
+Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode influenciar a sua decisão em que solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores para colocar os seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa tem de proteger os seus próprios dados, mas também deve manter a privacidade do utilizador intacto. Normalmente, quando um utilizador tem os seus próprios dispositivos, também podem ter várias credenciais que irão ser alternados, de acordo com a aplicação que utilizam. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade deles e aumentar a proteção contra fugas de dados. 
 
 A solução de identidade irá ser aproveitada pelas diferentes controlos técnicos para fornecer gestão de conteúdo, conforme mostrado na imagem abaixo:
 
@@ -43,7 +45,7 @@ Em geral, os requisitos de gestão de conteúdo irão tirar partido do seu siste
 Quando planear a sua solução de identidade híbrida Certifique-se de que as perguntas seguintes são respondidas, de acordo com requisitos da sua organização:
 
 * A sua empresa tem controlos de segurança no local para impor a privacidade dos dados?
-  * Se Sim, os controlos de segurança será possível integrar a solução de identidade híbrida que vai adotar?
+  * Se Sim, os controlos de segurança será capazes de integrar a solução de identidade híbrida que vai adotar?
 * A sua empresa utiliza a classificação de dados?
   * Se Sim, é a atual solução capaz de integrar a solução de identidade híbrida que vai adotar?
 * A sua empresa tem atualmente qualquer solução de fuga de dados? 

@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702181"
 ---
-# <a name="about-point-to-site-vpn-routing"></a>Sobre o encaminhamento de VPN de ponto a Site
+# <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 
 Este artigo ajuda-o a compreender a forma como se comporta a VPN do Azure ponto a Site encaminhamento. Comportamento de encaminhamento P2S VPN está dependente do cliente do SO, o protocolo utilizado para a ligação VPN e como as redes virtuais (VNets) estão ligadas entre si.
 
@@ -228,7 +229,7 @@ Todos os clientes podem aceder apenas a VNet1.
 
 ## <a name="multivnets2sbranchbgp"></a>Várias VNets ligadas através de S2S e o escritório de sucursal (BGP)
 
-Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. Está ligado VNet1 para a VNet2 utilizando uma ligação VPN de Site para Site. VNet2 está ligado a VNet3 utilizando uma ligação VPN de Site para Site. Não há nenhum peering direta ou túnel VPN Site a Site entre as redes VNet1 e VNet3. VNet3 está ligado a uma sucursal (Site1) utilizando uma ligação VPN de Site para Site. Todas as ligações VPN não estão a executar o BGP. Todas as ligações VPN estão a executar o BGP.
+Neste exemplo, a ligação de gateway VPN de ponto a Site é para a VNet1. Está ligado VNet1 para a VNet2 utilizando uma ligação VPN de Site para Site. VNet2 está ligado a VNet3 utilizando uma ligação VPN de Site para Site. Não há nenhum peering direta ou túnel VPN Site a Site entre as redes VNet1 e VNet3. VNet3 está ligado a uma sucursal (Site1) utilizando uma ligação VPN de Site para Site. Todas as ligações VPN estão a executar o BGP.
 
 Clientes que utilizam Windows podem aceder a VNets e sites que estão ligados através de uma ligação VPN de Site a Site, mas as rotas VNet2, VNet3 e Site1 tem ser adicionados manualmente para o cliente. Clientes Windows não podem aceder a VNets e sites que estão ligados utilizando uma ligação de VPN de Site para Site sem qualquer intervenção manual. O acesso é transitiva e os clientes podem aceder a recursos ligados todas as VNets e sites (no local).
 

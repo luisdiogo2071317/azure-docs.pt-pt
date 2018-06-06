@@ -1,13 +1,14 @@
 ---
-title: "No Azure Active Directory de reposição de palavra-passe | Microsoft Docs"
-description: "Administrador iniciada reposição palavra-passe de um utilizador no Azure Active Directory"
+title: No Azure Active Directory de reposição de palavra-passe | Microsoft Docs
+description: Administrador iniciada reposição palavra-passe de um utilizador no Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
+ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 6d01dff567e49b602e98f717dace4dc75abecb4c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: faeb66c9d0638b13c4716062b768a9c6742edcd1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714158"
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Repor a palavra-passe de um utilizador no Azure Active Directory
 
@@ -41,7 +43,7 @@ Os administradores poderão ter de repor a palavra-passe de um utilizador em cas
    > [!NOTE]
    > Esta palavra-passe temporária não tem uma hora de expiração para que esta será válida até que iniciar sessão e que são, em seguida, são forçadas para alterá-la. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar um utilizador](active-directory-users-create-azure-portal.md)
 * [Atribuir funções de administrador a um utilizador](active-directory-users-assign-role-azure-portal.md)
 * [Gerir perfis de utilizador](active-directory-users-profile-azure-portal.md)

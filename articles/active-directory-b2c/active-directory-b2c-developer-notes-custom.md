@@ -1,21 +1,21 @@
 ---
-title: 'Do Azure Active Directory B2C: Notas do programador sobre como utilizar políticas personalizadas | Microsoft Docs'
-description: Notas para os programadores na configuração e manutenção do Azure AD B2C com as políticas personalizadas
+title: Notas do programador sobre como utilizar políticas personalizadas no Azure Active Directory B2C | Microsoft Docs
+description: Notas para os programadores na configuração e manutenção do Azure AD B2C com as políticas personalizadas.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: davidmu
-ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: ce323972dcdbf673311b407f427bc452fbe6dc3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709731"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão de pré-visualização pública do Azure Active Directory B2C política personalizada
 O conjunto de funcionalidades de política personalizada está agora disponível para avaliação em pré-visualização pública para todas as do Azure Active Directory B2C clientes (Azure AD B2C). Este conjunto de funcionalidades é direcionado para programadores de identidades avançada criar soluções de identidade mais complexas.  
@@ -66,9 +66,9 @@ Interfaces com componentes externos e de aplicações
 | Funcionalidade | Desenvolvimento | Pré-visualização | GA | Notas |
 |---------------------------------------------|-------------|---------|----|-------|
 | IDP-OpenIDConnect |  | x |  | Por exemplo, Google + |
-| IDP-OAUTH2 |  | x |  | Por exemplo, Facebook  |
+| IDP OAUTH2 |  | x |  | Por exemplo, Facebook  |
 | IDP-OAUTH1 |  | x |  | Por exemplo, Twitter |
-| IDP-SAML |  | x |  | Por exemplo, Salesforce, ADFS |
+| IDP SAML |  | x |  | Por exemplo, Salesforce, ADFS |
 | IDP-WSFED | x |  |  |  |
 | Entidade confiadora intervenientes OAUTH |  | x |  |  |
 | Entidade confiadora OIDC intervenientes |  | x |  |  |
@@ -86,7 +86,7 @@ Interfaces com componentes externos e de aplicações
 | Azure Active Directory como o diretório local |  | x |  |  |
 | Subsistema de E-Mail do Azure para 2FA |  | x |  |  |
 | Suporte de vários idiomas|  | x |  |  |
-| Complexidade de palavra-passe | x |  |  |  |
+| Complexidade da palavra-passe | x |  |  |  |
 
 
 ### <a name="content-definition"></a>Definição de conteúdo
@@ -96,7 +96,7 @@ Interfaces com componentes externos e de aplicações
 |   Página de erro, api.error |  | x |  |  |
 |   Página de seleção de IDP, api.idpselections |  | x |  |  |
 |   Seleção de IDP para inscrição, api.idpselections.signup |  | x |  |  |
-|   Forgot Password, api.localaccountpasswordreset |  | x |  |  |
+|   Se esqueceu a palavra-passe, api.localaccountpasswordreset |  | x |  |  |
 |   Conta local. o início de sessão, api.localaccountsignin |  | x |  |  |
 |   Conta local api.localaccountsignup de inscrição, |  | x |  |  |
 |   Página MFA, api.phonefactor |  | x |  |  |

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796308"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como utilizar um Azure VM geridos serviço de identidade (MSI) para a aquisição do token 
 
@@ -312,6 +313,8 @@ Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é um
 | Erro interno do servidor 500 | desconhecido | Falha ao obter o token do Active directory. Para mais informações, consulte os registos no  *\<caminho do ficheiro\>* | Certifique-se de que foi ativado MSI da VM. Consulte [configurar uma VM geridos serviço de identidade (MSI) no portal do Azure](qs-configure-portal-windows-vm.md) se necessitar de assistência com a configuração de VM.<br><br>Certifique-se também de que o URI do pedido HTTP GET está formatado corretamente, particularmente o URI especificado na cadeia de consulta do recurso. Consulte o "exemplo de pedido" no [anterior a secção REST](#rest) por exemplo, ou [que suporte do Azure AD a autenticação de serviços do Azure](services-support-msi.md) para obter uma lista de serviços e os respetivos IDs de recurso.
 
 ## <a name="retry-guidance"></a>Repita a documentação de orientação 
+
+Recomenda-se para repetir se receber um 404, 429 ou código de erro 5xx (consulte [processamento de erros](#error-handling) acima).
 
 Os limites de limitação aplicam-se ao número de chamadas efetuadas para o ponto final IMDS. Quando o limiar de limitação for excedido, o ponto final IMDS limita qualquer mais pedidos enquanto a limitação está em vigor. Durante este período, o ponto final IMDS irá devolver o código de estado HTTP 429 ("demasiados muitos pedidos"), e falharem os pedidos. 
 

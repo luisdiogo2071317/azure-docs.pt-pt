@@ -6,22 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716232"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitetura de replicação do Azure para o Azure
 
 
 Este artigo descreve a arquitetura utilizada quando replicar, efetuar a ativação pós-falha e recuperar máquinas virtuais do Azure (VMs) entre regiões do Azure, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
->[!NOTE]
->Replicação de VM do Azure com o serviço de recuperação de sites está atualmente em pré-visualização.
 
 
 

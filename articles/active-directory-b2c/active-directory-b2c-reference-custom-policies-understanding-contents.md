@@ -1,27 +1,27 @@
 ---
-title: 'O Azure Active Directory B2C: Noções sobre políticas personalizadas do pacote de arranque | Microsoft Docs'
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C
+title: Noções sobre políticas personalizadas do arranque do pacote no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: eb78e4c2f2e27d59d7925ac9eaffd1cef0924463
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711584"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Compreender as políticas personalizadas do pacote de arranque de política personalizada do Azure AD B2C
 
 Esta secção lista todos os elementos principais da política B2C_1A_base que vem com o **Starter pacote** e que é utilizado para criar as suas políticas através de herança do *B2C_1A_base_extensions política*.
 
-Como tal, é mais particularmente aborda os tipos de afirmação já definidos, transformações de afirmações, as definições de conteúdo, fornecedores de afirmações com os seus perfis técnica e percursos de utilizador principal.
+Como tal, mais particularmente concentra-se no tipos de afirmação já definidos, transformações de afirmações, as definições de conteúdo, fornecedores de afirmações com os seus perfis técnica e percursos de utilizador principal.
 
 > [!IMPORTANT]
 > Microsoft faz com que não oferece nenhuma garantia, expressa ou implícita, relativamente a informações fornecidas hereafter. Alterações podem ser introduzidas em qualquer altura, antes da hora de DG, momento GA ou depois.
@@ -49,7 +49,7 @@ As seguintes afirmações são necessárias para percursos de utilizador funcion
 
 | Tipo de afirmações | Descrição |
 |-------------|-------------|
-| *UserId* | Nome de utilizador |
+| *ID de utilizador* | Nome de utilizador |
 | *signInName* | Inicie sessão no nome |
 | *tenantId* | Identificador de inquilino (ID) do objeto de utilizador no Azure AD B2C |
 | *objectId* | Identificador de objeto (ID) do objeto de utilizador no Azure AD B2C |
@@ -63,7 +63,7 @@ As seguintes afirmações são necessárias para percursos de utilizador funcion
 | *displayName* | |
 | *strongAuthenticationPhoneNumber* | Número de telefone do utilizador |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *email* | Endereço de correio eletrónico que pode ser utilizado para contactar o utilizador |
+| *Correio eletrónico* | Endereço de correio eletrónico que pode ser utilizado para contactar o utilizador |
 | *signInNamesInfo.emailAddress* | Endereço de e-mail que o utilizador pode utilizar para iniciar sessão |
 | *otherMails* | Endereços de e-mail que podem ser utilizados para contactar o utilizador |
 | *userPrincipalName* | Nome de utilizador conforme armazenado no Azure AD B2C |
@@ -88,7 +88,7 @@ As seguintes afirmações têm de passar em parâmetros especiais (incluindo alg
 | *grant_type* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
 | *scope* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
 | *client_id* | Parâmetro especial transmitido para a autenticação da conta local para login.microsoftonline.com |
-| *objectIdFromSession* | Parâmetro fornecido pelo fornecedor de gestão de sessão predefinida para indicar que o id de objeto foi obtido uma sessão SSO |
+| *objectIdFromSession* | Parâmetro fornecido pelo fornecedor de gestão de sessão predefinida para indicar que o ID de objeto foi obtido uma sessão SSO |
 | *isActiveMFASession* | Parâmetro fornecido pela gestão de sessão a MFA para indicar que o utilizador tem uma sessão ativa de MFA |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Afirmações (opcionais) adicionais que podem ser recolhidas
@@ -193,7 +193,7 @@ Esta secção ilustra os perfis técnicos já foi declarados por fornecedor de a
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Perfis técnicas para TechnicalProfiles de motor de política de Trustframework
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>Perfis técnicas para o motor de política de estrutura de confiança
 
 Atualmente, não existem perfis técnicas são definidas para o **TechnicalProfiles de motor de política de Trustframework** fornecedor de afirmações.
 

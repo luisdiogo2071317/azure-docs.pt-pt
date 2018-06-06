@@ -5,34 +5,35 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/01/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7139ec67536a1c0e41c991db6d867b956f995c11
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0264f92fa10bd503a2811ce40ee0b8d4edd5f3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34669837"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
-### <a name="nc-ncv2-ncv3-and-nd-series---nvidia-cuda-drivers"></a>NC, NCv2, NCv3 e série ND - NVIDIA CUDA controladores
+### <a name="nvidia-cuda-drivers"></a>Controladores NVIDIA CUDA
 
-Informações de controlador CUDA na tabela seguinte são actual no momento da publicação. Para os controladores mais recentes do CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site. Certifique-se de que instalar ou atualizar para os controladores mais recentes do CUDA para a distribuição. 
+Controladores NVIDIA CUDA NC, NCv2, NCv3 e VMs de série ND (opcionais para a série NV) são suportados apenas nas distribuições de Linux listadas na seguinte tabela. Informações de controlador CUDA são actual no momento da publicação. Para os controladores mais recentes do CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site. Certifique-se de que instalar ou atualizar para os controladores mais recentes do CUDA para a distribuição. 
 
 > [!TIP]
 > Como alternativa à instalação de controlador CUDA manual uma VM com Linux, pode implementar um Azure [máquinas de virtuais de ciência de dados](../articles/machine-learning/data-science-virtual-machine/overview.md) imagem. As edições de DSVM para Ubuntu 16.04 LTS ou CentOS 7.4 de pré-instalação controladores NVIDIA CUDA, CUDA profunda neuronal biblioteca de rede e outras ferramentas.
 
 | Distribuição | Controlador |
-| --- | --- | 
+| --- | -- | 
 | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/> Com base em centOS 7.3 ou 7.4, com base em CentOS 7.4 HPC | NVIDIA CUDA 9.1, ramo controlador R390 |
 
-### <a name="nv-series---nvidia-grid-drivers"></a>Série NV - NVIDIA grelha controladores
+### <a name="nvidia-grid-drivers"></a>Controladores NVIDIA grelha
 
-Microsoft redistribui com os programas de instalação de controlador de grelha NVIDIA para NV VMs. Instale apenas estes controladores de grelha em VMs do Azure NV. Estes incluem de licenciamento para Software para a GPU Virtual grelha no Azure.
+Microsoft redistribui com os programas de instalação de controlador de grelha NVIDIA para VMs NV série utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores de grelha em VMs do Azure NV, apenas nas distribuições listadas na seguinte tabela. Estes incluem de licenciamento para Software para a GPU Virtual grelha no Azure.
 
 | Distribuição | Controlador |
-| --- | --- | 
+| --- | -- |
 | Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>7.3 ou 7.4 baseada em centOS | NVIDIA grelha 6.0, o ramo de controlador R390|
 
 

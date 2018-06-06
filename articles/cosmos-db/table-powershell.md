@@ -2,28 +2,26 @@
 title: Efetuar operações de API de tabela de base de dados do Azure Cosmos com o PowerShell | Microsoft Docs
 description: Como realizar operações de API de tabela de base de dados do Azure Cosmos com o PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798649"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Efetuar operações de API de tabela de base de dados do Azure Cosmos com o Azure PowerShell 
 
 >[!NOTE]
->API de tabela de base de dados do Azure Cosmos fornece as funcionalidades premium para armazenamento de tabelas como chave na mão distribuição global, leituras de latência baixa e escritas, indexação secundário automática e débito dedicado. Na maioria dos casos, os comandos do PowerShell no trabalho artigo para armazenamento de API de tabela de base de dados do Azure Cosmos e tabelas do Azure, mas este artigo é específica para API de tabela de base de dados do Azure Cosmos. Se estiver a utilizar o Table storage do Azure, consulte o artigo [operações de armazenamento de Azure Table executar com o Azure PowerShell](table-storage-how-to-use-powershell.md).
+>API de tabela de base de dados do Azure Cosmos fornece as funcionalidades premium para armazenamento de tabelas como chave na mão distribuição global, leituras de latência baixa e escritas, indexação secundário automática e débito dedicado. Na maioria dos casos, os comandos do PowerShell no trabalho artigo para armazenamento de API de tabela de base de dados do Azure Cosmos e tabelas do Azure, mas este artigo é específica para API de tabela de base de dados do Azure Cosmos. Se estiver a utilizar o Table storage do Azure, consulte o artigo [operações de armazenamento de Azure Table executar com o Azure PowerShell](../storage/tables/table-storage-how-to-use-powershell.md).
 >
 
 API de tabela de base de dados do Azure Cosmos permite-lhe armazenar e consultar conjuntos enormes de dados estruturados não relacionais. Componentes principais do serviço são propriedades, tabelas e entidades. Uma tabela é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades que são todos os pares nome-valor. Este artigo pressupõe que já estiver familiarizado com os conceitos de API de tabela de base de dados do Azure Cosmos. Para obter informações detalhadas, consulte [introdução à API de tabela de base de dados do Azure Cosmos](table-introduction.md) e [compilar uma aplicação .NET através da API de tabela](create-table-dotnet.md).

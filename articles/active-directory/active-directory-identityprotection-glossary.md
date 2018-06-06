@@ -1,13 +1,14 @@
 ---
-title: "Glossário de proteção de identidade do Azure Active Directory | Microsoft Docs"
-description: "Glossário de proteção de identidade do Azure Active Directory"
+title: Glossário de proteção de identidade do Azure Active Directory | Microsoft Docs
+description: Glossário de proteção de identidade do Azure Active Directory
 services: active-directory
-keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança, Glossário"
-documentationcenter: 
+keywords: proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança, Glossário
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713396"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de proteção de identidade do Azure Active Directory
 ### <a name="at-risk-user"></a>Em risco (utilizador)
@@ -32,7 +34,7 @@ Um início de sessão a partir de uma localização geográfica, que não é tí
 Um módulo de segurança do Azure Active Directory que fornece uma vista consolidada sobre eventos de risco e potenciais vulnerabilidades que afetam as identidades de uma organização.
 
 ### <a name="conditional-access"></a>Acesso condicional
-Uma política para proteger o acesso aos recursos. Regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  Regras de exemplo incluem restringir o acesso com base na localização do utilizador, método de autenticação de utilizador ou de estado de funcionamento do dispositivo.
+Uma política para proteger o acesso aos recursos. Regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  Regras de exemplo incluem restringir o acesso com base na localização do utilizador, o estado de funcionamento do dispositivo ou o método de autenticação de utilizador.
 
 ### <a name="credentials"></a>Credenciais
 Informações que incluem uma prova de identificação que é utilizada para obter acesso ao local e de recursos de rede e de identificação. Exemplos de credenciais são os nomes de utilizador e palavras-passe, smart cards e certificados.
@@ -71,7 +73,7 @@ Tem um método de autenticação que requer dois ou mais métodos de autenticaç
 A deteção de anomalias e edição de avaliação do risco de um evento, tais como a tentativa de início de sessão após o facto, um evento que já tiver ocorrido.
 
 ### <a name="policy-condition"></a>Condição de política
-Uma parte de uma política de segurança que define as entidades (grupos de utilizadores, aplicações, plataformas de dispositivos, Estados do dispositivo, intervalos de IP, tipos de clientes) incluída na política ou excluído do mesmo.
+Uma parte de uma política de segurança, que define as entidades (grupos de utilizadores, aplicações, plataformas de dispositivos, Estados do dispositivo, intervalos de IP, tipos de clientes) incluída na política ou excluído do mesmo.
 
 ### <a name="policy-rule"></a>Regra de política
 A parte de uma política de segurança que descreve as circunstâncias acionam a política e as ações executadas quando a política é activada.
@@ -127,16 +129,16 @@ Para se autenticar uma identidade no Azure Active Directory.
 ### <a name="sign-in-n"></a>Início de sessão (n)
 O processo ou a ação de autenticação de uma identidade no Azure Active Directory e o evento que captura esta operação.
 
-### <a name="sign-in-from-anonymous-ip-address"></a>Início de sessão do endereço IP anónimo
+### <a name="sign-in-from-anonymous-ip-address"></a>Iniciar sessão a partir do endereço IP anónimo
 Acionado um evento de risco após um bem-sucedida início de sessão do endereço IP que foi identificado como um endereço IP de proxy anónimo.
 
-### <a name="sign-in-from-infected-device"></a>Início de sessão a partir de dispositivos infetados
-Um evento de risco acionado quando um início de sessão tem origem num endereço de IP que é conhecido para ser utilizado por um ou mais dispositivos comprometidos, que são ativamente a tentar comunicar com um servidor bot.
+### <a name="sign-in-from-infected-device"></a>Iniciar sessão a partir de dispositivos infetados
+Um evento de risco acionado quando um início de sessão tem origem num endereço de IP, o que é conhecido para ser utilizado por um ou mais dispositivos comprometidos, que são ativamente a tentar comunicar com um servidor bot.
 
-### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Início de sessão do endereço IP com atividade suspeita
+### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Inicie sessão do endereço IP com atividade suspeita
 Acionado um evento de risco após um bem-sucedida início de sessão de um IP endereços com um número elevado de tentativas de início de sessão em várias contas de utilizador num curto período de tempo.
 
-### <a name="sign-in-from-unfamiliar-location"></a>Início de sessão da localização familiarizada
+### <a name="sign-in-from-unfamiliar-location"></a>Iniciar sessão a partir da localização familiarizada
 Um evento de risco acionado quando um utilizador com êxito inicia sessão a partir de uma localização nova (IP, Latitude/Longitude e ASN).
 
 ### <a name="sign-in-risk"></a>Risco de início de sessão
@@ -155,10 +157,10 @@ Consulte o risco ao nível (compromisso do utilizador).
 Uma política de acesso condicional que considera o início de sessão e aplica-se mitigações com base nas condições predefinidas e as regras.
 
 ### <a name="users-flagged-for-risk"></a>Utilizadores marcados em risco
-Utilizadores que têm de eventos de risco que são remediados ou Active Directory
+Utilizadores que têm de eventos de risco, que são remediados ou Active Directory
 
 ### <a name="vulnerability"></a>Vulnerabilidade
-Uma configuração ou a condição no Azure Active Directory que torna o diretório suscetível a exploits ou ameaças.
+Uma configuração ou a condição no Azure Active Directory, o que torna o diretório exploits ou de ameaças.
 
 ## <a name="see-also"></a>Consulte também
 * [Proteção de identidade do Azure Active Directory](active-directory-identityprotection.md)

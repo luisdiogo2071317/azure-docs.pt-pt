@@ -1,24 +1,19 @@
 ---
-title: "Insulating aplicações de Service Bus do Azure contra falhas e desastres inesperados | Microsoft Docs"
-description: "Técnicas para proteger as aplicações em relação a uma potencial falha de Service Bus."
+title: Insulating aplicações de Service Bus do Azure contra falhas e desastres inesperados | Microsoft Docs
+description: Técnicas para proteger as aplicações em relação a uma potencial falha de Service Bus.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802311"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para insulating aplicações contra falhas de Service Bus e desastres inesperados
 
@@ -34,7 +29,9 @@ O Service Bus utiliza vários arquivos de mensagens para armazenar as mensagens 
 Todas as entidades de mensagens Service Bus (filas, tópicos, reencaminhamentos) residirem no espaço de nomes de serviço, o que está afiliado a um centro de dados. Barramento de serviço agora suporta [ *recuperação de desastres Georreplicação* e *georreplicação* ](service-bus-geo-dr.md) ao nível do espaço de nomes.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Proteger a filas e tópicos contra falhas do arquivo de mensagens
-Uma fila não particionadas ou um tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nessa fila ou um tópico irão falhar. Uma fila particionada, é composta por outro lado, fragmentos vários. Cada fragmento é armazenado num arquivo de mensagens diferentes. Quando é enviada uma mensagem para uma fila particionada ou um tópico, o Service Bus atribui a mensagem para um dos fragmentos. Se o arquivo de mensagens correspondente estiver disponível, Service Bus escreve a mensagem para um fragmento diferentes, se possível. Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
+Uma fila não particionadas ou um tópico é atribuído a um arquivo de mensagens. Se este arquivo de mensagens não estiver disponível, todas as operações nessa fila ou um tópico irão falhar. Uma fila particionada, é composta por outro lado, fragmentos vários. Cada fragmento é armazenado num arquivo de mensagens diferentes. Quando é enviada uma mensagem para uma fila particionada ou um tópico, o Service Bus atribui a mensagem para um dos fragmentos. Se o arquivo de mensagens correspondente estiver disponível, Service Bus escreve a mensagem para um fragmento diferentes, se possível. Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
+
+Para obter mais informações sobre entidades particionadas, consulte [entidades de mensagens Particionadas][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Proteger contra falhas do Centro de dados ou perante desastres
 Para permitir uma ativação pós-falha entre dois centros de dados, pode criar um espaço de nomes de serviço do Service Bus em cada datacenter. Por exemplo, o Service Bus serviço espaço de nomes **contosoPrimary.servicebus.windows.net** pode estar localizada na região Centro-Norte/dos Estados Unidos, e **contosoSecondary.servicebus.windows.net**pode estar localizada na região dos EUA Sul/Central. Se uma entidade de mensagens do Service Bus tem de permanecer acessível na presença de uma falha de centro de dados, pode criar essa entidade em ambos os espaços de nomes.
@@ -86,7 +83,7 @@ Para saber mais sobre a recuperação após desastre, consulte estes artigos:
 
 * [Recuperação de Georreplicação-desastre do Service Bus do Azure](service-bus-geo-dr.md)
 * [Continuidade de negócios de base de dados SQL do Azure][Azure SQL Database Business Continuity]
-* [Ao conceber aplicações resilientes para o Azure][Azure resiliency technical guidance]
+* [Conceber aplicações resilientes para o Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

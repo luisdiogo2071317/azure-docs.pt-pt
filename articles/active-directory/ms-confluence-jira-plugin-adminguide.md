@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: d34ff6021816c73fb064a3ce73b7fcf3ae22dbd1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7cbe0d0ea3bbbd60b7cd2dc88ef249c4380083a7
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699415"
 ---
 # <a name="admin-guide-for-the-azure-active-directory-sso-plug-in"></a>Guia do administrador para o SSO do diretório de Active Directory do Azure Plug-in
 
@@ -67,7 +68,7 @@ Antes de instalar o plug-in, tenha em atenção as seguintes informações:
 
 O plug-in suporta as seguintes versões do Jira e Confluence:
 
-* Jira núcleos e do Software: 6.0 para 7.2.0
+* Jira núcleos e do Software: 6.0 para 7.8
 * Suporte técnico do serviço de Jira: 3.0 para 3.2
 * Confluence: 5.0 à versão 5.10
 
@@ -76,51 +77,51 @@ O plug-in suporta as seguintes versões do Jira e Confluence:
 Para instalar o plug-in, siga estes passos:
 
 1. Iniciar sessão na sua instância Jira ou Confluence como um administrador.
-    
+
 2. Aceda à consola de administração do Jira/Confluence e selecione **suplementos**.
-    
+
 3. No Marketplace Atlassian, procure **Plug-in do Microsoft SAML SSO**.
- 
+
    A versão adequada do plug-in é apresentado nos resultados da pesquisa.
- 
-5. Selecione o plug-in e instala-o do Gestor de plug-in Universal (UPM).
- 
+
+4. Selecione o plug-in e instala-o do Gestor de plug-in Universal (UPM).
+
 Depois do plug-in estiver instalado, é apresentado no **utilizador instalado suplementos** secção **gerir suplementos**.
-    
+
 ## <a name="plug-in-configuration"></a>Configuração de plug-in
 
 Antes de começar a utilizar o plug-in, tem de configurá-lo. Selecione o plug-in, selecione o **configurar** botão e forneça os detalhes de configuração.
 
 A imagem seguinte mostra o ecrã de configuração no Jira e Confluence:
-    
+
 ![Ecrã de configuração de plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
 *   **URL de metadados**: O URL para obter os metadados de Federação do Azure AD.
- 
+
 *   **Identificadores**: O URL que o Azure AD utiliza para validar a origem do pedido. Mapeia para o **identificador** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/.
- 
+
 *   **URL de resposta**: O URL de resposta no seu fornecedor de identidade (IdP), que inicia o SAML início de sessão. Mapeia para o **URL de resposta** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
- 
+
 *   **URL de início de sessão**: O URL de início de sessão na sua IdP que inicia o SAML início de sessão. Mapeia para o **sessão** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
- 
+
 *   **ID de entidade IdP**: O ID de entidade que utiliza o IdP. Esta caixa é preenchida quando o URL de metadados está resolvido.
- 
+
 *   **URL de início de sessão**: O URL de início de sessão da sua IdP. Esta caixa é preenchida do Azure AD quando o URL de metadados está resolvido.
- 
+
 *   **URL de fim de sessão**: O URL de fim de sessão da sua IdP. Esta caixa é preenchida do Azure AD quando o URL de metadados está resolvido.
- 
+
 *   **Certificado x. 509**: certificado de x. 509 do IdP. Esta caixa é preenchida do Azure AD quando o URL de metadados está resolvido.
- 
+
 *   **Nome do botão de início de sessão**: O nome do botão de início de sessão que a organização quer que os utilizadores vejam na página de início de sessão.
- 
+
 *   **Localizações de ID de utilizador de SAML**: A localização onde o ID de utilizador Jira ou Confluence é esperado na resposta SAML. Pode ser na **NameID** ou um nome de atributo personalizado.
- 
+
 *   **Nome de atributo**: O nome do atributo onde é esperado o ID de utilizador.
- 
+
 *   **Ativar a deteção de Realm inicial**: A seleção, certifique-se a empresa estiver a utilizar serviços de Federação do Active Directory (AD FS) - baseados em sessão - no.
- 
+
 *   **Nome de domínio**: O nome de domínio se início de sessão do AD FS com base.
- 
+
 *   **Ativar o único Signout**: Certifique-se de que pretende terminar a sessão do Azure AD quando um utilizador termina a sessão de Jira ou Confluence a seleção.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -130,15 +131,15 @@ A imagem seguinte mostra o ecrã de configuração no Jira e Confluence:
 * **Um certificado está prestes a expirar no Azure AD**: suplementos asseguramos rollover automático do certificado. Quando um certificado está prestes a expirar, um novo certificado deve ser marcado como ativo e certificados não utilizados devem ser eliminados. Quando um utilizador tenta iniciar sessão para Jira neste cenário, os plug-in fetches e guarda o novo certificado.
 
 * **Pretende desativar WebSudo (desativar a sessão de administrador segura)**:
-    
+
   * Para Jira, proteja administrador sessões (ou seja, confirmação de palavra-passe antes de aceder a funções de administração) estão ativadas por predefinição. Se pretende remover esta capacidade na sua instância Jira, especificar a seguinte linha no seu ficheiro jira Properties: `ira.websudo.is.disabled = true`
-    
+
   * Para Confluence, siga os passos no [site de suporte de Confluence](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
 * **Os campos que são deveria ser preenchido pelo URL de metadados não estão a obter povoados**:
-    
+
   * Verifique se o URL está correto. Verifique se tem a mapear o ID de inquilino e de aplicação correto
-    
+
   * Introduza o URL no browser e veja se receber o XML dos metadados de Federação.
 
 * **Erro interno do servidor**: Reveja os registos no diretório de registo da instalação. Se estiver a obter o erro quando o utilizador está a tentar iniciar sessão utilizando o SSO do Azure AD, pode partilhar os registos com a equipa de suporte.
@@ -148,5 +149,5 @@ A imagem seguinte mostra o ecrã de configuração no Jira e Confluence:
 * **Há um erro "Aplicação não encontrada" no Azure AD**: ver se o URL adequado está mapeado para a aplicação no Azure AD.
 
 * **É necessário suporte**: entrar o [equipa de integração do Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipa responde no 48 de 24 horas de expediente.
-    
+
   Também pode emitir um pedido de suporte com a Microsoft através do canal de portal do Azure.

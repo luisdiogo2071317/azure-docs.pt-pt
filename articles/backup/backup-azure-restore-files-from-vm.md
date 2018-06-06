@@ -1,28 +1,24 @@
 ---
-title: "Cópia de segurança do Azure: Recuperar ficheiros e pastas a partir de uma cópia de segurança de VM do Azure | Microsoft Docs"
-description: "Recuperar ficheiros a partir de um ponto de recuperação da máquina virtual do Azure"
+title: 'Cópia de segurança do Azure: Recuperar ficheiros e pastas a partir de uma cópia de segurança de VM do Azure'
+description: Recuperar ficheiros a partir de um ponto de recuperação da máquina virtual do Azure
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "recuperação ao nível do item; recuperação de ficheiros de cópia de segurança de VM do Azure; restaurar ficheiros a partir da VM do Azure"
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
+keywords: recuperação ao nível do item; recuperação de ficheiros de cópia de segurança de VM do Azure; restaurar ficheiros a partir da VM do Azure
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737023"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros de cópia de segurança da máquina virtual do Azure
 
-Cópia de segurança do Azure fornece a capacidade de restaurar [máquinas de virtuais (VMs) do Azure e os discos](./backup-azure-arm-restore-vms.md) de cópias de segurança de VM do Azure, também conhecido como restaurar pontos. Este artigo explica como recuperar ficheiros e pastas a partir de uma cópia de segurança de VM do Azure. Restaurar ficheiros e pastas só está disponível para VMs do Azure implementadas utilizando o modelo do Resource Manager e protegidos para um cofre de serviços de recuperação.
+Cópia de segurança do Azure fornece a capacidade de restaurar [máquinas de virtuais (VMs) do Azure e os discos](./backup-azure-arm-restore-vms.md) de cópias de segurança de VM do Azure, também conhecido como pontos de recuperação. Este artigo explica como recuperar ficheiros e pastas a partir de uma cópia de segurança de VM do Azure. Restaurar ficheiros e pastas só está disponível para VMs do Azure implementadas utilizando o modelo do Resource Manager e protegidos para um cofre de serviços de recuperação.
 
 > [!Note]
 > Esta funcionalidade está disponível para VMs do Azure implementadas utilizando o modelo do Resource Manager e protegidos para um cofre dos serviços de recuperação.
@@ -31,7 +27,7 @@ Cópia de segurança do Azure fornece a capacidade de restaurar [máquinas de vi
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montar o volume e copiar os ficheiros
 
-Para restaurar ficheiros ou pastas a partir do ponto de restauro, vá para a máquina virtual e optar por ponto de restauro. 
+Para restaurar os ficheiros ou pastas no ponto de recuperação, vá para a máquina virtual e escolha o ponto de recuperação pretendidos. 
 
 1. Inicie sessão no [portal do Azure](http://portal.Azure.com) e no menu da esquerda, clique em **máquinas virtuais**. Na lista de máquinas virtuais, selecione a máquina virtual para abrir o dashboard de nessa máquina virtual. 
 
@@ -84,7 +80,7 @@ Quando executar o executável, o sistema operativo monta os novos volumes e atri
        
    ![Menu de recuperação de ficheiro](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
            
-#### <a name="for-linux"></a>For Linux
+#### <a name="for-linux"></a>Para Linux
 
 No Linux, dos pontos de recuperação estão montados para a pasta onde o script é executado. Os discos ligados, volumes e os caminhos de montagem correspondentes são apresentados em conformidade. Estes caminhos de montagem são visíveis para os utilizadores ter acesso de nível de raiz. Procure os volumes mencionados no resultado do script.
 
@@ -177,7 +173,7 @@ A tabela seguinte mostra a compatibilidade entre sistemas operativos de servidor
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>For Linux
+### <a name="for-linux"></a>Para Linux
 
 No Linux, SO de computador utilizado para restaurar os ficheiros têm de suportar o sistema de ficheiros de máquina virtual protegida. Quando selecionar um computador para executar o script, certifique-se de que o computador tem um SO compatível e utiliza uma das versões identificadas na tabela seguinte:
 

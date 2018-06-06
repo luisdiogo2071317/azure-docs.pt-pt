@@ -1,23 +1,23 @@
 ---
 title: Criar um inquilino do Azure Active Directory B2C | Microsoft Docs
-description: Um tópico sobre como criar um inquilino do Azure Active Directory B2C
+description: Um tópico sobre como criar um inquilino do Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 56e0ae7454e86911c894da88b5aa8ccc03a08af3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: d1031074885b0ca55d0b1647575354fcd0f49889
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712271"
 ---
-# <a name="create-an-azure-active-directory-b2c-tenant-in-the-azure-portal"></a>Criar um inquilino do Azure Active Directory B2C no portal do Azure
+# <a name="create-an-azure-active-directory-b2c-tenant"></a>Criar um inquilino do Azure Active Directory B2C
 
 Este guia de introdução ajuda-o a criar um inquilino do Microsoft Azure Active Directory (Azure AD) B2C em apenas alguns minutos. Quando tiver terminado, tem um inquilino do B2C (também conhecido como um diretório) a utilizar para registar as aplicações do B2C.
 
@@ -35,7 +35,7 @@ Os inquilinos existentes não podem ser ativadas funcionalidades do B2C. Terá d
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Parabéns, criou um inquilino do Azure Active Directory B2C. É um Administrador Global do inquilino. Pode adicionar outros administradores globais conforme necessário. Para mudar para o seu inquilino novo, clique em de *gerir a nova ligação de inquilino*.
+Parabéns, criou um inquilino do Azure Active Directory B2C. É um Administrador Global do inquilino. Pode adicionar outros administradores globais conforme necessário. Para mudar para o seu inquilino novo, clique em *gerir o seu inquilino novo*.
 
 ![Gerir a nova ligação de inquilino](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 

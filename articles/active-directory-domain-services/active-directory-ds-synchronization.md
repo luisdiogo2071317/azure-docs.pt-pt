@@ -1,34 +1,36 @@
 ---
-title: "Do Azure Active Directory dos serviços de domínio: Sincronização nos domínios geridos | Microsoft Docs"
-description: "Compreender a sincronização num domínio do Azure Active Directory Domain Services gerido"
+title: 'Do Azure Active Directory dos serviços de domínio: Sincronização nos domínios geridos | Microsoft Docs'
+description: Compreender a sincronização num domínio do Azure Active Directory Domain Services gerido
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2449c8178f726eacad089debeae6cf1db56cc67a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698446"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização de um domínio gerido dos serviços de domínio do Azure AD
 O diagrama seguinte ilustra como sincronização funciona nos serviços de domínio do Azure AD domínios geridos.
 
-![Topologia de sincronização nos serviços de domínio do Azure AD](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Sincronização nos serviços de domínio do Azure AD](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
 ## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Sincronização a partir do seu diretório no local com o seu inquilino do Azure AD
 Sincronização do Azure AD Connect é utilizada para sincronizar as contas de utilizador, associações a grupos e credenciais codifica no seu inquilino do Azure AD. Atributos de utilizador das contas, tais como o UPN e no local são sincronizados SID (identificador de segurança). Se utilizar os serviços de domínio do Azure AD, os hashes de credencial legado necessários para a autenticação NTLM e Kerberos também são sincronizados com o seu inquilino do Azure AD.
 
-Se configurar a repetição de escrita, serão sincronizadas as alterações que ocorrem diretório do Azure AD para o Active Directory no local. Por exemplo, se alterar a palavra-passe a utilizar funcionalidades de alteração de palavra-passe self-service do Azure AD, a palavra-passe alterada é atualizada no seu local domínio AD.
+Se configurar a repetição de escrita, serão sincronizadas as alterações que ocorrem diretório do Azure AD para o Active Directory no local. Por exemplo, se alterar a palavra-passe utilizando a gestão de palavra-passe self-service do Azure AD, a palavra-passe alterada é atualizada no seu local domínio AD.
 
 > [!NOTE]
 > Utilize sempre a versão mais recente do Azure AD Connect para se certificar de que tem correções para todos os erros conhecidos.
@@ -36,21 +38,21 @@ Se configurar a repetição de escrita, serão sincronizadas as alterações que
 >
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Sincronização a partir do seu inquilino do Azure AD para o seu domínio gerido
-Contas de utilizador, as associações de grupo e hashes de credencial são sincronizados a partir do seu inquilino do Azure AD para o seu domínio gerido dos serviços de domínio do Azure AD. Este processo de sincronização é automático. Não é necessário configurar, monitorizar ou gerir este processo de sincronização. Depois de concluída a sincronização inicial uso do seu diretório, normalmente demora cerca de 20 minutos para as alterações efetuadas no Azure AD para serem refletidas no seu domínio gerido. Este intervalo de sincronização se aplica a alterações de palavra-passe ou as alterações aos atributos efetuados no Azure AD.
+Contas de utilizador, as associações de grupo e hashes de credencial são sincronizados a partir do seu inquilino do Azure AD para o seu domínio gerido dos serviços de domínio do Azure AD. Este processo de sincronização é automático. Não é necessário configurar, monitorizar ou gerir este processo de sincronização. A sincronização inicial pode demorar de alguns horas para alguns dias, dependendo do número de objetos no diretório do Azure AD. Depois de concluída a sincronização inicial, que demora cerca de 20-30 minutos para as alterações efetuadas no Azure AD seja actualizado no seu domínio gerido. Este intervalo de sincronização se aplica a alterações de palavra-passe ou as alterações aos atributos efetuados no Azure AD.
 
 O processo de sincronização também é one-way/unidirecionais natureza. O domínio gerido é amplamente só de leitura, exceto para quaisquer UOs personalizados que cria. Por conseguinte, não é possível efetuar as alterações para atributos de utilizador e palavras-passe de utilizador ou associações a grupos no domínio gerido. Como resultado, não há nenhuma sincronização inversa de alterações do seu domínio gerido para o inquilino do Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Sincronização de um ambiente de várias florestas no local
 Muitas organizações têm uma infraestrutura de identidade no local relativamente complexa consiste em várias florestas de contas. Azure AD Connect suporta sincronizar os utilizadores, grupos e hashes de credencial de ambientes de várias florestas com o seu inquilino do Azure AD.
 
-Em contrapartida, o seu inquilino do Azure AD é um muito simples e mais simples do espaço de nomes. Para permitir que os utilizadores fiável aceder às aplicações protegidas pelo Azure AD, resolva conflitos UPN em contas de utilizador em florestas diferentes. Os bears de domínio gerido dos serviços de domínio do Azure AD fechar resemblance no seu inquilino do Azure AD. Por conseguinte, verá uma estrutura de UO simples no seu domínio gerido. Todos os utilizadores e grupos são armazenados no contentor 'AADDC utilizadores', independentemente do domínio no local ou a floresta partir do qual foram sincronizadas em. Poderá ter configurado uma UO hierárquica estrutura no local. No entanto, o seu domínio gerido ainda tem uma estrutura de UO simples simples.
+Em contrapartida, o seu inquilino do Azure AD é um muito simples e mais simples do espaço de nomes. Para permitir que os utilizadores fiável aceder às aplicações protegidas pelo Azure AD, resolva conflitos UPN em contas de utilizador em florestas diferentes. Os bears de domínio gerido dos serviços de domínio do Azure AD fechar resemblance no seu inquilino do Azure AD. Verá uma estrutura de UO simples no seu domínio gerido. Todas as contas de utilizador e grupos são armazenados no contentor 'AADDC utilizadores', não obstante que está a ser sincronizados a partir de domínios diferentes no local ou florestas. Poderá ter configurado uma UO hierárquica estrutura no local. O domínio gerido ainda tem uma estrutura de UO simples simples.
 
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Exclusões - o que não está sincronizado para o seu domínio gerido
 Os seguintes objetos ou atributos não estão sincronizados com o seu inquilino do Azure AD ou ao seu domínio gerido:
 
 * **Excluídos atributos:** pode optar por excluir determinados atributos a sincronizar com o seu inquilino do Azure AD do seu domínio no local com o Azure AD Connect. Estes atributos excluídos não estão disponíveis no seu domínio gerido.
 * **Políticas de grupo:** políticas de grupo configuradas no seu domínio no local não estão sincronizadas para o seu domínio gerido.
-* **Partilha SYSVOL:** da mesma forma, os conteúdos da partilha SYSVOL no seu domínio no local não estão sincronizados para o seu domínio gerido.
+* **Partilha SYSVOL:** da mesma forma, os conteúdos da partilha Sysvol no seu domínio no local não estão sincronizados para o seu domínio gerido.
 * **Objetos de computador:** objetos de computador para computadores associados ao seu domínio no local não estão sincronizados com o seu domínio gerido. Estes computadores não têm uma relação de fidedignidade com o seu domínio gerido e pertence ao seu domínio no local apenas. No seu domínio gerido, localize os objetos de computador apenas para computadores que têm explicitamente domínio associado ao domínio gerido.
 * **Atributos de SidHistory para utilizadores e grupos:** o utilizador principal e os SIDs do seu domínio no local do grupo principal são sincronizados para o seu domínio gerido. No entanto, atributos de SidHistory existentes para utilizadores e grupos não estão sincronizados do seu domínio local no seu domínio gerido.
 * **Estruturas de unidades (UO) da organização:** unidades organizacionais definida no seu domínio no local não sincronizar com o seu domínio gerido. Existem dois UOs incorporados no seu domínio gerido. Por predefinição, o seu domínio gerido tem uma estrutura de UO simples. No entanto pode optar por [criar uma UO personalizada no seu domínio gerido](active-directory-ds-admin-guide-create-ou.md).
@@ -79,12 +81,12 @@ A tabela seguinte ilustra como específicos atributos de utilizador são sincron
 | accountEnabled |userAccountControl (define ou limpa ACCOUNT_DISABLED bit) |
 | city |l |
 | País |Co |
-| Departamento |Departamento |
+| departamento |departamento |
 | displayName |displayName |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
-| jobTitle |Título |
-| capacidade de correio |capacidade de correio |
+| jobTitle |título |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (por vezes poderá gerado automaticamente) |
 | Mobile |Mobile |
@@ -92,7 +94,7 @@ A tabela seguinte ilustra como específicos atributos de utilizador são sincron
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl (define ou limpa DONT_EXPIRE_PASSWORD bit) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
-| PostalCode |PostalCode |
+| postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
 | state |St |
 | StreetAddress |StreetAddress |
@@ -107,11 +109,20 @@ A tabela seguinte ilustra os atributos como específicos para o grupo de objetos
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (por vezes poderá gerado automaticamente) |
-| capacidade de correio |capacidade de correio |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | ObjectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
+
+## <a name="password-hash-synchronization-and-security-considerations"></a>Considerações de segurança e sincronização de hash de palavra-passe
+Quando ativar os serviços de domínio do Azure AD, o diretório do Azure AD gera e armazena hashes de palavra-passe em formatos compatíveis NTLM e Kerberos. 
+
+Para contas de utilizador de nuvem existente, uma vez que o Azure AD nunca armazena as palavras-passe de texto não encriptado, estes hashes não podem ser geradas automaticamente. Por conseguinte, requer o Microsoft [nuvem-os utilizadores reposição/alterar as palavras-passe](active-directory-ds-getting-started-password-sync.md) para que os hashes de palavra-passe ser gerado e armazenado no Azure AD. Para qualquer conta de utilizador de nuvem criada no Azure AD depois de ativar os serviços de domínio do Azure AD, os hashes de palavra-passe são gerados e armazenados nos formatos NTLM e Kerberos compatíveis. 
+
+Para contas de utilizador sincronizados a partir no AD local com a sincronização do Azure AD Connect, terá de [configurar o Azure AD Connect para sincronizar os hashes de palavra-passe nos formatos NTLM e Kerberos compatíveis](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+
+Os hashes de palavra-passe compatível NTLM e Kerberos são sempre armazenados de forma encriptada no Azure AD. Estes hashes são encriptados de forma a que apenas os serviços de domínio do Azure AD tem acesso às chaves de desencriptação. Nenhum outro serviço ou componente no Azure AD tem acesso às chaves de desencriptação. As chaves de encriptação são exclusivo inquilino de AD por Azure. Serviços de domínio do AD do Azure sincroniza os hashes de palavra-passe para os controladores de domínio para o seu domínio gerido. Estes hashes de palavra-passe são armazenadas e protegidas nestes controladores de domínio semelhantes à forma como palavras-passe são armazenadas e protegidas em controladores de domínio do Windows Server AD. Os discos para estes controladores de domínio geridos são encriptados em pausa.
 
 ## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Objetos que não estão sincronizados com o seu inquilino do Azure AD do seu domínio gerido
 Como descrito na secção anterior deste artigo, não há nenhuma sincronização a partir do seu domínio gerido para o inquilino do Azure AD. Pode optar por [criar uma unidade organizacional personalizado (UO)](active-directory-ds-admin-guide-create-ou.md) no seu domínio gerido. Além disso, pode criar outras UOs, utilizadores, grupos ou contas de serviço dentro destes UOs personalizados. Nenhum dos objetos criados dentro personalizados UOs são sincronizados para o inquilino do Azure AD. Estes objetos estão disponíveis para utilização apenas dentro do seu domínio gerido. Por conseguinte, estes objetos não estão visíveis utilizando cmdlets do Azure AD PowerShell, AD Graph API do Azure ou utilizando a IU de gestão do Azure AD.

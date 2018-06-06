@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702079"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -31,7 +32,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 - Se ainda não tiver uma conta do Azure, inscreva-se um [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.7.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/powershell), ou através da execução do PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, quer executar os comandos [Shell de nuvem do Azure](https://shell.azure.com/bash), ou executando a CLI do seu computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI do Azure, também terá de executar `az login` para criar uma ligação com o Azure.
 
 A conta iniciar sessão ou ligar ao Azure, tem de ser atribuída para a [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações adequadas listadas na [permissões ](#permissions).
@@ -51,7 +52,7 @@ A conta iniciar sessão ou ligar ao Azure, tem de ser atribuída para a [contrib
 
     Para remover um ponto final de serviço, anule a seleção de serviço que pretende remover o ponto final de serviço para. Para saber mais sobre os pontos finais de serviço e os serviços podem ser ativadas para, consulte [descrição geral de pontos finais de serviço de rede Virtual](virtual-network-service-endpoints-overview.md). Depois de ativar um ponto final de serviço para um serviço, tem também de ativar o acesso de rede para a sub-rede para um recurso que criou com o serviço. Por exemplo, se ativar o ponto final de serviço para *Microsoft*, tem também de ativar acesso à rede para todas as contas de armazenamento do Azure que pretende conceder acesso à rede. Para obter detalhes sobre como ativar o acesso de rede para sub-redes ativado para um ponto final de serviço, consulte a documentação para o serviço individuais ativou o ponto final do serviço para.
 
-    Para validar que um ponto final de serviço está ativado para uma sub-rede, ver o [rotas efetivas](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) qualquer interface de rede na sub-rede. Quando um ponto final está configurado, verá um *predefinido* rota com os prefixos de endereço do serviço e um nextHopType de **VirtualNetworkServiceEndpoint**. Para saber mais sobre o encaminhamento, consulte [descrição geral de encaminhamento](virtual-networks-udr-overview.md).
+    Para validar que um ponto final de serviço está ativado para uma sub-rede, ver o [rotas efetivas](diagnose-network-routing-problem.md) qualquer interface de rede na sub-rede. Quando um ponto final está configurado, verá um *predefinido* rota com os prefixos de endereço do serviço e um nextHopType de **VirtualNetworkServiceEndpoint**. Para saber mais sobre o encaminhamento, consulte [descrição geral de encaminhamento](virtual-networks-udr-overview.md).
 6. Para adicionar a sub-rede à rede virtual que selecionou, selecione **OK**.
 
 **Comandos**

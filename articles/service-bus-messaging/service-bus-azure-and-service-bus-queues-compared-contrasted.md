@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802361"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>As filas de armazenamento e de filas do Service Bus - comparados e contrasted
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidas pelo Microsoft Azure hoje: as filas de armazenamento e de filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -47,7 +48,6 @@ Como um arquiteto de solução/programador, **deve considerar a utilização de 
 
 * A solução deve ser capaz de receber mensagens sem ter de consultar a fila. Com o Service Bus, isto pode ser conseguido através da utilização da consulta de longa receber operação utilizando os protocolos baseada em TCP que suporta o Service Bus.
 * A solução requer a fila para fornecer um garantida primeiro-na-primeiro-out (FIFO) ordenada de entrega.
-* Pretende uma experiência simétrica no Azure e no Windows Server (nuvem privada). Para obter mais informações, consulte [barramento de serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * A solução tem de ser capaz de suportar a deteção automática de duplicados.
 * Pretender que a aplicação para processar mensagens como fluxos de longa execução paralelas (mensagens estão associadas a um fluxo utilizando o [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) propriedade na mensagem). Neste modelo, cada nó na aplicação de consumo compete para fluxos, por oposição a mensagens. Quando recebe uma transmissão em fluxo para um nó de consumo, o nó pode examinar o estado do fluxo do Estado da aplicação através de transações.
 * A solução requer comportamento transacional e atomicity ao enviar ou receber várias mensagens numa fila.
@@ -65,7 +65,7 @@ As tabelas nas secções seguintes fornecem um agrupamento lógico das funcional
 ## <a name="foundational-capabilities"></a>Capacidades fundamentais sobre
 Esta secção compara algumas das capacidades de colocação fundamentais fornecidas as filas de armazenamento e de filas do Service Bus.
 
-| Critérios de comparação | Filas de armazenamento | Filas de Service Bus |
+| Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Ordenação garantia |**Não** <br/><br>Para obter mais informações, consulte a nota primeiro na secção "Informações adicionais".</br> |**Sim - primeiro na primeira Out (FIFO)**<br/><br>(através da utilização de sessões de mensagens) |
 | Garantia de entrega |**Em menos uma** |**Em menos uma**<br/><br/>**Em-maioria-uma vez** |
@@ -97,7 +97,7 @@ Esta secção compara algumas das capacidades de colocação fundamentais fornec
 ## <a name="advanced-capabilities"></a>Capacidades avançadas
 Esta secção compara as capacidades avançadas disponibilizadas pelas filas de armazenamento e de filas do Service Bus.
 
-| Critérios de comparação | Filas de armazenamento | Filas de Service Bus |
+| Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Entrega agendada |**Sim** |**Sim** |
 | Entregues inactivo automática |**Não** |**Sim** |
@@ -128,17 +128,17 @@ Esta secção compara as capacidades avançadas disponibilizadas pelas filas de 
 ## <a name="capacity-and-quotas"></a>Capacidade e quotas
 Esta secção compara as filas de armazenamento e de filas do Service Bus da perspetiva de [capacidade e quotas](service-bus-quotas.md) que podem ser aplicadas.
 
-| Critérios de comparação | Filas de armazenamento | Filas de Service Bus |
+| Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a um [única capacidade das contas de armazenamento](../storage/common/storage-introduction.md#queue-storage)) |**1 GB para 80 GB**<br/><br/>(definido após a criação de uma fila e [ativar a criação de partições](service-bus-partitioning.md) – consulte a secção "Informações adicionais") |
-| Tamanho da mensagem máximo |**64 KB**<br/><br/>(48 KB quando utilizar **Base64** codificação)<br/><br/>Azure suporta mensagens grandes através da combinação de filas e blobs – ponto em que pode colocar em fila até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e corpo, tamanho do cabeçalho máximo: 64 KB).<br/><br/>Depende do [camada de serviço](service-bus-premium-messaging.md). |
+| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB quando utilizar **Base64** codificação)<br/><br/>Azure suporta mensagens grandes através da combinação de filas e blobs – ponto em que pode colocar em fila até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e corpo, tamanho do cabeçalho máximo: 64 KB).<br/><br/>Depende do [camada de serviço](service-bus-premium-messaging.md). |
 | TTL da mensagem máximo |**Infinita** (a partir da api-version 2017-07-27) |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por espaço de nomes do serviço) |
 | Número máximo de clientes em simultâneo |**Ilimitado** |**Ilimitado**<br/><br/>(limite de ligações simultâneas 100 apenas se aplica a comunicação baseada no protocolo TCP) |
 
 ### <a name="additional-information"></a>Informações adicionais
 * Barramento de serviço impõe limites de tamanho da fila. O tamanho máximo da fila é especificada durante a criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor de tamanho da fila definido na criação da fila for atingido, serão rejeitadas mensagens de entrada adicionais e uma exceção será recebida pelo código da chamada. Para obter mais informações sobre as quotas no Service Bus, consulte [Quotas de barramento de serviço](service-bus-quotas.md).
-* No [escalão Standard](service-bus-premium-messaging.md), pode criar filas do Service Bus em tamanhos de 1, 2, 3, 4 ou 5 GB (a predefinição é de 1 GB). No escalão Premium, pode criar filas até 80 GB de tamanho. No padrão camadas, com a criação de partições ativada (que é a predefinição), Service Bus cria 16 partições para cada GB que especificar. Como tal, se criar uma fila que é de 5 GB de tamanho, com 16 partições o tamanho máximo da fila fique (5 * 16) = 80 GB. Pode ver o tamanho máximo da fila particionada ou tópico observando a entrada [portal do Azure][Azure portal]. No escalão Premium, apenas 2 partições são criadas por fila.
+* Criação de partições não é suportada a [escalão Premium](service-bus-premium-messaging.md). O escalão Standard, pode criar filas do Service Bus em tamanhos de 1, 2, 3, 4 ou 5 GB (a predefinição é de 1 GB). No padrão camadas, com a criação de partições ativada (que é a predefinição), Service Bus cria 16 partições para cada GB que especificar. Como tal, se criar uma fila que é de 5 GB de tamanho, com 16 partições o tamanho máximo da fila fique (5 * 16) = 80 GB. Pode ver o tamanho máximo da fila particionada ou tópico observando a entrada [portal do Azure][Azure portal].
 * Com as filas de armazenamento, se o conteúdo da mensagem não é segura de XML, em seguida, tem de ser **Base64** codificado. Se lhe **Base64**-codificar a mensagem, o payload de utilizador pode ter até 48 KB, em vez de 64 KB.
 * Com as filas do Service Bus, cada mensagem armazenada numa fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder o tamanho da mensagem máximo suportado pela camada de serviço.
 * Quando os clientes comunicam com as filas do Service Bus através do protocolo TCP, o número máximo de ligações simultâneas para uma fila de barramento de serviço única está limitado a 100. Este número é partilhado entre os remetentes e os recetores. Se esta quota é atingida, os pedidos subsequentes para ligações adicionais serão rejeitados e uma exceção será recebida pelo código da chamada. Este limite não é imposto nos clientes, a ligação a filas baseado em REST API a utilizar.
@@ -171,7 +171,7 @@ Esta secção compara as funcionalidades de gestão fornecidas, as filas de arma
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
 Esta secção descreve as funcionalidades de autenticação e autorização suportadas pelo filas de armazenamento e de filas do Service Bus.
 
-| Critérios de comparação | Filas de armazenamento | Filas de Service Bus |
+| Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Autenticação |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado através de SAS tokens. |SAS |

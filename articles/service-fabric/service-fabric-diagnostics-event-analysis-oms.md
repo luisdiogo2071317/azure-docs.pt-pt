@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: b51f7dc43f390152b2b0be223541e381bbddd3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1552fbe66f7bad219d8aea8a3f208b0fe69cdf2b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716062"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análise de eventos e visualização de análise de registos
 
@@ -36,17 +37,15 @@ Depois de dados são recebidos pelo análise de registos, o Azure tem vários *s
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>A solução de análise de recursos de infraestrutura do serviço de acesso
 
-1. Vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço. Selecione o recurso **ServiceFabric\<nameOfOMSWorkspace\>**  e aceda à página de descrição geral.
+1. No Portal do Azure, vá para o grupo de recursos no qual criou a solução de análise de recursos de infraestrutura de serviço.
 
-2. Na página Descrição geral, clique na ligação perto da parte superior para aceder ao portal do OMS
+2. Selecione o recurso **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-    ![Link do Portal do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
+2. Em resumo, verá os mosaicos sob a forma de um gráfico para cada uma das soluções ativadas, incluindo um para o Service Fabric. Clique em de **Service Fabric** graph (primeira imagem abaixo) para continuar para a solução de análise de recursos de infraestrutura de serviço (segunda imagem abaixo).
 
-3. Agora está no portal do OMS e pode ver as soluções que tiver ativado. Clique no gráfico intitulado Service Fabric (primeira imagem abaixo) para obter direcionado para a solução de Service Fabric (segunda imagem abaixo)
+    ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
-
-    ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![Solução SF do OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 A imagem acima é a home page da solução de análise de recursos de infraestrutura de serviço. Esta é uma vista de instantâneo do que acontece no seu cluster. Se tiver ativado o diagnóstico após a criação do cluster, pode ver eventos 
 
@@ -57,9 +56,9 @@ A imagem acima é a home page da solução de análise de recursos de infraestru
 >[!NOTE]
 >Para além do canal operacional, mais detalhados de eventos de sistema podem ser recolhidos pelo [atualizar a configuração de extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
 
-### <a name="view-operational-events-including-actions-on-nodes"></a>Ver eventos operacionais, incluindo ações em nós
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Ver eventos de recursos de infraestrutura de serviços, incluindo as ações em nós
 
-1. Na página de análise de recursos de infraestrutura de serviço no portal do OMS, clique no gráfico para o canal operacional
+1. Na página de análise de recursos de infraestrutura de serviço, clique no gráfico para **eventos de recursos de infraestrutura de serviço**.
 
     ![Canal operacional do OMS SF solução](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
 
@@ -78,7 +77,7 @@ Pode consultar o muitos mais campos, tais como os nós específicos (computador)
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Eventos de serviço fiável de recursos de infraestrutura do serviço de vista e Ator
 
-1. Na página de análise de recursos de infraestrutura de serviço no portal do OMS, clique o gráfico para Reliable Services
+1. Na página serviço análise de recursos de infraestrutura, clique o gráfico para **Reliable Services**.
 
     ![OMS SF solução Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
 

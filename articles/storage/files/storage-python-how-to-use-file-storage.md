@@ -1,11 +1,11 @@
 ---
 title: Desenvolver para ficheiros do Azure com o Python | Microsoft Docs
-description: "Saiba como desenvolver aplicações Python e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro."
+description: Saiba como desenvolver aplicações Python e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiro.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738266"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolver para ficheiros do Azure com o Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,7 +34,7 @@ Este tutorial irá demonstram as noções básicas da utilização do Python par
 * Carregar, transferir e eliminar um ficheiro
 
 > [!Note]  
-> Porque os ficheiros do Azure podem ser acedidos através de SMB, é possível escrever as aplicações simples que aceder à partilha de ficheiros do Azure utilizando as classes de e/s de Python e funções de padrão. Este artigo descreve como escrever as aplicações que utilizam o SDK Python do armazenamento do Azure, que utiliza o [API REST da Azure ficheiros](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para falar com ficheiros do Azure.
+> Porque os ficheiros do Azure podem ser acedidos através de SMB, é possível escrever as aplicações simples que aceder à partilha de ficheiros do Azure utilizando as classes de e/s de Python padrão e funções. Este artigo descreve como escrever as aplicações que utilizam o SDK Python do armazenamento do Azure, que utiliza o [API REST da Azure ficheiros](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para falar com ficheiros do Azure.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Transfira e instale o armazenamento do Azure SDK para Python
 
@@ -84,7 +85,7 @@ file_service.create_directory('myshare', 'sampledir')
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar ficheiros e diretórios numa partilha de ficheiros do Azure
-Para listar os ficheiros e diretórios numa partilha, utilize o **lista\_diretórios\_e\_ficheiros** método. Este método devolve um gerador de dimensões. O seguinte código saídas de **nome** de cada ficheiro e diretório numa partilha para a consola.
+Para listar os ficheiros e diretórios numa partilha, utilize o **lista\_diretórios\_e\_ficheiros** método. Este método devolve um gerador. O seguinte código saídas de **nome** de cada ficheiro e diretório numa partilha para a consola.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -93,11 +94,11 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>Carregar um ficheiro 
-Ficheiros do Azure partilha contém em muito menos, um diretório de raiz, onde podem residir os ficheiros. Nesta secção, irá aprender como carregar um ficheiro a partir do armazenamento local para o diretório de raiz de uma partilha.
+Partilha de ficheiros do Azure contém em muito menos, um diretório de raiz, onde podem residir os ficheiros. Nesta secção, irá aprender como carregar um ficheiro a partir do armazenamento local para o diretório de raiz de uma partilha.
 
 Para criar um ficheiro e carregar dados, utilize o `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` ou `create_file_from_text` métodos. Estes são os métodos de alto nível que executam a segmentação necessárias quando o tamanho dos dados exceder 64 MB.
 
-`create_file_from_path`carrega os conteúdos de um ficheiro a partir do caminho especificado e `create_file_from_stream` carrega o conteúdo a partir de um fluxo/ficheiro já está aberto. `create_file_from_bytes`carrega uma matriz de bytes, e `create_file_from_text` carrega o valor de texto especificado, utilizando a codificação especificada (por predefinição UTF-8).
+`create_file_from_path` carrega os conteúdos de um ficheiro a partir do caminho especificado e `create_file_from_stream` carrega o conteúdo a partir de um fluxo/ficheiro já está aberto. `create_file_from_bytes` carrega uma matriz de bytes, e `create_file_from_text` carrega o valor de texto especificado, utilizando a codificação especificada (por predefinição UTF-8).
 
 O exemplo seguinte carrega o conteúdo do **sunset.png** de ficheiros para o **myfile** ficheiro.
 
@@ -178,7 +179,7 @@ Não é possível eliminar uma partilha que contenha instantâneos, a menos que 
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu como manipular ficheiros do Azure com o Python, siga estas ligações para saber mais.
 
 * [Centro para Programadores do Python](/develop/python/)

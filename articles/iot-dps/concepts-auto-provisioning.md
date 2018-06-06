@@ -1,22 +1,19 @@
 ---
 title: Serviço de fornecimento de dispositivos do IoT Hub - conceitos de aprovisionamento automático
 description: Este artigo fornece uma descrição geral conceptual das fases de auto-aprovisionamento de dispositivos, utilizando o serviço de aprovisionamento de dispositivos do IoT, o IoT Hub e SDKs de cliente.
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736411"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de aprovisionamento automático
 
@@ -33,7 +30,7 @@ Do Azure IoT automática aprovisionamento pode ser dividido em três fases:
 
 2. **Inscrição de dispositivos** -o processo de efetuar a instância de serviço de aprovisionamento de dispositivos em consideração os dispositivos que irão tentar registar no futuro. [Inscrição](concepts-service.md#enrollment) é conseguido ao configurar informações de identidade de dispositivo no serviço de aprovisionamento, como uma "inscrição individuais" para um único dispositivo ou uma "inscrição de grupo" para vários dispositivos. Identidade baseada no [mecanismo de atestado](concepts-security.md#attestation-mechanism) o dispositivo foi concebido para utilizar, que permite que o serviço de aprovisionamento atestem a autenticidade do dispositivo durante o registo:
 
-   - **TPM**: configurado como uma "inscrição individuais", a identidade de dispositivo é com base no ID de registo TPM e a chave de endossamento público. Dado que o TPM é um [especificação]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), o serviço espera apenas atestem pela especificação de, independentemente da implementação de TPM (hardware ou software). Consulte [aprovisionamento de dispositivos: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado no TPM. 
+   - **TPM**: configurado como uma "inscrição individuais", a identidade de dispositivo é com base no ID de registo TPM e a chave de endossamento público. Dado que o TPM é um [especificação](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), o serviço espera apenas atestem pela especificação de, independentemente da implementação de TPM (hardware ou software). Consulte [aprovisionamento de dispositivos: atestado de identidade com TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) para obter detalhes sobre atestado baseado no TPM. 
 
    - **X509**: configurado como um "inscrição individuais" ou "inscrição de grupo", a identidade de dispositivo baseia-se num certificado x. 509 digital que é carregado para a inscrição, como um ficheiro. pem ou. cer.
 
@@ -62,7 +59,7 @@ Uma série de inícios rápidos são fornecidos na tabela de índice para a esqu
 
 O diagrama a seguir resume as funções e a sequência de operações durante o aprovisionamento automático do dispositivo:
 <br><br>
-![Sequência de automática de aprovisionamento de um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Sequência de automática de aprovisionamento de um dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Opcionalmente, o fabricante também pode efetuar a operação de "Inscrição identidade de dispositivo" com APIs de serviço de aprovisionamento de dispositivos (em vez de através do operador). Para ver um debate detalhado desta sequência e muito mais, consulte o [Zero registo de dispositivos de touch com o Azure IoT vídeo](https://myignite.microsoft.com/sessions/55087) (começando marcador 41:00)
@@ -82,7 +79,7 @@ Em seguida, prossiga com um guia de introdução "Auto-aprovisionar um dispositi
 |  | Mecanismo de atestado de dispositivo simulada | Início rápido SDK/idioma |  |
 |--|--|--|--|
 |  | Trusted Platform Module (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | Certificado X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+|  | Certificado x. 509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
 
 
 

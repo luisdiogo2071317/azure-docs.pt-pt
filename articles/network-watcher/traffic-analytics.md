@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715827"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -56,7 +57,7 @@ Análise de tráfego está disponível na pré-visualização. Funcionalidades d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="enable-network-watcher"></a>Ativar o observador de rede 
+### <a name="enable-network-watcher"></a>Ativar o Observador de Rede 
 
 Analisar o tráfego, tem de ter um observador de rede existente, ou [ativar um observador de rede](network-watcher-create.md) em cada região que tem de NSGs que pretende analisar o tráfego para. Análise de tráfego pode ser ativada para NSGs alojados em qualquer um do [regiões suportadas](#supported-regions).
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Selecione um grupo de segurança de rede 
 
-Antes de ativar o registo de fluxo NSG, tem de ter um grupo de segurança de rede para iniciar sessão fluxos para. Se não tiver um grupo de segurança de rede, consulte [criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) para criar um.
+Antes de ativar o registo de fluxo NSG, tem de ter um grupo de segurança de rede para iniciar sessão fluxos para. Se não tiver um grupo de segurança de rede, consulte [criar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md#create-a-network-security-group) para criar um.
 
 No lado esquerdo do portal do Azure, selecione **Monitor**, em seguida, **observador de rede**e, em seguida, selecione **registos de fluxo NSG**. Selecione o grupo de segurança de rede que pretende ativar um registo de fluxo NSG, conforme mostrado na imagem seguinte:
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724803"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -34,13 +35,17 @@ Este artigo explica como trabalhar com enlaces de armazenamento de Blobs do Azur
 > [!NOTE]
 > Utilize o acionador de grelha de evento em vez do acionador de armazenamento de BLOBs para contas de armazenamento apenas de BLOBs, de grande escala, ou para evitar atrasos frio início. Para obter mais informações, consulte o [acionador](#trigger) secção. 
 
-## <a name="packages"></a>Pacotes
+## <a name="packages---functions-1x"></a>Pacotes - funciona 1. x
 
-Os enlaces de armazenamento de BLOBs são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) repositório do GitHub.
+Os enlaces de armazenamento de BLOBs são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2. x. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Pacotes - funciona 2. x
+
+Os enlaces de armazenamento de BLOBs são fornecidos no [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 3. Código de origem para o pacote está a ser o [sdk de webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) repositório do GitHub.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -262,6 +267,8 @@ Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o blob ac
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
+
+Se tentar vincular a um dos tipos de SDK de armazenamento e receber uma mensagem de erro, certifique-se de que tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 A associação à `string`, `Byte[]`, ou POCO só é recomendada se o tamanho do blob é pequeno, como o blob de todo o conteúdo é carregado na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) posteriormente neste artigo.
 
@@ -563,6 +570,8 @@ Em c# e c# script, pode utilizar os seguintes tipos de parâmetro para o enlace 
 
 <sup>1</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
 
+Se tentar vincular a um dos tipos de SDK de armazenamento e receber uma mensagem de erro, certifique-se de que tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
 A associação à `string` ou `Byte[]` só é recomendada se o tamanho do blob é pequeno, como os conteúdos do blob todo são carregados na memória. Geralmente, é preferível utilizar um `Stream` ou `CloudBlockBlob` tipo. Para obter mais informações, consulte [utilização da memória e de concorrência](#trigger---concurrency-and-memory-usage) anteriormente neste artigo.
 
 Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name from function.json>`.
@@ -776,6 +785,8 @@ Em c# e c# script, é possível vincular para os seguintes tipos de escrever blo
 <sup>1</sup> necessita de "enlace em" `direction` no *function.json* ou `FileAccess.Read` uma biblioteca de classe do c#. No entanto, pode utilizar o objeto de contentor que fornece o tempo de execução para escrever operações, tais como carregar os blobs no contentor.
 
 <sup>2</sup> requer enlace "inout" `direction` no *function.json* ou `FileAccess.ReadWrite` uma biblioteca de classe do c#.
+
+Se tentar vincular a um dos tipos de SDK de armazenamento e receber uma mensagem de erro, certifique-se de que tem uma referência a [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
 Nas funções de async, utilize o valor de retorno ou `IAsyncCollector` em vez de um `out` parâmetro.
 

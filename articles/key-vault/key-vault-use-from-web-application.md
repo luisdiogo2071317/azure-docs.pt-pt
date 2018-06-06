@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: adhurwit
-ms.openlocfilehash: de8276b22377db37075c6793d0710bb18625446c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802107"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilizar o Cofre de chaves do Azure de uma aplicação Web
 
@@ -44,7 +45,7 @@ Para concluir este tutorial, deve ter o seguinte:
 
 A aplicação web que irão aceder ao Cofre de chaves é aquele que está registado no Azure Active Directory e tiver sido dado acesso ao seu Cofre de chaves. Se não for este o caso, volte atrás para registar uma aplicação no tutorial de introdução e repita os passos apresentados.
 
-Este tutorial foi concebido para programadores de web que compreender as noções básicas de criação de aplicações web no Azure. Para obter mais informações sobre as aplicações Web do Azure, consulte [descrição geral das aplicações Web](../app-service/app-service-web-overview.md).
+Este tutorial foi concebido para programadores de web que compreender as noções básicas de criação de aplicações web no Azure. Para obter mais informações sobre as Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/app-service-web-overview.md).
 
 ## <a id="packages"></a>Adicionar pacotes NuGet
 
@@ -260,7 +261,7 @@ Em vez de diretamente a carregar o certificado para o serviço de aplicação We
 
 ## <a id="next"></a>Passos seguintes
 
-Para as referências de programação, consulte [Azure chave de cofre c# cliente referência da API](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para as referências de programação, consulte [Azure chave de cofre c# cliente referência da API](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
